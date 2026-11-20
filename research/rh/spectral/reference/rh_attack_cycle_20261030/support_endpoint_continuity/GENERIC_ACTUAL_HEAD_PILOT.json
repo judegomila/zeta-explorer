@@ -1,0 +1,27 @@
+{
+  "status": "PASS_SMALL_ACTUAL_ENTRY_GATES_ONLY",
+  "X": "16001/1000",
+  "precision_bits": 1000,
+  "generic_prime_integral_checked_indices": [
+    0,
+    1,
+    2,
+    7,
+    16,
+    32
+  ],
+  "all_36_direct_prime_entries_overlap": true,
+  "X16_all_1089_entries_match_accepted_builder": true,
+  "new_prime_count": 10,
+  "Cbeta_formula": "[1.25922954339374064206732659827513540129236181215025926764249241360972260317128053159727314 +/- 4.64e-90]",
+  "candidate_Cbeta": "13/10",
+  "beta_abs_upper": "[1.88775885690685092302672098408532903241731987001779197942533942286381089277181879822155727 +/- 4.30e-90]",
+  "candidate_B3_j_ge_2_envelope": "[2.51737362860372124406038428322289673306350077609292161324658562966867219435745906402019383 +/- 3.40e-90]",
+  "candidate_b1": "[0.0334126689852271362327730576253660728198309302604238969565506909098555377369240768362600874 +/- 2.06e-92]",
+  "seconds": 7.367441415786743,
+  "source_sha256": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+    "rh_attack_cycle_20261029/X16_even_feasibility/X16_analytic_inputs.py": "0a1930f0f64a18b962026d3cef0a14b1e889ea82f4235067153a6ca838f2f9e7"
+  },
+  "scope": "Generic actual low-entry source gate and coefficient-envelope checks. No near/self-energy far matrix, complete positivity test, or support extension claim."
+}

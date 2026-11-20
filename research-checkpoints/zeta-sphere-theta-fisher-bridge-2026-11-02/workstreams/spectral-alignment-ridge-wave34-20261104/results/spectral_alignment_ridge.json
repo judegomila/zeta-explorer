@@ -1,0 +1,38 @@
+{
+  "audits": {
+    "countermodel": {
+      "H_schur_zero": true,
+      "enlarged_Q_schur_positive": true,
+      "old_H_positive": true,
+      "old_Q_positive": true,
+      "s1_exact": true,
+      "s1_over_rho_exact": true,
+      "s2_exact": true,
+      "selected_ratio_exact": true
+    },
+    "form_expansion": {
+      "equals_two_times_difference": true,
+      "f_fsecond_coefficient": -2,
+      "fprime_square_coefficient": 2
+    },
+    "layer_cake": {
+      "endpoint_atom_at_one_present": true,
+      "identity_exact": true,
+      "necessity_checks": true
+    },
+    "positive_ridge": {
+      "constant_six_attained_at_r_equals_t": true,
+      "multi_mode_cumulative_bound": true,
+      "pivot_increment_identity": true,
+      "single_mode_bounds": true
+    }
+  },
+  "canonical_sha256_before_self_hash": "5e5a35bd164e39b09883a31711d34ccb293915f314afc3402eccc3c865167785",
+  "nonclaims": [
+    "No all-degree spectral-alignment estimate is proved.",
+    "No selected-pivot sign or Riemann-hypothesis conclusion is claimed."
+  ],
+  "schema_version": "zsv.spectral_alignment_ridge.v1",
+  "scope": "exact finite-dimensional algebra; no actual-theta asymptotic estimate",
+  "status": "PASS"
+}

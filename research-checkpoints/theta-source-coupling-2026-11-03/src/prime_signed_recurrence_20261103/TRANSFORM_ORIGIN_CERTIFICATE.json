@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "precision_bits": 160,
+  "cells": 8000,
+  "doubled_first_orbit_integral": [
+    0.991782978867897,
+    0.9960169392008925
+  ],
+  "F0_strict_lower": 0.99,
+  "scope": "F(0)>=2 integral_0^2 f; higher positive orbits and tail omitted only in lower bound; no signed pivot"
+}

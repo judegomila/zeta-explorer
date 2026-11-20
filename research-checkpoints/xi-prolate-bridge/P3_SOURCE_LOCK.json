@@ -1,0 +1,46 @@
+{
+  "lock_version": 1,
+  "lock_status": "PINNED_UNCONDITIONAL_CHEBYSHEV_ERROR_MOMENTS_ONLY",
+  "lock_note": "This lock supplies an explicit unconditional prime-number-theorem error bound used only to prove finite L2 moments for the combined signed Chebyshev kernel. It supplies no Weil positivity, no assumed zero list, no sector floor, and no equation (5.2) conclusion.",
+  "retrieved_date": "2026-08-06",
+  "binding_sources": [
+    {
+      "id": "FKS-PNT-v3",
+      "authors": [
+        "Andrew Fiori",
+        "Habiba Kadiri",
+        "Joshua Swidinsky"
+      ],
+      "title": "Sharper bounds for the Chebyshev function psi(x)",
+      "version": "arXiv:2204.02588v3",
+      "version_date": "2023-05-17",
+      "url": "https://arxiv.org/abs/2204.02588v3",
+      "vendored_path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "vendored_sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "locked_result": "Corollary 1.4 in the v3 PDF",
+      "validation_status": "PDF_BYTES_HASHED_COROLLARY_FORMULA_INDEPENDENTLY_READ"
+    }
+  ],
+  "locked_formulas": {
+    "source_bound": "abs(psi(X)-X)/X < 9.22022*(log X)^(3/2)*exp(-0.8476836*sqrt(log X)) for every X>2",
+    "log_coordinate_conversion": "abs(1-exp(-x)*psi(exp(x))) < A*x^(3/2)*exp(-alpha*sqrt(x)) for x>log(2), with A=9.22022 and alpha=0.8476836",
+    "combined_kernel": "delta_star(x)=1-exp(-x)*psi(exp(x))-(1/2)*exp(-x)*log(1-exp(-2*x))",
+    "moment_conclusion": "integral_0^infinity abs(delta_star(x))^2 dx and integral_0^infinity x*abs(delta_star(x))^2 dx are finite"
+  },
+  "version_caveat": "The arXiv abstract HTML displays the older 9.22106 decimal. The vendored v3 PDF displays 9.22022 in Corollary 1.4 and is the binding source byte sequence.",
+  "derivations_not_attributed_to_source": [
+    "the boundary-Hankel correlation identity",
+    "the exact Hilbert-Schmidt norm formula",
+    "the incomplete-gamma moment enclosures",
+    "all prolate boundary-profile estimates"
+  ],
+  "not_locked_or_claimed": [
+    "no assumed list of real zeta zeros",
+    "no global Weil positivity",
+    "no signed prolate-Weil lower comparison",
+    "no relative Fourier-projection estimate",
+    "no shifted-resolvent or equation (5.2) estimate",
+    "no locally uniform determinant convergence"
+  ],
+  "terminal_state": "P0_INVALIDATED"
+}

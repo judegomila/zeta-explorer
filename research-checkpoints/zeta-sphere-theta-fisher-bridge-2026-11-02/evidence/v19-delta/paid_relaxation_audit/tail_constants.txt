@@ -1,0 +1,1 @@
+PASS: orbit-tail ratios, uniform omitted-derivative bound, spatial-tail constants.

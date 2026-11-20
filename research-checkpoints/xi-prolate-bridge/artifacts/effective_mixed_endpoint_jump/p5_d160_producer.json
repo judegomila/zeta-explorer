@@ -1,0 +1,1855 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "nondegenerate intervals receive a precision-scaled dyadic enlargement",
+    "shared_library_with_verifier": true
+  },
+  "certificate": {
+    "checks": {
+      "P_minus_one_is_zero": true,
+      "actual_prolate_trace_schedule_not_executed": true,
+      "actual_uniform_graph_error_not_claimed": true,
+      "bridge_cross_term_retained": true,
+      "canonical_prime_power_count": true,
+      "endpoint_leading_coefficients_exact": true,
+      "endpoint_vandermonde_nonzero": true,
+      "equation_5_2_still_open": true,
+      "finite_fourier_minus_one_phase_retained": true,
+      "high_label_rho_certified_below_half": true,
+      "inclusive_prime_endpoint_complete": true,
+      "mixed_gram_congruence_exact": true,
+      "no_secret_or_api_key_read": true,
+      "odd_jump_interval_positive": true,
+      "rational_trace_fixture_strictly_stops": true,
+      "residual_trace_coordinate_invariant": true,
+      "signed_floors_still_open": true,
+      "trace_stop_constants_reconstructed_exactly": true
+    },
+    "endpoint_recurrence": {
+      "P_minus_one": {
+        "index": -1,
+        "terms": []
+      },
+      "evaluation_oracle": {
+        "c_squared": {
+          "denominator": "1",
+          "numerator": "5"
+        },
+        "mu": {
+          "denominator": "1",
+          "numerator": "17"
+        },
+        "values": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "6"
+          },
+          {
+            "denominator": "2",
+            "numerator": "25"
+          },
+          {
+            "denominator": "6",
+            "numerator": "-55"
+          },
+          {
+            "denominator": "8",
+            "numerator": "-555"
+          }
+        ]
+      },
+      "polynomials": [
+        {
+          "index": 0,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "2",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "2",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "1"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "16",
+                "numerator": "-1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "6",
+                "numerator": "-1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "16",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "12",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "12",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "384",
+                "numerator": "1"
+              },
+              "mu_power": 4
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-1"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-5"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "64",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "32",
+                "numerator": "9"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "13"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "-5"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "-3"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 4,
+              "coefficient": {
+                "denominator": "384",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "32",
+                "numerator": "-3"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "19"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            }
+          ]
+        }
+      ],
+      "recurrence_k_values": [
+        1,
+        2,
+        3
+      ],
+      "variable_convention": "terms use powers of mu and c_squared=c^2"
+    },
+    "endpoint_vandermonde": {
+      "K": 3,
+      "V_minus": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-3"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-16"
+          },
+          {
+            "denominator": "2",
+            "numerator": "-243"
+          }
+        ],
+        [
+          {
+            "denominator": "8",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-64"
+          },
+          {
+            "denominator": "8",
+            "numerator": "-19683"
+          }
+        ]
+      ],
+      "V_plus": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "16"
+          },
+          {
+            "denominator": "2",
+            "numerator": "243"
+          }
+        ],
+        [
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "64"
+          },
+          {
+            "denominator": "8",
+            "numerator": "19683"
+          }
+        ]
+      ],
+      "a": [
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        {
+          "denominator": "1",
+          "numerator": "9"
+        }
+      ],
+      "determinant_formula_plus": {
+        "denominator": "1",
+        "numerator": "29250"
+      },
+      "determinant_minus": {
+        "denominator": "1",
+        "numerator": "-29250"
+      },
+      "determinant_plus": {
+        "denominator": "1",
+        "numerator": "29250"
+      },
+      "epsilon_minus": -1,
+      "epsilon_plus": 1,
+      "vandermonde_product_in_a_squared": {
+        "denominator": "1",
+        "numerator": "78000"
+      }
+    },
+    "exact_mixed_bridge_fixture": {
+      "C_mixed_raw": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "C_sep_raw": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "D_congruence_reconstruction": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "D_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "D_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "G": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1601"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "3201"
+          }
+        ]
+      ],
+      "H_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "H_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "a": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "beta": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "bridge_cross_beta_u": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "captured_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "captured_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "fixture_scope": "exact rational coordinate-invariance fixture, not an executed prolate trace stage",
+      "lift_base_coordinates": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "lift_raw": [
+        [
+          {
+            "denominator": "40",
+            "numerator": "-39"
+          },
+          {
+            "denominator": "80",
+            "numerator": "-79"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "41"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "41"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "-39"
+          },
+          {
+            "denominator": "80",
+            "numerator": "81"
+          }
+        ]
+      ],
+      "mixed_change": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "orthogonal_complement": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_coordinates": [
+        [
+          {
+            "denominator": "40",
+            "numerator": "1"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_mixed": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_sep": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_trace": {
+        "denominator": "320",
+        "numerator": "1"
+      },
+      "trace_stop_margin": {
+        "denominator": "1600",
+        "numerator": "27"
+      },
+      "trace_stop_strict_upper": {
+        "denominator": "50",
+        "numerator": "1"
+      },
+      "u": {
+        "denominator": "1",
+        "numerator": "1"
+      }
+    },
+    "exact_trace_stop": {
+      "B_norm_squared_upper": {
+        "denominator": "2",
+        "numerator": "625"
+      },
+      "M_mu_upper": {
+        "denominator": "1",
+        "numerator": "5"
+      },
+      "T_norm_squared_upper": {
+        "denominator": "8",
+        "numerator": "25"
+      },
+      "actual_prolate_trace_schedule_executed": false,
+      "coarse_floor_formula_value": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "intermediate_floor_formula_value": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "lambda": {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      "neumann_inverse_factor": {
+        "denominator": "3",
+        "numerator": "4"
+      },
+      "operator_error_squared_strict_upper": {
+        "denominator": "16",
+        "numerator": "1"
+      },
+      "operator_error_strict_upper": {
+        "denominator": "4",
+        "numerator": "1"
+      },
+      "right_inverse_norm_squared_upper": {
+        "denominator": "9",
+        "numerator": "5000"
+      },
+      "rounded_monotonicity_assumed": false,
+      "source_whitened_floor": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "trace_interval_width_at_stage_s": "2^(-s)",
+      "trace_stop_strict_upper": {
+        "denominator": "50",
+        "numerator": "1"
+      }
+    },
+    "high_label_rho": {
+      "B_s": 2048,
+      "actual_transition_scale_block_executed": false,
+      "c": {
+        "decimal": [
+          "39.26990816987241548078304229099378605246461749218882276218680740384770507857761248285043531677646334977685108141602883308867305761938227789656699260160601366979441915027",
+          "39.269908169872415480783042290993786052464617492188822762186807403847705078577612482850435316776463349776851081416028833088673057619382277896566992601606014266462815698767"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "34506236635914761190970836160151050735825712999210397372903166024174637696840580235095150896945337423006737446433860391180118357299690833135496211827779665306141",
+            -528,
+            534
+          ],
+          "upper": [
+            0,
+            "17253118317957380595485418080075525367912856499605198686451583012087318848420290117547575448472668711503368723216930195590059178649845416567748105913889832915215",
+            -527,
+            533
+          ]
+        }
+      },
+      "c_squared": {
+        "decimal": [
+          "1542.1256876702122841928892187306486148927655323813735353770858400343820035030008192190270943310237862225040490271911162621519293940671948011891590121851871249830341469765",
+          "1542.1256876702122841928892187306486148927655323813735353770858400343820035030008192190270943310237862225040490271911162621519293940671948011891590121851871440764774630474"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "84691046498766245894107800761171433799936986725084476509991868622187183648256454354685466147163771718756292295574981322580213995278965538271360319904731657183961",
+            -524,
+            535
+          ],
+          "upper": [
+            0,
+            "42345523249383122947053900380585716899968493362542238254995934311093591824128227177342733073581885859378146147787490661290106997639482769135680159952365829116271",
+            -523,
+            534
+          ]
+        }
+      },
+      "derivative_order_k": 2,
+      "rows": {
+        "minus_2_mod_4": {
+          "g_n": {
+            "decimal": [
+              "10238463.874312329787715807110781269351385107234467618626464622914159965617996496999180780972905668976213777495950972808883737848070605932805198810840987814734658963491557",
+              "10238463.874312329787715807110781269351385107234467618626464622914159965617996496999180780972905668976213777495950972808883737848070605932805198810840987814891071854469551"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "34318839281108915275554780565870661427721352034540338228744147072882296832663606593201654185772823798940429470649260479746071705615047148558758303274023359342157",
+                -510,
+                534
+              ],
+              "upper": [
+                0,
+                "68637678562217830551109561131741322855442704069080676457488294145764593665327213186403308371545647597880858941298520959492143411230094297117516606548046719732891",
+                -511,
+                535
+              ]
+            }
+          },
+          "half_threshold_margin": {
+            "decimal": [
+              "3921917.057615140271661732870860532624784339613833512625560079313379136931648205643659645994525795547846400911135597996673963545272506702899528015527077288290279675434902",
+              "3921917.0576151402716617328708605326247843396138335126255600793133791369316482056436596459945257955478464009111355979966739635452725067028995280155270772883293833829715482"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "26292155312834707604055660751155605955474210706538438202492359834671001841198986009060575297963761738502712793511030298202036413590611527981836446595680890223403",
+                -511,
+                533
+              ],
+              "upper": [
+                0,
+                "52584310625669415208111321502311211910948421413076876404984719669342003682397972018121150595927523477005425587022060596404072827181223055963672893191361780971101",
+                -512,
+                534
+              ]
+            }
+          },
+          "label": 2560002,
+          "label_mod_4": 2,
+          "rho": {
+            "decimal": [
+              "0.30847141203208292410200493255204782014377543356955293893137463883013549465258745495372439709439556332751612873566258357587839041941235521966927088536855938996751395050194",
+              "0.30847141203208292410200493255204782014377543356955293893137463883013549465258745495372439709439556332751612873566258357587839041941235521966927088536855939462900358060706"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "69389314540667799650532586219145468066832532783162123427665550023656056024520447172772213326992900144685291667014231233664864509515490378994121865253924783703297",
+                -536,
+                535
+              ],
+              "upper": [
+                0,
+                "69389314540667799650532586219145468066832532783162123427665550023656056024520447172772213326992900144685291667014231233664864509515490378994121865253924784751879",
+                -536,
+                535
+              ]
+            }
+          },
+          "rho_strict_upper": {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        },
+        "plus_0_mod_4": {
+          "g_n": {
+            "decimal": [
+              "10238455.874312329787715807110781269351385107234467618626464622914159965617996496999180780972905668976213777495950972808883737848070605932805198810840987814734658963491557",
+              "10238455.874312329787715807110781269351385107234467618626464622914159965617996496999180780972905668976213777495950972808883737848070605932805198810840987814891071854469551"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "34318812465493055390360581417820665016029097075808697043957391625759409389135546446107700582024227465133574090585544106773969998107281524665618410406725347173965",
+                -510,
+                534
+              ],
+              "upper": [
+                0,
+                "68637624930986110780721162835641330032058194151617394087914783251518818778271092892215401164048454930267148181171088213547939996214563049331236820813450695396507",
+                -511,
+                535
+              ]
+            }
+          },
+          "half_threshold_margin": {
+            "decimal": [
+              "3921909.057615140271661732870860532624784339613833512625560079313379136931648205643659645994525795547846400911135597996673963545272506702899528015527077288290279675434902",
+              "3921909.0576151402716617328708605326247843396138335126255600793133791369316482056436596459945257955478464009111355979966739635452725067028995280155270772883293833829715482"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "26292101681602987833667262455055613132089700789075155832918848940425226954142865714872668090466569070889002033383597552257832998575080280195556660861084865887019",
+                -511,
+                533
+              ],
+              "upper": [
+                0,
+                "52584203363205975667334524910111226264179401578150311665837697880850453908285731429745336180933138141778004066767195104515665997150160560391113321722169732298333",
+                -512,
+                534
+              ]
+            }
+          },
+          "label": 2560000,
+          "label_mod_4": 0,
+          "rho": {
+            "decimal": [
+              "0.30847165306171928246666839479292066629393358877129228343293247107965586623535415261860527586446013577354884299861019784903359725648092290260233844882653871876297286073005",
+              "0.30847165306171928246666839479292066629393358877129228343293247107965586623535415261860527586446013577354884299861019784903359725648092290260233844882653872342446249083517"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "17347342189811398742347375960366409385278024924663034970674785736901980635419675538890746513363469184135082604354325102035086484367918058321930061415934748115425",
+                -534,
+                533
+              ],
+              "upper": [
+                0,
+                "34694684379622797484694751920732818770556049849326069941349571473803961270839351077781493026726938368270165208708650204070172968735836116643860122831869496755141",
+                -535,
+                534
+              ]
+            }
+          },
+          "rho_strict_upper": {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        }
+      },
+      "scope": "raw sufficient high-label region; not a transition-scale endpoint certificate",
+      "twice_s_k": 9
+    },
+    "inclusive_prime_powers": [
+      {
+        "exponent": 1,
+        "n": 2,
+        "prime_base": 2
+      },
+      {
+        "exponent": 1,
+        "n": 3,
+        "prime_base": 3
+      },
+      {
+        "exponent": 2,
+        "n": 4,
+        "prime_base": 2
+      },
+      {
+        "exponent": 1,
+        "n": 5,
+        "prime_base": 5
+      }
+    ],
+    "logical_theorems": {
+      "artifact_executes_actual_prolate_trace_schedule": false,
+      "effective_mixed_floor_is_signed_floor": false,
+      "effective_transition_scale_endpoint_block_proved": false,
+      "endpoint_jet_range_equivalent_at_fixed_parameter": true,
+      "equation_5_2_proved": false,
+      "finite_computable_target_mixed_schedule_proved": true,
+      "fixed_lambda_finite_jump_transfer_proved": true,
+      "locally_uniform_determinant_convergence_proved": false,
+      "odd_positive_nu_gate_proved": false,
+      "rational_trace_fixture_is_actual_schedule_output": false,
+      "uniform_graph_error_rate_proved": false
+    },
+    "odd_jump_band": {
+      "F_k_jump_leading_coefficient": {
+        "imag": {
+          "decimal": [
+            "0.0045857936408484495955549403333362451748589750115745487579164119992049507333972092754881536018172260938227705203094328268067626847856965725296325668734311745908200858158007",
+            "0.0045857936408484495955549403333362451748589750115745487579164119992049507333972092754881536018172260938227705203094328268067626847856965725296325668734311746636587786570519"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "66019488863172986454336927089015571594307257252896383107042933260500338804090049050391333700785746905475250657947835319489870704847281218591828406085865172065575",
+              -542,
+              535
+            ],
+            "upper": [
+              0,
+              "66019488863172986454336927089015571594307257252896383107042933260500338804090049050391333700785746905475250657947835319489870704847281218591828406085865173114199",
+              -542,
+              535
+            ]
+          }
+        },
+        "real": {
+          "decimal": [
+            "-0.0031537687342401022259588694267144364137342085591882873229194635213039695741433458380044526200127531283445225401790967648344242888979991169818221376348632067996069784108595",
+            "-0.0031537687342401022259588694267144364137342085591882873229194635213039695741433458380044526200127531283445225401790967648344242888979991169818221376348632067631850966560353"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "11350826930617465424797325273903307848481322988227275864092606179088592655767773793583502584052876380566164788704033643328516883371836464632811696418456506641655",
+              -540,
+              532
+            ],
+            "upper": [
+              1,
+              "90806615444939723398378602191226462787850583905818206912740849432708741246142190348668020672423011044529318309632269146628135066974691717062493571347652052084543",
+              -543,
+              535
+            ]
+          }
+        }
+      },
+      "J_lambda_n": {
+        "decimal": [
+          "0.23248863212165376812972385443686810871553040398954389584809632377624316875338013058559178395841325017661240767822644563122900069593423125905865365082861776973107659726352",
+          "0.23248863212165376812972385443686810871553040398954389584809632377624316875338013058559178395841325017661240767822644563122900069593423125905865365082861777206182585783359"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "104594631412658660754394452977544741246786854318644069732597348367316332065369565309082393215236608733575604636761744478292345888665654911251496334771883629482943",
+            -537,
+            535
+          ],
+          "upper": [
+            0,
+            "104594631412658660754394452977544741246786854318644069732597348367316332065369565309082393215236608733575604636761744478292345888665654911251496334771883630531527",
+            -537,
+            535
+          ]
+        }
+      },
+      "K0": 8,
+      "K0_ratio": {
+        "decimal": [
+          "7.5271912242532191794042386684165550098545374024174545458094608969030250834744132058315869473584634495393681970873611634525864138589686834050543524667260030627465963069802",
+          "7.5271912242532191794042386684165550098545374024174545458094608969030250834744132058315869473584634495393681970873611634525864138589686834050543524667260031373309282866221"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "52912788176495778376351043280446946755690196617283206946993760793102074318277330749657682004677810367819136096425531965994871521694040115286808108975704792889131",
+            -531,
+            534
+          ],
+          "upper": [
+            0,
+            "105825576352991556752702086560893893511380393234566413893987521586204148636554661499315364009355620735638272192851063931989743043388080230573616217951409586826851",
+            -532,
+            535
+          ]
+        }
+      },
+      "L": {
+        "decimal": [
+          "1.8325814637483101303670544235360221429002024398165249355839357639615707314759260980485411021935218465159296440022897543320769699871330912852018917316572595219199749582405",
+          "1.832581463748310130367054423536022142900202439816524935583935763961570731475926098048541102193521846515929644002289754332076969987133091285201891731657259540565844568311"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "103057825336017937650150043693297601566474083708546958765715561752969048505424270957295644962333764974866165351134260488160899746930262438560068422632129224622887",
+            -534,
+            535
+          ],
+          "upper": [
+            0,
+            "12882228167002242206268755461662200195809260463568369845714445219121131063178033869661955620291720621858270668891782561020112468366282804820008552829016153208933",
+            -531,
+            532
+          ]
+        }
+      },
+      "actual_uniform_graph_error_bound_executed": false,
+      "coarse_dyadic_band_lower": {
+        "decimal": [
+          "0.000039203696940419314821555717201665099802399533469308866809972221837149310305528517334666202396810562455585789850473935347671406952879997119671081852003170942193915355829082",
+          "0.000039203696940419314821555717201665099802399533469308866809972221837149310305528517334666202396810562455585789850473935347671406952879997119671081852003170942762950278348627"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "72242812093375839422694200134034719848833607101138779864460686296320656744468627905208858639240814626010202212722582570067589082522922348666235147464540181956299",
+            -549,
+            535
+          ],
+          "upper": [
+            0,
+            "72242812093375839422694200134034719848833607101138779864460686296320656744468627905208858639240814626010202212722582570067589082522922348666235147464540183004891",
+            -549,
+            535
+          ]
+        }
+      },
+      "derivative_atom_leading_coefficient": {
+        "imag": {
+          "decimal": [
+            "-0.097317049139089003904690176433311040467542288925257181731036624032540489740638147138327923702129893125251138218119328589915436663661351919470771064098367872854328010739511",
+            "-0.097317049139089003904690176433311040467542288925257181731036624032540489740638147138327923702129893125251138218119328589915436663661351919470771064098367871688838908378883"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "87564202963217122667735814706145780910921022562888078255109398731155126856653092342485200115783503860743045429239327031259672843960741610983701465413266653323461",
+              -538,
+              535
+            ],
+            "upper": [
+              1,
+              "43782101481608561333867907353072890455460511281444039127554699365577563428326546171242600057891751930371522714619663515629836421980370805491850732706633326137387",
+              -537,
+              534
+            ]
+          }
+        },
+        "real": {
+          "decimal": [
+            "-0.14150558988140270952618811663761456478803251866703719812276738475613535835413674674470623058874312453291924486542952252027463772861608340163081961065922080123805662581487",
+            "-0.14150558988140270952618811663761456478803251866703719812276738475613535835413674674470623058874312453291924486542952252027463772861608340163081961065922079890723179144733"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "63662145032241479852739241273116411082154124858613158761149576508045456787322473871282735213646218708546124228792452909096256255613765566886058273513837349113879",
+              -537,
+              535
+            ],
+            "upper": [
+              1,
+              "63662145032241479852739241273116411082154124858613158761149576508045456787322473871282735213646218708546124228792452909096256255613765566886058273513837348065261",
+              -537,
+              535
+            ]
+          }
+        }
+      },
+      "dyadic_K": 8,
+      "ell": {
+        "decimal": [
+          "0.91629073187415506518352721176801107145010121990826246779196788198078536573796304902427055109676092325796482200114487716603848499356654564260094586582862976095998747912027",
+          "0.91629073187415506518352721176801107145010121990826246779196788198078536573796304902427055109676092325796482200114487716603848499356654564260094586582862977028292228415552"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "103057825336017937650150043693297601566474083708546958765715561752969048505424270957295644962333764974866165351134260488160899746930262438560068422632129224622887",
+            -535,
+            535
+          ],
+          "upper": [
+            0,
+            "12882228167002242206268755461662200195809260463568369845714445219121131063178033869661955620291720621858270668891782561020112468366282804820008552829016153208933",
+            -532,
+            532
+          ]
+        }
+      },
+      "eta": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "fourier_mode_k": 9,
+      "graph_half_error_threshold": {
+        "decimal": [
+          "0.0031306427830566726453609762592457460782554978641716742490991766987516649014803230743778900343013788755164928192755845426693816379520231656456526585398653980238963294596218",
+          "0.0031306427830566726453609762592457460782554978641716742490991766987516649014803230743778900343013788755164928192755845426693816379520231656456526585398653980603143908478454"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "45070374407938457227472858282951369450982689653470813059189724357212262130387073897590222895141641685955158186651877726021457541577789319839777094620943443212943",
+            -542,
+            534
+          ],
+          "upper": [
+            0,
+            "90140748815876914454945716565902738901965379306941626118379448714424524260774147795180445790283283371910316373303755452042915083155578639679554189241886887474473",
+            -543,
+            535
+          ]
+        }
+      },
+      "jump_law_energy": {
+        "decimal": [
+          "0.0025090366041868361485795659009065663873535701420357674758382221975775558595538251094186369533958759971574905504303318622509700449843198156589492385282029403004105827730612",
+          "0.0025090366041868361485795659009065663873535701420357674758382221975775558595538251094186369533958759971574905504303318622509700449843198156589492385282029403368288178143121"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "72242812093375839422694200134034719848833607101138779864460686296320656744468627905208858639240814626010202212722582570067589082522922348666235147464540181956299",
+            -543,
+            535
+          ],
+          "upper": [
+            0,
+            "72242812093375839422694200134034719848833607101138779864460686296320656744468627905208858639240814626010202212722582570067589082522922348666235147464540183004891",
+            -543,
+            535
+          ]
+        }
+      },
+      "jump_term_before_graph_error": {
+        "decimal": [
+          "0.0062612855661133452907219525184914921565109957283433484981983533975033298029606461487557800686027577510329856385511690853387632759040463312913053170797307960477926589192436",
+          "0.0062612855661133452907219525184914921565109957283433484981983533975033298029606461487557800686027577510329856385511690853387632759040463312913053170797307961206287816956907"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "45070374407938457227472858282951369450982689653470813059189724357212262130387073897590222895141641685955158186651877726021457541577789319839777094620943443212943",
+            -541,
+            534
+          ],
+          "upper": [
+            0,
+            "90140748815876914454945716565902738901965379306941626118379448714424524260774147795180445790283283371910316373303755452042915083155578639679554189241886887474473",
+            -542,
+            535
+          ]
+        }
+      },
+      "k_squared_leading_energy": {
+        "decimal": [
+          "0.0025090366041868361485795659009065663873535701420357674758382221975775558595538251094186369533958759971574905504303318622509700449843198156589492385282029403004084642061281",
+          "0.0025090366041868361485795659009065663873535701420357674758382221975775558595538251094186369533958759971574905504303318622509700449843198156589492385282029403368308321894288"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "36121406046687919711347100067017359924416803550569389932230343148160328372234313952604429319620407313005101106361291285033794541261461174333117573732270090978119",
+            -542,
+            534
+          ],
+          "upper": [
+            0,
+            "72242812093375839422694200134034719848833607101138779864460686296320656744468627905208858639240814626010202212722582570067589082522922348666235147464540183004949",
+            -543,
+            535
+          ]
+        }
+      },
+      "lambda": {
+        "decimal": [
+          "2.5",
+          "2.5"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "5",
+            -1,
+            3
+          ],
+          "upper": [
+            0,
+            "5",
+            -1,
+            3
+          ]
+        }
+      },
+      "minus_one_to_k_phase": -1,
+      "outer_cutoff_condition": {
+        "M_at_least": 16
+      },
+      "phase_angle": {
+        "decimal": [
+          "-6.8856259853651416635639463888914594141868917902732837452578937153304324249891148051467246040468847532715882052521642674689988562914751405998365105363480536921725851537909",
+          "-6.885625985365141663563946388891459414186891790273283745257893715330432424989114805146724604046884753271588205252164267468998856291475140599836510536348053617588395430709"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "24201435726269003973131672282255743998527546627182641409816225190317763678912987396461036768195673262928575277022955426557396199235664569342015857396832913700687",
+            -530,
+            533
+          ],
+          "upper": [
+            1,
+            "96805742905076015892526689129022975994110186508730565639264900761271054715651949585844147072782693051714301108091821706229584796942658277368063429587331653754161",
+            -532,
+            535
+          ]
+        }
+      },
+      "positive_mode_harmonic_sum": {
+        "denominator": "519437318400",
+        "numerator": "29568699913"
+      },
+      "positive_nu_gate_established": false,
+      "prime_base": 2,
+      "prime_power_n": 2,
+      "sharp_dyadic_band_lower": {
+        "decimal": [
+          "0.000071412803616473002974606709859098329426912267225207894694947152930229420300293376776068835069335695665440158607795242160157226348115098597081226179128036374113507083946379",
+          "0.000071412803616473002974606709859098329426912267225207894694947152930229420300293376776068835069335695665440158607795242160157226348115098597081226179128036375251576928985469"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "32899076843228636704961396408269106128716463841084213057252758937420802691411282030397584166997719874539641758699524885467956977786758632265618332144420549161341",
+            -547,
+            534
+          ],
+          "upper": [
+            0,
+            "32899076843228636704961396408269106128716463841084213057252758937420802691411282030397584166997719874539641758699524885467956977786758632265618332144420549685637",
+            -547,
+            534
+          ]
+        }
+      },
+      "variation_B_fixture": {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      "variation_fixture_is_actual_B_bound": false,
+      "x_n": {
+        "decimal": [
+          "-0.22314355131420975576629509030983450337460108554800721367128787248739174376826833341840722410034223571596334098057419143235296475780841508556827511419355380485609565718114",
+          "-0.22314355131420975576629509030983450337460108554800721367128787248739174376826833341840722410034223571596334098057419143235296475780841508556827511419355380252535084212858"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "100390360117085586834773254767271520313875245130023063551792870333668859264517054142549414488965123970376799896153355298491653762947684828232561138590635617541899",
+            -537,
+            535
+          ],
+          "upper": [
+            1,
+            "100390360117085586834773254767271520313875245130023063551792870333668859264517054142549414488965123970376799896153355298491653762947684828232561138590635616493317",
+            -537,
+            535
+          ]
+        }
+      }
+    },
+    "source_admissions": {
+      "actual_odd_harmonic_short_proved": false,
+      "actual_odd_transverse_floor_proved": false,
+      "actual_prescribed_minus_coframe_proved": false,
+      "actual_prescribed_plus_coframe_proved": false,
+      "api_key_read": false,
+      "asymptotic_mixed_prefix_cost_bound_proved": false,
+      "binary64_parameters_used": false,
+      "cached_matrix_or_eigenvector_read": false,
+      "common_unbounded_jump_cutoff_proved": false,
+      "decimal_zero_list_read": false,
+      "determinant_limit_claimed": false,
+      "effective_transition_scale_endpoint_block_proved": false,
+      "endpoint_derivative_tail_on_common_schedule_proved": false,
+      "environment_secret_read": false,
+      "equation_5_2_claimed": false,
+      "finite_computable_target_mixed_schedule_proved": true,
+      "fixed_inverse_load_margin_claimed": false,
+      "fixed_lambda_finite_jump_transfer_proved": true,
+      "fourier_sign_changed": false,
+      "global_weil_positivity_assumed": false,
+      "inversion_reflection_dropped": false,
+      "lambda_squared_mixed_with_lambda": false,
+      "mixed_prefix_signed_floor_proved": false,
+      "nonpositive_complementary_or_schur_gap_reported_as_pass": false,
+      "odd_positive_nu_gate_proved": false,
+      "prime_block_sign_changed": false,
+      "prime_power_endpoint_omitted": false,
+      "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+      "riemann_hypothesis_assumed_or_claimed": false,
+      "secret_serialized": false,
+      "uniform_graph_error_rate_proved": false,
+      "unit_source_normalization_substituted": false,
+      "zero_reality_assumed": false
+    }
+  },
+  "claim_boundary": {
+    "asymptotic_rh_conclusion_claimed": false,
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "endpoint_result": "fixed-parameter endpoint recurrence, high-label jet correction, jet-zero density, and range equivalence; not a new prescribed coframe or common diagonal",
+    "equation_5_2_proved": false,
+    "formal_status": "P0_INVALIDATED",
+    "locally_uniform_determinant_convergence_proved": false,
+    "mixed_result": "a total fail-closed mixed-prefix schedule and explicit source-normalized floor for each finite computable target, plus a coarse parameter-explicit BV majorant; not a useful transition-scale asymptotic schedule",
+    "new_lambda_bound_claimed": false,
+    "numerical_diagnostics_are_theorems": false,
+    "odd_result": "fixed-parameter graph convergence and eventual nonzero finite cross vector, with a localized jump-band law; not a transverse floor, positive moment gate, or inverse-load enclosure",
+    "signed_even_floor_proved": false,
+    "signed_mixed_floor_proved": false,
+    "signed_odd_floor_proved": false
+  },
+  "inputs": {
+    "dps": "160",
+    "endpoint_fixture": {
+      "K": "3",
+      "a": [
+        "1",
+        "4",
+        "9"
+      ]
+    },
+    "high_label_rule": {
+      "minus_label": "4096*p^4+2",
+      "plus_label": "4096*p^4"
+    },
+    "lambda_denominator": "2",
+    "lambda_numerator": "5",
+    "odd_jump_fixture": {
+      "eta": "1/2",
+      "prime_power_n": "2",
+      "variation_B_fixture": "3"
+    }
+  },
+  "schema": "xi-prolate-effective-mixed-endpoint-jump-v1",
+  "source_conventions": {
+    "arithmetic_transform": "A_lambda f(u)=sqrt(u)*sum_(m<=lambda/u) f(m*u)",
+    "complete_nonpole_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "finite_fourier_basis": "phi_k(x)=(-1)^k*L^(-1/2)*exp(2*pi*i*k*x/L), with P_N=sum_(|k|<=N) |phi_k><phi_k|",
+    "finite_fourier_phase": "the factor (-1)^k is retained in coefficients and distributional jump transforms",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "inversion": "Jf(x)=f(-x)",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5",
+    "minus_family_precondition": "I_2 is nonzero before defining c_n^- or the separated mixed bridge",
+    "minus_source_family": "c_n^-=-h_n+(I_n/I_2)*h_2 for n=2 mod 4, n>=6",
+    "mixed_bridge": "c_(4j+2)=-c^-_(4j+2)+(I_(4j+2)/I_2)*c_2",
+    "odd_pole": "p(x)=sinh(x/2), with mu=||p||^2=(lambda-lambda^(-1)-2*log(lambda))/2",
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "plus_source_family": "c_n^+=h_n-(I_n/I_0)*h_0 for n=0 mod 4, n>=4",
+    "prime_block_sign": "minus, as in source equation (3.19), before any norm is taken",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prolate_parameter": "c=2*pi*lambda^2",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "source_normalization": "source-limit normalization is retained; unit normalization is rejected"
+  },
+  "source_lock": {
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "RESIDUE_COFRAME_MIXED_KRYLOV_SOURCE_LOCK.json": "07820d02ae10c1911d35796a5ad018ffcdae4363f22f2b000074e430c7086375",
+      "notes/AUGMENTED_ENDPOINT_JET_COFRAME_ATTACK.md": "521a21decb0eb3175d73430f4d23b31917a128cc8f705caea9ccc70e088ba7ac",
+      "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "external_source_hashes": {
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "path": "EFFECTIVE_MIXED_ENDPOINT_JUMP_SOURCE_LOCK.json",
+    "schema": "xi-prolate-effective-mixed-endpoint-jump-source-lock-v1",
+    "sha256": "24ea8f8085e9e198201006f54e0499495174053e38f6c26185cd2b2f60725fcc"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

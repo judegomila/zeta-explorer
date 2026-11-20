@@ -1,0 +1,187 @@
+{
+  "status": "PASS_FULL_ANALYTIC_DEPENDENCY_CHAIN_AND_EXACT_SCALAR_CHECKS",
+  "reviewed_at_utc": "2026-10-30T11:22:34.026440+00:00",
+  "producer_sha256": "72c6f1bbc5a4aee305aa5cd66584b48f7160d159e5f63e67100d922d4ac5a5fa",
+  "accepted_theorem": "Eventually, for actual positive-even chi>=1/2 input with mean/origin/endpoint traces zero, ||E_even g||^2 >= ||g||^2/(3200 lambda^2)",
+  "metric": "Full additive input L2[-lambda,lambda]; physical logarithmic output L2; full-even visible pairing",
+  "coordinate_pairing_floor": "1/10",
+  "effective_onset": false,
+  "exact_scalar_checks": 23,
+  "scalar_precision_bits": 256,
+  "values": {
+    "H_squared": "[0.01770691042741741002211956945479495089331898379628299055127422272353709954444 +/- 4.03e-78]",
+    "squarefree_mass_without_one": "[0.519817754635066571658191948145914583565381620083698232684135478412596814434 +/- 4.99e-76]",
+    "B0": "[0.3837575572134962399220226320744789098008032988972133524153788871885876632269 +/- 7.92e-77]",
+    "gamma_infinity": "[0.4910254037844386467637231707529361834714026269051903140279034897259665084544 +/- 9.86e-78]",
+    "strict_margin": "[0.1072678465709424068417005386784572736705993280079769616125246025373788452275 +/- 8.66e-77]",
+    "projected_tail_constant_squared": "[0.1460050809555105449123951397990214277948842930295219586583898378236254247190 +/- 4.66e-77]"
+  },
+  "excluded": [
+    "full mean-zero maximal-head coordinate Schur sign",
+    "actual Weil energy from this theorem alone",
+    "correct gamma-complement floor",
+    "global or cofinal Weil floor",
+    "RH",
+    "new numerical spectral run",
+    "V8 edit"
+  ],
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/html/2208.06141v5",
+      "location": "Theorem 1.1 equation (10)",
+      "use": "unconditional eventual Mertens decay only"
+    }
+  ],
+  "validated_dependency_pins": [
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/prolate_endpoint_flow/WEAK_HEAD_OPERATOR_AND_COMPACT_CHANNEL_TRANSFER.md",
+      "sha256": "6fd3197cec2972e7e23fcda4719591dbfb7443f769ac9373f9ab89d88e2af6e6"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md",
+      "sha256": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.json",
+      "sha256": "12a2aeaeae6479651e13f0b499a284ca21842e583a4dc064f9a8a7755a93a6d8"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "sha256": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.md",
+      "sha256": "1aa4fdf262e52a2c3632bc10670f0cbed374f5f3db36bfd124ff2598f2e332cc"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/prolate_strong_edge_replay/independent_weak_head_checks.py",
+      "sha256": "008cfc1fa600ce905077b79ccc82f9db08dede8a08ae826586f45f3dece181ac"
+    },
+    {
+      "receipt": "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/prolate_strong_edge_replay/INDEPENDENT_WEAK_HEAD_CHECKS.json",
+      "sha256": "d94c3950d89f3368a53c7421217225a7c133d1f899f52ff0611d315b8b31fbed"
+    },
+    {
+      "receipt": "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/UNIFORM_COLLAR_TAIL_AND_SINGLE_CHANNEL_TRANSFER.md",
+      "sha256": "ec540fc47064e87fbcc7beed595321d08c8b65758b14bc70e5249cd2a2139f14"
+    },
+    {
+      "receipt": "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "sha256": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045"
+    },
+    {
+      "receipt": "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/HARD_EDGE_LIMIT_MODEL_AND_CHANNEL_BESSEL.md",
+      "sha256": "0a9774113f27cddf145b5b4ee9d02703f9a54e0cefd8b3bc4a8f0f24ebe87a67"
+    },
+    {
+      "receipt": "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md",
+      "sha256": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe"
+    },
+    {
+      "receipt": "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.md",
+      "sha256": "3c5b77c0e9b238dfee35c6416c231347fc64c787eebe1e871e17b59f2a0d0f04"
+    },
+    {
+      "receipt": "independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "sha256": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045"
+    },
+    {
+      "receipt": "independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_CHANNEL_BESSEL_SCOPE_CLARIFICATION.md",
+      "sha256": "e2d86fcb776a0a62f2c6f2e9d253282234d311cfc8cfb032a8397f930e268634"
+    },
+    {
+      "receipt": "independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/EXACT_POISSON_MOBIUS_EDGE_AND_SIGNED_GRAM_TARGET.md",
+      "sha256": "891f2400ca23fe404658ad4735ffeb86713e959ef219c25ba8853a2249678304"
+    },
+    {
+      "receipt": "independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/CRITICAL_COLLAR_AND_EXPLICIT_FOURIER_JET_PORTS.md",
+      "sha256": "3dda8369703839ee9533468a3ebda8025e4994aa656d3998f0b68e632cb3762a"
+    },
+    {
+      "receipt": "repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/COLLAR_RECIPROCAL_SAMPLING_AND_SMALL_LABEL_REDUCTION.md",
+      "sha256": "2f3642c389ca9e56064945d3350357e83ab9cf73ae42beff1614d05b660a87ad"
+    },
+    {
+      "receipt": "repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/FOURIER_ENDPOINT_JET_RECURRENCE_AND_ARITHMETIC_PORT_MATRIX.md",
+      "sha256": "6974e50e558c51aca7d2748b032ff51034568442e29362cd83cc32bd75dcf5df"
+    },
+    {
+      "receipt": "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.md",
+      "sha256": "0d0de89128b15e6da19d8a2a8a6860f3358e95c89b6bcd12f6db11b80921c29b"
+    },
+    {
+      "receipt": "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/POSITIVE_CHI_CORE_PROJECTION_AND_MAIN_RESERVE.md",
+      "sha256": "4c48c438efc32a3c64b9248683ac89adf5f46d9c0ffbd0e85ec907361e3100b2"
+    },
+    {
+      "receipt": "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md",
+      "sha256": "3a4fa2df9fbc34a787aedbdbf96d458ca74de5dc51e151fae3fa5cdac6a58c3b"
+    },
+    {
+      "receipt": "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/gamma_complement_attack/EXACT_POISSON_MOBIUS_EDGE_AND_SIGNED_GRAM_TARGET.md",
+      "sha256": "891f2400ca23fe404658ad4735ffeb86713e959ef219c25ba8853a2249678304"
+    },
+    {
+      "receipt": "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json",
+      "path": "rh_attack_cycle_20261030/independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.json",
+      "sha256": "c8b07c6a21b8891850f94014d190d3c8c8d72a731719ae8aa759bd81d1926cbb"
+    }
+  ],
+  "files": {
+    "gamma_complement_attack/HARDY_CHANNEL_CLOSURE_AND_TWO_TRACE_COORDINATE_GRAM.md": "72c6f1bbc5a4aee305aa5cd66584b48f7160d159e5f63e67100d922d4ac5a5fa",
+    "prolate_endpoint_flow/WEAK_HEAD_OPERATOR_AND_COMPACT_CHANNEL_TRANSFER.md": "6fd3197cec2972e7e23fcda4719591dbfb7443f769ac9373f9ab89d88e2af6e6",
+    "prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe",
+    "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.md": "1aa4fdf262e52a2c3632bc10670f0cbed374f5f3db36bfd124ff2598f2e332cc",
+    "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.json": "e3300fbdba45c761fa22b4408911984112ea93fa0f49de639efce43108d9bd5c",
+    "independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.json": "12a2aeaeae6479651e13f0b499a284ca21842e583a4dc064f9a8a7755a93a6d8",
+    "repo_leverage/independent_review/weak_head_transfer/WEAK_HEAD_COMPACT_TRANSFER_SECOND_CHECK.md": "d0abf9b142fe48de4943a02cd6b62b6d90a1dda6df2d96dbde35a83b688184fc",
+    "repo_leverage/UNIFORM_COLLAR_TAIL_AND_SINGLE_CHANNEL_TRANSFER.md": "ec540fc47064e87fbcc7beed595321d08c8b65758b14bc70e5249cd2a2139f14",
+    "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.md": "3c5b77c0e9b238dfee35c6416c231347fc64c787eebe1e871e17b59f2a0d0f04",
+    "independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.json": "a05f494eabade69d782c7144025e9b336890c96a002e6d7775a8ccbd6bf7d148",
+    "repo_leverage/independent_review/hard_edge_model/UNIFORM_COLLAR_TRANSFER_AUDIT.md": "0b66e5eb707765a45b78d8467e8f4d1746dab7d4a01e036c31740ad7803384f5",
+    "repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045",
+    "repo_leverage/ACTUAL_CHANNEL_BESSEL_SCOPE_CLARIFICATION.md": "e2d86fcb776a0a62f2c6f2e9d253282234d311cfc8cfb032a8397f930e268634",
+    "independent_review/ACTUAL_FINITE_COLLAR_BESSEL_REDUCTION_AUDIT.json": "6f0af363cbb1fdd2aadb4fe96f542f4557902682898b91eb8a2c04bb972f8b09",
+    "gamma_complement_attack/EXACT_POISSON_MOBIUS_EDGE_AND_SIGNED_GRAM_TARGET.md": "891f2400ca23fe404658ad4735ffeb86713e959ef219c25ba8853a2249678304",
+    "repo_leverage/independent_review/poisson_edge/EXACT_POISSON_EDGE_AUDIT.md": "f0da992084698884602b7dbc1d59891635d98b369db99aa9a0cf3bcf4c639cc3",
+    "gamma_complement_attack/CRITICAL_COLLAR_AND_EXPLICIT_FOURIER_JET_PORTS.md": "3dda8369703839ee9533468a3ebda8025e4994aa656d3998f0b68e632cb3762a",
+    "independent_review/CRITICAL_COLLAR_AND_JET_PORTS_SECOND_CHECK.json": "c44e72de40e8222748d7326c39f7d76e649803e07389186bdbfb190514cf2c5c",
+    "repo_leverage/independent_review/critical_collar/FINAL_SOURCE_GEOMETRY_DELTA_AUDIT.json": "64c7d5afd7528602927fb0301317f8c1e207136119e73b494d04d58d242cc94a",
+    "gamma_complement_attack/COLLAR_RECIPROCAL_SAMPLING_AND_SMALL_LABEL_REDUCTION.md": "2f3642c389ca9e56064945d3350357e83ab9cf73ae42beff1614d05b660a87ad",
+    "repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.md": "4616b92eb7243ab75096937c0b59e696f1e204b862e68cbef2a3a41d4dc6fe04",
+    "repo_leverage/independent_review/reciprocal_sampling/RECIPROCAL_SAMPLING_AND_JET_ALGEBRA_AUDIT.json": "48207c82e2a698f83c37e2e5bbf3dde831d124f7b9520363244780d2008ce90d",
+    "repo_leverage/ACTUAL_VISIBLE_FAR_PAIRING_BY_FREQUENCY_RESOLVENT.md": "67ca583ce60adf659b51392f33469ba13046a056f85547aadce42bdac51fcde2",
+    "independent_review/ACTUAL_FAR_RESOLVENT_PAIRING_AUDIT.json": "00627b4ea45fb97c7294875271b37c19482adf92f9166509666c9e690b9c6825",
+    "gamma_complement_attack/UNIFORM_ADDITIVE_ENDPOINT_NULL_FAR_VALUE_FRAME.md": "7724ad1c75931386bca53eafe0827b73eba2e201cccd31d9d4e111aa709265a8",
+    "independent_review/UNIFORM_ADDITIVE_VALUE_FRAME_AUDIT.json": "4ec017913a3ea38b1790c4edf7c0002c536ff0c00ef68c3dda97ab7ee939fa02",
+    "gamma_complement_attack/POSITIVE_CHI_CORE_PROJECTION_AND_MAIN_RESERVE.md": "4c48c438efc32a3c64b9248683ac89adf5f46d9c0ffbd0e85ec907361e3100b2",
+    "independent_review/POSITIVE_CHI_CORE_AND_JORDAN_RESERVE_AUDIT.json": "f5c0b82de16b4d039473f32e1747d01861c4005f9a1b77b18ddcefe68cbbfb44",
+    "gamma_complement_attack/MAXIMAL_POSITIVE_CHI_HEAD_AND_TRANSITION_PRICE.md": "3a4fa2df9fbc34a787aedbdbf96d458ca74de5dc51e151fae3fa5cdac6a58c3b",
+    "independent_review/MAXIMAL_POSITIVE_CHI_HEAD_AUDIT.json": "c8b07c6a21b8891850f94014d190d3c8c8d72a731719ae8aa759bd81d1926cbb",
+    "independent_review/HARDY_CHANNEL_TWO_TRACE_COORDINATE_GRAM_AUDIT.md": "f99e91208577580d4426a7df4ed78f6aee594ce562d7ee5c9fa078abb33a371b",
+    "independent_review/hardy_channel_checks/check_hardy_channel_constants.py": "c9ba2fe9c739fd7a8a05a7eb9cd077c2a3ece341eb7f1af5dab03731b3d657d2",
+    "independent_review/hardy_channel_checks/HARDY_CHANNEL_CONSTANTS.json": "0fe359ed13586501c8258feb72e01a98285c384f9829a481cc9b49c9b8d0d197"
+  }
+}

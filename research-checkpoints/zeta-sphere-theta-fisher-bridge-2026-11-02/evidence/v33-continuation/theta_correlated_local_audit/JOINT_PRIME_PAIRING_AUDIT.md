@@ -1,0 +1,11 @@
+# Independent audit: joint forward/inverse prime pairing
+
+Analytic PASS, 2026-11-03. No numerical run or acquired code execution.
+
+Writing G=e^l F and H=e^-l F gives G'H'=F'^2-l'^2F^2 and (G''H+GH'')/2=FF''+l'^2F^2. Thus C=Lambda_F-2l'^2F^2 exactly; all l'' terms cancel. Reciprocal constant normalizations have no effect. For each finite prime set the multipliers, inverses, and their real derivatives are bounded, so polynomial-weighted integrability follows from actual F's exponential decay. No ambient complex-strip inverse is inferred.
+
+The k>=2 terms in l' are uniformly O(log^2 x), since sum_{k>=2} p^-k/2 is O(1/p) and sum over integers of log n/n is O(log^2 x). Abel summation from the independently verified PNT statement https://dlmf.nist.gov/27.2#E3 yields sum_{p<=x} log p p^(-1/2+it)=x^(1/2+it)/(1/2+it)+o(sqrt x) for each fixed real t. At t=0 the corresponding absolute first-power sum is asymptotic to 2sqrt x. Hence l'/sqrt x is bounded uniformly in t for all sufficiently large x, and its difference from 2Im[x^(it)/(1/2+it)] tends to zero pointwise.
+
+Both expressions are uniformly bounded. Dominated convergence against the integrable nonnegative weight p^2F^2 therefore applies to their squared difference, even though the main oscillatory term itself has no pointwise limit. The square identity is 4(Im z)^2=2|z|^2-2Re(z^2). Riemann-Lebesgue applies to p^2F^2/(1/2+it)^2, which is integrable. Multiplication by the additional factor 2 in E yields exactly E_x[p]~4x integral p^2F^2/(1/4+t^2). This constant is positive for every fixed nonzero polynomial because actual F is not identically zero.
+
+Consequently the cross integral is asymptotic to minus the same quantity, independently of the sign of the finite original h[p]. This disproves cross positivity and any uniform negative-cost fraction strictly below one along exhaustive cutoffs, for each fixed nonzero residual. It does not select a residual after the cutoff, claim uniformity in degree, or exclude a degree-dependent finite cutoff. The result concerns the normalized real-axis bridge; positive-shift or ambient-strip restoration is not silently asserted. Exact cancellation leaves the original unknown signed margin unpaid.

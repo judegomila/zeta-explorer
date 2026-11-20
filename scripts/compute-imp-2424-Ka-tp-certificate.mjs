@@ -13,8 +13,8 @@
 //   X(w) = 8 integral_0^infinity Phi(u) cosh(2wu) du,
 // so the transform arguments also require the factor 2. The historical
 // negative pivots below therefore belong only to this surrogate discretization
-// and are INVALID FOR T3. A correctly normalized 60-digit four-node numerical
-// check is positive, but is not a proof.
+// and are INVALID FOR T3. A historical record reports a positive 60-digit
+// correctly normalized four-node check; it is not recomputed here or a proof.
 //
 // HISTORICAL CLAIM under test (now retracted for the exact kernel):
 //   B_a^+ = 1 is equivalent to the de Branges Wronskian kernel
@@ -26,9 +26,10 @@
 //   de Bruijn-Newman completed-Riemann normalization.
 //
 //   This script builds the n x n Gram matrix G[j,k] = K_a(z_j, z_k) on a
-//   real grid and computes an explicit certificate via the symmetric LDL^T
-//   factorization: the leading principal minors are M_k = prod_{i<=k} d_i,
-//   so Sylvesters criterion gives  G positive definite  <=>  all pivots d_i > 0.
+//   real grid and reports finite floating-point LDL^T diagnostics. In exact
+//   arithmetic, a completed nonzero-pivot factorization gives leading minors
+//   M_k = prod_{i<=k} d_i; positive pivots then imply positive definiteness.
+//   Floating diagnostics are NOT a certificate or a test of total positivity.
 //   We report the smallest pivot, the smallest leading principal minor, and
 //   how the smallest pivot scales as the truncation dimension n grows.
 //
@@ -43,13 +44,17 @@
 //   - Off-diagonal entries use the divided-difference form directly; the
 //     diagonal is the de Branges limit z -> w:
 //       K_a(w, w) = ( B_a'(w) A_a(w) - A_a'(w) B_a(w) ) / pi   (the phase Wronskian).
-//   - To separate genuine indefiniteness from mere ill-conditioning we also
-//     factor the diagonal-normalized correlation matrix
-//       C[j,k] = G[j,k] / sqrt(|G[j,j]| |G[k,k]|).
+//   - Also inspect the positive diagonal congruence
+//       C[j,k] = G[j,k] / sqrt(|G[j,j]| |G[k,k]|), when scales are valid.
+//     Negative diagonal signs are preserved. This is a conditioning diagnostic,
+//     not a rigorous separation of numerical error and genuine indefiniteness.
 //
 // OUTPUT: JSON summary to stdout.
 
 import { performance } from 'node:perf_hooks';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { diagnoseMatrix, summarizeDiagnostics, pivotMagnitudeLogLogSlope } from './lib/ka-matrix-diagnostics.mjs';
 
 // ── Historical surrogate (not the canonical completed-Riemann Phi) ─────────
 const N_PHI = 10;
@@ -79,7 +84,8 @@ function buildQuad() {
   }
   return { h, u, w };
 }
-const QUAD = buildQuad();
+// Initialized only by the explicit CLI entry point, never on import.
+let QUAD;
 
 // Precompute, for a fixed a, the weighted kernels Phi(u)cosh(au) and Phi(u)sinh(au).
 function precomputeForA(a) {
@@ -111,25 +117,6 @@ function channels(z, pc, ps) {
   return { A: A * k, B: B * k, Ap: Ap * k, Bp: Bp * k };
 }
 
-// ── symmetric LDL^T: returns pivots d_i (no pivoting). ──────────────────────
-// Leading principal minors are M_k = prod_{i<=k} d_i; G is PD iff all d_i > 0.
-function ldlPivots(G, n) {
-  const L = Array.from({ length: n }, () => new Float64Array(n));
-  const d = new Float64Array(n);
-  for (let j = 0; j < n; j++) {
-    let sum = G[j][j];
-    for (let k = 0; k < j; k++) sum -= L[j][k] * L[j][k] * d[k];
-    d[j] = sum;
-    L[j][j] = 1;
-    for (let i = j + 1; i < n; i++) {
-      let s = G[i][j];
-      for (let k = 0; k < j; k++) s -= L[i][k] * L[j][k] * d[k];
-      L[i][j] = d[j] !== 0 ? s / d[j] : 0;
-    }
-  }
-  return d;
-}
-
 // ── build the n x n Gram matrix of K_a on a symmetric real grid ─────────────
 function gramMatrix(n, a, pre, halfSpan) {
   const { pc, ps } = pre;
@@ -156,53 +143,9 @@ function gramMatrix(n, a, pre, halfSpan) {
   return { G, z };
 }
 
-// Symmetrize tiny numerical asymmetry and return certificate stats.
-function certify(G, n) {
-  for (let i = 0; i < n; i++)
-    for (let j = i + 1; j < n; j++) {
-      const m = 0.5 * (G[i][j] + G[j][i]);
-      G[i][j] = G[j][i] = m;
-    }
-  // diagonal sign (orientation of the kernel)
-  let diagPos = 0, diagNeg = 0;
-  for (let i = 0; i < n; i++) (G[i][i] >= 0 ? diagPos++ : diagNeg++);
-  const orient = diagNeg > diagPos ? -1 : 1; // flip if kernel written with opposite sign
-
-  const Go = orient === 1 ? G : G.map((r) => r.map((x) => -x));
-  const d = ldlPivots(Go, n);
-  let minPiv = Infinity, negPivots = 0, minMinor = Infinity, minor = 1;
-  for (let i = 0; i < n; i++) {
-    if (d[i] < minPiv) minPiv = d[i];
-    if (d[i] <= 0) negPivots++;
-    minor *= d[i];
-    if (Math.abs(minor) < Math.abs(minMinor)) minMinor = minor;
-  }
-
-  // diagonal-normalized correlation matrix (unit diagonal) to isolate
-  // positivity from conditioning.
-  const C = Array.from({ length: n }, () => new Float64Array(n));
-  for (let i = 0; i < n; i++)
-    for (let j = 0; j < n; j++)
-      C[i][j] = Go[i][j] / Math.sqrt(Math.abs(Go[i][i]) * Math.abs(Go[j][j]));
-  const dc = ldlPivots(C, n);
-  let minPivC = Infinity, negPivC = 0;
-  for (let i = 0; i < n; i++) {
-    if (dc[i] < minPivC) minPivC = dc[i];
-    if (dc[i] <= 0) negPivC++;
-  }
-
-  return {
-    orientationFlip: orient === -1,
-    minPivot: minPiv,
-    negativePivots: negPivots,
-    smallestLeadingMinor: minMinor,
-    isPositiveDefinite: negPivots === 0,
-    normalized: { minPivot: minPivC, negativePivots: negPivC, isPositiveDefinite: negPivC === 0 },
-  };
-}
-
 // ── sweep ───────────────────────────────────────────────────────────────────
-function main() {
+export function main() {
+  QUAD = buildQuad();
   const t0 = performance.now();
   const A_VALUES = [0.1, 0.25, 0.5, 1.0, 2.0];
   const N_VALUES = [4, 8, 16, 24, 32];
@@ -214,30 +157,28 @@ function main() {
     const series = [];
     for (const n of N_VALUES) {
       const { G } = gramMatrix(n, a, pre, HALF_SPAN);
-      const c = certify(G, n);
+      const c = diagnoseMatrix(G);
       series.push({ n, ...c });
     }
-    // scaling exponent of |smallest normalized pivot| vs n (log-log slope).
-    // A negative slope means the indefinite margin SHRINKS toward 0 as the
-    // truncation grows (consistent with a near-PSD, ill-conditioned kernel);
-    // a non-negative slope would mean the indefiniteness persists or grows.
-    const pts = series.filter((s) => s.normalized.minPivot !== 0 && Number.isFinite(s.normalized.minPivot));
-    let slope = null;
-    if (pts.length >= 2) {
-      const xs = pts.map((s) => Math.log(s.n));
-      const ys = pts.map((s) => Math.log(Math.abs(s.normalized.minPivot)));
-      const mx = xs.reduce((p, q) => p + q, 0) / xs.length;
-      const my = ys.reduce((p, q) => p + q, 0) / ys.length;
-      let num = 0, den = 0;
-      for (let i = 0; i < xs.length; i++) { num += (xs[i] - mx) * (ys[i] - my); den += (xs[i] - mx) ** 2; }
-      slope = den !== 0 ? num / den : null;
-    }
+    // Descriptive fit on this changing finite grid only; not an eigenvalue,
+    // continuum or rigorous sign margin. Do not silently drop invalid cells.
+    const slope = pivotMagnitudeLogLogSlope(series);
     rows.push({ a, series, normalizedMinPivotMagnitudeLogLogSlope: slope });
   }
 
-  const allPD = rows.every((r) => r.series.every((s) => s.normalized.isPositiveDefinite));
+  const rawSummary = summarizeDiagnostics(rows.flatMap(r => r.series));
+  const normalizedSummary = summarizeDiagnostics(rows.flatMap(r => r.series.map(s => s.normalized)));
   const out = {
     ticket: 'imp-2424',
+    schemaVersion: 2,
+    evidence: 'non-certified finite floating-point diagnostics',
+    numericalSafety: {
+      adaptiveSignReversal: false,
+      totalPositivityTested: false,
+      unknownValues: 'null with explicit status/reason; never a positive verdict',
+      correction: 'Earlier sign-flipped, zero-pivot or nonfinite results are not valid positivity evidence.',
+      scope: 'No quadrature, roundoff, all-minors or continuum certificate is supplied.',
+    },
     status: 'SURROGATE / INVALID FOR T3',
     kernelModel: 'historical-surrogate-normalization',
     appliesToExactRiemannKernel: false,
@@ -250,6 +191,8 @@ function main() {
     },
     correctedCanonicalFourNodeNumericalCheck: {
       status: 'positive-numerical-only',
+      provenance: 'historical hardcoded record; not recomputed by this script',
+      replayedByThisScript: false,
       rigorous: false,
       precisionDigits: 60,
       a: 0.5,
@@ -266,7 +209,8 @@ function main() {
     quadrature: { uMax: U_MAX, nodes: NU, rule: 'composite Simpson' },
     aValues: A_VALUES,
     nValues: N_VALUES,
-    allTruncationsPositiveDefinite_normalized: allPD,
+    allTruncationsPositiveDefinite_normalized: normalizedSummary.allPositiveDefinite,
+    diagnostics: { raw: rawSummary, normalized: normalizedSummary },
     rows,
     elapsedMs: Math.round(performance.now() - t0),
     scope:
@@ -276,4 +220,4 @@ function main() {
   process.stdout.write(JSON.stringify(out, null, 2) + '\n');
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main();

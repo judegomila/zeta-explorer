@@ -1,0 +1,598 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in,headheight=15pt]{geometry}
+\usepackage{booktabs,longtable,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,breaklinks=true]{hyperref}
+\usepackage{xurl}
+\allowdisplaybreaks[2]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist{itemsep=3pt,topsep=4pt,leftmargin=1.6em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{problem}[theorem]{Open problem}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\RH}{\mathrm{RH}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\HH}{\mathbb H_R}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\Rea}{\operatorname{Re}}
+\newcommand{\Ima}{\operatorname{Im}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\Res}{\operatorname*{Res}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\numberwithin{equation}{section}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small J. Gomila: arithmetic theta completion}
+\fancyhead[R]{\small Research manuscript, v0.1}
+\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={The Twin-Ladder Weil Form and an Arithmetic Theta Completion Route},pdfauthor={Jude Gomila},pdfsubject={Exact reductions, a sparse positivity transfer theorem, and open arithmetic obligations}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{1.1cm}
+{\Large\color{blue!45!black}Research manuscript \hfill 20 November 2026\par}
+\vspace{1.1cm}
+{\huge\bfseries The Twin-Ladder Weil Form\\[0.3em]and an Arithmetic Theta\\[0.3em]Completion Route\par}
+\vspace{0.65cm}
+{\Large Exact reductions, a sparse positivity transfer theorem,\\and the remaining arithmetic estimate\par}
+\vspace{0.9cm}
+{\Large Jude Gomila\par}
+{\small Prepared with AI-assisted mathematical synthesis and internal review.\par}
+\vspace{0.9cm}
+\hrule
+\vspace{0.35cm}
+\textbf{Mathematical status.} The results labelled as proved here in Sections 2--6 have complete arguments below, with classical inputs identified. The multiplicative-window theorem is recorded separately as an external source statement whose full dependency chain has not been verified here. The arithmetic lift comparison in Problem~\ref{prob:lift} is \textbf{unproved}. This manuscript is a research synthesis and conditional completion route; it is \textbf{not an unconditional proof of the Riemann hypothesis}.
+\vspace{0.35cm}
+\hrule
+\vspace{0.65cm}
+\textbf{Purpose.} Connect the accumulated twin-ladder, theta, Weil, Pick, Schur, geometric and computational work to the specific arithmetic amplification route announced by Levent Alp\"oge. Preserve exact identities and proved obstructions, isolate a noncircular import point, and state precisely what would complete a proof.
+\vfill
+\textbf{Review package.} This manuscript is accompanied by an evidence ledger, a proof-obligation register, a source-coverage inventory, exact algebra checks and a negative control. The corpus inventory covers all 62 accessible MathExplorer pull-request records and 304 research-lane directories at the pinned November 20 checkpoint. Inventory coverage is not a claim that every artifact has been reverified.
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\begin{abstract}
+We place the twin-ladder program in a fixed normalization of the completed Riemann zeta function and identify its one-sided residual energy with the Weil quadratic form. We give an explicit prime-truncation error bound and a sparse completion criterion: positivity of every finite prefix of the Pick kernel on the single sequence $x_j=1+1/(j+1)$ is equivalent to RH. The proof uses finite Nevanlinna--Pick interpolation, normal families and a holomorphic differential identity, and requires neither a uniform spectral gap nor uniformity in matrix size. Consequently an independently constructed family of asymptotically positive arithmetic Gram forms on these prefixes would suffice. We separately derive the Mellin transform and noncancellation of poles for the weighted Mangoldt discrepancy relevant to the announced theta-lift route. A one-sided full-ray square-root estimate implies RH by a classical Landau argument. The more delicate multiplicative-window theorem in the released source is recorded as an external import, not silently reproved. We explain how the project's prior mixing-flow obstruction leaves definite-target theta lifts open, and distinguish this opening from a proved construction. The final arithmetic comparison remains unresolved.
+\end{abstract}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\newpage
+
+\section{Scope, provenance and the precise connection}
+
+\subsection{The strongest connection in the existing work}
+The closest connection is an identity, not a visual resemblance. MathExplorer PR~58 identifies the outstanding residual from PR~48 with Weil's quadratic functional on one-sided exponential tests \cite{pr48,pr58}. The same form appears as a real-node Pick matrix and as a Suzuki screw form. The complete positivity condition is equivalent to RH. This means the arithmetic sign problem was already correctly located; it does not mean it was solved.
+
+PR~60 explicitly examines the Stepanov--Bombieri and Hodge-index function-field mechanisms. Its number-field transplant stops at a growth estimate for a two-by-two shifted form \cite{pr60}. The later PR~61 record goes further: it examines Hecke and metaplectic structure, Rallis-type square realizations, definite/compact alternatives, and higher-rank eigenobjects \cite{pr61}. These sources must replace any account based only on the earlier torus visualizations.
+
+The July Wigner manuscript already separates exact correlation identities from nonlocal positivity. The August Kramers--Wannier audit states an arithmetic Gram-approximation completion condition and warns that an unspecified positive factorization is tautological. The August permutation manuscript retains prime-power frequencies, completion data and signed commutator errors. The November shear manuscript identifies exact vortex identities and a finite-theta-truncation obstruction. Their role here is recorded in the accompanying source ledger.
+
+\subsection{The new announcement, in its stated scope}
+Alp\"oge's note claims RH and a generalized result, and describes Stepanov-inspired multiplicity amplification through repeated automorphic theta lifts, with length about $\sqrt X$. It also identifies lift costs, divisibility and averaging across Hecke characters as essential \cite{alpoge}. This is a compressed announcement, not a self-contained exposition. The inspected formal targets concern RH and Dirichlet $L$-functions. At the November 20 check, the independent verification project inspected had not reported a successful full proof replay \cite{externalcheck}.
+
+We distinguish three operations: a Jacobi theta representation of $\xi$, canonical reductions of a scalar theta kernel, and theta lifting between automorphic representations. Their names do not supply a map between them. Any such map used in a proof needs specified spaces, measures, local factors, regularizations and error terms.
+
+\subsection{Status conventions}
+\begin{description}
+\item[Proved here:] a statement with a complete argument in this manuscript, relative to the classical facts explicitly cited.
+\item[Project result:] a result reported with its hypotheses in a pinned project source. Internal audit is not external peer review; the historical certificate suites have not all been rerun for this synthesis.
+\item[External source statement:] a literal theorem or proposition read in the released formal source; this does not assert that its entire dependency chain was compiled or validated here.
+\item[Open:] a missing construction, estimate or identification. It may not be substituted as an unconditional lemma.
+\end{description}
+No claim of literature novelty is made for the positivity criteria, the interpolation argument, the Mellin reduction or their standard analytic ingredients.
+
+\section{Normalization and the exact Weil test space}
+
+Set
+\begin{equation}\label{eq:xi}
+ \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\qquad
+ F(w)=\xi(\tfrac12+w),\qquad L(w)=F'(w)/F(w).
+\end{equation}
+The completed function is real entire and satisfies $F(-w)=F(w)$ \cite{dlmf}. The symbol $\rho$ below denotes a \emph{centered} zero of $F$; an uncentered zeta zero is $\rho_s=1/2+\rho$.
+
+For distinct real rates $x_1,\ldots,x_n>1/2$, define
+\begin{equation}\label{eq:pick}
+ P_{ij}=\frac{L(x_i)+L(x_j)}{x_i+x_j},\qquad
+ v_b(t)=\sum_{j=1}^n b_j e^{-x_jt}\quad(t\ge0),\qquad
+ Q_L(v_b)=b^*Pb.
+\end{equation}
+Every prime series used below is absolutely convergent on this domain. We do not extend it termwise into the critical strip. For the Laplace transform,
+\begin{equation}\label{eq:V}
+ V_b(z)=\int_0^\infty v_b(t)e^{-zt}\dd t
+       =\sum_j\frac{b_j}{z+x_j}.
+\end{equation}
+Our Hermitian convention is $b^*Pb=\sum\overline b_i P_{ij}b_j$. Since $P$ is real symmetric, it agrees with the reversed-conjugation convention used in some older project notes.
+
+For clarity, a normalized positive theta kernel is obtained by taking the even extension of
+\begin{equation}\label{eq:kappa}
+ \kappa(t)=\sum_{m\ge1}
+ \left(2\pi^2m^4e^{9t/4}-3\pi m^2e^{5t/4}\right)e^{-\pi m^2e^t}
+ \quad(t\ge0).
+\end{equation}
+The classical theta representation is
+\begin{equation}\label{eq:theta}
+ F(w)=\int_{\R}\kappa(t)e^{wt/2}\dd t
+     =2\int_0^\infty\kappa(t)\cosh(wt/2)\dd t.
+\end{equation}
+The summands in \eqref{eq:kappa} are positive for $t\ge0$. Superexponential decay justifies differentiation. Consequently
+\begin{equation}\label{eq:Lpositive}
+ F(x)>0,\qquad F'(x)=\int_0^\infty t\kappa(t)\sinh(xt/2)\dd t>0,
+ \qquad L(x)>0\quad(x>0).
+\end{equation}
+This is an unconditional real-axis fact, not half-plane zero-freeness.
+
+\begin{proposition}[The zero-side identity]\label{prop:weil}
+For the finite tests in \eqref{eq:pick},
+\begin{equation}\label{eq:zerosum}
+ Q_L(v)=\sum_{F(\rho)=0} V(\rho)\overline{V(-\overline\rho)},
+\end{equation}
+with multiplicities and absolute convergence. It is the Weil form on the Mellin test
+\[
+ f(y)=y^{-1/2}v(-\log y)\,1_{(0,1]}(y),\qquad
+ \widetilde f(s)=V(s-1/2).
+\]
+\end{proposition}
+\begin{proof}
+Pair the Hadamard logarithmic derivative using the evenness of $F$. For a pair $\rho,-\rho$, its contribution is $2z/(z^2-\rho^2)$. The finite algebra identity
+\[
+ \frac{2x/(x^2-\rho^2)+2y/(y^2-\rho^2)}{x+y}
+ =\frac1{(x+\rho)(y-\rho)}+\frac1{(x-\rho)(y+\rho)}
+\]
+gives \eqref{eq:zerosum} after summation and conjugation symmetry. On the zero strip $V(\rho)=O((1+\abs{\Ima\rho})^{-1})$, and the paired order-one product gives summability of the products. The Mellin substitution gives the stated test exactly. The test is not itself smooth and compactly supported: it has a corner at $y=1$. It is admissible by the directly convergent formula; passage from smooth compactly supported tests uses cutoff and mollification and the same summable majorant, as in the audited PR~58 argument \cite{pr58}.
+\end{proof}
+
+\section{The arithmetic form and a quantified truncation}
+
+Let $\psi=\Gamma'/\Gamma$ be the digamma function and let $\Lambda(m)$ denote the von Mangoldt function. This $\Lambda(m)$ is unrelated to the de Bruijn--Newman constant, denoted $\Lambda_{\mathrm{DBN}}$ here. Put
+\[
+ \lambda_k=2k+\tfrac52,\qquad c_0=\tfrac12\bigl(\log\pi-\psi(5/4)\bigr).
+\]
+\begin{lemma}[Complete logarithmic derivative]
+For $\Rea p>1/2$,
+\begin{equation}\label{eq:Lseries}
+ L(p)=\sum_{k\ge0}\frac{p}{\lambda_k(\lambda_k+p)}
+       +\frac1{p-1/2}-c_0
+       -\sum_{m\ge2}\frac{\Lambda(m)}{\sqrt m}e^{-p\log m}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Logarithmically differentiate \eqref{eq:xi}. The recurrence
+$1/s+\psi(s/2)/2=\psi(s/2+1)/2$, followed by the absolutely convergent digamma-difference expansion anchored at $5/4$, gives the first three terms. The Euler-product logarithmic derivative gives the last term. All uses are in $\Rea(p+1/2)>1$.
+\end{proof}
+
+For $\lambda>-x_*=-\min_jx_j$, define
+\[
+ J_\lambda(t)=\int_0^\infty e^{-\lambda u}v(t+u)\dd u
+ =\sum_j\frac{b_je^{-x_jt}}{x_j+\lambda},\qquad
+ H_\lambda=v-\lambda J_\lambda,
+\]
+and let
+\begin{equation}\label{eq:Egamma}
+ E_\gamma(v)=\sum_{k\ge0}\left(\abs{J_{\lambda_k}(0)}^2+
+          \frac2{\lambda_k}\norm{H_{\lambda_k}}_2^2\right),\qquad
+ C_v(\ell)=\int_0^\infty v(t+\ell)\overline{v(t)}\dd t.
+\end{equation}
+These gamma terms are nonnegative and summable. Indeed, if $B=\sum_j\abs{b_j}$ and $B_1=\sum_j\abs{b_j}x_j$, then
+\[
+ \abs{J_\lambda(0)}^2\le B^2\lambda^{-2},\qquad
+ \norm{H_\lambda}_2^2\le B_1^2/(2x_*\lambda^2).
+\]
+
+\begin{proposition}[Exact signed arithmetic energy]\label{prop:energy}
+\begin{align}\label{eq:arithmetic}
+ Q_L(v)={}&E_\gamma(v)+\abs{J_{-1/2}(0)}^2-\norm{J_{-1/2}}_2^2
+            -2c_0\norm v_2^2\nonumber\\
+          &-2\sum_{m\ge2}\frac{\Lambda(m)}{\sqrt m}\Rea C_v(\log m).
+\end{align}
+Equivalently, with
+\begin{equation}\label{eq:M}
+ M(\ell)=2(e^{\ell/2}-1)-\sum_{m\le e^\ell}\frac{\Lambda(m)}{\sqrt m},
+\end{equation}
+one has
+\begin{equation}\label{eq:residual}
+ Q_L(v)=E_\gamma(v)-2c_0\norm v_2^2
+              -2\Rea\int_0^\infty M(\ell)C'_v(\ell)\dd\ell.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Insert \eqref{eq:Lseries} into \eqref{eq:pick}. The two scalar identities are
+\begin{align*}
+ \frac{p/[\lambda(\lambda+p)]+q/[\lambda(\lambda+q)]}{p+q}
+ &=\frac{1+2pq/[\lambda(p+q)]}{(p+\lambda)(q+\lambda)},\\
+ \frac{1/(p-h)+1/(q-h)}{p+q}
+ &=\frac1{(p-h)(q-h)}-\frac{2h}{(p-h)(q-h)(p+q)}.
+\end{align*}
+The first gives \eqref{eq:Egamma}; the second with $h=1/2$ gives both pole terms. The prime terms are the two conjugate correlations in \eqref{eq:arithmetic}. The pole and prime terms together are $2\Rea\int C_v\dd M$. Integration by parts gives \eqref{eq:residual}: $M(0)=0$, $M(\ell)=O((1+\ell)e^{\ell/2})$, and $C_v,C'_v=O(e^{-x_*\ell})$. These formulas reproduce the normalization in PR~48 \cite{pr48}.
+\end{proof}
+
+\textbf{The sign obligation.} The exact residual inequality is
+\begin{equation}\label{eq:open-energy}
+ 2c_0\norm v_2^2+2\Rea\int_0^\infty M(\ell)C'_v(\ell)\dd\ell
+ \le E_\gamma(v).
+\end{equation}
+The negative pole norm in \eqref{eq:arithmetic} may not be discarded. A positive gamma energy alone does not imply \eqref{eq:open-energy}.
+
+Let $Q_{L,X}$ retain the complete gamma and pole terms but truncate the prime sum at an integer $X\ge3$. Let $P_{X,n}$ be its matrix on the chosen $n$ rates.
+\begin{proposition}[Fixed-test prime tail]\label{prop:tail}
+Writing $\delta=x_*-1/2>0$,
+\begin{equation}\label{eq:tail}
+ \abs{Q_L(v)-Q_{L,X}(v)}\le
+ \frac{B^2}{x_*}X^{-\delta}
+ \left(\frac{\log X}{\delta}+\frac1{\delta^2}\right).
+\end{equation}
+Thus
+\begin{equation}\label{eq:tailmatrix}
+ \norm{P_n-P_{X,n}}_\op\le r_n(X):=
+ \frac n{x_*}X^{-\delta}
+ \left(\frac{\log X}{\delta}+\frac1{\delta^2}\right)\longrightarrow0
+\end{equation}
+for each fixed $n$ and fixed rates.
+\end{proposition}
+\begin{proof}
+The correlation satisfies $\abs{C_v(\ell)}\le B^2e^{-x_*\ell}/(2x_*)$. Use $0\le\Lambda(m)\le\log m$ and compare the decreasing tail with
+$\int_X^\infty(\log t)t^{-1-\delta}\dd t$. The elementary integral gives \eqref{eq:tail}; $B^2\le n\norm b_2^2$ gives \eqref{eq:tailmatrix}. This controls truncation only. It supplies no sign of $P_{X,n}$.
+\end{proof}
+
+\section{A sparse completion criterion}
+
+Fix once and for all
+\begin{equation}\label{eq:sequence}
+ x_j=1+\frac1{j+1},\qquad j\ge1,
+\end{equation}
+and let $P_n$ be the first $n$ rates' matrix. The rates accumulate at $1$, inside the right half-plane $\HH=\{z:\Rea z>0\}$.
+
+\begin{theorem}[One accumulating sequence suffices]\label{thm:sparse}
+The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $P_n\succeq0$ for every positive integer $n$.
+\item RH.
+\end{enumerate}
+Under RH every such prefix is in fact positive definite.
+\end{theorem}
+\begin{proof}
+Assume (i). Define real disk data
+\[
+ a_j=\frac{x_j-1}{x_j+1},\qquad
+ w_j=\frac{L(x_j)-1}{L(x_j)+1}.
+\]
+By \eqref{eq:Lpositive}, $\abs{w_j}<1$. Direct calculation gives
+\begin{equation}\label{eq:cayley}
+ \frac{1-w_i\overline{w_j}}{1-a_i\overline{a_j}}
+ =\frac{x_i+1}{L(x_i)+1}\,P_{ij}\,
+  \frac{x_j+1}{L(x_j)+1}.
+\end{equation}
+The finite Nevanlinna--Pick theorem, including the semidefinite case, therefore supplies a disk function interpolating the first $n$ data and bounded by one \cite{agler}. On composing with $(z-1)/(z+1)$, obtain holomorphic $S_n$ on $\HH$, $\abs{S_n}\le1$, with $S_n(x_j)=w_j$ for $j\le n$.
+
+Montel's theorem gives a subsequence converging locally uniformly to a holomorphic $S$ with $\abs S\le1$. For every fixed $j$, the eventual interpolation identities persist, so $S(x_j)=w_j$. Since $\abs{S(x_1)}<1$, the maximum-modulus principle gives $\abs S<1$ throughout $\HH$. Hence
+\[
+ H(z)=\frac{1+S(z)}{1-S(z)}
+\]
+is holomorphic there, has positive real part and satisfies $H(x_j)=L(x_j)$.
+
+Now $A(z)=F'(z)-H(z)F(z)$ is holomorphic throughout $\HH$ \emph{without assuming that $F$ is zero-free}. It vanishes at every $x_j$. The interior accumulation point and the identity theorem give $F'=HF$ on $\HH$. If $F$ had a zero of order $m\ge1$ there, $F'$ would have order $m-1$ and $HF$ order at least $m$, a contradiction. Thus $F$ has no right-half-plane zeros. Evenness excludes left-half-plane zeros, proving RH.
+
+Conversely assume RH. Every centered zero obeys $-\overline\rho=\rho$, so Proposition~\ref{prop:weil} gives $Q_L(v)=\sum_\rho\abs{V(\rho)}^2\ge0$. Equality forces the rational function $V$ to vanish at infinitely many distinct zeros of $F$; hence $V\equiv0$. Distinct rates then imply $b=0$, proving strict positivity.
+\end{proof}
+
+\begin{remark}[What has been simplified]
+The theorem requires one sequence with one interior accumulation point, rather than every real configuration or a sequence dense in an interval. It also avoids a global operator-domain argument. This is an application of classical interpolation, not a new sign theorem. Its universal quantifier over $n$ remains indispensable.
+\end{remark}
+
+\begin{theorem}[Asymptotic arithmetic Gram transfer]\label{thm:transfer}
+For each fixed $n$, suppose there are Hermitian matrices $G_{X,n}$ and nonnegative numbers $\epsilon_{X,n},\eta_{X,n}$ such that
+\begin{equation}\label{eq:gram-transfer}
+ P_{X,n}-G_{X,n}\succeq-\epsilon_{X,n}I_n,\qquad
+ G_{X,n}\succeq-\eta_{X,n}I_n,
+\end{equation}
+and $\epsilon_{X,n}+\eta_{X,n}\to0$ as integer $X\to\infty$. Then RH holds.
+In particular, $G_{X,n}=T_{X,n}^*T_{X,n}$ permits $\eta_{X,n}=0$.
+\end{theorem}
+\begin{proof}
+By \eqref{eq:tailmatrix} and \eqref{eq:gram-transfer},
+\[
+ b^*P_nb\ge-[r_n(X)+\epsilon_{X,n}+\eta_{X,n}]\norm b_2^2.
+\]
+For fixed $n,b$, take $X\to\infty$. Thus every $P_n$ is PSD and Theorem~\ref{thm:sparse} applies.
+\end{proof}
+
+No uniformity in $n$ is required, and no smallest eigenvalue must stay away from zero. This avoids the constant-gap assumption excluded by the project's compact-operator and high-height analyses. The existence of the required arithmetic comparison is still an open theorem. Taking $G_{X,n}$ to be an unexplained positive part of $P_n$ would conceal the same problem.
+
+\subsection{The correct Schur alternative}
+\begin{lemma}[Singular prefixes]\label{lem:schur}
+For $A\succeq0$ in finite dimension,
+\[
+ \begin{pmatrix}A&u\\u^*&d\end{pmatrix}\succeq0
+ \quad\Longleftrightarrow\quad
+ u\in\ran A\quad\hbox{and}\quad d-u^*A^\dagger u\ge0.
+\]
+\end{lemma}
+\begin{proof}
+Positivity forces $z^*u=0$ for every $z\in\ker A$, by varying the phase and magnitude in the quadratic form on $(tz,1)$. This is the range condition. Under it, complete the square:
+\[
+ (x+tA^\dagger u)^*A(x+tA^\dagger u)
+ +(d-u^*A^\dagger u)\abs t^2.
+\]
+This equals the original block form and proves both directions.
+\end{proof}
+When $A\succ0$, the defect is exactly $Q_L$ on the residual with coefficients $(-A^{-1}u,1)$. If a prefix is singular, a bound on the pseudoinverse defect alone is insufficient. This retains the PR~58 audit correction. The matrix transfer theorem avoids this induction issue.
+
+\section{The arithmetic discrepancy in the announced route}
+
+\subsection{An exact Mellin identity}
+For real $X\ge1$, let $\gamma_E$ denote Euler's constant and define
+\begin{equation}\label{eq:G}
+ G_\zeta(X)=\sum_{m\le X}\Lambda(m)\left(\frac Xm-1\right)
+             -X\log X+(1+\gamma_E)X.
+\end{equation}
+These normalizations agree with the released source's \texttt{Sz} and \texttt{Gz} definitions \cite{externalG}.
+
+\begin{proposition}[Mellin transform and noncancellation]\label{prop:mellin}
+For $\Rea s>1$,
+\begin{equation}\label{eq:mellin}
+ \int_1^\infty G_\zeta(X)X^{-s-1}\dd X
+ =\frac{-\zeta'(s)/\zeta(s)}{s(s-1)}
+  -\frac1{(s-1)^2}+\frac{1+\gamma_E}{s-1}.
+\end{equation}
+The apparent pole at $s=1$ is removable. At a nontrivial zeta zero $\rho_s$ of multiplicity $m_{\rho_s}$, the meromorphic right side has residue
+\begin{equation}\label{eq:residue}
+ -\frac{m_{\rho_s}}{\rho_s(\rho_s-1)}\ne0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Absolute convergence permits integration term by term, using
+\[
+ \int_m^\infty\left(\frac Xm-1\right)X^{-s-1}\dd X
+ =\frac{m^{-s}}{s(s-1)}.
+\]
+Integrating the two elementary main terms gives \eqref{eq:mellin}. Near $s=1$, $-\zeta'/\zeta=1/(s-1)-\gamma_E+O(s-1)$; its product with $1/[s(s-1)]$ has principal part $(s-1)^{-2}-(1+\gamma_E)(s-1)^{-1}$, which cancels. Locally at a zero, $\zeta'/\zeta=m_{\rho_s}/(s-\rho_s)+O(1)$, giving \eqref{eq:residue}.
+\end{proof}
+
+The following classical principle also appears in the published Laplace-transform formulation of \cite{landau}.
+\begin{lemma}[Landau's nonnegative-transform principle]\label{lem:landau}
+Let $h\ge0$ be locally integrable on $[1,\infty)$, with a finite real abscissa $\sigma_c$ of convergence of $\int_1^\infty h(X)X^{-s-1}\dd X$. Its holomorphic transform on $\Rea s>\sigma_c$ cannot extend holomorphically to a neighborhood of the real point $\sigma_c$.
+\end{lemma}
+\begin{proof}
+Set $X=e^t$, so the transform is the Laplace integral of $h(e^t)\ge0$. Suppose it extends across $\sigma_c$. Choose $a>\sigma_c$ sufficiently close that its Taylor series about $a$ converges at a real $a-r<\sigma_c$. The $k$th derivative is $(-1)^k\int_0^\infty t^kh(e^t)e^{-at}\dd t$. At $a-r$ all Taylor terms are nonnegative. Monotone convergence sums them to $\int_0^\infty h(e^t)e^{-(a-r)t}\dd t<\infty$, contradicting the definition of $\sigma_c$.
+\end{proof}
+
+\begin{theorem}[A one-sided scalar completion target]\label{thm:landau}
+Fix a sign $\varepsilon_0\in\{1,-1\}$. If for every $\varepsilon>0$ there exist $C_\varepsilon>0$ and $X_\varepsilon\ge1$ such that
+\begin{equation}\label{eq:scalar-open}
+ \varepsilon_0G_\zeta(X)\le C_\varepsilon X^{1/2+\varepsilon}
+ \quad\hbox{for all }X\ge X_\varepsilon,
+\end{equation}
+then RH holds.
+\end{theorem}
+\begin{proof}
+Fix $a=1/2+\varepsilon<1$. The ramp sum defining $G_\zeta$ is continuous, including at integers. The bound $0\le\Lambda(m)\le\log m$ gives $G_\zeta(X)=O(X\log^2(2X))$. Increase $C_\varepsilon$ to cover the compact initial interval, and set $h(X)=C_\varepsilon X^a-\varepsilon_0G_\zeta(X)\ge0$. Its transform initially converges for $\Rea s>1$ and is represented there by
+$C_\varepsilon/(s-a)-\varepsilon_0\mathcal M_G(s)$, with $\mathcal M_G$ the right side of \eqref{eq:mellin}. This expression is holomorphic in a neighborhood of every real point $s>a$: zeta has no real zeros in $(0,1)$ or $(1,\infty)$, and the point $1$ is removable. If the nonnegative integral had finite abscissa $\sigma_c>a$, this expression would contradict Lemma~\ref{lem:landau}. Thus it converges, and is holomorphic, on $\Rea s>a$ (the case $\sigma_c=-\infty$ is immediate). Its meromorphic identity there implies that $\mathcal M_G$ has no poles in that half-plane. Equation~\eqref{eq:residue} excludes every nontrivial zero with real part greater than $a$.
+
+For any hypothetical zero with real part $\beta>1/2$, choose $0<\varepsilon<\beta-1/2$, a contradiction. The functional equation gives RH. The absence of real zeros on $(0,1)$ can also be seen directly from the positive alternating eta series and $\eta(s)=(1-2^{1-s})\zeta(s)$ \cite{dlmfseries}.
+\end{proof}
+
+The difficult part is \eqref{eq:scalar-open}, not the Mellin calculation. The proof does not manufacture cancellation in the prime sum. It supplies a precise analytic end point for an arithmetic construction.
+
+\subsection{The explicit growth-parameter implication}
+The released source's \texttt{SizeWindows} and \texttt{GrowthSizeBound} interfaces contain a concrete algebraic step \cite{externalgrowth}. We can verify that step independently. Write $N,U,V$ for its quantities $n,nT,nT2$; these are not identified with the Pick-prefix dimension.
+
+\begin{proposition}[Conditional growth bound from the source parameter window]\label{prop:growth}
+Let $x\ge3$, $\varepsilon>0$, $C\ge0$, and let $N,U,V,m,b,k$ be positive real numbers. Suppose
+\begin{align}
+ U&\ge\tfrac N2x^{-\varepsilon/8},&
+ V&\ge Nx^{-\varepsilon},&
+ 0&\le a_E\le2xb,\label{eq:growthsizes}\\
+ x^{1/2-\varepsilon}&\le m\le x^{1/2+\varepsilon/2},&
+ xm&\le k\le N^2x^{1/2-\varepsilon},&
+ 26&\le x^{3\varepsilon/8}.\nonumber
+\end{align}
+Suppose the real quantities $E,G$ obey
+\begin{align}
+ E&\le x^{C\varepsilon}
+ \left[Ua_E\left(1+\frac{m^2}{k}\right)
+ +m\left(2Nmbx^\varepsilon+\frac{Vkb}{N^2}x^{2\varepsilon}\right)\right],
+ \label{eq:growtherror}\\
+ \frac{UmbV}{2N}\left(G-4x^{1/2+\varepsilon}\right)
+ &\le E+\frac{2Umb}{x}.\label{eq:growthbalance}
+\end{align}
+Then $G\le x^{1/2+(C+3)\varepsilon}$.
+\end{proposition}
+\begin{proof}
+Divide \eqref{eq:growthbalance} by its positive coefficient and apply \eqref{eq:growtherror}. The four error contributions are bounded using \eqref{eq:growthsizes} as follows:
+\begin{align*}
+ \frac{2Na_E}{mbV}&\le4x^{1/2+2\varepsilon},&
+ \frac{2Na_Em}{bVk}&\le4x^\varepsilon,\\
+ \frac{4N^2m}{UV}x^\varepsilon&\le8x^{1/2+21\varepsilon/8},&
+ \frac{2k}{NU}x^{2\varepsilon}&\le4x^{1/2+9\varepsilon/8}.
+\end{align*}
+The additional term is $4N/(xV)\le4x^{\varepsilon-1}$. Hence
+\begin{align*}
+G\le{}&4x^{1/2+\varepsilon}
++x^{C\varepsilon}\left[
+4x^{1/2+2\varepsilon}+4x^\varepsilon
++8x^{1/2+21\varepsilon/8}+4x^{1/2+9\varepsilon/8}\right]\\
+&+4x^{\varepsilon-1}.
+\end{align*}
+Put $A=x^{1/2+(C+21/8)\varepsilon}$. The initial term and the three terms with a factor $x^{1/2}$ sum to at most $20A$. The remaining two obey
+\[
+4x^{(C+1)\varepsilon}+4x^{\varepsilon-1}
+\le4x^{(C+1)\varepsilon}(1+1/x)\le6A.
+\]
+Therefore $G\le26A\le x^{1/2+(C+3)\varepsilon}$.
+\end{proof}
+
+For a fixed $C\ge0$, if suitable arithmetic data satisfying these hypotheses with $G=G_\zeta(x)$ exist for every sufficiently large $x$ and each sufficiently small $\varepsilon>0$, Theorem~\ref{thm:landau} gives RH. The size of the required threshold may depend on $\varepsilon$. In particular the source window
+$x^{1/2-\varepsilon}\le m\le x^{1/2+\varepsilon/2}$ is more precise than an informal description of square-root chain length.
+
+This proposition checks the downstream algebra. It does not construct the source's arithmetic data, prove the total error bound, or establish the balance inequality. These inputs remain unproved here; defining a proposition expressing their existence supplies none of them.
+
+\subsection{The stronger window interface: an external import}
+The released source uses a fixed finite family of Dirichlet characters $\chi_i$ of positive moduli $N_i$, with fixed strictly positive real weights $a_i$. Each member is either nonprincipal or the unique character of modulus $1$ \cite{externalfamily}. For a nonprincipal character, using the classical nonvanishing $L(\chi,1)\ne0$, its discrepancy is
+\[
+ G_\chi(y)=\sum_{m\le y}\Lambda(m)\chi(m)(y/m-1)
+               +y\,L'(\chi,1)/L(\chi,1),\qquad
+ G_{\mathcal F}(y)=\sum_i a_i\Rea G_{\chi_i}(y),
+\]
+with the modulus-one character treated by \eqref{eq:G}. The source theorem
+\path{Deduction.zeroFree_of_rpow_window} states that for fixed $0<\theta<1$, $\delta>0$ and $C$, a bound
+\begin{equation}\label{eq:window}
+ \forall Y_0\ \exists Y\ge Y_0\quad
+ G_{\mathcal F}(y)\le Cy^\theta\quad
+ \hbox{for every }y\in[Y,Y^{1+\delta}]
+\end{equation}
+implies zero-freeness to the right of $\theta$ for every member of that family \cite{externalwindow}. The family and weights are fixed before the windows are chosen. An estimate at isolated points, or for an unrelated family at each point, does not satisfy this statement.
+
+\textbf{Import boundary.} The full-ray theorem above does not prove this window theorem. The latter has a substantially longer source dependency chain and is not used as an unconditional premise in our proved results. A combined argument choosing this interface must validate that chain or supply an independent proof.
+
+For comparison, the pole noncancellation in the source is elementary. Averaging a character with its inverse and summing with positive weights gives, at a zero $\rho_s\notin\{0,1\}$,
+\[
+ A_{\rho_s}=\tfrac12\sum_i a_i
+ (m_{\chi_i}(\rho_s)+m_{\chi_i^{-1}}(\rho_s))>0,
+ \qquad \Res\mathcal M_{\mathcal F}
+ =-A_{\rho_s}/[\rho_s(\rho_s-1)]\ne0.
+\]
+This uses the local logarithmic derivatives and the fact that at least one indicated multiplicity is positive \cite{externalpoles}. It prevents cancellation of the detected zero's pole; it does not prove the window estimate.
+
+\section{The concrete arithmetic-theta completion problem}
+
+\subsection{The part of the old obstruction that matters}
+The PR~61 square-realization lane considered a map $\Theta$ satisfying
+\[
+ Q_L(v)=\norm{\Theta v}^2,\qquad \Theta S_a=U(a)\Theta.
+\]
+Here $S_av(t)=1_{[a,\infty)}(t)v(t-a)$ for $a\ge0$, and covariance is imposed on the class obtained by adjoining these right translates to the exponential tests. Its audit restricts the obstruction to a \emph{mixing} unitary evolution $U$. It explicitly leaves open compact or definite targets, suitable Hecke/Casimir evolution, source-side test insertion, and noncovariant or truncated constructions \cite{rallisaudit}. Hence it does not exclude the definite unitary groups described in the announcement.
+
+This is a specific unexcluded class, not evidence that the desired map exists. Positivity of a Rallis norm is not automatically positivity of $Q_L$. Its measure, local factors, pole terms and test dependence must agree with the exact form.
+
+The later continuation also matters. The November 19 metaplectic lane constructs a weight-$1/2$ eigenobject with a zeta-dependent vanishing square row, but its first-moment vanishing does not remove the decisive second-moment poles. The November 20 rank-two lane tests $GL_3$, $GL_4$ and double-cover objects; the double-cover argument and a needed truncated norm remain incomplete. These are substantial overlaps in subject matter, with explicit unresolved outputs, not a proved multiplicity-amplification chain. The paired result and audit files are listed in the source ledger \cite{pr61}.
+
+\begin{problem}[Finite-prefix arithmetic lift comparison]\label{prob:lift}
+For each $n\ge1$, independently of assumed zero locations, construct vectors
+$\Theta_{X,1},\ldots,\Theta_{X,n}$ in positive Hilbert spaces, and prove
+\begin{equation}\label{eq:missing}
+ Q_{L,X}(v_b)\ge
+ \norm{\sum_{j=1}^n b_j\Theta_{X,j}}^2
+ -\epsilon_{X,n}\norm b_2^2
+ \quad\hbox{for all }b\in\C^n,
+\end{equation}
+where the rates are \eqref{eq:sequence} and $\epsilon_{X,n}\to0$ for each fixed $n$.
+\end{problem}
+Together with Proposition~\ref{prop:tail}, this is a sufficient condition for RH by Theorem~\ref{thm:transfer}. It is a reformulated arithmetic obligation, not a theorem proved by the present work.
+The vectors and their error bound must be obtained from specified arithmetic or automorphic data without using RH, the positivity of $P_n$, or a spectral decomposition whose nonnegative sign is the claim under proof.
+
+\subsection{A reviewable construction must specify the following}
+\begin{enumerate}
+\item The definite quadratic or Hermitian spaces, their groups and measures, the starting automorphic representation, all characters, levels and archimedean factors, and the test vector carrying each rate $x_j$.
+\item Every theta-lift operator, its convergence or regularization, and the exact integral structures whose divisibility is used. The chain length $m=m(X)$ and its constants must be quantitative.
+\item The identity or inequality that pulls the lifted object back to \eqref{eq:arithmetic} or \eqref{eq:residual}. The target cannot be replaced by a different positive kernel with the same diagonal or symmetries.
+\item A bound for the total error after the complete chain, including off-diagonal correlations, local factors, level and dimension growth, normalizations, boundaries and all discarded tails. A per-step saving without accumulated costs is insufficient.
+\item A proof that the resulting error tends to zero for each fixed $n$, or a correctly quantified estimate such as \eqref{eq:scalar-open} or \eqref{eq:window}. The necessary limit depends on the chosen interface.
+\end{enumerate}
+
+The source-level \texttt{LinkS} proposition specifies dimension-normalized off-diagonal estimates, diagonal Hilbert--Schmidt defect estimates, and dimension control, subject to an explicit comparability hypothesis. For example, its off-diagonal estimate has the scale
+\[
+ \operatorname{hsSq}(u,u')\le(1+\eta_0)\frac{d_ud_{u'}}{D_*}\quad(u\ne u'),
+ \qquad C_0^{-1}\le\frac{d_u\Gamma^2}{D_*}\le C_0.
+\]
+Its small parameters control errors relative to those normalizations; the reference scale need not itself be small. This resembles a coupling problem, but the definition alone does not prove the estimates, and it is not already a bound on the project's $B^*D^{-1}B$ \cite{externalinputs}. An intertwiner identifying the two forms has not been supplied.
+
+\subsection{Two logically different outcomes}
+A successful independent proof of \eqref{eq:missing}, using lower-level verified arithmetic inputs, would complete the present analytic route. Alternatively, importing the external endpoint theorem that already asserts RH would make all the project's equivalent positivity statements corollaries. The latter would be an exposition and application of the external proof, not an independent proof produced by combining unfinished project lemmas.
+
+\section{What the accumulated work contributes}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}}
+\toprule
+Workstream & Retained contribution & Limit relevant to this proof\\
+\midrule\endfirsthead
+\toprule Workstream & Retained contribution & Limit relevant to this proof\\\midrule\endhead
+Prime-power twin ladder & Exact frequencies $m\log p$, completion and reflection; finite signed telescopes. & Trace identities in the convergence half-plane do not locate all zeros.\\
+Wigner and shear & Exact shifted correlations, modular endpoint cancellations and negative witnesses. & Pointwise correlation positivity is false; the weighted global sign remains open.\\
+Supersymmetry and heat duality & Exact Koszul and heat-deformed product identities; conditional Gram closure. & A quarter-turn or positive abstract factorization does not establish the arithmetic map.\\
+Theta/Pick reductions & PR~55 reports third canonical preservation and strict six-node positivity, with analytic and interval dependencies \cite{pr55}. & No arbitrary-depth induction has been proved.\\
+Large finite stages & PR~40 reports finite polynomial positivity using published verified-zero input; PR~58 records higher finite Pick tests. & These inherit external finite verification and do not establish every order.\\
+Weil/Schur bridge & PR~58's exact identity and corrected residual criterion. & The complete residual sign is RH-equivalent; singular prefixes require the range condition.\\
+Odd Mellin sector & Restricted cones and small finite Taylor/node certificates; an all-order criterion. & Entry positivity and finite blocks do not give the arbitrary oscillatory-test sign.\\
+Sphere/torus/Klein & Exact atlases, symmetries and period identities; invariance checks. & Essential punctures persist. Faithful coordinates do not improve the normalized coupling.\\
+Spinor, twistor and Hankel & Exact identities and alternative criteria with specified domains. & A positive Hilbert-space realization has not been constructed; some index identifications remain open.\\
+Zero channels and topology & Certified bounded disks and complete counts in specified finite bands; negative controls. & No all-height exhaustion or global heat-flow confinement follows.\\
+Hecke, metaplectic and Rallis & Eigenrelations and explicit limits of mixing square realizations; study of definite alternatives. & No growing definite-lift chain with the required arithmetic cost bound is established.\\
+de Bruijn--Newman & Candidate bound package and reproducibility records. & The $0.1787854$ value remains a candidate in the audited records, and any positive bound still falls short of RH.\\
+\bottomrule
+\end{longtable}
+
+These workstreams are not interchangeable proof steps. An equality between the modular average and a Petersson/Rallis Gram, and operator equivalences between every parity construction, have not been established. The later \texttt{sq-krein-index} lane records a broader inertia claim, counting distinct zeros, without an internal referee report. This synthesis has not validated that claim and does not use it, nor does it use an identification of every windowed zero form with a restriction of the global Weil form.
+
+\subsection{Why finite success did not establish proximity to a proof}
+The arithmetic reductions are real progress toward a precise formulation. The missing universal sign still carries RH-level difficulty. Project controls make this concrete: a positive even rapidly decaying kernel can be deformed to add an off-line quartet while preserving any prescribed finite collection of bounded contour counts and strict Taylor blocks; this changes the exact zeta arithmetic. The Davenport--Heilbronn control also survives numerous finite tests before exhibiting a certified negative direction. The latter is a failure by a particular order and configuration, not a globally minimal failing order.
+
+The exact rational control in Appendix~\ref{app:control} provides a smaller independent illustration. It is deliberately not a model of the full zeta arithmetic. Its role is to catch a false inference from real-axis positivity and a few positive prefixes.
+
+\section{Release status and next mathematical step}
+
+The following are complete within this document: the explicit arithmetic identities and tail estimate; the sparse-prefix equivalence; the asymptotic Gram transfer theorem; the generalized Schur criterion; the scalar Mellin-residue identity; and the full-ray one-sided analytic implication. They are reductions or standard consequences, not an unconditional RH proof.
+
+The priority mathematical step is to produce \emph{one exact lower-level transport statement} from the definite theta-lift construction into \eqref{eq:missing}, or to prove the normalized prime discrepancy bound directly with the complete cost ledger. Increasing a finite Pick order or redrawing the geometry cannot substitute for that statement. The accompanying proof-obligation register fixes the input, output and pass conditions for this work.
+
+The external formal source and its verification status must be pinned at release. A source theorem named as an implication, a definition of a proposition, and a proved instance of that proposition are different objects. No claim of completed verification follows from a successful source scan, a compiling challenge statement or a verification-harness smoke test.
+
+\appendix
+\section{An exact negative control}\label{app:control}
+Let
+\[
+ F_{\rm test}(z)=((z-\tfrac14)^2+1)((z+\tfrac14)^2+1),
+ \qquad L_{\rm test}=F'_{\rm test}/F_{\rm test}.
+\]
+It is real and even, has off-axis zeros $\pm1/4\pm i$, and has $F_{\rm test}(x)>0$, $L_{\rm test}(x)>0$ for $x>0$. On the first three rates in \eqref{eq:sequence}, the first two leading determinants of its Pick kernel are positive and the third is negative. With
+\[
+ b=\left(\frac{5387291309}{8548485600},
+         -\frac{4621725761}{2849495200},1\right)^T,
+\]
+exact rational arithmetic gives
+\[
+ b^*P^{\rm test}_3b=-\frac{54686}{17364111375}<0.
+\]
+The included checker derives this witness by Schur elimination rather than trusting the displayed constants. It also checks the Cayley congruence, gamma/pole algebra and a singular-prefix countercontrol. These are tests of the manuscript's identities and logical boundaries; they do not test or prove RH.
+
+\section{Source coverage and verification boundaries}
+The accompanying machine-readable inventory records all 62 accessible MathExplorer PR descriptions with their head commits. It also indexes 315 immediate entries in PR~61's fleet directory, including 304 lane directories, at commit \texttt{753fdc475c85ce347b6994d561919ffdf7b6815a}. We read the major syntheses and the specific theorem and internal-audit files relevant to the comparison. Four older manuscripts were resolved and their relevant passages inspected. Additional local checkpoints supplied geometric and finite-certificate context.
+
+This coverage supports a program-wide synthesis, not the assertion that every line of every historical artifact or all 304 lane proofs have been independently checked. Historical results are attributed to their recorded level of review. A final unconditional proof would need a much smaller load-bearing dependency graph, with each edge validated. The present core deliberately does not depend on historical numerical success.
+
+The original external source mirror is pinned at commit
+\nolinkurl{40e56bab026552e089d7afcfeff08d2defb9c005}. Its reported archive hash is retained in the source ledger. The entire external Lean project has not been built here. The independent checker inspected had not yet reported a successful full replay as of this manuscript's preparation.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{dlmf} NIST, \emph{Digital Library of Mathematical Functions}, Section 25.4, completed zeta and functional equation. \url{https://dlmf.nist.gov/25.4}.
+\bibitem{dlmfseries} NIST, \emph{Digital Library of Mathematical Functions}, Section 25.2, Laurent expansion and alternating series. \url{https://dlmf.nist.gov/25.2}.
+\bibitem{agler} J. Agler and J. E. McCarthy, \emph{Nevanlinna--Pick Kernels and Localization}, Theorem 0.1. \url{https://arxiv.org/pdf/1610.01965}.
+\bibitem{landau} I. Gy\H ori, G. Ladas and L. Pakula, \emph{Oscillation Theorems for Delay Differential Equations via Laplace Transforms}, Canadian Mathematical Bulletin 33(3) (1990), 323--326, Lemma 1. \url{https://doi.org/10.4153/CMB-1990-053-4}.
+\bibitem{alpoge} L. Alp\"oge, announcement and outline, inspected 20 November 2026. \url{https://alpo.ge/remark.pdf}.
+\bibitem{externalcheck} Independent verification project, current status and notes. \url{https://github.com/Deicyde/riemann-hypothesis}. Source inspection and a successful full kernel replay are distinguished in its README.
+\bibitem{externalG} Released source, \texttt{Formalism/StatementOC.lean}, pinned original mirror. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/StatementOC.lean}.
+\bibitem{externalfamily} Released source, \texttt{CharFamily.lean}, character admissibility and weights. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/DedekindLFunctions/CharFamily.lean}.
+\bibitem{externalwindow} Released source, \texttt{ZeroFreeOfRpowWindow.lean}. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ZeroFreeOfRpowWindow.lean}.
+\bibitem{externalpoles} Released source, \texttt{poleData.lean}, pole multiplicities and noncancellation. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean}.
+\bibitem{externalinputs} Released source, \texttt{GlobalTheoremInputs.lean}, especially the \texttt{LinkS} obligation. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SharpRestriction/GlobalTheoremInputs.lean}.
+\bibitem{externalgrowth} Released source, \texttt{GrowthBoundGivesRiemannHypothesis.lean}, especially \texttt{SizeWindows} and \texttt{GrowthSizeBound}. \url{https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SizeWindowBrackets/GrowthBoundGivesRiemannHypothesis.lean}.
+\bibitem{pr48} J. Gomila, MathExplorer PR~48, exact theta residual energy, equations (4)--(21), commit \texttt{499528b487e3249c5a35602f83343aaa53cec848}. \url{https://github.com/judegomila/mathexplorer/pull/48}.
+\bibitem{pr55} J. Gomila, MathExplorer PR~55, third theta preservation and six-node positivity, commit \texttt{c617017e3a90562cd828e58ffc71b03afab128cc}. \url{https://github.com/judegomila/mathexplorer/pull/55}.
+\bibitem{pr58} J. Gomila, MathExplorer PR~58, \texttt{eq48/RESULT.md} and \texttt{REFEREE.md}, commit \texttt{97a732d54156e119627627e2b80090d63bfa9a29}. \url{https://github.com/judegomila/mathexplorer/pull/58}.
+\bibitem{pr60} J. Gomila, MathExplorer PR~60, \texttt{ff-transplant/RESULT.md} and \texttt{pick-induction/RESULT.md}, commit \texttt{a4b2b400018d228bd31448007b09e6b38779341c}. \url{https://github.com/judegomila/mathexplorer/pull/60}.
+\bibitem{pr61} J. Gomila, MathExplorer PR~61, fleet-lane syntheses and later continuation records, commit \texttt{753fdc475c85ce347b6994d561919ffdf7b6815a}. \url{https://github.com/judegomila/mathexplorer/pull/61}.
+\bibitem{rallisaudit} J. Gomila, \texttt{ap-squares-rallis/REFEREE.md} and \texttt{SYNTHESIS\_AUTOMATIC\_POSITIVITY.md}, same pinned PR~61. \url{https://github.com/judegomila/mathexplorer/blob/753fdc475c85ce347b6994d561919ffdf7b6815a/research-checkpoints/rh-push-2026-11-16/fleet-lanes/SYNTHESIS_AUTOMATIC_POSITIVITY.md}.
+\end{thebibliography}
+\end{document}

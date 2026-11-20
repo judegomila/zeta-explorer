@@ -1,0 +1,125 @@
+{
+  "grade": "nonrigorous_floating_structure_diagnostic",
+  "nonclaims": [
+    "The sampled sign changes are not interval-certified.",
+    "The quadrature and orbit truncation are floating diagnostics.",
+    "The calculation covers only degrees 3, 5, and 7.",
+    "It proves no all-degree angle bound, next pivot, Xi-Laguerre inequality, or RH."
+  ],
+  "parameters": {
+    "arb_bits_for_polynomial_reconstruction": 256,
+    "arithmetic_coefficient": "standard Jordan totient J_2",
+    "arithmetic_translates": [
+      1,
+      7
+    ],
+    "degrees": [
+      3,
+      5,
+      7
+    ],
+    "maximum_inner_theta_orbit": 64,
+    "t_gauss_nodes": 128,
+    "t_interval": [
+      0.0,
+      1.8
+    ],
+    "u_gauss_nodes": 224,
+    "u_interval": [
+      0.0,
+      1.8
+    ]
+  },
+  "provenance": {
+    "actual_angle_source": "workstreams/actual-theta-angle-wave27-20261103/src/certify_actual_theta_angle.py",
+    "actual_angle_source_sha256": "159bcc5b32afe6e55045e4d9ed009ef0efa481d4758eafa9a8b6c557263055e4",
+    "orbit_evaluator_source": "workstreams/all-degree-analytic-search/src/operator_mining.py",
+    "orbit_evaluator_source_sha256": "122a6ee179f6b7878ff1abd5ed47593d778a90df6ac633303f791733336f75b9",
+    "source": "workstreams/green-transfer-obstruction-wave28-20261104/src/probe_actual_theta_shifted_correlation.py",
+    "source_sha256": "94d0533284d02329e90a6e47330f2c5b19ae82cb9fd88d53ceafb5f2891b7587",
+    "target_archive_sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "635d93c12f2e8af2b6fd3e49452dbc3194b9e0db1c6dc997f9ef4b05f3601558"
+  },
+  "results": [
+    {
+      "c_five_halves": -4.489453627650013,
+      "c_three_halves": -4.72182642436141,
+      "correlation_maximum": 2.2999142828078325,
+      "correlation_maximum_t": 0.3568585894573063,
+      "correlation_minimum": -56.86711330385955,
+      "correlation_minimum_t": 0.00015760084758131843,
+      "degree": 3,
+      "direct_angle": -0.08727799981254868,
+      "green_angle": -0.08727799981255903,
+      "negative_nodes": 31,
+      "positive_nodes": 97,
+      "relative_green_identity_error": 1.0352829704629585e-14,
+      "sign_change_brackets": [
+        [
+          0.24257918993228206,
+          0.2578010600847713
+        ]
+      ],
+      "signed_combo": -4.024708034227219
+    },
+    {
+      "c_five_halves": 109124.3662407335,
+      "c_three_halves": 117057.99734878138,
+      "correlation_maximum": 1119517.3257722545,
+      "correlation_maximum_t": 0.00015760084758131843,
+      "correlation_minimum": -26624.48752277905,
+      "correlation_minimum_t": 0.46758233483624523,
+      "degree": 5,
+      "direct_angle": 0.72053126037165,
+      "green_angle": 0.7205312603717222,
+      "negative_nodes": 91,
+      "positive_nodes": 37,
+      "relative_green_identity_error": 7.216449660063518e-14,
+      "sign_change_brackets": [
+        [
+          0.3394780254804736,
+          0.3568585894573063
+        ]
+      ],
+      "signed_combo": 93257.10402463772
+    },
+    {
+      "c_five_halves": 3065154337.66405,
+      "c_three_halves": 3341225382.3262596,
+      "correlation_maximum": 25007111549.504932,
+      "correlation_maximum_t": 0.00015760084758131843,
+      "correlation_minimum": -3499478053.954784,
+      "correlation_minimum_t": 0.44841639677747,
+      "degree": 7,
+      "direct_angle": 2.5924704507155054,
+      "green_angle": 2.5924704507157155,
+      "negative_nodes": 13,
+      "positive_nodes": 115,
+      "relative_green_identity_error": 8.102472149725217e-14,
+      "sign_change_brackets": [
+        [
+          0.3394780254804736,
+          0.3568585894573063
+        ],
+        [
+          0.5875940442621281,
+          0.608320408478028
+        ]
+      ],
+      "signed_combo": 2513012248.33963
+    }
+  ],
+  "runtime": {
+    "network_used": false,
+    "numpy": "2.5.3",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python"
+  },
+  "schema_version": "zsv.actual_theta_shifted_correlation_probe.v1",
+  "status": "PASS",
+  "strict_floating_observation": "K_n(t) takes both signs on the sampled Gauss nodes for actual theta at n=3,5,7"
+}

@@ -1,0 +1,19 @@
+{
+  "lambda": "2/25",
+  "minor_lowers": [
+    "36159/125000",
+    "6022746431361/125000000000",
+    "4603211271826154230075093/1000000000000000000"
+  ],
+  "residual_abs_upper": [
+    "24075934673/40000000000",
+    "831520933613/20000000000",
+    "367419249520823/40000000000"
+  ],
+  "residual_cost_upper": "67499835603173784617143574667/64000000000000000000",
+  "trial_quadratic_lower": "9733202846827354548886387/1600000000000000",
+  "schur_lower_exact": "321828278269920397338311905333/64000000000000000000",
+  "schur_lower_integer_floor": 5028566847,
+  "strict_claim_gt_5028000000": true,
+  "moment_input": "auditor independently replayed degree7 regional moments; reused, not regenerated"
+}

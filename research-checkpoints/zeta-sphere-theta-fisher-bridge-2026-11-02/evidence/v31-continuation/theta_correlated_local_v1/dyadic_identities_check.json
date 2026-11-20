@@ -1,0 +1,6 @@
+{
+  "dyadic_exponents_tested": 50,
+  "recurrence_and_cost_coefficients": "PASS",
+  "integer_threshold_check": "PASS",
+  "scope": "Finite symbolic checks support the separate general proofs; no residual or pivot sign tested."
+}

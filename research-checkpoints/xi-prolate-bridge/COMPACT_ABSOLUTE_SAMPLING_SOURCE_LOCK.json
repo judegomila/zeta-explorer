@@ -1,0 +1,136 @@
+{
+  "schema": "xi-prolate-compact-absolute-sampling-source-lock-v1",
+  "claim_class": "COMPACT_BV_ABSOLUTE_ZERO_SAMPLING_AND_PROJECTION_REMAINDER",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "ZERO_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "role": "HSW v1 zero-count formula, finite overlap constant, and multiplicity convention"
+    },
+    {
+      "path": "DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json",
+      "sha256": "66347adeb8c3e0d497760318370d00949d598a3ba42d5375c27dafc1651b3714",
+      "role": "source-normalized prolate variation, defect lower bound, and locked projection schedule"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "fixed-index Slepian defect asymptotic and d_4/d_8 ratio"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "exact Weil and source-state convention chain used by the physical outer theorem"
+    },
+    {
+      "path": "P1_SOURCE_LOCK.json",
+      "sha256": "63b83879c52382c6c524b3137b25ea9f1882a24c5518374d487469ecf0e077d2",
+      "role": "source-normalized prolate tail and endpoint convention chain"
+    },
+    {
+      "path": "P2_SOURCE_LOCK.json",
+      "sha256": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
+      "role": "complete physical-tail decomposition convention chain"
+    },
+    {
+      "path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "role": "primary analytic zero-count source"
+    },
+    {
+      "path": "vendor/EGIDI-SEELMANN-LS-2010.11901v2.tex.gz",
+      "sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+      "role": "primary source for the explicit all-index prolate-defect lower bound already derived in the dependency lock"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "source-normalized prolate state and log-Fourier conventions"
+    },
+    {
+      "path": "vendor/CCM-PROLATE-2310.18423v2.pdf",
+      "sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+      "role": "finite Fourier and prolate eigenfunction normalization"
+    },
+    {
+      "path": "vendor/KRD-PSWF-2006.00427v2.pdf",
+      "sha256": "7c56255db5bd6454e3fc926952052fe466ffd49c4961ad8206638dcac1dd39a0",
+      "role": "d_0 and d_4 at most one half for lambda at least two"
+    },
+    {
+      "path": "vendor/SLEPIAN-PSWF-IV-1964.pdf",
+      "sha256": "86efb6b69f405a046914f19c07161329b3f455a93a58467cc8107cfa4a135351",
+      "role": "primary fixed-index concentration-defect ratio source"
+    },
+    {
+      "path": "vendor/MTY-ZFR-2212.06867v1.pdf",
+      "sha256": "127c32eb86d0aea264cc5b1ba96cc83243ef6b763451591e1560edaca1767300",
+      "role": "zero-free strip input used by the admitted physical-outer absolute sampling theorem"
+    },
+    {
+      "path": "vendor/PT-RH-VERIFY-2004.09765v1.pdf",
+      "sha256": "3362f66af9fa9373977eee70e2282ec33989d5d8b97e0852df9e32cc25b52885",
+      "role": "finite-height input used by the admitted physical-outer absolute sampling theorem"
+    },
+    {
+      "path": "notes/DEFECT_RELATIVE_PROJECTION_THEOREM.md",
+      "sha256": "3c3e0ac08089d84b414a05b8c8791fb49b588ca41fb21d39e6406e277875638f",
+      "role": "repository derivation of the projection L2 and circular-BV inputs"
+    },
+    {
+      "path": "notes/OUTER_OUTER_WEIGHTED_TRANSLATION_THEOREM.md",
+      "sha256": "34bb4e43faf04f34e11126946b1069480375d5ba18baf9c97e9746b246594a0f",
+      "role": "repository derivation of the physical outer sample-square input"
+    },
+    {
+      "path": "notes/OUTER_OUTER_SPECTRAL_THEOREM.md",
+      "sha256": "02407eafa8fd5db4c5d8b5bbb2f62d5215f6ef5bf1cb5104fa53caddb52800e4",
+      "role": "repository assembly of the exact C_spec sampling series and outer bound"
+    }
+  ],
+  "locked_conventions": {
+    "zero_parameter": "s_rho=gamma+i*(1/2-beta) for rho=beta+i*gamma",
+    "angular_transform": "F(z)=integral_R f(t)*exp(-i*z*t) dt",
+    "absolute_sampling_seminorm": "sum_rho (abs(F(s_rho))^2+abs(F(conjugate(s_rho)))^2)",
+    "support": "f is real BV and supported in [-log(lambda),log(lambda)]",
+    "submean_radius": "r_lambda=1/(4*(1+log(lambda)))",
+    "log_weight": "w(x)=log(2+abs(x))",
+    "local_overlap_majorant": "Z_finite+C_Z*log(2+abs(x)) separately on each height sign",
+    "locked_schedule": "lambda_j=j+1/2; N_j=2^(2400*(2*j+1)^2); j>=2"
+  },
+  "locked_constants": {
+    "T0": 30610046000,
+    "U": 61220092002,
+    "M(t)": "t/(2*pi)*log(t/(2*pi*e))",
+    "R(t)": "0.103787*log(t)+0.257297*log(log(t))+9.367419",
+    "Z_finite": "1+M(U)-1/8+R(U)",
+    "C_Z": "1+1/pi+2*(0.103787+0.257297)+2*9.367419",
+    "generic_bound": "sampling(f)<=192*sqrt(e)*lambda*(1+log(lambda))^2*E^2*(Z_finite+(C_Z/pi)*((pi+1)*log(H+2)+1))",
+    "generic_H": "H=max(1,(V+(3/4)*sqrt(2*log(lambda))*E)^2/E^2)",
+    "combined_source_coefficient": "A_lambda=(sqrt(3)/2^(11/4))*(1+2*sqrt(2)*lambda)",
+    "single_mode_variation": "V_star=4*lambda*(2*pi*lambda^2+1/2)+16*sqrt(2)*pi*lambda^2",
+    "projection_real_variation": "V_P<=3*A_lambda*V_star*(1+sqrt(2*N))",
+    "defect_lower": "d_lower=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "projection_H": "H_P=max(1,W_P^2/(d_lower*(A_lambda*R_proj)^2))",
+    "projection_W": "W_P=3*A_lambda*V_star*(1+sqrt(2*N))+(3/4)*sqrt(2*log(lambda))*A_lambda*R_proj",
+    "projection_substitution": "x*log(2+max(1,a/x)) is increasing in x and a; x=norm(P)^2<=d_4*(A_lambda*R_proj)^2; d_4>=d_lower",
+    "projection_relative_bound": "sampling(P)/d_4<=192*sqrt(e)*lambda*(1+log(lambda))^2*(A_lambda*R_proj)^2*(Z_finite+(C_Z/pi)*((pi+1)*(log(3)+log(H_P))+1))",
+    "outer_absolute_sampling": "sampling(O)<=2*C_spec*D_S(lambda)*d_4"
+  },
+  "claim_boundary": {
+    "proved": [
+      "an explicit absolute zero-sampling bound for every compact real BV profile on the locked logarithmic interval",
+      "the compact log-Fourier projection remainder has absolute sampling seminorm squared o(d_4) and o(d_8) on the locked exponential schedule",
+      "combined with the admitted physical-outer theorem, the complete radical remainder has absolute sampling seminorm squared O(lambda^7*d_4)"
+    ],
+    "not_proved": [
+      "uniform source-window Bessel bounds through the growing prolate transition range",
+      "the reciprocal defect sum required by the graph-dual residual theorem",
+      "a shifted signed-sector floor or resolvent-action rate",
+      "equation (5.2) or locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

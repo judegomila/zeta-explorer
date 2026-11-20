@@ -1,0 +1,130 @@
+{
+  "schema": "xi-prolate-signed-quotient-capture-source-lock-v1",
+  "claim_class": "SIGNED_QUOTIENT_AND_PHYSICAL_CAPTURE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "exact finite Weil conventions, Fourier sign, inversion reflection, and inclusive prime-power endpoint"
+    },
+    {
+      "path": "P2_SOURCE_LOCK.json",
+      "sha256": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
+      "role": "pinned additive KRD transition-window constants and parameter conversion"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "pinned fixed-index prolate defect asymptotics used in the d8/d6 ratio"
+    },
+    {
+      "path": "HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "65df5f6f47aa0718f1768d1dfafa5f5ec659e4c2681419ef130cd15572b6a9f9",
+      "role": "source lock for the common odd-scale shift estimate"
+    },
+    {
+      "path": "BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json",
+      "sha256": "1a3993f3bda080c3d9dd870c8ffffb9b4b278eb5049d0508c72389a5c15f10a4",
+      "role": "source lock for the split plus synthesis and quotient-action theorem"
+    },
+    {
+      "path": "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json",
+      "sha256": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
+      "role": "source lock for the dangerous-rank, capture, and gluing theorem"
+    },
+    {
+      "path": "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "585d13e3860106840e0bd550eaa30ff16eee78a182b926ccf4656e69be59bc6b",
+      "role": "source lock for the transition-window count formulas"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "Moore--Penrose quotient metric and source-coordinate isometry"
+    },
+    {
+      "path": "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md",
+      "sha256": "31c4239b2dec0114be7b8e9b42e52ebc6361130461d1225e05c81ff5b26369d4",
+      "role": "split plus synthesis, scalar shift, and finite source norm bounds"
+    },
+    {
+      "path": "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md",
+      "sha256": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
+      "role": "finite dangerous-rank theorem, capture floor, and signed gluing criterion"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "transition index and strict buffered parity-target count formulas"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact parity multiplier, odd pole sign, and Schur-complement target"
+    },
+    {
+      "path": "notes/PARITY_SHIFT_SCALE_AUDIT.md",
+      "sha256": "dee08d1833047dea48a962d7b37738cc5eba0b48e9078ac90b103904b64091b0",
+      "role": "fixed-index d8/d6 asymptotic and parity shift-scale comparison"
+    },
+    {
+      "path": "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md",
+      "sha256": "113be74d52f48d66903c1babf1525ec6d130243321acfa31562abd8640868a3a",
+      "role": "proved common normalization-free shift U0=o(d6) on the locked exponential schedule"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "shared arbitrary-precision interval runtime pin"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
+    "prime_endpoint": "every prime power n<=lambda^2 is included",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(x)=f(-x), and reflection is retained before forming the inversion-even state",
+    "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4",
+    "matched_even_count_scope": "the even ambient-complement dimension and count comparison require the unproved finite hypothesis P_(E_N^+)p_4!=0 at N=ceil(lambda^2)",
+    "strict_capture_projector": "Pi_>=1_(g-delta,infinity)(mathscr_R), distinct from the inclusive rank projector",
+    "interval_serialization": "nondegenerate intervals are expanded by exact dyadic 2^(s-ceil(dps*3321928094887363/10^15)+16), s=max(0,floor(log2(max endpoint magnitude))), and replay requires enclosure of its independent interval",
+    "shared_library": "producer and replay use the exact pinned mpmath.iv version and disclose that common dependency"
+  },
+  "locked_formulas": {
+    "quotient_metric": "A=W*D^(-1/2), mathcal_R=A*A^*, Delta=mathcal_R^dagger on K=ran(A), and <Ax,Delta Ax>=||x||^2 on (ker A)^perp",
+    "signed_low_equivalence": "P_K*B*P_K>=mu*Delta iff P_0*A^*B*A*P_0>=mu*P_0",
+    "cross_identity": "||P_H*B*P_K*Delta^(-1/2)||=||P_H*B*A||",
+    "shift_cancellation": "for B=Q-U_0*I, P_H*B*A=P_H*Q*W*D^(-1/2)",
+    "shift_erosion": "mu>=mu_0-(U_0)_+*||A||^2",
+    "capture_score": "C_F=tr(P_H*F(mathscr_R)*P_H)=tr(F(mathscr_R))-tr(G^dagger*W_0^*F(mathscr_R)W_0)",
+    "capture_floor": "P_H*B*P_H>=[delta-[r-(g-delta)]_+*min(1,C_F)]*P_H",
+    "ridge_majorant": "F_(a,tau)(t)=((tau+a)/tau)*t/(t+a)",
+    "moment_floor": "P_H*B*P_H>=[g-L_k^(1/k)]*P_H where L_k=tr(P_H*mathscr_R^k*P_H)",
+    "transition_ceiling": "q=ceil((2/pi^2)*log(50*p^2+25)*log(20))",
+    "transition_index": "n_star=p^2+6+q",
+    "buffered_counts": "r_plus=N+floor((q+2)/4)-1 and r_minus=N+floor(q/4)"
+  },
+  "claim_boundary": {
+    "proved": [
+      "exact source-coordinate signed-low equivalence and quotient-relative cross identity",
+      "exact scalar-shift erosion and cancellation formulas",
+      "phase-sensitive trace-majorant capture and moment reductions",
+      "exact matched-bandwidth target counts and a conditional no-dimension-obstruction statement under the explicit projected-anchor nonvanishing hypothesis",
+      "exact countermodels excluding rank-only, conditioning-only, positive-sampling-only, and diagonal-block-only shortcuts"
+    ],
+    "not_proved": [
+      "the signed source-coordinate lower bound",
+      "a strict quotient-relative cross reserve",
+      "a physical co-frame inequality",
+      "a positive physical high floor on a common schedule",
+      "a signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

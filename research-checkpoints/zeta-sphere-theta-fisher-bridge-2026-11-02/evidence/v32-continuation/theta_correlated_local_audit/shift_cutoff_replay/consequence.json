@@ -1,0 +1,14 @@
+{
+  "even8": {
+    "a_endpoint": "0.250000000000000000000000000000000000000000000000000000000",
+    "rational_basis_reserve_lower": "[0.537503243294090581690054721416666969977856530163007636140 +/- 1.81e-58]",
+    "monic_schur_lower": "[355975026946.584068831288260461858411497089004990961265874 +/- 4.97e-46]",
+    "scope": "For all0<=a<=endpoint and0<=H<=1/8, actual normalized complete-theta block. Matrix reserve includes the full signed perturbation; monicSchur follows from fixed upper-triangular basis."
+  },
+  "odd9": {
+    "a_endpoint": "0.125000000000000000000000000000000000000000000000000000000",
+    "rational_basis_reserve_lower": "[0.380946713333758870939762366641259299608518275885419353735 +/- 3.79e-59]",
+    "monic_schur_lower": "[32936186988246.7933893939543853761343305305167031079265744 +/- 1.35e-45]",
+    "scope": "For all0<=a<=endpoint and0<=H<=1/8, actual normalized complete-theta block. Matrix reserve includes the full signed perturbation; monicSchur follows from fixed upper-triangular basis."
+  }
+}

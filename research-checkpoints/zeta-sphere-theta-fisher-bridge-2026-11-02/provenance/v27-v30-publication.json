@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v30_20261103T0421Z.zip",
+    "bytes": 7056540,
+    "sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 968,
+    "v29_payloads_preserved": 940,
+    "v28_payloads_preserved": 905,
+    "v27_payloads_preserved": 857,
+    "v26_payloads_preserved": 839,
+    "v19_payloads_preserved": 672,
+    "v18_payloads_preserved": 585
+  },
+  "publication_manifests": {
+    "PUBLICATION_DELTA_V27.json": {
+      "rows": 15,
+      "sha256": "71a438daf04dbdde7db345603d3162e43663ef6e5529c85c6b0e8e40a8c607d1"
+    },
+    "PUBLICATION_DELTA_V28.json": {
+      "rows": 12,
+      "sha256": "b7f68a5ea1ea87dfc448eeaa1a0472c9b8f20b6b92cc71b55096ad776fef99f1"
+    },
+    "PUBLICATION_DELTA_V29.json": {
+      "rows": 35,
+      "sha256": "a32a7b503b25f107895096a4e5379cfbf79e01ce31f50d3bf07515792b188127"
+    },
+    "PUBLICATION_DELTA_V30.json": {
+      "rows": 59,
+      "sha256": "e31c63a415971d31bdb76e8ec12bc23082b5e119d05e7e1282d23ed9c762a8a4"
+    }
+  },
+  "delta_accounting": {
+    "new_paths_since_v26": 129,
+    "source_allowlist_rows": 121,
+    "source_unique_allowlisted_paths": 84,
+    "source_repeated_allowlist_rows": 37,
+    "source_non_allowlisted_paths": 45,
+    "byte_identical_public_allowlist_paths": 78,
+    "public_text_redactions": 6,
+    "retained_publication_manifests": 4,
+    "omitted_duplicate_private_provenance_paths": 8,
+    "omitted_private_acquired_paths": 33
+  },
+  "repository_policy": "Publish the deduplicated owned allowlist and exact V27--V30 publication manifests, with six recorded identifier-only redactions. Do not publish acquired/private source captures, the source archive, master manifests, or duplicate prior-version manifests.",
+  "omitted_duplicate_private_provenance_paths": [
+    "provenance/v26/MANIFEST.json",
+    "provenance/v26/MANIFEST.sha256",
+    "provenance/v27/MANIFEST.json",
+    "provenance/v27/MANIFEST.sha256",
+    "provenance/v28/MANIFEST.json",
+    "provenance/v28/MANIFEST.sha256",
+    "provenance/v29/MANIFEST.json",
+    "provenance/v29/MANIFEST.sha256"
+  ],
+  "excluded_private_acquired_paths": [
+    "source_0145_audit/PRIVATE_SOURCE_FROZEN_SHA256.txt",
+    "source_0145_audit/private/conversation.json",
+    "source_0145_audit/private/paper.pdf",
+    "source_0145_audit/private/paper.txt",
+    "source_0145_audit/private/source.zip",
+    "source_0145_audit/private/source/a4_integrated_certificate.json",
+    "source_0145_audit/private/source/a4_integrated_certificate.py",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.json",
+    "source_0145_audit/private/source/bridge_gram_exact_checks.py",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.json",
+    "source_0145_audit/private/source/energy_matrix_exact_checks.py",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.json",
+    "source_0145_audit/private/source/factorization_attack_exact_checks.py",
+    "source_0145_audit/private/source/h6_integrated_certificate.json",
+    "source_0145_audit/private/source/h6_integrated_certificate.py",
+    "source_0145_audit/private/source/integrated_pivots_certificate.json",
+    "source_0145_audit/private/source/integrated_pivots_certificate.py",
+    "source_0145_audit/private/source/recurrence_attack_checks.json",
+    "source_0145_audit/private/source/recurrence_attack_checks.py",
+    "source_0145_audit/private/source/relative_modular_bridge_README.txt",
+    "source_0145_audit/private/source/relative_modular_bridge_all_order.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_attacks.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_bounds.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_continuation.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_extensions.tex",
+    "source_0145_audit/private/source/relative_modular_bridge_hierarchy.tex",
+    "source_0145_audit/private/source/schur_transport_certificate.json",
+    "source_0145_audit/private/source/schur_transport_certificate.py",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.json",
+    "source_0145_audit/private/source/sixth_pointwise_certificate.py",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.json",
+    "source_0145_audit/private/source/slice_h5_exact_certificate.py",
+    "source_0145_audit/private/source_metadata.json"
+  ]
+}

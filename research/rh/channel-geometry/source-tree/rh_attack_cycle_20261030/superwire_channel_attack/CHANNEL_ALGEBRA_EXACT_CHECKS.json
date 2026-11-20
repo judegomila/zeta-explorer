@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "Exact synthetic algebra only; no actual spectral, prime, carrier or endpoint experiment.",
+  "same_intensity_gram_eigenvalues": {
+    "coherent": [
+      "4/3",
+      "0"
+    ],
+    "opposite_phase": [
+      "2/3",
+      "2/3"
+    ]
+  },
+  "schur_factorizations": [
+    {
+      "bridge": "1",
+      "schur": "1/2",
+      "determinant": "1"
+    },
+    {
+      "bridge": "2",
+      "schur": "-1",
+      "determinant": "-2"
+    }
+  ],
+  "fixed_epsilon_row_exponents": [
+    {
+      "epsilon": "1",
+      "K": 3,
+      "first": "-2",
+      "second": "-4"
+    },
+    {
+      "epsilon": "1/2",
+      "K": 3,
+      "first": "-1/2",
+      "second": "-7/2"
+    },
+    {
+      "epsilon": "1/10",
+      "K": 11,
+      "first": "-1/10",
+      "second": "-191/10"
+    },
+    {
+      "epsilon": "3/2",
+      "K": 2,
+      "first": "-2",
+      "second": "-5/2"
+    }
+  ]
+}

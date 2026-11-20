@@ -1,0 +1,106 @@
+{
+  "checks": {
+    "all_checks_passed": true,
+    "boundary2_is_positive": true,
+    "p2_majorant_valid_for_z_at_least_one": true,
+    "p4_majorant_valid_for_z_at_least_one": true,
+    "q4_omitted_orbit_radius_below_2e_minus_152": true,
+    "scalar_drift_cancellation_obstruction_exceeds_18": true,
+    "tail_ratios_are_below_one_half": true,
+    "worker_source_unchanged_during_run": true
+  },
+  "exact_formulas": {
+    "B2": "(q2-q0/4)*(q0/2)",
+    "B4": "(q4-q2/4)*(q0/2)+3*(q2-q0/4)*(q2/2)",
+    "P2": "4*z^2-6*z+1/4",
+    "P4": "16*z^4-112*z^3+166*z^2-39*z+1/16",
+    "drift_coefficients": {
+      "d2": "-12",
+      "d4": "390"
+    },
+    "required_if_one_scalar_cancellation": "B4+(65/2)*B2=0"
+  },
+  "intervals": {
+    "B2": {
+      "arb": "[0.9706141254571381992918039134597986987173325888779029434784 +/- 6.37e-59]",
+      "lower_endpoint_enclosure": "[0.97061412545713819929180391345979869871733258887790294347834 +/- 4.03e-60]",
+      "upper_endpoint_enclosure": "[0.97061412545713819929180391345979869871733258887790294347840 +/- 4.44e-60]"
+    },
+    "B4": {
+      "arb": "[-12.65972295528953817278555418663835720763979281821230549425 +/- 3.43e-57]",
+      "lower_endpoint_enclosure": "[-12.659722955289538172785554186638357207639792818212305494250 +/- 2.86e-58]",
+      "upper_endpoint_enclosure": "[-12.659722955289538172785554186638357207639792818212305494247 +/- 4.32e-58]"
+    },
+    "B4_plus_65_over_2_B2": {
+      "arb": "[18.88523612206745330419807300080510050067351632031954016880 +/- 3.85e-57]",
+      "lower_endpoint_enclosure": "[18.885236122067453304198073000805100500673516320319540168796 +/- 1.37e-58]",
+      "upper_endpoint_enclosure": "[18.885236122067453304198073000805100500673516320319540168802 +/- 4.07e-58]"
+    },
+    "q0": {
+      "arb": "[1.0864348112133080145753161215102234570702057072452188859208 +/- 2.60e-59]",
+      "lower_endpoint_enclosure": "[1.0864348112133080145753161215102234570702057072452188859208 +/- 2.70e-59]",
+      "upper_endpoint_enclosure": "[1.0864348112133080145753161215102234570702057072452188859208 +/- 4.04e-61]"
+    },
+    "q2": {
+      "arb": "[2.0583963046718207799917676985963923171492488951906046204036 +/- 3.92e-59]",
+      "lower_endpoint_enclosure": "[2.0583963046718207799917676985963923171492488951906046204036 +/- 4.04e-59]",
+      "upper_endpoint_enclosure": "[2.0583963046718207799917676985963923171492488951906046204036 +/- 3.43e-59]"
+    },
+    "q4": {
+      "arb": "[-32.94640247323855853858230677689686111886780043869377068544 +/- 6.86e-57]",
+      "lower_endpoint_enclosure": "[-32.946402473238558538582306776896861118867800438693770685437 +/- 1.09e-58]",
+      "upper_endpoint_enclosure": "[-32.946402473238558538582306776896861118867800438693770685433 +/- 1.27e-58]"
+    }
+  },
+  "outcome": {
+    "conclusion": "The formal-adjoint boundary jets cannot all be canceled by one scalar multiple of d_j. This does not test or refute the full correlated Hardy/trace inequality.",
+    "one_scalar_boundary_cancellation_refuted": true
+  },
+  "parameters": {
+    "arb_precision_bits": 200,
+    "first_omitted_orbit": 11,
+    "summed_positive_orbits": 10
+  },
+  "provenance": {
+    "source": "src/certify_m0_boundary_jet.py",
+    "source_sha256_at_end": "78b7ff247ce5695018367492fe289f50864173a26b406491e5eec03f7d3c2fd0",
+    "source_sha256_at_start": "78b7ff247ce5695018367492fe289f50864173a26b406491e5eec03f7d3c2fd0"
+  },
+  "schema_version": "zsv.m0_boundary_jet_arb.v1",
+  "scope": "Rigorous two-grade theta-series interval certificate only; no M0 positivity, all-degree endpoint sign, or RH conclusion.",
+  "status": "rigorous_boundary_jet_obstruction",
+  "tail_majorants": {
+    "P2_for_z_ge_1": "abs(P2(z))<=11*z^2",
+    "P4_for_z_ge_1": "abs(P4(z))<=334*z^4",
+    "q0_radius": {
+      "arb": "[1.62738826800515782537435945917689223174100639746724835537e-165 +/- 2.66e-222]",
+      "lower_endpoint_enclosure": "[1.6273882680051578253743594591768922317410063974672483553697e-165 +/- 5.41e-225]",
+      "upper_endpoint_enclosure": "[1.6273882680051578253743594591768922317410063974672483553727e-165 +/- 4.45e-224]"
+    },
+    "q2_radius": {
+      "arb": "[2.58674936996078941705500232771765265958886341901107608952e-159 +/- 7.24e-216]",
+      "lower_endpoint_enclosure": "[2.5867493699607894170550023277176526595888634190110760895128e-159 +/- 3.64e-218]",
+      "upper_endpoint_enclosure": "[2.5867493699607894170550023277176526595888634190110760895175e-159 +/- 1.15e-218]"
+    },
+    "q4_radius": {
+      "arb": "[1.13495494039316981474226567552654451870656998213220572195e-152 +/- 4.91e-209]",
+      "lower_endpoint_enclosure": "[1.1349549403931698147422656755265445187065699821322057219528e-152 +/- 7.73e-212]",
+      "upper_endpoint_enclosure": "[1.1349549403931698147422656755265445187065699821322057219549e-152 +/- 1.31e-212]"
+    },
+    "ratio0": {
+      "arb": "[4.162400467230511361712472479347792651876803815907874978425e-32 +/- 6.38e-90]",
+      "lower_endpoint_enclosure": "[4.1624004672305113617124724793477926518768038159078749784244e-32 +/- 3.82e-91]",
+      "upper_endpoint_enclosure": "[4.1624004672305113617124724793477926518768038159078749784253e-32 +/- 3.00e-91]"
+    },
+    "ratio2": {
+      "arb": "[5.895194050166783935282414406922739459689734575962413465789e-32 +/- 6.84e-90]",
+      "lower_endpoint_enclosure": "[5.8951940501667839352824144069227394596897345759624134657883e-32 +/- 1.30e-91]",
+      "upper_endpoint_enclosure": "[5.8951940501667839352824144069227394596897345759624134657897e-32 +/- 2.49e-91]"
+    },
+    "ratio4": {
+      "arb": "[8.34934388527139073027908921125264158432663999502469815085e-32 +/- 1.38e-89]",
+      "lower_endpoint_enclosure": "[8.3493438852713907302790892112526415843266399950246981508494e-32 +/- 2.31e-91]",
+      "upper_endpoint_enclosure": "[8.3493438852713907302790892112526415843266399950246981508514e-32 +/- 2.27e-91]"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "c": 1.020066755619076,
+  "gaussian_variance": 2.0,
+  "off_axis_zero_real_part": 0.2,
+  "off_axis_zero_imag_part": 3.141592653589793,
+  "strong_log_concavity_parameter_at_least": 0.25,
+  "probe_real": 0.19,
+  "probe_imag": 3.141592653589793,
+  "probe_field_real": -97.0243128581065,
+  "zero_residual": 6.570881288090711e-22,
+  "boundary_modulus_error_max": 2.220446049250313e-16
+}

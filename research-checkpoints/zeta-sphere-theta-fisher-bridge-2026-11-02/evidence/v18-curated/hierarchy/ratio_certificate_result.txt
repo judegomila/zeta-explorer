@@ -1,0 +1,9 @@
+Full-theta g_4=M_5/M_4, nodes j/8, j=0,...,11
+c=[91,-308,347,39,-445,277,277,-445,39,347,-308,91]
+Validated interval (40 decimal digit interval calculation, tails explicit):
+[-48.4946699338362654603599738487780647751538657,
+ -48.4737004195153908733112343259104167400056297]
+Independent reconstruction (foundations, 50 digit interval calculation):
+[-48.49466993383626546035997384877806474008930189360008684,
+ -48.47370041951539087331123432591041677305682448750326696]
+Conclusion: g_4 is not positive definite. Does not refute M_n positivity or RH.

@@ -1,0 +1,59 @@
+{
+  "status": "finite exact rational and outward interval controls passed; not a global theorem",
+  "rational_operation_and_cluster_checks": 255,
+  "quotient_error_checks": 54,
+  "invalid_inputs_rejected": 5,
+  "cluster_cases": [
+    {
+      "delta": "1/20",
+      "isolated_residual_at_b": "-221/18",
+      "full_cluster_residual": 3,
+      "uniform_inner_bound": 17
+    },
+    {
+      "delta": "1/100",
+      "isolated_residual_at_b": "-7549/82",
+      "full_cluster_residual": 3,
+      "uniform_inner_bound": 17
+    },
+    {
+      "delta": "1/10000",
+      "isolated_residual_at_b": "-79955989/8002",
+      "full_cluster_residual": 3,
+      "uniform_inner_bound": 17
+    },
+    {
+      "delta": "1/100000000",
+      "isolated_residual_at_b": "-7999999559999989/80000002",
+      "full_cluster_residual": 3,
+      "uniform_inner_bound": 17
+    }
+  ],
+  "exact_coalescence_checked": true,
+  "constant_residual_L2_controls": [
+    {
+      "a": 3,
+      "q": "1/10",
+      "scaled_L2_lower_decimal_diagnostic": 1.1094274634389527,
+      "scaled_L2_upper_decimal_diagnostic": 1.1094274634389527
+    },
+    {
+      "a": 10,
+      "q": "1/101",
+      "scaled_L2_lower_decimal_diagnostic": 1.5138356852420045,
+      "scaled_L2_upper_decimal_diagnostic": 1.5138356852420045
+    },
+    {
+      "a": 100,
+      "q": "1/10001",
+      "scaled_L2_lower_decimal_diagnostic": 1.570173403569862,
+      "scaled_L2_upper_decimal_diagnostic": 1.570173403569862
+    },
+    {
+      "a": 1000,
+      "q": "1/1000001",
+      "scaled_L2_lower_decimal_diagnostic": 1.5707900489491975,
+      "scaled_L2_upper_decimal_diagnostic": 1.5707900489491975
+    }
+  ]
+}

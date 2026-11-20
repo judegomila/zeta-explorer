@@ -1,0 +1,89 @@
+{
+  "finite_three_point": {
+    "kernel": "M(p,q)=(p+q)/(exp(p)+exp(q))",
+    "center_L": {
+      "exact": "5/4",
+      "decimal": 1.25
+    },
+    "offset_d": "log(11/9)",
+    "points": "(L-d,L,L+d)",
+    "vector": [
+      50,
+      -99,
+      50
+    ],
+    "exp_L_times_quadratic": {
+      "coefficient_of_L": {
+        "exact": "29999/9999",
+        "decimal": 3.000200020002
+      },
+      "coefficient_of_d": {
+        "exact": "-1990/99",
+        "decimal": -20.1010101010101
+      }
+    },
+    "strict_bounds_for_d": {
+      "lower": {
+        "exact": "1/5",
+        "decimal": 0.2
+      },
+      "upper": {
+        "exact": "20/99",
+        "decimal": 0.20202020202020202
+      }
+    },
+    "strict_lower_bound_minimum_point": {
+      "exact": "415/396",
+      "decimal": 1.047979797979798
+    },
+    "strict_upper_bound_exp_L_times_quadratic": {
+      "exact": "-3599/13332",
+      "decimal": -0.26995199519951996
+    },
+    "quadratic_decimal_illustration_only": -0.08120510073458075,
+    "status": "PROVED_BY_EXACT_RATIONAL_ARITHMETIC_AND_ATANH_SERIES"
+  },
+  "confluent": [
+    {
+      "L": 1,
+      "N": 3,
+      "vector": "v_j=(-1)^j, j=0,...,N-1",
+      "quadratic": {
+        "exact": "-2",
+        "decimal": -2.0
+      },
+      "status": "PROVED_NEGATIVE"
+    },
+    {
+      "L": 2,
+      "N": 6,
+      "vector": "v_j=(-1)^j, j=0,...,N-1",
+      "quadratic": {
+        "exact": "-4/5",
+        "decimal": -0.8
+      },
+      "status": "PROVED_NEGATIVE"
+    },
+    {
+      "L": 3,
+      "N": 16,
+      "vector": "v_j=(-1)^j, j=0,...,N-1",
+      "quadratic": {
+        "exact": "-62848/45045",
+        "decimal": -1.3952269952269953
+      },
+      "status": "PROVED_NEGATIVE"
+    },
+    {
+      "L": 4,
+      "N": 42,
+      "vector": "v_j=(-1)^j, j=0,...,N-1",
+      "quadratic": {
+        "exact": "-222535265680372/325982425207725",
+        "decimal": -0.6826603168516413
+      },
+      "status": "PROVED_NEGATIVE"
+    }
+  ],
+  "scope": "Only the finite-R leading model M. No statement of indefiniteness for the exact theta flux kernel."
+}

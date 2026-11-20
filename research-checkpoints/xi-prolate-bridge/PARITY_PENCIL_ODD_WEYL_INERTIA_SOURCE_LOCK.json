@@ -1,0 +1,177 @@
+{
+  "schema": "xi-prolate-parity-pencil-odd-weyl-inertia-source-lock-v1",
+  "claim_class": "PARITY_PENCIL_TRACE_ODD_RESOLVENT_WEYL_AND_EVEN_GROUND_ODD_INERTIA_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.46.0-parity-pencil-odd-weyl-inertia",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite source Cauchy matrix, inversion and rank-two displacement identity, simple-even quotient operator and determinant, finite ground transform, boundary normalization, and exact pole/archimedean/minus-prime Weil form"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "PROJECTIVE_WEDGE_PAIRED_TRACE_SOURCE_LOCK.json",
+      "sha256": "5af0c5c4778e1f69ffe2c6a424a11b3c285acda02474f502dd79db44e6b947d4",
+      "role": "preceding checkpoint source lock, projective-wedge boundary, and paired-trace odd-response gate"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "strict shifted-sector, equation (5.2), and locally uniform determinant targets"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary finite source versions, formulas, errata, and mandatory conventions"
+    },
+    {
+      "path": "notes/SOURCE_BOUNDARY_COMMUTATOR_PROOF.md",
+      "sha256": "d72a5e1e11e096abc25319c1bf2c2af474d11cd766b25cf83f0b6cd00d3956f0",
+      "role": "exact source Cauchy form, rank-two commutator, forced odd equation, and boundary normalization"
+    },
+    {
+      "path": "notes/THREE_SCALE_TRANSVERSE_RESOLVENT_REDUCTION.md",
+      "sha256": "08d4dc1787ac5728017d35f10e21afe84123f20579f9fa9dccee99c76dbda723",
+      "role": "transverse observation, exact far short, and middle-window effective response"
+    },
+    {
+      "path": "notes/PAIRED_TRACE_ODD_RESOLVENT_GATE.md",
+      "sha256": "1c4568a142779f0d7cab023bfb41811d10c2ccac37a505cbe7f079b972761755",
+      "role": "odd response, quotient determinant ratio, first paired trace, and finite ground-transform bridge"
+    },
+    {
+      "path": "notes/LOCALLY_UNIFORM_DETERMINANT_ATTACK.md",
+      "sha256": "025c1b49003f5d080c51c3378735fa2eab8530b7318b865855656179ddc87c8d",
+      "role": "paired resolvent trace moments and derivative-defined Xi targets"
+    },
+    {
+      "path": "notes/PARITY_PENCIL_TRACE_REDUCTION.md",
+      "sha256": "4840232a94c75021ff60b08b89ccb0e4be240d54b9a5e4a550353e7049ed260b",
+      "role": "positive parity pencil, relative determinant, Schatten trace, and effective-dimension reductions"
+    },
+    {
+      "path": "notes/ODD_RESOLVENT_WEYL_RECONSTRUCTION.md",
+      "sha256": "eaefd8dc51bbf4427fec21b559fbe6121403c8a98e5e79ccd4866e6d1d0e9923",
+      "role": "squared-mode displacement, constrained middle graph, odd-resolvent Weyl reconstruction, and exact countermodel"
+    },
+    {
+      "path": "notes/EVEN_GROUND_IMAGINARY_AXIS_ODD_INERTIA.md",
+      "sha256": "173e80db2a3a7d19e041923501b1ac248aba9e4e340f28087ff4760caed5e1b8",
+      "role": "even-ground rank-one pencil, complete odd-inertia transfer, imaginary-axis criterion, and shifted reserve"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil, quotient-determinant, commutator, and ground-transform source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure, zero extension, and the source-limit normalization",
+    "fourier_transform": "hat(f)(z)=integral f(x)*exp(-i*z*x) dx",
+    "frequency_measure": "dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(2*pi*i*n*x/L)",
+    "mode_operator": "D*V_n=n*V_n",
+    "inversion": "J*V_n=V_(-n), equivalently Jf(x)=f(-x)",
+    "parity_bases": "e_0^+=V_0, e_n^+=(V_n+V_(-n))/sqrt(2), e_n^-=(V_n-V_(-n))/sqrt(2)",
+    "inner_product": "antilinear in the first argument",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, retained inside the combined Weil matrix before every pencil, pullback, resolvent, or inertia operation",
+    "complete_matrix": "Q=Q_pole+Q_arch+Q_prime is signed bookkeeping: Q_arch and Q_prime already carry their signed source contributions, and Q_prime retains source equation (3.19)'s minus sign",
+    "source_normalization": "4*hat(k_lambda^+) tends to Xi; unit-normalizing h_lambda is rejected",
+    "boundary_normalization": "<eta,xi>=1 only after nonvanishing is established; arbitrary ground-line scaling must be tracked explicitly",
+    "finite_status": "all pencil, Weyl, and inertia identities are finite-dimensional reductions and are not asymptotic sign or determinant-limit claims"
+  },
+  "locked_formulas": {
+    "source_cauchy_displacement": "Q_(n,m)=(b_n-b_m)/(n-m) for n!=m, b_(-n)=-b_n, and [D,Q]=|beta><eta|-|eta><beta|",
+    "simple_even_shift": "T=Q-epsilon*I=T_+ direct_sum T_-, T_+>=0, ker(T_+)=C*xi, and under a full simple-even ground T_->0",
+    "quotient_square": "D'=D-|Dxi><eta|, S=(D')^2|H_-=C^*C-|Dxi><Deta|, and T_-*S=C^*T_+*C",
+    "positive_parity_pencil": "G=T_-^(-1/2)*C^*T_+*C*T_-^(-1/2)>=0 and C^*T_+*C*y=s_k^2*T_-*y",
+    "combined_physical_pullback": "F_alpha(y)=C*y direct_sum alpha*y and F_alpha^*T*F_alpha=C^*T_+*C+alpha^2*T_- with alpha=sigma*L/(2*pi)",
+    "relative_pencil_determinant": "mathcal_A(t)=det(C^*T_+*C+t*T_-)/(det(T_-)*det(C^*C+t*I))=product_k(s_k^2+t)/product_n(n^2+t)",
+    "relative_pencil_trace": "d/dt log(mathcal_A(t))=Tr((C^*T_+*C+t*T_-)^(-1)*T_-)-sum_(n=1)^N 1/(n^2+t)",
+    "physical_trace_moments": "Z_alpha=T_-^(1/2)*(C^*T_+*C+alpha^2*T_-)^(-1)*T_-^(1/2)=(G+alpha^2*I)^(-1) and S_(m,q)=(L/(2*pi))^(2m)*Tr(Z_alpha^m)",
+    "effective_dimension": "d_eff(alpha)=Tr(alpha^2*(G+alpha^2*I)^(-1))=sigma^2*S_(1,q) for alpha=sigma*L/(2*pi); bounded first trace is exactly d_eff=O(1)",
+    "one_sign_no_go": "if all noncentral boundary-normalized ground coefficients have one sign, mathcal_A(g)/mathcal_A(a) is at most max(a/g,1) for 0<g<a and cannot supply reciprocal exponential-in-L compensation",
+    "squared_mode_displacement": "[D^2,Q_+]=|D beta><eta|-|eta><D beta| and D_P^2*(P Q H)-(P Q H)*D_H^2=|P D beta><H eta|-|P eta><H D beta|",
+    "middle_graph": "for c in C_(M,R), P_M c=tau(c)*x with tau(c)=-<H kappa,Hc>/||x||^2, so P_L Q c=tau(c)*P_L Q x+P_L Q Hc",
+    "constrained_even_equation": "z_s=(A-sI)^(-1)b, w_s=kappa-z_s, d_s=q-s-<b,z_s>, and (Q-sI)w_s=d_s*kappa",
+    "forced_odd_equation": "(Q_- -sI)D w_s=d_s*D kappa-a_s*beta with a_s=<eta,w_s>",
+    "odd_resolvent_vectors": "u_s=(Q_- -sI)^(-1)Dkappa, v_s=(Q_- -sI)^(-1)beta, Phi_s=(1+<eta,D^dagger v_s>)*V_0-D^dagger v_s, and Psi_s=D^dagger u_s-<eta,D^dagger u_s>*V_0",
+    "weyl_scalar_system": "[[p_s,r_s],[alpha_s,gamma_s]]*[a_s,d_s]^T=[1,0]^T with mathfrak_D_s=p_s*gamma_s-r_s*alpha_s!=0",
+    "middle_weyl_reconstruction": "Omega_h^(-1)eta_h=(alpha_s*P_L Psi_s-gamma_s*P_L Phi_s)/mathfrak_D_s for s=U-h",
+    "ground_alignment": "at the simple even ground mu, Phi_mu is the boundary-normalized ground and Omega_(U-mu)^(-1)eta_(U-mu)=-P_L Phi_mu/<kappa,Phi_mu>",
+    "even_ground_factorization": "for an even-compression ground x with c=<eta,x>!=0, u=D x/c, d=D eta, K=D*T_+*D^*, X=D_-^2-|u><d|, one has T_-u=-beta and K=T_-X",
+    "positive_symmetrizer": "if x_0!=0 then K>0, K^(1/2)XK^(-1/2)=(K^(-1/2)T_-K^(-1/2))^(-1), and inertia(T_-)=inertia(X)",
+    "odd_inertia_rational_function": "A_x(alpha)=1-<d,(D_-^2+alpha^2*I)^(-1)u> and det(X+alpha^2*I)=product_(n=1)^N(n^2+alpha^2)*A_x(alpha)",
+    "imaginary_pair_count": "n_-(Q_- -epsilon*I) equals the number with algebraic multiplicity of positive alpha^2 zeros of A_x(alpha), equivalently the number of purely imaginary quotient-root pairs",
+    "odd_sign_equivalence": "Q_- -epsilon*I>0 iff A_x(alpha)>0 for every alpha>=0",
+    "imaginary_axis_transform": "hat(x)(i*sigma)/c=2*sinh(sigma*L/2)/(sigma*sqrt(L))*A_x(sigma*L/(2*pi)), with the continuous sigma=0 limit",
+    "pointwise_sufficient_sign": "if the boundary-normalized even trigonometric polynomial x/c is pointwise nonnegative and nonzero, then its transform is positive on the whole imaginary axis and Q_- -epsilon*I>0",
+    "finite_axis_tail": "for xi=x/c, M_2=2*sum_(n=1)^N n^2*|xi_n|, and alpha>0, A_x(alpha)>=1-M_2/alpha^2; positivity need only be checked through alpha=sqrt(2*M_2)",
+    "shifted_odd_reserve": "lambda_min(T_-)>=lambda_min(K)/lambda_max(X)>=g_e*|x_0|^2/lambda_max(X), so U-epsilon<g_e*|x_0|^2/lambda_max(X) is sufficient for Q_- -U*I>0",
+    "n2_imaginary_axis_countermodel": "X=(1/3)*[[173,340],[-130,-248]], K=[[269,430],[430,689]], and A_x(alpha)=((alpha^2-9)*(alpha^2-16))/((alpha^2+1)*(alpha^2+4)); A_x is positive on 0<=alpha<3 although the odd inertia is two",
+    "middle_graph_countermodel": "Omega_0=2*epsilon/5, ||eta_0||^2=6*epsilon^2/25, and ||Omega_0^(-1)eta_0||^2=3/2 despite vanishing raw low-high coupling, strict signs, perfect far coercivity, and residual tending to zero"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.46.0-parity-pencil-odd-weyl-inertia",
+    "formal_status": "P0_INVALIDATED",
+    "proved": [
+      "exact finite positive parity-pencil and combined pullback identities for the simple-even CCM quotient",
+      "relative pencil determinant, logarithmic derivative, all positive paired-resolvent trace moments, and effective-dimension formulation of the first trace gate",
+      "one-signed ground-coefficient no-go theorem and a nonexceptional exact Cauchy countermodel with divergent first physical trace",
+      "squared-mode source displacement, constrained middle graph identity, and exact two-response odd-resolvent Weyl reconstruction",
+      "ground specialization reducing the middle response to an exact projective alignment ratio and the constrained-middle countermodel",
+      "complete odd-inertia transfer from an even-compression ground line to the rank-one squared-mode pencil",
+      "exact count of imaginary quotient pairs by positive-axis zeros of the even-ground rational response",
+      "equivalence of odd positivity with all-imaginary-axis transform positivity, including a pointwise nonnegative even-ground sufficient criterion",
+      "finite coefficient-dependent imaginary-axis cutoff and conditional quantitative shifted odd Ritz reserve",
+      "exact N=2 countermodel showing that positivity on any fixed imaginary interval does not determine the odd inertia"
+    ],
+    "not_proved": [
+      "simple-even full finite Weil ground state or even-compression ground hypotheses on one explicit unbounded arithmetic schedule",
+      "uniform effective-dimension or positive two-height determinant-ratio bound for the actual parity pencil",
+      "uniform bounds for the actual odd-resolvent response vectors, scalar Weyl determinant, or constrained middle response",
+      "all-imaginary-axis positivity of the actual even arithmetic ground transform",
+      "pointwise nonnegativity of the actual boundary-normalized even ground trigonometric polynomial",
+      "a usable unbounded-schedule coefficient-moment bound for the finite imaginary-axis cutoff",
+      "strict shifted odd Ritz margin for the actual arithmetic matrices",
+      "the lambda-scale projective graph bound, complete finite quotient trace-moment limits, equation (5.2), locally uniform determinant convergence, or an RH conclusion"
+    ]
+  },
+  "source_admissions": {
+    "actual_even_ground_imaginary_axis_positivity_claimed": false,
+    "actual_even_ground_pointwise_nonnegative_claimed": false,
+    "actual_odd_resolvent_weyl_bound_claimed": false,
+    "actual_parity_pencil_effective_dimension_bound_claimed": false,
+    "actual_shifted_odd_ritz_margin_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "finite_imaginary_interval_promoted_to_all_axis_sign": false,
+    "finite_real_or_imaginary_quotient_pairs_promoted_to_determinant_limit": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "locally_uniform_characteristic_convergence_proved": false,
+    "nonpositive_gap_or_schur_margin_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_normalization_changed": false,
+    "trace_moment_limit_claimed": false,
+    "uniform_first_trace_claimed": false,
+    "unit_source_normalization_substituted": false
+  }
+}

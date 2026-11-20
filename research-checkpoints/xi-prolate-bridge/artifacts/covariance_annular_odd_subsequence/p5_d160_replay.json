@@ -1,0 +1,51 @@
+{
+  "arithmetic_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+  "producer_binding": {
+    "canonical_bytes": 46920,
+    "sha256": "e48e75624bbc8e2c19448f95913e0b99826f999d84c4db493bf5a5a9941b80a5"
+  },
+  "reconstructed": {
+    "all_intervals_enclose_independent_formulas": true,
+    "central_M": 5,
+    "central_r": 2,
+    "claim_boundary_retained": true,
+    "dependency_count": 17,
+    "dps": "160",
+    "external_source_count": 3,
+    "interval_count": 35,
+    "lambda_numerator": "5",
+    "pole_prime_paths_overlap": true,
+    "prime_power_count": 4
+  },
+  "schema": "xi-prolate-covariance-annular-odd-subsequence-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a",
+      "MELLIN_PROJECTION_SOFT_SYMBOL_GRAPH_SPILL_SOURCE_LOCK.json": "150b5a8f63c60bfd13c2813d40c2ec3bd99df138b172a2006feb2d66f8dace7c",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "ZERO_SAMPLING_SOURCE_LOCK.json": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "notes/ANNULAR_GRAY_MASS_OBSTRUCTION.md": "85e26feefbb18482eacd9761ecca4d3743c26ff480a53983bcc5651e3ae80b5a",
+      "notes/COVARIANCE_TANGENT_GRAPH_SPILL.md": "b29362b8234fa642be7f8c59b187f451e8610c88e80121311317ea1c05a1d195",
+      "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "notes/MELLIN_PROJECTION_SOFT_SYMBOL_REDUCTION.md": "97bdb89e2d98811d98c0aa9d4b007bd644066b14e05b78ca7a763d6b48dceea1",
+      "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "vendor/HSW-ZC-2107.06506v1.pdf": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf"
+    },
+    "external_source_hashes": {
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "vendor/HSW-ZC-2107.06506v1.pdf": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf"
+    },
+    "path": "COVARIANCE_ANNULAR_ODD_SUBSEQUENCE_SOURCE_LOCK.json",
+    "schema": "xi-prolate-covariance-annular-odd-subsequence-source-lock-v1",
+    "sha256": "eb20eecf970af6c9dd95c28bbb602e1cb8ee439a95bfd736cccd6c17a21730c8"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -1,0 +1,171 @@
+{
+  "schema": "xi-prolate-pole-deleted-scalar-reserve-gate-source-lock-v1",
+  "checkpoint_version": "0.50.0-pole-deleted-scalar-reserve-gate",
+  "claim_class": "SOURCE_LOCKED_POLE_DELETED_INERTIA_MIXED_INVERSE_PRINCIPAL_ODD_CANCELLATION_BERNSTEIN_LEVY_FORM_AND_ARITHMETIC_RESERVE_GATE",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "dependencies": [
+    {
+      "path": "PROJECTED_ANCHOR_ORIGIN_JET_ONE_HEIGHT_GATE_SOURCE_LOCK.json",
+      "sha256": "d012cbd8aeb17f97a0c341b51ce9224687b34be009f22cd1396f8277b48c127f",
+      "role": "checkpoint-0.49 projected-anchor two-jet, coefficient, fixed-height product, pole-leverage, odd-response, and ground-transfer identities"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "complete source multiplier and exact parity signs of the pole form"
+    },
+    {
+      "path": "notes/PAIRED_TRACE_ODD_RESOLVENT_GATE.md",
+      "sha256": "1c4568a142779f0d7cab023bfb41811d10c2ccac37a505cbe7f079b972761755",
+      "role": "paired quotient roots and exact odd-resolvent response"
+    },
+    {
+      "path": "notes/GROUND_TRANSFORM_TILT_JET_REDUCTION.md",
+      "sha256": "4385afd3b4cbc802c7df9e85bdae5cbba85b33ad7c1b7626f7b37eef249f1300",
+      "role": "locked Cauchy structural countermodel and centered-transform conventions"
+    },
+    {
+      "path": "notes/POLE_DELETED_SCALAR_RESERVE_GATE.md",
+      "sha256": "fea165a91b6592e37c5ccd03492d4df9b1900e76f39b232b7756572b8906c0ce",
+      "role": "checkpoint-0.50 exact derivation, countermodels, and claim boundary"
+    }
+  ],
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "finite Weil matrix, source pole form, complete real-axis multiplier, Cauchy commutator, and quotient characteristic formulas"
+    }
+  ],
+  "locked_conventions": {
+    "fourier_transform": "hat(f)(z)=integral f(y)*exp(-i*z*y) dy",
+    "source_domain": "h_lambda is defined on [-lambda,lambda] with Lebesgue measure and is zero-extended",
+    "source_normalization": "a4=sqrt(3)/2^(11/4); h_lambda tends to h=(pi/2)*x^2*(2*pi*x^2-3)*exp(-pi*x^2), not to a unit-normalized substitute",
+    "arithmetic_transform": "E(f)(u)=u^(1/2)*sum_(m>=1)f(m*u)",
+    "finite_state": "k_lambda^+=(E(h_lambda)+J*E(h_lambda))/2; inversion evenness is imposed by this average and is not assumed for k_lambda",
+    "logarithmic_interval": "L=2*log(lambda), I_lambda=[-L/2,L/2]",
+    "centered_basis": "phi_n(y)=(-1)^n*L^(-1/2)*exp(+2*pi*i*n*y/L), abs(n)<=N",
+    "matrix_assembly": "form the complete real-axis Q=pole+archimedean-prime matrix with every prime power n<=lambda^2 before taking a ground shift, parity compression, inverse, cofactor, or pole deletion",
+    "prime_block_sign": "minus, exactly as source equation (3.19)",
+    "pole_deletion_order": "assemble and shift the complete source matrix first; subtract only the finite projected pole form afterward",
+    "finite_pole_vectors": "p_+=P_(E_N^+)cosh(y/2) and p_-=P_(E_N^-)sinh(y/2); continuum vectors are not substituted",
+    "nonpole_shift": "m_0=m_lambda(0) is subtracted exactly before the Bernstein-Levy form is written; the interval state is zero-extended before every translation",
+    "half_paired_trace": "Z_0=sum_(k=1)^N rho_k^(-2); the trace over both roots is not substituted",
+    "parameter_ingestion": "decimal source parameters are parsed directly and never through binary64",
+    "secret_boundary": "API keys and environment secrets are neither read nor serialized"
+  },
+  "locked_formulas": {
+    "shifted_parity_blocks": "T_+=Q_+-epsilon*I is positive semidefinite with kernel C*x and T_-=Q_--epsilon*I is positive definite",
+    "pole_forms": "P_+=2*|p_+><p_+| and P_-=-2*|p_-><p_-|",
+    "even_pole_deletion": "S_+=T_+-2*|p_+><p_+|",
+    "even_inertia": "S_+ is invertible and inertia(S_+)=(N,1,0)",
+    "inverse_ground_line": "with h=<p_+,x>!=0, S_+^(-1)*p_+=-x/(2*h) and <p_+,S_+^(-1)*p_+>=-1/2",
+    "mixed_inverse": "d_0=<e_0^+,S_+^(-1)*p_+>=-x_0/(2*h)<0",
+    "pole_ratio": "M_N(1/2)/M_N(0)=-1/(2*sqrt(L)*d_0)",
+    "relative_odd_response": "with alpha=L/(4*pi), A(alpha)/A(0)=-sqrt(L)/(8*sinh(L/4)*d_0)",
+    "exterior_product": "E=product_(n>N)(1+1/(4*(2*pi*n/L)^2))",
+    "quotient_product": "B=product_(k=1)^N(1+1/(4*rho_k^2)) and M_N(1/2)/M_N(0)=E*B",
+    "mixed_product_identity": "d_0=-1/(2*sqrt(L)*E*B)",
+    "zero_height_sandwich": "4*log(-1/(2*sqrt(L)*E*d_0))<=Z_0<=4*(-1/(2*sqrt(L)*E*d_0)-1)",
+    "automatic_upper_scale": "0<-d_0<=1/(2*sqrt(L))",
+    "exterior_bound": "0<=log(E)<=L^2/(16*pi^2*N)",
+    "uniform_reserve_equivalence": "when N/L^2 is bounded away from zero, sup Z_0<infinity iff inf(-sqrt(L)*d_0)>0",
+    "adjugate_reconstruction": "d_0=<e_0^+,adj(S_+)*p_+>/det(S_+)",
+    "rank_two_determinant": "det(T_+ + tau*|e_0^+><e_0^+|)=-2*tau*d_0^2*det(S_+) for tau>0",
+    "diagonal_geometry": "c_0=<e_0^+,S_+^(-1)*e_0^+> satisfies c_0+2*d_0^2>=0",
+    "diagonal_sufficient_gate": "c_0<=-kappa/L with kappa>0 implies -d_0>=sqrt(kappa/2)*L^(-1/2)",
+    "schur_ground_coordinate": "for T_+=[[a,b^*],[b,C]], p_+=(p_0,p), C>0, g=p_0-<p,C^(-1)b>, and mu=<p,C^(-1)p>, one has h=x_0*g and d_0=-1/(2*g)",
+    "schur_determinants": "det(S_+)=-2*g^2*det(C) and det(C-2*|p><p|)=(1-2*mu)*det(C)",
+    "schur_diagonal_identity": "c_0=-2*(1-2*mu)*d_0^2 and c_0+2*d_0^2=4*mu*d_0^2; c_0<0 iff mu<1/2",
+    "height_half_principal_odd_cancellation": "at alpha=L/(4*pi), p_-=(i/alpha)*D_0*p and D_0*(C-2*|p><p|)*D_0+alpha^2*S_-=D_0*C*D_0+alpha^2*T_-=:H_alpha>0",
+    "height_half_determinant_response": "A(alpha)/A(0)=det(H_alpha)/(det(C)*det(D_0^2+alpha^2*I))=g/p_0",
+    "odd_pole_deletion": "S_-=T_-+2*|p_-><p_-| is positive definite, kappa_-=<p_-,S_-^(-1)*p_->, and delta_-=1-2*kappa_->0",
+    "odd_woodbury": "for v=S_-^(-1)*p_-, y=S_-^(-1)*beta, zeta=<p_-,y>, T_-^(-1)*beta=y+2*zeta*v/delta_-",
+    "odd_response_quotient": "Bcal(a)=delta_-*(1+<g_a,y>)+2*zeta*<g_a,v> and A(alpha)/A(0)=Bcal(alpha)/Bcal(0)",
+    "combined_multiplier": "m_lambda(t)=Re(psi(1/4+i*t/2))-log(pi)-2*sum_(1<n<=lambda^2) Lambda(n)*n^(-1/2)*cos(t*log(n))",
+    "nonpole_minimum": "m_0=m_lambda(0)=psi(1/4)-log(pi)-2*sum_(1<n<=lambda^2)Lambda(n)*n^(-1/2)",
+    "complete_bernstein_levy_symbol": "m_lambda(t)-m_0=Phi(t^2)+2*sum_(1<n<=lambda^2)Lambda(n)*n^(-1/2)*(1-cos(t*log(n))), Phi(s)=sum_(j>=0)s/(u_j*(s+4*u_j^2)), u_j=j+1/4",
+    "levy_measure": "nu_lambda(dh)=exp(-abs(h)/2)/(1-exp(-2*abs(h)))*dh+sum_(1<n<=lambda^2)Lambda(n)*n^(-1/2)*(delta_(log(n))+delta_(-log(n)))",
+    "zero_extension_dirichlet_form": "<f,Af>=(1/2)*integral_R integral_R abs(tilde(f)(x+h)-tilde(f)(x))^2 nu_lambda(dh) dx>=0 for A=m_lambda(D)-m_0*I",
+    "levy_shift_location": "with z=epsilon-m_0, S_+=A_+-z*I and S_-=A_--z*I; inertia gives lambda_1(A_+)<z<lambda_2(A_+) and z<lambda_1(A_-)",
+    "mixed_source_equation": "v_+=S_+^(-1)*p_+ solves <f,(m_lambda-epsilon)v_+>=<f,p_+> weakly for every f in E_N^+",
+    "actual_arithmetic_target": "-<e_0^+,v_+> is bounded below by a positive constant times L^(-1/2)",
+    "rational_countermodel": "for x=(t,1), p=(1,1), v=(1,-t), T=v*v^T, and S=T-2*p*p^T, 0<t<1, inertia(S)=(1,1,0) and <e_0,S^(-1)*p>=-t/(2*(t+1))->0",
+    "killed_markov_countermodel": "for P>1, p=(P,1), x=(1,1), v=(1,-1), T=v*v^T, z=2*P^2+2*P+1, and A=T-2*p*p^T+z*I, A is a positive killed symmetric jump form, A+2*p*p^T has ground x at z, and <(1,1)/sqrt(2),(A-z*I)^(-1)*p>=-1/(sqrt(2)*(P+1))->0",
+    "cauchy_countermodel_response": "A_N(a)=(a^2+3/4)/(a^2+1), so A_N(a)/A_N(0)=4/3-1/(3*(a^2+1))",
+    "cauchy_countermodel_mixed_entry": "at alpha=L/(4*pi), d_0=-3*sqrt(L)*(alpha^2+1)/(8*sinh(L/4)*(4*alpha^2+3)), hence -sqrt(L)*d_0 tends to zero"
+  },
+  "locked_domains": {
+    "finite_even_gate": "the complete source matrix has a simple real inversion-even lowest eigenvector x; T_+ has kernel C*x; the source boundary scalar c=<eta,x>, x_0, and h=<p_+,x> are nonzero",
+    "finite_odd_gate": "T_- is positive definite, so the quotient roots are real and positive and delta_->0",
+    "uniform_zero_height_equivalence": "the finite even and odd gates hold along a family and N/L^2 is bounded away from zero",
+    "diagonal_sufficient_gate": "the source-specific negative diagonal estimate c_0<=-kappa/L holds with one fixed kappa>0; inertia alone does not imply it",
+    "principal_schur_gate": "N>=1, C is the e_0-orthogonal principal block of the complete shifted T_+, and the centered finite pole vectors retain their locked phase",
+    "levy_spectral_gate": "the exact nonpole multiplier is shifted by m_lambda(0), compressed after zero extension, and then shifted by z=epsilon-m_lambda(0); positivity before this last shift is not promoted across its first even eigenvalue",
+    "countermodel_scope": "the rational, Cauchy, and killed-Markov families are structural countermodels only and are not identified with the arithmetic source multiplier"
+  },
+  "source_admissions": {
+    "actual_arithmetic_mixed_inverse_lower_bound_proved": false,
+    "actual_arithmetic_diagonal_resolvent_bound_proved": false,
+    "actual_ground_anchor_convergence_claimed": false,
+    "actual_ground_origin_curvature_bound_claimed": false,
+    "actual_relative_odd_response_decay_proved": false,
+    "actual_residual_gap_L5over2_rate_claimed": false,
+    "actual_one_solve_L5over2_rate_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "cauchy_countermodel_called_arithmetic": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "exterior_lattice_factor_omitted": false,
+    "finite_diagnostic_promoted_to_asymptotic": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "unshifted_levy_positivity_promoted_to_mixed_reserve": false,
+    "principal_minor_sign_assumed": false,
+    "absolute_value_agmon_bound_claimed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "locally_uniform_characteristic_convergence_proved": false,
+    "non_effective_O_constant_instantiated": false,
+    "nonpositive_gap_reported_as_pass": false,
+    "pole_factor_changed": false,
+    "pole_projection_dropped": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_normalization_changed": false,
+    "unit_source_normalization_substituted": false,
+    "zero_table_used": false
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.50.0-pole-deleted-scalar-reserve-gate",
+    "formal_status": "P0_INVALIDATED",
+    "proved": [
+      "the exact inertia and inverse-ground identities for the pole-deleted even operator",
+      "equivalence of bounded half-paired zero-height trace to a mixed pole-deleted inverse reserve on N/L^2-bounded-below schedules",
+      "eigenvector-free adjugate and rank-two determinant reconstructions of the mixed entry",
+      "exact principal Schur coordinates, parity-pole cancellation, and a source-specific diagonal resolvent estimate sufficient for the mixed reserve",
+      "the exact odd pole-deleted Woodbury response quotient",
+      "the exact Bernstein-Levy Dirichlet form before the ground shift and structural countermodels showing that finite inertia, conditioning, positivity, Cauchy commutation, killed-Markov structure, and schedule hypotheses do not imply the reserve"
+    ],
+    "not_proved": [
+      "the mixed inverse lower reserve for the actual arithmetic source multiplier",
+      "the sufficient negative diagonal resolvent estimate for the actual arithmetic source multiplier",
+      "a mixed-reserve estimate derived from the unshifted Bernstein-Levy positivity or an absolute-value Agmon bound",
+      "the required relative odd-response decay on an unbounded schedule",
+      "a signed floor or source-metric action estimate in the unresolved middle Fourier window",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "higher trace-moment limits or locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

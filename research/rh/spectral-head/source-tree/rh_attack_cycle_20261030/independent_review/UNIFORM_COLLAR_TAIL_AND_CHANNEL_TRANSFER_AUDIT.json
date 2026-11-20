@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Analytic audit of exact uniform projected tail, fixed-collar transfer, actual diagonal HS limsup and low-label bilinear bound; no Weil/complement conclusion.",
+  "numerical_run": false,
+  "sources": [
+    {
+      "path": "rh_attack_cycle_20261030/repo_leverage/UNIFORM_COLLAR_TAIL_AND_SINGLE_CHANNEL_TRANSFER.md",
+      "sha256": "ec540fc47064e87fbcc7beed595321d08c8b65758b14bc70e5249cd2a2139f14"
+    },
+    {
+      "path": "rh_attack_cycle_20261030/repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md",
+      "sha256": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045"
+    },
+    {
+      "path": "rh_attack_cycle_20261030/repo_leverage/HARD_EDGE_LIMIT_MODEL_AND_CHANNEL_BESSEL.md",
+      "sha256": "0a9774113f27cddf145b5b4ee9d02703f9a54e0cefd8b3bc4a8f0f24ebe87a67"
+    },
+    {
+      "path": "rh_attack_cycle_20261030/prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md",
+      "sha256": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe"
+    },
+    {
+      "path": "rh_attack_cycle_20261030/independent_review/UNIFORM_COLLAR_TAIL_AND_CHANNEL_TRANSFER_AUDIT.md",
+      "sha256": "3c5b77c0e9b238dfee35c6416c231347fc64c787eebe1e871e17b59f2a0d0f04"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "L": 4.0,
+    "G": 2,
+    "H": 20,
+    "prime_sum": -0.34895071867732275,
+    "mobius_sum": -0.34895071867732275,
+    "diagonal": 0.17916031389752907,
+    "large_gcd_signed_pair_sum": -0.020778426373469654,
+    "short_shift_excluding_large_gcd": -0.0017571680998474265,
+    "remaining_signed_pair_sum": -0.03485811535879195,
+    "total_squared": 0.12176660406542004,
+    "partition_absolute_error": 6.938893903907228e-18,
+    "status": "floating-point diagnostic; no all-scale claim"
+  },
+  {
+    "L": 6.0,
+    "G": 4,
+    "H": 89,
+    "prime_sum": -0.4921297728060428,
+    "mobius_sum": -0.4921297728060426,
+    "diagonal": 0.14719334647279303,
+    "large_gcd_signed_pair_sum": -0.0047654361195093135,
+    "short_shift_excluding_large_gcd": 0.1678742843767995,
+    "remaining_signed_pair_sum": -0.06811048144795606,
+    "total_squared": 0.2421917132821271,
+    "partition_absolute_error": 4.163336342344337e-17,
+    "status": "floating-point diagnostic; no all-scale claim"
+  },
+  {
+    "L": 8.0,
+    "G": 7,
+    "H": 402,
+    "prime_sum": -0.6611574649602553,
+    "mobius_sum": -0.6611574649602205,
+    "diagonal": 0.1559868076134665,
+    "large_gcd_signed_pair_sum": -0.007514126307656862,
+    "short_shift_excluding_large_gcd": 0.03351655307863185,
+    "remaining_signed_pair_sum": 0.2551399590881843,
+    "total_squared": 0.43712919347262524,
+    "partition_absolute_error": 5.551115123125783e-16,
+    "status": "floating-point diagnostic; no all-scale claim"
+  }
+]

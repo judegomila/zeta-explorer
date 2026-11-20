@@ -1,0 +1,77 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "nondegenerate intervals receive a precision-scaled dyadic enlargement",
+    "shared_library_with_verifier": true
+  },
+  "inputs": {
+    "breakpoint_m": "2",
+    "dps": "160",
+    "fourier_N": "2",
+    "lambda_denominator": "2",
+    "lambda_numerator": "5"
+  },
+  "producer_binding": {
+    "canonical_bytes": 74982,
+    "sha256": "205179964796fe9337bf554305a857fff9c45acd214cfd81dd64917326d52f01"
+  },
+  "producer_schema": "xi-prolate-effective-mixed-signed-quotient-v1",
+  "reconstructed": {
+    "bridge_cross_retained": true,
+    "countermodel_role": "physical_floor_upper_test_and_scale_collapse_only",
+    "dependency_count": 6,
+    "exact_rational_section_count": 5,
+    "high_tail_quarter_source_comparison": true,
+    "interval_count": 24,
+    "jump_determinant_real_sign": "negative",
+    "low_defect_role": "upper_test_for_generalized_minimum_only",
+    "node_count": 5,
+    "physical_source_pencils_distinct": true,
+    "prime_minus_sign_reconstructed": true,
+    "signed_floor_promoted": false,
+    "unitary_spectral_determinant_inertia_identity": true,
+    "vandermonde_real_sign": "negative",
+    "whole_target_characteristic_polynomial": [
+      {
+        "denominator": "1",
+        "numerator": "-15"
+      },
+      {
+        "denominator": "1",
+        "numerator": "12"
+      },
+      {
+        "denominator": "1",
+        "numerator": "0"
+      },
+      {
+        "denominator": "1",
+        "numerator": "-1"
+      }
+    ],
+    "whole_target_inertia": {
+      "negative": 1,
+      "positive": 2,
+      "zero": 0
+    }
+  },
+  "schema": "xi-prolate-effective-mixed-signed-quotient-replay-v1",
+  "source_binding": {
+    "dependency_hashes": {
+      "EFFECTIVE_MIXED_ENDPOINT_JUMP_SOURCE_LOCK.json": "24ea8f8085e9e198201006f54e0499495174053e38f6c26185cd2b2f60725fcc",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "notes/EFFECTIVE_MIXED_SIGNED_QUOTIENT_ATTACK.md": "e2e9485d8ee03717af790cb7740fbb2228cc96f04009698cdc51a7fd943634ea",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    }
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

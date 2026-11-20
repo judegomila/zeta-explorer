@@ -1,0 +1,138 @@
+{
+  "status": "TERMINAL_INDEPENDENTLY_REPRODUCED_FAILED_CORE_AND_EXACT_DIRECTIONAL_OBSTRUCTION",
+  "X": "33/2",
+  "accepted_endpoint_unchanged": "sqrt(161/10)",
+  "producer_full_positivity_attempts": 1,
+  "independent_full_replays": 1,
+  "targeted_unchanged_core_witness_extractions": 1,
+  "non_diagnostic_transported_vector_preserved": true,
+  "new_endpoint_accepted": false,
+  "external_writes": false,
+  "permission_denials": false,
+  "uncertain_actions": false,
+  "historical_integrity": [
+    {
+      "receipt": "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_FULL_EVEN_CERTIFICATE.json",
+      "sha256": "589f88eb475bd51023abacb58af4bbf473041b9c0610184c33561c5f14a396c2",
+      "source_count": 12,
+      "all_historical_source_cache_bytes_unchanged": true
+    },
+    {
+      "receipt": "rh_attack_cycle_20261030/support_endpoint_X161/GENERIC_FULL_EVEN_CERTIFICATE.json",
+      "sha256": "852645d51afa4d663313b420c2310b73532bf264ada50032801ba21f97eb5ac8",
+      "source_count": 13,
+      "all_historical_source_cache_bytes_unchanged": true
+    },
+    {
+      "receipt": "rh_attack_cycle_20261030/support_endpoint_X161_power8_repair/REPAIRED_FULL_EVEN_CERTIFICATE.json",
+      "sha256": "2b7edf024d6e8b0192d0bf5267f04a887daa99b9fcadbed72780d4c02302d992",
+      "source_count": 16,
+      "all_historical_source_cache_bytes_unchanged": true
+    }
+  ],
+  "compact_artifacts": {
+    "DIAGNOSTIC_RESULT_AND_NEXT_TARGET.md": {
+      "sha256": "3ea3abae941d525ffe8d79e7ffced86df5d24dbb7d81581b78733390f033c0ed",
+      "bytes": 6281
+    },
+    "PRODUCER_RESULT_AND_CORE_OBSTRUCTION.md": {
+      "sha256": "793478b206f7c194f71dcbd719e9656cecde0c6535363925c268c2bf29499cc4",
+      "bytes": 4861
+    },
+    "ALL_SEPARATED_PHASE_METHOD.md": {
+      "sha256": "637939701bc853029ba0fcd8122a3f54d2f6a869a8b9ca3dbf4904bc3ed2388f",
+      "bytes": 5575
+    },
+    "SCALAR_PHASE_GATE.json": {
+      "sha256": "748d176cc92f64452d6eb4079f339853eb978e05cfa0d80a07f7383ad1236787",
+      "bytes": 41354
+    },
+    "X165_POWER8_TARGETED.json": {
+      "sha256": "d095ae94e743fa5b503479bf34514e92fce9b29b45aaf27b5475cb146090640e",
+      "bytes": 1346
+    },
+    "GENERIC_SMALL_DENSE_GATE.json": {
+      "sha256": "7c3a9e594ab7dfee1c0a2c8ba48ee6d1e47075f36cddfc6b74a909ab797080c1",
+      "bytes": 8598
+    },
+    "GENERIC_FULL_EVEN_CERTIFICATE.json": {
+      "sha256": "9ea2ecc32485baded3e9d726f2546bde2f45e549a43ef25c8d466c48cfa7d06d",
+      "bytes": 30265
+    },
+    "support_config.py": {
+      "sha256": "2dcf1502b4fd8883744250460ec652b59299280f144eed4ea0c20898cead0838",
+      "bytes": 554
+    },
+    "scalar_phase_gate.py": {
+      "sha256": "e6c2df8aadb3dcaa97fcbe6b0b87845985673ec197dd9b817247a04ebf486539",
+      "bytes": 3315
+    },
+    "generic_full_inputs.py": {
+      "sha256": "d06c87677c1b3ee15d66c12a46f4c445a85045f898be53302d20443389298e88",
+      "bytes": 5829
+    },
+    "certify_generic_support.py": {
+      "sha256": "4ce3e1108b2bd8e2b24cc778f2dda721be0da84725f2c854be44a13e43b679dd",
+      "bytes": 4946
+    },
+    "X165_power8_targeted.py": {
+      "sha256": "dcc2cc778b782b1cb64d042dfe97a8188395b7c4d500ece0543374700f929bd1",
+      "bytes": 3589
+    },
+    "diagnosis/extract_last_core_direction.py": {
+      "sha256": "e18709d96872a6473065336c17c5392df52f486edbdb09f52cd68df51f77b3a3",
+      "bytes": 4122
+    },
+    "diagnosis/LAST_CORE_FACTOR_REPLAY.json": {
+      "sha256": "3c76179e56994380091cf2ec6dfafc9863f348a747c04e81c3c5ebf7dd231e67",
+      "bytes": 50038
+    },
+    "diagnosis/LAST_CORE_FROZEN_TRIAL.json": {
+      "sha256": "837f928bfd8ebd3a76b65b423713d42e2f4ce7c1e6c4847a3e17b8ba1794339f",
+      "bytes": 400607
+    },
+    "diagnosis/certify_last_core_direction_budget.py": {
+      "sha256": "d75e82ea67985d05f5054aa80fd28655d8e37d0500068337c7aecacb56ba7b04",
+      "bytes": 4839
+    },
+    "diagnosis/LAST_CORE_DIRECTION_BUDGET.json": {
+      "sha256": "f6e95214070bc5cd4319fe40c9ddd6ff46bf179fef0f71d8e7c2e8bfde75f722",
+      "bytes": 8186
+    },
+    "diagnosis/prime_norm_lower_trial.py": {
+      "sha256": "d3b5bc08a1d6d069c4571563811b4fe180ea902104e56b9ff13b0dd3b6bdcef0",
+      "bytes": 2568
+    },
+    "diagnosis/PRIME_NORM_LOWER_TRIAL.json": {
+      "sha256": "66067d1f7b6b94e28f25417b8e04106e0eb715a1ce966a7bece9127119579bba",
+      "bytes": 5470
+    },
+    "independent_review/X165_FULL_FAILURE_AUDIT.md": {
+      "sha256": "ec22e57c1a82ca39f549aeca4bb0da57ba48afdf599fadb3b8edd4e873a9cec9",
+      "bytes": 6008
+    },
+    "independent_review/X165_FULL_FAILURE_AUDIT.json": {
+      "sha256": "401173c3ab3cc7262105089340830fffea7c3084eaac5e1778790597eef9a2b4",
+      "bytes": 3978
+    },
+    "independent_review/INDEPENDENT_LAST_CORE_BUDGET_REPLAY_COMPARISON.json": {
+      "sha256": "74eb5974e7b9750839f5214ff8855b2f829ac1ed3f54e3f31d93bf77e76c67b9",
+      "bytes": 3760
+    },
+    "independent_review/INDEPENDENT_PRIME_LOWER_TRIAL_AUDIT.json": {
+      "sha256": "10e0d48aa27f54362fe8455a6a1fb10f75ca261e74923f277f3ab644d28a0314",
+      "bytes": 1739
+    },
+    "independent_review/X165_DIRECTIONAL_OBSTRUCTION_DELTA_AUDIT.md": {
+      "sha256": "6414c2a6d9128c5b33e326bcb86c19b73de4f98ba82bc9a11cac2f29cf8891ce",
+      "bytes": 5810
+    },
+    "independent_review/X165_DIRECTIONAL_OBSTRUCTION_DELTA_AUDIT.json": {
+      "sha256": "e4de527af9b085adb013adec137f33e24aeffa974a79a8dce1f1f826ae98954f",
+      "bytes": 2431
+    }
+  },
+  "binary_discovery_factor_not_required_for_witness_proof": "diagnosis/LAST_CORE_L_DYADIC_COLUMNS.bin",
+  "scope": "Local bounded failure and diagnostic result only, no actual negativity or odd/cofinal/global RH conclusion.",
+  "independent_direction_delta_audit": "independent_review/X165_DIRECTIONAL_OBSTRUCTION_DELTA_AUDIT.json"
+}

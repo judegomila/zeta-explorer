@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "reviewUnit": "spectral-repair",
+  "module": {
+    "id": "spectral-denominator-repair",
+    "bodyPath": "research/rh/modules/spectral-denominator-repair.md",
+    "status": "certified-finite",
+    "reviewStatus": "accepted",
+    "reviewScope": "internal",
+    "rhStatus": "open",
+    "verification": {
+      "reproducibilityStatus": "current-replay",
+      "scope": "Independent internal complete mathematical/source audit plus full replay; separate complete clean overlay replay. Not external peer review, formal verification, or a second arithmetic implementation."
+    },
+    "claim": "Actual whole-even coercivity for 1 < lambda <= sqrt(161/10), with an existential positive constant; no numerical endpoint floor, odd-space, cofinal-support or RH theorem.",
+    "historicalFailure": "The earlier seventh-power sufficient lower surrogate remains failed; it never proved actual negativity. This is a distinct passing eighth-power denominator repair."
+  },
+  "producerExport": {
+    "file": "EXPORT_SPECTRAL_REPAIR_PRODUCER_V1.json",
+    "sha256": "16ae7b4f20c039992e1c26169d0e47a7f361b2d7ffe4b677ac51d8bce0cacc78",
+    "allTwentyOriginalFilesUnchanged": true
+  },
+  "editorialMappings": [
+    {
+      "originalPath": "staging/spectral-denominator-repair.md",
+      "originalSha256": "ca0d99f1199d79207493f7bc1df65de64b521ec961ec84314c0a71d1825a8ca0",
+      "publishedPath": "research/rh/modules/spectral-denominator-repair.md",
+      "publishedSha256": "5342748924a4ff217157d6e931880d6e97e5a16d474752518c428ca69a855a1f",
+      "transformation": "Clarified internal-review scope; no mathematical change."
+    },
+    {
+      "originalPath": "research/rh/spectral-repair/README.md",
+      "originalSha256": "d29abca8e640a1523576878c91233f2de028fb7882ae36bb9043a2422cc8c7fd",
+      "publishedPath": "research/rh/spectral-repair/README.md",
+      "publishedSha256": "d96baa428f7636c8f5e2b758b5aa99c0a942c99e9409abf956626a9d3c90b7d0",
+      "transformation": "Clarified internal-review scope and required assertions enabled; no runtime or mathematical change."
+    }
+  ],
+  "runtimeAndReceiptProvenance": {
+    "path": "research/rh/spectral-repair/manifest.json",
+    "sha256": "5a470ac83c3f4d6d62164e835b9da6ca857cf9c440bb78ee5c4282f8d5ea2fd8",
+    "scope": "Exact frozen base dependency, three byte-identical source scripts, and original-to-transport reference hashes unchanged."
+  },
+  "cleanOverlayReplay": {
+    "path": "research/rh/spectral-repair/validation/COMPLETE_CLEAN_REPAIR_REPLAY.json",
+    "sha256": "05586d72a8253e098a37339b6ba51046419dde1e39297091fb74636222175c2b",
+    "status": "PASS_COMPLETE_CLEAN_REPAIR_REPRODUCTION",
+    "note": "Previously completed 428.86-second clean overlay. No new replay needed or claimed for these documentation-only edits."
+  },
+  "immutablePriorUnits": "The five previous publication slices, prior accepted endpoint and original failed surrogate are unchanged."
+}

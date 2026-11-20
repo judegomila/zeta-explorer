@@ -1,0 +1,44 @@
+{
+  "publication_kind": "append-only actual-theta signed-synthesis transfer obstruction",
+  "scope": "Actual-theta obstruction to generic signed-synthesis transfer only; not the selected inverse-Gram column, not a disproof of selected coherence or RH, and no selected Delta_n or U_n/Delta_n conclusion.",
+  "source_folder_name": "theta_pollaczek_transfer_20261104",
+  "payload_count": 4,
+  "payload_bytes": 31975,
+  "original_final_payload_files": [
+    "ACTUAL_SIGNED_SYNTHESIS_OBSTRUCTION.md",
+    "INDEPENDENT_TRIAL_RATIO_AUDIT.md",
+    "README.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/ACTUAL_SIGNED_SYNTHESIS_OBSTRUCTION.md",
+      "bytes": 12316,
+      "sha256": "5aa5565223335a49619e810067349f781bf6c80f198b8dad31c0092c595bb1b4",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/INDEPENDENT_TRIAL_RATIO_AUDIT.md",
+      "bytes": 15783,
+      "sha256": "49dcb371643935b8ec8ad1ff7531a4516a9f9cb7ea722e2b7cd6a3a52de91924",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3596,
+      "sha256": "8f789b486835e861c93b6934800f75881f5471940138577a84983ce588de9b27",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 280,
+      "sha256": "08bcc0e442a7b9bbc5fe0ec90542c141fbc43f2f31d8e98272110e0dc84cd9e6",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preserves final derivation and completed independent AI-assisted audit. Backup verifies bytes and scope, not mathematical theorems or inherited analytic inputs."
+}

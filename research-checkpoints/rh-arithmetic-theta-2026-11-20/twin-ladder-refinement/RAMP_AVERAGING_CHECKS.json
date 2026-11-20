@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Weyl commutation ZX = i XZ in dimension four",
+      "passed": true
+    },
+    {
+      "name": "Heisenberg twirl for an arbitrary symbolic 4 by 4 matrix",
+      "passed": true
+    },
+    {
+      "name": "Averaged cross norm equals ranks product divided by dimension",
+      "passed": true
+    },
+    {
+      "name": "A chosen word need not obey the averaged bound",
+      "passed": true
+    },
+    {
+      "name": "Two involutions have a traceless fixed conjugation direction",
+      "passed": true
+    },
+    {
+      "name": "Exact two-parity dimension normalization",
+      "passed": true
+    },
+    {
+      "name": "Twin-leg Hadamard transform is exact block diagonalization",
+      "passed": true
+    },
+    {
+      "name": "Twin-leg Gram defect retains the squared cross term",
+      "passed": true
+    },
+    {
+      "name": "Prime-power ramp trace equals weighted Mangoldt sum at X=12",
+      "passed": true
+    }
+  ],
+  "sympy_version": "1.14.0",
+  "scope": "Finite exact algebra and countercontrols only. General finite-dimensional lemmas are proved in the note. No arithmetic averaging estimate, RH, or external Lean build is verified."
+}

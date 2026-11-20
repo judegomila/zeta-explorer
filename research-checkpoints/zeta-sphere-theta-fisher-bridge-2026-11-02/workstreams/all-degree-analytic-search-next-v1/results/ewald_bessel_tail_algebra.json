@@ -1,0 +1,118 @@
+{
+  "crossed_orbit_polynomial": {
+    "lambda^2": "9/2",
+    "lambda^3_cosh": "-6",
+    "lambda^4": "2"
+  },
+  "degrees": [
+    {
+      "cell_sign": -1,
+      "degree": 0,
+      "derivative_order": 0,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 1,
+      "derivative_order": 2,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 2,
+      "derivative_order": 4,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 3,
+      "derivative_order": 6,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 4,
+      "derivative_order": 8,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 5,
+      "derivative_order": 10,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 6,
+      "derivative_order": 12,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 7,
+      "derivative_order": 14,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 8,
+      "derivative_order": 16,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 9,
+      "derivative_order": 18,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 10,
+      "derivative_order": 20,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    },
+    {
+      "cell_sign": 1,
+      "degree": 11,
+      "derivative_order": 22,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": -1
+    },
+    {
+      "cell_sign": -1,
+      "degree": 12,
+      "derivative_order": 24,
+      "minus_leading_coefficient_at_unit_scale": "1",
+      "plus_leading_coefficient_at_unit_scale": "1",
+      "source_sign": 1
+    }
+  ],
+  "euler_factor_H": "84.06698901813685687666764722515413261923967418352954493456935810931037",
+  "maximum_degree_checked": 12,
+  "ratio_limit_exp_minus_2pi": "0.001867442731707988814430212934827030393422805002475317199381538638317937",
+  "scope": "exact finite algebra plus recorded Decimal constants; analytic remainder proof is in the note; no RH claim",
+  "status": "PASS"
+}

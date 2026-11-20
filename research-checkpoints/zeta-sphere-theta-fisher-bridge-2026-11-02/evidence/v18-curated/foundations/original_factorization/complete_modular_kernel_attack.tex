@@ -1,0 +1,545 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.9in,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,microtype}
+\usepackage{booktabs,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=teal!55!black,urlcolor=teal!55!black,citecolor=teal!55!black]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Factoring the complete modular bridge}
+\fancyhead[R]{\small Research addendum}
+\fancyfoot[C]{\thepage}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1em}
+\setlist{itemsep=3pt,topsep=4pt}
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[proposition]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\calF}{\mathcal F}
+\newcommand{\calE}{\mathcal E}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\RH}{\mathrm{RH}}
+\newcommand{\Repart}{\operatorname{Re}}
+\newcommand{\ee}{\mathrm e}
+\hypersetup{pdftitle={Factoring the Complete Modular Bridge Kernel},pdfauthor={Jude Gomila; research assistance by ChatGPT},pdfsubject={Exact autocorrelation and Epstein reductions, rigorous obstructions, and open positivity targets}}
+\title{\textbf{Factoring the Complete Modular Bridge Kernel}\\[0.4em]
+\large An exact Epstein reduction, limits of positivity-preserving methods,\\and a ranked research program}
+\author{Jude Gomila\\\small Research addendum prepared with mathematical and editorial AI assistance}
+\date{2 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We attack the complete modular bridge kernel by first factoring a positive parent family. The bridge profile is exactly one quarter of the parameter derivative of a tilted autocorrelation. We give an explicit positive theta primitive and express the parent as a fourth-order differential operator applied both to another autocorrelation and to the completed Epstein zeta function of a rectangular lattice. The Epstein functional equation becomes the bridge reflection symmetry. These are exact identities, but parameter differentiation does not preserve positive definiteness. Four rigorous obstructions delimit useful strategies: the bridge profile cannot be a positive Gaussian mixture; its logarithm cannot generate an infinitely divisible characteristic function; its midpoint slices cannot all be positive definite; and the first natural Bessel block fails positive definiteness. We also derive the mixed-sign evolution equation under the de Bruijn--Newman deformation and give precise targets for modular Gram estimates, arithmetic Hankel contraction, and the associated-kernel hierarchy. The global derivative inequality remains unproved. No proof of RH or novelty claim is made.
+\end{abstract}
+
+\section{What is established, and what remains open}
+Use the completed functions
+\begin{equation}
+ \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+ \qquad \Xi(z)=\xi(\tfrac12+iz).
+\end{equation}
+We retain the Explorer normalization
+\begin{align}
+ \Xi(z)&=\int_0^\infty\psi(u)\cos(zu)\dd u,\\
+ \psi(u)&=4\sum_{n\ge1}
+ \bigl(2\pi^2n^4\ee^{9u/2}-3\pi n^2\ee^{5u/2}\bigr)
+ \ee^{-\pi n^2\ee^{2u}}.
+ \label{eq:psi}
+\end{align}
+The full sum is even, smooth and strictly positive; it and its derivatives decay faster than every exponential on the real axis. Modularity is essential to its evenness. All formulas use the complete sum, including when an argument is negative.
+
+For $a>0$, the shifted bridge and its undivided shear are
+\begin{equation}
+ E_a(t)=\Xi(t+ia),\qquad
+ H(a,t)=|E_a(t)|^2,\qquad W_a(t)=\tfrac12\partial_aH(a,t).
+\end{equation}
+The complete interaction profile is
+\begin{equation}\label{eq:C}
+ \calC_a(v)=\int_0^\infty h\sinh(2ah)
+            \psi(h-v)\psi(h+v)\dd h.
+\end{equation}
+With $\widehat f(k)=\int_{\R}f(v)\ee^{-ikv}\dd v$,
+\begin{equation}\label{eq:target}
+ W_a(t)=\widehat{\calC_a}(2t).
+\end{equation}
+The outstanding assertion is
+\begin{equation}\label{eq:open}
+ \boxed{\calC_a\text{ is positive definite for every }0<a<\tfrac12.}
+\end{equation}
+Positive definite means that every finite matrix
+$[\calC_a(v_j-v_k)]_{j,k}$ is positive semidefinite. For these smooth integrable kernels it is equivalent to a nonnegative Fourier transform. The range $a\ge1/2$ is already controlled by the zero strip. Positivity for all $a>0$ is equivalent to RH, through positivity of $\Repart(\xi'/\xi)$ or horizontal modulus monotonicity. These criteria and the related associated-kernel hierarchy have substantial prior literature \cite{lagarias,lagariasCorrection,csordas,cv}. Recasting the target does not by itself establish the unresolved inequality.
+
+\section{An exact factorization of the positive parent}
+For a real square-integrable $f$, define the half-lag autocorrelation
+\[
+ \mathscr R[f](v)=\int_{\R}f(h-v)f(h+v)\dd h.
+\]
+It is positive definite, since
+$\widehat{\mathscr R[f]}(k)=\tfrac12|\widehat f(k/2)|^2$.
+Set
+\begin{equation}
+ f_a(u)=\ee^{au}\psi(u),\qquad
+ R_a(v)=\mathscr R[f_a](v)
+       =\int_{\R}\ee^{2ah}\psi(h-v)\psi(h+v)\dd h.
+\end{equation}
+
+\begin{proposition}[Autocorrelation tangent]\label{prop:tangent}
+For every real $a$, $R_a$ is a positive definite Schwartz function. For $a>0$,
+\begin{equation}\label{eq:tangent}
+ \boxed{\calC_a=\tfrac14\partial_aR_a,\qquad
+        \widehat R_a(2t)=2|\Xi(t+ia)|^2.}
+\end{equation}
+The remaining theorem is monotonicity of $R_a$ in the positive-definite order, not positivity of its individual members.
+\end{proposition}
+\begin{proof}
+The product $\psi(h-v)\psi(h+v)$ is even in $h$, so
+\[
+ R_a(v)=2\int_0^\infty\cosh(2ah)\psi(h-v)\psi(h+v)\dd h.
+\]
+Differentiation gives $\partial_aR_a=4\calC_a$. The full-line Fourier transform of $f_a$ is $2\Xi(t+ia)$, using evenness. The autocorrelation formula gives the second identity. All interchanges follow from the decay of the full profile.
+\end{proof}
+In particular,
+\[
+ R_b-R_a=4\int_a^b\calC_r\dd r
+\]
+would have to be positive definite whenever $b>a>0$. A family can remain inside the positive cone while its derivative points outside it; even a positive scalar function need not increase.
+
+\subsection{A difference of two explicit squares}
+Let $\eta>0$ and $g_{a,\pm}(u)=(1\pm\eta u)\ee^{au}\psi(u)$. Polarization gives
+\begin{equation}\label{eq:polar}
+ \boxed{\calC_a=
+ \frac{\mathscr R[g_{a,+}]-\mathscr R[g_{a,-}]}{8\eta}.}
+\end{equation}
+The difference of the products in the autocorrelations is
+$4\eta h\,\ee^{2ah}\psi(h-v)\psi(h+v)$.
+This is an exact difference of two positive definite kernels. It is not a positive factorization.
+
+The Fourier version is
+\[
+ \widehat{\calC_a}(2t)
+ =\frac{|E_a(t)+i\eta E_a'(t)|^2
+             -|E_a(t)-i\eta E_a'(t)|^2}{4\eta}.
+\]
+A theta-based contraction that dominates the minus channel by the plus channel at every Fourier mode would finish this route. Defining it by assuming that this numerator is nonnegative would be circular. The useful question is whether modularity supplies such a contraction independently.
+
+\section{A theta primitive and a positive differential factorization}
+Write
+\[
+ \vartheta(x)=\sum_{n\in\mathbb Z}\ee^{-\pi n^2x},
+ \qquad \Theta(u)=\ee^{u/2}\vartheta(\ee^{2u}).
+\]
+Theta modularity implies $\Theta(-u)=\Theta(u)$ and
+$\psi=(D_u^2-\tfrac14)\Theta$.
+Define
+\begin{equation}\label{eq:primitive}
+ k(u)=2\cosh(u/2)-\Theta(u).
+\end{equation}
+This primitive is even and positive. For $u\ge0$,
+\[
+ k(u)=\ee^{-u/2}-2\ee^{u/2}
+             \sum_{n\ge1}\ee^{-\pi n^2\ee^{2u}},
+ \qquad 0<k(u)<\ee^{-u/2}.
+\]
+The positivity follows by comparing the decreasing Gaussian sum with
+$\int_0^\infty\ee^{-\pi\ee^{2u}x^2}\dd x=\tfrac12\ee^{-u}$.
+In particular,
+\begin{equation}
+ \psi=(\tfrac14-D_u^2)k.
+\end{equation}
+
+Let $\Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s)$, with poles at $0$ and $1$.
+The theta Mellin formula gives, for $0<\Repart s<1$,
+\begin{equation}\label{eq:kMellin}
+ \int_{\R}\ee^{(s-1/2)u}k(u)\dd u=-\Lambda(s).
+\end{equation}
+Splitting the integral at zero gives the elementary terms
+$1/s+1/(1-s)$ minus the convergent theta tail, exactly the negative of the usual continued Mellin expression for $\Lambda$.
+
+For $0<a<1/2$, put $p=a+1/2$ and
+\begin{equation}\label{eq:F}
+ \calF_a(v)=2\int_{\R}\ee^{2ah}k(h-v)k(h+v)\dd h.
+\end{equation}
+This is an explicit positive definite Schwartz function. No assumed RH spectral square root has been used. Equation \eqref{eq:kMellin} yields
+\begin{equation}\label{eq:Fhat}
+ \widehat{\calF_a}(k)=|\Lambda(p+ik/2)|^2.
+\end{equation}
+Define
+\begin{align}
+ \mathcal L_a
+ &=\bigl[D_v^2-(2a-1)^2\bigr]
+   \bigl[D_v^2-(2a+1)^2\bigr],\\
+ P_a(k)&=\bigl[k^2+(2a-1)^2\bigr]
+         \bigl[k^2+(2a+1)^2\bigr].
+\end{align}
+The Fourier multiplier $P_a$ is strictly positive in the open range $0<a<1/2$.
+
+\begin{proposition}[Exact differential factorization]\label{prop:primitive}
+For $0<a<1/2$,
+\begin{equation}\label{eq:diffFactor}
+ \boxed{R_a=\tfrac1{32}\mathcal L_a\calF_a,\qquad
+        \calC_a=\tfrac1{128}\partial_a(\mathcal L_a\calF_a).}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Since $\xi(s)=\tfrac12s(s-1)\Lambda(s)$ and $s=p+ik/2$,
+\[
+ 2|\xi(s)|^2=\tfrac1{32}P_a(k)|\Lambda(s)|^2.
+\]
+The left side is $\widehat R_a(k)$; apply \eqref{eq:Fhat} and Fourier inversion. Differentiate using Proposition~\ref{prop:tangent}.
+\end{proof}
+The transformation $\calF_a\mapsto\mathcal L_a\calF_a$ preserves positive definiteness here because its Fourier multiplier is positive. The parameter derivative still needs a new argument.
+
+\section{The exact completed-Epstein representation}
+Define the rectangular-lattice Epstein function by
+\begin{equation}
+ \calE(p,v)=\pi^{-p}\Gamma(p)
+ \sum_{(n,m)\in\mathbb Z^2\setminus\{(0,0)\}}
+ (n^2\ee^{-2v}+m^2\ee^{2v})^{-p},
+ \qquad \Repart p>1,
+\end{equation}
+and then by meromorphic continuation. Standard theta Mellin theory gives simple poles at $p=0,1$ and
+\begin{equation}
+ \calE(p,v)=\calE(1-p,v)=\calE(p,-v).
+\end{equation}
+The classical Epstein and Selberg--Chowla machinery, including the Bessel expansion, supplies this continuation \cite{ribeiro}. The bridge reduction below is derived directly; no novelty claim is made.
+
+\begin{theorem}[Complete modular lattice reduction]\label{thm:Epstein}
+With $p=a+1/2$,
+\begin{align}
+ R_a(v)&=\frac1{32}
+ \bigl[D_v^2-4(p-1)^2\bigr]\bigl[D_v^2-4p^2\bigr]\calE(p,v),
+ \label{eq:Epstein}\\
+ \calC_a(v)&=\frac1{128}\partial_a
+ \left\{\bigl[D_v^2-(2a-1)^2\bigr]
+             \bigl[D_v^2-(2a+1)^2\bigr]\calE(a+\tfrac12,v)\right\}.
+ \label{eq:EpsteinC}
+\end{align}
+The right side of \eqref{eq:Epstein} is interpreted by continuation at the removable singularities. The Epstein reflection $p\leftrightarrow1-p$ becomes exactly $a\leftrightarrow-a$.
+\end{theorem}
+
+\begin{proof}
+Initially take $a>1/2$, so $p>1$ and termwise Mellin integration is absolutely justified. For $n,m\ge1$, write
+\[
+ A=n^2\ee^{-2v},\quad B=m^2\ee^{2v},\quad Q=A+B,\quad r=AB/Q^2.
+\]
+Expanding the two theta factors and substituting $x=\ee^{2h}$ in the full-line integral for $R_a$ gives the contribution
+\begin{equation}\label{eq:rawpair}
+ 8\pi^{-p}\Gamma(p+2)\,rQ^{-p}
+       \bigl[4(p+2)(p+3)r-6p-3\bigr].
+\end{equation}
+On the other hand,
+\[
+ D_v^2Q^{-p}=4p[p-4(p+1)r]Q^{-p},
+\]
+and
+\[
+ D_v^2(rQ^{-p})=4(p+2)[p+2-4(p+3)r]\,rQ^{-p}.
+\]
+Combining these identities turns \eqref{eq:rawpair} into
+\[
+ \tfrac18\pi^{-p}\Gamma(p)
+ [D_v^2-4(p-1)^2][D_v^2-4p^2]Q^{-p}.
+\]
+The full lattice sum is four times the positive-quadrant sum plus
+$4\zeta(2p)\cosh(2pv)$. The latter is killed by $D_v^2-4p^2$, giving the factor $1/32$. At the poles $p=0,1$, the residues of $\calE$ are constant in $v$ and are killed by the operator at the corresponding parameter. The singularities are removable. Both sides continue analytically, and the identity theorem completes the proof. Finally, differentiate using \eqref{eq:tangent}.
+\end{proof}
+
+For completeness, the continuation is also transparent from
+\[
+ \theta_v(x)=\vartheta(x\ee^{-2v})\vartheta(x\ee^{2v})
+\]
+and the formula
+\begin{equation}
+ \calE(p,v)=\frac1{p-1}-\frac1p+
+ \int_1^\infty(\theta_v(x)-1)(x^{p-1}+x^{-p})\dd x.
+\end{equation}
+The integral is entire in $p$. The identity
+$\mathcal L_a1=16p^2(p-1)^2$ removes the two poles after the differential operator is applied.
+
+\subsection{Why raw lattice pairs do not settle the sign}
+The bracket in \eqref{eq:rawpair} becomes negative when $A/B$ is sufficiently unbalanced, since $r\to0$. Even the positive parent is not represented by termwise positive raw lattice contributions. Absolute termwise integration holds only for $a>1/2$; precisely the difficult region requires modular continuation or regrouping. A formal rearrangement cannot carry positivity across that boundary.
+
+Geometrically, $n^2\ee^{-2v}+m^2\ee^{2v}$ is the squared norm of an integer lattice after the area-preserving stretch $\operatorname{diag}(\ee^{-v},\ee^v)$. The separation variable $v$ becomes lattice aspect ratio, while the bridge shift $a$ becomes the Mellin index $p=a+1/2$. These are distinct roles.
+
+\subsection{An integrable renormalization with exact seam matching}
+The function $\calE(p,v)$ generally grows exponentially in $|v|$. Its ordinary Fourier transform must not be treated as that of a Schwartz function. For $1/2<p<1$, let
+\[
+ A_p=2\pi^{-p}\Gamma(p)\zeta(2p)>0,\qquad
+ B_p=2\pi^{1/2-p}\Gamma(p-\tfrac12)\zeta(2p-1)<0.
+\]
+The exact renormalization is
+\begin{equation}\label{eq:renorm}
+ \calF_a(v)=\calE(p,v)
+       -2A_p\cosh(2pv)-2B_p\cosh(2(1-p)v).
+\end{equation}
+For $v\ge0$, the Poisson/Bessel expansion gives
+\begin{align}
+ \calF_a(v)&=S_a(v)-A_p\ee^{-2pv}
+                         -B_p\ee^{-2(1-p)v},\\
+ S_a(v)&=8\ee^v\sum_{m,n\ge1}(n/m)^a
+                 K_a(2\pi mn\ee^{2v}).\label{eq:bessel}
+\end{align}
+Equation \eqref{eq:renorm} gives smooth even matching at $v=0$. The result decays exponentially at both ends. Applying $\mathcal L_a$ kills the subtracted homogeneous modes. Equations \eqref{eq:Epstein} and \eqref{eq:diffFactor}, with the strictly positive multiplier, identify this renormalization with the autocorrelation \eqref{eq:F}.
+
+Pairing $m,n$ in \eqref{eq:bessel} replaces $(n/m)^a$ by
+$\cosh(a\log(n/m))$. Also,
+\[
+ K_a(x)=\int_0^\infty\ee^{-x\cosh u}\cosh(au)\dd u
+\]
+\cite{dlmfBessel}. Hence paired Bessel terms and their $a$ derivatives are positive pointwise for $a>0$. This does not make their even extensions positive definite. The signed exponential corrections and fourth-order operator remain indispensable. Reflecting $S_a$ alone at zero and differentiating can introduce seam distributions; \eqref{eq:renorm} avoids that error.
+
+\subsection{The exact unresolved inequality after factorization}
+The preceding identities yield
+\begin{equation}\label{eq:unresolved}
+ \boxed{\widehat{\calC_a}(k)=
+ \frac1{128}\partial_a
+ \left[P_a(k)|\Lambda(a+\tfrac12+ik/2)|^2\right].}
+\end{equation}
+We have factored the positive parent using explicit theta and lattice data. We have not proved its derivative nonnegative. In fact,
+\[
+ \partial_aP_a(k)=16a(k^2+4a^2-1),
+\]
+which is negative for $|k|<\sqrt{1-4a^2}$ in the difficult range. Even this elementary factor has no uniform derivative sign. Where $\widehat{\calF_a}(k)>0$, the missing estimate is
+\begin{equation}
+ \partial_a\log\widehat{\calF_a}(k)
+ \ge-\frac{16a(k^2+4a^2-1)}{P_a(k)}.
+\end{equation}
+At zeros one must retain the undivided formula \eqref{eq:unresolved}. This logarithmic form is a target, not an independent proof.
+
+\paragraph{Independent consistency check.}
+Direct full-theta quadrature for $R_a$ and the differentiated Bessel expression agreed to relative error at most $2.3\times10^{-15}$ at all nine points
+$a\in\{0.1,0.25,0.75\}$, $v\in\{0,0.2,0.8\}$. The primitive autocorrelation and renormalized expression agreed to $1.1\times10^{-15}$ at the six points with $a<1/2$. These floating-point checks test constants and implementation; the algebraic derivation establishes the identity. They are not a sign certificate or proof of RH.
+
+\section{Four factorization strategies that cannot work as stated}
+\subsection{No positive Gaussian mixture}
+\begin{proposition}
+For fixed $a>0$, $\calC_a$ cannot equal a nonzero positive mixture
+$\int_0^\infty\ee^{-sv^2}\dd\mu(s)$.
+\end{proposition}
+\begin{proof}
+For every $B>0$, some $K_B<\infty$ satisfies
+$\psi(u)\le K_B\ee^{-Bu^2}$. Therefore
+\[
+ 0<\calC_a(v)\le
+ K_B^2\ee^{-2Bv^2}
+ \int_0^\infty h\sinh(2ah)\ee^{-2Bh^2}\dd h.
+\]
+So $\calC_a$ decays faster than every Gaussian. A nonzero positive mixture has some finite $S$ with $\mu([0,S])>0$, forcing
+$\calC_a(v)\ge\mu([0,S])\ee^{-Sv^2}$, a contradiction.
+\end{proof}
+This excludes a Gaussian-mixture factorization in $v$, including complete monotonicity of $\calC_a(\sqrt{x})$. It does not exclude general autocorrelation factors.
+
+\subsection{No infinitely divisible characteristic-function representation}
+Set $q(v)=-\log[\calC_a(v)/\calC_a(0)]$. The preceding bound gives
+$q(v)/v^2\to+\infty$ as $|v|\to\infty$. If $q$ were conditionally negative definite, its three-point inequality for $(x,-x,0)$ with coefficients $(1,1,-2)$ would give
+\[
+ 2q(2x)-8q(x)\le0.
+\]
+Iteration keeps $q(2^nx)/(2^nx)^2$ bounded, a contradiction. Thus the route
+$\calC_a/\calC_a(0)=\ee^{-q}$ with conditionally negative definite $q$ is impossible. Positive definiteness, if true, is weaker than infinite divisibility.
+
+\subsection{Some midpoint slices have a negative Fourier region}
+Let $P_h(v)=\psi(h-v)\psi(h+v)$. Up to positive normalization and scaling, its Fourier transform is the Wigner distribution of the pure state $\psi$. Hudson's theorem says a pure-state Wigner distribution is nonnegative everywhere only for a Gaussian state \cite{hudson}. The full modular profile is not Gaussian. Hence $P_h$ cannot be positive definite for every $h$. Evenness extends the conclusion to the half-line used in \eqref{eq:C}.
+
+This does not disprove positive definiteness of the integrated kernel $\calC_a$. It proves that a successful argument must combine different midpoint sectors; making every slice separately positive is unavailable. This is a precise reason that cancellation across scales may matter.
+
+\subsection{The first Poisson/Bessel block is not positive definite}
+The exact arithmetic regrouping also has a concrete obstruction. Retain only
+$m=n=1$ in \eqref{eq:bessel}, apply the differential operator, and write, for $v\ge0$,
+\[
+ R_{a,1}(v)=4\ee^v x^2[(x^2+9)K_a(x)+6xK_a'(x)],
+ \qquad x=2\pi\ee^{2v},
+ \qquad C_{a,1}=\tfrac14\partial_aR_{a,1}.
+\]
+Here the prime on $K$ denotes its argument derivative. The expression follows by reducing the fourth-order operator with the Bessel differential equation.
+
+\begin{proposition}
+The even extension of $C_{a,1}$ is not positive definite at $a=1/2$, and remains non-positive-definite for all $a<1/2$ sufficiently close to $1/2$.
+\end{proposition}
+\begin{proof}
+The standard order derivative \cite{dlmfBessel} is
+\[
+ \left.\partial_\nu K_\nu(x)\right|_{\nu=1/2}
+ =K_{1/2}(x)r(x),\qquad
+ r(x)=\ee^{2x}E_1(2x)
+     =\int_0^\infty\frac{\ee^{-u}}{2x+u}\dd u.
+\]
+Using $K_{1/2}'=-(1+1/(2x))K_{1/2}$ and $r'=2r-1/x$ gives, at $x=2\pi$,
+\begin{align*}
+ C_{1/2,1}'(0+)
+ =x^2K_{1/2}(x)\{&-2x^2-36\\
+ &+(2x^3+20x^2+48x+24)r(x)\}.
+\end{align*}
+Jensen's inequality gives $r(x)\ge1/(2x+1)$. The braces are therefore at least
+\[
+ -\frac{2(x^3-9x^2+12x+6)}{2x+1}>0
+ \quad\text{at }x=2\pi.
+\]
+For an exact sign check, the numerator polynomial increases on $[6,44/7]$ and its value at $44/7$ is $-8854/343<0$, while $6<2\pi<44/7$.
+Thus the even block increases immediately away from the origin. A real positive definite function must satisfy $C(v)\le C(0)$, so this block fails. Continuity of the derivative in $a$ proves failure for nearby $a<1/2$ as well.
+\end{proof}
+This excludes a proof assigning positive definiteness to every individual product-index Bessel block. It leaves open grouped blocks that retain exact modular matching. The full smooth even $\calC_a$ has $\calC_a'(0)=0$; the other arithmetic terms cancel the first block's positive seam slope.
+
+\section{Heat deformation: a mixed-sign bridge evolution}
+Define
+\[
+ \psi_\lambda(u)=\ee^{\lambda u^2}\psi(u),\qquad
+ \Xi_\lambda(z)=\int_0^\infty\psi_\lambda(u)\cos(zu)\dd u,
+\]
+and build $\calC_{a,\lambda},W_{a,\lambda}$ from the full deformed profile.
+Differentiation gives
+\begin{align}
+ \partial_\lambda\calC_{a,\lambda}
+ &=2v^2\calC_{a,\lambda}
+   +\tfrac12\partial_a^2\calC_{a,\lambda},\\
+ \partial_\lambda W_{a,\lambda}
+ &=\boxed{\tfrac12(\partial_a^2-\partial_t^2)W_{a,\lambda}.}
+ \label{eq:heat}
+\end{align}
+The minus sign prevents the ordinary heat-equation maximum principle from supplying positivity. A positive-cone theorem for this arithmetic solution needs additional structure.
+
+In the standard de Bruijn--Newman normalization the deformation parameter is
+$\tau=4\lambda$. Rodgers and Tao proved that the Newman constant is nonnegative \cite{rodgersTao}. Thus every negative $\lambda$ produces some nonreal zeros. Under RH, $\lambda=0$ is exactly the boundary of the all-real region; it has no negative-parameter safety margin. Multiplying the original theta profile by a damping Gaussian is not a harmless way to approximate an RH kernel by uniformly robust real-zero kernels. This concerns deforming $\psi$, not multiplying an already positive definite $\calC_a$ by a Gaussian.
+
+\section{A ranked program of further attacks}
+The ranking reflects fit to the bridge and availability of useful partial theorems, not estimated probabilities of solving RH.
+
+\subsection{First: modular blocks with a relative Gram bound}
+Use the exact Epstein/Bessel representation or an exactly even direct/dual theta decomposition before truncation. Retain the complete interaction, including cross terms. Seek
+\begin{equation}
+ \calC_a(v)=\sum_{\ell\ge0}
+       \int_{\R}\overline{g_{a,\ell}(u)}g_{a,\ell}(u+v)\dd u,
+ \qquad \sum_\ell\|g_{a,\ell}\|_2^2<\infty.
+ \label{eq:desired}
+\end{equation}
+Derive the factors from theta or arithmetic data independently of the desired sign. A more flexible target is a positive block $D$ and remainder $E$ with
+$-qD\preceq E$ for $q<1$. An absolute error bound is insufficient when the positive spectral margin tends to zero.
+
+For finite Gram extensions,
+\[
+ G_{N+1}=\begin{pmatrix}G_N&b_N\\b_N^*&d_N\end{pmatrix},
+ \qquad d_N-b_N^*G_N^{-1}b_N\ge0
+\]
+is the exact condition when $G_N$ is positive definite. The semidefinite case needs a pseudoinverse and range condition. Proving one extension on a finite parameter window is useful. Closing this scalar-kernel route requires all relevant nodes and refinements throughout the full interval $0<a<1/2$, including arbitrarily small shifts.
+
+An exact-even approximation can blend the weighted finite theta expression
+$\ee^{u/2}\vartheta_N(\ee^{2u})$ with its reflection, using a smooth partition
+$\chi(u)+\chi(-u)=1$, before applying $D^2-1/4$. This preserves all odd endpoint cancellations. It removes the raw-cutoff artifact; it does not establish positive definiteness or control the full Fourier remainder.
+
+\subsection{Second: an arithmetic Hankel contraction}
+Suzuki constructs shifted canonical systems from arithmetic Hankel kernels \cite{suzuki}. The target is contraction or determinant nonvanishing of the actual truncated operator, followed by a controlled canonical-system limit. His construction uses
+\[
+ m_\omega(A)=\frac{\det(I+\mathsf H_{\omega,A})}
+                  {\det(I-\mathsf H_{\omega,A})},
+ \qquad
+ \mathsf H_{\rm can}(A)=
+ \operatorname{diag}(m_\omega(A)^{-2},m_\omega(A)^2).
+\]
+Writing squares on the diagonal does not finish the argument: the determinant quotient must exist and the limiting representation must be justified. The cited paper gives an unconditional explicit construction for $\omega>1$; small positive shifts are the difficult part.
+
+A concrete partial target is an arithmetic Hankel norm bound on a finite logarithmic interval for a fixed compact range
+$0<\omega_0\le\omega\le\omega_1<1/2$. Its integrable onset is proportional to $t^{\omega-1}$, so sufficiently short intervals are tractable by a Schur test. The next goal is to cross an arithmetic threshold while controlling the singularity analytically. Such a theorem advances an operator estimate without claiming the global limit.
+
+\subsection{Third: the complete associated-kernel hierarchy}
+Define
+\[
+ \calM_n(v)=\int_0^\infty h^{2n}\psi(h-v)\psi(h+v)\dd h.
+\]
+Then
+\[
+ \calC_a(v)=\sum_{n\ge1}\frac{(2a)^{2n-1}}{(2n-1)!}\calM_n(v),
+ \qquad
+ \frac{W_a(t)}a=\sum_{n\ge1}nL_n[\Xi](t)a^{2n-2},
+\]
+where
+\[
+ L_n[f](t)=\sum_{j=0}^{2n}
+ \frac{(-1)^{j+n}}{j!(2n-j)!}f^{(j)}(t)f^{(2n-j)}(t).
+\]
+Positive definiteness of every $\calM_n$, or nonnegativity of every $L_n$ at every height, suffices. This is the established Csordas hierarchy \cite{csordas,cv}. Generic induction from one order to the next is false.
+
+A useful partial result says that if all zeros through height $T>1/2$ lie on the critical line, then every $L_n[\Xi](t)$ is nonnegative for $|t|\le T-1/2$. Sra's recent preprint states this all-order extension \cite{sra}. The mechanism can be checked directly: a conjugate zero pair $\gamma\pm ib$ contributes
+\[
+ ((t-\gamma)^2+b^2)^2
+ +2((t-\gamma)^2-b^2)y^2+y^4
+\]
+to the squared-modulus product, up to a positive factor. The coefficients are nonnegative when $|t-\gamma|\ge|b|$. The zero strip gives $|b|<1/2$, so verified zeros protect the interior band. Canonical-product convergence preserves these coefficients. This yields $W_a(t)\ge0$ there for every $a>0$, but does not extend the verified height. The next theorem must control new heights or propagate all orders using arithmetic structure.
+
+\paragraph{A quantitative large-order target.}
+For large $n$, the leading theta term suggests locating the saddle at $h_n>0$ with
+\[
+ \frac{2n}{h_n}+9=4\pi\ee^{2h_n},
+ \qquad s_n=(4\pi\ee^{2h_n})^{-1/2}.
+\]
+The natural rescaled profile is
+$\calM_n(s_nx)/\calM_n(0)$, with Gaussian candidate limit $\ee^{-x^2}$.
+A useful next theorem would establish a quantitative $L^1(\R)$ error bound for this limit. If that error is $\varepsilon_n$, the Fourier-transform error is at most $\varepsilon_n$, giving positivity where the Gaussian Fourier transform exceeds $\varepsilon_n$. Local convergence alone cannot control escaping high-frequency negative regions or all Gram tests. An asymptotic Gaussian limit is compatible with the impossibility of an exact positive Gaussian mixture proved above.
+
+\subsection{Fourth: one-sided control along the Newman flow}
+Start where all-real zeros are known and seek a uniform, one-sided estimate carrying the complete bridge inequality down to $\lambda=0$. Equation \eqref{eq:heat} gives the exact evolution. A finite-height estimate, a finite collection of zeros, or a uniform positive margin for negative $\lambda$ cannot close this route. The boundary behavior makes it a lower priority than modular or arithmetic-operator methods.
+
+\section{What would finish the proof}
+Any one of the following, established independently from modular or arithmetic data, would complete the bridge program:
+\begin{enumerate}
+ \item A representation such as \eqref{eq:desired}, with nonnegative measure and summable $L^2$ norms, for every $0<a<1/2$.
+ \item Positive definiteness of $R_b-R_a$ for every $0<a<b<1/2$, with the endpoint limits controlled.
+ \item A global proof of \eqref{eq:unresolved}, or all-level Gram/Schur closure with rigorous tail control.
+\end{enumerate}
+The factorization here supplies explicit inputs for these targets. It does not supply the missing order inequality. Sphere compactification cannot supply it either: the point at infinity contains an accumulation of zero vortices, so a naive hairy-ball argument lacks its required global regularity assumptions.
+
+The most focused next calculation uses the smooth renormalized Epstein function \eqref{eq:renorm}, groups its direct and dual pieces before taking the $a$ derivative, and seeks a relative positive-semidefinite remainder bound. That is a concrete place where infinite modular cancellation could become a sign theorem.
+
+\begin{thebibliography}{20}
+\small
+\setlength{\itemsep}{2pt}
+\bibitem{lagarias}
+J. C. Lagarias, \emph{On a positivity property of the Riemann $\xi$-function},
+Acta Arith. 89 (1999), 217--234.
+\url{https://websites.umich.edu/~lagarias/doc/positivity.pdf}.
+\bibitem{lagariasCorrection}
+J. C. Lagarias, \emph{Correction to On a positivity property of the Riemann $\xi$-function},
+Acta Arith. 116 (2005), 293--294.
+\url{https://doi.org/10.4064/aa116-3-5}.
+\bibitem{csordas}
+G. Csordas, \emph{Fourier Transforms of Positive Definite Kernels and the Riemann $\xi$-Function},
+Comput. Methods Funct. Theory 15 (2015), 373--391.
+\url{https://arxiv.org/abs/1309.0055}.
+\bibitem{cv}
+G. Csordas and A. Vishnyakova, \emph{The generalized Laguerre inequalities and functions in the Laguerre--P\'olya class},
+Cent. Eur. J. Math. 11 (2013), 1643--1650.
+\url{https://doi.org/10.2478/s11533-013-0269-x}.
+\bibitem{ribeiro}
+P. Ribeiro and S. Yakubovich, \emph{On the Epstein zeta function and the zeros of a class of Dirichlet series},
+J. Math. Anal. Appl. (2023), author manuscript arXiv:2112.10561v2.
+\url{https://arxiv.org/abs/2112.10561}.
+\bibitem{dlmfBessel}
+NIST Digital Library of Mathematical Functions, \S10.32 and \S10.38, especially
+Eqs.~10.32.9 and 10.38.7.
+\url{https://dlmf.nist.gov/10.32.E9};
+\url{https://dlmf.nist.gov/10.38.E7}.
+\bibitem{hudson}
+R. L. Hudson, \emph{When is the Wigner quasi-probability density non-negative?},
+Rep. Math. Phys. 6 (1974), 249--252.
+\url{https://doi.org/10.1016/0034-4877(74)90007-X}.
+\bibitem{rodgersTao}
+B. Rodgers and T. Tao, \emph{The de Bruijn--Newman constant is non-negative},
+Forum Math. Pi 8 (2020), e6; corrected author version 2021.
+\url{https://arxiv.org/abs/1801.05914}.
+\bibitem{suzuki}
+M. Suzuki, \emph{A canonical system of differential equations arising from the Riemann zeta-function},
+RIMS K\^oky\^uroku Bessatsu B34 (2012), 397--435; arXiv version revised 2016.
+\url{https://arxiv.org/abs/1204.1827}.
+\bibitem{sra}
+S. Sra, \emph{On some positivity properties of the Riemann $\Xi$ function},
+preprint, version 2, 29 October 2026, Theorem 1.3.
+\url{https://suvrit.github.io/papers/riem-xi/}.
+\end{thebibliography}
+\end{document}
+

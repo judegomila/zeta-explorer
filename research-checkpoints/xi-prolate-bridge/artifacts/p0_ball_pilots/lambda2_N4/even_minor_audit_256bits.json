@@ -1,0 +1,65 @@
+{
+  "checks": {
+    "all_raw_entries_strictly_positive": true,
+    "delta_1324_strictly_negative_on_both_paths": true,
+    "entrywise_ball_overlap_recomputed": true,
+    "hermitian_interval_overlap_recomputed": true,
+    "inversion_interval_overlap_recomputed": true,
+    "principal_01_strictly_positive_on_both_paths": true,
+    "producer_booleans_trusted": false,
+    "shared_arithmetic_library_limitation": "both source-assembly paths use FLINT/Arb; their formula trees and prime enumerations are independent",
+    "verifier_booleans_trusted": false
+  },
+  "claim_scope": {
+    "not_proved": "no asymptotic matrix property, mixed reserve, determinant limit, or Riemann-hypothesis conclusion",
+    "proved": "the natural even source matrix at lambda=2,N=4 has positive raw entries, a strictly negative shift-invariant order-two minor, and a strictly positive order-two principal minor"
+  },
+  "formula": {
+    "delta_1324": "Qplus_12*Qplus_34-Qplus_14*Qplus_32",
+    "principal_01": "Qplus_00*Qplus_11-Qplus_01*Qplus_10 from the full reflected compression",
+    "qplus_nm": "(Q_nm+Q_n,-m+Q_-n,m+Q_-n,-m)/2 for n,m>=1",
+    "scalar_shift_invariance": "all four delta_1324 entries are off diagonal, so Qplus-s*I has the same minor"
+  },
+  "input": {
+    "N": 4,
+    "lambda_decimal": "2",
+    "natural_even_basis": "e0=V0; en=(Vn+V_-n)/sqrt(2)",
+    "precision_bits": 256,
+    "prime_power_cutoff": 4
+  },
+  "producer": {
+    "minimum_raw_entry_lower": "0.03503504870438596014922114655178494610249327132092529244432583543562187301124194033870",
+    "minor_intervals": {
+      "delta_1324": {
+        "lower": "-0.0528855014436533807854938286157428413815449571928418767539143527121291391849454436500610947129541490227273728783776841189741173122910964981922593195871032124720501241135240",
+        "upper": "-0.0528855014436533807854938286157428413815449571801069443884374381890103750329357930735120693331700135876388379577545349592476143721526652181922593195871032124720501241135240"
+      },
+      "principal_01": {
+        "lower": "0.0000076913924158569509740158435004486536679522281407467928157576103885417690792435210307799466193759875317113732191492035840716468966197966419960103627348892094293746310905",
+        "upper": "0.0000076913924158569509740158435004486536679522281540335862672794723447330675633614084107523674063892453432389649486181828960815127979888831419960103627348892094293746310905"
+      }
+    },
+    "path": "artifacts/p0_ball_pilots/lambda2_N4/producer_256bits.txt",
+    "raw_entry_count": 81,
+    "sha256": "e47acba7e059ec955fe9f658c168ef3ecc1f1232852fda87cb39fab25ddff8bb"
+  },
+  "schema": "xi-prolate-even-total-positivity-ball-audit-v1",
+  "status": "BALL_ROUTE_OBSTRUCTION_PASS",
+  "terminal_state": "P0_INVALIDATED",
+  "verifier": {
+    "minimum_raw_entry_lower": "0.03503504870438596014922114655178494610249327132092529242308339868436664522083224310794",
+    "minor_intervals": {
+      "delta_1324": {
+        "lower": "-0.0528855014436533807854938286157428413815449571928421829293950261499007427581822869071955475728388230331140055907339170146390839752184736215541357059022621476732582788619564",
+        "upper": "-0.0528855014436533807854938286157428413815449571801066382157474392891325838982128230553912331454086413722554840850400353187108068701317004855541357059022621476732582788619564"
+      },
+      "principal_01": {
+        "lower": "0.0000076913924158569509740158435004486536679522281404297783293307264891189762218317129491995775927286650965218017948253214337038559621913990031092532371863686577256474139758",
+        "upper": "0.0000076913924158569509740158435004486536679522281543506007594750827647868708817577320718733313346112766299234046853972068073106202077096438031092532371863686577256474139758"
+      }
+    },
+    "path": "artifacts/p0_ball_pilots/lambda2_N4/verifier_256bits.txt",
+    "raw_entry_count": 81,
+    "sha256": "69a18f3ea551252f0e0433d6210a66f73d8fa49ab21d8659faebd9ad2182cdbc"
+  }
+}

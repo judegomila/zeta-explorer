@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "reviewed_at_utc": "2026-10-30T11:07:39.280966+00:00",
+  "producer": "rh_attack_cycle_20261030/weil_radical_tail_attack/CARLEMAN_TAIL_TO_WINDOW_WEIL_ACTION_TRANSFER.md",
+  "producer_sha256": "fc903d4c2afebe561323ecf085661a1fadd6c854f1f284e4722434da40598bb1",
+  "source_hashes": {
+    "rh_attack_cycle_20261030/actual_translation_graph/ACTUAL_JUMP_GRAPH_AND_COUNTERTERM.md": "f82f4a4f7ae0277df8d45155b0cfbf1ba8b5026474a5fe85853432319b0a4391",
+    "rh_attack_cycle_20261030/independent_review/radical_action_checks/check_exact_factors.py": "94a456ff60fbcf3dc1d34e34c67794696af1b9df2db46cabdc9bbb56ea7aa4ef",
+    "rh_attack_cycle_20261030/independent_review/radical_action_checks/EXACT_FACTOR_CHECKS.json": "e9b939571730b65b303dfb1fe62e0582601a6d08ce791195e646bc6b246db4cf",
+    "rh_attack_cycle_20261030/weil_radical_tail_attack/CARLEMAN_TAIL_TO_WINDOW_WEIL_ACTION_TRANSFER.md": "fc903d4c2afebe561323ecf085661a1fadd6c854f1f284e4722434da40598bb1",
+    "rh_attack_cycle_20261030/gamma_complement_attack/ITERATED_LOG_COORDINATE_TRANSITION_REDUCTION.md": "b1de81ba6aa5e7e6468f6ab2ca0b8a5e05ebd9dd8ad5936235dad86195474746",
+    "rh_attack_cycle_20261030/repo_leverage/independent_review/iterated_log_coordinate/ITERATED_LOG_COORDINATE_AUDIT.json": "b1f9ecc44c424f4dee7e56c09229716c04c85cc50aa022f9eb3e7a1d51a73f85",
+    "rh_attack_cycle_20261030/gamma_complement_attack/ADDITIVE_CENTERED_TRANSLATION_LEDGER.md": "2e114f28186a4579ac0f8d74a7f6420b54924962ba9312f4af4859f9956b388f",
+    "rh_attack_cycle_20261030/independent_review/ADDITIVE_CENTERED_TRANSLATION_AUDIT.json": "2eded473c39cbf51fcd792eebdbe2ccb8edaf7e7888167c0000c4191501f62e6",
+    "rh_attack_cycle_20261030/repo_leverage/POLYNOMIAL_DEFICIT_ACTION_STRIP.md": "0f866fc257fc82240fe342d643bce369b9f625f06f987b8d3523ca4e83d6d20c",
+    "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.json": "10ec0e6605ba85b2ea4fd30a48cb3955ba86b87698c6c52a5232128855c20ea8",
+    "rh_attack_cycle_20261030/prolate_exterior_phase_attack/WEIGHTED_PRUEFER_LOG_LEAKAGE.md": "5fb617fa2628e694e60e1fc907a3dec379b746731fe9876107f9e22107978271",
+    "rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.json": "6fe7492a2b2a73aa9b3e3fc6daed29531b94c1941042cf1813f382fa2750ce13",
+    "rh_attack_cycle_20261030/gamma_complement_attack/UNIFORM_ADDITIVE_ENDPOINT_NULL_FAR_VALUE_FRAME.md": "7724ad1c75931386bca53eafe0827b73eba2e201cccd31d9d4e111aa709265a8",
+    "rh_attack_cycle_20261030/independent_review/UNIFORM_ADDITIVE_VALUE_FRAME_AUDIT.json": "4ec017913a3ea38b1790c4edf7c0002c536ff0c00ef68c3dda97ab7ee939fa02",
+    "rh_attack_cycle_20261030/weil_radical_tail_attack/EXACT_RADICAL_WINDOW_IDENTITY_AND_TWO_TAIL_BRIDGE.md": "788280061df1d3acd494b47a95d85280b8a4646f79237ed5d4edcf7b8f421430",
+    "rh_attack_cycle_20261030/independent_review/ACTUAL_E_RADICAL_DOMAIN_AND_TWO_TAIL_AUDIT.json": "562202641713e8c5967ccc847097ef91927ed6da0fa93fee9a62fc7d74fee2ec",
+    "rh_attack_cycle_20261030/weil_radical_tail_attack/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_TRANSFER.md": "120b7cec1e421b8dae7e63061460b9ccd6499f1958d388b27cdfad12df66c4c4",
+    "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_WEIL_HEAD_ENERGY_AUDIT.json": "425753df3c2b8235b6dc0edd65c823f9dacf2e54a154bc4aa477c226d0adde3e"
+  },
+  "audit_note_sha256": "c6686b1e603d85e0a6249c723d1894e320a75ddeef541a107cb7c2168d984bc6",
+  "scope": "CARLEMAN_WEIL_ACTION_RESIDUAL_AUDIT",
+  "numerical_spectral_run": false,
+  "global_L2_closure_asserted": false,
+  "cofinal_complement_floor_proved": false,
+  "post_v8_cutoff": true
+}

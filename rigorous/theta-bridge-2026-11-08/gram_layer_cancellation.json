@@ -1,0 +1,39 @@
+{
+  "status": "Numerical illustration; fixed-layer negative certificate is in the separate interval script.",
+  "x": 0.25,
+  "spacing": 0.15,
+  "coefficients": [
+    -2,
+    9,
+    -19,
+    24,
+    -19,
+    9,
+    -2
+  ],
+  "stencil_autocorrelations": [
+    1468,
+    -1290,
+    869,
+    -438,
+    157,
+    -36,
+    4
+  ],
+  "Q_at_zero": -0.0012264187531597706,
+  "Q_at_one_twentieth": -0.0009080360366815199,
+  "integrated_form_quadrature": 0.0016193669682474454,
+  "quad_error_estimate": 1.2338736726360146e-13,
+  "positive_layer_integral": 0.0016194461530482387,
+  "negative_layer_integral": -7.918439669712901e-08,
+  "integration_endpoint": 4,
+  "monopole_period_check": {
+    "r": "2",
+    "k": "0.6",
+    "b": "-0.13074936736426847534033407734784522805319515912993584787756830524",
+    "H_theta": "1.0908085487034581240354514835032785815894119977360635679377768603",
+    "H_period": "1.0908085487034581240354514835032785815894119977360635679377768603",
+    "identity_residual": "2.3738919364399496868683105673904892885552414584049862415699449977e-66"
+  },
+  "limitations": "The finite positive quadrature is not a global positivity or RH certificate."
+}

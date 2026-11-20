@@ -1,0 +1,26 @@
+{
+  "status": "PASS_ALL_10437_SCALAR_BALLS_INDEPENDENTLY_RECOMPUTED",
+  "recomputed": 10437,
+  "every_non_timing_row_field_identical": true,
+  "minimum_restored_bits": 945,
+  "roundtrip_and_accuracy_assertions_rerun_for_every_entry": true,
+  "workers": 4,
+  "seconds": 58.42602229118347,
+  "source_sha256_before": {
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8",
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py": "cf6ab8bc8beace03c204588343da7291eef8d0a11fa4fa4a4c8252f9925cb2ef",
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py": "38b613381f5679f62056c013c9df53faa31a1a1845b6a0aa8c4e3bbadf3317d1",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_META.json": "7a3032db9babe035e8b5121063947818025a7ad08e304ce60116f698c651831e",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE.jsonl": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_COMPLETE.json": "fe22eaa9f7200a2c4b9e94bf7b78c0fed2b57fbe0872e59d99537ccb966b68b6"
+  },
+  "source_sha256_after": {
+    "rh_attack_cycle_20261030/support_endpoint_X161/support_config.py": "727794ab6fa29e1492e744587e1e41b68aa87f3fd85e5f6a1b347d30e6414de8",
+    "rh_attack_cycle_20261030/support_endpoint_X161/compute_moment_cache.py": "cf6ab8bc8beace03c204588343da7291eef8d0a11fa4fa4a4c8252f9925cb2ef",
+    "rh_attack_cycle_20261030/support_endpoint_X161/parameterized_near_moments.py": "38b613381f5679f62056c013c9df53faa31a1a1845b6a0aa8c4e3bbadf3317d1",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_META.json": "7a3032db9babe035e8b5121063947818025a7ad08e304ce60116f698c651831e",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE.jsonl": "b40a1c4befce69b27d61afd3f81bddd4725accfdfa54f7741d63fe4f4a8b2998",
+    "rh_attack_cycle_20261030/support_endpoint_X161/MOMENT_CACHE_COMPLETE.json": "fe22eaa9f7200a2c4b9e94bf7b78c0fed2b57fbe0872e59d99537ccb966b68b6"
+  },
+  "scope": "Same reviewed rigorous scalar primitive independently executed for every cache key; no full-matrix conclusion by itself."
+}

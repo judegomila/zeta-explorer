@@ -8,7 +8,7 @@ import '../../styles/header.css';
 // Drop the version/parenthetical suffix for a compact label (kept for callers).
 export const shortLabel = (s) => s.replace(/\s*\(.*\)\s*$/, '');
 
-const GITHUB_URL = 'https://github.com/judegomila/mathexplorer';
+const GITHUB_URL = 'https://github.com/judegomila/zeta-explorer';
 
 // Minimal line icons for the top-bar groups; currentColor so they follow
 // link/hover colors.

@@ -1,0 +1,24 @@
+{
+  "status": "RESTRICTED_T_EQUALS_X_PRECURSOR_INDEPENDENTLY_REDERIVED",
+  "original_source_specific_final_audit_found": false,
+  "original_theorem_unchanged": true,
+  "accepted_scope": [
+    "fixed smooth U",
+    "T=X=exp(2b)",
+    "annular moments and matrix mean square",
+    "good-carrier fraction and diagonal floor"
+  ],
+  "not_promoted": [
+    "all general-T regimes",
+    "frequency-band compression subsection",
+    "exceptional carriers",
+    "full complement",
+    "RH"
+  ],
+  "files": {
+    "rh_attack_cycle_20261030/annular_shared_frequency_attack/ANNULAR_NEUTRAL_MOST_CARRIER_SECTORS.md": "d68bdff59cff8bf1504e06ee1e65ee9331926ce926f7ab312570256e2b3ed19d",
+    "rh_attack_cycle_20261030/annular_shared_frequency_attack/RECOVERED_RESTRICTED_PRECURSOR_STATUS.md": "c3bc041ec7b34f9820a6489c6d9607c84163c7bf1d1ab8c131e605194474c8ad",
+    "rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.json": "47189b9933a593ad36460a2c1779437cd4942346479647e815f4326c407faa0d",
+    "rh_attack_cycle_20261030/superwire_channel_attack/SPARSE_CARRIER_SPAN_INDEPENDENT_AUDIT.md": "f406d4f5c4d7088732dc717cfaaf0f067846bd42a86dd5655abc44922b19466a"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "classification": "finite_interval_experiment",
+  "baseline_commit": "337c2e36698a08bd0b7fd1ea5402f10e85207ef3",
+  "reference_source_sha256": "461709e057b681e5a6afdcf504c6286c0b5c8a8cb9522b84dc8df2183774a55a",
+  "rerun_status": "degree-7 reference replay passed; overnight queue pending",
+  "scope": "No all-shift, all-degree, hierarchy-extension, or RH conclusion."
+}

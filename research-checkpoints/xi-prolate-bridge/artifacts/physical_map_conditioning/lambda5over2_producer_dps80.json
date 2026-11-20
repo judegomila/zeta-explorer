@@ -1,0 +1,49 @@
+{
+  "artifact_version": "0.15.0-physical-conditioning-reduction",
+  "terminal_state": "P0_INVALIDATED",
+  "precision_decimal_digits": 80,
+  "provenance_sha256": {
+    "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+    "src/physical_map_conditioning.py": "a47f5ed65504132bfb42efb8808256b3a98156b6d2913e5fdbab3e7b657c3c83",
+    "verifier/physical_map_conditioning_replay.py": "db0e39d763d7970019bac6faafd911dfd502d7ff4a6742e27b90ea789daa3b31"
+  },
+  "mobius": {
+    "lambda_exact": "5/2",
+    "lambda_squared_exact": "25/4",
+    "cutoff_floor_lambda_squared": 6,
+    "mobius_1_to_cutoff": [
+      1,
+      -1,
+      -1,
+      0,
+      -1,
+      1
+    ],
+    "S_lambda": "3.1399189363399942445580418888040436406815526076570177455332370724366081595711004",
+    "elementary_upper_2lambda": "5.0",
+    "upper_bound_defect": "1.8600810636600057554419581111959563593184473923429822544667629275633918404288996",
+    "bound_pass": true
+  },
+  "half_integer_breakpoint": {
+    "lambda_exact": "5/2",
+    "forward_unmatched_breakpoint_u0": "5/4",
+    "reflected_argument_at_u0": "4/5",
+    "would_be_reflected_index_lambda_squared_over_2": "25/8",
+    "odd_square_mod_8": 1,
+    "reflected_index_is_integer": false,
+    "unmatched_breakpoint_hypothesis_pass": true
+  },
+  "first_endpoint_jet_leading_coefficients": [
+    "1",
+    "1/2",
+    "1/8",
+    "1/48",
+    "1/384",
+    "1/3840",
+    "1/46080",
+    "1/645120"
+  ],
+  "continuous_parity_injectivity_scope": "qualitative_on_finite_dimensional_analytic_source_spaces_at_fixed_half_integer_lambda",
+  "uniform_physical_conditioning_proved": false,
+  "claim_scope": "exact_arithmetic_reduction_not_uniform_conditioning"
+}

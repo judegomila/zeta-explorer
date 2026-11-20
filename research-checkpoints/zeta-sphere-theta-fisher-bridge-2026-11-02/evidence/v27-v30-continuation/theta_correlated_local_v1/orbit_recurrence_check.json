@@ -1,0 +1,6 @@
+{
+  "recurrence_coefficient_checks": 75,
+  "k_max": 24,
+  "exp_quarter_upper": "113/88",
+  "scope": "Exact symbolic diagnostic only; no original pivot or full signed mean certified."
+}

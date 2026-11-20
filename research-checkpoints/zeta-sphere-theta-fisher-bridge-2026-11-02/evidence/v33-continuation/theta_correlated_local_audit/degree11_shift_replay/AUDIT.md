@@ -1,0 +1,11 @@
+# Independent derivative24 six-channel audit
+
+Corrected-source replay: even10 PASS, odd11 INCONCLUSIVE, 2026-11-03. Independent 16/4000/4000 run output result.json. Every even shift slab and spatial cutoff cell passes; all odd shift slabs fail interval enclosure. This is not odd negativity. The initial source had four upper-triangle loops ending at5 instead of6, omitted the sixth channel, and is invalid as a six-channel test. Author corrected these before this replay; frozen degree9 is unaffected.
+
+The complete derivative24 extension is analytically consistent. For z>=pi, |D^j A_n|<=2^28 n^4 2^j j! and |D^j exp(-(n^2-1)z)|<=j!(2n^2z)^j. Leibniz yields the conservative constant C=2^29*24!*4^24 multiplying n^52 z^24 exp(-(n^2-1)z), j<=24. The omitted n>=13 sequence has consecutive ratio <=(14/13)^52 exp(-27pi)<1/2, giving the displayed 2C13^52 tail. Inserting derivative-error/j! into every series coefficient BEFORE log retains all orbits.
+
+For z>=100 the improved ratio estimate and log-composition bound give |ell^(k)|<=2^(k+2)k!z through24. The even logarithmic generating coefficients satisfy q_k<=8*4^k z. At R=36z, sum k q_k/R^k <=(8/9)/(1-1/(9z))^2<1, so the exponential coefficient recurrence yields coefficients<=R^j. After (-1/4)^j(2j)!, this proves |g_j|<=(2j)!9^jz^j, including j11. Thus shifted tail (256/pi)(2j)!9^j Z^(j+5)exp(-2Z) remains valid; j+5<=16 and 2-16/Z>1. Other shift-slab, signed partial-cell, and second-derivative arguments are unchanged from independently accepted degree9. The rational basis is verified directly, not trusted as orthogonal.
+
+Scope currently accepted: even degrees0,2,4,6,8,10 positive for all0<=a<=1/2,0<=H<=1/8. Combined with prior odd-through9 and the separately proved H=0 outer-strip argument, full degree<=10 is positive for every a>0 at H=0, with normalized endpoint. No H11 claim follows from this run. No new normalized maximum degree claim, no all-order/RH claim.
+
+Final FULL_SHIFT_DEGREE10.md independently reviewed and consequence checker replayed. Monic even10 reserve >8928867843900347, strict conservative integer rounding, confirmed from our own slab output. Actual top LDL lower >.6386377099148347. Final proof distinguishes original invalid dimension implementation from corrected inconclusive odd11. All finite/global scope wording accepted.

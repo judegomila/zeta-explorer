@@ -1,0 +1,75 @@
+{
+  "schema": "zeta-explorer/zero-channels-provenance/1",
+  "createdAt": "2026-11-14T15:09:31.777699+00:00",
+  "renderer": {
+    "repository": "judegomila/zeta-view",
+    "commit": "ee749ce5ea91bc336896d3ab87ac4faca1401cc3",
+    "liveURL": "https://zeta-view.vercel.app/experiments/zero-channels.html",
+    "sha256": {
+      "dist/experiments/zero-confinement.html": "d482a0e907e6203821a9951282c589c5927c69f179ca4092e4e5b944b62b6640",
+      "dist/research-panel.js": "d1ba358b5064a6f054a10cdb3c5cf0f34a1caaaf6c4bc1dd5bc3225fd1c15b4e",
+      "dist/experiments/zero-channels.html": "bb88e6480d8b26898672909491421128f90ebf0f0c6fd4a00ba028a4b161b1ea",
+      "dist/experiments/zero-channels.css": "3a150108b2463f198500337639f2e2848047a8a793742033b394394f2b85afb0",
+      "dist/experiments/zero-channels.js": "349950580b08f71227d03f236871efea289d6d3d7329165f24b067bb3e2c7a77",
+      "dist/experiments/zero-channels-worker.js": "2f3ff0f1ae425448c3e560fc33e45b77540dd70661c7fceaf5e0fe5d9372d9b7",
+      "dist/zero-channels-math.js": "2f65efc75c0c5e7ab0da2ebaead12d7dd704cd380da542e5719e06ead109a553",
+      "dist/experiments/zero-channel-bounds.json": "a87caf0b0f1f510a7dfb2a5b4a8048be13347538978777d59530ae8f9a6b0a0e",
+      "scripts/experiments/zero-channel-bounds.py": "553d42a06c4bba63bdf85370ac5a7a15828a39e583154994ed1a899964995d28",
+      "docs/ZERO-CHANNELS-MATH.md": "3eca34e5f6540dfdfd91f2c4f7faef53f37b3185206ab10dfe58b54274244b0b",
+      "tests/zero-channels-math.test.mjs": "33d62c69910e2c338ff6cc3a406d39b9a29cdaf7aa40b7f28f6b8662de205c36",
+      "tests/zero-channels-ui.test.mjs": "5c4bbc9686cecf436c566a280db823d242afdaffe49af74ebb148bf763b2e941"
+    },
+    "implementationCommit": "cb9ecb2c62dd296e3dfac6788d46a8faae3348ef"
+  },
+  "logRepository": "judegomila/mathexplorer",
+  "sourceBaseCommit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "input": {
+    "sourceRepository": "judegomila/zeta-view",
+    "sourceCommit": "1dcaf3f73ae59a528ae5e8dd67b8f672fbdba911",
+    "sourcePath": "dist/experiments/zero-confinement-theta.json",
+    "originalSha256": "c87fdd86bdfe918c8a1f246af9b246a1b75dad995c7c6ebcd615519e7f420d8c",
+    "transformation": "Retains all 723 frame times and all 2169 root records needed for channel audit; drops contour arrays and unrelated diagnostics."
+  },
+  "packageSha256": {
+    "README.md": "3c07369a7f32af0b0943fd33c224ae81dda7c1442331c06c7f1cd905deadf5b4",
+    "ZERO-CHANNELS-MATH.md": "3eca34e5f6540dfdfd91f2c4f7faef53f37b3185206ab10dfe58b54274244b0b",
+    "channel-bounds.json": "fc021f5f162698d2744f22d7e9dd8bef7897338a7a46c42cc17bbc07a40a8d4b",
+    "newton-guidance.jpg": "e68df73967476e07b7844c62bc2310ee9c414f7de0bd0b074cbd1bc3550c265f",
+    "requirements.txt": "886bf1555251741ca85877cd227e2f2153717451ed3183d968ed6c33c912687c",
+    "theta-input.json": "56ba0cfa431d589605a842defb3dda4109f5c3c84d713d1a91161224f1cd7967",
+    "verification.json": "1813d431977c3ddc5601ff08c67b052345dc0e6dbb0da5e88f9c1812f1b67031",
+    "zero-channel-bounds.py": "553d42a06c4bba63bdf85370ac5a7a15828a39e583154994ed1a899964995d28"
+  },
+  "verification": {
+    "rendererTestsPassed": 26,
+    "certificateSelfTestsPassed": 6,
+    "independentReplay": "verification.json",
+    "pythonVersion": "3.12.14",
+    "pythonFlintVersion": "0.9.0",
+    "mpmathVersion": "1.3.0",
+    "productionBrowser": {
+      "passed": true,
+      "deploymentId": "dpl_REDACTED",
+      "verifiedCommit": "ee749ce5ea91bc336896d3ab87ac4faca1401cc3",
+      "screenshot": "newton-guidance.jpg",
+      "screenshotURL": "https://zeta-view.vercel.app/experiments/zero-channels.html?view=newton&model=quartic&frame=144&end=-0.25#workbench",
+      "checks": [
+        "all three views",
+        "theta first disk at tau=-.05",
+        "four quartet channels at tau=-.13",
+        "resized disk loses certificate",
+        "exact collision disables finite coupling",
+        "both heat directions",
+        "actual-theta Newton guidance",
+        "off-line quartet Newton destinations",
+        "seed control updates URL",
+        "probe playback holds heat time fixed",
+        "Back and paused reload",
+        "copy view link",
+        "main renderer and comparison entry links",
+        "correct keyboard-focus styling"
+      ]
+    }
+  },
+  "scope": "Four quartet channels and one actual-theta fixed disk on stated finite intervals; other theta tracks numerical; no global RH claim."
+}

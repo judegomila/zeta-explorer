@@ -1,0 +1,111 @@
+{
+  "checkpoint": 62,
+  "entries": [
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-01",
+      "status": "imported source verified, no fresh numerical producer replay",
+      "target_lemma": "Bind durable v15 negative tails and finite odd-degree19 normalization",
+      "exact_input": "H1,a0 bound-53766891745349 and a1/10000 bound-51718939276867 scaled byexp(pi nu/2),nu7005081715/1000000.",
+      "dependencies": "483CRCs,481manifest and481SHA records; source proofs, producer read-only and supplied independent audits.",
+      "strongest_surviving_statement": "Actual tail equals CP61 C/a atheat0; full normalized interval is two-sided. Degree19 certifies only odd10x10 at a0/heat0/H1/16, no pivot-to-eigenvalue conversion.",
+      "precise_obstruction": "Incoming stronger integrated-anchor source not identified; neither finiteodd19 nor a positive shift is a positive-time boundary certificate.",
+      "next_step": "Require exact new common-anchor body and a positive-time physical coefficient map; do not infer it."
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-02",
+      "status": "rigorous actual-source estimates under explicit real parameter gates",
+      "target_lemma": "Uniform full-theta Gaussian and true-heat derivative bounds",
+      "domain": "Real v,h;0<=a<=1/2,0<=tau<=1/2,H>=0,full even source.",
+      "strongest_surviving_statement": "|psi(u)|<18exp(-6u\u00b2); normalized tail L1<72/5, first absolute moment<108/55, time-derivative L1<387/275.",
+      "precise_obstruction": "These are ingredients for signed persistence, not a Schur/curvature bound.",
+      "tests": "Current exact rational constants plus independent analytic audit.",
+      "source": "root/actual_heated_tail_obstruction.md T1-T4"
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-03",
+      "status": "rigorous actual truncated-tail obstruction conditional only on the source-verified v15 input",
+      "target_lemma": "Positive-heat negative rectangle and infinite negative index",
+      "domain": "H1,a1/10000,0<=tau<=epsilon/8,|xi-14010.16343|<=epsilon/8,epsilon=51718939276867/3^14012; reflected interval too.",
+      "form_domain": "Tail convolution on L2; even Schwartz negative subspaces approximated by complex reflection-even Cc\u221e on increasing finite supports.",
+      "strongest_surviving_statement": "Density<-epsilon/2; arbitrary-dimensional negative subspaces. Any fixed finite-complex-linear-functional correction fails to make the entire tail nonnegative.",
+      "precise_obstruction": "Finite-rank correction no-go concerns this tail only. It is not actual Weil negativity, nor a claim that full physical feedback has finite rank.",
+      "next_step": "Keep central compensation/infinite-rank or restricted-span costs; do not revive universal positive-tail repair.",
+      "source": "root/actual_heated_tail_obstruction.md T3-T5"
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-04",
+      "status": "rigorous actual joint signed compensation on an explicit restricted positive-time band",
+      "target_lemma": "Positive complete source plus negative tail and local denominator gate",
+      "domain": "Fixeda1/10000;0<=tau<=epsilon_plus/8 and|xi-14010.16343|<=epsilon_plus/8,epsilon_plus=3194699959754/3^14012.",
+      "strongest_surviving_statement": "Full density>epsilon_plus/2,tail<-epsilon_minus/2,core>(epsilon_plus+epsilon_minus)/2. Atphysicaly1/5000,D>(a*epsilon_plus/72)^2.",
+      "form_domain": "Complete-kernel positive Gram on restricted Fourier-supported L2 amplitudes, with all cross terms; no simultaneous compact spatial/frequency support claim.",
+      "precise_obstruction": "Frequency/time range is outside CP61 huge phase gates; one fixed y line is not a full chart. Denominator allowance scales epsilon_plus^-2 and pays no claimed reserve.",
+      "next_step": "Find an actual source transfer to a relevant boundary family and compare all remaining response with Sigma_W.",
+      "source": "root/actual_heated_tail_obstruction.md T6"
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-05",
+      "status": "rigorous exact form-domain/joint matrix identities; actual coefficient transfer open",
+      "target_lemma": "Same-metric integrated anchor after complete inverse feedback",
+      "domain": "Fixed supportW,closed positive complementD_W withformrepresenters;finite anchorx andALL remaining/exceptionalz; independentpostfeedbackA>0.",
+      "strongest_surviving_statement": "A=A0-kappa*kappa,B=B0-kappa*lambda,C=C0-lambda*lambda; exact half allocation retains every source cross term. SameA anchors yield S=Xi+Omega with complete PSD covariance.",
+      "precise_obstruction": "Degree19Gamma is an undeformed origin-jet Gram, not the positive-time nonlocal logarithmic boundary form. No actual CP61 boundary subspace certified by that import alone.",
+      "next_step": "Prove actual source map and signed residual; using differentintegratedA requires the signed inverse mismatch.",
+      "source": "root/joint_anchor_and_feedback.md J1-J6"
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-06",
+      "status": "rigorous sharp synthetic universal-claim obstruction; not actual theta data",
+      "target_lemma": "Can arbitrary matrix-valued anchors make every local residual PSD?",
+      "exact_coefficients": "A=I2,B1=I2/2+J,B2=I2/2-J,J=[[0,1],[-1,0]],C1=C2=I2.",
+      "strongest_surviving_statement": "TotalSchur=I2 but for everyHermitianPi>0,sumPi=I2,trace inversecost>=10 andtrace localsum<=-6. Optimalminimumlocaleigenvalue=-3/2. Equalanchors give localsum-3I,covariance4I.",
+      "precise_obstruction": "Matrix-valued anchors do not automatically supply local PSD. Exact signed integrated compensation remains valid.",
+      "tests": "25 exact current Gaussian-rationalcontrols, independentrootanalyticreview/temp replay and additional analytic audit.",
+      "source": "anchor_audit/matrix_anchor_obstruction.md"
+    },
+    {
+      "checkpoint": 62,
+      "source_normalization": "Full actual even psi; H=Xi_tau(z/2)/8; C/a normalized; a=y/2,S=a*hatK/128; frequency nu distinct from heat tau.",
+      "scope_controls": "Both heat factors, all theta/arithmetic terms, shared full denominator, signed core-tail endpoints and moving derivatives; all retained/exceptional directions, mixed inverse, support/time/switch and range gates remain.",
+      "RH_proved": false,
+      "id": "cp62-07",
+      "status": "open actual angular/covariance estimate",
+      "target_lemma": "Full actual joint head/exceptional sign at shrinking reserve after inverse feedback",
+      "exact_target": "SubtractSigma_W beforecongruence; Xi-Sigma_W=diag(-N,P),N>0,P>=0. RequireOmega-- -Omega-+(P+Omega++)^-1Omega+- >=N withpositive lowergate.",
+      "sufficient_finite_lemma": "Source-specifickappa_W>0,0<=rho_W<1,Omega-->=kappa_W N,mixedcost<=rho_W Omega--,(1-rho_W)kappa_W>=1.",
+      "precise_obstruction": "This exact reduction is not independently proved for the actual family; degree19constants600/.995 belong to different undeformed matrices and cannot be imported.",
+      "next_step": "Actual positive-time coefficient map plus signed angular estimate with all error/reserve/switch/support scales; a finite specified-chart lemma is local, while an exhausting claim needs all limiting controls.",
+      "source": "root/joint_anchor_and_feedback.md J6-J7"
+    }
+  ],
+  "canonical_versions_unchanged": [
+    54,
+    54,
+    57
+  ],
+  "current_unique_controls": 64
+}

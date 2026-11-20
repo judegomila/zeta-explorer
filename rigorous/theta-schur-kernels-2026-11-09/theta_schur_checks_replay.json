@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "symbolic_checks": [
+    "one-anchor Pick Schur congruence",
+    "first curvature tangent reduction",
+    "second curvature tangent reduction",
+    "curvature conversion to xi logarithmic derivative",
+    "second curvature conversion",
+    "positive kernel decomposition",
+    "positive kernel forced equation",
+    "second reduced response",
+    "second pair first relation",
+    "second pair second relation",
+    "theta mixed-moment curvature conversion",
+    "gamma energy square factorization",
+    "pole boundary-square minus norm",
+    "auxiliary Taylor coefficient 1",
+    "auxiliary Taylor coefficient 3",
+    "auxiliary Taylor coefficient 5",
+    "confluent third Pick determinant",
+    "three-node Vandermonde factor"
+  ],
+  "compact_curvature": {
+    "range_u": "0 <= u <= 10000",
+    "published_finite_RH_cutoff": 3000000000000,
+    "positive_head_lower_bound": "729/2593534996759129133768",
+    "tail_error_upper_bound": "3000000000000000000000001/4500000000000000000000000000000000000000000000000",
+    "remaining_lower_bound": "410061527424376215326574836999675808125405108858279/1458863435677010137744500000000000000000000000000000000000000000000000",
+    "external_inputs": [
+      "Platt-Trudgian finite-height theorem (not replayed here)",
+      "Published first-zero intervals (14,15) and (21,22)"
+    ]
+  },
+  "large_curvature": {
+    "range_x": "x >= 100",
+    "lower_bound": "58/225"
+  },
+  "compensated_prime_count": {
+    "statement": "M(log N) is strictly below this negative rational bound",
+    "N": 24137,
+    "upper_bound_numerator": -35889296433,
+    "upper_bound_denominator": 1000000000000,
+    "prime_powers_counted": 2756,
+    "log_series_terms": 18,
+    "arithmetic": "exact integers only",
+    "RH_claim": false
+  },
+  "scope": "Exact algebra and rational bounds; no all-orders positivity or RH proof"
+}

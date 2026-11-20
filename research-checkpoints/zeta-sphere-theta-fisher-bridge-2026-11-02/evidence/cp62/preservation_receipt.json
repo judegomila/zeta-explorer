@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "pins": [
+    {
+      "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_full_height_sphere_boundary_v1.zip",
+      "bytes": 180488,
+      "sha256": "91b3c3ad761c23bda8cf4fccaed9bc18e599c55ff1c61cfc0334fc47bc054dd4",
+      "library_file_id": "libfile_d5b1584e45388191935da949fb215d94"
+    },
+    {
+      "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_signed_spatial_tail_correction_v1.zip",
+      "bytes": 48821,
+      "sha256": "ed0b0cffab5c1e7382ee99e6b5da966c47f21a1565c59e6ad4a6d54790b7e755",
+      "library_file_id": "libfile_13e966f0eee08191a90363c18b208508"
+    },
+    {
+      "path": "output/pdf/RH_Weil_Ordinary_Primes_2026-10-31.pdf",
+      "bytes": 31029427,
+      "sha256": "a6dea9032715285b616688524929bff937a50ab82daae043c4c309572814020c",
+      "library_file_id": "libfile_b8d5af5d6eb881919b033f8a4c592e0c"
+    },
+    {
+      "path": "output/RH_Weil_Ordinary_Primes_2026-10-31.zip",
+      "bytes": 30100309,
+      "sha256": "0d2a52b698645c29f54dfbcc87d2d3209007959887b7fe95bc4dac4127d9bb34",
+      "library_file_id": "libfile_7e08ebe578d081919a7c960ef103ebd6"
+    },
+    {
+      "path": "output/rh_routes/route_ledger.json",
+      "bytes": 6423715,
+      "sha256": "4f62b2c13f819f7a08816fff898c9675968e99035a747472fd51376d0cfc7ff2",
+      "library_file_id": "libfile_20c0183673ec819183f50e89e60c483c"
+    },
+    {
+      "path": "input/logical_cp61/ledger_revision67.json",
+      "bytes": 6926017,
+      "sha256": "2eecef491e212ca796ccaa858cd32225ec7824fd4fbe6735f6d6f15d39cefeab",
+      "library_file_id": null
+    }
+  ],
+  "canonical_versions_unchanged": [
+    54,
+    54,
+    57
+  ],
+  "historical_v39": "hash-linked only; not freshly reconstructed"
+}

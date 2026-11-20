@@ -1,0 +1,188 @@
+\section{An exhaustive derivative hierarchy, and its first three channels}
+The separated and paired classes do not exhaust the tests in \eqref{eq:RHtarget}. Analyticity of the complete kernel provides a different exhaustive formulation: use every order of derivative evaluation at one lag origin.
+
+\subsection{Absolute spectral decay without a sign assumption}
+\begin{lemma}\label{lem:strip}
+For every fixed $a>0$, $C_a$ is holomorphic in $|\Impart v|<\pi/4$. For every $0<\eta<\pi/4$,
+\begin{equation}\label{eq:exponentialMoment}
+\int_{\R}\ee^{\eta|k|}|\widehat C_a(k)|\dd k<\infty.
+\end{equation}
+The normalized kernel $\kappa_0$ has the same properties.
+\end{lemma}
+\begin{proof}
+For $u=x+iy$ with $x\ge0$ and $|y|\le\delta<\pi/4$, the absolute terms of the full theta series are bounded by
+\[
+\left(8\pi^2n^4\ee^{9x/2}+12\pi n^2\ee^{5x/2}\right)
+\ee^{-\pi n^2\ee^{2x}\cos(2\delta)}.
+\]
+After summing, this is at most
+$K_\delta(\ee^{9x/2}+\ee^{5x/2})\ee^{-\pi\ee^{2x}\cos(2\delta)}$.
+Analytic modular evenness handles $x<0$. Thus for every $B>0$ there is a finite $K_{B,\delta}$ such that
+\[
+|\psi(x+iy)|\le K_{B,\delta}\ee^{-Bx^2}\qquad(|y|\le\delta).
+\]
+Substitution in \eqref{eq:C} proves locally uniform convergence and the horizontal bound
+\[
+|C_a(x+iy)|\le K_{B,\delta}^2\ee^{-2Bx^2}
+\int_0^\infty h\sinh(2ah)\ee^{-2Bh^2}\dd h.
+\]
+Contour shifting, with vanishing vertical sides, gives
+$|\widehat C_a(k)|\le M_{a,\delta}\ee^{-\delta|k|}$.
+For a specified $\eta<\pi/4$, choose $\eta<\delta<\pi/4$ and integrate. Replacing the weight by $2h^2$ proves the endpoint assertion. This argument assumes no sign for the Fourier transform.
+\end{proof}
+
+\begin{theorem}[Exact all-order confluent criterion]\label{thm:hierarchy}
+For fixed $a>0$, define
+\begin{equation}\label{eq:Hm}
+H_m(a)=\left[(-1)^k C_a^{(j+k)}(0)\right]_{j,k=0}^m,
+\qquad m=0,1,2,\ldots.
+\end{equation}
+The following are equivalent: $C_a$ is positive definite; $\widehat C_a(k)\ge0$ for every real $k$; and $H_m(a)\succeq0$ for every $m$. The same equivalence applies to $\kappa_0$.
+\end{theorem}
+\begin{proof}
+Set $w=\widehat C_a$ and $\mu_n=(2\pi)^{-1}\int k^n w(k)\dd k$; all moments converge absolutely by Lemma~\ref{lem:strip}. Fourier inversion gives
+\[
+H_m(a)_{jk}=i^j(-i)^k\mu_{j+k}.
+\]
+After diagonal unitary congruence, $H_m$ is the Hankel matrix $[\mu_{j+k}]$. Positivity of every $H_m$ is therefore precisely
+\begin{equation}\label{eq:polynomialPositive}
+\frac1{2\pi}\int_{\R}|p(k)|^2w(k)\dd k\ge0
+\quad\text{for every complex polynomial }p.
+\end{equation}
+
+Let $\dd\nu=(2\pi)^{-1}|w(k)|\dd k$. Polynomials are dense in $L^2(\nu)$: if $q$ is orthogonal to them, the finite complex measure $\dd\sigma=\overline q\dd\nu$ has every moment zero. Cauchy--Schwarz and \eqref{eq:exponentialMoment} give an exponential absolute moment of $\sigma$ in a smaller strip. Its Fourier transform is holomorphic there with every derivative at zero equal to zero. The identity theorem and Fourier uniqueness for finite measures imply $\sigma=0$, hence $q=0$.
+
+The form $Q(g)=\int|g|^2\operatorname{sgn}(w)\dd\nu$ is continuous in the $L^2(\nu)$ norm. Equation \eqref{eq:polynomialPositive} and density imply $Q(g)\ge0$ for every $g\in L^2(\nu)$. The indicator of a negative spectral set would contradict this. Thus $w\ge0$ almost everywhere, hence everywhere by continuity. Nonnegative spectrum directly gives both positive definiteness and the positivity of all $H_m$; the usual Fourier characterization gives the remaining implication.
+\end{proof}
+
+The derivatives in \eqref{eq:Hm} are with respect to the lag $v$, with $a$ fixed. They are not generalized Laguerre quantities for $\Xi$ evaluated at zeta height $t=0$. The theorem requires every order; no finite truncation of the hierarchy is asserted sufficient. To reach RH this must hold for every $0<a<1/2$, not just at $a=0$ or along an unspecified limiting sequence of shifts.
+
+\subsection{The second-derivative channel can be proved positive}
+Write $\ell=\log\psi$. The fourth derivative of $\ell$ supplies the next local estimate.
+\begin{lemma}\label{lem:fourthLog}
+For every real $u$,
+\begin{equation}\label{eq:fourthLog}
+\boxed{\ell^{(4)}(u)\ge4\ell''(u)-421.}
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $u\ge0$, set $z=\pi\ee^{2u}\ge3$, and decompose $\psi=f_1(1+r)$, with $r=\sum_{n\ge2}r_n$ and $r_n=f_n/f_1$. Put $k_n=n^2-1$ and $b=3/2$. The exact ratio has a positive Laplace representation:
+\begin{align}\label{eq:tailLaplace}
+r_n(z)
+&=n^4\ee^{-k_nz}+\frac32n^2k_n\frac{\ee^{-k_nz}}{z-b}\notag\\
+&=n^4\ee^{-k_nz}
++\frac32n^2k_n\int_{k_n}^{\infty}\ee^{b(\lambda-k_n)}\ee^{-\lambda z}\dd\lambda.
+\end{align}
+For $D=2z\partial_z$ and $t=\lambda z\ge9$,
+$D^j\ee^{-t}=(-2)^jP_j(t)\ee^{-t}$, where
+\begin{align*}
+P_1(t)&=t,& P_2(t)&=t^2-t,\\
+P_3(t)&=t^3-3t^2+t,& P_4(t)&=t^4-6t^3+7t^2-t.
+\end{align*}
+For $t\ge9$ each $P_j$ is nonnegative and at most $t^j$. For $P_4$, positivity follows from $P_4=t[t^2(t-6)+(7t-1)]$, and $t^4-P_4=t(6t-1)(t-1)>0$. Therefore
+\begin{equation}\label{eq:tailsigns}
+r'\le0,\qquad r''\ge0,\qquad r'''\le0,\qquad r^{(4)}\ge0.
+\end{equation}
+
+The same representation bounds the first three derivatives. Put $s=k_nz$. Integrating powers of $\lambda$ after the shift $\lambda=k_n+q$ gives
+\[
+|r_n^{(j)}|\le2^j\ee^{-s}\left[n^4s^j+
+\frac{(3/2)n^2k_n}{z-b}
+\sum_{l=0}^j\binom jl s^{j-l}l!\left(\frac z{z-b}\right)^l\right].
+\]
+Use $z/(z-b)\le2$, $(3/2)/(z-b)\le1$ and $n^2k_n\le n^4$ to obtain
+\begin{align}
+|r_n'|&\le4n^4(s+1)\ee^{-s},\\
+|r_n''|&\le8n^4(s^2+2s+4)\ee^{-s},\\
+|r_n'''|&\le16n^4(s^3+3s^2+12s+24)\ee^{-s}.
+\end{align}
+Each polynomial times $\ee^{-s}$ decreases for $s\ge9$, so set $s=3(n^2-1)$. The first terms are bounded respectively by
+$640/8000$, $13184/8000$ and $282624/8000$. For all three tails, successive-term ratios are at most
+\[
+\left(\frac32\right)^4\left(\frac83\right)^3\ee^{-15}
+=96\ee^{-15}<\frac1{10000}.
+\]
+Summing the complete tails gives
+\begin{equation}\label{eq:rderiv}
+|r'|<\frac1{10},\qquad 0\le r''<2,\qquad |r'''|<40.
+\end{equation}
+For completeness the fourth-derivative majorant is
+\[
+|r_n^{(4)}|\le32n^4(s^4+4s^3+24s^2+96s+192)\ee^{-s}.
+\]
+Its successive-term ratio after setting $s=3(n^2-1)$ is at most $256\ee^{-15}<10^{-4}$. This justifies all preceding differentiations with the complete tail retained.
+
+Let $g=\log(1+r)$ and $T=1+r\ge1$. Exact differentiation yields
+\begin{align*}
+g^{(4)}-4g''={}&\frac{r^{(4)}}T
+-\frac{4r'r'''+3(r'')^2}{T^2}
++\frac{12(r')^2r''}{T^3}
+-\frac{6(r')^4}{T^4}
+-\frac{4r''}T+\frac{4(r')^2}{T^2}.
+\end{align*}
+Discarding nonnegative terms and applying \eqref{eq:rderiv} gives
+\[
+g^{(4)}-4g''
+\ge-4|r'r'''|-3(r'')^2-6(r')^4-4r''
+>-\frac{180003}{5000}>-37.
+\]
+For $L=\log f_1$, direct differentiation gives
+\[
+L^{(4)}-4L''=-\frac{3456z^2}{(2z-3)^4}\ge-384.
+\]
+Here $z/(2z-3)^2$ decreases for $z\ge3$ and equals $1/3$ at three. Since $\ell=L+g$, this proves \eqref{eq:fourthLog} on the nonnegative axis. Smooth evenness extends it to all real $u$.
+\end{proof}
+
+\begin{theorem}[Three confluent channels]\label{thm:three}
+For every $a>0$,
+\begin{equation}\label{eq:tripleDet}
+\boxed{C_a(0)C_a^{(4)}(0)-C_a''(0)^2\ge1334\,C_a(0)^2>0.}
+\end{equation}
+Consequently $H_2(a)$, the Gram matrix of value, first-derivative and second-derivative evaluation at one point, is strictly positive definite. The same assertions hold at $a=0$ for $\kappa_0$.
+\end{theorem}
+\begin{proof}
+Use the probability density
+\[
+\dd\rho_a(h)=\frac{h\sinh(2ah)\psi(h)^2}{C_a(0)}\dd h,
+\quad h>0,
+\]
+and write $m=\mathbb E_{\rho_a}\ell''\le-17$. Expanding the exact product in \eqref{eq:C} at $v=0$ gives
+\[
+\frac{C_a''(0)}{C_a(0)}=2m,\qquad
+\frac{C_a^{(4)}(0)}{C_a(0)}
+=2\mathbb E_{\rho_a}\ell^{(4)}+12\mathbb E_{\rho_a}(\ell'')^2.
+\]
+Thus the normalized determinant is exactly
+\begin{align}
+\frac{C_a(0)C_a^{(4)}(0)-C_a''(0)^2}{C_a(0)^2}
+&=2\mathbb E_{\rho_a}\ell^{(4)}
++12\Var_{\rho_a}(\ell'')+8m^2\notag\\
+&\ge8m^2+8m-842\ge1334.\label{eq:tripleProof}
+\end{align}
+The last polynomial is minimized over $m\le-17$ at $m=-17$. Now
+\[
+\frac{H_2(a)}{C_a(0)}=
+\begin{pmatrix}
+1&0&c_a''(0)\\
+0&-c_a''(0)&0\\
+c_a''(0)&0&c_a^{(4)}(0)
+\end{pmatrix}.
+\]
+Its middle diagonal entry is at least $34$ and the remaining $2\times2$ block has positive first entry and determinant at least $1334$. This proves strict positivity. The endpoint proof replaces the weight by $2h^2$ and $C_a$ by $\kappa_0$.
+\end{proof}
+
+The determinant reserve is uniform in $a$. It is not a uniform lower bound on the smallest eigenvalue as $a\to\infty$. For a fixed shift, continuity in divided-difference coordinates also gives positivity for sufficiently small finite three-node clusters, but no explicit uniform triple-width or intercluster bound is claimed here.
+
+\subsection{The next missing condition is explicit}
+Theorems above establish the first three local channels, $H_0,H_1,H_2$. Since the kernel is even, $H_3$ splits into an even block already controlled by \eqref{eq:tripleDet} and the odd block
+\[
+\begin{pmatrix}
+-C_a''(0)&-C_a^{(4)}(0)\\
+-C_a^{(4)}(0)&-C_a^{(6)}(0)
+\end{pmatrix}.
+\]
+Its remaining determinant condition is
+\begin{equation}\label{eq:nextDet}
+\boxed{C_a''(0)C_a^{(6)}(0)-\bigl(C_a^{(4)}(0)\bigr)^2\ge0.}
+\end{equation}
+This note does not establish \eqref{eq:nextDet}. Even proving it would settle only the next finite order. An all-order recurrence, factorization or positive integral representation for the entire hierarchy is still required by Theorem~\ref{thm:hierarchy}.

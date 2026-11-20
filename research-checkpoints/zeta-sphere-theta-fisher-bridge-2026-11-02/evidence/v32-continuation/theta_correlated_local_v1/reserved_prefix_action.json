@@ -1,0 +1,46 @@
+{
+  "odd7": {
+    "log_pivot_ratios": [
+      {
+        "lo": "2.37393980383988267846007147454656660556793212890625000000",
+        "hi": "2.37394191005598731436521120485849678516387939453125000000"
+      },
+      {
+        "lo": "3.00148728489875793457031250000000000000000000000000000000",
+        "hi": "3.00150255113840103149414062500000000000000000000000000000"
+      },
+      {
+        "lo": "5.45067896693944931030273437500000000000000000000000000000",
+        "hi": "5.45116558670997619628906250000000000000000000000000000000"
+      }
+    ],
+    "integrated_sqrt_forcing_over_pivot_upper": [
+      "[2.66934312131044975668629308011501021593262665541437507623 +/- 3.71e-57]",
+      "[5.41317262426884624117840579025251123117347559483190387852 +/- 1.66e-57]"
+    ],
+    "reserve": "Every old prefix pivot stays >= its certified initial value, using separately audited local old3x3 positivity throughout the interval.",
+    "scope": "Bounds for the two append steps inside the KNOWN three-dimensional old block, not for target even6/odd7 or next even8/odd9."
+  },
+  "even6": {
+    "log_pivot_ratios": [
+      {
+        "lo": "2.18705979662448779521355390897952020168304443359375000000",
+        "hi": "2.18706207637839877833130231010727584362030029296875000000"
+      },
+      {
+        "lo": "2.62786457486649638326525746379047632217407226562500000000",
+        "hi": "2.62787098021819431892254215199500322341918945312500000000"
+      },
+      {
+        "lo": "3.63359532505273818969726562500000000000000000000000000000",
+        "hi": "3.63366335630416870117187500000000000000000000000000000000"
+      }
+    ],
+    "integrated_sqrt_forcing_over_pivot_upper": [
+      "[2.39735624437640518321300163227786795103100290183872197542 +/- 2.16e-57]",
+      "[4.18280358262406015175417513192665012769485669532966436424 +/- 4.93e-57]"
+    ],
+    "reserve": "Every old prefix pivot stays >= its certified initial value, using separately audited local old3x3 positivity throughout the interval.",
+    "scope": "Bounds for the two append steps inside the KNOWN three-dimensional old block, not for target even6/odd7 or next even8/odd9."
+  }
+}

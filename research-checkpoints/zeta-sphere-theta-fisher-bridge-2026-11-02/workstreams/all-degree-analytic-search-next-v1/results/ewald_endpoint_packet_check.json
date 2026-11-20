@@ -1,0 +1,53 @@
+{
+  "floating_diagnostic_only": [
+    {
+      "chi_h": 1.2472746229762823,
+      "chi_minus_h": 1.2472746229762823,
+      "eta_h": 1.2472746229762823,
+      "h": 0.0
+    },
+    {
+      "chi_h": 0.11217823721286083,
+      "chi_minus_h": -0.3798720057076181,
+      "eta_h": -0.13384688424737862,
+      "h": 0.5
+    },
+    {
+      "chi_h": 5.384346695870234e-07,
+      "chi_minus_h": -0.04955556972513338,
+      "eta_h": -0.024777515645231896,
+      "h": 1.0
+    },
+    {
+      "chi_h": 2.034799068853016e-69,
+      "chi_minus_h": -0.002943271509388883,
+      "eta_h": -0.0014716357546944415,
+      "h": 2.0
+    },
+    {
+      "chi_h": 0.0,
+      "chi_minus_h": -1.9031404255799017e-05,
+      "eta_h": -9.515702127899508e-06,
+      "h": 4.0
+    }
+  ],
+  "nonclaim": "The samples are not interval certificates.  Packet sign change only rules out pointwise packet positivity; it does not sign S'(1).",
+  "proof_checks": {
+    "correlation_prefactor_after_v_change": "1/8",
+    "inverse_correlation_coefficients_u2_ux_x2": [
+      "1/4",
+      "-1",
+      "1"
+    ],
+    "leading_error_factor": "367/90",
+    "packet_operator_polynomial": {
+      "1": "-8",
+      "2": "4"
+    },
+    "phi_fifth_at_zero": "360",
+    "phi_sixth_l1_triangle_bound": "122952",
+    "phi_third_at_zero": "-12",
+    "rigorous_F_negative_when_a_below": "3/734"
+  },
+  "status": "PASS"
+}

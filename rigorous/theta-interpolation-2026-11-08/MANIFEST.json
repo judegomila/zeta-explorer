@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "scope": "All checkpoint files except this manifest.",
+  "files": [
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/AUDIT.md",
+      "bytes": 4617,
+      "sha256": "973b762ad4b65dc32ebeeecd35b76c46750ac245e3efc2d321911bb6a65dd2cb"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/README.md",
+      "bytes": 7551,
+      "sha256": "030b7ad08b7a2ebe40f78fa45cf3b0cd426870608f3d8627248a6ed4607b0011"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/SOURCES.md",
+      "bytes": 4674,
+      "sha256": "56120712e224ba40a2b5b52c76df9cd0e5664aa38443695bc58f115bf3f646cd"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/requirements.txt",
+      "bytes": 28,
+      "sha256": "96464f405b58137236b9c10c698be08a780ff7d062dd918ac40c0460f1b0831f"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_archimedean_passivity_20261108.md",
+      "bytes": 9852,
+      "sha256": "a67895d10821a94731a252133143a2ff3d863a5abef0d900911bfbaf40a055a3"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_exact_pick_bridge_20261108.md",
+      "bytes": 6626,
+      "sha256": "7abf9fad8cbeba6beb760d50bf868b79c2a61025a51712ecf0697817d237d945"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_interpolation_checks_20261108.py",
+      "bytes": 4965,
+      "sha256": "b5aeca40326509dbeb52153f91419f63e5a08c744d1f862da023b3c9b4f7e0eb"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_interpolation_checks_replay.json",
+      "bytes": 1584,
+      "sha256": "c8823e2029472771caf049912e7625c4e6e40db170ebf38901688b603cda88aa"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_positive_interpolation_20261108.md",
+      "bytes": 14123,
+      "sha256": "0613ba2cf6f166665eaf23a8e2f2fe2cdd519aeec924be6eecf88f30876908b4"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/theta_prime_accelerant_20261108.md",
+      "bytes": 9769,
+      "sha256": "49c003c4a7de4b52f0871baf4ab70c027724fd28c679521a3f858789aedaac3e"
+    },
+    {
+      "path": "rigorous/theta-interpolation-2026-11-08/validation.json",
+      "bytes": 937,
+      "sha256": "fdcc83e967be5f5bd361b4fb3b01c4388158e86bd9ab3f7c6c3a7fdec67c09ee"
+    },
+    {
+      "path": "thinking/decisions/2026-11-08-theta-interpolation.md",
+      "bytes": 2943,
+      "sha256": "6d4586777135ef2f825b509c44532d3d9b686cb89703ea9f3dada7d04a03bc61"
+    }
+  ]
+}

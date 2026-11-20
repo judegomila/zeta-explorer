@@ -1,0 +1,483 @@
+{
+  "floating_constants": {
+    "zeta_three_decimal": 1.2020569031595942,
+    "zeta_three_use": "nonrigorous diagnostic payment only"
+  },
+  "grade": "nonrigorous_floating_structure_diagnostic",
+  "nonclaims": [
+    "The quadratures and theta-orbit truncations are floating diagnostics.",
+    "The replay changes resolution but is not an independent implementation.",
+    "Only degrees 3 and 5 are evaluated.",
+    "No finite agreement proves an all-degree angle bound, next pivot, Xi-Laguerre inequality, or RH."
+  ],
+  "parameters": {
+    "degrees": [
+      3,
+      5
+    ],
+    "label": "replay",
+    "maximum_orbit": 96,
+    "mode": "probe",
+    "precision_bits": 384,
+    "representation_rtol": 2e-08,
+    "u_nodes": 320,
+    "u_upper": 1.8,
+    "x_nodes_per_cell": 48,
+    "x_upper": 16
+  },
+  "provenance": {
+    "actual_angle_source": "workstreams/actual-theta-angle-wave27-20261103/src/certify_actual_theta_angle.py",
+    "actual_angle_source_sha256": "159bcc5b32afe6e55045e4d9ed009ef0efa481d4758eafa9a8b6c557263055e4",
+    "operator_source": "workstreams/all-degree-analytic-search/src/operator_mining.py",
+    "operator_source_sha256": "122a6ee179f6b7878ff1abd5ed47593d778a90df6ac633303f791733336f75b9",
+    "source": "workstreams/signed-arithmetic-variation-wave29-20261104/src/probe_signed_arithmetic_variation.py",
+    "source_sha256": "4fa8acb72a860d54675c3fb576b3cf68a2e08a3185211b4c8b29997e7540ee0d",
+    "target_archive_sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "f05cbe1d5377d550ee362c85cc5459cc59a8199ac48e9b6e87ec119fd52d2cd6"
+  },
+  "results": [
+    {
+      "absolute_variation_over_x": 55.3655365920287,
+      "angle": -0.08727799981254587,
+      "crude_absolute_variation_payment": -561.5502006350061,
+      "cumulative_maximum": 0.0,
+      "cumulative_minimum": -4.031217838307502,
+      "current_coefficients": {
+        "1": 34.71791883916725,
+        "3": 1.0
+      },
+      "degree": 3,
+      "last_cell_absolute_magnitude": 1.0095167665539934e-301,
+      "last_two_cell_absolute_ratio": 3.331014458817496e-40,
+      "monotonicity_candidate_survives": false,
+      "orbit_reports": {
+        "direct_shift_zero": {
+          "geometric_tail_max_abs_estimate": 2.336897932055878e-148,
+          "geometric_tail_ratio_estimate": 3.442149726139736e-26,
+          "last_orbit_max_abs": 6.789065316681144e-123,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        },
+        "shifted_shift_two": {
+          "geometric_tail_max_abs_estimate": 3.029155074185487e-151,
+          "geometric_tail_ratio_estimate": 2.783331533714999e-26,
+          "last_orbit_max_abs": 1.0883198920045214e-125,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        }
+      },
+      "physical_norm": 289.74067280017135,
+      "relative_representation_errors": {
+        "abel": 3.310221805458733e-15,
+        "common_scale_stieltjes": 1.2137479953348688e-14,
+        "laplace": 2.4495641360394625e-14
+      },
+      "representations": {
+        "abel": -4.024708034226597,
+        "common_scale_stieltjes": -4.024708034226659,
+        "direct": -4.02470803422661,
+        "laplace": -4.024708034226709
+      },
+      "residual_coefficients": {
+        "1": -1.1241331238466765
+      },
+      "unit_cells": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "cumulative": -4.031217838307502,
+          "maximum_z_prime": 319.387220000514,
+          "minimum_z_prime": -9.27015813504795,
+          "signed_abel_contribution": -4.031217838307502
+        },
+        {
+          "cell": [
+            2,
+            3
+          ],
+          "cumulative": -4.024708038171366,
+          "maximum_z_prime": -5.361671988378868e-07,
+          "minimum_z_prime": -0.5132543287537494,
+          "signed_abel_contribution": 0.006509800136136009
+        },
+        {
+          "cell": [
+            3,
+            4
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -4.973022494321678e-16,
+          "minimum_z_prime": -5.247997541049763e-07,
+          "signed_abel_contribution": 3.9447704047741775e-09
+        },
+        {
+          "cell": [
+            4,
+            5
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -6.459658724913341e-28,
+          "minimum_z_prime": -4.827784896155189e-16,
+          "signed_abel_contribution": 2.7397319824698713e-18
+        },
+        {
+          "cell": [
+            5,
+            6
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -1.3227589580688639e-42,
+          "minimum_z_prime": -6.221148901893732e-28,
+          "signed_abel_contribution": 2.783937682169841e-30
+        },
+        {
+          "cell": [
+            6,
+            7
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -4.5116983575034093e-60,
+          "minimum_z_prime": -1.2639079026277635e-42,
+          "signed_abel_contribution": 4.8031280699283155e-45
+        },
+        {
+          "cell": [
+            7,
+            8
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -2.6448457540352348e-80,
+          "minimum_z_prime": -4.277301558840429e-60,
+          "signed_abel_contribution": 1.3775507121986955e-62
+        },
+        {
+          "cell": [
+            8,
+            9
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -2.718159612210199e-103,
+          "minimum_z_prime": -2.487930676662525e-80,
+          "signed_abel_contribution": 7.094995115188864e-83
+        },
+        {
+          "cell": [
+            9,
+            10
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -4.963560897474619e-129,
+          "minimum_z_prime": -2.5370531496496494e-103,
+          "signed_abel_contribution": 6.439101529810421e-106
+        },
+        {
+          "cell": [
+            10,
+            11
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -1.625905161564431e-157,
+          "minimum_z_prime": -4.5969588401575965e-129,
+          "signed_abel_contribution": 1.0563829960345624e-131
+        },
+        {
+          "cell": [
+            11,
+            12
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -9.62121630293291e-189,
+          "minimum_z_prime": -1.4941680527312613e-157,
+          "signed_abel_contribution": 3.118744459647131e-160
+        },
+        {
+          "cell": [
+            12,
+            13
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -1.033976051376071e-222,
+          "minimum_z_prime": -8.773329287845868e-189,
+          "signed_abel_contribution": 1.6926967196281194e-191
+        },
+        {
+          "cell": [
+            13,
+            14
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -2.0264374394277561e-259,
+          "minimum_z_prime": -9.355729039766046e-223,
+          "signed_abel_contribution": 1.6665224297976425e-225
+        },
+        {
+          "cell": [
+            14,
+            15
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": -7.266439942945401e-299,
+          "minimum_z_prime": -1.819428589810931e-259,
+          "signed_abel_contribution": 3.0306586147703785e-262
+        },
+        {
+          "cell": [
+            15,
+            16
+          ],
+          "cumulative": -4.024708034226595,
+          "maximum_z_prime": 0.0,
+          "minimum_z_prime": -6.473806652705771e-299,
+          "signed_abel_contribution": 1.0095167665539934e-301
+        }
+      ],
+      "upper_boundary": {
+        "gamma": 0.0,
+        "p_gamma": -0.0,
+        "p_right": -0.8977435758685759,
+        "x": 16,
+        "z": 0.0
+      },
+      "upward_variation_on_sampled_range": 59.68454133366927,
+      "weighted_total_variation_term_on_sampled_range": 27.419319570017464,
+      "z_one_over_six_zeta_three": -7.89483471471918,
+      "z_prime_negative_nodes": 676,
+      "z_prime_positive_nodes": 22
+    },
+    {
+      "absolute_variation_over_x": 1033239.2622384768,
+      "angle": 0.7205312603716277,
+      "crude_absolute_variation_payment": -10176759.868165204,
+      "cumulative_maximum": 94083.92004213404,
+      "cumulative_minimum": 0.0,
+      "current_coefficients": {
+        "1": 2007.2680916344186,
+        "3": 115.13439045101453,
+        "5": 1.0
+      },
+      "degree": 5,
+      "last_cell_absolute_magnitude": 8.810178870368957e-293,
+      "last_two_cell_absolute_ratio": 4.393074489388194e-40,
+      "monotonicity_candidate_survives": false,
+      "orbit_reports": {
+        "direct_shift_zero": {
+          "geometric_tail_max_abs_estimate": 1.3670266158371921e-142,
+          "geometric_tail_ratio_estimate": 5.293408223278996e-26,
+          "last_orbit_max_abs": 2.582507447329254e-117,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        },
+        "shifted_shift_two": {
+          "geometric_tail_max_abs_estimate": 1.7720184879832198e-145,
+          "geometric_tail_ratio_estimate": 4.2801535163993873e-26,
+          "last_orbit_max_abs": 4.140081614348036e-120,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        }
+      },
+      "physical_norm": 813221.7129558398,
+      "relative_representation_errors": {
+        "abel": 3.901020565823131e-15,
+        "common_scale_stieltjes": 1.872489871595103e-15,
+        "laplace": 2.0441347764913208e-14
+      },
+      "representations": {
+        "abel": 93257.10402462517,
+        "common_scale_stieltjes": 93257.1040246257,
+        "direct": 93257.10402462553,
+        "laplace": 93257.10402462744
+      },
+      "residual_coefficients": {
+        "1": 328.34165472909297,
+        "3": 12.419077938776443
+      },
+      "unit_cells": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "cumulative": 94083.92004213404,
+          "maximum_z_prime": 91459.4126526932,
+          "minimum_z_prime": -4891477.000294669,
+          "signed_abel_contribution": 94083.92004213404
+        },
+        {
+          "cell": [
+            2,
+            3
+          ],
+          "cumulative": 93257.10843841234,
+          "maximum_z_prime": 44672.43138678607,
+          "minimum_z_prime": 0.5460765810913112,
+          "signed_abel_contribution": -826.8116037217005
+        },
+        {
+          "cell": [
+            3,
+            4
+          ],
+          "cumulative": 93257.1040246252,
+          "maximum_z_prime": 0.5355772218716243,
+          "minimum_z_prime": 1.903648823130162e-09,
+          "signed_abel_contribution": -0.0044137871514838695
+        },
+        {
+          "cell": [
+            4,
+            5
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 1.8505382700541816e-09,
+          "minimum_z_prime": 6.423632815672656e-21,
+          "signed_abel_contribution": -1.0978094214487594e-11
+        },
+        {
+          "cell": [
+            5,
+            6
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 6.1928446151838684e-21,
+          "minimum_z_prime": 2.808595823110721e-35,
+          "signed_abel_contribution": -2.8467034151621825e-23
+        },
+        {
+          "cell": [
+            6,
+            7
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 2.685907067511099e-35,
+          "minimum_z_prime": 1.8037568330884834e-52,
+          "signed_abel_contribution": -1.0393309309470715e-37
+        },
+        {
+          "cell": [
+            7,
+            8
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 1.7112733963838584e-52,
+          "minimum_z_prime": 1.8219484703812715e-72,
+          "signed_abel_contribution": -5.5838168774368974e-55
+        },
+        {
+          "cell": [
+            8,
+            9
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 1.7149249528674114e-72,
+          "minimum_z_prime": 3.019141283466811e-95,
+          "signed_abel_contribution": -4.939104112889156e-75
+        },
+        {
+          "cell": [
+            9,
+            10
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 2.819539284196908e-95,
+          "minimum_z_prime": 8.441661650262401e-121,
+          "signed_abel_contribution": -7.211595246589241e-98
+        },
+        {
+          "cell": [
+            10,
+            11
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 7.822053028727068e-121,
+          "minimum_z_prime": 4.062098686519176e-149,
+          "signed_abel_contribution": -1.8087124056930252e-123
+        },
+        {
+          "cell": [
+            11,
+            12
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 3.734653510022094e-149,
+          "minimum_z_prime": 3.412929029165322e-180,
+          "signed_abel_contribution": -7.835122524352192e-152
+        },
+        {
+          "cell": [
+            12,
+            13
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 3.1134420002029273e-180,
+          "minimum_z_prime": 5.061671498247913e-214,
+          "signed_abel_contribution": -6.032609978823268e-183
+        },
+        {
+          "cell": [
+            13,
+            14
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 4.581695695206953e-214,
+          "minimum_z_prime": 1.3363334082157613e-250,
+          "signed_abel_contribution": -8.190817103263817e-217
+        },
+        {
+          "cell": [
+            14,
+            15
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 1.2002448572490797e-250,
+          "minimum_z_prime": 6.322441830469327e-290,
+          "signed_abel_contribution": -2.0054699485862613e-253
+        },
+        {
+          "cell": [
+            15,
+            16
+          ],
+          "cumulative": 93257.10402462518,
+          "maximum_z_prime": 5.634634996329435e-290,
+          "minimum_z_prime": 0.0,
+          "signed_abel_contribution": -8.810178870368957e-293
+        }
+      ],
+      "upper_boundary": {
+        "gamma": 0.0,
+        "p_gamma": -0.0,
+        "p_right": -0.8977435758685759,
+        "x": 16,
+        "z": 0.0
+      },
+      "upward_variation_on_sampled_range": 33685.70053913866,
+      "weighted_total_variation_term_on_sampled_range": 510315.007845148,
+      "z_one_over_six_zeta_three": 155632.7542195628,
+      "z_prime_negative_nodes": 27,
+      "z_prime_positive_nodes": 678
+    }
+  ],
+  "runtime": {
+    "network_used": false,
+    "numpy": "2.5.3",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python"
+  },
+  "schema_version": "zsv.signed_arithmetic_variation.v1",
+  "status": "bounded_floating_mechanism_probe",
+  "verdict": "PASS"
+}

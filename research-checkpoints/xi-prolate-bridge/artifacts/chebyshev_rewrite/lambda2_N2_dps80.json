@@ -1,0 +1,53 @@
+{
+  "claim_class": "EXACT_FINITE_COMBINED_FORM_REPLAY",
+  "terminal_state": "P0_INVALIDATED",
+  "analytic_uniform_claim": false,
+  "inputs": {
+    "lambda": "2",
+    "N": 2,
+    "precision_decimal_digits": 80,
+    "arithmetic_library": "mpmath 1.4.1",
+    "origin_cutoff": "1.0e-35",
+    "lambda_squared_exact": "4",
+    "prime_power_cutoff_inclusive": "4"
+  },
+  "formula": {
+    "G": "exp(x)-psi(exp(x))-(1/2)*log(1-exp(-2*x))",
+    "shifted_form": "<v,(Q-qI)w>=-integral G*d_dx(exp(-x/2)*omega_q_vw)",
+    "omega_q_origin_identity": "omega_q_vw(0)=0",
+    "prime_block_sign": "minus"
+  },
+  "source_enumeration": {
+    "matrix_path_prime_powers": [
+      2,
+      3,
+      4
+    ],
+    "integral_path_prime_powers": [
+      2,
+      3,
+      4
+    ],
+    "enumerations_agree_exactly": true,
+    "lambda_squared_is_integer": true,
+    "endpoint_prime_power_included": true
+  },
+  "defects": {
+    "offdiagonal_entries": [
+      "5.9797784221862286198770477037567165997409178807814485763981703800909407562254074e-34",
+      "5.9797784221862286198770477037567165997409178807788130269123627492848536127125899e-34",
+      "5.9797784221862286198770477037567165997409178807788130269123627492848536127125899e-34"
+    ],
+    "complex_shifted_form": "6.9916525887336342123668098153308991485131345066032402924885518847601983492687371e-32",
+    "shifted_correlation_origin": "0.0",
+    "rayleigh_imaginary_part": "0.0"
+  },
+  "tolerance": "1.0e-26",
+  "replay_agrees": true,
+  "limitations": [
+    "point-valued mpmath quadrature with an explicit origin cutoff",
+    "matrix and integral paths share mpmath transcendental arithmetic",
+    "the two correlation formulas and prime-power enumerators are separately implemented but not interval-enclosed",
+    "finite identity replay only; no sign or asymptotic estimate"
+  ]
+}

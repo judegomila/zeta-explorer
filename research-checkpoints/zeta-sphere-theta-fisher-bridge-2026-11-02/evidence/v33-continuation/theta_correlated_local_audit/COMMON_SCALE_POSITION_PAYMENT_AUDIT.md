@@ -1,0 +1,21 @@
+# Independent audit: common-scale position payment
+
+Analytic PASS, 2026-11-03. Independently regenerated P2 and P4 by a short owned symbolic recurrence; no acquired code executed and no finite theta pivot computed.
+
+The ordered-pair gcd decomposition gives a factor 1/g from (nm)^-1/2. The substitution v=u+log g yields precisely W_j(v), retaining all coprime pairs. For each fixed polynomial, the absolute derivative orbit sum on u>=0 is superexponentially bounded with every polynomial weight, so Tonelli for the absolute majorant legitimates both regrouping and change of variables. This does not extend the orbit norm argument to the negative half-line.
+
+Each W2 summand is (v-log g)_+^2/g. Its first derivative is continuous and its second derivative is 2 times the corresponding step function, with no delta mass. The initial values and W0 right-hand convention are correct. Integrating the harmonic-sum estimate twice gives the stated cubic/quadratic asymptotic and O(v) remainder. The real-root deletion/Parseval identity, followed by reflection of the even physical norm densities, gives exactly the factor 4pi and the two weights in (3). No positive measure for K is implied.
+
+The exact recurrence P_(j+1)=(1/2-2x)P_j+2xP_j' yields the stated P2 and P4 coefficients, independently checked with symbolic rational arithmetic. After division by g_n and by column powers 1,z^2,z^4, the interpolation matrix tends to rows (1,-4n^4,16n^8), n=1,2,3. This is nonsingular because the three n^4 values are distinct. Its inverse remains bounded after scaling for sufficiently large z. The largest right-hand exponential is 1/g3, giving the conservative coefficient estimate exp(9z) times a fixed polynomial in z. The resulting tail is dominated by a polynomial times sum_{n>=4} n^12 exp(-(n^2-9)z), which tends to zero.
+
+The three prescribed features (0,1,-1) contribute exactly -2 to the coprime quadratic form. The other pairs cost at most 4epsilon+epsilon^2. The coefficient of t^4 is nonzero eventually because the nonzero last barycentric coefficient of the inverse limit multiplies the exponentially dominant third right-hand entry. Real rescaling therefore yields a monic even quartic with negative K at that v.
+
+Accepted obstruction: for every sufficiently large spatial location there exists a location-dependent real even quartic with negative actual-orbit coprime kernel. This does not identify one fixed polynomial working everywhere, does not establish real roots or inverse selection, and does not make the integrated squared norm negative. The actual signed root-deletion comparison, all-degree payment, and odd diagnostic remain unproved. The common-scale identity is exact at normalized a=0 only as stated.
+
+## Separate subsequent Section 3 review: actual first odd residual
+
+Accepted 2026-11-03 after the initial audit above. This strengthens and supersedes the earlier statement that no odd diagnostic was obtained. For p(t)=t, f_p=i f', so multiplication by its complex conjugate cancels the i factors and K_t is precisely the coprime sum of real d_n d_m. Differentiating P0 gives P1=-16x^3+60x^2-30x. Its quadratic factor is strictly negative for x>4; hence every d_n with n>=2 is negative. Absolute derivative-series convergence permits use of sum d_n=psi'(0)=0 and subtraction of the noncoprime pairs. Every excluded pair has both indices >=2. Keeping only (2,2) therefore proves K_t(0)<=-P1(4pi)^2 exp(-8pi)<0 with the correct normalization. Uniform local convergence gives continuity and a negative interval to its right.
+
+The polynomial t is indeed the actual first odd monic residual, and also the full first monic residual of the even spectral form with positive scalar prefix. For 0<v<log 2, W2=v^2 and W0=1; every term of K_1 is positive. Thus 2W2 K_t-W0 K_1 is negative near zero. This is an actual-residual pointwise common-scale obstruction, stronger than the separate variable-quartic diagnostic. It is not a negative integrated target or new pivot calculation. The known positive h[t] must be recovered by compensation at other spatial locations.
+
+Requested prose clarification: the final limitation in the interpolation section should refer to that second argument alone, since the new first-odd argument does refute pointwise K positivity on the actual residual sequence. No change is needed to the quartic algebra.

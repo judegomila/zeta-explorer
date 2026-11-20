@@ -1,0 +1,114 @@
+{
+  "schema": "xi-prolate-physical-leverage-shorted-schur-source-lock-v1",
+  "claim_class": "PHYSICAL_LEVERAGE_AND_SHORTED_POSITIVE_SCHUR_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "exact finite Weil conventions, Fourier sign, inversion reflection, and inclusive prime-power endpoint"
+    },
+    {
+      "path": "PROJECTED_STATE_NORM_SOURCE_LOCK.json",
+      "sha256": "6c765b4d70969a7868f01641fdbc592907e8c32ae7d315a3ef39306f9389b213",
+      "role": "source lock for the normalization-sensitive projected-state norm theorem"
+    },
+    {
+      "path": "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json",
+      "sha256": "78284b94c9331a4b27f537c572c3c292f7cd411951f84e2e1605b924e2bde600",
+      "role": "source lock for quotient coordinates, capture observables, and the raw-cross obstruction"
+    },
+    {
+      "path": "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json",
+      "sha256": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
+      "role": "source lock for the exact negative multiplier compression and finite trace theorem"
+    },
+    {
+      "path": "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md",
+      "sha256": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "role": "proved convergence and positive lower limit for the source-normalized projected comparison state"
+    },
+    {
+      "path": "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md",
+      "sha256": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+      "role": "exact quotient identities, physical capture target, matched counts, and adversarial raw-cross model"
+    },
+    {
+      "path": "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md",
+      "sha256": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
+      "role": "exact finite-compression negative-multiplier trace formulas"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact parity decomposition into positive multiplier, negative multiplier, and signed pole"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "Moore--Penrose quotient metric and source-coordinate isometry"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "comparison-anchor definition, physical deflation, and buffered parity counts"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "repository arbitrary-precision runtime pin; this component's regression matrices are exact rational data"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the zero-Lebesgue-integral source normalization and full source Gram C^*C are retained",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
+    "prime_endpoint": "every prime power n<=lambda^2 is included",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(x)=f(-x), and reflection is retained before forming the inversion-even state",
+    "matched_schedule": "lambda=p/2 for odd p>=5 and N=ceil(lambda^2)=(p^2+3)/4",
+    "anchor_scope": "p_4=a_4^(-1)*P_N*k_lambda^+ is nonzero eventually on the matched schedule; no finite p=5 or p=7 nonvanishing certificate is claimed",
+    "positive_negative_split": "C and R remain separate positive operators in B=g*I+C-R before C is shorted to the physical range",
+    "artifact_scope": "p and dps label deterministic matched-schedule metadata and doubled replay settings for exact rational theorem-regression models, not physical prolate-Weil pilot matrices",
+    "arithmetic": "all component regression matrices and reported reserves are exact reduced rationals; no binary64 parameter is accepted"
+  },
+  "locked_formulas": {
+    "anchor_identity": "h_lambda=a_4*c_4 and P_N*k_lambda^+=a_4*p_4 with a_4=sqrt(3)/2^(11/4)>0",
+    "matched_anchor_limit": "||p_4||=a_4^(-1)*a_(lambda,N) tends to a_infty/a_4>=K_star/a_4>0 when log(lambda)/(N+1) tends to zero",
+    "parity_split": "even: C=T_a+2|p_+><p_+| and R=T_v; odd: C=T_a and R=T_v+2|p_-><p_-|",
+    "leverage_density": "kappa_H(t)=kappa_X(t)-mathcal_W(t)*G^dagger*mathcal_W(t)^*, G=W^*W and mathcal_W is the Fourier evaluation row",
+    "leverage_trace": "tr(P_H*T_v*P_H)=tr(T_v)-tr(G^dagger*W^*T_v*W)=integral v(t)*kappa_H(t) dt/(2*pi)",
+    "prime_second_moment": "M_H=(1/2)*sum_(n,m<=lambda^2)c_n*c_m*(Re Gamma_H(log(n/m))+Re Gamma_H(log(n*m))) with c_n=Lambda(n)/sqrt(n)",
+    "positive_short": "C_/K=C_KK-C_KH*C_HH^dagger*C_HK and C>=diag(C_/K,0)",
+    "shorted_lower_matrix": "B>=M=[[gI-R_KK+C_/K,-R_KH],[-R_HK,gI-R_HH]]",
+    "automatic_cross": "||R_HK*Delta^(-1/2)||^2<=rho*beta where rho>=||R_HH|| and beta=||Delta^(-1/2)*R_KK*Delta^(-1/2)||",
+    "scalar_gluing": "eta=g-rho, chi^2=rho*beta/eta, and rho*beta<eta*mu imply B>=nu*(Delta direct-sum eta*I), nu=(mu+1-sqrt((mu-1)^2+4*chi^2))/2>0",
+    "anisotropic_schur": "gI-R_KK+C_/K-R_KH*(gI-R_HH)^(-1)*R_HK>0 is the sharper sufficient condition",
+    "source_beta": "for A=W*D^(-1/2) and Delta=(A*A^*)^dagger on K, beta=||A^*R*A||",
+    "coframe_determinants": "det_(p4_perp)(W_+W_+^*)=D_+/||p_4||^2 and det(W_-W_-^*)=D_- by Cauchy-Binet"
+  },
+  "claim_boundary": {
+    "proved": [
+      "eventual nonvanishing of the matched quadratic projected comparison anchor with no effective finite threshold",
+      "exact physical leverage density and trace-deficit identities",
+      "exact finite prime second-moment expansion after leverage removal",
+      "Krein-short lower comparison that absorbs all positive-part low-high coupling",
+      "automatic quotient-relative cross estimate for the negative operator and scalar or anisotropic Schur sufficiency",
+      "exact countermodel rejecting capture-to-raw-cross inference",
+      "exact co-frame determinant target with the eventual anchor denominator caveat removed"
+    ],
+    "not_proved": [
+      "finite projected-anchor nonvanishing at p=5 or p=7",
+      "the signed source-coordinate low bound",
+      "a physical leverage deficit smaller than g on an unbounded schedule",
+      "the scalar reserve inequality or anisotropic Schur condition for the prolate-Weil operators",
+      "a quantitative physical co-frame lower bound",
+      "a positive signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

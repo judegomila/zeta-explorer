@@ -1,0 +1,7 @@
+{
+  "status": "PASS_ALL_128_ENDPOINTS_IDENTICAL",
+  "k": 6,
+  "m": 128,
+  "precision_decimal_digits": 440,
+  "generator_sha256": "98e7e24072340df32f6d1bc890aa8f73860cedd10860cf4fabdff7ae8a2805b3"
+}

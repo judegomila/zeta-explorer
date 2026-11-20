@@ -82,7 +82,7 @@ const status = {
     commitsLastHour, commits24h,
     synced: localHead && originHead ? localHead === originHead : null,
     unpushed: ahead,
-    repoCommitsUrl: `https://github.com/judegomila/mathexplorer/commits/${branch}`,
+    repoCommitsUrl: `https://github.com/judegomila/zeta-explorer/commits/${branch}`,
   },
   fleet: { engines, totalWorkers, liveAgentsNow: liveAgents },
   queue: { pending, byModel, completed24h: commits24h },

@@ -1,0 +1,117 @@
+{
+  "status": "LOCAL_IDENTITIES_AND_INTEGER_ROW_DIAGNOSTICS_ONLY",
+  "local_phases": [
+    {
+      "phase_index": 0,
+      "filter": "1",
+      "ratio_first_coefficient_norm_squared": "0"
+    },
+    {
+      "phase_index": 1,
+      "filter": "-1/5",
+      "ratio_first_coefficient_norm_squared": "3"
+    },
+    {
+      "phase_index": 2,
+      "filter": "-1/5",
+      "ratio_first_coefficient_norm_squared": "3"
+    },
+    {
+      "phase_index": 3,
+      "filter": "-1/5",
+      "ratio_first_coefficient_norm_squared": "0"
+    },
+    {
+      "phase_index": 4,
+      "filter": "-1/5",
+      "ratio_first_coefficient_norm_squared": "3"
+    },
+    {
+      "phase_index": 5,
+      "filter": "-1/5",
+      "ratio_first_coefficient_norm_squared": "3"
+    }
+  ],
+  "integer_rows": {
+    "primes": [
+      7,
+      13,
+      19,
+      31,
+      37,
+      43,
+      61,
+      67,
+      73,
+      79,
+      97,
+      103,
+      109,
+      127,
+      139,
+      151,
+      157,
+      163,
+      181,
+      193,
+      199,
+      211,
+      223,
+      229,
+      241,
+      271,
+      277,
+      283,
+      307,
+      313,
+      331,
+      337,
+      349,
+      367,
+      373,
+      379,
+      397
+    ],
+    "principal_response": "1",
+    "rows": [
+      {
+        "N": 1000,
+        "K": 37,
+        "mean_square": "147547/17112500",
+        "diagonal": "22907/4278125",
+        "off_diagonal": "55919/17112500",
+        "complete_period_benchmark": "160833869351687666572765309518888517108444682530462648705028472365340360978390948/30200076078279170153789738050743573709658584058596963821345366685542041397224685065"
+      },
+      {
+        "N": 10000,
+        "K": 37,
+        "mean_square": "1930493/342250000",
+        "diagonal": "364593/68450000",
+        "off_diagonal": "13441/42781250",
+        "complete_period_benchmark": "160833869351687666572765309518888517108444682530462648705028472365340360978390948/30200076078279170153789738050743573709658584058596963821345366685542041397224685065"
+      },
+      {
+        "N": 100000,
+        "K": 37,
+        "mean_square": "18277767/3422500000",
+        "diagonal": "18227153/3422500000",
+        "off_diagonal": "25307/1711250000",
+        "complete_period_benchmark": "160833869351687666572765309518888517108444682530462648705028472365340360978390948/30200076078279170153789738050743573709658584058596963821345366685542041397224685065"
+      },
+      {
+        "N": 200000,
+        "K": 37,
+        "mean_square": "986407/185000000",
+        "diagonal": "36454263/6845000000",
+        "off_diagonal": "10699/1711250000",
+        "complete_period_benchmark": "160833869351687666572765309518888517108444682530462648705028472365340360978390948/30200076078279170153789738050743573709658584058596963821345366685542041397224685065"
+      }
+    ]
+  },
+  "not_established": [
+    "Eisenstein-row weighted bound",
+    "low-side realization cost",
+    "preservation of the full principal Mellin term after insertion",
+    "any new zero-free boundary"
+  ]
+}

@@ -1,0 +1,34 @@
+Theta modular-kernel reduction and finite test
+
+Let Phi(t)=sum_{n>=1}(2*pi^2*n^4*exp(9t/2)-3*pi*n^2*exp(5t/2))*exp(-pi*n^2*exp(2t)) for t>=0 and extend evenly. Let F(z)=integral_R Phi(t)*exp(i*z*t) dt, and C_a(v)=integral_0^infinity h*sinh(2*a*h)*Phi(h-v)*Phi(h+v) dh. For a>0, 8*Fourier[C_a](2x)=d/da |F(x+ia)|^2. Integrability and differentiation follow from superexponential theta decay.
+
+Define D_l(x)=sum_{d|l} exp(i*x*log(d^2/l)), real by d <-> l/d. Expand n,m, shift v=w+(1/2)log(n/m), combine n*m=l, use the integral representation of K. After K_{ix}'(z)=-Re K_{1+ix}(z), the Bessel differential equation and two integrations by parts give
+
+Fourier[C_a](2x) = pi^2 sum_{l>=1} l^2 D_l(x) integral_0^infinity exp(5h) S(a,x,h) K_{ix}(2*pi*l*exp(2h)) dh,
+S=[(a^2+x^2+1/4)h-1/2]sinh(2ah)+a(1-h)cosh(2ah).
+
+The h=0 boundary vanishes because h*sinh(2ah) and its derivative both vanish; the upper boundary vanishes by Bessel superexponential decay. For fixed real x and bounded a, the sum/integral converges absolutely. The mixed term has been retained, not shown nonnegative: S(1/4,0,1)=-(3/16)sinh(1/2)<0. D_2(x)=2 cos(x log 2), which changes sign. K_{ix} is not generally nonnegative for arbitrary x,z. Thus this is not a positivity proof.
+
+Finite local test. Let M_k(a)=integral_R t^k Phi(t) exp(-a*t)dt. Since C_a>=0, cos(2xv)>=1-2x^2*v^2, and the moments are finite,
+Fourier[C_a](2x)>= -M_0*M_1/4 - x^2*(M_1*M_2-M_0*M_3)/8.
+The denominator M_1*M_2-M_0*M_3 equals 16 integral_R v^2 C_a(v)dv and is positive. The accompanying outward interval quadrature code encloses M_0,...,M_3 for a=1/4 using 2000 intervals of length 1/1000 and n=1,...,6. It gives -2M0M1-(M1M2-M0M3)>0.001337, proving strict Fourier positivity for |x|<=1, subject to verification of the arithmetic and tail bounds. The error allowance 1e-50 per moment bounds both omitted components: over 0<=t<=2, n>=7 is bounded by 2*pi^2*e^9*7^4*e^(-49*pi)/(1-(8/7)^4*e^(-15*pi)); multiply by 2*integral_0^2 t^k*cosh(t/4)dt (or the same bound for |sinh|). For t>=2, use Phi(t)<=4*pi^2*exp(9t/2)*exp(-pi*exp(2t)); t^k<=k!*exp(t), k<=3; and exp(2t)>=exp(4)*(1+2*(t-2)). Both tails are far below 1e-50. The interval result is a local certificate, not evidence of positivity globally.
+
+Uniform extension, awaiting independent review: uniform_moment_check.py bounds the same criterion divided by a over 0<a<=1/2. On 0<=t<=2, 1<=cosh(at)<=8/5 and 1<=sinh(at)/(at)<=6/5. Thus it encloses M0, M1/a, M2, M3/a using powers t^0,t^2,t^2,t^4 respectively. For tails use cosh(at), sinh(at)/(at) <=exp(t/2), permitting the same explicit Gaussian-theta tail bound with power up to 4. It returns [-2M0(M1/a)-9((M1/a)M2-M0(M3/a))] in [0.0002160655,0.010320733], and hence proves positivity for |x|<=3 over that entire a-range if the checker and directed interval arithmetic are valid.
+
+Bessel sign countertest: bessel_sign_check.py uses interval midpoint quadrature on [0,2] with N=20,000 and |f''|<4 for f=e^(-2*pi*cosh(t))*cos(10t), plus exponential upper bound on [2,infinity). It encloses K_{10i}(2*pi) in [-3.529713e-8,-2.862569e-8]. This is a counterexample to claiming the K_{ix} factor is everywhere nonnegative. Prime-power divisor factors satisfy D_{p^k}(x)=sin((k+1)x log p)/sin(x log p), by continuity at denominator zeros; in particular at x=pi/(2 log 2), D_2=0 and D_4=-1. These checks do not decide the full signed sum.
+
+Comparison to prior results: the local Fourier-positivity bound |x|<=3 is not state of the art. Platt and Trudgian's rigorous RH verification to H=3*10^12 implies positivity on the much larger |x|<=H-1/2 by the Hadamard product: verified zeros contribute positively, while any conjugate pair u±iv with |u|>H and |v|<=1/2 contributes 4a*((x-u)^2+a^2-v^2)/(((x-u)^2+(a-v)^2)((x-u)^2+(a+v)^2)), which is positive in that range. Source: https://doi.org/10.1112/blms.12460. The moment certificate instead provides an independent, kernel-based calculation.
+
+Absolute divisor-tail bound, pending audit. For 0<a<=1/2 and any real x, truncation at l=L-1 has absolute remainder at most
+(1/2) sum_{l>=L} exp(-2*pi*l) [ A+B*l^2+C*l ],
+A=9*pi^2/(4*pi-5)^2, B=4*pi^4/(4*pi-9)^2, C=12*pi^3*exp(1/(4*pi))/(4*pi-7)^2.
+Proof bounds |D_l|<=d(l)<=2sqrt(l), |K_{ix}|<=K_0, |Re K_{1+ix}|<=K_1, and K_nu(z)<=exp(-z)*sqrt(pi/(2z))*exp(nu^2/(2z)) for nu=0,1. Also h*sinh(2ah)<=h*exp(h)/2 and exp(2h)>=1+2h. Geometric sums enclosed by divisor_tail_check.py give <1.034e-6 for L=3, <3.316e-9 for L=4, and <9.478e-12 for L=5. This pays the mixed term but a fixed absolute bound is not enough for all x. Contour shifting gives exponential x-decay with worse l-decay, but still does not by itself imply a sign.
+
+A finite cancellation test, awaiting audit: negative_slice_check.py interval-encloses integral_0^infinity Phi(v)^2*cos(24v)dv between -8.65229e-6 and -7.91972e-6. frequency12_check.py independently encloses Fourier[C_{1/4}](24) between 3.30939e-7 and 3.39376e-7, including all h and divisor contributions. These signs show a negative h=0 section can coexist with a positive full h integral. Each uses interval midpoint quadrature, a product-rule second derivative bound, and explicit theta tail estimates. They are finite tests, not a global theorem.
+
+Independent audit update: divisor-tail formulas (including the refinement below), frequency12_check.py, negative_slice_check.py, and bessel_sign_check.py all passed independent checks of constants, enclosures, and tails. The full transform at (a,x)=(1/4,12) exceeds 3.30939113e-7 while the h=0 slice is negative; by continuity the slice remains negative for a nonzero interval h>0, so positive contributions elsewhere must pay that signed cost.
+
+A refinement retains the factor a: h*sinh(2ah)<=2a*h^2*exp(h), so
+|tail_{l>=L}|<=4a sum_{l>=L}exp(-2*pi*l)[A'/l+B'*l+C'],
+A'=9*pi^2/(4*pi-5)^3, B'=4*pi^4/(4*pi-9)^3, C'=12*pi^3*exp(1/(4*pi))/(4*pi-7)^3.
+Using 1/l<=1/L, the checker proves the bound <1.792e-9*a at L=4. Consequently at (a,x)=(1/4,12), the l=1,2,3 core itself exceeds 3.3049e-7 after paying all omitted l>=4 terms. This is a finite, noncircular sign certificate, not a global one.

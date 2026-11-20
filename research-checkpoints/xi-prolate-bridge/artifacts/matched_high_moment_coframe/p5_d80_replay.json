@@ -1,0 +1,1626 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact rational arithmetic plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "absolute_prime_sign_countermodel_reconstructed": true,
+    "binary64_rejected": true,
+    "centered_moments_k_1_through_4_reconstructed": true,
+    "continuous_injective_projected_rank_countermodel_reconstructed": true,
+    "count_not_promoted_to_rank": true,
+    "duplicate_keys_rejected": true,
+    "every_declared_dependency_rehashed": true,
+    "exact_producer_bytes_bound": true,
+    "formula_tree_independent": true,
+    "full_source_floor_reconstructed": true,
+    "matched_counts_reconstructed": true,
+    "odd_pole_angle_is_only_necessary": true,
+    "odd_pole_interval_positive": true,
+    "one_sided_positive_interval_reconstructed": true,
+    "positive_normalized_minor_floor_reconstructed": true,
+    "producer_booleans_trusted": false,
+    "same_even_moment_sign_obstruction_reconstructed": true,
+    "source_grams_retained": true,
+    "source_lock_hash_rebuilt_dynamically": true,
+    "zero_minor_rejected": true
+  },
+  "claim_boundary": {
+    "equation_5_2": false,
+    "finite_reduction_only": true,
+    "locally_uniform_determinant_convergence": false,
+    "riemann_hypothesis": false,
+    "signed_sector_floor": false
+  },
+  "inputs": {
+    "dps": 80,
+    "lambda_denominator": 2,
+    "lambda_numerator": 5
+  },
+  "producer_artifact": {
+    "path": "artifacts/matched_high_moment_coframe/p5_d80_producer.json",
+    "sha256": "a1d2b284aacc31e255ae4fea396d4323bf73dffd5468dbb8cd82d21ce861160e"
+  },
+  "producer_binding": {
+    "byte_count": 46183,
+    "byte_source": "exact producer artifact bytes",
+    "sha256": "a1d2b284aacc31e255ae4fea396d4323bf73dffd5468dbb8cd82d21ce861160e"
+  },
+  "reconstructed": {
+    "centered_moment_floors": {
+      "moment_twin_good": {
+        "actual_minimum": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "centered_diagonal": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ],
+        "dimension": 3,
+        "label": "moment_twin_good",
+        "matrix": [
+          [
+            {
+              "denominator": "2",
+              "numerator": "7"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "mean": {
+          "denominator": "2",
+          "numerator": "3"
+        },
+        "moments": [
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "6"
+            },
+            "complete_sign_denominator": {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            "degree": 2,
+            "k": 1,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            "sharp_equality": false
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "18"
+            },
+            "complete_sign_denominator": {
+              "denominator": "8",
+              "numerator": "9"
+            },
+            "degree": 4,
+            "k": 2,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "16"
+            },
+            "sharp_equality": false
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "66"
+            },
+            "complete_sign_denominator": {
+              "denominator": "32",
+              "numerator": "33"
+            },
+            "degree": 6,
+            "k": 3,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "64"
+            },
+            "sharp_equality": false
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "258"
+            },
+            "complete_sign_denominator": {
+              "denominator": "128",
+              "numerator": "129"
+            },
+            "degree": 8,
+            "k": 4,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "256"
+            },
+            "sharp_equality": false
+          }
+        ]
+      },
+      "positive_sharp": {
+        "actual_minimum": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "centered_diagonal": [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "dimension": 2,
+        "label": "positive_sharp",
+        "matrix": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "3"
+            }
+          ]
+        ],
+        "mean": {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        "moments": [
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "complete_sign_denominator": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "degree": 2,
+            "k": 1,
+            "lower_bound": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "complete_sign_denominator": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "degree": 4,
+            "k": 2,
+            "lower_bound": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "complete_sign_denominator": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "degree": 6,
+            "k": 3,
+            "lower_bound": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "complete_sign_denominator": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "degree": 8,
+            "k": 4,
+            "lower_bound": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "sharp_equality": true
+          }
+        ]
+      },
+      "same_even_moments_do_not_determine_lower_sign": {
+        "bad_actual_minimum": {
+          "denominator": "2",
+          "numerator": "-1"
+        },
+        "good_actual_minimum": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "positive_floor_inferred_from_shared_moments": false,
+        "same_C_2k_for_k_1_through_4": true
+      },
+      "sharp_bad": {
+        "actual_minimum": {
+          "denominator": "2",
+          "numerator": "-1"
+        },
+        "centered_diagonal": [
+          {
+            "denominator": "1",
+            "numerator": "-2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "dimension": 3,
+        "label": "sharp_bad",
+        "matrix": [
+          [
+            {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "5"
+            }
+          ]
+        ],
+        "mean": {
+          "denominator": "2",
+          "numerator": "3"
+        },
+        "moments": [
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "6"
+            },
+            "complete_sign_denominator": {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            "degree": 2,
+            "k": 1,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "18"
+            },
+            "complete_sign_denominator": {
+              "denominator": "8",
+              "numerator": "9"
+            },
+            "degree": 4,
+            "k": 2,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "16"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "66"
+            },
+            "complete_sign_denominator": {
+              "denominator": "32",
+              "numerator": "33"
+            },
+            "degree": 6,
+            "k": 3,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "64"
+            },
+            "sharp_equality": true
+          },
+          {
+            "C_2k": {
+              "denominator": "1",
+              "numerator": "258"
+            },
+            "complete_sign_denominator": {
+              "denominator": "128",
+              "numerator": "129"
+            },
+            "degree": 8,
+            "k": 4,
+            "lower_bound": {
+              "denominator": "2",
+              "numerator": "-1"
+            },
+            "radius": {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            "radius_power": {
+              "denominator": "1",
+              "numerator": "256"
+            },
+            "sharp_equality": true
+          }
+        ]
+      }
+    },
+    "coframe_fixtures": {
+      "minus_source_gram": {
+        "B_minus_equals_I_plus_aa_star": [
+          [
+            {
+              "denominator": "4",
+              "numerator": "5"
+            },
+            {
+              "denominator": "6",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "6",
+              "numerator": "1"
+            },
+            {
+              "denominator": "9",
+              "numerator": "10"
+            }
+          ]
+        ],
+        "a": [
+          {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          {
+            "denominator": "3",
+            "numerator": "1"
+          }
+        ],
+        "determinant_direct": {
+          "denominator": "36",
+          "numerator": "49"
+        },
+        "determinant_formula": {
+          "denominator": "36",
+          "numerator": "49"
+        },
+        "principal_minors": [
+          {
+            "denominator": "4",
+            "numerator": "5"
+          },
+          {
+            "denominator": "9",
+            "numerator": "10"
+          },
+          {
+            "denominator": "36",
+            "numerator": "49"
+          }
+        ]
+      },
+      "normalized_minor_pass": {
+        "R_minus_full_source_floor_I_principal_minors": [
+          {
+            "denominator": "625",
+            "numerator": "623"
+          },
+          {
+            "denominator": "625",
+            "numerator": "623"
+          },
+          {
+            "denominator": "390625",
+            "numerator": "388129"
+          }
+        ],
+        "absolute_minor_floor_from_full_source": {
+          "denominator": "45000",
+          "numerator": "1"
+        },
+        "actual_relative_floor": {
+          "denominator": "72",
+          "numerator": "1"
+        },
+        "ambient_full_frame_R": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "fixture_lambda": {
+          "denominator": "2",
+          "numerator": "5"
+        },
+        "normalized_minor_squared": {
+          "denominator": "144",
+          "numerator": "1"
+        },
+        "p5_full_source_floor": {
+          "denominator": "625",
+          "numerator": "2"
+        },
+        "passes": true,
+        "physical_columns_W": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "3",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "raw_frame": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "9",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "relative_minor_gamma": {
+          "denominator": "144",
+          "numerator": "1"
+        },
+        "relative_operator_upper_U": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "source_gram_B": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "8"
+            }
+          ]
+        ],
+        "source_gram_corrected_frame": [
+          [
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "72",
+              "numerator": "1"
+            }
+          ]
+        ]
+      },
+      "plus_source_gram": {
+        "B_plus_equals_I_plus_alphaalpha_star_plus_bb_star": [
+          [
+            {
+              "denominator": "16",
+              "numerator": "21"
+            },
+            {
+              "denominator": "60",
+              "numerator": "7"
+            }
+          ],
+          [
+            {
+              "denominator": "60",
+              "numerator": "7"
+            },
+            {
+              "denominator": "225",
+              "numerator": "259"
+            }
+          ]
+        ],
+        "alpha": [
+          {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          {
+            "denominator": "3",
+            "numerator": "1"
+          }
+        ],
+        "b": [
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          }
+        ],
+        "determinant_direct": {
+          "denominator": "360",
+          "numerator": "539"
+        },
+        "determinant_formula": {
+          "denominator": "360",
+          "numerator": "539"
+        },
+        "principal_minors": [
+          {
+            "denominator": "16",
+            "numerator": "21"
+          },
+          {
+            "denominator": "225",
+            "numerator": "259"
+          },
+          {
+            "denominator": "360",
+            "numerator": "539"
+          }
+        ]
+      },
+      "zero_minor_rejection": {
+        "normalized_minor_squared": {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        "passes": false,
+        "physical_columns_W": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ],
+        "row_rank": 1,
+        "source_gram_B": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "8"
+            }
+          ]
+        ],
+        "source_gram_corrected_frame": [
+          [
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ]
+      }
+    },
+    "countermodels": {
+      "absolute_prime_sign": {
+        "absolute_even_prime_moments": [
+          {
+            "P_2k": {
+              "denominator": "1",
+              "numerator": "17"
+            },
+            "k": 1
+          },
+          {
+            "P_2k": {
+              "denominator": "1",
+              "numerator": "257"
+            },
+            "k": 2
+          },
+          {
+            "P_2k": {
+              "denominator": "1",
+              "numerator": "4097"
+            },
+            "k": 3
+          },
+          {
+            "P_2k": {
+              "denominator": "1",
+              "numerator": "65537"
+            },
+            "k": 4
+          }
+        ],
+        "absolute_moments_identical_under_prime_sign_flip": true,
+        "archimedean_b": [
+          {
+            "denominator": "1",
+            "numerator": "5"
+          },
+          {
+            "denominator": "1",
+            "numerator": "5"
+          }
+        ],
+        "atom_weights": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "localized_upper_one_S_squared": {
+          "denominator": "1",
+          "numerator": "16"
+        },
+        "locked_b_minus_2S": [
+          {
+            "denominator": "1",
+            "numerator": "-3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        "locked_lower_one": {
+          "denominator": "1",
+          "numerator": "-3"
+        },
+        "prime_S": [
+          {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "prime_sign_determined_by_absolute_moments": false,
+        "sign_flipped_b_plus_2S": [
+          {
+            "denominator": "1",
+            "numerator": "13"
+          },
+          {
+            "denominator": "1",
+            "numerator": "7"
+          }
+        ],
+        "sign_flipped_lower_one": {
+          "denominator": "1",
+          "numerator": "7"
+        }
+      }
+    },
+    "full_source": {
+      "floor_strictly_positive": true,
+      "lambda": {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      "operator_upper_lambda_squared_over_2": {
+        "denominator": "8",
+        "numerator": "25"
+      },
+      "prescribed_matched_family_floor_inferred": false,
+      "row_floor_one_over_8_lambda_fourth": {
+        "denominator": "625",
+        "numerator": "2"
+      }
+    },
+    "intervals": {
+      "odd_pole_B": {
+        "decimal": [
+          "0.121772740216902933311771812511110462308516692942802995690456782163085677019346408268815621",
+          "0.121772740216902933311771812511110462308516692942802995690456782163085677019346413935247015"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "924078571642430893128156761341748238886513928945196691938693079867187053926130721",
+            -272,
+            269
+          ],
+          "upper": [
+            0,
+            "231019642910607723282039190335437059721628482236299172984673269966796763481532691",
+            -270,
+            267
+          ]
+        }
+      },
+      "odd_pole_L": {
+        "decimal": [
+          "1.8325814637483101303670544235360221429002024398165249355839357639615707314759260951174015",
+          "1.83258146374831013036705442353602214290020243981652493558393576396157073147592610144272026"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "108645599429117880829732506626623945074619279582555728715526152614712889338874405",
+            -265,
+            266
+          ],
+          "upper": [
+            0,
+            "869164795432943046637860053012991560596954236660445829724209220917703114710995243",
+            -268,
+            269
+          ]
+        }
+      },
+      "odd_pole_angle": {
+        "decimal": [
+          "1.88114911892852213396389261108678103478601894890153383605110630215175311983138032335398724",
+          "1.88114911892852213396389261108678103478601894890153383605110630215175311983138041823376873"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "111524959563607127809503493666700141176874731305966826002135877256483815828217263",
+            -265,
+            266
+          ],
+          "upper": [
+            0,
+            "892199676508857022476027949333601129414997850447734608017087018051870526625738149",
+            -268,
+            269
+          ]
+        }
+      },
+      "odd_pole_ell": {
+        "decimal": [
+          "0.916290731874155065183527211768011071450101219908262467791967881980785365737963047558700749",
+          "0.916290731874155065183527211768011071450101219908262467791967881980785365737963050721360132"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "108645599429117880829732506626623945074619279582555728715526152614712889338874405",
+            -266,
+            266
+          ],
+          "upper": [
+            0,
+            "869164795432943046637860053012991560596954236660445829724209220917703114710995243",
+            -269,
+            269
+          ]
+        }
+      },
+      "odd_pole_g": {
+        "decimal": [
+          "0.458145365937077532591763605884005535725050609954131233895983940990392682868981523779350375",
+          "0.458145365937077532591763605884005535725050609954131233895983940990392682868981525360680066"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "108645599429117880829732506626623945074619279582555728715526152614712889338874405",
+            -267,
+            266
+          ],
+          "upper": [
+            0,
+            "869164795432943046637860053012991560596954236660445829724209220917703114710995243",
+            -270,
+            269
+          ]
+        }
+      },
+      "odd_pole_norm_squared": {
+        "decimal": [
+          "0.133709268125844934816472788231988928549898780091737532208032118019214634262036947591888197",
+          "0.133709268125844934816472788231988928549898780091737532208032118019214634262036952862987169"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "126832439350755939917528131637738347593732863439528045917589133684762461199878253",
+            -269,
+            267
+          ],
+          "upper": [
+            0,
+            "63416219675377969958764065818869173796866431719764022958794566842381230599939129",
+            -268,
+            266
+          ]
+        }
+      },
+      "odd_pole_projection_tail": {
+        "decimal": [
+          "0.0119365279089420015047009757208784662413820871489345365175753358561289572426905390265732594",
+          "0.0119365279089420015047009757208784662413820871489345365175753358561289572426905392077672865"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "362323772654466504848273167040634167453395914284110701608079958443650542691581203",
+            -274,
+            268
+          ],
+          "upper": [
+            0,
+            "724647545308933009696546334081268334906791828568221403216159916887301085383162417",
+            -275,
+            269
+          ]
+        }
+      },
+      "one_sided_floor": {
+        "decimal": [
+          "0.763932022500210303590826331268723764559381640388474275729102754589479074362195098461386946",
+          "0.763932022500210303590826331268723764559381640388474275729102754589479074362195102678266123"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "181160519517363804434615741095678973791308506771356115583484301905538648211107209",
+            -267,
+            267
+          ],
+          "upper": [
+            0,
+            "90580259758681902217307870547839486895654253385678057791742150952769324105553605",
+            -266,
+            266
+          ]
+        }
+      },
+      "one_sided_radius": {
+        "decimal": [
+          "2.23606797749978969640917366873127623544061835961152572427089724541052092563780489732173388",
+          "2.23606797749978969640917366873127623544061835961152572427089724541052092563780490153861305"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "265133038378353450123902195398849766029591139507169754937471547119539810148329787",
+            -266,
+            268
+          ],
+          "upper": [
+            0,
+            "530266076756706900247804390797699532059182279014339509874943094239079620296659575",
+            -267,
+            269
+          ]
+        }
+      },
+      "schedule_q_argument": {
+        "decimal": [
+          "4.34092112804340706180698295930999880335561686960298222362464221318519989325569984843119623",
+          "4.34092112804340706180698295930999880335561686960298222362464221318519989325569990746750472"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "514707790469686756459561030083010923566724503051780767864552126650930741313757905",
+            -266,
+            269
+          ],
+          "upper": [
+            0,
+            "64338473808710844557445128760376365445840562881472595983069015831366342664219739",
+            -263,
+            266
+          ]
+        }
+      }
+    },
+    "one_sided_exact": {
+      "A": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ]
+      ],
+      "M": {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      "M_I_minus_A": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "actual_minimum": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "p": 2,
+      "symbolic_lower_bound": "3-sqrt(5)",
+      "trace_deficit_power": {
+        "denominator": "1",
+        "numerator": "5"
+      }
+    },
+    "projection_rank_model": {
+      "N": 3,
+      "continuous_injectivity_implies_projected_row_rank": false,
+      "lifted_columns": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "4"
+          }
+        ]
+      ],
+      "lifted_determinant": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "lifted_rank": 3,
+      "lifted_witness_action": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "projected_first_two_coordinate_columns": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "projected_rank": 2,
+      "projected_source_gram_corrected_frame": [
+        [
+          {
+            "denominator": "10",
+            "numerator": "7"
+          },
+          {
+            "denominator": "5",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "5",
+            "numerator": "1"
+          },
+          {
+            "denominator": "15",
+            "numerator": "8"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "projected_witness_action": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "right_null_witness": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "source_dimension_r": 3,
+      "source_gram_B": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "5"
+          }
+        ]
+      ]
+    },
+    "schedule": {
+      "N": 7,
+      "N_rule": "ceil(lambda^2)",
+      "buffered_count_forces_minus_row_rank": false,
+      "buffered_count_forces_plus_row_rank": false,
+      "lambda": {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      "minus_excess_columns": 1,
+      "n_star": 36,
+      "plus_excess_columns": 0,
+      "q": 5,
+      "r_minus_buffered": 8,
+      "r_plus_buffered": 7,
+      "unbuffered_forced_row_nullity_each_sector": 2,
+      "unbuffered_r_minus": 5,
+      "unbuffered_r_plus": 5
+    }
+  },
+  "schema": "xi-prolate-matched-high-moment-coframe-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json": "e387fc1c539283dead8110eeac6d5c6798839a8bcfc0a17c65af87587cd3458c",
+      "LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR_SOURCE_LOCK.json": "fd8b2296e653910fd72ea6d1311e3f1512bfd697f5ea91d3d763f71013f51941",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+      "PROJECTED_STATE_NORM_SOURCE_LOCK.json": "6c765b4d70969a7868f01641fdbc592907e8c32ae7d315a3ef39306f9389b213",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "notes/LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR.md": "39695c4823f19f1a03b9e9434a88763564cc0e2e086a12b65412d2551b5f4982",
+      "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "MATCHED_HIGH_MOMENT_COFRAME_SOURCE_LOCK.json",
+    "schema": "xi-prolate-matched-high-moment-coframe-source-lock-v1",
+    "sha256": "83b5ad8e7a45bbe7f4d01ba27b1ec3aae2d3846917c4942b101cd1027e66aa1d"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

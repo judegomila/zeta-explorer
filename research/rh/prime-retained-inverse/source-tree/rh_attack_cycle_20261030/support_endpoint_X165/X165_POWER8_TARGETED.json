@@ -1,0 +1,40 @@
+{
+  "status": "SCALAR_FEASIBILITY_ONLY",
+  "precision_bits": 200,
+  "runs": [
+    {
+      "X": "33/2",
+      "state_counts": [
+        20,
+        218,
+        1579,
+        9093,
+        44429,
+        191035,
+        739768,
+        2630076
+      ],
+      "endpoint_count": 19196,
+      "prime_count": 10,
+      "eighth_power_schur_norm_upper": "[3.8201031921951287795234880166593635895444845454834 +/- 1.87e-50]",
+      "N2048_tail_floor_with_this_norm": "[0.70613129895809179522858618043622502498434467107056 +/- 4.86e-52]",
+      "raw_beta_phase_count": 21,
+      "raw_square_ratio_count": 193,
+      "exact_grouped_square_phase_count": 169,
+      "near_identity_squared_channels": [
+        {
+          "r": "33/32",
+          "phase_distance": "[0.068968668790977794609663291238824977 +/- 2.68e-37]",
+          "J_phase_product": "[1129.9826694713801868847233636569084 +/- 1.88e-32]"
+        },
+        {
+          "r": "16",
+          "phase_distance": "[0.068968668790977794609663291238824977 +/- 2.68e-37]",
+          "J_phase_product": "[1129.9826694713801868847233636569084 +/- 1.88e-32]"
+        }
+      ],
+      "seconds": 113.00308275222778
+    }
+  ],
+  "scope": "Complete rational eighth-power prime norm enumeration and exact channel counts only. No finite corrected matrix, full positivity, or support extension certificate."
+}

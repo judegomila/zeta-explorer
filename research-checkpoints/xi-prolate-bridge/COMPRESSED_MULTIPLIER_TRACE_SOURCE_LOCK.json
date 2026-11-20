@@ -1,0 +1,78 @@
+{
+  "schema": "xi-prolate-compressed-multiplier-trace-source-lock-v1",
+  "claim_class": "FINITE_COMPRESSION_DANGEROUS_RANK_AND_CAPTURE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "exact finite Weil multiplier, Fourier sign, and inclusive prime-power endpoint"
+    },
+    {
+      "path": "P3_SOURCE_LOCK.json",
+      "sha256": "42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3",
+      "role": "pinned FKS Chebyshev constants from which this theorem derives its displayed all-range Cpsi bound"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact complete multiplier, parity pole signs, and weighted-concentration reduction"
+    },
+    {
+      "path": "notes/PHASE_VOLUME_SCALE_AUDIT.md",
+      "sha256": "bae7414fed2ac861ac3211175cd8f8b7743c33bd37379e186a71d700554b7fcd",
+      "role": "global phase-volume obstruction and finite-compression target"
+    },
+    {
+      "path": "notes/HIGH_FOURIER_COERCIVITY.md",
+      "sha256": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+      "role": "centered source modes and exact finite Fourier spectral density"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "shared arbitrary-precision interval runtime pin"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)] with Lebesgue measure in logarithmic coordinates, equivalently du/u on [lambda^(-1),lambda]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy",
+    "prime_endpoint": "every prime power n<=lambda^2 is included",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "compression": "centered modes |n|<=N, d=2*N+1, with no cached Weil matrix",
+    "schedule_scope": "the O(lambda^2) rank scale requires N asymptotic lambda^2, fixed positive tail ratio, U=o(log(lambda^2)), and g=kappa*log(lambda^2)",
+    "interval_serialization": "nondegenerate intervals are expanded by exact dyadic 2^(s-ceil(dps*3321928094887363/10^15)+16), s=max(0,floor(log2(max endpoint magnitude))), and replay requires enclosure of its independent interval",
+    "shared_library": "producer and replay use the exact pinned mpmath.iv version and disclose that common dependency"
+  },
+  "locked_formulas": {
+    "c_star": "c_star=log(1/(1-1/sqrt(2)))/sqrt(2)",
+    "log_hilbert": "abs(H_log)<=2*pi*(1+sqrt(2)/log(2))*B2+16*c_star*Cpsi^2*x/log(2)",
+    "mean_square": "M2<=R*A2/(2*pi)+(1+sqrt(2)/log(2))*B2+8*c_star*Cpsi^2*x/(pi*log(2))+Sigma^2/(4*pi*log(2))",
+    "arithmetic_bounds": "A2<=Cpsi*L*(1+L), B2<=Cpsi*x*L, Sigma<=Cpsi*(2*sqrt(x)-1)",
+    "trace": "trace(P_N*T_v*P_N)<=H_N+2*sqrt(d*L*M2)+2*d*Aplus/(pi^2*zeta*N)",
+    "even_rank": "dim(L_even)<=trace_bound/(g-delta)",
+    "odd_rank": "dim(L_odd_sharp)<=trace_bound/(g-delta)+1",
+    "capture_floor": "B_on_Kperp>=delta-[r-g+delta]_+*s^2 where Pi_strict=1_(g-delta,infinity)(R) and s=norm(Pi_strict*P_Kperp)",
+    "quotient_gluing": "nu=(mu+1-sqrt((mu-1)^2+4*chi^2))/2 and chi^2<mu"
+  },
+  "claim_boundary": {
+    "proved": [
+      "a self-contained finite logarithmic-Hilbert inequality with explicit constants",
+      "an explicit finite second-moment and compressed weighted-trace bound",
+      "an O(lambda^2) dangerous-rank scale on the displayed polynomial compression schedule",
+      "exact physical-capture and quotient-relative signed-gluing criteria"
+    ],
+    "not_proved": [
+      "a favorable finite dangerous-rank fraction",
+      "capture of the dangerous space by the physical prolate range",
+      "the signed low comparison or quotient-relative cross bound",
+      "a signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

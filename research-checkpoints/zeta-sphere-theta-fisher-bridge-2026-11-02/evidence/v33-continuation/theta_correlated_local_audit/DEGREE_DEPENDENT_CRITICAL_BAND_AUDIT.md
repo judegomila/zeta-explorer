@@ -1,0 +1,19 @@
+# Independent audit: degree-dependent critical-shift band
+
+Analytic PASS, 2026-11-03. No new numerical certificate or acquired code execution. The explicit zero-free theorem is an external mathematical dependency, not independently reproved.
+
+Independently read the published Mossinghoff–Trudgian–Yang Theorem 1.3 at https://link.springer.com/article/10.1007/s40993-023-00498-y . It states the required zero-free region with 5.558691 and |gamma|>=2. The paper is published in 2024. The weakening to 6 log(R+3) is conservative for all 2<=|gamma|<=R+1.
+
+The positive central reserve is correctly normalized: F(ia)=Z(a), -Im F'(ia)=Z'(a), so Lambda_a(0)=ZZ'/a>=Z0 M2. The t derivative contains only -Im F'' conjugate F because F' conjugate F' is real. For a>=1/4 its absolute value is <=4 M0* M2*. Thus the specified eta gives Lambda_a>=m0/2=m on the central interval. All these constants are strictly positive finite full-profile integrals with no target moment sign dependency.
+
+The complex contour shift at physical height +-pi/8 contributes exp(-pi|t|/8); its a dependence in modulus is only exp(-a u), bounded by exp(|u|/2). Thus the definitions A0,A1 and C=4A0A1 give |Lambda_a|<=C exp(-pi|t|/4) uniformly on a in [1/4,1/2]. Analytic evenness controls the negative physical end; the positive-end orbit series has strictly positive real Gaussian parameter. No finite-orbit approximation is used.
+
+The separately established -ell''>17 persists under exponential tilting. Weighted variance is <=1/17, and the tilted mean has magnitude <=|a|/17. Therefore E u^2<=1/17+a^2/289 and the real characteristic function is bounded below by 1-t^2 E u^2/2. The displayed positive constant for |t|<=2 and |a|<=1/2 is correct, excluding low-height zeros without a zero table.
+
+Functional/reflection symmetry of zeros plus the external theorem gives |d|<1/2-epsilon for every zero with |gamma|<=R+1. The reflected-pair contribution is exactly the rational expression in (6). Those nearby pairs are positive because a>|d|; distant pairs are positive because |t-gamma|>1>|d|. Critical-line terms are positive as well. The paired imaginary logarithmic derivative is absolutely summable with no residual imaginary constant, by the existing even-Xi product normalization. Evaluation points are not zeros. Hence the claimed strict positivity on |t|<=R follows.
+
+Scaled Legendre orthonormal expansion gives (n+1)^2/(2eta), and |P_j(x)|<=(2|x|+1)^j outside the unit interval. The two spectral tails multiply this by 2C. For R>=4n/tau, integrating the decreasing t^(2n)exp(-tau t/2) factor gives 2(BR)^(2n)exp(-tau R)/tau. The total coefficient is therefore exactly 2C(n+1)^2/(eta tau), as in (1). It pays the entire absolute signed tail. Central reserve minus that payment yields (2), without assuming positive density outside R.
+
+Existence of R_n follows from exponential decay. A fixed sufficiently large multiple of n log(n+2) suffices, whereas the imposed linear lower bound gives log R_n/log n->1. Thus epsilon_n~1/(6log n) is correct. The monic central norm l_n has the correct Legendre leading coefficient. Finite-block positivity, already proved, legitimates monic minimization for h_(n-1); the absolute tail envelope gives its upper bound 2C(2n-2)!/tau^(2n-1). Division yields exactly b_n=m l_n tau^(2n-1)/[4C(2n-2)!], and the Ward bound follows noncircularly.
+
+Accepted scope: for every fixed n, full spatial degree<=n block positivity on a>=1/2-epsilon_n, combining the inner construction with known exterior positivity. The quantitative central-norm lower bound is asserted only on the compact inner band. Constants are explicitly defined convergent integrals, not numerically evaluated cutoffs. This is a corollary of established zero-free theory and theta estimates, not a new zero-free theorem, fixed-inner-shift all-degree positivity, RH, arbitrary spatial-cutoff result, or practical matrix-conditioning bound.

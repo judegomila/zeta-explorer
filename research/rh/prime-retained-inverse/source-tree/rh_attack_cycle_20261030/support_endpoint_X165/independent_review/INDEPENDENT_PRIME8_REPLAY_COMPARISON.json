@@ -1,0 +1,23 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETE_EIGHTH_POWER_REPLAY",
+  "X": "33/2",
+  "all_nontiming_fields_identical": true,
+  "exact_path_state_counts": [
+    20,
+    218,
+    1579,
+    9093,
+    44429,
+    191035,
+    739768,
+    2630076
+  ],
+  "endpoint_count": 19196,
+  "norm_upper": "[3.8201031921951287795234880166593635895444845454834 +/- 1.87e-50]",
+  "producer_seconds": 113.00308275222778,
+  "independent_seconds": 131.9546992778778,
+  "producer_receipt_sha256": "d095ae94e743fa5b503479bf34514e92fce9b29b45aaf27b5475cb146090640e",
+  "independent_receipt_sha256": "2d5bf7161a52cee8592cc7937317f0aa835a36ccfee43d83ec32bb967e471a5b",
+  "all_producer_inputs_remain_frozen": true,
+  "scope": "Independent same-algorithm Arb scalar enumeration replay only; complete actual whole-even sign gate remains separate. No new endpoint or RH conclusion."
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "L": 4,
+    "N": 6,
+    "tau": 0,
+    "dps": 55,
+    "theta_terms": 3,
+    "leading_exact": "116/5",
+    "actual": "26.980107064402578476850137226418712",
+    "reference_cauchy_form": 48,
+    "seconds": 1.6323328018188477
+  },
+  {
+    "L": 6,
+    "N": 6,
+    "tau": 0,
+    "dps": 55,
+    "theta_terms": 2,
+    "leading_exact": "236/5",
+    "actual": "48.043244748902096797637158853950578",
+    "reference_cauchy_form": 72,
+    "seconds": 1.4215655326843262
+  },
+  {
+    "L": 4,
+    "N": 42,
+    "tau": 0,
+    "dps": 45,
+    "theta_terms": 2,
+    "leading_exact": "-222535265680372/325982425207725",
+    "actual": "120.49801826373632409809851525990488",
+    "reference_cauchy_form": 336,
+    "seconds": 37.53029155731201
+  }
+]

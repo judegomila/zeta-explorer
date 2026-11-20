@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "bits": 224,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n00004096_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n00004096_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n00004096_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n00004096_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n00004096_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n00004096_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n00004096_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n00004096_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n00004096_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n00004096_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n00004096_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n00004096_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 4096,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n00004096_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n00004096_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n00016384_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n00016384_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n00016384_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n00016384_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n00016384_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n00016384_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n00016384_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n00016384_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n00016384_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n00016384_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n00016384_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n00016384_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 16384,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n00016384_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n00016384_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n00065536_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n00065536_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n00065536_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n00065536_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n00065536_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n00065536_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n00065536_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n00065536_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n00065536_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n00065536_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n00065536_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n00065536_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 65536,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n00065536_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n00065536_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n00262144_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n00262144_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n00262144_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n00262144_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n00262144_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n00262144_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n00262144_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n00262144_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n00262144_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n00262144_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n00262144_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n00262144_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 262144,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n00262144_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n00262144_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n01048576_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n01048576_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n01048576_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n01048576_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n01048576_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n01048576_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n01048576_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n01048576_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n01048576_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n01048576_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n01048576_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n01048576_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 1048576,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n01048576_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n01048576_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n04194304_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n04194304_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n04194304_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n04194304_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n04194304_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n04194304_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n04194304_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n04194304_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n04194304_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n04194304_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n04194304_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n04194304_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 4194304,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n04194304_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n04194304_b416_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 224,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 7,
+      "id": "d07_n16777216_b224_g128",
+      "output": "workstreams/regional-degree-sweep/results/d07_n16777216_b224_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 256,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 9,
+      "id": "d09_n16777216_b256_g128",
+      "output": "workstreams/regional-degree-sweep/results/d09_n16777216_b256_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 288,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 11,
+      "id": "d11_n16777216_b288_g128",
+      "output": "workstreams/regional-degree-sweep/results/d11_n16777216_b288_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 320,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 13,
+      "id": "d13_n16777216_b320_g128",
+      "output": "workstreams/regional-degree-sweep/results/d13_n16777216_b320_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 352,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 15,
+      "id": "d15_n16777216_b352_g128",
+      "output": "workstreams/regional-degree-sweep/results/d15_n16777216_b352_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 384,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 17,
+      "id": "d17_n16777216_b384_g128",
+      "output": "workstreams/regional-degree-sweep/results/d17_n16777216_b384_g128.json",
+      "split_grid": 128
+    },
+    {
+      "bits": 416,
+      "cells": 16777216,
+      "classification": "finite_interval_experiment",
+      "degree": 19,
+      "id": "d19_n16777216_b416_g128",
+      "output": "workstreams/regional-degree-sweep/results/d19_n16777216_b416_g128.json",
+      "split_grid": 128
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "analytic_uniform_claim": false,
+  "claim_class": "EXPLORATORY_DIAGNOSTIC",
+  "legacy_fit_warning": "the requested legacy r/Delta fit is retained, but the global complement gap and scalar r/Gamma discard the residual spectral weighting; the operative finite eigenvector diagnostic is the resolvent-weighted chordal bound",
+  "legacy_full_complement_ratio_power_fit": {
+    "local_slope_max": "-27.975787041094303476",
+    "local_slope_min": "-70.979444407138856832",
+    "model": "legacy_r_over_Delta approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "7.461247416244821018",
+    "p": "-53.157891340747212894"
+  },
+  "operative_resolvent_weighted_chordal_power_fit": {
+    "local_slope_max": "6.2712469434599658058",
+    "local_slope_min": "3.817124140559964296",
+    "model": "resolvent_weighted_chordal_distance_bound approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "0.44672891365090572346",
+    "p": "4.982785227131479644"
+  },
+  "operative_resolvent_weighted_tau_power_fit": {
+    "local_slope_max": "6.271247986981684619",
+    "local_slope_min": "3.817126959512607165",
+    "model": "resolvent_weighted_tau approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "0.44672788325378354202",
+    "p": "4.9827886910398992981"
+  },
+  "projection_error_power_fit": {
+    "local_slope_max": "67.523093700397652128",
+    "local_slope_min": "34.950238310622019355",
+    "model": "projection_error approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "5.6027595575427060481",
+    "p": "54.492993535242874259"
+  },
+  "resolvent_weighted_passing_points": 4,
+  "rows": [
+    {
+      "N": 12,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.0010200690909294057990023064216701227",
+      "even_gap_from_q_Delta_even": "0.0010200676310578796319285409584110777",
+      "lambda": "1.75",
+      "legacy_full_complement_Delta": "0.0000099301583209652828562639390605802481",
+      "legacy_r_over_Delta": "5.2220717272222487294936059814098801",
+      "odd_floor_minus_ritz_upper": "0.0000099316181924914499300294023196407556",
+      "projection_error": "0.0000093591074079579626295577963816782264",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.002122534284902506303535786614573385",
+      "resolvent_weighted_tau": "0.0021225378707874225491538285957968119",
+      "scalar_r_over_Gamma": "0.050835771298105405175589081639005751",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda1p75_N12_dps35.json"
+    },
+    {
+      "N": 12,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.0000002753439452618640142645540547918679016192",
+      "even_gap_from_q_Delta_even": "0.0000002753439250971170193707823975654082707351",
+      "lambda": "2.0",
+      "legacy_full_complement_Delta": "0.000000000872905705739990189088602010006937035635",
+      "legacy_r_over_Delta": "218.8835841230922059079919608543165903842",
+      "odd_floor_minus_ritz_upper": "0.0000000008729258704869850828602592364665823293066",
+      "projection_error": "0.00000008798366817644311071981068273116382114796",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.001221816435278555844517821212725441398736",
+      "resolvent_weighted_tau": "0.001221817119268105890938787713268454485072",
+      "scalar_r_over_Gamma": "0.6939129505540987393040421106075464272795",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2_N12_dps40.json"
+    },
+    {
+      "N": 18,
+      "even_complement_floor_minus_ritz_upper_Gamma": "0.00000000000412255155600684171593407185404723168370203547",
+      "even_gap_from_q_Delta_even": "0.00000000000412255145522199764594228933772407155209647267",
+      "lambda": "2.25",
+      "legacy_full_complement_Delta": "7.34897641527601205185588336790398079968739935e-15",
+      "legacy_r_over_Delta": "64300.3004368507117485736370983124156668015157",
+      "odd_floor_minus_ritz_upper": "7.34907720012008204363839969106456686410137281e-15",
+      "projection_error": "0.000000000196071492149940292921072107091698186830595987",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.000779382113100896665609833560166013383827373775",
+      "resolvent_weighted_tau": "0.000779382290635370578481919209627374184482130534",
+      "scalar_r_over_Gamma": "114.623525015000082579256257513194354517041248",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2p25_N18_dps45.json"
+    },
+    {
+      "N": 24,
+      "even_complement_floor_minus_ritz_upper_Gamma": "1.0722905718934481497098109105334835779708644525722e-23",
+      "even_gap_from_q_Delta_even": "1.072290523906040167443572344657104022046684499233e-23",
+      "lambda": "2.75",
+      "legacy_full_complement_Delta": "9.6312583039631365324510854059025079117740199261163e-27",
+      "legacy_r_over_Delta": "98647039155.561101428574272914903373842934705996236",
+      "odd_floor_minus_ritz_upper": "9.6317381780429591948367501389544306034707907074124e-27",
+      "projection_error": "2.55720163159965082026948264598589248052187950269e-16",
+      "resolvent_weighted_bound_diagnostic_pass": true,
+      "resolvent_weighted_chordal_distance_bound": "0.00022141659172488780591185983159397501755586919367717",
+      "resolvent_weighted_tau": "0.0002214165957955190531749003608797447292192156273431",
+      "scalar_r_over_Gamma": "88604258.951069469193739185594201729761944748455324",
+      "sector_refined_bridge_diagnostic_pass": true,
+      "source": "artifacts/p0_schedule/raw/lambda2p75_N24_dps50.json"
+    }
+  ],
+  "scalar_r_over_Gamma_power_fit": {
+    "local_slope_max": "-19.574020787148782574",
+    "local_slope_min": "-67.563614059560919145",
+    "model": "scalar_r_over_Gamma approximately C*lambda^(-p)",
+    "ordinary_least_squares_standard_error_only": "8.2882962891945481942",
+    "p": "-48.030013295422861574"
+  },
+  "schedule": "N=3*ceil(lambda^2)",
+  "sector_refined_passing_points": 4,
+  "target_reference": "DIRECT_RH_ATTACK.md equation (5.2)",
+  "terminal_state": "P0_INVALIDATED",
+  "uncertainty_warning": "OLS standard error excludes discretization and asymptotic model error; the local-slope range is reported; no extrapolation is authorized"
+}

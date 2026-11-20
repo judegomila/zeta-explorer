@@ -1,0 +1,184 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and verifier use independent formula assemblies but share mpmath.iv interval arithmetic",
+    "library": "mpmath.iv",
+    "shared_library_with_replay": true
+  },
+  "input": {
+    "interval_decimal_digits": 160,
+    "lambda_decimal": "2.5"
+  },
+  "interval_comparisons": {
+    "C2": {
+      "overlap": true,
+      "producer_decimal": [
+        "43.40714171420677388188441",
+        "43.40714171420677388188441"
+      ],
+      "replay_decimal": [
+        "43.40714171420677388188441",
+        "43.40714171420677388188441"
+      ]
+    },
+    "C_bump_profile": {
+      "overlap": true,
+      "producer_decimal": [
+        "303679419160.2606383722175",
+        "303679419160.2606383722175"
+      ],
+      "replay_decimal": [
+        "303679419160.2606383722175",
+        "303679419160.2606383722175"
+      ]
+    },
+    "C_phi3": {
+      "overlap": true,
+      "producer_decimal": [
+        "367361.478652319753168229",
+        "367361.478652319753168229"
+      ],
+      "replay_decimal": [
+        "367361.478652319753168229",
+        "367361.478652319753168229"
+      ]
+    },
+    "C_psi3": {
+      "overlap": true,
+      "producer_decimal": [
+        "3306253.307870877778514061",
+        "3306253.307870877778514061"
+      ],
+      "replay_decimal": [
+        "3306253.307870877778514061",
+        "3306253.307870877778514061"
+      ]
+    },
+    "C_xpsi3": {
+      "overlap": true,
+      "producer_decimal": [
+        "3306383.529296020398835706",
+        "3306383.529296020398835706"
+      ],
+      "replay_decimal": [
+        "3306383.529296020398835706",
+        "3306383.529296020398835706"
+      ]
+    },
+    "D_S": {
+      "overlap": true,
+      "producer_decimal": [
+        "1011946173671.697280811872",
+        "1011946173671.697280811872"
+      ],
+      "replay_decimal": [
+        "1011946173671.697280811872",
+        "1011946173671.697280811872"
+      ]
+    },
+    "a4": {
+      "overlap": true,
+      "producer_decimal": [
+        "0.2574708929883897194787847",
+        "0.2574708929883897194787847"
+      ],
+      "replay_decimal": [
+        "0.2574708929883897194787847",
+        "0.2574708929883897194787847"
+      ]
+    },
+    "bump_constant": {
+      "overlap": true,
+      "producer_decimal": [
+        "402625831115.6480005804064",
+        "402625831115.6480005804064"
+      ],
+      "replay_decimal": [
+        "402625831115.6480005804064",
+        "402625831115.6480005804064"
+      ]
+    },
+    "endpoint_square_sum_coefficient": {
+      "overlap": true,
+      "producer_decimal": [
+        "23553.66667378121842778177",
+        "23553.66667378121842778177"
+      ],
+      "replay_decimal": [
+        "23553.66667378121842778177",
+        "23553.66667378121842778177"
+      ]
+    },
+    "far_component": {
+      "overlap": true,
+      "producer_decimal": [
+        "1604242.09576384032154609",
+        "1604242.09576384032154609"
+      ],
+      "replay_decimal": [
+        "1604242.09576384032154609",
+        "1604242.09576384032154609"
+      ]
+    },
+    "lambda": {
+      "overlap": true,
+      "producer_decimal": [
+        "2.5",
+        "2.5"
+      ],
+      "replay_decimal": [
+        "2.5",
+        "2.5"
+      ]
+    },
+    "leading_component": {
+      "overlap": true,
+      "producer_decimal": [
+        "32.0",
+        "32.0"
+      ],
+      "replay_decimal": [
+        "32.0",
+        "32.0"
+      ]
+    },
+    "leading_degree_seven_coefficient": {
+      "overlap": true,
+      "producer_decimal": [
+        "990531645.2806086819296758",
+        "990531645.2806086819296758"
+      ],
+      "replay_decimal": [
+        "990531645.2806086819296758",
+        "990531645.2806086819296758"
+      ]
+    },
+    "near_component": {
+      "overlap": true,
+      "producer_decimal": [
+        "12566.37061435917295385057",
+        "12566.37061435917295385057"
+      ],
+      "replay_decimal": [
+        "12566.37061435917295385057",
+        "12566.37061435917295385057"
+      ]
+    },
+    "prolate_constant": {
+      "overlap": true,
+      "producer_decimal": [
+        "609320342556.0492802314658",
+        "609320342556.0492802314658"
+      ],
+      "replay_decimal": [
+        "609320342556.0492802314658",
+        "609320342556.0492802314658"
+      ]
+    }
+  },
+  "intervals_reconstructed_from_decimal_parameter": true,
+  "producer_booleans_trusted": false,
+  "schema": "xi-prolate-outer-outer-weighted-translation-v1",
+  "source_hashes_rechecked": true,
+  "status": "ANALYTIC_UNIFORM_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

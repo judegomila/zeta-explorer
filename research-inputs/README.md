@@ -55,3 +55,15 @@ Per the Λ-attack ticket-seeding template:
 The output is one or more tickets seeded into `src/data/improvement-queue.js`
 with explicit `dependsOn: ['research-inputs/<filename>.pdf']` references
 so the provenance trail is auditable.
+## Internal project research packets
+
+- [Lambda 0.14 swept-tube completion program (2026-08-27)](./lambda-014-2026-08-27/README.md)
+  — documentation-only, fail-closed checkpoint connecting the frozen-rung work
+  to the exact moving-cutoff proof ledger. It explicitly does **not** claim
+  \(\Lambda\le0.14\); the early correlated P97 mantle remains open.
+
+## RH research checkpoints
+
+- [Moment-transfer audit](../formalization/paper/rh-moment-transfer-2026-10-06.md): exact arithmetic reductions and the imported 7/8 endpoint.
+- [Principal-sector follow-up](../formalization/paper/rh-principal-sector-2026-10-08.md): grouped energy, centering, and the missing signed far-correlation bound.
+- [Cross-project synthesis](../formalization/paper/rh-cross-project-synthesis-2026-10-09.md): saved-research coverage, a finite directional residual repair, and conditional twistor/SELF transfers. Includes explicit failed continuum test and remaining RH gaps.

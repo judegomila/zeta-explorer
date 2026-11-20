@@ -1,0 +1,194 @@
+{
+  "scope": "Floating diagnostics; separate120-node GL per spatial block; still no rigorous error bounds.",
+  "spatial_edges": [
+    0,
+    0.125,
+    0.25,
+    0.5,
+    1,
+    2,
+    3
+  ],
+  "time_edges": [
+    0,
+    0.5,
+    1
+  ],
+  "rows": [
+    {
+      "n": 5,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 0.41558551021941814,
+          "space_only_time_aggregated_ratio": 0.41558551021941814,
+          "local_ratio": 1.164158560271387,
+          "block_signed_integrals": [
+            800.543245622725,
+            2922.8057467308813,
+            118803.6383144605,
+            -148970.78058755398,
+            66.00508654323895,
+            1.0853297123452762e-111
+          ],
+          "relative_signed_identity_error": 4.890389439642964e-15
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.2009377714834682,
+          "space_only_time_aggregated_ratio": 0.2009377714834682,
+          "local_ratio": 0.5064797801579496,
+          "block_signed_integrals": [
+            -3188.974192105007,
+            3847.8092821925093,
+            -82463.16810073484,
+            55358.15859529812,
+            68.38622115234253,
+            1.0854061212561344e-111
+          ],
+          "relative_signed_identity_error": 5.614891578849329e-15
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 0.21189316591699764,
+          "space_only_time_aggregated_ratio": 0.21189316591699767,
+          "local_ratio": 2.180598499695323,
+          "block_signed_integrals": [
+            42002727584.702705,
+            253709410505.20612,
+            878907273131.1687,
+            -8343328221954.473,
+            6059367606167.0,
+            1.2536158316981535e-91
+          ],
+          "relative_signed_identity_error": -1.6999535118865824e-13
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.31093089908748095,
+          "space_only_time_aggregated_ratio": 0.31093089908748095,
+          "local_ratio": 0.8067230596989201,
+          "block_signed_integrals": [
+            -24966339995.247635,
+            923211919941.6597,
+            -871470419278.9833,
+            -10828018328600.957,
+            9691901963366.492,
+            1.2538980576893435e-91
+          ],
+          "relative_signed_identity_error": -1.518211415439777e-13
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 1.7710247883504098,
+          "space_only_time_aggregated_ratio": 1.7710247883504098,
+          "local_ratio": 2.470895267481931,
+          "block_signed_integrals": [
+            4.06939547314108e+17,
+            1.5310283104640625e+18,
+            2.0154404267774157e+19,
+            4.2149652834247075e+20,
+            -4.339123731779705e+20,
+            1.2186041863461016e-76
+          ],
+          "relative_signed_identity_error": 1.1013223113820934e-12
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.1597031241812943,
+          "space_only_time_aggregated_ratio": 0.14077151612761887,
+          "local_ratio": 1.0707675562477852,
+          "block_signed_integrals": [
+            -1.0560072246885322e+18,
+            -5.403152608492777e+18,
+            -1.0358793410374455e+19,
+            -8.764586683854507e+18,
+            3.5259067217478107e+19,
+            1.2191040569981771e-76
+          ],
+          "relative_signed_identity_error": 1.0379074841111114e-12
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 2.3348840851953385,
+          "space_only_time_aggregated_ratio": 2.3348840851953385,
+          "local_ratio": 2.643165233361936,
+          "block_signed_integrals": [
+            1.09690933636581e+20,
+            3.4299267089033396e+20,
+            6.554845853432681e+21,
+            1.3412679559431096e+23,
+            -1.3748580441602628e+23,
+            1.1752136996187452e-71
+          ],
+          "relative_signed_identity_error": -5.979810463352211e-12
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.1420079955275359,
+          "space_only_time_aggregated_ratio": 0.14185187175909217,
+          "local_ratio": 1.1587101829504576,
+          "block_signed_integrals": [
+            -1.3408438788226832e+19,
+            -2.3760683921793883e+20,
+            -1.4204001756814094e+21,
+            8.57437347963499e+21,
+            -3.2544373896462184e+21,
+            1.1757858032546625e-71
+          ],
+          "relative_signed_identity_error": -6.98205788985656e-12
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "results": [
+        {
+          "gauge": null,
+          "space_time_block_budget_ratio": 1.4150406992012872,
+          "space_only_time_aggregated_ratio": 1.415040699201287,
+          "local_ratio": 2.5338532003778145,
+          "block_signed_integrals": [
+            5.978758300718554e+24,
+            8.667520855010862e+24,
+            2.516079604780659e+26,
+            7.798561363462412e+27,
+            -6.749919130978707e+27,
+            1.0488880358143935e-61
+          ],
+          "relative_signed_identity_error": -1.4473475081330365e-12
+        },
+        {
+          "gauge": "scaled_psecond",
+          "space_time_block_budget_ratio": 0.24401060764986732,
+          "space_only_time_aggregated_ratio": 0.2348580781034,
+          "local_ratio": 1.2133256424141126,
+          "block_signed_integrals": [
+            -2.3642478594784177e+25,
+            2.508902430849978e+25,
+            2.4940544876611287e+26,
+            1.9939251622323085e+25,
+            1.044105226070061e+27,
+            1.0495852448967007e-61
+          ],
+          "relative_signed_identity_error": -1.3926158796742243e-11
+        }
+      ]
+    }
+  ]
+}

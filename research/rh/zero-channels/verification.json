@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "cells": 130,
+  "branchCells": 520,
+  "tauMin": -0.13,
+  "tauMax": 0,
+  "minMargin": 0.020444320768133732,
+  "minClearance": 0.07010952625620315,
+  "arithmetic": "exact rational",
+  "thetaWitness": {
+    "valid": true,
+    "certificateId": "theta-first-disk-arb-v1",
+    "tauMin": -0.05,
+    "tauMax": 0.05,
+    "radius": 0.35,
+    "margin": 6.5319999999998e-05,
+    "arithmetic": "Arb ball arithmetic plus rational final bounds"
+  },
+  "selfTests": [
+    {
+      "name": "valid certificate is accepted",
+      "passed": true
+    },
+    {
+      "name": "inflated derivative floor is rejected",
+      "passed": true
+    },
+    {
+      "name": "missing time cell is rejected",
+      "passed": true
+    },
+    {
+      "name": "mismatched displayed center is rejected",
+      "passed": true
+    },
+    {
+      "name": "forged margin is rejected",
+      "passed": true
+    },
+    {
+      "name": "expanded uncertified theta interval is rejected",
+      "passed": true
+    }
+  ]
+}

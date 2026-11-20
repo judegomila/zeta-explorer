@@ -1,0 +1,93 @@
+\section{One sided discrepancy bounds and Landau continuation}
+\subsection{The exact discrepancy and its transform}
+For $W\ge0$ define
+\begin{equation}\label{eq:D}
+D(W)=\sum_{n<e^W}\frac{\Lambda(n)}{\sqrt n}(W-\log n)-\int_0^W e^{r/2}(W-r)\dd r.
+\end{equation}
+An endpoint prime power contributes zero, so $<$ may be replaced by $\le$. The function is continuous and piecewise differentiable on bounded intervals. The elementary estimate $\psi(x)=\sum_{n\le x}\Lambda(n)\le3x$ gives $|D(W)|\le C_0e^{W/2}$ for $W\ge1$. For example, partial summation bounds the positive sum by $12e^{W/2}$, while the integral equals $4e^{W/2}-2W-4$.
+
+For completeness, the stated Chebyshev bound needs no prime number theorem. Each prime power in $(m,2m]$ contributes to the valuation of $\binom{2m}{m}$, and the remaining valuation terms are nonnegative. Hence $\psi(2m)-\psi(m)\le2m\log2$. Dyadic summation and monotonicity yield $\psi(x)\le4(\log2)x<3x$.
+
+For $\Rea q>1/2$, absolute convergence and
+\[
+\int_r^\infty(W-r)e^{-qW}\dd W=\frac{e^{-qr}}{q^2}
+\]
+justify termwise integration. We obtain
+\begin{equation}\label{eq:LD}
+\mathcal L_D(q)=\int_0^\infty D(W)e^{-qW}\dd W
+=\frac1{q^2}\left[-\frac{\zeta'(q+1/2)}{\zeta(q+1/2)}-\frac1{q-1/2}\right]=:M(q).
+\end{equation}
+The apparent singularity at $q=1/2$ is removable: at the zeta pole, $-\zeta'/\zeta$ has principal part $1/(s-1)$, exactly canceled here.
+
+The expression $M$ is holomorphic in a neighborhood of every positive real $q$. Indeed $\zeta(s)>0$ for real $s>1$. For $0<s<1$, the paired alternating series
+\[
+\eta(s)=\sum_{n\ge1}\bigl((2n-1)^{-s}-(2n)^{-s}\bigr)>0
+\]
+converges, and $\eta(s)=(1-2^{1-s})\zeta(s)$ shows that $\zeta(s)<0$. The remaining point $s=1$ was just treated. This local statement along the positive real axis does not assume a nonreal zero-free half-plane.
+
+\subsection{The nonnegative Laplace lemma}
+\begin{lemma}[Real boundary singularity]
+Let $f\ge0$ be locally integrable on $[0,\infty)$ and let
+\[
+\sigma_c=\inf\left\{\sigma\in\R:\int_0^\infty f(W)e^{-\sigma W}\dd W<\infty\right\}.
+\]
+If $\sigma_c$ is finite, its Laplace transform has no holomorphic continuation to a neighborhood of the real point $\sigma_c$.
+\end{lemma}
+\begin{proof}
+Suppose there is such a continuation on a disk of radius $\delta>0$ about $\sigma_c$. Put $s_1=\sigma_c+\delta/4$. The continued transform is analytic on the disk of radius $\delta/2$ about $s_1$. Differentiating the integral at $s_1$ is legitimate, since polynomial moments are dominated at any slightly smaller exponent still above $\sigma_c$. Thus, for $0<h<\delta/2$, its Taylor expansion is
+\[
+\mathcal L_f(s_1-h)=\sum_{n\ge0}\frac{h^n}{n!}\int_0^\infty W^nf(W)e^{-s_1W}\dd W.
+\]
+Every term is nonnegative. Tonelli identifies the sum of this convergent series with
+\[
+\int_0^\infty f(W)e^{-(s_1-h)W}\dd W.
+\]
+Choosing $\delta/4<h<\delta/2$ gives convergence at an exponent strictly below $\sigma_c$, a contradiction. If $\sigma_c=-\infty$, there is no finite boundary to consider.
+\end{proof}
+This classical mechanism is included explicitly rather than hidden in a reference to ``oscillation.'' Martin's notes give relevant historical background \cite{martin}.
+
+\begin{theorem}[One sided outer bound]\label{thm:landau}
+Fix $0\le\alpha<1/2$. Suppose that there are fixed $C>0$, $m\ge0$ and $W_0$ such that
+\begin{equation}\label{eq:Dbound}
+D(W)\le C(1+W)^m e^{\alpha W}\qquad(W\ge W_0).
+\end{equation}
+Then $\zeta$ has no zero in $\Rea s>1/2+\alpha$. The assertion is at every height; the pole at $s=1$ is excluded from assertions about its finite function value. If $\alpha=0$, RH follows.
+\end{theorem}
+\begin{proof}
+Increase $m$ to an integer if necessary, put $P(W)=C(1+W)^me^{\alpha W}$, and define $f(W)=0$ for $0\le W<W_0$ and $f(W)=P(W)-D(W)$ for $W\ge W_0$. Then $f\ge0$ and its abscissa satisfies $\sigma_c\le1/2$. Define
+\begin{align*}
+R(q)&=\int_0^\infty P(W)e^{-qW}\dd W=C\sum_{k=0}^m\binom mk\frac{k!}{(q-\alpha)^{k+1}},\\
+E(q)&=\int_0^{W_0}(P(W)-D(W))e^{-qW}\dd W.
+\end{align*}
+Here $R$ is holomorphic for $\Rea q>\alpha$ and $E$ is entire. Initially, on $\Rea q>1/2$,
+\begin{equation}\label{eq:Lf}
+\mathcal L_f(q)=R(q)-M(q)-E(q).
+\end{equation}
+If $\sigma_c>\alpha$, then $\sigma_c>0$. The right side is holomorphic near that real point. It gives a genuine continuation of $\mathcal L_f$: on the connected half-plane $\Rea q>\sigma_c$ it is meromorphic and agrees with the holomorphic transform on $\Rea q>1/2$, so the meromorphic identity theorem identifies them throughout. Any apparent nonreal poles there must be removable. The holomorphic germ near $\sigma_c$ therefore contradicts Lemma 3.1. Consequently $\sigma_c\le\alpha$, including the possible case $-\infty$.
+
+It follows that $K=R-E-\mathcal L_f$ is holomorphic on $\Rea q>\alpha$ and equals $M$ there by meromorphic continuation from the original half-plane. If $s_0$ were a zeta zero with $\Rea s_0>1/2+\alpha$, the logarithmic derivative would have a pole of residue minus its positive multiplicity at $q=s_0-1/2$. The rational subtraction has its only pole at the different point corresponding to $s=1$, so it cannot cancel that pole. This contradicts holomorphy of $q^2K(q)$.
+
+At $\alpha=0$ the proof uses only real $q>0$ and concludes nonvanishing for $\Rea s>1/2$. Functional-equation reflection rules out nontrivial zeros to the left as well. No assertion at $q=0$ was needed.
+\end{proof}
+
+\subsection{Translation to a physical spectral floor}
+In the adjusted semilocal normalization on $[0,W]$, let $Q_W=A_W+C_W-P_W$, with gamma symbol
+\[
+a(t)=\Rea\psi_0(5/4+it/2)-\log\pi,
+\]
+where $\psi_0=\Gamma'/\Gamma$. The continuum kernel is $e^{|y-z|/2}$; its decaying correction has already been absorbed into this $5/4$ symbol. This must not be mixed with the original $1/4$ gamma symbol and pole block described in Section 6.
+
+For the unit constant vector $e_0=W^{-1/2}$, the exact identity is
+\begin{equation}\label{eq:constant}
+Q_W[e_0]=A_{00}(W)-\frac{2D(W)}W.
+\end{equation}
+Writing $k(r)=2e^{-5r/2}/(1-e^{-2r})$ gives, for $W\ge1$,
+\[
+A_{00}(W)=a(0)+\int_0^W\frac rW k(r)\dd r+\int_W^\infty k(r)\dd r,
+\qquad 0\le A_{00}(W)-a(0)<0.8.
+\]
+Thus a lower bound $Q_W[e_0]\ge-C(1+W)^me^{\alpha W}$ implies \eqref{eq:Dbound}, with one extra polynomial power. A genuine infinite-dimensional floor on the bottom of $Q_W$ is sufficient for this trial-vector inequality. With $W=2\log\lambda$, a sufficient target is
+\begin{equation}\label{eq:floor}
+\epsilon_0(\lambda)\ge-C(1+\log\lambda)^m\lambda^p,\qquad0\le p<1,
+\end{equation}
+which implies nonvanishing for $\Rea s>(1+p)/2$. At $p=0$ this would already imply RH. No such improved floor is established here. A finite Ritz minimum is an upper, not a lower, bound on $\epsilon_0$.

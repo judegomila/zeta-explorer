@@ -1,0 +1,820 @@
+{
+  "version": 31,
+  "baseline_version": 30,
+  "reviewed_owned_files": [
+    {
+      "path": "V31_INDEX.md",
+      "sha256": "19c96fabb1a8e31888b57dcd700012b7877e5095d576d47f2464464c9b1bf671",
+      "classification": "reviewed_scope_index"
+    },
+    {
+      "path": "theta_correlated_local_audit/ARITHMETIC_VARIANCE_AUDIT.md",
+      "sha256": "d026fb9c25ec5ce982e2e02155c0c4162beb31961189062449d6b96bfd2ecae0",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/DYADIC_PAYMENT_AUDIT.md",
+      "sha256": "8171eda2ec2c28f14f3957c6657556c51dae25495be157ad3bd34d316f0be648",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/DYADIC_RECURRENCE_AUDIT.md",
+      "sha256": "8adac0b11967013340f1d1387f4aca7cd521630c27d83d93718589faf0ab819b",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ETA_PAYMENT_AUDIT.md",
+      "sha256": "6f4343973120e102511b2cab9cc33cd5ce99a78b85e4fc0b7ff112256dcdb208",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/EVEN1_ARITHMETIC_AUDIT.md",
+      "sha256": "883091ac8e07b83399bc0fa4c0e19e9b13a6e331a5c92950690d4c92039b9973",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/EVEN2_CORRECTED_MIDPOINT_AUDIT.md",
+      "sha256": "6c38c149c1e74df7517653c70b85c021884fcf0a134c022061cf0c19ee1c0250",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/FIRST_CORE_AUDIT.md",
+      "sha256": "ddf7a8511308be577f4cc9f54d18128109b6b8bd1cac272f6983b891b1a7fc83",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ODD1_MIDPOINT_AUDIT.md",
+      "sha256": "b94894bce0f0a6a9ca1120aa54e4d9f1589e9db1a642dbec9ec36c5b363b0d9a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/OSCILLATORY_SECTOR_AUDIT.md",
+      "sha256": "1e8dc70cfe35f73687bffa507d910f41d5b50d2f9b1f1ebe8b583947e9e40a92",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/PAIRED_ETA_AUDIT.md",
+      "sha256": "f43e16569d5c458be98f0e5c3a74808471a77ba287348695c9662bbee7451778",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SECTOR_COMPARISON_AUDIT.md",
+      "sha256": "54b9add457f7fb0bd4e3bbecf09fcf96294b7122d68d97207f076c0390e6ba41",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/curvature_square_replay/AUDIT.md",
+      "sha256": "7ec89d58da313103e12cb67447857d202cd2dc6be0b10597dc7caf02a240e7d2",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/curvature_square_replay/SHA256SUMS.txt",
+      "sha256": "657d22dceb263053eb7f717cc448969970066bd9b5bb7ed4b2e315a2ccacea0e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/curvature_square_replay/certificate.json",
+      "sha256": "47353b64c47ce2d5e14112d2bbfcdfc0f2985a170e15c13cb8e64222823990f7",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/curvature_square_replay/check.py",
+      "sha256": "b44f8aa650721c3f5d598a9b489e84eeba03fd4d67d20f23415d87c60fe01a88",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_eighth_replay/AUDIT.md",
+      "sha256": "0655b0766f97ebfc15cc47216a89112367612e81bf7ced1d701b5934c1ae56c2",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_eighth_replay/SHA256SUMS.txt",
+      "sha256": "1b07ff57f1b4678d79b4d1a9d9fc94c82b22fa2d98f612e9e78e8f328c5b1b4a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_eighth_replay/certificate.json",
+      "sha256": "1fecfd52286c6f7847a78f172d8f9847d36b6d9a25de946b6215271ed03f6ccb",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_eighth_replay/check.py",
+      "sha256": "461709e057b681e5a6afdcf504c6286c0b5c8a8cb9522b84dc8df2183774a55a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_regional_replay/AUDIT.md",
+      "sha256": "d4170ca56f4737c0bb6b5556a211f4d81642e233f7fbaa52fca82eb9a1e435e6",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_regional_replay/SHA256SUMS.txt",
+      "sha256": "903f7b93462be472253da1961ec9310b1b1c5be1591b6f5e790d10e518e799f8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_regional_replay/certificate.json",
+      "sha256": "6f04eac0eca4e85501662e0967daec68682d1b1c7c705a95fe1559c411267eba",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree7_regional_replay/check.py",
+      "sha256": "939a352d37e57b2bd44a78d48fc87b3cb4033a761007cc026c58dabf5f5656bc",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/METHOD_REVIEW.md",
+      "sha256": "9f92c7d5a575536514ef3ccff9d495d5655b01c3e0d1ecf70fc5896d526a4840",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/SHA256SUMS.txt",
+      "sha256": "445a98c5e1f34f9bb7fad925e9e454ecdfa4f293f61da533d1464d1463087409",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/check.py",
+      "sha256": "a5580de39b577e692746c0dcf921b0beb5f296fb87b1b6e117f6c58eb8d661d9",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/check_structure.py",
+      "sha256": "9727e6720cf7445f25b8092479324979a94dc5f57644d514f9f08323e2c52e90",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/even2.json",
+      "sha256": "c089ad3c96dbeed76223b23319a25917a352e3b565375c490d1e6e3f16db0151",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/even2_dyadic_correlations.json",
+      "sha256": "c089ad3c96dbeed76223b23319a25917a352e3b565375c490d1e6e3f16db0151",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/odd1.json",
+      "sha256": "82907a320bd8011541381e634948584e747a38d1241d95b615423154a6c82728",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/odd1_dyadic_correlations.json",
+      "sha256": "82907a320bd8011541381e634948584e747a38d1241d95b615423154a6c82728",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_correlations_replay/structure.json",
+      "sha256": "78f3663a1cce93d600bd0101efd03dcee9982db13f94025d2df0b1c36d5c44e2",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_tail_replay/INPUT_SHA256.txt",
+      "sha256": "58ce8e94bb5d370707d4edc9234ed5d61b96af0179693605ba5c581049c7121f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_tail_replay/output.json",
+      "sha256": "794bfa117e2ef6ff0fc80f0687fe756b883f8babe658d3c8c30d355f121a83ef",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/dyadic_tail_replay/reviewed_source.py",
+      "sha256": "58a4259f6ca6022ea35adf057dc881b8d5023dc3fda52a119cc758b24c0dd6f1",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/even1_replay/certificate.json",
+      "sha256": "b1aa65fa6717f328334a2bff4764c7c2a0c22b86e43635b1e3ffce351fe79e87",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/even1_replay/check.py",
+      "sha256": "3e373ebadc76fc86b16e7316e3c36fabb84c7c7608086a5626c1044e8c7b1908",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/even2_corrected_replay/certificate.json",
+      "sha256": "f963c30118884f55aba05424c47839bff9780f105fc4adbf282f85c63bb6bed3",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/even2_corrected_replay/check.py",
+      "sha256": "54a8dc03d3f9db09b5575a90631ec9c4db9344bdd6d10422582c6a77440e973f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/first_core_replay/certificate.json",
+      "sha256": "99b827f38fa7c75b8fdee2bca15dd887f7e1b6348450e69c06bff12d57c7b7c5",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/first_core_replay/check.py",
+      "sha256": "8263e7cb35f8a3ecbc876983bdda6413951ba0b0c125716439de252231a02d41",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/AUDIT.md",
+      "sha256": "6b1b674b9f52e9723ec105b6483c7d310c76eef0237be91dd2e745be46ba4111",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/SHA256SUMS.txt",
+      "sha256": "0aba1937f7bd6618af288ec4e3d2aac0426a54db28e85aaad76165e95bcc9319",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/author_consequences_replay.json",
+      "sha256": "8dc2c62098f0a20691011e7a3bf593773a1d2b6513d92b5fcce8ee1f9a6ea999",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/check.py",
+      "sha256": "54576a6fdaffe444eb47b92d717e17907f1317933444ab0fd87eb49cb96bd1e8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/check_author_consequences.py",
+      "sha256": "a8672673d914c0e863a4904aaea017b5df7df922c133b24424c8781cda30c436",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/consequences.json",
+      "sha256": "2bfb2c5e2539acdc0932bf8c4436aeac05c7da645bd4308d442cf9662ae2795d",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/evaluate.py",
+      "sha256": "19e1de701d74b879e28c268c71641c648ee5dabc6ce78ece5f9019f320326907",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/even1.json",
+      "sha256": "885c4639cbfb8ad4daa79b7b2ad9a3508666c2611cdab8eb1c6e26b465932eb8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/even1_dyadic_signs.json",
+      "sha256": "885c4639cbfb8ad4daa79b7b2ad9a3508666c2611cdab8eb1c6e26b465932eb8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/even1_final.json",
+      "sha256": "885c4639cbfb8ad4daa79b7b2ad9a3508666c2611cdab8eb1c6e26b465932eb8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/odd0.json",
+      "sha256": "1d88c41cecc9967ba1855a9996d2c65f7ebf252ce2ff373608107b61abea5489",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/odd0_dyadic_signs.json",
+      "sha256": "1d88c41cecc9967ba1855a9996d2c65f7ebf252ce2ff373608107b61abea5489",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/odd0_final.json",
+      "sha256": "1d88c41cecc9967ba1855a9996d2c65f7ebf252ce2ff373608107b61abea5489",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/integrated_square_replay/AUDIT.md",
+      "sha256": "3a320f0d721dc30b1b509e02f5d48f8567c8d6d0ced131a5e379cc7371a51547",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/integrated_square_replay/SHA256SUMS.txt",
+      "sha256": "d7d4a39d42243fbf5196ea109ef255e137d99e86a2a6027ebefaeb3788240b71",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/integrated_square_replay/certificate.json",
+      "sha256": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/integrated_square_replay/check.py",
+      "sha256": "2b3a34bcc3f53ea47715e1bab8df0e4f9986b0a4abef377c66fc2348acfd0ccc",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/regional_old_replay/AUDIT.md",
+      "sha256": "0438aa59e5ddb687f7d0575b9c212c48d97d3584fd147dfde2bd6d72259f8af7",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/regional_old_replay/SHA256SUMS.txt",
+      "sha256": "4592db65db2162a9a91150122505a44ebb2d22d350100303fc6ea3b2caaa6ddb",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/regional_old_replay/certificate.json",
+      "sha256": "52a1763c2b372ae94cdc2283a4dc48941fbdac45f5e0ecaf2071dc59242beb18",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/regional_old_replay/check.py",
+      "sha256": "65f670ab8988324fd79620fab4066f0d4c727f05f417c2f8785c731e2e458f6f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/regional_old_replay/run.txt",
+      "sha256": "0aa8e1a18f416b3b747ce1b53d5738fb34e27461b8655c8341bd7c57b04158d6",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_v1/ACTUAL_AGGREGATE_OBSTRUCTIONS.md",
+      "sha256": "a23e9f687def014179f9d1bbd4dead317f60addbff9ce95002d20015a764cc33",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ACTUAL_AGGREGATE_OBSTRUCTIONS_FROZEN_SHA256.txt",
+      "sha256": "ecf976388e3b634ec4174238d6800927c01c2f0f43fcdbbfeee8eb8c2310f5b9",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ACTUAL_FIRST_CORE_FROZEN_SHA256.txt",
+      "sha256": "f4d91ebd667160539440faf972938013f5674074fe69772fa5a02a98b69cfbfe",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ACTUAL_FIRST_CORE_OBSTRUCTION.md",
+      "sha256": "1c2be67ebce8a3904f079e934b5a2d6c7822f4453f700b8b34d04f0ed2900924",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_VARIANCE_IDENTITY.md",
+      "sha256": "1ddf300b88908f83358726e1a939cd471d1a2eb120a7851cf7a471a4aaf4a498",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_VARIANCE_IDENTITY_FROZEN_SHA256.txt",
+      "sha256": "7ac3247be40678b5c00a271a7f40c8c67bc2666caf772e5bcc295a701834742f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/BASE_ETA_CONSTANTS_SHA256.txt",
+      "sha256": "e2005c331078a96b596c971ba962c15bd294de795f21f2600543c4f3e855a01b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE7_REGIONAL_PAYMENT.md",
+      "sha256": "a163541005a255a9cc865c2a27d994c8e7b9d428d337611a2afb276016bbc4c8",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE7_REGIONAL_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "160c9fcd8e2c83ff0a1d3b7205c7819a696b3d2c5995fbc44ed6c8cd48944a97",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE7_SIGNED_CORE_PAYMENT.md",
+      "sha256": "4b1799f84c236b79e71ad9fc2045fce2f7390c854fc6b5397ce7c1b5ac7afa1d",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE7_SIGNED_CORE_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "6c7e412e3cc89af301e3ac51fb2cdb707c7e31bbf6ba5cf93a3cd6b7774b495f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_CORRELATION_RECURRENCE.md",
+      "sha256": "7ab7df06f1772cb1ef457b66a9dbb181222e02ce597b1b2f81303cf3961ce075",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_CORRELATION_RECURRENCE_FROZEN_SHA256.txt",
+      "sha256": "e7b089ab83616fa7e8873da71b146b1e90e421a7ae44696d53eaca24e030ffe0",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_FINITE_TAIL_CHECK.md",
+      "sha256": "e023d474db686606817f7284f7ad912c1eeb05038a89e6699c0a42fbe884f337",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_FINITE_TAIL_FROZEN_SHA256.txt",
+      "sha256": "f8d1a5c5b75a39cce05e0484f4c873b7361f4d673b0219eaf2e0b7b595e7a887",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_RESIDUAL_PAYMENT.md",
+      "sha256": "8900dab692997fac496e886471f70a342fb6946d7a114459daed6fa53ff82d07",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_RESIDUAL_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "47011149f2052be69ea38641ea0efbabdd72fe74db3aed9e5faed2d391f26ebd",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DYADIC_SYMBOLIC_CHECK_SHA256.txt",
+      "sha256": "f36d739e9b24e4fc06c870fa98f49c435e558da0830e4effe33db85d8e6dc376",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ETA_CORRELATED_PAYMENT.md",
+      "sha256": "3d16039488766e2aad1ad70d41a35c771d4d2ef3b9d3c184b829b82b3cdf6e78",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ETA_CORRELATED_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "dea34d43daa03241129b7b412cbfbcaccd5f37139a7e013cceeaf3a656b878c1",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVEN1_ARITHMETIC_CERTIFICATE.md",
+      "sha256": "cc98167a583e25ea28f14f10899f6a9a6a7a01e7f2efe2ae06232ee49021e010",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVEN1_ARITHMETIC_FROZEN_SHA256.txt",
+      "sha256": "c451ba79077a489769c4440da53d266ae783de0c3705c6bd6c54f947f1ec9a79",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/INTEGRATED_SQUARE_PAYMENT.md",
+      "sha256": "dca1c63d81b7c6796d2526a6933afd37f2b0c7dc03a2e66687e5de529139485a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/INTEGRATED_SQUARE_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "8a3cc29068a1b55512ff1eec17f7a05e4e3a4167ce6184416b4bef807a4871ae",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/LOW_DIVISOR_GROUPING.md",
+      "sha256": "378c1962b9aee74544c715787beb799b7864640baf633b652f7d7187f562d346",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/LOW_DIVISOR_GROUPING_FROZEN_SHA256.txt",
+      "sha256": "6adbd42949454da628ce7f4502aae3e441c395bf6e3368c984b4e5e48d87f32e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/LOW_SHIFT_EVALUATION.md",
+      "sha256": "d4caaf5ce3b157c5a77b40ba82ba206ba92334e77322c62a935628db363335ce",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/LOW_SHIFT_EVALUATION_FROZEN_SHA256.txt",
+      "sha256": "e7e973aca95daac828507e98d16f43363c39fcaa0ea810c62078b8dde63f8853",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/NEXT_ARITHMETIC_DIAGNOSTICS.md",
+      "sha256": "bd65f82f7e7af78039bfaee5d6441f774553699f2fa275f6afc5573908c0e2b0",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/NEXT_ARITHMETIC_FROZEN_SHA256.txt",
+      "sha256": "e517e42687705cbc20f2103ae155514cefaef7716240e1652f950acf3b1e55b6",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/OSCILLATORY_SECTOR.md",
+      "sha256": "489256000faefc711b50b27081b91a25c6b9da94a88018a4c0a25c721367d69a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/OSCILLATORY_SECTOR_FROZEN_SHA256.txt",
+      "sha256": "42097d57bb2f2e1d7c901c953d82d7766ebf35ef27f816240fd6a177870838e2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PAIRED_ETA_CURVATURE.md",
+      "sha256": "049d1f306d0d76ef858eaa7f60cf1cf8e9e3ded59a6354ce9d5c96e447dbfc0d",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PAIRED_ETA_CURVATURE_FROZEN_SHA256.txt",
+      "sha256": "7dd762aa229a94f86dc4f0d1e00a914574d312e9e8dad8cf65f1482549a9b8c7",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGIONAL_OLD_METRIC.md",
+      "sha256": "06e5aa713726d2efcebbb37b2d05b35fdcccf16f2f3c1177d86f42e7324e1044",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGIONAL_OLD_METRIC_FROZEN_SHA256.txt",
+      "sha256": "59e70e4d1fc8ce284818a4787100283906c5a0e0e5839889f88e7ef7c098f44b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SECTOR_TAIL_COMPARISON.md",
+      "sha256": "70d22efb6fec326af6b2a529411b53e6bcddc8c9bcc91c40e202ae62abb3d8cd",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SECTOR_TAIL_COMPARISON_FROZEN_SHA256.txt",
+      "sha256": "5efeca07ada24725974d4f00c3456697c64175da9cf6691c802758e93e039105",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_CURVATURE_PAYMENT.md",
+      "sha256": "a508698183302e3827769a3b9cd135023d79ffb557e2fe5f700ffb00cd98d97d",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_CURVATURE_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "73dd74752fa6a51d831524087a05aa987c2d4618245713ecda6bfc309ecf2b31",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/base_eta_constants.json",
+      "sha256": "3924211023fe1669983df42c06ef058c3e31bd8d4f759abca026351feaba5f72",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_dyadic_correlations.py",
+      "sha256": "a5580de39b577e692746c0dcf921b0beb5f296fb87b1b6e117f6c58eb8d661d9",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_even1_arithmetic_core.py",
+      "sha256": "84a6eb612fe92a17dc5644924867b392d190cffd96a5e4e5f9206a80890be086",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_first_core_sign.py",
+      "sha256": "8263e7cb35f8a3ecbc876983bdda6413951ba0b0c125716439de252231a02d41",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_initial_dyadic_signs.py",
+      "sha256": "54576a6fdaffe444eb47b92d717e17907f1317933444ab0fd87eb49cb96bd1e8",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_midpoint_core.py",
+      "sha256": "54a8dc03d3f9db09b5575a90631ec9c4db9344bdd6d10422582c6a77440e973f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_base_eta_constants.py",
+      "sha256": "48e65c7893e82dda0b18ae1327f6a251a84ee6bf39a22e923bf7da6ea11baadf",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_degree7_eighth_partition.py",
+      "sha256": "461709e057b681e5a6afdcf504c6286c0b5c8a8cb9522b84dc8df2183774a55a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_degree7_regional_payment.py",
+      "sha256": "939a352d37e57b2bd44a78d48fc87b3cb4033a761007cc026c58dabf5f5656bc",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_dyadic_cost_tail.py",
+      "sha256": "58a4259f6ca6022ea35adf057dc881b8d5023dc3fda52a119cc758b24c0dd6f1",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_dyadic_identities.py",
+      "sha256": "62467f983e400bc05756041e4351ca8766e4687918086e6dff59eb6e818d225b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_initial_aggregate_signs.py",
+      "sha256": "a8672673d914c0e863a4904aaea017b5df7df922c133b24424c8781cda30c436",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_integrated_square_payment.py",
+      "sha256": "2b3a34bcc3f53ea47715e1bab8df0e4f9986b0a4abef377c66fc2348acfd0ccc",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_low_dyadic_structure.py",
+      "sha256": "9727e6720cf7445f25b8092479324979a94dc5f57644d514f9f08323e2c52e90",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_regional_old_block.py",
+      "sha256": "65f670ab8988324fd79620fab4066f0d4c727f05f417c2f8785c731e2e458f6f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_theta_curvature_square.py",
+      "sha256": "b44f8aa650721c3f5d598a9b489e84eeba03fd4d67d20f23415d87c60fe01a88",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree7_eighth_partition_4000.json",
+      "sha256": "1fecfd52286c6f7847a78f172d8f9847d36b6d9a25de946b6215271ed03f6ccb",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree7_regional_payment_4000.json",
+      "sha256": "6f04eac0eca4e85501662e0967daec68682d1b1c7c705a95fe1559c411267eba",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/dyadic_cost_tail.json",
+      "sha256": "794bfa117e2ef6ff0fc80f0687fe756b883f8babe658d3c8c30d355f121a83ef",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/dyadic_identities_check.json",
+      "sha256": "82baf78e94ddae2edefd10ad210b9b02c0b44479fdbb233713348e1041ba9647",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/even1_arithmetic_core_12000.json",
+      "sha256": "b1aa65fa6717f328334a2bff4764c7c2a0c22b86e43635b1e3ffce351fe79e87",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/even1_dyadic_signs.json",
+      "sha256": "885c4639cbfb8ad4daa79b7b2ad9a3508666c2611cdab8eb1c6e26b465932eb8",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/even2_dyadic_correlations.json",
+      "sha256": "c089ad3c96dbeed76223b23319a25917a352e3b565375c490d1e6e3f16db0151",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/even2_midpoint_core_6000.json",
+      "sha256": "f963c30118884f55aba05424c47839bff9780f105fc4adbf282f85c63bb6bed3",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/first_core_sign_12000.json",
+      "sha256": "99b827f38fa7c75b8fdee2bca15dd887f7e1b6348450e69c06bff12d57c7b7c5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/initial_aggregate_signs.json",
+      "sha256": "8dc2c62098f0a20691011e7a3bf593773a1d2b6513d92b5fcce8ee1f9a6ea999",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/integrated_square_payment_64000.json",
+      "sha256": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/low_dyadic_structure.json",
+      "sha256": "78f3663a1cce93d600bd0101efd03dcee9982db13f94025d2df0b1c36d5c44e2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/odd0_dyadic_signs.json",
+      "sha256": "1d88c41cecc9967ba1855a9996d2c65f7ebf252ce2ff373608107b61abea5489",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/odd1_dyadic_correlations.json",
+      "sha256": "82907a320bd8011541381e634948584e747a38d1241d95b615423154a6c82728",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/odd1_midpoint_core_6000.json",
+      "sha256": "d967bdaf5593a91de38307880e029ec4873b1e5cc9ee6c8566591aedf540f2f6",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/regional_old_block_64000.json",
+      "sha256": "52a1763c2b372ae94cdc2283a4dc48941fbdac45f5e0ecaf2071dc59242beb18",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/theta_curvature_square.json",
+      "sha256": "47353b64c47ce2d5e14112d2bbfcdfc0f2985a170e15c13cb8e64222823990f7",
+      "classification": "reviewed_owned"
+    }
+  ],
+  "diagnostic_or_correction_history": [
+    {
+      "path": "theta_correlated_local_audit/initial_dyadic_replay/initial_source.py",
+      "sha256": "75cb3c9c1f7af60b38ca7c5324131a660677fb4e0a2440df24ba1625644f28ab",
+      "classification": "superseded_owned_source_unused_read_cleanup"
+    },
+    {
+      "path": "theta_correlated_local_audit/next_core_replay/STATUS.md",
+      "sha256": "212cdea4e399f3e3b22a5ba2f0643aae29060e82419f253e827f6d8fab394ba2",
+      "classification": "mixed_valid_odd_invalid_even_diagnostic"
+    },
+    {
+      "path": "theta_correlated_local_audit/next_core_replay/check.py",
+      "sha256": "1a78da17f6e406ef80fdcf3713d50b3ec4c2c5790d6d2190836d66737b6c5376",
+      "classification": "mixed_valid_odd_invalid_even_diagnostic"
+    },
+    {
+      "path": "theta_correlated_local_audit/next_core_replay/even2.json",
+      "sha256": "47b089a1ff1748fbf43c1a6d2259aa990cc10ecc3de51dd1ff0a7118f8264006",
+      "classification": "mixed_valid_odd_invalid_even_diagnostic"
+    },
+    {
+      "path": "theta_correlated_local_audit/next_core_replay/odd1.json",
+      "sha256": "d967bdaf5593a91de38307880e029ec4873b1e5cc9ee6c8566591aedf540f2f6",
+      "classification": "mixed_valid_odd_invalid_even_diagnostic"
+    },
+    {
+      "path": "theta_correlated_local_v1/FAILED_CURVATURE_ENCLOSURES.md",
+      "sha256": "ff0a11bed723a0f574791f8d897c9c495a21e9ce1e13ac51a7d8ee86b553cba9",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/FAILED_CURVATURE_ENCLOSURES_SHA256.txt",
+      "sha256": "33f92d6e03b520663e569069562659765c13915971ef6818b855c6d46410a176",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/FAILED_ODD_ENCLOSURES_SHA256.txt",
+      "sha256": "807d4ebbae8b148fe0db670f660b1a685d9fb520df3ffa7f743e9a0353727c2f",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/INTEGRATED_SQUARE_COARSE_DIAGNOSTIC_SHA256.txt",
+      "sha256": "8d992cfd6595297312fa08f36aea804fbb131c8b1ef48dbeacb79b733e1c4b0c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGIONAL_LOCAL_WIDE_FAILURE.md",
+      "sha256": "9449eb643fda030f0dac5700cf87cd153959b0c7f0b6e43f04bb391684e50dee",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGIONAL_LOCAL_WIDE_FAILURE_SHA256.txt",
+      "sha256": "5a6625d57d10d0f435dc6451d10d320527805f505771614b70292ad55af24900",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_grouped_core.py",
+      "sha256": "23a5846c9ca2612b28692c5c56bcd6b8bbf98dac8cb3b7eac6566c54491b3d11",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/certify_next_arithmetic_core.py",
+      "sha256": "6ecce728d725e3d388558a6619e92dedda493329b444411532bf96beaa84b17c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_theta_curvature_square_naive_failed.py",
+      "sha256": "5452e6ea89abdfd2329619555c8e33c1858c57209c7313b79faa39e71b48bbaf",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/integrated_square_payment_8000.json",
+      "sha256": "d2de2833501149580d3842deb31d6fa059ac6a9daa38e1d4a958366e8f0de0b0",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/INVALID_TARGET_SHA256.txt",
+      "sha256": "179556e7dbe6f44c23af99384685ba5ec6312997685d6e88a8e12fe1ee17b149",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/STATUS.txt",
+      "sha256": "f4ea164409b8c1b982e84b25cfb7432d94c587bbc57139f680905f62be77064a",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/certify_grouped_core.py",
+      "sha256": "b2ea61768db23836308c85e328f1ae306a612ca19a3d8be8e9a7d462ce4b9ec7",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/certify_midpoint_core.py",
+      "sha256": "1a78da17f6e406ef80fdcf3713d50b3ec4c2c5790d6d2190836d66737b6c5376",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/certify_next_arithmetic_core.py",
+      "sha256": "47b70c7fb56813421544d6f70a0a5094fe2d53fdb8f8fae1b99405b284f003e6",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/even2_arithmetic_core_12000.json",
+      "sha256": "bf4bafcad4feb2f133180ea7ff0e5e2e051c0674c8c59fe10fa606719436cc2e",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/even2_grouped_core_12000.json",
+      "sha256": "a6fb1c6614b1ceb058e96c6ef55e036e3d8d9f566153445c38f4d68911d6e02a",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/invalid_even2_swapped/even2_midpoint_core_6000.json",
+      "sha256": "47b089a1ff1748fbf43c1a6d2259aa990cc10ecc3de51dd1ff0a7118f8264006",
+      "classification": "invalid_polynomial_correction_history"
+    },
+    {
+      "path": "theta_correlated_local_v1/odd1_arithmetic_core_12000.json",
+      "sha256": "5b827d7b5e58588c65134fabf09f5fd30416f12e10d3839fb903d30c72fe3291",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/odd1_grouped_core_12000.json",
+      "sha256": "7987de5f3e9397b669f9048cbb6a3f345615a22735408aedd253964031e501e9",
+      "classification": "owned_diagnostic_not_theorem"
+    }
+  ],
+  "private_provenance_policy": "Inherited source_0145_audit/private and other acquired provenance remain private. No acquisition or publication clearance is implied.",
+  "historical_working_file_revisions": []
+}

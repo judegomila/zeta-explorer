@@ -1,0 +1,58 @@
+{
+  "status": "PASS_FINAL_NOTE_AND_BYTE_IDENTICAL_EXACT_REPLAY",
+  "reviewer": "independent-internal-review",
+  "date": "2026-10-30",
+  "scope": "Independent analytic derivation, exact synthetic algebra, and final producer note review; not an actual-prime certificate, all-channel positivity theorem, support extension, or RH result.",
+  "checks": {
+    "polarized_curvature_factor": "1/(2*pi) on doubled cylinder; no real-part operation for polarized complex entry",
+    "centered_box_entry": "2*(Psi(a+b)-Psi(abs(a-b)))",
+    "centered_box_diagonal": "2*Psi(2*a)",
+    "two_box_psd": "Requires Psi(2a),Psi(2b)>=0 and difference squared <= Psi(2a)*Psi(2b)",
+    "three_channel_determinant": "1-r12^2-r23^2-r31^2+2*r12*r23*r31*cos(Phi)",
+    "four_channel_example": {
+      "diagonal": "1",
+      "off_diagonal": "-2/5",
+      "triple_eigenvalues": [
+        "7/5",
+        "7/5",
+        "1/5"
+      ],
+      "full_eigenvalues": [
+        "7/5",
+        "7/5",
+        "7/5",
+        "-1/5"
+      ],
+      "schur_with_three_channel_head": "-7/5"
+    },
+    "synthetic_nonnegative_function_example": {
+      "function": "F(t)=t^4",
+      "radii": [
+        "1",
+        "2"
+      ],
+      "signed_even_box_matrix": [
+        [
+          "32",
+          "160"
+        ],
+        [
+          "160",
+          "512"
+        ]
+      ],
+      "determinant": "-9216"
+    }
+  },
+  "primary_source": "https://arxiv.org/pdf/2209.04658, equation (1.10) and cited Proposition 3.1",
+  "approved_producer_note_sha256": "6082ff03c245e38b7a6a51c049d3e7070d19759b3d19247bec710a69ef8bbb8e",
+  "script_replay_status": "PASS_BYTE_IDENTICAL",
+  "approved_script_sha256": "9cd2e63cc638351c745c4db6d5f1da568f1caccfbd1c4fe559fb2c97f213e576",
+  "approved_exact_output_sha256": "71e82d81f1f166327657f1ed472eaa718890833ef6129462b918aa49bcc1b425",
+  "original_source_hashes": {
+    "rh_attack_cycle_20261030/curvature_bulk/ARITHMETIC_CURVATURE_AUDIT.md": "3195a4587d8ab0424e5cf990e3871569f6cc2a0e84ba5fb5f9cfc7600b7d3d13",
+    "rh_attack_cycle_20261030/curvature_bulk/SUZUKI_FOLLOWTHROUGH_ADDENDUM.md": "a48e10d579cfdf171992f827ca4f4876f6174ce230491c32c783984052c00dfe",
+    "rh_attack_cycle_20261030/superwire_channel_attack/SEPARATED_GOOD_CARRIERS_AND_SIGNED_CHANNEL_TEST.md": "6d277359682bbe1af9e5ff7c3477e6a2d60941b7615f05f8cfa8d7be724510c6"
+  },
+  "curation_note": "Original audit pins refer to the pre-curation source bytes. SOURCE_PROVENANCE.json maps them to the curated publication copies; mathematical audit scope is unchanged."
+}

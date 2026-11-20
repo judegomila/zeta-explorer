@@ -1,0 +1,8 @@
+row 0
+row 20
+row 40
+row 60
+row 80
+interval Cholesky PASS sign -1 min pivot lower 0.4833851843126832604083942834428709225555532089255680562
+interval Cholesky PASS sign 1 min pivot lower 0.6982512943729162155989926743038624766663556314410840457
+CERTIFICATE COMPUTATION PASS; analytic proof/error budget must also be reviewed.

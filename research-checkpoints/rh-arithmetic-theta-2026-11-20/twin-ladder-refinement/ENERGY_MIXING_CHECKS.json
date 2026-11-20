@@ -1,0 +1,35 @@
+{
+  "channel_identity": "T_delta(Q) = delta*Q + (1-delta)*Tr(Q)*I/2",
+  "energy_variance": "(a - b)**2/2",
+  "limitations": "No numerical approximation is used. This verifies the displayed example, not the general propositions or an arithmetic lift.",
+  "matrix_unit_checks": [
+    {
+      "matrix_unit": "E_11",
+      "passed": true
+    },
+    {
+      "matrix_unit": "E_12",
+      "passed": true
+    },
+    {
+      "matrix_unit": "E_21",
+      "passed": true
+    },
+    {
+      "matrix_unit": "E_22",
+      "passed": true
+    }
+  ],
+  "mean_squared_commutator": "-(a - b)**2*(delta - 1)",
+  "parameters": {
+    "a": "real",
+    "b": "real",
+    "delta": "real; 0 <= delta <= 1 for the channel interpretation"
+  },
+  "scope": "Exact two-level Pauli-channel example only",
+  "sharpness_identity": "mean_squared_commutator = 2*(1-delta)*energy_variance",
+  "sharpness_passed": true,
+  "sharpness_residual": "0",
+  "status": "passed",
+  "sympy_version": "1.14.0"
+}

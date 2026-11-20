@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "A_commutes_with_shifted_polynomial": true,
+    "degrees": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "exact_assertions": 255,
+    "intertwining_shift_is_plus_two": true,
+    "local_B_form_L2q_equals_minus_2pi_Dplus_half_qB": true,
+    "right_decaying_green_kernel": "exp(-3t/2)-exp(-5t/2)",
+    "signed_transfer_kernel": "2*exp(-3t/2)-3*exp(-5t/2)",
+    "signed_transfer_total_mass": "2/15",
+    "signed_transfer_zero": "log(3/2)",
+    "squared_lower_constant": "81/100",
+    "squared_upper_constant": "121/100",
+    "translation_is_bijective_on_full_monic_prefix": true
+  },
+  "nonclaims": [
+    "The replay does not recompute the theta-orbit base identity or weighted kernel estimate.",
+    "The source-channel comparison does not sign X_n or Y_n.",
+    "It does not prove a next pivot, an all-degree Xi-Laguerre inequality, or RH."
+  ],
+  "premises_not_recomputed": [
+    "L2 psi = -2*pi*U*A psi",
+    "0.9 <= weighted U norm ratio <= 1.1 on the audited admissible domain"
+  ],
+  "provenance": {
+    "note": "ARITHMETIC_SOURCE_CHANNEL_20261104.md",
+    "note_sha256": "c34f71789d9cd77bfd03dd1342e34c69a2ce616003a19d36ca4c662542ede55c",
+    "verifier": "src/verify_arithmetic_source_channel.py",
+    "verifier_sha256": "257468b8d22304dd08aefd0096a0c0b6cb2954e46492cd810c3bf1ceb15d35d6"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "b04ecd1d52570bcdb176349cc6b3e46205ba3fd423a2cbe196a65aaa8d8cc14a"
+  },
+  "schema_version": "zsv.arithmetic_source_channel.algebra_audit.v1",
+  "scope": "Exact polynomial/intertwining audit of the all-degree source-channel consequence",
+  "status": "PASS"
+}

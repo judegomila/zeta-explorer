@@ -1,0 +1,205 @@
+{
+  "arithmetic": {
+    "library": "mpmath.iv 1.4.1",
+    "shared_library_limitation_acknowledged": true
+  },
+  "checks": {
+    "all_interval_pairs_overlap": true,
+    "block_diagonal_metric_kept_distinct": true,
+    "cached_quotient_matrices_trusted": false,
+    "cross_block_squared_sum_retained": true,
+    "finite_artifact_serializes_only_d12_times_M_rest": true,
+    "fixed_index_limits_remain_qualitative": true,
+    "independent_formula_reconstruction": true,
+    "low_high_additive_term_retained": true,
+    "physical_complement_not_identified_with_fourier_high": true,
+    "producer_booleans_trusted": false,
+    "signed_floor_claimed": false
+  },
+  "interval_overlap": {
+    "V0": true,
+    "beta": true,
+    "d12_times_M_rest_coarse_upper": true,
+    "d12_times_M_rest_upper": true,
+    "d4_upper": true,
+    "fixed_d12_over_d8_coefficient": true,
+    "fixed_rho8_limit": true,
+    "raw_rest_column_norm_squared_upper": true,
+    "rho_rest_squared_upper": true
+  },
+  "producer_binding": {
+    "exact_bytes_required": true,
+    "sha256": "cd6c56a3ca65166670c17c0110fac26adc5c6736dcd16e6b66fceb764d0ad152"
+  },
+  "reconstructed_exact_certificate": {
+    "arithmetic_map_norm_squared_factor": {
+      "denominator": "8",
+      "numerator": "49"
+    },
+    "buffer_ceil": 5,
+    "finite_defect_values_serialized": false,
+    "fixed_index_limits_effective": false,
+    "ground_integral_squared_lower": {
+      "denominator": "14",
+      "numerator": "1"
+    },
+    "lambda": {
+      "denominator": "2",
+      "numerator": "7"
+    },
+    "lambda_squared": {
+      "denominator": "4",
+      "numerator": "49"
+    },
+    "n_star": 60,
+    "physical_rest_column_count": 12,
+    "physical_rest_targets": [
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56
+    ],
+    "rest_count_coarse_bound": {
+      "denominator": "8",
+      "numerator": "147"
+    },
+    "sampling_modal_row_limit": 14,
+    "shannon_index": 49
+  },
+  "reconstructed_exact_regressions": {
+    "block_action_saturation": {
+      "C_8": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "C_8_times_M_8": {
+        "denominator": "4",
+        "numerator": "1"
+      },
+      "C_R": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "C_R_times_M_R": {
+        "denominator": "4",
+        "numerator": "1"
+      },
+      "M_8": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "M_R": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "full_Gamma": {
+        "denominator": "9",
+        "numerator": "10"
+      },
+      "high_metric_g": {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      "high_sampling_B_H": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "low_Gamma": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "low_plus_high_upper": {
+        "denominator": "9",
+        "numerator": "10"
+      },
+      "source_kernel_dimension": 1,
+      "squared_sum_upper": {
+        "denominator": "1",
+        "numerator": "1"
+      }
+    },
+    "fixed_index_coefficient_ledger": {
+      "d12_over_d8_rational_prefactor": {
+        "denominator": "1485",
+        "numerator": "8192"
+      },
+      "rest_lambda_exponent_after_defect_conversion": 1,
+      "rho8_squared_limit": {
+        "denominator": "128",
+        "numerator": "35"
+      },
+      "singleton_lambda_exponent": 3
+    },
+    "full_metric_substitution_counterexample": {
+      "block_diagonal_Gamma": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "full_metric_Gamma": {
+        "denominator": "1",
+        "numerator": "4"
+      },
+      "full_over_block_ratio": {
+        "denominator": "1",
+        "numerator": "4"
+      }
+    },
+    "nontrivial_range_action": {
+      "C_8": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "C_R": {
+        "denominator": "1",
+        "numerator": "49"
+      },
+      "M_8": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "M_R": {
+        "denominator": "1",
+        "numerator": "25"
+      },
+      "low_Gamma": {
+        "denominator": "1",
+        "numerator": "1268"
+      },
+      "physical_dimension": 3,
+      "physical_range_dimension": 2,
+      "range_projector_trace": {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      "squared_sum_upper": {
+        "denominator": "1",
+        "numerator": "1296"
+      }
+    },
+    "physical_fourier_complement_counterexample": {
+      "fourier_high_floor": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "physical_complement_floor": {
+        "denominator": "1",
+        "numerator": "-1"
+      },
+      "physical_low_floor": {
+        "denominator": "1",
+        "numerator": "1"
+      }
+    }
+  },
+  "schema": "xi-prolate-block-quotient-action-replay-v1",
+  "status": "BLOCK_QUOTIENT_ACTION_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -1,0 +1,8 @@
+{
+  "historical_sha256": "ccebe64d3a1e5b864dbe3db0d5fd2a322ed462311d6ad3f03c459960fda80589",
+  "inserted_ascii_spaces": 17,
+  "known_live_sha256": "7adda8d65ac6ad28669dd595f6fa6d99120fd04ec33a3644ac93d613f4067fc3",
+  "path": "workstreams/all-degree-analytic-search-next-v1/COMPLETE_ORBIT_HARDY_NEXT.md",
+  "replacement_occurrences": 1,
+  "scope": "Known PR #40 trailing-whitespace normalization only"
+}

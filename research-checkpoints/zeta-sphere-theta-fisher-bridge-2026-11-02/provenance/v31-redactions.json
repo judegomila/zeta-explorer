@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+  "policy": "Replace the private baseline Library locator with the already-public v30 archive hash and duplicate-manifest policy while preserving every mathematical statement.",
+  "redacted": [
+    {
+      "path": "V31_INDEX.md",
+      "source_bytes": 5409,
+      "source_sha256": "19c96fabb1a8e31888b57dcd700012b7877e5095d576d47f2464464c9b1bf671",
+      "public_bytes": 5513,
+      "public_sha256": "bbe62d5cfcfaddfd1fa122972453eca77987589b35a8d0774ba9d7974c9843a8",
+      "reason": "private v30 Library identifier replaced by the public v30 archive hash and duplicate-manifest policy"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS_ANALYTIC_AND_EXACT_CHECKS",
+  "source_sha256": "6fd3197cec2972e7e23fcda4719591dbfb7443f769ac9373f9ab89d88e2af6e6",
+  "source_repairs": [],
+  "exact_scalar_checks": 11,
+  "Coulomb_series_coefficients_checked": 7,
+  "accepted_scope": [
+    "Arbitrary fixed-L2 vector endpoint concentration",
+    "Atom-free threshold strong functional calculus",
+    "Actual positive head WOT quarter-projector limit",
+    "Uniform fixed-W compact channel operator-norm transfer",
+    "Uniform fixed-W HS sandwich trace-norm and HS-squared transfer",
+    "Exact physical channel transpose and Coulomb Euler normalization"
+  ],
+  "excluded_scope": [
+    "Growing-W transfer without separately audited tail theorem",
+    "Strong or norm convergence of the head projectors",
+    "Collective signed pairing and source-trace repairs",
+    "Gamma-complement coercivity or global Weil positivity",
+    "Numerical spectral sweep"
+  ],
+  "primary_sources": [
+    "https://dlmf.nist.gov/13.4#E1",
+    "https://dlmf.nist.gov/5.5#E3"
+  ],
+  "files": {
+    "prolate_endpoint_flow/WEAK_HEAD_OPERATOR_AND_COMPACT_CHANNEL_TRANSFER.md": "6fd3197cec2972e7e23fcda4719591dbfb7443f769ac9373f9ab89d88e2af6e6",
+    "prolate_endpoint_flow/STRONG_EDGE_LIMIT_AND_POSITIVE_PHASE_MEASURE.md": "361f984698daa9c859db45c779bc4e78d8fdc8eb5af1cfb9008c2de98a424afe",
+    "independent_review/STRONG_EDGE_POSITIVE_PHASE_MEASURE_AUDIT.json": "12a2aeaeae6479651e13f0b499a284ca21842e583a4dc064f9a8a7755a93a6d8",
+    "repo_leverage/ACTUAL_FINITE_COLLAR_CHANNEL_BESSEL_REDUCTION.md": "dce34475d13cb0f90a9dbc75ee108c4bbe336ecf2915e90e674dc5d9116f0045",
+    "independent_review/WEAK_HEAD_COMPACT_CHANNEL_TRANSFER_AUDIT.md": "1aa4fdf262e52a2c3632bc10670f0cbed374f5f3db36bfd124ff2598f2e332cc",
+    "independent_review/prolate_strong_edge_replay/independent_weak_head_checks.py": "008cfc1fa600ce905077b79ccc82f9db08dede8a08ae826586f45f3dece181ac",
+    "independent_review/prolate_strong_edge_replay/INDEPENDENT_WEAK_HEAD_CHECKS.json": "d94c3950d89f3368a53c7421217225a7c133d1f899f52ff0611d315b8b31fbed"
+  }
+}

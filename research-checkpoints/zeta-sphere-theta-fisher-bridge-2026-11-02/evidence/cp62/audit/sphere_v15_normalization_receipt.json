@@ -1,0 +1,357 @@
+{
+  "status": "PASS_SOURCE_NORMALIZATION_AUDIT",
+  "campaign": "CP62 same campaign; CP61 preserved",
+  "archive": {
+    "path": "input/sphere_v15/zeta_sphere_campaign_v15_20261102T2259Z.zip",
+    "bytes": 4062261,
+    "sha256": "cbb9e402553adaa5de6b9ef76f82ca53765fcd7307a1263ebdc7eb768db3e57c"
+  },
+  "archive_members": 483,
+  "manifest_records_verified": 481,
+  "checksum_records_verified": 481,
+  "CRC": "PASS",
+  "selected_source_bindings": [
+    {
+      "archive_member": "V15_INDEX.md",
+      "path": "input/sphere_v15/extracted/V15_INDEX.md",
+      "bytes": 1169,
+      "sha256": "3cb4cadd8aa30c0d4752cc840c8a2759be8af41d7a426174439145ba25b60fe0"
+    },
+    {
+      "archive_member": "core_inertia_v2/ACTUAL_REPAIR_PROOF.md",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/ACTUAL_REPAIR_PROOF.md",
+      "bytes": 3924,
+      "sha256": "f6b3d0d7b4322104bd68a2ad01a85039eeab40c1939c9dd9d2672a1bac9f7a06"
+    },
+    {
+      "archive_member": "core_inertia_v2/FULL_SPLIT_PROOF.md",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/FULL_SPLIT_PROOF.md",
+      "bytes": 3673,
+      "sha256": "f45f0184a69b06b9b30ef1be75961906c66f39b29305cac31ef668a3d3e8d7cd"
+    },
+    {
+      "archive_member": "core_inertia_v2/PROOF.md",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/PROOF.md",
+      "bytes": 3851,
+      "sha256": "5880b966e0571c287adfde6ec815a74682ceaed08ac2da3050d0a6b72763edad"
+    },
+    {
+      "archive_member": "core_inertia_v2/STRUCTURAL_SYNTHESIS.md",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/STRUCTURAL_SYNTHESIS.md",
+      "bytes": 3193,
+      "sha256": "0aae7adc70ae2a336d368e32af1a041c0b5b744cb5909ddb97d5a8b70f97867d"
+    },
+    {
+      "archive_member": "core_inertia_v2/TAIL_RESERVE_REQUIREMENT.md",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/TAIL_RESERVE_REQUIREMENT.md",
+      "bytes": 2362,
+      "sha256": "db0a8773e2866c3ba5ac2e44e17173b2a3129fc99fe8e4af61b5ff12126fa7f5"
+    },
+    {
+      "archive_member": "core_inertia_v2/actual_repair_certificate.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/actual_repair_certificate.json",
+      "bytes": 6983,
+      "sha256": "6204eca30262c3bce98d87e5c5afaf5b611a2ecf99898f3d8223377e974f1cee"
+    },
+    {
+      "archive_member": "core_inertia_v2/actual_total_certificate.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/actual_total_certificate.json",
+      "bytes": 4813,
+      "sha256": "80ccd716236e5d7686dcbfdd3b90c4fb879ec091bf963ec71cb3e9283f5b5361"
+    },
+    {
+      "archive_member": "core_inertia_v2/certificate.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/certificate.json",
+      "bytes": 8022,
+      "sha256": "db9feb6f614da46ca60fd73f595726c892ebb479d37700458e4db5015e16be41"
+    },
+    {
+      "archive_member": "core_inertia_v2/full_split_certificate.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/full_split_certificate.json",
+      "bytes": 10272,
+      "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e"
+    },
+    {
+      "archive_member": "core_inertia_v2/full_split_coordinates.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/full_split_coordinates.json",
+      "bytes": 6938,
+      "sha256": "41250880463525e17c147a5a04abcd29bbbad3b31c8799179893c6289a60ad84"
+    },
+    {
+      "archive_member": "core_inertia_v2/witnesses.json",
+      "path": "input/sphere_v15/extracted/core_inertia_v2/witnesses.json",
+      "bytes": 4559,
+      "sha256": "ab5345edc450cb2d30f5b5bc7ba70e95eca2d620371d3b2f07a8178c3b503964"
+    },
+    {
+      "archive_member": "full_split_audit/AUDIT.md",
+      "path": "input/sphere_v15/extracted/full_split_audit/AUDIT.md",
+      "bytes": 2820,
+      "sha256": "c0df6973d7186b53b30e0c47647fc71a3f90ce046cac1fa8c07697906a7d40a5"
+    },
+    {
+      "archive_member": "full_split_audit/actual_total_certificate.json",
+      "path": "input/sphere_v15/extracted/full_split_audit/actual_total_certificate.json",
+      "bytes": 4813,
+      "sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+    },
+    {
+      "archive_member": "full_split_audit/certificate.json",
+      "path": "input/sphere_v15/extracted/full_split_audit/certificate.json",
+      "bytes": 8023,
+      "sha256": "390e9b270f513b3159e739856eac00823b1943159051df24a72bdd7501410e88"
+    },
+    {
+      "archive_member": "full_split_audit/full_split_certificate.json",
+      "path": "input/sphere_v15/extracted/full_split_audit/full_split_certificate.json",
+      "bytes": 10272,
+      "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e"
+    },
+    {
+      "archive_member": "full_split_audit/full_split_coordinates.json",
+      "path": "input/sphere_v15/extracted/full_split_audit/full_split_coordinates.json",
+      "bytes": 6938,
+      "sha256": "41250880463525e17c147a5a04abcd29bbbad3b31c8799179893c6289a60ad84"
+    },
+    {
+      "archive_member": "lehmer_full_side_v1/CONTOUR_IDENTITY_AND_TARGET.md",
+      "path": "input/sphere_v15/extracted/lehmer_full_side_v1/CONTOUR_IDENTITY_AND_TARGET.md",
+      "bytes": 4457,
+      "sha256": "babe0eef6fd507548e9cd2079d334d1daafd1ee27c2b0269a511927d5c43d5ed"
+    },
+    {
+      "archive_member": "lehmer_full_side_v1/PROOF.md",
+      "path": "input/sphere_v15/extracted/lehmer_full_side_v1/PROOF.md",
+      "bytes": 1914,
+      "sha256": "919ea1177c14dfa95539d6351f825e906e18a7bc1244c028b0481ee9715dec9e"
+    },
+    {
+      "archive_member": "lehmer_full_side_v1/THETA_STRIP_MAJORANTS.md",
+      "path": "input/sphere_v15/extracted/lehmer_full_side_v1/THETA_STRIP_MAJORANTS.md",
+      "bytes": 2287,
+      "sha256": "1bb952a8bfead3ddb2e50b94bb8b968354f9233d9490625c686abc68280358f8"
+    },
+    {
+      "archive_member": "lehmer_full_side_v1/full_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_full_side_v1/full_certificate.json",
+      "bytes": 911,
+      "sha256": "9497853e0d4d15288a18e9424c464631ffc763ede39487b9ebb4277296befcf2"
+    },
+    {
+      "archive_member": "lehmer_positive_shift_v1/PROOF.md",
+      "path": "input/sphere_v15/extracted/lehmer_positive_shift_v1/PROOF.md",
+      "bytes": 2317,
+      "sha256": "5a407629128dbcb4afff59a7175dddf53d9b2330ea2228973daa0e71ad648fcd"
+    },
+    {
+      "archive_member": "lehmer_positive_shift_v1/positive_shift_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_positive_shift_v1/positive_shift_certificate.json",
+      "bytes": 1302,
+      "sha256": "3684e87bb4e3e3b5c28f1b8f351ea766625838fbe9b56f44c1a7e00499b4bf8f"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/CORE_AND_SIGN_AUDIT.md",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/CORE_AND_SIGN_AUDIT.md",
+      "bytes": 4005,
+      "sha256": "63b593c9fef8f802fe74b252ed2b1d4609ee6809fea84870ee9cabf0cb06b554"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/FULL_SIDE_AUDIT.md",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/FULL_SIDE_AUDIT.md",
+      "bytes": 1389,
+      "sha256": "e4995c4b1a09c9a87c53fbb724dcc2ba417dfd3c4899bd7d9f57ebecf8d6c789"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/POSITIVE_SHIFT_AUDIT.md",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/POSITIVE_SHIFT_AUDIT.md",
+      "bytes": 1332,
+      "sha256": "961c6ee5fb2baff4ddfb50596c4249776c94764873cc9ebfa0f83b5fa39dab50"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/STRIP_SUPPORT_AUDIT.md",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/STRIP_SUPPORT_AUDIT.md",
+      "bytes": 679,
+      "sha256": "05a81feb0aeaf100c3d47b9e59e422b7d3400ce5aacab99052df96db4208e264"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/ball_replay/alias_bound.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/ball_replay/alias_bound.json",
+      "bytes": 821,
+      "sha256": "2eb9055baa323594c5a1f9051dcedc0e5abb810a4fb2fc71e8e70d49da021bc8"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/ball_replay/ball_fft_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/ball_replay/ball_fft_certificate.json",
+      "bytes": 407,
+      "sha256": "028856f0847df4ec5cc81d500e638a0a6d6e5acd533ec0ec7fd7d8b47c0f18a3"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/ball_replay/gaussian_normalization.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/ball_replay/gaussian_normalization.json",
+      "bytes": 284,
+      "sha256": "c16412928c15a9647903a7950455c8a4d60a61ce4800d2bb7caf372a97e3d97e"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/full_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/full_certificate.json",
+      "bytes": 911,
+      "sha256": "7b7c9e6d5d27bc002ef7ece4cf4c6b4a553ef973caec1f646c07d101c3e2c934"
+    },
+    {
+      "archive_member": "lehmer_tail_audit/positive_shift_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_audit/positive_shift_certificate.json",
+      "bytes": 1302,
+      "sha256": "a5b78613d7117c168cf90ac659a6655597b705191eb68f51cb659dd558c14146"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/PROOF.md",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/PROOF.md",
+      "bytes": 7172,
+      "sha256": "b1d0c93d4fa53c9681d5a18835ce20dfa55573d125519f3e751bec1080ff9aff"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/alias_bound.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/alias_bound.json",
+      "bytes": 821,
+      "sha256": "2eb9055baa323594c5a1f9051dcedc0e5abb810a4fb2fc71e8e70d49da021bc8"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/ball_fft_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/ball_fft_certificate.json",
+      "bytes": 406,
+      "sha256": "4e23d09eb34b1b97030aa4c3cc39cc96a3b9f58b032ac3721809952a936780fe"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/combined_certificate.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/combined_certificate.json",
+      "bytes": 352,
+      "sha256": "01168c8aba7b15a949a13e238da3f9692818d761592d3b345801a319301e6993"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/environment.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/environment.json",
+      "bytes": 149,
+      "sha256": "ca01bbf345a2d06af3122dde54cdc078fe1a283e00e13b95827d10f37d153c6c"
+    },
+    {
+      "archive_member": "lehmer_tail_certificate_v1/gaussian_normalization.json",
+      "path": "input/sphere_v15/extracted/lehmer_tail_certificate_v1/gaussian_normalization.json",
+      "bytes": 284,
+      "sha256": "c16412928c15a9647903a7950455c8a4d60a61ce4800d2bb7caf372a97e3d97e"
+    },
+    {
+      "archive_member": "core_inertia_v2/FULL_SPLIT_PROOF.md",
+      "bytes": 3673,
+      "sha256": "f45f0184a69b06b9b30ef1be75961906c66f39b29305cac31ef668a3d3e8d7cd",
+      "access": "Read directly from verified ZIP; no source program executed."
+    },
+    {
+      "archive_member": "full_split_audit/AUDIT.md",
+      "bytes": 2820,
+      "sha256": "c0df6973d7186b53b30e0c47647fc71a3f90ce046cac1fa8c07697906a7d40a5",
+      "access": "Read directly from verified ZIP; no source program executed."
+    },
+    {
+      "archive_member": "core_inertia_v2/full_split_certificate.json",
+      "bytes": 10272,
+      "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e",
+      "access": "Read directly from verified ZIP; no source program executed."
+    },
+    {
+      "archive_member": "full_split_audit/full_split_certificate.json",
+      "bytes": 10272,
+      "sha256": "cc07d7c74b4070e69e9ffaede2b7d9cd2c04acb20a082750e7eeedd37570cd2e",
+      "access": "Read directly from verified ZIP; no source program executed."
+    },
+    {
+      "archive_member": "spectral_relative_limit_v1/RELATIVE_LIMIT.md",
+      "bytes": 5807,
+      "sha256": "8bdfb634d53c119c56ff886a60fdd21fdf31e2caa487d56d2c0e4572d3470c74",
+      "access": "Read directly from verified ZIP; no source program executed."
+    },
+    {
+      "archive_member": "spectral_relative_limit_audit/AUDIT.md",
+      "bytes": 1892,
+      "sha256": "de82a1765d50c2502cff208766e1b682565b4799a0e93109d45ca5c0b6187550",
+      "access": "Read directly from verified ZIP; no source program executed."
+    }
+  ],
+  "local_interface_bindings": [
+    {
+      "path": "output/rh_sixtieth_sphere_bridge/root/normalization_and_phase_margin.md",
+      "bytes": 15085,
+      "sha256": "cdf1c285ff73fe9d9d69ea0e9e2ddd81184ebfe128f892d9d53b6cd4f00d6e38"
+    },
+    {
+      "path": "output/rh_sixtyfirst_attempt/root/full_height_phase_bridge.md",
+      "bytes": 11504,
+      "sha256": "8076d861d2d7ee85726629b9af5cedf6be4000d81e8ec3dc3c438d179bb2297f"
+    },
+    {
+      "path": "output/rh_sixtyfirst_attempt/sphere_scope/positive_time_scope.md",
+      "bytes": 14477,
+      "sha256": "7977887021a3fc035aedd3dad9bcfb80b9dddab87e3fc09f6bf923da378c27af"
+    },
+    {
+      "path": "output/rh_sixtyfirst_attempt/tail_correction/TAIL_OBSTRUCTION_ADDENDUM.md",
+      "bytes": 11902,
+      "sha256": "eae36e9194745830054fedf25972fb7404735d8ccfd9c19daddb9b340652665e"
+    }
+  ],
+  "normalization": {
+    "frequency": "nu=7005081715/1000000",
+    "Fourier_argument": "x=2nu",
+    "source_heat_time": "tau=0",
+    "zero_shift_tail": "K_(0,0)^>=H=F_H=int_H^infinity2h^2 psi(h-v)psi(h+v)dh",
+    "positive_shift_tail": "K_(a,0)^>=H=int_H^infinity[h*sinh(2ah)/a]psi(h-v)psi(h+v)dh",
+    "physical_height": "y=2a",
+    "physical_shear_conversion": "S_tail/y=hat(K_tail)/256, with removable y=0 limit",
+    "auxiliary_profile_contour": "eta=pi/4-2/nu, distinct from physical y"
+  },
+  "imported_strict_bounds": {
+    "zero_shift_scaled_tail_upper": -53766891745349,
+    "positive_shift": "a=1/10000",
+    "positive_shift_scaled_tail_upper": -51718939276867
+  },
+  "certificate_status": "Original proofs, supplied independent audits and certificate JSON read and hash-verified; exact summary arithmetic and normalization independently checked. No local numerical replay.",
+  "notation_issue": "V15_INDEX synopsis has an extra /a relative to the normalized T_(a,H) definition in the original positive-shift proof. Import follows the explicit proof definition and normalized JSON/audit; no double division.",
+  "source_availability_correction": "Degree19 full odd-block proof/audit/certificates are present in the verified ZIP, although not in the initial selected extraction. Their finite a=0,H=1/16 scope is distinguished from excluded pending replacement frameworks.",
+  "degree19_scope": "No even block/full H19, nonzero shift, positive heat, order-uniform conclusion or invariant eigenvalue margin inferred. Exact coordinates must accompany any quantitative use.",
+  "unknown_failed_tail_jet_degree": true,
+  "preserved_cp61": [
+    {
+      "artifact": {
+        "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_full_height_sphere_boundary_v1.zip",
+        "bytes": 180488,
+        "sha256": "91b3c3ad761c23bda8cf4fccaed9bc18e599c55ff1c61cfc0334fc47bc054dd4"
+      },
+      "receipt": {
+        "path": "output/mathexplorer_handoff/final_persistence_receipt61.json",
+        "bytes": 1262,
+        "sha256": "cf825c31af06bc104746d670e4017ac771df4e99cff8be193467f747d45d1a83"
+      }
+    },
+    {
+      "artifact": {
+        "path": "output/mathexplorer_handoff/MathExplorer_RH_CP61_signed_spatial_tail_correction_v1.zip",
+        "bytes": 48821,
+        "sha256": "ed0b0cffab5c1e7382ee99e6b5da966c47f21a1565c59e6ad4a6d54790b7e755"
+      },
+      "receipt": {
+        "path": "output/mathexplorer_handoff/final_persistence_receipt61_tail_correction.json",
+        "bytes": 963,
+        "sha256": "0c4ae439d26210be00d4151ee5e5c317aefee2c1984df9cf6fcd674edeb39f13"
+      }
+    }
+  ],
+  "imported_producers_executed": false,
+  "Arb_DFT_or_Euler_Maclaurin_replay": false,
+  "new_actual_theta_evaluations": false,
+  "new_mathematical_control_count": 0,
+  "canonical_or_frozen_CP61_modifications": false,
+  "report": {
+    "path": "output/rh_sixtysecond_attempt/audit/sphere_v15_normalization.md",
+    "bytes": 5486,
+    "sha256": "0097f5fa1f0ed4716878d47f77849c90397709a45deeca2a93666f832104871a"
+  }
+}

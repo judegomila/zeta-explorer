@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+    "bytes": 8672645,
+    "sha256": "7fa9c3f26154506f107cba1ac45e58545ef51b9115496d4965a00b45a8d75007",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 1778,
+    "manifest_payload_bytes_verified": 20094508,
+    "v32_payloads_preserved": 1541,
+    "v32_sha256": "ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf",
+    "manifest_json_bytes": 332889,
+    "manifest_json_sha256": "ea4a09031cf1edfd95e732eab720c5631310fa4de6fc530c0ce76014c7e836a3",
+    "manifest_sha256_bytes": 212119,
+    "manifest_sha256_sha256": "b268a4ff41a7c04f50622358f5f17b7381876b724678127554f4c9763545f6ba"
+  },
+  "publication_manifest": {
+    "name": "PUBLICATION_DELTA_V33.json",
+    "bytes": 53937,
+    "sha256": "b5cc41779a7ff61652e850be4e59fb3e0ac846d6d01586202965ef05256b1c91",
+    "reviewed_owned_rows": 205,
+    "diagnostic_or_correction_rows": 29
+  },
+  "delta_accounting": {
+    "new_payload_paths_since_v32": 237,
+    "new_payload_bytes_since_v32": 1167912,
+    "source_classified_owned_paths": 234,
+    "source_classified_owned_bytes": 647767,
+    "public_classified_owned_paths": 234,
+    "public_classified_owned_bytes": 647767,
+    "source_unique_content_hashes": 216,
+    "source_duplicate_content_groups": 17,
+    "source_repeated_path_rows": 18,
+    "byte_identical_public_payload_paths": 234,
+    "public_text_redactions": 0,
+    "retained_publication_manifests": 1,
+    "source_backed_public_bytes_before_readme": 701704,
+    "repository_readme_bytes": 3428,
+    "public_lane_files": 236,
+    "public_lane_bytes": 705132,
+    "omitted_duplicate_v32_provenance_paths": 2
+  },
+  "repository_policy": "Publish all 234 explicitly classified owned paths and the exact V33 publication manifest byte-for-byte. Preserve diagnostics under their source classification but exclude them from theorem promotion and default smoke execution. Generic /workspace/shared replay strings are non-private implementation locators and remain unchanged. Do not publish the source archive, master manifests, duplicate prior-version manifests, inherited private captures, acquired third-party material, or any unlisted source path.",
+  "omitted_duplicate_v32_provenance_paths": [
+    "provenance/v32/MANIFEST.json",
+    "provenance/v32/MANIFEST.sha256"
+  ],
+  "excluded_material": [
+    "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+    "MANIFEST.json",
+    "MANIFEST.sha256",
+    "all source paths not explicitly classified in PUBLICATION_DELTA_V33.json",
+    "all inherited private or acquired-source captures"
+  ],
+  "existing_public_lane_overlap": 0
+}

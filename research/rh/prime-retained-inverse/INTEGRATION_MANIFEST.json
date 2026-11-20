@@ -1,0 +1,339 @@
+{
+  "status": "PROPOSED_LOCAL_APP_SLICE_NOT_PUBLISHED",
+  "created_utc": "2026-10-30T18:25:48.275992+00:00",
+  "accepted_result": "Actual reflection-even coercivity for support [-log(lambda),log(lambda)], 1<lambda<=sqrt(33/2)",
+  "constant_scope": "Existential positive uniform constant on nested subspaces of this fixed box; no numeric coercivity floor extracted.",
+  "excluded_claims": [
+    "odd-sector positivity",
+    "cofinal-support theorem",
+    "RH"
+  ],
+  "previous_endpoint": "sqrt(161/10)",
+  "new_endpoint": "sqrt(33/2)",
+  "new_bound": "Retain B=Pstar I-P_tail in the whole-tail inverse, pay all cross-band interactions, retain a safe rank-one near-head Gram lower bound.",
+  "producer_receipt_sha256": "8fad3f81f08b714052715c368bd6480764f7448347494d36ec50f2d38067406c",
+  "independent_receipt_sha256": "774b0121e863088495d1867281824a69f37bd6bdc30a14ddddf6df2096c63dc1",
+  "old_failed_terminal_sha256": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+  "all_19_producer_source_pins_match_staged_copies": true,
+  "math_replay_cwd": "A fresh disposable COPY of source-tree; preserve original frozen sources/receipts.",
+  "math_replay_command": "PYTHONPATH=/absolute/path/to/python-flint-0.9.0 python rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py --full",
+  "small_dense_replay_command": "PYTHONPATH=/absolute/path/to/python-flint-0.9.0 python rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py --small",
+  "dependency": "python-flint==0.9.0; observed Python3.12.14; runtime binaries intentionally not proposed for app repository.",
+  "full_replay_completed_in_original_isolated_tree": true,
+  "math_field_comparison": "All non-timing receipt fields identical, including complete permutation;2049/72/72 positive pivots.",
+  "provenance_runtime": "Original independent audit verified19 copied source files and115 independently copied python-flint runtime files unchanged. Runtime copies are not needed as app assets and are not vendored here.",
+  "history": "Original failed diagonal-only comparison, exact witness and negative budget are retained as evidence of a different lower bound, not actual negativity.",
+  "remote_changes": "None. No PR heads, remote branches, merges or deployments changed.",
+  "files": [
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/replay_root/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_FULL_GATE.json",
+      "staged": "receipts/INDEPENDENT_FULL_GATE.json",
+      "sha256": "774b0121e863088495d1867281824a69f37bd6bdc30a14ddddf6df2096c63dc1",
+      "bytes": 33193
+    },
+    {
+      "source": "frequency_sensitive_bound/FREQUENCY_BLOCK_SUPPORT_BOUND.md",
+      "staged": "source-tree/frequency_sensitive_bound/FREQUENCY_BLOCK_SUPPORT_BOUND.md",
+      "sha256": "0f05f3a881685c96a7016fcf5a9133e628254055f2ede55d25e8afeee9352e62",
+      "bytes": 12025
+    },
+    {
+      "source": "rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py",
+      "staged": "source-tree/rh_attack_cycle_20261028/structured_inertia/certify_structured_factored.py",
+      "sha256": "ce639d73178ed2ebae8e6e11bca6c73f37ce3cc8081daeb388868f0f6984cd46",
+      "bytes": 3304
+    },
+    {
+      "source": "rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py",
+      "staged": "source-tree/rh_attack_cycle_20261028/structured_inertia/certify_structured_lambda25.py",
+      "sha256": "e428d4e886045d5b31a5018953308e95ce527c832a0f28cdcc6692b23d15eeee",
+      "bytes": 12070
+    },
+    {
+      "source": "rh_attack_cycle_20261028/tail_coercivity/FULL_TAIL_COERCIVITY.md",
+      "staged": "source-tree/rh_attack_cycle_20261028/tail_coercivity/FULL_TAIL_COERCIVITY.md",
+      "sha256": "2532c36dfa94fcbc8a009eb63f30fff00abc32d15d57bb0cb155243eca6f80c1",
+      "bytes": 9749
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/ALL_SEPARATED_PHASE_METHOD.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/ALL_SEPARATED_PHASE_METHOD.md",
+      "sha256": "637939701bc853029ba0fcd8122a3f54d2f6a869a8b9ca3dbf4904bc3ed2388f",
+      "bytes": 5575
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/BOUNDED_ATTEMPT_TERMINAL_MANIFEST.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/BOUNDED_ATTEMPT_TERMINAL_MANIFEST.json",
+      "sha256": "ac80ae840bc9fb057bc5858c8473aa30b82bb3a0be5693499512d5cb30e8980c",
+      "bytes": 5704
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/DIAGNOSTIC_RESULT_AND_NEXT_TARGET.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/DIAGNOSTIC_RESULT_AND_NEXT_TARGET.md",
+      "sha256": "3ea3abae941d525ffe8d79e7ffced86df5d24dbb7d81581b78733390f033c0ed",
+      "bytes": 6281
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/GENERIC_FULL_EVEN_CERTIFICATE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/GENERIC_FULL_EVEN_CERTIFICATE.json",
+      "sha256": "9ea2ecc32485baded3e9d726f2546bde2f45e549a43ef25c8d466c48cfa7d06d",
+      "bytes": 30265
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/PRODUCER_RESULT_AND_CORE_OBSTRUCTION.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/PRODUCER_RESULT_AND_CORE_OBSTRUCTION.md",
+      "sha256": "793478b206f7c194f71dcbd719e9656cecde0c6535363925c268c2bf29499cc4",
+      "bytes": 4861
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/SCALAR_PHASE_GATE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/SCALAR_PHASE_GATE.json",
+      "sha256": "748d176cc92f64452d6eb4079f339853eb978e05cfa0d80a07f7383ad1236787",
+      "bytes": 41354
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/X165_POWER8_TARGETED.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/X165_POWER8_TARGETED.json",
+      "sha256": "d095ae94e743fa5b503479bf34514e92fce9b29b45aaf27b5475cb146090640e",
+      "bytes": 1346
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/X165_power8_targeted.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/X165_power8_targeted.py",
+      "sha256": "dcc2cc778b782b1cb64d042dfe97a8188395b7c4d500ece0543374700f929bd1",
+      "bytes": 3589
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/certify_generic_support.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/certify_generic_support.py",
+      "sha256": "4ce3e1108b2bd8e2b24cc778f2dda721be0da84725f2c854be44a13e43b679dd",
+      "bytes": 4946
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/LAST_CORE_DIRECTION_BUDGET.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/LAST_CORE_DIRECTION_BUDGET.json",
+      "sha256": "f6e95214070bc5cd4319fe40c9ddd6ff46bf179fef0f71d8e7c2e8bfde75f722",
+      "bytes": 8186
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/LAST_CORE_FROZEN_TRIAL.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/LAST_CORE_FROZEN_TRIAL.json",
+      "sha256": "837f928bfd8ebd3a76b65b423713d42e2f4ce7c1e6c4847a3e17b8ba1794339f",
+      "bytes": 400607
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/certify_last_core_direction_budget.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/diagnosis/certify_last_core_direction_budget.py",
+      "sha256": "d75e82ea67985d05f5054aa80fd28655d8e37d0500068337c7aecacb56ba7b04",
+      "bytes": 4839
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/generic_full_inputs.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/generic_full_inputs.py",
+      "sha256": "d06c87677c1b3ee15d66c12a46f4c445a85045f898be53302d20443389298e88",
+      "bytes": 5829
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/GROUPED_SOURCE_MATH_CLEARANCE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/GROUPED_SOURCE_MATH_CLEARANCE.json",
+      "sha256": "dfd7164977bc3dab712ea600525489a2759b34143c8816b522f36892d9829a83",
+      "bytes": 5355
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/GROUPED_SOURCE_MATH_CLEARANCE.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/GROUPED_SOURCE_MATH_CLEARANCE.md",
+      "sha256": "ccfb2721a6340c4ff634b4330afb0737cda3a6e67b9618412962f0fffa306037",
+      "bytes": 5393
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/INDEPENDENT_LAST_CORE_BUDGET_REPLAY_COMPARISON.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/INDEPENDENT_LAST_CORE_BUDGET_REPLAY_COMPARISON.json",
+      "sha256": "74eb5974e7b9750839f5214ff8855b2f829ac1ed3f54e3f31d93bf77e76c67b9",
+      "bytes": 3760
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/INDEPENDENT_PRIME8_REPLAY_COMPARISON.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/INDEPENDENT_PRIME8_REPLAY_COMPARISON.json",
+      "sha256": "30b220208a2b24f08a28664ba59ebc82eb8fd797771a9e7a4f2cbbfa76f2ba30",
+      "bytes": 848
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/X165_DIRECTIONAL_OBSTRUCTION_DELTA_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/X165_DIRECTIONAL_OBSTRUCTION_DELTA_AUDIT.md",
+      "sha256": "6414c2a6d9128c5b33e326bcb86c19b73de4f98ba82bc9a11cac2f29cf8891ce",
+      "bytes": 5810
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/independent_review/X165_FULL_FAILURE_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/independent_review/X165_FULL_FAILURE_AUDIT.md",
+      "sha256": "ec22e57c1a82ca39f549aeca4bb0da57ba48afdf599fadb3b8edd4e873a9cec9",
+      "bytes": 6008
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/COUPLED_PRIME_RETAINED_INVERSE_AND_RANK_ONE_SPEC.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/COUPLED_PRIME_RETAINED_INVERSE_AND_RANK_ONE_SPEC.md",
+      "sha256": "a4bd385dbd48fd7f53f5bc5b1a906d5a1d916c85c5196b3954b19c651617ee71",
+      "bytes": 6749
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_DIRECTION_GATE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_DIRECTION_GATE.json",
+      "sha256": "838c840cfeb8e5f06845aac5387804f3b6363d33841c2ed0e3df901e2b967980",
+      "bytes": 8704
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_INVERSE_INDEPENDENT_AUDIT.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_INVERSE_INDEPENDENT_AUDIT.json",
+      "sha256": "dfdf13bd67f01817207be2bffcd09451f51d51055e352da587d5c272fe14d680",
+      "bytes": 2881
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_INVERSE_INDEPENDENT_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/PRIME_RETAINED_INVERSE_INDEPENDENT_AUDIT.md",
+      "sha256": "122e13d80a505ec6d393cef277c1d6d25f865066c6bdeb61674367141e13f10a",
+      "bytes": 6187
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/audit_prime_retained_inverse.py",
+      "sha256": "593da1ef6e66a705318d09a143a617e83baf26fb4a1bb90432cc9145e9aebee9",
+      "bytes": 7073
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/certify_prime_retained_direction.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/near_tail_inverse_repair/certify_prime_retained_direction.py",
+      "sha256": "cb5a9ad91c974abea8a6290f568a7670ae9b2bec204937261eb8dea2e5ba1618",
+      "bytes": 6719
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/ACCEPTED_X165_EVEN_RESULT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/ACCEPTED_X165_EVEN_RESULT.md",
+      "sha256": "f752688ca9fc9eac20be737fccbaaf65aff47fa506f5c9f1ddda711c7e9cfe0f",
+      "bytes": 3905
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_FULL_GATE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_FULL_GATE.json",
+      "sha256": "8fad3f81f08b714052715c368bd6480764f7448347494d36ec50f2d38067406c",
+      "bytes": 33194
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_SMALL_GATE.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/PRIME_RETAINED_RANKONE_SMALL_GATE.json",
+      "sha256": "f33d1a1f393fde16ebad2edd4aa32919414b49350641da5158190385162ac385",
+      "bytes": 10733
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/RANKONE_PREFLIGHT_INDEPENDENT_AUDIT.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/RANKONE_PREFLIGHT_INDEPENDENT_AUDIT.json",
+      "sha256": "b66cdef711cb71dd1a6aaca3a913f916aae389cc7f293d1dc5ca2561f98af4c2",
+      "bytes": 3120
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/RANKONE_PREFLIGHT_INDEPENDENT_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/RANKONE_PREFLIGHT_INDEPENDENT_AUDIT.md",
+      "sha256": "4d08f579988c52b9bef460e7d285c1eb8e52172c1d4f9063ac7b226d2ed04938",
+      "bytes": 2581
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/THEOREM_ACTUAL_WHOLE_EVEN_X165.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/THEOREM_ACTUAL_WHOLE_EVEN_X165.md",
+      "sha256": "26bc2956663cd9baa15eb081285bd5c01a0e4677d676b3c4cc839670e16339f4",
+      "bytes": 11373
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/audit_rankone_preflight.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/audit_rankone_preflight.py",
+      "sha256": "e6078f8cbfe19ef0cc9d453d97ea540f8b86a5d1930c1f7728401ae8bc52bce7",
+      "bytes": 4296
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/certify_prime_retained_rankone.py",
+      "sha256": "7a5725e4522317c5993326b494fc81d4ee188716ef822e489adb670e4d937c61",
+      "bytes": 4537
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/COMPLETE_PRIME_RETAINED_RANKONE_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/COMPLETE_PRIME_RETAINED_RANKONE_AUDIT.md",
+      "sha256": "4c348acc14aed9e6b372b3b26ea4f0b07ae051aafff9dd6cc4015c623d83074d",
+      "bytes": 4499
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/COMPLETE_REPLAY_INDEPENDENT_AUDIT.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/COMPLETE_REPLAY_INDEPENDENT_AUDIT.json",
+      "sha256": "b861fb13c2cd1b124f0dce1d73fc9b28c20db78afac6ebab8fbbe98babadd979",
+      "bytes": 26188
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/FINAL_THEOREM_MODULE_WORDING_AUDIT.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/FINAL_THEOREM_MODULE_WORDING_AUDIT.json",
+      "sha256": "a056f7524940d9c001ef8315e25ba268980311fd4711aabb0411a47241dcfc39",
+      "bytes": 1571
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/FINAL_THEOREM_MODULE_WORDING_AUDIT.md",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/FINAL_THEOREM_MODULE_WORDING_AUDIT.md",
+      "sha256": "895d345205c2925af80402d51e99b9292e639d4bbd1891c0e867e7c752360794",
+      "bytes": 2635
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/INDEPENDENT_FULL_REPLAY.log",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/INDEPENDENT_FULL_REPLAY.log",
+      "sha256": "7c5267589c8b1881cfd1d3d0930288e185759d2847e07d966dfe14efa32f8250",
+      "bytes": 34394
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/REPLAY_PREPARATION.json",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/REPLAY_PREPARATION.json",
+      "sha256": "85d59d3365d90d3f5a90c87e40d04c5ce3cfb1d9d7ae4e4b531a36fa70e16a81",
+      "bytes": 17535
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/compare_complete_replay.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/independent_review/compare_complete_replay.py",
+      "sha256": "790487a1c531877dd5ea11cfda2606853e27fa0e5fdee0e3573371298ea44d72",
+      "bytes": 3411
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/requirements.txt",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/requirements.txt",
+      "sha256": "4cef508304e84c21f73cf412712165dc26e40978cb784bc08a876948b559d90d",
+      "bytes": 20
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/retained_prime_rankone_inputs.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/prime_retained_rankone_attempt/retained_prime_rankone_inputs.py",
+      "sha256": "238b04e13d65e214d827c1d7b53cd976985e5f4d4275d3d444a248a84c24fc50",
+      "bytes": 4283
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/scalar_phase_gate.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/scalar_phase_gate.py",
+      "sha256": "e6c2df8aadb3dcaa97fcbe6b0b87845985673ec197dd9b817247a04ebf486539",
+      "bytes": 3315
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_X165/support_config.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_X165/support_config.py",
+      "sha256": "2dcf1502b4fd8883744250460ec652b59299280f144eed4ea0c20898cead0838",
+      "bytes": 554
+    },
+    {
+      "source": "rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py",
+      "staged": "source-tree/rh_attack_cycle_20261030/support_endpoint_continuity/generic_actual_head_pilot.py",
+      "sha256": "5f445ed152eefc96539b1af7f9b1d2deed1618a3e786f8658d8ef5aab2b427de",
+      "bytes": 5330
+    }
+  ],
+  "proposed_module": {
+    "staged_file": "prime-retained-tail-certificate.md",
+    "repository_destination": "research/rh/modules/prime-retained-tail-certificate.md",
+    "registration": "Coordinator must create a separate focused draft PR on the appropriate existing renderer base; do not amend frozen existing PR heads, merge, or deploy."
+  },
+  "proposed_source_package_destination": "research/rh/prime-retained-inverse/",
+  "module_sha256": "976652e8e2bf33f02c099ad9b6737e4e3dc410852eedd62ba1c7978c5aea26f5",
+  "frozen_package_verification_command": "python verify_source_slice.py",
+  "final_theorem_and_module_wording_audit": "PASS; exact domain/even/support quantifiers, existential coercivity and identical-constant smaller-support restriction checked independently.",
+  "publication_mapping_note": "Canonical research/rh/modules/ target follows prior frozen publication export convention; earlier local content/rh-modules target was a proposal only."
+}

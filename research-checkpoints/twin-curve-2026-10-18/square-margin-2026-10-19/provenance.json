@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-19",
+  "scope": "Internal mathematical review of square variance and full finite-rectangle margin; global signed-prime estimate remains open",
+  "source_sha256": {
+    "SQUARE_VARIANCE_AND_FULL_MARGIN_v1.md": "daa0eaeaac2b0a455830807e538bbbc9e2d403680499493e8003d4bc4f5c2b17",
+    "INDEPENDENT_REVIEW_SQUARE_MARGIN_v1.md": "d2b097924012fd5ac1436df81803325e6f38e98485761f8d8cc40cd4e5557484"
+  },
+  "copy_check": true,
+  "review_verdict": "PASS; source unchanged",
+  "parent_head": "ded17acbd7644fae5434a184899c0ef0b0ede158"
+}

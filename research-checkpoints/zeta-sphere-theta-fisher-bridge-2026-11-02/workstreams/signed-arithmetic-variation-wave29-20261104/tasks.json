@@ -1,0 +1,40 @@
+{
+  "schema_version": "zsv.signed_arithmetic_variation.tasks.v1",
+  "status": "bounded_floating_queue",
+  "resource_contract": {
+    "single_threaded": true,
+    "fixed_total_mac_cpu_target_percent": 50,
+    "hard_owned_worker_cap": 1,
+    "sampled_governor_not_kernel_hard_cap": true,
+    "protected_workload_is_never_signalled": true
+  },
+  "tasks": [
+    {
+      "id": "signed_variation_n03_n05_primary",
+      "worker": "workstreams/signed-arithmetic-variation-wave29-20261104/src/probe_signed_arithmetic_variation.py",
+      "argv": ["--mode", "probe", "--label", "primary", "--precision-bits", "256", "--u-nodes", "224", "--u-upper", "1.8", "--x-nodes-per-cell", "24", "--x-upper", "12", "--maximum-orbit", "64", "--representation-rtol", "2e-7"],
+      "output": "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_primary.json",
+      "expected_status": "bounded_floating_mechanism_probe",
+      "accepted_verdicts": ["PASS"],
+      "expected_parameters": {"mode": "probe", "label": "primary", "degrees": [3, 5], "precision_bits": 256, "u_nodes": 224, "u_upper": 1.8, "x_nodes_per_cell": 24, "x_upper": 12, "maximum_orbit": 64, "representation_rtol": 2e-7}
+    },
+    {
+      "id": "signed_variation_n03_n05_replay",
+      "worker": "workstreams/signed-arithmetic-variation-wave29-20261104/src/probe_signed_arithmetic_variation.py",
+      "argv": ["--mode", "probe", "--label", "replay", "--precision-bits", "384", "--u-nodes", "320", "--u-upper", "1.8", "--x-nodes-per-cell", "48", "--x-upper", "16", "--maximum-orbit", "96", "--representation-rtol", "2e-8"],
+      "output": "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_replay.json",
+      "expected_status": "bounded_floating_mechanism_probe",
+      "accepted_verdicts": ["PASS"],
+      "expected_parameters": {"mode": "probe", "label": "replay", "degrees": [3, 5], "precision_bits": 384, "u_nodes": 320, "u_upper": 1.8, "x_nodes_per_cell": 48, "x_upper": 16, "maximum_orbit": 96, "representation_rtol": 2e-8}
+    },
+    {
+      "id": "signed_variation_resolution_audit",
+      "worker": "workstreams/signed-arithmetic-variation-wave29-20261104/src/probe_signed_arithmetic_variation.py",
+      "argv": ["--mode", "compare", "--primary", "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_primary.json", "--replay", "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_replay.json", "--comparison-rtol", "2e-7"],
+      "output": "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_resolution_audit.json",
+      "expected_status": "bounded_floating_replay_comparison",
+      "accepted_verdicts": ["PASS"],
+      "expected_parameters": {"mode": "compare", "degrees": [3, 5], "comparison_rtol": 2e-7}
+    }
+  ]
+}

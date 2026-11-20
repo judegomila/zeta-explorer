@@ -1,0 +1,19 @@
+{
+  "constant_checks_passed": true,
+  "precision_dps": 50,
+  "tail_index_min": "100000000000000000",
+  "heat_time": "24727519/200000000",
+  "height_range": [
+    "1/5",
+    "1"
+  ],
+  "normalized_H_modulus_lower": "43/500",
+  "stronger_tail": {
+    "index_min": "100000000000000000000",
+    "normalized_H_modulus_lower": "31/125"
+  },
+  "zeta_nine_fifths_tail_upper_interval": "[0.8936283141123477648491696446536775951619084388622510119, 0.8936283141123477648491696446536775951619084388622643757]",
+  "global_lambda_claim": "not_certified",
+  "proof": "ANALYTIC_TAIL.md",
+  "note": "Checks constants only; proof document supplies universal inequalities."
+}

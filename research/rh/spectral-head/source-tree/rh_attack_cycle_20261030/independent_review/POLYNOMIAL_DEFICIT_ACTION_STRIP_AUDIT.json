@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-30T09:51:00.389461+00:00",
+  "combined_endpoint_row": "O(lambda*c^2), additive coefficients, eventual unevaluated onset",
+  "signed_arithmetic_bound_proved": false,
+  "files": {
+    "rh_attack_cycle_20261030/independent_review/POLYNOMIAL_DEFICIT_ACTION_STRIP_AUDIT.md": "b1fba63fc15821fc73a695c4afe26c3ecdec09af13d35883f7db75d10be2b20c",
+    "rh_attack_cycle_20261030/repo_leverage/POLYNOMIAL_DEFICIT_ACTION_STRIP.md": "0f866fc257fc82240fe342d643bce369b9f625f06f987b8d3523ca4e83d6d20c",
+    "rh_attack_cycle_20261030/repo_leverage/EVENTUAL_THRESHOLD_SONIN_EXTENSION.md": "8bd7ac668d341b86d101329a54b3b89430c9a0256354f82e806448631fd85f94",
+    "rh_attack_cycle_20261030/repo_leverage/ADDITIVE_THRESHOLD_ENDPOINT_NULL_VALUE_FRAME.md": "62cff67c897596caf6dfab6f8b09a1e71975aafe6ff643f33aec6ff2fe794b4c",
+    "rh_attack_cycle_20261030/repo_leverage/independent_review/dyadic_deficit/SPECTRAL_RANGE_AUDIT.md": "e09a443768d6f27f017be3cda683ed1d408bef28cfefe60ee5b822b8d668672b",
+    "rh_attack_cycle_20261030/repo_leverage/independent_review/dyadic_deficit/DYADIC_DEFICIT_BANDS_AND_MOMENTS.md": "f87bd74844c945c4252c0bbfcf9bed05abdf2f03c332dc259a44b86ca4027f43",
+    "rh_attack_cycle_20261030/repo_leverage/independent_review/additive_value_frame/ADDITIVE_VALUE_FRAME_AUDIT.md": "40a94324bad690aaafc0bfbd6e0be1d0cbc12adadcdb689f3d9aef49208e8c1c",
+    "rh_attack_cycle_20261030/independent_review/WEIGHTED_PRUEFER_ENDPOINT_AUDIT.json": "6fe7492a2b2a73aa9b3e3fc6daed29531b94c1941042cf1813f382fa2750ce13"
+  }
+}

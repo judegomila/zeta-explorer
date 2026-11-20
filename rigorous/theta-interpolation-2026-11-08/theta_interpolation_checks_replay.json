@@ -1,0 +1,68 @@
+{
+  "exact_symbolic_identities": "passed",
+  "auxiliary_certificate": {
+    "arithmetic": "exact Fraction intervals; directed Decimal display only",
+    "kernel": "exp(-u^2)*(3/2+cosh(u))",
+    "nodes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "exp_degree": 24,
+    "ldl_pivots": [
+      [
+        "0.153710978981430725153072",
+        "0.153710978981430725153073"
+      ],
+      [
+        "0.000112703245328184934972762",
+        "0.000112703245328184934972763"
+      ],
+      [
+        "0.00000132554649389173052574865",
+        "0.00000132554649389173052574866"
+      ],
+      [
+        "-2.38433839892461889056747E-8",
+        "-2.38433839892461889056746E-8"
+      ]
+    ],
+    "determinant": [
+      "-5.47525270974382624931523E-19",
+      "-5.47525270974382624931522E-19"
+    ],
+    "conclusion": "First three LDL pivots positive; fourth negative. This is not the actual theta kernel."
+  },
+  "normalization_diagnostics": {
+    "checks": 10,
+    "max_absolute_error": "9.0556791e-72",
+    "oscillators": [
+      {
+        "nodes": [
+          "2",
+          "1"
+        ],
+        "tau": "25.071875398446971057",
+        "C": "29.047131218020656848"
+      },
+      {
+        "nodes": [
+          "0.75",
+          "0.25"
+        ],
+        "tau": "24.948768876234412372",
+        "C": "28.762989517746944955"
+      },
+      {
+        "nodes": [
+          "7",
+          "3"
+        ],
+        "tau": "26.476165653750049556",
+        "C": "32.349373120247174744"
+      }
+    ]
+  },
+  "scope": "No later actual-xi pivot is certified; all-orders positivity remains open."
+}

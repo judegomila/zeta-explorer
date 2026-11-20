@@ -1,0 +1,66 @@
+{
+  "version": 27,
+  "baseline_version": 26,
+  "files": [
+    {
+      "path": "V27_INDEX.md",
+      "sha256": "e1fd1f67c950223742f86107a06aecf8b0bc4a37dbf24d8e31919a7ba0001452"
+    },
+    {
+      "path": "theta_boundary_trace_audit/AUDIT.md",
+      "sha256": "7f80da273f60c2e3d5c0500c18a089099af6d266848ca6c4ae0f76ac1327c35a"
+    },
+    {
+      "path": "theta_boundary_trace_v1/BOUNDARY_SQUARES.md",
+      "sha256": "58d044ff49c021bea58487a073dd6b4cd8272524da3c92706e079ce416495484"
+    },
+    {
+      "path": "theta_boundary_trace_v1/FLOATING_DIAGNOSTIC_SHA256.txt",
+      "sha256": "5b5311b2859ed7d6015d0cef2f88b3c5dec8ec99351b651be688c1205bb40697"
+    },
+    {
+      "path": "theta_boundary_trace_v1/FROZEN_SHA256.txt",
+      "sha256": "c29fbd46c61cdf2b2ed424e5be7001135eb346bb1ad81467c97b1fe267b5672c"
+    },
+    {
+      "path": "theta_boundary_trace_v1/probe_top.json",
+      "sha256": "1d7f17de92067dec763bddd25b75b751834e53fb1be24f54b908dec691b9db46"
+    },
+    {
+      "path": "theta_boundary_trace_v1/probe_top.py",
+      "sha256": "0ecdb49757b37b89b09fb75f793ea29fb2fb017dc7f28847874b8c8ff5bdb63c"
+    },
+    {
+      "path": "theta_trace_clarification_audit/AUDIT.md",
+      "sha256": "746d2678e23ce075109157cda512af56d36589280aa9bf8d2466e0601652ee69"
+    },
+    {
+      "path": "theta_trace_clarification_v1/AUDITOR_FLOATING_DIAGNOSTIC_SHA256.txt",
+      "sha256": "a67c9cce15943f578208a293a73e842477e3d5875474b20d3fc705561b156da3"
+    },
+    {
+      "path": "theta_trace_clarification_v1/AUDITOR_FROZEN_SHA256.txt",
+      "sha256": "d374a9adb04206c8ed7b8a21a36a2896abfa962523177c5e511ad3dd32e3f9c1"
+    },
+    {
+      "path": "theta_trace_clarification_v1/FLOATING_DIAGNOSTIC_SHA256.txt",
+      "sha256": "a67c9cce15943f578208a293a73e842477e3d5875474b20d3fc705561b156da3"
+    },
+    {
+      "path": "theta_trace_clarification_v1/FROZEN_SHA256.txt",
+      "sha256": "d374a9adb04206c8ed7b8a21a36a2896abfa962523177c5e511ad3dd32e3f9c1"
+    },
+    {
+      "path": "theta_trace_clarification_v1/TRACE_AND_CURVATURE.md",
+      "sha256": "d601e6ee58558000c4637ca04b60534bcd5296a4564c7bad79c21b0058bbb713"
+    },
+    {
+      "path": "theta_trace_clarification_v1/probe_existing_trace.json",
+      "sha256": "9305bb9c9329908aedf70e53fddecd87ceb6b30059efc09fd7aa8071e00b223c"
+    },
+    {
+      "path": "theta_trace_clarification_v1/probe_existing_trace.py",
+      "sha256": "9c3d708ff0adc04eeb94718d7ce91482bb75b7650e98a155fbb1e4769af6225b"
+    }
+  ]
+}

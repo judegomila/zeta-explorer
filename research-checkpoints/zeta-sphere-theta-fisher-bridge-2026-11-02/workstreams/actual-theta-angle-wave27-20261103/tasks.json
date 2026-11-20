@@ -1,0 +1,44 @@
+{
+  "schema_version": "zsv.actual_theta_angle.tasks.v1",
+  "status": "bounded_interval_queue",
+  "resource_contract": {
+    "single_threaded": true,
+    "fixed_total_mac_cpu_target_percent": 50,
+    "hard_owned_worker_cap": 1,
+    "sampled_governor_not_kernel_hard_cap": true
+  },
+  "tasks": [
+    {
+      "id": "actual_theta_angle_p384",
+      "worker": "workstreams/actual-theta-angle-wave27-20261103/src/certify_actual_theta_angle.py",
+      "argv": [
+        "--precision-bits",
+        "384"
+      ],
+      "output": "workstreams/actual-theta-angle-wave27-20261103/results/actual_theta_angle_p384.json",
+      "expected_status": "finite_interval_angle_diagnostic",
+      "accepted_verdicts": ["PASS", "PARTIAL"],
+      "expected_parameters": {
+        "precision_bits": 384,
+        "degrees": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
+        "input_mode": "SHA-bound archived interval boxes"
+      }
+    },
+    {
+      "id": "actual_theta_angle_replay_p640",
+      "worker": "workstreams/actual-theta-angle-wave27-20261103/src/certify_actual_theta_angle.py",
+      "argv": [
+        "--precision-bits",
+        "640"
+      ],
+      "output": "workstreams/actual-theta-angle-wave27-20261103/results/actual_theta_angle_replay_p640.json",
+      "expected_status": "finite_interval_angle_diagnostic",
+      "accepted_verdicts": ["PASS", "PARTIAL"],
+      "expected_parameters": {
+        "precision_bits": 640,
+        "degrees": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
+        "input_mode": "SHA-bound archived interval boxes"
+      }
+    }
+  ]
+}

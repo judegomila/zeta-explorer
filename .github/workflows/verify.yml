@@ -28,6 +28,20 @@ jobs:
           # Keep checkout bounded; this repository's full history is large.
           fetch-depth: 50
 
+      - name: Verify conditional Mobius parameter certificate
+        working-directory: rigorous/mobius_bridge_reduction
+        run: |
+          sha256sum --check SHA256SUMS.txt
+          python3 -E verify_certificate.py
+          python3 -E certify_parameters.py
+          git diff --exit-code -- parameter_certificate.json target_obstruction.json
+          python3 -E target_0874.py
+          python3 -E target_0874.py --json > /tmp/target_0874_certificate.json
+          diff -u target_0874_certificate.json /tmp/target_0874_certificate.json
+          python3 -E signed_phase_filter.py
+          python3 -E signed_phase_filter.py --json > /tmp/signed_phase_filter_results.json
+          diff -u signed_phase_filter_results.json /tmp/signed_phase_filter_results.json
+
       - name: Fetch bounded PR base for assertion diff
         if: github.event_name == 'pull_request'
         run: git fetch --no-tags --depth=50 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
@@ -40,6 +54,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Check zeta riblet and phase-budget research checkpoint
+        run: node research-checkpoints/zeta-riblet-phase-budget-2026-11-02/verify.mjs
+
+      - name: Check cluster residuals and actual completed-zeta contour
+        run: |
+          python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/check_cluster.py
+          python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/certify_actual_window.py 256
+
+      - name: Check small-value backward-shear energy models
+        run: python3 research-checkpoints/zeta-riblet-phase-budget-2026-11-02/energy/check_energy.py
 
       - name: Build
         run: npm run build
@@ -54,3 +79,4 @@ jobs:
 
       - name: Heavy-import tripwire (pages must not import zeros-to-1e6.js)
         run: npm run verify:heavy-imports
+

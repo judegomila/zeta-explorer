@@ -1,0 +1,1 @@
+The first owned local-block enclosure over[0,1e-4] was inconclusive: its third-pivot interval was [+/-2.86e7]. No sign was accepted from it. The successful certificate narrows the tested neighborhood to[0,1e-8] and rigorously resolves the negative third pivot there. This is not a claim that[0,1e-4] has a positive pivot or that the exact sign transition was located.

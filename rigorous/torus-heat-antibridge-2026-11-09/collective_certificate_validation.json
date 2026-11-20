@@ -1,0 +1,48 @@
+{
+  "status": "all_exact_algebra_checks_passed",
+  "checks_passed": 18,
+  "checks": [
+    "backward_heat_sign",
+    "amplitude_transport",
+    "shear_transport",
+    "normalized_rung_recurrence_0",
+    "normalized_rung_recurrence_1",
+    "normalized_rung_recurrence_2",
+    "normalized_rung_recurrence_3",
+    "normalized_rung_recurrence_4",
+    "kernel_time_is_standard_time_divided_by_four",
+    "logarithmic_derivative_error_identity",
+    "polynomial_zero_velocity_matches_principal_value_formula",
+    "quartet_and_collective_force_constants",
+    "integrated_quartet_bound",
+    "integrated_collective_slab_bound",
+    "collective_bound_recovers_de_bruijn_when_margin_vanishes",
+    "omitted_theta_indices_generating_function",
+    "integration_tail_generating_function",
+    "exact_rational_cluster_example"
+  ],
+  "normalization": {
+    "standard_time_per_kernel_time": 4
+  },
+  "polynomial_example_at_one_time_only": {
+    "x": 30.0,
+    "y": 0.3,
+    "positive_real_roots": [
+      28.8,
+      29.5,
+      30.6,
+      31.1
+    ],
+    "conjugate_contribution_to_y_squared_derivative": -2.0,
+    "opposite_reflection_contribution": -0.00019998000199980003,
+    "retained_real_cluster_contribution": -2.371440986337361,
+    "full_y_squared_derivative": -4.371640966339361,
+    "kappa_at_this_point": 6.587336073159335,
+    "collective_over_opposite_reflection_magnitude": 11858.390652179973
+  },
+  "limitations": [
+    "No Riemann theta strip, tail, contour, or global kappa hypothesis was certified.",
+    "The polynomial example is a one-time algebra check, not a uniform-time bound.",
+    "No new numerical bound on the de Bruijn-Newman constant follows from this script."
+  ]
+}

@@ -1,0 +1,13 @@
+# Independent modular derivative-radius audit
+2026-11-02 23:25 UTC. PASS for the stated derivative approximation obstruction.
+
+Checked psi=(D²-1/4)e^(u/2)theta(e^(2u)) normalization. At u=i*pi/4-i*delta, tau=-exp(-2i*delta), T=tau+1=2i exp(-i*delta)sin(delta), and -1/T=-1/2+(i/2)cot(delta) exactly. Theta3(tau)=theta4(T)=(-iT)^-1/2 theta2(-1/T), with principal branch on the upper half-plane, agrees with the Jacobi transformation identities in https://dlmf.nist.gov/20.7 .
+
+The first transformed theta2 exponent has magnitude exp(-pi*cot(delta)/8). Its first two argument derivatives retain that exponential bound with constants, since the later lattice terms have larger quadratic exponents. Prefactor growth is delta^-1/2; two path derivatives cost at most delta^-4, giving the stated delta^-9/2 exponential-flat estimate. D=i*d/delta along this path is correct. Analytic extension across the boundary would have all Taylor coefficients zero by this flatness, contradicting psi(0)>0 and the identity theorem. Thus the Taylor radius at0 is exactly pi/4.
+
+Evenness converts Cauchy–Hadamard to the limsup of even coefficients4/pi. A fixed finite theta-orbit sum, even if symmetrized, is entire and its coefficient-root limsup is zero. Taking radii pi/4<r0<r and the full-function limsup subsequence gives full coefficients at least r0^-2n along a subsequence, while the finite sum is at most M_r*r^-2n. Their ratio tends to zero. Hence relative derivative error cannot remain below any fixed constant<1 at every sufficiently large even order. This is a genuine fixed-cutoff nonuniformity, not a sign statement.
+
+The bridge h² weight vanishes at0, and no integrated negativity or failure of the matrix-anchor method follows from this pointwise derivative obstruction. Degree-growing orbit cutoffs or complete modular representations remain possible. No RH conclusion is implied.
+
+## Section4 sub-square-root cutoff extension
+Independently checked before freezing. On each fixed circle |u|=R, the finite orbit sum has absolute bound C_R N^5 exp(C_R N²), by bounding the exponential modulus and summing the degree-four orbit prefactors. For N_k²=o(k), its logarithm divided by k tends to zero for every fixed R. Cauchy thus gives coefficient-root limsup<=1/R for every R, hence zero. Comparing with full even coefficient limsup4/pi yields a subsequence on which truncated/full derivatives tend to zero. The argument remains valid for explicitly symmetrized sums. It rules out sub-square-root budgets as uniformly relatively accurate high-even-derivative surrogates; it neither proves sqrt(k) sufficient nor that each individual order needs that cutoff. Extension PASS.

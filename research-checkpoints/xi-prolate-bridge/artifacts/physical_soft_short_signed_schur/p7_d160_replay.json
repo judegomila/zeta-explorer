@@ -1,0 +1,45 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and replay share Python integer and Fraction arithmetic",
+    "independent_formula_trees": true,
+    "library": "Python fractions.Fraction",
+    "precision_mode": "exact rational arithmetic",
+    "raw_interval_or_ball_output_applicable": false,
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "feature_LDL_rebuilt_by_direct_multiplication": true,
+    "hard_over_shorting_separation_rebuilt": true,
+    "high_equality_rejected": true,
+    "odd_negative_pole_omission_rejected": true,
+    "soft_schur_rebuilt_from_physical_blocks": true,
+    "soft_schur_rebuilt_from_residual_feature": true,
+    "source_metric_rebuilt_with_nonisometric_A": true,
+    "theta_equality_rejected": true
+  },
+  "input": {
+    "dps": 160,
+    "lambda_numerator": 7
+  },
+  "producer_binding": {
+    "bytes": 33960,
+    "sha256": "df78c3a327179d4287e45b43be7e1d02df314f4b722236590371894192f879bd"
+  },
+  "producer_pass_boolean_trusted": false,
+  "result": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_COMPONENT_REPLAY_PASS",
+  "schema": "xi-prolate-physical-soft-short-signed-schur-replay-v1",
+  "source_hashes": {
+    "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_SOURCE_LOCK.json": "394674ae851c1973d6bcfa1f3d3104b5c85a6c572a2abb846cec53852b73cbd2",
+    "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+    "notes/LOCALIZED_MOMENT_SOURCE_WHITENED_SCHUR.md": "39695c4823f19f1a03b9e9434a88763564cc0e2e086a12b65412d2551b5f4982",
+    "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+    "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+    "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+    "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c"
+  },
+  "status": "PHYSICAL_SOFT_SHORT_SIGNED_SCHUR_COMPONENT",
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -1,0 +1,1180 @@
+{
+  "version": 33,
+  "baseline_version": 32,
+  "reviewed_owned_files": [
+    {
+      "path": "V33_INDEX.md",
+      "sha256": "eb8780446fb6e64c41bbf24a195cf655381fdee247636e2c29a47a8aa7fdb49a",
+      "classification": "reviewed_scope_index"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/CENTRAL_RESERVE_COMPLEMENT.md",
+      "sha256": "a11c116f3cef9027d1224a24ec44c59961fa90c6f9921f5e0c8555d3e9903a93",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/EXPLICIT_SELECTED_COMPLEMENT_TAIL.md",
+      "sha256": "f71cd25983df8b53ecc48ae417f3a0510ab7ed38f3186b404e63fea01567c403",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/SHARP_ZERO_PAIR_HALO.md",
+      "sha256": "5fa9dac76422b0a8134c58b3b1c86314c9488e499213914ff69d755817fd1fb3",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/UNIFORM_CENTRAL_JOINT_RESERVE.md",
+      "sha256": "0a53ac9c52e22757a3f2c298c111aaf8e91471ea0f87341057a4e40a3756e7a9",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/VERIFIED_ZERO_FINITE_DEGREE.md",
+      "sha256": "61d96f8700e7261c4efdb1d60fe8318634b83440f9d88675db033cf50517327a",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/quad/independent_ivtheta_cert.py",
+      "sha256": "c31061f3d608dc50f0ac1638ade51f253017df2059772151222eaaf9f400b3e3",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "sparse_exception_bridge_nov03/quad/independent_ivtheta_cert.txt",
+      "sha256": "382ab34083784b230e0c7a06010514b2109e298445ada0df31e356919c126bc7",
+      "classification": "reviewed_owned_external_theorem_dependency"
+    },
+    {
+      "path": "theta_correlated_local_audit/ALL_DEGREE_HARDY_BUDGET_AUDIT.md",
+      "sha256": "efe51cd56404d14fcd81eb7f11f2a92049d5c7fd5412db03485bc434f39991da",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ALL_DEGREE_SOS_FLUX_AUDIT.md",
+      "sha256": "63fbe33377368bee563e1c26f9d843fc5c0d3847e2dd15d5b9d4dad08d94e030",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ARITHMETIC_BOUNDARY_LAYER_AUDIT.md",
+      "sha256": "b32aa1b58b0a0edd7ed41f626834ee122d5232246331a2c020b02cee9a65f7fc",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ARITHMETIC_ERROR_BUDGET_AUDIT.md",
+      "sha256": "ba4a1a44b94852811d471729432ac004e790810a00642e4de0d2126cece69b7e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ARITHMETIC_REFINEMENT_ORDER_AUDIT.md",
+      "sha256": "ec0d427333f7e953bda1227bcb88fad4d18edac8010d125a32345d61fc92e7b5",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/BEZOUT_FRAME_AND_THETA_CLOSURE_AUDIT.md",
+      "sha256": "8011864e9ab29321dd77cf00729a00c396926a6efbf215c08920c8c3a083442f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/COMMON_SCALE_INTEGRATED_CURVATURE_AUDIT.md",
+      "sha256": "b4a90755f94f79d6747d17a66584db98b7474c4f1ec7dc609a3b2f520acc01b3",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/COMMON_SCALE_POSITION_PAYMENT_AUDIT.md",
+      "sha256": "5893fcf9dacc7e08783639a43fff49350f45af287bf6a1d61295db71c245104e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/CUBIC_REOPTIMIZED_MARGIN_ASYMPTOTIC_AUDIT.md",
+      "sha256": "0745f64e8233780ea702c3c3b412c5b3aa741fd711e4a599ef9b6631a6970a2b",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/DEGREE_DEPENDENT_CRITICAL_BAND_AUDIT.md",
+      "sha256": "0c17d371eead7320c9d8f4174daf8a62d6e1458e71ee5f3c48cc26c4642f055e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/DUAL_PREFIX_CONTINUATION_AUDIT.md",
+      "sha256": "b9988b0d88979b10a86adee1d2a7b156d63f9cac59c28fd7fc9fd48d4ef05d54",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ENDPOINT_CORRECTED_ARITHMETIC_AUDIT.md",
+      "sha256": "2dea4061c9c747154cffe28d1afff5aa9679e81f9b7ac104f54ca549d420d101",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/EVENTUAL_SELECTED_DUAL_MARGIN_AUDIT.md",
+      "sha256": "b9cfe7dbb91e28fbf9b50497e092241cdb8577c7e849f13d960daa2c06096c63",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/EVENTUAL_SHIFT_COEFFICIENTS_AUDIT.md",
+      "sha256": "7ba87efe9a0cc4b86cb76b991e52c393fde8b70e5304b3f3c173c6f9d7adbc92",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/EXTERIOR_WARD_LOWER_BOUND_AUDIT.md",
+      "sha256": "29d0f8e14bec22c0b86b6a0e307633811d54b368d56ff831cf8ec8d0a8c4b83f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/FIXED_SHIFT_SIGNED_TAIL_OBSTRUCTION_AUDIT.md",
+      "sha256": "c8c18f34fe0c5a62b1d0049f00a455307231afb385a23991382b0f7aa25c0d1f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/FULL_DUAL_ATOMIC_REPAIR_AUDIT.md",
+      "sha256": "3e9a48c6a5bfb29c36397ccdfc387ca333d22009229183585b6c83afadbaeb26",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/GAUSSIAN_PAID_PRIME_SIEVE_AUDIT.md",
+      "sha256": "d8ebc55c386fc7015b221dbbf627290ce9af72b5a77ff6e3bf867b0f88b7b1e0",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/HARDY_PREFIX_COMPRESSION_AUDIT.md",
+      "sha256": "9b6afaf0f73fc7008768b557e028c4901c7a78ff92b81c81f1eb513cc7f0dd56",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/HARDY_ZERO_PAIR_SUM_RULE_AUDIT.md",
+      "sha256": "863932d5b0604518af78ce445aca226985a99307a5b0240d4b9b1859c252286b",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/JOINT_PRIME_PAIRING_AUDIT.md",
+      "sha256": "8b56cd8bd5dc3b406ba0a89647c553a30b8c18ed0b40904d585c0cd8f4ba477d",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/MODULAR_ARITHMETIC_ANALOGUE_AUDIT.md",
+      "sha256": "9def2dedca1897b8f79f57094d7a3f33dec177219cdc79fdb8c390c49e29227a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/MODULAR_REGULARIZED_GROUPING_AUDIT.md",
+      "sha256": "dbbc654c6b2fb775db7dff1ba3ccfdf5a879d6d0ad5f2328d384aaedc519c665",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/MUNTZ_THETA_COMMUTATOR_TEST_AUDIT.md",
+      "sha256": "b8aa1ae6c865948cd8208104c8e5f5398bb759468757e168b7d4a80dc162ec30",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/NONLINEAR_THETA_BEZOUT_MODULE_AUDIT.md",
+      "sha256": "930027cf484d71c6a19fce0b93e286efd1df5220c3a2b62b4110e573354c8d7a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/PARITY_WEIGHTED_SELECTED_DUAL_AUDIT.md",
+      "sha256": "04d47fa9abcec574b8a0e9a39015f645df7c47bc1d7a3f7f358e8ee8c86e3fd3",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/PREFIX_TRANSLATION_OBSTRUCTION_AUDIT.md",
+      "sha256": "a9f33d46774954ece59ab1788483d39d37af57cdb835ffbc5a658fa740494e2d",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/PRIME_INVERSE_RESTORATION_AUDIT.md",
+      "sha256": "52a93149cd6b1c6245ffe68ca30f119a6c941be89859bc11ddbe042fc71f768a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/PRIME_SIEVE_BRIDGE_DEFECT_AUDIT.md",
+      "sha256": "cd72abd7c751b233012299b7f979c47e4f37f955756242b2cb4eadcd0dd4646f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/REGULARIZED_ARITHMETIC_PAYMENT_AUDIT.md",
+      "sha256": "2ec58a30d194c97164c3933e5ad4aa6c61565070b81537db992a4120d052b3e9",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/REOPTIMIZED_DUAL_FLOW_AUDIT.md",
+      "sha256": "58de59b7581a224b371c3a6f6993b55f7a98d3c5ac708650ed2936fa3373a6ee",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/RIGID_DUAL_TRANSPORT_OBSTRUCTION_AUDIT.md",
+      "sha256": "f17e228a2b2950b55dcd0ca6e05431ab740cf472c41176cc22e37fb2ffb8d884",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/ROOT_VOLTERRA_TRACE_AUDIT.md",
+      "sha256": "baf6f2dbe4850342aad17edee061a551e2fffd5d32911e9ca1033beed4c9112f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED20_CANONICAL_OBSTRUCTION_AUDIT.md",
+      "sha256": "e9651a6b9556ee77943b2a2897f47061553c9c9006fe3b57e9001f3a656b5862",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED20_SCALAR_GAUGE_OBSTRUCTION_AUDIT.md",
+      "sha256": "5296753d1813fff2930b6d2a00cc1bd1bfb2498ad16bdeb3a737f34590b1be38",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED20_TWO_POINT_GAUGE_OBSTRUCTION_AUDIT.md",
+      "sha256": "bbaa0d3dd220959e07e90beb41ddfdeabc4e7efacba5816ec819abcdc9a2ba21",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED_HERMITE_NONUNIFORMITY_AUDIT.md",
+      "sha256": "2ace6c7b864d214d708133f479b90b6c75c65b0ce1b59eda2d79d260d9223cf3",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED_ORTHOGONALITY_DUAL_AUDIT.md",
+      "sha256": "c2e3cb34e05f29b416c9161a82d1a703a4ba88cfcd3c563980949775fa67350a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/SELECTED_PARITY_WARD_IDENTITY_AUDIT.md",
+      "sha256": "24e1f0cc9fa0e7be36225d85af56f8e43c1f7fd8e17c7eeac37e2dd8289b469b",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/THETA_SOS_DEGREE_SELECTION_AUDIT.md",
+      "sha256": "43d5853874c24d47b5dbf0623e280c854dc9b64e9404090bae554debb9dd093e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/THETA_SOS_LOCALIZATION_AUDIT.md",
+      "sha256": "56561b20defeca6e007dd4fd07c184059bf415ac9ef972031c37eaefbf337e18",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/THETA_SUPERSYMMETRIC_LADDER_AUDIT.md",
+      "sha256": "20cd4a43293bf04187058c0c2fdab979e9f8d58e3bfd0434fb94e7753df8b25d",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/UNIFORM_GAMMA_ENVELOPE_AUDIT.md",
+      "sha256": "5e8f513bc7ed96248faf3324bce13cfd48c630d23b5d73407748a379fac53134",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/VERIFIED_ZERO_FINITE_DEGREE_AUDIT.md",
+      "sha256": "ac5f39ca478e3aa71abdb357012992bcf2e8158374b1d731b4cee8bea4152561",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/VINOGRADOV_KOROBOV_BAND_COMPANION_AUDIT.md",
+      "sha256": "7c6a5f1cab7b440ec8675051c868892dc7e2d64ec1811ec30c0a780970ed219d",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/all_degree_sos_flux_independent.txt",
+      "sha256": "801676ca651829e6d06268a3069b65abd929289ea2869e35cfbd12012c1c4300",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/corrected_N1_replay/AUDIT.md",
+      "sha256": "2bf2675c48cca1e4661fa960bb1ea515ddb18e807ef7fbef3409d29d905da0b5",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/corrected_N1_replay/SHA256SUMS.txt",
+      "sha256": "0353fe15a77c8c441a92465a6a8267ef3cdc3d7c5a3461d5e998bd570fb088fa",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/corrected_N1_replay/check_corrected_N1.py",
+      "sha256": "99e5867caf8c7a42a8f228db76409c0c6734c025ee41cd20720a97fda663072e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/corrected_N1_replay/result.json",
+      "sha256": "dc31168bfc02428e1865168b5b4af82b6ffb96064ad7c49dea4163813ab9428f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/cubic_dual_constants_independent.txt",
+      "sha256": "bd8e8ba2ca8b8446d32fd367a3e7528e0a966e0c73a5cdf96ff9e3627d733adf",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/AUDIT.md",
+      "sha256": "9a6fbd9ae48ddf03b0d2a43f99f1c962fb460f9ad5cb160d7d16350b4ddb48b9",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/SHA256SUMS.txt",
+      "sha256": "657e12b327058dc2633ad47dd7e31a7ecf2fb287b71cc78de4d859dd761e9008",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_degree10_consequence.py",
+      "sha256": "e9eee5e7cf11248f0f0105bba334f97ebd4acc8de30dd379d6f8f5cb44d3d0d7",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_degree11_shift_slabs.py",
+      "sha256": "7772cf748fe4708c7d9d799ebd0f52f0be89cb36b5f11289582d00f38ca25084",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_degree7_regional_payment.py",
+      "sha256": "939a352d37e57b2bd44a78d48fc87b3cb4033a761007cc026c58dabf5f5656bc",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_full_shift_consequence.py",
+      "sha256": "0c0822a74750df5a62e58a7b9d310384eeeb6db4a26c524bfabd973055399fbb",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_full_shift_slabs.py",
+      "sha256": "97f92a3bfee1d7a33ce7dabffbb6f0fd233618aef33e36ab9801038d7216cb33",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_midpoint_recovery_flow.py",
+      "sha256": "48a221207e3dfb04c2d9adb9014e458803725be558463b91f71ebc5b69b4c245",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_moving_flux_energy.py",
+      "sha256": "0407a347aacdfaf8add92df6440a65b8f0300799990eacc1cff49bed30a85dfa",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_shift_cutoff_reserve.py",
+      "sha256": "a8897502f9938c9d8007ee525e34f580cfd48790a09b017b943c630e9fafe05f",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_shift_reserve_consequence.py",
+      "sha256": "89751cb78d110ab1b5bd3d331ef827e83d6c8b193c59c2452c1939bab7d536d3",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_signed_source_flux.py",
+      "sha256": "b5c9d0d23d21ad5782d605fa8a75455aa16ac2a1de62898e19cf2f79c077b8fa",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_signed_tail_prefix.py",
+      "sha256": "3cfe8c8fa24890a1e237637bd9d474408c27f7b9c979fcb09f5d1359dfc1be8c",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/check_three_region_payment.py",
+      "sha256": "8c8e849ec2f960bcf2ca798930d67a6f4cf6c5c2faaa300277862cf520c0e1b0",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/consequence.json",
+      "sha256": "37e73e9c41b0626a098d8289aa526a4ffa2cc6bf3e29960c67f73c04b77bdf61",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/degree11_shift_rational_basis.json",
+      "sha256": "6c95387f396ee791364045e70e7183b45f1e198e91f209811e99b17ffe627fd7",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/degree11_shift_slabs_16_4000_4000.json",
+      "sha256": "a3a3b29860d5a92397c0e75d51105099ebb5b9aaf135f34a9b6afaeb04055a72",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/result.json",
+      "sha256": "a3a3b29860d5a92397c0e75d51105099ebb5b9aaf135f34a9b6afaeb04055a72",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/source_flux_coefficients.json",
+      "sha256": "0c4b2c570d194070bd72deaf37627058047b8662021f697a8d0dd446657f86de",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/theta20_density.py",
+      "sha256": "d26b5ddffe50845bd906085f17664293050ea166982c748399d04f3095348a08",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/degree11_shift_replay/theta24_density.py",
+      "sha256": "7cfb094a92bfbdb6a96f1abc658e88e85e0dc02f4592ac4d4e38cfed627d910e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/nonlinear_theta_module_independent.txt",
+      "sha256": "9b7a3f14ef0bd9bd3f0ae15bccfc53b29d9b90d29c7dba1e7620969ff02bc6b4",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/selected20_canonical_obstruction_independent.json",
+      "sha256": "ffadedee5855d90b15d622bb1d1ecfe81c72fbc9a9ba72c460da49798fd1773a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/selected20_scalar_gauge_independent.json",
+      "sha256": "d575f4bf2d9002dabb27dd2318184115ea5112c5109aa076f1cd7e580435ad9e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/selected20_two_point_gauge_independent.json",
+      "sha256": "3b1f0235237b5585ab18fd484b836bad010837593a1e7730129d23a2ae1d4f3a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/theta_sos_degree_selection_independent.txt",
+      "sha256": "b618f7bcb71cd0184490c329a6daa1785cd4cf352d5b49e20d7d912ebb9500a6",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/theta_sos_localization_independent.txt",
+      "sha256": "f94df5d8ec964c05dc35b3d0b6a6568c65a9c7a877cf09072e7ad07eaae8b4ac",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/verified_zero_degree_replay/REVIEWED_INPUT_SHA256.txt",
+      "sha256": "63fc79e5a2c494ebe3b335b6af36e4b4c8a6edc88acb1dd69d27894d29b3047e",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/verified_zero_degree_replay/check_constants.py",
+      "sha256": "e694aa41adfaa5eb8dda6ba21f910e167b99f59b80302ef35476366ce698e36a",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/verified_zero_degree_replay/constants.txt",
+      "sha256": "8e69ec5ec17b9853f859081870d80b19bbca9c6f401508be741b575b673f2fe8",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_audit/verified_zero_degree_replay/core_iv.txt",
+      "sha256": "382ab34083784b230e0c7a06010514b2109e298445ada0df31e356919c126bc7",
+      "classification": "independent_audit_or_replay"
+    },
+    {
+      "path": "theta_correlated_local_v1/ALL_DEGREE_HARDY_BUDGET.md",
+      "sha256": "82a926e5d6ee250a40b6db66b7aedbe2c92d223c6e9dde1300a2a454284e54d9",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ALL_DEGREE_HARDY_BUDGET_FROZEN_SHA256.txt",
+      "sha256": "ad618b55814a3fe4940736f5a5154ed66c30257e18daf3385bb9e1e4bb651f26",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ALL_DEGREE_SOS_FLUX.md",
+      "sha256": "cbdfac3081eb9d5413cccaa84aa8a495955d86bda9efea6d39ebdbd883e41205",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ALL_DEGREE_SOS_FLUX_FROZEN_SHA256.txt",
+      "sha256": "65a983b95fefbdb85619493809d31683c9c2f6f3af8bf578a664701b5c12b465",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_BOUNDARY_LAYER.md",
+      "sha256": "32c0eed5391e219ae082a542b580a6ff7f0a35971b1c6695601718e01fb5d36c",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_BOUNDARY_LAYER_FROZEN_SHA256.txt",
+      "sha256": "39b71c6f4522530000afc82fdd7c286eced8d6364a9b463798780daaade4ae0e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_ERROR_BUDGET.md",
+      "sha256": "d23afa179adac5eee1a032c53fcf4b5069fc366d7b3fd26493d84b01182e18d3",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_ERROR_BUDGET_FROZEN_SHA256.txt",
+      "sha256": "9ee0ef60008210ea4e43226896a23ffc862ad8a5ea1e2f8b90001ebaa76eeaaa",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_REFINEMENT_ORDER.md",
+      "sha256": "e9786227c99f9a005275a61f6e6efb9f3f432b3ddf294581bbd5cf87ddc34b96",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ARITHMETIC_REFINEMENT_ORDER_FROZEN_SHA256.txt",
+      "sha256": "d5079adf3a7bc35436e0327d5444a43b6585c2b22536ee1da4b7c92542a6801a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/BEZOUT_FRAME_AND_THETA_CLOSURE.md",
+      "sha256": "68fbcd590baf429bd8e752289c443920d639c3284bf96e2278a9b5c4c60a2302",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/BEZOUT_FRAME_AND_THETA_CLOSURE_FROZEN_SHA256.txt",
+      "sha256": "0ba1aad254581236f6995d0147653635c445d6d7125a0449a16482d6083b52e2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMMON_SCALE_INTEGRATED_CURVATURE.md",
+      "sha256": "413f0ea1e283c9f8ec3d06c450cf605618b5f93854907804254d23e18f9696ed",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMMON_SCALE_INTEGRATED_CURVATURE_FROZEN_SHA256.txt",
+      "sha256": "e11e2c43097574a460210bf1d08dce34fed8493cbaebbde8365f37cf65a9c962",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMMON_SCALE_POSITION_PAYMENT.md",
+      "sha256": "ffea8ccd27dbef53eb1f0c9d41f2f3bef1c6abdb8c1b51a2e830697e0b3c331a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/COMMON_SCALE_POSITION_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "34b1d286ecc0f55f3717e81b3aaf20887bb32b375a0a017cec2c5906606e9b20",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/CORRECTED_GROUPING_POINTWISE_TEST.md",
+      "sha256": "cf58fafc563681a1161e3d60199d38307d4c86fdb6e4eb1baec57937269867ce",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/CORRECTED_GROUPING_POINTWISE_TEST_FROZEN_SHA256.txt",
+      "sha256": "1b8ebf2f992c1c735b3b46a398573e5ca126b3343f50bd5bdc0a2b8845545726",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/CUBIC_REOPTIMIZED_MARGIN_ASYMPTOTIC.md",
+      "sha256": "a2b6e12086ebe1a64f98030f1635be54488ec02ec3e28e27c23f9766acb1afa6",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/CUBIC_REOPTIMIZED_MARGIN_ASYMPTOTIC_FROZEN_SHA256.txt",
+      "sha256": "500c47e5290b0c067c96b2e83f20e1b82706992b21ae438ec7758fc71e6683a0",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE_DEPENDENT_CRITICAL_BAND.md",
+      "sha256": "be2db9ccf626cd3e38f1999f5330ec491e6d519b7af9b92cde38efd356bf7769",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DEGREE_DEPENDENT_CRITICAL_BAND_FROZEN_SHA256.txt",
+      "sha256": "0d02bb7281d4ee14d903b29e9d9a0ac0f03234c7fe274569dacb120116f64c15",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DUAL_PREFIX_CONTINUATION.md",
+      "sha256": "0efb64dd176dbbaaddfdb11f4c3edbc8403993f781550cfee96011d309e9b642",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/DUAL_PREFIX_CONTINUATION_FROZEN_SHA256.txt",
+      "sha256": "9e5b8b47691ccfd46397c764cf9a1ba19f1feab52a87848008073b9cef0cff5b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ENDPOINT_CORRECTED_ARITHMETIC.md",
+      "sha256": "a340b167bff7a18c4acc73b31ad523002eaea7424b300bbc247f403d5e8ab510",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ENDPOINT_CORRECTED_ARITHMETIC_FROZEN_SHA256.txt",
+      "sha256": "beb575507e48bf3c486d16727275f5c051bac68dcee4bb65c1e14b94604e2cb5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVENTUAL_SELECTED_DUAL_MARGIN.md",
+      "sha256": "23e82daadcc622c41b2fb9ce2aae6919c15cf57956cd630e006f21c57d662701",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVENTUAL_SELECTED_DUAL_MARGIN_FROZEN_SHA256.txt",
+      "sha256": "fc9783d76f3763cb4fcddb000cf03b1d068d6aa9d1b939436358ba589020ce58",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVENTUAL_SHIFT_COEFFICIENTS.md",
+      "sha256": "95065db98db3a06b81b1f945b9fd63323e27937e314ac1565bad27637571eca2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EVENTUAL_SHIFT_COEFFICIENTS_FROZEN_SHA256.txt",
+      "sha256": "d7748c00ee5f57e2d00ca3ffe7cb56eac3fbdd61b792ecd1d6fe4abc4e88fba8",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EXTERIOR_WARD_LOWER_BOUND.md",
+      "sha256": "7cedce5a9f92dde3c2a25d7155962e2f0c14618a2c2ec29dcb323ed254fccc27",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/EXTERIOR_WARD_LOWER_BOUND_FROZEN_SHA256.txt",
+      "sha256": "66d450780267f00af571f2d2d56cd86a56b624db935d04391450e4a3600e34ea",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FIXED_SHIFT_SIGNED_TAIL_OBSTRUCTION.md",
+      "sha256": "9b3a79400a8a80434a59098bd4fb384feb368f46041828d8439412e8444370e0",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FIXED_SHIFT_SIGNED_TAIL_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "58aba95c3113c2115c73826a5b531214ff357fa6c374f476bda5f82987e6f1a2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FULL_DUAL_ATOMIC_REPAIR.md",
+      "sha256": "d5d1f70820c46b11b5bf300e2a626ac88a44a489684258af51a98833601c0c22",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FULL_DUAL_ATOMIC_REPAIR_FROZEN_SHA256.txt",
+      "sha256": "80d7210edd660e832fc09c3d81591cf2db23281be7201b6338b33c86f26d4b74",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FULL_SHIFT_DEGREE10.md",
+      "sha256": "4a9144cfec0f46788773d5a9b599a561d8df5ea6f0278e849c421d7a85091e17",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/FULL_SHIFT_DEGREE10_FROZEN_SHA256.txt",
+      "sha256": "5c5568206270896c87aa70ae1684919f778e622d4976016f57ab125522b143ad",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/GAUSSIAN_PAID_PRIME_SIEVE.md",
+      "sha256": "d37adc0e60d4e87b664edd431f9287048a108ab7eb4a14efbb1d78896b341b5d",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/GAUSSIAN_PAID_PRIME_SIEVE_FROZEN_SHA256.txt",
+      "sha256": "a1b4b399a5e07c9c37efd16afa8d7e054b2ef486702614ce2a4ef3b2a01e5ec6",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/HARDY_PREFIX_COMPRESSION.md",
+      "sha256": "166787388b32f9d3f6c4a7f1f04f635f22c7d15883a06b9d6478f81a239e98e3",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/HARDY_PREFIX_COMPRESSION_FROZEN_SHA256.txt",
+      "sha256": "33382c3956dbb87453a7e78f2e9b4d26f55bf93f99b7aa601c66e789824a6281",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/HARDY_ZERO_PAIR_SUM_RULE.md",
+      "sha256": "d0f6df8850efe6896863f0f58ac94a63d1b1cafec7e56fda27303d958975df0f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/HARDY_ZERO_PAIR_SUM_RULE_FROZEN_SHA256.txt",
+      "sha256": "87dfe64fa97b7ae150aea8dcd44dfb3df1dd224f87416e05cdea7599de1ffcf7",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/JOINT_PRIME_PAIRING.md",
+      "sha256": "1438c23f5878343b5a47e2656f36435fc2a611f680cb4896a5d3cded1b9d9e84",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/JOINT_PRIME_PAIRING_FROZEN_SHA256.txt",
+      "sha256": "a6bc7fc43a1813cbad88e23fa007f0c5fc3608745d6a74a57086d2926aa9baa2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MODULAR_ARITHMETIC_ANALOGUE.md",
+      "sha256": "18971659e2a7ee667978e63441a802d0da7645784fa5f65d254706bb45678ff5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MODULAR_ARITHMETIC_ANALOGUE_FROZEN_SHA256.txt",
+      "sha256": "86a65151a02a714d1ed16e9ee16211d0ad2d6423dde0c6333209f7fca4e367a8",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MODULAR_REGULARIZED_GROUPING.md",
+      "sha256": "40240d0fb79978444215203e40914980ca65de1344cf751548516cb999457865",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MODULAR_REGULARIZED_GROUPING_FROZEN_SHA256.txt",
+      "sha256": "211caf88375d84dcead0ce71370b0e47c4b44d0e035a9f8223a1bc7657c3ab0e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MUNTZ_THETA_COMMUTATOR_TEST.md",
+      "sha256": "46ee83893c6826d81dcc9382994bd08a6f07e8e3f97cef4b71951da43c06c40b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/MUNTZ_THETA_COMMUTATOR_TEST_FROZEN_SHA256.txt",
+      "sha256": "5425c8fb3935254f11ff145489d8f3b78903d05f57690f4969710f684adc5d6b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/NONLINEAR_THETA_BEZOUT_MODULE.md",
+      "sha256": "81270920347c897962ae2f6b126a105ce862ab8d34a91cdb4fd98f720c507234",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/NONLINEAR_THETA_BEZOUT_MODULE_FROZEN_SHA256.txt",
+      "sha256": "753552b1080926f08765169db6f67a08aa850b57689ecccc8260a83c9a7a69fb",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PARITY_WEIGHTED_SELECTED_DUAL.md",
+      "sha256": "7a82fc184633c0bff9d16922c671feba30336ab39748ea80a0d21bc2b8957c60",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PARITY_WEIGHTED_SELECTED_DUAL_FROZEN_SHA256.txt",
+      "sha256": "e8188571b9f206de781e24851e28009e197d8726a4b5efa4490db0b11a844edb",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PREFIX_TRANSLATION_OBSTRUCTION.md",
+      "sha256": "38650a32f2e2baf8571ec9dc4fc502a6d687a241b41f9fc83c26bbe26fcbb7e9",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PREFIX_TRANSLATION_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "c50cdc5f5bf801da59dd0e52b73e2c2b5ee8c8e80eb43bc47c1cfa0819b82116",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PRIME_INVERSE_RESTORATION.md",
+      "sha256": "fff191a1a6e67ca80bf7016a77f0402f0145372b75bbb8ab124e9bae9066c77f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PRIME_INVERSE_RESTORATION_FROZEN_SHA256.txt",
+      "sha256": "ed05a7e7a0c582fc5ee16183c10e817bc15e6f55bef79a0115d5346273b4dd48",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PRIME_SIEVE_BRIDGE_DEFECT.md",
+      "sha256": "6424d05a1abb7112931641d5d17d821687e985886c7ffb387786219158075674",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/PRIME_SIEVE_BRIDGE_DEFECT_FROZEN_SHA256.txt",
+      "sha256": "d7fb2e03da9032501d4fdc8ba53c394f8cbba9d1ec2bdffd1212547d68adbb47",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGULARIZED_ARITHMETIC_PAYMENT.md",
+      "sha256": "b774246dcf9776bd6cc02570dd71e7f90a9274d73c42dccac1ac8bb9ce8c09b1",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REGULARIZED_ARITHMETIC_PAYMENT_FROZEN_SHA256.txt",
+      "sha256": "c6666bd17004c7592796ae138cb66ee955cac4b7a35079ec7760b61c13a6a34a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REOPTIMIZED_DUAL_FLOW.md",
+      "sha256": "dde732359cd0d1758e3b6f30f8dc3d1361ef176580d1ae22167d925f6f90309e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/REOPTIMIZED_DUAL_FLOW_FROZEN_SHA256.txt",
+      "sha256": "01c3420cf39934d78d08e336423a8f81d90e041444ac9ba546fd925fd2c4cd51",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/RIGID_DUAL_TRANSPORT_OBSTRUCTION.md",
+      "sha256": "1fab5556b86e26f187c9d8887190c0b2d58909c7dc5bdc1d782e859206840be9",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/RIGID_DUAL_TRANSPORT_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "6bedf17042e883a80e27bb1e96103a1a3f393c03bddc55791824751dcdaa2790",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ROOT_VOLTERRA_TRACE.md",
+      "sha256": "4328a01cfbf742a2f45287e34d9484172c6d8b7df87c51cc8d0b98cd875e4ec7",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/ROOT_VOLTERRA_TRACE_FROZEN_SHA256.txt",
+      "sha256": "b30888e4d7574edca8cca4779412e0dce08e6632dfa1392a3893e3cc37ed4ad0",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_CANONICAL_OBSTRUCTION.md",
+      "sha256": "af1abbdf638056a297ca98ffa2182f61587102d1f775da5262e005a834c43493",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_CANONICAL_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "e44b348545604e99891080673bfc455a2832aa0d2c1691c7b54964d84372880c",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_SCALAR_GAUGE_OBSTRUCTION.md",
+      "sha256": "a55d14b36c7a56e26a4929f057ccafc09de23b7fb9758cbe8d7feea71c583235",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_SCALAR_GAUGE_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "ec5210f121c605e804b8ef91c0ef0ca2a9dcb0f22aa8ad794332bdc2c524f88b",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_TWO_POINT_GAUGE_OBSTRUCTION.md",
+      "sha256": "856c92d39b48b11f1d8577f8ce181705f55825a78ae21a93c22b9d2a52d588da",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED20_TWO_POINT_GAUGE_OBSTRUCTION_FROZEN_SHA256.txt",
+      "sha256": "c1e711ce01483a8b07ee044f5674ff05fbc9be5c5b15c9bbe8d7cba9e9885735",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_HERMITE_NONUNIFORMITY.md",
+      "sha256": "73dbdf4ce3141fdedc50389f83565e404ee3caac8d354d3d21c847ae07f2d7cd",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_HERMITE_NONUNIFORMITY_FROZEN_SHA256.txt",
+      "sha256": "215f894d5ec2d1e5ad1bb71a8e09ee164bbda7a2d896630da77489c96942c609",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_ORTHOGONALITY_DUAL.md",
+      "sha256": "cb9a0629ddcda06f169f9c2eb3e7ec5bb800b978d8c8e03120e45da88044a6d5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_ORTHOGONALITY_DUAL_FROZEN_SHA256.txt",
+      "sha256": "798c337500b61289b6250fbf0614a3dd9f6204bf686e3ed745885984342e7811",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_PARITY_WARD_IDENTITY.md",
+      "sha256": "bfe49daf75a8dcd78322deb205aa41ca1026db048b6b3b991b8f283adc134687",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_PARITY_WARD_IDENTITY_FROZEN_SHA256.txt",
+      "sha256": "f18109ccb4439ebb924a58f56305b1645772db24c3997262863292cf5a8aa3c3",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SOS_DEGREE_SELECTION.md",
+      "sha256": "17c02d20970eb91323d6162b761c52fcd29a00859b9222aeedddfe329d3eeb44",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SOS_DEGREE_SELECTION_FROZEN_SHA256.txt",
+      "sha256": "af6d8630b861e4bcd2f4b78e06ec50b150fc23dbecc6e4c812d76d53181622b5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SOS_LOCALIZATION.md",
+      "sha256": "d04cf9e18237e5ae23493bba0d0fa11ac7bd6fee47ccdf91cd9096d91ea10635",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SOS_LOCALIZATION_FROZEN_SHA256.txt",
+      "sha256": "ebb0a1c7353fe9e34c0fae9ff2ca71735d82e9bc4c24ad413f78af0fa750cb75",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SUPERSYMMETRIC_LADDER.md",
+      "sha256": "0d84672b206db21c2bc73f80b37d5bd9a5be324329aa92c067ef84d0c37dbcb4",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/THETA_SUPERSYMMETRIC_LADDER_FROZEN_SHA256.txt",
+      "sha256": "447eec7995169b5cc2ef08502f1fabcb8777bb150a4e76b31718242c5c634bb5",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/VINOGRADOV_KOROBOV_BAND_COMPANION.md",
+      "sha256": "43b2e0aa9f0551d8080120888f3608d526e53043dac6a063e348e230ab0c1bc2",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/VINOGRADOV_KOROBOV_BAND_COMPANION_FROZEN_SHA256.txt",
+      "sha256": "8c40b771a3680577719674227886d149de7ae4f33daecca307d50fa749f7ac15",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/all_degree_sos_flux_check.txt",
+      "sha256": "801676ca651829e6d06268a3069b65abd929289ea2869e35cfbd12012c1c4300",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_all_degree_sos_flux.py",
+      "sha256": "bbbc83844e04e33755baae10a8cca545a733406f11abe3fbbc2fedd23d1e2f27",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_corrected_N1.py",
+      "sha256": "99e5867caf8c7a42a8f228db76409c0c6734c025ee41cd20720a97fda663072e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_degree10_consequence.py",
+      "sha256": "e9eee5e7cf11248f0f0105bba334f97ebd4acc8de30dd379d6f8f5cb44d3d0d7",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_degree11_shift_slabs.py",
+      "sha256": "7772cf748fe4708c7d9d799ebd0f52f0be89cb36b5f11289582d00f38ca25084",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_nonlinear_theta_module.py",
+      "sha256": "02d647b94a3f9a0cbb161e7049b43f8f8cef79332f01ba35a0d869ed85aa8e1f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_selected20_canonical_obstruction.py",
+      "sha256": "3afa31f2a6e79789c355f35f0b1e95da963353ebfdd0ca112888d1a47acb1936",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_selected20_scalar_gauge_obstruction.py",
+      "sha256": "3130ea25e56c490aca4a7298dfcf30c9e0fe75fe3551a7de219c4cc1293ef72e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_selected20_two_point_gauge_obstruction.py",
+      "sha256": "83d05fa28fd924ce6044a72965225bddb8b1280540ca3c2a7be194ae43b5db08",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_theta_sos_degree_selection.py",
+      "sha256": "a816cc0ad53cd7c3df35bad59eaeee9f3af1a41024c65ce9101ed6e38d3ddc36",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/check_theta_sos_localization.py",
+      "sha256": "6f00b864bbb9516309998b1b94ddbb0eff214705f49913f1c1636c529b33f366",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/corrected_N1.json",
+      "sha256": "dc31168bfc02428e1865168b5b4af82b6ffb96064ad7c49dea4163813ab9428f",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree10_consequence.json",
+      "sha256": "37e73e9c41b0626a098d8289aa526a4ffa2cc6bf3e29960c67f73c04b77bdf61",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree11_shift_rational_basis.json",
+      "sha256": "6c95387f396ee791364045e70e7183b45f1e198e91f209811e99b17ffe627fd7",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree11_shift_slabs_16_4000_4000.json",
+      "sha256": "a3a3b29860d5a92397c0e75d51105099ebb5b9aaf135f34a9b6afaeb04055a72",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/make_degree11_shift_basis.py",
+      "sha256": "8db82dd448ae1452c0d236beef633f3817987f02f480885ce19659f2bf1f3c57",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/nonlinear_theta_module_check.txt",
+      "sha256": "9b7a3f14ef0bd9bd3f0ae15bccfc53b29d9b90d29c7dba1e7620969ff02bc6b4",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/selected20_candidate_basis.json",
+      "sha256": "129240da298fc8e4cffcc7b6a70452f3a02c429d17516634c1d145d90ebcd920",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/selected20_canonical_obstruction.json",
+      "sha256": "ffadedee5855d90b15d622bb1d1ecfe81c72fbc9a9ba72c460da49798fd1773a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/selected20_odd_prefix_candidate_basis.json",
+      "sha256": "da6d4cfe2849143d601e1696852b1bdb17291387403de7d857340f98aa729e84",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/selected20_scalar_gauge_obstruction.json",
+      "sha256": "d575f4bf2d9002dabb27dd2318184115ea5112c5109aa076f1cd7e580435ad9e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/selected20_two_point_gauge_obstruction.json",
+      "sha256": "3b1f0235237b5585ab18fd484b836bad010837593a1e7730129d23a2ae1d4f3a",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/theta24_density.py",
+      "sha256": "7cfb094a92bfbdb6a96f1abc658e88e85e0dc02f4592ac4d4e38cfed627d910e",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/theta_sos_degree_selection_check.txt",
+      "sha256": "b618f7bcb71cd0184490c329a6daa1785cd4cf352d5b49e20d7d912ebb9500a6",
+      "classification": "reviewed_owned"
+    },
+    {
+      "path": "theta_correlated_local_v1/theta_sos_localization_check.txt",
+      "sha256": "f94df5d8ec964c05dc35b3d0b6a6568c65a9c7a877cf09072e7ad07eaae8b4ac",
+      "classification": "reviewed_owned"
+    }
+  ],
+  "diagnostic_or_correction_history": [
+    {
+      "path": "theta_correlated_local_v1/DEGREE11_INVALID_DIMENSION_FROZEN_SHA256.txt",
+      "sha256": "ba1d55d503f3c8e57636a0baf8b5943084e1a7d29113df1bc5b68bbedfbe7686",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/DUAL_EXTERIOR_FALSIFICATION_UNCERTIFIED_SHA256.txt",
+      "sha256": "c3c11cbb5c47ed132a2a09bff3c6f72f48b73f9d833081b6a27483b31e593b82",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_DUAL_LATER_UNCERTIFIED_PROBES_SHA256.txt",
+      "sha256": "1d97fa164ad42a2474f5524b7b143a28eec34d0c4a0ee0dcbb78626f801fa71c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_DUAL_PROBE_STATUS.md",
+      "sha256": "5880b13ad13ba0ac97da615f59da3dcdba4f3f4c2cce8c93d6c8cd6da5a2b86c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/SELECTED_DUAL_UNCERTIFIED_PROBES_SHA256.txt",
+      "sha256": "230fc1d83e4547708791fcf217620d04b8c11278ca2a27080ef8e7362ddd6b0e",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree11_initial_dimension_diagnostic/STATUS.md",
+      "sha256": "141a53739ca41d1e5841f30337ab3468c230ce878e691a7c8b630a08273ab1ca",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree11_initial_dimension_diagnostic/check_degree11_shift_slabs.py",
+      "sha256": "a63276c292c734de9a54140b3438697cd0c1812c31ea5ac312c70ffe28e2d67c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/degree11_initial_dimension_diagnostic/degree11_shift_slabs_16_4000_4000.json",
+      "sha256": "f41491ee52e2ec46fca9efda4cce60f1919615f62311fe86cef0b118fbc2ae1d",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_dual_high_UNCERTIFIED.py",
+      "sha256": "7f195f2c52ce82212b75a851039c0afec59d2a51d883400b79f9306c49e51005",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_dual_high_UNCERTIFIED.txt",
+      "sha256": "ba8e9bd98ca0c301352dba239d9ae74e17387bf6800c3a6d6c53aeb13bd15ced",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_dual_simplex_UNCERTIFIED.py",
+      "sha256": "0394bbdd187bd65728d4be646bedcf5a1c2bb4ad328d53d2c94db097f88735ae",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_dual_simplex_UNCERTIFIED.txt",
+      "sha256": "462284f1d9601de2447cb7fed3c93ed3c97307dfe69d5db86fbd029dfdee20dc",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_selected_dual.py",
+      "sha256": "bc368ab81981e81614ff8459383092dede48e46abc9186656dd7d38de786b3bd",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_exterior_selected_dual_UNCERTIFIED.txt",
+      "sha256": "557cb3ca5dcbcc60a907efc6bafe25478d80dc6234bea4cd2c958491ce0be85f",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_orthogonality_dual.py",
+      "sha256": "a6fbb8e67f85018eab3521f572d761473cf12cb771aaed61871581d9aef6d0bb",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_orthogonality_dual_UNCERTIFIED.txt",
+      "sha256": "bcc8441482730135a1e3897d8e4a13da52150405bdfe4d732a82ca96b9247c91",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder.py",
+      "sha256": "debc93ce631f28a5c33c803b1cd3c2a2bc2e2305f48523151ab6284abbfea07c",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_fine.py",
+      "sha256": "f6378bd45079c16b71d63082646e127e83e2297c5bdaa3ffc732fe76101b79af",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_fine_UNCERTIFIED.txt",
+      "sha256": "0ed2c5fbd429b49f31a60a5e7394b3d3d30fbb613f9c7d806c4cb33ed16f9c60",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_grid.py",
+      "sha256": "2a37143df90695b4ff655493261e2d72852642662efb4798ed8dee1ce3162a9a",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_grid_UNCERTIFIED.txt",
+      "sha256": "a77e549f3ee93c821b23fd598e1c091617ff209b762e5ca6d22f722f43fc4de3",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_dual.py",
+      "sha256": "b3499308b9dfbce8a9f43f11ee55879b7cc86a81ded883badd2cf8fa5901e477",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_dual_INVALID_LP.txt",
+      "sha256": "2e3f022e7529be6b008e0078d9fab645a83ed7f3b23cb5aef5a08f8ba735603e",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_dual_whitened.py",
+      "sha256": "d968226dbcbd05441f4d4f32c3bf07b11649b940b4635391067f8d1becf125d4",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_dual_whitened_UNCERTIFIED.txt",
+      "sha256": "4847feaa515a2cbbb9b08de494e5b272c2acac8212a839f8443030d626bbbdc1",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_test.py",
+      "sha256": "639c6cc80f1dd273363a86040c37ecae7c4ebb2f536629623bce10c045e4a536",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_next_test_UNCERTIFIED.txt",
+      "sha256": "b7fdb551625fc301d51bf894ea8076b5e08914a55c2b499200592b5065eb565d",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_wide.py",
+      "sha256": "57b207eec8288cca09f5b4686f720dcc439c1620c90f34a8ab9f0ca78a910649",
+      "classification": "owned_diagnostic_not_theorem"
+    },
+    {
+      "path": "theta_correlated_local_v1/probe_selected_canonical_remainder_wide_UNCERTIFIED.txt",
+      "sha256": "a77e549f3ee93c821b23fd598e1c091617ff209b762e5ca6d22f722f43fc4de3",
+      "classification": "owned_diagnostic_not_theorem"
+    }
+  ],
+  "private_provenance_policy": "Inherited source_0145_audit/private and other acquired provenance remain private. No acquisition or publication clearance is implied.",
+  "historical_working_file_revisions": []
+}

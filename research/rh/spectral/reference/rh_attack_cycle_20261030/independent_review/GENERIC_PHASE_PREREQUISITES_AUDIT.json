@@ -1,0 +1,166 @@
+{
+  "status": "PASS_FIXED_GENERIC_PRIME_NORM_AND_VALIDATED_SCALAR_MOMENT_PREREQUISITES_WITH_SAMPLE_CACHE_GATES",
+  "utc": "2026-10-30T14:18:26.392962+00:00",
+  "reviewer": "independent internal mathematical/source audit",
+  "final_note_sha256": "3b87a18f1ef18593b4267a60ace44d130903d00f8c11d4817cb8299cede49b06",
+  "initial_note_sha256": "bbf49df81e8a7593d1afa210e664c66a823c2935449e1eb7bfc1e43d546d1f6d",
+  "review_markdown_sha256": "3311d445690461b1a1a2d432399fca93840ad4b7d55aa8a6c551910e65bc7f74",
+  "accepted_fixed_prime_norm": {
+    "X": "16001/1000",
+    "operator": "full selfadjoint physical compressed prime operator",
+    "upper": "3.803639828",
+    "simple_rational_envelope": "3.80364",
+    "power": 7,
+    "exact_rational_state_counts": [
+      20,
+      218,
+      1573,
+      8969,
+      43167,
+      182191,
+      690634
+    ],
+    "breakpoints": 14388,
+    "replay_seconds": 31.220499277114868,
+    "odd_power_valid_by_spectral_mapping_not_PSD": true
+  },
+  "accepted_scalar_evaluator": {
+    "identity": "scaled Gamma-density integral",
+    "p_domain": "integer p>=2",
+    "start": "a=A+1",
+    "J": 16384,
+    "U": 1600,
+    "precision_bits": 1000,
+    "absolute_and_relative_tolerance_bits": 900,
+    "analytic_infinite_tail_error_included": true,
+    "meromorphic_callback_contract_verified_locally": true,
+    "all_primitive_replay_non_timing_fields_match": true
+  },
+  "near_phase_classification": {
+    "total_channels": 193,
+    "near_channels": [
+      "16001/16000",
+      "256032001/256000000",
+      "256000/16001",
+      "16"
+    ],
+    "minimum_remaining_phase_distance": "[0.146394242304689641216360740037649453436148882744673858253415 +/- 3.92e-61]",
+    "all_threshold_comparisons_strictly_certified": true
+  },
+  "independent_moment_checks": [
+    {
+      "ratio": 16,
+      "power": 142,
+      "tail_start": 16385,
+      "endpoint_recurrence_encloses_zero": true,
+      "real_accuracy_bits": 944,
+      "imag_accuracy_bits": 944,
+      "serialized_real_accuracy_bits": 298,
+      "serialized_imag_accuracy_bits": 298
+    },
+    {
+      "ratio": 256,
+      "power": 142,
+      "tail_start": 1048577,
+      "endpoint_recurrence_encloses_zero": true,
+      "real_accuracy_bits": 964,
+      "imag_accuracy_bits": 962,
+      "serialized_real_accuracy_bits": 299,
+      "serialized_imag_accuracy_bits": 301
+    },
+    {
+      "ratio": 16,
+      "power": 2,
+      "tail_start": 16385,
+      "endpoint_recurrence_encloses_zero": true,
+      "real_accuracy_bits": 960,
+      "imag_accuracy_bits": 957,
+      "serialized_real_accuracy_bits": 298,
+      "serialized_imag_accuracy_bits": 298
+    }
+  ],
+  "supplemental_identity_replay": {
+    "finite17_differences": true,
+    "conjugacy": true,
+    "strict_absolute_Hurwitz_bounds": true,
+    "known_success_low_order_Lerch_overlap": true,
+    "all_non_timing_fields_match": true
+  },
+  "sample_cache_gate": {
+    "serialization_digits": 350,
+    "entire_original_balls_contained_after_reload": true,
+    "restored_min_relative_bits": [
+      957,
+      942,
+      960
+    ],
+    "required_min_bits": 900,
+    "exact_source_keyed_metadata_present": true,
+    "producer_replay_cache_byte_identical": true,
+    "only_three_samples_not_full_cache": true
+  },
+  "provenance_repair": {
+    "producer_corrected_stale_missing_Lerch_output_narrative": true,
+    "six_samples_completed_high_order_balls_useless": true,
+    "failed_high_order_Lerch_not_rerun": true,
+    "in_memory_vs_90_digit_display_accuracy_now_explicit": true,
+    "initial_manifest_stale_pin_detected_then_producer_refreshed": true,
+    "final_manifest_pins_all_match": true,
+    "final_manifest_pin_count": 36,
+    "manifest_validation_is_provenance_not_acceptance_of_unreviewed_entries": true
+  },
+  "not_accepted_by_this_audit": [
+    "generic actual head or complete near correction",
+    "complete 10437-entry moment cache",
+    "signed coefficient-matrix positivity",
+    "complete generic tail/head Schur sign",
+    "actual full support positivity at sqrt(16.001)",
+    "historical fourth/sixth-power or stress results as newly replayed claims",
+    "practical support endpoint",
+    "cofinal theorem or RH"
+  ],
+  "full_moment_batch_or_generic_matrix_launched_by_reviewer": false,
+  "producer_source_edits_by_reviewer": false,
+  "producer_receipt_overwrites_by_reviewer": false,
+  "external_writes": false,
+  "execution_incidents": [
+    "One read-only process creation failed with transport disconnected; later read succeeded.",
+    "Initial cache replay invocation used wrong cwd and could not find the script; no numerical work ran; correct isolated replay succeeded."
+  ],
+  "denied_actions": [],
+  "uncertain_actions": [],
+  "pending_blockers": [],
+  "files": {
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_PHASE_FEASIBILITY_AND_REPAIRS.md": "3b87a18f1ef18593b4267a60ace44d130903d00f8c11d4817cb8299cede49b06",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/generic_prime_power7_feasibility.py": "b48f2274e7818d623995c9dba3759764c73e3808850a0204088025ac9754044d",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/GENERIC_POWER7_FEASIBILITY.json": "6faf119c33b0bf6a9f6b9ef653045f0c7605bf76c3d0c665ea534faa34fd8b9a",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/quadrature_near_moments.py": "f85172a4a196792880224c4adfbfa4ed86723cf5b31304b56a96d857a1afcaf6",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/NEAR_MOMENT_QUADRATURE_PILOT.json": "38a712f7d026025c3f101c915595acac8efbba171838404cb317873ad65a4a31",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/LOCAL_MANIFEST.json": "6a3df1d4cb9498e51046006f56c4e86bd1bba23c756324a8faf5d4b5fdc3a26d",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/DIRECT_LERCH_PILOT_STATUS.json": "09b9e0848b969c359c2d485eb401906538dedaa49d967d0cca311770bf776747",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/NEAR_RESONANCE_MOMENT_TIMING.json": "078d0e854418a67c88133088ef64f95a2253348afcef9d0801059cea38b42864",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/NEAR_RESONANCE_MOMENT_TIMING.log": "42968af044618822f959f11ef5059fdc4351426f8fc4dfbbb516a2a2bf8a13e9",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/check_moment_cache_roundtrip.py": "d855b4d43f74f293bb032917000f4b5f1d178d62831360bc041e62f50c1dc36b",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/MOMENT_CACHE_ROUNDTRIP_CHECKS.json": "5094fdd597031c78a6a08b372b60755be7e1b83a8ef677da92ac58ab8699480e",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/NEAR_MOMENT_SAMPLE_CACHE.json": "03f1db1573c2f2b78b4ef13ced011a838cf4ae4c67a99689a582913045732a8d",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/check_near_moment_identities.py": "7225a5a8cdba6f104b885409aeaf8284247410bc722a82536e2ef3e9deae64af",
+    "rh_attack_cycle_20261030/support_endpoint_continuity/NEAR_MOMENT_IDENTITY_CHECKS.json": "a2358f3eb9809cf642e53f15511b28b6945693ea2b8650d9d52635873c644b0d"
+  },
+  "replay_evidence": {
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INDEPENDENT_POWER7.log": "9b44fd3303486306ba92b9792273cb96f46c1b1ef33a7e9d354eb822027937e7",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INDEPENDENT_MOMENTS.log": "20fd4837a7b9016603fdde9eaac2df5b358bcd0336dc01bad4e5ac45bdb4ba59",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INDEPENDENT_CACHE_ROUNDTRIP.log": "e7be1b4f87fdd20ef4b23b4b5b86020839e0476fbcf2a910dad11658e97009f8",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INDEPENDENT_IDENTITIES.log": "c55e3558c3eaefac48978542238653603c4df29325661954472351d845fd98c9",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/independent_checks.py": "97b792a591c2a5bade65818f71676f11f0c49ccdf65a1b3f6958d1b37f4c76c1",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INDEPENDENT_CHECKS.json": "acfbe8f9bb310e91e7cdb501fef551716a3e878e71cf05325cb48381a157d985",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/GENERIC_POWER7_FEASIBILITY.json": "e52a68b560f9ed2ebe5735642b6ec8cf49577316c1a8c0aa8228b2141dcf2d61",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/NEAR_MOMENT_QUADRATURE_PILOT.json": "aa550018acc70dd63316d271d5eb2b0bdb9c0dc9d35ab5c7bd49c4e36d46a6d5",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/MOMENT_CACHE_ROUNDTRIP_CHECKS.json": "e7be1b4f87fdd20ef4b23b4b5b86020839e0476fbcf2a910dad11658e97009f8",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/NEAR_MOMENT_IDENTITY_CHECKS.json": "c55e3558c3eaefac48978542238653603c4df29325661954472351d845fd98c9",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/NEAR_MOMENT_SAMPLE_CACHE.json": "03f1db1573c2f2b78b4ef13ced011a838cf4ae4c67a99689a582913045732a8d",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INITIAL_GENERIC_PHASE_FEASIBILITY_AND_REPAIRS.md": "bbf49df81e8a7593d1afa210e664c66a823c2935449e1eb7bfc1e43d546d1f6d",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INITIAL_DIRECT_LERCH_PILOT_STATUS.json": "df49fa06bee13383ba197fd6d649de549392ab8b14a3aff278fbad6fc96dc235",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/INITIAL_LOCAL_MANIFEST.json": "ee93f9616a857e22683b6ea03c5abe3c70b7058fe262d3c5e3a9a9efe601ade9",
+    "rh_attack_cycle_20261030/independent_review/generic_phase_prerequisite_replay/MISDIRECTED_CACHE_CHECK.log": "e896bde79d70f459c4eee08af298139e040cbc043519060f65746da0f318c994"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "frozen_file_map": [
+    {
+      "original_source": "/workspace/shared/twin_ladder_physics_20261019/PASSIVE_DELAY_REALIZATION_v2.md",
+      "release_path": "delay/PASSIVE_DELAY_REALIZATION_v2.md",
+      "sha256": "c7f1042fa4b1ba8afbbf14cf18ca79bda9aeead1e524a054f1e3d50d5443538e"
+    },
+    {
+      "original_source": "/workspace/shared/twin_ladder_physics_20261019/CAUCHY_CARRIER_MEASUREMENT_ADDENDUM_v2.md",
+      "release_path": "delay/CAUCHY_CARRIER_MEASUREMENT_ADDENDUM_v2.md",
+      "sha256": "90b56f6bf0597b0f93d5e9f1530a5f38854f3bd5fe4ccee6a241db04f29bebd8"
+    },
+    {
+      "original_source": "/workspace/shared/twin_ladder_physics_20261019/verify_passive_delay.py",
+      "release_path": "delay/verify_passive_delay.py",
+      "sha256": "d6868bed83f3e9111d0fc225460f75830c599c4f9a002c44ebf60b9b45323e8e"
+    },
+    {
+      "original_source": "/workspace/shared/twin_ladder_physics_20261019/verification_receipt.json",
+      "release_path": "delay/verification_receipt.json",
+      "sha256": "40a5df4c22b8559a3e6b8b7cc7f40dc2b654a56be9480c782584a1274466c3b4"
+    },
+    {
+      "original_source": "/workspace/shared/rh_prime_mode_physics_20261019/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md",
+      "release_path": "poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md",
+      "sha256": "a5bfb352eb3bb50486ae51f55b22bb0604e80399562c186a516d5f3dd4df89b2"
+    },
+    {
+      "original_source": "/workspace/shared/rh_prime_mode_physics_20261019/check_poisson_ou.py",
+      "release_path": "poisson/check_poisson_ou.py",
+      "sha256": "e79cf374c3c72179781cb4d155fa20cb1f2aee86212980146a8b882d0e98090c"
+    },
+    {
+      "original_source": "/workspace/shared/rh_prime_mode_physics_20261019/finite_diagnostics.json",
+      "release_path": "poisson/finite_diagnostics.json",
+      "sha256": "d29508fa7509af079c07fb7019017d952193b845fbd211cb61cb7775ebd1612a"
+    },
+    {
+      "original_source": "/workspace/shared/ladder_physics_independent_audit_20261019/INDEPENDENT_AUDIT.md",
+      "release_path": "audit/INDEPENDENT_AUDIT.md",
+      "sha256": "ce448b9df3a1bbe796fa17683d0fe7e22236393457d3f72d6520d00b81c4e229"
+    },
+    {
+      "original_source": "/workspace/shared/ladder_physics_independent_audit_20261019/independent_checks.py",
+      "release_path": "audit/independent_checks.py",
+      "sha256": "752bbc785051b382cab0a5de13a76f15ff4f6e19f62b3dc875dee13f9e50997f"
+    },
+    {
+      "original_source": "/workspace/shared/ladder_physics_independent_audit_20261019/independent_receipt.json",
+      "release_path": "audit/independent_receipt.json",
+      "sha256": "5f37bac992ea21d3031b9fb8565ee520b5af5d80ce0308af517677d5449a37a0"
+    },
+    {
+      "original_source": "/workspace/shared/ladder_physics_independent_audit_20261019/source_binding.json",
+      "release_path": "audit/source_binding.json",
+      "sha256": "8fdb6b0253c362d84edf04d0718d3d4e4ea0a558e86284edf72006202b7097d0"
+    }
+  ],
+  "source_ref": "5a23eaa65afd6a53ad637eaac0ebe625bdb4e1e2",
+  "release_base": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "portable_audit_changes": "Relative input paths; final v2 notes instead of initial v1; output written to portable_replay_receipt.json. Mathematical checks unchanged."
+}

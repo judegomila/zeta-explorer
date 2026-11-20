@@ -1,0 +1,107 @@
+{
+  "schema": "xi-prolate-block-quotient-action-source-lock-v1",
+  "claim_class": "SPLIT_BLOCK_QUOTIENT_POSITIVE_ACTION_BOUND",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "585d13e3860106840e0bd550eaa30ff16eee78a182b926ccf4656e69be59bc6b",
+      "role": "source-locked split-block remainder sampling constants"
+    },
+    {
+      "path": "notes/GROWING_TRANSITION_SAMPLING_THEOREM.md",
+      "sha256": "551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72",
+      "role": "within-block Loewner bounds and transition inventory"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "exact anchor-deflated source Grams"
+    },
+    {
+      "path": "notes/PROLATE_TAIL_ENVELOPE.md",
+      "sha256": "309337a98721d0e0cffb40391a227ad29fbc0de315c6f532109c9376370ed59d",
+      "role": "finite KRD d4 bound and ground-state point lower bound"
+    },
+    {
+      "path": "FULL_EXTERIOR_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "a3ff2144995cf3195409c3e6f59dae7fff8e2ced4aae01a18f2c9166720bfa27",
+      "role": "source lock for the arithmetic-map norm"
+    },
+    {
+      "path": "notes/FULL_EXTERIOR_SAMPLING_FALLBACK.md",
+      "sha256": "7dd2d8b6d32da5e1d98a6c96702a8079b53075eb756d1204219a4581c6296413",
+      "role": "lambda-squared-over-two additive-even arithmetic-map bound"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "fixed-index prolate defect convention and source admission"
+    },
+    {
+      "path": "notes/PROLATE_DEFECT_SOURCE_AUDIT.md",
+      "sha256": "b8256ce059d2632d55cb1b0477b5af7f5ebb09d0fc81a7d8b8e696885b49772d",
+      "role": "qualitative fixed-index constants for rho8 and d12 over d8"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "minimum-energy quotient and action identities"
+    },
+    {
+      "path": "notes/HIGH_FOURIER_COERCIVITY.md",
+      "sha256": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+      "role": "scope of the existing Fourier-high coercivity theorem"
+    },
+    {
+      "path": "notes/SIGNED_SECTOR_MIDDLE_WINDOW_OBSTRUCTION.md",
+      "sha256": "3d5eb0354f97a8bf98bde9ba4e6f2a6d695990ae2a9163796a7ba155da46026b",
+      "role": "physical-middle and signed-comparison obstruction"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "arbitrary-precision interval runtime pin"
+    }
+  ],
+  "locked_conventions": {
+    "schedule": "lambda=p/2 with odd integer p>=5 and n_star=p^2+6+ceil((2/pi^2)*log(200*lambda^2+25)*log(20))",
+    "physical_blocks": "label 8 is one block; labels 12,16,... below n_star form the rest block after orthogonal deflation against the physical label-4 anchor",
+    "source_metric": "D_bd=D_8 direct_sum D_R is deliberately block diagonal and is not the full exterior source Gram",
+    "quotient_domain": "all pseudoinverses and inverse actions are restricted to K_L=range([W_8 W_R])",
+    "sampling_cross_terms": "the squared sum in the low action and the additive low/high action bound are retained",
+    "fixed_index_limits": "rho8 and d12/d8 are qualitative non-effective limits, never finite pilot inequalities",
+    "complements": "the physical complement K_L^perp is not identified with the Fourier-high subspace"
+  },
+  "locked_formulas": {
+    "block_metric": "D_L=D_8 direct_sum D_R; A_i=W_i*D_i^(-1/2); R_L=A_8*A_8^*+A_R*A_R^*",
+    "quotient": "Delta_L=R_L^dagger on K_L and Delta_L^(-1)=R_L on K_L",
+    "low_action": "Gamma_L<= (sqrt(C_8*M_8)+sqrt(C_R*M_R))^2",
+    "arithmetic_map": "norm(T*f)^2<=lambda^2*norm(f)^2/2 for additive-even f",
+    "ground_integral": "abs(I_0)^2>=1/(4*lambda)",
+    "transition_point": "V0=lambda^(-1)+8*pi*lambda and abs(rho_t)^2<=4*lambda*V0=4+32*pi*lambda^2",
+    "rest_inventory": "q_R=max(0,floor((n_star-1)/4)-2)<=3*lambda^2/2",
+    "rest_synthesis": "d_12*M_R<=q_R*lambda^2*(5+32*pi*lambda^2)/2<=3*lambda^4*(5+32*pi*lambda^2)/4",
+    "fixed_limits": "rho_8 tends to -sqrt(70)/16 and d_12/d_8 is asymptotic to (8192*pi^4/1485)*lambda^8",
+    "high_extension": "Gamma(Delta_L direct_sum g*I)<=Gamma_L+B_H/g^2",
+    "metric_counterexample": "W=[1,1], D_bd=2*I, D_full=[[2,-1],[-1,2]] gives Gamma_bd=1 and Gamma_full=4",
+    "complement_counterexample": "Q=diag(1,-1,1), K_L=span(e1), F_high=span(e3) gives low floor 1, Fourier-high floor 1, and physical-complement floor -1"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the split-block low positive-sampling quotient action with all cross-block sampling orientation retained",
+      "finite physical synthesis bounds for the singleton and rest blocks without a smallest physical singular value",
+      "the qualitative low action scale O(lambda^3*polylog(lambda)/d_8)",
+      "the conditional high-complement action formula and two exact shortcut counterexamples"
+    ],
+    "not_proved": [
+      "an effective threshold for either fixed-index limit",
+      "a usable signed floor on the physical complement",
+      "a shifted signed comparison in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

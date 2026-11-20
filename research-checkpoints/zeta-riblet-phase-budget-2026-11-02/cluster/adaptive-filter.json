@@ -1,0 +1,174 @@
+{
+  "center": 1967.40625,
+  "height_half_width": 0.000244140625,
+  "threshold": "1/16",
+  "coefficient_denominator": 1024,
+  "best_degree_one_ratio_upper_at_half": 0.05903793560669625,
+  "witnesses": [
+    {
+      "scale": "1/2",
+      "degree": 2,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1269/1024",
+          "-5/32"
+        ],
+        [
+          "639/1024",
+          "-161/1024"
+        ]
+      ],
+      "ratio_lower": 0.07217963354393384,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.019492713003665778
+        },
+        {
+          "degree": 1,
+          "ratio_lower": 0.04500242043458291
+        },
+        {
+          "degree": 2,
+          "ratio_lower": 0.07217963354393384
+        }
+      ]
+    },
+    {
+      "scale": "1/4",
+      "degree": 1,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "713/1024",
+          "-63/1024"
+        ]
+      ],
+      "ratio_lower": 0.08749438831082426,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.04556445797266327
+        },
+        {
+          "degree": 1,
+          "ratio_lower": 0.08749438831082426
+        }
+      ]
+    },
+    {
+      "scale": "1/8",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.07958266627760394,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.07958266627760394
+        }
+      ]
+    },
+    {
+      "scale": "1/16",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.10839910274743056,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.10839910274743056
+        }
+      ]
+    },
+    {
+      "scale": "1/32",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.12544218102072438,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.12544218102072438
+        }
+      ]
+    },
+    {
+      "scale": "1/64",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.13047063883533655,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.13047063883533655
+        }
+      ]
+    },
+    {
+      "scale": "1/128",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.12451860372397519,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.12451860372397519
+        }
+      ]
+    },
+    {
+      "scale": "1/256",
+      "degree": 0,
+      "coefficients": [
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "ratio_lower": 0.10835762974568001,
+      "trials": [
+        {
+          "degree": 0,
+          "ratio_lower": 0.10835762974568001
+        }
+      ]
+    }
+  ],
+  "small_scales": {
+    "upper_scale": "1/256",
+    "ratio_lower": 0.093399640274589
+  },
+  "status": "certified on this band, global termination remains open"
+}

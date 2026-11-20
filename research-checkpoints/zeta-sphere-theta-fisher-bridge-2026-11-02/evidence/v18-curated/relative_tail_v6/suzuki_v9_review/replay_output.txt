@@ -1,0 +1,2 @@
+sign -1 minimum pivot lower 0.59312676949637 PASS
+sign 1 minimum pivot lower 0.84303299449627 PASS

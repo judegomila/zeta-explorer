@@ -1,0 +1,27 @@
+samples half 0 seconds 0.0044710636138916016
+samples half 65536 seconds 2.8086025714874268
+samples half 131072 seconds 5.6353607177734375
+samples half 196608 seconds 8.29328203201294
+samples half 262144 seconds 11.05523943901062
+samples half 327680 seconds 13.896744728088379
+samples half 393216 seconds 15.515002965927124
+samples half 458752 seconds 16.77224349975586
+samples half 524288 seconds 17.977930545806885
+DFT starting 17.97797727584839
+DFT completed 25.0947904586792
+weighted sum 262144 seconds 25.729089498519897
+weighted sum 524288 seconds 26.37140154838562
+weighted sum 786432 seconds 27.01884698867798
+weighted sum 1048576 seconds 27.697652578353882
+{
+  "scope": "Arb enclosure of finite trig-interpolant weighted convolution, before analytic alias/truncation errors",
+  "power": 20,
+  "precision_bits": 80,
+  "t": "7005.081715",
+  "H": "1",
+  "delta": "2/t",
+  "scaled_core_ball": "[5.6962777822e+13 +/- 9.71e+2]",
+  "lower": "[56962777821816.084505746 +/- 2.09e-10]",
+  "upper": "[56962777822970.226908395 +/- 2.83e-10]",
+  "seconds": 27.697991132736206
+}

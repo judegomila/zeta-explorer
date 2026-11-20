@@ -1,0 +1,221 @@
+{
+  "actual_theta_first_reduction_full_class": "proved by these certificates and the analytic notes",
+  "arbitrary_depth_actual_theta_preservation": "unproved",
+  "environment": {
+    "python": "3.12.14",
+    "python_flint": "0.9.0",
+    "sympy": "1.14.0"
+  },
+  "finite_zero_verification_used": false,
+  "general_class_preservation": "disproved by an explicit auxiliary pair at anchor 10",
+  "intrinsic_real_Pick_order": 4,
+  "results": {
+    "all_anchor_origin": {
+      "conclusion": "J_new''(0)>0 for every a>0, by the analytic comparison in the note.",
+      "constants": {
+        "C0": "[0.02152870762556652324898962199152197345372224976 +/- 4.20e-48]",
+        "c": "[4.6817262323758302921040754880433049661921971457226926373984956517 +/- 4.43e-65]",
+        "c_C": "[5.187223824999210937408568175202458476556534187 +/- 6.02e-46]",
+        "kappa0": "[0.446696900467123444086984667054709113220424367094824974730851881731 +/- 5.60e-67]",
+        "kappa4_over_kappa0": "[56.817247934653991209338311228438275114714776509798926751144923429 +/- 2.86e-64]",
+        "p1": "[0.0461359280604625753594660065422719932179382973 +/- 5.56e-47]",
+        "p20": "[0.666549523899850124363253063048725077618615693 +/- 6.08e-46]"
+      },
+      "large_anchor_polynomial_coefficients": [
+        "3471/100",
+        "5442",
+        "190050",
+        "65949/250",
+        "191796/5",
+        "1116180",
+        "685031/2500",
+        "843562/25",
+        "425162"
+      ],
+      "precision_bits": 224,
+      "proved_M6": 1500,
+      "scope": "All-anchor origin derivative theorem only; spatial and arbitrary-depth preservation require separate arguments.",
+      "sixth_derivative_bound_core": "1256.62208843231201171875000000000000000000000000000000000000000000",
+      "sixth_derivative_bound_tail": "[5.797218253970594530105618613494163429960675537968829253413742384e-48 +/- 2.80e-112]",
+      "sixth_derivative_cells": 4096,
+      "small_anchor_rational_margin": "57/500",
+      "status": "passed"
+    },
+    "comparison_and_tail": {
+      "arithmetic": "exact symbolic identities and rational coefficient checks",
+      "check_count": 47,
+      "checks": [
+        "call_kernel_three_column_identity",
+        "call_kernel_two_below_zero",
+        "call_kernel_all_below_zero",
+        "call_kernel_all_above_zero",
+        "call_kernel_two_above_identity",
+        "call_kernel_cross_two_identity",
+        "projective_Wronskian_identity",
+        "reciprocal_reduction_commutes",
+        "uniform_example_Wronskian",
+        "counterexample_excluded_by_new_Wronskian",
+        "counterexample_negative_on_unit_interval",
+        "H_polynomial_degree",
+        "H_polynomial_norm",
+        "P_polynomial_degree",
+        "P_polynomial_norm",
+        "H3_residual_identity",
+        "H3_positive.numerator",
+        "H3_positive.denominator",
+        "residual_positive.numerator",
+        "residual_positive.denominator",
+        "residual_decreases.numerator",
+        "residual_decreases.denominator",
+        "negative_h_coefficient.numerator",
+        "negative_h_coefficient.denominator",
+        "H_Wronskian_upper_subsolution_margin.numerator",
+        "H_Wronskian_upper_subsolution_margin.denominator",
+        "P_Wronskian_margin.numerator",
+        "P_Wronskian_margin.denominator",
+        "r_above_half_p.numerator",
+        "r_above_half_p.denominator",
+        "r_below_p.numerator",
+        "r_below_p.denominator",
+        "r_prime_above_p.numerator",
+        "r_prime_above_p.denominator",
+        "p_at_t4_above128",
+        "geometric_q_parameter",
+        "q_derivative_bound",
+        "Touchard_coefficient_bound",
+        "theta_gaussian_ratio",
+        "theta_derivative_constant",
+        "log_derivative_constant",
+        "delta_at128",
+        "epsilon_at128",
+        "polynomial_error_constant",
+        "common_error_at128",
+        "common_error_decreases",
+        "common_error_below_half"
+      ],
+      "common_error_bound": "less than 2^(-116)",
+      "scope": "Audits the comparison algebra and analytic tail proof. Bounded interval signs and initial new-J slope are separate inputs. No all-depth preservation or RH assertion.",
+      "source_Wronskian_polynomials": {
+        "H": {
+          "coefficient_norm": 419,
+          "degree": 8
+        },
+        "P": {
+          "coefficient_norm": 11344,
+          "degree": 8
+        }
+      },
+      "status": "passed",
+      "tail_conclusion": "W(B_prime,J_prime,-H_prime)>1/2 and W(B_prime,J_prime,P_prime)>1/2",
+      "tail_domain": "t>=4; p=pi exp(t)>128"
+    },
+    "general_class_counterexample": {
+      "certified_upper_bound": "H_q*N_qq-H_qq*N_q < -0.0000178 at q=0",
+      "conclusion": "The proposed stronger input class is not preserved: new H is strictly concave as a function of new B for all sufficiently small positive t at anchor 10.",
+      "enclosures": {
+        "H_q_N_qq_minus_H_qq_N_q_at_zero": "[-1.78579621350399572791500356384512212732771691748e-5 +/- 8.26e-53]",
+        "Iu": "[0.08307526897076196744650539891056249425034724493285950 +/- 5.94e-54]",
+        "Iu_tail_bound": "[7.080460958384313502346525566792125476463261111549860915374501753143641486935e-220 +/- 4.68e-296]",
+        "Iv": "[0.1868222758877820581172885824241906489789323265890456503705613343072820026494 +/- 4.92e-77]",
+        "N0": "[0.3138035844738202499171711921330239898933010667369435 +/- 1.05e-53]",
+        "N_q_at_zero": "[-0.028775983417339324141237509164689613449787281576655 +/- 5.79e-52]",
+        "N_qq_at_zero": "[0.00903211119793746347798438858489495826678691640448 +/- 4.44e-51]",
+        "mu": "[0.30185515350111671718504243166717061641699325147286849 +/- 3.18e-54]",
+        "mu_tail_bound": "[7.16451727638528514762709653049647087436281111605127399980651896368671917023e-136 +/- 5.05e-211]"
+      },
+      "environment": {
+        "precision_bits": 256,
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "exact_algebra": {
+        "check_count": 9,
+        "checks": {
+          "B": true,
+          "B_q": true,
+          "B_q_polynomial": true,
+          "B_qq": true,
+          "H_convexity_numerator": true,
+          "H_convexity_polynomial": true,
+          "J_convexity_numerator": true,
+          "minus_B_qq_polynomial": true,
+          "origin_coefficient_formula": true
+        },
+        "status": "passed"
+      },
+      "example": {
+        "anchor": 10,
+        "u": "exp(-t^2)/sqrt(t^2+5)",
+        "v": "exp(-t^2)"
+      },
+      "scope": "A rigorous auxiliary-pair counterexample. It is not a counterexample to actual theta, RH, or the PR51 ratio theorem.",
+      "status": "passed"
+    },
+    "large_anchor_asymptotic": {
+      "check_count": 12,
+      "checks": [
+        "D_h_expansion",
+        "D_B_expansion",
+        "parity_determinant_derivative",
+        "Laplace_density_normalization",
+        "Green_source_normalization",
+        "B_times_kernel",
+        "resolvent_remainder",
+        "transform_cancellation",
+        "second_derivative_coordinate",
+        "J_new_derivative",
+        "origin_cubic_coefficient",
+        "origin_linear_derivative"
+      ],
+      "scope": "Exact algebra for the analytic large-anchor/bounded-space preservation theorem. No numerical A_T, finite-anchor theorem, or arbitrary-depth preservation is asserted.",
+      "status": "passed"
+    },
+    "spatial_wronskians": {
+      "core": {
+        "C4": "[3.0007270222571887949010658713226252459843757364685602e-72 +/- 6.47e-125]",
+        "C_at_1_over_8_direct": "[0.0206720411283830191162572169355173393899097009214432201 +/- 7.25e-56]",
+        "C_at_1_over_8_propagated": "[0.02067204112838301911625721694 +/- 5.17e-30]",
+        "Taylor_order": 14,
+        "cell_widths": {
+          "1/1024": 710,
+          "1/128": 90,
+          "1/2048": 600,
+          "1/256": 178,
+          "1/512": 355,
+          "1/64": 51
+        },
+        "cells": 1984,
+        "domain": "1/8<=t<=4",
+        "lower_bounds": {
+          "W_H": "0.001044100625222199596464633941650390625000000000000000000000000000000000000000",
+          "W_P": "201.9980041980743408203125000000000000000000000000000000000000000000000000000"
+        },
+        "precision_bits": 256,
+        "scope": "Rigorous full Taylor models; no product truncation or sampled sign inference.",
+        "status": "passed",
+        "theta_terms": 16
+      },
+      "exact_numerator_checks": 4,
+      "global_scope": "This file covers 0<t<=4; the infinite tail needs a separate analytic proof.",
+      "origin": {
+        "C0": "[0.021528707625566523248989621991521973453722249763325813 +/- 6.27e-55]",
+        "cells": 128,
+        "conversion": "W_t(B',J',Q')=64*t^6*W_u(B_u,J_u,Q_u)",
+        "coordinate": "u=t^2",
+        "degree": 24,
+        "domain": "0<t<=1/8",
+        "lower_bounds": {
+          "W_H_over_64t6": "4.395735591650009155273437500000000000000000000000000000000000000000000000000",
+          "W_P_over_64t6": "850430.4277343750000000000000000000000000000000000000000000000000000000000000"
+        },
+        "precision_bits": 256,
+        "scope": "Rigorous interval certificate, all theta and Taylor tails included.",
+        "status": "passed",
+        "theta_terms": 16
+      },
+      "status": "passed"
+    }
+  },
+  "scope": "Computer-assisted mathematical arguments with fixed PR51 inputs; not a formal proof-assistant verification, external peer review, novelty claim, or RH proof.",
+  "status": "passed"
+}

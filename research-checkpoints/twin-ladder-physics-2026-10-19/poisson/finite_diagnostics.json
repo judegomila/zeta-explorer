@@ -1,0 +1,54 @@
+{
+  "scope": "Finite double-precision diagnostics; not interval certificates or laboratory experiments.",
+  "parameters": {
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19
+    ],
+    "s": 0.834,
+    "h": 0.125,
+    "x": 0.04,
+    "T": 100.0
+  },
+  "covariance_variance": 0.0006354105664467719,
+  "tail_variance": 0.0006354105664467635,
+  "innovation_variance": 0.000635410566446771,
+  "minimum_covariance_eigenvalue": 0.004683522411449225,
+  "raw_cauchy_cosine_statistics": {
+    "mean": 0.06618905385810787,
+    "variance": 0.0006354105664469704,
+    "third_central": -6.603364064287291e-05,
+    "fourth_central": 9.206493309539478e-06,
+    "fourth_cumulant": 7.995253545682099e-06,
+    "kurtosis": 22.80265291213686
+  },
+  "gaussian_surrogate_fourth_central": 1.2112397638566225e-06,
+  "generic_frequency_identity_errors": [
+    2.970713952610282e-17,
+    2.168404344971009e-18
+  ],
+  "one_mode_exact_check": {
+    "mean": 0.7071067811865476,
+    "variance": 0.2499999999999999,
+    "third_central": -0.26516504294495524,
+    "fourth_central": 0.4062499999999998,
+    "fourth_cumulant": 0.21874999999999994,
+    "kurtosis": 6.500000000000003
+  },
+  "one_mode_gaussian_fourth_central": 0.1875,
+  "repeated_prime_ratios": {},
+  "repeated_integer_ratios_2_to_9": {
+    "3/2": 3,
+    "2": 3,
+    "3": 2,
+    "4/3": 2
+  },
+  "broad_width_triad_2_3_6_third_moment": 1.5,
+  "broad_width_prime_2_3_5_third_moment": 2.1872773064202564e-16
+}

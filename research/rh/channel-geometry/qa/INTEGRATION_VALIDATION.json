@@ -1,0 +1,22 @@
+{
+  "status": "PASS_LOCAL_INTEGRATION_SLICE_WITH_EXPLICIT_PUBLICATION_GATE",
+  "originalAndCuratedSourcePins": 24,
+  "availableArtifactPins": 29,
+  "moduleAssertions": 4,
+  "displayMathBlocks": 45,
+  "inlineMathPairs": 112,
+  "rendererParserSourceSha256": "d4310a82bdd0bc4f200bd3b7e0f5a92038da35c2971fae3dd6adcf8a883cc1fc",
+  "draftSchemaExpectedOnlyError": [
+    "provenance.sourceRefs must contain at least 1 item(s)"
+  ],
+  "missingProvenanceRejected": true,
+  "privacyScan": "PASS",
+  "bodySha256": "bcda63ebc745d6363fc1ac407312035af011af25acc61404923a60147ae592f8",
+  "sourceManifestSha256": "c8e5c20e32ee513aec009c1958316fa8aa9eb15bcda686f2c70543c393579b69",
+  "notRun": [
+    "live browser rendering",
+    "KaTeX runtime rendering",
+    "actual app aggregate/build/route tests",
+    "remote publication or registration"
+  ]
+}

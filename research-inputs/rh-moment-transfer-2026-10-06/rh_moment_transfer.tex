@@ -1,0 +1,470 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.86in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype,xcolor,hyperref}
+\usepackage{fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue!40!black,urlcolor=blue!45!black,
+pdftitle={Testing the quasi-RH moment transfer},pdfauthor={Research continuation for Jude Gomila}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small TWIN LADDER / ARITHMETIC TRANSFER}
+\fancyhead[R]{\small October 6, 2026}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\dd}{\,d}
+\newcommand{\Ree}{\operatorname{Re}}
+\newcommand{\E}{\mathcal E}
+\newcommand{\D}{\mathcal D}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\title{Testing the quasi-RH moment transfer\\[4pt]
+\large Exact arithmetic identities and the missing exponent saving}
+\author{Research continuation for Jude Gomila}
+\date{October 6, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We attempt the proposed transfer from the posted quasi-Riemann-hypothesis
+moment estimates to the existing Vaughan Type-II packet. The attempt does
+not produce an improved zero-free region or a proof of RH. We derive the
+exact meromorphic generating function of the Type-II coefficients: every
+nontrivial zero retains its full logarithmic-derivative residue. We check
+the rational-to-Eisenstein coefficient lift, isolate the principal-row
+restriction in the fourth moment, and calculate the loss in the available
+inverse-moment amplification. The actual sixth-power amplifier gives an
+individual inverse-sum exponent $11/12+\varepsilon$, weaker than the imported
+$7/8$ conclusion. The latter yields the endpoint packet-energy bound
+$\E_{\rm II}(T)=O(e^{3T/4})$, but no smaller exponent is established here.
+Exact finite coefficient and rational-algebra checks accompany the proofs.
+This is a working transfer audit, not an independently refereed result or
+a claim of novelty.
+\end{abstract}
+
+\section{Inputs, scope, and the actual target}
+The external input, denoted \textbf{QS}, is the posted assertion that zeta,
+all Dirichlet $L$-functions, and the specified finite-order Hecke
+$L$-functions over $F=\Q(\sqrt{-3})$ are zero-free in $\Ree s>7/8$,
+apart from principal poles \cite{openai}. The source examined here is pinned
+to commit \texttt{adc7f1241b42} (full hash in the source index).
+The proof entry point and comparator configuration were inspected in the
+preceding audit; the complete Lean dependency tree has not been rebuilt.
+Every assertion below that uses QS is explicitly an implication from this
+external input. The finite checks in this bundle do not verify QS.
+
+The internal inputs are the October 1 Vaughan note v9 and its retained
+v8 growth argument \cite{v9,v8}. Put
+\[
+ u=24\mathbf1_{[-1/48,1/48]},\quad
+ g=\kappa^{-1/2}(-\partial_x^2+1/4)^2u^{*12},\quad
+ k=g*\widetilde g,
+\]
+where
+\[
+ \kappa=\frac{11431397901559182284554757008547201}
+ {2872446304320552960000}.
+\]
+This real even packet satisfies $\operatorname{supp}k\subset[-1/2,1/2]$,
+$k(0)=1$, and
+\begin{equation}\label{eq:K}
+ K(w)=\int_{\mathbb R}k(x)e^{wx}\dd x
+ =\frac{(1/4-w^2)^4}{\kappa}
+ \left(\frac{\sinh(w/48)}{w/48}\right)^{24}.
+\end{equation}
+In particular $K$ has a fourth-order zero at $w=1/2$, is nonzero for
+$0<\Ree w<1/2$, and has vertical decay $O((1+|\Im w|)^{-16})$ on
+$|\Ree w|\le1/2$.
+
+The sums and energies to be bounded are
+\begin{align}
+ S(L)&=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}k(\log n-L),\label{eq:S}\\
+ \E(T)&=\int_T^{T+1}|S(L)|^2\dd L.\nonumber
+\end{align}
+At each window $L\in[T,T+1]$, fix $U=V=\lfloor e^{12T/25}\rfloor$ and let
+\begin{align}
+ a_U(r)&=\sum_{d\mid r,\ d>U}\mu(d),\nonumber\\
+ D_T(L)&=\sum_{r>U,\ b>V}\frac{a_U(r)\Lambda(b)}{\sqrt{rb}}
+                     k(\log(rb)-L),\label{eq:D}\\
+ \E_{\rm II}(T)&=\int_T^{T+1}|D_T(L)|^2\dd L.\nonumber
+\end{align}
+Every displayed packet sum is finite. The v9 reduction proves
+\begin{equation}\label{eq:error}
+ \|S-D_T\|_{L^2[T,T+1]}
+ \le 6\cdot10^{15}(T+2)e^{-T/50}\qquad(T\ge1).
+\end{equation}
+The remaining target is subexponential energy at all scales, not a finite
+sample or an average over a different character family.
+
+\section{Exact transfer: the Type-II term keeps every zero pole}
+First hold arbitrary positive integer cutoffs $U,V$ fixed. Write
+\[
+ M_U(s)=\sum_{d\le U}\mu(d)d^{-s},\qquad
+ L_V(s)=\sum_{b\le V}\Lambda(b)b^{-s}.
+\]
+These are entire Dirichlet polynomials; $L_V$ is not a Dirichlet
+$L$-function. Let
+\[
+ d_{U,V}(n)=\sum_{rb=n}a_U(r)\Lambda(b)\mathbf1_{b>V},\qquad
+ \D_{U,V}(s)=\sum_n d_{U,V}(n)n^{-s}.
+\]
+
+\begin{theorem}[Meromorphic Type-II identity]\label{thm:poles}
+Initially for $\Ree s>1$, and then by meromorphic continuation,
+\begin{align}
+ \D_{U,V}(s)
+ &=\bigl(1-\zeta(s)M_U(s)\bigr)
+       \left(-\frac{\zeta'}{\zeta}(s)-L_V(s)\right)\label{eq:product}\\
+ &=-\frac{\zeta'}{\zeta}(s)-L_V(s)
+       +M_U(s)\zeta'(s)+\zeta(s)M_U(s)L_V(s).\label{eq:expanded}
+\end{align}
+At every nontrivial zero $\rho$ of multiplicity $m_\rho$, this function has
+residue $-m_\rho$, independently of $U,V$.
+\end{theorem}
+\begin{proof}
+Absolute convergence permits Dirichlet convolution in $\Ree s>1$:
+\[
+ \sum_r a_U(r)r^{-s}
+ =\zeta(s)\sum_{d>U}\mu(d)d^{-s}
+ =1-\zeta(s)M_U(s).
+\]
+Multiply by the series for the von Mangoldt tail to obtain
+\eqref{eq:product}; expansion gives \eqref{eq:expanded}.
+At a nontrivial zero, $M_U,L_V,\zeta,\zeta'$ are holomorphic. The only pole
+in \eqref{eq:expanded} is the logarithmic derivative, of residue
+$-m_\rho$. This also handles multiple zeros.
+\end{proof}
+
+This proves the exact coefficient version of Vaughan's identity:
+\begin{equation}\label{eq:coeff}
+ d_{U,V}=\Lambda-\Lambda_{\le V}
+                 -\mu_{\le U}*\log+\mu_{\le U}*\Lambda_{\le V}*1.
+\end{equation}
+The final convolution cannot be discarded. The checker treats $\log p$ as
+independent formal symbols and checks \eqref{eq:coeff} coefficient by
+coefficient, with no floating-point logarithms.
+
+Define the fixed-cutoff response by replacing $D_T$ in \eqref{eq:D} with
+$D_{U,V}$. Its full Laplace transform, initially for $\Ree w>1/2$, is
+\[
+ \int_{\mathbb R}D_{U,V}(L)e^{-wL}\dd L
+       =K(w)\D_{U,V}(1/2+w).
+\]
+Indeed the change of variables $x=\log n-L$ gives the factor $K(w)$.
+The difference between this transform and
+$-K(w)(\zeta'/\zeta)(1/2+w)$ is entire: the only possible additional
+singularity is the pole of $\zeta$ and $\zeta'$ at $s=1$, which
+\eqref{eq:K} removes. At $w=\rho-1/2$ with positive real part the residue is
+\begin{equation}\label{eq:residue}
+ -m_\rho K(\rho-1/2)\ne0.
+\end{equation}
+Thus neither the Vaughan split nor this pole-annihilating packet moves a
+zero pole to half its real displacement. This does not rule out a deeper
+arithmetic estimate for the sum.
+
+\paragraph{Moving-cutoff qualification.}
+The transform theorem holds with $U,V$ fixed. It is not a transform formula
+for a response whose cutoffs vary with $L$. The moving-window energy
+$\E_{\rm II}$ is related to $\E$ by \eqref{eq:error}, not by silently
+substituting $U=U(L)$ into a Dirichlet series.
+
+\section{What the imported zero bound rigorously supplies}
+Let
+\[
+ \delta_* =\sup_\rho(\Ree\rho-1/2),\qquad
+ \gamma_{\rm II}=\limsup_{T\to\infty}
+                 \frac{\log(1+\E_{\rm II}(T))}{T}.
+\]
+The functional equation gives $0\le\delta_*\le1/2$; attainment of the
+supremum is not assumed. The inherited explicit formula is
+\begin{equation}\label{eq:explicit}
+ S(L)=-\sum_\rho K(\rho-1/2)e^{(\rho-1/2)L}-A(L),\qquad L\ge1,
+\end{equation}
+where $A$ is the contribution of trivial zeros and is bounded, with
+exponential decay. The zero sum is absolutely convergent because the
+packet decays to order 16 vertically and $N(H)=O(H\log H)$.
+
+\begin{corollary}[Endpoint energy bound from QS]\label{cor:energy}
+Assuming QS,
+\[
+ \boxed{\E_{\rm II}(T)=O(e^{3T/4})\quad(T\ge1).}
+\]
+Moreover the inherited exact growth identity transfers to the moving
+Type-II energy:
+\begin{equation}\label{eq:gamma}
+ \gamma_{\rm II}=2\delta_*\le3/4.
+\end{equation}
+No improvement to the number $3/4$ is established in this note.
+\end{corollary}
+\begin{proof}
+Put $B=\sum_\rho|K(\rho-1/2)|<\infty$. Equation \eqref{eq:explicit} gives
+$|S(L)|\le(B+\sup_{L\ge1}|A(L)|)e^{\delta_* L}$ for $L\ge1$.
+Under QS and reflection, $\delta_*\le3/8$, so
+$\E(T)\le C e^{3T/4}$. The triangle inequality and \eqref{eq:error} give
+the same bound for $\E_{\rm II}$; the error is a decaying polynomial times
+an exponential. The constant here is an existence bound; no numerical
+evaluation of the infinite zero sum is asserted.
+
+For clarity, the v8 growth identity $\gamma=2\delta_*$, with $\gamma$ defined
+using $\E$, follows from the same upper bound and the exact Laplace formula
+\[
+ \int_{\log2-1/2}^{\infty}S(L)e^{-wL}\dd L
+       =-K(w)\frac{\zeta'}{\zeta}(1/2+w).
+\]
+If $\gamma<2\delta_*$, choose $\gamma/2<b<\delta_*$. Cauchy--Schwarz on
+each unit interval makes the integral holomorphic on $\Ree w>b$.
+Some zero has $\Ree\rho-1/2>b$, and the nonzero residue
+\eqref{eq:residue} contradicts that holomorphy. This is the existing v8
+argument, included to expose its assumptions, not claimed as a new result.
+Finally \eqref{eq:error} and
+$x^2\le2y^2+2(x-y)^2$ in both directions show that $\E$ and
+$\E_{\rm II}$ have the same nonnegative logarithmic growth exponent.
+\end{proof}
+
+\section{The rational and Eisenstein coefficients are different}
+The new moment theorems are over ideals (represented by specified
+generators) of $F=\Q(\sqrt{-3})$. Let $\chi=\chi_{-3}$ and let
+\[
+ \mu_F^{\rm norm}(n)=\sum_{N\mathfrak a=n}\mu_F(\mathfrak a).
+\]
+Quadratic factorization yields
+\[
+ \zeta_F(s)=\zeta(s)L(s,\chi),\qquad
+ \mu_F^{\rm norm}=\mu*(\mu\chi),\qquad
+ \boxed{\mu=\mu_F^{\rm norm}*\chi.}
+\]
+The last equality is coefficientwise, since
+$(\mu\chi)*\chi=\mathbf1_{n=1}$.
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Prime type & $\mu(p)$ & $\mu_F^{\rm norm}(p)$\\
+\midrule
+$p\equiv1\pmod3$ (split) & $-1$ & $-2$\\
+$p\equiv2\pmod3$ (inert) & $-1$ & $0$\\
+$p=3$ (ramified) & $-1$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For example, $\mu_F^{\rm norm}(4)=-1$ and
+$\mu_F^{\rm norm}(49)=1$, whereas $\mu(4)=\mu(49)=0$.
+The corresponding von Mangoldt series satisfies
+\[
+ -\frac{\zeta_F'}{\zeta_F}(s)
+ =\sum_n(1+\chi(n))\Lambda(n)n^{-s}.
+\]
+These are exact corrections, not reasons the lift is impossible. A
+transfer must retain the additional convolution, its scale-dependent
+cutoffs, and the resulting mixed terms. Substituting rational $\mu(n)$
+for ideal M\"obius coefficients without them is invalid. Fixed excluded
+Euler factors in the source require their own finite corrections as well.
+
+\section{Attempt 1: isolate a row in the marked inverse moment}
+The source's marked inverse lemma uses
+\[
+ M_u(Z^r)=Z^{-r/2}\sum_n\mu_F(n)\psi_u(n)W(Nn/Z^r),
+\]
+where $\psi_u$ is one common row character. A product $Q_u$ of normalized
+prime-slot sums has total logarithmic length $z$. Its stated estimate is
+\begin{equation}\label{eq:moment}
+ \sum_{0<Nu\ll Z^m}|M_u(Z^r)Q_u|^2\ll Z^{m+\varepsilon},
+\end{equation}
+subject to fixed positive margins in
+\begin{equation}\label{eq:constraints}
+ r+2z<m,\qquad 2r+8z<3m.
+\end{equation}
+The prime-slot lists and coefficients are independent of the varying row.
+
+Dropping all other terms in the positive sum is a valid way to select a
+row, but pays the entire right side of \eqref{eq:moment}. With no slots,
+$D=Z^r$, it only gives an unnormalized inverse-sum bound with exponent
+$(m+r)/2>r$, no better than the trivial scale $D$.
+
+Even granting the largest possible coherent prime-slot amplitude
+$|Q_{u_0}|=Z^{z/2-o(1)}$, the resulting unnormalized upper-bound exponent is
+\[
+ \frac{r+m-z}{2}>r+\frac z2
+\]
+by the first inequality in \eqref{eq:constraints}. Smaller amplifier
+amplitude worsens this estimate. This proves a limitation of this direct
+term-extraction argument, not a limitation of every use of the moment
+theorem.
+
+\section{Attempt 2: use the actual sixth-power amplifier}
+The source has an additional amplifier which must not be overlooked.
+It replicates a sixth-power-free row $u$ by $ua^6$, preserving the sextic
+character away from the declared coprimality zeros. Its exact column
+identity includes the divisors of $\operatorname{rad}a$; simply erasing
+these zeros would be incorrect. The resulting source estimate is
+\begin{equation}\label{eq:sixth}
+ \sum_{Nu\asymp U_0}|M_u(D)|^2
+ \ll\max\{U_0,U_0^{1/6}D^{5(1+c)/6}\}(U_0D)^\varepsilon
+\end{equation}
+for any fixed $c>0$, over the stipulated sixth-power-free rows.
+
+For a fixed row take bounded $U_0$. On choosing $c$ and the small losses
+in terms of a prescribed $\varepsilon$, \eqref{eq:sixth} gives
+\begin{equation}\label{eq:single}
+ \left|\sum_n\mu_F(n)\psi_{u_0}(n)W(Nn/D)\right|
+           \ll_{\varepsilon,u_0,W}D^{11/12+\varepsilon}.
+\end{equation}
+The exponent is $1/2+(5/6)/2=11/12$. Thus this is a real individual-row
+saving, but it does not improve the already imported $7/8$ boundary.
+The source itself uses this amplifier as one ingredient in a more
+elaborate common-signal argument; \eqref{eq:single} is not presented as
+a description of its entire proof.
+
+\paragraph{An optimistic exponent worksheet.}
+As a further stress test, grant a combination of the prime marks and
+sixth-power copies with no extra mask or transfer cost. We do not claim
+this combined estimate is a theorem. Normalize $r=1$ and allow the
+closure of \eqref{eq:constraints}. The minimal admissible row exponent is
+\[
+ m(z)=\max\{1+2z,(2+8z)/3\}.
+\]
+Granting $Z^{m/6}$ copies and squared slot amplitude $Z^z$ gives the
+optimistic inverse-sum exponent
+\begin{equation}\label{eq:worksheet}
+ \frac{1+(5/6)m(z)-z}{2}
+ =\begin{cases}
+ 11/12+z/3,&0\le z\le1/2,\\
+ 7/9+11z/18,&z\ge1/2.
+ \end{cases}
+\end{equation}
+Its infimum is still $11/12$. Strict admissibility margins only increase
+the worksheet cost. This is an algebraic test of one proposed transfer,
+not a universal lower bound for character amplification. Replacing the
+sixth power by a square or cube would require a different invariance
+identity and a compatible raw moment theorem; it is not a parameter
+change licensed by the cited estimate.
+
+\section{Attempt 3: apply the fourth moment or halve the scale}
+The source's fourth-moment lemma is stated for $3/4\le\kappa_0\le1$.
+With positive prime-slot length $z$ it requires
+\[
+ n_1+n_2+6\kappa_0z\le M,
+ \qquad \beta_*\le(1+\kappa_0)/2\quad(\kappa_0<1),
+\]
+where $\beta_*$ is a supremum over the Hecke family, not just zeta.
+The row family excludes principal inducing characters when $z=0$, and
+excludes a specified finite character group $\Theta$ when $z>0$.
+Consequently the principal rational row cannot simply be inserted.
+
+This exclusion has analytic content. A principal normalized plain sum
+at scale $D$ is generally of size $D^{1/2}$; two such sums have squared
+product of scale $D_1D_2$. An unrestricted $Z^{M+\varepsilon}$ bound
+would fail when the product of their lengths exceeds the row range.
+The paper treats exceptional transformed rows by matched centering.
+Our filter also removes a main density term, but no identity has been
+proved that turns the full filtered M\"obius--von-Mangoldt Type-II form
+into that permitted centered comparison.
+
+QS reaches $\kappa_0=3/4$, the lower endpoint of the stated range.
+Furthermore the source's low probe bound is $Z^{3/16+\varepsilon}$ and
+its Mellin signal has affine exponent $C(s)=s-11/16$, so
+$C(7/8)=3/16$. Reapplying the same bounds unchanged cannot improve the
+boundary. A different parameter geometry or a better probe estimate is
+not ruled out, but is not proved here.
+
+\paragraph{Why two half-sized factors do not contract the exponent.}
+Even in an optimistic separated model, grant both centered factors their
+individual cancellation exponent $\beta$ and set $R=Z^u$, $B=Z^{1-u}$.
+The normalized product has size
+\[
+ R^{\beta-1/2}B^{\beta-1/2}
+       =Z^{\beta-1/2}.
+\]
+At $u=1/2$ each factor uses half the logarithmic scale, but there are two
+factors. The squared-energy rate is $2\beta-1$, giving $3/4$ at
+$\beta=7/8$. This calculation is an exponent diagnostic, not a claim
+that these separated bounds already control every cut-off coefficient
+in \eqref{eq:D}. Such cutoffs and the extra norm-lift convolution can
+introduce further costs. The calculation supplies no saving beyond QS.
+
+\section{The surviving arithmetic obligation and bridge interpretation}
+All cross terms in the actual energy are
+\begin{align*}
+ \E_{\rm II}(T)
+ =\sum_{r_1,b_1,r_2,b_2>U}
+ \frac{a_U(r_1)a_U(r_2)\Lambda(b_1)\Lambda(b_2)}
+ {\sqrt{r_1b_1r_2b_2}}\,
+ \int_T^{T+1}k(\log(r_1b_1)-L)k(\log(r_2b_2)-L)\dd L.
+\end{align*}
+The packet support makes the sum finite. Its Gram kernel is positive
+semidefinite, but the arithmetic coefficients have signs. Keeping those
+signs is essential; positive averaging over unrelated rows does not
+identify this quadratic form.
+
+The concrete missing transfer is a centered, principal-sensitive estimate
+for this quadratic form, or a faithful common-signal replacement, with a
+strict saving relative to the possible rightmost-zero exponent. For
+example, a proved arithmetic recurrence implying
+\[
+ \gamma_{\rm II}\le q\gamma_{\rm II},\qquad 0<q<1,
+\]
+would imply RH by \eqref{eq:gamma}. Neither that recurrence nor even a
+smaller fixed bound $\gamma_{\rm II}<3/4$ has been obtained here. This
+criterion was already proposed in v8; the present work tests specific
+ways of trying to derive it from the newly posted estimates.
+
+For the bridge $X(w)=\xi(1/2+w)$ and $R_a(w)=X(w-a)/X(w+a)$,
+QS and the paired canonical product imply that $R_a$ is inner on
+$\Ree w>0$ for $a\ge3/8$. To see the bound, group zeros into conjugate
+and reflection pairs. For horizontal displacement $b$ and height $t$,
+their ratio factors have nonnegative real Blaschke parameters $a-b$ and
+$a+b$ whenever $a\ge|b|$. Each factor is contractive; locally convergent
+paired products preserve this property. Boundary common factors are
+filled by continuation. This is the standard shifted-$\xi$ framework
+\cite{suzuki} applied to the imported smaller strip.
+
+The existing twistor angular operator fixes the constant vector, so it
+retains this same scalar arithmetic requirement. The new safe width is
+useful, but the fixed-width reconstruction does not supply the signed
+estimate at widths tending to zero. No new twistor positivity mechanism
+has been constructed in this attempt.
+
+\section{Verification, provenance, and status}
+Running \texttt{python3 verify.py} uses only the Python standard library
+and writes \texttt{verification.json}. It checks:
+\begin{itemize}
+\item 40,960 exact formal-log coefficients of \eqref{eq:coeff}, across
+five cutoff pairs and all $1\le n\le8192$; omission of the final
+convolution is deliberately rejected when it contributes.
+\item The norm-lift inverse and recovery identities through $n=8192$,
+including split, inert, and ramified prime controls.
+\item The local residue $-m$ for six zero multiplicities using rational
+polynomial models with nonconstant analytic cofactors.
+\item Exact rational consistency of the amplification worksheet and
+balanced-product exponents. The continuum worksheet claim is proved
+by the two formulas in \eqref{eq:worksheet}, not inferred from a grid.
+\end{itemize}
+These checks validate finite identities and implementation consistency.
+They do not verify the external analytic moment theorems, the complete
+Lean build, or an all-scale bound stronger than the stated implication
+from QS. The preceding source notes' interval-energy calculations were
+read but not rerun; none is used as evidence for a new asymptotic bound.
+
+The accompanying source index pins the external paper and records the
+input bundle hash. No repository or deployed application was changed.
+The successful outputs of this attempt are an explicit transfer map,
+the pole-preservation proof, and a quantified account of the attempted
+amplifier. \textbf{The exponent contraction and RH remain unproved.}
+
+\begin{thebibliography}{9}\small
+\bibitem{openai} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
+Half-Plane $\Re(s)>7/8$}, September 30, 2026. Pinned source in the
+\texttt{openai/math} repository, commit cited in Section 1. Relevant
+labels: \texttt{lem:marked}, \texttt{lem:inverse-amplification},
+\texttt{lem:plain}, \texttt{prop:probe-low},
+\texttt{lem:continuation-criterion}.
+\url{https://github.com/openai/math/blob/main/lean/docs/003.md}.
+\bibitem{v9} \emph{Vaughan reduction of the filtered prime energy},
+research continuation for Jude Gomila, October 1, 2026.
+User research bundle \texttt{rh\_vaughan\_v9.zip}; working derivation,
+not independently refereed.
+\bibitem{v8} \emph{The global-bound closure audit: Exact growth, a Laplace
+obstruction, and a weaker sufficient target}, October 1, 2026.
+Retained as \texttt{previous\_global\_closure\_v8.tex} in the v9 bundle.
+\bibitem{suzuki} M. Suzuki, \emph{A canonical system of differential
+equations arising from the Riemann zeta-function},
+\url{https://arxiv.org/abs/1204.1827}.
+\end{thebibliography}
+\end{document}

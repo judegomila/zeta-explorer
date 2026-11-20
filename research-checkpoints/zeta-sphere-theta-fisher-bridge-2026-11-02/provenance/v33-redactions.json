@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "source_artifact": "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+  "policy": "No classified V33 file contains a private Library/file identifier, personal filesystem path, or conversation locator, so all 234 classified payloads are retained byte-for-byte. Generic /workspace/shared replay strings are preserved as non-private implementation locators.",
+  "redacted": []
+}

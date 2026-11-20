@@ -1,0 +1,21 @@
+{
+  "cells_per_side": 4096,
+  "cells_on_line": 4096,
+  "outer_count": 2,
+  "inner_count": 2,
+  "cluster_height_interval": [
+    111,
+    112
+  ],
+  "shear_test_cover": [
+    110.75,
+    112.125
+  ],
+  "normalized_by_completion_squared_lower": 0.3782917952101626,
+  "K": 0,
+  "exterior_M_upper": "9/2",
+  "transverse_radius": "1/2",
+  "budget_upper": "9/8",
+  "required_strict_upper": 2,
+  "conclusion": "two distinct critical-line zeros in the inner strip rectangle"
+}

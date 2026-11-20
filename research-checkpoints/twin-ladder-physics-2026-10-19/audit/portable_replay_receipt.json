@@ -1,0 +1,37 @@
+{
+  "status": "PASS for listed frozen inputs; independent symbolic derivation plus finite numerical diagnostics",
+  "input_sha256": {
+    "delay/PASSIVE_DELAY_REALIZATION_v2.md": "c7f1042fa4b1ba8afbbf14cf18ca79bda9aeead1e524a054f1e3d50d5443538e",
+    "delay/verify_passive_delay.py": "d6868bed83f3e9111d0fc225460f75830c599c4f9a002c44ebf60b9b45323e8e",
+    "delay/verification_receipt.json": "40a5df4c22b8559a3e6b8b7cc7f40dc2b654a56be9480c782584a1274466c3b4",
+    "poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md": "a5bfb352eb3bb50486ae51f55b22bb0604e80399562c186a516d5f3dd4df89b2",
+    "poisson/check_poisson_ou.py": "e79cf374c3c72179781cb4d155fa20cb1f2aee86212980146a8b882d0e98090c",
+    "poisson/finite_diagnostics.json": "d29508fa7509af079c07fb7019017d952193b845fbd211cb61cb7775ebd1612a",
+    "sources/poisson-prime-tail-energy.md": "6485cc634246ee5e8d71835751a149ce2910338a7b14f9c5ee4e4bf1bc614ca9",
+    "sources/DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md": "6014cccd3f2b0a6ddbca4ffcc31aca3da5f49bc904d00bc50e5b50795ece82d8"
+  },
+  "symbolic_checks": [
+    "A+B=1",
+    "H=A+BJ",
+    "J boundary all-pass",
+    "two-output power identity",
+    "negative modulus derivative",
+    "exact extremum normalization",
+    "h=0 complete cancellation",
+    "cosine variance",
+    "cosine fourth moment",
+    "cosine fourth cumulant",
+    "one-mode exact fourth benchmark"
+  ],
+  "ou_generic_configurations": 80,
+  "maximum_ou_covariance_error": 1.6681100944992977e-14,
+  "maximum_tail_variance_error": 2.7622348852673895e-13,
+  "maximum_negative_covariance_eigenvalue": 0.0,
+  "complex_disk_matrix_cases": 1000,
+  "maximum_matrix_singular_value_excess_over_one": 4.440892098500626e-16,
+  "limitations": [
+    "Finite floating point diagnostics are not interval certificates.",
+    "No laboratory experiment, novelty theorem, completed-xi realization, or RH claim.",
+    "Analytic proofs and assumptions are reviewed separately in INDEPENDENT_AUDIT.md."
+  ]
+}

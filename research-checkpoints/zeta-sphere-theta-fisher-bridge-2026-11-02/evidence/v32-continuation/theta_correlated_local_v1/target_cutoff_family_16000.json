@@ -1,0 +1,36 @@
+{
+  "N": 16000,
+  "bits": 192,
+  "orientation": "inward t=1/8-H on[0,1/8]",
+  "scope": "Whole-cutoff-family bound. Independently computed starting target Schur is now an explicit input, and partial-cell signed source bounds retain all losses. No previous global target certificate is used.",
+  "even8": {
+    "signed_gain": {
+      "lo": "[20789567012.4994245152066826531203903182749766913011614817 +/- 1.39e-47]",
+      "hi": "[20792561645.7611432652066826531203903182749766913011614817 +/- 1.39e-47]"
+    },
+    "midpoint_error_upper": "[136020.616953201205670388086310076242844871283721531384515 +/- 3.24e-52]",
+    "negative_source_integral_upper": "[1560869461798.96554173954099549470712650420421600213499902 +/- 2.73e-45]",
+    "negative_source_integral_lower": "0",
+    "inverse_action_upper": "[16080372839659.5056560392172638270344619987875348425185244 +/- 4.79e-44]",
+    "old_top_pivot_lower": "[60501703.3967750234975210400718684592196210672220320033214 +/- 3.67e-50]",
+    "target_path_schur_lower": "[661939225341.632832973661967281619708556094255555592061150 +/- 2.71e-46]",
+    "target_path_positive": true,
+    "positive_gain": true,
+    "negative_gain": false
+  },
+  "odd9": {
+    "signed_gain": {
+      "lo": "[2292529955055.35097769798748104958243735214637627692735375 +/- 3.18e-45]",
+      "hi": "[2325475835119.35097769798748104958243735214637627692735375 +/- 3.18e-45]"
+    },
+    "midpoint_error_upper": "[13852344156.5235336729752567522404844636356711970318196474 +/- 3.27e-47]",
+    "negative_source_integral_upper": "[2175372434684928.78169331210550610538467385167271703797342 +/- 2.32e-42]",
+    "negative_source_integral_lower": "0",
+    "inverse_action_upper": "[458098391912019834.374373403354224215215087807933902015891 +/- 4.44e-40]",
+    "old_top_pivot_lower": "[5569494610.86206802481238853241070710263843950655089826935 +/- 3.16e-48]",
+    "target_path_schur_lower": "[85750382533241.0050861773758373507377746824815495389533843 +/- 2.84e-44]",
+    "target_path_positive": true,
+    "positive_gain": true,
+    "negative_gain": false
+  }
+}

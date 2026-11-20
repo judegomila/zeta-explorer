@@ -157,7 +157,7 @@ export default function ConceptDetailPage() {
 
   useEffect(() => {
     if (!concept) return undefined;
-    document.title = `${concept.term} (concept) | explorezeta`;
+    document.title = `${concept.term} (concept) | exploreriemann`;
     setLevelFilter('all');
     if (!wantsExposition) { setState({ slug: concept.slug, status: 'none', data: null }); return undefined; }
     const pre = getLoadedExposition(concept.slug);

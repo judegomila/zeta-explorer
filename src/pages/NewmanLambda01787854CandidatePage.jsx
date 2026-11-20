@@ -78,7 +78,7 @@ export default function NewmanLambda01787854CandidatePage() {
         'and is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); it has not been peer-reviewed, so the ' +
         'proposed bound is not an established theorem.'
       }
-      byline={['de Bruijn–Newman · explorezeta', 'computer-assisted · unrefereed']}
+      byline={['de Bruijn–Newman · exploreriemann', 'computer-assisted · unrefereed']}
       footer={<>
         <a href={refereePaper.publicPath} target="_blank" rel="noreferrer">Read the v3 referee PDF ({refereePaper.pages} pages)</a>
         {' · '}<a href={refereePaper.releaseAssetUrl} target="_blank" rel="noreferrer">Immutable release PDF</a>

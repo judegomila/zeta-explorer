@@ -42,7 +42,7 @@ export default function ConceptClassPage() {
 
   useEffect(() => {
     if (!klass) return undefined;
-    document.title = `${klass.name} (concept class) | explorezeta`;
+    document.title = `${klass.name} (concept class) | exploreriemann`;
     const pre = getLoadedClassExposition(klass.slug);
     if (pre !== undefined) { setState({ slug: klass.slug, status: pre ? 'ready' : 'none', data: pre }); return undefined; }
     let alive = true;

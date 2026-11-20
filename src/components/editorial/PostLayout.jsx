@@ -393,7 +393,7 @@ export function EditorialHeader({ ticker }) { // eslint-disable-line no-unused-v
   return (
     <header className="ed-head" ref={headRef}>
       <div className="ed-headbar">
-        <Link className="ed-brand" to="/" aria-label="explorezeta home">explore<i>zeta</i></Link>
+        <Link className="ed-brand" to="/" aria-label="exploreriemann home">explore<i>riemann</i></Link>
         <ModeSwitch />
         <nav className="ed-headnav" aria-label="Site sections" ref={row.rowRef}>
           {NAV_GROUPS.map((g, i) => <GroupDropdown key={g.label} group={g} idx={i} row={row} />)}

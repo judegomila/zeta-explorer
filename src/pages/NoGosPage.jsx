@@ -40,7 +40,7 @@ export default function NoGosPage() {
           on <Link to="/what-we-know">What We Know</Link>.
         </p>
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 22, margin: '26px 0 10px', color: 'var(--ink)' }}>
-          Found by this program (explorezeta) — {ZETAEXPLORER_NO_GOS.length}
+          Found by this program (exploreriemann) — {ZETAEXPLORER_NO_GOS.length}
         </h2>
         <div style={{ display: 'grid', gap: 12 }}>
           {ZETAEXPLORER_NO_GOS.map((n) => <NoGoCard key={n.title} n={n} />)}

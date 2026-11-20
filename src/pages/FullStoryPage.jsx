@@ -420,7 +420,7 @@ export default function FullStoryPage() {
       meta={['evidence-graded research narrative', 'Twin-Ladder / Λ program']}
       title="The Twin-Ladder / Λ Program"
       dek="A corrected account of what is classical, what twin-ladder derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
-      byline={['twin-ladder · explorezeta', 'no new bound · not RH']}
+      byline={['twin-ladder · exploreriemann', 'no new bound · not RH']}
       ticker={<span>Λ candidates unrefereed · no QED</span>}
       footer={<>
         Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>

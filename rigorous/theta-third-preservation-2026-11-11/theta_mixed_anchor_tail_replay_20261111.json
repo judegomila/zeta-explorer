@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "anchor_scalar_cancels_from_mixed_sign",
+    "H_anchor_coefficient_derivative",
+    "P_anchor_coefficient_derivative",
+    "H_two_term_mixed_coefficient",
+    "P_two_term_mixed_coefficient",
+    "exact_remainder_determinant_expansion",
+    "H_original_source_factor",
+    "P_original_source_factor",
+    "H_operator_annihilates_H",
+    "P_operator_annihilates_B",
+    "H_operator_annihilates_constant",
+    "P_operator_annihilates_constant",
+    "spatial_even_mixed_normalization",
+    "H_anchor_even_deflation",
+    "H_double_endpoint_factor",
+    "P_double_endpoint_factor",
+    "third_resolvent_remainder",
+    "second_resolvent_remainder",
+    "anchor_derivative_kernel_L1"
+  ],
+  "exact_identity_checks": 19,
+  "scope": "Exact mixed-source factors, resolvent cancellations, and endpoint deflations. Analytic uniform bounds and prior positive source certificates are stated proof inputs in the note; no numerical anchor threshold is asserted.",
+  "status": "passed"
+}

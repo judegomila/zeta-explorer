@@ -1,0 +1,185 @@
+{
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "date": "2026-11-11",
+  "files": [
+    {
+      "bytes": 7072,
+      "git_blob_sha1": "25e91db7cdb68972ea93d942eb854e7f221b73d2",
+      "path": "rigorous/theta-third-preservation-2026-11-11/AUDIT.md",
+      "sha256": "c380d94be28f34248c6d4cdcc0bc307599a1a390063ef6d9854b070891f06ddc"
+    },
+    {
+      "bytes": 5092,
+      "git_blob_sha1": "9f1891470e069840efee94c3550b2deab09382a5",
+      "path": "rigorous/theta-third-preservation-2026-11-11/README.md",
+      "sha256": "def2ee21313ad314fa9e4d1f8a0760d86baf340b0da0f921a32ec25eb54df073"
+    },
+    {
+      "bytes": 6191,
+      "git_blob_sha1": "beeb27831423a0cf2daf75c92f6e9a869ca11ea2",
+      "path": "rigorous/theta-third-preservation-2026-11-11/SOURCES.md",
+      "sha256": "65bba35f63e5514e2dbe24fdeba2f378671eb055ad4995f152377b92de488258"
+    },
+    {
+      "bytes": 21322,
+      "git_blob_sha1": "5f2a63840d5cbb2578377c92406013b67a25e969",
+      "path": "rigorous/theta-third-preservation-2026-11-11/checks_replay.json",
+      "sha256": "67380178385dac8d350485231ebbd3f0b4870cd406fde816255b2a0094391369"
+    },
+    {
+      "bytes": 48,
+      "git_blob_sha1": "bf66a13ae4f7b0e842390cefa93297df77de8750",
+      "path": "rigorous/theta-third-preservation-2026-11-11/requirements.txt",
+      "sha256": "54e8416c37be5f9e3cf392b68629354c5d91f8ca8f01c388f733899ba10fb1e3"
+    },
+    {
+      "bytes": 4892,
+      "git_blob_sha1": "7bd873790b7e1892ce3d76ec1fa7fbf0e998a405",
+      "path": "rigorous/theta-third-preservation-2026-11-11/run_checks.py",
+      "sha256": "6ce36fc5b219d420221824cf3f48507104e3fcb27d7da2c43b05c896a33c525c"
+    },
+    {
+      "bytes": 11507,
+      "git_blob_sha1": "fe0f6be2e0b0f346016ae65ce304d4e786ce7634",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_anchor_tail_20261111.md",
+      "sha256": "1b016535759860c8c1702e7ebebade90aa23c909d4bb28bf0d99d41232220cb9"
+    },
+    {
+      "bytes": 4347,
+      "git_blob_sha1": "7a00a2b20f99332729b20f21a597ad39caf3517a",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_anchor_tail_20261111.py",
+      "sha256": "95251c920dae7f32220fc97450502b7bf5da4098948da85f813ec34e23cac74f"
+    },
+    {
+      "bytes": 992,
+      "git_blob_sha1": "22a41875675e657e147d7ddd77b9d0133e1d2a1e",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_anchor_tail_replay_20261111.json",
+      "sha256": "c1ff76b71334416f26d19d2a12cba2d1a9ff971a9185bc6a957c1000772511a6"
+    },
+    {
+      "bytes": 9777,
+      "git_blob_sha1": "02b8d5d7e43942780c529fe696ef9370ee85d47a",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_h_source_20261111.md",
+      "sha256": "a2677bf82d1aa9facd8cb99cf05d89b8a700fceb1ef73ff8a4283aaefe2495d7"
+    },
+    {
+      "bytes": 12806,
+      "git_blob_sha1": "e4279e3a56e8e952178f121dbd5a3fb72b3c5225",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_h_source_20261111.py",
+      "sha256": "80311189c775b2a857c8312dadd29f1d077c48679833bf707d62f567b98f0efc"
+    },
+    {
+      "bytes": 7596,
+      "git_blob_sha1": "eb6abbcd3c856c8ebca5eca1dd7e72d3eb7d4af3",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_h_source_replay_20261111.json",
+      "sha256": "edbb0d043e3d84801ec7f1429adf346916d6f6a60f74347aa546d3a37343498e"
+    },
+    {
+      "bytes": 20228,
+      "git_blob_sha1": "f90f47303fa59b950d86bfcb495513e0bc3e4074",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_identity_20261111.md",
+      "sha256": "ba6d8c1a2285b247a694a0fe617b8e3d9d2e684ab5447a67cb93175ccb3a37cb"
+    },
+    {
+      "bytes": 3587,
+      "git_blob_sha1": "48003a8faba1df24537a3868ebcef5078edbae31",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_identity_20261111.py",
+      "sha256": "9cd4c6e5bf32bb34c697847513c6c7326cd603f5885a99cb6a548571b93ae4a5"
+    },
+    {
+      "bytes": 837,
+      "git_blob_sha1": "f2642b3c984775aa0130702981f94e7ba7a51288",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_identity_replay_20261111.json",
+      "sha256": "ede922d08601e8a954894eb9e3b695d69a862168d51408e4adb2d2026ca63f6b"
+    },
+    {
+      "bytes": 15523,
+      "git_blob_sha1": "ae9ab5adae9708b2d98e1f178f004f5e7344aa04",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_spatial_tail_20261111.md",
+      "sha256": "0d7bcc77831fcaca5120ff817525ecfd778e7d87f54e8b40ab4558eea7c3ace7"
+    },
+    {
+      "bytes": 3259,
+      "git_blob_sha1": "1a400d3e2f5b3116d4973651969e09c4bfb33464",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_spatial_tail_20261111.py",
+      "sha256": "f6a1591ff790886965b3569b6cbcf7e7cd65f4b1e2d4ff77cd587312a2edd233"
+    },
+    {
+      "bytes": 706,
+      "git_blob_sha1": "1cc65c4b35ee48a091da4fa88837f5a097f98d2c",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_spatial_tail_replay_20261111.json",
+      "sha256": "7c4de8b0cae38592567bee3bc9725b73872888364c9ba72ec991a6e12f352a94"
+    },
+    {
+      "bytes": 10887,
+      "git_blob_sha1": "3d08ba11fe15dbdf4a7efc0cde2ef513ff4d498c",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_crossing_20261111.md",
+      "sha256": "47df95a09fe9cd0b7a57960c93a66b50ac4f9b262faa67feb9f0d38235b6c1ca"
+    },
+    {
+      "bytes": 14805,
+      "git_blob_sha1": "4701f367a2e17c195c0e106269043bf946aea44a",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_crossing_20261111.py",
+      "sha256": "02b23b14be771dba44b3a346e76627a6a75ede33ec8409692b6f6be2a95ae2f7"
+    },
+    {
+      "bytes": 9064,
+      "git_blob_sha1": "8e4c1f0c283e4412dd40fa830d591878b01f087f",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_crossing_replay_20261111.json",
+      "sha256": "2f61049e1860498978f6d1a401d0d14e1fd10c267b8d45d37920f887ae23282b"
+    },
+    {
+      "bytes": 8254,
+      "git_blob_sha1": "6b3366bd1a159ada72b33e3dabfb8545e251e3e2",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_source_20261111.md",
+      "sha256": "97bc93f8789aa1e0cb356d31fa1ac4fbd7d1135977b007b1c02a75f35009ac18"
+    },
+    {
+      "bytes": 11922,
+      "git_blob_sha1": "f03119958caf01aafbe45346e4edc19f8ae2ec7d",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_source_20261111.py",
+      "sha256": "adb5e44aaebb0c7e9179b73bded409cd8a87bcf6f1119b6db7d9e795ab2b8b1b"
+    },
+    {
+      "bytes": 5678,
+      "git_blob_sha1": "19a9320104016411122521a56d05d9ec02b3b5c8",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_mixed_u_source_replay_20261111.json",
+      "sha256": "c42958449be85262030185596cd6a67f6276a935dee2ee0112cf9f50e6829b6f"
+    },
+    {
+      "bytes": 1799,
+      "git_blob_sha1": "94e27ff87ce04d75ab31f2106f8f0011cc72a5d1",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_ratio_c_integral_20261110.py",
+      "sha256": "f36dded77257693f2708996a8991ec27b64634e46896232c1eda94196d8251d5"
+    },
+    {
+      "bytes": 7362,
+      "git_blob_sha1": "464161fd978820a3a049da632bf7834e367eede1",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_ratio_core_certificate_20261110.py",
+      "sha256": "97be37de3a4b2971c276b7e05239b8735166b078173ba89bcfaf40812387fd05"
+    },
+    {
+      "bytes": 7095,
+      "git_blob_sha1": "078aface82b5ab5866a22acb8b86c2834eca0acc",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_ratio_origin_certificate_20261110.py",
+      "sha256": "955327c42678de97f4e45c874c4b9a43b77c5dd37f86c41cfad155d64863f56e"
+    },
+    {
+      "bytes": 16695,
+      "git_blob_sha1": "da4a211ddc12898602b5cc5913fca5f1c47dcfb9",
+      "path": "rigorous/theta-third-preservation-2026-11-11/theta_third_preservation_global_20261111.md",
+      "sha256": "ecb57b7f8993a2764d04feb1a09c6490ee99f6b38d6a29001efdce53a82243ab"
+    },
+    {
+      "bytes": 2023,
+      "git_blob_sha1": "44d3b0247904a5bbe03398b6ae3dd3e8b7383ec9",
+      "path": "thinking/decisions/2026-11-11-theta-third-preservation.md",
+      "sha256": "b10f94db775df7c4bc5455ed6b5aebf0bb9526855dbd4e77eda8e85617b50fe8"
+    }
+  ],
+  "fixed_helper_source_commit": "5d64d45acf37f4957a8f65c036b502e1b49292d0",
+  "fixed_helper_source_directory": "rigorous/theta-second-preservation-2026-11-11",
+  "repository": "judegomila/mathexplorer",
+  "schema": 1,
+  "scope": "All delivered files other than this manifest, including the decision entry."
+}

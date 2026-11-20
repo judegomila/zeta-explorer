@@ -1,0 +1,23 @@
+observatory/dist/learn/index.html
+  s_449e409164e9ab::t_cb9bbf8555b094 1-48,50-121,123-141,143-162
+observatory/dist/learn/learn.js
+  s_449e409164e9ab::t_4f3a2ac6e23fb9 1-119,121-122,124-171
+observatory/dist/learn/learn.css
+  s_449e409164e9ab::t_52d9124f830a98 1-10,12-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "4fd99b9cb05bd2fd77a3a6ff7a0844d577e6017e",
+  "prompts": {},
+  "sessions": {
+    "s_449e409164e9ab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a0f55f69-39ba-405e-af21-a4712a469f2a",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Jude Gomila <jude.gomila@gmail.com>"
+    }
+  }
+}

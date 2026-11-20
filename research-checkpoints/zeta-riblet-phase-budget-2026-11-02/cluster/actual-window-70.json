@@ -1,0 +1,42 @@
+{
+  "status": "rigorous finite contour certificate; no global RH conclusion",
+  "precision_decimal_digits": 70,
+  "segments": 1024,
+  "em_N": 16,
+  "em_order": 16,
+  "zeta_remainder_upper": "5.155504187356009372669345176742087419589154635394836280038612000203222E-10",
+  "zeta_derivative_remainder_upper": "2.215544876412479925280467311851215003905493120236345027011465054446309E-9",
+  "boundary_zeta_modulus_lower": "0.2478343713371759726859723374875008509307755264766474016167961001928789",
+  "boundary_xi_log_derivative_upper_integer": 14,
+  "contour_integral_real": [
+    "-1.891270537358839232252093705886681172534118448300936249815078609378879",
+    "1.916613130451358559036471404065922632189233289865251464226285553202460"
+  ],
+  "contour_integral_imag": [
+    "4.512938935949699893554098286349051860977793597592268344161625748067279",
+    "8.925460514681733907456858703241427451844527667122022201870207878743526"
+  ],
+  "zero_count_with_multiplicity": 1,
+  "inner_cluster_residual_upper_integer": 38,
+  "outer_rectangle": {
+    "sigma": [
+      0,
+      1
+    ],
+    "height": [
+      "13.5",
+      "14.5"
+    ]
+  },
+  "inner_rectangle": {
+    "sigma": [
+      "0.25",
+      "0.75"
+    ],
+    "height": [
+      "13.75",
+      "14.25"
+    ]
+  },
+  "consequence": "The unique zero is simple and on sigma=1/2 by reflection. For 0<x<=1/4 and 13.75<=t<=14.25, negative phase density <= M; hence mass on J <= M*length(J)."
+}

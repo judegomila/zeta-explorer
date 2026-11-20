@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-09",
+  "status": "exact_checks_passed_numerical_diagnostics_reproduced_no_global_bound_certified",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "related_checkpoint_commit": "69d4049f289217812051188378a0a9f3f061a169",
+  "environment": {
+    "python": "3.12.14",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0"
+  },
+  "commands": [
+    {
+      "command": "python verify_freezing_obstruction.py",
+      "result": "passed: exact three-point certificate and four negative confluent witnesses; rational arithmetic"
+    },
+    {
+      "command": "python verify_collective_certificate.py",
+      "result": "passed: 18 exact symbolic checks"
+    },
+    {
+      "command": "python numerics.py --L 2 --N 6 --dps 60 --theta-terms 5",
+      "result": "13.43796266243867777957804927397717440245008955531417",
+      "status": "non-interval numerical replay; agrees with stored higher-precision result"
+    },
+    {
+      "command": "python numerics.py --finite-packet --dps 50 --theta-terms 5",
+      "result": "leading -0.08120510073458039474; actual +0.78398229158697563447",
+      "status": "non-interval numerical replay; agrees with stored result"
+    },
+    {
+      "command": "ast.parse on all three Python modules; JSON parse; local Markdown link check",
+      "result": "passed"
+    }
+  ],
+  "review_scope": [
+    "Independent analytic audit of local-to-global positivity, Hardy causality, boundary uniqueness, multiplicities and canonical product found no substantive gap.",
+    "The exact checks certify finite identities; they do not mechanize the full analytic arguments.",
+    "Actual theta diagnostics use finite theta sums and arbitrary-precision quadrature with no certified truncation or quadrature enclosure.",
+    "No global initial strip, uniform tail exclusion, contour margin or new numerical Lambda bound was certified.",
+    "Repository-wide application checks are left to the pull-request CI; no app source or dependency was modified."
+  ],
+  "parsed_python_modules": [
+    "numerics.py",
+    "verify_collective_certificate.py",
+    "verify_freezing_obstruction.py"
+  ],
+  "sha256": {
+    "rigorous/torus-heat-antibridge-2026-11-09/README.md": "b2a2dc9b6d03a6e6ba31622b285f49807bfe170e585d1da8135cd6c30a27bede",
+    "rigorous/torus-heat-antibridge-2026-11-09/analytic_continuation.md": "8150707129f8f2203ea0aa3996369754753bcd0117cca09475dd0099dda2e0b9",
+    "rigorous/torus-heat-antibridge-2026-11-09/collective_certificate.md": "0e82d38ef05e842797fe7a39a1cec9b46dcbe6f34deb8b2c3f627122ff155310",
+    "rigorous/torus-heat-antibridge-2026-11-09/collective_certificate_validation.json": "d5d0632fd50178b5ddf662d9bd649e157096325fe52ebcb362cc670889b3e38c",
+    "rigorous/torus-heat-antibridge-2026-11-09/freezing_obstruction_validation.json": "73fb3f08edcb609d1e57fb1fce184d6a2f039b4576bb004db04ce4d7b724684a",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics.md": "1ee6ef892f408d4b5425afc551e57fbf5ad6ba5a8b5c1e0faf80d717559617d5",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics.py": "801952bec58efb0f0c5625708cb5b30169c22c0add19f0986339390393930213",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_L2_N6.json": "625d67efcb30d5cb8fad9c49e878cab6524f5b5f326d3c1244d66f109386b0c1",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_finite_packet_cli_validation.json": "b9ba0a8ae5191be6427e7644478df66afcbf4511c30c993dc5202f43275df1cf",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_finite_point_results.json": "9482df8824b8653471c590fd3c447b3a5ccbd2b307149d0da61f4d7f7c35b8cd",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_independent_replay.json": "edf07e35ec0a9ccc6e700172d793cfd37eec890402fb775ccff39eca42f566bf",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_mode_growth_results.json": "18db6ac4117d49b5884c769fc6478bd5172f0ddd79bdd46954bca9663ae30c58",
+    "rigorous/torus-heat-antibridge-2026-11-09/numerics_stress_results.json": "c262b09a8fdb37db481094f4f7ae95545330584bb269ee089dea013cce070979",
+    "rigorous/torus-heat-antibridge-2026-11-09/requirements.txt": "96464f405b58137236b9c10c698be08a780ff7d062dd918ac40c0460f1b0831f",
+    "rigorous/torus-heat-antibridge-2026-11-09/torus_heat_flow.md": "fe593ef0da8881d490dac1d09a3c017292f77484738f69f29434347f7f418903",
+    "rigorous/torus-heat-antibridge-2026-11-09/verify_collective_certificate.py": "9379134e64eb8e577f0105da1221b2c42d021b60f27b5c907cc9346092a11ac2",
+    "rigorous/torus-heat-antibridge-2026-11-09/verify_freezing_obstruction.py": "52c9db7df98aeb39eb187bad757fdaff13f1f011ed10ae7641f03d969779952c",
+    "thinking/decisions/2026-11-09-torus-heat-antibridge.md": "5bd82a1fcc3c4a83072f1cbb53f1c42ccc243bd08d76d5358499e9f72b663767"
+  }
+}

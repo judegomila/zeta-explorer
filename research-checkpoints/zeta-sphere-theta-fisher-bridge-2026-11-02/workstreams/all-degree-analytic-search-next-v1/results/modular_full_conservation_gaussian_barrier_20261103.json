@@ -1,0 +1,40 @@
+{
+  "checks": [
+    "frozen complete-commutator source hashes",
+    "monic Hermite recurrence and Appell derivative",
+    "exact increasing Hermite absolute moments through degree 15",
+    "A_15=-66495/2048, so the complete commutator is negative",
+    "W_15<0 from A_15^2>320*pi using pi<22/7",
+    "Gaussian satisfies X>17 and P>8*X^4"
+  ],
+  "conclusion": "Even after retaining the complete commutator positive square, positive-prefix and generic curvature hypotheses do not imply the net modular conservation payment. Theta-specific correlation is still required.",
+  "endpoint_identity": {
+    "complete_commutator": "4*(tr(H0)-d^T*H0*e_N)",
+    "net_target": "sigma_(N+1)/sigma_N+C_N0",
+    "square_form": "P_N0-kappa_N0*H0_NN"
+  },
+  "exact_n15": {
+    "A15": "-66495/2048",
+    "e15": "6435/1024",
+    "net_target": "160-(66495/1024)*sqrt(20/pi)",
+    "next_pivot_ratio_at_c20": "160",
+    "pi_upper": "22/7",
+    "squared_rational_gap": "1423195015/29360128"
+  },
+  "gaussian_model": {
+    "H0_jj": "sqrt(c)*E_j|X|/2",
+    "c": 20,
+    "commutator": "2*sqrt(c/pi)*(sum_(j=0)^N e_j-(N+1)*e_N)",
+    "d": "(n+1)*e_n",
+    "pivot": "sigma_n=sqrt(pi)*n!*c^(n-3/2)/2^n",
+    "profile": "psi_c(h)=exp(-c*h^2/2)"
+  },
+  "schema_version": "zsv.modular_full_conservation_gaussian_barrier.20261103.v1",
+  "scope": "Exact auxiliary Gaussian barrier to a generic net full-conservation payment; not the theta profile, a theta pivot theorem, an all-degree theta result, or an RH claim",
+  "source_sha256": {
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/MODULAR_REFLECTION.md": "f835812a94fea49975530614dafe600449596d8e579fe2cacfef53a052cdd4e3",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/NORMALIZED_LIMIT.md": "d0f4b2c61364270c71515caaa421a10a29683ddaedbc779ecd36db485cac08af",
+    "evidence/v20-v26-continuation/modular_innovation_payment_v1/BOUNDARY_ELIMINATION.md": "f0cf0ab2e7d596fe13ce50729e2b361d67c3bb1821be81befa8c9eb3f1ec00db"
+  },
+  "status": "PASS"
+}

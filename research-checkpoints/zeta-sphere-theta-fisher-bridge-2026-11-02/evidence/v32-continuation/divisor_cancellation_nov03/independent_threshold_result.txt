@@ -1,0 +1,1 @@
+Independent prime-power accumulation PASS; exhaustive minimum: 11

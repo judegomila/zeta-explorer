@@ -1,0 +1,345 @@
+\section{The fourth channel: a sixth-derivative certificate}
+This section closes the determinant identified in \eqref{eq:nextDet}. The result uses a finite exact interval certificate together with a separate analytic bound on an unbounded interval. Every omitted theta term is enclosed by an explicit convergent tail estimate.
+
+\begin{theorem}[Four confluent channels]\label{thm:four}
+For every $a>0$,
+\begin{equation}\label{eq:sixthTarget}
+\boxed{C_a''(0)C_a^{(6)}(0)-\bigl(C_a^{(4)}(0)\bigr)^2
+\ge4{,}000{,}000\,C_a(0)^2>0.}
+\end{equation}
+Together with Theorem~\ref{thm:three}, this proves $H_3(a)\succ0$: the value, first-, second- and third-derivative channels at one point. The same statements hold for the normalized endpoint $\kappa_0$.
+\end{theorem}
+
+\subsection{The local odd block and its exact determinant}
+At a midpoint $h$, put
+\[
+X=-\ell''(h),\qquad Y=\ell^{(4)}(h),\qquad S=\ell^{(6)}(h),
+\qquad \ell=\log\psi.
+\]
+The established bounds give $X>17$ and $Y\ge-4X-421$. Expansion of the exact product gives
+\[
+\frac{\psi(h-v)\psi(h+v)}{\psi(h)^2}
+=\exp\left(-Xv^2+\frac{Yv^4}{12}+\frac{Sv^6}{360}+O(v^8)\right).
+\]
+The odd moment block, differing from the derivative-channel block only by a diagonal sign congruence, is
+\begin{equation}\label{eq:localOdd}
+M(h)=\begin{pmatrix}
+2X&12X^2+2Y\\
+12X^2+2Y&120X^3+60XY-2S
+\end{pmatrix}.
+\end{equation}
+Its determinant is $4P(h)$, where
+\begin{equation}\label{eq:P6}
+P=24X^4+18X^2Y-Y^2-XS.
+\end{equation}
+We will prove the uniform sufficient estimate
+\begin{equation}\label{eq:pointSixth}
+\boxed{P(h)\ge1{,}000{,}000\qquad(h\in\R).}
+\end{equation}
+Only $h\ge0$ is needed in the bridge. Evenness extends the result to negative midpoints.
+
+\subsection{Exact logarithmic jets and the full theta tail}
+For $h\ge0$, let $z=\pi\ee^{2h}>3$, $b=3/2$, and write $\ell=L+g$, with $L=\log f_1$ and $g=\log(1+r)$. The ratio $r$ is the full tail from \eqref{eq:tailLaplace}. The derivative in $h$ is $D=2z\partial_z$.
+
+The polynomials
+\begin{equation}\label{eq:Pjrecurrence}
+P_0(t)=1,\qquad P_{j+1}(t)=t\bigl(P_j(t)-P_j'(t)\bigr),
+\qquad D^j\ee^{-\lambda z}=(-2)^jP_j(\lambda z)\ee^{-\lambda z}
+\end{equation}
+satisfy $0\le P_j(t)\le t^j$ for $0\le j\le6$ and $t\ge9$. The checker proves this by expanding both $P_j(9+x)$ and $(9+x)^j-P_j(9+x)$ and checking that every rational coefficient is nonnegative. This sign assertion is used only through order six.
+
+With $w=b/z$, the exact first-summand formulas are
+\begin{align}
+L''&=-4z-\frac{4w}{(1-w)^2},\\
+L^{(4)}&=-16z-\frac{16w(1+4w+w^2)}{(1-w)^4},\\
+L^{(6)}&=-64z-\frac{64w(1+26w+66w^2+26w^3+w^4)}{(1-w)^6}.
+\end{align}
+They follow, for example, from $L=\text{constant}+(9/2)h-z+\log(1-b/z)$.
+
+Set $T=1+r$ and $\eta_j=D^jr$. Besides the formulas for $g''$ and $g^{(4)}$ used earlier, the sixth derivative is exactly
+\begin{align}\label{eq:g6}
+g^{(6)}={}&\frac{\eta_6}{T}
+-\frac{6\eta_1\eta_5+15\eta_2\eta_4+10\eta_3^2}{T^2}\notag\\
+&+\frac{30\eta_1^2\eta_4+120\eta_1\eta_2\eta_3+30\eta_2^3}{T^3}\notag\\
+&-\frac{120\eta_1^3\eta_3+270\eta_1^2\eta_2^2}{T^4}
++\frac{360\eta_1^4\eta_2}{T^5}-\frac{120\eta_1^6}{T^6}.
+\end{align}
+Thus $X=-L''-g''$, $Y=L^{(4)}+g^{(4)}$ and $S=L^{(6)}+g^{(6)}$. No numerical differentiation is used.
+
+The positive Laplace representation gives, for $s=(n^2-1)z$,
+\begin{equation}\label{eq:tailQ}
+|D^jr_n|\le2^jn^4\ee^{-s}Q_j(s),\qquad
+Q_j(s)=s^j+\sum_{l=0}^j\binom jl s^{j-l}l!2^l.
+\end{equation}
+The coefficients are nonnegative and the degree is at most six. Consequently $\ee^{-s}Q_j(s)$ decreases for $s\ge9$. For $n\ge3$, $z\ge3$, successive majorants have ratio at most
+\[
+\left(\frac43\right)^4\left(\frac{15}{8}\right)^6\ee^{-21}
+<\frac{200}{20^7}<10^{-6}.
+\]
+Therefore the complete $n\ge3$ tail has the rational bound
+\begin{equation}\label{eq:tailBj}
+\sum_{n\ge3}|D^jr_n|\le B_j,
+\qquad B_j=\frac{2^j3^4Q_j(24)}{20^8(1-10^{-6})},
+\qquad 0\le j\le6.
+\end{equation}
+The signed tail is enclosed by $[0,B_j]$ for even $j$ and $[-B_j,0]$ for odd $j$. Local uniform convergence and theta decay justify all differentiation and subsequent integration.
+
+\subsection{A rational interval certificate on the whole compact region}
+The directly evaluated correction is only
+\[
+r_2(z)=\ee^{-3z}\left(16+\frac{18}{z-3/2}\right).
+\]
+For $t=z-3/2$, define Laurent polynomials
+\[
+A_0(t)=16+18/t,\qquad
+A_{j+1}(t)=2(t+3/2)\bigl(A_j'(t)-3A_j(t)\bigr).
+\]
+Then $D^jr_2=\ee^{-3z}A_j(t)$. The polynomials
+\[
+N_j(x)=(-1)^j(x+3/2)^{j+1}A_j(x+3/2)
+\]
+have nonnegative coefficients for $j=0,\ldots,6$, verified by the exact recurrence. Hence
+\[
+|D^jr_2(z)|=\ee^{-3z}\frac{N_j(z-3)}{(z-3/2)^{j+1}}
+\]
+can be enclosed by arithmetic on positive rational intervals.
+
+The supplied program \texttt{sixth\_pointwise\_certificate.py} covers
+\begin{equation}\label{eq:cells}
+I_j=[3+j/100,\,3+(j+1)/100],\qquad j=0,\ldots,699.
+\end{equation}
+For each entire closed interval it performs the following operations:
+\begin{enumerate}
+\item Enclose every $D^jr_2$, then add the signed full tail \eqref{eq:tailBj}.
+\item Enclose $g''$, $g^{(4)}$, $g^{(6)}$ by their exact rational formulas and $T=1+r>0$.
+\item Enclose $X,Y,S$ and the polynomial $P$ in \eqref{eq:P6}.
+\item Compare the exact lower endpoints with $17$ and $1{,}000{,}000$.
+\end{enumerate}
+All 700 interval assertions pass. The smallest interval lower bound for $P$ is approximately $1{,}669{,}427.8658$, on $[3,3.01]$. This decimal is descriptive; the sign decisions use exact fractions.
+
+For clarity, the transcendental enclosure is itself rational. For $0\le t\le30$, set $x=t/32$ and use
+\[
+S_{20}(x)\le\ee^x\le S_{20}(x)+\frac{x^{21}/21!}{1-x/22}.
+\]
+Five interval squarings enclose $\ee^t$ and reciprocation encloses $\ee^{-t}$. Endpoints are rounded outward to multiples of $2^{-96}$ by integer floor and ceiling operations. The recurrence coefficients, cell endpoints, tail bounds and final comparisons are all rational. Covering the intervals, rather than evaluating their centers, is what supplies a continuum certificate.
+
+\subsection{Analytic closure on the unbounded interval}
+For $z\ge10$, apply \eqref{eq:tailQ} to all $n\ge2$. The successive-term ratio is at most
+\[
+\left(\frac32\right)^4\left(\frac83\right)^6\ee^{-50}
+<\frac{2048}{20^{16}}<10^{-3}.
+\]
+Thus
+\[
+|\eta_j|\le b_j=\frac{2^j2^4Q_j(30)}{20^{10}(1-10^{-3})},
+\qquad j=0,\ldots,6.
+\]
+Substitution into the absolute log-composition formulas, using $T\ge1$, gives
+\[
+|g''|<1,\qquad |g^{(4)}|<1,\qquad |g^{(6)}|<1.
+\]
+The checker verifies these finite rational inequalities. The first-summand formulas imply
+$X\ge39$, $Y<0$, $S<0$. Using $Y\ge-4X-421$ then gives
+\begin{align}
+P&\ge24X^4-18X^2(4X+421)-(4X+421)^2\notag\\
+&=24X^4-72X^3-7594X^2-3368X-177241.
+\end{align}
+At $X=39+y$, $y\ge0$, the last expression becomes
+\[
+39{,}392{,}549+4{,}770{,}388y+203{,}006y^2+3672y^3+24y^4.
+\]
+Every coefficient is positive. This proves \eqref{eq:pointSixth} on the entire remaining half-line, completing the pointwise certificate.
+
+\subsection{Transfer through the complete bridge}
+\begin{proof}[Proof of Theorem~\ref{thm:four}]
+Use the probability measure $\rho_a$ from Theorem~\ref{thm:three}. Up to a diagonal sign congruence, the odd block of $H_3(a)/C_a(0)$ is $\mathbb E_{\rho_a}M(h)$. Write the entries of $M$ as $A=2X>34$, $B=12X^2+2Y$ and $D=120X^3+60XY-2S$. Since
+\[
+AD-B^2=4P\ge4K,\qquad K=1{,}000{,}000,
+\]
+we have $D\ge B^2/A+4K/A$. Twice applying Cauchy--Schwarz gives
+\begin{align}
+(\mathbb EA)(\mathbb ED)-(\mathbb EB)^2
+&\ge4K(\mathbb EA)(\mathbb EA^{-1})\ge4K.
+\end{align}
+All expectations are finite; $A>34$ also controls the reciprocal. The entries of the averaged block are $-C_a''/C_a(0)$, $C_a^{(4)}/C_a(0)$ and $-C_a^{(6)}/C_a(0)$. This proves \eqref{eq:sixthTarget}. Its first diagonal is positive, and the already proved even block is positive, so $H_3(a)\succ0$. At zero shift replace the weight by $2h^2\psi(h)^2/\kappa_0(0)$; the same proof applies.
+\end{proof}
+
+There is an exact version retaining the additional contribution from mixing midpoints. With $\dd\nu=X\dd\rho_a/\mathbb EX$,
+\begin{equation}\label{eq:sixthCovariance}
+\frac{C_a''C_a^{(6)}-(C_a^{(4)})^2}{C_a(0)^2}
+=4\mathbb EX\,\mathbb E(P/X)
++4(\mathbb EX)^2\Var_\nu(6X+Y/X),
+\end{equation}
+where all derivatives are evaluated at zero. The second term is nonnegative. The following section explains why retaining such mixing terms becomes necessary at higher orders.
+
+\section{A certified obstruction to positivity of every individual slice}
+The preceding pointwise method cannot establish every derivative order. The obstruction can be exhibited with a simple polynomial and the complete theta series.
+
+\begin{theorem}[An explicit negative fifth-order slice direction]\label{thm:negativeSlice}
+Let
+\[
+F(v)=\frac{\psi(-v)\psi(v)}{\psi(0)^2}=\frac{\psi(v)^2}{\psi(0)^2},
+\qquad \mu_{2r}=(-1)^rF^{(2r)}(0).
+\]
+Then
+\begin{equation}\label{eq:negativeWitness}
+\boxed{10^8\mu_2-5\cdot10^6\mu_4+82500\mu_6-500\mu_8+\mu_{10}
+<-1{,}400{,}000{,}000.}
+\end{equation}
+Consequently the fifth-order confluent matrix of this individual midpoint slice is not positive semidefinite.
+\end{theorem}
+
+The witness is
+\begin{equation}\label{eq:witnessPolynomial}
+p(k)=k(k^2-50)(k^2-200)=k^5-250k^3+10000k.
+\end{equation}
+Its square has exactly the coefficients in \eqref{eq:negativeWitness}. Equivalently, in the real derivative-channel basis with degrees $1,3,5$, use the vector $(10000,250,1)$. The relevant matrix is
+\[
+J=\begin{pmatrix}
+\mu_2&-\mu_4&\mu_6\\
+-\mu_4&\mu_6&-\mu_8\\
+\mu_6&-\mu_8&\mu_{10}
+\end{pmatrix},
+\]
+and its quadratic form on that vector is the displayed negative quantity. A smooth positive-definite function has positive semidefinite confluent matrices, by divided-difference limits. Thus the witness proves that $F$ is not positive definite.
+
+\subsection{Complete derivative enclosures at the modular center}
+For $x=\pi n^2\ee^{2u}$, define the rational derivative polynomials
+\[
+P_{\alpha,0}(x)=1,\qquad
+P_{\alpha,j+1}(x)=(\alpha-2x)P_{\alpha,j}(x)+2xP_{\alpha,j}'(x).
+\]
+Termwise differentiation gives
+\begin{equation}\label{eq:psiJetCenter}
+\psi^{(j)}(0)=\sum_{n\ge1}\ee^{-\pi n^2}
+\left[8\pi^2n^4P_{9/2,j}(\pi n^2)-12\pi n^2P_{5/2,j}(\pi n^2)\right].
+\end{equation}
+The certificate is implemented in \texttt{slice\_h5\_exact\_certificate.py}. It encloses the first four terms for every even derivative order through ten. Modularity gives the exact vanishing of odd derivatives at zero. The moments are then computed by
+\[
+\mu_{2r}=\frac{(-1)^r}{\psi(0)^2}
+\sum_{\substack{0\le j\le2r\\j\text{ even}}}
+\binom{2r}{j}\psi^{(j)}(0)\psi^{(2r-j)}(0).
+\]
+
+To enclose the entire discarded tail, let $A_j,B_j$ denote the sums of absolute coefficients of $P_{9/2,j},P_{5/2,j}$. For $x\ge1$, these polynomials have absolute values at most $A_jx^j,B_jx^j$. Using $3<\pi<4$ and $\ee^3>20$, the $n$th derivative summand has absolute value less than
+\[
+(128A_j+48B_j)4^j\frac{n^{2j+4}}{20^{n^2}}.
+\]
+For $n\ge5$ and $j\le10$, successive majorants have ratio at most
+\[
+q=\left(\frac65\right)^{24}\frac1{20^{11}}<10^{-10}.
+\]
+The whole tail is therefore bounded by the rational number
+\begin{equation}\label{eq:sliceTail}
+T_j=\frac{(128A_j+48B_j)4^j5^{2j+4}}{20^{25}(1-q)}.
+\end{equation}
+Even the conservative $T_{10}<138$ is sufficient for the final sign.
+
+The transcendental enclosures also have exact remainders. Machin's identity
+\[
+\pi=16\arctan(1/5)-4\arctan(1/239)
+\]
+is evaluated between successive alternating rational partial sums, using 48 and 16 terms respectively. The positive Taylor sum of $\ee^\pi$ through degree 100 is completed by a geometric upper bound on its remainder; reciprocation and integer powers enclose $\ee^{-\pi n^2}$. Every arithmetic operation rounds outward to multiples of $10^{-60}$.
+
+\begin{proof}[Certificate for Theorem~\ref{thm:negativeSlice}]
+The exact rational intervals from \eqref{eq:psiJetCenter} and \eqref{eq:sliceTail}, substituted into the moment formula and the witness, give the enclosing interval with decimal preview
+\[
+[-1{,}450{,}141{,}726.986,\ -1{,}450{,}141{,}418.920].
+\]
+Comparing the exact upper rational endpoint with $-1.4\cdot10^9$ verifies \eqref{eq:negativeWitness}. The decimal preview is not used in that comparison. All transcendental remainders and all theta terms are included in the interval. The accompanying JSON records its exact endpoints.
+\end{proof}
+
+\paragraph{Interpretation.}
+This is a negative direction for one unaveraged slice, not for $C_a$. By continuity the negative slice direction persists for some positive midpoints as well. The bridge integral can still be positive because it combines different slice matrices. Thus an all-order proof cannot require every midpoint slice to be positive definite separately.
+
+There is a second, simpler warning against automatic induction on derivatives. The recurrence \eqref{eq:Pjrecurrence} gives
+\[
+P_7(t)=t^7-21t^6+140t^5-350t^4+301t^3-63t^2+t,
+\qquad P_7(10)=-205290<0.
+\]
+The physical domain includes $t=\lambda z=10$ with $\lambda=3$ and $z=10/3>\pi$. Hence a positive Laplace weight does not imply the dilation-derivative sign pattern at every order. This observation concerns a proposed induction mechanism; it does not assert a negative bridge spectrum.
+
+\section{Retaining the bridge average in the remaining hierarchy}
+\subsection{Parity blocks and the next unproved integrated condition}
+Define normalized signed moments
+\begin{equation}\label{eq:momentNotation}
+m_n(a)=\frac{(-1)^n C_a^{(2n)}(0)}{C_a(0)},\qquad m_0=1.
+\end{equation}
+After separating even and odd derivative channels and applying diagonal signs, the all-order criterion becomes positivity of the two Hankel families
+\begin{equation}\label{eq:parityHankel}
+\mathsf A_r(a)=[m_{i+j}(a)]_{i,j=0}^r,
+\qquad
+\mathsf B_r(a)=[m_{i+j+1}(a)]_{i,j=0}^r.
+\end{equation}
+Theorem~\ref{thm:three} proves $\mathsf A_1\succ0$, while Theorem~\ref{thm:four} proves $\mathsf B_1\succ0$. The next unproved condition in this calculation is the Schur complement for $\mathsf A_2$, equivalently the next even channel in $H_4$:
+\begin{equation}\label{eq:H4target}
+\boxed{m_4-
+\begin{pmatrix}m_2&m_3\end{pmatrix}
+\begin{pmatrix}1&m_1\\m_1&m_2\end{pmatrix}^{-1}
+\begin{pmatrix}m_2\\m_3\end{pmatrix}\ge0.}
+\end{equation}
+Because $\mathsf A_1\succ0$, this is equivalent to
+\[
+(m_2-m_1^2)m_4-m_3^2+2m_1m_2m_3-m_2^3\ge0.
+\]
+The subsequent new odd channel requires the corresponding $\mathsf B_2$ Schur complement. Positivity of every finite order remains necessary; these statements do not assume the existence of a positive spectral measure.
+
+\subsection{An exact decomposition of the averaged Schur complement}
+The negative slice witness makes the order of averaging and elimination important. The following is a general matrix identity; the unresolved task is its theta-specific lower bound.
+
+\begin{proposition}[Averaging adds a nonnegative coupling-variation term]\label{prop:averagedSchur}
+Let $\rho$ be a probability measure and let a finite Hermitian matrix family be partitioned as
+\[
+J(h)=\begin{pmatrix}A(h)&B(h)\\B(h)^*&D(h)\end{pmatrix},
+\qquad A(h)\succ0.
+\]
+Assume the expectations below are finite and $\overline A=\mathbb EA$ is invertible. Write
+\[
+R(h)=A(h)^{-1}B(h),\qquad
+\overline R=(\mathbb EA)^{-1}\mathbb EB,
+\qquad S(h)=D(h)-B(h)^*A(h)^{-1}B(h).
+\]
+Then
+\begin{equation}\label{eq:averagedSchur}
+\boxed{
+\mathbb ED-(\mathbb EB)^*(\mathbb EA)^{-1}\mathbb EB
+=\mathbb ES+
+\mathbb E\left[(R-\overline R)^*A(R-\overline R)\right].
+}
+\end{equation}
+The second term on the right is positive semidefinite.
+\end{proposition}
+\begin{proof}
+Expand the last quadratic form. Since $AR=B$ and
+$\overline A\,\overline R=\mathbb EB$, it equals
+\[
+\mathbb E[B^*A^{-1}B]
+-(\mathbb EB)^*(\mathbb EA)^{-1}\mathbb EB.
+\]
+Adding $\mathbb ES$ proves the identity. Positive semidefiniteness follows directly from $A(h)\succ0$.
+\end{proof}
+
+For the bridge, take $\rho=\rho_a$ and use normalized midpoint slice matrices. The first four local derivative channels are positive: the even block follows pointwise from $\ell^{(4)}+4(\ell'')^2\ge667$, and the odd block from \eqref{eq:pointSixth}. These blocks therefore provide admissible $A(h)$ for larger finite channel systems.
+
+The required integrability is explicit. For any fixed derivative order, the slice entries grow at most polynomially in $z=\pi\ee^{2h}$ as $h\to\infty$. The positive local determinant bounds $1334$ and $4{,}000{,}000$ control the inverse blocks by their adjugates. Hence the entries of $A^{-1}B$ and the quadratic variation term also have at most polynomial growth in $z$. The density $h\sinh(2ah)\psi(h)^2$ decreases faster than every such polynomial for every fixed finite shift. All expectations in \eqref{eq:averagedSchur} are finite, including the normalized endpoint.
+
+For a concrete example, let the local odd moments be
+\[
+q_n(h)=(-1)^n\left.\partial_v^{2n}
+\frac{\psi(h-v)\psi(h+v)}{\psi(h)^2}\right|_{v=0}.
+\]
+To add the fifth-derivative channel to the first and third, choose
+\[
+A(h)=\begin{pmatrix}q_1&q_2\\q_2&q_3\end{pmatrix},
+\qquad B(h)=\begin{pmatrix}q_3\\q_4\end{pmatrix},
+\qquad D(h)=q_5.
+\]
+Here $A(h)\succ0$ is proved. Theorem~\ref{thm:negativeSlice} implies that the local residual $S(h)$ is negative at $h=0$. Equation \eqref{eq:averagedSchur} identifies the extra nonnegative term available after integration. Proving that it compensates for the average negative residual would settle this next odd block; that compensation is not established here.
+
+\paragraph{The remaining global estimate.}
+The desired coupling inequality can now be expressed as
+\begin{equation}\label{eq:remainingAveraged}
+\mathbb E_{\rho_a}S+
+\mathbb E_{\rho_a}\left[(R-\overline R)^*A(R-\overline R)\right]\succeq0
+\end{equation}
+for every finite extension of the proved channels and every $0<a<1/2$. This retains the full bridge integral and allows negative individual slices. Establishing \eqref{eq:remainingAveraged} for every number of added channels, or an equivalent positive recurrence for \eqref{eq:parityHankel}, remains the all-order problem.

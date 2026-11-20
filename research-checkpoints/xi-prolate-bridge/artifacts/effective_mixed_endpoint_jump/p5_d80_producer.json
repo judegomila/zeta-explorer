@@ -1,0 +1,1855 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "nondegenerate intervals receive a precision-scaled dyadic enlargement",
+    "shared_library_with_verifier": true
+  },
+  "certificate": {
+    "checks": {
+      "P_minus_one_is_zero": true,
+      "actual_prolate_trace_schedule_not_executed": true,
+      "actual_uniform_graph_error_not_claimed": true,
+      "bridge_cross_term_retained": true,
+      "canonical_prime_power_count": true,
+      "endpoint_leading_coefficients_exact": true,
+      "endpoint_vandermonde_nonzero": true,
+      "equation_5_2_still_open": true,
+      "finite_fourier_minus_one_phase_retained": true,
+      "high_label_rho_certified_below_half": true,
+      "inclusive_prime_endpoint_complete": true,
+      "mixed_gram_congruence_exact": true,
+      "no_secret_or_api_key_read": true,
+      "odd_jump_interval_positive": true,
+      "rational_trace_fixture_strictly_stops": true,
+      "residual_trace_coordinate_invariant": true,
+      "signed_floors_still_open": true,
+      "trace_stop_constants_reconstructed_exactly": true
+    },
+    "endpoint_recurrence": {
+      "P_minus_one": {
+        "index": -1,
+        "terms": []
+      },
+      "evaluation_oracle": {
+        "c_squared": {
+          "denominator": "1",
+          "numerator": "5"
+        },
+        "mu": {
+          "denominator": "1",
+          "numerator": "17"
+        },
+        "values": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "6"
+          },
+          {
+            "denominator": "2",
+            "numerator": "25"
+          },
+          {
+            "denominator": "6",
+            "numerator": "-55"
+          },
+          {
+            "denominator": "8",
+            "numerator": "-555"
+          }
+        ]
+      },
+      "polynomials": [
+        {
+          "index": 0,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "2",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "2",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "1"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "16",
+                "numerator": "-1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "6",
+                "numerator": "-1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "16",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "12",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "4",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "12",
+                "numerator": "-1"
+              },
+              "mu_power": 0
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "terms": [
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "384",
+                "numerator": "1"
+              },
+              "mu_power": 4
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-1"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-5"
+              },
+              "mu_power": 3
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "64",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "1"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "32",
+                "numerator": "9"
+              },
+              "mu_power": 2
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "-1"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "13"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "48",
+                "numerator": "-5"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 0,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "-3"
+              },
+              "mu_power": 1
+            },
+            {
+              "c_squared_power": 4,
+              "coefficient": {
+                "denominator": "384",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 3,
+              "coefficient": {
+                "denominator": "32",
+                "numerator": "-3"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 2,
+              "coefficient": {
+                "denominator": "96",
+                "numerator": "19"
+              },
+              "mu_power": 0
+            },
+            {
+              "c_squared_power": 1,
+              "coefficient": {
+                "denominator": "8",
+                "numerator": "1"
+              },
+              "mu_power": 0
+            }
+          ]
+        }
+      ],
+      "recurrence_k_values": [
+        1,
+        2,
+        3
+      ],
+      "variable_convention": "terms use powers of mu and c_squared=c^2"
+    },
+    "endpoint_vandermonde": {
+      "K": 3,
+      "V_minus": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-3"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-16"
+          },
+          {
+            "denominator": "2",
+            "numerator": "-243"
+          }
+        ],
+        [
+          {
+            "denominator": "8",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-64"
+          },
+          {
+            "denominator": "8",
+            "numerator": "-19683"
+          }
+        ]
+      ],
+      "V_plus": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "16"
+          },
+          {
+            "denominator": "2",
+            "numerator": "243"
+          }
+        ],
+        [
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "64"
+          },
+          {
+            "denominator": "8",
+            "numerator": "19683"
+          }
+        ]
+      ],
+      "a": [
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        {
+          "denominator": "1",
+          "numerator": "9"
+        }
+      ],
+      "determinant_formula_plus": {
+        "denominator": "1",
+        "numerator": "29250"
+      },
+      "determinant_minus": {
+        "denominator": "1",
+        "numerator": "-29250"
+      },
+      "determinant_plus": {
+        "denominator": "1",
+        "numerator": "29250"
+      },
+      "epsilon_minus": -1,
+      "epsilon_plus": 1,
+      "vandermonde_product_in_a_squared": {
+        "denominator": "1",
+        "numerator": "78000"
+      }
+    },
+    "exact_mixed_bridge_fixture": {
+      "C_mixed_raw": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "C_sep_raw": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "D_congruence_reconstruction": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "D_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "D_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "G": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1601"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "3201"
+          }
+        ]
+      ],
+      "H_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "H_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "a": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "beta": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "bridge_cross_beta_u": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "captured_mixed": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "captured_sep": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ]
+      ],
+      "fixture_scope": "exact rational coordinate-invariance fixture, not an executed prolate trace stage",
+      "lift_base_coordinates": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "lift_raw": [
+        [
+          {
+            "denominator": "40",
+            "numerator": "-39"
+          },
+          {
+            "denominator": "80",
+            "numerator": "-79"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "41"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "41"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "40",
+            "numerator": "-39"
+          },
+          {
+            "denominator": "80",
+            "numerator": "81"
+          }
+        ]
+      ],
+      "mixed_change": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          }
+        ]
+      ],
+      "orthogonal_complement": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_coordinates": [
+        [
+          {
+            "denominator": "40",
+            "numerator": "1"
+          },
+          {
+            "denominator": "80",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_mixed": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_sep": [
+        [
+          {
+            "denominator": "400",
+            "numerator": "1"
+          },
+          {
+            "denominator": "800",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "800",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1600",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "residual_trace": {
+        "denominator": "320",
+        "numerator": "1"
+      },
+      "trace_stop_margin": {
+        "denominator": "1600",
+        "numerator": "27"
+      },
+      "trace_stop_strict_upper": {
+        "denominator": "50",
+        "numerator": "1"
+      },
+      "u": {
+        "denominator": "1",
+        "numerator": "1"
+      }
+    },
+    "exact_trace_stop": {
+      "B_norm_squared_upper": {
+        "denominator": "2",
+        "numerator": "625"
+      },
+      "M_mu_upper": {
+        "denominator": "1",
+        "numerator": "5"
+      },
+      "T_norm_squared_upper": {
+        "denominator": "8",
+        "numerator": "25"
+      },
+      "actual_prolate_trace_schedule_executed": false,
+      "coarse_floor_formula_value": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "intermediate_floor_formula_value": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "lambda": {
+        "denominator": "2",
+        "numerator": "5"
+      },
+      "neumann_inverse_factor": {
+        "denominator": "3",
+        "numerator": "4"
+      },
+      "operator_error_squared_strict_upper": {
+        "denominator": "16",
+        "numerator": "1"
+      },
+      "operator_error_strict_upper": {
+        "denominator": "4",
+        "numerator": "1"
+      },
+      "right_inverse_norm_squared_upper": {
+        "denominator": "9",
+        "numerator": "5000"
+      },
+      "rounded_monotonicity_assumed": false,
+      "source_whitened_floor": {
+        "denominator": "5000",
+        "numerator": "9"
+      },
+      "trace_interval_width_at_stage_s": "2^(-s)",
+      "trace_stop_strict_upper": {
+        "denominator": "50",
+        "numerator": "1"
+      }
+    },
+    "high_label_rho": {
+      "B_s": 2048,
+      "actual_transition_scale_block_executed": false,
+      "c": {
+        "decimal": [
+          "39.2699081698724154807830422909937860524646174921888227621868074038477050785422387209444582",
+          "39.2699081698724154807830422909937860524646174921888227621868074038477050786129862812178587"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "36377157689176632428023494277772986265339337732839242995877215111793889446585759",
+            -259,
+            265
+          ],
+          "upper": [
+            0,
+            "582034523026826118848375908444367780245429403725427887934035441788702231146420721",
+            -263,
+            269
+          ]
+        }
+      },
+      "c_squared": {
+        "decimal": [
+          "1542.12568767021228419288921873064861489276553238137353537708584003438200350186885599926112",
+          "1542.12568767021228419288921873064861489276553238137353537708584003438200350413278440513635"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "357131910483733649046018424485973730272783040779613912371160937763896171958215063",
+            -257,
+            268
+          ],
+          "upper": [
+            0,
+            "357131910483733649046018424485973730272783040779613912371160937763896171958739353",
+            -257,
+            268
+          ]
+        }
+      },
+      "derivative_order_k": 2,
+      "rows": {
+        "minus_2_mod_4": {
+          "g_n": {
+            "decimal": [
+              "10238463.8743123297877158071107812693513851072344676186264646229141599656179872239678779844",
+              "10238463.8743123297877158071107812693513851072344676186264646229141599656180057700163182947"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "578873595013384471782234579444644160976462583533045684888302888924635032668295653",
+                -245,
+                269
+              ],
+              "upper": [
+                0,
+                "289436797506692235891117289722322080488231291766522842444151444462317516334672115",
+                -244,
+                268
+              ]
+            }
+          },
+          "half_threshold_margin": {
+            "decimal": [
+              "3921917.05761514027166173287086053262478433961383351262556007931337913693164588735217544413",
+              "3921917.05761514027166173287086053262478433961383351262556007931337913693165052391292442301"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "55435421132412705684054038739667607675919885688357943129285487790184715177552915",
+                -243,
+                265
+              ],
+              "upper": [
+                0,
+                "221741684529650822736216154958670430703679542753431772517141951160738860710473807",
+                -245,
+                267
+              ]
+            }
+          },
+          "label": 2560002,
+          "label_mod_4": 2,
+          "rho": {
+            "decimal": [
+              "0.308471412032082924102004932552047820143775433569552938931374638830135494652311096607277671",
+              "0.308471412032082924102004932552047820143775433569552938931374638830135494652863814030353201"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "585212711226243132676346307253330047033294031514567074896030892716404389911531961",
+                -270,
+                269
+              ],
+              "upper": [
+                0,
+                "292606355613121566338173153626665023516647015757283537448015446358202194956290271",
+                -269,
+                268
+              ]
+            }
+          },
+          "rho_strict_upper": {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        },
+        "plus_0_mod_4": {
+          "g_n": {
+            "decimal": [
+              "10238455.8743123297877158071107812693513851072344676186264646229141599656179872239678779844",
+              "10238455.8743123297877158071107812693513851072344676186264646229141599656180057700163182947"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "578873142700535888515846206120483970789322531697168084729849609793447501757632997",
+                -245,
+                269
+              ],
+              "upper": [
+                0,
+                "289436571350267944257923103060241985394661265848584042364924804896723750879340787",
+                -244,
+                268
+              ]
+            }
+          },
+          "half_threshold_margin": {
+            "decimal": [
+              "3921909.05761514027166173287086053262478433961383351262556007931337913693164588735217544413",
+              "3921909.05761514027166173287086053262478433961383351262556007931337913693165052391292442301"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "55435308054200559867456945408627560129134872729388543089672168007387832449887251",
+                -243,
+                265
+              ],
+              "upper": [
+                0,
+                "221741232216802239469827781634510240516539490917554172358688672029551329799811151",
+                -245,
+                267
+              ]
+            }
+          },
+          "label": 2560000,
+          "label_mod_4": 0,
+          "rho": {
+            "decimal": [
+              "0.30847165306171928246666839479292066629393358877129228343293247107965586623507779406813802",
+              "0.308471653061719282466668394792920666293933588771292283432932471079655866235630512018323448"
+            ],
+            "dyadic": {
+              "lower": [
+                0,
+                "73151646061578323454000268310691102116876800916638472515517232744004885477668421",
+                -267,
+                266
+              ],
+              "upper": [
+                0,
+                "292606584246313293816001073242764408467507203666553890062068930976019541911197975",
+                -269,
+                268
+              ]
+            }
+          },
+          "rho_strict_upper": {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        }
+      },
+      "scope": "raw sufficient high-label region; not a transition-scale endpoint certificate",
+      "twice_s_k": 9
+    },
+    "inclusive_prime_powers": [
+      {
+        "exponent": 1,
+        "n": 2,
+        "prime_base": 2
+      },
+      {
+        "exponent": 1,
+        "n": 3,
+        "prime_base": 3
+      },
+      {
+        "exponent": 2,
+        "n": 4,
+        "prime_base": 2
+      },
+      {
+        "exponent": 1,
+        "n": 5,
+        "prime_base": 5
+      }
+    ],
+    "logical_theorems": {
+      "artifact_executes_actual_prolate_trace_schedule": false,
+      "effective_mixed_floor_is_signed_floor": false,
+      "effective_transition_scale_endpoint_block_proved": false,
+      "endpoint_jet_range_equivalent_at_fixed_parameter": true,
+      "equation_5_2_proved": false,
+      "finite_computable_target_mixed_schedule_proved": true,
+      "fixed_lambda_finite_jump_transfer_proved": true,
+      "locally_uniform_determinant_convergence_proved": false,
+      "odd_positive_nu_gate_proved": false,
+      "rational_trace_fixture_is_actual_schedule_output": false,
+      "uniform_graph_error_rate_proved": false
+    },
+    "odd_jump_band": {
+      "F_k_jump_leading_coefficient": {
+        "imag": {
+          "decimal": [
+            "0.00458579364084844959555494033333624517485897501157454875791641199920495073339289095244676344",
+            "0.00458579364084844959555494033333624517485897501157454875791641199920495073340152751633428076"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "69599051970647269169466102858973512344579716791407349552700097413639649861442685",
+              -273,
+              266
+            ],
+            "upper": [
+              0,
+              "69599051970647269169466102858973512344579716791407349552700097413639649861573763",
+              -273,
+              266
+            ]
+          }
+        },
+        "real": {
+          "decimal": [
+            "-0.00315376873424010222595886942671443641373420855918828732291946352130396957414550519155771238",
+            "-0.00315376873424010222595886942671443641373420855918828732291946352130396957414118661723268264"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "765841051660294892443139519125429359544571562778503972771888333968655382955085033",
+              -277,
+              269
+            ],
+            "upper": [
+              1,
+              "382920525830147446221569759562714679772285781389251986385944166984327691477018169",
+              -276,
+              268
+            ]
+          }
+        }
+      },
+      "J_lambda_n": {
+        "decimal": [
+          "0.232488632121653768129723854436868108715530403989543895848096323776243168753241951201336564",
+          "0.232488632121653768129723854436868108715530403989543895848096323776243168753518310703539175"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "110265730815148480924890875369171249847567288275312417380855711456001614359508761",
+            -268,
+            266
+          ],
+          "upper": [
+            0,
+            "55132865407574240462445437684585624923783644137656208690427855728000807179819917",
+            -267,
+            265
+          ]
+        }
+      },
+      "K0": 8,
+      "K0_ratio": {
+        "decimal": [
+          "7.52719122425321917940423866841655500985453740241745454580946089690302508346999141078503616",
+          "7.52719122425321917940423866841655500985453740241745454580946089690302508347883496545806983"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "446253669347876913829656608887528957658294026768831755182085990738585574596163591",
+            -265,
+            268
+          ],
+          "upper": [
+            0,
+            "223126834673938456914828304443764478829147013384415877591042995369292787298343943",
+            -264,
+            267
+          ]
+        }
+      },
+      "L": {
+        "decimal": [
+          "1.832581463748310130367054423536022142900202439816524935583935763961570731474820667650789",
+          "1.83258146374831013036705442353602214290020243981652493558393576396157073147703152890933276"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "869164795432943046637860053012991560596954236660445829724209220917703114710470953",
+            -268,
+            269
+          ],
+          "upper": [
+            0,
+            "434582397716471523318930026506495780298477118330222914862104610458851557355759765",
+            -267,
+            268
+          ]
+        }
+      },
+      "actual_uniform_graph_error_bound_executed": false,
+      "coarse_dyadic_band_lower": {
+        "decimal": [
+          "0.0000392036969404193148215557172016650998023995334693088668099722218371493103054947818177794327",
+          "0.0000392036969404193148215557172016650998023995334693088668099722218371493103055622530428165657"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "609278420051180755414078609124002922168542720265615492758051687526886154232949977",
+            -283,
+            269
+          ],
+          "upper": [
+            0,
+            "609278420051180755414078609124002922168542720265615492758051687526886154233998571",
+            -283,
+            269
+          ]
+        }
+      },
+      "derivative_atom_leading_coefficient": {
+        "imag": {
+          "decimal": [
+            "-0.0973170491390890039046901764333110404675422889252571817310366240325404897407072458166632259",
+            "-0.0973170491390890039046901764333110404675422889252571817310366240325404897405690526242595428"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "738495328303558110123821561412038349919572604661861180966812089403446814850920125",
+              -272,
+              269
+            ],
+            "upper": [
+              1,
+              "738495328303558110123821561412038349919572604661861180966812089403446814849871439",
+              -272,
+              269
+            ]
+          }
+        },
+        "real": {
+          "decimal": [
+            "-0.141505589881402709526188116637614564788032518667037198122767384756135358354274929929567319",
+            "-0.141505589881402709526188116637614564788032518667037198122767384756135358353998561202941507"
+          ],
+          "dyadic": {
+            "lower": [
+              1,
+              "268455573768215760209840973581376381084887188538529049403328022992158643925208171",
+              -270,
+              268
+            ],
+            "upper": [
+              1,
+              "536911147536431520419681947162752762169774377077058098806656045984317287849367723",
+              -271,
+              269
+            ]
+          }
+        }
+      },
+      "dyadic_K": 8,
+      "ell": {
+        "decimal": [
+          "0.916290731874155065183527211768011071450101219908262467791967881980785365737410333825394499",
+          "0.916290731874155065183527211768011071450101219908262467791967881980785365738515764454666382"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "869164795432943046637860053012991560596954236660445829724209220917703114710470953",
+            -269,
+            269
+          ],
+          "upper": [
+            0,
+            "434582397716471523318930026506495780298477118330222914862104610458851557355759765",
+            -268,
+            268
+          ]
+        }
+      },
+      "eta": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "fourier_mode_k": 9,
+      "graph_half_error_threshold": {
+        "decimal": [
+          "0.00313064278305667264536097625924574607825549786417167424909917669875166490147816401215938304",
+          "0.00313064278305667264536097625924574607825549786417167424909917669875166490148248214585348312"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "760225293414397463496277243251448441645251563639873083755358958028679220492361319",
+            -277,
+            269
+          ],
+          "upper": [
+            0,
+            "760225293414397463496277243251448441645251563639873083755358958028679220493409907",
+            -277,
+            269
+          ]
+        }
+      },
+      "jump_law_energy": {
+        "decimal": [
+          "0.00250903660418683614857956590090656638735357014203576747583822219757755585955166603633788369",
+          "0.0025090366041868361485795659009065663873535701420357674758382221975775558595559841947402602"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "609278420051180755414078609124002922168542720265615492758051687526886154232949977",
+            -277,
+            269
+          ],
+          "upper": [
+            0,
+            "609278420051180755414078609124002922168542720265615492758051687526886154233998571",
+            -277,
+            269
+          ]
+        }
+      },
+      "jump_term_before_graph_error": {
+        "decimal": [
+          "0.00626128556611334529072195251849149215651099572834334849819835339750332980295632802431876608",
+          "0.00626128556611334529072195251849149215651099572834334849819835339750332980296496429170696624"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "760225293414397463496277243251448441645251563639873083755358958028679220492361319",
+            -276,
+            269
+          ],
+          "upper": [
+            0,
+            "760225293414397463496277243251448441645251563639873083755358958028679220493409907",
+            -276,
+            269
+          ]
+        }
+      },
+      "k_squared_leading_energy": {
+        "decimal": [
+          "0.00250903660418683614857956590090656638735357014203576747583822219757755585955166579337316547",
+          "0.00250903660418683614857956590090656638735357014203576747583822219757755585955598443358693235"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "304639210025590377707039304562001461084271360132807746379025843763443077116474959",
+            -276,
+            268
+          ],
+          "upper": [
+            0,
+            "609278420051180755414078609124002922168542720265615492758051687526886154233998629",
+            -277,
+            269
+          ]
+        }
+      },
+      "lambda": {
+        "decimal": [
+          "2.5",
+          "2.5"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "5",
+            -1,
+            3
+          ],
+          "upper": [
+            0,
+            "5",
+            -1,
+            3
+          ]
+        }
+      },
+      "minus_one_to_k_phase": -1,
+      "outer_cutoff_condition": {
+        "M_at_least": 16
+      },
+      "phase_angle": {
+        "decimal": [
+          "-6.88562598536514166356394638889145941418689179027328374525789371533043242499353658398944771",
+          "-6.8856259853651416635639463888914594141868917902732837452578937153304324249846930546176891"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "816436242997436152792613912278266571977094068403326553417758059174630106152914135",
+            -266,
+            269
+          ],
+          "upper": [
+            1,
+            "204109060749359038198153478069566642994273517100831638354439514793657526537966387",
+            -264,
+            267
+          ]
+        }
+      },
+      "positive_mode_harmonic_sum": {
+        "denominator": "519437318400",
+        "numerator": "29568699913"
+      },
+      "positive_nu_gate_established": false,
+      "prime_base": 2,
+      "prime_power_n": 2,
+      "sharp_dyadic_band_lower": {
+        "decimal": [
+          "0.0000714128036164730029746067098590983294269122672252078946949471529302294203002259057100512671",
+          "0.000071412803616473002974606709859098329426912267225207894694947152930229420300360848160125533"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "69365716046173573724346180702060494123083532783210549385149663759798671461134719",
+            -279,
+            266
+          ],
+          "upper": [
+            0,
+            "277462864184694294897384722808241976492334131132842197540598655039194685845063173",
+            -281,
+            268
+          ]
+        }
+      },
+      "variation_B_fixture": {
+        "denominator": "1",
+        "numerator": "3"
+      },
+      "variation_fixture_is_actual_B_bound": false,
+      "x_n": {
+        "decimal": [
+          "-0.223143551314209755766295090309834503374601085548007213671287872487391743768406513082519858",
+          "-0.223143551314209755766295090309834503374601085548007213671287872487391743768130154107427144"
+        ],
+        "dyadic": {
+          "lower": [
+            1,
+            "846668038357208977753759639019597851130010750345203948507402761253211308649304269",
+            -271,
+            269
+          ],
+          "upper": [
+            1,
+            "846668038357208977753759639019597851130010750345203948507402761253211308648255687",
+            -271,
+            269
+          ]
+        }
+      }
+    },
+    "source_admissions": {
+      "actual_odd_harmonic_short_proved": false,
+      "actual_odd_transverse_floor_proved": false,
+      "actual_prescribed_minus_coframe_proved": false,
+      "actual_prescribed_plus_coframe_proved": false,
+      "api_key_read": false,
+      "asymptotic_mixed_prefix_cost_bound_proved": false,
+      "binary64_parameters_used": false,
+      "cached_matrix_or_eigenvector_read": false,
+      "common_unbounded_jump_cutoff_proved": false,
+      "decimal_zero_list_read": false,
+      "determinant_limit_claimed": false,
+      "effective_transition_scale_endpoint_block_proved": false,
+      "endpoint_derivative_tail_on_common_schedule_proved": false,
+      "environment_secret_read": false,
+      "equation_5_2_claimed": false,
+      "finite_computable_target_mixed_schedule_proved": true,
+      "fixed_inverse_load_margin_claimed": false,
+      "fixed_lambda_finite_jump_transfer_proved": true,
+      "fourier_sign_changed": false,
+      "global_weil_positivity_assumed": false,
+      "inversion_reflection_dropped": false,
+      "lambda_squared_mixed_with_lambda": false,
+      "mixed_prefix_signed_floor_proved": false,
+      "nonpositive_complementary_or_schur_gap_reported_as_pass": false,
+      "odd_positive_nu_gate_proved": false,
+      "prime_block_sign_changed": false,
+      "prime_power_endpoint_omitted": false,
+      "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+      "riemann_hypothesis_assumed_or_claimed": false,
+      "secret_serialized": false,
+      "uniform_graph_error_rate_proved": false,
+      "unit_source_normalization_substituted": false,
+      "zero_reality_assumed": false
+    }
+  },
+  "claim_boundary": {
+    "asymptotic_rh_conclusion_claimed": false,
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "endpoint_result": "fixed-parameter endpoint recurrence, high-label jet correction, jet-zero density, and range equivalence; not a new prescribed coframe or common diagonal",
+    "equation_5_2_proved": false,
+    "formal_status": "P0_INVALIDATED",
+    "locally_uniform_determinant_convergence_proved": false,
+    "mixed_result": "a total fail-closed mixed-prefix schedule and explicit source-normalized floor for each finite computable target, plus a coarse parameter-explicit BV majorant; not a useful transition-scale asymptotic schedule",
+    "new_lambda_bound_claimed": false,
+    "numerical_diagnostics_are_theorems": false,
+    "odd_result": "fixed-parameter graph convergence and eventual nonzero finite cross vector, with a localized jump-band law; not a transverse floor, positive moment gate, or inverse-load enclosure",
+    "signed_even_floor_proved": false,
+    "signed_mixed_floor_proved": false,
+    "signed_odd_floor_proved": false
+  },
+  "inputs": {
+    "dps": "80",
+    "endpoint_fixture": {
+      "K": "3",
+      "a": [
+        "1",
+        "4",
+        "9"
+      ]
+    },
+    "high_label_rule": {
+      "minus_label": "4096*p^4+2",
+      "plus_label": "4096*p^4"
+    },
+    "lambda_denominator": "2",
+    "lambda_numerator": "5",
+    "odd_jump_fixture": {
+      "eta": "1/2",
+      "prime_power_n": "2",
+      "variation_B_fixture": "3"
+    }
+  },
+  "schema": "xi-prolate-effective-mixed-endpoint-jump-v1",
+  "source_conventions": {
+    "arithmetic_transform": "A_lambda f(u)=sqrt(u)*sum_(m<=lambda/u) f(m*u)",
+    "complete_nonpole_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "finite_fourier_basis": "phi_k(x)=(-1)^k*L^(-1/2)*exp(2*pi*i*k*x/L), with P_N=sum_(|k|<=N) |phi_k><phi_k|",
+    "finite_fourier_phase": "the factor (-1)^k is retained in coefficients and distributional jump transforms",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "inversion": "Jf(x)=f(-x)",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5",
+    "minus_family_precondition": "I_2 is nonzero before defining c_n^- or the separated mixed bridge",
+    "minus_source_family": "c_n^-=-h_n+(I_n/I_2)*h_2 for n=2 mod 4, n>=6",
+    "mixed_bridge": "c_(4j+2)=-c^-_(4j+2)+(I_(4j+2)/I_2)*c_2",
+    "odd_pole": "p(x)=sinh(x/2), with mu=||p||^2=(lambda-lambda^(-1)-2*log(lambda))/2",
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "plus_source_family": "c_n^+=h_n-(I_n/I_0)*h_0 for n=0 mod 4, n>=4",
+    "prime_block_sign": "minus, as in source equation (3.19), before any norm is taken",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prolate_parameter": "c=2*pi*lambda^2",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "source_normalization": "source-limit normalization is retained; unit normalization is rejected"
+  },
+  "source_lock": {
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "RESIDUE_COFRAME_MIXED_KRYLOV_SOURCE_LOCK.json": "07820d02ae10c1911d35796a5ad018ffcdae4363f22f2b000074e430c7086375",
+      "notes/AUGMENTED_ENDPOINT_JET_COFRAME_ATTACK.md": "521a21decb0eb3175d73430f4d23b31917a128cc8f705caea9ccc70e088ba7ac",
+      "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "external_source_hashes": {
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "path": "EFFECTIVE_MIXED_ENDPOINT_JUMP_SOURCE_LOCK.json",
+    "schema": "xi-prolate-effective-mixed-endpoint-jump-source-lock-v1",
+    "sha256": "24ea8f8085e9e198201006f54e0499495174053e38f6c26185cd2b2f60725fcc"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

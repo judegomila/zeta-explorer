@@ -1,0 +1,118 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and replay share the exact pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees": true,
+    "independent_prime_power_enumeration": true,
+    "library": "mpmath.iv 1.4.1",
+    "precision_mode": "outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "exact dyadic rule locked in source conventions; nondegenerate intervals only",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "all_interval_pairs_precision_tight": true,
+    "all_submitted_intervals_enclose_reconstruction": true,
+    "binary64_parameters_used": false,
+    "cached_matrices_read": false,
+    "capture_and_gluing_regressions_reconstructed": true,
+    "fourier_minus_sign_locked": true,
+    "inclusive_lambda_squared_endpoint_pass": true,
+    "independent_integer_factorization_inventory_pass": true,
+    "producer_booleans_trusted": false,
+    "producer_bytes_bound_exactly": true,
+    "source_arithmetic_bounds_pass": true,
+    "source_note_lock_and_dependencies_rehashed": true
+  },
+  "claim_boundary": {
+    "equation_5_2": false,
+    "finite_compressed_trace_bound": true,
+    "locally_uniform_determinant_convergence": false,
+    "physical_capture": false,
+    "polynomial_schedule_rank_scale": true,
+    "rh_proved": false,
+    "signed_low_comparison": false,
+    "signed_sector_floor": false
+  },
+  "input": {
+    "interval_decimal_digits": 80,
+    "lambda_denominator": 2,
+    "lambda_numerator": 5
+  },
+  "producer_binding": {
+    "byte_count": 31983,
+    "byte_source": "exact artifact file bytes",
+    "sha256": "b2c45b6dedb81009b77c52489fd0bdb39005dadd6944ce9202d77f3da0e83397"
+  },
+  "reconstructed_exact": {
+    "H_bound_operation": "interval_lattice_min_of_two_source_upper_bounds",
+    "N": 7,
+    "N_rule": "ceil(lambda^2)",
+    "U": {
+      "denominator": "1",
+      "numerator": "0"
+    },
+    "ambient_even_complement_dimension": 7,
+    "ambient_odd_dimension": 7,
+    "d": 15,
+    "finite_trace_rank_bound_is_order_vacuous": true,
+    "kappa": {
+      "denominator": "2",
+      "numerator": "1"
+    },
+    "lambda": {
+      "denominator": "2",
+      "numerator": "5"
+    },
+    "odd_pole_rank_surcharge": 1,
+    "prime_power_count": 4,
+    "prime_power_integer_cutoff": 6,
+    "prime_powers": [
+      {
+        "exponent": 1,
+        "n": 2,
+        "prime": 2
+      },
+      {
+        "exponent": 1,
+        "n": 3,
+        "prime": 3
+      },
+      {
+        "exponent": 2,
+        "n": 4,
+        "prime": 2
+      },
+      {
+        "exponent": 1,
+        "n": 5,
+        "prime": 5
+      }
+    ],
+    "rho": {
+      "denominator": "2",
+      "numerator": "1"
+    },
+    "x_lambda_squared": {
+      "denominator": "4",
+      "numerator": "25"
+    },
+    "zeta": {
+      "denominator": "1",
+      "numerator": "1"
+    }
+  },
+  "result": "COMPRESSED_MULTIPLIER_TRACE_COMPONENT_REPLAY_PASS",
+  "schema": "xi-prolate-compressed-multiplier-trace-replay-v1",
+  "source_hashes": {
+    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "P3_SOURCE_LOCK.json": "42976166b046f99b111861d86ac4c85f730ceb0de56b072205735cc84bea65b3",
+    "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
+    "notes/HIGH_FOURIER_COERCIVITY.md": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+    "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+    "notes/PHASE_VOLUME_SCALE_AUDIT.md": "bae7414fed2ac861ac3211175cd8f8b7743c33bd37379e186a71d700554b7fcd",
+    "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+  },
+  "status": "COMPRESSED_MULTIPLIER_TRACE_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

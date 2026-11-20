@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "analytic_status": "PASS_WITH_STATED_GATES",
+  "campaign": "CP62",
+  "reviewer": "audit38",
+  "controls_in_branch": 25,
+  "independent_replay_owner": "root, independent of source author stationary_arithmetic38",
+  "additional_replay_by_this_auditor": false,
+  "bindings": [
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/matrix_anchor_obstruction.md",
+      "bytes": 6625,
+      "sha256": "d9ae93904323a9ca5ef025ca83b21bd3f6bce4088cce0f9abb7670532380fa39"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/verify_matrix_anchor.py",
+      "bytes": 5372,
+      "sha256": "c2c578dafce382f97c7842409b998c82d68a8288244b4584d2e544880fed353b"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/matrix_anchor_controls.json",
+      "bytes": 2797,
+      "sha256": "6a6cc65f555a5879bc2031a9ea35e49d0ca578fa36a21b6990dc0632bddf80dc"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/root_matrix_anchor_audit.json",
+      "bytes": 1482,
+      "sha256": "1789fbaa47719fb9f43f01cf176ac9222ea1445fcc24e240ff427f980b22202c"
+    }
+  ],
+  "analytic_review": [
+    "Exact common-A finite and integrable matrix covariance expansions retain noncommuting cross terms.",
+    "For every complex Hermitian 0<P<I, spectral calculus gives trace(P^-1+(I-P)^-1)>=8. BiBi*=5I/4 gives inverse cost>=10 and local trace<=-6.",
+    "At least one local eigenvalue<=-3/2, with equality in the sharp max-min at equal anchors. The complete Schur block remains I through covariance4I.",
+    "Invertible Bi force positive-definite anchors when local block positivity and its necessary range gate are required; a pseudoinverse cannot erase that gate.",
+    "Changing integrated A retains B*(Atilde^-1-A^-1)B, without a general sign.",
+    "The counterexample is synthetic finite-dimensional algebra only; it does not refute actual signed integrated-anchor cancellation or identify an actual theta/Weil source."
+  ],
+  "unique_control_count_policy": "The root temporary replay and the adopted branch verifier are the same 25 controls and count once."
+}

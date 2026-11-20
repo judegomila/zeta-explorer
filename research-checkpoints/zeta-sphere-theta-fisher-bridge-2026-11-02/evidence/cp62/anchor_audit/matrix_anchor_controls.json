@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "controls": 25,
+  "method": "Current original exact Fraction arithmetic over Gaussian rationals; finite identities only.",
+  "scope": "Synthetic matrix-anchor obstruction and exact covariance/mismatch identities. Universal quantifiers rely on the accompanying analytic proof; no actual theta/Weil realization, imported source replay or global sign is asserted.",
+  "checks": [
+    {
+      "name": "J_conjugate_transpose",
+      "status": "PASS"
+    },
+    {
+      "name": "J_square",
+      "status": "PASS"
+    },
+    {
+      "name": "complete_B",
+      "status": "PASS"
+    },
+    {
+      "name": "both_normal_Gram_matrices",
+      "status": "PASS"
+    },
+    {
+      "name": "complete_positive_Schur",
+      "status": "PASS"
+    },
+    {
+      "name": "equal_anchor_local_residuals",
+      "status": "PASS"
+    },
+    {
+      "name": "equal_anchor_complete_signed_sum",
+      "status": "PASS"
+    },
+    {
+      "name": "equal_anchor_centered_blocks",
+      "status": "PASS"
+    },
+    {
+      "name": "equal_anchor_full_covariance",
+      "status": "PASS"
+    },
+    {
+      "name": "signed_covariance_exact_compensation",
+      "status": "PASS"
+    },
+    {
+      "name": "sharp_trace_cost",
+      "status": "PASS"
+    },
+    {
+      "name": "sharp_covariance_trace",
+      "status": "PASS"
+    },
+    {
+      "name": "scalar_spectral_gap_1/3",
+      "status": "PASS"
+    },
+    {
+      "name": "scalar_spectral_gap_1/2",
+      "status": "PASS"
+    },
+    {
+      "name": "complex_anchors_positive_and_complete",
+      "status": "PASS"
+    },
+    {
+      "name": "complex_anchor_does_not_commute_with_B1",
+      "status": "PASS"
+    },
+    {
+      "name": "complex_trace_cyclic_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "complex_strict_trace_obstruction",
+      "status": "PASS"
+    },
+    {
+      "name": "nonidentity_noncommuting_positive_anchors",
+      "status": "PASS"
+    },
+    {
+      "name": "rectangular_centering",
+      "status": "PASS"
+    },
+    {
+      "name": "rectangular_full_covariance_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "rectangular_covariance_nonnegative_real",
+      "status": "PASS"
+    },
+    {
+      "name": "integrated_metric_mismatch_not_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "integrated_metric_mismatch_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "singular_anchor_range_failure",
+      "status": "PASS"
+    }
+  ],
+  "source_bindings": [
+    {
+      "name": "matrix_anchor_obstruction.md",
+      "bytes": 6625,
+      "sha256": "d9ae93904323a9ca5ef025ca83b21bd3f6bce4088cce0f9abb7670532380fa39"
+    },
+    {
+      "name": "verify_matrix_anchor.py",
+      "bytes": 5372,
+      "sha256": "c2c578dafce382f97c7842409b998c82d68a8288244b4584d2e544880fed353b"
+    }
+  ]
+}

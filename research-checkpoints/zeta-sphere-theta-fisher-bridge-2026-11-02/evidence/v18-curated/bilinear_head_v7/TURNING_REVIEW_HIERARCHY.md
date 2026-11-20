@@ -1,0 +1,5 @@
+# Independent review: turning-point signs
+
+2 November2026. PASS. The differential equation and integrated energy identity have the correct sign. For a hypothetical zero z0>=t both integrand terms are nonnegative; the asymptotic decaying nonzero solution supplies both vanishing infinity boundary term and the positive eventual sign, so K_it remains strictly positive on [t,infinity). The polynomial derivative is exactly partial_a P/a=16(4t²+4a²−1), positive for t>1/2. Thus differentiating the positive paired cosh integral proves the amplitude sign uniformly for0<a<=1/2, without using Bessel positivity below its turning point.
+
+For p>=5 the odd-integer interval has length>2; its height is strictly below2pi p and above(3pi/2)p. Consequently the prime phase is exactly−2 and the positive amplitude yields a negative complete product block. The minimal cutoff condition M+1=ceil[t/(sqrt2 pi)] implies M>=p because t/(sqrt2 pi)>p. There is no endpoint rounding issue. The conclusion is correctly limited to one product block, not the full head or full kernel. The positive diagonal subset is only a sign reserve and has no supplied quantitative domination margin.

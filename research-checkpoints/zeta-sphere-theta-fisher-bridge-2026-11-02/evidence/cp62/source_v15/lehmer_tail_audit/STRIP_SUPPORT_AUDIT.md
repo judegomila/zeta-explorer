@@ -1,0 +1,3 @@
+# Sharper strip-support audit
+2026-11-02 22:52 UTC. PASS.
+The separate THETA_STRIP_MAJORANTS.md bounds are valid: sum-integral-plus-maximum for a<=1, and twice-first-exponential sums for a>=1, yield sum n^2 e^-an² <=a^-3/2 and sum n^4 e^-an² <=2a^-5/2. Substitution gives28/sqrt(pi)<16 and integration gives the512 c^-5 square-norm bound. The superexponential coefficient is safe because16pi²+24pi<240. The incomplete-gamma substitution gives exponent9/4 and denominator1-5/(4A). Removing either convolution factor gives4MI_L. These sharper bounds are supporting lemmas, not required to replace the already checked broad100 strip bound used in the successful FFT certificate.

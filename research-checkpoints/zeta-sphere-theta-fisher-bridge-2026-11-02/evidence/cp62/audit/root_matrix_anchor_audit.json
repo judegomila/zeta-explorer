@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "reviewer": "root; independent of author stationary_arithmetic38",
+  "analytic_review": [
+    "Common same-A covariance expansion retains all noncommuting terms; integral version states energy/integrability gates.",
+    "Universal trace obstruction follows from Hermitian spectral calculus for0<P<I and BiBi*=5I/4, all complex anchors included.",
+    "Sharp optimum min local eigenvalue=-3/2 is attained at equal anchors; trace argument proves universal upper cap.",
+    "Singular anchors require range inclusion; invertibleBi forcepositive definitePi. Changing integratedA retains signed inverse mismatch.",
+    "Synthetic scope only; does not refute actual signed integrated-anchor cancellation."
+  ],
+  "controls": 25,
+  "temporary_replay_exit_code": 0,
+  "byte_identical_result": true,
+  "bindings": [
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/matrix_anchor_obstruction.md",
+      "bytes": 6625,
+      "sha256": "d9ae93904323a9ca5ef025ca83b21bd3f6bce4088cce0f9abb7670532380fa39"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/verify_matrix_anchor.py",
+      "bytes": 5372,
+      "sha256": "c2c578dafce382f97c7842409b998c82d68a8288244b4584d2e544880fed353b"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/anchor_audit/matrix_anchor_controls.json",
+      "bytes": 2797,
+      "sha256": "6a6cc65f555a5879bc2031a9ea35e49d0ca578fa36a21b6990dc0632bddf80dc"
+    }
+  ],
+  "imported_code_executed": false
+}

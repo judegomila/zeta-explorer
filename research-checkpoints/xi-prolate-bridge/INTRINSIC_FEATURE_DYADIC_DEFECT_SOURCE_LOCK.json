@@ -1,0 +1,141 @@
+{
+  "schema": "xi-prolate-intrinsic-feature-dyadic-defect-source-lock-v1",
+  "claim_class": "INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base Fourier, inversion, prime-sign, endpoint, and source-normalization lock"
+    },
+    {
+      "path": "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json",
+      "sha256": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f",
+      "role": "factorial central feature and odd-pole approximation lock"
+    },
+    {
+      "path": "PHYSICAL_DEFECT_ADJOINT_TAIL_SOURCE_LOCK.json",
+      "sha256": "dd98654cae596acb1da19079c0cb50a37126ee90f5b79b4371c32dfc928d5377",
+      "role": "cap-free weighted defect, corrected source-tail, and shifted odd bookkeeping lock"
+    },
+    {
+      "path": "FULL_SOURCE_COFRAME_RANK_SOURCE_LOCK.json",
+      "sha256": "155f1c0205788d689b8e819fc10e9313c2e947c7f851a5ee2f0b25bf3f091e5b",
+      "role": "full-source row-frame bounds and corrected sparse prolate source conventions"
+    },
+    {
+      "path": "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_SOURCE_LOCK.json",
+      "sha256": "e387fc1c539283dead8110eeac6d5c6798839a8bcfc0a17c65af87587cd3458c",
+      "role": "explicit Mobius right inverse and source-gauge construction"
+    },
+    {
+      "path": "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md",
+      "sha256": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "role": "gauge quotient, physical cross-Gram, exact exterior layers, and sharp odd theorem proved in this checkpoint"
+    },
+    {
+      "path": "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md",
+      "sha256": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "role": "preceding factorial central-band and odd-pole feature reduction"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact combined multiplier and digamma lower bound"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision interval runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; even zero-integral sources, the actual source Gram, and the source normalization are retained",
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), logarithmic Lebesgue measure, and zero extension",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi); e_t(x)=exp(i*t*x)",
+    "inversion": "J is physical reflection x->-x; a finite additive-Fourier residue class is not substituted for inversion parity",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained at the inclusive endpoint, and lambda is never confused with lambda^2",
+    "prime_sign": "m_lambda(t)=2*theta_prime(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "right_inverse_gauge": "only P_H*T*(I-P_F)*B*P_V is intrinsic; the raw norm of (I-P_F)*B*P_V depends on the ker(T) intersect F^perp gauge",
+    "corrected_sparse_space": "F=E intersect 1^perp with P_F formed from the actual corrected source Gram; both omitted prolate residues and the rank-one mean correction remain",
+    "spectral_endpoints": "upper layer estimates use 1_(sigma,1](C); lower/converse estimates use 1_[sigma,1](C)",
+    "strictness": "a big-O scale, equality at a required strict threshold, rank alone, or a nonpositive reserve is not a pass",
+    "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON numbers are rejected",
+    "input_limits": "producer and verifier admit only lambda_numerator in {5,9} and dps in {80,160}; exact text membership is checked before integer conversion or interval initialization",
+    "runtime_version": "the interval runtime must report mpmath==1.4.1 exactly; a mismatch is rejected before any interval probe",
+    "artifact_scope": "exact quotient, cross-Gram, layer-cake, endpoint, directional-moment, and rational countermodel diagnostics; no actual physical feature angle, exterior layer alignment, odd reserve, or asymptotic theorem is certified",
+    "arithmetic": "finite fixtures use exact reduced rationals; logarithms, prime-power sums, support radii, Taylor tails, and optimal moment constants use outward mpmath.iv intervals"
+  },
+  "locked_formulas": {
+    "transformed_tail": "P_H*P_V=P_H*T*(I-P_F)*B*P_V for every right inverse T*B=I",
+    "minimum_source_tail": "with A=P_H*T restricted to F^perp and Y=P_H*P_V, epsilon_min=norm(A^dagger*Y)",
+    "minimum_tail_frame_bounds": "sqrt(2)/lambda*alpha_V <= epsilon_min <= sqrt(2)*lambda*M_mu(lambda)*alpha_V <= 2*sqrt(2)*lambda^2*alpha_V",
+    "corrected_sparse_coefficients": "||(I-P_F)z||^2=sum_(n notin S)|z_n|^2+|sum_(n notin S) conjugate(I_n)*z_n|^2/s for z perpendicular to 1 and s=sum_(n in S)|I_n|^2",
+    "physical_cross_gram": "G=U^*U, A=W^*W, S=G-U^*W*A^dagger*W^*U, and alpha_V^2=lambda_max(G^(-1/2)*S*G^(-1/2))",
+    "physical_trial_bound": "S<=(U-WY)^*(U-WY), with equality for Y=A^dagger*W^*U",
+    "physical_graph_bound": "if M=U^*W is square and invertible, Z=W*M^(-1)*G and beta=||(I-P_V)Z*G^(-1/2)|| imply alpha_V<=beta/sqrt(1+beta^2)",
+    "combined_defect": "d(t)=(U+nu*L-m_lambda(t))_+, Sigma=sum_(1<n<=lambda^2)Lambda(n)/sqrt(n), c0=digamma(1/4)-log(pi), A_star=(U+nu*L+2*Sigma-c0)_+",
+    "support_bound": "d(t)<=(A_star-log(1+4*t^2)/2)_+, so support(d) lies in |t|<=sqrt(exp(2*A_star)-1)/2",
+    "exact_layer_cake": "D_ext=integral_0^A_star C_s ds with C_s=T_(1_{|t|>delta/L and m_lambda(t)<U+nu*L-s}) restricted to X",
+    "dyadic_majorant": "a0=min(A_star,tau), J=ceil(log2(A_star/tau)), s_j=2^j*tau, c_j=min(A_star,2^(j+1)*tau)-s_j, and D_ext<=a0*I+sum_j c_j*C_(s_j)",
+    "spectral_upper": "E_j=1_(sigma_j,1](C_j) gives C_j<=sigma_j*I+(1-sigma_j)*E_j",
+    "spectral_lower": "F_j=1_[sigma_j,1](C_j) gives D_ext>=s_j*C_j>=s_j*sigma_j*F_j and trace(P_H*D_ext*P_H)>=s_j*sigma_j*(rank(F_j)-dim(K))_+",
+    "elementary_prime_mass": "Sigma_lambda<=4*(lambda-1)*log(lambda)",
+    "odd_reserve": "B_r=(alpha_r*sqrt(S_L)+epsilon_p_r)^2<h/2, h=(a-beta)*L, implies a strict beta*L odd floor; B_r<=(1-eta)*h/2 gives shifted floor eta*h",
+    "odd_source_constant": "(lambda^(3/2)*epsilon_FV/2+epsilon_p_r)^2<(a-beta)*L/2 is sufficient, while the intrinsic constant target is limsup lambda*alpha_r^2/L<a-beta",
+    "directional_deficits": "d_j=b^j*mu_p-rho_j and U_k=2*mu_p/h-2*(sum_(j<k)d_j/q^(j+1)+d_k/(h*q^k))",
+    "optimal_moment_remainder": "U_k-load <= 2*mu_p/h*C_k(gamma), C_0=gamma, C_k=max_(0<=x<=gamma) x^k*(gamma-x)/(1-x); for k>=1 x_k=(A_k-sqrt(A_k^2-4*k^2*gamma))/(2*k), A_k=(k+1)+(k-1)*gamma",
+    "claim_separation": "a logarithmic number of full-rank layer projectors is not a logarithmic-dimensional capture theorem, and neither finite fixtures nor source-gauge tails prove the actual physical alignments"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the exact gauge-invariant transformed feature tail and the Moore--Penrose minimum untransformed lift",
+      "the corrected sparse-prolate coefficient identity including every omitted residue and the mean correction",
+      "the exact physical cross-Gram, least-squares, and graph feature-angle certificates",
+      "the exact combined-symbol exterior layer cake, finite dyadic majorant, sharp upper spectral coefficient, and closed-endpoint rank obstruction",
+      "the sharp orientation-free odd reserve, directional-deficit hierarchy, and optimal geometric remainder constant",
+      "exact rational gauge, rank, corrected-tail, noncommuting-layer, endpoint, orientation, and positive-excess countermodels plus outward interval formula probes"
+    ],
+    "not_proved": [
+      "the actual central projected-polynomial feature angle on an unbounded schedule",
+      "the actual positive-threshold effective ranks or physical alignments of every exterior combined-symbol level",
+      "the actual capped odd base, directional edge deficit, aligned excess, or strict odd reserve on an unbounded schedule",
+      "strict even and odd signed sector floors for the finite Weil matrices",
+      "the residual-action estimate required by equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "actual_feature_angle_claimed": false,
+    "actual_layer_capture_claimed": false,
+    "actual_odd_reserve_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "global_weil_positivity_assumed": false,
+    "input_cap_bypassed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "rank_only_capture_claimed": false,
+    "rh_proved": false,
+    "runtime_version_mismatch_accepted": false,
+    "secret_serialized": false,
+    "spectral_endpoint_dropped": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

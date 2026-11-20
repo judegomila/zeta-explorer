@@ -1,0 +1,5 @@
+# Independent eventual shift-coefficient audit
+
+Analytic PASS, 2026-11-03. For fixed finite degree, complete-theta local tail positivity supplies finite R, and any R<S<T yields an integrated window reserve lambda>0. For 0<=H<=R, the signed compact contribution is bounded below by -M R^(2k)I while the positive window contributes at least lambda S^(2k)I. The rest beyond R is nonnegative. Thus an integer K with (S/R)^(2K)>M/lambda makes all k>=K coefficients positive uniformly H<=R. For H>=R, the full remaining local density is positive, directly giving positive coefficients; the compact-window lower constant is not reused there.
+
+Absolute compact-complex-a domination justifies the sinhc expansion and finite/high coefficient split. For real a the coefficients of the high matrix tail are nonnegative; for a>0 at least one positive coefficient gives strict positivity. At a=0 that high-tail strictness cannot replace the constant term. No early coefficient sign, quantitative K, all-degree estimate, or quantifier exchange is proved. This is a fixed-degree conditional route reduction, not a new integrated target sign. The author clearly distinguishes these limits.

@@ -1,0 +1,127 @@
+{
+  "package": "topological-zero-certificates-2026-11-16",
+  "status": "Finite certificates and analytic obstructions; no RH proof",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 58,
+      "sha256": "bc04683b79def3a886a5af7dd9e57c8082afeba5d9378b2c5f4f2fda4c0c6d07",
+      "git_blob_sha1": "a214dcec28bee3d37977187f3d2877f3e6820490"
+    },
+    {
+      "path": "README.md",
+      "bytes": 14881,
+      "sha256": "476bc4e071ea6851fd9f71b31835a725c4e36a426a8ff903332620fc4e88ccf4",
+      "git_blob_sha1": "a4a4579d3ba1af90847100e54cac35f849b38e31"
+    },
+    {
+      "path": "SOURCES.md",
+      "bytes": 7179,
+      "sha256": "2f4d693e89b49849448f6ccb237c2019e2470f43319d75a4bd69ca38f3a95aa1",
+      "git_blob_sha1": "b04a1bbe802e27a68b0128032c4c5400ea53157e"
+    },
+    {
+      "path": "analysis/cutoff_compactness_and_tail_obstruction.md",
+      "bytes": 6248,
+      "sha256": "339d9142dcd491e03d930c58144a39639ba6afb7478ec3627a6930d34f0faaf4",
+      "git_blob_sha1": "09ae3ac0995c71e57966fc9e86c6416167c67b06"
+    },
+    {
+      "path": "analysis/theta_cage_diagnostics.json",
+      "bytes": 1411,
+      "sha256": "6a6744f602456bbe72c4e7fe5c20e0720775d5990dd352fe39b31de755cfc34a",
+      "git_blob_sha1": "fc2cb2c656de4383447987918180eed7b828a010"
+    },
+    {
+      "path": "analysis/theta_cage_diagnostics.py",
+      "bytes": 2170,
+      "sha256": "466c8c123e1634febd55c57fbc2a45854b2e989b2db93fbd691d6494e024c282",
+      "git_blob_sha1": "7db01a06f0e1a2ceeaab05a6c7a16a2db8e4f6a6"
+    },
+    {
+      "path": "analysis/theta_cage_obstruction_and_contour_shift.md",
+      "bytes": 7995,
+      "sha256": "14fcce7809e13bb97b58b2779cd7c456cd397c95fe6a72dbecd4926085da4aa9",
+      "git_blob_sha1": "238d8848339f35a9b560b0903fa357e2f08f323f"
+    },
+    {
+      "path": "certificates/README.md",
+      "bytes": 8908,
+      "sha256": "a28b6f67dbc98c33fc01784d752da9f80b832f06c1a4c61a8514d4ca32ddd0cf",
+      "git_blob_sha1": "38fa7c4ee3a51fa3a0dd00efa1543bb556389892"
+    },
+    {
+      "path": "certificates/certificates.json.gz",
+      "bytes": 264210,
+      "sha256": "8562cd54222ca46e0c191dd0e3773cbc6532d955de2ceea39af1d3123398edaa",
+      "git_blob_sha1": "bbd18526c6ae1da21ea9bc18e5fe86905f63f406"
+    },
+    {
+      "path": "certificates/requirements.txt",
+      "bytes": 20,
+      "sha256": "4cef508304e84c21f73cf412712165dc26e40978cb784bc08a876948b559d90d",
+      "git_blob_sha1": "388b3abf3e5e746b922e1bd1ed888165685786b0"
+    },
+    {
+      "path": "certificates/root_verification_report.json",
+      "bytes": 1857,
+      "sha256": "7811f3ffb422d8d676311fec69b26be4028ae3a4540d6b21bdd372f2511a2dc1",
+      "git_blob_sha1": "3ea32573b2e74eea7eb5366cb11d491a316dbcb2"
+    },
+    {
+      "path": "certificates/verification_report.json",
+      "bytes": 1857,
+      "sha256": "971010849c1355ebdc3843c94250316a90aa251a2024992d096f370562eb9a8b",
+      "git_blob_sha1": "21d9b1d1ff351ca626f080331bcb766c9f162004"
+    },
+    {
+      "path": "certificates/xi_certificates.py",
+      "bytes": 16845,
+      "sha256": "cfa15d3ec438e0df3dec8ed5db46493220de801c172a5557864b228ed75355af",
+      "git_blob_sha1": "fd796a365fab274dc32ecad8611ee9e8a9c246b3"
+    },
+    {
+      "path": "obstruction/POSITIVE_QUARTET_OBSTRUCTION.md",
+      "bytes": 13059,
+      "sha256": "38e4169b637c9a9bcb42f653707e41e2d1bb186636d4d393c5a783b5b81f466f",
+      "git_blob_sha1": "87420294fc1eea2b0c0f61c73ffcd5d8dd6be858"
+    },
+    {
+      "path": "obstruction/positive_quartet_certificate.json",
+      "bytes": 2897,
+      "sha256": "5e489c7e47a3c43107de84ef62d9b88aa7aedee242913323ac7651ff96a42b13",
+      "git_blob_sha1": "e1920ad3185a400fd77d5e570f1de8f2009115bd"
+    },
+    {
+      "path": "obstruction/verify_positive_quartet_deformation.py",
+      "bytes": 4975,
+      "sha256": "f5d90d38b43336902b414d5a4c66ba8e53c5d46f18fb4e02600d10ecc8507af5",
+      "git_blob_sha1": "35940bf56b5669ae24a1b6d9f3552526b4437af3"
+    },
+    {
+      "path": "reference/pr49-collective-certificate.md",
+      "bytes": 17274,
+      "sha256": "5bcd5d374b2e5bcf622f17342ba4fdf2a22fe97282b4192bf441412bd632b492",
+      "git_blob_sha1": "18504ad86644d2ca114eff1e9af1ef88286b3054"
+    },
+    {
+      "path": "reference/pr56-local-to-global.md",
+      "bytes": 14387,
+      "sha256": "d0f5588f3de3607a2682373943d859e4cc978c2ab201ba9626419f41949da9af",
+      "git_blob_sha1": "c76480074f8b5fa07f4b441395fe8972d8d057fd"
+    },
+    {
+      "path": "reference/pr56-operator-duality.md",
+      "bytes": 15486,
+      "sha256": "b9e5df3b7bd74f074229d09f900cf868af29fb73494e308d73cf491009676ba2",
+      "git_blob_sha1": "7b9236a0b2b65caa1be1e07e76ae847b022b28fe"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 48,
+      "sha256": "7517bf2f0ffd9bdeac2c7681673f71bfd4620d55253ac55151a56e27ae1fe8af",
+      "git_blob_sha1": "43ab723355c22caef0a5764ab1a8e4883db83338"
+    }
+  ],
+  "manifest_scope": "All delivered files except this manifest itself"
+}

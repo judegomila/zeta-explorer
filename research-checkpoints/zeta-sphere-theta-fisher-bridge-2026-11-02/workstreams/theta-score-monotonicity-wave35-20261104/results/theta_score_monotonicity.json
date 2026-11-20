@@ -1,0 +1,98 @@
+{
+  "canonical_sha256_before_self_hash": "bc66b047c248812f780d9a12229bf8cc7b124110715d2d1837a30b99d1c5b644",
+  "consequence": "conditional on imported inputs, score'(h)>0 and Y1 has one positive zero",
+  "imported_inputs": [
+    "Planat-Sole analytic Jacobi autonomous system and invariant region",
+    "first-level theta-kernel log-concavity",
+    "wave-32 endpoint limits of the first score"
+  ],
+  "jacobi_polynomial": {
+    "F_degree_in_a_squared": 1,
+    "F_degree_in_q": 3,
+    "all_shifted_bernstein_coefficients_positive": true,
+    "bernstein_coefficients_after_R_equals_4_plus_y": {
+      "0": [
+        [
+          "128",
+          "2264",
+          "13604",
+          "35054",
+          "36695",
+          "9275"
+        ],
+        [
+          "128",
+          "6664/3",
+          "39068/3",
+          "32766",
+          "103201/3",
+          "31265/3"
+        ],
+        [
+          "128",
+          "6536/3",
+          "37324/3",
+          "30478",
+          "96317/3",
+          "34705/3"
+        ],
+        [
+          "128",
+          "2136",
+          "11860",
+          "28190",
+          "29811",
+          "12715"
+        ]
+      ],
+      "1": [
+        [
+          "256",
+          "3648",
+          "19136",
+          "44560",
+          "42000",
+          "8000"
+        ],
+        [
+          "256",
+          "10432/3",
+          "17568",
+          "40432",
+          "123160/3",
+          "13600"
+        ],
+        [
+          "256",
+          "9920/3",
+          "48256/3",
+          "36464",
+          "115184/3",
+          "45760/3"
+        ],
+        [
+          "256",
+          "3136",
+          "14688",
+          "32656",
+          "34600",
+          "15264"
+        ]
+      ]
+    },
+    "denominator_exact": true
+  },
+  "nonclaims": [
+    "The imported all-height invariant theorem is not re-proved here.",
+    "The remaining signed Green correlation is not evaluated.",
+    "No all-degree or Riemann-hypothesis conclusion is claimed."
+  ],
+  "positivity_domain": "0<a<1, 0<kappa/a<1, R>4",
+  "schema_version": "zsv.theta_score_monotonicity.v1",
+  "score_algebra": {
+    "score_derivative_identity": true,
+    "score_equals_minus_h_psi2_over_psi1": true,
+    "vv1_minus_v2_equals_8_PP1_plus_P2": true
+  },
+  "status": "PASS_EXACT_SYMBOLIC"
+}

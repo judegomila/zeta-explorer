@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-09",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "scope": "New research lane and decision record only; manifest excludes itself.",
+  "files": [
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/AUDIT.md",
+      "bytes": 6534,
+      "sha256": "220877a6f08ca944038434ed622d414da4a7d7b2012c3ea25f25b5b37fba60d7"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/README.md",
+      "bytes": 9712,
+      "sha256": "9bd6863eee012a1bc9f6edf19c84455ccde28056a7ccf2556a5da8eeb30d68bc"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/SOURCES.md",
+      "bytes": 4556,
+      "sha256": "435dd0fabea85de7c252c78e7724db65cbcb03b453ba36edae6c1050c8ce930a"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/requirements.txt",
+      "bytes": 14,
+      "sha256": "25f9f1fb1988b230147a1d3092d34e09c069eb7a6c6d6df46b3973b9f2d36efc"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_compensated_count_certificate_20261109.py",
+      "bytes": 2341,
+      "sha256": "4d14ad11a0b12c0f51cb8bf16f3a3b03c06ab248897059a63607580bc278aefe"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_schur_checks_20261109.py",
+      "bytes": 5405,
+      "sha256": "fa52aa6f48f44350fdc04b958658615f934f956771336f1dca2348327c9ab314"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_schur_checks_replay.json",
+      "bytes": 1912,
+      "sha256": "9d358887e81f7550c96970782513b76797b4242d4fe734a6ef6635f5c3682ac5"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_schur_positive_kernels_20261109.md",
+      "bytes": 10849,
+      "sha256": "9298ca893604a61ce7fc2ccbef75ac2332594b8355495d6e654f87e12fbdd04c"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_schur_residual_energy_20261109.md",
+      "bytes": 9909,
+      "sha256": "6e9209648a3ae29fa9b235c6dcb5ce2a4de01f6aca520ddc15451331cd49076b"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_third_order_obstruction_20261109.md",
+      "bytes": 4825,
+      "sha256": "6c0ba00d8b76c043b65b576484eb06817e03199e396a60f21864588ffd860087"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_third_pick_large_x_20261109.md",
+      "bytes": 5545,
+      "sha256": "ad64270206dfe04e27e917cf59e334bac15bc5e249bce1f3dafc5f176221ff58"
+    },
+    {
+      "path": "rigorous/theta-schur-kernels-2026-11-09/theta_three_node_curvature_20261109.md",
+      "bytes": 20345,
+      "sha256": "ba01b8de8de1b31abedeb23b7a93bf703df57855af23d6fcab57b40ccc5979af"
+    },
+    {
+      "path": "thinking/decisions/2026-11-09-theta-schur-kernels.md",
+      "bytes": 3393,
+      "sha256": "308e63186719a2b94071a2c554a32262c088076d9f1ee9dbf34815614b10e1de"
+    }
+  ]
+}

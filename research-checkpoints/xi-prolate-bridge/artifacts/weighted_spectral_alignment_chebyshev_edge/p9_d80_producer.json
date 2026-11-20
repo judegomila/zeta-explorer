@@ -1,0 +1,2129 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "certificate": {
+    "checks": {
+      "effective_rank_integer_rule_exact": true,
+      "effective_rank_tail_bound_holds": true,
+      "exterior_operator_upper_equality": true,
+      "exterior_trace_lower_equality": true,
+      "exterior_trace_upper_equality": true,
+      "interval_kernel_branches_meet": true,
+      "interval_probe_not_promoted": true,
+      "odd_first_moment_endpoint_sharp": true,
+      "odd_first_moment_outcomes_differ": true,
+      "odd_first_moment_profiles_indistinguishable": true,
+      "odd_nonlinear_edge_outcomes_exact": true,
+      "odd_second_chebyshev_moment_distinguishes": true,
+      "open_threshold_endpoint_retained_low": true,
+      "prime_block_minus_sign_retained": true,
+      "prime_power_endpoint_inclusive": true,
+      "strict_physical_threshold_absent": true,
+      "weighted_central_avoids_unweighted_factor_101": true,
+      "weighted_central_bound_sharp": true
+    },
+    "exterior_k_width_fixture": {
+      "actual_exterior_alignment_claimed": false,
+      "effective_rank_count": {
+        "chi_over_one_minus_sigma": {
+          "denominator": "25",
+          "numerator": "21"
+        },
+        "chosen_k": 2,
+        "eigenvalues": [
+          {
+            "denominator": "10",
+            "numerator": "9"
+          },
+          {
+            "denominator": "5",
+            "numerator": "3"
+          },
+          {
+            "denominator": "10",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "floor_p_plus_chi_over_sigma": 2,
+        "integer_rule_is_exact_here": true,
+        "p_plus_chi_over_sigma": {
+          "denominator": "25",
+          "numerator": "61"
+        },
+        "phase_volume_p": {
+          "denominator": "5",
+          "numerator": "8"
+        },
+        "sigma": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "spectral_tail_after_k": {
+          "denominator": "10",
+          "numerator": "1"
+        },
+        "strict_high_rank": 2,
+        "tail_bound_holds": true,
+        "transition_defect_chi": {
+          "denominator": "50",
+          "numerator": "21"
+        }
+      },
+      "interval_kernel_piecewise_oracles": {
+        "b_at_y_1": {
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "b_at_y_2_high_branch_without_log": {
+          "denominator": "1",
+          "numerator": "12"
+        },
+        "b_at_y_2_low_branch": {
+          "denominator": "1",
+          "numerator": "12"
+        },
+        "b_at_y_4_formula": "12+8*log(2)",
+        "b_y_formula_high": "b(y)=12+8*log(y/2) for y>=2",
+        "b_y_formula_low": "b(y)=8*y-y^2 for 0<=y<=2",
+        "junction_agrees": true
+      },
+      "open_threshold_endpoint": {
+        "chi_over_one_minus_sigma": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "eigenvalues": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        ],
+        "endpoint_is_low_and_tail_bound_is_equality": true,
+        "low_tail_including_endpoint": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "sigma": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "strict_high_rank": 1,
+        "transition_defect_chi": {
+          "denominator": "4",
+          "numerator": "1"
+        }
+      },
+      "operator_upper_equality": {
+        "C": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "H_unit_vector": [
+          {
+            "denominator": "5",
+            "numerator": "-4"
+          },
+          {
+            "denominator": "5",
+            "numerator": "3"
+          }
+        ],
+        "K_unit_vector": [
+          {
+            "denominator": "5",
+            "numerator": "3"
+          },
+          {
+            "denominator": "5",
+            "numerator": "4"
+          }
+        ],
+        "P_H": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "16"
+            },
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            },
+            {
+              "denominator": "25",
+              "numerator": "9"
+            }
+          ]
+        ],
+        "P_K": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "9"
+            },
+            {
+              "denominator": "25",
+              "numerator": "12"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "12"
+            },
+            {
+              "denominator": "25",
+              "numerator": "16"
+            }
+          ]
+        ],
+        "gamma_k": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "gamma_k_plus_1": {
+          "denominator": "4",
+          "numerator": "1"
+        },
+        "operator_lower_bound": {
+          "denominator": "25",
+          "numerator": "16"
+        },
+        "operator_norm_on_H": {
+          "denominator": "100",
+          "numerator": "73"
+        },
+        "operator_upper_bound": {
+          "denominator": "100",
+          "numerator": "73"
+        },
+        "top_operator_angle_squared": {
+          "denominator": "25",
+          "numerator": "16"
+        },
+        "top_projector": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ],
+        "upper_equality": true
+      },
+      "trace_lower_equality": {
+        "C": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "K_unit_vector": [
+          {
+            "denominator": "5",
+            "numerator": "3"
+          },
+          {
+            "denominator": "5",
+            "numerator": "4"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "P_H": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "16"
+            },
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            },
+            {
+              "denominator": "25",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "P_K": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "9"
+            },
+            {
+              "denominator": "25",
+              "numerator": "12"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "12"
+            },
+            {
+              "denominator": "25",
+              "numerator": "16"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ],
+        "gap_gamma_k_minus_gamma_k_plus_1": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "lower_equality": true,
+        "spectral_tail_after_k": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "spread_gamma_1_minus_gamma_d": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "top_k_HS_angle_squared": {
+          "denominator": "25",
+          "numerator": "16"
+        },
+        "top_k_projector": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ],
+        "trace_lower_bound": {
+          "denominator": "100",
+          "numerator": "107"
+        },
+        "trace_on_H": {
+          "denominator": "100",
+          "numerator": "107"
+        },
+        "trace_upper_bound": {
+          "denominator": "100",
+          "numerator": "123"
+        },
+        "upper_equality": false
+      },
+      "trace_upper_equality": {
+        "C": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "1"
+            }
+          ]
+        ],
+        "K_unit_vector": [
+          {
+            "denominator": "5",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "5",
+            "numerator": "4"
+          }
+        ],
+        "P_H": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "16"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "-12"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "25",
+              "numerator": "9"
+            }
+          ]
+        ],
+        "P_K": [
+          [
+            {
+              "denominator": "25",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "25",
+              "numerator": "12"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "12"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "25",
+              "numerator": "16"
+            }
+          ]
+        ],
+        "gap_gamma_k_minus_gamma_k_plus_1": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "lower_equality": false,
+        "spectral_tail_after_k": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "spread_gamma_1_minus_gamma_d": {
+          "denominator": "4",
+          "numerator": "3"
+        },
+        "top_k_HS_angle_squared": {
+          "denominator": "25",
+          "numerator": "16"
+        },
+        "top_k_projector": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ]
+        ],
+        "trace_lower_bound": {
+          "denominator": "100",
+          "numerator": "107"
+        },
+        "trace_on_H": {
+          "denominator": "100",
+          "numerator": "123"
+        },
+        "trace_upper_bound": {
+          "denominator": "100",
+          "numerator": "123"
+        },
+        "upper_equality": true
+      }
+    },
+    "inclusive_prime_powers": {
+      "combined_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+      "endpoint_rule": "include every prime power n with 4*n<=p^2",
+      "excluded_non_prime_power_composites": [
+        6,
+        10,
+        12,
+        14,
+        15,
+        18,
+        20
+      ],
+      "individual_prime_blocks_absolutized_in_level_sets": false,
+      "inventory": [
+        {
+          "exponent": 1,
+          "n": 2,
+          "prime_base": 2
+        },
+        {
+          "exponent": 1,
+          "n": 3,
+          "prime_base": 3
+        },
+        {
+          "exponent": 2,
+          "n": 4,
+          "prime_base": 2
+        },
+        {
+          "exponent": 1,
+          "n": 5,
+          "prime_base": 5
+        },
+        {
+          "exponent": 1,
+          "n": 7,
+          "prime_base": 7
+        },
+        {
+          "exponent": 3,
+          "n": 8,
+          "prime_base": 2
+        },
+        {
+          "exponent": 2,
+          "n": 9,
+          "prime_base": 3
+        },
+        {
+          "exponent": 1,
+          "n": 11,
+          "prime_base": 11
+        },
+        {
+          "exponent": 1,
+          "n": 13,
+          "prime_base": 13
+        },
+        {
+          "exponent": 4,
+          "n": 16,
+          "prime_base": 2
+        },
+        {
+          "exponent": 1,
+          "n": 17,
+          "prime_base": 17
+        },
+        {
+          "exponent": 1,
+          "n": 19,
+          "prime_base": 19
+        }
+      ],
+      "lambda_squared_denominator": "4",
+      "lambda_squared_numerator": "81",
+      "maximum_integer_n": 20,
+      "prime_block_sign": "minus"
+    },
+    "odd_first_moment_fixture": {
+      "actual_odd_reserve_claimed": false,
+      "endpoint_first_moment_bound_is_equality": true,
+      "opposite_strict_load_outcomes": true,
+      "same_first_moment_profile_A": {
+        "R_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ],
+        "Theta_orders_0_through_6": [
+          {
+            "denominator": "10",
+            "numerator": "9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "20",
+            "numerator": "9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "10",
+            "numerator": "9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "20",
+            "numerator": "9"
+          }
+        ],
+        "Y_spectrum_b_minus_R": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "b": {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        "d_1_b_mu_minus_rho_1": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "edge_identity_load": {
+          "denominator": "8",
+          "numerator": "9"
+        },
+        "edge_threshold_mu_minus_h_over_2": {
+          "denominator": "5",
+          "numerator": "2"
+        },
+        "exact_edge_criterion_pass": false,
+        "exact_shifted_load": {
+          "denominator": "8",
+          "numerator": "9"
+        },
+        "first_moment_chord_edge_lower": {
+          "denominator": "10",
+          "numerator": "3"
+        },
+        "first_moment_upper": {
+          "denominator": "5",
+          "numerator": "6"
+        },
+        "h": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "mapped_Chebyshev_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "mu": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "nonlinear_edge_deficit": {
+          "denominator": "80",
+          "numerator": "27"
+        },
+        "q": {
+          "denominator": "1",
+          "numerator": "3"
+        },
+        "rho_1": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "spectral_weights": [
+          {
+            "denominator": "80",
+            "numerator": "27"
+          },
+          {
+            "denominator": "40",
+            "numerator": "9"
+          },
+          {
+            "denominator": "80",
+            "numerator": "27"
+          }
+        ],
+        "strict_load_pass": false
+      },
+      "same_first_moment_profile_B": {
+        "R_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ],
+        "Theta_orders_0_through_6": [
+          {
+            "denominator": "10",
+            "numerator": "9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "20",
+            "numerator": "-9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "10",
+            "numerator": "9"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "20",
+            "numerator": "-9"
+          }
+        ],
+        "Y_spectrum_b_minus_R": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "b": {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        "d_1_b_mu_minus_rho_1": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "edge_identity_load": {
+          "denominator": "40",
+          "numerator": "39"
+        },
+        "edge_threshold_mu_minus_h_over_2": {
+          "denominator": "5",
+          "numerator": "2"
+        },
+        "exact_edge_criterion_pass": true,
+        "exact_shifted_load": {
+          "denominator": "40",
+          "numerator": "39"
+        },
+        "first_moment_chord_edge_lower": {
+          "denominator": "10",
+          "numerator": "3"
+        },
+        "first_moment_upper": {
+          "denominator": "5",
+          "numerator": "6"
+        },
+        "h": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "mapped_Chebyshev_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "mu": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "nonlinear_edge_deficit": {
+          "denominator": "80",
+          "numerator": "33"
+        },
+        "q": {
+          "denominator": "1",
+          "numerator": "3"
+        },
+        "rho_1": {
+          "denominator": "10",
+          "numerator": "9"
+        },
+        "spectral_weights": [
+          {
+            "denominator": "80",
+            "numerator": "9"
+          },
+          {
+            "denominator": "40",
+            "numerator": "27"
+          },
+          {
+            "denominator": "80",
+            "numerator": "9"
+          }
+        ],
+        "strict_load_pass": true
+      },
+      "same_mu_rho1_d1_and_bound": true,
+      "second_Chebyshev_moment_distinguishes_profiles": true,
+      "sharp_endpoint_profile": {
+        "R_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "2"
+          }
+        ],
+        "Theta_orders_0_through_6": [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "Y_spectrum_b_minus_R": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "b": {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        "d_1_b_mu_minus_rho_1": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "edge_identity_load": {
+          "denominator": "3",
+          "numerator": "4"
+        },
+        "edge_threshold_mu_minus_h_over_2": {
+          "denominator": "2",
+          "numerator": "1"
+        },
+        "exact_edge_criterion_pass": false,
+        "exact_shifted_load": {
+          "denominator": "3",
+          "numerator": "4"
+        },
+        "first_moment_chord_edge_lower": {
+          "denominator": "3",
+          "numerator": "1"
+        },
+        "first_moment_upper": {
+          "denominator": "3",
+          "numerator": "4"
+        },
+        "h": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "mapped_Chebyshev_spectrum": [
+          {
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        "mu": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "nonlinear_edge_deficit": {
+          "denominator": "3",
+          "numerator": "1"
+        },
+        "q": {
+          "denominator": "1",
+          "numerator": "3"
+        },
+        "rho_1": {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "spectral_weights": [
+          {
+            "denominator": "2",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "2",
+            "numerator": "1"
+          }
+        ],
+        "strict_load_pass": false
+      }
+    },
+    "transcendental_intervals": {
+      "actual_exterior_alignment_claimed": false,
+      "actual_odd_reserve_claimed": false,
+      "actual_weighted_central_rate_claimed": false,
+      "b_text": "2",
+      "central_c_text": "1/2",
+      "central_degree_exact": 2,
+      "central_degree_rule": "r=ceil((L/2)/log(L))",
+      "central_delta_text": "1",
+      "chebyshev_orders_exact": [
+        1,
+        2,
+        4
+      ],
+      "chebyshev_profile_bounds": {
+        "profile_A": {
+          "k_1": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.203847577293368119417660975482382899171584238568858115832579061644200949272494456682445972",
+                "0.203847577293368119417660975482382899171584238568858115832579061644200949274705319785874379"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "96681725381690949152550370448074319345233536853897124032626488521151018653972659",
+                  -268,
+                  266
+                ],
+                "upper": [
+                  0,
+                  "773453803053527593220402963584594554761868294831176992261011908169208149240169895",
+                  -271,
+                  269
+                ]
+              }
+            },
+            "order": 1,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "1.24307806183469449553412878038590631933726739085508649266606324931536075941777447293695243",
+                "1.24307806183469449553412878038590631933726739085508649266606324931536075941998534473769414"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "589572529622683666693382791321691979688540195248818549556168916041045968248665351",
+                  -268,
+                  269
+                ],
+                "upper": [
+                  0,
+                  "589572529622683666693382791321691979688540195248818549556168916041045968249713933",
+                  -268,
+                  269
+                ]
+              }
+            }
+          },
+          "k_2": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.0546207937147988537871117068330550168520201065616608401638004342479636072385741468375006593",
+                "0.05462079371479885378711170683305501685202010656166084016380043424796360724078500730537958"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "207246321910973348257037955150885845629214902941401368831484049847656816022688467",
+                  -271,
+                  267
+                ],
+                "upper": [
+                  0,
+                  "25905790238871668532129744393860730703651862867675171103935506230957102003884635",
+                  -268,
+                  264
+                ]
+              }
+            },
+            "order": 2,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "1.16846467004540986271885414606124237817748532485148785483167393561724208840081431656492755",
+                "1.16846467004540986271885414606124237817748532485148785483167393561724208840302519047410885"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "277092281025637013191586239147292592683874679127853786545911712447974504961548525",
+                  -267,
+                  268
+                ],
+                "upper": [
+                  0,
+                  "554184562051274026383172478294585185367749358255707573091823424895949009924145633",
+                  -268,
+                  269
+                ]
+              }
+            }
+          },
+          "k_4": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.00392159654851032913603170056629365609396464414948013912669026714265031149968867442469867818",
+                "0.00392159654851032913603170056629365609396464414948013912669026714265031150189953372305251458"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "476147726415675231166639133597102892504011673482002029702819681216628590564638969",
+                  -276,
+                  269
+                ],
+                "upper": [
+                  0,
+                  "476147726415675231166639133597102892504011673482002029702819681216628590833074443",
+                  -276,
+                  269
+                ]
+              }
+            },
+            "order": 4,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "1.12847947389643830466252829107802452956196140596761225949049617671693196084625315928153279",
+                "1.12847947389643830466252829107802452956196140596761225949049617671693196084846403319071409"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "267610103693099041413505670514046529066735705002417981185501727533834648639340571",
+                  -267,
+                  268
+                ],
+                "upper": [
+                  0,
+                  "535220207386198082827011341028093058133471410004835962371003455067669297279729725",
+                  -268,
+                  269
+                ]
+              }
+            }
+          }
+        },
+        "profile_B": {
+          "k_1": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.203847577293368119417660975482382899171584238568858115832579061644200949272494456682445972",
+                "0.203847577293368119417660975482382899171584238568858115832579061644200949274705319785874379"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "96681725381690949152550370448074319345233536853897124032626488521151018653972659",
+                  -268,
+                  266
+                ],
+                "upper": [
+                  0,
+                  "773453803053527593220402963584594554761868294831176992261011908169208149240169895",
+                  -271,
+                  269
+                ]
+              }
+            },
+            "order": 1,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "1.24307806183469449553412878038590631933726739085508649266606324931536075941777447293695243",
+                "1.24307806183469449553412878038590631933726739085508649266606324931536075941998534473769414"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "589572529622683666693382791321691979688540195248818549556168916041045968248665351",
+                  -268,
+                  269
+                ],
+                "upper": [
+                  0,
+                  "589572529622683666693382791321691979688540195248818549556168916041045968249713933",
+                  -268,
+                  269
+                ]
+              }
+            }
+          },
+          "k_2": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.0546207937147988537871117068330550168520201065616608401638004342479636072385741468375006593",
+                "0.05462079371479885378711170683305501685202010656166084016380043424796360724078500730537958"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "207246321910973348257037955150885845629214902941401368831484049847656816022688467",
+                  -271,
+                  267
+                ],
+                "upper": [
+                  0,
+                  "25905790238871668532129744393860730703651862867675171103935506230957102003884635",
+                  -268,
+                  264
+                ]
+              }
+            },
+            "order": 2,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "1.01923788646684059708830487741191449585792119284429057916289530822100474636689400803775698",
+                "1.01923788646684059708830487741191449585792119284429057916289530822100474636910487983849869"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "241704313454227372881375926120185798363083842134742810081566221302877546635980225",
+                  -267,
+                  268
+                ],
+                "upper": [
+                  0,
+                  "60426078363556843220343981530046449590770960533685702520391555325719386659126129",
+                  -265,
+                  266
+                ]
+              }
+            }
+          },
+          "k_4": {
+            "absolute_tail_upper": {
+              "decimal": [
+                "0.00392159654851032913603170056629365609396464414948013912669026714265031149968867442469867818",
+                "0.00392159654851032913603170056629365609396464414948013912669026714265031150189953372305251458"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "476147726415675231166639133597102892504011673482002029702819681216628590564638969",
+                  -276,
+                  269
+                ],
+                "upper": [
+                  0,
+                  "476147726415675231166639133597102892504011673482002029702819681216628590833074443",
+                  -276,
+                  269
+                ]
+              }
+            },
+            "order": 4,
+            "truncated_plus_tail_upper": {
+              "decimal": [
+                "0.979252690317869039031979022428696647242397273960414983821717549320694618812332850754362218",
+                "0.979252690317869039031979022428696647242397273960414983821717549320694618814543721500884133"
+              ],
+              "dyadic": {
+                "lower": [
+                  0,
+                  "232222136121689401103295357486939734745944868009307004721156236388737690313772271",
+                  -267,
+                  267
+                ],
+                "upper": [
+                  0,
+                  "928888544486757604413181429947758938983779472037228018884624945554950761257186247",
+                  -269,
+                  269
+                ]
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_only": true,
+      "h_text": "1",
+      "prolate_dimension_N_exact": 21,
+      "q_text": "3",
+      "strict_threshold_supplied": false,
+      "values": {
+        "central_degree_real_cL_over_logL": {
+          "decimal": [
+            "1.3656957294408945660317954409397087153390251759435815977261834144189248784447338459030936",
+            "1.36569572944089456603179544093970871533902517594358159772618341441892487844694471137851654"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "161932044057028299209422536371573952031736759726581456962462708316973748263983897",
+              -266,
+              267
+            ],
+            "upper": [
+              0,
+              "647728176228113196837690145486295808126947038906325827849850833267894993056984167",
+              -268,
+              269
+            ]
+          }
+        },
+        "central_factorial_tail_tau": {
+          "decimal": [
+            "0.000198943678864869169711104704215642952543074557175570560934584180073620995937353593164819978",
+            "0.00019894367886486916971110470421564295254307455717557056093458418007362099814821274429850932"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "772963392471453158886196887009458122730220712915083583346214320952043714566692171",
+              -281,
+              269
+            ],
+            "upper": [
+              0,
+              "772963392471453158886196887009458122730220712915083583346214320952043723156626767",
+              -281,
+              269
+            ]
+          }
+        },
+        "chebyshev_r_0": {
+          "decimal": [
+            "0.267949192431122706472553658494127633057194746189619371944193020548066983090094532264795979",
+            "0.267949192431122706472553658494127633057194746189619371944193020548066983092305392996229849"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "508336485188425641367357897607234295580573134890900498954663262638664434741374395",
+              -270,
+              269
+            ],
+            "upper": [
+              0,
+              "254168242594212820683678948803617147790286567445450249477331631319332217372784351",
+              -269,
+              268
+            ]
+          }
+        },
+        "chebyshev_tail_prefactor_mu_9_over_10": {
+          "decimal": [
+            "2.83923048454132637611646780490352342016568315228622837683348418767115981014306915541765061",
+            "2.83923048454132637611646780490352342016568315228622837683348418767115981014749088636849649"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "42081334992808673848741768098302245855121737541804880502301728215419902243842633",
+              -263,
+              265
+            ],
+            "upper": [
+              0,
+              "673301359884938781579868289572835933681947800668878088036827651446718435902530707",
+              -267,
+              269
+            ]
+          }
+        },
+        "kernel_b_y_4": {
+          "decimal": [
+            "17.545177444479562475337856971665412544604001074882042032965440075947148975739870825858347",
+            "17.5451774444795624753378569716654125446040010748820420329654400759471489757752446059950473"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "520087744597945552891065101761212277378858280161384023378553330723409206140559165",
+              -264,
+              269
+            ],
+            "upper": [
+              0,
+              "260043872298972776445532550880606138689429140080692011689276665361704603070803871",
+              -263,
+              268
+            ]
+          }
+        },
+        "kernel_b_y_4_over_4_pi_squared": {
+          "decimal": [
+            "0.444424536472379067149515588623176935978829388903264729291695852139018645559537959613983181",
+            "0.444424536472379067149515588623176935978829388903264729291695852139018645561748822453856639"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "421567247044301644870637542063718178859837595196569439299969576538425520387036441",
+              -269,
+              268
+            ],
+            "upper": [
+              0,
+              "843134494088603289741275084127436357719675190393138878599939153076851040778267193",
+              -270,
+              269
+            ]
+          }
+        },
+        "lambda": {
+          "decimal": [
+            "4.5",
+            "4.5"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "9",
+              -1,
+              4
+            ],
+            "upper": [
+              0,
+              "9",
+              -1,
+              4
+            ]
+          }
+        },
+        "lambda_times_central_factorial_tail": {
+          "decimal": [
+            "0.000895246554891911263699971168970393286443835507290067524205628810331294485587094681537934276",
+            "0.000895246554891911263699971168970393286443835507290067524205628810331294487797953836789669689"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "217395954132596200936742874471410097017874575507367257816122777767762295661406269",
+              -277,
+              267
+            ],
+            "upper": [
+              0,
+              "869583816530384803746971497885640388071498302029469031264491111071049184793108729",
+              -279,
+              269
+            ]
+          }
+        },
+        "legendre_Gram_lower": {
+          "decimal": [
+            "0.96021341327628375186380531854333049674655357570887326371776636969934157999617699179305174",
+            "0.960213413276283751863805318543330496746553575708873263717766369699341579998387851997375712"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "910828480405138831920958229185125934887920318746953060334441016979933004373951451",
+              -269,
+              269
+            ],
+            "upper": [
+              0,
+              "227707120101284707980239557296281483721980079686738265083610254244983251094012151",
+              -267,
+              267
+            ]
+          }
+        },
+        "legendre_Gram_upper": {
+          "decimal": [
+            "1.0",
+            "1.0"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "1",
+              0,
+              1
+            ],
+            "upper": [
+              0,
+              "1",
+              0,
+              1
+            ]
+          }
+        },
+        "legendre_condition_number_upper": {
+          "decimal": [
+            "1.04143514990898006697632170766417208471582409283451190946735863387016803893764124548054804",
+            "1.0414351499089800669763217076641720847158240928345119094673586338701680389398521088475314"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "493936442626614842864941720214588861790560620985749800654461100844270900297379963",
+              -268,
+              269
+            ],
+            "upper": [
+              0,
+              "493936442626614842864941720214588861790560620985749800654461100844270900298428541",
+              -268,
+              269
+            ]
+          }
+        },
+        "legendre_eta_squared_upper": {
+          "decimal": [
+            "0.0397865867237162481361946814566695032534464242911267362822336303006584200016121482661792365",
+            "0.0397865867237162481361946814566695032534464242911267362822336303006584200038230078775045743"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "150961258507821763955741120024181624984269582535897761107182044851565414537228433",
+              -271,
+              267
+            ],
+            "upper": [
+              0,
+              "603845034031287055822964480096726499937078330143591044428728179406261658182468171",
+              -273,
+              269
+            ]
+          }
+        },
+        "legendre_eta_upper": {
+          "decimal": [
+            "0.199465753260343536437595692158332030542158204744014665832147594206276016782553482867454807",
+            "0.199465753260343536437595692158332030542158204744014665832147594206276016784764343598888676"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "378413978440666195931927369754408754134380480894470244425188900292730705905539255",
+              -270,
+              268
+            ],
+            "upper": [
+              0,
+              "189206989220333097965963684877204377067190240447235122212594450146365352954866781",
+              -269,
+              267
+            ]
+          }
+        },
+        "log_physical_length": {
+          "decimal": [
+            "1.10132686538606363540858099154334338207556929850175791904140026570953581300608818093616808",
+            "1.10132686538606363540858099154334338207556929850175791904140026570953581300829904219471184"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "261171074408932969353383720361231116621306018797599172747834367642962374127124395",
+              -267,
+              268
+            ],
+            "upper": [
+              0,
+              "522342148817865938706767440722462233242612037595198345495668735285924748255297367",
+              -268,
+              269
+            ]
+          }
+        },
+        "physical_length_L": {
+          "decimal": [
+            "3.00815479355254814674651670477374968243896196257048729869741731556318992893283557540355283",
+            "3.00815479355254814674651670477374968243896196257048729869741731556318992893725729792064037"
+          ],
+          "dyadic": {
+            "lower": [
+              0,
+              "713360441947539726409576592226289175358755204290217298825577886296677753050027735",
+              -267,
+              269
+            ],
+            "upper": [
+              0,
+              "89170055243442465801197074028286146919844400536277162353197235787084719131384539",
+              -264,
+              266
+            ]
+          }
+        }
+      }
+    },
+    "weighted_central_fixture": {
+      "A_W_star_W": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "C_U_star_T_B_U": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "100",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "G_U_star_U": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "P_H": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "P_K": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "S_U_star_P_H_U": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "T_B": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "100",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "U": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ]
+      ],
+      "W": [
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      ],
+      "high_operator_norm": {
+        "denominator": "100",
+        "numerator": "1"
+      },
+      "high_trace": {
+        "denominator": "100",
+        "numerator": "1"
+      },
+      "old_unweighted_coarse_bound": {
+        "denominator": "100",
+        "numerator": "101"
+      },
+      "unweighted_alpha_squared": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "unweighted_bound_loses_factor_101": true,
+      "weighted_bound_is_sharp": true,
+      "weighted_rho": {
+        "denominator": "100",
+        "numerator": "1"
+      },
+      "weighted_square_bound": {
+        "denominator": "100",
+        "numerator": "1"
+      },
+      "weighted_tau": {
+        "denominator": "1",
+        "numerator": "0"
+      }
+    }
+  },
+  "claim_boundary": {
+    "claim_class": "WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION",
+    "not_proved": [
+      "the actual covariance-weighted central capture rate for the prescribed arithmetic prolate range on an unbounded schedule",
+      "a useful uniform component-count/phase-volume bound and the actual physical alignment of the exterior combined-symbol levels",
+      "the actual positive shifted odd base, directional moments, edge deficit, or strict odd reserve on an unbounded schedule",
+      "strict even and odd signed sector floors for the finite Weil matrices",
+      "the residual-action estimate required by equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ],
+    "proved": [
+      "the exact covariance-weighted central cross-Gram identity and canonical central spectral decomposition",
+      "the explicit logarithmic-over-logarithmic central feature order and Legendre--Fourier target-conditioning bound",
+      "the interval-union transition trace, open-threshold effective-rank/tail theorem, and exact exterior spectral k-width bounds",
+      "the direct odd-pole cross-Gram, exact nonlinear edge deficit, sharp first-moment certificate, and faster Chebyshev resolvent remainder",
+      "exact rational weighted-versus-uniform, spectral-width, open-endpoint, first-moment, orientation, and endpoint-sharpness regressions plus outward interval probes"
+    ],
+    "source_admissions": {
+      "actual_exterior_alignment_claimed": false,
+      "actual_odd_reserve_claimed": false,
+      "actual_weighted_central_capture_claimed": false,
+      "api_key_read": false,
+      "binary64_parameters_used": false,
+      "cached_matrix_read": false,
+      "central_factorial_tail_promoted_to_capture": false,
+      "chebyshev_truncation_promoted_to_actual_load": false,
+      "determinant_limit_claimed": false,
+      "environment_secret_read": false,
+      "equation_5_2_claimed": false,
+      "first_moment_bound_promoted_to_strict_pass": false,
+      "global_weil_positivity_assumed": false,
+      "input_cap_bypassed": false,
+      "inversion_reflection_dropped": false,
+      "k_width_bound_promoted_to_capture": false,
+      "lambda_squared_mixed_with_lambda": false,
+      "prime_block_sign_changed": false,
+      "prime_power_endpoint_omitted": false,
+      "rank_only_capture_claimed": false,
+      "rh_proved": false,
+      "runtime_version_mismatch_accepted": false,
+      "secret_serialized": false,
+      "spectral_endpoint_dropped": false,
+      "transition_defect_bound_promoted_to_alignment": false,
+      "uniform_feature_angle_inferred_from_weighted_capture": false,
+      "unit_source_normalization_substituted": false,
+      "zeros_assumed_real": false,
+      "zeta_zero_table_read": false
+    }
+  },
+  "inputs": {
+    "chebyshev_orders_exact": [
+      1,
+      2,
+      4
+    ],
+    "dps_text": "80",
+    "lambda_denominator_text": "2",
+    "lambda_numerator_text": "9"
+  },
+  "schema": "xi-prolate-weighted-spectral-alignment-chebyshev-edge-v1",
+  "source_conventions": {
+    "locked_conventions": {
+      "arithmetic": "finite fixtures use exact reduced rationals; pi, logarithms, exponentials, square roots, factorial tails, interval-union constants, and Chebyshev remainders use outward mpmath.iv intervals",
+      "artifact_scope": "exact weighted-central, exterior k-width/effective-tail, and odd edge/Chebyshev regressions plus outward interval formula probes; no physical alignment or asymptotic signed floor is certified",
+      "central_weight": "central capture is charged by the compressed Fourier covariance T_B, not by an unweighted worst principal angle",
+      "exterior_levels": "level sets are formed from the complete combined archimedean-minus-prime symbol before any spectral tail or interval-component estimate",
+      "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi); e_t(x)=exp(i*t*x)",
+      "input_limits": "producer and verifier admit only lambda_numerator in {5,9} and dps in {80,160}; exact text membership is checked before integer conversion or interval initialization",
+      "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON floating-point numbers are rejected",
+      "inversion": "J is physical reflection x->-x; additive-Fourier residue classes are not substituted for inversion parity",
+      "odd_direction": "the exact odd pole vector is retained separately from the economical central polynomial feature space",
+      "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), logarithmic Lebesgue measure, and zero extension",
+      "prime_endpoint": "every prime power n<=lambda^2 is retained at the inclusive endpoint, and lambda is never confused with lambda^2",
+      "prime_sign": "m_lambda(t)=2*theta_prime(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+      "runtime_version": "the interval runtime must report mpmath==1.4.1 exactly; a mismatch is rejected before any interval probe",
+      "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the source-normalized zero-integral prolate columns and their actual Gram are retained",
+      "spectral_endpoint": "the effective-rank count uses the open threshold eta>sigma; eta=sigma remains in the low spectral tail",
+      "strictness": "a finite regression, rank count, nonpositive margin, equality at load one, or a big-O label without a proved constant is not a pass"
+    },
+    "locked_formulas": {
+      "canonical_central_decomposition": "tr(P_H T_B P_H)=sum_j theta_j||P_H u_j||^2 and Tail_r(T_B)<=tau_r",
+      "chebyshev_resolvent": "varrho=(sqrt(q)-sqrt(h))/(sqrt(q)+sqrt(h)); load=2/sqrt(q*h)*(mu_p+2*sum_(n>=1)varrho^n*Theta_n)",
+      "chebyshev_tail": "absolute truncation error after k is at most 2*mu_p/h*(1+sqrt(h/q))*varrho^(k+1), with varrho<(q-h)/q",
+      "claim_separation": "effective spectral tails do not prove physical alignment, target Fourier conditioning does not prove arithmetic-prolate capture, and a finite Chebyshev upper bound is not an actual odd reserve until its physical moments and shifted base are proved",
+      "direct_odd_pole": "mu_p=||p_N||^2-(W^*p_N)^*(W^*W)^dagger*(W^*p_N)",
+      "economical_central_order": "r_L=ceil(c*L/log(L)), c>1/4, gives tau_r=lambda^(-4*c+o(1))=o(lambda^-1); this is not an odd-pole approximation",
+      "effective_rank_tail": "r_sigma=#{eta_j>sigma}<=p_Omega+chi_Omega/sigma and sum_(eta_j<=sigma)eta_j<=chi_Omega/(1-sigma)",
+      "factorial_tail": "tau_r<=delta/(pi*(2*r+1)^2)*(e*delta/(2*r))^(2*r)",
+      "interval_component_bound": "b(y)=8*y-y^2 for 0<=y<=2 and b(y)=12+8*log(y/2) for y>=2; chi_Omega<=sum_a b(L*ell_a)/(4*pi^2)",
+      "interval_transition_trace": "chi_Omega=tr(A_Omega-A_Omega^2)=integral_Omega integral_Omega^c |hat(1_I)(t-u)|^2 dt du/(2*pi)^2",
+      "legendre_conditioning": "||(I-P_N)P_(Pi_r)||^2<=2*r^2/(pi^2*N)*exp(r*(r-1)/(pi*N))",
+      "legendre_fourier": "<phi_n,q_k>=sqrt(2*k+1)*(-1)^n*(-i)^k*j_k(pi*n)",
+      "odd_edge_identity": "with Y=(q-h)I-R, 2*mu_p/h-load=(2/h)<p,Y(hI+Y)^(-1)p>",
+      "sharp_first_moment": "load<=U_1=2*mu_p/h-2*d_1/(h*q), d_1=<p,Yp>; U_1<1 iff d_1>q*(mu_p-h/2), but this is not an iff test for the true load",
+      "spectral_k_width_norm": "max(gamma_(k+1),gamma_k*alpha_k^2)<=||P_H C P_H||<=gamma_(k+1)+(gamma_1-gamma_(k+1))*alpha_k^2",
+      "spectral_k_width_trace": "Tail_k(C)+(gamma_k-gamma_(k+1))*a_k^2<=tr(P_H C P_H)<=Tail_k(C)+(gamma_1-gamma_d)*a_k^2",
+      "weighted_central_bound": "sqrt(tr(P_H T_B P_H))<=sqrt(rho_B)+sqrt(tau_V), where tau_V=||(I-P_V)T_B^(1/2)||_HS^2",
+      "weighted_central_cross_gram": "G=U^*U, C=U^*T_B U, A=W^*W, S=G-U^*W A^dagger W^*U, and rho_B=tr(G^dagger C G^dagger S)=||P_H P_V T_B^(1/2)||_HS^2"
+    }
+  },
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a",
+      "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f",
+      "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "notes/WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION.md": "799727a0d026413fe26d4e78db00a645e329bfb0d24d28d547cc8e0fb15b6735",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_SOURCE_LOCK.json",
+    "schema": "xi-prolate-weighted-spectral-alignment-chebyshev-edge-source-lock-v1",
+    "sha256": "6250e0d229ddb014bd072587a7788cd3284f9320235bb1b0902fb46c2033c680"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

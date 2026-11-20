@@ -1,0 +1,157 @@
+{
+  "publication_kind": "append-only actual-theta Pollaczek comparison and explicit-family result",
+  "scope": "All-degree actual-theta norm comparison and favorable explicit unselected-family derivative/source ratio; not selected derivative coherence, all-degree bridge positivity, or RH closure.",
+  "payload_count": 14,
+  "payload_bytes": 89909,
+  "source_packages": [
+    {
+      "path": "comparison",
+      "source_folder_name": "theta_pollaczek_trial_20261104",
+      "files": [
+        "ACTUAL_THETA_SUBEXPONENTIAL_REFERENCE_COMPARISON.md",
+        "AUDIT.md",
+        "NATURAL_GAMMA_REFERENCE.md",
+        "POLLACZEK_MONIC_COMPARISON.md",
+        "README.md",
+        "SHA256SUMS",
+        "TWO_SIDED_COMPARISON_AUDIT.md"
+      ],
+      "original_checksum_entries": [
+        "ACTUAL_THETA_SUBEXPONENTIAL_REFERENCE_COMPARISON.md",
+        "AUDIT.md",
+        "NATURAL_GAMMA_REFERENCE.md",
+        "POLLACZEK_MONIC_COMPARISON.md",
+        "README.md",
+        "TWO_SIDED_COMPARISON_AUDIT.md"
+      ],
+      "excluded_working_snapshots": []
+    },
+    {
+      "path": "natural",
+      "source_folder_name": "theta_pollaczek_natural_20261104",
+      "files": [
+        "ARITHMETIC_SCALE_COROLLARY.md",
+        "INNER_ENVELOPE_AUDIT.md",
+        "NATURAL_FAMILY_RATIO.md",
+        "NATURAL_FAMILY_RATIO_AUDIT.md",
+        "README.md",
+        "SHA256SUMS",
+        "UNIFORM_INNER_ENVELOPE.md"
+      ],
+      "original_checksum_entries": [
+        "ARITHMETIC_SCALE_COROLLARY.md",
+        "INNER_ENVELOPE_AUDIT.md",
+        "NATURAL_FAMILY_RATIO.md",
+        "NATURAL_FAMILY_RATIO_AUDIT.md",
+        "README.md",
+        "UNIFORM_INNER_ENVELOPE.md"
+      ],
+      "excluded_working_snapshots": [
+        "NATURAL_FAMILY_RATIO_DRAFT.md",
+        "NATURAL_PARAMETER_WKB_ROUTE.md"
+      ]
+    }
+  ],
+  "payload_files": [
+    {
+      "path": "comparison/ACTUAL_THETA_SUBEXPONENTIAL_REFERENCE_COMPARISON.md",
+      "bytes": 13653,
+      "sha256": "ce62a7ec0370287438837e207b79c291ca9579d36874601c2ccc147cafe5643c",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "comparison/AUDIT.md",
+      "bytes": 6727,
+      "sha256": "faea4da9a6c26f3b78144f9e1f9bf6666eb091fcb4c6aa49b36d766727c50560",
+      "source_identical": true,
+      "role": "AI-assisted audit"
+    },
+    {
+      "path": "comparison/NATURAL_GAMMA_REFERENCE.md",
+      "bytes": 4949,
+      "sha256": "ac9446703979db52e265b967b328a85a87d0b43e0ff4c13baceae8f1a277cbf5",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "comparison/POLLACZEK_MONIC_COMPARISON.md",
+      "bytes": 7428,
+      "sha256": "86d241b869c682e2ce98277f3f9c52c3bab62c44e16dd1f6123f8daf63e34e1b",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "comparison/README.md",
+      "bytes": 4163,
+      "sha256": "913b49d3e7753eed236ff2bf98e13439e8865b49fa45a2833d4c5e3b552a5c0f",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "comparison/SHA256SUMS",
+      "bytes": 554,
+      "sha256": "8b50f691e0d26f55f09d794331c1ec0b66436ba3ba70c540d40e52599449957d",
+      "source_identical": true,
+      "role": "original checksum manifest"
+    },
+    {
+      "path": "comparison/TWO_SIDED_COMPARISON_AUDIT.md",
+      "bytes": 8497,
+      "sha256": "4fbe19a894563f5bdcc26700296fc02d6028c96ed824307ffe26d9c4485e44a8",
+      "source_identical": true,
+      "role": "AI-assisted audit"
+    },
+    {
+      "path": "natural/ARITHMETIC_SCALE_COROLLARY.md",
+      "bytes": 4642,
+      "sha256": "fc0db7332702f929e6bb7ac2035e93942686c5daa637fb455e2d796014a9a240",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "natural/INNER_ENVELOPE_AUDIT.md",
+      "bytes": 5884,
+      "sha256": "8137722a96b44ebec917b9578cd42048e843ee2f81b6f697c7322516a8e29bb0",
+      "source_identical": true,
+      "role": "AI-assisted audit"
+    },
+    {
+      "path": "natural/NATURAL_FAMILY_RATIO.md",
+      "bytes": 11707,
+      "sha256": "f976062424dc66f6d68db826ace4306b593b7445d87e88535a6d0c2d6ef7e289",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "natural/NATURAL_FAMILY_RATIO_AUDIT.md",
+      "bytes": 11068,
+      "sha256": "2810574c1b37e1dd77973b425d45ed4ea91a5635a2d2845f05c4a75ef2775ed0",
+      "source_identical": true,
+      "role": "AI-assisted audit"
+    },
+    {
+      "path": "natural/README.md",
+      "bytes": 4168,
+      "sha256": "5236a2af283694addb328e65eabe86ddd64510960f9a01a47879f450236efb2d",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "natural/SHA256SUMS",
+      "bytes": 540,
+      "sha256": "f5d1cbf20f27b51f12f4886c79c23f9c3c4af481618b30a4017a93ec3290c953",
+      "source_identical": true,
+      "role": "original checksum manifest"
+    },
+    {
+      "path": "natural/UNIFORM_INNER_ENVELOPE.md",
+      "bytes": 5929,
+      "sha256": "07be9f7f114fedeaa18a343809c811b9276e0a2c241f2a2e6e6d800faa4940ef",
+      "source_identical": true,
+      "role": "final analytic research"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preserves final derivations and completed AI-assisted audits. Backup verifies bytes and scope, not mathematical theorems or inherited analytic inputs."
+}

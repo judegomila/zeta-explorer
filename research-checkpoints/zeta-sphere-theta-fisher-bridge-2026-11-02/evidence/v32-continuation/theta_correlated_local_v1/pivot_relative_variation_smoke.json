@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite rational congruence and envelope identity smoke test; local derivative indefinite. Theta endpoint premises are prior independent certificates.",
+  "known_pivot": "3",
+  "forcing_energy": "12",
+  "signed_source": "-10"
+}

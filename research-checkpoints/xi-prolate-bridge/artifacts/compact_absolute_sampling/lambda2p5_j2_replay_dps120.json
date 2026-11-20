@@ -1,0 +1,130 @@
+{
+  "arithmetic_library_limitation": "Independent formula assemblies share mpmath 1.4.1; the artifact contains point values, not balls.",
+  "point_value_comparisons": {
+    "C_Z": {
+      "agrees": true,
+      "producer": "20.775315886183790671537767526745028724068919291480912897495334688117793595268453",
+      "relative_error": "3.3780583e-81",
+      "replay": "20.77531588618379067153776752674502872407"
+    },
+    "Z_finite": {
+      "agrees": true,
+      "producer": "214355242606.39060281135564743310267558095378381976952916625761487289747599183409",
+      "relative_error": "1.5701722e-80",
+      "replay": "214355242606.390602811355647433102675581"
+    },
+    "defect_decay_A": {
+      "agrees": true,
+      "producer": "3309.9631706287772511641597592243275272016822821302318775933540369633295141109604",
+      "relative_error": "2.2315354e-81",
+      "replay": "3309.963170628777251164159759224327527202"
+    },
+    "defect_lower": {
+      "agrees": true,
+      "producer": "1.3568793928575243198460776730477834069411417793078429441012954791737846022716959e-17978",
+      "relative_error": "1.9341212e-77",
+      "replay": "1.356879392857524319846077673047783406941e-17978"
+    },
+    "exponent_margin": {
+      "agrees": true,
+      "producer": "17.143296058960234038554423774919999560718362798993342185910008604959871343574238",
+      "relative_error": "2.5050282e-79",
+      "replay": "17.14329605896023403855442377491999956072"
+    },
+    "log_H_projection": {
+      "agrees": true,
+      "producer": "83184.429059049819684307040861067387501239113801006456558519467781136194856465474",
+      "relative_error": "5.761973e-81",
+      "replay": "83184.42905904981968430704086106738750124"
+    },
+    "log_N": {
+      "agrees": true,
+      "producer": "41588.830833596718565033927287490594084530008061615315247240800569603617318181683",
+      "relative_error": "1.5304157e-81",
+      "replay": "41588.83083359671856503392728749059408453"
+    },
+    "log_weight_upper": {
+      "agrees": true,
+      "producer": "83185.527671338487793998436106304310026943761291564279307971202475469832350758693",
+      "relative_error": "1.0611619e-81",
+      "replay": "83185.52767133848779399843610630431002694"
+    },
+    "negative_log10_relative_sampling_upper": {
+      "agrees": true,
+      "producer": "64.335670087633645002258502605860130310619550204433915704696835345885607784302414",
+      "relative_error": "3.8980141e-79",
+      "replay": "64.33567008763364500225850260586013031062"
+    },
+    "normalized_projection_l2_upper": {
+      "agrees": true,
+      "producer": "2.7223248970023124311985942265478490418176176360578821419737092280022145023447757e-40",
+      "relative_error": "2.8564274e-77",
+      "replay": "2.722324897002312431198594226547849041818e-40"
+    },
+    "projection_real_variation_upper": {
+      "agrees": true,
+      "producer": "5.8948246016353743954752523215441226944106002413099622964598055948795151511957911e+9034",
+      "relative_error": "1.0779978e-77",
+      "replay": "5.894824601635374395475252321544122694411e+9034"
+    },
+    "projection_sampling_over_d4_upper": {
+      "agrees": true,
+      "producer": "4.6166814819411287489323210168317030742120292729873584080982886486196919486369062e-65",
+      "relative_error": "5.71272e-77",
+      "replay": "4.616681481941128748932321016831703074212e-65"
+    },
+    "relative_projection_bulk": {
+      "agrees": true,
+      "producer": "1.3100287280110274682066574857607667276007043870350719494794398157090780688694438e-40",
+      "relative_error": "2.8539161e-77",
+      "replay": "1.310028728011027468206657485760766727601e-40"
+    },
+    "relative_projection_jump": {
+      "agrees": true,
+      "producer": "2.4108862669710608505198194732916591103303767771131769279267432262715164136452614e-9029",
+      "relative_error": "2.3769739e-77",
+      "replay": "2.41088626697106085051981947329165911033e-9029"
+    },
+    "relative_projection_total": {
+      "agrees": true,
+      "producer": "1.3100287280110274682066574857607667276007043870350719494794398157090780688694438e-40",
+      "relative_error": "2.8539161e-77",
+      "replay": "1.310028728011027468206657485760766727601e-40"
+    },
+    "schedule_decay": {
+      "agrees": true,
+      "producer": "3327.1064666877374852027141829992475267624006449292252197792640455682893854545346",
+      "relative_error": "1.0492043e-80",
+      "replay": "3327.106466687737485202714182999247526762"
+    },
+    "source_coefficient_A_lambda": {
+      "agrees": true,
+      "producer": "2.0780650368908525455427370099916918939375485599378575486895097424447909260887001",
+      "relative_error": "1.4903533e-80",
+      "replay": "2.078065036890852545542737009991691893938"
+    },
+    "variation_star": {
+      "agrees": true,
+      "producer": "841.98737551456077950941852191600723038610834385945724993040763473412053009572352",
+      "relative_error": "4.886015e-81",
+      "replay": "841.9873755145607795094185219160072303861"
+    }
+  },
+  "producer_booleans_trusted_as_evidence": false,
+  "reconstructed_inputs": {
+    "j": 2,
+    "lambda_exact_fraction": "5/2",
+    "producer_decimal_digits": 80,
+    "replay_decimal_digits": 120,
+    "schedule_K": 2400,
+    "schedule_exponent": 60000
+  },
+  "replay_agrees": true,
+  "schema": "xi-prolate-compact-absolute-sampling-replay-v1",
+  "scope": "compact-BV and actual projection-remainder absolute sampling only; no window Bessel, reciprocal-defect, shifted-sector, equation (5.2), determinant-convergence, or RH claim",
+  "source_bytes_rechecked": true,
+  "terminal_state": "P0_INVALIDATED",
+  "transcendentals_reconstructed_from_exact_parameters": true,
+  "zero_list_read": false,
+  "zeros_assumed_real_globally": false
+}

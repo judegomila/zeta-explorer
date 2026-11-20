@@ -1,0 +1,66 @@
+{
+  "analytic_inputs_not_replaced_by_replay": [
+    "squeezed Gaussian Hermite generating function",
+    "complete-theta Ewald/Fubini and derivative decay domain",
+    "Poisson modularity for theta",
+    "unimodality argument and passage J to infinity",
+    "analytic positivity proof for the J=1 trapezoidal chord integral"
+  ],
+  "formal_identities": {
+    "curvature_antiderivative": true,
+    "ground_state_wronskian_identity": true,
+    "half_line_factor_cancellation": true,
+    "hausdorff_jacobian_exponents": true
+  },
+  "grade": "exact integer/rational algebra replay plus independently audited analytic proof",
+  "hermite_endpoint_rows": [
+    {
+      "c_r_times_phi_4r_0": "2",
+      "r": "0"
+    },
+    {
+      "c_r_times_phi_4r_0": "3/4",
+      "r": "1"
+    },
+    {
+      "c_r_times_phi_4r_0": "35/64",
+      "r": "2"
+    },
+    {
+      "c_r_times_phi_4r_0": "11975573020964041433067793888190275875/85070591730234615865843651857942052864",
+      "r": "32"
+    }
+  ],
+  "left_response_inequalities": {
+    "beta_minus_alpha_factorization": "(a-1)*(3*a^4+5*a^3+5*a^2+5*a+3)",
+    "exp_gap_derivative_lower": "4*pi*cosh(2h)>6",
+    "first_cell_coefficient_gap": "a^3-1",
+    "theta_term_derivative_sign": "3-2*pi*n^2*a^2<0 for a>=1,n>=1"
+  },
+  "nonclaims": [
+    "No direct-head sign is proved.",
+    "No next pivot or all-degree theorem is proved.",
+    "No RH conclusion is asserted."
+  ],
+  "open": [
+    "global trapezoidal response monotonicity",
+    "theta-specific signed Green correlation"
+  ],
+  "payload_sha256_before_self_hash": "7e02a38d3442eb9e3703616a774842e825e88c674b54eb31b3637fa00c78815d",
+  "proved_claims": [
+    "signed Hausdorff coefficient formula under imported Fubini domain",
+    "endpoint cancellation under imported Wronskian decay",
+    "finite-head Green identity under imported boundary domain",
+    "(R_J^L)'(h)>0 for all h>0 and integer J>=1",
+    "Rayleigh chord-curvature identity for the trapezoidal response",
+    "(R_1^T)'(h)>0 for all h>0"
+  ],
+  "schema_version": "zsv.hermite_green_response.20261104.v1",
+  "status": "PASS",
+  "trapezoid_chord_algebra": {
+    "corrected_scalar_threshold": "2*min(D1,Dinf)",
+    "quadratic_chord_replay": "21/10",
+    "reciprocal_scale_mean": "1",
+    "rejected_shortcut": "D1+Dinf without -abs(D1-Dinf)"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "comparisons": [
+    {
+      "degree": 3,
+      "relative_errors": {
+        "abel": 3.5309032591559933e-14,
+        "common_scale_stieltjes": 1.5227020305109987e-14,
+        "direct": 3.199881078610109e-14,
+        "laplace": 2.2068145369724347e-15
+      }
+    },
+    {
+      "degree": 5,
+      "relative_errors": {
+        "abel": 3.55773075603071e-14,
+        "common_scale_stieltjes": 2.7775266428660642e-14,
+        "direct": 3.08960828813192e-14,
+        "laplace": 6.397673727949805e-15
+      }
+    }
+  ],
+  "grade": "same_implementation_resolution_replay",
+  "inputs": {
+    "primary": "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_primary.json",
+    "primary_sha256": "0298631fa73d498817977d7dd6b27ee29d311776943a845d7ebcdfa84320bb8c",
+    "replay": "workstreams/signed-arithmetic-variation-wave29-20261104/results/signed_variation_replay.json",
+    "replay_sha256": "b030626e24463d9588a24312a3ac078c6209c86386face639a3cb26ffd3d6cf7"
+  },
+  "nonclaims": [
+    "This is a resolution replay of one floating implementation, not an independent proof.",
+    "It proves no all-degree theorem or RH claim."
+  ],
+  "parameters": {
+    "comparison_rtol": 2e-07,
+    "degrees": [
+      3,
+      5
+    ],
+    "mode": "compare"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "231cff0cea0ea31aed3756dc8ab9a5b4e79bfcd45477f4e7b47f80816946ae5a"
+  },
+  "schema_version": "zsv.signed_arithmetic_variation.comparison.v1",
+  "status": "bounded_floating_replay_comparison",
+  "verdict": "PASS"
+}

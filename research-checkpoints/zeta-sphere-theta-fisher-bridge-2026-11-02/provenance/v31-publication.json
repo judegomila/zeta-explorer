@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source_artifact": {
+    "name": "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+    "bytes": 7430485,
+    "sha256": "841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef",
+    "unzip_test": "PASS",
+    "manifest_payloads_verified": 1133,
+    "manifest_payload_bytes_verified": 17309985,
+    "v30_payloads_preserved": 968,
+    "v30_sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6"
+  },
+  "publication_manifest": {
+    "name": "PUBLICATION_DELTA_V31.json",
+    "bytes": 36672,
+    "sha256": "bd0dfa4859ac06b1f700cbbc662e95a6708421d440ec189d2d0ae369203ff22b",
+    "reviewed_owned_rows": 137,
+    "diagnostic_or_correction_rows": 25
+  },
+  "delta_accounting": {
+    "new_payload_paths_since_v30": 165,
+    "new_payload_bytes_since_v30": 887067,
+    "source_classified_owned_paths": 162,
+    "source_classified_owned_bytes": 573853,
+    "public_classified_owned_paths": 162,
+    "public_classified_owned_bytes": 573957,
+    "source_unique_content_hashes": 126,
+    "source_duplicate_content_groups": 30,
+    "source_repeated_path_rows": 36,
+    "byte_identical_public_payload_paths": 161,
+    "public_text_redactions": 1,
+    "retained_publication_manifests": 1,
+    "source_backed_public_bytes_before_readme": 610629,
+    "omitted_duplicate_v30_provenance_paths": 2
+  },
+  "repository_policy": "Publish all 162 explicitly classified owned paths and the exact V31 publication manifest, with one recorded identifier-only redaction. Preserve diagnostic and correction history under its source classification but exclude it from default smoke execution. Do not publish the source archive, master manifests, duplicate prior-version manifests, inherited private captures, or acquired third-party material.",
+  "omitted_duplicate_v30_provenance_paths": [
+    "provenance/v30/MANIFEST.json",
+    "provenance/v30/MANIFEST.sha256"
+  ],
+  "excluded_material": [
+    "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+    "MANIFEST.json",
+    "MANIFEST.sha256",
+    "all source paths not explicitly classified in PUBLICATION_DELTA_V31.json",
+    "all inherited private or acquired-source captures"
+  ],
+  "existing_public_lane_overlap": 0
+}

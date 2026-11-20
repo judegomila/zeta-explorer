@@ -1,0 +1,39 @@
+{
+  "corrected_checker": {
+    "focused_tests_passed": 7,
+    "independent_static_reaudit": "PASS",
+    "invalid_numerical_receipt_survived": false,
+    "normalization": "sigma_0*T_dir=2*T_Ew; R=4*pi*T_Ew/E"
+  },
+  "governor": {
+    "active_worker_cap": 1,
+    "final_whole_mac_busy_percent": 30.0,
+    "fixed_target_busy_percent": 50.0,
+    "instantaneous_hard_ceiling_claimed": false,
+    "protected_4ct_active_at_completion": true,
+    "protected_processes_signalled": false,
+    "worker_elapsed_seconds": 5.010848045349121,
+    "worker_returncode": 0
+  },
+  "independent_replay": {
+    "all_non_runtime_fields_identical": true,
+    "non_runtime_projection_sha256": "f533afe043cb963dcc2e19e844ea5b5cb5e206b6c98993792a50626aec9e9ef2",
+    "replay_receipt_sha256": "9e4cd744c8a241d1e6107b8c590126076fc8bb335a7007616501f690019c12f2",
+    "status": "PASS_CERTIFIED_ACTUAL_KAPPA1_J2"
+  },
+  "preserved_evidence": {
+    "corrected_completed_raw_sha256": "03fb3f260f587a3569a7a0202386fcd04c711c7410fb7159c0712566b00341a5",
+    "corrected_events_raw_sha256": "72cb02c783c259468ec5856319433d5ed38cc63ed47a5492f61a3a50cac2f026",
+    "corrected_heartbeat_raw_sha256": "b48baae542963bfa4950ea56592d67ca36ec64cc91d5b26713a56ecc589fac27",
+    "corrected_worker_log_raw_sha256": "53d6bc1b68f118da1e43b553321735df4dbd02a6904989bbcc758271890ba24b"
+  },
+  "result": {
+    "Delta_minus_R_lower": "0.351602524955524131655693054199218750000000000000000000000000",
+    "canonical_sha256_before_self_hash": "2b5ce755776ffdf6d0a145181aa77a6fb388a138563bc20c88407fc620ca746d",
+    "ewald_scalar_head_J2_lower": "0.188212952199999965247769750931183807551860809326171874999950",
+    "receipt_sha256": "97adc3bd11bd7aab66ec5cd7c2123f105c589e4a1c00a4f05ec6089870347d39",
+    "status": "PASS_CERTIFIED_ACTUAL_KAPPA1_J2"
+  },
+  "schema_version": "zsv.actual_hardy_kappa1_governed_run.v1",
+  "scope": "one finite actual-theta rung; no all-degree or RH inference"
+}

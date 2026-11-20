@@ -1,0 +1,13 @@
+{
+  "N": 12000,
+  "precision_bits": 160,
+  "alpha_interval": "[1.2e+1 +/- 0.306]",
+  "finite_integral": "[-2e+1 +/- 2.44]",
+  "tail_upper": "[7.5418533841105796425784365250136688298119474298e-262 +/- 1.42e-309]",
+  "full_interval": "[-2e+1 +/- 2.44]",
+  "upper_bound": "[-19.521689489345344909952801294942790517721697080 +/- 3.29e-46]",
+  "proved_negative": true,
+  "proved_upper_lt_minus19": true,
+  "source_old_contacts_only": "/workspace/shared/zeta_sphere_campaign/source_0145_audit/private/source/integrated_pivots_certificate.json",
+  "scope": "Only k=1 arithmetic summand using old-prefix root enclosure; no next pivot certified."
+}

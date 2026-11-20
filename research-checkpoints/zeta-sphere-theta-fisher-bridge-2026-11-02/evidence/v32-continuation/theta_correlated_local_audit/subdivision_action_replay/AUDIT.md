@@ -1,0 +1,11 @@
+# Signed subdivision action: independent audit and replay
+
+PASS, 2026-11-03. Replayed the owned checker and owned dependencies copied here, using the auditor's independently generated odd7/even6 eighth-core moment enclosures. No integrated target norm is accessed, no new whole-line quadrature is performed, and no acquired code is executed.
+
+For one substep the optimizer z(H) is fixed inside r=integral(L(u)z(H)+l(u))du. Quadratic Jensen in the fixed positive metric P^-1 gives r^T P^-1 r <= delta integral ||L(u)z(H)+l(u)||_(P^-1)^2 du <= C delta^2. Since P<=A(H+delta), inverse order bounds the actual endpoint reoptimization cost. Summing delta_i^2<=mesh*total_width yields the stated bound for every finite subdivision. Telescoping the exact endpoint identity gives sum J=actual signed gain+sum K; reducing K does not change the actual signed gain.
+
+In the checked interval local old positivity is verified by interval LDL, so A(H)>=A(H0) genuinely holds and P is the actual initial core old matrix. The code's interval regression zc encloses all H independently of the local-density parameter u. Even though the same enclosure variables are reused, interval operations cover all combinations and introduce no unjustified equality H=u. The forward LDL solve computes R^T P^-1 R, with the correct triangular terms and actual initial moments. Both old/cross index ranges and full-theta local evaluator match the previously audited nearby-flow packet.
+
+Independent result.json proves action upper bounds 4,947,543,176,424 (odd7) and 75,443,741.930542 (even6), below the stated rational caps. Consequently every subdivision has total reoptimization cost below .0004948 and 7.5443742e-9 respectively. The independently reverified derivative signs give odd7 gain >95.84501356 and even6 gain <-.0137396 over the entire width 1e-8. Adding the latter cost upper gives sum J <-.0137395924556258 <-.01373959.
+
+Scope: actual fixed-degree, fixed-short-interval obstruction to subdivision alone as a sign-payment argument. It is fully compatible with the positive wider finite-width recovery. No uniform action estimate, global or degree-independent bound, new rung, or bound on the worst loss over the larger interval follows. All quantities use h/(4pi) normalization.

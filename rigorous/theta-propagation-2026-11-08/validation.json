@@ -1,0 +1,39 @@
+{
+  "date_utc": "2026-11-08",
+  "status": "All three certificate replays passed. Zero leakage and exponentially weighted energy remain unproved.",
+  "runtime": {
+    "python": "3.12.14",
+    "mpmath": "1.3.0"
+  },
+  "commands": [
+    {
+      "command": "python theta_pulse_leakage_certificate_20261108.py",
+      "exit_code": 0,
+      "stdout": "theta_pulse_leakage_replay.txt",
+      "scope": "Actual unitary pulse leakage upper bound below 1/8."
+    },
+    {
+      "command": "python theta_flux_jet3_certificate_20261108.py",
+      "exit_code": 0,
+      "stdout": "theta_flux_jet3_replay.txt",
+      "scope": "Full-theta 3-by-3 derivative jet at zero is positive definite."
+    },
+    {
+      "command": "python theta_separated_tail_certificate.py",
+      "exit_code": 0,
+      "stdout": "theta_separated_tail_replay.txt",
+      "scope": "Explicit all-cardinality fixed-spacing tail coercivity constants."
+    }
+  ],
+  "actual_leakage_upper_bound": "0.124030166",
+  "actual_leakage_lower_bound": "0",
+  "triangle_expression_interval_not_a_leakage_lower_bound": "[0.1240117303760606198120970612860645576996, 0.1240301653813875453899892386467086394629]",
+  "pulse_json_matches_source": true,
+  "analytical_review": "See AUDIT.md for domains, normalization, tail bounds and scope.",
+  "limitations": [
+    "No zero-tail or RH proof.",
+    "No fixed tail start uniform as feature spacing tends to zero.",
+    "No positivity certificate for all derivative orders.",
+    "No new certified zero-free height."
+  ]
+}

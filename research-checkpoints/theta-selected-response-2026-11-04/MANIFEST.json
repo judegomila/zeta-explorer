@@ -1,0 +1,76 @@
+{
+  "publication_kind": "append-only actual-theta selected response lower bounds and non-theta diagnostic",
+  "scope": "Actual-theta all-degree value/source floors and selected response lower bounds, with an explicitly non-theta nested matrix diagnostic. The requested upper estimate a_n(s_n)=1+o(s_n), actual selected cancellation, selected coherence, signed-defect positivity, and RH remain unproved.",
+  "source_folder_name": "theta_selected_response_20261104",
+  "payload_count": 8,
+  "payload_bytes": 50829,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "IMPROVED_SOURCE_FLOOR_BY_SHIFTED_L2_HARDY.md",
+    "NESTED_ALL_DEGREE_MATRIX_OBSTRUCTION.md",
+    "NESTED_ALL_DEGREE_MATRIX_OBSTRUCTION_AUDIT.md",
+    "README.md",
+    "VALUE_AND_SOURCE_FLOOR_AUDIT.md",
+    "VALUE_FORM_FLOOR_AND_SELECTED_RESPONSE_LOWER_BOUND.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2281,
+      "sha256": "e4eb3a9aed903abc81e81a9ae28563694835e5de3552dc8d0531c94b6b123525",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/IMPROVED_SOURCE_FLOOR_BY_SHIFTED_L2_HARDY.md",
+      "bytes": 7413,
+      "sha256": "01d085228896f74055c87745b307562b4bba4dd67dfa266c5a4c0702e5e1a302",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/NESTED_ALL_DEGREE_MATRIX_OBSTRUCTION.md",
+      "bytes": 11795,
+      "sha256": "e6d97236705bf46c80b07d7bde8c323fa1238e35c3e066cd5e18cb09eb701746",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/NESTED_ALL_DEGREE_MATRIX_OBSTRUCTION_AUDIT.md",
+      "bytes": 2694,
+      "sha256": "996322ac4bc42910b0b861bda3124de9235e1b5169e23cf39571554020d8a7a4",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3182,
+      "sha256": "064ab8b8bc493e00060b189e9da17ae5bdf92d45a4602622b9ff0e0792ca4076",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 698,
+      "sha256": "30c1b04cd75c6e9746d3ee5924aafe92a8086225edac29d53cd2fe80efbc8f72",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/VALUE_AND_SOURCE_FLOOR_AUDIT.md",
+      "bytes": 10203,
+      "sha256": "e2b0b3963604047944103fbcad32bb39b0ebe3080d345953452c4bead1836e30",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/VALUE_FORM_FLOOR_AND_SELECTED_RESPONSE_LOWER_BOUND.md",
+      "bytes": 12563,
+      "sha256": "d9c75e025e55eb3021c316a6cea5a4ee3c8086e069cc55b35026b93134e618a6",
+      "source_identical": true,
+      "role": "final analytic research"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. The supplied analytical audit is AI-assisted, not peer review or machine formalization. Inherited theta/source-closure inputs are not reproved."
+}

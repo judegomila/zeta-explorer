@@ -1,0 +1,119 @@
+{
+  "input_bindings": {
+    "egf_manifest": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+      "sha256": "354703546a02d24f41699a47739686057a94270103589a62601181043ad9c83c"
+    },
+    "egf_source": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/src/egf_identity.py",
+      "sha256": "d7c777d34c5684f133ce536166617c389492db0f678602e65f324c0a8220d9c4"
+    },
+    "endpoint_certificate": {
+      "path": "evidence/v19-delta/fisher_bridge_v3/endpoint_certificate_1000.json",
+      "sha256": "6042e7989864e2e64f89989bb82329d2bf3af91fe848bed722496ae364335509"
+    },
+    "parent_interval": {
+      "path": "evidence/v19-delta/fisher_bridge_v3/parent_interval_1000.json",
+      "sha256": "7e62d06a0ba7eec5fd7a80e4e5f63a35cf87875d92d73b04314259ae596ef928"
+    },
+    "target_moments": {
+      "path": "evidence/v18-curated/full_split_audit/actual_total_certificate.json",
+      "sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+    }
+  },
+  "purpose": "One SHA-bound floating M0 reconstruction on the archived odd ladder. The worker performs a primary calculation and a materially different parameter replay using the same algorithm. It is not degree escalation, an independent implementation, an interval certificate, or an RH proof.",
+  "python_binding": {
+    "path": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "reason": "ambient python3 does not provide the bound mpmath environment",
+    "required": true
+  },
+  "replay_contract": {
+    "independent_algorithm": false,
+    "kind": "same_worker_parameter_replay",
+    "varied_parameters": [
+      "dps",
+      "step_denominator",
+      "theta_orbits",
+      "h_cutoff",
+      "t_extent"
+    ]
+  },
+  "resource_contract": {
+    "cooperative_seconds_per_numeric_run": 120,
+    "governor_and_protected_pid_must_be_rechecked_before_launch": true,
+    "numeric_runs_inside_task": 2,
+    "output_bytes_per_task": 4194304,
+    "single_threaded": true,
+    "supervisor_required_for_production_run": true,
+    "tasks": 1
+  },
+  "schema_version": "zsv.m0_inertia_tasks.v1",
+  "stage": "m0-inertia-prefix-diagnostic",
+  "status": "bounded_single_task_parameter_replay_queue",
+  "tasks": [
+    {
+      "argv": [
+        "--egf-source",
+        "workstreams/all-degree-analytic-search-next-v1/src/egf_identity.py",
+        "--egf-manifest",
+        "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+        "--parent-interval",
+        "evidence/v19-delta/fisher_bridge_v3/parent_interval_1000.json",
+        "--target-moments",
+        "evidence/v18-curated/full_split_audit/actual_total_certificate.json",
+        "--endpoint-certificate",
+        "evidence/v19-delta/fisher_bridge_v3/endpoint_certificate_1000.json",
+        "--primary-dps",
+        "100",
+        "--primary-step-denominator",
+        "128",
+        "--primary-orbits",
+        "12",
+        "--primary-h-cutoff",
+        "3",
+        "--primary-t-extent",
+        "4",
+        "--replay-dps",
+        "160",
+        "--replay-step-denominator",
+        "256",
+        "--replay-orbits",
+        "16",
+        "--replay-h-cutoff",
+        "4",
+        "--replay-t-extent",
+        "5",
+        "--max-seconds-per-run",
+        "120",
+        "--max-output-bytes",
+        "4194304"
+      ],
+      "expected_mode": "sha_bound_endpoint_primary_replay",
+      "expected_parameters": {
+        "primary": {
+          "dps": 100,
+          "h_cutoff": "3",
+          "step_denominator": 128,
+          "t_extent": "4",
+          "theta_orbits": 12
+        },
+        "replay": {
+          "dps": 160,
+          "h_cutoff": "4",
+          "step_denominator": 256,
+          "t_extent": "5",
+          "theta_orbits": 16
+        }
+      },
+      "expected_schema_version": "zsv.m0_inertia_probe.v1",
+      "expected_status": "finite_floating_m0_inertia_diagnostic",
+      "id": "m0_inertia_primary_parameter_replay",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/m0_inertia_primary_parameter_replay.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/m0_inertia_probe.py"
+    }
+  ],
+  "worker_binding": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/src/m0_inertia_probe.py",
+    "sha256": "361ff6c692d96dcb2c07baf3eb8f1432ef7b034872bbe3720cb62ebcc629c631"
+  }
+}

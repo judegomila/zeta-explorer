@@ -1,0 +1,1 @@
+INVALID TARGET POLYNOMIAL: even2 regression coordinates were swapped. These outputs are not certificates of the actual monic orthogonal next target. Preserved as negative implementation evidence. Odd1 modes of the source are unaffected. Corrected files and new outputs live in the parent directory. Do not reuse even2 results from this subdirectory.

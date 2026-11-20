@@ -1,0 +1,61 @@
+{
+  "publication_kind": "append-only frozen research checkpoint",
+  "scope": "Finite-model boundary corrections, single-summand selected negativity, selected-only determinant identities, and a Laguerre quantifier audit. The degree-uniform selected determinant estimate remains unproved. No full-prefix negativity, selected decay, selected coherence, defect positivity, global Laguerre positivity, or RH conclusion is established.",
+  "source_folder_name": "theta_finite_arithmetic_sign_20261104",
+  "payload_count": 7,
+  "payload_bytes": 37224,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "FINITE_BOUNDARY_DISPLACEMENT_AUDIT.md",
+    "README.md",
+    "SELECTED_DETERMINANT_SLOPE_CRITERION.md",
+    "SINGLE_SUMMAND_SELECTED_NEGATIVITY_AUDIT.md",
+    "THETA_LAGUERRE_SOURCE_AUDIT.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2638,
+      "sha256": "880005c42ece7caa553819b69294394ad26534355ab309f4c5261ead32281a38",
+      "source_identical": true
+    },
+    {
+      "path": "src/FINITE_BOUNDARY_DISPLACEMENT_AUDIT.md",
+      "bytes": 8405,
+      "sha256": "7a0d9799fe6386fc78f8de29dd877cda93762c22816cc4b73a014042f6a7a998",
+      "source_identical": true
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3221,
+      "sha256": "a07d3f487197d2a33748cbf8224dfe5d2ccb611b07fe385c2e1d80e0accee83e",
+      "source_identical": true
+    },
+    {
+      "path": "src/SELECTED_DETERMINANT_SLOPE_CRITERION.md",
+      "bytes": 7517,
+      "sha256": "8b81157a023cb88a0bb9e592b9e6cd27afd8ef0bc72e9cbc195f9c4cc78c6e53",
+      "source_identical": true
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 568,
+      "sha256": "7e36f87f84c13f780613a602409a1e3aa99db27b3087422ec214c2fa7d81e0e2",
+      "source_identical": true
+    },
+    {
+      "path": "src/SINGLE_SUMMAND_SELECTED_NEGATIVITY_AUDIT.md",
+      "bytes": 5535,
+      "sha256": "29d1fcf033e7742ee2d6684927a023dc0cd5c9f1ad13510df9dceb1721eceae0",
+      "source_identical": true
+    },
+    {
+      "path": "src/THETA_LAGUERRE_SOURCE_AUDIT.md",
+      "bytes": 9340,
+      "sha256": "14cc9db4b68960c3d0496825c3e0f7cce792ccca16ac796ef726e92b6671a95b",
+      "source_identical": true
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. Supplied analytical audits are AI-assisted, not external peer review or machine formalization. Inherited dependencies are not reproved."
+}

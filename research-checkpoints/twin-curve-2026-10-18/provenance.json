@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-18",
+  "status": "Internally reviewed research lemmas; no all-height curve or RH proof",
+  "files": [
+    {
+      "file": "one-sided-euler-harmonic-criterion.md",
+      "source_sha256": "3367170b3c77789d95e1ba28a4bf1f62a83cd9346a817deea77d518bd13be986",
+      "release_sha256": "56b270a5c05f7ebed941c25d4b421cbe2b6710f5ff70135482afd1c9b1b32ae4",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "pointwise-prime-input-scope.md",
+      "source_sha256": "aab16faf5e926f3d087d789d948aa5c876448aacedff9f5862dc3c1e5af918ce",
+      "release_sha256": "aab16faf5e926f3d087d789d948aa5c876448aacedff9f5862dc3c1e5af918ce",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "gaussian-carrier-localization.md",
+      "source_sha256": "5b362f04336e1f1c0b6d92fc3c8adbd58023b35fde44bcf436036ed8df1504df",
+      "release_sha256": "33184bc23620c1de84bb3d06a3e5b1dc4f63c0705cccf4598ead58a9958b463d",
+      "change": "Editorial provenance/status clarification only; mathematical statements unchanged."
+    },
+    {
+      "file": "twin-reflection-clipping.md",
+      "source_sha256": "ca1a04bb52a2fd0cd0645034ad919bb178cf7c82572aa54cce75ab0f550d47ea",
+      "release_sha256": "774abfae03d3ab15a8db6722737cbfc86cc1941101a58ba632bae64618a6cb02",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "harmonic-variance-fixed-prime.md",
+      "source_sha256": "ee49525b742f5f2d04150edc219d36fedf84997b79defbcfcfc43131aed67c93",
+      "release_sha256": "1c3f30b9e13d156a74d19882fe6ccc356d6b57a634e91e28aabb96adca40455e",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "poisson-prime-tail-energy.md",
+      "source_sha256": "c90c5db9a78441b080214ef727fec4644eb496b8979f799452c797e678cef879",
+      "release_sha256": "6485cc634246ee5e8d71835751a149ce2910338a7b14f9c5ee4e4bf1bc614ca9",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "smooth-density-tail-payment.md",
+      "source_sha256": "3f6a2ecef6c07706e59a43ef7513ceeb8d56b2e44e76ab3f5d0e933f6156552a",
+      "release_sha256": "9143bf2b9e023f662e18da726efaed4ccff4411c3ed0a1c5052731f903a4666c",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "sharp-moment-discrepancy-budget.md",
+      "source_sha256": "1e01577fbda397de6a6c1e671797b3ea01f43182b6ca4a52af20cfafcd9a0a0b",
+      "release_sha256": "45d0339a893e59c3a96ef9c3335408032ec5c7249da293d278aa23097b16fb68",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "good-height-moments-and-gaps.md",
+      "source_sha256": "dd1d14be3ffa580c9d42e812c372900f2d8e5473ee524c8561bb7f38f986aae9",
+      "release_sha256": "131ac2aad9cc75c740fda5beabf240b6d742ec6b0603e612dde58f3b615f34f5",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "poisson-anchor-propagation.md",
+      "source_sha256": "6373a80444d11922866db332d3da0d2614269dc210c3c181df8b4e8a458083ca",
+      "release_sha256": "9a62586b561909b78e6d60d055ea9aa4b1e1ba68863be908693e919d130be37b",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "global-measure-anchor-cost.md",
+      "source_sha256": "90532b5e50636c1f3e4bd37fade1c4e6ecc0500d77a1dd07676c621da99a994e",
+      "release_sha256": "90532b5e50636c1f3e4bd37fade1c4e6ecc0500d77a1dd07676c621da99a994e",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    },
+    {
+      "file": "actual-prime-higher-moment-local-cost.md",
+      "source_sha256": "7938cc096a54dbf94d43c94e44202e09beb5ed410fcfb963fdc69f2fc03b4226",
+      "release_sha256": "9c31bb6fd73e605c0d64bbabb9bf3e35f983a7258fbb7a64df78116f26136ee4",
+      "change": "Review-status wording only; mathematical statements unchanged."
+    }
+  ],
+  "reviews": [
+    {
+      "source": "one-sided-euler-harmonic-criterion.md",
+      "review_sha256": "4acc3f89f463e6b0481284fa4f83635b4eb788373b40c61e4f94a3cbf6905541"
+    },
+    {
+      "source": "gaussian-carrier-localization.md",
+      "review_sha256": "92c0b51ad96c84375d696e1ff007bd2df7d278f8417dbc78b4b3def882d86948"
+    },
+    {
+      "source": "pointwise-prime-input-scope.md",
+      "review_sha256": "525a66550e81e052c487f21be5ec7598c6e58548200daed255e85be555ab9628"
+    },
+    {
+      "source": "twin-reflection-clipping.md",
+      "review_sha256": "7c853f09bf51b835e692a5764919eb76be6289eff12b3968ef117aaeecb99f6f"
+    },
+    {
+      "source": "harmonic-variance-fixed-prime.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "poisson-prime-tail-energy.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "smooth-density-tail-payment.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "sharp-moment-discrepancy-budget.md",
+      "review_sha256": "256f2b0dcc827f31f48bdaa39d8efd58c4eb61689c55e9b7bda3c1784d2f5a1a"
+    },
+    {
+      "source": "good-height-moments-and-gaps.md",
+      "review_sha256": "8fbf552c2e44cc3568be8689d30e4040ead88177ad1ac17a489883078db4db28"
+    },
+    {
+      "source": "poisson-anchor-propagation.md",
+      "review_sha256": "da51a8d31fac28cb530c22e16074c19f1b54a45c7e285027cb80c2db06574718"
+    },
+    {
+      "source": "global-measure-anchor-cost.md",
+      "review_sha256": "b1f4552d473224ecdebdcf7b662f0fd8e43e0ceedefdf7f3b9485979d4e981f1"
+    },
+    {
+      "source": "actual-prime-higher-moment-local-cost.md",
+      "review_sha256": "8f817b3223d981517f1beae9baf0087c951a59c0cb2b89776b7e913c4bba338f"
+    }
+  ]
+}

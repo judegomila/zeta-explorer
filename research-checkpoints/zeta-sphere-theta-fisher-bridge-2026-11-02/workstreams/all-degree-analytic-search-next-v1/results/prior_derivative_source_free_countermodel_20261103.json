@@ -1,0 +1,109 @@
+{
+  "conclusion": "Old signed-block positivity plus a positive current signed target does not imply positivity of span{q_N',t*q_N,q_(N-1)'} for a general positive even entire Schwartz profile; any uniform proof must use complete-theta arithmetic",
+  "nonclaims": [
+    "The profile is not the complete theta profile",
+    "The result does not refute the 13 finite complete-theta certificates",
+    "The result proves no all-degree theta theorem or RH statement"
+  ],
+  "normalization": "Every displayed integral has its common positive sqrt(pi) factor removed",
+  "old_signed_block": {
+    "determinant": "3393/1250",
+    "gram": [
+      [
+        "33/25",
+        "153/50"
+      ],
+      [
+        "153/50",
+        "183/20"
+      ]
+    ],
+    "positive_definite": true
+  },
+  "positive_moments_J0_through_J6": [
+    "57/25",
+    "29/10",
+    "159/20",
+    "1251/40",
+    "12621/80",
+    "154413/160",
+    "442827/64"
+  ],
+  "prior_derivative_auxiliary": {
+    "auxiliary": "-14131991108769/2800717324340",
+    "auxiliary_negative": true,
+    "basis": [
+      "q_current_prime",
+      "t*q_current",
+      "q_prior_prime"
+    ],
+    "bordered_determinant": "254375839957842/88830625",
+    "derivative_norm": "4896972/24505",
+    "gram": [
+      [
+        "4896972/24505",
+        "-3554274/710645",
+        "-1536/65"
+      ],
+      [
+        "-3554274/710645",
+        "233054239/2842580",
+        "7328/1885"
+      ],
+      [
+        "-1536/65",
+        "7328/1885",
+        "58/5"
+      ]
+    ],
+    "gram_determinant": "17734914/125",
+    "projection_coefficients": [
+      "-83457146777/140035866217",
+      "401936818/371447921",
+      "8546123831072/52793521563809"
+    ],
+    "score": [
+      "-91199424/710645",
+      "2018811/21866",
+      "38016/1885"
+    ]
+  },
+  "profile": {
+    "Lambda_polynomial_after_exp_minus_t2": {
+      "0": "-3/5",
+      "2": "72/25",
+      "4": "16/25"
+    },
+    "W": "exp(-t^2/2)*(1+4*t^2/5)",
+    "W_squared_polynomial_after_exp_minus_t2": {
+      "0": "1",
+      "2": "8/5",
+      "4": "16/25"
+    },
+    "positive_even_entire_schwartz": true
+  },
+  "residuals": {
+    "current_signed_target": "4035/754",
+    "current_signed_target_positive": true,
+    "q_current_degree_four": {
+      "0": "15835/1508",
+      "2": "-2835/377",
+      "4": "1"
+    },
+    "q_prior_degree_two": {
+      "0": "-51/22",
+      "2": "1"
+    }
+  },
+  "schema_version": "zsv.prior_derivative_source_free_countermodel.20261103.v1",
+  "scope": "Exact rational source-free countermodel at the actual degree-four Galerkin residual of W=exp(-t^2/2)(1+4t^2/5)",
+  "signed_moments_M0_through_M4": [
+    "33/25",
+    "153/50",
+    "183/20",
+    "1467/40",
+    "2961/16"
+  ],
+  "source_sha256": "ffadda9b2765a50bdb4c9b63eb5b114adfe3d0dfbe09db4ad3e43e3116a5f60f",
+  "status": "PASS"
+}

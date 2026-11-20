@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "finite-a cost decomposition",
+    "witness rearrangement",
+    "endpoint cost decomposition",
+    "endpoint commutator-payment equivalence",
+    "frozen complete-theta input hashes",
+    "psi(0)^2 < 16/5",
+    "complete-theta M0 > 3/100",
+    "quadratic curvature lower bound > 1254",
+    "182/85 < 1881/800 endpoint payment margin"
+  ],
+  "frozen_inputs": {
+    "evidence/v31-continuation/theta_correlated_local_v1/integrated_square_payment_64000.json": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e",
+    "evidence/v31-continuation/theta_correlated_local_v1/theta_curvature_square.json": "47353b64c47ce2d5e14112d2bbfcdfc0f2985a170e15c13cb8e64222823990f7",
+    "workstreams/all-degree-analytic-search-next-v1/results/modular_vprime_tilt_certificate.json": "1db1987de3a7542c5cf02e45178b5d5dd65a76c1f2bfaeaa176184d5810290e5"
+  },
+  "rational_bounds": {
+    "Q0_upper": "182/85",
+    "curvature_payment_lower": "1881/800"
+  },
+  "scope": "Exact cleared N=1 algebra plus frozen input bounds for the normalized a=0 payment; no finite-positive-a, higher-degree, all-degree, or RH claim is evaluated.",
+  "source_sha256": "5fb1b8c78634662c739b04853c1044dbd5b7d339e02b5fcbecc8508d1e1df663",
+  "status": "PASS"
+}

@@ -1,0 +1,135 @@
+{
+  "input_bindings": {
+    "payment_reduction_note": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_N1_S2_PAYMENT_REDUCTION_NEXT.md",
+      "sha256": "63ba56745d75e67efc8e5249b0563c5ce7482b3ce12d81f1288e3d8956d0ed09"
+    },
+    "payment_theorem_note": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_N1_FULL_INTERVAL_PAYMENT_NEXT.md",
+      "sha256": "75c1b743e8a067f450c67fd5a919980ef7130120026aeee91ea63c10fc89b64a"
+    },
+    "theta_interval_helper": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_vprime_tilt.py",
+      "sha256": "31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e"
+    }
+  },
+  "purpose": "A bounded direct complete-theta Arb cross-check/falsifier and a finer parameter replay of the analytically proved cancellation-safe N=1 strong payment on 0<=a<=1/4. This is one first-rung scalar, not the primary proof route, degree escalation, an all-degree certificate, or an RH proof.",
+  "python_binding": {
+    "path": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "python_flint_version": "0.9.0",
+    "required": true
+  },
+  "replay_contract": {
+    "independent_algorithm": false,
+    "independent_process": true,
+    "kind": "same_worker_partition_and_precision_replay",
+    "varied_parameters": [
+      "spatial_cells",
+      "parameter_cells",
+      "precision_bits",
+      "resource_caps"
+    ]
+  },
+  "resource_contract": {
+    "governor_and_protected_job_must_be_rechecked_before_launch": true,
+    "output_bytes_per_task": 4194304,
+    "peak_rss_check": "cooperative",
+    "single_threaded": true,
+    "supervisor_required_for_production_run": true,
+    "tasks": 2,
+    "total_cpu_seconds_if_both_reach_cap": 3300
+  },
+  "schema_version": "zsv.modular_n1_payment_tasks.v1",
+  "stage": "modular-n1-payment-full-a-interval",
+  "status": "bounded_queue_ready_not_launched",
+  "tasks": [
+    {
+      "argv": [
+        "--spatial-cells",
+        "4096",
+        "--parameter-cells",
+        "64",
+        "--precision-bits",
+        "192",
+        "--max-cpu-seconds",
+        "900",
+        "--max-rss-mib",
+        "1024",
+        "--max-output-bytes",
+        "4194304",
+        "--expected-source-sha256",
+        "b52f01a26ad1dab78974c2c2f8d4b02c01e2c30a18edbc79e30f8fa777131fcb",
+        "--expected-helper-sha256",
+        "31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e",
+        "--expected-payment-note-sha256",
+        "63ba56745d75e67efc8e5249b0563c5ce7482b3ce12d81f1288e3d8956d0ed09",
+        "--expected-theorem-note-sha256",
+        "75c1b743e8a067f450c67fd5a919980ef7130120026aeee91ea63c10fc89b64a"
+      ],
+      "accepted_verdicts": [
+        "PASS_STRONG_PAYMENT_UNIFORM_0_TO_1_OVER_4",
+        "STRONG_PAYMENT_REFUTED_ON_INTERVAL_CELL",
+        "UNRESOLVED_INTERVAL_OVERLAP"
+      ],
+      "classification": "rigorous_complete_theta_interval_crosscheck",
+      "expected_parameters": {
+        "max_cpu_seconds": 900,
+        "max_output_bytes": 4194304,
+        "max_rss_mib": 1024,
+        "parameter_cells": 64,
+        "precision_bits": 192,
+        "spatial_cells": 4096
+      },
+      "expected_status": "rigorous_modular_n1_payment_interval_check",
+      "id": "modular_n1_payment_interval_primary",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/modular_n1_payment_interval_primary.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_n1_payment_interval.py"
+    },
+    {
+      "argv": [
+        "--spatial-cells",
+        "8192",
+        "--parameter-cells",
+        "128",
+        "--precision-bits",
+        "256",
+        "--max-cpu-seconds",
+        "2400",
+        "--max-rss-mib",
+        "1536",
+        "--max-output-bytes",
+        "4194304",
+        "--expected-source-sha256",
+        "b52f01a26ad1dab78974c2c2f8d4b02c01e2c30a18edbc79e30f8fa777131fcb",
+        "--expected-helper-sha256",
+        "31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e",
+        "--expected-payment-note-sha256",
+        "63ba56745d75e67efc8e5249b0563c5ce7482b3ce12d81f1288e3d8956d0ed09",
+        "--expected-theorem-note-sha256",
+        "75c1b743e8a067f450c67fd5a919980ef7130120026aeee91ea63c10fc89b64a"
+      ],
+      "accepted_verdicts": [
+        "PASS_STRONG_PAYMENT_UNIFORM_0_TO_1_OVER_4",
+        "STRONG_PAYMENT_REFUTED_ON_INTERVAL_CELL",
+        "UNRESOLVED_INTERVAL_OVERLAP"
+      ],
+      "classification": "rigorous_complete_theta_interval_crosscheck_replay",
+      "expected_parameters": {
+        "max_cpu_seconds": 2400,
+        "max_output_bytes": 4194304,
+        "max_rss_mib": 1536,
+        "parameter_cells": 128,
+        "precision_bits": 256,
+        "spatial_cells": 8192
+      },
+      "expected_status": "rigorous_modular_n1_payment_interval_check",
+      "id": "modular_n1_payment_interval_replay",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/modular_n1_payment_interval_replay.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_n1_payment_interval.py"
+    }
+  ],
+  "worker_binding": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_n1_payment_interval.py",
+    "sha256": "b52f01a26ad1dab78974c2c2f8d4b02c01e2c30a18edbc79e30f8fa777131fcb"
+  }
+}

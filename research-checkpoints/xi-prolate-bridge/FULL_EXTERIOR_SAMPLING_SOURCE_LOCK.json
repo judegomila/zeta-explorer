@@ -1,0 +1,111 @@
+{
+  "schema": "xi-prolate-full-exterior-sampling-source-lock-v1",
+  "claim_class": "UNCONDITIONAL_FULL_Y_EXTERIOR_SAMPLING_FALLBACK",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "48c1bb3a206b4b7d4b448775a7ed6041a248b345a09fe42ab925c5cd233f0cf4",
+      "role": "pinned compact-BV zero-sampling theorem and exact overlap constants"
+    },
+    {
+      "path": "DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json",
+      "sha256": "66347adeb8c3e0d497760318370d00949d598a3ba42d5375c27dafc1651b3714",
+      "role": "pinned additive prolate conventions and all-index Logvinenko--Sereda floor"
+    },
+    {
+      "path": "P1_SOURCE_LOCK.json",
+      "sha256": "63b83879c52382c6c524b3137b25ea9f1882a24c5518374d487469ecf0e077d2",
+      "role": "pinned two-sided global radical and arithmetic-transform conventions"
+    },
+    {
+      "path": "ZERO_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "f4cad4acb30dbfcdc5b30faafe92934e8958ad1cd11cbf6abea932f902e8c101",
+      "role": "pinned zero-count formulas and noncircular paired sampling convention"
+    },
+    {
+      "path": "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md",
+      "sha256": "2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d",
+      "role": "repository proof of the explicit compact-BV sampling constant"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "repository proof of the bounded-variation global-radical extension and invisible correction"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "minimum-energy quotient and alignment product target"
+    },
+    {
+      "path": "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md",
+      "sha256": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+      "role": "locked arithmetic map, physical measure, parity involution, and projection conventions"
+    },
+    {
+      "path": "vendor/EGIDI-SEELMANN-LS-2010.11901v2.tex.gz",
+      "sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+      "role": "primary source bytes for the all-index defect floor"
+    },
+    {
+      "path": "vendor/HSW-ZC-2107.06506v1.pdf",
+      "sha256": "3fc4c89f49249924e61cb0d289d81559faed53fcbb838628ea32dc7ec6f89fbf",
+      "role": "primary source bytes for the local zero-count input"
+    }
+  ],
+  "locked_conventions": {
+    "source_domain": "[-lambda,lambda] with Lebesgue measure dx and zero extension",
+    "additive_source_parity": "f(-x)=f(x)",
+    "arithmetic_map": "A_lambda f(u)=sqrt(u)*sum_{1<=m<=lambda/u} f(m*u)",
+    "physical_domain": "I_lambda=[1/lambda,lambda] with measure du/u",
+    "inversion": "Jg(u)=g(1/u)",
+    "parity_projection": "S_sigma=(I+sigma*J)/2 for sigma in {+1,-1}",
+    "log_fourier_projection": "P_N keeps every integer log-Fourier mode |n|<=N",
+    "zero_parameter": "s_rho=gamma+i*(1/2-beta) for rho=beta+i*gamma",
+    "angular_transform": "F(z)=integral_R f(t)*exp(-i*z*t) dt",
+    "paired_sampling": "sum_rho (abs(F(s_rho))^2+abs(F(conjugate(s_rho)))^2)",
+    "full_remainder": "Y=(I-P_N*C_lambda)*L and W=P_N*C_lambda*L",
+    "radical_identity": "Z*L=0, hence Z*Y=-Z*W",
+    "source_matrices": "B=C^*C and D_ext=C^*diag(d_n)C in an orthonormal additive prolate basis",
+    "source_kernel_policy": "quotient ker(C)=ker(B)=ker(D_ext); use Moore--Penrose inverses only on the positive quotient",
+    "physical_kernel_policy": "restrict the quotient preconditioner to ran(W); ambient zero eigenvalues are not floors",
+    "invisible_bump": "a correction supported in abs(x)<1/(2*lambda) is annihilated by A_lambda on I_lambda"
+  },
+  "locked_formulas": {
+    "even_arithmetic_norm": "norm(A_lambda*f)^2_{L2(I_lambda,du/u)} <= (lambda^2/2)*norm(f)^2_{L2(-lambda,lambda,dx)}",
+    "general_arithmetic_norm": "without additive evenness the safe constant is lambda^2, not lambda^2/2",
+    "all_index_floor": "d_LS=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "source_floor": "D_ext >= d_LS*B",
+    "physical_pullback": "W^*W <= (lambda^2/2)*B <= (lambda^2/(2*d_LS))*D_ext",
+    "normalized_synthesis": "M=norm(W*D_ext^(-1/2))^2 <= lambda^2/(2*d_LS)",
+    "log_interval_length": "L=2*log(lambda)",
+    "unit_window_variation": "V_N^0=(2*pi*N+2*sqrt(2*N+1))/sqrt(L)",
+    "unit_window_height": "H_N=max(1,(V_N^0+(3/4)*sqrt(L))^2)",
+    "zero_count_main": "M_0(t)=t/(2*pi)*log(t/(2*pi*e))",
+    "zero_count_error": "R_0(t)=0.103787*log(t)+0.257297*log(log(t))+9.367419",
+    "finite_overlap": "Z_finite=1+M_0(61220092002)-1/8+R_0(61220092002)",
+    "log_overlap": "C_Z=1+1/pi+2*(0.103787+0.257297)+2*9.367419",
+    "absolute_window_bound": "B_abs=192*sqrt(e)*lambda*(1+log(lambda))^2*(Z_finite+(C_Z/pi)*((pi+1)*log(H_N+2)+1))",
+    "full_gram": "Y^*Z^*Z*Y=W^*Z^*Z*W <= B_abs*W^*W",
+    "exterior_constant": "C_ext <= B_abs*lambda^2/(2*d_LS)=(lambda^2*B_abs/12)*96^(5+(320*pi/log(2))*lambda^2)",
+    "alignment_product": "C_ext*M <= B_abs*lambda^4/(4*d_LS^2)",
+    "fixed_parity_complexification": "paired sampling gives the same B_abs to the complexification of either fixed real parity sector; no extra factor 2"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the explicit even arithmetic-map norm upper bound lambda^2/2",
+      "an explicit unconditional full-cross-term source Gram bound for Y^*Z^*Z*Y",
+      "an explicit all-index quotient normalized-synthesis bound",
+      "the displayed two-defect-loss alignment upper bound"
+    ],
+    "not_proved": [
+      "the target-scale estimate C_ext*M=O(1/d_8)",
+      "a defect-relative exterior sampling constant",
+      "either shifted signed parity-sector comparison",
+      "equation (5.2) or locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+870331e91763259c4cabfd742546d70c278135c178760e4dc8e7def6fdc7578e  /workspace/shared/zeta_sphere_campaign/hierarchy/certify_ratio.py
+8462204989d9e902b239a6456cd2206c3056317fd836a4c4994de6624e71c2d3  /workspace/shared/zeta_sphere_campaign/hierarchy/ratio_intervals.json

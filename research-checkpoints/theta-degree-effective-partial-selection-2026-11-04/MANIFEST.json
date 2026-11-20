@@ -1,0 +1,47 @@
+{
+  "publication_kind": "append-only frozen research checkpoint",
+  "scope": "Uniform two-index actual-theta Gram decay, a growing-prefix partially selected counterfamily, and unconditional derivative mean-square inputs. Partial selection is not full selection. The actual fully selected signed-cancellation problem, selected coherence, defect positivity, and RH remain unproved.",
+  "source_folder_name": "theta_degree_effective_partial_selection_20261104",
+  "payload_count": 5,
+  "payload_bytes": 18393,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "HARDY_Z_DERIVATIVE_MEAN_SQUARE_SOURCES.md",
+    "README.md",
+    "UNIFORM_GRAM_AND_PARTIAL_SELECTION.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2253,
+      "sha256": "c5425e7af48a27bae9d3e7dff9e3de662dbdf6090d3cf80b54d5880f9e49366f",
+      "source_identical": true
+    },
+    {
+      "path": "src/HARDY_Z_DERIVATIVE_MEAN_SQUARE_SOURCES.md",
+      "bytes": 3550,
+      "sha256": "d3d640a35cf27e6c3bc8d2eb21e197d6ddb3051d077311dfd04974cedd106222",
+      "source_identical": true
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 3607,
+      "sha256": "e5552ffbf0a6288afa03cc87c75ab48466a885e581239d451230401aa6dfb5a7",
+      "source_identical": true
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 363,
+      "sha256": "104d61f3849bd135dad64d61813cf56196635f67e6a4596048dee7d9fdfe46f8",
+      "source_identical": true
+    },
+    {
+      "path": "src/UNIFORM_GRAM_AND_PARTIAL_SELECTION.md",
+      "bytes": 8620,
+      "sha256": "ad03c91a4e3af5b2ec58c14dffad512c1795ea4f7db277b2edd2dca227c9715b",
+      "source_identical": true
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. Supplied analytical audits are AI-assisted, not external peer review or machine formalization. Inherited dependencies are not reproved."
+}

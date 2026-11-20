@@ -1,0 +1,114 @@
+{
+  "scope": "Floating original theta, a=.25, lambda0, finite already-verified rungs only; no interval/tail certificate",
+  "Q": 1200,
+  "rows": [
+    {
+      "N": 2,
+      "commutator_integral": -4.539074887189287,
+      "commutator_over_cost": -0.22155205009225876,
+      "prefix_boundary": -142.25885418159604,
+      "integrated_feedback_lower": -97.22133677716005,
+      "integrated_feedback_lower_over_cost": -4.745369268191914,
+      "feedback_test_nu": 13.293199785800539,
+      "boundary_feedback": -142.2588541816054,
+      "boundary_over_cost": -6.943648556375102,
+      "kappa": 2.024540987389935,
+      "mu_plus": 11.11963856145398,
+      "mu_minus": 10.11963856145398,
+      "normalization": 1.0,
+      "next_delta_plus": 337.7981364106645,
+      "next_delta_minus": 295.8397933545889,
+      "feedback": 7.780117127380406,
+      "next_surplus": 34.178225928695184,
+      "true_next_ratio": 34.17822592869513,
+      "prefix_witness_plus": 327.74607255319955,
+      "prefix_multi_witnesses": [
+        327.7460725531994,
+        337.66424310418427,
+        337.75689740946956
+      ],
+      "multi_strong_payment_lowers": [
+        3.638539025994781,
+        13.556709576979664,
+        13.649363882264957
+      ],
+      "modular_cost": 20.487623045235303,
+      "witness_over_cost": 15.99727171031789,
+      "surplus_over_cost": 1.6682377381325273,
+      "strong_payment_lower": 3.6385390259949517,
+      "max_ipb_error": 6.359357485052897e-13
+    },
+    {
+      "N": 4,
+      "commutator_integral": -2.6728491684138476,
+      "commutator_over_cost": -0.05979044833859859,
+      "prefix_boundary": -179.04485712632948,
+      "integrated_feedback_lower": -47.049962842028236,
+      "integrated_feedback_lower_over_cost": -1.0524867642676137,
+      "feedback_test_nu": 9.492495713367806,
+      "boundary_feedback": -179.04485712632385,
+      "boundary_over_cost": -4.005153903486449,
+      "kappa": 4.137088311015192,
+      "mu_plus": 11.805574208694775,
+      "mu_minus": 10.805574208694775,
+      "normalization": 1.0,
+      "next_delta_plus": 465.65316270671383,
+      "next_delta_minus": 376.70004638762884,
+      "feedback": 28.219736580595594,
+      "next_surplus": 60.73337973848939,
+      "true_next_ratio": 60.733379738489454,
+      "prefix_witness_plus": 413.0711560628635,
+      "prefix_multi_witnesses": [
+        413.07115606286317,
+        460.84213257743465,
+        463.49564601157823
+      ],
+      "multi_strong_payment_lowers": [
+        -36.552241657959655,
+        11.218734856611832,
+        13.872248290755408
+      ],
+      "modular_cost": 44.703614752598384,
+      "witness_over_cost": 9.24021823176735,
+      "surplus_over_cost": 1.3585787206382294,
+      "strong_payment_lower": -36.552241657959314,
+      "max_ipb_error": 5.400124791776761e-13
+    },
+    {
+      "N": 5,
+      "commutator_integral": 0.15640834029084516,
+      "commutator_over_cost": 0.0028623462655336038,
+      "prefix_boundary": -191.2382369108352,
+      "integrated_feedback_lower": -11.795701980422436,
+      "integrated_feedback_lower_over_cost": -0.21586689974604711,
+      "feedback_test_nu": 7.620783660356075,
+      "boundary_feedback": -191.23823691082112,
+      "boundary_over_cost": -3.4997497718538164,
+      "kappa": 5.26039503552039,
+      "mu_plus": 11.38769950799852,
+      "mu_minus": 10.38769950799852,
+      "normalization": 1.0,
+      "next_delta_plus": 514.1517749667065,
+      "next_delta_minus": 390.20039979984574,
+      "feedback": 45.88355090804896,
+      "next_surplus": 78.06782425881181,
+      "true_next_ratio": 78.06782425881171,
+      "prefix_witness_plus": 430.54935189749875,
+      "prefix_multi_witnesses": [
+        430.54935189749887,
+        495.3755366493963,
+        499.7541568715918
+      ],
+      "multi_strong_payment_lowers": [
+        -60.17800173274885,
+        4.6481830191485685,
+        9.026803241344105
+      ],
+      "modular_cost": 54.64340292235301,
+      "witness_over_cost": 7.879255845564729,
+      "surplus_over_cost": 1.4286779388491664,
+      "strong_payment_lower": -60.17800173274896,
+      "max_ipb_error": 5.471179065352771e-13
+    }
+  ]
+}

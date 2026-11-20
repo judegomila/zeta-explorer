@@ -1,0 +1,37 @@
+{
+  "status": "PASS_WITH_SCOPES",
+  "unique_current_controls": 64,
+  "root_controls": 39,
+  "matrix_controls": 25,
+  "independent_receipts": [
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/root_replay_record.json",
+      "bytes": 4678,
+      "sha256": "a7cbdea4c03d3b0531ab33aa4489bd6a3618fdb67204b2ef1ec9bb219fe05e6b"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/root_matrix_anchor_audit.json",
+      "bytes": 1482,
+      "sha256": "1789fbaa47719fb9f43f01cf176ac9222ea1445fcc24e240ff427f980b22202c"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/matrix_anchor_analytic_check62.json",
+      "bytes": 2106,
+      "sha256": "21e42ecbbcd60faefed911d5f6c2e855029406113cbc40d2a86820a9ee3a1544"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/sphere_v15_normalization_receipt.json",
+      "bytes": 16226,
+      "sha256": "4a21345ffc64cb6bf972a4f7bca18276f630d09e4d63376128e4dfe9701f7250"
+    },
+    {
+      "path": "output/rh_sixtysecond_attempt/audit/full_density_lower_bound_check62.json",
+      "bytes": 3791,
+      "sha256": "cb2da3e3ab457d6d65d656b1be3b050805e2107ba6e92aae7fac488ec9e0e527"
+    }
+  ],
+  "new_actual_source_results": "Tiny true-positive-heat signed compensation/denominator gate and infinite negative tail index.",
+  "unresolved": "Actual CP61 joint signed covariance, source/metric transfer and full Schur/reserve closure.",
+  "imported_research_code_executed": false,
+  "RH_proved": false
+}

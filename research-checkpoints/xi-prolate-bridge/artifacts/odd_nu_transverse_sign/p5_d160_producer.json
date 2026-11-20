@@ -1,0 +1,3424 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "nondegenerate intervals receive a precision-scaled dyadic enlargement",
+    "shared_library_with_verifier": true
+  },
+  "certificate": {
+    "exact_third_moment": {
+      "C_beta": [
+        [
+          {
+            "denominator": "4",
+            "numerator": "9"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "11"
+          }
+        ]
+      ],
+      "Q": [
+        [
+          {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "3",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "5"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "7"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "3",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ]
+      ],
+      "alpha": {
+        "denominator": "2",
+        "numerator": "3"
+      },
+      "archimedean_block": [
+        [
+          {
+            "denominator": "10",
+            "numerator": "97"
+          },
+          {
+            "denominator": "7",
+            "numerator": "8"
+          },
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "3",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "7",
+            "numerator": "8"
+          },
+          {
+            "denominator": "3",
+            "numerator": "8"
+          },
+          {
+            "denominator": "8",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "8",
+            "numerator": "3"
+          },
+          {
+            "denominator": "36",
+            "numerator": "67"
+          },
+          {
+            "denominator": "10",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "3",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "10",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "11",
+            "numerator": "34"
+          }
+        ]
+      ],
+      "assembled_Q": [
+        [
+          {
+            "denominator": "2",
+            "numerator": "3"
+          },
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "3",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "1"
+          },
+          {
+            "denominator": "2",
+            "numerator": "5"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "2",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "denominator": "4",
+            "numerator": "7"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          }
+        ],
+        [
+          {
+            "denominator": "3",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "5",
+            "numerator": "-1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "3"
+          }
+        ]
+      ],
+      "beta": {
+        "denominator": "4",
+        "numerator": "1"
+      },
+      "centered_residual_b": [
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "2",
+          "numerator": "-1"
+        },
+        {
+          "denominator": "3",
+          "numerator": "1"
+        }
+      ],
+      "dimension": 4,
+      "e": [
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        }
+      ],
+      "m2": {
+        "denominator": "18",
+        "numerator": "65"
+      },
+      "m3": {
+        "denominator": "240",
+        "numerator": "2531"
+      },
+      "nu_direct": {
+        "denominator": "360",
+        "numerator": "989"
+      },
+      "nu_moment_polynomial": {
+        "denominator": "360",
+        "numerator": "989"
+      },
+      "odd_pole_coefficient": {
+        "denominator": "1",
+        "numerator": "-2"
+      },
+      "pole_vector": [
+        {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        }
+      ],
+      "prime_block_coefficient": {
+        "denominator": "1",
+        "numerator": "-1"
+      },
+      "prime_unsigned_block": [
+        [
+          {
+            "denominator": "5",
+            "numerator": "1"
+          },
+          {
+            "denominator": "7",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "7",
+            "numerator": "1"
+          },
+          {
+            "denominator": "6",
+            "numerator": "1"
+          },
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "8",
+            "numerator": "1"
+          },
+          {
+            "denominator": "9",
+            "numerator": "1"
+          },
+          {
+            "denominator": "10",
+            "numerator": "1"
+          }
+        ],
+        [
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "10",
+            "numerator": "1"
+          },
+          {
+            "denominator": "11",
+            "numerator": "1"
+          }
+        ]
+      ]
+    },
+    "interval_log_tails": {
+      "dyadic_band_end": 50,
+      "dyadic_band_start": 25,
+      "dyadic_log_band": {
+        "decimal": [
+          "0.0027943170372381342862366797206125432851246979770289080942592379310164538052366327474598562274999178560537618966327134618482686201559390969992829330881423618444561184168282",
+          "0.0027943170372381342862366797206125432851246979770289080942592379310164538052366327474598562274999178560537618966327134618482686201559390969992829330881423618808745965723173"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "80456905377009388225460211980174499187883213604185243676266013625001122496421246020681561096555877350694523349604570450034846973365181272972947190231252357403825",
+            -543,
+            535
+          ],
+          "upper": [
+            0,
+            "10057113172126173528182526497521812398485401700523155459533251703125140312052655752585195137069484668836815418700571306254355871670647659121618398778906544806553",
+            -540,
+            532
+          ]
+        }
+      },
+      "inverse_log_weighted_partial": {
+        "decimal": [
+          "0.0055347374034705486666544370252708120723665734936920810523849213011312502485059298767863904748875963248756812960150013133759486835513560598670668370693907043443545641593459",
+          "0.0055347374034705486666544370252708120723665734936920810523849213011312502485059298767863904748875963248756812960150013133759486835513560598670668370693907044171917983151678"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "19920245162918275365225078911215681473163957814058598105779834504844922235607300444577370999659618283579187105703441427324179643093547820488090845047284070832913",
+            -540,
+            533
+          ],
+          "upper": [
+            0,
+            "79680980651673101460900315644862725892655831256234392423119338019379688942429201778309483998638473134316748422813765709296718572374191281952363380189136284380255",
+            -542,
+            535
+          ]
+        }
+      },
+      "log_weighted_partial": {
+        "decimal": [
+          "0.038151037454892961313513921320471666606352576608154091698678018876434858181675915345785034844155288032533313851087542257904018183927061540030292525372071755234193086298524",
+          "0.038151037454892961313513921320471666606352576608154091698678018876434858181675915345785034844155288032533313851087542257904018183927061540030292525372071755816888181096663"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "34327645736390420398568673797565669109676178320494596704875792031306736402610100114341268183889299908004511312986653560958046628291792785766309338004446007897651",
+            -538,
+            534
+          ],
+          "upper": [
+            0,
+            "17163822868195210199284336898782834554838089160247298352437896015653368201305050057170634091944649954002255656493326780479023314145896392883154669002223004210975",
+            -537,
+            533
+          ]
+        }
+      },
+      "partial_end": 25,
+      "partial_start": 3,
+      "scaled_dyadic_log_band": {
+        "decimal": [
+          "0.021702584918389556574010169133090728427999290148917720411637858887871659361567283445236424189595795567466062424158267820655617367185709613599176948948885544379137297780177",
+          "0.021702584918389556574010169133090728427999290148917720411637858887871659361567283445236424189595795567466062424158267820655617367185709613599176948948885544670485956558621"
+        ],
+        "dyadic": {
+          "lower": [
+            0,
+            "19527611733317581192333096999880261331404292374924499201731221220415118590774288020767315583770155854130221088256617386410048048040505326070440722637342159989305",
+            -538,
+            533
+          ],
+          "upper": [
+            0,
+            "39055223466635162384666193999760522662808584749848998403462442440830237181548576041534631167540311708260442176513234772820096096081010652140881445274684320502911",
+            -539,
+            534
+          ]
+        }
+      }
+    },
+    "jump_compatible_countermodels": {
+      "b": [
+        {
+          "denominator": "1",
+          "numerator": "1"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "15",
+          "numerator": "1"
+        },
+        {
+          "denominator": "20",
+          "numerator": "1"
+        },
+        {
+          "denominator": "25",
+          "numerator": "1"
+        }
+      ],
+      "finite_tail_end": 5,
+      "inverse_load_model": {
+        "C1": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "C2": [
+          [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "chi1": {
+          "denominator": "90000",
+          "numerator": "45169"
+        },
+        "chi2": {
+          "denominator": "630000",
+          "numerator": "721183"
+        },
+        "decision1": "pass",
+        "decision2": "fail",
+        "nu1": {
+          "denominator": "90000",
+          "numerator": "183589"
+        },
+        "nu2": {
+          "denominator": "90000",
+          "numerator": "183589"
+        },
+        "nu_substituted_for_inverse_load": false,
+        "pole_axis_surplus": {
+          "denominator": "90000",
+          "numerator": "67669"
+        }
+      },
+      "invisible_floor_model": {
+        "C_bad": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "93589"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "-1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "C_good": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "93589"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "bad_floor": {
+          "denominator": "1",
+          "numerator": "-1"
+        },
+        "cyclic_moments_bad": [
+          {
+            "denominator": "90000",
+            "numerator": "90769"
+          },
+          {
+            "denominator": "45000",
+            "numerator": "48589"
+          },
+          {
+            "denominator": "8100000000",
+            "numerator": "10307710921"
+          },
+          {
+            "denominator": "729000000000000",
+            "numerator": "1506851678295469"
+          },
+          {
+            "denominator": "65610000000000000000",
+            "numerator": "389932466343894648241"
+          }
+        ],
+        "cyclic_moments_good": [
+          {
+            "denominator": "90000",
+            "numerator": "90769"
+          },
+          {
+            "denominator": "45000",
+            "numerator": "48589"
+          },
+          {
+            "denominator": "8100000000",
+            "numerator": "10307710921"
+          },
+          {
+            "denominator": "729000000000000",
+            "numerator": "1506851678295469"
+          },
+          {
+            "denominator": "65610000000000000000",
+            "numerator": "389932466343894648241"
+          }
+        ],
+        "good_floor": {
+          "denominator": "1",
+          "numerator": "1"
+        }
+      },
+      "jump_amplitude_j": {
+        "denominator": "5",
+        "numerator": "1"
+      },
+      "lambda_numerator": 5,
+      "pole_embedding": {
+        "Q1": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "90169"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "17"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "21"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "25"
+            }
+          ]
+        ],
+        "Q2": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "90169"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "17"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "21"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "25"
+            }
+          ]
+        ],
+        "Q_shift_1": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "67669"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "Q_shift_2": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "67669"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "T1": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "810169"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "17"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "21"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "25"
+            }
+          ]
+        ],
+        "T2": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "810169"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "25",
+              "numerator": "1"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "2",
+              "numerator": "3"
+            },
+            {
+              "denominator": "4",
+              "numerator": "9"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "15",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "17"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "20",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "21"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "25",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "4",
+              "numerator": "25"
+            }
+          ]
+        ],
+        "beta": {
+          "denominator": "4",
+          "numerator": "1"
+        },
+        "mu": {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        "odd_pole_coefficient": {
+          "denominator": "1",
+          "numerator": "-2"
+        },
+        "pole_vector": [
+          {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ]
+      },
+      "rational_high_energy_S1": {
+        "denominator": "90000",
+        "numerator": "3589"
+      },
+      "rational_inverse_high_energy_S_minus1": {
+        "denominator": "90000",
+        "numerator": "169"
+      },
+      "sign_model": {
+        "C_minus": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "-93589"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "C_plus": [
+          [
+            {
+              "denominator": "90000",
+              "numerator": "93589"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "4"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "5"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ]
+        ],
+        "M": {
+          "denominator": "90000",
+          "numerator": "93589"
+        },
+        "nu_minus": {
+          "denominator": "1",
+          "numerator": "-1"
+        },
+        "nu_plus": {
+          "denominator": "45000",
+          "numerator": "48589"
+        }
+      },
+      "tail_rows": [
+        {
+          "coefficient": {
+            "denominator": "15",
+            "numerator": "1"
+          },
+          "high_diagonal": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "k": 3
+        },
+        {
+          "coefficient": {
+            "denominator": "20",
+            "numerator": "1"
+          },
+          "high_diagonal": {
+            "denominator": "1",
+            "numerator": "5"
+          },
+          "k": 4
+        },
+        {
+          "coefficient": {
+            "denominator": "25",
+            "numerator": "1"
+          },
+          "high_diagonal": {
+            "denominator": "1",
+            "numerator": "6"
+          },
+          "k": 5
+        }
+      ]
+    },
+    "nested_transverse_spaces": {
+      "ambient_dimension": 6,
+      "claimed_common_floor": {
+        "denominator": "1",
+        "numerator": "2"
+      },
+      "pole_vector": [
+        {
+          "denominator": "1",
+          "numerator": "2"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        },
+        {
+          "denominator": "1",
+          "numerator": "0"
+        }
+      ],
+      "rows": [
+        {
+          "compressed_C_beta": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "7"
+              }
+            ]
+          ],
+          "cutoff": 1,
+          "floor": {
+            "denominator": "1",
+            "numerator": "7"
+          },
+          "pole_overlap": [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projected_pole": [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projector_diagonal": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transverse_basis": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ]
+          ]
+        },
+        {
+          "compressed_C_beta": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "7"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "5"
+              }
+            ]
+          ],
+          "cutoff": 2,
+          "floor": {
+            "denominator": "1",
+            "numerator": "5"
+          },
+          "pole_overlap": [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projected_pole": [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projector_diagonal": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "transverse_basis": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ]
+          ]
+        },
+        {
+          "compressed_C_beta": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "7"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "5"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "4"
+              }
+            ]
+          ],
+          "cutoff": 3,
+          "floor": {
+            "denominator": "1",
+            "numerator": "4"
+          },
+          "pole_overlap": [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projected_pole": [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projector_diagonal": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "transverse_basis": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ]
+          ]
+        },
+        {
+          "compressed_C_beta": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "7"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "5"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "4"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "3"
+              }
+            ]
+          ],
+          "cutoff": 4,
+          "floor": {
+            "denominator": "1",
+            "numerator": "3"
+          },
+          "pole_overlap": [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projected_pole": [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projector_diagonal": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "transverse_basis": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ]
+          ]
+        },
+        {
+          "compressed_C_beta": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "7"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "5"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "4"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "3"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "2"
+              }
+            ]
+          ],
+          "cutoff": 5,
+          "floor": {
+            "denominator": "1",
+            "numerator": "2"
+          },
+          "pole_overlap": [
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projected_pole": [
+            {
+              "denominator": "1",
+              "numerator": "2"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            },
+            {
+              "denominator": "1",
+              "numerator": "0"
+            }
+          ],
+          "projector_diagonal": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "transverse_basis": [
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              }
+            ],
+            [
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              {
+                "denominator": "1",
+                "numerator": "1"
+              }
+            ]
+          ]
+        }
+      ],
+      "transverse_diagonal": [
+        {
+          "denominator": "1",
+          "numerator": "7"
+        },
+        {
+          "denominator": "1",
+          "numerator": "5"
+        },
+        {
+          "denominator": "1",
+          "numerator": "4"
+        },
+        {
+          "denominator": "1",
+          "numerator": "3"
+        },
+        {
+          "denominator": "1",
+          "numerator": "2"
+        }
+      ]
+    }
+  },
+  "checkpoint_version": "0.43.0-odd-nu-transverse-sign",
+  "claim_boundary": {
+    "arithmetic_transverse_floor_proved": false,
+    "determinant_convergence_proved": false,
+    "equation_5_2_proved": false,
+    "explicit_unbounded_schedule_proved": false,
+    "finite_third_moment_identity_checked": true,
+    "inverse_load_margin_proved": false,
+    "jump_tail_forces_positive_nu": false,
+    "nested_fixed_parameter_transfer_checked": true
+  },
+  "claim_class": "ODD_NU_TRANSVERSE_SIGN_AUDIT",
+  "conventions": {
+    "combined_nonpole_operator": "archimedean-minus-prime before any norm",
+    "fourier_kernel": "exp(-itx)",
+    "inversion": "x->-x",
+    "odd_pole_coefficient": "-2",
+    "plancherel_measure": "dt/(2*pi)",
+    "prime_block_coefficient": "-1",
+    "prime_power_endpoint": "inclusive n<=lambda^2"
+  },
+  "inputs": {
+    "dps": "160",
+    "lambda_denominator": "2",
+    "lambda_numerator": "5"
+  },
+  "provenance": {
+    "api_key_or_environment_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_input_used": false,
+    "global_weil_positivity_assumed": false,
+    "producer_pass_booleans_used_by_verifier": false,
+    "zeta_zero_table_used": false
+  },
+  "schema": "xi-prolate-odd-nu-transverse-sign-v1",
+  "source_hashes": {
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "notes/HIGH_FOURIER_COERCIVITY.md": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+    "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+    "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+    "notes/ODD_NU_TRANSVERSE_SIGN_ATTACK.md": "828a53666436f8e6f7a71310cceacee2f79d6faf6803615b205459cb03e574fc",
+    "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+  },
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08"
+}

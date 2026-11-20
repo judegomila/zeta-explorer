@@ -1,0 +1,119 @@
+{
+  "schema": "xi-prolate-log-feature-capture-alignment-source-lock-v1",
+  "claim_class": "LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2) target and direct-attack claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "base Fourier, inversion, prime-sign, endpoint, and source-normalization lock"
+    },
+    {
+      "path": "PHYSICAL_DEFECT_ADJOINT_TAIL_SOURCE_LOCK.json",
+      "sha256": "dd98654cae596acb1da19079c0cb50a37126ee90f5b79b4371c32dfc928d5377",
+      "role": "cap-free weighted-capture, source-tail, central-band, and shifted odd-floor source lock"
+    },
+    {
+      "path": "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md",
+      "sha256": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "role": "factorial feature-tail, targeted source-angle, and odd-alignment theorem proved in this checkpoint"
+    },
+    {
+      "path": "notes/PHYSICAL_DEFECT_ADJOINT_TAIL_REDUCTION.md",
+      "sha256": "d773afb7c38119d775f772ba91af02cf76372eaf3bfb89ccf461017fee2c8669",
+      "role": "preceding exact weighted-capture, central necessity, and shifted odd resolvent reduction"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision interval runtime"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the source normalization, zero-Lebesgue-integral correction, and actual source Gram C^*C are retained",
+    "physical_interval": "I_lambda=[-log(lambda),log(lambda)]=[-L/2,L/2] with L=2*log(lambda) and Lebesgue measure in logarithmic coordinates",
+    "fourier_sign": "fhat(t)=integral f(x)*exp(-i*t*x)dx with Plancherel measure dt/(2*pi); e_t(x)=exp(i*t*x) is the dual evaluation vector",
+    "inversion": "J is reflection x->-x in logarithmic coordinates; Fourier residue classes are not substituted for inversion parity",
+    "prime_endpoint": "every prime power n<=lambda^2 is retained at the inclusive endpoint, and lambda is never confused with lambda^2",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum_(n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "pole_signs": "the inversion-even pole is +2|cosh(x/2)><cosh(x/2)| and the inversion-odd pole is -2|sinh(x/2)><sinh(x/2)|",
+    "feature_space": "V_r is the range in the declared target X of orthogonally projected physical polynomials of degree strictly below r; it is not identified with the physical prolate range",
+    "strictness": "a big-O scale, equality at a target threshold, shifted load one, or a nonpositive reserve is not a strict pass",
+    "input_text": "lambda numerator and decimal precision are canonical positive integer text; binary64 inputs and JSON numbers are rejected",
+    "input_limits": "the finite oracle admits odd 3<=lambda_numerator<=999999 and 50<=dps<=1000, checked before integer conversion or interval initialization",
+    "runtime_version": "the interval runtime must report mpmath==1.4.1 exactly; a mismatch is rejected before any interval probe",
+    "artifact_scope": "exact finite-dimensional reductions, rational countermodels, and outward interval formula probes; no physical prolate angle, source-tail estimate, full weighted capture, or asymptotic theorem is certified",
+    "arithmetic": "finite fixtures use exact reduced rationals; logarithms and derived formula probes use outward mpmath.iv intervals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "central_band": "B_delta=[-delta/L,delta/L], T_B=integral_B |P_X e_t><P_X e_t| dt/(2*pi), and trace(T_B)<=delta/pi",
+    "polynomial_feature_space": "V_r=range(P_X restricted to polynomials of degree <r), P_V is its orthogonal projector, and alpha_r=||(I-P_K)P_V||",
+    "central_taylor_tail": "tau_r=trace((I-P_V)T_B(I-P_V))<=delta/pi*(delta/2)^(2*r)/((2*r+1)^2*(r!)^2)",
+    "central_angle_trace": "trace((I-P_K)T_B(I-P_K))<=(alpha_r*sqrt(delta/pi)+sqrt(tau_r))^2, with the cross term retained",
+    "right_inverse_feature_tail": "if T*B_X=I, K=range(T*P_F), and ||T||<=lambda/sqrt(2), then alpha_r<=||T(I-P_F)B_XP_V||<=lambda/sqrt(2)*||(I-P_F)B_XP_V||",
+    "conditional_source_scale": "the unproved targeted bound ||(I-P_F)B_XP_V||^2=o(L/lambda^3) would imply alpha_r^2=o(L/lambda) and central trace o(L/lambda)",
+    "odd_pole_tail": "for p_-(x)=sinh(x/2) and its odd Taylor polynomial q_r of degree <r, epsilon_p_r^2<=L*lambda*(L/4)^(2*r)/((2*r+1)*(r!)^2)",
+    "odd_pole_angle": "||(I-P_K)P_X p_-||^2<=(alpha_r*sqrt(sinh(L/2)-L/2)+epsilon_p_r)^2",
+    "safe_integer_feature_order": "the artifact uses r=3*bit_length(lambda_numerator), which is an exact integer majorant of 3*L/2 for lambda=lambda_numerator/2",
+    "moment_geometric_remainder": "for M_beta=qI-R, 0<=R<=(q-h)I, U_k-load is nonnegative and at most (2*||p||^2/h)*((q-h)/q)^(k+1)",
+    "positive_excess_necessity": "for p!=0 and A_plus>=0, M_beta+A_plus-2|p><p|>0 implies <p,A_plus p>>2||p||^4-<p,M_beta p>",
+    "spectral_alignment_upper": "with S=M_beta^(-1/2)A_plus M_beta^(-1/2), z=M_beta^(-1/2)p, and a_sigma=||1_[0,sigma)(S)z||^2, load<=(U_k+2*sigma*a_sigma)/(1+sigma)",
+    "spectral_alignment_converse": "strict load<1 implies ||1_[0,sigma](S)z||^2<(1+sigma)/2; the closed endpoint is mandatory in the converse",
+    "claim_separation": "central-band capture does not bound the exterior weighted defect, rank does not determine orientation, and neither conditional interval probes nor finite fixtures prove a physical prolate estimate"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the factorial Hilbert-Schmidt tail for projected polynomial features of the complete central band",
+      "the feature principal-angle upper bound for the whole central-band complement trace",
+      "the exact right-inverse reduction from physical feature angle to a targeted source tail",
+      "the factorial approximation of the actual odd pole and its common conditional feature-angle scale",
+      "the geometric error bound for the shifted odd directional-moment hierarchy",
+      "the necessary pole-axis positive-excess inequality and the open/closed spectral-alignment bounds",
+      "exact rational orientation, exterior, strict-boundary, and endpoint countermodels plus outward interval formula probes at doubled precision"
+    ],
+    "not_proved": [
+      "the targeted source-tail or projected-polynomial feature-angle estimate for the actual prolate source range on an unbounded schedule",
+      "the full cap-free physical weighted-capture estimate outside the central band",
+      "a strict actual shifted odd load or aligned positive-excess reserve",
+      "a normalized physical coframe or positive complete signed floor in either inversion sector",
+      "the residual-action estimate required by equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  },
+  "source_admissions": {
+    "api_key_read": false,
+    "big_o_reported_as_strict_pass": false,
+    "binary64_parameters_used": false,
+    "cached_physical_matrix_read": false,
+    "central_only_capture_promoted_to_full_defect": false,
+    "central_taylor_capture_claimed": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "global_weil_positivity_assumed": false,
+    "input_cap_bypassed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "odd_pole_capture_claimed": false,
+    "positive_excess_axis_condition_omitted": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "rank_only_capture_claimed": false,
+    "rh_proved": false,
+    "runtime_version_mismatch_accepted": false,
+    "secret_serialized": false,
+    "source_tail_scale_claimed": false,
+    "spectral_endpoint_dropped": false,
+    "unit_source_normalization_substituted": false,
+    "zeros_assumed_real": false,
+    "zeta_zero_table_read": false
+  }
+}

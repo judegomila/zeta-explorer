@@ -1,0 +1,206 @@
+{
+  "schema": "xi-prolate-ground-jet-weyl-coefficient-cone-source-lock-v1",
+  "claim_class": "GROUND_TRANSFORM_TILT_PROJECTIVE_JET_WEYL_COLLAPSE_AND_COEFFICIENT_CONE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.47.0-ground-jet-weyl-coefficient-cone",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite source Cauchy matrix, inversion and displacement identity, finite ground transform and quotient determinant, boundary normalization, and exact pole/archimedean/minus-prime Weil form"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "PARITY_PENCIL_ODD_WEYL_INERTIA_SOURCE_LOCK.json",
+      "sha256": "fcf97949cdb85abb6dbb46a5320d3296810db8444f5aaaf183583d5a975fe0f0",
+      "role": "immutable 0.46 source lock for the parity pencil, odd Weyl reconstruction, and even-ground odd-inertia criterion"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "strict shifted-sector, equation (5.2), and locally uniform determinant targets"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary finite source versions, formulas, errata, and mandatory conventions"
+    },
+    {
+      "path": "notes/SOURCE_BOUNDARY_COMMUTATOR_PROOF.md",
+      "sha256": "d72a5e1e11e096abc25319c1bf2c2af474d11cd766b25cf83f0b6cd00d3956f0",
+      "role": "exact source Cauchy form, rank-two commutator, forced odd equation, and boundary normalization"
+    },
+    {
+      "path": "notes/PROJECTIVE_WEDGE_RESOLVENT_REDUCTION.md",
+      "sha256": "aae9399deac920452a4dc9a3f865503bf987ac2be7fc3c11c515ae2ad02b9b55",
+      "role": "projective ground-line and wedge-resolvent reduction"
+    },
+    {
+      "path": "notes/PAIRED_TRACE_ODD_RESOLVENT_GATE.md",
+      "sha256": "1c4568a142779f0d7cab023bfb41811d10c2ccac37a505cbe7f079b972761755",
+      "role": "paired trace, finite ground-transform bridge, and odd-response gate"
+    },
+    {
+      "path": "notes/PARITY_PENCIL_TRACE_REDUCTION.md",
+      "sha256": "4840232a94c75021ff60b08b89ccb0e4be240d54b9a5e4a550353e7049ed260b",
+      "role": "positive parity pencil, quotient determinant, trace moments, and effective dimension"
+    },
+    {
+      "path": "notes/ODD_RESOLVENT_WEYL_RECONSTRUCTION.md",
+      "sha256": "eaefd8dc51bbf4427fec21b559fbe6121403c8a98e5e79ccd4866e6d1d0e9923",
+      "role": "constrained even solve and exact odd-resolvent Weyl reconstruction"
+    },
+    {
+      "path": "notes/EVEN_GROUND_IMAGINARY_AXIS_ODD_INERTIA.md",
+      "sha256": "173e80db2a3a7d19e041923501b1ac248aba9e4e340f28087ff4760caed5e1b8",
+      "role": "even-ground rank-one pencil, positive symmetrizer, odd-inertia transfer, and imaginary-axis criterion"
+    },
+    {
+      "path": "notes/GROUND_TRANSFORM_TILT_JET_REDUCTION.md",
+      "sha256": "4385afd3b4cbc802c7df9e85bdae5cbba85b33ad7c1b7626f7b37eef249f1300",
+      "role": "ground-transform tilt and cumulants, two-height cancellation, projective jet, inverse-leverage criterion, and positive-ground countermodel"
+    },
+    {
+      "path": "notes/EVEN_GROUND_COEFFICIENT_CONE_AUDIT.md",
+      "sha256": "8599690f41785c7317c2f3627ef992dba4f3b1576e2fa3ce0ab6e204514ecc94",
+      "role": "exact even-block entries, coefficient polynomial, odd-positive cone equivalence, and sign-obstruction audit"
+    },
+    {
+      "path": "notes/WEYL_COLLAPSE_SHIFTED_COEFFICIENT_RESERVE.md",
+      "sha256": "0a71dbae98ecbce2b258f77e09181bbe63caff97d89378dac7cb5f9fe8ba07d6",
+      "role": "Weyl scalar collapse, relative characteristic polynomial, spectral shift, coefficient radius, and shifted reserve"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil, quotient-determinant, commutator, and ground-transform source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure, zero extension, and the source-limit normalization",
+    "fourier_transform": "hat(f)(z)=integral f(x)*exp(-i*z*x) dx",
+    "frequency_measure": "dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(2*pi*i*n*x/L)",
+    "mode_operator": "D*V_n=n*V_n",
+    "inversion": "J*V_n=V_(-n), equivalently Jf(x)=f(-x)",
+    "parity_bases": "e_0^+=V_0, e_n^+=(V_n+V_(-n))/sqrt(2), e_n^-=(V_n-V_(-n))/sqrt(2)",
+    "inner_product": "antilinear in the first argument",
+    "prime_power_endpoint": "inclusive 1<k<=lambda^2",
+    "prime_block_sign": "minus, retained inside the combined Weil matrix before every pencil, pullback, resolvent, determinant, coefficient, or inertia operation",
+    "complete_matrix": "Q=Q_pole-Q_arch-Q_prime in the explicit source-block notation; equivalently signed Q_arch and Q_prime contributions may be added only when their source signs are already included",
+    "archimedean_erratum": "the duplicated c(L) in source equation (4.14) is removed exactly as required by P0_SOURCE_LOCK.json",
+    "source_normalization": "4*hat(k_lambda^+) tends to Xi; unit-normalizing h_lambda is rejected",
+    "boundary_normalization": "division by <eta,x> is permitted only after its nonvanishing is established, and every arbitrary ground-line scaling is tracked",
+    "prolate_evenization": "no finite-lambda inversion evenness is assumed before the physical arithmetic state is explicitly evenized",
+    "finite_status": "all tilt, jet, Weyl, coefficient-cone, and shifted-reserve identities are finite exact reductions and are not asymptotic sign or determinant-limit claims"
+  },
+  "locked_domains": {
+    "ground_transform": "the complete source matrix has a simple inversion-even full ground x with c=<eta,x>!=0 and T_-=Q_- -epsilon*I>0",
+    "fixed_height": "sigma is fixed with 0<sigma<1/2 and alpha=sigma*L/(2*pi)",
+    "two_height": "0<tau<sigma<1/2 are fixed and gamma=tau*L/(2*pi), alpha=sigma*L/(2*pi)",
+    "anchor_overlap": "<kappa,xi>!=0 is required for w=xi/<kappa,xi>; it follows under B=A-U*I>0 with U>=mu but is explicit for a standalone finite pair",
+    "comparison_transform": "K_sigma=hat(kappa)(i*sigma)!=0 is required; eventual nonvanishing follows from locally uniform projected-prolate convergence, but is explicit for a standalone finite pair",
+    "jet_leverage": "U>=mu and B=A-U*I>0 are required before defining E_U, L_0(U), and L_J(U)",
+    "weyl_scalar_collapse": "A-s*I, Q_- -s*I, and Q_+ -s*I are invertible for the resolvent scalar collapse; the stated projective limits handle an even pole separately",
+    "weyl_determinants": "alpha_s requires Q_- -s*I invertible; h_s requires Q_- -s*I and Q_+ -s*I invertible; m_s requires Q_+ -s*I invertible but does not require A-s*I invertible; mathfrak_D_s is first derived when A-s*I, Q_- -s*I, and Q_+ -s*I are all invertible and extends through an even eigenvalue when A-s*I and Q_- -s*I remain invertible",
+    "weyl_spectral_shift": "A-U*I>0 and Q_- -U*I>0 are required, and the logarithmic derivative and integral are used only for real s<=U",
+    "schur_derivative": "d_s'=-||w_s||^2 is asserted for real s where A-s*I is invertible; the comparison interval s<=U is covered by A-U*I>0",
+    "coefficient_cone": "epsilon is the simple lowest even-compression eigenvalue and c=<eta,x>!=0, x_0=<V_0,x>!=0",
+    "shifted_reserve": "the all-axis sign A_x(alpha)>0, a unit representative x, epsilon<=U<lambda_min(A), g_+=lambda_min(A)-U>0, and the Schur-surplus hypotheses are separate inputs"
+  },
+  "locked_formulas": {
+    "source_cauchy_displacement": "Q_(n,m)=(b_n-b_m)/(n-m) for n!=m, b_(-n)=-b_n, and [D,Q]=|beta><eta|-|eta><beta|",
+    "ground_transform_product": "M_N(sigma)=hat(x)(i*sigma)/c=2*sinh(sigma*L/2)/(sigma*sqrt(L))*A_N(alpha), A_N(a)=product_k(s_k^2+a^2)/product_n(n^2+a^2)",
+    "effective_dimension_tilt": "d_eff(alpha)=(sigma/2)*d/dsigma log(M_N(sigma))-H_(1,N)(alpha), H_(1,N)=alpha^2*sum_(n>N)1/(n^2+alpha^2), and 0<=H_(1,N)<=alpha^2/N",
+    "all_m_cumulants": "for every integer m>=1, S^q_(m;lambda,N)(sigma)=(-1)^(m-1)/(m-1)!*[(d/dt)^m log(M_N(sqrt(t)))]_(t=sigma^2)-H^phys_(m,N)(sigma), where H^phys_(m,N)=(L/(2*pi))^(2m)*sum_(n>N)(n^2+alpha^2)^(-m)",
+    "two_height_factorization": "R^q_(lambda,N)(tau,sigma)=M_N(tau)/M_N(sigma)*product_(n>N)(n^2+alpha^2)/(n^2+gamma^2)",
+    "two_height_exterior_bound": "0<=log(T_N(gamma,alpha))<=(alpha^2-gamma^2)/N",
+    "sharp_effective_dimension_comparison": "(1-theta^2)*d_eff(alpha)<=-log(R^q(tau,sigma))<=log(theta^(-2))*d_eff(alpha), theta=tau/sigma",
+    "projective_jet": "J_sigma(v)=K_sigma*d/dsigma hat(v)(i*sigma)-dot(K_sigma)*hat(v)(i*sigma), M_sigma=K_sigma-Z_sigma, and dot(M)/M=dot(K)/K-J_sigma(z_mu)/(K_sigma*M_sigma)",
+    "projective_wronskian": "W_sigma(kappa,w)=K_sigma*dot(M_sigma)-dot(K_sigma)*M_sigma=-J_sigma(z_mu), and W/(K_sigma*M_sigma) is invariant under nonzero rescaling of either line",
+    "jet_leverage": "|Z_sigma|^2<=E_U*L_0(U), |J_sigma(z_mu)|^2<=E_U*L_J(U); reserves E_U*L_0<=eta^2*|K_sigma|^2 and E_U*L_J<=C_J^2*|K_sigma|^4 bound d_eff",
+    "quotient_reconstruction": "for any onto source synthesis W, (A-U*I)^(-1)=W*(W^*(A-U*I)*W)^dagger*W^* after quotienting ker(W)",
+    "positive_ground_countermodel": "for N>=2, x=(3/4)e_0^++(sqrt(2)/8)e_1^+, X has diagonal (3/4,2^2,...,N^2), A_N(a)=(a^2+3/4)/(a^2+1), and 9/16*I<T_-<9/4*I; only in the regime alpha->infinity and N/alpha^2->infinity does d_eff=sigma*L/4-1/2+o(1)",
+    "even_block_entries": "(Q_+)_(0,n)=sqrt(2)*b_n/n, (Q_+)_(n,n)=a_n+b_n/n, and (Q_+)_(n,m)=2*(n*b_n-m*b_m)/(n^2-m^2) for distinct positive n,m",
+    "coefficient_response": "for x/c=sum_(n=-N)^N xi_n*V_n, xi_0+2*sum_(n=1)^N xi_n=1 and A_x(alpha)=1-2*sum_(n=1)^N n^2*xi_n/(n^2+alpha^2)",
+    "coefficient_polynomial": "P_x(s)=product_(n=1)^N(s+n^2)*A_x(sqrt(s))=det(X+s*I)=sum_(j=0)^N p_j*s^j, with e_r(E)=0 when r exceeds the cardinality of E",
+    "coefficient_affine_formula": "p_N=1 and p_j=e_(N-j)(E_N)-2*sum_(n=1)^N n^2*xi_n*e_(N-1-j)(E_N without n^2) for 0<=j<N",
+    "coefficient_homogeneous_formula": "p_j=e_(N-j)(E_N)*xi_0+2*sum_(n=1)^N e_(N-j)(E_N without n^2)*xi_n and p_0=(N!)^2*xi_0",
+    "coefficient_cone_equivalence": "under the simple even-compression ground and c,x_0 nonvanishing hypotheses, Q_- -epsilon*I>0 iff every eigenvalue of X is positive iff A_x(alpha)>0 for all alpha>=0 iff p_j>0 for every 0<=j<=N",
+    "alternating_coefficient_counterexample": "for N=2, (xi_0,xi_1,xi_2)=(3,-11,10) has boundary sum one but F(theta)=3-22*cos(theta)+20*cos(2*theta)=-801/40 at cos(theta)=11/40",
+    "weyl_scalar_collapse": "Phi_s=R_s^+V_0/h_s, Psi_s=R_s^+kappa-(rho_s/h_s)R_s^+V_0, and mathfrak_D_s=-m_s/h_s",
+    "weyl_constrained_solution": "d_s=1/m_s, <eta,w_s>=rho_s/m_s, w_s=R_s^+kappa/m_s, and P_L(A-s*I)^(-1)b=-P_L*R_s^+kappa/<kappa,R_s^+kappa>",
+    "weyl_relative_determinant": "alpha_s=det(Q_+-s*I)/det(Q_- -s*I), h_s=det(Q_- -s*I)/det(Q_+-s*I), m_s=det(A-s*I)/det(Q_+-s*I), and mathfrak_D_s=-det(A-s*I)/det(Q_- -s*I)",
+    "weyl_spectral_shift": "d/ds log|mathfrak_D_s|=Tr((Q_- -s*I)^(-1))-Tr((A-s*I)^(-1)), integrated from minus infinity with determinant ratio tending to one",
+    "schur_derivative": "d_s'=-1-||(A-s*I)^(-1)b||^2=-||w_s||^2<0",
+    "n1_weyl_obstruction": "for 0<t<1, Q_+=diag(0,1), Q_-=[1], and kappa_t=t*V_0+sqrt(1-t^2)*e_1^+, one has A=[t^2], residual=t*sqrt(1-t^2), and mathfrak_D_0=-t^2",
+    "pencil_radius_bound": "M_2=2*sum_(n=1)^N n^2*|xi_n| and lambda_max(X)<=N^2+M_2; if R>N^2 and 2*sum n^2*|xi_n|/(R-n^2)<1 then lambda_max(X)<R",
+    "shifted_odd_reserve": "for a unit representative x, lambda_min(Q_- -epsilon*I)>=g_e*|x_0|^2/(N^2+M_2)",
+    "schur_surplus": "chi_U=<b,(A-U*I)^(-1)b>-(q-U)=-d_U and 0<=U-epsilon<=chi_U",
+    "scale_invariant_reserve": "C_x=(N^2+M_2)*||xi||^2/|xi_0|^2 and (chi_U/g_+)*C_x<1 implies Q_- -U*I>0"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.47.0-ground-jet-weyl-coefficient-cone",
+    "formal_status": "P0_INVALIDATED",
+    "proved": [
+      "exact finite ground-transform logarithmic-tilt identity with its exterior Fourier-lattice tail",
+      "all finite positive quotient-resolvent trace moments as ground-transform cumulants with exact exterior tails",
+      "two-height ground-transform ratio factorization and sharp equivalence with bounded effective dimension",
+      "one-anchor projective-jet and Wronskian identity with explicit anchor-overlap and K_sigma nonvanishing domains",
+      "finite inverse-leverage sufficient criterion and quotient reconstruction for the first trace gate",
+      "exact positive-ground, uniformly odd-conditioned Cauchy-displacement countermodel with linearly growing effective dimension",
+      "exact even-block source entries and the coefficient-polynomial formulas for the boundary-normalized even ground",
+      "coefficient-cone equivalence with the finite odd-positive cone under the simple-ground and two nonvanishing hypotheses",
+      "exact Weyl scalar collapse and relative characteristic-polynomial formula with the spectral-shift integral",
+      "coefficient bound for the positive squared-mode pencil radius and a scale-invariant shifted odd reserve",
+      "exact N=1 Weyl-floor obstruction and exact alternating-coefficient function-space obstruction"
+    ],
+    "not_proved": [
+      "a bounded actual arithmetic ground-transform logarithmic derivative or effective dimension on an unbounded schedule",
+      "uniform actual projective-jet inverse-leverage products or the cancellation-preserving middle resolvent bound",
+      "membership of the actual arithmetic even ground in the coefficient cone on an unbounded schedule",
+      "a schedule-uniform actual coefficient-conditioning or shifted odd reserve",
+      "a relative Weyl determinant floor or separate odd-resolvent response bounds for the actual arithmetic state",
+      "all higher trace-moment limits for the actual arithmetic pencil",
+      "the lambda-scale projective graph bound, equation (5.2), locally uniform determinant convergence, or an RH conclusion"
+    ]
+  },
+  "source_admissions": {
+    "actual_ground_transform_log_derivative_bound_claimed": false,
+    "actual_projective_jet_leverage_bound_claimed": false,
+    "actual_even_ground_coefficient_cone_claimed": false,
+    "actual_shifted_odd_coefficient_conditioning_claimed": false,
+    "actual_middle_resolvent_bound_claimed": false,
+    "actual_weyl_determinant_floor_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "finite_imaginary_interval_promoted_to_all_axis_sign": false,
+    "finite_real_or_imaginary_quotient_pairs_promoted_to_determinant_limit": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "locally_uniform_characteristic_convergence_proved": false,
+    "nonpositive_gap_or_schur_margin_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_normalization_changed": false,
+    "trace_moment_limit_claimed": false,
+    "uniform_first_trace_claimed": false,
+    "unit_source_normalization_substituted": false,
+    "zero_table_used": false
+  }
+}

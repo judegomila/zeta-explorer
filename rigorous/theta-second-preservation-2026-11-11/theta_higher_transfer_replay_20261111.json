@@ -1,0 +1,29 @@
+{
+  "arithmetic": "exact symbolic rational arithmetic",
+  "check_names": [
+    "four_green_columns_H",
+    "four_green_columns_P",
+    "low_order_H_before_constant_column",
+    "low_order_P_before_constant_column",
+    "theta_H_five_columns",
+    "theta_Q_five_columns",
+    "quotient_W4",
+    "origin_tenth_power",
+    "uniform_second_derivative_1",
+    "uniform_second_derivative_2",
+    "uniform_second_derivative_3",
+    "uniform_second_derivative_4",
+    "uniform_second_derivative_5",
+    "uniform_second_derivative_6",
+    "uniform_W2_positive_formula",
+    "uniform_W3_positive_formula",
+    "uniform_W4_positive_formula",
+    "uniform_W5_positive_formula",
+    "uniform_W6_positive_formula",
+    "four_column_integral_exact",
+    "nonconstant_density_row_elimination"
+  ],
+  "checks": 21,
+  "scope": "comparison identities only; actual theta source signs and second origin slope are separate",
+  "status": "passed"
+}

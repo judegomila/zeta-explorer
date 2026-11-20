@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "arithmetic": "exact rational intervals, stdlib fractions.Fraction",
+  "compact_z_domain": [
+    "3",
+    "10"
+  ],
+  "closed_interval_count": 700,
+  "interval_width": "1/100",
+  "verified_pointwise_target": 1000000,
+  "minimum_interval_lower_bound_decimal": 1669427.865795057,
+  "minimum_interval_location": [
+    "3",
+    "301/100"
+  ],
+  "tail_start_n": 3,
+  "complete_tail_bounds": [
+    "3/474073600",
+    "3/9481472",
+    "471/29629600",
+    "5949/7407400",
+    "3438/84175",
+    "1938312/925925",
+    "364608/3367"
+  ],
+  "asymptotic_z_domain": "z>=10",
+  "asymptotic_certificate": {
+    "absolute_g2_bound": "308171520000961/25548825600000000000000",
+    "absolute_g4_bound": "5132816717652825325403113905661440923521/108790414923202560000000000000000000000000000",
+    "absolute_g6_bound": "26134244633329734396760382913185127278757905516336610966647503681/138973366891226979945676800000000000000000000000000000000000000000",
+    "pointwise_P_lower": 39392549
+  },
+  "integrated_determinant_lower": 4000000,
+  "scope": "Fourth confluent channel H3 only; not all-order positivity or RH.",
+  "elapsed_seconds": 3.866
+}

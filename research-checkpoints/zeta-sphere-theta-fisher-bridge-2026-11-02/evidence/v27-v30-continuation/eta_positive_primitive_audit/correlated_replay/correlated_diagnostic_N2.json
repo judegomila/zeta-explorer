@@ -1,0 +1,19 @@
+{
+  "scope": "Rigorous diagnostic of already certified second even pivot, not a new positivity result",
+  "regression_coefficient_bound": "161/16",
+  "polynomial_coefficient_bounds": [
+    421,
+    70,
+    1
+  ],
+  "Q_bounds": [
+    2672832,
+    16927936,
+    80472960
+  ],
+  "B_upper": "22072411673083904/7",
+  "s": 1000000000000,
+  "h_lower": "4134375/32",
+  "scaled_residual_lower": "6893141559194657/54687500000",
+  "pass_scaled_residual_gt100000": true
+}

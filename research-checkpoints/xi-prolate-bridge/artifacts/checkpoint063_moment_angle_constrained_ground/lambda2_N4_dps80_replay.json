@@ -1,0 +1,76 @@
+{
+  "analytic_uniform_claim": false,
+  "checkpoint_version": "0.63.0-moment-angle-constrained-ground-pilot",
+  "claim_class": "FINITE_POINT_DIAGNOSTIC",
+  "dependency_sha256": {
+    "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "notes/BIRMAN_SCHWINGER_POLE_LOAD_CROSSING_AUDIT.md": "3d1e39541d1e3e54854a2a4a8f2a8059369fd6a59897f0d89a8ada5e1b4d78ae",
+    "notes/CONSTRAINED_TRIAL_LABELLED_LOAD_RESERVE.md": "feb84c1aa42ab0d7a0674062028ce4bf51bdff037d8707fc794e596544d689ec",
+    "notes/PAIRED_EXPONENTIAL_CONSTRAINED_GROUND_REDUCTION.md": "be87559ceb669a62b9b926217d4dea23e02ac0a9c670f00f3492d388aa41ccf5",
+    "notes/REGULARIZED_MOMENT_SCHUR_ANGLE_PROFILE.md": "6e403541df92ed80d2326187b4c45baaf292b40aebc33e3a848b39749850ef3c",
+    "src/checkpoint063_moment_angle_constrained_ground.py": "aa46c9011167bc58b767e2090acc5b9665de536ede289f4e95bec5490a498503",
+    "src/prolate_state.py": "06a1c34853d7ade7888599c8bde8e2cd20c088c7a3b61d4548b7fe9c7d11c6eb",
+    "src/weil_matrix.py": "9a6f7b4d8ef7a7f5d12445f61cce2cb23ec44625f63981e829d7286c4e856902",
+    "vendor/CCM-PROLATE-2310.18423v2.pdf": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+    "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+    "verifier/checkpoint063_moment_angle_constrained_ground_replay.py": "aee19ddcb8443439da56d7f029a93b322982a360f88811b851f51b5133df4c62",
+    "verifier/independent_replay.py": "c2e538757f94ecd5be3e6d94d355d6acc6beeb587c44efc04257b3b4b96aaeed"
+  },
+  "independent_formula_paths": {
+    "physical_moments": "closed endpoint recurrence for even monomial Fourier coefficients",
+    "pole_vectors": "closed Fourier coefficients for cosh and phase-adjusted sinh",
+    "prolate_state": "differential-form prolate matrix and independent arithmetic projection",
+    "source_matrix": "closed pole formula; x=L*t^2 transformed archimedean quadrature with analytic origin value and no finite-epsilon surrogate; independent prime-factor inventory"
+  },
+  "independent_selected_values": {
+    "constrained_ground_zeta": "8.3141572417475417704198929305099442654329382789442604594941725243642673557877692",
+    "critical_load_margin_s_c_minus_1": "0.00000020598104061368138509532878277691318311628625029686043063180066099461209466870715",
+    "critical_load_s_c": "1.0000002059810406136813850953287827769131831162862502968604306318006609946120947",
+    "labelled_trial_B_U_point_floor": "0.0000000061024985790335936425348384489960331200108600340021395190857425961951377058113771",
+    "labelled_trial_chi_U": "2427407.8745808108034406462543091286864750114919640113492322908812611756566094761",
+    "labelled_trial_load_lower_bound": "1.0000002059810406136813850953287827769131831162862502968604306318006609946120914",
+    "m1_floor": "0.0001406822188266834257361184747317273890578400671084580116487405756487197053099509",
+    "m1_r_over_floor": "0.37604092239248100837404450254644392008318794956294705821507499814436357592852542",
+    "m4_floor": "0.000079050189090045263193959824603242458512332603709781747289735864348324328575574847",
+    "m4_r_over_floor": "0.66922384298848995343643511960379025249340164826753985500728841260851661834766497",
+    "q": "0.000000079935661236341994146160710699257411497665053681237838610545513064161768138024585",
+    "r": "0.000052902271331806892721323218727314160436867960779095306187852877391233733853032425",
+    "source_odd_minus_even_ground_gap": "0.00000030170121866267145197083136661477753592482820539206624275570078902354361703770368"
+  },
+  "independently_reconstructed_gates": {
+    "actual_ground_labelled_trial_regression": true,
+    "constrained_branch_nonexceptional": true,
+    "critical_load_reconstructed_twice": true,
+    "labelled_source_load_orientation_consistent": true,
+    "loaded_grounds_collide_at_zeta": true,
+    "moment_floor_and_angle_identities": true,
+    "nonpole_ground_even_and_simple": true,
+    "paired_resolvent_zero": true,
+    "perfect_square_identity": true,
+    "pole_decomposition_matches_source": true,
+    "projected_pole_overlaps_nonzero": true,
+    "raw_q_even_complement_positive": true,
+    "raw_q_odd_sector_positive": true,
+    "source_matrix_hermitian_and_inversion_symmetric": true
+  },
+  "max_scaled_defect": "4.5152365108228950969213593977953559139775204909142334765567481798776312247118358e-73",
+  "producer_sha256": "b5bbca182e03bfe878ff7fc6310e88a1e29aec73b9aff466f079b686c336d460",
+  "replay_agrees": true,
+  "runtime": {
+    "mpmath": "1.4.1",
+    "python": "3.14.6"
+  },
+  "scaled_defects": {
+    "constrained_ground": "4.5152365108228950969213593977953559139775204909142334765567481798776312247118358e-73",
+    "inputs.L": "2.2813765039152758455574236137788318003417880360109225095359038889187144111989215e-80",
+    "moment_profiles": "1.6256053583368740338622156581097195639560163640613719771739004351479235878016097e-75",
+    "residual_geometry": "8.2967097813224217775623277783495049590677396079240154419111995007601095569932008e-79",
+    "source_geometry": "8.6287890165341832591293078609645105578106033914686234297386490360510161021587482e-79",
+    "source_inventory": "3.0706950728938199299219503956739467604368229822871937621674704868582768397966035e-80"
+  },
+  "schema": "xi-prolate-checkpoint063-moment-angle-constrained-ground-replay-v1",
+  "shared_arithmetic_library_limitation": "producer and verifier both use mpmath transcendental arithmetic and eigsy; their source, state, moment, and pole-vector formula trees are independent",
+  "terminal_state": "P0_INVALIDATED",
+  "tolerance": "1.0e-26"
+}

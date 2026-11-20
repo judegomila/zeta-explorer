@@ -1,0 +1,117 @@
+{
+  "input_bindings": {
+    "egf_manifest": {
+      "path": "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+      "sha256": "354703546a02d24f41699a47739686057a94270103589a62601181043ad9c83c"
+    },
+    "endpoint_certificate": {
+      "path": "evidence/v19-delta/fisher_bridge_v3/endpoint_certificate_1000.json",
+      "sha256": "6042e7989864e2e64f89989bb82329d2bf3af91fe848bed722496ae364335509"
+    },
+    "parent_interval": {
+      "path": "evidence/v19-delta/fisher_bridge_v3/parent_interval_1000.json",
+      "sha256": "7e62d06a0ba7eec5fd7a80e4e5f63a35cf87875d92d73b04314259ae596ef928"
+    },
+    "target_moments": {
+      "path": "evidence/v18-curated/full_split_audit/actual_total_certificate.json",
+      "sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+    }
+  },
+  "purpose": "Primary/replay diagnostic of the already certified odd endpoint rungs, exposing target-LDL forcing coordinates. Midpoint output is not an interval certificate or an all-degree/RH result.",
+  "resource_contract": {
+    "cooperative_seconds_per_task": 60,
+    "output_bytes_per_task": 4194304,
+    "single_threaded": true,
+    "supervisor_required_for_production_run": true,
+    "tasks": 2
+  },
+  "schema_version": "zsv.paid_twin_border_tasks.v1",
+  "stage": 2,
+  "status": "bounded_endpoint_midpoint_queue",
+  "tasks": [
+    {
+      "argv": [
+        "--mode",
+        "endpoint-midpoint",
+        "--egf-manifest",
+        "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+        "--parent-interval",
+        "evidence/v19-delta/fisher_bridge_v3/parent_interval_1000.json",
+        "--target-moments",
+        "evidence/v18-curated/full_split_audit/actual_total_certificate.json",
+        "--endpoint-certificate",
+        "evidence/v19-delta/fisher_bridge_v3/endpoint_certificate_1000.json",
+        "--dps",
+        "120",
+        "--max-seconds",
+        "60",
+        "--max-output-bytes",
+        "4194304"
+      ],
+      "expected_parameters": {
+        "degrees": [
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ],
+        "dps": 120,
+        "max_seconds": 60,
+        "reconstruction": "midpoints of SHA-bound certified input intervals"
+      },
+      "expected_status": "finite_endpoint_border_diagnostic",
+      "id": "border_endpoint_p120",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/border_endpoint_p120.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/paid_twin_border_falsifier.py"
+    },
+    {
+      "argv": [
+        "--mode",
+        "endpoint-midpoint",
+        "--egf-manifest",
+        "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+        "--parent-interval",
+        "evidence/v19-delta/fisher_bridge_v3/parent_interval_1000.json",
+        "--target-moments",
+        "evidence/v18-curated/full_split_audit/actual_total_certificate.json",
+        "--endpoint-certificate",
+        "evidence/v19-delta/fisher_bridge_v3/endpoint_certificate_1000.json",
+        "--dps",
+        "180",
+        "--max-seconds",
+        "60",
+        "--max-output-bytes",
+        "4194304"
+      ],
+      "expected_parameters": {
+        "degrees": [
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ],
+        "dps": 180,
+        "max_seconds": 60,
+        "reconstruction": "midpoints of SHA-bound certified input intervals"
+      },
+      "expected_status": "finite_endpoint_border_diagnostic",
+      "id": "border_endpoint_replay_p180",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/border_endpoint_replay_p180.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/paid_twin_border_falsifier.py"
+    }
+  ],
+  "worker_binding": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/src/paid_twin_border_falsifier.py",
+    "sha256": "fc328b839d38d9ded8fba51b2a903851fdf165b81b7d08d8f8519cfee429138b"
+  }
+}

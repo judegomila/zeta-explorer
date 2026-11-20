@@ -1,0 +1,71 @@
+{
+  "lock_version": 1,
+  "lock_status": "PINNED_SOURCE_NORMALIZATION_INCONSISTENCY_FOUND",
+  "lock_note": "Immutable PDF bytes are vendored and hashed. The printed (3.5),(7.1),(7.2) imply transform Xi/4, contradicting Lemmas 7.1/7.3's Xi claim. An explicit factor-4 repair is required and is not silently incorporated into h.",
+  "locked_errata": [
+    {
+      "location": "CCM-ZST-v1 equations (3.5), (7.1), (7.2), Lemmas 7.1 and 7.3",
+      "finding": "printed formulas imply Xi/4 rather than asserted Xi",
+      "repair": "retain source state and multiply only final characteristic function by 4"
+    },
+    {
+      "location": "CCM-ZST-v1 equations (4.11), (4.14), Proposition 4.3",
+      "finding": "printed gamma_L definition double-counts c(L), conflicting with defining (3.15) and (4.4)",
+      "repair": "remove the extra +c(L) when using the alpha/beta/gamma verifier path"
+    }
+  ],
+  "retrieved_date": "2026-08-05",
+  "binding_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "authors": [
+        "Alain Connes",
+        "Caterina Consani",
+        "Henri Moscovici"
+      ],
+      "title": "Zeta Spectral Triples",
+      "version": "arXiv:2511.22755v1",
+      "url": "https://arxiv.org/abs/2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "vendored_sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "validation_status": "PDF_BYTES_HASHED_FINITE_MATRIX_INDEPENDENT_ARB_256_512_BIT_REPLAY_ERRATA_RECORDED",
+      "uses": [
+        "finite Weil matrix",
+        "simple-even determinant theorem",
+        "prolate comparison state",
+        "closed-substrip convergence"
+      ]
+    },
+    {
+      "id": "CCM-PROLATE-2023",
+      "authors": [
+        "Alain Connes",
+        "Caterina Consani",
+        "Henri Moscovici"
+      ],
+      "title": "Zeta zeros and prolate wave operators",
+      "version": "arXiv:2310.18423v2",
+      "url": "https://arxiv.org/abs/2310.18423v2",
+      "vendored_path": "vendor/CCM-PROLATE-2310.18423v2.pdf",
+      "vendored_sha256": "8bc197642ee9ca4f2393b6cbfd3db292be6a315ce76ad61bfb845d9fedb47f2e",
+      "validation_status": "PDF_BYTES_HASHED_FINITE_PROLATE_NORMALIZATION_IMPLEMENTED_AND_INDEPENDENTLY_REPLAYED_NO_INFINITE_DIMENSIONAL_ENCLOSURE",
+      "uses": [
+        "prolate motivation and normalization cross-check"
+      ]
+    }
+  ],
+  "nonbinding_diagnostic_sources": [
+    {
+      "id": "GROSKIN-2026-DIAGNOSTIC",
+      "version": "arXiv:2605.20224",
+      "url": "https://arxiv.org/abs/2605.20224",
+      "claim_status": "recent preprint; no RH proof claim; never import stored conclusions as theorem inputs"
+    },
+    {
+      "id": "GROSKIN-2026-DICTIONARY",
+      "version": "arXiv:2607.02828",
+      "url": "https://arxiv.org/abs/2607.02828",
+      "claim_status": "recent preprint; independently verify every reused formula"
+    }
+  ]
+}

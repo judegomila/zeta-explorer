@@ -59,4 +59,40 @@ Coarse-grained journal of work sessions on the Riemann Hypothesis Λ bound attac
 
 ---
 
+## 2026-11-14 — Session: Zero channels, coupling, and Newton guidance
+
+**Request:** Make the proposed zero “wires” concrete in the renderer and log the mathematics in Zeta Explorer. Renderer: `judegomila/zeta-view`; research repository: `judegomila/mathexplorer`.
+
+**Delivered:** A [three-view laboratory](https://zeta-view.vercel.app/experiments/zero-channels.html) for moving zero channels, inverse-gap coupling, and continuous Newton guidance. View, family, time, selected branch, direction, radius, and probe settings persist in shareable URLs. The actual theta trajectories use the analytic heat family; the three-root coupling graph is a labeled local diagnostic. Newton guidance moves test points through a fixed field and preserves explicit failure states. The renderer implementation is pinned at `ee749ce5ea91bc336896d3ab87ac4faca1401cc3`.
+
+**Research package:** [`research/rh/zero-channels`](research/rh/zero-channels/README.md) contains the derivations, executable certificate generator/verifier, compact numerical input, saved bounds, replay output, dependency versions, and source hashes.
+
+**Certified finite results:**
+
+- Exact quartet: four disjoint moving disks, each containing exactly one simple zero for every `tau` in `[-0.13, 0]`. Radius `0.01`; 130 complete time cells; 520 branch-cell comparisons; exact rational arithmetic. Minimum strict Taylor–Rouché margin `0.020444320768133732`; minimum disk clearance `0.07010952625620315`.
+- Actual theta: one fixed disk centered at `1/2 + 14.134725141734693 i`, radius `0.35`, containing exactly one simple zero for every `tau` in `[-0.05, 0.05]`. Arb interval arithmetic plus explicit omitted-term and integration-tail bounds. Initial boundary floor `0.000355319999999998`, uniform perturbation at most `0.00029`, final strict margin `0.000065319999999998`. Reflection pins the unique zero to the critical line.
+
+**What the comparison establishes:** Moving quartet channels remain valid past the old fixed-disk failure near `tau=-0.08175425`, but stop before the actual collision near `tau=-0.13406958`. Inverse-gap coupling damps relative perturbations in increasing heat time and amplifies them when that direction is reversed. Its translation mode does not choose absolute targets. Newton paths locally reach existing simple zeros, including off-line zeros; they do not relocate those zeros.
+
+**Verification:** 26 focused renderer tests pass (10 mathematical, six UI/URL/worker, 10 existing research-panel tests). The saved rational and actual-theta certificates were independently recomputed. Six certificate controls pass, including rejection of forged bounds and an unsupported enlargement of the theta interval. The packaged compact dataset retains all 723 frames and 2,169 root records from the previous numerical comparison. Production browser checks passed for all three views, shared settings, Back/reload, certificate transitions, probe playback, and both app entry links; a screenshot is included in the package.
+
+**Claim boundary:** The other two tracked theta branches and the wider heat trajectories remain numerical candidates. This session establishes no all-height coverage, no new global bound on the de Bruijn–Newman constant, and no proof of RH. It leaves the repository's existing global research status unchanged.
+
+**Next mathematical work:** Certify additional moving theta channels with whole-time bounds and explicit disjointness, then control omitted infinite-root contributions before extending any collective coupling claim.
+
+---
+
+## 2026-11-14 — Follow-up: Channels integrated into the main renderer
+
+**Request:** Make the channel visualization available directly in the Zeta renderer app.
+
+**Integration:** The main app gains Channels, Coupling, Newton guidance, and a quartet-channel starting point. The parent app owns their shareable URLs, history, and saved-session state, while the workbench reuses the existing numerical engine and certificate display. Restored views retain their selected frame and probe travel position and open paused. Renderer integration commit: `3db4bd3d72651d23663859fd67e15b762d77d31f`, with browser fetch follow-up `b5b5cc6ac0cf170172ddd66477aaa1b539c24dbe`.
+
+**Record:** [`APP-INTEGRATION.md`](research/rh/zero-channels/APP-INTEGRATION.md) lists the main-app links, controls, state ownership, and verification coverage. This complements the package in [PR #57](https://github.com/judegomila/mathexplorer/pull/57).
+
+**Claim boundary:** The exact quartet and first actual-theta disk retain their previously stated finite certificate scopes. The underlying certificate, numerical input, verifier output, and original provenance are preserved; this interface integration adds no global zero-location claim.
+
+---
+
 <!-- Append new session entries ABOVE this line -->
+

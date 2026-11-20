@@ -1,0 +1,9 @@
+# Independent hierarchy-lane review: PASS
+
+2 November2026. Read UNIVERSALITY_GAP_OBSTRUCTION.md and independently checked its exact formula, asymptotic comparison, and use of universality. Also read the primary Lamzouri–Lester–Radziwill statement of classical Voronin universality at https://arxiv.org/html/1611.10325 , Introduction(1.2). Its disk radius and nonvanishing-target hypotheses match this application; no full proof re-audit is claimed.
+
+The factor64 in |xi|²=P g_p |zeta|²/64 and the128a normalization of its derivative are correct. The explicit logarithmic derivative L is asymptotic to log(t/(2pi)); no reciprocal of unknown interior xi/zeta is used. For each fixed a>0 the dual gamma parent is relatively O(t^(−2a)); the previously audited axis and low-integral corrections are polynomially smaller than the positive main J. Thus H/J→1 with the stated fixed-a scope.
+
+Every p∈(1/2,1) lies strictly inside a disk centered3/4 of radius<1/4. Universality with a nonzero constant epsilon and error epsilon/2 gives the stated value and derivative bounds by Cauchy's estimate on an interior disk. The upper bound tends to zero; the lower brace is positive when L>6/d. Choosing arbitrarily large heights separately for decreasing epsilon is legitimate. For a fixed nonzero target b and errors tending to zero, derivatives tend to zero as well, yielding ratio limit|b|². Hence zero and all positive real numbers are subsequential limits, and the limsup is infinite.
+
+These facts genuinely rule out a fixed strict lower-tail gap, and indeed any finite uniform absolute tail/head bound, for the particular corrected N=1 head at a fixed interior shift. They do not imply a negative full shear, do not contradict RH, and do not apply to an adaptive arithmetic head without further argument. All stated exclusions are necessary and correctly retained.

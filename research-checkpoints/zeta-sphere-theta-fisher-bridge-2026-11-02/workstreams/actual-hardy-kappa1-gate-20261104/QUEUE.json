@@ -1,0 +1,49 @@
+{
+  "admission_condition": "After verifying that no prior RH supervisor remains, fresh sustained whole-Mac samples leave safe headroom below the user's 50% total CPU target and a sampled single-process admission wrapper admits this one core.",
+  "checkpoint_root": "research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02",
+  "command": [
+    "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "workstreams/actual-hardy-kappa1-gate-20261104/src/certify_actual_hardy_kappa1_gate.py",
+    "--checkpoint-root",
+    ".",
+    "--spatial-cells",
+    "4096",
+    "--precision-bits",
+    "192",
+    "--max-cpu-seconds",
+    "120",
+    "--max-rss-mib",
+    "512",
+    "--output",
+    "workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json"
+  ],
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "estimated_resources": {
+    "cpu_processes": 1,
+    "cpu_threads": 1,
+    "expected_wall_time": "seconds to low tens of seconds",
+    "max_cpu_seconds": 120,
+    "max_rss_mib": 512
+  },
+  "no_duplicate_supervisor": true,
+  "protected_scopes": [
+    "all live 4CT processes and files",
+    "workstreams/all-degree-analytic-search-next-v1/run-modular-n1-payment",
+    "all remote branches and PRs"
+  ],
+  "queued_at_utc": "2026-11-04",
+  "completed_output": "workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json",
+  "completed_output_sha256": "97adc3bd11bd7aab66ec5cd7c2123f105c589e4a1c00a4f05ec6089870347d39",
+  "governed_run": {
+    "final_sampled_whole_mac_busy_percent": 30.0,
+    "fixed_target_percent": 50.0,
+    "hard_worker_cap": 1,
+    "protected_4ct_active": true,
+    "protected_processes_signalled": false,
+    "worker_elapsed_seconds": 5.010848045349121
+  },
+  "status": "COMPLETE_PASS_CERTIFIED_ACTUAL_KAPPA1_J2"
+}

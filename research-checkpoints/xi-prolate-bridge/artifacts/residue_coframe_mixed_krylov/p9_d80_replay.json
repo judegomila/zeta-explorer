@@ -1,0 +1,61 @@
+{
+  "arithmetic_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+  "producer_binding": {
+    "canonical_bytes": 60180,
+    "sha256": "7714d27faf3a6af5af445f1708a40b32adc545f580782460d798c8fe931e9a8a"
+  },
+  "reconstructed": {
+    "all_prime_jumps_strictly_positive": true,
+    "annular_maximum_integer_rank": 3,
+    "claim_boundary_retained": true,
+    "dependency_count": 24,
+    "dps": "80",
+    "external_source_count": 2,
+    "interval_count": 14,
+    "lambda_numerator": "9",
+    "mixed_negative_witness_reconstructed": true,
+    "no_reflected_prime_jump_collisions": true,
+    "odd_orientation_twins_reconstructed": true,
+    "positive_pass_schur_gap_reconstructed": true,
+    "prime_action_formula_paths_overlap": true,
+    "prime_power_count": 12,
+    "prime_threshold_count": 12
+  },
+  "schema": "xi-prolate-residue-coframe-mixed-krylov-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "COVARIANCE_ANNULAR_ODD_SUBSEQUENCE_SOURCE_LOCK.json": "eb20eecf970af6c9dd95c28bbb602e1cb8ee439a95bfd736cccd6c17a21730c8",
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "P0_MATRIX_FORMULAS.md": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "P0_NORMALIZATION_AUDIT.md": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "notes/ANNULAR_GRAY_MASS_OBSTRUCTION.md": "85e26feefbb18482eacd9761ecca4d3743c26ff480a53983bcc5651e3ae80b5a",
+      "notes/COVARIANCE_TANGENT_GRAPH_SPILL.md": "b29362b8234fa642be7f8c59b187f451e8610c88e80121311317ea1c05a1d195",
+      "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "notes/GROWING_TRANSITION_SAMPLING_THEOREM.md": "551e58d07510d531c8ee5cfe4c81a33ac3443f62760627196599e2bfac231e72",
+      "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "notes/MATCHED_HIGH_MOMENT_COFRAME_REDUCTION.md": "b946c4cb13c17eee30dd2747863028d4264ba9f6dbc210662d0b68fecdec5ca2",
+      "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+      "notes/PHYSICAL_SOFT_SHORT_SIGNED_SCHUR.md": "cf847b2f73d18244158ee0238714f677c74358068a658c637a40477b3e0a38ca",
+      "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+      "notes/SOFT_DEFECT_PROLATE_ANGLE_REDUCTION.md": "3bcccfda9d606c21fc61efb9c2fbc3dd95926a82586e3c156fc965c32748777b",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "external_source_hashes": {
+      "vendor/CCM-ZST-2511.22755v1.pdf": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "vendor/FKS-PNT-2204.02588v3.pdf": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4"
+    },
+    "path": "RESIDUE_COFRAME_MIXED_KRYLOV_SOURCE_LOCK.json",
+    "schema": "xi-prolate-residue-coframe-mixed-krylov-source-lock-v1",
+    "sha256": "07820d02ae10c1911d35796a5ad018ffcdae4363f22f2b000074e430c7086375"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

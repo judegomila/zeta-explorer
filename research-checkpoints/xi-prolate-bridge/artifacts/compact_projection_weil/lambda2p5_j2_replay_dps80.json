@@ -1,0 +1,88 @@
+{
+  "schema": "xi-prolate-compact-pp-weil-replay-v1",
+  "status": "ANALYTIC_UNIFORM_COMPONENT_REPLAY_PASS",
+  "source_hashes_reconstructed": {
+    "relative_lock_sha256": "66347adeb8c3e0d497760318370d00949d598a3ba42d5375c27dafc1651b3714",
+    "egidi_gzip_sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+    "egidi_tex_sha256": "b459dd2a485b061edb1dc94e5313830acf6e12b2af07098e3f8642993e676907",
+    "ccm_pdf_sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b"
+  },
+  "producer_booleans_trusted": false,
+  "intervals_reconstructed_from_j": true,
+  "interval_comparisons": {
+    "lambda": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "L": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "sigma": {
+      "overlap": true,
+      "maximum_endpoint_difference": "3.1626593829691569673045722153810057023129884147105522650233289075324432872909279e-81"
+    },
+    "diagonal_loss": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "arch_tail": {
+      "overlap": true,
+      "maximum_endpoint_difference": "3.1626593829691569673045722153810057023129884147105522650233289075324432872909279e-81"
+    },
+    "C_abs": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "b_bound": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "cauchy_norm": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "defect_decay": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "schedule_decay": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "exponent_margin": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "bulk_relative": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.3235551489095909636908183799718111085421315152292745192926577648066498088586116e-120"
+    },
+    "jump_relative": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "rho": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.3235551489095909636908183799718111085421315152292745192926577648066498088586116e-120"
+    },
+    "log_weight": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "combined_multiplier": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "relative_pp_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.6803412002750742983701906602444918478071694577470212276288269009960062946345738e-155"
+    },
+    "source_combination_relative_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.3052096279600361800759189302060134215408825185550712064975157083110987173872707e-154"
+    }
+  },
+  "shared_arithmetic_library_limitation": "mpmath.iv 1.4.1",
+  "claim_scope": "compact projection-projection term only; no outer correlation, sector floor, equation (5.2), or determinant limit"
+}

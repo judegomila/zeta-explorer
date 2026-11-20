@@ -1,0 +1,54 @@
+{
+  "baseline_commit_observed_during_preparation": "7db4ac466b9cee0bd3178884fc2b0dc7994fbc25",
+  "publication_kind": "append-only degree-locked theta mechanism continuation",
+  "scope": "Selected dilation supplies a lower bound, not the missing upper bound. Explicit packets are not X-selected; observability is a necessary condition, not an established local arithmetic theorem. U_n=o(Delta_n) and the equivalent excess-Schur asymptotic remain open. No signed pivot or RH conclusion.",
+  "source_folder_name": "theta_degree_locked_20261104",
+  "payload_count": 6,
+  "payload_bytes": 46508,
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 4440,
+      "sha256": "403931527302ad1ae5b21ef120eeb292da7454ea625f3a09169b0f10970989d8",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains stated assumptions and non-implications"
+    },
+    {
+      "path": "src/FEJER_PACKETS_AND_HARDY_Z_OBSERVABILITY.md",
+      "bytes": 20947,
+      "sha256": "c708d76ca834f659f0e402cb76900f17e6c9a11c759718504326c4347635f37b",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains stated assumptions and non-implications"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 5053,
+      "sha256": "d26a99a65501fb086735470f69ca4ae3580aceeb06591518e6611f50769b256f",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains stated assumptions and non-implications"
+    },
+    {
+      "path": "src/SELECTED_DILATION_COMMUTATOR_AND_ZERO_POLE_OBSTRUCTION.md",
+      "bytes": 13856,
+      "sha256": "c99e10a6f510fc9fb520507e3a796fdaa8f1a3b3dba6c43850233a54d301995f",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains stated assumptions and non-implications"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 488,
+      "sha256": "dc3364dca2c0d933e732f060d404e7f4a7189c4d2aacd05a3fce76af3b1ebf25",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains stated assumptions and non-implications"
+    },
+    {
+      "path": "src/check_selected_dilation_identities.py",
+      "bytes": 1724,
+      "sha256": "61da4490db8bc59871b06885845bd5946c245bfa9ec272dc5823ae9850768d33",
+      "source_identical": true,
+      "evidence_grade": "exact algebra sanity check on a separate profile, not actual-theta asymptotics"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Source audit retained. Exact symbolic checker concerns a separate explicit profile, not actual-theta asymptotics or cited external zero-counting theorems."
+}

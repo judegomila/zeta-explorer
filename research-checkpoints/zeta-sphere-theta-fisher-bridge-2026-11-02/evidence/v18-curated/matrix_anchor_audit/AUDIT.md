@@ -1,0 +1,10 @@
+# Independent matrix-anchor construction audit
+2026-11-02 23:18 UTC. PASS for exact finite-dimensional theorem and finite theta example.
+
+Whitening A reduces Q>=0 to I-U D^-1 U^T>=0. For D>0 this is equivalent to D-U^T U>=0 by the shared singular values, so the feature-Laplacian premise is sufficient and exact for that Q. Alpha_i=b_i^T r gives R_i^0 r=b_i and Qr=0. Adding nonnegative lambda_i Q preserves PSD and sums to A. The displayed block Gram factorization has lower diagonal alpha_i+rho_i=d_i. Zero-sum corrections to local A_i cancel; their positivity is never assumed. The complete A>0 and sum rho_i>0 give strict full positivity via its exact Schur complement.
+
+The signed-edge Laplacian identity is correct for real data. Negative-edge component compatibility is necessary to eliminate the positive graph's nullspace obstruction. On its range, the pseudoinverse/resistance norm<=1 is exactly the stated Loewner test. Regional rho_i>=0 remains an independent hypothesis, not supplied by graph positivity.
+
+For two features the optimal matrix-anchor cost is ||u||²+||v||²+2|u^T v|: matrix Cauchy applied to u+v and u-v gives the lower bound. After changing v's sign, the nonnegative-correlation two-vertex construction gives a semidefinite attaining pair with both features in the appropriate ranges; positive regularization attains the infimum. This need not equal the larger scalar-weight cost. The complete Schur reserve itself is unchanged.
+
+Independently replayed checker using our independently certified core/full moment enclosures. Revalidated complete lower A, residual inverse bound, rational trial solutions, serialization guards, and indefinite local core determinant. Results: cross>.9992631453; alpha_core,alpha_tail positive; rho_core>.0003303367; rho_tail>.5305495657; graph's nonzero eigenvalue>1.99852629. This gives two PSD modified-region blocks at the already certified odd degree19, normalized a0, split H=1/16. It is not an additional order or a uniform theta theorem. Growing-degree grouping, projected residuals, and negative-edge budgets remain unproved.

@@ -3,7 +3,8 @@
 # scripts/ and dist/ are anchored to the repo root: observatory/dist is the
 # Observatory's source and observatory/scripts holds its build step.
 
-.git/
+# .git/ is NOT ignored: the project's Ignored Build Step runs `git diff HEAD^ HEAD`
+# and fails with "Not a git repository" if the folder is removed.
 .claude/
 /scripts/
 rust/

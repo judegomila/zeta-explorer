@@ -175,6 +175,16 @@ The calculations are numerical experiments with stated scopes. A negative indivi
 
 For the actual heat family, `∂τ F = F_ss/4` and a simple zero satisfies `ρ′ = −F_ss/(4F_s)`. With `x = Re ρ − 1/2`, the distance diagnostic is `(x²)′ = −x Re(F_ss/F_s)/2`. It is undefined at multiple roots. The heat view reports root residuals, local conditioning and sampled contour margins; it does not certify an entire zero-free boundary or a global no-escape theorem. See [the bridge research definitions](docs/BRIDGE-RESEARCH.md) and [the no-escape analysis](docs/NO-ESCAPE.md).
 
+## How it is served on exploreriemann.com
+
+The Observatory is the front door of <https://exploreriemann.com> and is served from `/observatory/`.
+
+- `scripts/mount.mjs` runs in the site build after `vite build`. It builds the projective starter packs, copies `dist/` to the site output at `observatory/`, and writes `site-nav.json` from the research app's `src/data/nav-groups.js`.
+- `dist/site-bar.js` draws the single site header (brand, `Observatory | Research` switch, the research menus with page counts, then the Observatory's own actions) when `site-nav.json` is present. Served on its own, the Observatory shows its original header instead.
+- `dist/tokens.css` is the single source for colours and fonts. `dist/site-head.css` holds the brand and mode switch used by the static pages.
+- `dist/learn/` is a ground-up introduction to the Riemann hypothesis. Its figures are computed in the browser from `dist/math.js`.
+- The research app's `index.html` redirects the bare site address to `./observatory/`. Its own pages are hash routes (`/#/…`) and are unaffected.
+
 ## Run locally
 
 This is a buildless static app. All runtime dependencies are included in `dist/`.

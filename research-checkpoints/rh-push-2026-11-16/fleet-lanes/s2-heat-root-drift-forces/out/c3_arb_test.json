@@ -1,0 +1,47 @@
+[
+{
+"code": "ZETA",
+"a": 0.5,
+"K": 10,
+"prec": 500,
+"nterms": 1,
+"lam_min": "1.21902734006e-6",
+"lam_2": "0.000247713734822",
+"lam_max": "2.6502462",
+"n_neg_eig": 0,
+"ldl_decided": 21,
+"ldl_negatives": 0,
+"first_neg_pivot_index": null,
+"max_entry_rad": 1.4178674824648528e-146
+},
+{
+"code": "DH",
+"a": 1.25,
+"K": 48,
+"prec": 500,
+"nterms": 11,
+"lam_min": "5.24735124861e-10",
+"lam_2": "6.7436031279e-7",
+"lam_max": "6.4327174",
+"n_neg_eig": 0,
+"ldl_decided": 97,
+"ldl_negatives": 0,
+"first_neg_pivot_index": null,
+"max_entry_rad": 3.7497347077685387e-146
+},
+{
+"code": "DH",
+"a": 0.5,
+"K": 10,
+"prec": 500,
+"nterms": 1,
+"lam_min": "0.299934740923",
+"lam_2": "1.44979449182",
+"lam_max": "3.9793524",
+"n_neg_eig": 0,
+"ldl_decided": 21,
+"ldl_negatives": 0,
+"first_neg_pivot_index": null,
+"max_entry_rad": 1.4245548545146689e-146
+}
+]

@@ -1,0 +1,23 @@
+[dh s=0.01 M=6144] gpu=False R=0.129 coefficients n<=6990 (4769 nonzero); planned: 3 matrices 6144x6144 = 0.84 GB
+RESULT4 dh s=0.01 M=8: lmax 1.3633e+00 lmin/lmax +4.978e-01; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 8 [3s]
+RESULT4 dh s=0.01 M=12: lmax 1.5486e+00 lmin/lmax +3.628e-01; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 12 [3s]
+RESULT4 dh s=0.01 M=16: lmax 1.5872e+00 lmin/lmax +2.967e-01; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 16 [3s]
+RESULT4 dh s=0.01 M=24: lmax 1.7611e+00 lmin/lmax +2.107e-01; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 24 [3s]
+RESULT4 dh s=0.01 M=32: lmax 1.8367e+00 lmin/lmax +1.654e-01; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 32 [3s]
+RESULT4 dh s=0.01 M=48: lmax 2.0536e+00 lmin/lmax +9.612e-02; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 48 [3s]
+RESULT4 dh s=0.01 M=64: lmax 2.2235e+00 lmin/lmax +4.852e-02; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 64 [3s]
+RESULT4 dh s=0.01 M=96: lmax 3.0223e+00 lmin/lmax +1.873e-03; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 96 [3s]
+RESULT4 dh s=0.01 M=128: lmax 3.9041e+00 lmin/lmax +7.786e-06; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 128 [3s]
+RESULT4 dh s=0.01 M=192: lmax 5.7922e+00 lmin/lmax +1.972e-12; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 189 [3s]
+RESULT4 dh s=0.01 M=256: lmax 7.6340e+00 lmin/lmax -1.647e-16; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 234 [3s]
+RESULT4 dh s=0.01 M=384: lmax 1.1368e+01 lmin/lmax -4.422e-03; negative below -1e-12/-1e-10/-1e-8: 1/1/1; rank(1e-10) 294 [3s]
+ONSET4 dh s=0.01: first M with lmin/lmax < -1e-10: M* = 299 (log M* = 5.700); lmin/lmax = -5.995e-10; eigenvector saved
+RESULT4 dh s=0.01 M=512: lmax 1.5050e+01 lmin/lmax -1.207e-02; negative below -1e-12/-1e-10/-1e-8: 1/1/1; rank(1e-10) 338 [3s]
+RESULT4 dh s=0.01 M=768: lmax 2.2548e+01 lmin/lmax -1.769e-02; negative below -1e-12/-1e-10/-1e-8: 2/2/2; rank(1e-10) 395 [3s]
+RESULT4 dh s=0.01 M=1024: lmax 2.9994e+01 lmin/lmax -2.272e-02; negative below -1e-12/-1e-10/-1e-8: 2/2/2; rank(1e-10) 436 [3s]
+RESULT4 dh s=0.01 M=1536: lmax 4.4918e+01 lmin/lmax -2.706e-02; negative below -1e-12/-1e-10/-1e-8: 4/4/4; rank(1e-10) 490 [4s]
+RESULT4 dh s=0.01 M=2048: lmax 5.9890e+01 lmin/lmax -2.596e-02; negative below -1e-12/-1e-10/-1e-8: 6/5/5; rank(1e-10) 526 [5s]
+RESULT4 dh s=0.01 M=3072: lmax 8.9824e+01 lmin/lmax -2.828e-02; negative below -1e-12/-1e-10/-1e-8: 8/8/8; rank(1e-10) 573 [7s]
+RESULT4 dh s=0.01 M=4096: lmax 1.1979e+02 lmin/lmax -2.816e-02; negative below -1e-12/-1e-10/-1e-8: 10/10/10; rank(1e-10) 602 [15s]
+RESULT4 dh s=0.01 M=6144: lmax 1.7968e+02 lmin/lmax -2.886e-02; negative below -1e-12/-1e-10/-1e-8: 12/12/12; rank(1e-10) 640 [37s]
+done 37s

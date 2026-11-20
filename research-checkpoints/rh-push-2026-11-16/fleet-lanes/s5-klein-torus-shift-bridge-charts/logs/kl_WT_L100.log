@@ -1,0 +1,5 @@
+klein WT r=1.5 L=100 N=2^16 kmax=20000 circles 4; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.1 v=0.250611888846 xmin=0.1 wind=-0.000000+3.77e-11j max|t|=1.25e+04 tail |hhat| at N/2: 3.32e-09 (rel to max 1.45e-14) 4.4 s
+circle x:0.3 v=0.251835652750 xmin=0.3 wind=-0.000000-3.02e-11j max|t|=4167 tail |hhat| at N/2: 1.31e-10 (rel to max 1.98e-15) 6.0 s
+circle x:0.5 v=0.253059375293 xmin=0.5 wind=-0.000000-1.96e-11j max|t|=2500 tail |hhat| at N/2: 8.71e-11 (rel to max 2.38e-15) 5.0 s
+circle ax:0.3 v=0.751835652750 xmin=-8333.33 wind=-0.000000+8.54e-12j max|t|=4167 tail |hhat| at N/2: 5.21e-11 (rel to max 7.91e-16) 3.4 s

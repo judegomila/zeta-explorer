@@ -1,0 +1,20 @@
+# chi4 T0=1.000e+06 windows=40000 points=6800000 ncut=2299 y=[32, 1000] nmax=2299; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.44 GB
+# tables 0s  theta0=1.127156  max|inv|=1
+# CPU path, 1 workers, chunk 1700 points x 1150 terms (0.05 GB per worker)
+done chi4 T0=1000000 points=6800000 secs=470 gpu=False max|Z|=25.432
+chi4 T0=1.0e+06 zeros=679988 (count-expected -12.0) viol=6 gap_max=4.496 max|Z|=25.4 cert_max(th=0.5)=2.200 false=0 J17=2.765
+# chi4 T0=1.000e+08 windows=6000 points=1020000 ncut=12643 y=[100, 10000] nmax=12643; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.07 GB
+# tables 0s  theta0=4.371271  max|inv|=1
+# CPU path, 1 workers, chunk 1700 points x 6322 terms (0.26 GB per worker)
+done chi4 T0=100000000 points=1020000 secs=267 gpu=False max|Z|=39.004
+chi4 T0=1.0e+08 zeros=102000 (count-expected +0.0) viol=0 gap_max=3.789 max|Z|=39.0 cert_max(th=0.5)=2.300 false=0 J17=2.806
+# DH T0=1.000e+10 windows=600 points=102000 ncut=141311 y=[316, 100000] nmax=141311; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.01 GB
+# tables 0s  theta0=5.241826  max|inv|=267
+# CPU path, 1 workers, chunk 132 points x 113049 terms (0.36 GB per worker)
+done DH T0=10000000000 points=102000 secs=542 gpu=False max|Z|=34.029
+DH T0=1.0e+10 zeros=9003 (count-expected -1197.0) viol=423 gap_max=6.517 max|Z|=34.0 cert_max(th=0.5)=2.100 false=0 J17=14.897
+# chi4 T0=1.000e+10 windows=600 points=102000 ncut=126392 y=[316, 100000] nmax=126392; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.01 GB
+# tables 0s  theta0=4.904530  max|inv|=1
+# CPU path, 1 workers, chunk 237 points x 63196 terms (0.36 GB per worker)
+done chi4 T0=10000000000 points=102000 secs=343 gpu=False max|Z|=60.375
+chi4 T0=1.0e+10 zeros=10199 (count-expected -1.0) viol=0 gap_max=3.185 max|Z|=60.4 cert_max(th=0.5)=2.600 false=0 J17=2.828

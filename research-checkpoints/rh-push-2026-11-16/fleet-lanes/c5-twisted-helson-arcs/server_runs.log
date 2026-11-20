@@ -1,0 +1,45 @@
+b=0.9 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.50 GB, sieve < 0.01 GB
+S built: |S|=50849233 maxdev=3.415 c=0.0258404254317 (tail E1=0.0323898) 92.2s
+chi built 101.4s
+E pass done S(N)=258398844 S(N)/N=0.0258398844 E(N)=-5410.32  203.8s
+M_g done 205.9s
+b=0.7 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.01 GB, sieve < 0.01 GB
+S built: |S|=664917 maxdev=1.679 c=0.214750866325 (tail E1=0.000128155) 15.1s
+chi built 17.2s
+E pass done S(N)=2147508946 S(N)/N=0.2147508946 E(N)=282.75  118.8s
+M_g done 118.9s
+b=0.5 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.00 GB, sieve < 0.01 GB
+S built: |S|=9629 maxdev=1.453 c=0.410747038741 (tail E1=8.03677e-07) 14.1s
+chi built 15.1s
+E pass done S(N)=4107470058 S(N)/N=0.4107470058 E(N)=-329.41  116.2s
+M_g done 116.3s
+b=0.9 N=40000000000 planned memory: chi bits 5.00 GB, S list about 1.65 GB, sieve < 0.01 GB
+S built: |S|=166472934 maxdev=3.415 c=0.0258404254294 (tail E1=0.0269269) 304.7s
+chi built 343.4s
+E pass done S(N)=1033613850 S(N)/N=0.02584034625 E(N)=-3167.18  497.8s
+M_g done 504.9s
+b=0.9 N=100000000 planned memory: chi bits 0.01 GB, S list about 0.01 GB, sieve < 0.01 GB
+S built: |S|=1022324 maxdev=3.415 c=0.0258404255191 (tail E1=0.0609733) 2.2s
+chi built 2.2s
+E pass done S(N)=2584198 S(N)/N=0.02584198 E(N)=155.45  3.2s
+M_g done 3.3s
+b=0.9 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.50 GB, sieve < 0.01 GB
+S built: |S|=25429934 maxdev=24151316.089 c=0.163887463258 (tail E1=0.0323898) 59.4s
+chi built 64.1s
+E pass done S(N)=1638886362 S(N)/N=0.1638886362 E(N)=11729.42  160.5s
+M_g done 160.9s
+b=0.9 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.50 GB, sieve < 0.01 GB
+S built: |S|=25420252 maxdev=24159928.153 c=0.125152734538 (tail E1=0.0323898) 58.4s
+chi built 63.4s
+E pass done S(N)=1251552530 S(N)/N=0.125155253 E(N)=25184.62  189.7s
+M_g done 190.1s
+b=0.7 N=10000000000 planned memory: chi bits 1.25 GB, S list about 0.01 GB, sieve < 0.01 GB
+S built: |S|=333276 maxdev=283748.104 c=0.334753708252 (tail E1=0.000128155) 20.8s
+chi built 22.4s
+E pass done S(N)=3347532574 S(N)/N=0.3347532574 E(N)=-4508.52  141.2s
+M_g done 141.3s
+b=0.9 N=100000000 planned memory: chi bits 0.01 GB, S list about 0.01 GB, sieve < 0.01 GB
+S built: |S|=1022324 maxdev=3.415 c=0.0258404255191 (tail E1=0.0609733) 2.2s
+chi built 2.2s
+E pass done S(N)=2584198 S(N)/N=0.02584198 E(N)=155.45  3.2s
+M_g done 3.3s

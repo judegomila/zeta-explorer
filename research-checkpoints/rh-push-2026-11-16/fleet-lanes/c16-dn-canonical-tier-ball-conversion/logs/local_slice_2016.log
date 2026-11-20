@@ -1,0 +1,51 @@
+objects 650; groups {'P': 23, 'PX': 506, 'PH': 24, 'C3': 10, 'H3': 24, 'C4': 10, 'H4': 24, 'C2': 5, 'H2': 24}; names equal to the stored c15 objects: True
+planned memory: per worker float64 blocks of at most 25 nodes x 650 pairs x 4 arrays x 4 families = 2.08 MB; ball caches per node only
+g1: 19293 distinct nodes, 37674 family-nodes
+g2: 14652 distinct nodes, 29464 family-nodes
+jobs 3396; meta {'b1-Aw': {'und': 19253, 'feas': 0, 'nodes': 215769}, 'b3-with': {'und': 18381, 'feas': 0, 'nodes': 215769}, 'b6-with': {'und': 40, 'feas': 0, 'nodes': 215769}, 'b2-with': {'und': 14652, 'feas': 15784, 'nodes': 163377}, 'b5l-with': {'und': 14652, 'feas': 6724, 'nodes': 163377}, 'b5m-with': {'und': 80, 'feas': 0, 'nodes': 163377}, 'b5p-with': {'und': 80, 'feas': 0, 'nodes': 163377}}
+job slice [2016:2056): 40 jobs
+  job 1/40 10s; rows 20
+  job 2/40 17s; rows 42
+  job 3/40 25s; rows 62
+  job 4/40 35s; rows 82
+  job 5/40 46s; rows 102
+  job 6/40 56s; rows 122
+  job 7/40 66s; rows 142
+  job 8/40 76s; rows 162
+  job 9/40 86s; rows 182
+  job 10/40 95s; rows 202
+  job 11/40 105s; rows 222
+  job 12/40 113s; rows 242
+  job 13/40 123s; rows 262
+  job 14/40 133s; rows 282
+  job 15/40 142s; rows 302
+  job 16/40 152s; rows 322
+  job 17/40 161s; rows 342
+  job 18/40 171s; rows 362
+  job 19/40 179s; rows 382
+  job 20/40 188s; rows 402
+  job 21/40 196s; rows 422
+  job 22/40 205s; rows 442
+  job 23/40 214s; rows 462
+  job 24/40 222s; rows 482
+  job 25/40 231s; rows 502
+  job 26/40 239s; rows 522
+  job 27/40 248s; rows 542
+  job 28/40 256s; rows 562
+  job 29/40 264s; rows 584
+  job 30/40 273s; rows 604
+  job 31/40 281s; rows 624
+  job 32/40 289s; rows 644
+  job 33/40 298s; rows 664
+  job 34/40 307s; rows 684
+  job 35/40 315s; rows 704
+  job 36/40 323s; rows 724
+  job 37/40 331s; rows 744
+  job 38/40 338s; rows 764
+  job 39/40 346s; rows 784
+  job 40/40 354s; rows 804
+b2-with {'identity': 2, 'excluded': 0, 'ttrain': 398, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 18062, 'maxprec': {'512': 109, '256': 190, '128': 80, '1024': 19, '0': 2}}
+b5l-with {'identity': 2, 'excluded': 0, 'ttrain': 398, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 17882, 'maxprec': {'512': 109, '256': 190, '128': 80, '1024': 19, '0': 2}}
+b5m-with {'identity': 2, 'excluded': 0, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 0, 'maxprec': {'0': 2}}
+b5p-with {'identity': 2, 'excluded': 0, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 0, 'maxprec': {'0': 2}}
+CBALL-DONE 354s

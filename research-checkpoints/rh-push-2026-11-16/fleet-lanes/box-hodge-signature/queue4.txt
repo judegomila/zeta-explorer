@@ -1,0 +1,14 @@
+0.5 python heat.py 0 0.03 0.75 420 45 out_heat_chk 1.50 2.50
+1.0 RH_WORKERS=3 python run_big.py zeta 0.02 0.75 900 120 out_big
+3.0 RH_WORKERS=3 python run_big.py zeta 0.01 0.75 1800 120 out_big
+1.0 RH_WORKERS=3 python run_big.py zeta 0.1 0.75 130 300 out_big
+1.0 RH_WORKERS=3 python run_big.py zeta 0.05 0.75 360 220 out_big
+0.8 python run_pp.py --one "EA_0.01 3000 3000 0.02 60 600" out_pp2
+0.8 python run_pp.py --one "EA_0.2 3000 3000 0.02 60 600" out_pp2
+0.8 python run_pp.py --one "EA_0.05 3000 3000 0.02 60 600" out_pp2
+0.8 python run_pp.py --one "EA_0.01 3000 3000 0.01 110 600" out_pp2
+16.0 RH_WORKERS=3 python run_big.py zeta 0.005 0.75 3600 140 out_big
+18.0 python run_u.py --one "zeta 0.0025 0.75 4000 100 400" out_u
+0.5 python heat.py -0.1 0.02 0.75 400 30 out_heat 1.70 2.70
+0.5 python heat.py -0.3 0.02 0.75 400 30 out_heat 2.10 3.10
+0.5 python heat.py 0 0.02 0.75 400 30 out_heat 1.50 2.50

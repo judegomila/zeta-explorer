@@ -1,0 +1,150 @@
+
+out/c2_zeta.json
+Z0      n=1702852 Lg=11.493
+   L=0.5  data 0.27669 +- 0.00007  GUE 0.28016  BK 0.27662  data-GUE -0.00346  BK-GUE -0.00354  (data-BK)/se +1.0
+   L=1    data 0.32834 +- 0.00016  GUE 0.34416  BK 0.32810  data-GUE -0.01582  BK-GUE -0.01607  (data-BK)/se +1.5
+   L=2    data 0.38133 +- 0.00021  GUE 0.41567  BK 0.38093  data-GUE -0.03434  BK-GUE -0.03474  (data-BK)/se +1.9
+   L=3    data 0.40942 +- 0.00025  GUE 0.45706  BK 0.40886  data-GUE -0.04765  BK-GUE -0.04820  (data-BK)/se +2.3
+   L=5    data 0.43416 +- 0.00051  GUE 0.50899  BK 0.43286  data-GUE -0.07483  BK-GUE -0.07614  (data-BK)/se +2.5
+   L=10   data 0.41301 +- 0.00129  GUE 0.57930  BK 0.40993  data-GUE -0.16628  BK-GUE -0.16936  (data-BK)/se +2.4
+   L=20   data 0.35538 +- 0.00098  GUE 0.64955  BK 0.35719  data-GUE -0.29417  BK-GUE -0.29235  (data-BK)/se -1.9
+   L=50   data 0.34455 +- 0.00416  GUE 0.74239  BK 0.35440  data-GUE -0.39784  BK-GUE -0.38799  (data-BK)/se -2.4
+Z7      n=4023319 Lg=14.364
+   L=0.5  data 0.27784 +- 0.00004  GUE 0.28016  BK 0.27788  data-GUE -0.00232  BK-GUE -0.00228  (data-BK)/se -0.9
+   L=1    data 0.33270 +- 0.00005  GUE 0.34416  BK 0.33273  data-GUE -0.01146  BK-GUE -0.01143  (data-BK)/se -0.6
+   L=2    data 0.38772 +- 0.00007  GUE 0.41567  BK 0.38772  data-GUE -0.02795  BK-GUE -0.02795  (data-BK)/se -0.0
+   L=3    data 0.41674 +- 0.00009  GUE 0.45706  BK 0.41675  data-GUE -0.04032  BK-GUE -0.04031  (data-BK)/se -0.1
+   L=5    data 0.44845 +- 0.00008  GUE 0.50899  BK 0.44838  data-GUE -0.06054  BK-GUE -0.06061  (data-BK)/se +0.9
+   L=10   data 0.44857 +- 0.00014  GUE 0.57930  BK 0.44835  data-GUE -0.13072  BK-GUE -0.13095  (data-BK)/se +1.6
+   L=20   data 0.39403 +- 0.00011  GUE 0.64955  BK 0.39395  data-GUE -0.25551  BK-GUE -0.25559  (data-BK)/se +0.8
+   L=50   data 0.44099 +- 0.00078  GUE 0.74239  BK 0.43951  data-GUE -0.30140  BK-GUE -0.30288  (data-BK)/se +1.9
+   T-NR(q=1000003) union L=1: var zeta 0.3326 lattice 0.1468 union 0.4794 cov -0.0000; off-line per window 1.92, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4485 lattice 0.6176 union 1.0664 cov +0.0001; off-line per window 9.62, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.4672 lattice 0.3343 union 0.8019 cov +0.0002; off-line per window 96.18, on-line 50.00
+Z8      n=20044587 Lg=16.620
+   L=0.5  data 0.27844 +- 0.00002  GUE 0.28016  BK 0.27844  data-GUE -0.00172  BK-GUE -0.00172  (data-BK)/se +0.2
+   L=1    data 0.33508 +- 0.00003  GUE 0.34416  BK 0.33508  data-GUE -0.00909  BK-GUE -0.00909  (data-BK)/se -0.0
+   L=2    data 0.39174 +- 0.00003  GUE 0.41567  BK 0.39175  data-GUE -0.02394  BK-GUE -0.02392  (data-BK)/se -0.5
+   L=3    data 0.42126 +- 0.00003  GUE 0.45706  BK 0.42126  data-GUE -0.03581  BK-GUE -0.03580  (data-BK)/se -0.0
+   L=5    data 0.45516 +- 0.00003  GUE 0.50899  BK 0.45517  data-GUE -0.05383  BK-GUE -0.05382  (data-BK)/se -0.3
+   L=10   data 0.47148 +- 0.00004  GUE 0.57930  BK 0.47144  data-GUE -0.10782  BK-GUE -0.10785  (data-BK)/se +0.9
+   L=20   data 0.40542 +- 0.00004  GUE 0.64955  BK 0.40539  data-GUE -0.24412  BK-GUE -0.24415  (data-BK)/se +0.7
+   L=50   data 0.37628 +- 0.00007  GUE 0.74239  BK 0.37640  data-GUE -0.36612  BK-GUE -0.36599  (data-BK)/se -1.8
+   T-NR(q=1000003) union L=1: var zeta 0.3351 lattice 0.5610 union 0.8963 cov +0.0001; off-line per window 1.66, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4554 lattice 0.5276 union 0.9830 cov +0.0000; off-line per window 8.31, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.3796 lattice 0.9839 union 1.3643 cov +0.0004; off-line per window 83.13, on-line 50.00
+Z9      n=20003518 Lg=18.889
+   L=0.5  data 0.27884 +- 0.00002  GUE 0.28016  BK 0.27882  data-GUE -0.00132  BK-GUE -0.00134  (data-BK)/se +1.2
+   L=1    data 0.33681 +- 0.00003  GUE 0.34416  BK 0.33681  data-GUE -0.00735  BK-GUE -0.00736  (data-BK)/se +0.2
+   L=2    data 0.39510 +- 0.00004  GUE 0.41567  BK 0.39509  data-GUE -0.02057  BK-GUE -0.02058  (data-BK)/se +0.3
+   L=3    data 0.42510 +- 0.00004  GUE 0.45706  BK 0.42509  data-GUE -0.03196  BK-GUE -0.03197  (data-BK)/se +0.1
+   L=5    data 0.46023 +- 0.00003  GUE 0.50899  BK 0.46022  data-GUE -0.04876  BK-GUE -0.04877  (data-BK)/se +0.5
+   L=10   data 0.48656 +- 0.00004  GUE 0.57930  BK 0.48649  data-GUE -0.09274  BK-GUE -0.09280  (data-BK)/se +1.9
+   L=20   data 0.43131 +- 0.00003  GUE 0.64955  BK 0.43131  data-GUE -0.21823  BK-GUE -0.21824  (data-BK)/se +0.2
+   L=50   data 0.38571 +- 0.00003  GUE 0.74239  BK 0.38570  data-GUE -0.35668  BK-GUE -0.35669  (data-BK)/se +0.4
+   T-NR(q=1000003) union L=1: var zeta 0.3369 lattice 0.7858 union 1.1231 cov +0.0002; off-line per window 1.46, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4605 lattice 0.9013 union 1.3626 cov +0.0004; off-line per window 7.31, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.3852 lattice 0.9799 union 1.3645 cov -0.0003; off-line per window 73.14, on-line 50.00
+Z10     n=20000281 Lg=21.188
+   L=0.5  data 0.27910 +- 0.00002  GUE 0.28016  BK 0.27909  data-GUE -0.00106  BK-GUE -0.00107  (data-BK)/se +0.5
+   L=1    data 0.33816 +- 0.00003  GUE 0.34416  BK 0.33812  data-GUE -0.00600  BK-GUE -0.00605  (data-BK)/se +1.4
+   L=2    data 0.39792 +- 0.00004  GUE 0.41567  BK 0.39789  data-GUE -0.01775  BK-GUE -0.01778  (data-BK)/se +1.0
+   L=3    data 0.42846 +- 0.00004  GUE 0.45706  BK 0.42845  data-GUE -0.02860  BK-GUE -0.02861  (data-BK)/se +0.3
+   L=5    data 0.46432 +- 0.00004  GUE 0.50899  BK 0.46430  data-GUE -0.04467  BK-GUE -0.04469  (data-BK)/se +0.5
+   L=10   data 0.49703 +- 0.00004  GUE 0.57930  BK 0.49703  data-GUE -0.08227  BK-GUE -0.08227  (data-BK)/se -0.1
+   L=20   data 0.46514 +- 0.00004  GUE 0.64955  BK 0.46513  data-GUE -0.18440  BK-GUE -0.18442  (data-BK)/se +0.4
+   L=50   data 0.50896 +- 0.00004  GUE 0.74239  BK 0.50895  data-GUE -0.23343  BK-GUE -0.23344  (data-BK)/se +0.3
+   T-NR(q=1000003) union L=1: var zeta 0.3381 lattice 0.9075 union 1.2463 cov +0.0003; off-line per window 1.30, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4644 lattice 0.7699 union 1.2348 cov +0.0002; off-line per window 6.52, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.5091 lattice 0.9586 union 1.4673 cov -0.0001; off-line per window 65.20, on-line 50.00
+Z11     n=20000022 Lg=23.491
+   L=0.5  data 0.27925 +- 0.00003  GUE 0.28016  BK 0.27928  data-GUE -0.00091  BK-GUE -0.00087  (data-BK)/se -1.3
+   L=1    data 0.33915 +- 0.00004  GUE 0.34416  BK 0.33912  data-GUE -0.00502  BK-GUE -0.00505  (data-BK)/se +0.6
+   L=2    data 0.40019 +- 0.00003  GUE 0.41567  BK 0.40021  data-GUE -0.01548  BK-GUE -0.01546  (data-BK)/se -0.7
+   L=3    data 0.43135 +- 0.00005  GUE 0.45706  BK 0.43137  data-GUE -0.02571  BK-GUE -0.02569  (data-BK)/se -0.5
+   L=5    data 0.46775 +- 0.00005  GUE 0.50899  BK 0.46773  data-GUE -0.04125  BK-GUE -0.04126  (data-BK)/se +0.2
+   L=10   data 0.50535 +- 0.00004  GUE 0.57930  BK 0.50530  data-GUE -0.07395  BK-GUE -0.07400  (data-BK)/se +1.0
+   L=20   data 0.48659 +- 0.00004  GUE 0.64955  BK 0.48662  data-GUE -0.16295  BK-GUE -0.16292  (data-BK)/se -0.8
+   L=50   data 0.52575 +- 0.00005  GUE 0.74239  BK 0.52574  data-GUE -0.21665  BK-GUE -0.21665  (data-BK)/se +0.0
+   T-NR(q=1000003) union L=1: var zeta 0.3392 lattice 0.9689 union 1.3088 cov +0.0004; off-line per window 1.18, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4674 lattice 0.2233 union 0.6908 cov +0.0000; off-line per window 5.88, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.5249 lattice 0.9650 union 1.4919 cov +0.0010; off-line per window 58.81, on-line 50.00
+Z12     n=20000002 Lg=25.793
+   L=0.5  data 0.27946 +- 0.00003  GUE 0.28016  BK 0.27943  data-GUE -0.00070  BK-GUE -0.00073  (data-BK)/se +1.1
+   L=1    data 0.33994 +- 0.00004  GUE 0.34416  BK 0.33990  data-GUE -0.00422  BK-GUE -0.00427  (data-BK)/se +1.3
+   L=2    data 0.40212 +- 0.00004  GUE 0.41567  BK 0.40214  data-GUE -0.01355  BK-GUE -0.01353  (data-BK)/se -0.5
+   L=3    data 0.43394 +- 0.00004  GUE 0.45706  BK 0.43393  data-GUE -0.02312  BK-GUE -0.02313  (data-BK)/se +0.1
+   L=5    data 0.47074 +- 0.00004  GUE 0.50899  BK 0.47072  data-GUE -0.03825  BK-GUE -0.03827  (data-BK)/se +0.5
+   L=10   data 0.51187 +- 0.00005  GUE 0.57930  BK 0.51186  data-GUE -0.06742  BK-GUE -0.06744  (data-BK)/se +0.3
+   L=20   data 0.50051 +- 0.00004  GUE 0.64955  BK 0.50044  data-GUE -0.14904  BK-GUE -0.14911  (data-BK)/se +1.8
+   L=50   data 0.46475 +- 0.00004  GUE 0.74239  BK 0.46479  data-GUE -0.27764  BK-GUE -0.27760  (data-BK)/se -0.9
+   T-NR(q=1000003) union L=1: var zeta 0.3400 lattice 0.9949 union 1.3358 cov +0.0005; off-line per window 1.07, on-line 1.00
+   T-NR(q=1000003) union L=5: var zeta 0.4707 lattice 0.8731 union 1.3445 cov +0.0004; off-line per window 5.36, on-line 5.00
+   T-NR(q=1000003) union L=50: var zeta 0.4645 lattice 0.6833 union 1.1484 cov +0.0003; off-line per window 53.56, on-line 50.00
+PRED q=1 T=1e+15       Lg 32.70  BK - GUE: L=0.5: -0.00045 L=1: -0.00275 L=2: -0.00939 L=3: -0.01718 L=5: -0.03101 L=10: -0.05493 L=20: -0.11054 L=50: -0.27452
+PRED q=1 T=1e+20       Lg 44.21  BK - GUE: L=0.5: -0.00025 L=1: -0.00155 L=2: -0.00564 L=3: -0.01108 L=5: -0.02244 L=10: -0.04347 L=20: -0.07898 L=50: -0.23560
+ rate fit  delta = Sigma^2 - GUE = K Lg^-a over 7 heights (weighted); data | BK prediction at the same Lg
+   L=0.5  data: a = 1.950 +- 0.034, K = -0.4112 | BK: a = 1.952, K = -0.4154
+   L=1    data: a = 1.658 +- 0.011, K = -0.9532 | BK: a = 1.648, K = -0.9259
+   L=2    data: a = 1.220 +- 0.004, K = -0.7343 | BK: a = 1.223, K = -0.7408
+   L=3    data: a = 0.951 +- 0.003, K = -0.5178 | BK: a = 0.953, K = -0.5206
+   L=5    data: a = 0.780 +- 0.002, K = -0.4822 | BK: a = 0.780, K = -0.4829
+   L=10   data: a = 1.097 +- 0.001, K = -2.348 | BK: a = 1.098, K = -2.357
+   L=20   data: a = 1.089 +- 0.001, K = -5.194 | BK: a = 1.089, K = -5.192
+   L=50   data: a = 0.970 +- 0.000, K = -5.822 | BK: a = 0.970, K = -5.822
+
+out/c2_ctrl.json
+CHI     n=1653866 Lg=13.004
+   L=0.5  data 0.27635 +- 0.00011  GUE 0.28016  BK 0.27627  data-GUE -0.00381  BK-GUE -0.00389  (data-BK)/se +0.8
+   L=1    data 0.32393 +- 0.00020  GUE 0.34416  BK 0.32345  data-GUE -0.02023  BK-GUE -0.02071  (data-BK)/se +2.4
+   L=2    data 0.36263 +- 0.00035  GUE 0.41567  BK 0.36196  data-GUE -0.05304  BK-GUE -0.05371  (data-BK)/se +1.9
+   L=3    data 0.37826 +- 0.00034  GUE 0.45706  BK 0.37748  data-GUE -0.07880  BK-GUE -0.07958  (data-BK)/se +2.3
+   L=5    data 0.40732 +- 0.00012  GUE 0.50899  BK 0.40712  data-GUE -0.10167  BK-GUE -0.10188  (data-BK)/se +1.7
+   L=10   data 0.41273 +- 0.00159  GUE 0.57930  BK 0.40928  data-GUE -0.16656  BK-GUE -0.17001  (data-BK)/se +2.2
+   L=20   data 0.33360 +- 0.00175  GUE 0.64955  BK 0.33104  data-GUE -0.31594  BK-GUE -0.31851  (data-BK)/se +1.5
+   L=50   data 0.40173 +- 0.00266  GUE 0.74239  BK 0.39520  data-GUE -0.34066  BK-GUE -0.34719  (data-BK)/se +2.5
+CHIBAR  n=1653865 Lg=13.004
+   L=0.5  data 0.27626 +- 0.00007  GUE 0.28016  BK 0.27627  data-GUE -0.00390  BK-GUE -0.00389  (data-BK)/se -0.2
+   L=1    data 0.32383 +- 0.00020  GUE 0.34416  BK 0.32345  data-GUE -0.02033  BK-GUE -0.02071  (data-BK)/se +1.9
+   L=2    data 0.36257 +- 0.00034  GUE 0.41567  BK 0.36196  data-GUE -0.05310  BK-GUE -0.05371  (data-BK)/se +1.8
+   L=3    data 0.37823 +- 0.00033  GUE 0.45706  BK 0.37748  data-GUE -0.07883  BK-GUE -0.07958  (data-BK)/se +2.3
+   L=5    data 0.40740 +- 0.00012  GUE 0.50899  BK 0.40712  data-GUE -0.10159  BK-GUE -0.10188  (data-BK)/se +2.4
+   L=10   data 0.41275 +- 0.00156  GUE 0.57930  BK 0.40928  data-GUE -0.16654  BK-GUE -0.17001  (data-BK)/se +2.2
+   L=20   data 0.33372 +- 0.00176  GUE 0.64955  BK 0.33104  data-GUE -0.31583  BK-GUE -0.31851  (data-BK)/se +1.5
+   L=50   data 0.40171 +- 0.00266  GUE 0.74239  BK 0.39520  data-GUE -0.34068  BK-GUE -0.34719  (data-BK)/se +2.5
+DH      n=1477027 Lg=13.004
+   L=0.5  data 0.26603 +- 0.00007  GUE 0.28016  BK 0.27627  data-GUE -0.01413  BK-GUE -0.00389  (data-BK)/se -152.4
+   L=1    data 0.33371 +- 0.00021  GUE 0.34416  BK 0.32345  data-GUE -0.01046  BK-GUE -0.02072  (data-BK)/se +49.6
+   L=2    data 0.51172 +- 0.00053  GUE 0.41567  BK 0.36196  data-GUE +0.09605  BK-GUE -0.05372  (data-BK)/se +283.7
+   L=3    data 0.71107 +- 0.00099  GUE 0.45706  BK 0.37748  data-GUE +0.25400  BK-GUE -0.07958  (data-BK)/se +337.7
+   L=5    data 1.19045 +- 0.00223  GUE 0.50899  BK 0.40711  data-GUE +0.68146  BK-GUE -0.10188  (data-BK)/se +351.4
+   L=10   data 2.72106 +- 0.00821  GUE 0.57930  BK 0.40927  data-GUE +2.14176  BK-GUE -0.17002  (data-BK)/se +281.6
+   L=20   data 7.07759 +- 0.02418  GUE 0.64955  BK 0.33102  data-GUE +6.42804  BK-GUE -0.31852  (data-BK)/se +279.0
+   L=50   data 33.90350 +- 0.12256  GUE 0.74239  BK 0.39521  data-GUE +33.16111  BK-GUE -0.34719  (data-BK)/se +273.4
+HEATa   n=1970222 Lg=16.587
+   L=0.5  data 0.28406 +- 0.00009  GUE 0.28016  BK 0.27843  data-GUE +0.00390  BK-GUE -0.00173  (data-BK)/se +63.6
+   L=1    data 0.35425 +- 0.00013  GUE 0.34416  BK 0.33505  data-GUE +0.01009  BK-GUE -0.00911  (data-BK)/se +142.8
+   L=2    data 0.43445 +- 0.00027  GUE 0.41567  BK 0.39170  data-GUE +0.01878  BK-GUE -0.02397  (data-BK)/se +155.9
+   L=3    data 0.49118 +- 0.00048  GUE 0.45706  BK 0.42121  data-GUE +0.03412  BK-GUE -0.03585  (data-BK)/se +146.3
+   L=5    data 0.58399 +- 0.00092  GUE 0.50899  BK 0.45510  data-GUE +0.07500  BK-GUE -0.05389  (data-BK)/se +140.5
+   L=10   data 0.76256 +- 0.00224  GUE 0.57930  BK 0.47122  data-GUE +0.18326  BK-GUE -0.10808  (data-BK)/se +130.3
+   L=20   data 1.06380 +- 0.00544  GUE 0.64955  BK 0.40524  data-GUE +0.41425  BK-GUE -0.24430  (data-BK)/se +121.1
+   L=50   data 2.39561 +- 0.02054  GUE 0.74239  BK 0.37692  data-GUE +1.65322  BK-GUE -0.36547  (data-BK)/se +98.3
+HEATb   n=1797068 Lg=16.587
+   L=0.5  data 0.28663 +- 0.00009  GUE 0.28016  BK 0.27843  data-GUE +0.00647  BK-GUE -0.00173  (data-BK)/se +89.2
+   L=1    data 0.41032 +- 0.00013  GUE 0.34416  BK 0.33505  data-GUE +0.06616  BK-GUE -0.00911  (data-BK)/se +588.4
+   L=2    data 0.63313 +- 0.00060  GUE 0.41567  BK 0.39170  data-GUE +0.21746  BK-GUE -0.02397  (data-BK)/se +404.2
+   L=3    data 0.86757 +- 0.00125  GUE 0.45706  BK 0.42121  data-GUE +0.41051  BK-GUE -0.03585  (data-BK)/se +357.3
+   L=5    data 1.38608 +- 0.00296  GUE 0.50899  BK 0.45510  data-GUE +0.87709  BK-GUE -0.05389  (data-BK)/se +315.0
+   L=10   data 3.01145 +- 0.00888  GUE 0.57930  BK 0.47122  data-GUE +2.43215  BK-GUE -0.10808  (data-BK)/se +285.9
+   L=20   data 7.75975 +- 0.02948  GUE 0.64955  BK 0.40524  data-GUE +7.11020  BK-GUE -0.24430  (data-BK)/se +249.4
+   L=50   data 34.42899 +- 0.15342  GUE 0.74239  BK 0.37692  data-GUE +33.68660  BK-GUE -0.36547  (data-BK)/se +222.0
+HEATc   n=1155858 Lg=16.587
+   L=0.5  data 0.26914 +- 0.00009  GUE 0.28016  BK 0.27843  data-GUE -0.01102  BK-GUE -0.00173  (data-BK)/se -102.4
+   L=1    data 0.56507 +- 0.00019  GUE 0.34416  BK 0.33505  data-GUE +0.22091  BK-GUE -0.00911  (data-BK)/se +1239.7
+   L=2    data 1.41556 +- 0.00098  GUE 0.41567  BK 0.39170  data-GUE +0.99989  BK-GUE -0.02397  (data-BK)/se +1048.6
+   L=3    data 2.62729 +- 0.00235  GUE 0.45706  BK 0.42121  data-GUE +2.17023  BK-GUE -0.03585  (data-BK)/se +937.1
+   L=5    data 6.12068 +- 0.00696  GUE 0.50899  BK 0.45510  data-GUE +5.61169  BK-GUE -0.05389  (data-BK)/se +814.2
+   L=10   data 21.08581 +- 0.02865  GUE 0.57930  BK 0.47122  data-GUE +20.50651  BK-GUE -0.10808  (data-BK)/se +719.5
+   L=20   data 77.73586 +- 0.11162  GUE 0.64955  BK 0.40524  data-GUE +77.08632  BK-GUE -0.24430  (data-BK)/se +692.8
+   L=50   data 461.48437 +- 0.67774  GUE 0.74239  BK 0.37692  data-GUE +460.74198  BK-GUE -0.36547  (data-BK)/se +680.4

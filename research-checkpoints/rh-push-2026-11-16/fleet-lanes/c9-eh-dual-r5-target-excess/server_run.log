@@ -1,0 +1,14 @@
+# q=7 k=6 Np=6 d=7 r=4 workers=4 weights=39
+# planned memory per worker: coefficient matrices 1.9 MB; sieve 1.8 MB; phase tables <= 745 primes x 137257 bytes = 0.10 GB; weight matrix 36.7 MB; pair tables (weights x pairs x 8 bytes, pairs <= ~8 q^Np) <= 0.29 GB; total for 4 workers <= 2.93 GB
+k=6 N=6 lam=0 d=7 r=4 freqs=13434 rows=2801 65.6s  a: U=2800 NP2=140003937241 T1=8.068e+06
+k=6 N=5 lam=1 d=7 r=4 freqs=13434 rows=2801 69.1s  a: U=2800 NP2=1115148672036 T1=8.559e+06
+k=6 N=4 lam=2 d=7 r=4 freqs=13434 rows=2801 67.3s  a: U=2800 NP2=1368148963041 T1=1.892e+07
+k=6 N=3 lam=3 d=7 r=4 freqs=13434 rows=2801 68.3s  a: U=2800 NP2=24119129121129 T1=7.905e+07
+k=6 N=2 lam=4 d=7 r=4 freqs=13434 rows=2801 70.5s  a: U=2187 NP2=1075850221824 T1=8.39e+07
+# q=7 k=6 Np=6 d=6 r=5 workers=4 weights=39
+# planned memory per worker: coefficient matrices 1.9 MB; sieve 1.8 MB; phase tables <= 4106 primes x 137257 bytes = 0.56 GB; weight matrix 36.7 MB; pair tables (weights x pairs x 8 bytes, pairs <= ~8 q^Np) <= 0.29 GB; total for 4 workers <= 4.78 GB
+k=6 N=6 lam=0 d=6 r=5 freqs=113247 rows=19608 511.3s  a: U=19607 NP2=2377230497929 T1=6.438e+07
+k=6 N=5 lam=1 d=6 r=5 freqs=113247 rows=19608 587.9s  a: U=19607 NP2=98719565235984 T1=1.947e+08
+k=6 N=4 lam=2 d=6 r=5 freqs=113247 rows=19608 816.2s  a: U=19607 NP2=1142412532569 T1=6.794e+08
+k=6 N=3 lam=3 d=6 r=5 freqs=113247 rows=19608 637.7s  a: U=19607 NP2=40744999678761 T1=8.013e+08
+k=6 N=2 lam=4 d=6 r=5 freqs=113247 rows=19608 658.6s  a: U=16317 NP2=1075850221824 T1=5.622e+08

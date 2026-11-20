@@ -1,0 +1,54 @@
+U=128000 rows R=36134 (squarefree primary u coprime to 6, N(u)<=U) t=0.1s
+config r=0.0 z=0.9 k=1: marks n=2926 (split primes, 9872.5 < N <= 39490.2); planned A 2926x36134 c64 x2 + G: 2.24 GB
+    mean |Q_u|^2 by N(u) bin, a_p = conj(conj_g5)(p) (random-phase control in brackets):
+            1 <= N(u) <      30: rows      8    0.808  [ 1.212]   excess*N^(1/6) -0.255  excess*N^(1/3) -0.339
+           30 <= N(u) <     100: rows     21    1.786  [ 1.248]   excess*N^(1/6)  1.533  excess*N^(1/3)  2.987
+          100 <= N(u) <     300: rows     55    1.401  [ 0.931]   excess*N^(1/6)  0.947  excess*N^(1/3)  2.235
+          300 <= N(u) <    1000: rows    198    1.181  [ 1.038]   excess*N^(1/6)  0.517  excess*N^(1/3)  1.478
+         1000 <= N(u) <    3000: rows    566    1.158  [ 1.015]   excess*N^(1/6)  0.549  excess*N^(1/3)  1.901
+         3000 <= N(u) <   10000: rows   1983    1.136  [ 0.984]   excess*N^(1/6)  0.570  excess*N^(1/3)  2.394
+        10000 <= N(u) <   30000: rows   5628    1.183  [ 1.015]   excess*N^(1/6)  0.932  excess*N^(1/3)  4.743
+        30000 <= N(u) <  100000: rows  19765    1.191  [ 1.003]   excess*N^(1/6)  1.175  excess*N^(1/3)  7.240
+       100000 <= N(u) <  300000: rows   7910    1.181  [ 0.986]   excess*N^(1/6)  1.355  excess*N^(1/3) 10.116
+      u = 1: |Q_1|^2 = 0.044   (n = 2926)
+  w=one  mean w=1.0000 tr=1.0000 | I(1)/tr=1.063 | best Gauss conj_g5 I/tr=1.185 | sup/tr >= 1.621 (start rand5) <= 1.759 | n/R=0.0810 (1+sqrt(n/R))^2=1.650 | top row N=94003 share 0.000 | max overlap g1 0.027 t=48s
+config r=0.0 z=0.9 k=2: marks n=2926 (split primes, 9872.5 < N <= 39490.2); planned A 2926x36134 c64 x2 + G: 2.24 GB
+    mean |Q_u|^2 by N(u) bin, a_p = conj(g2)(p) (random-phase control in brackets):
+            1 <= N(u) <      30: rows      8   35.749  [ 0.765]   excess*N^(1/6) 46.136  excess*N^(1/3) 61.253
+           30 <= N(u) <     100: rows     21   19.871  [ 1.104]   excess*N^(1/6) 36.774  excess*N^(1/3) 71.664
+          100 <= N(u) <     300: rows     55   13.550  [ 1.044]   excess*N^(1/6) 29.631  excess*N^(1/3) 69.959
+          300 <= N(u) <    1000: rows    198    9.042  [ 0.980]   excess*N^(1/6) 23.003  excess*N^(1/3) 65.799
+         1000 <= N(u) <    3000: rows    566    6.671  [ 0.973]   excess*N^(1/6) 19.653  excess*N^(1/3) 68.108
+         3000 <= N(u) <   10000: rows   1983    4.787  [ 1.026]   excess*N^(1/6) 15.901  excess*N^(1/3) 66.761
+        10000 <= N(u) <   30000: rows   5628    3.772  [ 1.001]   excess*N^(1/6) 14.099  excess*N^(1/3) 71.718
+        30000 <= N(u) <  100000: rows  19765    2.803  [ 0.989]   excess*N^(1/6) 11.113  excess*N^(1/3) 68.487
+       100000 <= N(u) <  300000: rows   7910    2.414  [ 0.997]   excess*N^(1/6) 10.557  excess*N^(1/3) 78.816
+      u = 1: |Q_1|^2 = 73.573   (n = 2926)
+  w=one  mean w=1.0000 tr=1.0000 | I(1)/tr=1.010 | best Gauss g2 I/tr=3.106 | sup/tr >= 3.135 (start rand5) <= 3.168 | n/R=0.0810 (1+sqrt(n/R))^2=1.650 | top row N=1 share 0.000 | max overlap g2 0.993 t=73s
+config r=0.0 z=0.75 k=1: marks n=608 (split primes, 1691.8 < N <= 6767.2); planned A 608x36134 c64 x2 + G: 0.38 GB
+    mean |Q_u|^2 by N(u) bin, a_p = conj(conj_g5)(p) (random-phase control in brackets):
+            1 <= N(u) <      30: rows      8    0.932  [ 0.578]   excess*N^(1/6) -0.090  excess*N^(1/3) -0.120
+           30 <= N(u) <     100: rows     21    0.802  [ 1.064]   excess*N^(1/6) -0.385  excess*N^(1/3) -0.751
+          100 <= N(u) <     300: rows     55    0.833  [ 1.068]   excess*N^(1/6) -0.394  excess*N^(1/3) -0.930
+          300 <= N(u) <    1000: rows    198    1.212  [ 1.050]   excess*N^(1/6)  0.605  excess*N^(1/3)  1.731
+         1000 <= N(u) <    3000: rows    566    1.138  [ 1.027]   excess*N^(1/6)  0.479  excess*N^(1/3)  1.658
+         3000 <= N(u) <   10000: rows   1983    1.152  [ 0.976]   excess*N^(1/6)  0.639  excess*N^(1/3)  2.682
+        10000 <= N(u) <   30000: rows   5628    1.152  [ 0.976]   excess*N^(1/6)  0.776  excess*N^(1/3)  3.946
+        30000 <= N(u) <  100000: rows  19765    1.149  [ 0.993]   excess*N^(1/6)  0.917  excess*N^(1/3)  5.651
+       100000 <= N(u) <  300000: rows   7910    1.127  [ 0.984]   excess*N^(1/6)  0.950  excess*N^(1/3)  7.094
+      u = 1: |Q_1|^2 = 0.164   (n = 608)
+  w=one  mean w=1.0000 tr=0.9997 | I(1)/tr=1.007 | best Gauss conj_g5 I/tr=1.145 | sup/tr >= 1.303 (start rand2) <= 1.364 | n/R=0.0168 (1+sqrt(n/R))^2=1.276 | top row N=95419 share 0.000 | max overlap ones 0.062 t=75s
+config r=0.0 z=0.75 k=2: marks n=608 (split primes, 1691.8 < N <= 6767.2); planned A 608x36134 c64 x2 + G: 0.38 GB
+    mean |Q_u|^2 by N(u) bin, a_p = conj(g2)(p) (random-phase control in brackets):
+            1 <= N(u) <      30: rows      8   10.558  [ 1.131]   excess*N^(1/6) 12.690  excess*N^(1/3) 16.848
+           30 <= N(u) <     100: rows     21    7.517  [ 0.910]   excess*N^(1/6) 12.700  excess*N^(1/3) 24.749
+          100 <= N(u) <     300: rows     55    5.580  [ 1.322]   excess*N^(1/6) 10.814  excess*N^(1/3) 25.532
+          300 <= N(u) <    1000: rows    198    3.945  [ 1.057]   excess*N^(1/6)  8.424  excess*N^(1/3) 24.096
+         1000 <= N(u) <    3000: rows    566    3.169  [ 1.011]   excess*N^(1/6)  7.515  excess*N^(1/3) 26.044
+         3000 <= N(u) <   10000: rows   1983    2.539  [ 1.003]   excess*N^(1/6)  6.463  excess*N^(1/3) 27.135
+        10000 <= N(u) <   30000: rows   5628    1.950  [ 0.985]   excess*N^(1/6)  4.833  excess*N^(1/3) 24.583
+        30000 <= N(u) <  100000: rows  19765    1.655  [ 1.009]   excess*N^(1/6)  4.035  excess*N^(1/3) 24.869
+       100000 <= N(u) <  300000: rows   7910    1.549  [ 1.013]   excess*N^(1/6)  4.102  excess*N^(1/3) 30.628
+      u = 1: |Q_1|^2 = 13.897   (n = 608)
+  w=one  mean w=1.0000 tr=0.9997 | I(1)/tr=0.981 | best Gauss g2 I/tr=1.774 | sup/tr >= 1.784 (start g1) <= 1.796 | n/R=0.0168 (1+sqrt(n/R))^2=1.276 | top row N=46093 share 0.000 | max overlap g2 0.994 t=77s
+total 77.0s

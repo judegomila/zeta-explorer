@@ -1,0 +1,50 @@
+{
+ "a1-without": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 68000,
+  "worst_scaled_difference": 4.424514891067724e-16
+ },
+ "b4m-without": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 68000,
+  "worst_scaled_difference": 1.8474041311656335e-13
+ },
+ "b6-without": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 68000,
+  "worst_scaled_difference": 2.2052724698880505e-14
+ },
+ "b1-Ao": {
+  "kind": "shift tau h^2/2",
+  "pairs": 34,
+  "entries": 68000,
+  "worst_scaled_difference": 1.7439205782411264e-13
+ },
+ "b1-B": {
+  "kind": "shift tau h^2/2",
+  "pairs": 34,
+  "entries": 68000,
+  "worst_scaled_difference": 4.307756957591734e-14
+ },
+ "b2-without": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 67694,
+  "worst_scaled_difference": 5.115876831508228e-13
+ },
+ "b2-B": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 67694,
+  "worst_scaled_difference": 1.2789746626437622e-13
+ },
+ "b5m-without": {
+  "kind": "equal",
+  "pairs": 34,
+  "entries": 67694,
+  "worst_scaled_difference": 5.098112431059411e-13
+ }
+}

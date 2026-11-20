@@ -1,0 +1,88 @@
+N = 160, prec = 320 bits, workers = 4; quadrature nodes 432; planned: (114 + 1) ball matrices 160x160 per worker (~1.77 GB per worker at 0.2 kB per entry incl. serialised copies)
+stage 1 done 303s; A_log[0,0]-1 = [-4e-96 +/- 6.82e-97]
+K2 real objects done 20s
+K2 complex + cramer done 24s
+K5 real objects done 36s
+K3 real objects done 38s
+K5 complex + cramer done 39s
+K3 complex + cramer done 43s
+K4 real objects done 61s
+K4 complex + cramer done 66s
+K6 real objects done 43s
+K6 complex + cramer done 44s
+K2 all done 122s
+a0.5 real objects done 13s
+a0.5 complex + cramer done 13s
+s0.9 real objects done 16s
+s0.9 complex + cramer done 16s
+a0.5 all done 73s
+s1.0 real objects done 21s
+s1.0 complex + cramer done 23s
+s0.9 all done 115s
+s1.12 real objects done 17s
+s1.12 complex + cramer done 20s
+s1.0 all done 95s
+s1.16 real objects done 19s
+s1.16 complex + cramer done 20s
+K3 all done 363s
+s1.2 real objects done 16s
+s1.2 complex + cramer done 17s
+s1.12 all done 252s
+s1.3 real objects done 15s
+s1.3 complex + cramer done 16s
+s1.16 all done 237s
+s1.4 real objects done 28s
+s1.4 complex + cramer done 30s
+s1.2 all done 222s
+s1.5 real objects done 30s
+s1.5 complex + cramer done 31s
+s1.3 all done 300s
+s1.6 real objects done 38s
+s1.6 complex + cramer done 39s
+s1.4 all done 356s
+K4 all done 929s
+s1.5 all done 480s
+s1.6 all done 401s
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/run_weil.py", line 290, in stage2
+    adm['ZETA_' + var] = admissible(F, arb(0), cz, var, True)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/run_weil.py", line 274, in admissible
+    fm = f(d, sgn * mid)
+         ^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/run_weil.py", line 239, in f
+    return min(F.lam(coef, shift, var, 0, 0)['lam'], F.lam(coef, shift, var, 0, 1)['lam'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/run_weil.py", line 149, in lam
+    r = eigmin_subspace(M, w, V)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/wlib.py", line 324, in eigmin_subspace
+    E, Q = mpm.eigsy(Bm)
+           ^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/matrices/eigen_symmetric.py", line 569, in eigsy
+    tridiag_eigen(ctx, d, e, A)
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/matrices/eigen_symmetric.py", line 426, in tridiag_eigen
+    raise RuntimeError("tridiag_eigen: no convergence to an eigenvalue after %d iterations" % iterlim)
+RuntimeError: tridiag_eigen: no convergence to an eigenvalue after 190 iterations
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s2-weil-coefficient-rigidity/run_weil.py", line 334, in <module>
+    results = dict(pool.map(stage2, AKEYS, chunksize=1))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+RuntimeError: tridiag_eigen: no convergence to an eigenvalue after 190 iterations

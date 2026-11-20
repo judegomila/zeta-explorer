@@ -1,0 +1,7 @@
+[6] 240|0.94|r_19_40 cell 240 K0* 0.58340964042904564 thr 0.5958955604273235 target 0.012485919998 grid (9, 13, 11) G1 3001 quadn 11 budget 1500 nw 24 piece 0s
+   409 done, 0 open, 26 inflight, 852 init left, top nan, cnt {'cheap': 0, 'gap': 409, 'full': 0, 'exc': 0, 'inf': 0}, 60s cpu 1397s
+   774 done, 9 open, 26 inflight, 478 init left, top 0.055242, cnt {'cheap': 0, 'gap': 783, 'full': 9, 'exc': 0, 'inf': 0}, 120s cpu 2715s
+   950 done, 81 open, 26 inflight, 230 init left, top 0.151017, cnt {'cheap': 0, 'gap': 1031, 'full': 81, 'exc': 0, 'inf': 0}, 180s cpu 4187s
+   1001 done, 179 open, 26 inflight, 81 init left, top 0.235526, cnt {'cheap': 0, 'gap': 1180, 'full': 179, 'exc': 0, 'inf': 0}, 240s cpu 5604s
+   1021 done, 240 open, 26 inflight, 0 init left, top 0.284253, cnt {'cheap': 0, 'gap': 1287, 'full': 266, 'exc': 0, 'inf': 0}, 300s cpu 6794s
+   1021 done, 240 open, 26 inflight, 0 init left, top 0.284253, cnt {'cheap': 0, 'gap': 1287, 'full': 266, 'exc': 0, 'inf': 0}, 360s cpu 6794s

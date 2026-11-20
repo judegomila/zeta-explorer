@@ -1,0 +1,58 @@
+{
+ "family_e0.3_d0.0": {
+  "e": 0.3,
+  "d": 0.0,
+  "lee_yang": true,
+  "chain": 0.03990379792718015,
+  "complete": 0.03990379792506947
+ },
+ "family_e0.3_d0.001": {
+  "e": 0.3,
+  "d": 0.001,
+  "lee_yang": true,
+  "chain": 0.03893558089345567,
+  "complete": 0.03893558089541111
+ },
+ "family_e0.3_d0.01": {
+  "e": 0.3,
+  "d": 0.01,
+  "lee_yang": true,
+  "chain": 0.030223109607254835,
+  "complete": 0.030223109610552433
+ },
+ "family_e0.3_d0.05": {
+  "e": 0.3,
+  "d": 0.05,
+  "lee_yang": true,
+  "chain": 5.593095431244421e-13,
+  "complete": 1.6653345369377348e-15
+ },
+ "family_e0.3_d0.2": {
+  "e": 0.3,
+  "d": 0.2,
+  "lee_yang": true,
+  "chain": 7.466249840604178e-14,
+  "complete": 2.831068712794149e-15
+ },
+ "random_N4": {
+  "N": 4,
+  "tested": 40,
+  "not_chain": 0,
+  "not_complete_graph": 0,
+  "worst_residual_complete": 0.0
+ },
+ "random_N5": {
+  "N": 5,
+  "tested": 40,
+  "not_chain": 3,
+  "not_complete_graph": 3,
+  "worst_residual_complete": 0.2884563023203468
+ },
+ "random_N6": {
+  "N": 6,
+  "tested": 40,
+  "not_chain": 3,
+  "not_complete_graph": 3,
+  "worst_residual_complete": 0.06300017784564527
+ }
+}

@@ -1,0 +1,48 @@
+C1  Jensen constant C(theta) = min_x [a(x-1) + kap*(2-x)_+]/ln x,  a = theta-1/2
+  theta=0.8750  C=0.541011 at x=2.0000   a/ln2=0.541011
+  theta=0.8000  C=0.432809 at x=2.0000   a/ln2=0.432809
+  theta=0.7500  C=0.360674 at x=2.0000   a/ln2=0.360674
+  theta=0.6000  C=0.144270 at x=2.0000   a/ln2=0.144270
+  theta=0.5500  C=0.072135 at x=2.0000   a/ln2=0.072135
+  threshold theta for C < 0.1038: 0.5719486773421223
+C2  Ivic Thm 8.4 moment table m(sigma) (recalled) and 1/m convexity through (theta,0)
+  max K = m(s0)(7/8-s0) = 2.041661 at s0=0.64815;  35/54=0.64815, exact K(35/54) = 49/24
+  sigma=0.66  m_ivic=   9.314  m_ZF=K/(7/8-sigma)=   9.496
+  sigma=0.70  m_ivic=  10.809  m_ZF=K/(7/8-sigma)=  11.667
+  sigma=0.75  m_ivic=  14.270  m_ZF=K/(7/8-sigma)=  16.333
+  sigma=0.80  m_ivic=  19.853  m_ZF=K/(7/8-sigma)=  27.222
+  sigma=0.83  m_ivic=  25.942  m_ZF=K/(7/8-sigma)=  45.370
+  sigma=0.86  m_ivic=  32.472  m_ZF=K/(7/8-sigma)= 136.111
+  sigma=0.87  m_ivic=  35.235  m_ZF=K/(7/8-sigma)= 408.333
+C3  Ingham-type density with contour alpha and m(alpha)-th moment: A = 2/[(2-2s) + f*(s-alpha)], f=2m/(m+2)
+  sigma=0.60  best A_ZF-Ingham=2.1429 at alpha=0.5000   Ingham 3/(2-s)=2.1429   min(Ingham,Huxley,GM) A=2.1429
+  sigma=0.65  best A_ZF-Ingham=2.2222 at alpha=0.5000   Ingham 3/(2-s)=2.2222   min(Ingham,Huxley,GM) A=2.2222
+  sigma=0.70  best A_ZF-Ingham=2.3077 at alpha=0.5000   Ingham 3/(2-s)=2.3077   min(Ingham,Huxley,GM) A=2.3077
+  sigma=0.75  best A_ZF-Ingham=2.4000 at alpha=0.5000   Ingham 3/(2-s)=2.4000   min(Ingham,Huxley,GM) A=2.2222
+  sigma=0.78  best A_ZF-Ingham=2.4590 at alpha=0.5000   Ingham 3/(2-s)=2.4590   min(Ingham,Huxley,GM) A=2.1739
+  sigma=0.80  best A_ZF-Ingham=2.5000 at alpha=0.5000   Ingham 3/(2-s)=2.5000   min(Ingham,Huxley,GM) A=2.1429
+  sigma=0.85  best A_ZF-Ingham=2.6087 at alpha=0.5000   Ingham 3/(2-s)=2.6087   min(Ingham,Huxley,GM) A=1.9355
+  sigma=0.87  best A_ZF-Ingham=2.6549 at alpha=0.5000   Ingham 3/(2-s)=2.6549   min(Ingham,Huxley,GM) A=1.8634
+  dD/dalpha sign on ZF branch = sign(2*sigma - 2*theta - K) < 0 for all sigma<theta:  True
+C4  divisor problem exponents alpha_k: ZF bound 7/8 - 49/(24k) vs recalled tables
+  k=    9  ZF=0.64815  Ivic85=0.64815  1-1.889k^(-2/3)=0.56341  BY k>=58: nan
+  k=   12  ZF=0.70486  Ivic85=0.71429  1-1.889k^(-2/3)=0.63961  BY k>=58: nan
+  k=   16  ZF=0.74740  Ivic85=0.77778  1-1.889k^(-2/3)=0.70250  BY k>=58: nan
+  k=   17  ZF=0.75490  Ivic85=0.78947  1-1.889k^(-2/3)=0.71429  BY k>=58: nan
+  k=   20  ZF=0.77292  Ivic85=0.81818  1-1.889k^(-2/3)=0.74362  BY k>=58: nan
+  k=   25  ZF=0.79333  Ivic85=0.85185  1-1.889k^(-2/3)=0.77906  BY k>=58: nan
+  k=   30  ZF=0.80694  Ivic85=0.85294  1-1.889k^(-2/3)=0.80435  BY k>=58: nan
+  k=   31  ZF=0.80914  Ivic85=0.85714  1-1.889k^(-2/3)=0.80858  BY k>=58: nan
+  k=   32  ZF=0.81120  Ivic85=0.86111  1-1.889k^(-2/3)=0.81259  BY k>=58: nan
+  k=   33  ZF=0.81313  Ivic85=0.86486  1-1.889k^(-2/3)=0.81639  BY k>=58: nan
+  k=   35  ZF=0.81667  Ivic85=0.87179  1-1.889k^(-2/3)=0.82346  BY k>=58: nan
+  k=   40  ZF=0.82396  Ivic85=0.88636  1-1.889k^(-2/3)=0.83849  BY k>=58: nan
+  k=   50  ZF=0.83417  Ivic85=0.90741  1-1.889k^(-2/3)=0.86082  BY k>=58: nan
+  k=   60  ZF=0.84097  Ivic85=0.91905  1-1.889k^(-2/3)=0.87675  BY k>=58: 0.91797
+  k=  100  ZF=0.85458  Ivic85=0.95143  1-1.889k^(-2/3)=0.91232  BY k>=58: 0.94228
+  k= 1000  ZF=0.87296  Ivic85=0.99514  1-1.889k^(-2/3)=0.98111  BY k>=58: 0.98774
+C5  mu(sigma) under ZF(7/8): kap*(theta-sigma)/(theta-1/2) vs convexity 2*kap*(1-sigma)
+  sigma=0.6250  ZF=13/126  conv=13/112
+  sigma=0.7500  ZF=13/252  conv=13/168
+  sigma=0.8000  ZF=13/420  conv=13/210
+  sigma=0.8333  ZF=13/756  conv=13/252

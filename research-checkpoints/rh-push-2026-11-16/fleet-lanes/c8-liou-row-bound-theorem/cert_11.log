@@ -1,0 +1,11 @@
+Gauss sums at 498 primes; max | |gamma_1| - 1 | <= [2.7199137723880446091176037655011140803e-35 +/- 2.69e-73]   1s
+X 2^11 M 2048  c 877  classes 409  ordered same-class pairs 2061 (diagonal 877)
+rows 177409 (q_m <= 48893), distinct norms 10200; N done 105s
+dual done 122s; principal (pair, h) terms 330396, all with exponent 0 and r_d = phi(d) exactly
+N    = [440.8347250752010474004922 +/- 1.28e-23]   (imag part [+/- 3.10e-33])   row tail <= [2.0145e-25 +/- 3.99e-30]
+D    = [427.9499732888491627286717 +/- 2.58e-23]
+P    = [21.87269136462887604396379 +/- 4.36e-24]
+Rem  = [-8.987939578276991372143247 +/- 1.41e-25]   (imag part [+/- 8.95e-36])   frequency tail <= [7.3664e-26 +/- 3.37e-31]
+N - D - P - Rem (truncated sums) = [-1.1e-30 +/- 4.09e-32]
+CERTIFIED: |N - (D + P + Rem)| <= [2.75119e-25 +/- 2.13e-31] for the full (untruncated) sums: enclosure of the truncated difference plus the two tail bounds
+P > 0 certified: True;  Rem/P = [-0.4109206054 +/- 4.56e-11];  (N - D)/D = [0.03010807943 +/- 3.50e-12]

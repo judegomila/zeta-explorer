@@ -1,0 +1,6 @@
+case PLANT T 10000 nearest off-line ordinate at distance 100.000, Delta 5.000, zeros used 706 (on-line 704), on-line zeros nearer than the off-line one: 235
+  pivot 34 undecided at 256 bits -> 512 bits
+  pivot 54 undecided at 512 bits -> 1024 bits
+  pivot 88 undecided at 1024 bits -> 2048 bits
+  pivot 147 undecided at 2048 bits -> 4096 bits
+  pivot 249 undecided at 4096 bits -> 8192 bits

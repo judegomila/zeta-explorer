@@ -1,0 +1,44 @@
+{
+ "V6": {
+  "identity_f_conv_1plus6_eq_1_conv_1minus6": true,
+  "f6": -1,
+  "f2f3": 1,
+  "max_dev_partial_sums_5n_over_7": 4.285714285714286,
+  "N": 7776,
+  "log_series_matches_to_order_5": true
+ },
+ "CYC": {
+  "finite_product_is_all_ones_poly": true,
+  "K": 6,
+  "abs_prod_times_1_minus_w_minus_1": 4.523477655648113e-15,
+  "abs_w": 0.9983918565382238,
+  "sum_log_q_pow_minus_half_60_terms": 2.6912470638699255
+ },
+ "TS1": {
+  "forward": true,
+  "converse": true,
+  "P": 37,
+  "M": 400,
+  "c2_at_P": "-2",
+  "a2_at_P": "3"
+ },
+ "P0": {
+  "ineq_holds": true
+ },
+ "A_deg1_const": 3.414213562373096,
+ "E": {
+  "zeta2_minus_1": 0.6449340668482264,
+  "bound": 1.0354517795637856
+ },
+ "NRq": {
+  "threshold": 2.19736822693562,
+  "zero_c_2p1": [
+   0.8573113163837811,
+   3.5644279563827386
+  ],
+  "real_zero_c_minus_2p1": 0.8573113163837811
+ },
+ "line10": {
+  "max_excess_over_2s_plus_s2": 0.0
+ }
+}

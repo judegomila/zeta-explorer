@@ -1,0 +1,3 @@
+dh N=313858 closest pair index 57904: float64 list 42696.022260803453 42696.023914462930 gap 1.653659e-03
+  30-digit zeros 42696.022260803690792 42696.023914462951562 gap 0.00165365926077 ; relative gap difference -1.31e-07 ; sign of Z left/mid/right of the pair: +1 -1 +1
+  longdouble (eps 2.2e-16) window flow, step factor 0.01: t_c = 3.4182478438e-07  (float64 run: 3.4182453729773337e-07 ; pair value 3.4182361884e-07) ; beta(0.5) = 1542.4846 (float64 window value 1525.1383349590412) ; beta(0.05) = 15253.166 (16026.247364886598)

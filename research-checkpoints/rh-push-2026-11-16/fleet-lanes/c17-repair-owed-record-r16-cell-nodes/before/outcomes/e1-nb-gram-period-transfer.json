@@ -1,0 +1,49 @@
+{
+ "slug": "e1-nb-gram-period-transfer",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "vasyunin-gram",
+  "vasyunin-lammin-uniform-lower-bound",
+  "cotangent-reciprocity-period-function"
+ ],
+ "launchedNodes": [
+  "vasyunin-gram",
+  "cotangent-reciprocity-period-function",
+  "vasyunin-lammin-uniform-lower-bound",
+  "frobenius-gcd-factorisation",
+  "rm-kappa-smooth-open"
+ ],
+ "tags": [
+  "nyman-beurling",
+  "gram",
+  "period-function",
+  "mv-cap"
+ ],
+ "verdict": "partial",
+ "survivingClaim": "PROVED (elementary, checked by a second agent; novelty unchecked): 1/(64 * 2^Omega_N * N^2) <= lam_min(G_N) <= (3 + log N)/(N-1)^2 for the Vasyunin Gram matrix, so lam_min >= A_p N^-p holds for every p > 2 and for no p < 2; p = 2 is open. This settles the open lemma vasyunin-lammin-uniform-lower-bound in the form p = 2 + eps. MEASURED (N <= 2000): the same law (exponents -1.91 to -1.94) for zeta, four characters mod 3/4/5, DH and two periodic sequences with neither Euler product nor functional equation.",
+ "obstruction": "lam_min(G_N) is a mean-value quantity fixed by the 1/|s|^2 weight: the same N^-2 law holds for DH and for sequences with no arithmetic structure, and it bounds only the size of the optimal coefficients, not the distance d_N. The period-function recursion on Gram entries restates classical formulas and adds no zero information; no transfer-operator compression found (non-existence not proved). Stops at rows P14/P15.",
+ "obstructionKind": "mean-value / control-blind",
+ "controlsThatDefeat": [
+  "DH: same lam_min law (exponent -1.928); DH floor 8.4e-5 invisible at N <= 2000",
+  "four Dirichlet characters and two periodic sequences without Euler product or functional equation: same law"
+ ],
+ "lesson": "Do not use lam_min of Nyman-Beurling Gram matrices as a zero detector. Phi(u) = u A(1) - sum_{m<=u}(1*a)(m) gives the eigenvalue bounds in a few lines.",
+ "refereeHolds": true,
+ "refereeNote": "No error in any PROVED step; Lemmas 2 and 3 are restatements of classical formulas.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.1,
+ "newNodes": [
+  {
+   "id": "vasyunin-lammin-two-sided",
+   "type": "identity",
+   "status": "proved",
+   "statement": "1/(64*2^Omega_N*N^2) <= lam_min(G_N) <= (3+log N)/(N-1)^2; exponent exactly 2 up to N^o(1); p = 2 open."
+  }
+ ],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-nb-gram-period-transfer/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-nb-gram-period-transfer/REFEREE.md"
+}

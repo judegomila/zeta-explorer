@@ -1,0 +1,16 @@
+N=2000000000 planned allocation 6.00 GB (3 byte arrays)
+check M(min(N,1e6))=212 (212 at 1e6) Meps=294
+check L(2,chi3): direct 0.781302412896449 constant 0.781302412896486
+DONE
+mode DH N=1000000000 planned allocation 8.00 GB
+check: (sum b n^-3)(sum a n^-3) = 1 (expect 1)
+zeta(2) check 1.64493406684822644 vs 1.64493406684822644 ; Binf=0.999931666859954451
+DONE
+mode EA N=1000000000 planned allocation 9.00 GB
+check: (sum b n^-3) zeta(3+a) zeta(3-a) = 0.999999999999924 (expect 1)
+zeta(2) check 1.64493406684822644 vs 1.64493406684822644 ; Binf=0.348991037926638099
+DONE
+mode EA N=1000000000 planned allocation 9.00 GB
+check: (sum b n^-3) zeta(3+a) zeta(3-a) = 0.999999999999991 (expect 1)
+zeta(2) check 1.64493406684822644 vs 1.64493406684822644 ; Binf=0.364458221108315004
+DONE

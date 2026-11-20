@@ -1,0 +1,174 @@
+{
+ "before": {
+  "generated": 41827,
+  "scored": 11561,
+  "listed": 60,
+  "top60": {
+   "open": 33,
+   "floored only": 27,
+   "closed": 0,
+   "none": 0
+  },
+  "openDevicesInTop60": {
+   "ek-vector-specific-row-mean-square": 12,
+   "ff-order2-vertex-probe": 8,
+   "map-open-1": 6,
+   "eh-nonprincipal-row-cancellation": 7
+  },
+  "outcomes": 84,
+  "closedOutcomes": 60,
+  "devices": {
+   "closed": 26,
+   "floored": 2,
+   "open": 4
+  },
+  "deviceNodes": {
+   "closed": 60,
+   "floored": 7,
+   "open": 4
+  },
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 430,
+   "closed family: fam-order2-theta-rows": 1857,
+   "closed family: fam-legendre-dual-limits": 1368,
+   "contains a combination closed in outcomes.json": 4196,
+   "contains a closed device: positive-kernel-transport": 536,
+   "closed family: fam-vaughan-split-landau": 308,
+   "contains a closed device: residue-explicit-formula": 521,
+   "covariant under shift and reciprocal (RZ_b passes every step)": 375,
+   "closed family: fam-one-zero-forces-many": 222,
+   "closed family: fam-nb-gram-lammin": 436,
+   "closed family: fam-projection-domination-gonek": 295,
+   "closed family: fam-arithmetic-nb-span": 283,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 552,
+   "contains a closed device: euler-fe-phase-at-height": 334,
+   "closed family: fam-euler-anchor-heat": 663,
+   "closed family: fam-hecke-shear-commutator": 49,
+   "closed family: fam-pd-log-strip": 6,
+   "contains a closed device: monotone-flow-functional": 738,
+   "contains a closed device: mean-value-convexity": 409,
+   "closed family: fam-laxphillips-hecke-compression": 33,
+   "contains a closed device: strip-dtn-identity": 31,
+   "contains a closed device: exact-uniqueness": 32,
+   "closed family: fam-linear-zero-measure-lmi": 31,
+   "closed family: fam-primitive-test-restriction": 584,
+   "closed family: fam-helson-discrepancy-zerofree": 14,
+   "closed family: fam-selberg-control-companion": 617,
+   "closed family: fam-torus-exclusion-sign-test": 133,
+   "contains a closed device: geometric-positivity": 166,
+   "only arithmetic step is target-blind algebra (same for every control)": 1,
+   "contains a closed device: recurrence-ergodicity": 44,
+   "closed family: fam-heat-monotone-hankel": 168,
+   "no open or floored crossing device (curated/devices.json)": 13820,
+   "all members flow-stable and none arithmetic (backward heat passes)": 586,
+   "all members attached to one closed row": 13,
+   "contains a closed device: dual-measure-compactness": 34,
+   "closed family: fam-multidelay-section": 45,
+   "all members from one module": 4,
+   "closed family: fam-stage-limit-semicontinuity": 114,
+   "closed family: fam-reflected-euler-stage-canonical": 16,
+   "no member uses multiplicativity (DH passes)": 16,
+   "contains a closed device: twisted-discrepancy": 82,
+   "contains a closed device: maximum-principle": 104
+  }
+ },
+ "after": {
+  "generated": 41659,
+  "scored": 12165,
+  "listed": 60,
+  "top60": {
+   "open": 33,
+   "floored only": 27,
+   "closed": 0,
+   "none": 0
+  },
+  "openDevicesInTop60": {
+   "ek-vector-specific-row-mean-square": 12,
+   "ff-order2-vertex-probe": 8,
+   "map-open-1": 6,
+   "eh-nonprincipal-row-cancellation": 7
+  },
+  "outcomes": 84,
+  "closedOutcomes": 60,
+  "devices": {
+   "closed": 28,
+   "floored": 1,
+   "open": 4
+  },
+  "deviceNodes": {
+   "closed": 62,
+   "floored": 6,
+   "open": 4
+  },
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 432,
+   "closed family: fam-order2-theta-rows": 1900,
+   "closed family: fam-legendre-dual-limits": 1387,
+   "contains a combination closed in outcomes.json": 3297,
+   "contains a closed device: positive-kernel-transport": 560,
+   "closed family: fam-vaughan-split-landau": 309,
+   "contains a closed device: residue-explicit-formula": 526,
+   "covariant under shift and reciprocal (RZ_b passes every step)": 375,
+   "closed family: fam-one-zero-forces-many": 224,
+   "closed family: fam-nb-gram-lammin": 436,
+   "closed family: fam-projection-domination-gonek": 296,
+   "closed family: fam-arithmetic-nb-span": 283,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 553,
+   "contains a closed device: euler-fe-phase-at-height": 337,
+   "closed family: fam-euler-anchor-heat": 663,
+   "closed family: fam-hecke-shear-commutator": 50,
+   "closed family: fam-pd-log-strip": 6,
+   "contains a closed device: monotone-flow-functional": 741,
+   "contains a closed device: mean-value-convexity": 409,
+   "closed family: fam-laxphillips-hecke-compression": 34,
+   "contains a closed device: strip-dtn-identity": 32,
+   "contains a closed device: exact-uniqueness": 32,
+   "closed family: fam-linear-zero-measure-lmi": 31,
+   "closed family: fam-primitive-test-restriction": 584,
+   "closed family: fam-helson-discrepancy-zerofree": 15,
+   "closed family: fam-selberg-control-companion": 632,
+   "closed family: fam-torus-exclusion-sign-test": 133,
+   "contains a closed device: geometric-positivity": 166,
+   "only arithmetic step is target-blind algebra (same for every control)": 1,
+   "contains a closed device: recurrence-ergodicity": 44,
+   "closed family: fam-heat-monotone-hankel": 168,
+   "no open or floored crossing device (curated/devices.json)": 13824,
+   "all members flow-stable and none arithmetic (backward heat passes)": 586,
+   "all members attached to one closed row": 13,
+   "contains a closed device: dual-measure-compactness": 34,
+   "closed family: fam-multidelay-section": 45,
+   "all members from one module": 4,
+   "closed family: fam-stage-limit-semicontinuity": 114,
+   "closed family: fam-reflected-euler-stage-canonical": 16,
+   "no member uses multiplicativity (DH passes)": 16,
+   "contains a closed device: twisted-discrepancy": 82,
+   "contains a closed device: maximum-principle": 104
+  },
+  "graph": {
+   "nodes": 1623,
+   "edges": 8806,
+   "controls": 51,
+   "nodeFiles": 19,
+   "raw": 1275
+  },
+  "hasNodes": {
+   "ctl-EISW": true,
+   "hecke-correspondence-recurrence": true
+  },
+  "eiswEdges": [
+   {
+    "source": "ctl-EISW",
+    "target": "hecke-correspondence-recurrence",
+    "type": "control-defeats",
+    "why": "control named in a closed node"
+   },
+   {
+    "source": "ctl-WT",
+    "target": "ctl-EISW",
+    "type": "special-case-of",
+    "why": "on the modular surface the window translate tau_{w - i alpha} is the Eisenstein series E(., w - i alpha)",
+    "curated": true
+   }
+  ]
+ }
+}

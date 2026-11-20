@@ -1,0 +1,36 @@
+{
+ "slug": "c1-shear-hecke-fricke",
+ "round": 1,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "shear",
+  "hecke",
+  "klein",
+  "bridge"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For windowed L^2 norms (whole-line only for kappa-type kernels): [V_n, G_tau] = G_tau(exp(tau l(u+l)/4) - 1)V_n; the eigen-defect of 1 - lambda V_p under the Gaussian shear has tau-order exactly 1 with coefficient (log p/4)*sigma when c(pm) = lambda c(m) for all m and K_p != 0, and order 0 otherwise. Zeta, zeta(s+a), completely multiplicative sign twists and unimodular twists all have order 1 (confirmed independently to 4-5 digits), so the test does not separate zeta and the statement is an identity (multiplicativity at p), not an inequality. w_4 on the X_0(4)(R) arc is u -> -u and gives evenness only. For tau < 0 the termwise prime expansion of H_tau converges absolutely at every z and holds equally for a sign-twisted control; that it cannot be carried to tau = 0 is a heuristic supported by Rodgers-Tao, not a theorem. No requirement R1-R4 is established; nothing about zeros of zeta is claimed.",
+ "obstruction": "[V_n, G_tau] = G_tau(exp(tau l(u+l)/4) - 1)V_n; the eigen-defect order in tau is 1 iff coefficients are completely multiplicative at p, else 0, and no higher order exists. The statement is an identity (multiplicativity at p), not an inequality. w_4 on the X_0(4)(R) arc is u -> -u (evenness only). The sheared prime expansion converges on the critical line only for tau < 0, where the conclusion is false (carry to tau = 0 is heuristic, Rodgers-Tao).",
+ "obstructionKind": "multiplicativity-identity-not-inequality",
+ "controlsThatDefeat": [
+  "completely multiplicative sign twists (order 1, same as zeta)",
+  "zeta(s+0.3) (order 1)",
+  "unimodular twist (order 1)",
+  "Beurling (order 1)",
+  "backward heat (tau < 0 side is where the expansion converges)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "The Hecke eigen-property is carried along by the shear (conjugated operators keep it at every tau); the only thing special at tau = 0 is that Hecke operators are translations, which is \"completely multiplicative ordinary Dirichlet series\" restated. Defect order in tau is 0 or 1 and cannot separate zeta from any completely multiplicative control. tau = 0 is the boundary of the sheared prime expansion's convergence domain, approached from the side where the conclusion is false, with l^1 size about exp(1/(4|tau|)).",
+ "followUp": "None on this lane. Close OBSTRUCTION_MAP section 6 item 11 under the Gaussian-shear reading. The one untested reading is theta off the arc (Re tau_mod != 0) with the full T(p^2); the referee equivalence T(p^2)-eigen iff c(pm) = c(m) suggests the same outcome. No server job was run.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-shear-hecke-fricke/RESULT.md"
+}

@@ -1,0 +1,1460 @@
+{
+ "prec": 1024,
+ "tuples_per_cell": 300,
+ "grid_step": 0.015625,
+ "objects": {
+  "gauss": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|10": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|10": [
+    0,
+    300,
+    0
+   ]
+  },
+  "liouville": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|10": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|10": [
+    0,
+    300,
+    0
+   ]
+  },
+  "NR(1000003,2.2)": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|6": [
+    266,
+    34,
+    0
+   ],
+   "trans|cluster|7": [
+    209,
+    91,
+    0
+   ],
+   "trans|cluster|8": [
+    293,
+    7,
+    0
+   ],
+   "trans|cluster|9": [
+    293,
+    7,
+    0
+   ],
+   "trans|cluster|10": [
+    187,
+    113,
+    0
+   ],
+   "trans|far|3": [
+    209,
+    91,
+    0
+   ],
+   "trans|far|4": [
+    157,
+    143,
+    0
+   ],
+   "trans|far|5": [
+    178,
+    122,
+    0
+   ],
+   "trans|far|6": [
+    153,
+    147,
+    0
+   ],
+   "trans|far|7": [
+    147,
+    153,
+    0
+   ],
+   "trans|far|8": [
+    141,
+    159,
+    0
+   ],
+   "trans|far|9": [
+    149,
+    151,
+    0
+   ],
+   "trans|far|10": [
+    131,
+    169,
+    0
+   ],
+   "hankel|bulk|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|5": [
+    299,
+    1,
+    0
+   ],
+   "hankel|bulk|6": [
+    2,
+    298,
+    0
+   ],
+   "hankel|bulk|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|9": [
+    299,
+    1,
+    0
+   ],
+   "hankel|bulk|10": [
+    2,
+    298,
+    0
+   ],
+   "hankel|cluster|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|5": [
+    291,
+    9,
+    0
+   ],
+   "hankel|cluster|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|8": [
+    291,
+    9,
+    0
+   ],
+   "hankel|cluster|9": [
+    297,
+    3,
+    0
+   ],
+   "hankel|cluster|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    197,
+    103,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    79,
+    221,
+    0
+   ],
+   "hankel|far|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|8": [
+    219,
+    81,
+    0
+   ],
+   "hankel|far|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|10": [
+    83,
+    217,
+    0
+   ]
+  },
+  "chi5": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    299,
+    1,
+    0
+   ],
+   "trans|bulk|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|8": [
+    299,
+    1,
+    0
+   ],
+   "trans|bulk|9": [
+    299,
+    1,
+    0
+   ],
+   "trans|bulk|10": [
+    292,
+    8,
+    0
+   ],
+   "trans|cluster|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|4": [
+    273,
+    27,
+    0
+   ],
+   "trans|cluster|5": [
+    171,
+    129,
+    0
+   ],
+   "trans|cluster|6": [
+    293,
+    7,
+    0
+   ],
+   "trans|cluster|7": [
+    114,
+    186,
+    0
+   ],
+   "trans|cluster|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|9": [
+    236,
+    64,
+    0
+   ],
+   "trans|cluster|10": [
+    249,
+    51,
+    0
+   ],
+   "trans|far|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|10": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|4": [
+    297,
+    3,
+    0
+   ],
+   "hankel|bulk|5": [
+    293,
+    7,
+    0
+   ],
+   "hankel|bulk|6": [
+    8,
+    292,
+    0
+   ],
+   "hankel|bulk|7": [
+    21,
+    279,
+    0
+   ],
+   "hankel|bulk|8": [
+    250,
+    50,
+    0
+   ],
+   "hankel|bulk|9": [
+    250,
+    50,
+    0
+   ],
+   "hankel|bulk|10": [
+    40,
+    260,
+    0
+   ],
+   "hankel|cluster|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|4": [
+    287,
+    13,
+    0
+   ],
+   "hankel|cluster|5": [
+    278,
+    22,
+    0
+   ],
+   "hankel|cluster|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|7": [
+    16,
+    284,
+    0
+   ],
+   "hankel|cluster|8": [
+    283,
+    17,
+    0
+   ],
+   "hankel|cluster|9": [
+    278,
+    22,
+    0
+   ],
+   "hankel|cluster|10": [
+    10,
+    290,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|7": [
+    1,
+    299,
+    0
+   ],
+   "hankel|far|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|9": [
+    299,
+    1,
+    0
+   ],
+   "hankel|far|10": [
+    3,
+    297,
+    0
+   ]
+  },
+  "DH": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    299,
+    1,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    298,
+    2,
+    0
+   ],
+   "trans|bulk|7": [
+    287,
+    13,
+    0
+   ],
+   "trans|bulk|8": [
+    281,
+    19,
+    0
+   ],
+   "trans|bulk|9": [
+    266,
+    34,
+    0
+   ],
+   "trans|bulk|10": [
+    255,
+    45,
+    0
+   ],
+   "trans|cluster|3": [
+    187,
+    113,
+    0
+   ],
+   "trans|cluster|4": [
+    240,
+    60,
+    0
+   ],
+   "trans|cluster|5": [
+    286,
+    14,
+    0
+   ],
+   "trans|cluster|6": [
+    209,
+    91,
+    0
+   ],
+   "trans|cluster|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|8": [
+    167,
+    133,
+    0
+   ],
+   "trans|cluster|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|10": [
+    185,
+    115,
+    0
+   ],
+   "trans|far|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|10": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|3": [
+    7,
+    293,
+    0
+   ],
+   "hankel|bulk|4": [
+    292,
+    8,
+    0
+   ],
+   "hankel|bulk|5": [
+    289,
+    11,
+    0
+   ],
+   "hankel|bulk|6": [
+    44,
+    256,
+    0
+   ],
+   "hankel|bulk|7": [
+    59,
+    241,
+    0
+   ],
+   "hankel|bulk|8": [
+    272,
+    28,
+    0
+   ],
+   "hankel|bulk|9": [
+    214,
+    86,
+    0
+   ],
+   "hankel|bulk|10": [
+    60,
+    240,
+    0
+   ],
+   "hankel|cluster|3": [
+    15,
+    285,
+    0
+   ],
+   "hankel|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|5": [
+    283,
+    17,
+    0
+   ],
+   "hankel|cluster|6": [
+    2,
+    298,
+    0
+   ],
+   "hankel|cluster|7": [
+    23,
+    277,
+    0
+   ],
+   "hankel|cluster|8": [
+    289,
+    11,
+    0
+   ],
+   "hankel|cluster|9": [
+    286,
+    14,
+    0
+   ],
+   "hankel|cluster|10": [
+    30,
+    270,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|7": [
+    1,
+    299,
+    0
+   ],
+   "hankel|far|8": [
+    299,
+    1,
+    0
+   ],
+   "hankel|far|9": [
+    298,
+    2,
+    0
+   ],
+   "hankel|far|10": [
+    5,
+    295,
+    0
+   ]
+  },
+  "zeta": {
+   "trans|bulk|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|bulk|10": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|cluster|5": [
+    298,
+    2,
+    0
+   ],
+   "trans|cluster|6": [
+    262,
+    38,
+    0
+   ],
+   "trans|cluster|7": [
+    221,
+    79,
+    0
+   ],
+   "trans|cluster|8": [
+    289,
+    11,
+    0
+   ],
+   "trans|cluster|9": [
+    284,
+    16,
+    0
+   ],
+   "trans|cluster|10": [
+    191,
+    109,
+    0
+   ],
+   "trans|far|3": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|4": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|5": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|6": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|7": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|8": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|9": [
+    300,
+    0,
+    0
+   ],
+   "trans|far|10": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|bulk|6": [
+    1,
+    299,
+    0
+   ],
+   "hankel|bulk|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|bulk|8": [
+    297,
+    3,
+    0
+   ],
+   "hankel|bulk|9": [
+    296,
+    4,
+    0
+   ],
+   "hankel|bulk|10": [
+    2,
+    298,
+    0
+   ],
+   "hankel|cluster|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|cluster|5": [
+    291,
+    9,
+    0
+   ],
+   "hankel|cluster|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|cluster|8": [
+    286,
+    14,
+    0
+   ],
+   "hankel|cluster|9": [
+    297,
+    3,
+    0
+   ],
+   "hankel|cluster|10": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|3": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|4": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|5": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|6": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|7": [
+    0,
+    300,
+    0
+   ],
+   "hankel|far|8": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|9": [
+    300,
+    0,
+    0
+   ],
+   "hankel|far|10": [
+    0,
+    300,
+    0
+   ]
+  }
+ },
+ "total_tuples": 86400
+}

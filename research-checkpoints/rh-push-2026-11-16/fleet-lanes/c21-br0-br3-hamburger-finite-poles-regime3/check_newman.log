@@ -1,0 +1,19 @@
+{
+ "bound 2/(kappa(sigma-1/2)-pi/2) at sigma=1.25": "1.3993807",
+ "|R(1.25+it)|, t=0,0.5,1,2,4,8": [
+  "0.12951027",
+  "0.36637354",
+  "0.17244927",
+  "0.064658992",
+  "0.021507873",
+  "0.0066466198"
+ ],
+ "seconds for 81 values": 87.3,
+ "max |R(1.25+it)| on t in [0,20] step 0.25": "0.36637354",
+ "min |1+R(1.25+it)| on t in [0,20] step 0.25": "0.73051713",
+ "1+R at 1-s_2 by the Laplace form (independent of the entire form)": "0.00011463",
+ "1+R at 1-s_3 by the Laplace form": "0.003269",
+ "R'(1-s_2) (simple zero if nonzero)": "(37.8447485966 - 3.15566327298j)",
+ "zeta(1-s_2)": "(0.491762222107 + 1.21106306561j)"
+}
+scripts/memcap.sh 8 python3.14   95.31s user 0.45s system 100% cpu 1:35.67 total

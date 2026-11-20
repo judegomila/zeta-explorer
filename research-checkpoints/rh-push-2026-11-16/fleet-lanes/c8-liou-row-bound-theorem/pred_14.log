@@ -1,0 +1,14 @@
+X 2^14  squarefree c 6949  classes 432  0s
+K_1 0.075316  rho_b 0.283932  E_S 28.9709  I_V 0.837443  C_inf (family) 5.091523e-03
+M = X/1: same-class pairs 53327 (with d != 1: 1794)  P_liou 346.7809 (d = 1 part 346.7809)  P_pred 370.1287  ratio 0.9369   limit form 420.4080  P/limit 0.8249   0s
+    nm    P_w 86.5135  P_w/P_liou 0.24948  |mean|^2 0.25538
+    nmph  P_w 152.8495  P_w/P_liou 0.44077  |mean|^2 0.44115
+    iid   P_w 5.2801  P_w/P_liou 0.01523  |mean|^2 0.00007
+M = X/16: same-class pairs 53327 (with d != 1: 1794)  P_liou 37.1437 (d = 1 part 37.1269)  P_pred 39.6809  ratio 0.9361   limit form 41.7098  P/limit 0.8905   0s
+    nm    P_w 9.2659  P_w/P_liou 0.24946  |mean|^2 0.25538
+    nmph  P_w 16.3677  P_w/P_liou 0.44066  |mean|^2 0.44115
+    iid   P_w 0.5669  P_w/P_liou 0.01526  |mean|^2 0.00007
+M = X/0.25: same-class pairs 53327 (with d != 1: 1794)  P_liou 998.0456 (d = 1 part 998.0456)  P_pred 1064.8078  ratio 0.9373   limit form 1334.7122  P/limit 0.7478   0s
+    nm    P_w 248.9648  P_w/P_liou 0.24945  |mean|^2 0.25538
+    nmph  P_w 439.9953  P_w/P_liou 0.44086  |mean|^2 0.44115
+    iid   P_w 15.1664  P_w/P_liou 0.01520  |mean|^2 0.00007

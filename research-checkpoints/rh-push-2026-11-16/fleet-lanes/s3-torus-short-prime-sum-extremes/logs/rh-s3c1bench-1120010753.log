@@ -1,0 +1,4 @@
+N=6420 terms=879 cols=36 K=30000000 step=3233333 Kc=227531 chunks=132 mode=orbit GPU=True
+planned per-chunk arrays: 227531 x 879 x 8 B x 5 = 7.45 GiB
+chunk 132/132 done=3.000e+07 t=105s rate=2.500e+08 terms/s
+done 30000000 105s

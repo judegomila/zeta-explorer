@@ -1,0 +1,29 @@
+box dependence (r = 6, H0 comp): k = E (Lemma 1 + zero-free 7/8, pointwise) and k = D (family GRH)
+G=src geo=src k=E box 1                                    B=0.9761905 (lx,ly,l)=(1.0000,1.0000,0.1429) h=0.1429
+G=src geo=free k=E box 1                                   B=0.9761905 (lx,ly,l)=(1.0000,1.0000,0.1429) h=0.1429
+G=src geo=src k=D box 1                                    B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 1                                   B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=src k=E box 3/2                                  B=0.9642857 (lx,ly,l)=(1.5000,1.5000,0.7143) h=0.2143
+G=src geo=free k=E box 3/2                                 B=0.9642857 (lx,ly,l)=(1.5000,1.5000,0.7143) h=0.2143
+G=src geo=src k=D box 3/2                                  B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 3/2                                 B=0.7916667 (lx,ly,l)=(1.2500,1.2500,1.5000) h=1.2500
+G=src geo=src k=E box 2                                    B=0.9523810 (lx,ly,l)=(2.0000,2.0000,1.2857) h=0.2857
+G=src geo=free k=E box 2                                   B=0.9523810 (lx,ly,l)=(2.0000,2.0000,1.2857) h=0.2857
+G=src geo=src k=D box 2                                    B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 2                                   B=0.7500000 (lx,ly,l)=(1.5000,1.5000,2.0000) h=1.5000
+G=src geo=src k=E box 3                                    B=0.9285714 (lx,ly,l)=(3.0000,3.0000,2.4286) h=0.4286
+G=src geo=free k=E box 3                                   B=0.9285714 (lx,ly,l)=(3.0000,3.0000,2.4286) h=0.4286
+G=src geo=src k=D box 3                                    B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 3                                   B=0.6666667 (lx,ly,l)=(2.0000,2.0000,3.0000) h=2.0000
+G=src geo=src k=E box 4                                    B=0.9047619 (lx,ly,l)=(4.0000,4.0000,3.5714) h=0.5714
+G=src geo=free k=E box 4                                   B=0.9047619 (lx,ly,l)=(4.0000,4.0000,3.5714) h=0.5714
+G=src geo=src k=D box 4                                    B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 4                                   B=0.5833333 (lx,ly,l)=(2.5000,2.5000,4.0000) h=2.5000
+G=src geo=src k=E box 8                                    B=0.8333333 (lx,ly,l)=(7.0000,7.0000,7.0000) h=1.0000
+G=src geo=free k=E box 8                                   B=0.8125000 (lx,ly,l)=(7.8750,7.8750,8.0000) h=1.1250
+G=src geo=src k=D box 8                                    B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 8                                   B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+G=src geo=src k=E box 16                                   B=0.8333333 (lx,ly,l)=(7.0000,7.0000,7.0000) h=1.0000
+G=src geo=free k=E box 16                                  B=0.6458333 (lx,ly,l)=(14.8750,14.8750,16.0000) h=2.1250
+G=src geo=src k=D box 16                                   B=0.8333333 (lx,ly,l)=(1.0000,1.0000,1.0000) h=1.0000
+G=src geo=free k=D box 16                                  B=0.2500000 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]

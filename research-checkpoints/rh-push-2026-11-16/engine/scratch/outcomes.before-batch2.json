@@ -1,0 +1,391 @@
+[
+ {
+  "slug": "c1-leeyang-chain-closure",
+  "verdict": "partial",
+  "nodes": [],
+  "tags": [
+   "finite-stage",
+   "lee-yang"
+  ],
+  "title": "Closure of pair-ferromagnet chains inside the Lee-Yang class",
+  "path": "push/c1-leeyang-chain-closure",
+  "note": "round 1, score 0, referee holds: The closure of pair-ferromagnet laws is a proper subclass of the Lee-Yang class (n >= 5: FK cone; limit sense: GHS), but the separating conditions (GHS, FK cone) are kernel-side positivity that Phi and the DH kernel both satisfy, so they carry no zero information. Whether membership of Phi in the cl"
+ },
+ {
+  "slug": "c1-leeyang-krein-limit",
+  "verdict": "closed",
+  "nodes": [],
+  "tags": [
+   "de-branges",
+   "finite-stage",
+   "hankel",
+   "lee-yang"
+  ],
+  "title": "Lee-Yang stages and a Krein-space limit",
+  "path": "push/c1-leeyang-krein-limit",
+  "note": "round 1, score 1, referee holds: Rank Gamma_- is lower semicontinuous under bounded weak-* convergence, but in the self-dual conductor normalisation every stage symbol tends to the constant -1 on Re z > 0 for zeta and every unimodular twist, so the chain carries no information. With gamma factor and pole renormalisation the stage h"
+ },
+ {
+  "slug": "c1-missing-controls",
+  "verdict": "partial",
+  "nodes": [],
+  "tags": [
+   "control",
+   "heat-flow"
+  ],
+  "title": "Controls not run in earlier lanes",
+  "path": "push/c1-missing-controls",
+  "note": "round 1, score 0, referee holds: Filter repair, no attack. Every missing control gave the inferred outcome; no mechanism passes a control in full. Sign twists pass the DH-failing coefficient steps exactly and fail at the functional-equation step. Fixed shifted pairs are not interlacing partners of Xi (relative to Selberg CLT and Bo"
+ },
+ {
+  "slug": "c1-shear-hecke-fricke",
+  "verdict": "closed",
+  "nodes": [],
+  "tags": [
+   "bridge",
+   "hecke",
+   "klein",
+   "shear"
+  ],
+  "title": "Sheared Hecke commutator at tau -> 0 with Fricke involution",
+  "path": "push/c1-shear-hecke-fricke",
+  "note": "round 1, score 0, referee holds: [V_n, G_tau] = G_tau(exp(tau l(u+l)/4) - 1)V_n; the eigen-defect order in tau is 1 iff coefficients are completely multiplicative at p, else 0, and no higher order exists. The statement is an identity (multiplicativity at p), not an inequality. w_4 on the X_0(4)(R) arc is u -> -u (evenness only). Th"
+ },
+ {
+  "slug": "c1-window-sdp-scaling",
+  "verdict": "closed",
+  "nodes": [],
+  "tags": [
+   "certificate",
+   "explicit-formula",
+   "pick"
+  ],
+  "title": "Windowed semidefinite coupling of Pick positivity with the explicit formula",
+  "path": "push/c1-window-sdp-scaling",
+  "note": "round 1, score 0, referee holds: The real-node Pick matrix is linear in the zero measure, on-line pairs add PSD terms, and the LMI never contains the primes; so the joint window SDP equals the explicit-formula LP (delta*_joint = delta*_EF, T in 1e2..1e6, K <= 24; grid-certified on five node families, node-uniform statement open at "
+ },
+ {
+  "slug": "e1-cofinal-legendre-dual",
+  "verdict": "closed",
+  "nodes": [
+   "cofinal-legendre-dual",
+   "legendre-lp-nu1"
+  ],
+  "tags": [
+   "cofinal",
+   "compactness",
+   "legendre-lp",
+   "mv-cap"
+  ],
+  "title": "INT + GEOM input / compactness of dual measures",
+  "path": "push/e1-cofinal-legendre-dual",
+  "note": "batch 1, strength 0.08, referee holds: The cofinal limit of dual-feasible points keeps none of nu_1(x) ~ sqrt x: integer unit steps against Y log Y force any bounded-discrepancy cofinal dual to density 0, and the LP optima live at t ~ x in x-dependent Moebius-resonant configurations that are not sections of one measure. A fixed cofinal b is controlled only in mean square (MV-CAP); the pointwise bound is the open Moebius sum sum_k mu(k) r_b(x/k) (the source's Step 7).",
+  "launchedNodes": [
+   "cofinal-legendre-dual",
+   "rig-continuum-sawtooth",
+   "plant-suppressed-by-zeta-rho0",
+   "legendre-lcm-identity",
+   "legendre-lp-nu1"
+  ],
+  "defeatedBy": [
+   "E_a = zeta(s+a)zeta(s-a): passes every step (chain returns exponent 1/2 + a; nothing separates it from zeta at the level of exponents; ARGUED)",
+   "Beurling: Lambda_a >= 0 holds, power-size sawtooth discrepancy",
+   "DH, Liouville sign twist, theta^3: fail only at Lambda_a >= 0 (the separating step is positivity with log discrepancy)"
+  ]
+ },
+ {
+  "slug": "e1-rs-torus-laguerre-orbit",
+  "verdict": "closed",
+  "nodes": [
+   "euler-fe-coupling-at-height",
+   "euler-product-torus-parametrisation",
+   "laguerre-hierarchy"
+  ],
+  "tags": [
+   "laguerre",
+   "one-point",
+   "prime-torus",
+   "riemann-siegel"
+  ],
+  "title": "Euler phases and functional equation at one height",
+  "path": "push/e1-rs-torus-laguerre-orbit",
+  "note": "batch 1, strength 0.05, referee found a false PROVED step (verdict stands): The torus exclusion set is entered by the zeta main sum itself; the sign of the Laguerre expression is decided by the Riemann-Siegel remainder of size N^-1/2, so the statement is one-point with no margin (rows S4, Q13) and restates verified height. The coupling theta' = log(main-sum length) is the functional equation alone and holds for DH up to O(t^-2). Order-1 Laguerre detects an off-line pair only if 2/beta^2 > S(gamma).",
+  "launchedNodes": [
+   "dbn-prime-torus-phase-closure",
+   "euler-fe-coupling-at-height",
+   "euler-product-torus-parametrisation",
+   "bridge-winding-equals-NT",
+   "laguerre-hierarchy"
+  ],
+  "defeatedBy": [
+   "DH: satisfies the coupling theta' = log N identically (does not separate)",
+   "backward heat (amplitude tilt only, c < 0): passes the test at the zeta level",
+   "not run: theta^w, T-NR, Beurling, E_a, phase-rotated transfer operator, true heat family"
+  ]
+ },
+ {
+  "slug": "e1-sparse-recurrence-amplifier",
+  "verdict": "closed",
+  "nodes": [
+   "bagchi-strong-recurrence",
+   "large-sieve-density-selector"
+  ],
+  "tags": [
+   "bohr-set",
+   "density-estimate",
+   "recurrence",
+   "restatement"
+  ],
+  "title": "propagation: one off-line zero forces many, then density",
+  "path": "push/e1-sparse-recurrence-amplifier",
+  "note": "batch 1, strength 0.05, referee holds: A recurrence hypothesis whose returns each produce a zero is bounded by the zero count, so it is as strong as the zero-free statement (restatement). zeta_P never vanishes, so an off-line zeta zero is a Haar-null event carried by the tail beyond every finite prime set; Kronecker equidistribution gives frequencies only for sets of positive Haar measure. Closed at step 2.",
+  "launchedNodes": [
+   "bagchi-strong-recurrence",
+   "euler-product-torus-parametrisation",
+   "tinfty-flow-generator-spectrum",
+   "large-sieve-density-selector"
+  ],
+  "defeatedBy": [
+   "sign twist: not separated (argued, not proved)",
+   "DH and E_a: separated only through the density estimate, not through the recurrence step"
+  ]
+ },
+ {
+  "slug": "e1-selberg-twist-control",
+  "verdict": "closed",
+  "nodes": [
+   "selberg-zeta-companion",
+   "pole-coupling-theorem-pc"
+  ],
+  "tags": [
+   "control",
+   "landau",
+   "pole-coupling",
+   "selberg"
+  ],
+  "title": "control with Euler product and functional equation; self-adjoint crossing",
+  "path": "push/e1-selberg-twist-control",
+  "note": "batch 1, strength 0.12, referee holds: Selberg zetas do not supply the missing control: the s <-> 1-s equation belongs to the order-2 function, while the degree-one unimodular Ruelle product has poles where Z has zeros, so every Landau-positivity mechanism holds with reversed inequality. Its off-line zeros are real and finitely many, so it tests nothing at height > 0. The Selberg companion for Theorem PC is closed: sigma* >= 1/2.",
+  "launchedNodes": [
+   "selberg-control-pair",
+   "selberg-freeze-sandbox",
+   "selberg-zeta-companion",
+   "pole-coupling-theorem-pc",
+   "selberg-phase-gate-vs-zeta"
+  ],
+  "defeatedBy": [
+   "SEL (twisted Selberg zeta): none of positive-list items 16-23 fails quantitatively against it (16, 17 pass; 20, 21 pass with reversed sign; 18, 19, 22, 23 not formulable, failing at INT)",
+   "under the weak reading of GEOM/SIZE the minimal input sets become {INT,GEOM} and {FE,SIZE,INT}; under the strict reading the map's three sets stand"
+  ]
+ },
+ {
+  "slug": "e1-nb-gram-period-transfer",
+  "verdict": "partial",
+  "nodes": [
+   "vasyunin-gram",
+   "vasyunin-lammin-uniform-lower-bound",
+   "cotangent-reciprocity-period-function"
+  ],
+  "tags": [
+   "gram",
+   "mv-cap",
+   "nyman-beurling",
+   "period-function"
+  ],
+  "title": "Nyman-Beurling Gram x period function x transfer operator",
+  "path": "push/e1-nb-gram-period-transfer",
+  "note": "batch 1, strength 0.10, referee holds: lam_min(G_N) is a mean-value quantity fixed by the 1/|s|^2 weight: the same N^-2 law holds for DH and for sequences with no arithmetic structure, and it bounds only the size of the optimal coefficients, not the distance d_N. The period-function recursion on Gram entries restates classical formulas and adds no zero information; no transfer-operator compression found (non-existence not proved). Stops at rows P14/P15.",
+  "launchedNodes": [
+   "vasyunin-gram",
+   "cotangent-reciprocity-period-function",
+   "vasyunin-lammin-uniform-lower-bound",
+   "frobenius-gcd-factorisation",
+   "rm-kappa-smooth-open"
+  ],
+  "defeatedBy": [
+   "DH: same lam_min law (exponent -1.928); DH floor 8.4e-5 invisible at N <= 2000",
+   "four Dirichlet characters and two periodic sequences without Euler product or functional equation: same law"
+  ]
+ },
+ {
+  "slug": "e1-forcing-free-bilinear-split",
+  "verdict": "closed",
+  "nodes": [
+   "vaughan-sqrt-type1-exact",
+   "vaughan-forcing-law",
+   "landau-one-sided-target"
+  ],
+  "tags": [
+   "bilinear",
+   "landau",
+   "legendre-lp",
+   "restatement",
+   "vaughan"
+  ],
+  "title": "one-sided Landau target through an exact bilinear identity",
+  "path": "push/e1-forcing-free-bilinear-split",
+  "note": "batch 1, strength 0.04, referee found a false PROVED step (verdict stands): After the forcing is removed by two linear conditions on the mollifier, every identity of this shape is a linear combination of the half-weight Legendre identity (1*Lambda = log) with symbol exactly 1 at every zero; at full level Lambda >= 0 is implied (system has the single solution Lambda), and the remaining one-sided polylog bound on K'[R] is equivalent to RH (Theorem OS). Positivity enters only in Landau's lemma.",
+  "launchedNodes": [
+   "vaughan-sqrt-type1-exact",
+   "vaughan-forcing-law",
+   "landau-one-sided-target",
+   "legendre-lcm-identity"
+  ],
+  "defeatedBy": [
+   "E_a = zeta(s+a)zeta(s-a): not excluded by any proved step",
+   "structured sign twist with Lambda >= 0 (TW+): not excluded by any proved step"
+  ]
+ },
+ {
+  "slug": "e1-gl3-theta-order2-rows",
+  "verdict": "closed",
+  "nodes": [
+   "map-open-1",
+   "mem-new-probe-non-sextic",
+   "seven-eighths-abscissa-formula"
+  ],
+  "tags": [
+   "abscissa",
+   "metaplectic",
+   "order-2",
+   "seven-eighths"
+  ],
+  "title": "7/8-type mechanism: effective order 2",
+  "path": "push/e1-gl3-theta-order2-rows",
+  "note": "batch 1, strength 0.06, referee holds: On double covers a Moebius sign on a quadratic symbol and centring on the unitary axis did not occur together in any computed case: the symbol enters Hecke relations as a Gauss sum over p, so the reciprocal sits at shift 1/2, cancelling the largest order-2 gain h/r = 1/2. Model abscissa 1 or detection only for beta >= 1.",
+  "launchedNodes": [
+   "map-open-1",
+   "separating-probe",
+   "mem-new-probe-non-sextic",
+   "seven-eighths-abscissa-formula"
+  ],
+  "defeatedBy": [
+   "sign twist: gives the same rows (Gram is sign-blind)",
+   "controls give the same rows in the non-symbol pivot"
+  ]
+ },
+ {
+  "slug": "e1-euler-anchor-heat-certificate",
+  "verdict": "closed",
+  "nodes": [
+   "euler-anchor-heat-certificate",
+   "heat-evolved-von-mangoldt-positivity"
+  ],
+  "tags": [
+   "collision",
+   "euler-anchor",
+   "heat-flow",
+   "returns-input"
+  ],
+  "title": "one-height Landau transport with an Euler-product anchor",
+  "path": "push/e1-euler-anchor-heat-certificate",
+  "note": "batch 1, strength 0.07, referee holds: The decisive test 2 pi^2 c > C fails for every fixed c > 0: the Euler product modulates the compression ratio q of adjacent zero pairs at the anchor by order 1/L^2 with both signs, above the trace x^{-C/(2 pi^2)} a past collision leaves. The anchor step returns its input half-plane (f(theta) = theta); the certificate needs S transport below the anchor, i.e. zero positions at the vortex height. Nothing below 0.874886647.",
+  "launchedNodes": [
+   "euler-anchor-heat-certificate",
+   "landau-transport-lemma-l",
+   "offline-zero-visibility-law",
+   "heat-evolved-von-mangoldt-positivity"
+  ],
+  "defeatedBy": [
+   "E_a = zeta(s+a)zeta(s-a): passes the anchor step; constant-S certificate certifies 4 of 12 collided pairs at a = 0.1, L = 6 (unsound without the transport claim)",
+   "lower bound on the deficit does not depend on positivity of the coefficients, so sign twists are not separated"
+  ]
+ },
+ {
+  "slug": "e1-burgers-cascade-anticausal",
+  "verdict": "closed",
+  "nodes": [
+   "resolvent-burgers-identity",
+   "map-pos-16"
+  ],
+  "tags": [
+   "burgers",
+   "flow-blindness",
+   "hankel",
+   "heat-flow"
+  ],
+  "title": "flow functional x square-root lane x prime cascade",
+  "path": "push/e1-burgers-cascade-anticausal",
+  "note": "batch 1, strength 0.05, referee holds: A functional that vanishes on the critical configuration and is monotone along the heat flow must decrease forward, so it only transports information from t < 0 (where the conclusion is false) to t = 0. Differentiating the Hankel data in t does not change row Q4: the prime side is causal for every twist (argued) and the difference is the residue sum over zeros.",
+  "launchedNodes": [
+   "resolvent-burgers-identity",
+   "cole-hopf-viscous-burgers",
+   "discriminant-gradient-flow",
+   "map-pos-16",
+   "map-pos-11",
+   "map-pos-12"
+  ],
+  "defeatedBy": [
+   "backward heat: the functional is bounded only by values at t < 0 where the conclusion is false",
+   "DH-type and E_a-type configurations: no proved step fails for them",
+   "sign twists: prime-side flux zero for every twist (argued from Q4, not computed)"
+  ]
+ },
+ {
+  "slug": "e1-heegner-averaged-nb-span",
+  "verdict": "closed",
+  "nodes": [
+   "heegner-nb-ratio",
+   "nyman-beurling-dx"
+  ],
+  "tags": [
+   "dh-type",
+   "finite-stage",
+   "heegner",
+   "nyman-beurling"
+  ],
+  "title": "Neron-Tate positivity x Nyman-Beurling span",
+  "path": "push/e1-heegner-averaged-nb-span",
+  "note": "batch 1, strength 0.10, referee holds: Averaging over discriminants cancels nothing: every Heegner bracket is of Davenport-Heilbronn type with off-line zeros. The NB ratio is 1 + distance^2 to the constant in L^2(dy/y^2): non-increasing by definition, smaller for a non-multiplicative control, and blind to a Blaschke floor (< 1e-24 above verified height) at values near 3. inf R = 1 would imply RH; no step bounds the distance; nothing passes from finite spans to the limit.",
+  "launchedNodes": [
+   "heegner-nb-ratio",
+   "heegner-height-upper-bound-h4prime",
+   "cm-eta-heights-lambda1",
+   "nyman-beurling-dx"
+  ],
+  "defeatedBy": [
+   "block-permuted non-multiplicative control: smaller ratio (1.4 to 2.1) than the Heegner family",
+   "every averaged bracket is itself DH-type (off-line zeros measured, float64 winding, not certified)"
+  ]
+ },
+ {
+  "slug": "c1-pd-log-strip",
+  "nodes": [],
+  "tags": [
+   "euler-product",
+   "explicit-formula",
+   "zero-free"
+  ],
+  "title": "Positive-definiteness of log zeta(sigma+iu) left of Re s = 1",
+  "path": "push/c1-pd-log-strip",
+  "verdict": "closed",
+  "note": "round 1, score 0, referee holds: The compensated positivity CP(sigma) is equivalent to 'no zeros with Re s > sigma'; the direction CP => zero-free uses only the prime-free half-line x < 0. Raw positive-definiteness fails for every sigma < 1. The PD kernel ends at the pole on the diagonal, so there is no transport in sigma (three na"
+ },
+ {
+  "slug": "c1-multidelay-bohr-section",
+  "nodes": [],
+  "tags": [
+   "euler-product",
+   "passive",
+   "torus"
+  ],
+  "title": "Joint multi-delay (Bohr torus) inner sections of the prime chain",
+  "path": "push/c1-multidelay-bohr-section",
+  "verdict": "closed",
+  "note": "round 1, score 0, referee holds: Within the unipotent chain family a block of prime sections has rank-one additive J-defect, so joint contractivity is the scalar inequality Re U_P <= Re G and twists are torus translations. For finite P no positive-real function of several prime delays can be split off xi'/xi (Theorem B). The sharp "
+ },
+ {
+  "slug": "c1-spinor-hecke-primitive",
+  "nodes": [],
+  "tags": [
+   "hecke",
+   "moebius",
+   "spinor",
+   "weil"
+  ],
+  "title": "Joint Hecke-primitive tests in the bridge energy H_c",
+  "path": "push/c1-spinor-hecke-primitive",
+  "verdict": "open",
+  "note": "round 1, score 0, referee does not hold as written: For a finite set S of primes, jointly S-primitive tests are dense (L^2 and Q) in the test class, so the infimum of Q/norm^2 over primitive tests equals the infimum over all tests: the restriction neither helps nor costs. The Gram matrix of dilations does not contain the function's coefficients. All-"
+ }
+]

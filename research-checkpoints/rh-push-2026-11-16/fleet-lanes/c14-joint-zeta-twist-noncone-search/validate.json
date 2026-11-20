@@ -1,0 +1,110 @@
+{
+ "1-A-W": {
+  "points": 60,
+  "max_rel_err": 1.3600966068293872e-14,
+  "note": "wide ball 6.5e-17",
+  "seconds": 0.0056951045989990234
+ },
+ "1-B-GS-tw": {
+  "points": 60,
+  "max_rel_err": 1.1871124939206114e-11,
+  "note": "wide ball 1.1e-17",
+  "seconds": 0.01976490020751953
+ },
+ "2-A-W": {
+  "points": 60,
+  "max_rel_err": 1.5779857468087658e-14,
+  "note": "wide ball 5.2e-17",
+  "seconds": 0.009193658828735352
+ },
+ "2-B-Lin": {
+  "points": 60,
+  "max_rel_err": 8.803268929182653e-15,
+  "note": "wide ball 9.4e-17",
+  "seconds": 0.012327194213867188
+ },
+ "3-A-W": {
+  "points": 60,
+  "max_rel_err": 12.456408340521525,
+  "note": "wide ball 2.7e-06",
+  "seconds": 0.19120383262634277
+ },
+ "3-B-EAX": {
+  "points": 60,
+  "max_rel_err": 2.9144492922062986e-14,
+  "note": "wide ball 1.4e-15",
+  "seconds": 0.19634151458740234
+ },
+ "4-A-W": {
+  "points": 60,
+  "max_rel_err": 8.407303788831816e-14,
+  "note": "wide ball 8.1e-17",
+  "seconds": 7.211792469024658
+ },
+ "4-B-HeatX": {
+  "points": 60,
+  "max_rel_err": 1.3820784544649012e-14,
+  "note": "wide ball 1.4e-17",
+  "seconds": 0.002756357192993164
+ },
+ "5-A-W": {
+  "points": 60,
+  "max_rel_err": 4.2823668114568563e-14,
+  "note": "wide ball 7.8e-17",
+  "seconds": 0.006697893142700195
+ },
+ "5-B-GS-thw": {
+  "points": 0,
+  "max_rel_err": 0.0,
+  "note": "RuntimeError('theta^w twist: no ball evaluation (PREREG amendment B5)')",
+  "seconds": 0.0044078826904296875
+ },
+ "6-A-W": {
+  "points": 60,
+  "max_rel_err": 5.386266219390707e-14,
+  "note": "wide ball 3.0e-17",
+  "seconds": 0.008140325546264648
+ },
+ "6-B-GS-tw": {
+  "points": 60,
+  "max_rel_err": 1.2078855300462994e-14,
+  "note": "wide ball 1.6e-17",
+  "seconds": 0.009463310241699219
+ },
+ "7-A-W": {
+  "points": 60,
+  "max_rel_err": 7.967014682428939e-13,
+  "note": "wide ball 2.0e-18",
+  "seconds": 0.007517814636230469
+ },
+ "7-B-GS-tw": {
+  "points": 60,
+  "max_rel_err": 8.849096742492804e-15,
+  "note": "wide ball 3.0e-17",
+  "seconds": 0.0075452327728271484
+ },
+ "8-A-BLS": {
+  "points": 60,
+  "max_rel_err": 8.580451258457261e-14,
+  "note": "wide ball 6.7e-17",
+  "seconds": 0.004071712493896484
+ },
+ "8-B-BLS": {
+  "points": 60,
+  "max_rel_err": 2.39676523786785e-14,
+  "note": "wide ball 5.5e-17",
+  "seconds": 0.004489421844482422
+ },
+ "9-A-BEU": {
+  "points": 60,
+  "max_rel_err": 1.3864669486764223e-13,
+  "note": "wide ball 5.4e-17",
+  "seconds": 0.0032739639282226562
+ },
+ "9-B-GS-beu": {
+  "points": 60,
+  "max_rel_err": 8.078295609367089e-15,
+  "note": "wide ball 6.5e-17",
+  "seconds": 0.004824638366699219
+ }
+}

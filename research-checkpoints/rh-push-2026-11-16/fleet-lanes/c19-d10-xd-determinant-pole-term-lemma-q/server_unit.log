@@ -1,0 +1,37 @@
+tasks 340 workers 8
+planned memory: at most 217 x 217 integer Gram matrix per worker, entries below 1e5 bits during elimination: under 1 GB per worker
+0 566 s
+10 1433 s
+20 1895 s
+30 2165 s
+40 2235 s
+50 2292 s
+60 2343 s
+70 2385 s
+80 2395 s
+90 2403 s
+100 2408 s
+110 2413 s
+120 2417 s
+130 2419 s
+140 2419 s
+150 2420 s
+160 2420 s
+170 2421 s
+180 2421 s
+190 2421 s
+200 2422 s
+210 2422 s
+220 2422 s
+230 2422 s
+240 2422 s
+250 2422 s
+260 2423 s
+270 2423 s
+280 2423 s
+290 2423 s
+300 2423 s
+310 2423 s
+320 2423 s
+330 2423 s
+done 2423 s

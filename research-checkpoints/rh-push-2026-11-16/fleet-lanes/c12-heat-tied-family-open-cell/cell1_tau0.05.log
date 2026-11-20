@@ -1,0 +1,3 @@
+tau 0.05 nodes 751 planned memory < 10 MB
+scan s 109.6529278755188 undetermined signs 0
+{'tau': '0.05', 'T': 500.0, 'dt': 0.02, 'n_online': 269, 'extra_close_pairs': 0, 'positive_minima_or_negative_maxima': [], 'fails': {'0.5': 0, '1': 11, '2': 128}, 'first_fail': {'0.5': None, '1': '110.9811057038213117633118', '2': '30.40102802043084010275137'}, 'min_q': {'0.5': 0.4630051426207205, '1': -0.28038193328406363, '2': -0.980262836040618}, 'seconds': 173.50257515907288}

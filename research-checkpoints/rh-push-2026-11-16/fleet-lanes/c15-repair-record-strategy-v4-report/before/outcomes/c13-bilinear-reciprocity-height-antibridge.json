@@ -1,0 +1,54 @@
+{
+ "slug": "c13-bilinear-reciprocity-height-antibridge",
+ "round": 13,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "twist-modulus-reciprocity",
+  "estermann",
+  "voronoi",
+  "bilinear-pair",
+  "j-form",
+  "t-nr",
+  "e_a",
+  "dh",
+  "height-aspect"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction confirmed; nothing about zeros of zeta. I re-derived every PROVED step and reran the numerics with different cases and my own routines.\n\n- **Lemma 1 (Bettin's reciprocity, finite-J with contour-integral remainder):** two new cases pass: a/q=4/9, b=-0.15+2.2i, defect 1.3e-11; a/q=7/3, b=1.3i, defect 7.8e-13. Dropping the dual-modulus terms leaves a defect of order 1. The transcription of Theorem 5 and Prop. cfd matches the source text.\n- **Pair entries:** R_chi(t) = (q/pi)^(1/2) Z_chi(t)Z_chi(-t) is real, and its sign is the parity of on-line zeros in (-t,t). Checked 16 of 16 at q=7 and q=11.\n- **Referee addition:** off-line zeros pair at equal ordinate, so that sign equals (-1)^(total zero count in the window). It is fixed by the argument principle and is the same whether or not the zeros are on the line.\n- **One-sided statements:** only squares on real primitive characters, which is an identity.\n- **T-NR:** multiplies every entry, including the zeta entry, by a positive number in [(|c|-2)^2, (|c|+2)^2]. Rechecked at q=7, q0=3, c=-2.6, to 8e-20.\n- **E_a (real a):** every entry is a Hermitian square. Rechecked at q=7, a=0.25.\n- **DH:** pair entries are real exactly for q = +-1 mod 5. Rechecked at q=31, 29 (real) and q=17, 23 (not real).\n- **Theorem 4(d), strengthened for q=5:** at the 16 zeros of the real-character entry below height 40, the complex-pair entry takes both signs (10 positive, 6 negative). So every combination of the real character with a nonzero weight on the pair is negative at some height. This is a 20-digit floating-point computation, not interval arithmetic.\n\nAll four requirement flags are false, as claimed.\n\nReport: tmp/research-2026-11-16/push/c13-bilinear-reciprocity-height-antibridge/REFEREE.md. Scripts and logs are in /tmp/c13-ref/ (ref2.py, lemma1.log, rest.log, dh.log), outside the repository.",
+ "obstruction": "Decisive test. The reciprocity is Voronoi summation for E(z, 1/2+it): the height is a spectral parameter, zeta's functional equation enters only through the gamma kernel, arguments are tied at (s+j, s-j); no kernel in two heights and no Hermitian pair at t != 0. J-form entries (q/pi)^(1/2) Z_chi(t) Z_chi(-t) are real with sign (-1)^(zero count in the window), fixed by the argument principle whether or not zeros are on the line. The only one-sided statement is squares on real characters (identity). Mixed-weight cone statement (Theorem 4(d)) measured on q = 5, 7 only.",
+ "obstructionKind": "identity-plus-control-pass",
+ "controlsThatDefeat": [
+  "T-NR (multiplies every entry by a positive number; passes every step)",
+  "E_a with real a (every entry is a Hermitian square; positivity is E_a's property, not zeta's)",
+  "DH (pair entries real exactly for q = +-1 mod 5)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Four errors, none of which changes the verdict.\n\nE1. The decay rate of the E_J integrand is misstated. RESULT says O(|v|^(-J-1)); the correct order is |v|^(-(J+3/2+c)), because each zeta factor at Re = 1/2+c < 0 has exact order |v|^(-c). Measured exponents: -2.68 for J=2, c=-0.75 (RESULT's rate gives -3) and about -1.5 for J=1, c=-0.95 (RESULT's rate gives -2). Absolute convergence still holds for every J >= 1, so Lemma 1 stands.\n\nE2. The finite-J form is described as \"not in his text in this fo - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A bilinear pair L(s,chi)L(s,chi-bar) on the critical line is a point value of a self-dual real function: its sign reads on-line zeros mod 2 and nothing off the line, and positivity of such entries is the property of E_a, not of zeta. The exact reciprocity reads the height as an Eisenstein spectral parameter with arguments tied at integer offsets, so it gives no kernel in two heights and no Hermitian pair at t != 0.",
+ "followUp": "None inside this device. Owed: an independent referee (REFEREE.md is the author's second pass). Its first targets: mixed-weight cone statement (Theorem 4 (d), measured only on q=5,7), and whether any exact law exists for the Estermann function off its central point (would give the Hermitian pair at height t).",
+ "resultFile": "tmp/research-2026-11-16/push/c13-bilinear-reciprocity-height-antibridge/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-bilinear-reciprocity-height-antibridge/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds; one status line in a narrower form",
+  "narrowerForm": "Lemma 1 holds as displayed at three fresh instances (not re-proved; relative to Bettin, finite-J form assembled in the lane). The integrand of E_J decays like abs(v)^(-J-3/2-c), -1 < c < -1/2, not abs(v)^(-J-1); absolute convergence for J >= 1 is unchanged. Sign rule holds under L(1/2, chi) != 0; abs(R_chi(t)) = (q/pi)^(1/2) abs(L(1/2+it, chi)) abs(L(1/2-it, chi)).",
+  "downgrades": [
+   "Lemma 1 status line: exponent -J-1 -> -J-3/2-c",
+   "map row sentence 'Sign of R_chi(t) = parity of ...': add the hypothesis L(1/2, chi) != 0"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-bilinear-reciprocity-height-antibridge.md"
+ }
+}

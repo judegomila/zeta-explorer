@@ -1,0 +1,14 @@
+symmetric quartet eta = 1/4, g = 1                         fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+symmetric quartet eta = 1/10, g = 3                        fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+symmetric quartet eta = 9/20, g = 1/2                      fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+symmetric quartet eta = 1/4, g = 30                        fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+symmetric quartet eta = 1/100, g = 1/5                     fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+symmetric quartet eta = 2/5, g = 14                        fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+mis-paired quartet (1/4, 1; right shifted by 1/1000)       fit failures 0 of 10, symmetric True, rank 10, positive  8, negative 2   predicted negative 2
+mis-paired quartet (1/4, 1; right at other height 2)       fit failures 0 of 10, symmetric True, rank 10, positive  8, negative 2   predicted negative 2
+two left pairs                                             fit failures 0 of 10, symmetric True, rank 10, positive  6, negative 4   predicted negative 4
+two right pairs                                            fit failures 0 of 10, symmetric True, rank 10, positive 10, negative 0   predicted negative 0
+left pair doubled                                          fit failures 0 of 10, symmetric True, rank 10, positive  6, negative 4   predicted negative 4
+pair on the line doubled                                   fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+two different pairs on the line                            fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0
+real symmetric pair {1/4,3/4} and pair on the line         fit failures 0 of 10, symmetric True, rank  6, positive  6, negative 0   predicted negative 0

@@ -1,0 +1,78 @@
+{
+ "slug": "s1-prime-torus-orbit",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "bagchi-strong-recurrence",
+  "euler-product-torus-parametrisation",
+  "gram-law-statistics",
+  "kronecker-sup-lower-bounds",
+  "kronecker-sup-rms-transfer",
+  "prime-log-phase-caustics",
+  "ramanujan-cube-satake-point",
+  "source-field-finite-variance"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "euler-product-torus-parametrisation",
+    "source-field-finite-variance"
+   ],
+   "obstruction": "torus statistics are rotation invariant; separation only at t<=P",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "kronecker-sup-lower-bounds",
+    "kronecker-sup-rms-transfer"
+   ],
+   "obstruction": "twists not separated; DH/T-NR fail only via coefficient growth (right of 1)",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist"
+   ]
+  },
+  {
+   "nodes": [
+    "prime-log-phase-caustics",
+    "gram-law-statistics"
+   ],
+   "obstruction": "Gram statistics: T-NR identical; DH separation = zero count (verified height in another form)",
+   "controlsThatDefeat": [
+    "T-NR",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "bagchi-strong-recurrence",
+    "ramanujan-cube-satake-point"
+   ],
+   "obstruction": "recurrence is a property of the flow shared by all controls; RH content is the zero-density input (map row P39)",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "DH",
+    "T-NR",
+    "E_a"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) torus statistics are rotation invariant; separation only at t<=P | (2) twists not separated; DH/T-NR fail only via coefficient growth (right of 1) | (3) Gram statistics: T-NR identical; DH separation = zero count (verified height in another form) | (4) recurrence is a property of the flow shared by all controls; RH content is the zero-density input (map row P39)",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "T-NR",
+  "heat",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-prime-torus-orbit/RESULT.md"
+}

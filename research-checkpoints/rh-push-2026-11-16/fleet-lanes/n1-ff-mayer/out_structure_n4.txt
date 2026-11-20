@@ -1,0 +1,34 @@
+tmp/research-2026-11-16/push/n1-ff-mayer/venv/lib/python3.15/site-packages/numpy/linalg/_linalg.py:2423: RuntimeWarning: divide by zero encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+tmp/research-2026-11-16/push/n1-ff-mayer/venv/lib/python3.15/site-packages/numpy/linalg/_linalg.py:2423: RuntimeWarning: overflow encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+tmp/research-2026-11-16/push/n1-ff-mayer/venv/lib/python3.15/site-packages/numpy/linalg/_linalg.py:2423: RuntimeWarning: invalid value encountered in det
+  r = _umath_linalg.det(a, signature=signature)
+q=3 N=[1, 0, 1, 1, 1] k=2 dim=82
+[S1] ||M - W D|| = 4.891452526401057e-15  ||W W^* - 1|| = 6.080941944488118e-16  ||W - W^*|| = 2.6481832919437645e-15  ||W^2-1|| = 2.619519391050609e-15
+     ||[D,D^*]|| = 3.1619766418088513e-15   ||D(u)^* - D(conj u)|| = 1.9361021955413693e-15
+     eigenvalues of D(u): (value, predicted multiplicity, found): [((-0.13602+2.56927j), 2, 2), (0j, 54, 54), ((-0.63-0.51j), 18, 18), ((1.1232+0.3774j), 6, 6), ((1.77514+1.83059j), 2, 2)]  all match: True
+[S2] Krein symmetry ||M(u)^* W - W M(conj u)|| = 2.04205806337009e-15   signature of W: (+42,-40)
+     ||[M,P]|| = 0.0 ||[W,P]|| = 0.0 ||[D,P]|| = 0.0
+[S3] normality defect at |u|=q^-1/2: ||[M,M^*]||/||M||^2 on V+ = 0.6718507586431787
+[S4] scan over |u|=r (360 angles): max operator norm, max spectral radius of M|V+ ; and of M|V-
+     r=0.0500: max||M+||=   0.353  max specrad(M+)=   0.128  max specrad(M-)=   0.126
+     r=0.1111: max||M+||=   1.000  max specrad(M+)=   0.301  max specrad(M-)=   0.289
+     r=0.1500: max||M+||=   1.636  max specrad(M+)=   0.425  max specrad(M-)=   0.399
+     r=0.2000: max||M+||=   3.000  max specrad(M+)=   0.606  max specrad(M-)=   0.549
+     r=0.2500: max||M+||=   6.000  max specrad(M+)=   0.862  max specrad(M-)=   0.710
+     r=0.3000: max||M+||=  18.000  max specrad(M+)=   1.857  max specrad(M-)=   0.889
+     r=0.4000: max||M+||=  12.000  max specrad(M+)=   2.492  max specrad(M-)=   1.383
+     r=0.5000: max||M+||=   7.808  max specrad(M+)=   2.106  max specrad(M-)=   2.024
+     r=0.5774: max||M+||=  10.607  max specrad(M+)=   2.632  max specrad(M-)=   2.671
+[T1] u=(0.1+0.05j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 5.74e-16   (||lhs||=1.041)
+[T1] u=(0.4-0.3j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 4.21e-15   (||lhs||=3.049)
+[T1] u=(-0.7+0.2j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 1.06e-14   (||lhs||=3.040)
+     L zero u0=1.00000+0.00000j |u0|=1.00000: ||Phi_all(u0)||=46.0478, smallest singular value of 1-M(u0) on V+ = 6.14e-17
+     L zero u0=-0.21614-0.53537j |u0|=0.57735: ||Phi_all(u0)||=10.8597, smallest singular value of 1-M(u0) on V+ = 9.28e-17
+     L zero u0=0.11851+0.56506j |u0|=0.57735: ||Phi_all(u0)||=9.5566, smallest singular value of 1-M(u0) on V+ = 1.22e-16
+[C-def] deformation W -> Q W Q^* (Q unitary, commutes with P): radii of the zeros of det(1 - W'D | V+) that start at the L zeros
+     eps=0: |u| = [0.57735, 0.57735]   (q^-1/2=0.577350)
+     eps=0.001: |u| = [0.577254, 0.576976]   (q^-1/2=0.577350)
+     eps=0.01: |u| = [0.576432, 0.573672]   (q^-1/2=0.577350)
+     eps=0.05: |u| = [0.573698, 0.560238]   (q^-1/2=0.577350)

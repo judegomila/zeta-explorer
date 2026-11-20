@@ -1,0 +1,74 @@
+{
+ "obj": "CHI4",
+ "T": 10000.0,
+ "dt": 0.05,
+ "alpha": 1.0,
+ "fft": [
+  {
+   "eps": 0.3,
+   "leakage": 8.513408536573417e-12,
+   "leakage_first_30": 4.860351311548639e-14,
+   "energy_30_units_at_far_end": 4.3284190616080934e-11,
+   "output_energy": 0.018031005726479005,
+   "input_energy": 0.01803100572647901,
+   "energy_beyond_quarter_window": 5.640849638053307e-10,
+   "du": 0.0006283185307179586,
+   "window": 251.32741228718345
+  },
+  {
+   "eps": 0.2,
+   "leakage": 8.698443835225355e-12,
+   "leakage_first_30": 3.3797640587490387e-13,
+   "energy_30_units_at_far_end": 1.3554916235282397e-10,
+   "output_energy": 0.2862698412698412,
+   "input_energy": 0.28626984126984123,
+   "energy_beyond_quarter_window": 5.282049267561206e-09,
+   "du": 0.0006283185307179586,
+   "window": 251.32741228718345
+  },
+  {
+   "eps": 0.1,
+   "leakage": 4.614456363989278e-09,
+   "leakage_first_30": 1.22148102752564e-11,
+   "energy_30_units_at_far_end": 3.981080820462896e-08,
+   "output_energy": 0.6430952380952382,
+   "input_energy": 0.6430952380952383,
+   "energy_beyond_quarter_window": 9.343368377648469e-07,
+   "du": 0.0006283185307179586,
+   "window": 251.32741228718345
+  },
+  {
+   "eps": 0.05,
+   "leakage": 3.5500391840957803e-07,
+   "leakage_first_30": 2.6462768116512362e-08,
+   "energy_30_units_at_far_end": 7.839714757419386e-07,
+   "output_energy": 0.8215476190476194,
+   "input_energy": 0.8215476190476191,
+   "energy_beyond_quarter_window": 6.795541821580295e-06,
+   "du": 0.0006283185307179586,
+   "window": 251.32741228718345
+  },
+  {
+   "eps": 0.03,
+   "leakage": 1.421096997943794e-07,
+   "leakage_first_30": 5.97661792540223e-09,
+   "energy_30_units_at_far_end": 4.092242438137616e-07,
+   "output_energy": 0.8929285714285714,
+   "input_energy": 0.8929285714285714,
+   "energy_beyond_quarter_window": 5.4083154444824124e-06,
+   "du": 0.0006283185307179586,
+   "window": 251.32741228718345
+  }
+ ],
+ "fft_conjugate_multiplier": {
+  "eps": 0.3,
+  "leakage": 0.01392200193212228,
+  "leakage_first_30": 0.013921812279041794,
+  "energy_30_units_at_far_end": 7.46147132029113e-12,
+  "output_energy": 0.018031005726479,
+  "input_energy": 0.01803100572647901,
+  "energy_beyond_quarter_window": 6.108794547731442e-10,
+  "du": 0.0006283185307179586,
+  "window": 251.32741228718345
+ }
+}

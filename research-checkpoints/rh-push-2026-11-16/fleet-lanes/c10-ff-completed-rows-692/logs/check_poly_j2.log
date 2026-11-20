@@ -1,0 +1,3 @@
+P = T + 0: completed row N = 6 over 42 rows: sum of norms 0 (vanishes: True); without n = l^2: 56154; J in place of Jbar: 1010394; squarefree row alone: 100842; sum_m V_2^2 = 9576
+P = T + 3: completed row N = 6 over 42 rows: sum of norms 0 (vanishes: True); without n = l^2: 56154; J in place of Jbar: 1010394; squarefree row alone: 100842; sum_m V_2^2 = 9576
+CHECK PASSED

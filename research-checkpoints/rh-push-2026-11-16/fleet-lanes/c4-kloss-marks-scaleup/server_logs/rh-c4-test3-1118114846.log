@@ -1,0 +1,87 @@
+planned allocation: element grid 0.01 GB
+[    0.1s] Z=512000 M=1.0 l=0.3333333333333333 cslot=2.0 X=40960000 NMAX=512001 elements=206381 primes=42463
+[    0.1s] rows R=116092  marks n=15 (norms 97..157; 15 in [Z^l, 2Z^l])  small primes=42463
+[    2.7s] gauss sums done: 21199 split sums computed, max||g|-1|=3.26e-14
+[    2.9s] cofactors c': 130064 (mean omega 1.98, max 5)
+planned allocation: W 130064x2x15 c128 (x2 transient), EP 15x116092 int8, per-pair work arrays 15x130064, thread buffers: total 0.29 GB
+[    2.9s] gamma_2(c') done
+[    3.6s] weights done
+planned allocation: inert table 65x116092 int8 = 0.01 GB
+[    5.2s] row tables done; kernel: 116092 rows x 130064 cofactors x 2 systems x 15 marks = 4.530e+11 complex adds
+  kern: 182/3628 blocks, 1 s
+  kern: 364/3628 blocks, 1 s
+  kern: 546/3628 blocks, 2 s
+  kern: 728/3628 blocks, 2 s
+  kern: 910/3628 blocks, 3 s
+  kern: 1092/3628 blocks, 4 s
+  kern: 1274/3628 blocks, 4 s
+  kern: 1456/3628 blocks, 5 s
+  kern: 1638/3628 blocks, 5 s
+  kern: 1820/3628 blocks, 6 s
+  kern: 2002/3628 blocks, 7 s
+  kern: 2184/3628 blocks, 7 s
+  kern: 2366/3628 blocks, 8 s
+  kern: 2548/3628 blocks, 8 s
+  kern: 2730/3628 blocks, 9 s
+  kern: 2912/3628 blocks, 10 s
+  kern: 3094/3628 blocks, 10 s
+  kern: 3276/3628 blocks, 11 s
+  kern: 3458/3628 blocks, 11 s
+  kern: inconsistent sextic classes: 0 (must be 0)
+  kern thread-seconds: symbols 69.5, accumulate 121.6, assemble 0.1
+[   17.2s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.930829 off_rms=0.007483 eig[min,max]=[0.906920,1.032136] herm_asym=3.6e-18
+  Rc : lane-normalised Gram: diag_mean=0.931160 off_rms=0.007623 eig[min,max]=[0.903767,1.035292] herm_asym=3.6e-18
+  K4a: lane-normalised Gram: diag_mean=0.927632 off_rms=0.004528 eig[min,max]=[0.907327,0.985147] herm_asym=3.1e-18
+  Q  : lane-normalised Gram: diag_mean=0.931172 off_rms=0.008030 eig[min,max]=[0.897451,1.039467] herm_asym=3.1e-18
+  QRc: lane-normalised Gram: diag_mean=0.933716 off_rms=0.007602 eig[min,max]=[0.907709,1.037115] herm_asym=4.1e-18
+[   17.2s] saved t_Z512000_lean3.npz
+planned allocation: element grid 0.00 GB
+[    0.0s] Z=32000 M=1.0 l=0.3333 cslot=2.0 X=1015585 NMAX=32001 elements=12899 primes=3432
+[    0.0s] rows R=7249  marks n=6 (norms 37..61; 6 in [Z^l, 2Z^l])  small primes=3432
+[    0.1s] gauss sums done: 1706 split sums computed, max||g|-1|=7.99e-15
+[    0.1s] cofactors c': 8120 (mean omega 1.78, max 4)
+planned allocation: W 8120x4x6 c128 (x2 transient), EP 6x7249 int8, per-pair work arrays 6x8120, thread buffers: total 0.01 GB
+[    0.1s] gamma_2(c') done
+[    0.2s] weights done
+planned allocation: inert table 20x7249 int8 = 0.00 GB
+[    0.3s] row tables done; kernel: 7249 rows x 8120 cofactors x 4 systems x 6 marks = 1.413e+09 complex adds
+  kern: 12/227 blocks, 0 s
+  kern: 24/227 blocks, 0 s
+  kern: 36/227 blocks, 0 s
+  kern: 48/227 blocks, 0 s
+  kern: 60/227 blocks, 0 s
+  kern: 72/227 blocks, 0 s
+  kern: 84/227 blocks, 0 s
+  kern: 96/227 blocks, 0 s
+  kern: 120/227 blocks, 0 s
+  kern: 108/227 blocks, 0 s
+  kern: 132/227 blocks, 0 s
+  kern: 144/227 blocks, 0 s
+  kern: 156/227 blocks, 0 s
+  kern: 168/227 blocks, 0 s
+  kern: 180/227 blocks, 0 s
+  kern: 192/227 blocks, 0 s
+  kern: 204/227 blocks, 0 s
+  kern: 216/227 blocks, 0 s
+  kern: inconsistent sextic classes: 0 (must be 0)
+  kern thread-seconds: symbols 0.3, accumulate 0.3, assemble 0.0
+[    0.3s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.905984 off_rms=0.015962 eig[min,max]=[0.858904,0.993972] herm_asym=4.9e-18
+  K  : lane-normalised Gram: diag_mean=1.930217 off_rms=0.919540 eig[min,max]=[0.869348,6.981749] herm_asym=2.8e-18
+  R  : lane-normalised Gram: diag_mean=0.917189 off_rms=0.009290 eig[min,max]=[0.875433,0.961183] herm_asym=7.3e-18
+  K4a: lane-normalised Gram: diag_mean=0.912769 off_rms=0.017024 eig[min,max]=[0.858357,0.992145] herm_asym=4.8e-18
+  A  : lane-normalised Gram: diag_mean=0.912630 off_rms=0.024116 eig[min,max]=[0.855714,1.033439] herm_asym=6.5e-18
+  Q  : lane-normalised Gram: diag_mean=0.916291 off_rms=0.020695 eig[min,max]=[0.866939,1.024269] herm_asym=4.0e-18
+  QR : lane-normalised Gram: diag_mean=0.918057 off_rms=0.010889 eig[min,max]=[0.879381,0.968362] herm_asym=5.6e-18
+  Q0 : lane-normalised Gram: diag_mean=14.033428 off_rms=12.075153 eig[min,max]=[0.718432,80.424360] herm_asym=6.3e-34
+  T6 : lane-normalised Gram: diag_mean=0.869748 off_rms=0.015396 eig[min,max]=[0.802744,0.952567] herm_asym=7.1e-18
+[    0.3s] saved t3_Z32000.npz
+G_Ap klib3 vs klib2 (cofactor order changed): max rel diff 9.210350573401348e-16
+G_Rc klib3 vs klib2 (cofactor order changed): max rel diff 3.9553943115564653e-16
+G_K4a klib3 vs klib2 (cofactor order changed): max rel diff 6.64981164943066e-16
+G_Q klib3 vs klib2 (cofactor order changed): max rel diff 6.591332697244407e-16
+G_QRc klib3 vs klib2 (cofactor order changed): max rel diff 6.565074265388273e-16
+G_Ap klib3 vs n2 reference: max rel diff 1.4710153284213137e-15
+G_K klib3 vs n2 reference: max rel diff 3.919845022218435e-15
+G_R klib3 vs n2 reference: max rel diff 2.665145482882214e-15

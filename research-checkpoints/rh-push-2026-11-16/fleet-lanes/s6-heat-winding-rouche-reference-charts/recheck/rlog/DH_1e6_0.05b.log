@@ -1,0 +1,7 @@
+y 0.0300 box 1129 engine 2.986323 true 2.969219  (57s)
+y 0.0300 box 5650 engine 0.848702 true 0.848612  (112s)
+y 0.1809 box 1129 engine 1.710362 true 1.700316  (170s)
+y 0.1809 box 5650 engine 0.476857 true 0.476764  (229s)
+y 1.0000 box 1129 engine 0.392722 true 0.392174  (284s)
+y 1.0000 box 5650 engine 0.185450 true 0.185439  (334s)
+SUMMARY {"X": 1000000.0, "t": 0.05, "kind": "DH", "nodes": 24, "prec": 96, "max_abs_f_diff": 0.018495036564861216, "max_rel_E_diff": 7.69957193248261e-11, "sign_flips": 0, "max_ball_radius": 1.5353027385066506e-21}

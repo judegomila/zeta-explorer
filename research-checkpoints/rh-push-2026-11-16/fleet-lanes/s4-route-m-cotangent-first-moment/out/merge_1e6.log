@@ -1,0 +1,2 @@
+M(a), a < 300000: max relative difference, server (5 slices, B=1000000) vs local (B=300000): 3.54e-14
+S(b), b <= 300000: 3.15e-14 ; Q(b): 2.19e-14 ; sum|V|: 4.25e-14

@@ -1,0 +1,40 @@
+{
+ "slug": "c17-window-information-law-ctheta-u5",
+ "round": 17,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands; no statement about zeros of zeta; headline unchanged. Confirmed: the complete band-u positivity device is the quadratic form of T_Z on L^2 of an interval of length u (classical Weil/Yoshida frame, C(theta) tests modulated indicators only); a cluster of n off-line pairs has exactly n negative directions; one pair against a tight on-line background alpha is invisible exactly up to sinh(ub)/(ub) = 1 + (alpha+2M)/u; in the lattice model above u = log(t/2pi) an exact device (M = 0) excludes every finite cluster, and with tolerance M one pair passes below the root of u(sinh(ub)/(ub)-1) = 2M (about sqrt(12M) u^(-3/2)) and is excluded above the root of (sin^2+sinh^2) mu(b, u-Lg) = 2M (two-sided, not an asymptotic equality); infinite rows of spacing <= 2pi/u pass with any offset; one cluster satisfies u b_max <= 5.85 n + logs relative to Turan's second main theorem; tapered half-Nyquist rows pass with slope about 0.44 per pair (measured, reproduced). The truncated Euler product identity holds for every completely multiplicative chain and no step uses it. Not established: the density form of W4, the sequence form of W5, and the DH and zeta(s+a)zeta(s-a) control rows as written (the latter passes for theta' <= 1 in the lattice model).",
+ "obstruction": "A band-limited positivity device has a density reach, not a zero-free region. PROVED (one referee): the complete band-u device is the quadratic form of T_Z on L^2 of an interval of length u (classical Weil/Yoshida frame; C(theta) tests modulated indicators only); n off-line pairs give exactly n negative directions; one pair against an on-line background alpha is invisible exactly up to sinh(ub)/(ub) = 1 + (alpha+2M)/u; rows of spacing <= 2pi/u pass with any offset; above u = log(t/2pi) (lattice model) only the exact device M = 0 excludes every finite cluster, and that is the target in a window; one cluster satisfies u b_max <= 5.85 n + logs relative to Turan. The truncated Euler product identity holds for every completely multiplicative chain and no step uses it (R1 fails). MEASURED: tapered rows pass with slope 0.44 per pair. Not established: density form of W4, sequence form of W5, the DH and zeta(s+a)zeta(s-a) rows as written; the count-preserving threshold theta' = 1/2; the constant of the linear law between 0.445 and 5.85.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "rows of off-line pairs at spacing <= 2pi/u (pass with any offset; proved)",
+  "tapered half-Nyquist rows (pass, slope 0.44 per pair; measured)",
+  "zeta(s+a)zeta(s-a) (passes for theta' <= 1 in the lattice model)",
+  "every completely multiplicative chain (shares the truncated Euler product identity)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps (Theorems 1-6, Lemma P, Lemma E, Corollary T' relative to Turan) were re-derived and confirmed; independent reruns on new cases (mpmath eigenvalues, float discretisation, then wil.py) agree to all printed digits (one pair c=0.37: 1.4171797649; rows n=14, 28 at c=0.5: 8.2673, 14.4352, slope 0.441 per pair; four Theorem 4(b) cases inside the proved interval; Theorem 6 row identity confirmed at spacing <= 2pi/u and failing beyond). No RH assumption, no verified-height restatement,  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The reach of a band-limited positivity device is a density condition, not a zero-free region: off-line pairs hide only at local density of order u/2pi, and two bands are structural (P = sqrt(t/2pi) for count-preserving configurations, P = t/2pi for exactness). Multiplicativity is present exactly at every band (truncated Euler product in the truncated-shift algebra) for every multiplicative chain, so the missing input is a one-sided operator bound tied to the functional-equation reserve, not the factorisation. Above the Nyquist band only M = 0 has full power, and that is the target itself in a window.",
+ "followUp": "Referee pass on Theorems 1-6 and Lemma E, with the unopened sources checked (Turan primary source, Fejer-Riesz factorisation for exponential type, the explicit formula in the operator normalisation). Then either prove the count-preserving threshold theta' = 1/2 (now argued by a dimension count and measured) or close the constant of the linear law between 0.445 and 5.85. The synthetic window (lattice exterior, one half-length per height) was not varied. The 1e12 ordinates are resolved to 1.2e-4 only. Two fill units were killed by their own 3 GB limit and the remaining cells rerun under 8 GB (inside the 12 GB allowance); about one minute was spent at 9 cores. No unit of this lane is running.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-window-information-law-ctheta-u5/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-window-information-law-ctheta-u5/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c18-referee-r17-independent-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report and push/c18-referee-r17-independent-sources/GATE.md (window law: Remark K for the unwindowed device only; E_a row decided on its own configuration; W4 density form, W5 second bullet ARGUED)",
+  "report": "tmp/research-2026-11-16/push/c17-window-information-law-ctheta-u5/REFEREE2.md"
+ }
+}

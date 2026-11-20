@@ -1,0 +1,31 @@
+one pair c=2: threshold 2.838446380 closed form 2.838446380
+one pair c=1: threshold 2.177318985 closed form 2.177318985
+one pair c=0.1: threshold 0.763400798 closed form 0.763400798
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=6 Lg=9 M=0 pairs=[(0.13, 0.2)] removed=0: criterion pass, direct min eig 5.3952e-12
+u=6 Lg=9 M=0 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig 5.3839e-12
+u=6 Lg=9 M=0 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 5.4063e-12
+u=6 Lg=9 M=0 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion pass, direct min eig 5.3590e-12
+u=6 Lg=9 M=0 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 5.3973e-12
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion pass, direct min eig 1.0000e+00
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig 1.0000e+00
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 1.0000e+00
+u=6 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion pass, direct min eig 1.0000e+00
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 1.0000e+00
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion fail, direct min eig 1.0000e+00
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -1.3639e+02
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 1.0000e+00
+u=11 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion fail, direct min eig 1.0000e+00
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 1.0000e+00
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion fail, direct min eig 1.0450e+00
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -2.1848e+04
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 1.0452e+00
+u=20 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion fail, direct min eig -6.4895e+02
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 1.0452e+00
+n=1: eigenvalues of JG: 1 negative, max |imag| 0.0e+00
+n=2: eigenvalues of JG: 2 negative, max |imag| 2.9e-61
+n=3: eigenvalues of JG: 3 negative, max |imag| 3.8e-61
+n=5: eigenvalues of JG: 5 negative, max |imag| 4.5e-61

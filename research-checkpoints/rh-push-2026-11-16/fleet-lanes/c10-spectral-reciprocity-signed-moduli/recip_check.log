@@ -1,0 +1,28 @@
+l = 3
+LHS (Kloosterman, moduli c)   = (-28.086541002486978+1.2904930192666114e-14j)
+MID (coprime lattice (m,c))   = (-28.08654100248695+1.36785540252257e-14j)    pairs: 1256
+RHS (Kloosterman, moduli m')  = (-28.086541002486907-5.258220885656185e-16j)    (k,m') terms used: 432  tail |Ghat| at k edge: 1.9759834895305686e-15
+sigma = 5.0  part of RHS from k != 0 (Kloosterman, not Ramanujan): (-0.002655056689846511+3.439486565117057e-18j)
+|LHS-MID| = 2.843e-14   |MID-RHS| = 4.494e-14   |LHS-RHS| = 7.231e-14   |LHS| = 28.086541
+Ghat(m'=3,k=2,+): grid (-2.0454447068399273e-09-2.027920182473553e-09j)  mpmath (-2.04544473566348e-09-2.027920203608497e-09j)
+l = 3
+LHS (Kloosterman, moduli c)   = (-8.00004812466706+6.162984369943825e-16j)
+MID (coprime lattice (m,c))   = (-8.000048124667055+2.863534633939359e-15j)    pairs: 1256
+RHS (Kloosterman, moduli m')  = (-8.000048124667046-6.584382173078519e-17j)    (k,m') terms used: 476  tail |Ghat| at k edge: 5.894995584060112e-16
+sigma = 1.2  part of RHS from k != 0 (Kloosterman, not Ramanujan): (-0.24045259095005977+9.590177213061405e-18j)
+|LHS-MID| = 5.784e-15   |MID-RHS| = 9.352e-15   |LHS-RHS| = 1.423e-14   |LHS| = 8.000048
+Ghat(m'=3,k=2,+): grid (-0.007742851692974917+0.0041429687712387486j)  mpmath (-0.007742851692974934+0.004142968771238713j)
+l = -5
+LHS (Kloosterman, moduli c)   = (8.132644779613992-5.935220456779502e-16j)
+MID (coprime lattice (m,c))   = (8.132644779613994-6.255754205379523e-15j)    pairs: 1256
+RHS (Kloosterman, moduli m')  = (8.132644779613969+1.06423085466621e-16j)    (k,m') terms used: 478  tail |Ghat| at k edge: 5.90273196509117e-16
+sigma = 1.2  part of RHS from k != 0 (Kloosterman, not Ramanujan): (-0.19595939863415177-1.8760767326796344e-16j)
+|LHS-MID| = 5.934e-15   |MID-RHS| = 2.567e-14   |LHS-RHS| = 2.310e-14   |LHS| = 8.132645
+Ghat(m'=3,k=2,+): grid (0.0008303901852188705+0.00814302934940959j)  mpmath (0.0008303901852188336+0.00814302934940959j)
+l = 12
+LHS (Kloosterman, moduli c)   = (3.534762362541662-1.0064612682091391e-14j)
+MID (coprime lattice (m,c))   = (3.5347623625416515-4.987926674447935e-15j)    pairs: 1256
+RHS (Kloosterman, moduli m')  = (3.534762362541657-1.7975490205021643e-16j)    (k,m') terms used: 572  tail |Ghat| at k edge: 8.841089769602128e-16
+sigma = 0.8  part of RHS from k != 0 (Kloosterman, not Ramanujan): (0.33837228166062444+4.545036924874127e-16j)
+|LHS-MID| = 1.181e-14   |MID-RHS| = 7.178e-15   |LHS-RHS| = 1.123e-14   |LHS| = 3.534762
+Ghat(m'=3,k=2,+): grid (-0.012055437828598059-0.0069818381688127795j)  mpmath (-0.012055437828598026-0.006981838168812832j)

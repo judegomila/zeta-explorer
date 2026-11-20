@@ -1,0 +1,8 @@
+acoef vs convolution definition, D=-23, n<=2000: max diff 0
+pair -7,-8: c=-34.426224,34.426224 first jump y=1.000000  counting Y=4e5: int f^2=2283.6450  int|f-1|^2=2282.6447  diff=1.00028
+     line integral T=50: 1898.5340
+     line integral T=100: 2045.8503
+pair -3,-4: c=-148.405305,98.936870 first jump y=1.000000  counting Y=4e5: int f^2=9142.5856  int|f-1|^2=9141.5851  diff=1.00044
+     line integral T=50: 7847.7285
+     line integral T=100: 8417.7645
+span X=100 n_D=31 N=50002 planned alloc MB 99

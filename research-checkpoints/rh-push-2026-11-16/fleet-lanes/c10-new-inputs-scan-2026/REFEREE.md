@@ -1,0 +1,48 @@
+# REFEREE: c10-new-inputs-scan-2026 (lens: general)
+
+Date: 2026-11-18. Object: `RESULT.md` in this directory. Claimed verdict: precise-obstruction (for the reopening rule). The result contains no PROVED step and no statement about zeros of zeta; the review therefore checks (i) the bibliographic facts, (ii) the one computation, (iii) the derived arithmetic sentences, (iv) the completeness of the negative.
+
+## Outcome
+
+**Holds, with five corrections.** The negative on items (a) to (d) was not contradicted by an independent check. One derived arithmetic sentence is wrong, one directly relevant preprint was missed, one identifier is wrong, one scope remark is a misreading, one date is off by a day. All four requirement flags are false, as the result states.
+
+## What was checked and how
+
+1. **Identifiers (independent fetch of the arXiv abstract pages, 17 ids).** Title, authors and date agree with the table for 2610.04045, 2611.16665, 2611.12500, 2610.26835, 2611.00924, 2611.01452, 2611.01451, 2610.33505, 2611.18825, 2610.27591, 2611.03356, 2610.32704 (author: Suzuki), 2611.13988, 2611.18049, 2610.32672, 2610.27343. The one-line statements in the table agree with the abstracts where the abstract covers them (599/600; Q^(49/58), Q^(23/26) under GRH; Q^(5/6) and Q^(23/28) under GRH; q^(5g/6), g mod 6; 83 prime factors, M <= C^(11/200); 1/20000 and B_* - 1/160000 = 0.87446205769353). Body-level statements (Li-Zhong T_C formula, Ji's H = X^(65/144), Y = X^(1/288), Chang-Wang 437/500 and kappa = 749/1000) were not checked by me and remain as the result labels them.
+2. **Computation rerun.** `density_table.py` rerun through `scripts/memcap.sh 8`: output equals section 2.3. Transcription compared with `dl/2610.04045.p1-6.txt` lines 231 to 250: the three branches and breakpoints match. Independent hand checks on different cases: at sigma = 1/2 + 1/n both branches give delta = 1/n; at sigma = 1 - 1/(2n) the third branch factors as (2 sigma - 1)(4 sigma - 3)/(1 - 1/n) = 1 - 2/n; n = 3, sigma = 5/6 gives delta = 1/3; n = 4, sigma = 7/8 gives delta = 1/2. Section 2.3 is confirmed relative to the transcribed formula.
+3. **Scalars.** The quartic 133488 B^4 - 376596 B^3 + 384534 B^2 - 167541 B + 26231 evaluates to 7.6e-8 at B = 0.8748866470 (a root to the printed digits). 0.87446205769353 + 1/160000 = 0.87446830769353 < 0.8745. At A = B the n = 6 off-diagonal term is A^(7/6), the old (AB)^(2/3) is A^(4/3). Confirmed.
+4. **Map rows.** Z3, Z5, Z6, Z10, Z11, Z12, Z14, Z19, Z24 of `OBSTRUCTION_MAP.md` read as text; the figures quoted from them (0.7653, 0.5903, Q^0.8, P^(1/12), K0 = 0.0206959, 2/3) are as in the map.
+5. **Independent searches** (arXiv search pages: author Liu Baiying; "Kubota theta"; "sextic Gauss sums"; "spectral reciprocity"; "Patterson conjecture Gauss sums"). No item supplying (a), (b), (c) or (d) appeared. One relevant missed item appeared (error 2).
+6. **RH / verified height / known theorem as new.** Nothing in the result assumes RH or restates verified height; conditional preprints are labelled conditional; nothing known is presented as new.
+7. **Controls.** No zeta-only mechanism is claimed, so there is no control run to make. Section 3's statement that an arbitrary-coefficient large sieve cannot supply R3 is correct by definition of the inequality.
+
+## Errors
+
+**E1 (wrong arithmetic sentence; table item 1 and the last line of `density_table.py`).** "For n = 6 the off-diagonal term is A^(5/6) B^(1/3) + A^(1/3) B^(5/6), which exceeds A + B only for B^(4/5) < A < B^(5/4)." Re-derivation: A^(1-1/n) B^(2/n) > A iff A < B^2, and > B iff A > B^((n-2)/(n-1)); the other term is the mirror image. So the first term exceeds A + B on B^((n-2)/(n-1)) < A < B^2, the second on B^(1/2) < A < B^((n-1)/(n-2)), and the off-diagonal part exceeds A + B on the union B^(1/2) < A < B^2 for every n >= 3. The stated interval (B^(4/5), B^(5/4)) is where both terms exceed A + B, not where their sum does. Example: n = 6, A = B^(3/2): A^(5/6) B^(1/3) = B^(19/12) > B^(3/2). This matters for Lane A: rows Z5 and Z6 are unbalanced (D = Q^(7/5) against short rows; Q^0.4 <= N(a), N(b) <= Q), and those ranges lie inside (B^(1/2), B^2), where the new term is still the largest one.
+
+**E2 (missed preprint, directly on Lane A).** Xu-Sang, arXiv 2610.17675 (v1 13 Oct, v2 14 Oct 2026; one day before the window, the same status as item 1, which the result did include): "A matching lower bound for the sextic large sieve and structured prime moments". Abstract (unverified, not opened beyond the abstract): for squarefree sextic rows and columns over the Eisenstein integers, a lower bound (AB)^(-eps) (A + B + A^(5/6) B^(1/3) + A^(1/3) B^(5/6)) matching de Faveri's upper bound in the full range; squared norm at balance at least Q^(7/6 - eps); second moment of a fixed smooth prime sum bounded by Q^((37 - 10 sqrt 6)/6 + eps) (numerically 2.08418); a low-height zero-density estimate. Not on file anywhere under `tmp/research-2026-11-16/`. Consequences: (i) the table's "matching lower bounds known for n = 3, 4" is stale for n = 6; (ii) the pre-registered expectation of Lane A ("Z5's cap is attained, not passed") is, per this abstract, already a claimed theorem for arbitrary coefficients, so task (ii) of Lane A reduces to a replay; (iii) the structured-prime second moment is the object rows Z11, Z12 and Z14 ask about (Z14 records the threshold E < 25/12 = 2.08333 for a cubic balanced moment; the sextic figure 2.08418 is a different family and was not matched here), and it should be the first reading task of Lane A. The scan's term sets contained "large sieve" and "sextic"; the item was missed because of the window's start date.
+
+**E3 (wrong identifier, item 4).** "2610.00655" is an unrelated physics paper (Bhaumik-Sastry, fatigue failure in two-dimensional glasses, 30 Sep 2026), and a 2610.00655 identifier could not carry the date 29 Oct. The arXiv author listing for Liu Baiying shows 2610.12234 and 2610.26835 and no third zero-free paper. The result already says "not located"; the correction is that the printed identifier is wrong, not merely unlocated. B_* = 0.8744683 is therefore known only through the abstract of 2611.00924 ("B_* is Liu's algebraic boundary"). Lane C(i) must not enter "B_* < 0.8745" or 0.874462058 in the scoreboard as a located claim: the second is conditional on the first, and the first has no public source found.
+
+**E4 (misreading, item 3 and weakest step 1).** The abstract of 2610.26835 does not restrict the final statement to metabelian closures. It states two steps: the first boundary (0.874957) for pairs with metabelian normal closure; then B_flat for every finite-order Hecke L-function over every number field, by running the argument over K(zeta_12) and descending. The "two scopes not reconciled" remark should be removed; the abstract and the reported Theorem 17.1 agree. (The claim itself stays unverified.)
+
+**E5 (date).** 2611.01452 is dated 1 Nov 2026, not 31 Oct.
+
+## Statements that are weaker than their wording
+
+- "attaining but not passing the Z5 cap" (headline and item 1): the result derives this only from the exponent at A = B (excess A^(1/6), square root P^(1/12)) and says in weakest step 3 that families and normalisations were not matched. As a sentence about de Faveri's theorem and row Z5 it is ARGUED, not established. With E2 it becomes "claimed sharp by a second preprint", still unverified.
+- "the named missing input for map rows Z12, Z6, Z14": Z14's source note names an optimal quartic input, and the n = 4 case matches by name. For Z12 and Z6 the map records the (KD)^(2/3) sieve as the tool used; that a sharper sieve changes either row's conclusion is not shown (at the critical class the comparison is 0.7653 against 0.5903, and no new figure was computed). "Candidate input" is the supported wording.
+- Verdict label: the content is a negative scan with stated coverage gaps (two listings cut at 166 of 200 rows, API 429, math.RT/AG/math-ph by keyword only, long HTML pages read to 100k characters). It is a dated record that the reopening rule was not triggered by these queries, not an obstruction in the mathematical sense. The result's own section 7 says this; the headline should too.
+
+## Requirement flags (set by this referee)
+
+| Flag | Value | Reason |
+|---|---|---|
+| R1 | false | No argument is made. |
+| R2 | false | No conclusion about zeros. |
+| R3 | false | No mechanism; the inputs found are arbitrary-coefficient or conditional. |
+| R4 | false | Nothing found addresses the passage to the critical line. |
+
+## Surviving claim
+
+As of 2026-11-18, two arXiv keyword listings, the math.NT recent listing, eleven web searches and this referee's five further arXiv searches show no posted result supplying (a) a signed sum over Gauss-sum moduli of the TRO6 kind, (b) a new epsilon-cocycle row type, (c) a zero-free normaliser, or (d) a new every-window mechanism. Found and bibliographically confirmed: de Faveri 2610.04045 (n-th order large sieve, off-diagonal term A^(1-1/n) B^(2/n) + A^(2/n) B^(1-1/n), exceeding A + B on B^(1/2) < A < B^2; family zero density with the exponents of section 2.3); Xu-Sang 2610.17675 (claimed matching sextic lower bound and a structured prime second moment; added by this review); Ji 2611.16665 (599/600); Liu 2610.26835 v2 (0.874887, all number fields per its abstract); Chang-Wang 2611.00924 (0.874462, conditional, resting on a boundary B_* whose source was not located); Li-Zhong 2611.12500 (different object); Hong's GRH-conditional papers. All preprint claims unverified. Lanes A, B, C stand as part-B/record lanes after E1 to E3 are applied.

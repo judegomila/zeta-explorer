@@ -1,0 +1,47 @@
+{
+ "slug": "c20-u4-second-order-archimedean-mixed-form",
+ "round": 20,
+ "kind": "explore",
+ "nodes": [
+  "silent-u4-joint-functionals-not-scaling-invariant"
+ ],
+ "tags": [
+  "U4",
+  "second-order",
+  "archimedean",
+  "mixed-form",
+  "bridge-antibridge",
+  "K3-M",
+  "stage-A"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. On window vectors h = e^(ist) h_0 with norm(h_0') <= K norm(h_0), P = t^theta', t >= 43: (1) the gamma side acts as the scalar Lg/2 + i pi/4 + O(1/t) up to 8 (log t/t) norm(h_0'); (2) norm((Arch - A_P) h)^2 - norm(A_P h)^2 = Lg <h, (Lg - 2 Re A_P) h> + O(K t^(theta'/2 - 1) log t) norm(h_0)^2, so candidate (M) is Lg times the first-order band form; (3) in Hermitian forms of degree at most 2 (not proved beyond degree 2) the gamma side multiplies only words linear in Lambda; (4) all forms in Gamma_c, Gamma_c*, A_P, A_P* on L^2[0, u], at every degree, coincide for zeta and HQ1, HQ3, HQ4 (q >= P), HQ2 (q^2 >= P), and for T-NR (q >= P) with Gamma_c shifted by log q. No control fails at a cross-prime relation; ZQ passes in the c18 lattice model only; stage A failure rows are ARGUED; DEL and THIN undecided. The norm form is blind in the same way and, under RH, would bound ordinates per interval 2 pi/u by 2(1 + 2 kappa)/theta' + o(1). Verdict precise-obstruction holds; independent referees: 1.",
+ "obstruction": "Stops at the first lemma (stage A). Lemma S: on window vectors at height t the gamma side is the scalar Lg/2 + i pi/4 up to 8 (log t/t) norm(h_0'), so candidate (M) norm(A_P h) <= norm((Arch - A_P) h) is Lg times the first-order band form N(theta') up to O(t^(theta'/2-1) log t) (Proposition M); at degree <= 2 the gamma side multiplies only words linear in Lambda (Proposition C; not proved beyond degree 2). K3-M: every form in Gamma_c, Gamma_c*, A_P, A_P* on L^2[0,u] coincides for zeta and HQ1, HQ3, HQ4 (q >= P), HQ2 (q^2 >= P), T-NR (q >= P, Gamma_c shifted by log q). No control fails at a cross-prime relation. Failure rows of stage A are ARGUED; DEL and THIN undecided.",
+ "obstructionKind": "control-passes: twins modified at q >= P share every form in the gamma side and A_P; ZQ passes in the c18 lattice model; the form reduces to the closed first-order band form",
+ "controlsThatDefeat": [
+  "HQ1, HQ3, HQ4 with q >= P and HQ2 with q^2 >= P (K3-M: identical forms at every degree)",
+  "T-NR with q >= P (identical after a shift of Gamma_c by log q)",
+  "ZQ (passes; relative to c18 Proposition Z, lattice model only)",
+  "not run: DEL and THIN rows (lowest eigenvalue of Lg - 2 Re A_P with zeta's Arch imposed)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "Independent referee section appended to tmp/research-2026-11-16/push/c20-u4-second-order-archimedean-mixed-form/REFEREE.md (the same-session pass is kept above it). All PROVED steps at the claimed scope were re-derived (Lemma S, Proposition M, Proposition C at degree <= 2, K3-M, K1 for forms, P3) and confirmed. Numeric rerun with own code, an asymmetric window and new cells (t = 7.3e4, 3e6, 2.5e7; P up to 1.94e6): all defects below the bounds, 1/t  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In a window at height t the archimedean operator is a scalar up to log t/t, so pairing it with the prime operator at any polynomial order gives only the first-order band form times Lg. Cross-prime products enter with height-independent coefficients. Any form reading only Lambda(n), n < P, and the gamma side is identical for twins modified at q >= P, so no stage-level inequality locates zeros near height t.",
+ "followUp": "An independent referee pass on Lemma S, Proposition C and K3-M (none was available in this session), then the map and device rows in RESULT.md section 6. For lane c20-mixed-form-control-census-server, FOR_NUMERICS_LANE.md item 2: decide the DEL and THIN rows (lowest eigenvalue of Lg - 2 Re A_P with zeta's Arch imposed). Cell U4 should receive no further attack slot.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-u4-second-order-archimedean-mixed-form/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-u4-second-order-archimedean-mixed-form/REFEREE.md",
+ "launchedNodes": [
+  "silent-u4-joint-functionals-not-scaling-invariant"
+ ],
+ "engineVerdict": "closed"
+}

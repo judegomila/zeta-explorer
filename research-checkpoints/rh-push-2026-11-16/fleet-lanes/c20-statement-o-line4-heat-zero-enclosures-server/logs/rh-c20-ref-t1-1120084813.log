@@ -1,0 +1,18 @@
+{
+ "file": "out_t1_first_A_p128.json",
+ "nodes": 641,
+ "dps": 30,
+ "centre_value_mpmath": [
+  "-9.228322600376869833956e-12",
+  "6.195734196310915636458695e-11"
+ ],
+ "centre_value_ball_mid": [
+  "-9.22832260037762023517e-12",
+  "6.195734196311423073212e-11"
+ ],
+ "centre_rel_diff": "8.1888e-14",
+ "winding_16_samples": "1.0",
+ "max_phase_step": "0.488939",
+ "abs_F_at_newton_root": "5.7597e-27",
+ "abs_F_at_centre": "6.2641e-11"
+}

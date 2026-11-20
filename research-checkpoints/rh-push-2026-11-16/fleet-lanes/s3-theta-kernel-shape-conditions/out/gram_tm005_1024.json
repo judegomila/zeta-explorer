@@ -1,0 +1,31 @@
+[
+{
+"mode": "gram",
+"kernel": "zeta",
+"t": "-0.05",
+"r": 1,
+"hv": 0.0009765625,
+"xN": 1608.495438637974,
+"prec": 4709,
+"nKt": 2039,
+"band": 2039,
+"n_reached": 8192,
+"first_negative_pivot_size": null,
+"negative_pivots": 0,
+"neg_count_by_n": {
+"25": 0,
+"50": 0,
+"100": 0,
+"250": 0,
+"500": 0,
+"1000": 0,
+"2000": 0,
+"4000": 0
+},
+"zero_pivot": false,
+"certificate": null,
+"log_pivot_over_q0_last": -599.4135809464259,
+"log_pivot_over_q0_min": -599.4135809464259,
+"seconds": 136.1650161743164
+}
+]

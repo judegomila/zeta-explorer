@@ -1,0 +1,74 @@
+R 0: C_comp 0.000915 (allocated 0.000915, 26 composites) d 0.007078 A 1.25607 omega 0.02254 max|delta| 0.472816 min corner margin 7.69064e-5 interior-corners>= 0.00132 max|b|/alpha 0.720 branches 128
+R 1: C_comp 0.001022 (allocated 0.001022, 301 composites) d 0.007288 A 1.27738 omega 0.02282 max|delta| 0.480161 min corner margin 8.0565e-5 interior-corners>= 0.00136 max|b|/alpha 0.720 branches 128
+R 2: C_comp 0.001301 (allocated 0.001301, 300 composites) d 0.007545 A 1.29907 omega 0.02323 max|delta| 0.490826 min corner margin 8.55894e-5 interior-corners>= 0.00141 max|b|/alpha 0.720 branches 128
+R 3: C_comp 0.001506 (allocated 0.001506, 294 composites) d 0.007958 A 1.32336 omega 0.02405 max|delta| 0.512318 min corner margin 9.16902e-5 interior-corners>= 0.00148 max|b|/alpha 0.720 branches 128
+R 4: C_comp 0.001652 (allocated 0.001652, 286 composites) d 0.008339 A 1.34763 omega 0.02475 max|delta| 0.530584 min corner margin 9.68859e-5 interior-corners>= 0.00154 max|b|/alpha 0.720 branches 128
+R 5: C_comp 0.001902 (allocated 0.001902, 286 composites) d 0.008600 A 1.37135 omega 0.02508 max|delta| 0.539265 min corner margin 0.000100113 interior-corners>= 0.00159 max|b|/alpha 0.720 branches 128
+R 6: C_comp 0.002134 (allocated 0.002134, 284 composites) d 0.008897 A 1.39616 omega 0.02549 max|delta| 0.549925 min corner margin 0.000103757 interior-corners>= 0.00164 max|b|/alpha 0.720 branches 128
+R 7: C_comp 0.002165 (allocated 0.002165, 277 composites) d 0.009336 A 1.42309 omega 0.02624 max|delta| 0.56965 min corner margin 0.000114298 interior-corners>= 0.00172 max|b|/alpha 0.720 branches 128
+R 8: C_comp 0.002324 (allocated 0.002324, 275 composites) d 0.011043 A 1.44798 omega 0.03051 max|delta| 0.979707 min corner margin 6.87368e-5 interior-corners>= 0.00138 max|b|/alpha 1.496 branches 256
+R 9: C_comp 0.002596 (allocated 0.002596, 275 composites) d 0.010277 A 1.47620 omega 0.02785 max|delta| 0.46 min corner margin 0.000200422 interior-corners>= 0.00126 max|b|/alpha 0.720 branches 128
+R 10: C_comp 0.002525 (allocated 0.002525, 266 composites) d 0.010890 A 1.50618 omega 0.02892 max|delta| 0.479325 min corner margin 0.000218134 interior-corners>= 0.00132 max|b|/alpha 0.720 branches 128
+R 11: C_comp 0.003084 (allocated 0.003084, 261 composites) d 0.011424 A 1.53066 omega 0.02985 max|delta| 0.496108 min corner margin 0.000231868 interior-corners>= 0.00138 max|b|/alpha 0.720 branches 128
+R 12: C_comp 0.003194 (allocated 0.003194, 257 composites) d 0.011877 A 1.56103 omega 0.03043 max|delta| 0.506573 min corner margin 0.000242314 interior-corners>= 0.00143 max|b|/alpha 0.720 branches 128
+R 13: C_comp 0.003259 (allocated 0.003259, 254 composites) d 0.012258 A 1.59084 omega 0.03082 max|delta| 0.513563 min corner margin 0.000251016 interior-corners>= 0.00147 max|b|/alpha 0.720 branches 128
+R 14: C_comp 0.003283 (allocated 0.003283, 250 composites) d 0.012815 A 1.62433 omega 0.03156 max|delta| 0.526892 min corner margin 0.000265665 interior-corners>= 0.00153 max|b|/alpha 0.720 branches 128
+R 15: C_comp 0.002674 (allocated 0.002674, 245 composites) d 0.013194 A 1.66156 omega 0.03176 max|delta| 0.530609 min corner margin 0.000275148 interior-corners>= 0.00157 max|b|/alpha 0.720 branches 128
+R 16: C_comp 0.002629 (allocated 0.002629, 242 composites) d 0.013627 A 1.69453 omega 0.03217 max|delta| 0.537949 min corner margin 0.000287259 interior-corners>= 0.00162 max|b|/alpha 0.720 branches 128
+R 17: C_comp 0.002627 (allocated 0.002627, 239 composites) d 0.014247 A 1.73210 omega 0.03290 max|delta| 0.55126 min corner margin 0.000306224 interior-corners>= 0.00168 max|b|/alpha 0.720 branches 128
+R 18: C_comp 0.002531 (allocated 0.002531, 230 composites) d 0.014805 A 1.76929 omega 0.03347 max|delta| 0.561584 min corner margin 0.000322846 interior-corners>= 0.00174 max|b|/alpha 0.720 branches 128
+R 19: C_comp 0.002404 (allocated 0.002404, 221 composites) d 0.015351 A 1.80715 omega 0.03398 max|delta| 0.570795 min corner margin 0.000339044 interior-corners>= 0.0018 max|b|/alpha 0.720 branches 128
+R 20: C_comp 0.002650 (allocated 0.002650, 219 composites) d 0.016202 A 1.84115 omega 0.03520 max|delta| 0.59304 min corner margin 0.000369072 interior-corners>= 0.00188 max|b|/alpha 0.720 branches 128
+R 21: C_comp 0.002573 (allocated 0.002573, 218 composites) d 0.016364 A 1.85861 omega 0.03522 max|delta| 0.593397 min corner margin 0.000372929 interior-corners>= 0.0019 max|b|/alpha 0.720 branches 128
+R 22: C_comp 0.002668 (allocated 0.002668, 217 composites) d 0.016602 A 1.87839 omega 0.03535 max|delta| 0.595845 min corner margin 0.000379705 interior-corners>= 0.00193 max|b|/alpha 0.720 branches 128
+R 23: C_comp 0.002726 (allocated 0.002726, 217 composites) d 0.016877 A 1.89911 omega 0.03555 max|delta| 0.599389 min corner margin 0.000388034 interior-corners>= 0.00196 max|b|/alpha 0.720 branches 128
+R 24: C_comp 0.002616 (allocated 0.002616, 212 composites) d 0.017096 A 1.91852 omega 0.03564 max|delta| 0.601159 min corner margin 0.000394044 interior-corners>= 0.00198 max|b|/alpha 0.720 branches 128
+R 25: C_comp 0.002557 (allocated 0.002557, 209 composites) d 0.017470 A 1.94161 omega 0.03599 max|delta| 0.607506 min corner margin 0.000406388 interior-corners>= 0.00202 max|b|/alpha 0.720 branches 128
+R 26: C_comp 0.002471 (allocated 0.002471, 204 composites) d 0.017872 A 1.96557 omega 0.03637 max|delta| 0.614429 min corner margin 0.000419875 interior-corners>= 0.00206 max|b|/alpha 0.720 branches 128
+S 27: fixed 0.020231 coord 3.584e-07 paid 0.008011 <= near 0.008011, far 0.040727; max eig V^TWV 0.999984741211; u=5.5471; rank 12; min phase slack 1.63e-49
+  *** FAIL row 28 paid angle distance
+S 28: fixed 0.020230 coord 3.613e-07 paid 0.006547 <= near 0.006547, far 0.041054; max eig V^TWV 0.999984741212; u=4.5475; rank 6; min phase slack -1.35e-50
+S 29: fixed 0.019958 coord 3.642e-07 paid 0.007833 <= near 0.007833, far 0.041383; max eig V^TWV 0.999984741211; u=5.0522; rank 10; min phase slack 2.04e-49
+S 30: fixed 0.019831 coord 3.670e-07 paid 0.008355 <= near 0.008355, far 0.041705; max eig V^TWV 0.999984741213; u=5.4149; rank 12; min phase slack 9.04e-50
+S 31: fixed 0.019665 coord 3.699e-07 paid 0.006742 <= near 0.006742, far 0.042037; max eig V^TWV 0.99998474121; u=5.5032; rank 8; min phase slack 1.21e-49
+S 32: fixed 0.020396 coord 3.736e-07 paid 0.008034 <= near 0.008034, far 0.042454; max eig V^TWV 0.999984741216; u=5.2148; rank 10; min phase slack 2.02e-49
+S 33: fixed 0.020245 coord 3.765e-07 paid 0.008350 <= near 0.008350, far 0.042785; max eig V^TWV 0.999984741213; u=4.9106; rank 10; min phase slack 6.5e-50
+S 34: fixed 0.020071 coord 3.795e-07 paid 0.008504 <= near 0.008504, far 0.043125; max eig V^TWV 0.999984741211; u=4.7706; rank 10; min phase slack 3.01e-49
+S 35: fixed 0.019721 coord 3.825e-07 paid 0.009050 <= near 0.009050, far 0.043469; max eig V^TWV 0.999984741214; u=5.1680; rank 12; min phase slack 1.78e-49
+S 36: fixed 0.020438 coord 3.864e-07 paid 0.008810 <= near 0.008810, far 0.043911; max eig V^TWV 0.999984741212; u=4.7649; rank 10; min phase slack 1.6e-50
+S 37: fixed 0.020021 coord 3.896e-07 paid 0.009209 <= near 0.009209, far 0.044271; max eig V^TWV 0.99998474122; u=4.8082; rank 11; min phase slack 1.39e-49
+S 38: fixed 0.019541 coord 3.927e-07 paid 0.009020 <= near 0.009020, far 0.044626; max eig V^TWV 0.999984741212; u=4.7333; rank 10; min phase slack 1.73e-49
+  *** FAIL row 39 paid angle distance
+S 39: fixed 0.019077 coord 3.958e-07 paid 0.009396 <= near 0.009396, far 0.044982; max eig V^TWV 0.999984741214; u=4.8785; rank 11; min phase slack -3.3e-50
+S 40: fixed 0.019582 coord 4.000e-07 paid 0.009530 <= near 0.009530, far 0.045454; max eig V^TWV 0.999984741214; u=4.4998; rank 10; min phase slack 9.07e-50
+S 41: fixed 0.018882 coord 4.033e-07 paid 0.008181 <= near 0.008181, far 0.045828; max eig V^TWV 0.999984741211; u=5.1625; rank 8; min phase slack 3.84e-50
+  *** FAIL row 42 paid angle distance
+S 42: fixed 0.018369 coord 4.066e-07 paid 0.009516 <= near 0.009516, far 0.046199; max eig V^TWV 0.99998474121; u=4.6974; rank 10; min phase slack -8.21e-50
+S 43: fixed 0.017956 coord 4.098e-07 paid 0.009439 <= near 0.009439, far 0.046569; max eig V^TWV 0.999984741211; u=4.4377; rank 10; min phase slack 2.84e-49
+S 44: fixed 0.018100 coord 4.142e-07 paid 0.008476 <= near 0.008476, far 0.047069; max eig V^TWV 0.999984741212; u=5.2719; rank 8; min phase slack 1.87e-49
+  *** FAIL row 45 paid angle distance
+S 45: fixed 0.017266 coord 4.176e-07 paid 0.009004 <= near 0.009004, far 0.047457; max eig V^TWV 0.999984741211; u=3.8546; rank 8; min phase slack -1.31e-49
+S 46: fixed 0.016716 coord 4.210e-07 paid 0.008777 <= near 0.008777, far 0.047844; max eig V^TWV 0.999984741212; u=5.1473; rank 8; min phase slack 2.07e-49
+S 47: fixed 0.015919 coord 4.244e-07 paid 0.008866 <= near 0.008866, far 0.048230; max eig V^TWV 0.999984741211; u=5.1586; rank 8; min phase slack 1.43e-49
+S 48: fixed 0.015896 coord 4.291e-07 paid 0.009730 <= near 0.009730, far 0.048765; max eig V^TWV 0.999984741211; u=3.8630; rank 9; min phase slack 2.94e-49
+S 49: fixed 0.015186 coord 4.326e-07 paid 0.009208 <= near 0.009208, far 0.049159; max eig V^TWV 0.999984741211; u=5.0678; rank 8; min phase slack 6.02e-50
+S 50: fixed 0.014240 coord 4.362e-07 paid 0.009341 <= near 0.009341, far 0.049565; max eig V^TWV 0.999984741211; u=5.0479; rank 8; min phase slack 6.81e-50
+S 51: fixed 0.013467 coord 4.397e-07 paid 0.009533 <= near 0.009533, far 0.049967; max eig V^TWV 0.999984741211; u=4.9447; rank 8; min phase slack 2.35e-49
+R 52: C_comp 0.000581 (allocated 0.000581, 100 composites) d 0.024508 A 2.60057 omega 0.03770 max|delta| 0.6387 min corner margin 0.000615523 interior-corners>= 0.00283 max|b|/alpha 0.720 branches 128
+R 53: C_comp 0.000596 (allocated 0.000596, 100 composites) d 0.024662 A 2.62865 omega 0.03753 max|delta| 0.635614 min corner margin 0.000616838 interior-corners>= 0.00285 max|b|/alpha 0.720 branches 128
+R 54: C_comp 0.000600 (allocated 0.000600, 100 composites) d 0.024572 A 2.64941 omega 0.03710 max|delta| 0.627731 min corner margin 0.000606704 interior-corners>= 0.00285 max|b|/alpha 0.720 branches 128
+R 55: C_comp 0.000528 (allocated 0.000528, 96 composites) d 0.024881 A 2.68258 omega 0.03710 max|delta| 0.627769 min corner margin 0.000615447 interior-corners>= 0.00289 max|b|/alpha 0.720 branches 128
+R 56: C_comp 0.000448 (allocated 0.000448, 89 composites) d 0.025206 A 2.71679 omega 0.03711 max|delta| 0.627993 min corner margin 0.00062489 interior-corners>= 0.00292 max|b|/alpha 0.720 branches 128
+R 57: C_comp 0.000404 (allocated 0.000404, 81 composites) d 0.025432 A 2.74876 omega 0.03701 max|delta| 0.626094 min corner margin 0.00062935 interior-corners>= 0.00295 max|b|/alpha 0.720 branches 128
+R 58: C_comp 0.000356 (allocated 0.000356, 76 composites) d 0.025420 A 2.77359 omega 0.03666 max|delta| 0.619718 min corner margin 0.000622713 interior-corners>= 0.00296 max|b|/alpha 0.720 branches 128
+R 59: C_comp 0.000345 (allocated 0.000345, 75 composites) d 0.025652 A 2.80664 omega 0.03656 max|delta| 0.617877 min corner margin 0.000627226 interior-corners>= 0.00299 max|b|/alpha 0.720 branches 128
+R 60: C_comp 0.000343 (allocated 0.000343, 75 composites) d 0.025515 A 2.82744 omega 0.03610 max|delta| 0.60943 min corner margin 0.000614881 interior-corners>= 0.00299 max|b|/alpha 0.720 branches 128
+R 61: C_comp 0.000365 (allocated 0.000365, 76 composites) d 0.025495 A 2.80782 omega 0.03632 max|delta| 0.613512 min corner margin 0.000618131 interior-corners>= 0.00298 max|b|/alpha 0.720 branches 128
+S 62: fixed 0.005250 coord 4.856e-07 paid 0.010956 <= near 0.010956, far 0.055184; max eig V^TWV 0.999984741212; u=4.7299; rank 8; min phase slack 2.32e-49
+S 63: fixed 0.004368 coord 4.895e-07 paid 0.011270 <= near 0.011270, far 0.055628; max eig V^TWV 0.999984741211; u=4.9285; rank 10; min phase slack 1.65e-49
+S 64: fixed 0.003653 coord 4.934e-07 paid 0.011283 <= near 0.011283, far 0.056070; max eig V^TWV 0.99998474121; u=4.9255; rank 10; min phase slack 2.24e-49
+R 65: C_comp 0.000169 (allocated 0.000169, 57 composites) d 0.026172 A 2.98216 omega 0.03510 max|delta| 0.591321 min corner margin 0.00061487 interior-corners>= 0.0031 max|b|/alpha 0.720 branches 128
+R 66: C_comp 0.000104 (allocated 0.000104, 46 composites) d 0.026457 A 3.02075 omega 0.03503 max|delta| 0.590033 min corner margin 0.000621433 interior-corners>= 0.00313 max|b|/alpha 0.720 branches 128
+distinct shapes checked on grid: 43
+FAILURES 4 ['row 28 paid angle distance', 'row 39 paid angle distance', 'row 42 paid angle distance', 'row 45 paid angle distance']
+seconds 187

@@ -1,0 +1,27 @@
+19:49:26 round 0: zeros 100116289 ; window means of S_k: min -7.501 max 0.501 ; windows with a step beyond 1.0: 8
+19:49:32   interval [42540107,42549696): old zeros 24002 new zeros 24004 expected 24003.37 ; {'near_miss_candidates': 0, 'near_miss_pairs': 0}
+19:49:32    added zeros: 42544551.254367635 42544551.256168097
+19:49:37   interval [34158435,34168160): old zeros 24003 new zeros 24005 expected 24004.22 ; {'near_miss_candidates': 0, 'near_miss_pairs': 0}
+19:49:37    added zeros: 34162935.691961899 34162935.693552345
+19:49:41   interval [18877205,18887316): old zeros 24001 new zeros 24003 expected 24002.83 ; {'near_miss_candidates': 1, 'near_miss_pairs': 1}
+19:49:41    added zeros: 18882503.901308857 18882503.901829146
+19:49:44   interval [11406576,11417041): old zeros 24003 new zeros 24005 expected 24004.47 ; {'near_miss_candidates': 0, 'near_miss_pairs': 0}
+19:49:44    added zeros: 11412127.112198420 11412127.113079343
+19:49:47 round 1: zeros 100116297 ; window means of S_k: min 0.499 max 0.501 ; windows with a step beyond 1.0: 0
+19:54:52 close-pair refinement: 100406 zeros re-located by direct evaluation, 0 brackets without sign change ; largest move 3.218e-05 ; largest relative change of a gap below 0.01 1.358e-02
+19:54:52 final zeros 100116297 ; (N) - theta(gamma_N)/pi - 1 = +1.38 ; monotone True ; min raw gap 5.2026e-04
+ZETA_TESTS_DONE
+ZETA_ALL_DONE
+20:09:35 window T0=10000000 tau=0 real zeros 4023317 expected(all) 4023316.04 deficit -0.96 hidden 32
+20:13:36 window T0=10000000 tau=-0.0001 real zeros 4023131 expected(all) 4023316.04 deficit 185.04 hidden 59
+20:17:01 window T0=10000000 tau=-0.0005 real zeros 4021341 expected(all) 4023316.04 deficit 1975.04 hidden 132
+20:19:52 window T0=10000000 tau=-0.002 real zeros 4007741 expected(all) 4023316.04 deficit 15575.04 hidden 244
+20:22:57 window T0=10000000 tau=-0.01 real zeros 3864659 expected(all) 4023316.04 deficit 158657.04 hidden 491
+HEAT_DONE
+20:24:31 samples 4104264 step 0.12182 ; largest term count 200040 ; planned GPU matrix 1.60 GB
+21:11:51 max |Im Z_chi| 2.956e-08  max |Im Z_chibar| 2.832e-08  (should vanish)  rms Z 3.329
+21:11:51 DH coefficient c = a*sqrt(W) = 0.519784 -0.000000i (real: DH = Z_chi + Z_chibar; imaginary: DH = Z_chi - Z_chibar)
+21:15:54 chi     real zeros 946483 in [2.56, 499997.50]; count of all zeros from the phase 946483.4 ; deficit 0.4 ; hidden 4 orderviol 0 ; {'near_miss_candidates': 0, 'near_miss_pairs': 0} ; refined 654 (no bracket 0) ; monotone True
+21:20:31 chibar  real zeros 946483 in [2.56, 499997.50]; count of all zeros from the phase 946483.4 ; deficit 0.4 ; hidden 4 orderviol 0 ; {'near_miss_candidates': 0, 'near_miss_pairs': 0} ; refined 718 (no bracket 0) ; monotone True
+21:30:11 dh      real zeros 847701 in [2.56, 499997.50]; count of all zeros from the phase 946483.4 ; deficit 98782.4 ; hidden 28 orderviol 0 ; {'near_miss_candidates': 33, 'near_miss_pairs': 4} ; refined 1566 (no bracket 0) ; monotone True
+21:37:00 alt     real zeros 698848 in [2.56, 499997.50]; count of all zeros from the phase 946483.4 ; deficit 247635.4 ; hidden 21 orderviol 0 ; {'near_miss_candidates': 20, 'near_miss_pairs': 0} ; refined 1084 (no bracket 0) ; monotone True

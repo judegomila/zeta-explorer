@@ -1,0 +1,61 @@
+per-U omega = -log(share)/log(rows); class size k = ceil(rows^0.590332); random class omega = 1 - log k/log rows
+
+target |S_half|^4
+ k   rows   k_cls  om_rand | true: det plain inv two self lift_det mix6 | random rows mean(sd over 6 seeds): det plain inv two self lift_det mix6
+ 10    138    19 0.4024 | 0.213 0.349 0.197 0.335 0.094 2.54 1.984 | 0.286(0.059) 0.304(0.045) 0.326(0.058) 0.305(0.060) 0.087(0.013) 1.84 1.606
+ 11    252    27 0.4039 | 0.329 0.508 0.244 0.402 0.085 1.51 1.133 | 0.395(0.063) 0.403(0.056) 0.412(0.078) 0.429(0.059) 0.104(0.011) 1.11 1.087
+ 12    456    38 0.4059 | 0.328 0.418 0.366 0.417 0.111 1.61 1.283 | 0.350(0.058) 0.333(0.067) 0.393(0.050) 0.365(0.069) 0.100(0.006) 1.49 1.328
+ 13    868    55 0.4077 | 0.257 0.352 0.270 0.320 0.097 2.78 1.510 | 0.376(0.044) 0.402(0.026) 0.393(0.033) 0.373(0.017) 0.110(0.007) 1.29 1.149
+ 14   1612    79 0.4084 | 0.393 0.394 0.395 0.345 0.120 1.12 1.088 | 0.384(0.019) 0.368(0.044) 0.389(0.030) 0.395(0.035) 0.114(0.006) 1.21 1.161
+ 15   3028   114 0.4091 | 0.411 0.381 0.396 0.434 0.113 0.99 1.189 | 0.354(0.022) 0.353(0.023) 0.370(0.019) 0.345(0.022) 0.126(0.007) 1.57 1.321
+ 16   5690   165 0.4095 | 0.350 0.341 0.360 0.335 0.132 1.67 1.339 | 0.357(0.015) 0.369(0.031) 0.383(0.019) 0.369(0.021) 0.126(0.002) 1.58 1.228
+ 17  10722   240 0.4094 | 0.378 0.355 0.380 0.367 0.134 1.33 1.342 | 0.347(0.013) 0.337(0.015) 0.382(0.007) 0.349(0.017) 0.131(0.004) 1.79 1.377
+ 18  20424   351 0.4095 | 0.373 0.372 0.420 0.358 0.141 1.43 1.215 | 0.355(0.016) 0.330(0.006) 0.393(0.009) 0.361(0.016) 0.135(0.001) 1.74 1.301
+ 19  38616   511 0.4095 | 0.348 0.336 0.387 0.349 0.149 1.91 1.396 | 0.335(0.005) 0.315(0.010) 0.382(0.012) 0.334(0.004) 0.140(0.002) 2.20 1.447
+ slope fits over U = 2^13..2^19: log(share) = -omega_slope log(rows) + c
+   det    true omega_slope = 0.431 +- 0.114   random rows: 0.267 (sd 0.045)
+   plain  true omega_slope = 0.298 +- 0.054   random rows: 0.182 (sd 0.049)
+   inv    true omega_slope = 0.543 +- 0.092   random rows: 0.381 (sd 0.039)
+   two    true omega_slope = 0.366 +- 0.095   random rows: 0.271 (sd 0.035)
+   self   true omega_slope = 0.231 +- 0.014   random rows: 0.192 (sd 0.010)
+   random class: omega_slope = 0.413
+   exponent in U of mean|T|^4       : true +0.006 +- 0.019   random rows +0.020 (sd 0.012)
+   exponent in U of mean|D|^2       : true +0.045 +- 0.031   random rows +0.008 (sd 0.014)
+   exponent in U of mean|T|^4|D|^2  : true +0.056 +- 0.024   random rows +0.079 (sd 0.032)
+   exponent in U of ratio mix6      : true +0.006 +- 0.033   random rows +0.051 (sd 0.019)
+
+target |A_half|^4
+ k   rows   k_cls  om_rand | true: det plain inv two self lift_det mix6 | random rows mean(sd over 6 seeds): det plain inv two self lift_det mix6
+ 10    138    19 0.4024 | 0.720 0.687 0.496 0.768 0.107 0.21 0.383 | 0.370(0.102) 0.394(0.179) 0.443(0.064) 0.357(0.074) 0.104(0.004) 1.28 1.170
+ 11    252    27 0.4039 | 0.401 0.464 0.355 0.380 0.142 1.01 0.976 | 0.398(0.092) 0.388(0.077) 0.395(0.062) 0.391(0.076) 0.092(0.008) 1.15 1.121
+ 12    456    38 0.4059 | 0.413 0.214 0.478 0.371 0.084 0.96 0.960 | 0.351(0.062) 0.336(0.069) 0.398(0.065) 0.366(0.037) 0.091(0.006) 1.49 1.255
+ 13    868    55 0.4077 | 0.406 0.353 0.392 0.408 0.095 1.01 0.962 | 0.353(0.067) 0.347(0.048) 0.391(0.077) 0.355(0.047) 0.093(0.006) 1.57 1.463
+ 14   1612    79 0.4084 | 0.417 0.368 0.447 0.386 0.100 0.94 1.085 | 0.395(0.035) 0.349(0.038) 0.412(0.029) 0.385(0.025) 0.091(0.007) 1.14 1.217
+ 15   3028   114 0.4091 | 0.343 0.390 0.397 0.343 0.096 1.70 1.306 | 0.330(0.039) 0.310(0.042) 0.393(0.028) 0.335(0.043) 0.088(0.004) 1.96 1.476
+ 16   5690   165 0.4095 | 0.454 0.342 0.408 0.369 0.101 0.68 1.077 | 0.333(0.019) 0.354(0.042) 0.375(0.027) 0.341(0.030) 0.090(0.002) 1.95 1.445
+ 17  10722   240 0.4094 | 0.349 0.349 0.377 0.392 0.093 1.76 1.248 | 0.332(0.044) 0.312(0.039) 0.392(0.018) 0.332(0.030) 0.091(0.004) 2.21 1.524
+ 18  20424   351 0.4095 | 0.372 0.323 0.377 0.363 0.094 1.45 1.473 | 0.339(0.019) 0.296(0.024) 0.391(0.021) 0.342(0.022) 0.088(0.003) 2.05 1.449
+ 19  38616   511 0.4095 | 0.352 0.364 0.403 0.355 0.092 1.83 1.443 | 0.314(0.010) 0.278(0.011) 0.393(0.017) 0.311(0.018) 0.089(0.001) 2.76 1.697
+ slope fits over U = 2^13..2^19: log(share) = -omega_slope log(rows) + c
+   det    true omega_slope = 0.261 +- 0.105   random rows: 0.231 (sd 0.107)
+   plain  true omega_slope = 0.307 +- 0.058   random rows: 0.162 (sd 0.079)
+   inv    true omega_slope = 0.339 +- 0.058   random rows: 0.377 (sd 0.124)
+   two    true omega_slope = 0.302 +- 0.051   random rows: 0.234 (sd 0.101)
+   self   true omega_slope = 0.083 +- 0.008   random rows: 0.083 (sd 0.005)
+   random class: omega_slope = 0.413
+   exponent in U of mean|T|^4       : true +0.281 +- 0.024   random rows +0.241 (sd 0.013)
+   exponent in U of mean|D|^2       : true +0.045 +- 0.031   random rows +0.008 (sd 0.014)
+   exponent in U of mean|T|^4|D|^2  : true +0.418 +- 0.053   random rows +0.297 (sd 0.068)
+   exponent in U of ratio mix6      : true +0.092 +- 0.025   random rows +0.049 (sd 0.059)
+
+threshold class |D|^2 >= U^{delta t*} (D = M_r* S_m*):
+  U=2^10: threshold 44.1  mean|D|^2 0.0090  max|D|^2 0.060  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.131  corr(log S_m*, log S_half) +0.045  corr(log M_r*, log S_half) +0.151
+  U=2^11: threshold 64.4  mean|D|^2 0.0078  max|D|^2 0.090  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.046  corr(log S_m*, log S_half) -0.139  corr(log M_r*, log S_half) +0.167
+  U=2^12: threshold 94.1  mean|D|^2 0.0085  max|D|^2 0.083  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.072  corr(log S_m*, log S_half) +0.061  corr(log M_r*, log S_half) +0.040
+  U=2^13: threshold 137.4  mean|D|^2 0.0074  max|D|^2 0.110  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.033  corr(log S_m*, log S_half) +0.018  corr(log M_r*, log S_half) +0.028
+  U=2^14: threshold 200.6  mean|D|^2 0.0105  max|D|^2 0.289  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.071  corr(log S_m*, log S_half) +0.054  corr(log M_r*, log S_half) +0.051
+  U=2^15: threshold 292.9  mean|D|^2 0.0102  max|D|^2 0.236  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.071  corr(log S_m*, log S_half) +0.083  corr(log M_r*, log S_half) +0.020
+  U=2^16: threshold 427.8  mean|D|^2 0.0098  max|D|^2 0.318  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.052  corr(log S_m*, log S_half) +0.053  corr(log M_r*, log S_half) +0.022
+  U=2^17: threshold 624.7  mean|D|^2 0.0103  max|D|^2 0.424  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.099  corr(log S_m*, log S_half) +0.085  corr(log M_r*, log S_half) +0.059
+  U=2^18: threshold 912.3  mean|D|^2 0.0100  max|D|^2 0.363  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.065  corr(log S_m*, log S_half) +0.056  corr(log M_r*, log S_half) +0.037
+  U=2^19: threshold 1332.2  mean|D|^2 0.0101  max|D|^2 0.523  rows over (raw) 0  (normalised) 0  corr(log D, log S_half) +0.090  corr(log S_m*, log S_half) +0.083  corr(log M_r*, log S_half) +0.047

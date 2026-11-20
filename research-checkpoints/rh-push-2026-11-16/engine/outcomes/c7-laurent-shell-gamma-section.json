@@ -1,0 +1,41 @@
+{
+ "slug": "c7-laurent-shell-gamma-section",
+ "round": 7,
+ "kind": "deepen",
+ "nodes": [
+  "laurent-shell-gamma-section"
+ ],
+ "tags": [
+  "bridge",
+  "passive-cascade",
+  "reinhardt-shell",
+  "gamma-factor",
+  "first-moment",
+  "harnack",
+  "davenport-heilbronn",
+  "limit-step"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands. For positive-real lossless sections with poles on the progression (2 pi k - theta_b)/log p_b and trigonometric-polynomial weights in the other prime angles, the Abel first moment of F is (2 int F_P dmu)/(2 pi delta) + O(delta^{-1/2}), i.e. a_1 + conj(Pi_int h(1/2)). This is proved, and I confirmed it on a case the author did not run (P={2,3}, p_b=3, rho = 1 + 0.9 cos): zeta 0.43650+0.13299i against 0.43672+0.13388i; DH 1.0237+0.1167i against 1.0396+0.1071i with the difference shrinking in delta. The non-integral modes would shift these by about 0.24 and 0.36, and do not.\n\nThe real part has no forced sign once min Re F_P < 0 on the torus: for zeta iff sum arcsin p^{-1/2} > pi/2; for DH from {2,3,7} (min Re D_P = -0.621, against +0.0385 on {2,3}).\n\nFor gamma-coupled sections the mean 1 + conj(int F_P m) is argued and measured, not proved. For holomorphic inner m the value is 1 + conj(m(0)), not the note's m((p^{-1/2})_p). It is negative (1 - ||F_P||_1) for m = -conj(F_P)/|F_P| when F_P has no zero on the torus.\n\nNo forced sign for zeta or DH, and every statement holds for DH. The limit step is void in measure form and equals the height-coupled Q*(t) reserve bound in formula form. Nothing is claimed about zeros of zeta.",
+ "obstruction": "Laurent/shell class: first-moment bracket = 2 int F_P dmu, sign forced iff Re F_P >= 0 on the torus (zeta: iff sum arcsin p^(-1/2) <= pi/2; fails from {2,3,7}). Gamma-coupled class: mean 1 + conj(int F_P m), sign free (ARGUED and measured). No forced sign for zeta and none for DH, every statement holds for DH. Twisted first moments single out the reflected Euler stage, whose shell contractivity is the height-coupled reserve inequality log(t/2pi) > 2 sum log p/(sqrt p - 1) of g-passive-cascade. Limit step void in measure form. Open only: a section with P(t) growing like a power of t.",
+ "obstructionKind": "first-moment-sign-free-outside-polydisc",
+ "controlsThatDefeat": [
+  "DH (every statement holds; no first-moment sign separates zeta from DH in any section class)",
+  "not run: heat, sign twists, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c7-laurent-shell-gamma-section/REFEREE.md (scripts ref_a.py, ref_b.py, ref_c.py alongside; local runs only, no server use).\n\n1. Wrong value in Section 2, bullet \"m holomorphic and inner\": the note states int F_P m dHaar = m((p^{-1/2})_p). The correct value is m(0); m((p^{-1/2})_p) is int conj(F_P) m, which is not the quantity in Lemma 2. Referee run for zeta at delta = 3e-4: m = w_2 gives 0.9995 (Lemma 2 f [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The forced sign of Theorem A' comes from Harnack on the polydisc, where the integer frequencies are the whole spectrum. Once a section has rational non-integral frequencies, or is coupled to the gamma ratio, the bracket is a torus integral of the P-part F_P against an arbitrary positive measure or unimodular function, and the sign is free for zeta and DH alike. First-moment signs cannot separate zeta from DH in any section class; twisted first moments single out the reflected Euler stage, whose shell contractivity is the height-coupled reserve inequality log(t/2pi) > 2 sum log p/(sqrt p - 1) already in g-passive-cascade.",
+ "followUp": "One referee pass on Lemma 1 (uniformity in j of the left-edge sums) and a written contour proof of Lemma 2; then add map rows closing \"sections on a Reinhardt shell\" and \"sections containing the gamma term\" under Q12/Q22. The server Test A stage for DH failed on a pickling bug (fixed in test_a.py, not rerun); rerun only if a referee wants the DH Laurent bracket above height 9e4. No further attack lane is suggested from this family unless a section with P(t) growing like a power of t is proposed.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-laurent-shell-gamma-section/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-laurent-shell-gamma-section/REFEREE.md"
+}

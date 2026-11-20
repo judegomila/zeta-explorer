@@ -1,0 +1,3 @@
+/home/USER/rh-push/s3-heat-escape-winding-cells/vortex.py:132: RuntimeWarning: overflow encountered in multiply
+  H = rows[t][sl, 0]; rec['counts'].append(int(np.sum(H[:-1]*H[1:] < 0)))
+zeta 2000.0 100 windows; nonzero-winding windows: 0 max phase step 2.859251023913353 sec 1085.3000366687775

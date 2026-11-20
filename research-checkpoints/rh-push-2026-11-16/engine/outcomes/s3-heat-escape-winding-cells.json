@@ -1,0 +1,89 @@
+{
+ "slug": "s3-heat-escape-winding-cells",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "backward-flow-escape-law",
+  "collective-lambda-certificate",
+  "dbn-max-gap-collapse-time",
+  "dbn-uniform-poisson-floor",
+  "gauss-conv-equals-negative-time-flow",
+  "genuine-theta-box",
+  "ht-conjugate-closure-all-t",
+  "mem-local-window-substitution",
+  "rh-szc-vortex-slab",
+  "sparse-verification-theorem-n",
+  "walled-cell-lemmas-b2-b3",
+  "window-winding-monotone"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "backward-flow-escape-law",
+    "gauss-conv-equals-negative-time-flow",
+    "ht-conjugate-closure-all-t"
+   ],
+   "obstruction": "coefficient pinning at large tau (twists equal zeta, L(chi) farther than DH); verified height as tau -> 0",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "L(chi_-4)",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "window-winding-monotone",
+    "rh-szc-vortex-slab",
+    "genuine-theta-box"
+   ],
+   "obstruction": "local: one vortex per off-line pair within 0.15 mean spacings; reach O(1); controls stop separating on any pair-free window",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "E_a",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "collective-lambda-certificate",
+    "dbn-max-gap-collapse-time",
+    "dbn-uniform-poisson-floor"
+   ],
+   "obstruction": "fail criterion cannot occur for a real zero list; the certificate holds for T-NR with off-line pairs present; DH minima sit at its pairs (lead 0)",
+   "controlsThatDefeat": [
+    "T-NR",
+    "every on-line list"
+   ]
+  },
+  {
+   "nodes": [
+    "mem-local-window-substitution",
+    "walled-cell-lemmas-b2-b3",
+    "sparse-verification-theorem-n"
+   ],
+   "obstruction": "the local window is verified height in local form: a control fails only when the window contains one of its pairs",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "T-NR"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) coefficient pinning at large tau (twists equal zeta, L(chi) farther than DH); verified height as tau -> 0 | (2) local: one vortex per off-line pair within 0.15 mean spacings; reach O(1); controls stop separating on any pair-free window | (3) fail criterion cannot occur for a real zero list; the certificate holds for T-NR with off-line pairs present; DH minima sit at its pairs (lead 0) | (4) the local window is verified height in local form: a control fails only when the window contains one of its pairs",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "L(chi_-4)",
+  "T-NR",
+  "every on-line list",
+  "heat",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/RESULT.md"
+}

@@ -1,0 +1,61 @@
+{
+ "slug": "e2-gl3-cover-cuspidal-rows",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism at effective order 2: rows from cuspidal objects on the double cover of GL(3)",
+ "nodes": [
+  "map-pos-35",
+  "separating-probe"
+ ],
+ "launchedNodes": [
+  "map-pos-35",
+  "map-pos-33",
+  "separating-probe",
+  "mem-sextic-theta-squarefree"
+ ],
+ "rowsChecked": [
+  "Z14",
+  "Z15",
+  "N19",
+  "N20",
+  "N21",
+  "A6",
+  "fam-order2-theta-rows"
+ ],
+ "tags": [
+  "seven-eighths",
+  "order-2-rows",
+  "gl3-double-cover",
+  "waldspurger",
+  "shimura-relation"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For a genuine weight-3/2 form over Q (Kohnen-plus form of 11a, c(n) exact to 2e6, validated against 1644 AFE central values): twist rows are symbol type with sign-blind Gram matrix; product-index rows c(dm) over squarefree labels show no correlation with mu(d)chi_d(m), prime-direction statistic 0 within 1/sqrt(n) (planted absorption gives 0.5-0.9), Gram spectrum not above the random-sign control; the unrestricted row series is entire (h = 0, model abscissa 1); the only coherent set is the square class d0 k^2 (Shimura relation), with the Moebius sign at shift 1/2 (closed by e1). No zero statement.",
+ "obstruction": "Order-2 rows need three conditions together: Moebius produced by the row, shift 0, and a coherent set of relative size 1/2. Signed Waldspurger coefficients at product indices give none (signs at random level); square classes give the first and third only at shift 1/2, the case closed by e1-gl3-theta-order2-rows. Transfer to the Eisenstein series on the double cover of GL(3) is by analogy only (field hypothesis of Brubaker-Friedberg Thm 4.1 not met over Q; exponential sum H and coefficient index not derived).",
+ "obstructionKind": "row-does-not-absorb-moebius",
+ "controlsThatDefeat": [
+  "random-sign rows: same Gram spectrum and same correlation level",
+  "not computed: genuine cusp forms on the GL(3) double cover; Gauss-sum-weighted double sum; exact H for the (2,1) parabolic"
+ ],
+ "lesson": "Signed square roots of central values behave as random signs against mu*chi. Do not re-run GL(2) half-integral-weight product-index rows. Untested: explicit genuine GL(3)-cover cusp forms.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.07,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "order2-row-three-conditions",
+   "type": "obstruction",
+   "status": "argued",
+   "statement": "An order-2 row attack needs jointly: Moebius produced by the row, shift 0, coherent set of relative size 1/2. Waldspurger product-index rows give none; square classes give two at shift 1/2."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-gl3-cover-cuspidal-rows/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-gl3-cover-cuspidal-rows/REFEREE.md"
+}

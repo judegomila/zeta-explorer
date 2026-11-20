@@ -1,0 +1,823 @@
+[
+ {
+  "id": "debruijn-family-dyson-ode",
+  "type": "object",
+  "name": "de Bruijn family H_t and Dyson zero ODE",
+  "statement": "H_t(x)=int_0^inf e^{t u^2} Phi(u) cos(xu) du, H_0(x)=xi(1/2+ix/2)/8 (doubled coordinates, zeros at 2*gamma). dH/dt=-H_xx (backward heat); real zeros obey dx_k/dt=2 sum_{m!=k} 1/(x_k-x_m), repulsive for increasing t.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34813-winding-monotonicity-rigor; imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "ht-conjugate-closure-all-t",
+  "type": "identity",
+  "name": "Conjugate closure of the H_t zero set at every real t",
+  "statement": "Phi real, even, positive, decaying like exp(-pi e^{4u}) gives H_t real-even entire for every real t (t<0 included), so its zero multiset is closed under z->conj z and z->-z. Per-t structure, no RH input; holds equally on the backward-heat control.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "conjugate-pair-field-lorentzian",
+  "type": "identity",
+  "name": "Field term of an off-line conjugate pair is real",
+  "statement": "For real x and omitted pair y=sigma+i tau, conj y: -2[1/(x-y)+1/(x-conj y)] = -4(x-sigma)/((x-sigma)^2+tau^2). The omitted-zero field error e_k(t) in the Dyson ODE is real at every t whether or not any zero is on the line.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "lambda"
+  ]
+ },
+ {
+  "id": "telescoping-kernel-projection-domination",
+  "type": "mechanism",
+  "name": "Telescoping gap kernel and projection domination",
+  "statement": "Gap-difference kernel of an omitted zero y: Delta_l(y)=2 g_l/((x_l-y)(x_{l+1}-y)); pair: |Delta_l|<=4 g_l/(|x_l-y||x_{l+1}-y|). Since |x-y|>=|x-Re y|, an off-line zero with Re y outside [x_l,x_{l+1}] is dominated by the on-line zero at its projection; RvM counts cover it.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "lambda"
+  ]
+ },
+ {
+  "id": "straddle-exclusion-window-completeness",
+  "type": "mechanism",
+  "name": "Straddle exclusion from an argument-principle-complete zero list",
+  "statement": "If the first N zeros are a complete verified listing (N(x_N)=N, all real), every unlisted zero has Re y > x_N or Re y < 0, so none straddles a window gap; the only bad case for projection domination (bound 4 g_l/tau^2) cannot occur at t=0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "lambda"
+  ]
+ },
+ {
+  "id": "eps-offline-quarantine-bound",
+  "type": "identity",
+  "name": "Contribution bound for hypothetical off-line zeros above verified height",
+  "statement": "With T_ver=3.0001753328e12 (Platt-Trudgian), zeros off the line lie at horizontal distance > 2.9994e12 from any window gap and contribute epsOffline <= 2(log(T_ver/2pi)+1)/(pi T_ver)=5.9185e-12 to every eps'(l); 4.1e6 times below the smallest realised record-pair eps 2.43e-5.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "field-channel-two-sided-lipschitz",
+  "type": "tool",
+  "name": "Two-sided field-Lipschitz lemma of the field-channel reroute",
+  "statement": "Zero-gap comparison under the backward Dyson flow needs only |e_{l+1}-e_l| <= eps' g_l for the omitted-zero field error, in both comparison branches; no sign or repulsion of the perturbation enters. Realness plus magnitude suffice (imp-3933 lemma class).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure (lemma: imp-3933)",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "backward-flow-displacement-residual",
+  "type": "open-lemma",
+  "name": "Displacement residual of the eps' certificate",
+  "statement": "Bound, from t=0 table data, the instantaneous complex distances |x_l(t)-y(t)| between window zeros and omitted zeros over the whole backward-flow horizon (spectator real zeros may pair into complex). Realness and kernel structure are closed; this distance quantification is open.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "debruijn-jet-lemma-no-liftoff",
+  "type": "mechanism",
+  "name": "Local jet lemma: real zeros split real under increasing t",
+  "statement": "At a real zero of multiplicity 2m, dH/dt=-H_xx gives the jet e^{-s d^2}x^{2m}, a scaled Hermite polynomial with 2m simple real roots for s>0 and none for s<0 (m=2: x^4-12 s x^2+12 s^2). Conjugate pairs land; real zeros never leave as t increases.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "debruijn-landing-rate-thm13",
+  "type": "tool",
+  "name": "de Bruijn Theorem 13 landing rate",
+  "statement": "Zeros of H_{t0} in |Im z|<=Delta lie in |Im z|<=sqrt(max(Delta^2-2(t-t0),0)) at time t; all real by t0+Delta^2/2. With a certified zero-free strip this gives Lambda<=t0+Delta^2/2, the architecture of Polymath15 0.22 and Platt-Trudgian 0.2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "window-winding-monotone",
+  "type": "identity",
+  "name": "Window winding number is monotone along the flow",
+  "statement": "W(t)=(1/2)#{sign changes of H_t on [a,b]} is non-decreasing in t absent boundary flux, jumping +1 per conjugate-pair landing. Classical consequence of the jet lemma and Theorem 13; time-reversed it is the 'winding Lyapunov' of imp-2696.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel",
+   "vortex"
+  ]
+ },
+ {
+  "id": "gauss-conv-equals-negative-time-flow",
+  "type": "identity",
+  "name": "Gaussian convolution of H_0 is the exact flow at negative time",
+  "statement": "Convolving H_0 with a Gaussian of width sqrt(2 tau) equals H_{-tau} (Fourier multiplier e^{-tau u^2}); in the repo ordinate gamma=x/2 this is t=-4 tau_repo. Checked against the exact integral: relative deviation 2e-9 (tau=0.5), 6e-9 (tau=2).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "control"
+  ]
+ },
+ {
+  "id": "winding-route-ceiling",
+  "type": "obstruction",
+  "name": "Winding/topological route re-derives the 0.2 architecture only",
+  "statement": "Lower side: Lambda>0 iff RH false, and a window collision at t=-c certifies only Lambda>-c. Upper side: monotone winding plus landing rate is the existing Lambda<=t0+Delta^2/2 method; no improvement without more verified height or barrier input. Obstruction map rows G7, F3.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "exact-flow-collision-meter",
+  "type": "measured-phenomenon",
+  "name": "Exact H_t collision times in the window x in [20,104]",
+  "statement": "Real-zero count of H_t: 10 for t>=-1.75, 8 at t=-2, 6 at -4, 4 at -6, 2 at -20 (pair mergers only). First collision (gamma_9,gamma_10) at t_c=-1.8837 versus two-body -(2 dgamma)^2/8=-1.5641; d(g^2)/dt about 5.78 versus 8; retardation factors 1.20 and 1.26.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34813-winding-monotonicity-rigor; scripts/imp-34813-exact-debruijn-winding-offline.mjs",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "window-boundary-influx",
+  "type": "measured-phenomenon",
+  "name": "Widening the window adds boundary in-flux under backward flow",
+  "statement": "Extending the window beyond x=104 lets a zero enter from x>112 as early as t about -3.6, before most merges, which stops order-continuation of the collision sequence; the base window [20,104] has no boundary event in the tested t-range.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34813-winding-monotonicity-rigor",
+  "tags": [
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "cm-energy-collision-growth",
+  "type": "measured-phenomenon",
+  "name": "Calogero-Moser energy growth at the backward collision threshold",
+  "statement": "In the Calogero-Moser realisation of the zero flow the only boundary is the backward-flow collision threshold; H_CM is not conserved there and increases with dH_CM/dtau about 80/gap^4 (imp-862). The monotone real-zero count re-derives Lambda>=0. Obstruction map row P31.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy (cites imp-862, imp-2673)",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "zpo-kinetic-equals-logzeta-dd",
+  "type": "identity",
+  "name": "Kinetic curvature term equals (log zeta)''(2 sigma)",
+  "statement": "T_zpo(sigma)=sum_p (log p)^2 p^{-2 sigma}/(1-p^{-2 sigma})^2 = (log zeta)''(2 sigma), the primon-gas specific-heat kernel at beta=2 sigma: C_v(beta)=beta^2 (log zeta)''(beta). Termwise differentiation of the Euler product, Re s>1.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "euler-product",
+   "twin-ladder",
+   "bridge",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "zpo-divergence-law-at-half",
+  "type": "identity",
+  "name": "Divergence law of the kinetic term at sigma -> 1/2+",
+  "statement": "With u=2 sigma-1: T_zpo=1/u^2-c0+c1 u+O(u^2), c0=gamma^2+2 gamma_1=0.18754623, c1=3 gamma_2+6 gamma gamma_1+2 gamma^3=0.10337726. The divergence at sigma=1/2 is the pole of zeta at s=1 pulled back through beta=2 sigma; it carries Stieltjes constants and no zero data.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "euler-product",
+   "twin-ladder",
+   "bridge"
+  ]
+ },
+ {
+  "id": "hagedorn-boundary-sigma-one",
+  "type": "identity",
+  "name": "Hagedorn boundary law at beta -> 1+",
+  "statement": "With v=beta-1: U(beta)=-(log zeta)'(beta)=1/v-gamma+O(v); C_v v^2=1+2v+O(v^2). No equilibrium phase for beta<1; T=1 is a limiting temperature (Bost-Connes KMS symmetry breaking at beta=1). Sees only the pole.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "euler-product",
+   "twin-ladder",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "truncated-kinetic-mertens-law",
+  "type": "measured-phenomenon",
+  "name": "Prime-truncated kinetic term at sigma=1/2",
+  "statement": "T_P(1)=sum_{p<=P}(log p)^2 p^{-1}/(1-p^{-1})^2 grows as (log P)^2/2+offset(P), offset(1e7)=-0.18389, drifting toward about -c0=-0.18755. The finite-prime Hamiltonian is finite at sigma=1/2 only through truncation.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "euler-product",
+   "twin-ladder",
+   "bridge"
+  ]
+ },
+ {
+  "id": "hamiltonian-convexity-truncation-artifact",
+  "type": "obstruction",
+  "name": "Convexity of the bridge Hamiltonian at sigma=1/2 has no N -> infinity limit",
+  "statement": "T_N(sigma,t)=sum_{p<=p_N}(1/2)log p(|H_p(s)|^2+|H_p(1-s)|^2) at t=14.134725: d^2T_N/dsigma^2 at sigma=1/2 is 19.2, 259.3, -77.2, -173.7, +1320.3, +2869.3 for N=10,100,400,800,1600,3200. Sign flips with growing amplitude; finite-stage convexity does not pass to the limit.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "twin-ladder",
+   "bridge",
+   "euler-product",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "fisher-zero-line-restatement",
+  "type": "obstruction",
+  "name": "sigma=1/2 as a phase boundary only in complex temperature",
+  "statement": "zeta is smooth through sigma=1/2 on the real axis (zeta(1/2)=-1.4603545), so no real-beta transition exists there. The Fisher zeros of the primon partition function are the nontrivial zeros; 'condensation on Re beta=1/2' is RH restated and gives no lever.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-34790-phase-boundary-energy",
+  "tags": [
+   "lee-yang",
+   "twin-ladder",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "supercritical-strip-no-critical-coupling",
+  "type": "measured-phenomenon",
+  "name": "No critical coupling inside 1/2 < sigma < 1",
+  "statement": "A fine survey of phase metrics (imp-2323) found all of them smooth in the open strip (1/2,1); the bulk order-parameter route is recorded as empirically dead.",
+  "status": "closed",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "imp-34790-phase-boundary-energy (cites imp-2323)",
+  "tags": [
+   "twin-ladder",
+   "lee-yang",
+   "bridge"
+  ]
+ },
+ {
+  "id": "shear-pass-kernel-R",
+  "type": "object",
+  "name": "De-homogenised shear/pass correlation matrix R(s)",
+  "statement": "On phi_j(tau)=(tau/U)^j: D_jj=int_0^U cosh(a tau)phi_j^2, H_jk=int_0^U sinh(a tau)phi_j phi_k, R_jk=H_jk/sqrt(D_jj D_kk); pass and shear forms are the even and odd parts of one exponential e^{a tau}. ||R||=Perron eigenvalue. Representative truncation, not the section-26 Gram.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33765-g7-obstruction-orthogonal-lever (kernel from imp-3066)",
+  "tags": [
+   "shear",
+   "bridge",
+   "weil"
+  ]
+ },
+ {
+  "id": "ka-positivity-residual",
+  "type": "open-lemma",
+  "name": "K_a >= 0 residual (roadmap gap G7)",
+  "statement": "Show ||Gpass^{-1/2} Gsym Gpass^{-1/2}|| <= 1 for the symmetric single-lag endpoint-Hankel Gram Gsym of section 26; needs a dominating passive core bounding the off-diagonal cross-terms. On the degree-4 representative truncation at (a,U)=(0.5,6): ||R||=4.617, off-diagonal Frobenius 4.082.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "imp-33685-scalar-cover-offdiagonal-reachability; imp-33705-rank2-antisymmetry-offdiagonal-inertness",
+  "tags": [
+   "shear",
+   "bridge",
+   "weil",
+   "pick"
+  ]
+ },
+ {
+  "id": "shear-obstruction-one-dimensional",
+  "type": "identity",
+  "name": "Shear obstruction depends on s = a*U only",
+  "statement": "tau=U x gives R_jk=h_jk(s)/sqrt(d_j(s)d_k(s)), d_j=int_0^1 cosh(sx)x^{2j}dx, h_jk=int_0^1 sinh(sx)x^{j+k}dx. R is invariant under (a,U)->(a/lam,lam U): no orthogonal admissible lever. Four pairs with aU=3 give ||R||=4.617013710.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33765-g7-obstruction-orthogonal-lever; imp-33725-g7-obstruction-a-scaling; imp-33704-g7-obstruction-U-scaling",
+  "tags": [
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "shear-perron-small-s-collapse",
+  "type": "identity",
+  "name": "Perron norm vanishes linearly at small s",
+  "statement": "h_jk(s)=s/(j+k+2)+O(s^3), d_j(s)->1/(2j+1), so ||R(s)||=C1 s+O(s^3) with C1 about 3.6401763947 (degree 4): inf_{s>0}||R(s)||=0, not attained. No uniform positive floor; ||R||<1 holds for small enough s.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33787-g7-perron-lower-bound",
+  "tags": [
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "shear-perron-monotone-ceiling",
+  "type": "measured-phenomenon",
+  "name": "||R(s)|| is monotone in s and saturates at DEG+1",
+  "statement": "On s in [0.05,20] (step 0.05) ||R(s)|| is strictly increasing with no turning point for DEG=4,6,8,10, saturating toward the all-ones ceiling DEG+1 as s->infinity; the ceiling rises linearly with truncation size.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33795-r-s-monotonicity; imp-33846-r-s-monotonicity-deg-robust; imp-33791-deg-ceiling-saturation",
+  "tags": [
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "shear-decoupled-rate-lever",
+  "type": "mechanism",
+  "name": "Decoupled pass/shear rates soften ||R|| but leave the kernel class",
+  "statement": "Pass rate b != shear rate a: at s_a=3, ||R||=20.94 (s_b=1), 4.617 (s_b=3), 0.338 (s_b=6); ||R||=1 locus s_b* about s_a+1.716. Inadmissible: cosh(b tau), sinh(a tau) are parts of one exponential multiplier only when b=a.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33765-g7-obstruction-orthogonal-lever; imp-33789-decoupled-rate-grid; imp-33813-crossing-locus-fit",
+  "tags": [
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "scalar-cover-trace-bound",
+  "type": "identity",
+  "name": "Scalar cover bounds R entrywise and by its trace",
+  "statement": "Gshear is a Gram matrix for the positive weight sinh(a tau), so R is PSD, |R_jk|<=sqrt(R_jj R_kk)<1 and ||R||<=trace R=sum_j R_jj. Each scalar-cover ratio R_jj<1 but the sum exceeds 1, so the cover does not give a contraction.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33685-scalar-cover-offdiagonal-reachability",
+  "tags": [
+   "shear",
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "rank2-antisymmetric-shear-kernel",
+  "type": "identity",
+  "name": "Two-point shear kernel is rank-2 antisymmetric",
+  "statement": "Gshear_anti(u,v)=Phi(u)Phi(v)sinh(a(v-u))=p q^T-q p^T with p_i=Phi_i cosh(a u_i), q_i=Phi_i sinh(a u_i); i*Gshear_anti has spectrum {+mu,-mu,0,...}. It is a different matrix from the symmetric Hankel Gram Gsym and gives no bound on its off-diagonal terms.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33705-rank2-antisymmetry-offdiagonal-inertness (imp-3351)",
+  "tags": [
+   "shear",
+   "bridge",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "shear-operating-point-unpinned",
+  "type": "obstruction",
+  "name": "Scaling orbit does not select the operating value of s",
+  "statement": "The orbit constraint is a level set of s=a*U, one equation short of fixing an operating point; every s>0 is admissible, ||R(s)|| ranges over (0,DEG+1). Whether K_a>=0 holds depends on which s the section-26 construction uses, which is not determined in this cohort.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-33811-g7-scaling-orbit-pin",
+  "tags": [
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "complex-burgers-fold",
+  "type": "object",
+  "name": "Complex Burgers characteristics and fold for the backward Dyson field",
+  "statement": "Stieltjes transform m:C_+->C_+ of the zero density obeys characteristics dz/dt=m(z,t); fold at 1+t m'(z_0*)=0 with z_0*=x*+i eps, eps->0+ as t->t_c; t_shock(z_0)=tau_c+(1/2)alpha(z_0-z_0*)^2+..., tau_c=-1/m'(z_0*).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33619-h5-rh-transcription-scoping (imp-354, imp-394)",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "vortex"
+  ]
+ },
+ {
+  "id": "g6a-shock-lipschitz-catalogue",
+  "type": "open-lemma",
+  "name": "G6a shock-Lipschitz: Hölder-1/2 blow-up modulus, hypotheses H1-H5",
+  "statement": "H1 smoothness (analyticity of m on C_+, discharged); H2 non-degenerate fold (pointwise via Privalov-Sokhotski); H3 uniform curvature (open); H4 strip-height uniformity as y_N=sqrt(2pi/N)->0 (open); H5 Riemann-Hilbert transcription: pointwise dischargeable, open uniformly in N.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33619-h5-rh-transcription-scoping; imp-33706-selection-catalogue-count-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "fold-curvature-divergence",
+  "type": "measured-phenomenon",
+  "name": "Fold curvature diverges as eps^{-5/2} at the real axis",
+  "statement": "For the Hölder-1/2 (RvM cusp) density, |m''(z_0*)| about K eps^{-5/2}: measured log-log slope -2.5000, eps^{5/2}|m''|->3.3322. The curvature floor required by H3 is not uniform before renormalisation.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33645-h3-curvature-divergence-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "privalov-sokhotski-constant",
+  "type": "identity",
+  "name": "Boundary-extension constant C_PS = pi/sqrt(2)",
+  "statement": "For the model cusp density |x|^{-1/2}: |m'(i eps)| about C_PS eps^{-3/2}, C_PS=lim eps^{3/2}|m'|=pi/sqrt(2)=2.221441. Finite-window correction: C_ren-C_PS about (4/3) eps^{3/2}; general cusp exponent gives coefficient C(alpha)=2/(alpha+1).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33646-h4-privalov-sokhotski-constant-scoping; imp-33853-cren-gap-coefficient-closed-form; imp-33882-cusp-exponent-onset-coefficient-robustness",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "model-cusp-amplitude-phase",
+  "type": "identity",
+  "name": "Off-axis fold amplitude and its phase winding",
+  "statement": "A(theta)=int |u|^{-1/2}/(w-u)^2 du with w=e^{i theta} equals (pi/2)(1-i)e^{-3i theta/2}; |A|=pi/sqrt(2), arg(-A)=3pi/4-3theta/2, real-positive only at theta=pi/2 on (0,pi). For exponent alpha the winding rate is d arg(-A)/d theta=-(1+alpha).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33927-phase-zero-uniqueness; imp-33923-off-axis-phase-winding-quadrature; imp-33968-winding-rate-vs-alpha-curve",
+  "tags": [
+   "heat-flow",
+   "vortex"
+  ]
+ },
+ {
+  "id": "joint-h3-h4-minimal-input",
+  "type": "open-lemma",
+  "name": "N-uniform two-sided bound on renormalised fold moduli",
+  "statement": "With y_N=sqrt(2pi/N): show C_ren(N)=y_N^{3/2}|m'(z_0*)| and C_curv(N)=y_N^{5/2}|m''(z_0*)| stay in a fixed window [c,C] for all N. One coupled strip-height-uniformity statement discharges both H3 and H4; H0 (provenance) is separate.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33766-h4-independent-discharge-scoping; imp-33786-h3-joint-curvature-input-scoping; imp-33812-h0-strip-height-modulus-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "cren-finite-band",
+  "type": "measured-phenomenon",
+  "name": "Renormalised fold-reading amplitude stays in a finite band",
+  "statement": "C_ren=(y_N)^{3/2}|m'| measured on the model cusp across the reading-strip ladder 1e3..1e7 lies in [2.2215,2.2510] (spread 2.95e-2), all above C_PS=2.2214. Model cusp only; the real fold modulus is not controlled by it.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33794-cren-window-measurement; imp-33989-c-alpha-vs-real-fold-modulus-gap-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "fold-tower-weights",
+  "type": "identity",
+  "name": "N-growth exponents of the open Stieltjes boundary tower",
+  "statement": "At the reading strip eps=y_N=sqrt(2pi/N) the k-th derivative row carries weight w_k(N)=(N/2pi)^{1/4+k/2}: selection (k=0) 1/4, H4 (k=1) 3/4, H3 (k=2) 5/4. H3 is the largest at every N in 1e3..1e9.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33746-governing-exponent-N-ladder-measurement; imp-33706-selection-catalogue-count-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "lemma-5-2-citation-refuted",
+  "type": "obstruction",
+  "name": "'Polymath15 Lemma 5.2' does not exist",
+  "statement": "arXiv:1802.05390 is an unrelated PDE paper; the Polymath15 paper is arXiv:1904.12438 and its Section 5 has only Lemma 5.1 (elementary estimates). H1..H5 are repo-side structural inferences with no published lemma behind them; the blow-up modulus must be proved from scratch.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33637-h0-provenance-verification; imp-33745-h0-provenance-independence-scoping",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "bridge-error-component-model",
+  "type": "object",
+  "name": "Component model E(N)=E_trunc+E_flow+E_coll and share sigma(N)",
+  "statement": "E_trunc=3.06e-5 (fixed strip sigma=3/4 above T_PT), E_coll=C_C sqrt(log T0/N) (GUE-conditional), E_flow=C_F(L/T0)G=G L(L0^2-1)/(4pi^2 N) about (log N)^3/N via T0=2pi N/(L0-1). sigma(N)=E_coll/E. A surrogate, not a rigorous asymptotic.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33620-etrunc-ecoll-ladder-1e15-extension; imp-33885-eflow-closedform-per-rung-crossvalidation (imp-3220, imp-3406, imp-28895)",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "crossover-fixed-point",
+  "type": "identity",
+  "name": "E_coll = E_trunc crossover as a contraction fixed point",
+  "statement": "N_cross=K log T0(N_cross), K=(C_C/E_trunc)^2, N_cross about 3.280294e9. g(N)=K log T0(N) is a contraction with constant g'(1e9) about 0.1485 on [1e9,1e10]; g(N)<N for all N>N_cross. Derivatives: g^(n)=(-1)^{n+1}2^n pi^n K P_n(u)/(T^n u^{2n-1}).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33723-sigma-half-vs-crossover-closed-form; imp-34650-crossover-banach-contraction-certificate; imp-34686-crossover-contraction-margin-monotone-proof; imp-34880-crossover-deriv-all-orders-sign-induction",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "sigma-logistic-flow",
+  "type": "identity",
+  "name": "sigma(N) obeys a logistic flow in t = ln N",
+  "statement": "With E_flow neglected, sigma=r/(1+r), r=E_coll/E_trunc: d sigma/dt=-g(t) sigma(1-sigma), inflection at sigma=1/2-g'/(2g^2). With E_flow: sigma(N_cross)=1/(2+E_flow/E_trunc) exactly. Local exponent tends to 1/2 with shortfall about 1/(2 log T0).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33744-sigma-inflection-vs-half-closed-form; imp-34923-gronwall-halving-surplus-identity-derivation; imp-33816-sigma-exponent-asymptote-approach-rate; imp-33854-log-saturation-exponent-reconciliation",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "en-monotone-no-minimum",
+  "type": "measured-phenomenon",
+  "name": "Bridge total E(N) is monotone with floor E_trunc",
+  "statement": "E(N) decreases from about 0.5407 at N=2 toward the constant E_trunc with no interior minimum. At the crossover N about 3.28e9 the GUE-conditional headline is E about 6.1258e-5; ratio L_pt/E(N)=1975.2 there and 3558.7 at the sigma<0.1 knee (N about 3.21e11).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34434-en-bridge-total-minimum-locate; imp-34453-crossover-en-headline-slack-vs-lpt; imp-34488-conditionality-gap-ratio-three-landmarks",
+  "tags": [
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "sigma-interior-peak",
+  "type": "measured-phenomenon",
+  "name": "GUE-conditional share peaks near N = 9.22e5",
+  "statement": "sigma(N)=E_coll/E has an interior maximum sigma_max about 0.94943 at N_max about 9.22e5; N_max scales as E_trunc^{-1.375}, so a 10% change of the truncation floor moves it by about 15%. Landmark positions are qualitatively stable and quantitatively model-sensitive.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33684-sigma-interior-peak-etrunc-model-sensitivity",
+  "tags": [
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "etrunc-pt-anchor-lock",
+  "type": "identity",
+  "name": "kappa_T locked at 2/5 at the Platt-Trudgian anchor",
+  "statement": "With the density tail integrated from T_PT=3e12 at the fixed strip sigma=3/4, the truncation exponent at N*=1e4 is exactly kappa_T=2/5; the tail-integral prefactor is 5, not 3 (E_trunc_pt 5.1e-5 corrected). Ranking: E_flow 1.24e-3 > E_trunc_pt > E_field 5.17e-7.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34791-etrunc-eflow-pt-anchor-honest-discharge",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "etrunc-not-a-density-constant",
+  "type": "obstruction",
+  "name": "E_trunc residual is a realness barrier above verified height, not a zero-density constant",
+  "statement": "Explicit zero-density constants are 16.7 times short at sigma=3/4 of what E_trunc<0.2 needs; the E(N) bracket at ledger scale is conditional on barrier-type realness control above T_PT (an RH-flavoured deep-zero lemma). The route returns to verified height. Obstruction map rows S7, F3.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34791-etrunc-eflow-pt-anchor-honest-discharge",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "large-sieve",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "eflow-gronwall-constant-gap",
+  "type": "open-lemma",
+  "name": "E_flow form constant and Gronwall bound are not rigorous",
+  "statement": "C_F=(log(T0/2pi)+1)/(2pi)=1.330578 is pinned, but the E_flow form uses an unbounded sum-to-integral step and (T-gamma)(T-gamma') about T^2. Gronwall C_G<=4/B(0)^2=L^2/pi^2=8.57 exceeds the OLS fallback threshold 6.78, so certification depends on input A1 (Theta-persistence, measured 9/9).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34791-etrunc-eflow-pt-anchor-honest-discharge (imp-398, imp-2644)",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "eflow-onset-height-fixed-point",
+  "type": "identity",
+  "name": "E_flow = alpha*E_trunc onset as a fixed point in height",
+  "statement": "T0*=A(alpha)(log(T0*/2pi)+1) log T0*, A proportional to the Gronwall constant over alpha*E_trunc; landmarks alpha=1 at N about 1.598e6, 0.01 at 4.623e8, 0.001 at 6.933e9. Joint with the E_coll crossover through the Riemann-von Mangoldt height law.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34213-eflow-onset-closed-form; imp-34293-joint-eflow-ecoll-fixed-point",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "rvm-inversion-krawczyk",
+  "type": "tool",
+  "name": "Interval-Newton/Krawczyk enclosure for the height of the N-th zero count",
+  "statement": "For f(T)=(T/2pi)(log(T/2pi)-1)-N on an interval [T] with midpoint m: one Krawczyk step proves a unique zero T0 in [T] and encloses it; contraction factor rho about delta/U with U=log(m/2pi), delta the relative half-width.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34714-krawczyk-existence-uniqueness-lemma; imp-34774-krawczyk-fixed-point-map-enclosure",
+  "tags": [
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "eflow-pinned-product",
+  "type": "identity",
+  "name": "Knee/inflection crossing depends on the product g = m*s only",
+  "statement": "E_flow strength s and ramp-depth multiplier m enter through phi=-ln(1+m s r), so the gap is univariate in g=m s; the crossing fixes g*=0.77765 and s*=g*/m. Against the many-body constant: s*(C_mb)=K C_mb^p, p=1.5493 +/- 8.9e-4, not a simple rational.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34924-eflow-pinned-product-derivation; imp-34950-eflow-crossing-strength-cmb-exponent-structural",
+  "tags": [
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "landmark-ordering-rvm",
+  "type": "measured-phenomenon",
+  "name": "N_half < N_cross under the exact Riemann-von Mangoldt count",
+  "statement": "The sigma=1/2 halving landmark (N about 3.267e9) lies strictly below the E_coll=E_trunc crossover (3.280e9); the 0.4% gap is the Gronwall E_flow term, leading size 2 E_flow/E_trunc about 0.381%. The ordering persists at threshold 0.1 (N about 3.21e11).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34290-nhalf-ncross-exact-rvm-forward-count; imp-34370-nthr-ncross-fartail-ordering-rvm-jacobian; imp-33788-eflow-displacement-sqrtlog-running-correction",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "component-model-diagnostic-thread-limit",
+  "type": "obstruction",
+  "name": "Surrogate-ladder diagnostics carry no zero information",
+  "statement": "The several hundred modules on widening slopes, hump argmax, poles of eflow_attr/resid_exp (zero near k*=21.28), Taylor tails and roundoff floors analyse the closed-form surrogate E(N) itself. They change no bound and depend on GUE-conditional C_mb; no statement about zeta zeros follows.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34163-ladder-surrogate-what-remains; imp-34310-eflow-over-resid-pole-residue-simple-pole",
+  "tags": [
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "quadrature-floor-band-clusters",
+  "type": "measured-phenomenon",
+  "name": "Irregular band-clearing spikes in the saddle-ratio quadrature floor",
+  "statement": "floorUlp(n) of the graded Gauss-Legendre moment quadrature shows 16 cluster peaks on n in [400,1200] with irregular spacing, flat inter-cluster troughs, no gap-height correlation; apparent height growth is a two-point artifact. Saturation node budget about 186. A numerical-precision effect, not arithmetic.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-33661-cluster-peak-spacing-periodicity-extended-n400-1200; imp-33680-cluster-peak-height-leave-two-out-refit; imp-33627-saturation-budget-crossover",
+  "tags": [
+   "lambda",
+   "visualization"
+  ]
+ },
+ {
+  "id": "backward-heat-control-in-flow-modules",
+  "type": "control",
+  "name": "Backward heat family as realised in the repo winding ladder",
+  "statement": "The repo 'Z-convolution ladder' is H_t at t=-4 tau_repo<0: real-even, conjugate-closed, with genuine pair mergers (10 zeros to 2 by t=-20 in the base window). Any property proved from evenness, realness or kernel positivity holds along it while zeros leave the line.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-34813-winding-monotonicity-rigor; imp-34427-spectator-realness-channel-closure",
+  "tags": [
+   "heat-flow",
+   "control",
+   "antibridge"
+  ]
+ }
+]

@@ -1,0 +1,210 @@
+planned allocation: element grid 0.00 GB
+[    0.0s] Z=128000 M=1.0 l=0.3333333333333333 cslot=-40.0 X=6450796 NMAX=128001 elements=51594 primes=11978
+[    0.0s] rows R=29026  marks n=41 (norms 61..271; 10 in [Z^l, 2Z^l])  small primes=11978
+[    0.3s] gauss sums done: 5971 split sums computed, max||g|-1|=1.38e-14
+[    0.4s] cofactors c': 34793 (mean omega 1.87, max 4)
+planned allocation: W 34793x1x41 c128 (x2 transient), EP 41x29026 int8, per-pair work arrays 41x34793, thread buffers: total 0.16 GB
+[    0.4s] gamma_2(c') done
+[    1.0s] weights done
+planned allocation: inert table 36x29026 int8 = 0.00 GB
+[    1.3s] row tables done; kernel: 29026 rows x 34793 cofactors x 1 systems x 41 marks = 4.141e+10 complex adds
+  kern: 46/908 blocks, 0 s
+  kern: 92/908 blocks, 0 s
+  kern: 138/908 blocks, 0 s
+  kern: 184/908 blocks, 0 s
+  kern: 230/908 blocks, 0 s
+  kern: 276/908 blocks, 0 s
+  kern: 322/908 blocks, 1 s
+  kern: 368/908 blocks, 1 s
+  kern: 414/908 blocks, 1 s
+  kern: 460/908 blocks, 1 s
+  kern: 506/908 blocks, 1 s
+  kern: 552/908 blocks, 1 s
+  kern: 598/908 blocks, 1 s
+  kern: 644/908 blocks, 1 s
+  kern: 690/908 blocks, 1 s
+  kern: 736/908 blocks, 1 s
+  kern: 782/908 blocks, 1 s
+  kern: 828/908 blocks, 1 s
+  kern: 874/908 blocks, 1 s
+[    2.8s] kernel done
+  Rc : lane-normalised Gram: diag_mean=0.932079 off_rms=0.008831 eig[min,max]=[0.862980,1.220967] herm_asym=4.0e-18
+  QRc: lane-normalised Gram: diag_mean=0.931972 off_rms=0.009467 eig[min,max]=[0.859196,1.233556] herm_asym=5.2e-18
+  Rc4: lane-normalised Gram: diag_mean=0.932977 off_rms=0.008765 eig[min,max]=[0.861583,1.216061] herm_asym=3.9e-18
+[    2.8s] saved x_Z128000.npz
+planned allocation: element grid 0.01 GB
+[    0.1s] Z=512000 M=1.0 l=0.3333333333333333 cslot=-40.0 X=40960000 NMAX=512001 elements=206381 primes=42463
+[    0.1s] rows R=116092  marks n=40 (norms 97..307; 15 in [Z^l, 2Z^l])  small primes=42463
+[    2.6s] gauss sums done: 21199 split sums computed, max||g|-1|=3.26e-14
+[    2.8s] cofactors c': 136982 (mean omega 1.97, max 5)
+planned allocation: W 136982x1x40 c128 (x2 transient), EP 40x116092 int8, per-pair work arrays 40x136982, thread buffers: total 0.60 GB
+[    2.8s] gamma_2(c') done
+[    4.4s] weights done
+planned allocation: inert table 65x116092 int8 = 0.01 GB
+[    6.1s] row tables done; kernel: 116092 rows x 136982 cofactors x 1 systems x 40 marks = 6.361e+11 complex adds
+  kern: 182/3628 blocks, 1 s
+  kern: 364/3628 blocks, 2 s
+  kern: 546/3628 blocks, 3 s
+  kern: 728/3628 blocks, 4 s
+  kern: 910/3628 blocks, 5 s
+  kern: 1092/3628 blocks, 6 s
+  kern: 1274/3628 blocks, 7 s
+  kern: 1456/3628 blocks, 8 s
+  kern: 1638/3628 blocks, 9 s
+  kern: 1820/3628 blocks, 10 s
+  kern: 2002/3628 blocks, 11 s
+  kern: 2184/3628 blocks, 12 s
+  kern: 2366/3628 blocks, 13 s
+  kern: 2548/3628 blocks, 14 s
+  kern: 2730/3628 blocks, 15 s
+  kern: 2912/3628 blocks, 16 s
+  kern: 3094/3628 blocks, 17 s
+  kern: 3276/3628 blocks, 18 s
+  kern: 3458/3628 blocks, 19 s
+[   26.4s] kernel done
+  Rc : lane-normalised Gram: diag_mean=0.934275 off_rms=0.005881 eig[min,max]=[0.895993,1.142182] herm_asym=3.3e-18
+  QRc: lane-normalised Gram: diag_mean=0.934683 off_rms=0.006066 eig[min,max]=[0.895187,1.144990] herm_asym=3.6e-18
+  Rc4: lane-normalised Gram: diag_mean=0.934359 off_rms=0.006012 eig[min,max]=[0.896507,1.147120] herm_asym=3.6e-18
+[   26.4s] saved x_Z512000.npz
+planned allocation: element grid 0.00 GB
+[    0.0s] Z=128000 M=1.0 l=0.3333333333333333 cslot=-160.0 X=6450796 NMAX=128001 elements=51594 primes=11978
+[    0.0s] rows R=29026  marks n=160 (norms 61..1039; 10 in [Z^l, 2Z^l])  small primes=11978
+[    0.3s] gauss sums done: 5971 split sums computed, max||g|-1|=1.38e-14
+[    0.3s] cofactors c': 35787 (mean omega 1.87, max 4)
+planned allocation: W 35787x2x160 c128 (x2 transient), EP 160x29026 int8, per-pair work arrays 160x35787, thread buffers: total 0.81 GB
+[    0.3s] gamma_2(c') done
+[    2.3s] weights done
+planned allocation: inert table 36x29026 int8 = 0.00 GB
+[    2.8s] row tables done; kernel: 29026 rows x 35787 cofactors x 2 systems x 160 marks = 3.324e+11 complex adds
+  kern: 46/908 blocks, 0 s
+  kern: 92/908 blocks, 1 s
+  kern: 138/908 blocks, 1 s
+  kern: 184/908 blocks, 1 s
+  kern: 230/908 blocks, 1 s
+  kern: 276/908 blocks, 2 s
+  kern: 322/908 blocks, 2 s
+  kern: 368/908 blocks, 2 s
+  kern: 414/908 blocks, 2 s
+  kern: 460/908 blocks, 2 s
+  kern: 506/908 blocks, 3 s
+  kern: 552/908 blocks, 3 s
+  kern: 598/908 blocks, 3 s
+  kern: 644/908 blocks, 3 s
+  kern: 690/908 blocks, 4 s
+  kern: 736/908 blocks, 4 s
+  kern: 782/908 blocks, 4 s
+  kern: 828/908 blocks, 4 s
+  kern: 874/908 blocks, 5 s
+[    7.7s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.937205 off_rms=0.006324 eig[min,max]=[0.803488,1.435571] herm_asym=3.8e-18
+  Rc : lane-normalised Gram: diag_mean=0.936328 off_rms=0.006279 eig[min,max]=[0.800810,1.433788] herm_asym=4.0e-18
+  K4a: lane-normalised Gram: diag_mean=0.935384 off_rms=0.005676 eig[min,max]=[0.803089,1.176215] herm_asym=5.3e-18
+  Q  : lane-normalised Gram: diag_mean=0.936264 off_rms=0.006701 eig[min,max]=[0.797113,1.437351] herm_asym=4.0e-18
+  QRc: lane-normalised Gram: diag_mean=0.936903 off_rms=0.006847 eig[min,max]=[0.796417,1.449197] herm_asym=3.9e-18
+[    7.8s] saved w_Z128000.npz
+planned allocation: element grid 0.01 GB
+[    0.1s] Z=512000 M=1.0 l=0.3333333333333333 cslot=-120.0 X=40960000 NMAX=512001 elements=206381 primes=42463
+[    0.1s] rows R=116092  marks n=121 (norms 97..823; 15 in [Z^l, 2Z^l])  small primes=42463
+[    2.6s] gauss sums done: 21199 split sums computed, max||g|-1|=3.26e-14
+[    3.0s] cofactors c': 141702 (mean omega 1.97, max 5)
+planned allocation: W 141702x2x121 c128 (x2 transient), EP 121x116092 int8, per-pair work arrays 121x141702, thread buffers: total 2.38 GB
+[    3.0s] gamma_2(c') done
+[    7.7s] weights done
+planned allocation: inert table 65x116092 int8 = 0.01 GB
+[    9.7s] row tables done; kernel: 116092 rows x 141702 cofactors x 2 systems x 121 marks = 3.981e+12 complex adds
+  kern: 182/3628 blocks, 4 s
+  kern: 364/3628 blocks, 7 s
+  kern: 546/3628 blocks, 10 s
+  kern: 728/3628 blocks, 13 s
+  kern: 910/3628 blocks, 16 s
+  kern: 1092/3628 blocks, 20 s
+  kern: 1274/3628 blocks, 23 s
+  kern: 1456/3628 blocks, 27 s
+  kern: 1638/3628 blocks, 30 s
+  kern: 1820/3628 blocks, 33 s
+  kern: 2002/3628 blocks, 37 s
+  kern: 2184/3628 blocks, 40 s
+  kern: 2366/3628 blocks, 43 s
+  kern: 2548/3628 blocks, 47 s
+  kern: 2730/3628 blocks, 50 s
+  kern: 2912/3628 blocks, 54 s
+  kern: 3094/3628 blocks, 57 s
+  kern: 3276/3628 blocks, 61 s
+  kern: 3458/3628 blocks, 64 s
+[   77.0s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.936928 off_rms=0.003997 eig[min,max]=[0.877266,1.288783] herm_asym=2.7e-18
+  Rc : lane-normalised Gram: diag_mean=0.936834 off_rms=0.004022 eig[min,max]=[0.876347,1.292464] herm_asym=3.1e-18
+  K4a: lane-normalised Gram: diag_mean=0.934694 off_rms=0.003071 eig[min,max]=[0.876394,1.111590] herm_asym=3.6e-18
+  Q  : lane-normalised Gram: diag_mean=0.936076 off_rms=0.004238 eig[min,max]=[0.869803,1.298889] herm_asym=2.8e-18
+  QRc: lane-normalised Gram: diag_mean=0.936948 off_rms=0.004228 eig[min,max]=[0.872080,1.293871] herm_asym=3.1e-18
+[   77.1s] saved w_Z512000.npz
+planned allocation: element grid 0.01 GB
+[    0.1s] Z=512000 M=1.0 l=0.3333333333333333 cslot=2.0 X=40960000 NMAX=512001 elements=206381 primes=42463
+[    0.1s] rows R=116092  marks n=15 (norms 97..157; 15 in [Z^l, 2Z^l])  small primes=42463
+[    2.5s] gauss sums done: 21199 split sums computed, max||g|-1|=3.26e-14
+[    2.8s] cofactors c': 130064 (mean omega 1.98, max 5)
+planned allocation: W 130064x2x15 c128 (x2 transient), EP 15x116092 int8, per-pair work arrays 15x130064, thread buffers: total 0.29 GB
+[    2.9s] gamma_2(c') done
+[    3.5s] weights done
+planned allocation: inert table 65x116092 int8 = 0.01 GB
+[    5.1s] row tables done; kernel: 116092 rows x 130064 cofactors x 2 systems x 15 marks = 4.530e+11 complex adds
+  kern: 182/3628 blocks, 1 s
+  kern: 364/3628 blocks, 2 s
+  kern: 546/3628 blocks, 3 s
+  kern: 728/3628 blocks, 4 s
+  kern: 910/3628 blocks, 5 s
+  kern: 1092/3628 blocks, 5 s
+  kern: 1274/3628 blocks, 6 s
+  kern: 1456/3628 blocks, 7 s
+  kern: 1638/3628 blocks, 8 s
+  kern: 1820/3628 blocks, 9 s
+  kern: 2002/3628 blocks, 10 s
+  kern: 2184/3628 blocks, 11 s
+  kern: 2366/3628 blocks, 12 s
+  kern: 2548/3628 blocks, 13 s
+  kern: 2730/3628 blocks, 13 s
+  kern: 2912/3628 blocks, 14 s
+  kern: 3094/3628 blocks, 15 s
+  kern: 3276/3628 blocks, 16 s
+  kern: 3458/3628 blocks, 17 s
+[   23.0s] kernel done
+  Ap : lane-normalised Gram: diag_mean=0.930829 off_rms=0.007483 eig[min,max]=[0.906920,1.032136] herm_asym=4.1e-18
+  Rc : lane-normalised Gram: diag_mean=0.931160 off_rms=0.007623 eig[min,max]=[0.903767,1.035292] herm_asym=2.4e-18
+  K4a: lane-normalised Gram: diag_mean=0.927632 off_rms=0.004528 eig[min,max]=[0.907327,0.985147] herm_asym=3.1e-18
+  Q  : lane-normalised Gram: diag_mean=0.931172 off_rms=0.008030 eig[min,max]=[0.897451,1.039467] herm_asym=4.1e-18
+  QRc: lane-normalised Gram: diag_mean=0.933716 off_rms=0.007602 eig[min,max]=[0.907709,1.037115] herm_asym=3.1e-18
+[   23.0s] saved t_Z512000_lean.npz
+planned allocation: element grid 0.03 GB
+[    0.3s] Z=2.048e+06 M=1.0 l=0.3333333333333333 cslot=-48.0 X=260079788 NMAX=2048001 elements=825484 primes=152199
+[    0.3s] rows R=464316  marks n=49 (norms 127..397; 24 in [Z^l, 2Z^l])  small primes=152199
+[   32.7s] gauss sums done: 76042 split sums computed, max||g|-1|=6.68e-14
+[   33.6s] cofactors c': 541135 (mean omega 2.06, max 5)
+planned allocation: W 541135x1x49 c128 (x2 transient), EP 49x464316 int8, per-pair work arrays 49x541135, thread buffers: total 2.86 GB
+[   33.7s] gamma_2(c') done
+[   39.3s] weights done
+planned allocation: inert table 115x464316 int8 = 0.05 GB
+[   52.4s] row tables done; kernel: 464316 rows x 541135 cofactors x 1 systems x 49 marks = 1.231e+13 complex adds
+  kern: 726/14510 blocks, 19 s
+  kern: 1452/14510 blocks, 37 s
+  kern: 2178/14510 blocks, 55 s
+  kern: 2904/14510 blocks, 73 s
+  kern: 3630/14510 blocks, 92 s
+  kern: 4356/14510 blocks, 111 s
+  kern: 5082/14510 blocks, 130 s
+  kern: 5808/14510 blocks, 148 s
+  kern: 6534/14510 blocks, 167 s
+  kern: 7260/14510 blocks, 187 s
+  kern: 7986/14510 blocks, 205 s
+  kern: 8712/14510 blocks, 224 s
+  kern: 9438/14510 blocks, 244 s
+  kern: 10164/14510 blocks, 263 s
+  kern: 10890/14510 blocks, 282 s
+  kern: 11616/14510 blocks, 301 s
+  kern: 12342/14510 blocks, 320 s
+  kern: 13068/14510 blocks, 340 s
+  kern: 13794/14510 blocks, 358 s
+[  428.9s] kernel done
+  Rc : lane-normalised Gram: diag_mean=0.935847 off_rms=0.004167 eig[min,max]=[0.913505,1.126192] herm_asym=1.8e-18
+  QRc: lane-normalised Gram: diag_mean=0.935801 off_rms=0.004348 eig[min,max]=[0.911679,1.133104] herm_asym=2.0e-18
+  Rc4: lane-normalised Gram: diag_mean=0.936040 off_rms=0.004195 eig[min,max]=[0.913699,1.128138] herm_asym=2.2e-18
+[  429.0s] saved x_Z2048000.npz

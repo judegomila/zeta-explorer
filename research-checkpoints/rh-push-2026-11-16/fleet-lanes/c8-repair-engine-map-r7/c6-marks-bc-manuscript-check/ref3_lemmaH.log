@@ -1,0 +1,3 @@
+series (7.10)+(7.8) against (7.11), j = 0, 24 random points (rho any sixth root, omega = +-1): max relative difference 1.55e-15
+H_p(u = 1; w = 1, z = 1/6) from the series against (1-q^2)(1 - D(1-q) - Rq)/((1-R)(1-D)), 12 points, Re s in (0.75, 1.1): max relative difference 1.84e-15
+local factor of H_lambda at s = 1: |H_p| >= 0.8798 over Q in {4,..,37} and all phases of a_p^2; H_p = 1 + O(Q^-2), product absolutely convergent

@@ -1,0 +1,42 @@
+{
+ "slug": "c4-laxphillips-hecke-compression",
+ "round": 4,
+ "kind": "explore",
+ "nodes": [
+  "bridge-scattering-factorisation",
+  "antihermitian-strip-bound"
+ ],
+ "tags": [
+  "lax-phillips",
+  "hecke",
+  "scattering",
+  "resonance",
+  "eisenstein",
+  "control",
+  "operator-norm"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction for the routes examined. On the Eisenstein channel T_p = U(log p) + U(-log p) = 2 cos(log p sqrt(-L)) (classical fact restated); its compression to K is Z(log p) + Z(log p)^*, of energy norm at most 2 for every inner scattering function (relative to the classical Lax-Phillips identification), and resonance states are not its eigenvectors; in the weighted-L2 family admissibility of the resonance state already implies the eigenvalue bound; on finite spans a norm bound for all p is equivalent to resonance location; no positive-definite form makes T_2 and T_3 both symmetric on a resonance state. The only inequality obtained is Re rho <= 1. Moved-resonance inner functions and zeta(s+a)zeta(s-a) pass every statement. Not closed: norms outside the one weight family and infinite-dimensional independent derivations of a norm bound. No statement about zeros of zeta.",
+ "obstruction": "On the Eisenstein channel T_p = U(log p) + U(-log p) = 2 cos(log p sqrt(-L)): a function of the wave group, defined for any group. Its compression to K is Z(log p) + Z(log p)^*, of energy norm at most 2 for every inner scattering function; resonance states are not its eigenvectors. For the uncompressed T_p in the weighted-L2 family admissibility of the resonance state already implies the eigenvalue bound; on finite spans a norm bound for all p is equivalent to resonance location; no positive-definite form makes T_2 and T_3 both symmetric on a resonance state. The only inequality obtained is Re rho <= 1. All arithmetic sits in the scattering function phi. Not closed: norms outside the one weight family; infinite-dimensional independent derivations of a norm bound.",
+ "obstructionKind": "hecke-is-function-of-wave-group",
+ "controlsThatDefeat": [
+  "moved-resonance inner functions (three configurations: numerical range inside (-2,2) alike)",
+  "E_a = zeta(s+a)zeta(s-a) (passes every statement)",
+  "non-arithmetic groups (the Eisenstein-channel operator exists for any group; cited resonance data)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error that changes a conclusion. All PROVED steps (Lemmas 1-5, zero-mode action, window-defect formula, model-space Gram form) were re-derived and confirmed. Corrections recorded in tmp/research-2026-11-16/push/c4-laxphillips-hecke-compression/REFEREE.md: (1) Lemma 3 wording: only the lower bound ||T_p||_w >= p^w + p^-w is proved, and for a single p the inequality is not equivalent to |Re mu| <= w; the valid chain is admissible => |Re mu| < w =>",
+ "lesson": "On the continuous spectrum of PSL(2,Z)\\H the Hecke operator equals 2 cos(log p sqrt(-L)), so it adds nothing to the Lax-Phillips semigroup; all arithmetic sits inside phi, and the operator framework is identical for every inner function, including non-arithmetic groups and moved resonances. Any Hecke norm bound on resonance states is either implied by admissibility (weighted L2) or equivalent to resonance location. The truncation-Hecke defect lives on the window (a/p, a) and is the automorphic form of closed row G25.",
+ "followUp": "None on this route. Add a map row: Lax-Phillips Hecke compression closed (T_p = 2 cos(log p sqrt(-L)) on the Eisenstein channel; compression norm at most 2 for every inner function). Not refereed; the model-space identification is quoted from the literature, and the non-arithmetic control uses cited resonance data. The first numerical run had a conjugated Gram matrix; the reported table is from the corrected run with a contraction self-check.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-laxphillips-hecke-compression/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-laxphillips-hecke-compression/REFEREE.md"
+}

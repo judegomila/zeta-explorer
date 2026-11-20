@@ -1,0 +1,13 @@
+PLAN: mode zeta, prec 128, tau 1, centre Im z = 2500.75, X = 3, Y_k = [1, 2, 4, 8, 16, 32], workers 1, slabs 4; largest allocation: float grid rows of 661 x 2700 complex128 (below 40 MB per worker); samples: fewer than 3000 balls per slab
+Q_gen P8 [7.290603785748278833564430 +/- 4.62e-25] + [+/- 1.51e-33]j abs F (scaled) at the rate points >= [3.08065787043317, 3.08065787043317]
+Q_gen P1 [5.612677626531679303397997 +/- 4.74e-25] + [+/- 1.14e-32]j abs F (scaled) at the rate points >= [3.08065787043317, 3.08065787043317, 7.179893732009422, 7.179893732009422]
+float screen: 64 candidate cells (155s)
+zeros: 61 representatives (Im w <= 0), winding certified 1 for 61; boxes meeting the real axis 61 (160s)
+contour pieces: 400 (unit length in w)
+piece 0 of 400 evaluations so far 186 160s
+piece 50 of 400 evaluations so far 28698 187s
+piece 100 of 400 evaluations so far 55219 206s
+piece 150 of 400 evaluations so far 81716 230s
+piece 200 of 400 evaluations so far 108252 253s
+piece 250 of 400 evaluations so far 136357 273s
+piece 300 of 400 evaluations so far 170348 302s

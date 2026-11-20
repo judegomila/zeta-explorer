@@ -1,0 +1,29 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.15/3.15.2/Frameworks/Python.framework/Versions/3.15/lib/python3.15/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.2/Frameworks/Python.framework/Versions/3.15/lib/python3.15/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/vortex.py", line 98, in _row
+    J = hk.Hjet(kind, acb(float(x)), t, ref, NODES, 1)
+  File "tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/hk.py", line 66, in Hjet
+    raise ValueError('t = 0: use H0n')
+ValueError: t = 0: use H0n
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/vortex.py", line 158, in <module>
+    with Pool(NW) as p: res, meta = boxes(kind, x_start, nwin, W, p)
+                                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/vortex.py", line 115, in boxes
+    res = pool.map(_row, [(kind, t, c, xc) for c in chunks])
+  File "/opt/homebrew/Cellar/python@3.15/3.15.2/Frameworks/Python.framework/Versions/3.15/lib/python3.15/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.2/Frameworks/Python.framework/Versions/3.15/lib/python3.15/multiprocessing/pool.py", line 774, in get
+    raise self._value
+ValueError: t = 0: use H0n

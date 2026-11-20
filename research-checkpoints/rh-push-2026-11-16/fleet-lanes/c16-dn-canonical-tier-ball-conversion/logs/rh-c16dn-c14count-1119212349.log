@@ -1,0 +1,86 @@
+JA-with: planned memory: s1 int8(513032, 23) = 0.01 GB, s2 int8(115767, 810) = 0.09 GB, S int8[115767 x 833] = 0.10 GB, masks about 0.29 GB
+JA-with: F=513032 stage2=115767 one=16 (stored 16) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 16, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 1s
+JA-without: planned memory: s1 int8(513032, 23) = 0.01 GB, s2 int8(149038, 810) = 0.12 GB, S int8[149038 x 833] = 0.12 GB, masks about 0.37 GB
+JA-without: F=513032 stage2=149038 one=491 (stored 491) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[344, 0, 0] best_min_given_pos=2 | FE ttrain recount 0 stored 0 | float-open rows 0 | 1s
+JB1-with: planned memory: s1 int8(30464, 23) = 0.00 GB, s2 int8(4282, 810) = 0.00 GB, S int8[4282 x 833] = 0.00 GB, masks about 0.01 GB
+JB1-with: F=30464 stage2=4282 one=106 (stored 106) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[15, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 138 | 0s
+JB1-without: planned memory: s1 int8(30464, 23) = 0.00 GB, s2 int8(10954, 810) = 0.01 GB, S int8[10954 x 833] = 0.01 GB, masks about 0.03 GB
+JB1-without: F=30464 stage2=10954 one=106 (stored 106) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 95 | 0s
+JB2-with: planned memory: s1 int8(175104, 23) = 0.00 GB, s2 int8(85683, 810) = 0.07 GB, S int8[85683 x 833] = 0.07 GB, masks about 0.21 GB
+JB2-with: F=175104 stage2=85683 one=42180 (stored 42180) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[523, 37301, 1] best_min_given_pos=6 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JB2-without: planned memory: s1 int8(175104, 23) = 0.00 GB, s2 int8(115946, 810) = 0.09 GB, S int8[115946 x 833] = 0.10 GB, masks about 0.29 GB
+JB2-without: F=175104 stage2=115946 one=45856 (stored 45856) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[33, 12, 1] best_min_given_pos=6 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC1-with: planned memory: s1 int8(16786, 23) = 0.00 GB, s2 int8(13165, 810) = 0.01 GB, S int8[13165 x 833] = 0.01 GB, masks about 0.03 GB
+JC1-with: F=16786 stage2=13165 one=112 (stored 112) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 112, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC1-without: planned memory: s1 int8(16786, 23) = 0.00 GB, s2 int8(14861, 810) = 0.01 GB, S int8[14861 x 833] = 0.01 GB, masks about 0.04 GB
+JC1-without: F=16786 stage2=14861 one=108 (stored 108) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[4, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC2-with: planned memory: s1 int8(8393, 23) = 0.00 GB, s2 int8(7368, 810) = 0.01 GB, S int8[7368 x 833] = 0.01 GB, masks about 0.02 GB
+JC2-with: F=8393 stage2=7368 one=2840 (stored 2840) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[276, 322, 4] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC2-without: planned memory: s1 int8(8393, 23) = 0.00 GB, s2 int8(6707, 810) = 0.01 GB, S int8[6707 x 833] = 0.01 GB, masks about 0.02 GB
+JC2-without: F=8393 stage2=6707 one=2716 (stored 2716) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[342, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JA-with-rnd: planned memory: s1 int8(207427, 23) = 0.00 GB, s2 int8(57265, 810) = 0.05 GB, S int8[57265 x 833] = 0.05 GB, masks about 0.14 GB
+JA-with-rnd: F=207427 stage2=57265 one=16 (stored 16) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 16, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JA-without-rnd: planned memory: s1 int8(206498, 23) = 0.00 GB, s2 int8(72212, 810) = 0.06 GB, S int8[72212 x 833] = 0.06 GB, masks about 0.18 GB
+JA-without-rnd: F=206498 stage2=72212 one=386 (stored 386) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[243, 0, 0] best_min_given_pos=2 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JB1-with-rnd: planned memory: s1 int8(412305, 23) = 0.01 GB, s2 int8(77573, 810) = 0.06 GB, S int8[77573 x 833] = 0.06 GB, masks about 0.19 GB
+JB1-with-rnd: F=412305 stage2=77573 one=400 (stored 400) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[122, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 836 | 0s
+JB1-without-rnd: planned memory: s1 int8(413011, 23) = 0.01 GB, s2 int8(161818, 810) = 0.13 GB, S int8[161818 x 833] = 0.13 GB, masks about 0.40 GB
+JB1-without-rnd: F=413011 stage2=161818 one=402 (stored 402) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 549 | 1s
+JB2-with-rnd: planned memory: s1 int8(292784, 23) = 0.01 GB, s2 int8(141584, 810) = 0.11 GB, S int8[141584 x 833] = 0.12 GB, masks about 0.35 GB
+JB2-with-rnd: F=292784 stage2=141584 one=70942 (stored 70942) | canon ttrain=2 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[787, 62576, 6] best_min_given_pos=6 | FE ttrain recount 2 stored 2 | float-open rows 0 | 1s
+JB2-without-rnd: planned memory: s1 int8(293697, 23) = 0.01 GB, s2 int8(193826, 810) = 0.16 GB, S int8[193826 x 833] = 0.16 GB, masks about 0.48 GB
+JB2-without-rnd: F=293697 stage2=193826 one=76627 (stored 76627) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[57, 13, 1] best_min_given_pos=6 | FE ttrain recount 0 stored 0 | float-open rows 0 | 1s
+JC1-with-rnd: planned memory: s1 int8(368706, 23) = 0.01 GB, s2 int8(292530, 810) = 0.24 GB, S int8[292530 x 833] = 0.24 GB, masks about 0.73 GB
+JC1-with-rnd: F=368706 stage2=292530 one=14410 (stored 14410) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[2804, 14410, 0] best_min_given_pos=2 | FE ttrain recount 0 stored 0 | float-open rows 0 | 1s
+JC1-without-rnd: planned memory: s1 int8(369019, 23) = 0.01 GB, s2 int8(317721, 810) = 0.26 GB, S int8[317721 x 833] = 0.26 GB, masks about 0.79 GB
+JC1-without-rnd: F=369019 stage2=317721 one=14004 (stored 14004) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[1218, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 2s
+JC2-with-rnd: planned memory: s1 int8(368108, 23) = 0.01 GB, s2 int8(321723, 810) = 0.26 GB, S int8[321723 x 833] = 0.27 GB, masks about 0.80 GB
+JC2-with-rnd: F=368108 stage2=321723 one=100432 (stored 100432) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[19733, 27548, 67] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 2s
+JC2-without-rnd: planned memory: s1 int8(368053, 23) = 0.01 GB, s2 int8(229369, 810) = 0.19 GB, S int8[229369 x 833] = 0.19 GB, masks about 0.57 GB
+JC2-without-rnd: F=368053 stage2=229369 one=99095 (stored 99095) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[33698, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 1s
+JA-with-adp: planned memory: s1 int8(35353, 23) = 0.00 GB, s2 int8(20633, 810) = 0.02 GB, S int8[20633 x 833] = 0.02 GB, masks about 0.05 GB
+JA-with-adp: F=35353 stage2=20633 one=138 (stored 138) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[35, 138, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JA-without-adp: planned memory: s1 int8(32750, 23) = 0.00 GB, s2 int8(16690, 810) = 0.01 GB, S int8[16690 x 833] = 0.01 GB, masks about 0.04 GB
+JA-without-adp: F=32750 stage2=16690 one=22 (stored 22) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JB1-with-adp: planned memory: s1 int8(6489, 23) = 0.00 GB, s2 int8(2717, 810) = 0.00 GB, S int8[2717 x 833] = 0.00 GB, masks about 0.01 GB
+JB1-with-adp: F=6489 stage2=2717 one=12 (stored 12) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[3, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 10 | 0s
+JB1-without-adp: planned memory: s1 int8(17246, 23) = 0.00 GB, s2 int8(7936, 810) = 0.01 GB, S int8[7936 x 833] = 0.01 GB, masks about 0.02 GB
+JB1-without-adp: F=17246 stage2=7936 one=0 (stored 0) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 1 | 0s
+JB2-with-adp: planned memory: s1 int8(37964, 23) = 0.00 GB, s2 int8(16588, 810) = 0.01 GB, S int8[16588 x 833] = 0.01 GB, masks about 0.04 GB
+JB2-with-adp: F=37964 stage2=16588 one=8670 (stored 8670) | canon ttrain=35 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[1099, 5991, 62] best_min_given_pos=6 | FE ttrain recount 35 stored 35 | float-open rows 0 | 0s
+JB2-without-adp: planned memory: s1 int8(39071, 23) = 0.00 GB, s2 int8(16220, 810) = 0.01 GB, S int8[16220 x 833] = 0.01 GB, masks about 0.04 GB
+JB2-without-adp: F=39071 stage2=16220 one=5949 (stored 5949) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[292, 224, 17] best_min_given_pos=6 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC1-with-adp: planned memory: s1 int8(38842, 23) = 0.00 GB, s2 int8(29871, 810) = 0.02 GB, S int8[29871 x 833] = 0.02 GB, masks about 0.07 GB
+JC1-with-adp: F=38842 stage2=29871 one=21 (stored 21) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[21, 21, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC1-without-adp: planned memory: s1 int8(30982, 23) = 0.00 GB, s2 int8(20378, 810) = 0.02 GB, S int8[20378 x 833] = 0.02 GB, masks about 0.05 GB
+JC1-without-adp: F=30982 stage2=20378 one=40 (stored 40) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[40, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC2-with-adp: planned memory: s1 int8(39704, 23) = 0.00 GB, s2 int8(27252, 810) = 0.02 GB, S int8[27252 x 833] = 0.02 GB, masks about 0.07 GB
+JC2-with-adp: F=39704 stage2=27252 one=1277 (stored 1277) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[25, 6, 11] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JC2-without-adp: planned memory: s1 int8(37792, 23) = 0.00 GB, s2 int8(28198, 810) = 0.02 GB, S int8[28198 x 833] = 0.02 GB, masks about 0.07 GB
+JC2-without-adp: F=37792 stage2=28198 one=13955 (stored 13955) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[11192, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 0s
+JA-with-rnd2: planned memory: s1 int8(2069735, 23) = 0.05 GB, s2 int8(576073, 810) = 0.47 GB, S int8[576073 x 833] = 0.48 GB, masks about 1.44 GB
+JA-with-rnd2: F=2069735 stage2=576073 one=307 (stored 307) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[0, 307, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 0 | 3s
+JA-without-rnd2: planned memory: s1 int8(2069562, 23) = 0.05 GB, s2 int8(724154, 810) = 0.59 GB, S int8[724154 x 833] = 0.60 GB, masks about 1.81 GB
+JA-without-rnd2: F=2069562 stage2=724154 one=3502 (stored 3502) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[2208, 0, 0] best_min_given_pos=2 | FE ttrain recount 0 stored 0 | float-open rows 0 | 4s
+JB1-with-rnd2: planned memory: s1 int8(4130424, 23) = 0.09 GB, s2 int8(775873, 810) = 0.63 GB, S int8[775873 x 833] = 0.65 GB, masks about 1.94 GB
+JB1-with-rnd2: F=4130424 stage2=775873 one=3851 (stored 3851) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[1086, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 8248 | 6s
+JB1-without-rnd2: planned memory: s1 int8(4129197, 23) = 0.09 GB, s2 int8(1617103, 810) = 1.31 GB, S int8[1617103 x 833] = 1.35 GB, masks about 4.04 GB
+JB1-without-rnd2: F=4129197 stage2=1617103 one=3715 (stored 3715) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[1, 0, 0] best_min_given_pos=0 | FE ttrain recount 0 stored 0 | float-open rows 5474 | 18s
+JB2-with-rnd2: planned memory: s1 int8(2927751, 23) = 0.07 GB, s2 int8(1418448, 810) = 1.15 GB, S int8[1418448 x 833] = 1.18 GB, masks about 3.54 GB
+JB2-with-rnd2: F=2927751 stage2=1418448 one=708361 (stored 708361) | canon ttrain=22 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[7958, 624843, 54] best_min_given_pos=6 | FE ttrain recount 22 stored 22 | float-open rows 0 | 14s
+JB2-without-rnd2: planned memory: s1 int8(2929556, 23) = 0.07 GB, s2 int8(1933425, 810) = 1.57 GB, S int8[1933425 x 833] = 1.61 GB, masks about 4.83 GB
+JB2-without-rnd2: F=2929556 stage2=1933425 one=765650 (stored 765650) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[534, 153, 21] best_min_given_pos=6 | FE ttrain recount 0 stored 0 | float-open rows 0 | 27s
+JC1-with-rnd2: planned memory: s1 int8(3686563, 23) = 0.08 GB, s2 int8(2923059, 810) = 2.37 GB, S int8[2923059 x 833] = 2.43 GB, masks about 7.30 GB
+JC1-with-rnd2: F=3686563 stage2=2923059 one=143582 (stored 143582) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[26822, 143582, 0] best_min_given_pos=2 | FE ttrain recount 0 stored 0 | float-open rows 0 | 30s
+JC1-without-rnd2: planned memory: s1 int8(3686671, 23) = 0.08 GB, s2 int8(3174592, 810) = 2.57 GB, S int8[3174592 x 833] = 2.64 GB, masks about 7.93 GB
+JC1-without-rnd2: F=3686671 stage2=3174592 one=140252 (stored 140252) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[11835, 0, 4] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 26s
+JC2-with-rnd2: planned memory: s1 int8(3685849, 23) = 0.08 GB, s2 int8(3217607, 810) = 2.61 GB, S int8[3217607 x 833] = 2.68 GB, masks about 8.04 GB
+JC2-with-rnd2: F=3685849 stage2=3217607 one=1006270 (stored 1006270) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[198174, 275478, 726] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 27s
+JC2-without-rnd2: planned memory: s1 int8(3682960, 23) = 0.08 GB, s2 int8(2292392, 810) = 1.86 GB, S int8[2292392 x 833] = 1.91 GB, masks about 5.73 GB
+JC2-without-rnd2: F=3682960 stage2=2292392 one=989825 (stored 989825) | canon ttrain=0 full=0 could-reach=0 rej(T-NR,E_a,HEAT)=[337355, 0, 0] best_min_given_pos=1 | FE ttrain recount 0 stored 0 | float-open rows 0 | 22s
+STAGE grid: {'functionals': 1487558, 'stage2': 523771, 'one_signed': 94531, 'ttrain': 0, 'full': 0, 'optimistic_not_ttrain': 233, 'fe_ttrain_recount': 0, 'fe_ttrain_stored': 0}
+STAGE -rnd: {'functionals': 3299608, 'stage2': 1865621, 'one_signed': 376714, 'ttrain': 2, 'full': 0, 'optimistic_not_ttrain': 1385, 'fe_ttrain_recount': 2, 'fe_ttrain_stored': 2}
+STAGE -adp: {'functionals': 316193, 'stage2': 186483, 'one_signed': 30084, 'ttrain': 35, 'full': 0, 'optimistic_not_ttrain': 11, 'fe_ttrain_recount': 35, 'fe_ttrain_stored': 35}
+STAGE -rnd2: {'functionals': 32998268, 'stage2': 18652726, 'one_signed': 3765315, 'ttrain': 22, 'full': 0, 'optimistic_not_ttrain': 13722, 'fe_ttrain_recount': 22, 'fe_ttrain_stored': 22}
+TOTAL {'functionals': 38101627, 'stage2': 21228601, 'one_signed': 4266644, 'ttrain': 59, 'full': 0, 'optimistic_not_ttrain': 15351, 'fe_ttrain_recount': 59, 'fe_ttrain_stored': 59}
+COUNT-DONE

@@ -1,0 +1,46 @@
+{
+ "slug": "c9-szego-sum-rule-prime-cascade",
+ "round": 9,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "szego",
+  "killip-simon",
+  "simon-zlatos",
+  "sum-rule",
+  "prime-cascade",
+  "littlewood-lemma",
+  "lieb-thirring",
+  "thin",
+  "unimodular-twist",
+  "device"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction for five forms of positive-term sum rule on the prime stub chain: (i) the Littlewood window functional has coefficient side 0 at every stage for every unimodular chain (sigma > 0) and its bound-state term is a tail invariant bounded by the free inequality from below only; (ii) the mean form E + 4 pi delta = log zeta(2 sigma) is the classical density identity; (iii) at fixed stage no continuous functional of the phases separates zeta from U over window positions (Kronecker-Weyl, known, row Q21); (iv) the Simon-Zlatos difference condition holds for zeta on Re s > 0 and for THIN on Re s > b/2, so the coefficient condition is compatible with a zero at b to the right of the line; random U has infinite expected sum at sigma <= 1/2; (v) the H^2 point-evaluation step reaches only Re s > sigma_0 + 1/2 > 1 (known theorem). DH has no chain; the limit identity reads its off-line zero (0.0585171825 at sigma 0.75, 0.1085171825 at sigma 0.7). Not a theorem about all sum rules. No statement about zeros of zeta. One referee pass.",
+ "obstruction": "Five forms: (i) window form = Littlewood's lemma, coefficient side 0 at every stage for every unimodular chain; the bound-state term is a tail invariant bounded from below only; (ii) mean form E + 4 pi delta = log zeta(2 sigma) is the classical density identity; (iii) at fixed stage no continuous functional of the phases separates zeta from U over window positions (Kronecker-Weyl, row Q21); (iv) the Simon-Zlatos difference condition holds for zeta on Re s > 0 and for THIN on Re s > b/2 with THIN's zero at b right of the line; (v) the H^2 point-evaluation step reaches only Re s > sigma_0 + 1/2 > 1. Not a theorem about all sum rules: a rule with identically vanishing coefficient side and a semicontinuous limit step is not covered, and that limit step is the target.",
+ "obstructionKind": "sum-rule-coefficient-side-vanishes-or-returns-density-thin-satisfies-difference-condition",
+ "controlsThatDefeat": [
+  "U (same range and distribution of every stage functional over windows; KS p 0.11 to 0.93)",
+  "THIN (satisfies the difference condition on Re s > b/2 with a zero at b)",
+  "Liouville (identical differences to zeta)",
+  "DH and heat fail only at chain formation (the Littlewood identity reads the DH off-line zero)",
+  "not run: E_a, Beurling, phase-rotated transfer operator, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed; all of Lemmas 1-6 were re-derived. Corrections (REFEREE.md at tmp/research-2026-11-16/push/c9-szego-sum-rule-prime-cascade/REFEREE.md): E1 Lemma 3's semicontinuity remark assumes weak convergence of the stage weights on a window of the line, which is not established for 1/2 < sigma <= 1 (the result's own N6b shows non-convergence without the pole term); conditional only. E2 Lemma 5(b) proves infinite expectation; \"diverges fo [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A sum-rule device outputs Lieb-Thirring (density) bounds; to give \"no bound states\" its coefficient side must vanish, and then its limit step is the target. Test any coefficient condition against THIN first: tail-thin sign changes keep every smoothness-in-delay condition while placing a zero right of the line.",
+ "followUp": "None for this device. Register DEVICE_NODE.json (positive-term-sum-rule, closed) after one referee pass on Lemmas 3 to 6; the one-delay theorems and Cole-Gamelin were recalled, not opened, and HEAT, EA, Beurling, the phase-rotated transfer operator and theta^w were not computed. Server not used. The three JSON outputs first landed in the repo root by mistake and were moved into the lane directory.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-szego-sum-rule-prime-cascade/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-szego-sum-rule-prime-cascade/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

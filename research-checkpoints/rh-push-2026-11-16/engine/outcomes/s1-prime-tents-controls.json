@@ -1,0 +1,84 @@
+{
+ "slug": "s1-prime-tents-controls",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "pascal-carry-ballot",
+  "prime-tent-rh-equivalence",
+  "rm-gap-law-residual-oscillation",
+  "robin-margin-mertens",
+  "staged-strip-triangular-inequality",
+  "two-tents-joint-zero-completeness",
+  "vaughan-forcing-law",
+  "zero-complete-rational-tents"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "prime-tent-rh-equivalence",
+    "vaughan-forcing-law"
+   ],
+   "obstruction": "one-sided non-negative-kernel inequality cannot fail for twisted weights; DH/T-NR fail when N^(beta-1/2) resolves gamma^2",
+   "controlsThatDefeat": [
+    "sign twist",
+    "THIN",
+    "DEL",
+    "unimodular twist",
+    "T-NR large q"
+   ]
+  },
+  {
+   "nodes": [
+    "zero-complete-rational-tents",
+    "two-tents-joint-zero-completeness"
+   ],
+   "obstruction": "same as T88: the pair removes multiplier blind spots, not dependence on zero height",
+   "controlsThatDefeat": [
+    "sign twist",
+    "THIN",
+    "DEL",
+    "T-NR large q"
+   ]
+  },
+  {
+   "nodes": [
+    "pascal-carry-ballot",
+    "robin-margin-mertens"
+   ],
+   "obstruction": "ballot = T93 tent plus O(N); same lemma",
+   "controlsThatDefeat": [
+    "sign twist",
+    "THIN",
+    "DEL"
+   ]
+  },
+  {
+   "nodes": [
+    "staged-strip-triangular-inequality",
+    "rm-gap-law-residual-oscillation"
+   ],
+   "obstruction": "strip statement (7/8): controls with zeros left of 7/8 pass by design",
+   "controlsThatDefeat": [
+    "E_a",
+    "T-NR c=2.02",
+    "DH",
+    "THIN"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) one-sided non-negative-kernel inequality cannot fail for twisted weights; DH/T-NR fail when N^(beta-1/2) resolves gamma^2 | (2) same as T88: the pair removes multiplier blind spots, not dependence on zero height | (3) ballot = T93 tent plus O(N); same lemma | (4) strip statement (7/8): controls with zeros left of 7/8 pass by design",
+ "controlsThatDefeat": [
+  "DEL",
+  "DH",
+  "E_a",
+  "T-NR c=2.02",
+  "T-NR large q",
+  "THIN",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-prime-tents-controls/RESULT.md"
+}

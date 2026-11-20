@@ -1,0 +1,148 @@
+EXACT SIGNED GRAM AND CERTIFIED SEVEN-POINT OBSTRUCTION
+2026-11-08. This is not a proof or disproof of RH.
+
+Definitions
+-----------
+theta(t) = sum over n in Z of exp(-pi*n^2*t).
+kappa(u) = (d^2/du^2 - 1/16)[exp(u/4)*theta(exp(u))].
+The full kernel is even. For u >= 0 it has the positive series
+
+kappa(u) = sum_{n>=1} [2*pi^2*n^4*exp(9u/4)
+                         -3*pi*n^2*exp(5u/4)] exp(-pi*n^2*exp(u)).
+
+R_x(b) = integral_R exp(x*a)*kappa(a+b)*kappa(a-b) da.
+M_x(b) = dR_x(b)/dx
+       = integral_R a*sinh(x*a)*kappa(a+b)*kappa(a-b) da.
+
+The target is positive definiteness of M_x for every x>0.
+
+1. Exact signed Gram
+-------------------
+Let f_x(u)=exp(x*u/2)*kappa(u) and g_b(t)=f_x(t+2b).
+Then R_x(b-c)=<g_b,g_c> in L^2(R), and
+d_x g_b(t)=(t+2b)*g_b(t)/2.
+
+For any alpha>0 put
+h_b^+ = (g_b + alpha*d_x g_b)/sqrt(2*alpha),
+h_b^- = (g_b - alpha*d_x g_b)/sqrt(2*alpha).
+
+Direct polarization gives exactly
+M_x(b-c) = <h_b^+,h_c^+> - <h_b^-,h_c^->.
+
+A positive factorization follows if one independently constructs a contraction
+C_x satisfying C_x h_b^+ = h_b^- for all b. The resulting positive feature is
+(I-C_x^* C_x)^(1/2)h_b^+. Formally defining C_x by a Fourier quotient does not
+prove it is a contraction; that is precisely the missing assertion.
+
+For a finite sample, let A_+ c=sum_j c_j h_(b_j)^+ and similarly A_-.
+The derivative Gram matrix is P-N, P=A_+^*A_+, N=A_-^*A_-.
+It is the Schur complement of the block matrix
+[[P, A_-^*], [A_-, I]]. Thus the previous E-B^*D^(-1)B issue is present
+exactly, with E=P, B=A_-, D=I.
+
+2. An unconditional two-point theorem
+------------------------------------
+kappa is strictly log-concave. A primary source is George Csordas,
+Fourier transforms of positive definite kernels and the Riemann xi-function,
+https://arxiv.org/pdf/1309.0055, Theorem 4.5 and stronger Theorem 4.2(b).
+His kernel Phi satisfies kappa(u)=Phi(u/4).
+
+Write ell=log(kappa). For b>0,
+d_b[kappa(a+b)*kappa(a-b)]
+ = kappa(a+b)*kappa(a-b)*[ell'(a+b)-ell'(a-b)] < 0.
+Since a*sinh(x*a)>0 for a != 0, x>0, M_x(b)>0 and M_x'(b)<0 for b>0.
+Consequently each two-point derivative Gram matrix is positive definite for
+distinct points: its eigenvalues are M_x(0)+M_x(d) and M_x(0)-M_x(d).
+
+The moment expansion of M_x gives the associated-kernel hierarchy in Csordas,
+Theorems 3.5--3.7. Proving all its coefficient kernels positive definite is an
+already known RH-equivalent problem. Example 3.12 shows positivity at one
+hierarchy level need not imply positivity at the next.
+
+3. Certified obstruction to a Gram factorization separately at each a
+-------------------------------------------------------------------
+Put h_a(b)=kappa(a+b)*kappa(a-b). Although
+M_x(b)=2*integral_0^infinity a*sinh(x*a)*h_a(b) da
+has a positive integration weight, h_a need not itself be positive definite.
+
+Take b_j=3j/20 for j=0,...,6 and c=(-2,9,-19,24,-19,9,-2).
+The provided interval-arithmetic script proves, for a=1/20,
+
+sum_{i,j} c_i*c_j*h_a(b_i-b_j)
+  lies in (-0.000908036036924, -0.000908036036922).
+
+For a=0 the same quadratic form lies in
+(-0.001226418753079, -0.001226418753076).
+
+These are negative finite Gram forms for the FULL theta kernel, with a proved
+series remainder. They rule out the proposed factorization at each fixed a.
+They do not disprove positive definiteness after integration over a. Any
+successful positive construction must use information mixing midpoint values.
+
+4. Complete error bounds for the finite certificate
+--------------------------------------------------
+Use the first eight positive terms to evaluate kappa at |u|, exploiting the
+exact modular evenness. Since pi>3 and 2*pi^2<32, for u>=0, n>=9,
+
+0 < kappa_n(u) < 32*n^4*exp(9u/4)*exp(-3*n^2*exp(u))
+               <= 32*n^4*exp(-3*n^2).
+
+The last inequality follows because the logarithmic derivative of the
+u-dependent factor is 9/4-3*n^2*exp(u)<0. The ratio of consecutive tail terms
+is at most (10/9)^4*exp(-57). Therefore
+
+0 < kappa(u)-kappa_8(u)
+  < 32*9^4*exp(-243)/(1-(10/9)^4*exp(-57)) < 10^(-99).
+
+The derivative bounds below in particular prove kappa(u)<=2 and
+kappa_8(u)<=2. Thus each product error is <4*10^(-99).
+Since (sum_i |c_i|)^2=84^2=7056, the full quadratic-form tail is
+<28224*10^(-99)<3*10^(-95). All retained terms are evaluated with 40-digit
+interval arithmetic, including input fractions and transcendental functions.
+The executable adds this full tail interval before checking negativity.
+
+5. Independent Fourier certificate and its bounds
+------------------------------------------------
+The script also proves
+integral_R kappa(u)^2*cos(12u) du
+  lies in (-3.56317771*10^(-5), -3.06562926*10^(-5)).
+
+On [0,3], composite Simpson with 1000 subintervals is applied to
+f(u)=2*kappa_8(u)^2*cos(12u).
+Let t=pi*n^2*exp(u), and write
+kappa_n^(j)(u)=exp(u/4)*p_j(t)*exp(-t),
+p_0(t)=2t^2-3t,
+p_(j+1)(t)=t*p_j'(t)+(1/4-t)*p_j(t).
+
+The five polynomials are:
+p_0 = 2t^2-3t;
+p_1 = -2t^3+(15/2)t^2-(15/4)t;
+p_2 = 2t^4-14t^3+(165/8)t^2-(75/16)t;
+p_3 = -2t^5+(45/2)t^4-(529/8)t^3+(1635/32)t^2-(375/64)t;
+p_4 = 2t^6-33t^5+(647/4)t^4-266t^3+(15465/128)t^2-(1875/256)t.
+
+For a monomial c*t^k, put q=k+1/4. Its absolute contribution is at most
+|c|*t^q*exp(-t), since (pi*n^2)^(-1/4)<1. For n=1 and t>=3, its maximum is
+max(3,q)^q*exp(-max(3,q)). For n>=2, t>=3*n^2>=12>q, so each maximum is
+(3*n^2)^q*exp(-3*n^2). The successive-n ratio is at most
+(3/2)^(25/2)*exp(-15)<1/20000. Hence the entire n>=2 contribution is bounded
+by 12^q*exp(-12)/(1-1/20000).
+
+Summing absolute polynomial coefficients, the script interval-verifies the
+global bounds |kappa^(j)| <= (2,9,53,376,3245)_j, j=0,...,4. The same applies
+to the truncated positive-axis kernel. Leibniz yields
+|(2*kappa_8^2*cos(12u))^(4)| <= 1842772.
+Simpson error <= (3/180)*(3/1000)^4*1842772 = 0.0000024877422.
+The theta-tail integral on [0,3] is <24*10^(-99)<10^(-97).
+
+For u>=3, the positive theta series gives
+kappa(u) <= 64*exp(9u/4)*exp(-3*exp(u)),
+because sum_{n>=1}n^4*exp(-3*(n^2-1))<2.
+With t=exp(u)>20, the full Fourier tail is bounded by
+8192*integral_20^infinity t^4*exp(-6t) dt
+=8192*exp(-120)*[20^4/6+4*20^3/36+12*20^2/216+24*20/1296+24/7776]
+<10^(-43).
+
+The finite seven-point certificate is the simpler result and requires no
+quadrature. The Fourier calculation is an independent confirmation of the
+same failure of the fixed-midpoint Gram proposal.

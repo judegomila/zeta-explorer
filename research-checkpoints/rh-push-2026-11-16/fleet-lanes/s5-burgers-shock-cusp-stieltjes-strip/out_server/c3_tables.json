@@ -1,0 +1,54 @@
+{
+ "ZETA": {
+  "online": 1517,
+  "offline_pairs": 0,
+  "t_proxy_online": 0.024126696887862887,
+  "tc_online_only": 0.0011922007489150951,
+  "gmin": 0.09750250170668551
+ },
+ "DH": {
+  "online": 1861,
+  "offline_pairs": 84,
+  "t_proxy_online": 0.014568481586054371,
+  "tc_online_only": 1.3733557494973975e-05,
+  "gmin": 0.010481373197990251,
+  "tc_full_set": 1.3733563301083791e-05,
+  "rel_change": 4.227680860946492e-07,
+  "same_pair": true,
+  "S_online_max_abs": 167.92231095777834,
+  "S_online_at_top": -167.52148214405634,
+  "S_with_offline_max_abs": 1.2196160014892712,
+  "D_online": 4.878599358640196,
+  "D_with_offline": 0.03543315839756949
+ },
+ "HEAT--0.1": {
+  "online": 1435,
+  "offline_pairs": 41,
+  "t_proxy_online": 0.01671589964672017,
+  "tc_online_only": 3.5995078785966985e-05,
+  "gmin": 0.01696777628808377,
+  "tc_full_set": 3.5995097696246116e-05,
+  "rel_change": 5.253573480690221e-07,
+  "same_pair": true
+ },
+ "HEAT--0.5": {
+  "online": 929,
+  "offline_pairs": 277,
+  "t_proxy_online": 0.026550475544769785,
+  "tc_online_only": 0.0010032048868523595,
+  "gmin": 0.08950988070728272,
+  "tc_full_set": 0.0010033656800641198,
+  "rel_change": 0.00016027953398900507,
+  "same_pair": true
+ },
+ "TNR": {
+  "online": 1517,
+  "offline_pairs": 350,
+  "t_proxy_online": 0.024126696887862887,
+  "tc_online_only": 0.0011922007489150951,
+  "gmin": 0.09750250170668551,
+  "tc_full_set": 0.0011955005319898896,
+  "rel_change": 0.0027678082552768934,
+  "same_pair": true
+ }
+}

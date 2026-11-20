@@ -1,0 +1,4 @@
+sum phi(A) over squarefree A of degree 6: 10357516512  (q-1)*sum: 62145099072
+r3_q7_k6.jsonl Princ(mu) = [-62145099072, 0]  equals (q-1)*sum phi: True  Diag(mu) = -10357516512  Diag/Princ = 0.16666666666666666
+r4_q7_k6.jsonl Princ(mu) = [-62145099072, 0]  equals (q-1)*sum phi: True  Diag(mu) = -10357516512  Diag/Princ = 0.16666666666666666
+r5_q7_k6.jsonl Princ(mu) = [-62145099072, 0]  equals (q-1)*sum phi: True  Diag(mu) = -10357516512  Diag/Princ = 0.16666666666666666

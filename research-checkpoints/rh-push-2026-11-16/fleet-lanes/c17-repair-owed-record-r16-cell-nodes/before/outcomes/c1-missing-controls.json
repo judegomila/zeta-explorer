@@ -1,0 +1,37 @@
+{
+ "slug": "c1-missing-controls",
+ "round": 1,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "heat-flow"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Partial result (filter repair, no RH attack) holds with corrections E1, E2. Confirmed: (A) six completely multiplicative sign twists pass the DH-failing coefficient steps exactly (identities); finite twists have zeta's zeros in the open strip (re-derived); failure at the functional-equation step is proved for finite twists, classical for degree-1 type, measured otherwise. (B) Backward heat off-line zeros confirmed by an independent mpmath trapezoid quadrature at 110/300 digits: tau=-0.1: 0.0215579+415.2562790i, 0.0609152+540.4697362i, 0.1402531+564.3693091i; tau=-0.5: 0.1981079+150.6922461i, 0.3432579+221.2268408i; tau=-2: 0.2485774+49.7154476i, 0.6247240+60.7078706i (Re s = 1.125); tau=-2 count on [1,62] is 10 sign changes + 2 pairs = 14 = zeta count; L_tau - L_0 mismatch values reproduced; sq-canonical-det outcome is relative to the lane's Lemma A plus measured zeros, Ritz run not done. (C) Arb certificate for the DH theta kernel (positive, strictly log-concave on u >= 0, u L'' - L' < 0 on u > 0) reproduced with a different split (U0 = 3/2, 47 terms, 256 bits); tail bound and the L'''' step re-derived; evenness is a classical input. (D) D1 (S(T) - (1/pi) arg zeta(1/2+a+iT) exceeds M and is below -M on proportions tending to 1/2 each, fixed 0 < a <= 1/2) and D2 (no fixed shifted pair is an interlacing partner of Xi) hold relative to Selberg's CLT and Bohr-Jessen; Stirling constant a*pi/4 checked numerically; height-dependent shifts and non-shift partners remain open. No statement about zeros of zeta; nothing assumes RH or restates verified height.",
+ "obstruction": "Filter repair, no attack. Every missing control gave the inferred outcome; no mechanism passes a control in full. Sign twists pass the DH-failing coefficient steps exactly and fail at the functional-equation step. Fixed shifted pairs are not interlacing partners of Xi (relative to Selberg CLT and Bohr-Jessen, cited). Not done: Ritz run of K[t] for the heat family; a TW twist with a zero in 7/8 < Re s < 1; height-dependent shifts.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (the lane runs controls: TW+, TW-, backward heat at tau = -0.1, -0.5, -2, DH theta kernel)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "Every missing control gave the inferred outcome. The twist and DH fail complementary steps (functional equation vs Euler product), so step-level differences are expected and are not leads. A finite twist has zeta's zeros in the strip, so it controls only statements using zeta's archimedean side; a twist with a false zero conclusion needs infinitely many primes and none is refereed. Grid checks of the DH Csordas condition could not decide near u=0 (third-order vanishing); the certificate needed the fourth log-derivative plus evenness.",
+ "followUp": "Referee Part D (re-read Selberg CLT and Bohr-Jessen statements, check the argument convention), then a Ritz run of K[t] for the heat family at tau=-2 (degree p > 100 t) to measure T*; optionally construct a TW+ or TW- twist with a zero in 7/8 < Re s < 1 to make the twist a true control for the 7/8 mechanism.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-missing-controls/RESULT.md",
+ "referee2": {
+  "file": "tmp/research-2026-11-16/push/c1-missing-controls/REFEREE2.md",
+  "scope": "partial (owed steps only); does not raise the referee count",
+  "holds": true,
+  "note": "Second pass (scope: Part D inputs): Selberg CLT statement and moment constant agree with the classical theorem; Bohr-Jessen statement is a weaker form of the classical one, same branch convention; D1 follows. Sources not opened. The L^2 bound for arg zeta(sigma_0+it) is a third input (Tsang), used only in the quantitative remark.",
+  "by": "c2-repair-owed-passes"
+ }
+}

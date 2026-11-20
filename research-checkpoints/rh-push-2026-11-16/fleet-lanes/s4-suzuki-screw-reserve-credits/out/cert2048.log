@@ -1,0 +1,2 @@
+{"kind": "cert", "obj": "zeta", "m": 2048, "W": 6.0, "lam_min_float": 1.3076844741146222e-06, "certified_positive_arb_ldl": true, "prec_bits": 4396, "sec": 799.3}
+{"kind": "cert", "obj": "DH", "m": 2048, "W": 3.6, "lam_min_float": 1.8433612287308543e-06, "certified_positive_arb_ldl": true, "prec_bits": 4396, "sec": 1108.5}

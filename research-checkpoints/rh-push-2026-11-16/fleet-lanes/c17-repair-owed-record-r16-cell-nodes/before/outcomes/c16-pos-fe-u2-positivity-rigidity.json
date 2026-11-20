@@ -1,0 +1,45 @@
+{
+ "slug": "c16-pos-fe-u2-positivity-rigidity",
+ "round": 16,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "identification",
+  "functional-equation",
+  "positivity",
+  "poisson-summation",
+  "linear-programming-bound",
+  "U2",
+  "U3",
+  "POS-FE",
+  "control-zq",
+  "control-gplus"
+ ],
+ "verdict": "proved-new-result",
+ "survivingClaim": "No statement about zeros of zeta. Theorem P is proved: if G = int_[1,inf) x^-s dN with N >= 0, (s-1)G entire of finite order, and G has zeta's functional equation, then G = r zeta; POS-FE follows via nu >= 0 => N >= 0 (Bernstein). The proof uses no multiplicativity. Proposition T (balance law int sinc^2 dN+ = int sinc^2 dN-) and the scaled form (support in [a,inf), a > 1 forces G = 0) hold. Each hypothesis is necessary (ZQ: sign; symmetric T-NR: mass below 1, constant 1 sharp; G_+: extra poles). The registered quantitative form implies RH trivially. The server screen (40/40 cells return ZQ; fractional bound 0.80-0.88 of ZQ) stands as a float64 statement on the listed finite column set. Status: identification, score 0, classical in content (one-dimensional LP-bound equality case), new to the campaign record only. Not surviving: the Hecke G(lambda), lambda > 2 corollary (frequency formula inverted) and the word \"new\" beyond the campaign record.",
+ "obstruction": "An identification, not a statement about zeros. Theorem P (PROVED; three independent referees hold): G = int_[1,inf) x^-s dN, N >= 0, (s-1)G entire of finite order, zeta's functional equation => G = r zeta, by Poisson-summation rigidity (triangle / sinc^2 test function; the one-dimensional LP-bound equality case; classical in content). nu = Lambda_G >= 0 enters only through N >= 0; no multiplicativity is used. Each hypothesis is necessary (ZQ: sign; symmetric T-NR: mass below 1; G_+: extra poles). The registered quantitative form implies RH trivially (apply it to zeta), so it is target-level. The {FE, POS} class closes as an identification row in U3, score 0. Not surviving: the Hecke G(lambda), lambda > 2 corollary (frequency formula inverted).",
+ "obstructionKind": "identification",
+ "controlsThatDefeat": [
+  "not applicable as a device (identification: the class contains only r zeta)",
+  "ZQ (shows the sign hypothesis is necessary)",
+  "symmetric T-NR (shows 'no mass below 1' is necessary; constant 1 sharp)",
+  "G_+ (shows the pole clause is necessary)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 3,
+ "aboutZeros": false,
+ "refereeNote": "Theorem P, corollary POS-FE and Proposition T were re-derived step by step (Steps 1-7, scaled form, sharpness example, G_+ positivity) and no error was found in them. Nothing assumes RH or restates verified height. Findings: (E1, error in a side remark labelled PROVED, not used in Theorem P) the Hecke application is inverted: a form on G(lambda) has frequencies sqrt(2n/lambda) in zeta's normalisation, not sqrt(lambda n/2); for lambda > 2 the support starts below 1, so the scaled form does not ap - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "With zeta's functional equation, positivity of Lambda acts only through non-negative coefficients of G, and that plus \"no coefficient mass below frequency 1\" is Poisson-summation rigidity (triangle / sinc^2 test function, the 1-dimensional LP-bound equality case). The {FE, POS} class identifies zeta without the Euler product and says nothing about zeros. Fully fractional LP relaxations are uninformative: their minimum falls like 1/K from non-integer multiplicities.",
+ "followUp": "Independent referee of Theorem P (REFEREE.md is a same-lane pass; Steps 4-5 cite classical facts not opened, and no literature search was made). Then enter U2-POS as an identification row in U3 and record in STRATEGY 4.0 that the quantitative form implies RH. lanes_line.json is in the slug directory; campaign/lanes.jsonl was not edited.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-pos-fe-u2-positivity-rigidity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-pos-fe-u2-positivity-rigidity/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

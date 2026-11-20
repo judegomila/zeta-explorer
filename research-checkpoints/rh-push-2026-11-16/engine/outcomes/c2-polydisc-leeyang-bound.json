@@ -1,0 +1,37 @@
+{
+ "slug": "c2-polydisc-leeyang-bound",
+ "round": 2,
+ "kind": "deepen",
+ "nodes": [
+  "prime-gibbs-not-lee-yang"
+ ],
+ "tags": [
+  "lee-yang",
+  "finite-stage",
+  "torus",
+  "prime-torus"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, limited to tools whose only input is membership in a torus-rotation-invariant class. (1) Polydisc stability with polyradius R_p gives exactly prod(1-|z_p|/R_p)^(d_p) <= |F| <= prod(1+|z_p|/R_p)^(d_p), attained in the class; for the Euler stage this is |E_P(s)| <= E_P(sigma), the trivial bound. (2) Any bound valid for every member of a rotation-closed class is at least the torus maximum, even if it may depend on the point; a unimodular twist is a rotation. (3) At fixed P, limsup over t of |G_P(sigma+it)| = E_P(sigma), so no bound on G_P at fixed P is both height-uniform and below trivial. (4) At fixed P every unimodular-twist stage E_P^chi is a locally uniform limit of height translates of zeta's stage (Bohr-Kronecker). All content is classical; nothing is established about zeros of zeta; statements coupling P to height are not excluded. Referee report: tmp/research-2026-11-16/push/c2-polydisc-leeyang-bound/REFEREE.md",
+ "obstruction": "Polydisc stability gives exactly prod(1-|z_p|/R_p) <= |F| <= prod(1+|z_p|/R_p), i.e. |E_P(s)| <= E_P(sigma), the trivial bound. Any bound valid on a torus-rotation-invariant class is at least the torus maximum; a unimodular twist is a rotation. At fixed P, limsup_t |G_P(sigma+it)| = E_P(sigma), so no bound is both height-uniform and sub-trivial: R2 and R4 conflict at stage level. Not excluded: statements coupling P to height; stability regions that are not rotation invariant.",
+ "obstructionKind": "rotation-invariant-class-gives-trivial-bound",
+ "controlsThatDefeat": [
+  "unimodular twist U (a torus rotation; at fixed P its stage is a limit of height translates of zeta's stage)",
+  "zeta itself (attains the trivial bound along heights by Dirichlet approximation)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All four PROVED steps were re-derived and confirmed; the defects are in statements and wording, not in the verdict. (D1) Thm. 2 as stated is true by definition: B depends only on r and bounds every torus point, so the rotation-closure hypothesis is unused. The needed form lets B depend on the point z and hold for every F in the class; the given proof already covers it. (D2) The reading \"c1 derivative form weaker than trivial at every row with P >= 30\" is false as tabulated at sigma=0.9, P=30 (1. [record truncated in transit; full text in push/c2-polydisc-leeyang-bound/REFEREE.md]",
+ "lesson": "Stage stability classes are invariant under torus rotations, and a unimodular twist is a rotation, so no stability tool reads the angles t log p. U lacks no per-prime property; it lacks joint linearity of the angles in log p at bounded slope. Height-uniformity (R2) forces any bound on G_P up to the trivial one, so R2 and bounded renormalised stages (R4) conflict at stage level; a usable statement must hold t fixed while P grows.",
+ "followUp": "Add the proposed row (RESULT.md section 7) to OBSTRUCTION_MAP.md; this lane did not edit the map. Retire rotation-invariant stage tools for the Lee-Yang lane. The residual is unchanged from c1 Thm. D(b): an upper bound for sum_{p<=P} p^(-sigma) cos(t log p) + Re E_1((s-1) log P) at fixed t. Stability regions that are not rotation invariant (sectors anchored at z_p = 1) were only argued away in one line.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-polydisc-leeyang-bound/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-polydisc-leeyang-bound/REFEREE.md"
+}

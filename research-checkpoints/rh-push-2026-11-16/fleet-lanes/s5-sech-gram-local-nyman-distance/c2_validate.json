@@ -1,0 +1,17 @@
+{
+ "integers 1..12": {
+  "ln_lam_min_mp": -35.63944736442691,
+  "ln_lam_min_formula": -35.63944736442691,
+  "identity_rel_err": 4.202241533642583e-66
+ },
+ "primes <= 37": {
+  "ln_lam_min_mp": -29.280958117577875,
+  "ln_lam_min_formula": -29.280958117577875,
+  "identity_rel_err": 5.42957847066163e-69
+ },
+ "zeros": {
+  "ln_lam_min_mp": -30.135303355322772,
+  "ln_lam_min_formula": -30.135303355322776,
+  "identity_rel_err": 9.807014089886152e-69
+ }
+}

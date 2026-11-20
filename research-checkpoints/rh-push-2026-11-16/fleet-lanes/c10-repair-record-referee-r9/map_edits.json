@@ -1,0 +1,48 @@
+{
+ "edits": [
+  "rows Q23, Q24, Q25 (MAP_PENDING C1, C2, C4 with the Q26 pointer), Q26 (single-row bridge), Q27 (positive-term sum rule)",
+  "row Q22: \"Not covered\" sentence appended (MAP_PENDING C3)",
+  "second \"Not covered\" sentence (Reinhardt shell, gamma term) appended (MAP_PENDING C3)",
+  "row G31 (Hecke recurrence device, corrected statement)",
+  "row Z15: round-7 update (MAP_PENDING D2)",
+  "row Z24: (2.2) sentences replaced (MAP_PENDING D3)",
+  "row Z24: Lemma H parenthesis",
+  "row Z24: status cell (MAP_PENDING D5)",
+  "row Z24: control cell (MAP_PENDING D4)",
+  "row Z24b (normaliser ladder, with referee corrections E1 to E6)",
+  "rows Z27, Z28, Z29 (MAP_PENDING D1, D6, with the round-8 additions), Z30 ((E-K) with the window extension), Z31 ((E-H), round-9 referee wording)",
+  "row Z32 (squarefull stratification, lead 17)",
+  "section 2: auxiliary control EIS-w",
+  "section 3.10 with row O1",
+  "section 6 item 1: state after rounds 7 to 9 (MAP_PENDING E3, extended)",
+  "section 7: entry for c6-unreflected-marks-kd23 appended (MAP_PENDING E1 with the Lemma C sentence of MAP_ROWS_PROPOSED Part 1)",
+  "section 7: twelve rows for rounds 7 to 9 (two from MAP_PENDING E2)",
+  "header update line \"sixth\"",
+  "row count line"
+ ],
+ "lines_before": 515,
+ "lines_after": 551,
+ "row_counts_before": {
+  "P": 51,
+  "G": 30,
+  "Q": 22,
+  "S": 12,
+  "Z": 28,
+  "F": 8,
+  "T": 3,
+  "L": 5,
+  "D": 7
+ },
+ "row_counts_after": {
+  "P": 51,
+  "G": 31,
+  "Q": 27,
+  "S": 12,
+  "Z": 35,
+  "F": 8,
+  "T": 3,
+  "L": 5,
+  "D": 7,
+  "O": 1
+ }
+}

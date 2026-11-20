@@ -1,0 +1,44 @@
+{
+ "slug": "c7-liou-high-row-bound",
+ "round": 7,
+ "kind": "combine",
+ "nodes": [
+  "out-c4-thin-twist-control-78"
+ ],
+ "tags": [
+  "seven-eighths",
+  "control",
+  "sign-twist",
+  "liouville",
+  "thin",
+  "sextic-theta",
+  "periodicity",
+  "row-bound",
+  "second-moment"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "PROVED: Lemma 1 (mu gamma_2 conj(alpha) = G conj(gamma_1) on squarefree c, from (4.7)), Lemma 1', the pair Poisson formula for all gcd d, the class-phase lemma (modulus 72 in the lane's conventions), and for Liouville rows restricted to one class mod f_0 the decomposition N = D + P + Rem with D >= 0, P a sum of non-negative terms and M^(5/6) X^(1/3)/log << P << M^(5/6) X^(1/3). ARGUED relative to a recalled second-moment bound for sextic Hecke L-functions (not a written proof): Rem << (MX)^eps (M + X + X^2/M), hence the family-average Liouville analogue of the row bound (5.36), summed over all rows, fails by Z^(1/6) at M = X = Z for the squarefree part of the row. MEASURED to Z = 2^14 on the family object: excess 6.4 percent of the diagonal, P_fam = 0.0042 Z^(7/6), Rem_fam about -0.37 P_fam; the data do not decide the exponent. Weight 1 and iid signs show no excess. THIN: open (needs T1, T2). No statement about zeros of zeta or of any L-function.",
+ "obstruction": "Partial. Proved: for Liouville rows in one ray class mod f_0, N = D + P + Rem with P a sum of non-negative terms of order M^(5/6) X^(1/3). The failure of the Liouville analogue of (5.36) by Z^(1/6) at M = X = Z rests on Rem << (MX)^eps (M + X + X^2/M), which is ARGUED relative to a recalled second-moment bound for sextic Hecke L-functions (contour step not written); the data to Z = 2^14 do not decide the exponent. THIN stops at conductor-uniform bounds (T1, T2) for the thin Euler product left of b. The term is a Hermitian form in the weight (present for non-multiplicative weights), so this half carries neither R1 nor R4.",
+ "obstructionKind": "low-half-missing-term-is-hermitian-form-in-weight",
+ "controlsThatDefeat": [
+  "non-multiplicative weights (the excess term kappa |m_w|^2 is a Hermitian form in the weight; no multiplicativity used)",
+  "iid signs and weight 1 (no excess, as predicted)",
+  "THIN undecided (needs T1, T2)",
+  "not run: DH, heat, E_a, T-NR, Beurling, phase-rotated transfer operator, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c7-liou-high-row-bound/REFEREE.md (referee scripts in /tmp/ref_c7/, local runs under memcap 8 GB; server not used).\n\nAll PROVED steps re-derived and confirmed: Lemma 1 (from (4.7); the bar on alpha is forced by (5.31) via D(s,Psi)), Lemma 1', pair Poisson formula and (2.1), class phases, D/P structure, non-negativity, P bounds, exponent ranges, Parseval in Corollary B. Rerun with different cases: Lemma 2 with sh [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The periodicity input of the 7/8 mechanism sits in the low half as the absence of one term: kappa*|m_w|^2 with kappa ~ Z^(7/6) from sixth-power dual frequencies and m_w the smoothed Mertens sum of mu*w. That term is a Hermitian form in the weight (present for non-multiplicative weights, twist-covariant), so this half carries neither R1 nor R4. Restricting rows to one ray class makes every principal term non-negative. Liouville closes because L(x,psi)/L(2x,psi^2) reaches the line 1/2; THIN stops at a conductor-uniform bound for the thin Euler product G_psi left of b. Single-row asymptotics are not visible below 2^15; only the mean square is.",
+ "followUp": "Write the remainder of Theorem A in full (three Mellin variables, Euler product, the recalled second-moment bound with its non-squarefree reduction) together with the bilinear version for the probe I_liou, then send to two referees; second, prove T2 for a random thin set.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-liou-high-row-bound/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-liou-high-row-bound/REFEREE.md"
+}

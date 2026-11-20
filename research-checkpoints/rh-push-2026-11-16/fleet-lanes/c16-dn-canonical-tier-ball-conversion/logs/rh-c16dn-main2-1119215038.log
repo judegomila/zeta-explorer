@@ -1,0 +1,40 @@
+objects 650; groups {'P': 23, 'PX': 506, 'PH': 24, 'C3': 10, 'H3': 24, 'C4': 10, 'H4': 24, 'C2': 5, 'H2': 24}; names equal to the stored c15 objects: True
+planned memory: per worker float64 blocks of at most 25 nodes x 650 pairs x 4 arrays x 4 families = 2.08 MB; ball caches per node only
+g1: 19293 distinct nodes, 37674 family-nodes
+g2: 14652 distinct nodes, 29464 family-nodes
+jobs 3396; meta {'b1-Aw': {'und': 19253, 'feas': 0, 'nodes': 215769}, 'b3-with': {'und': 18381, 'feas': 0, 'nodes': 215769}, 'b6-with': {'und': 40, 'feas': 0, 'nodes': 215769}, 'b2-with': {'und': 14652, 'feas': 15784, 'nodes': 163377}, 'b5l-with': {'und': 14652, 'feas': 6724, 'nodes': 163377}, 'b5m-with': {'und': 80, 'feas': 0, 'nodes': 163377}, 'b5p-with': {'und': 80, 'feas': 0, 'nodes': 163377}}
+  job 33/3396 128s; rows 643
+  job 66/3396 217s; rows 1290
+  job 99/3396 298s; rows 1931
+  job 132/3396 389s; rows 2581
+  job 165/3396 490s; rows 3227
+  job 198/3396 606s; rows 3870
+  job 231/3396 704s; rows 4514
+  job 264/3396 805s; rows 5160
+  job 297/3396 912s; rows 5802
+  job 330/3396 1017s; rows 6443
+  job 363/3396 1117s; rows 7091
+  job 396/3396 1209s; rows 7740
+  job 429/3396 1319s; rows 8384
+  job 462/3396 1422s; rows 9024
+  job 495/3396 1524s; rows 9674
+  job 528/3396 1635s; rows 10318
+  job 561/3396 1746s; rows 10964
+  job 594/3396 1868s; rows 11609
+  job 627/3396 2103s; rows 12250
+  job 660/3396 2418s; rows 12894
+  job 693/3396 2894s; rows 13535
+  job 726/3396 3424s; rows 14182
+  job 759/3396 3833s; rows 14818
+  job 792/3396 4306s; rows 15466
+  job 825/3396 4831s; rows 16114
+  job 858/3396 5344s; rows 16764
+  job 891/3396 5721s; rows 17411
+  job 924/3396 6160s; rows 18055
+  job 957/3396 6602s; rows 18705
+  job 990/3396 6962s; rows 19349
+  job 1023/3396 7219s; rows 19998
+  job 1056/3396 7432s; rows 20640
+  job 1089/3396 7655s; rows 21280
+  job 1122/3396 7759s; rows 21919
+  job 1155/3396 7864s; rows 22561

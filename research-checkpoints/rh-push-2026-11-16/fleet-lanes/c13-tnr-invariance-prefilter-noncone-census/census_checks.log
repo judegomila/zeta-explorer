@@ -1,0 +1,17 @@
+b zeta_p: 1/(1-x) 0 0
+b TNR q=2 t=c*sqrt2=29/10 (c=2.0506): (1+t x+2x^2)/(1-x) 0 0
+b TNR q=3 t=c*sqrt3=18/5 (c=2.0785): (1+t x+3x^2)/(1-x) 0 0
+b E_a p=3, p^a=3/2 (a=0.36907): 1/((1-3x/2)(1-2x/3)) 0 0
+b NEG tempered twin q=2 t=2 (c=1.4142, zeros on the line): (1+2x+2x^2)/(1-x) 84 3
+b NEG TNR q=2 t=-29/10 (c=-2.0506): (1-t x+2x^2)/(1-x) 2041 3
+b NEG L(chi), chi(p)=-1: 1/(1+x) 771 20
+b NEG tempered degree 2, trace 1: 1/(1-x+x^2) 258 13
+b NEG tempered degree 2, trace 19/10: 1/(1-1.9x+x^2) 0 20
+planned allocation: numpy arrays of 2001 float64, full convolution 4001
+f zeta {'sign_of_kernel_at_1': 1.0, 'order2_min_d2_log': -1.262177448353619e-29, 'order2_max_d2_log': 0.47034110950850133, 'order3': {'positive': 0, 'negative': 120}, 'order4': {'positive': 0, 'negative': 60}}
+f TNR q=2 c=2.0506 {'sign_of_kernel_at_1': 1.0, 'order2_min_d2_log': 3.006942743316781e-08, 'order2_max_d2_log': 0.24296021517334504, 'order3': {'positive': 16, 'negative': 104}, 'order4': {'positive': 24, 'negative': 36}}
+f TNR q=3 c=2.0785 {'sign_of_kernel_at_1': 1.0, 'order2_min_d2_log': 0.0009834168038165463, 'order2_max_d2_log': 0.22359224120414878, 'order3': {'positive': 52, 'negative': 68}, 'order4': {'positive': 2, 'negative': 58}}
+f E_a a=0.3 {'sign_of_kernel_at_1': -1.0, 'order2_min_d2_log': -104.5705965400193, 'order2_max_d2_log': 276.4637961254207, 'order3': {'positive': 0, 'negative': 120}, 'order4': {'positive': 60, 'negative': 0}}
+f E_a a=0.2 {'sign_of_kernel_at_1': -1.0, 'order2_min_d2_log': -43.52296010554433, 'order2_max_d2_log': 97.34844415720376, 'order3': {'positive': 0, 'negative': 120}, 'order4': {'positive': 60, 'negative': 0}}
+written tmp/research-2026-11-16/push/c13-tnr-invariance-prefilter-noncone-census/census_checks.json
+scripts/memcap.sh 8 .venv-arb/bin/python -u $S/census_checks.py   102.59s user 0.51s system 99% cpu 1:43.80 total

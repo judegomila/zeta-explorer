@@ -1,0 +1,5 @@
+it   0 obj 0.6828435007 slack 0.00e+00 minrc -3.476e-09 cols 288 added 2 t 0s
+it   1 obj 0.6828435007 slack 0.00e+00 minrc -3.476e-09 cols 290 added 2 t 1s
+it   2 obj 0.6828435005 slack 0.00e+00 minrc -3.476e-09 cols 292 added 2 t 1s
+it   3 obj 0.6828435000 slack 0.00e+00 minrc -3.979e-09 cols 294 added 4 t 2s
+FINAL 16 sym value 0.6828435000228289 slack 0.0 minrc -3.978848639452082e-09 edge 13.674006663611072 pairfrac 0.0008058518813743396 maxdepth 0.0 nsupport 16

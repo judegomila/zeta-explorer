@@ -1,0 +1,88 @@
++ T=tables
++ C12_STAGE_FORCE=1
++ python battery/grid.py tables stage
+grid: 13 abscissae x 4001 ordinates, workers 16
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+planned allocation: DEL-0.75: 16210 primes x 13 abscissae of 128-bit balls per worker (x 16 workers) = 404.6 MB
+stage DEL-0.75: |S| = 16210, 4001 rows, 61.7 s
+planned allocation: THIN-0.9: 74363 primes x 13 abscissae of 128-bit balls per worker (x 16 workers) = 1856.1 MB
+stage THIN-0.9: |S| = 74363, 4001 rows, 386.7 s
+planned allocation: DEL-0.9: 148727 primes x 13 abscissae of 128-bit balls per worker (x 16 workers) = 3712.2 MB
+stage DEL-0.9: |S| = 148727, 4001 rows, 559.7 s
++ python battery/derive.py tables
+ZETA {'min_abs_on_Re_s_2': 0.6755945206671485, 'at_t': 1083.5, 'proved_lower_bound': 0.6579736267392906, 'ok': True, 'max_rel_ball_radius': 6.542783801306289e-36}
+DH {'min_abs_on_Re_s_2': 0.790620398977401, 'at_t': 612.0, 'proved_lower_bound': 0.3550659331517736, 'ok': True, 'max_rel_ball_radius': 1.237908940105482e-32}
+TNR {'min_abs_on_Re_s_2': 0.42112749026199653, 'at_t': 1364.0, 'proved_lower_bound': 0.3550246494434444, 'ok': True, 'max_rel_ball_radius': 2.7701280822602928e-33}
+WT {'min_abs_on_Re_s_2': 0.6748730160848112, 'at_t': 1734.5, 'proved_lower_bound': 0.6579736267392906, 'ok': True, 'max_rel_ball_radius': 5.517755006415877e-31}
+SGN-LIOU {'min_abs_on_Re_s_2': 0.6579736267392906, 'at_t': 0.0, 'proved_lower_bound': 0.5639773943479633, 'ok': True, 'max_rel_ball_radius': 1.3658612745117222e-35}
+DEL-0.75 {'min_abs_on_Re_s_2': 0.7179671629853175, 'at_t': 775.0, 'proved_lower_bound': 0.6579736267392906, 'ok': True, 'max_rel_ball_radius': 1.0514178788497511e-86}
+DEL-0.9 {'min_abs_on_Re_s_2': 0.7973724177612251, 'at_t': 639.0, 'proved_lower_bound': 0.6579736267392906, 'ok': True, 'max_rel_ball_radius': 1.006959132247074e-57}
+THIN-0.9 {'min_abs_on_Re_s_2': 0.6738949023326446, 'at_t': 1409.5, 'proved_lower_bound': 0.6579736267392906, 'ok': True, 'max_rel_ball_radius': 6.739843621181528e-75}
+EA-1/8 {'min_abs_on_Re_s_2': 0.45336590782129466, 'at_t': 1083.5, 'proved_lower_bound': 0.42844264544511323, 'ok': True, 'max_rel_ball_radius': 8.861368744200333e-36}
+EA-1/4 {'min_abs_on_Re_s_2': 0.444207897680661, 'at_t': 1083.5, 'proved_lower_bound': 0.414732110397525, 'ok': True, 'max_rel_ball_radius': 8.229626535545113e-36}
+EA-1/2 {'min_abs_on_Re_s_2': 0.40810749422686887, 'at_t': 1083.5, 'proved_lower_bound': 0.35567340899728717, 'ok': True, 'max_rel_ball_radius': 7.0667214716477e-36}
+U-00..23 {'min_abs_on_Re_s_2': 0.6686221451711276, 'proved_lower_bound': 0.6579736164924573, 'ok': True}
+SGN-00..23 {'min_abs_on_Re_s_2': 0.6712485938788175, 'proved_lower_bound': 0.6579736164924573, 'ok': True}
+BEU {'min_abs_on_Re_s_2': 0.7526500374030429, 'proved_lower_bound': 0.6579736267392906, 'ok': True}
+HEAT--0.1 {'note': 'no lower bound known on Re s = 2 (not an Euler product); reported: minimum ball accuracy and the smallest scaled modulus on Re s = 2', 'min_rel_accuracy_bits': 225, 'min_scaled_abs_on_Re_s_2': 1.0025932639307167, 'ok': True}
+HEAT--0.5 {'note': 'no lower bound known on Re s = 2 (not an Euler product); reported: minimum ball accuracy and the smallest scaled modulus on Re s = 2', 'min_rel_accuracy_bits': 227, 'min_scaled_abs_on_Re_s_2': 1.0065559020788208, 'ok': True}
+spot {'ZETA': 5.652965436754913e-33, 'DH': 1.3687502529023653e-32, 'EA-1/8': 5.597257732186657e-33, 'EA-1/4': 5.3252003783185114e-33, 'EA-1/2': 5.172897469973377e-33, 'TNR': 5.562632501454418e-33, 'WT': 7.191949474162311e-33, 'SGN-LIOU': 5.8782489464359856e-33}
+all sanity ok: True spot ok: True
++ python devices/d4_central.py tables
+ok   ZETA: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 3.780866705066689e-07} | recorded passes
+ok   DH: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 2.6768019490517115e-06} | recorded passes
+ok   EA-1/8: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 0.00024058738974298867} | recorded passes
+ok   EA-1/4: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 0.002475367085537939} | recorded passes
+ok   EA-1/2: form real and >= 0 at 4000 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 0.02796119313567838} | recorded passes
+ok   TNR: form real and >= 0 at 4001 grid ordinates on Re s = 1/2 (table x direct value at the conjugate point) | got {'negative': 0, 'imag': 0, 'min': 2.034893677367451e-07} | recorded passes
+ok   DH: form > 0 at the ordinates of all 84 off-line pairs below 2000 (does not see them) | got 1.994591857235411e-06 | recorded > 0
+ok   DH: form vanishes at on-line zeros (first 200, < 1e-50) | got 8.683986495983508e-58 | recorded 0
+ok   TNR: form > 0 at the ordinates of its 350 off-line pairs | got 1.5023345283758684e-06 | recorded > 0
+ok   EA-1/8: form > 0 at the ordinates of its (off-line) zeros, 152 sampled | got 9.680202216567827e-05 | recorded > 0
+ok   EA-1/4: form > 0 at the ordinates of its (off-line) zeros, 152 sampled | got 0.0015574151723079085 | recorded > 0
+ok   EA-1/2: form > 0 at the ordinates of its (off-line) zeros, 152 sampled | got 0.025475027371382505 | recorded > 0
+ok   WT: bilinear form not real (twist not self-dual; hermitian form |F|^2 is >= 0 by definition) | got 0.999989396851853 | recorded not self-dual
+ok   Lemma W1: no grid t != 0 with 2^(-it), 3^(-it) both real | got 0.019387244927604373 | recorded > 0
+ok   HEAT--0.1: F real on Re s = 1/2 at 4001 grid ordinates, so the form is a square >= 0 | got {'max_imag': 0.0, 'min_bits': 229} | recorded passes
+ok   HEAT--0.1: form > 0 at every grid ordinate (off-line pairs: 41) | got 4001 | recorded 4001
+ok   HEAT--0.5: F real on Re s = 1/2 at 4001 grid ordinates, so the form is a square >= 0 | got {'max_imag': 0.0, 'min_bits': 228} | recorded passes
+ok   HEAT--0.5: form > 0 at every grid ordinate (off-line pairs: 277) | got 4001 | recorded 4001
+D4 reproduced: True
++ python battery/manifest.py tables
+files 107 total GB 4.96
+{
+ "D1": {
+  "reproduced": false,
+  "verdict": "MISMATCH",
+  "checks": 20,
+  "failed": [
+   "DH_t1000_1020 min q_1, abs 1e-9"
+  ]
+ },
+ "D2": {
+  "reproduced": true,
+  "verdict": "DH passes real-Pick positivity to order 100 on the nested nodes (as zeta does)",
+  "checks": 18,
+  "failed": []
+ },
+ "D3": {
+  "reproduced": true,
+  "verdict": "DH satisfies the Lemma B identity in all 8 recorded cases",
+  "checks": 48,
+  "failed": []
+ },
+ "D4": {
+  "reproduced": true,
+  "verdict": "every control on which the form is defined passes: the form is >= 0 at height t and does not vanish at off-line ordinates",
+  "checks": 18,
+  "failed": []
+ },
+ "D5": {
+  "reproduced": true,
+  "verdict": "DEL passes the Landau step of P46 (A has non-negative coefficients; identity holds; set and abscissa data as recorded)",
+  "checks": 22,
+  "failed": []
+ }
+}
++ echo STAGE2_DONE
+STAGE2_DONE

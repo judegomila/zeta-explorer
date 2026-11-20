@@ -1,0 +1,14 @@
+R1 {'zero': 1, 'T': 1, 'nonconst_energy': 1.2085866698401055, 'strip_total': 1.2085866698401055, 'M_T': 1.7775417110711778, 'strip_over_M': 0.6799202867154043, 'bound_1_plus_10T': 11, 'flat_mean_bound': 0.6799202867154043}
+R1 {'zero': 1, 'T': 2, 'nonconst_energy': 5.917739723416124, 'strip_total': 7.174651521156493, 'M_T': 2.513823595480737, 'strip_over_M': 2.8540791541836215, 'bound_1_plus_10T': 21, 'flat_mean_bound': 2.3540791541836215}
+R1 {'zero': 1, 'T': 4, 'nonconst_energy': 13.700315359743087, 'strip_total': 16.366627926349853, 'M_T': 3.5550834221423555, 'strip_over_M': 4.603725421578725, 'bound_1_plus_10T': 41, 'flat_mean_bound': 3.853725421578725}
+R1 {'zero': 2, 'T': 1, 'nonconst_energy': 2.630712166942491, 'strip_total': 2.630712166942491, 'M_T': 3.2259990315838887, 'strip_over_M': 0.8154720882389335, 'bound_1_plus_10T': 11, 'flat_mean_bound': 0.8154720882389335}
+R1 {'zero': 2, 'T': 2, 'nonconst_energy': 9.600256664475118, 'strip_total': 11.881382455809321, 'M_T': 4.562251582668406, 'strip_over_M': 2.6042804173591945, 'bound_1_plus_10T': 21, 'flat_mean_bound': 2.1042804173591945}
+R1 {'zero': 2, 'T': 4, 'nonconst_energy': 25.23163813928702, 'strip_total': 30.070636686662855, 'M_T': 6.451998063167777, 'strip_over_M': 4.660670445381207, 'bound_1_plus_10T': 41, 'flat_mean_bound': 3.910670445381207}
+R1 {'zero': 3, 'T': 1, 'nonconst_energy': 3.2778249224570195, 'strip_total': 3.2778249224570195, 'M_T': 4.423466063281248, 'strip_over_M': 0.741008267174449, 'bound_1_plus_10T': 11, 'flat_mean_bound': 0.741008267174449}
+R1 {'zero': 3, 'T': 2, 'nonconst_energy': 13.266259652504132, 'strip_total': 16.394122502198865, 'M_T': 6.255725699389465, 'strip_over_M': 2.6206587836482136, 'bound_1_plus_10T': 21, 'flat_mean_bound': 2.1206587836482136}
+R1 {'zero': 3, 'T': 4, 'nonconst_energy': 35.41069639745574, 'strip_total': 42.04589549237761, 'M_T': 8.846932126562496, 'strip_over_M': 4.7525961419028855, 'bound_1_plus_10T': 41, 'flat_mean_bound': 4.0025961419028855}
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/ref_checks.py", line 47, in <module>
+    terms.sort()
+    ~~~~~~~~~~^^
+TypeError: '<' not supported between instances of 'complex' and 'complex'

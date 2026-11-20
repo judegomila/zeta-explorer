@@ -1,0 +1,936 @@
+tasks 80 planned peak per worker: KF <= 78 x 367521 x 8 B = 0.23 GB, LP matrix <= 2 x 0.23 GB; workers 12
+## T=10000 fac=2 L=7.372 N=1591.5 func=zeta J=47 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 47 x 17501 float64 = 0.007 GB
+## T=10000 fac=1 L=3.686 N=39.9 func=zeta J=24 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 24 x 17501 float64 = 0.003 GB
+## T=10000 fac=0.5 L=1.843 N=6.3 func=zeta J=12 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 12 x 17501 float64 = 0.002 GB
+## T=10000 fac=0.25 L=0.922 N=2.5 func=zeta J=11 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+## T=100000 fac=1 L=4.838 N=126.2 func=zeta J=31 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 31 x 17501 float64 = 0.004 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3622
+## T=100000 fac=2 L=9.675 N=15915.5 func=zeta J=62 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 62 x 17501 float64 = 0.009 GB
+## T=100000 fac=0.5 L=2.419 N=11.2 func=zeta J=16 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 16 x 17501 float64 = 0.002 GB
+## T=1e+06 fac=0.25 L=1.497 N=4.5 func=zeta J=11 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+## T=1e+06 fac=0.5 L=2.994 N=20.0 func=zeta J=20 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 20 x 17501 float64 = 0.003 GB
+## T=1e+06 fac=1 L=5.989 N=398.9 func=zeta J=39 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 39 x 17501 float64 = 0.005 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+## T=100000 fac=0.25 L=1.209 N=3.4 func=zeta J=11 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+## T=1e+06 fac=2 L=11.978 N=159154.9 func=zeta J=77 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 77 x 17501 float64 = 0.011 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  4s atoms=3622
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+  M1 pair: delta* = 0.3203125  base_s=0.00e+00  2s atoms=3688
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3540
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3742
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3688
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.25, 'zeta'), 'ok')
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  4s atoms=3540
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+## T=1000 fac=2 L=5.070 N=159.2 func=zeta J=33 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 33 x 17501 float64 = 0.005 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.5, 'zeta'), 'ok')
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+## T=1000 fac=1 L=2.535 N=12.6 func=zeta J=17 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 17 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000000.0, 0.25, 'zeta'), 'ok')
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+## T=1000 fac=0.5 L=1.267 N=3.6 func=zeta J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  6s atoms=3742
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   M1 ERROR column generation did not converge
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M1 gap: delta* = 0.42138671875  base_s=0.00e+00  1s atoms=3561
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3501
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100000.0, 0.25, 'zeta'), 'ok')
+## T=1000 fac=0.25 L=0.634 N=1.9 func=zeta J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+DONE ((100000.0, 0.5, 'zeta'), 'ok')
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+## T=100 fac=2 L=2.767 N=15.9 func=zeta J=18 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 18 x 17501 float64 = 0.003 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  7s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  6s atoms=73505
+DONE ((1000000.0, 0.5, 'zeta'), 'ok')
+## T=100 fac=1 L=1.384 N=4.0 func=zeta J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000.0, 0.5, 'zeta'), 'ok')
+## T=100 fac=0.5 L=0.692 N=2.0 func=zeta J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  5s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000.0, 0.25, 'zeta'), 'ok')
+## T=100 fac=0.25 L=0.346 N=1.4 func=zeta J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   M1 ERROR column generation did not converge
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+DONE ((1000.0, 1, 'zeta'), 'ok')
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+DONE ((100.0, 0.5, 'zeta'), 'ok')
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+## T=1e+06 fac=1 L=5.989 N=398.9 func=twist J=39 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 39 x 17501 float64 = 0.005 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+## T=1e+06 fac=2 L=11.978 N=159154.9 func=twist J=77 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 77 x 17501 float64 = 0.011 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100.0, 0.25, 'zeta'), 'ok')
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100.0, 1, 'zeta'), 'ok')
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3645
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3501
+## T=1e+06 fac=0.5 L=2.994 N=20.0 func=twist J=20 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 20 x 17501 float64 = 0.003 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+## T=1e+06 fac=0.25 L=1.497 N=4.5 func=twist J=11 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  5s atoms=3501
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+   M1 ERROR column generation did not converge
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  28s atoms=73505
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000000.0, 0.25, 'twist'), 'ok')
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  20s atoms=73505
+## T=100000 fac=2 L=9.675 N=15915.5 func=twist J=62 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 62 x 17501 float64 = 0.009 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M1 pair: delta* = 0.00048828125  base_s=6.94e-04  2s atoms=3558
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+DONE ((1000000.0, 0.5, 'twist'), 'ok')
+  M1 gap: delta* = 0.00048828125  base_s=6.94e-04  3s atoms=3558
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+## T=100000 fac=1 L=4.838 N=126.2 func=twist J=31 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 31 x 17501 float64 = 0.004 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = 0.36181640625  base_s=0.00e+00  3s atoms=3627
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  36s atoms=73505
+  M2_3/8 gap: delta* = 0.1724853515625  base_s=0.00e+00  44s atoms=73640
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  45s atoms=73505
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  5s atoms=73505
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  37s atoms=73599
+DONE ((10000.0, 1, 'zeta'), 'ok')
+## T=100000 fac=0.5 L=2.419 N=11.2 func=twist J=16 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 16 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_3/8 gap: delta* = 0.028564453125  base_s=0.00e+00  70s atoms=73727
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_3/8 pair: delta* = 0.3394775390625  base_s=0.00e+00  47s atoms=73649
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  19s atoms=73505
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  50s atoms=73649
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_3/8 pair: delta* = 0.2281494140625  base_s=0.00e+00  76s atoms=73735
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+DONE ((100000.0, 0.5, 'twist'), 'ok')
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  6s atoms=73505
+## T=100000 fac=0.25 L=1.209 N=3.4 func=twist J=11 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  78s atoms=73505
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+DONE ((100000.0, 0.25, 'twist'), 'ok')
+## T=10000 fac=2 L=7.372 N=1591.5 func=twist J=47 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 47 x 17501 float64 = 0.007 GB
+  M2_3/8 pair: delta* = 0.2427978515625  base_s=0.00e+00  52s atoms=73679
+  M1 pair: delta* = 0.00048828125  base_s=2.82e-04  2s atoms=3556
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  54s atoms=73679
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M1 gap: delta* = 0.00048828125  base_s=2.82e-04  4s atoms=3556
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  40s atoms=73505
+DONE ((100.0, 2, 'zeta'), 'ok')
+## T=10000 fac=1 L=3.686 N=39.9 func=twist J=24 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 24 x 17501 float64 = 0.003 GB
+  M1 pair: delta* = 0.17626953125  base_s=0.00e+00  1s atoms=3578
+  M1 gap: delta* = 0.279296875  base_s=0.00e+00  2s atoms=3689
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  6s atoms=73505
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  4s atoms=73505
+  M2_3/8 pair: delta* = 0.1409912109375  base_s=0.00e+00  104s atoms=73966
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  6s atoms=73505
+DONE ((10000.0, 1, 'twist'), 'ok')
+  M2_1/2 gap: delta* = 0.38037109375  base_s=0.00e+00  61s atoms=73732
+DONE ((100000.0, 1, 'zeta'), 'ok')
+## T=10000 fac=0.5 L=1.843 N=6.3 func=twist J=12 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 12 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  77s atoms=73505
+## T=10000 fac=0.25 L=0.922 N=2.5 func=twist J=11 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.5, 'twist'), 'ok')
+## T=1000 fac=2 L=5.070 N=159.2 func=twist J=33 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 33 x 17501 float64 = 0.005 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.25, 'twist'), 'ok')
+## T=1000 fac=1 L=2.535 N=12.6 func=twist J=17 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 17 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = 0.34326171875  base_s=0.00e+00  1s atoms=3537
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3501
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_3/8 pair: delta* = 0.238037109375  base_s=0.00e+00  116s atoms=73974
+   M1 ERROR column generation did not converge
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  102s atoms=73574
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  46s atoms=73566
+  M2_1/2 pair: delta* = 0.474609375  base_s=0.00e+00  54s atoms=73688
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+DONE ((1000.0, 1, 'twist'), 'ok')
+## T=1000 fac=0.5 L=1.267 N=3.6 func=twist J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  58s atoms=73688
+DONE ((1000000.0, 1, 'twist'), 'ok')
+## T=1000 fac=0.25 L=0.634 N=1.9 func=twist J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  136s atoms=73735
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000.0, 0.5, 'twist'), 'ok')
+## T=100 fac=2 L=2.767 N=15.9 func=twist J=18 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 18 x 17501 float64 = 0.003 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = 0.3447265625  base_s=0.00e+00  69s atoms=73779
+DONE ((1000000.0, 1, 'zeta'), 'ok')
+## T=100 fac=1 L=1.384 N=4.0 func=twist J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000.0, 0.25, 'twist'), 'ok')
+## T=100 fac=0.5 L=0.692 N=2.0 func=twist J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+DONE ((100.0, 0.5, 'twist'), 'ok')
+## T=100 fac=0.25 L=0.346 N=1.4 func=twist J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  53s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  2s atoms=73505
+DONE ((100.0, 0.25, 'twist'), 'ok')
+  M2_1/2 pair: delta* = 0.40771484375  base_s=0.00e+00  60s atoms=73715
+## T=1e+06 fac=2 L=11.978 N=159154.9 func=liou J=77 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 77 x 17501 float64 = 0.011 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  63s atoms=73715
+DONE ((100000.0, 1, 'twist'), 'ok')
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3501
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  38s atoms=73505
+## T=1e+06 fac=1 L=5.989 N=398.9 func=liou J=39 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 39 x 17501 float64 = 0.005 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  5s atoms=3652
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3689
+  M1 gap: delta* = 0.33056640625  base_s=0.00e+00  4s atoms=3864
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  29s atoms=73505
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  87s atoms=73566
+DONE ((1000.0, 2, 'zeta'), 'ok')
+## T=1e+06 fac=0.5 L=2.994 N=20.0 func=liou J=20 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 20 x 17501 float64 = 0.003 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+DONE ((1000000.0, 0.5, 'liou'), 'ok')
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  179s atoms=73966
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+## T=1e+06 fac=0.25 L=1.497 N=4.5 func=liou J=11 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000000.0, 0.25, 'liou'), 'ok')
+## T=100000 fac=2 L=9.675 N=15915.5 func=liou J=62 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 62 x 17501 float64 = 0.009 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  73s atoms=73505
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  54s atoms=73505
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3501
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  4s atoms=3629
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+  M2_3/8 gap: delta* = 0.113525390625  base_s=0.00e+00  163s atoms=73794
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+   M2_3/8 ERROR column generation did not converge
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  112s atoms=73505
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_1/2 pair: delta* = 0.326171875  base_s=0.00e+00  71s atoms=73709
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  189s atoms=73680
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  23s atoms=73505
+  M2_3/8 pair: delta* = 0.3548583984375  base_s=0.00e+00  61s atoms=73690
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  64s atoms=73690
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  45s atoms=73505
+DONE ((100.0, 2, 'twist'), 'ok')
+## T=100000 fac=1 L=4.838 N=126.2 func=liou J=31 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 31 x 17501 float64 = 0.004 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3562
+  M1 gap: delta* = 0.38525390625  base_s=0.00e+00  3s atoms=3702
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  53s atoms=73505
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  248s atoms=74056
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  94s atoms=73555
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  63s atoms=73529
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  78s atoms=73505
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  139s atoms=73709
+DONE ((10000.0, 2, 'zeta'), 'ok')
+## T=100000 fac=0.5 L=2.419 N=11.2 func=liou J=16 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 16 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_1/2 pair: delta* = 0.484375  base_s=0.00e+00  52s atoms=73607
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  55s atoms=73607
+DONE ((1000000.0, 1, 'liou'), 'ok')
+  M2_1/2 pair: delta* = 0.2724609375  base_s=0.00e+00  100s atoms=73836
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+## T=100000 fac=0.25 L=1.209 N=3.4 func=liou J=11 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   M2_1/2 ERROR column generation did not converge
+DONE ((100.0, 1, 'twist'), 'ok')
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+## T=10000 fac=2 L=7.372 N=1591.5 func=liou J=47 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 47 x 17501 float64 = 0.007 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  3s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  2s atoms=3501
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  5s atoms=73505
+DONE ((100000.0, 0.5, 'liou'), 'ok')
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+## T=10000 fac=1 L=3.686 N=39.9 func=liou J=24 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 24 x 17501 float64 = 0.003 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3692
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  93s atoms=73554
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100000.0, 0.25, 'liou'), 'ok')
+## T=10000 fac=0.5 L=1.843 N=6.3 func=liou J=12 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 12 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  103s atoms=73505
+DONE ((1000.0, 2, 'twist'), 'ok')
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+## T=10000 fac=0.25 L=0.922 N=2.5 func=liou J=11 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 pair: delta* = 0.293701171875  base_s=0.00e+00  55s atoms=73672
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.5, 'liou'), 'ok')
+## T=1000 fac=2 L=5.070 N=159.2 func=liou J=33 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 33 x 17501 float64 = 0.005 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  58s atoms=73672
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  3s atoms=3501
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((10000.0, 0.25, 'liou'), 'ok')
+## T=1000 fac=1 L=2.535 N=12.6 func=liou J=17 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 17 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  111s atoms=73690
+  M2_3/8 pair: delta* = 0.3226318359375  base_s=0.00e+00  25s atoms=73562
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  125s atoms=73529
+DONE ((10000.0, 2, 'twist'), 'ok')
+## T=1000 fac=0.5 L=1.267 N=3.6 func=liou J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = 0.258544921875  base_s=0.00e+00  41s atoms=73609
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  27s atoms=73562
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  43s atoms=73609
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  4s atoms=73505
+DONE ((1000.0, 0.5, 'liou'), 'ok')
+## T=1000 fac=0.25 L=0.634 N=1.9 func=liou J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((1000.0, 0.25, 'liou'), 'ok')
+## T=100 fac=2 L=2.767 N=15.9 func=liou J=18 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 18 x 17501 float64 = 0.003 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  59s atoms=73505
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  48s atoms=73505
+  M2_3/8 gap: delta* = 0.1962890625  base_s=0.00e+00  156s atoms=73820
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+  M2_1/2 pair: delta* = 0.48388671875  base_s=0.00e+00  24s atoms=73555
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  25s atoms=73555
+DONE ((1000.0, 1, 'liou'), 'ok')
+## T=100 fac=1 L=1.384 N=4.0 func=liou J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = 0.45703125  base_s=0.00e+00  56s atoms=73675
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  59s atoms=73675
+DONE ((100000.0, 1, 'liou'), 'ok')
+## T=100 fac=0.5 L=0.692 N=2.0 func=liou J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  184s atoms=73878
+DONE ((100000.0, 2, 'zeta'), 'ok')
+## T=100 fac=0.25 L=0.346 N=1.4 func=liou J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_3/8 gap: delta* = 0.2208251953125  base_s=0.00e+00  209s atoms=73953
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100.0, 0.5, 'liou'), 'ok')
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  2s atoms=73505
+## T=1e+06 fac=2 L=11.978 N=159154.9 func=Ea J=77 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 77 x 17501 float64 = 0.011 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  3s atoms=73505
+DONE ((100.0, 0.25, 'liou'), 'ok')
+  M2_1/2 pair: delta* = 0.4580078125  base_s=0.00e+00  38s atoms=73611
+  M2_3/8 pair: delta* = 0.0003662109375  base_s=0.00e+00  26s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  40s atoms=73611
+DONE ((10000.0, 1, 'liou'), 'ok')
+## T=1e+06 fac=1 L=5.989 N=398.9 func=Ea J=39 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 39 x 17501 float64 = 0.005 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+   Ea scan at a true ordinate (s* per delta): {'0.05': np.float64(0.11208155512699484), '0.1': np.float64(0.11351731357223827), '0.15': np.float64(0.11963071688029522), '0.19': np.float64(0.1371869330692524), '0.2': np.float64(0.1430520255738919), '0.21': np.float64(0.14962687347645337), '0.25': np.float64(0.19139763534197496), '0.3': np.float64(0.2853772992517741), '0.4': np.float64(0.8315907516936983)}
+  M1 pair: delta* = 0.00048828125  base_s=1.90e-02  5s atoms=3767
+  M1 gap: delta* = 0.3125  base_s=0.00e+00  2s atoms=3632
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+## T=1e+06 fac=0.5 L=2.994 N=20.0 func=Ea J=20 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 20 x 17501 float64 = 0.003 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+  M1 gap: delta* = 0.00048828125  base_s=1.90e-02  8s atoms=3767
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_1/2 pair: delta* = 0.34814453125  base_s=0.00e+00  129s atoms=73964
+  M2_1/2 gap: delta* = 0.28173828125  base_s=0.00e+00  187s atoms=73995
+DONE ((100000.0, 2, 'twist'), 'ok')
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  82s atoms=73505
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+## T=1e+06 fac=0.25 L=1.497 N=4.5 func=Ea J=11 Nwin=134 pos={'pair': -1.409977261268068, 'gap': 2.3916330726933666}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  16s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  18s atoms=73505
+  planned allocation KF: 20 x 367521 float64 = 0.059 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  51s atoms=73505
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  24s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  27s atoms=73505
+  planned allocation KF: 39 x 367521 float64 = 0.115 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  12s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  13s atoms=73505
+DONE ((1000000.0, 0.25, 'Ea'), 'ok')
+## T=100000 fac=2 L=9.675 N=15915.5 func=Ea J=62 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 62 x 17501 float64 = 0.009 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  20s atoms=73505
+  M2_3/8 gap: delta* = 0.2431640625  base_s=0.00e+00  127s atoms=73755
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  22s atoms=73505
+DONE ((1000000.0, 0.5, 'Ea'), 'ok')
+## T=100000 fac=1 L=4.838 N=126.2 func=Ea J=31 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 31 x 17501 float64 = 0.004 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': np.float64(0.018997074984646572), '0.1': np.float64(0.019016781084568928), '0.15': np.float64(0.01910010908148322), '0.19': np.float64(0.020392592759940726), '0.2': np.float64(0.02569196930660245), '0.21': np.float64(0.03807877106789504), '0.25': np.float64(0.1128879179588358), '0.3': np.float64(0.24493771114333074), '0.4': np.float64(0.6619650461100668)}
+  M1 pair: delta* = 0.00048828125  base_s=1.90e-02  5s atoms=3725
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  23s atoms=73505
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M1 gap: delta* = 0.00048828125  base_s=1.90e-02  7s atoms=3725
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+   M2_3/8 ERROR column generation did not converge
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  45s atoms=73505
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  43s atoms=73505
+  M2_1/2 gap: delta* = 0.19921875  base_s=0.00e+00  219s atoms=74030
+DONE ((1000000.0, 2, 'twist'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  29s atoms=73505
+## T=100000 fac=0.5 L=2.419 N=11.2 func=Ea J=16 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 16 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  32s atoms=73505
+DONE ((1000000.0, 1, 'Ea'), 'ok')
+## T=100000 fac=0.25 L=1.209 N=3.4 func=Ea J=11 Nwin=108 pos={'pair': -3.3587800679088105, 'gap': 0.2223360376956407}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  43s atoms=73505
+DONE ((100.0, 2, 'liou'), 'ok')
+## T=10000 fac=2 L=7.372 N=1591.5 func=Ea J=47 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 47 x 17501 float64 = 0.007 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': np.float64(0.004697161440363838), '0.1': np.float64(0.00731115275146048), '0.15': np.float64(0.012559532966225834), '0.19': np.float64(0.019272531464986416), '0.2': np.float64(0.02137592523240586), '0.21': np.float64(0.0236221604607133), '0.25': np.float64(0.03484205719303976), '0.3': np.float64(0.054569345299695336), '0.4': np.float64(0.12924154369378235)}
+  M1 pair: delta* = 0.00048828125  base_s=6.33e-04  3s atoms=3825
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  25s atoms=73505
+  M1 gap: delta* = 0.00048828125  base_s=6.33e-04  6s atoms=3825
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  8s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  27s atoms=73505
+  planned allocation KF: 31 x 367521 float64 = 0.091 GB
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  9s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  14s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  16s atoms=73505
+  planned allocation KF: 16 x 367521 float64 = 0.047 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  102s atoms=73592
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  9s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  10s atoms=73505
+DONE ((100000.0, 0.25, 'Ea'), 'ok')
+## T=10000 fac=1 L=3.686 N=39.9 func=Ea J=24 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 24 x 17501 float64 = 0.003 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  40s atoms=73505
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  79s atoms=73505
+DONE ((1000.0, 2, 'liou'), 'ok')
+## T=10000 fac=0.5 L=1.843 N=6.3 func=Ea J=12 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 12 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  16s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  18s atoms=73505
+DONE ((100000.0, 0.5, 'Ea'), 'ok')
+## T=10000 fac=0.25 L=0.922 N=2.5 func=Ea J=11 Nwin=82 pos={'pair': 0.7850131396899087, 'gap': -2.674102851456155}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  55s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  25s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  28s atoms=73505
+DONE ((100000.0, 1, 'Ea'), 'ok')
+## T=1000 fac=2 L=5.070 N=159.2 func=Ea J=33 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 33 x 17501 float64 = 0.005 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+  planned allocation KF: 12 x 367521 float64 = 0.035 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  18s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': np.float64(2.0257559399312306e-05), '0.2': np.float64(4.561510354788572e-05), '0.21': np.float64(7.63528931169332e-05), '0.25': np.float64(0.00029590411467207673), '0.3': np.float64(0.0008642778514676747), '0.4': np.float64(0.00490814417873464)}
+  M1 pair: delta* = 0.474609375  base_s=0.00e+00  3s atoms=3728
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  19s atoms=73505
+  planned allocation KF: 24 x 367521 float64 = 0.071 GB
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  4s atoms=3728
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  11s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  12s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  36s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  11s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  12s atoms=73505
+DONE ((10000.0, 0.5, 'Ea'), 'ok')
+## T=1000 fac=1 L=2.535 N=12.6 func=Ea J=17 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 17 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  240s atoms=74066
+DONE ((1000000.0, 2, 'zeta'), 'ok')
+## T=1000 fac=0.5 L=1.267 N=3.6 func=Ea J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  11s atoms=73505
+   M2_1/2 ERROR column generation did not converge
+DONE ((100.0, 1, 'liou'), 'ok')
+## T=1000 fac=0.25 L=0.634 N=1.9 func=Ea J=11 Nwin=57 pos={'pair': 2.8360568339224983, 'gap': 0.5705270975978465}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  12s atoms=73505
+DONE ((10000.0, 0.25, 'Ea'), 'ok')
+## T=100 fac=2 L=2.767 N=15.9 func=Ea J=18 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 18 x 17501 float64 = 0.003 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': np.float64(0.000500182062982758)}
+  M1 pair: delta* = None  base_s=0.00e+00  1s atoms=3501
+  M1 gap: delta* = 0.00048828125  base_s=0.00e+00  1s atoms=3501
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  19s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  20s atoms=73505
+DONE ((10000.0, 1, 'Ea'), 'ok')
+## T=100 fac=1 L=1.384 N=4.0 func=Ea J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+  M2_1/2 pair: delta* = 0.00048828125  base_s=0.00e+00  132s atoms=73972
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  8s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  9s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  24s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  9s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  10s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  15s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  17s atoms=73505
+  planned allocation KF: 17 x 367521 float64 = 0.050 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  16s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+DONE ((1000.0, 0.5, 'Ea'), 'ok')
+## T=100 fac=0.5 L=0.692 N=2.0 func=Ea J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+DONE ((1000.0, 0.25, 'Ea'), 'ok')
+## T=100 fac=0.25 L=0.346 N=1.4 func=Ea J=11 Nwin=32 pos={'pair': 4.586080546402215, 'gap': 0.07452261196253573}
+  planned allocation KF: 11 x 17501 float64 = 0.002 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M1 pair: delta* = None  base_s=0.00e+00  0s atoms=3501
+  M1 gap: delta* = None  base_s=0.00e+00  0s atoms=3501
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  11s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  16s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  12s atoms=73505
+DONE ((100.0, 1, 'Ea'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  9s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  17s atoms=73505
+DONE ((1000.0, 1, 'Ea'), 'ok')
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  10s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0}
+  M2_3/8 pair: delta* = None  base_s=0.00e+00  9s atoms=73505
+  M2_3/8 gap: delta* = None  base_s=0.00e+00  10s atoms=73505
+  planned allocation KF: 11 x 367521 float64 = 0.032 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+DONE ((100.0, 0.5, 'Ea'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  10s atoms=73505
+  M2_3/8 gap: delta* = 0.279052734375  base_s=0.00e+00  41s atoms=73559
+  planned allocation KF: 18 x 367521 float64 = 0.053 GB
+  M2_1/2 gap: delta* = None  base_s=0.00e+00  11s atoms=73505
+DONE ((100.0, 0.25, 'Ea'), 'ok')
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  97s atoms=73505
+  planned allocation KF: 47 x 367521 float64 = 0.138 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  165s atoms=73819
+  planned allocation KF: 77 x 367521 float64 = 0.226 GB
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  67s atoms=73660
+  planned allocation KF: 33 x 367521 float64 = 0.097 GB
+  M2_1/2 gap: delta* = 0.3408203125  base_s=0.00e+00  131s atoms=73684
+DONE ((10000.0, 2, 'liou'), 'ok')
+  M2_1/2 gap: delta* = 0.31884765625  base_s=0.00e+00  201s atoms=73996
+DONE ((100000.0, 2, 'liou'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  17s atoms=73505
+  M2_3/8 gap: delta* = 0.0003662109375  base_s=0.00e+00  136s atoms=73777
+  planned allocation KF: 62 x 367521 float64 = 0.182 GB
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  26s atoms=73505
+  M2_1/2 gap: delta* = 0.4892578125  base_s=0.00e+00  43s atoms=73558
+DONE ((100.0, 2, 'Ea'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  39s atoms=73505
+  M2_1/2 gap: delta* = 0.33837890625  base_s=0.00e+00  232s atoms=74249
+DONE ((1000000.0, 2, 'liou'), 'ok')
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  55s atoms=73505
+   Ea scan at a true ordinate (s* per delta): {'0.05': 0.0, '0.1': 0.0, '0.15': 0.0, '0.19': 0.0, '0.2': 0.0, '0.21': 0.0, '0.25': 0.0, '0.3': 0.0, '0.4': 0.0}
+  M2_1/2 pair: delta* = None  base_s=0.00e+00  45s atoms=73505
+  M2_1/2 gap: delta* = 0.32958984375  base_s=0.00e+00  71s atoms=73714
+DONE ((1000.0, 2, 'Ea'), 'ok')
+  M2_1/2 gap: delta* = 0.00048828125  base_s=0.00e+00  99s atoms=73632
+DONE ((10000.0, 2, 'Ea'), 'ok')
+  M2_1/2 gap: delta* = 0.33447265625  base_s=0.00e+00  126s atoms=73825
+DONE ((100000.0, 2, 'Ea'), 'ok')
+  M2_1/2 gap: delta* = 0.33544921875  base_s=0.00e+00  143s atoms=73843
+DONE ((1000000.0, 2, 'Ea'), 'ok')

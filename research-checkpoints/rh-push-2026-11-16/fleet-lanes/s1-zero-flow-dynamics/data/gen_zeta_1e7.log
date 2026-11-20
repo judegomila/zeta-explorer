@@ -1,0 +1,3 @@
+11:55:18 blocks 32 workers 1
+11:58:05 max |count - expected| over blocks 1.49
+11:58:05 TOTAL zeros 10000040 ; theta(Tmax)/pi + 1 = 10000040.34 ; S(Tmax) implied -0.34 ; hidden 71 ; monotone True

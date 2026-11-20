@@ -1,0 +1,28 @@
+forms with onset record: 7597; with zero record: 7584; onset errors: 0; zero errors: 0
+class number one (Euler products): 13 forms; Weil-negative below a = 6.4: []; min lambda at a = 6.4: -2.64e-11
+class number > 1: 7584 forms; Weil-negative found: 7388; not negative up to a = 6.4: 196 [[3, 1, 107], [3, 1, 124], [3, 2, 105], [3, 1, 126], [3, 2, 116], [4, 3, 116], [2, 1, 91], [3, 2, 149]]
+onset a* (double precision): min 0.154  5% 0.521  median 1.812  95% 3.257  max 6.386
+first-failure sector: even 4641, odd 2747
+onset minus information floor log(m1/amin)/2: min 0.133 median 1.262
+forms with onset and zero data: 7388 (zero-finder warnings: 0)
+with a real zero in (1/2,1): 1260; without: 6128; of those, complex off-line zero found below the scan height: 5468
+  real-zero class: a* range 2.062..2.366; odd-sector first failures 1260/1260; fit a* = 1.943 +0.107 log(beta-1/2) +0.056 log|D|, rms 0.064
+law residual a*_measured - a*_predicted (route-44 coefficients, q = |D|), forms without real zero:
+   all: n=5468 mean -1.046 sd 0.552 rms 1.183 min -3.107 1% -2.448 5% -1.802 median -1.108 95% -0.034 max 1.059
+   with information floor applied to the prediction: n=5468 mean -1.046 sd 0.552 rms 1.183 min -3.107 1% -2.448 5% -1.802 median -1.108 95% -0.034 max 1.059
+   principal: n=78 mean 0.491 sd 0.244 rms 0.548 min -0.016 1% 0.013 5% 0.111 median 0.441 95% 0.943 max 1.059
+   non-principal: n=5390 mean -1.069 sd 0.523 rms 1.190 min -3.107 1% -2.450 5% -1.815 median -1.117 95% -0.128 max 0.696
+   below -5 rms (-0.695): 4211 of 5468 (77.0%); above +5 rms: 17
+   every non-Euler form below -5 rms: False
+   refit on Epstein forms: a* = -0.744 +0.674 log gamma -0.514 log(beta-1/2) -0.032 log|D|; rms 0.419, R^2 0.688
+   lowest residuals: (25, 25, 26) D=-1975 a*=0.154 pred=3.261 zero=(0.668,37.598) floor=0.020; (24, 24, 25) D=-1824 a*=0.154 pred=3.220 zero=(0.680,37.602) floor=0.020; (23, 23, 24) D=-1679 a*=0.162 pred=3.178 zero=(0.693,37.608) floor=0.021; (24, 20, 25) D=-2000 a*=0.341 pred=3.331 zero=(0.636,38.308) floor=0.020; (22, 22, 23) D=-1540 a*=0.162 pred=3.133 zero=(0.708,37.614) floor=0.022; (21, 21, 22) D=-1407 a*=0.170 pred=3.086 zero=(0.725,37.622) floor=0.023; (20, 20, 21) D=-1280 a*=0.177 pred=3.037 zero=(0.744,37.633) floor=0.024; (21, 20, 23) D=-1532 a*=0.412 pred=3.243 zero=(0.561,20.851) floor=0.045; (23, 16, 24) D=-1952 a*=0.420 pred=3.224 zero=(0.716,41.292) floor=0.021; (20, 19, 21) D=-1319 a*=0.287 pred=3.089 zero=(0.759,43.958) floor=0.024; (19, 19, 20) D=-1159 a*=0.185 pred=2.985 zero=(0.766,37.646) floor=0.026; (23, 21, 25) D=-1859 a*=0.420 pred=3.208 zero=(0.691,37.529) floor=0.042
+   forms whose binding zero has Re > 1: 1982; their residuals: n=1982 mean -1.340 sd 0.297 rms 1.372 min -2.465 1% -2.193 5% -1.778 median -1.355 95% -0.848 max -0.105
+   class [binding zero with Re > 1]: n=1982; residual to the twin law: mean -1.340 sd 0.297; own fit a* = -0.067 +0.382 log gamma -0.501 log(beta-1/2) -0.015 log|D|, rms 0.196, R^2 0.716
+   class [binding zero with 1/2 < Re <= 1, non-principal]: n=3408; residual to the twin law: mean -0.911 sd 0.560; own fit a* = -1.645 +0.892 log gamma -0.415 log(beta-1/2) +0.020 log|D|, rms 0.480, R^2 0.504
+   class [principal, no real zero]: n=78; residual to the twin law: mean 0.491 sd 0.244; own fit a* = -1.359 +0.152 log gamma -0.054 log(beta-1/2) +0.787 log|D|, rms 0.171, R^2 0.909
+   forms with a Weil onset, no real zero and no off-line zero with Re > 0.52 found below the scan height: 660; their onsets: min 0.248 median 3.077 max 6.386; scan heights 45..45
+   Weil-blind forms (no negative value up to a = 6.4, h > 1): 196; zero data: [([3, 1, 107], -1283, [], [], 45.0), ([3, 1, 124], -1487, [], [], 45.0), ([3, 2, 105], -1256, [], [], 45.0), ([3, 1, 126], -1511, [], [], 45.0), ([3, 2, 116], -1388, [], [], 45.0), ([4, 3, 116], -1847, [], [], 45.0), ([2, 1, 91], -727, [], [], 45.0), ([3, 2, 149], -1784, [], [], 45.0), ([4, 3, 122], -1943, [], [], 45.0), ([3, 2, 143], -1712, [], [], 45.0), ([3, 2, 77], -920, [], [], 45.0), ([3, 2, 95], -1136, [], [], 45.0), ([3, 2, 129], -1544, [], [], 45.0), ([3, 1, 115], -1379, [], [], 45.0), ([2, 1, 95], -759, [], [], 45.0), ([4, 3, 125], -1991, [], [], 45.0), ([3, 1, 72], -863, [], [], 45.0), ([4, 3, 94], -1495, [], [], 45.0), ([3, 2, 93], -1112, [], [], 45.0), ([3, 2, 87], -1040, [], [], 45.0), ([3, 1, 142], -1703, [], [], 45.0), ([3, 2, 102], -1220, [], [], 45.0), ([3, 2, 114], -1364, [], [], 45.0), ([4, 1, 98], -1567, [], [], 45.0), ([3, 1, 139], -1667, [], [], 45.0), ([5, 4, 85], -1684, [], [], 45.0), ([3, 2, 133], -1592, [], [], 45.0), ([4, 1, 103], -1647, [], [], 45.0), ([3, 1, 149], -1787, [], [], 45.0), ([3, 1, 105], -1259, [], [], 45.0), ([4, 3, 109], -1735, [], [], 45.0), ([2, 1, 93], -743, [], [], 45.0), ([4, 3, 108], -1719, [], [], 45.0), ([2, 1, 66], -527, [], [], 45.0), ([5, 4, 80], -1584, [], [], 45.0), ([2, 1, 92], -735, [], [], 45.0), ([4, 1, 101], -1615, [], [], 45.0), ([3, 2, 112], -1340, [], [], 45.0), ([3, 1, 112], -1343, [], [], 45.0), ([4, 3, 89], -1415, [], [], 45.0)]
+   a* x gamma_binding: min 3.1 median 28.1 max 171.0 (2N = 340 polynomial degrees in the basis)
+detector (I or E1) onset in a-units (support/2) minus law prediction: n=5468 mean -2.003 sd 0.416 rms 2.045 min -3.320 1% -2.974 5% -2.675 median -2.011 95% -1.329 max -0.406
+   below -5 rms: 5432 of 5468 (99.3%); detector onset minus measured Weil onset: n=5468 mean -0.956 sd 0.376 rms 1.028 min -2.167 1% -1.857 5% -1.602 median -0.941 95% -0.334 max -0.133
+   all 7388 Weil-negative forms: detector onset earlier than the Weil onset for 6256 (84.7%); later for 1132

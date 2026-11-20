@@ -1,0 +1,17 @@
+{
+ "a2": {
+  "sampled": 300,
+  "with_both_signs_among_529_positives": 300,
+  "min_minority_count": 89
+ },
+ "a3": {
+  "sampled": 300,
+  "with_both_signs_among_529_positives": 300,
+  "min_minority_count": 54
+ },
+ "c3T_PZ_rows": {
+  "n": 383,
+  "ph_same_max": 17,
+  "min_opp_max": 0
+ }
+}

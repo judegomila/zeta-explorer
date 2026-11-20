@@ -1,0 +1,10 @@
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/04-krein-inertia-finite/KreinInertiaFiniteProved.lean:333:42: warning: unused variable `ha`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/04-krein-inertia-finite/KreinInertiaFiniteProved.lean:333:74: warning: unused variable `hma`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'kernel_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'kform_im_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'form_nonneg_of_constraints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'exists_negative_subspace' depends on axioms: [propext, Classical.choice, Quot.sound]

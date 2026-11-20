@@ -1,0 +1,108 @@
+* eq48/Thm1-identity [] DH=PASS HEAT=zero-s TWIST=N/A EA=PASS
+    For v(t) = sum b_j e^{-x_j t}, real x_j > 1/2, V(z) = sum b_j/(z+x_j): Q_L(v) := sum b_i conj(b_j) (L(x_i)+L(x_j))/(x_i+x_j)
+* eq48/Thm2-schur-no-loss [] DH=PASS HEAT=? TWIST=? EA=PASS
+    "Delta_T(x) >= 0 for every Schur residual over every PD node set T" (a) <=> "every finite real-node Pick matrix of L is PSD" (b).
+* eq48/Thm3-allorder-equals-RH [] DH=FAIL HEAT=FAIL TWIST=FAIL EA=FAIL
+    (b) all real-node Pick matrices PSD <=> (b_I) the same with nodes in one interval [a,a+delta], a > 1/2 <=> Weil positivity (W)
+* eq48/Thm4-no-margin [] DH=PASS HEAT=? TWIST=N/A EA=?
+    For every eta > 0 there is a finite exponential sum v (rates in any [a,a+delta]) with |Q_L(v)| < eta E_gamma(v). So
+* pick/K<=12-certificate [] DH=PASS HEAT=PASS TWIST=FAIL EA=?
+    For every K <= 12 and all distinct x_1..x_K > 0 the Pick matrix P_ij = (L(x_i)+L(x_j))/(x_i+x_j) of L = xi'/xi(1/2+.) is positive definite.
+* pick/loewner-split [] DH=PASS HEAT=? TWIST=? EA=?
+    With u = x^2, h(u) = L(sqrt u)/sqrt u, j = u h: P(x,y) = j[x^2,y^2] - x y h[x^2,y^2], so P = Loew_j + X Loew_{-h} X. If the Hankel matrices
+* euler/1.1-cluster-kernel [] DH=PASS HEAT=? TWIST=? EA=?
+    In K(x,y) = (L(x)+L(y))/(x+y), an on-line pair +-i gamma contributes 2Re[a(x) conj a(y)], a = 1/(x - i gamma) (PSD rank <= 2). An off-line quartet
+* euler/2.1-low-orders-test-FE [] DH=PASS HEAT=PASS TWIST=? EA=?
+    A functional-equation-odd perturbation of DH of relative size 1e-40 makes the real Pick matrix indefinite at order 12-30; an off-line pair at height 60
+* euler/2.2-height-horizon [] DH=PASS HEAT=? TWIST=? EA=?
+    xi with one pair moved to 1/2 +- delta +- i gamma: first indefinite order on nested nodes in [0.01,0.5] is N* = 7, 12, 15, 24, 34, 49, 81 for gamma = zero 1, 2, 3, 5, 8, 12, 20 (delta = 0.3);
+* dh-separator/ThmA-lens [] DH=PASS HEAT=? TWIST=? EA=?
+    For z = x + it, x > 0: Q(e^{-zt}) = Re L(z)/x = sum_{on-line} 1/|z - i gamma|^2 + sum_{off-line pairs +-delta + i gamma} 2(x^2 - delta^2 + (t-gamma)^2)/(((x-delta)^2+(t-gamma)^2)((x+delta)^2+(t-gamma)
+* dh-separator/A1+ThmB3-halfplane-equivalence [] DH=PASS HEAT=? TWIST=? EA=?
+    For each c >= 0: "Q(e^{-zt}) >= 0 for all Re z >= c" <=> "Q >= 0 on F_c (real exponential sums r with rates > c such that e^{c|l|} C_r(l) is positive definite; all orders)"
+* dh-separator/ThmC-euler-positivity [] DH=FAIL HEAT=? TWIST=? EA=?
+    (1) Q(e^{-zt}) > 0 for all Re z >= 1/2 and Q(r) >= 0 on F_{1/2}. (2) Q(e^{-zt}) > 0 for Re z >= 1/2 - eta(|t|+1/2), Re z > 0, eta the de la Vallee-Poussin
+* dh-separator/complexity-floor [] DH=? HEAT=? TWIST=? EA=?
+    One real exponential cannot separate zeta from DH (Q = L(x)/x > 0 for both: no zero with delta^2 - x^2 > gamma^2). One complex exponential does:
+* screw-canonical/Lemma2-single-coefficient-window [] DH=N/A HEAT=N/A TWIST=FAIL EA=?
+    Let q_T^eps = q_T - 2 eps R_f(log n) (coefficient at log n moved from w_n = Lambda(n)/sqrt n to w_n + eps). If q_T > 0 then q_T^eps >= 0 iff -eps_- <= eps <= eps_+,
+* screw-canonical/margin-collapse [] DH=? HEAT=? TWIST=? EA=?
+    lam1(T) = inf q_T[f]/||f||^2 on L^2[0,T]: 1.33e-3 (ln 2), 5.5e-8 (ln 3), 5.8e-30 (T=2), 6.9e-49 (2.4), 7.9e-62 (2.6); fit log10 lam1 ~ 9.2 - 5.2 e^T on 1.8..2.6.
+* screw-canonical/DH-screw-range [] DH=? HEAT=? TWIST=? EA=?
+    The DH screw form with its own coefficients (signed, on all n prime to 5) has no negative direction for polynomials of degree < 200 on [0,T], T <= 3.4 (lam1 = 9.7e-29 at 3.4),
+* pick-induction/DH-order-149 [] DH="Pick HEAT=? TWIST=? EA=?
+    At the confluent node a = 1 the order-149 Toeplitz/Pick form of DH has w^T T_149 w = -7.93581794526e-480 +- 3.3e-492 < 0 (Arb). First indefinite order measured: 149 at a = 0.01, 0.1, 1, 3;
+* pick-induction/ThmR-zero-tolerance [] DH=PASS HEAT=N/A TWIST=FAIL EA=N/A
+    Let eta: {2,3,...} -> R be nonzero with sum |eta(n)| n^{-1/2} < inf, and L_eta(z) = L(z) - sum_n eta(n) n^{-1/2-z} (Lambda replaced by Lambda + eta, archimedean side unchanged).
+* pick-induction/perturb-one-prime [] DH=? HEAT=? TWIST=? EA=?
+    zeta with Lambda(n_0) -> Lambda(n_0) + eps at node a = 1: first indefinite order for n_0 = 2: 2 (eps = +1e-3), 3 (+1e-6), 9 (-1e-2), 13 (-1e-4); n_0 = 3: 2, 3, 6, 9; n_0 = 101: 3, 4, 4, 4.
+* pick-induction/LemmaA-arithmetic-gate [] DH=? HEAT=? TWIST=? EA=?
+    Q_L(v) = W_inf(v) - 2 int_1^inf y^{-1/2} C_v(log y) d(psi(y) - y) (A1). Merged nodes at a: v = p(t)e^{-at}, deg p < N. Lemma A(a,N): for every real p of degree < N,
+* pick-induction/P(k)-gates [] DH=P HEAT=? TWIST=? EA=?
+    P(k): for all anchors a_1..a_k > 0 the k-th canonical reduced pair of (C, kappa) is "full" (u,v > 0; H' < 0, B' > 0; J' > 0, d^2H/dB^2 > 0, d^2J/dB^2 > 0 on t > 0).
+* support-rigidity/P1-P3-support-is-euler [] DH=FAIL HEAT=? TWIST=? EA=?
+    Lambda_F supported on prime powers <=> a(n) multiplicative. For DH: Lambda_DH(n) != 0 exactly at prime powers p != 5 and at n composed only of primes = +-2 mod 5
+* support-rigidity/P4-support-not-enough [] DH=N/A HEAT=? TWIST=? EA=?
+    G(s) = zeta(s-d) zeta(s+d), 0 < d < 1/2, has Lambda_G(n) = 2cosh(d log n) Lambda(n): same support (same prime-power-free windows), nonnegative, a functional equation s -> 1-s (degree 2),
+* support-rigidity/P5-P7-tail-blindness [] DH=P5 HEAT=N/A TWIST=? EA=?
+    P5: for f >= 0, int f = 1, supported in a prime-power-free [n-h, n+h]: sum_rho F(rho) = 1 - eps_n, 0 < eps_n <= 1/((n-h)^3 - (n-h)), each |F(rho)| <= (n-h)^{beta-1} < 1; one off-line quartet contribut
+* support-rigidity/P8-P9-prime-elimination [] DH=N/A HEAT=N/A TWIST=? EA=?
+    P8: if phi = g*g~ vanishes at every +-log p^k then W(phi) = Q_inf(phi) (archimedean + pole only). P9 (two clusters at distance l = mid-log of consecutive prime powers q<q', eta = (1/4)log(q'/q)):
+* twist-rigidity/T1-prime-annihilation [] DH=case HEAT=N/A TWIST=? EA=?
+    q prime, weights c on characters mod q (zeta at chi_0), c^(n) = sum_chi c_chi chi(n). If c^(n) = 0 for every prime power n <= e^T (this includes n = q^k, so e^T < q), then for g = f*f~ supported in [-
+* twist-rigidity/T2-mass-bound [] DH=? HEAT=? TWIST=? EA=?
+    If c >= 0 and c^(p^j) = 0 for 1 <= j <= k for one prime p not dividing q, then sum_chi c_chi >= (k+1) c_{chi_0}. Annihilating all prime powers up to e^T with nonnegative weights needs total weight
+* twist-rigidity/T3-family-positivity [] DH=FAIL HEAT=N/A TWIST=? EA=?
+    K totally real cyclic of degree d, prime conductor q, D_K = q^{d-1}; for g = f*f~ supported in [-T,T] with e^T <= min(least prime power in H, q):
+* twist-rigidity/T4-family-blind-to-prime-data [] DH=PASS HEAT=N/A TWIST=? EA=?
+    Let c >= 0 satisfy the annihilation condition at T. For an ARBITRARY real function lambda on the prime powers n <= e^T put P^lambda_chi(g) = sum lambda(n) n^{-1/2}[chi(n)g(log n) + conj chi(n) g(-log 
+* twist-rigidity/corollary-surplus [] DH=? HEAT=? TWIST=? EA=?
+    If W_zeta(g_0) = -N < 0 with support T, then for every cyclic K as in case (ii) with inert range beyond e^T: sum_{chi != chi_0} W_chi(g_0) = pole(g_0) + sum_chi arch_chi(g_0) + N.
+* flow-euler-defect/Prop1-twisted-series [] DH=PASS HEAT=this TWIST=N/A EA=?
+    For t < 0 and all complex s: H_t = sum_{n>=1} exp(t log^2 n) n^{-s} gamma_t(s - 2t log n), gamma_t(w) = int e^{t v^2} g(e^v) e^{wv} dv, absolutely convergent.
+* flow-euler-defect/Prop2-mixture-cocycle [] DH=? HEAT=? TWIST=? EA=?
+    (a) t < 0: H_t(z) = E[Xi(z+a)], a ~ N(0,2|t|) (mixture of translates along the critical line). (b) t > 0: H_t(z) = E[xi(s+b)/2], b ~ N(0,2t) (mixture of horizontal translates).
+* flow-euler-defect/O1-defect-datum-independent [] DH=? HEAT=? TWIST=? EA=?
+    kappa_t is a function of t alone: xi, DH and a planted twin have the same flow cocycle for every t. Any inequality "imaginary parts of zeros of H_t <= F(kappa_t)" holds for all three or none; it is fa
+* flow-euler-defect/O2-hamburger-form-and-Cauchy-counterexample [] DH=N/A HEAT=? TWIST=? EA=?
+    Survives: for a symmetric probability mixture F_mu = int Xi(.+a) dmu(a), if F_mu = gamma(s) D(s) with D an ordinary Dirichlet series with polynomially bounded coefficients then mu = delta_0 (Hamburger
+* flow-euler-defect/O3-termwise-expansion [] DH=? HEAT=? TWIST=? EA=?
+    True: for t > 0 each full-line integral int e^{t u^2} phi_n(u) e^{izu} du diverges, so sum_n exp(t log^2 n) n^{-s} converges nowhere. False: "the t > 0 side offers no approximants at all".
+* sym-power-positivity/ThmA-projection [] DH=FAIL HEAT=N/A TWIST=eps_n EA=PASS
+    Let w be a real combination over zeta and unitary cuspidal companions pi with shifts ik gamma, with c_w(n) = sum w_{pi,k} a_pi(n) n^{-ik gamma} >= 0 at primes. Then the zeta part psi_w(theta) = a_0 + 
+* sym-power-positivity/ThmB-Beurling-control [] DH=? HEAT=? TWIST=? EA=?
+    For 1/2 < theta < 1 there is a Beurling zeta function zeta_B with an Euler product over generalized primes (nonnegative Lambda), simple pole at 1, continuation to Re s > theta with |zeta_B(s)| <= C|s|
+* jensen-hyperbolicity/ThmA-cone [] DH=PASS HEAT=PASS TWIST=N/A EA=?
+    G real entire of genus 0 (order < 1), G^{(n)}(0) != 0, real zeros negative, every nonreal zero c with Re c < 0 and |Im c| <= |c|/sqrt d. Then G^{(n)}(D)x^m is hyperbolic for all n >= 0, m <= d
+* li-coefficients/class-decomposition [] DH=PASS HEAT=? TWIST=? EA=?
+    With z_rho = 1 - 1/rho = r e^{i phi}: an on-line pair contributes 2(1 - cos n phi) to lambda_n; an off-line quadruple contributes 4(1 - cos n phi) - 2(r^n + r^{-n} - 2) cos n phi >= 4(1 - cos n phi) -
+* li-coefficients/ThmA-range + ThmB-sharpness [] DH=PASS HEAT=? TWIST=? EA=?
+    lambda_n > 0 for all n <= n*(H,theta) ~ (2/c)H^2(log H + O(log log H)), c = 2theta - 1: n* = 6.856e26 (strip only), 9.216e26 (theta = 7/8) at H = 3.0001753328e12. Sharpness: on the class of zero sets 
+* li-coefficients/LemmaD-hankel-vs-alternation [] DH=FAIL HEAT=N/A TWIST=eps_n EA=PASS
+    At base a > 1, z = (s-a)/(s+a-1): lambda_n^{arith}(a) = -(2a-1) sum_m Lambda(m) m^{-a} L_{n-1}^{(1)}((2a-1)log m) = -sum_{k=0}^{n-1} (-1)^k C(n,k+1)(2a-1)^{k+1} M_k(a)/k!,
+* nyman-baez-duarte/ThmA-annihilator [] DH=PASS HEAT=N/A TWIST=? EA=?
+    d_N(sigma0)^2 = inf_a (1/2pi) int_{Re s = sigma0} |1 - zeta(s)A_N(s)|^2 |ds|/|s|^2. For a zero rho = beta + i gamma with beta < sigma0, K(s) = M^s Gamma(s)cos(pi s/2) s^2/((s-rho)(s-2)^3), M = N/(2pi)
+* nyman-baez-duarte/ThmC-exact-exponent [] DH=PASS HEAT=N/A TWIST=? EA=?
+    With Theta = sup Re rho: lim log d_N(sigma0)/log N = -max(0, sigma0 - Theta). Hence ZF(theta) -> rate sigma0 - theta - eps -> ZF(theta + eps): the loop map is f(theta) = theta for every sigma0;
+* cc-latest/ThmA-extremal-eigenvector [] DH=PASS HEAT=? TWIST=? EA=?
+    Distinct nodes x_j > 0, ANY real data l_j, P_ij = (l_i+l_j)/(x_i+x_j), S_ij = 1/(x_i+x_j). If the smallest generalized eigenvalue eps of (P,S) is simple with eigenvector c, then every zero of
+* cc-latest/ThmB-bounded-below [] DH=FAIL HEAT=FAIL TWIST=? EA=?
+    For nodes with an accumulation point in (0,inf): eps_N (min of Q_L(v)/||v||^2_{L^2(0,inf)} over the first N exponentials) is nonincreasing, and RH <=> eps_N >= 0 for all N <=> inf_N eps_N > -inf <=> l
+* vertical-statistics/D1-D2-density-under-ZF [] DH=N/A HEAT=? TWIST=? EA=PASS
+    Ingham-type density with the contour on a line alpha < sigma and an m-th moment there: A(sigma) = 2/[(2-2sigma) + f(alpha)(sigma-alpha)], f = 2m/(m+2). With ZF(theta) moments m(alpha) = K/(theta-alpha
+* vertical-statistics/S1-M1-M2-byproducts [] DH=? HEAT=? TWIST=? EA=?
+    Under ZF(theta): |S(T)| <= ((theta-1/2)/ln 2 + o(1)) log T (0.541 at 7/8; worse than the unconditional ~0.10). Under ZF(7/8): int_T^{2T} |zeta(sigma+it)|^m dt << T^{1+eps} for m < (49/24)/(7/8-sigma),
+* ideation-panel/T-NR-twin [] DH=N/A HEAT=? TWIST=? EA=?
+    F_c(s) = xi(s)(2cosh((s-1/2)log q) + c), 2 < |c| < q^{1/2} + q^{-1/2}: equals the completed zeta(s)D(s), D(s) = 1 + c q^{1/2} q^{-s} + q^{1-2s}; Euler product (factor at q changed), pole at 1, zeta's 
+* ideation-panel/Prop1.2-Liouville-Abel-sign [] DH=FAIL HEAT=? TWIST=? EA=?
+    L(q) = sum lambda(n) q^n (Liouville). If L(e^{-y}) <= 0 for 0 < y < y_0 then zeta(s) != 0 for Re s > 1/2, every critical zero is simple, and |Gamma(rho)zeta(2rho)/zeta'(rho)| <= |c|, c = sqrt(pi)/(2 z
+* ideation-panel/Lemma3.1-LeeYang-finite-Euler [] DH=FAIL HEAT=? TWIST=PASS EA=?
+    If Q(z) has no zero in the closed unit polydisc then W(z,w) = Q(z) + w^2 Q~(z) has no zero with all |z_j| < 1, |w| < 1 (nor all > 1); for Q = prod_{p<=P}(1 - p^{-1/2} z_p) the function along z_p = e^{
+* ideation-panel/Angle2-Chowla-Selberg-split [] DH=? HEAT=? TWIST=? EA=?
+    For D = -163 (h = 1), Lambda(s) = (k/pi)^s Gamma(s) 2 zeta(s)L(s,chi_-163) = main + rem with main = 2[k^s xi*(2s) + k^{1-s} xi*(2s-1)], k = sqrt(163)/2, all zeros of main on the line (Lagarias-Suzuki,
+* mollifier-halfplane/one-piece-functional [] DH=method HEAT=N/A TWIST=? EA=?
+    One-piece Levinson-Conrey functional: kappa >= 1 - (1/R) log c, min_P c = (1+q1^2)/2 + sqrt(AC) coth(theta sqrt(C/A)) (A = int q^2, C = int q'^2, q = e^{Rv}Q, P = sinh profile). Values: 0.3658 (theta 
+* lambda-from-halfplane/LemmaR-replay [] DH=FAIL HEAT=n/a TWIST=? EA=?
+    Fixed-mode replay: a run (q_k, c_k) valid for abscissa theta stays valid for theta' <= theta with the same modes and rates (one-step map increasing in q). Result: Lambda <= 0.116060107834762 condition
+* lambda-from-halfplane/P1-P3-P5-conversion-limits [] DH=P1 HEAT=n/a TWIST=P5 EA=FAIL
+    P1: from the strip |Im z| <= 2theta-1 alone, (2theta-1)^2/2 (de Bruijn) is the best bound (H = z^2 + y0^2). P3 (far-field cap): if 2K_y(d,b) >= sum w_i K_{h_i}(d - x_i, b) with w_i >= 0 then sum w_i h

@@ -1,0 +1,8 @@
+[ea@5] KMAX=56 pts/spike=1032 |alpha|max=1.3797 NRES=72 NEXT=32; planned work array 7.2 MB
+  spike 0: mass +1.4025e+00 [0s]
+  spike 10: mass +1.3418e-02 [8s]
+  spike 20: mass +1.0330e-04 [20s]
+  spike 30: mass +8.2365e-07 [34s]
+  spike 40: mass +6.5855e-09 [54s]
+  spike 50: mass +5.2753e-11 [82s]
+RESULT2 ea@5: Lhat(0) = +0.185230 (2theta' = -5.372183, 2ReL'/L = -6.729943, deltahat(0) = 12.287356); min over [0,60] = +0.185230 at t = 0.00; last spike mass +2.91e-12; geometric tail estimate 2*7.6e-12

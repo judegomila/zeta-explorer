@@ -1,0 +1,50 @@
+{
+ "slug": "c14-theta-orthogonal-metaplectic-eigenobject",
+ "round": 14,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "luo-rudnick-sarnak",
+  "rankin-selberg",
+  "metaplectic",
+  "half-integral-weight",
+  "eisenstein-at-zero",
+  "theta-orthogonality",
+  "shimura-correspondence",
+  "stage-a",
+  "control-EIS-w",
+  "control-NR-vec"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Stage A only; nothing about zeros of zeta. For the weight-1/2 Eisenstein series on Gamma_0(4), every square-index coefficient A(n^2, s) carries the factor zeta(2s-1/2)/zeta(4s-1) (Lemma 1', derived and checked), so the whole D=1 row vanishes at s = 1/4 + rho/2 for beta >= 1/2; tested non-square rows do not vanish at zeros 1, 3, 4, 5, 7, 20. The vanishing is NOT the single condition b(1)=0 propagated by the odd-p Hecke relation: that gives only odd squares (2-adic zero u = 1 + i pi/ln 2 is a counterexample); even squares need Lemma 1'. The row vanishing annihilates the first-moment (Shimura) series and does not change the growth exponent of sum |b(m)|^2 |m|^-w: rightmost exponent P = 1 + |2 sigma - 1| (measured at five parameters; pole structure relative to the unopened regularised Rankin-Selberg method), gamma pole at |2 sigma - 1|, difference 1 for every beta, so the LRS-type count gives an inequality true for every beta. Lemma E (i),(ii) (classical: non-real eigenvalue forces the dominant constant-term exponent at some cusp) holds; (iii) is relative to the same source. The generic parameter passes the count; a sieved local vector has vanishing square row at every parameter once its definition is repaired. Device type \"LRS count on a rank-one eigen-object at a zero\" is closed as a precise obstruction; rank >= 2 not covered.",
+ "obstruction": "Stage A, decisive first test. At s = 1/4 + rho/2 the whole square-index row vanishes (factor zeta(2s-1/2)/zeta(4s-1), Lemma 1'; not the single condition b(1) = 0: the odd-p Hecke relation gives odd squares only). The vanishing annihilates the first-moment (Shimura) series and does not change the growth exponent of sum |b(m)|^2 |m|^-w: rightmost exponent 1 + |2 sigma - 1| (MEASURED at five parameters; pole structure relative to the unopened regularised Rankin-Selberg method), gamma pole |2 sigma - 1|, difference 1 for every beta, so the count gives an inequality true for every beta. Lemma E (classical for (i),(ii)): in rank one a non-real Laplace eigenvalue forces the dominant constant-term exponent at some cusp, so the same holds on every cover and for every vector. Rank >= 2 non-Borel or metaplectic objects are not covered.",
+ "obstructionKind": "pole position tied to parameter (no square-integrability); a vanishing Fourier row does not act on the constant term; generic-parameter Eisenstein passes",
+ "controlsThatDefeat": [
+  "Eisenstein series at a generic parameter (EIS-w): passes the count with the same output",
+  "sieved local vector (proposed control NR-vec): vanishing square row at every parameter, so the row vanishing is a property of the vector, not of the zero",
+  "not run: T-NR and DH (no Hecke eigen-object; not formulable)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, stage A, nothing about zeros) confirmed; four corrections required, none changes it. Appended to tmp/research-2026-11-16/push/c14-theta-orthogonal-metaplectic-eigenobject/REFEREE.md (author's self pass kept above it).\n\n1. \"Vanishing is one condition b(1)=0 propagated by the Hecke relation at squares\" is false as stated. Lemma 2 is for odd p, so b(1)=0 gives only odd squares. Counterexample measured: at u = 1 + i pi/ln  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A zero can change a Rankin-Selberg pole pattern only through a constant-term coefficient, not through a Fourier coefficient. In rank one the dominant exponent survives whenever the Laplace eigenvalue is non-real, so pole minus gamma pole is 1 on every cover and for every vector. Vanishing of the square-index row at one cusp is a property of the vector, not of the zero.",
+ "followUp": "Independent referee owed: REFEREE.md is the author's second pass and refereeHolds is null. It should test Lemma 3(a) (regularised Rankin-Selberg at three cusps, weight 1/2; only exponents were measured) and Lemma V (relative to Shimura's twisting lemma, not opened). Then apply MAP_ROW.md and engine_device_proposal.json (device closed; new control NR-vec). Open cell: rank >= 2 non-Borel or metaplectic objects.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-theta-orthogonal-metaplectic-eigenobject/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-theta-orthogonal-metaplectic-eigenobject/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c15-referee-r14-independent-checkpoint",
+  "outcome": "holds with a scope line; no assigned PROVED lemma broken",
+  "narrowerForm": "see report and push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md (30 restrictions listed, not applied)",
+  "report": "tmp/research-2026-11-16/push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-theta-orthogonal-metaplectic-eigenobject.md"
+ }
+}

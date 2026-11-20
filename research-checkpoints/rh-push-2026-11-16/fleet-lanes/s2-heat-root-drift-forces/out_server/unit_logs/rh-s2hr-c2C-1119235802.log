@@ -1,0 +1,35 @@
+sieve to 343106: planned 0.00 GB
+backend cupy N 20000 p range 2.0 224737.0 planned G memory 3.20 GB (x4 with eigensolver workspace)
+sieve to 100000000: planned 0.05 GB
+{"code": "ZETA", "t": 0.01, "side": "nopole", "N": 20000, "nodeset": "first", "lam_min": -97.97367477006972, "lam_max": 92.69726489572535, "lam_min_rel": -1.0569208798153837, "n_neg_above_floor": 1, "num_rank": 17, "r_nodes": 369, "dr": 0.18452701238650493, "nterms": 5762859, "expsum_sec": 2.1042892932891846, "N_used": 20000, "p_max_used": 224737.0, "sec": 39.84130644798279}
+{"code": "ZETA", "t": 0.01, "side": "cut", "N": 20000, "nodeset": "first", "lam_min": -2.767439251258932e-06, "lam_max": 0.48065805993917565, "lam_min_rel": -5.757605004291689e-06, "n_neg_above_floor": 1, "num_rank": 21, "r_nodes": 369, "dr": 0.18452701238650493, "nterms": 20142, "expsum_sec": 0.20734643936157227, "N_used": 20000, "p_max_used": 224737.0, "sec": 37.19059443473816}
+DONE
+sieve to 10000000: planned 0.01 GB
+backend cupy N 20000 p range 2.0 9999991.0 planned G memory 3.20 GB (x4 with eigensolver workspace)
+sieve to 100000000: planned 0.05 GB
+{"code": "ZETA", "t": 0.001, "side": "prime", "N": 20000, "nodeset": "log7", "lam_min": -4.172813277180599e-13, "lam_max": 4.72999825778703, "lam_min_rel": -8.822018634596464e-14, "n_neg_above_floor": 0, "num_rank": 110, "r_nodes": 1293, "dr": 0.16602142934424802, "nterms": 5762859, "expsum_sec": 4.799544334411621, "N_used": 20000, "p_max_used": 9999991.0, "sec": 40.95967626571655}
+{"code": "ZETA", "t": 1e-05, "side": "prime", "N": 20000, "nodeset": "log7", "lam_min": -1.4524684603090185e-13, "lam_max": 132.33633301398928, "lam_min_rel": -1.097558340350475e-15, "n_neg_above_floor": 0, "num_rank": 1892, "r_nodes": 12920, "dr": 0.16602142934424802, "nterms": 5762859, "expsum_sec": 0.28422093391418457, "N_used": 20000, "p_max_used": 9999991.0, "sec": 73.63902115821838}
+dh_lambda to 100000000: planned 1.60 GB
+{"code": "DH", "t": 0.001, "side": "prime", "N": 20000, "nodeset": "log7", "lam_min": -0.001453783652541716, "lam_max": 11.000507673712068, "lam_min_rel": -0.00013215605094443278, "n_neg_above_floor": 4, "num_rank": 176, "r_nodes": 1293, "dr": 0.16602142934424802, "nterms": 99999999, "expsum_sec": 4.056297302246094, "N_used": 20000, "p_max_used": 9999991.0, "sec": 55.19695854187012}
+{"code": "DH", "t": 1e-05, "side": "prime", "N": 20000, "nodeset": "log7", "lam_min": -2.4103019298087958, "lam_max": 204.45183028917359, "lam_min_rel": -0.011789094411136848, "n_neg_above_floor": 80, "num_rank": 2423, "r_nodes": 12920, "dr": 0.16602142934424802, "nterms": 99999999, "expsum_sec": 3.0684151649475098, "N_used": 20000, "p_max_used": 9999991.0, "sec": 76.985524892807}
+DONE
+sieve to 343106: planned 0.00 GB
+backend cupy N 20000 p range 2.0 224737.0 planned G memory 3.20 GB (x4 with eigensolver workspace)
+sieve to 100000000: planned 0.05 GB
+{"code": "EA-1/4", "t": 0.01, "side": "prime", "N": 20000, "nodeset": "first", "lam_min": -1.0683713457536448, "lam_max": 2.0338209302060584, "lam_min_rel": -0.5253025622297052, "n_neg_above_floor": 38, "num_rank": 40, "r_nodes": 369, "dr": 0.18452701238650493, "nterms": 5762859, "expsum_sec": 1.558499813079834, "N_used": 20000, "p_max_used": 224737.0, "sec": 38.58796954154968}
+{"code": "EA-1/4", "t": 0.0001, "side": "prime", "N": 20000, "nodeset": "first", "lam_min": -13.67084975866318, "lam_max": 67.49060292102592, "lam_min_rel": -0.20255930702915953, "n_neg_above_floor": 402, "num_rank": 479, "r_nodes": 3677, "dr": 0.18452701238650493, "nterms": 5762859, "expsum_sec": 0.19216513633728027, "N_used": 20000, "p_max_used": 224737.0, "sec": 47.03179168701172}
+DONE
+sieve to 343106: planned 0.00 GB
+backend cupy N 20000 p range 2.0 224737.0 planned G memory 3.20 GB (x4 with eigensolver workspace)
+{"code": "HEAT--0.5", "t": 0.001, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -7.168720624889157e-06, "lam_max": 4.769557394878648, "lam_min_rel": -1.5030159051208043e-06, "n_neg_above_floor": 4, "num_rank": 106, "n_online": 79, "n_offline": 4, "cut_height": 214.47610589527216, "sec": 36.845503091812134}
+DONE
+sieve to 343106: planned 0.00 GB
+backend cupy N 20000 p range 2.0 224737.0 planned G memory 3.20 GB (x4 with eigensolver workspace)
+{"code": "ZETA", "t": 0.01, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -4.20646655935415e-17, "lam_max": 0.48065788946179144, "lam_min_rel": -8.751477197356045e-17, "n_neg_above_floor": 0, "num_rank": 20, "n_online": 16, "n_offline": 0, "cut_height": 67.82329983125268, "sec": 36.082621335983276}
+{"code": "ZETA", "t": 0.0001, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -7.499005880599489e-16, "lam_max": 26.797227125251325, "lam_min_rel": -2.79842606309557e-17, "n_neg_above_floor": 0, "num_rank": 491, "n_online": 399, "n_offline": 0, "cut_height": 678.2329983125268, "sec": 37.146886587142944}
+{"code": "TNR", "t": 0.01, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -37.57349068213278, "lam_max": 44.14588739236325, "lam_min_rel": -0.8511209741506426, "n_neg_above_floor": 16, "num_rank": 34, "n_online": 16, "n_offline": 12, "cut_height": 67.82329983125268, "sec": 36.9706084728241}
+{"code": "TNR", "t": 0.0001, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -90.25513107820497, "lam_max": 149.3258564187504, "lam_min_rel": -0.6044173008129616, "n_neg_above_floor": 154, "num_rank": 606, "n_online": 399, "n_offline": 119, "cut_height": 678.2329983125268, "sec": 47.82172608375549}
+{"code": "EA-1/2", "t": 0.01, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -16.48737508919812, "lam_max": 17.449327002676526, "lam_min_rel": -0.9448716897029409, "n_neg_above_floor": 19, "num_rank": 20, "n_online": 0, "n_offline": 16, "cut_height": 67.82329983125268, "sec": 37.09618616104126}
+{"code": "EA-1/2", "t": 0.0001, "side": "zero", "N": 20000, "nodeset": "first", "lam_min": -347.9416156300899, "lam_max": 401.4069481507037, "lam_min_rel": -0.8668051642680066, "n_neg_above_floor": 404, "num_rank": 452, "n_online": 0, "n_offline": 399, "cut_height": 678.2329983125268, "sec": 71.02796387672424}
+DONE
+ALL_DONE

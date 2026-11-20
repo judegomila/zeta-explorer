@@ -1,0 +1,39 @@
+{
+ "slug": "c13-referee-r12-independent",
+ "round": 13,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "referee",
+  "control",
+  "t-nr",
+  "universality",
+  "bost-connes",
+  "depth-aspect"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "No statement about zeros of zeta. The five round-12 statements hold as narrowed: Lemma X (needs |t| >= t_r; threshold C_r p^ceil(k/r)|t|^(1/r)); Bost-Connes T-NR = Tr(D e^(-beta H)) with D >= 1, product-measure/'no zeta' statements for the Galois-invariant KMS state only; reduction to c(pm)=c(m), complex-point twin with c < -2 and zeros outside the strip; Lemmas S, T given Conrey-Li Theorem 2 with five Rouche-certified zeros; UNIV relative to the survey's Theorem 7, U4 ARGUED. The r=2 bounded-heights referee addition holds only with constant min(0.1285, (1/2) sin(0.087|t|)) for 0<|t|<=20 (0.2397 on 20..40.32), not 0.2395 throughout. No requirement flag is established.",
+ "obstruction": "Record lane, no attack. All five statements hold, four in a narrower form: Lemma X needs |t| >= t_r and threshold C_r p^ceil(k/r)|t|^(1/r); Bost-Connes product-measure / 'no zeta' statements for the Galois-invariant KMS state only; the complex-point T-NR twin has c < -2 with zeros outside the strip; Lemmas S, T given Conrey-Li Theorem 2; UNIV relative to the survey's Theorem 7, U4 argued. Not refereed: depth-lane point G1, UNIV part (b), heat cell 1.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed re-derivation (Lemma P, Lemma X incl. X5 arithmetic, Bost-Connes D/KMS/extremal-state identities, gamma_p=1 at beta=1/2, c(pm)=c(m) recursion, twin c<-2, Lemmas S/T given Conrey-Li Thm 2, Rouche certificate logic, UNIV U1/U3). Fresh numerics (own code, Arb/mpmath, local under memcap): Lemma X at 6 new (p,k,t;r) incl. edge cases, 0 violations (min 0.9988 vs 0.958); brute force q=121,169; T-NR zeros at (7,2.5),(11,3.0); twin zeros q=13,2; S_v signs reproduced in mpmath. Error - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The round-12 closures stand, but their one-line summaries drop restrictions that matter for round-13 filters: \"T-NR twin\" on the oval is the c < -2 member with zeros outside the strip (the usable fact is that every twin lies in the W-fixed module); \"inner perturbation\" holds one beta at a time; UNIV's class N means \"implied by non-vanishing\", and its class-F branch rests on a survey statement, not a proof.",
+ "followUp": "Apply referee_updates.json in the learn step (eight restrictions/downgrades in RESULT.md section 4) and have c13-tnr-invariance-prefilter cite the corrected T-NR facts. Not refereed here: depth-lane point G1 (a transfer special to zeta's coefficients is not excluded by Lemma X), UNIV part (b), heat cell 1.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-referee-r12-independent/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

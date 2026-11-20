@@ -1,0 +1,903 @@
+[
+ {
+  "id": "sunit-rank-density-obstruction",
+  "type": "obstruction",
+  "name": "S-unit rank/density obstruction to a two-prime Sonine multiplier",
+  "statement": "For S={inf,2,3} the S-units 2^Z 3^Z have Dirichlet rank 2; their logs n ln2+m ln3 are dense in the one-dimensional scaling flow. The Sonine remainder delta_S23 has log^2 spikes on a dense set, so Lhat_S23>=0 exists only as abstract operator positivity, not a bounded continuous multiplier. A rank-r subgroup of R is discrete iff r<=1.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96084-route-i-unconditional-multiplier-rank-obstruction-assessment",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "euler-product",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "discrete-p3-pencil-equals-weil",
+  "type": "identity",
+  "name": "Discrete P_3 pencil is identical to three-place Weil positivity",
+  "statement": "The pencil D_S + P_3 <= L_S for S={inf,2} is logically identical to W_{inf,2,3}>=0 on pole-free h, because L_S = Arch - P_2 + D_S and D_S cancels. Adding the next prime to the one-prime Sonine inequality gives no unconditional gain past support ln 3.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96084-route-i-unconditional-multiplier-rank-obstruction-assessment (cites imp-96066)",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "corner-positivity-hardness-preserving",
+  "type": "obstruction",
+  "name": "Low-moment corner reduction of D_S<=L_S preserves hardness",
+  "statement": "For the semilocal pencil D_S<=L_S (S={inf,2}, 2a<=ln3) the global Rayleigh minimiser lies in the k-dimensional low-moment corner, so the corner minimum equals the global margin m(0)=2.8e-3. The finite-constraint reduction does not reduce the problem.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96085-route-i-corner-positivity-obstruction-assessment",
+  "tags": [
+   "weil"
+  ]
+ },
+ {
+  "id": "route-h-arch-p2-cancellation-curve",
+  "type": "measured-phenomenon",
+  "name": "Archimedean versus p=2 cancellation ratio as a function of support",
+  "statement": "On the even Slepian minimiser the ratio residual/P_2 falls monotonically from about 2.3e3 just above a=ln2/2, to 7.52e-5 at a=0.5, to 2.70e-11 at a=ln2 (double-precision floor): about 14 orders of magnitude over the one-prime window.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96091-route-h-archimedean-p2-cancellation-vs-a",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "tensor-square-excess-law-z-vs-fq",
+  "type": "obstruction",
+  "name": "Deligne tensor-power bootstrap: excess m/2 over Z against 1/(2m) over F_q",
+  "statement": "Over F_q the m-fold self-product gives exponent n/2+1/(2m), tending to the Weil weight. Over Z the Kurokawa tensor zeta has a pole of order m at s=m, excess m/2, giving Re rho<=1 for every m. Finite Euler truncations have no pole and no functional equation. No finite analogue is a partial.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96092-tensor-square-finite-analog-structural-only",
+  "tags": [
+   "function-field",
+   "hodge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "cusp-out-fraction-law",
+  "type": "measured-phenomenon",
+  "name": "Log-cusp out-fraction f_out(rho) -> 1 - 1/rho at S-units",
+  "statement": "At p=2 the out-fraction of the log cusp at rho=2,4,8 extrapolates (Aitken) to 0.5, 0.75, 0.875 with error below 1.1e-7. For S={inf,2,3} the log^2-cusp fractions approach 1-1/rho from below at every S-unit but do not extrapolate rigorously (mean error 5.9e-2).",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96126-route-i-fout-richardson-extrapolation-limit; imp-96110",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "corr23-continuity-spectral-criterion",
+  "type": "open-lemma",
+  "name": "corr23 continuity reduced to one spectral sum for A_S23",
+  "statement": "Continuity of the {inf,2,3} correction is reduced to the rho-independent criterion Sum_n |lam_n(A_S23)|^3 / sqrt(1 - lam_n^2) < infinity for the semilocal prolate operator A_S23 = P_1 F_S23 P_1: a spectral gap sup|lam_n|<1 plus a cubic-summable tail.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96125-route-i-corr23-continuity-reduction",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "mixed-ladder-cubic-tail",
+  "type": "identity",
+  "name": "Cubic tail sum of the mixed 2^a 3^b prolate ladder",
+  "statement": "For the mixed 2^a 3^b ladder Sum_tail |lam|^3 = (C/8)(G2 G3 - 1) = 1.769529 at C=2, a convergent geometric double sum because 2^{-1/2} and 3^{-1/2} are below 1. The ladder tail supremum is s_2 = 0.353553, attained once at u=2; adding the prime 5 leaves it unchanged.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability; imp-96270; imp-96333",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "no-modulus-1-rigid-profile",
+  "type": "open-lemma",
+  "name": "No-modulus-1 theorem for A_S23 reduced to the single profile C/v",
+  "statement": "On the ladder-tail interior the functional equations at p=2 and p=3 (g(v)=2g(2v) and its p=3 analogue) collapse the candidate modulus-1 eigenfunctions from ln2-periodic Zygmund modulations of 1/v to g(v)=C/v. Open: C=0. Indicated by the p=2 top eigenvalue 0.9999731<1, not enclosed.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96164-route-i-mixed-group-no-modulus1-overdetermination; imp-96181",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "zygmund-top-state-not-entire",
+  "type": "obstruction",
+  "name": "Top semilocal prolate eigenfunction is Zygmund-class, so no analytic-continuation argument",
+  "statement": "The shortcut band-limited => entire => equal to C/v on a tail interval => pole at 0 forbidden => C=0 fails: the top state of the semilocal prolate operator is fractal (Zygmund), not entire. The residual sits in the cutoff octave (1/2,1), which carries exactly half the cusp.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-96181-route-i-sg-boundary-edge-octave",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "semilocal-prolate-second-near-unit-eigenvalue",
+  "type": "measured-phenomenon",
+  "name": "Semilocal {inf,2} prolate spectrum has two eigenvalues near modulus 1",
+  "statement": "The {inf,2} prolate operator has lam_S(0)=0.9999731 and a second near-modulus-1 eigenvalue lam_S(1)=-0.9927022; the second-largest signed eigenvalue is 0.6202012 (top gap 0.3798). Kato-Temple capture thresholds: adjacent 8.4e-3, bottom twin 1.2e-3.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96188-route-i-kato-temple-real-spectrum-recalibration",
+  "tags": [
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "rayleigh-direction-obstruction",
+  "type": "obstruction",
+  "name": "Rayleigh quotients bound the top eigenvalue from the wrong side",
+  "statement": "For self-adjoint A_S23, R(psi)<=lam_max for every psi, so finite test families give only lower envelopes. Putting lam_max strictly below 1 is the min-principle on I - A_S23 (coercivity over all psi) and needs effective diagonalisation. Kato-Temple thresholds stay at order 1e-3 for every admissible anchor.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-96169-route-i-rayleigh-variational-topstate-assessment; imp-96205; imp-96227",
+  "tags": [
+   "weil"
+  ]
+ },
+ {
+  "id": "kato-temple-coupling-sqrt3-over-2",
+  "type": "identity",
+  "name": "Kato-Temple certify boundary factorisation",
+  "statement": "For the 3-level ansatz [1, eps_a, eps_b] on {lam_top, lam_adj, lam_bot} the certify boundary U=1 factors exactly as s0[(t-1)(t-alpha)+(p-1)(p-alpha)eps_a^2+(q-1)(q-alpha)eps_b^2]=0; the per-channel coupling constant is sqrt(3)/2 at every interior anchor.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-96243-route-i-kato-temple-coupling-derivation",
+  "tags": [
+   "weil"
+  ]
+ },
+ {
+  "id": "vanishing-moment-subfamily-past-crossing",
+  "type": "measured-phenomenon",
+  "name": "Vanishing-moment sub-family keeps D_S<=L_S past the pole-free crossing",
+  "statement": "Past the crossing 2a*=1.1316 (= ln3+0.033) the inequality D_S<=L_S fails on general pole-free h, but a sub-family with k>=2 vanishing moments keeps mu_max below 1 (margin 0.392 at 2a=1.16, 0.291 at 2a=1.20). The sub-family certifies nothing about the full cone.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "ds-le-ls-interval-port",
+  "type": "tool",
+  "name": "Interval-arithmetic port of the analytic legs of the D_S<=L_S certificate",
+  "statement": "The certificate W(h)=Arch(h)-P_2(h)>=9.04e-4 ||h||^2 on pole-free h in L^2(-a,a), 2a<=ln3, was established in double precision. Two analytic legs are ported to mpmath.iv at precision 200, including the floor constant M_2 in [3.3468106480569850, 3.3468106480569851]. The Galerkin eigenvalue leg remains.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96544-route-i-ds-le-ls-interval-port-triage; imp-96564",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "toeplitz-krein-sigma2-form",
+  "type": "object",
+  "name": "Pole-free Weil positivity as the Toeplitz form T_a[sigma_2]",
+  "statement": "Pole-free Weil positivity on support 2a equals T_a[sigma_2]>=0 on L^2(-a,a), with sigma_2(t)=(t^2+1/4)^2 w_1(t), w_1(t)=2 theta'(t) - sqrt2 ln2 cos(t ln2). T_a[sigma_2] has compact resolvent; a uniform-in-N Galerkin gap is exactly lambda_1(a)>0. Interval-certified for 2a<=0.96.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96769-krein-de-branges-uniform-gap-assessment; imp-97137; rh-route-i-toeplitz-krein-certificate-2026-09-24",
+  "tags": [
+   "weil",
+   "de-branges",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "sigma2-not-de-branges-weight",
+  "type": "obstruction",
+  "name": "sigma_2 is sign-indefinite, so no de Branges structure forces T_a[sigma_2]>=0",
+  "statement": "w_1(0)=-6.352, w_1<0 on about [0,3.31] and again on (6.945,10.532). The split bound lambda_min(T[sigma_2^+]) - lambda_max(T[sigma_2^-]) crosses zero at 2a=0.6026<ln2 while the true lambda_1 is far positive. Positivity is a compression (uncertainty-principle) effect; the kernel bound |ghat(w)|^2<=(a/pi)||ghat||^2 is pointwise only.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96769-krein-de-branges-uniform-gap-assessment; imp-97137-krein-debranges-coercivity-scope",
+  "tags": [
+   "weil",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "pw-polefree-de-branges-isometry",
+  "type": "identity",
+  "name": "Pole-free subspace as the de Branges space H(E_a S)",
+  "statement": "PW_a is the de Branges space H(E_a), E_a(z)=e^{-iaz}, with sinc reproducing kernel. With S(z)=z^2+1/4, the map g -> Qg, Q=-d^2/dx^2+1/4, is an isometry of PW_a onto H(E_a S); the pole-free constraint hhat(+-i/2)=0 is membership in that subspace.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-97137-krein-debranges-coercivity-scope",
+  "tags": [
+   "de-branges",
+   "weil"
+  ]
+ },
+ {
+  "id": "krein-floor-measured-plateau",
+  "type": "measured-phenomenon",
+  "name": "Galerkin Rayleigh floors of T_a[sigma_2]",
+  "statement": "Orthogonal Gegenbauer C_n^{13/2} Galerkin (N up to 124, t-converged) gives upper Rayleigh floors lambda_1 about 8.34, 2.16, 0.577 at 2a=1.00, 1.05, ln3; 18.636 at 2a=0.96 (N=36). These are upper bounds by Courant-Fischer; no N-uniform lower bound is established.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96768-gegenbauer-krein-lammin-recompute; imp-96769; imp-97027",
+  "tags": [
+   "weil",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "krein-uniform-n-lower-bound-open",
+  "type": "open-lemma",
+  "name": "N-free coercivity T_a[sigma_2]>=c I for 0.96<2a<=ln3",
+  "statement": "Needed: a lower bound on lambda_1(T_a[sigma_2]) independent of the Galerkin dimension. Rayleigh-Ritz gives only upper bounds; Kato-Temple/Lehmann-Goerisch needs a certified lower bound on lambda_2; the tail-trace bound is vacuous by about 3e15; (N,T) surface fits extract no algebraic rate.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96846-krein-uniform-N-lower-bound-routes-assessment; imp-96865; imp-97121; imp-97058",
+  "tags": [
+   "weil",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "krein-degree4-atom-cap",
+  "type": "identity",
+  "name": "Degree-4 certificate atoms capped by 2theta' - sqrt2 ln2",
+  "statement": "In the Krein cutting-plane certificate the degree-4 tail atoms need min p_4 > -(2 theta'(T) - sqrt2 ln2); the constant 0.98 in -(ln(T/2pi) - 0.98) is exactly sqrt2 ln2, the retained p=2 amplitude, agreeing to 1.2e-5 over T=60..1000.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96610-krein-t4-tailatom-cap",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "krein-lp-conditioning-wall",
+  "type": "obstruction",
+  "name": "LP conditioning wall of the Krein certificate at 2a between 0.96 and 1.00",
+  "statement": "The interval-rigorous cutting-plane certificate stops at 2a=0.96: the double-precision LP (HiGHS status 4) fails once eps<=lambda_min. kmax=5 and kmax=6 solves reach near-feasible iterates to about 1.06 in double precision; the interval verification at 2a=1.00 stalls with residual cycling -0.004..-0.052.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-97077-lp-wall-reformulation-assessment; imp-96845; imp-96956; imp-97099",
+  "tags": [
+   "weil"
+  ]
+ },
+ {
+  "id": "sigma2-tail-supercubic-growth",
+  "type": "measured-phenomenon",
+  "name": "Super-cubic N-growth of the sigma_2-weighted Krein tail residual",
+  "statement": "The beyond-T=3200 tail residual of the Galerkin minimiser grows in N with exponent about 3.228, tracking the endpoint-weighted coefficient sum growth q_S (about 3.23), not its rank-1 square 2q_S (about 6.18). Source: sigma_2 ~ t^4 log t tail weight against spherical-Bessel decay of the basis.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96975-sigma2-tail-supercubic-derivation; imp-96995; imp-97011",
+  "tags": [
+   "weil"
+  ]
+ },
+ {
+  "id": "polefree-to-weil-three-axes",
+  "type": "obstruction",
+  "name": "Three orthogonal gaps between T_a[sigma_2]>=0 and full Weil positivity",
+  "statement": "Axis I reach (certified 2a<=0.96; LP wall and Rayleigh direction are one obstruction). Axis II pole term: the only assembled bridge D_S<=L_S is obstructed at 2a=ln2. Axis III criterion completeness: Weil positivity quantifies over every support; a per-support certificate is one slice.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-97049-polefree-to-weil-obstruction-enumeration; imp-97036 (obstruction map P19)",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "pole-term-schur-complement",
+  "type": "mechanism",
+  "name": "Pole-term bridge as a codimension-2 positive extension",
+  "statement": "PW_a = P0 + span{cosh(x/2), x sinh(x/2)}, P0={hhat(+-i/2)=0}. Full Weil positivity from pole-free positivity is a rank-2 Schur-complement problem: the rank-2 pole block is positive but cross terms are indefinite. The Sonine route computes this Schur complement as D_S<=L_S.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-97076-nonsonine-pole-term-bridge-assessment",
+  "tags": [
+   "weil",
+   "pick",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "p2-resonance-bridge-agnostic",
+  "type": "obstruction",
+  "name": "p=2 resonance blow-up at t_k = 2 pi k/ln2 blocks every local or finite-rank pole bridge past ln2",
+  "statement": "Un-weighting by (t^2+1/4)^{-1} is nonlocal and breaks the support constraint. The direct Krein positive extension has pole directions concentrated on the same p=2 resonances. E_S o Q grows linearly along t_k=2 pi k/ln2 for every 2a>ln2. The ln2 obstruction is shared by the local, finite-rank and fixed-measure class.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-97076-nonsonine-pole-term-bridge-assessment",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "vasyunin-gram",
+  "type": "object",
+  "name": "Vasyunin Gram matrix of the Nyman-Beurling problem",
+  "statement": "G_{hk} = gcd(h,k) I(h/g, k/g)/(hk), g=gcd(h,k), with I(a,b) the Vasyunin integral given by cotangent sums V(a,b)=Sum_m (m/b) cot(pi m a/b) plus logarithmic terms. Exact SPD Gram of the dilates rho(1/(hx)); d_N^2 is its Schur complement against chi.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96443-route-m-vasyunin-lammax-measured; rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23",
+  "tags": [
+   "large-sieve",
+   "mollifier",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "burnol-ratio-plateau",
+  "type": "measured-phenomenon",
+  "name": "Burnol-normalised Nyman-Beurling ratio stays below 1 on N<=10000",
+  "statement": "ratio(N) = d_N^2 log N / C_Burnol sits at 0.964..0.988 for N in 2600..10000 and does not climb toward the RH asymptote 1 (0.977 at N=1e4). A fluctuating remainder about a plateau near 0.985 fits best; deciding plateau against ratio->1 needs about 1.2 more decades of N.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96105-route-m-vasyunin-gram-extend-n6000; imp-96325; imp-96487; imp-96504",
+  "tags": [
+   "mollifier",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "burnol-ratio-conductor-band",
+  "type": "measured-phenomenon",
+  "name": "Low-conductor oscillation in the Burnol ratio",
+  "statement": "The residual of ratio(N) carries a genuine oscillation at frequency w about 4.08 in log N, attributed to a low-conductor band (q=4, 5) of the cotangent table (single-tone R^2 0.685 at q=5, 0.619 at q=4). A gamma_1 alias is ruled out: a gamma_1 tone at w=14.14 is resolved by the grid.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96189-route-m-swing-attribution; imp-96163; imp-96915",
+  "tags": [
+   "mollifier",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "vasyunin-lammin-power-law",
+  "type": "measured-phenomenon",
+  "name": "lam_min of the Vasyunin Gram decays like N^{-1.918}",
+  "statement": "lam_min(G_N) follows a power law with p=1.918 (R^2=0.99998; blind N=1e4 prediction within 0.12%). Verified Cholesky certifies lam_min per rung to N about 1.08e5 in double precision; double-double extends this.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96428-route-m-vasyunin-lammin-conditioning-ceiling; imp-96563; imp-96591",
+  "tags": [
+   "large-sieve",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "vasyunin-lammin-uniform-lower-bound",
+  "type": "identity",
+  "name": "N-uniform lower bound lam_min(G_N) >= A N^{-p}",
+  "statement": "Settled as a matrix statement (proved, unrefereed): 1/(64*2^Omega_N*N^2) <= lam_min(G_N) <= (3+log N)/(N-1)^2, Omega_N = max_{n<=N} omega(n), so lam_min(G_N) = N^(-2+o(1)); the lemma lam_min(G_N) >= A N^-p holds for every p > 2, p = 2 open. The same N^-2 law is measured for Davenport-Heilbronn, four Dirichlet characters and two periodic sequences without Euler product, so the bound is a mean-value quantity fixed by the 1/|s|^2 weight; it bounds the size of the optimal coefficients, not the distance d_N, and carries no information on zeros. Earlier text (imp-96613): no analytic N-uniform lower bound was available.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment; imp-96631; imp-96697; engine lane e1-nb-gram-period-transfer (push/e1-nb-gram-period-transfer/RESULT.md Theorem 1, REFEREE.md)",
+  "tags": [
+   "gram",
+   "large-sieve",
+   "mollifier",
+   "mv-cap",
+   "nyman-beurling"
+  ],
+  "refereeStatus": "proved, unrefereed (author proof in push/e1-nb-gram-period-transfer/RESULT.md Theorem 1; one lane referee pass found no error; no independent second referee; novelty against the literature unchecked)"
+ },
+ {
+  "id": "vasyunin-lammax-log-bound",
+  "type": "identity",
+  "name": "lam_max(G_N) <= I(1,1) H_N",
+  "statement": "By SPD trace domination lam_max(G_N) <= I(1,1) H_N = 1.2607 log N + O(1), with I(1,1) = log(2 pi) - gamma = 1.2606614. Measured growth is logarithmic with slope 0.3526, entirely an off-diagonal-mass effect. The campaign later proved lam_max(G_N)<=18 (obstruction map P15).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96548-route-m-lammax-rigorous-upper-bound-assessment; imp-96443; imp-96592",
+  "tags": [
+   "large-sieve",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "bohr-lift-symbol-carries-pole",
+  "type": "obstruction",
+  "name": "Bohr-lift / multiplicative Szego gives only the ceiling log(2pi) - gamma",
+  "statement": "The Bohr-lift of G_N reproduces the logarithmic shape of lam_max and the ceiling c<=log(2 pi)-gamma but not the measured 0.3526: the lifted symbol carries the zeta pole. No Szego/Grenander limiting distribution or Helson multiplicative-Toeplitz result fixes the edge.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96691-route-m-bohr-lift-multiplicative-szego-assessment; imp-96562; imp-96590",
+  "tags": [
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "frobenius-gcd-factorisation",
+  "type": "identity",
+  "name": "gcd factorisation of the Vasyunin Gram Frobenius norm",
+  "statement": "||G_N||_F^2 = Sum_{gcd(a,b)=1} I(a,b)^2/(a^2 b^2) Sum_{g<=N/max(a,b)} 1/g^2, so T(N) <= ||G_N||_F^2(interior) <= zeta(2) T(N) with T(N) the coprime-core second moment. Diagonal part I(1,1)^2 zeta(2) = 2.614. Measured R(N)=||G||_F^2/T(N) tends to zeta(2) at rate 1/log N.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96688-route-m-frobenius-g-factorization-assessment; imp-96667; imp-96708; imp-96907",
+  "tags": [
+   "large-sieve",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "coprime-core-second-moment-regrouping",
+  "type": "identity",
+  "name": "T(M) = 2 Sum_{b<=M} Q(b)/b^2",
+  "statement": "With Q(b) = Sum_{a=2,(a,b)=1}^{b-1} I(a,b)^2/a^2, the coprime-core second moment regroups exactly as T(M)=2 Sum_{b<=M} Q(b)/b^2 (checkpoint T(250)=11.757622). An upper asymptotic Int(N)<=s* log N reduces to the uniform lemma Q(b)<=s0* b+O(1).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96750-route-m-interior-second-moment-upper-bound-reduction",
+  "tags": [
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "cotangent-second-moment-upper-lemma",
+  "type": "open-lemma",
+  "name": "Weighted cotangent second moment Q(b) <= s0* b + O(1)",
+  "statement": "Open: Q(b) = Sum_{a=2,(a,b)=1}^{b-1} I(a,b)^2/a^2 <= s0* b + O(1) with an absolute s0*. Reduced to the pointwise envelope |I(a,b)| <= K a (1 + log(b/a)) on coprime 2<=a<b via Int_0^1 (1-log x)^2 dx = 5, giving Q(b)<=5K^2 b. Measured slope band s* in 5.66..5.80.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-96770-route-m-weighted-cotangent-homogeneous-envelope; imp-96750; imp-97142",
+  "tags": [
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "route-m-cs-first-moment-reduction",
+  "type": "mechanism",
+  "name": "Cauchy-Schwarz reduction of the second-moment lower bound to a first moment",
+  "statement": "Q(b) >= F(b)^2/S(b) with F(b) = Sum_{a=2,(a,b)=1}^{b-1} I(a,b). So F(b)>=kappa phi(b) b gives Int(N)>=(36 kappa^2/pi^2) log N. Measured kappa about 0.696. The campaign proved F(b)>=b phi(b)/2-1 and K=0.6954960511 (obstruction map P15): a mean-value statement, nothing about lam_min, d_N or zeros.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-97071-route-m-lower-companion-first-moment-reduction (obstruction map P15)",
+  "tags": [
+   "large-sieve",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "route-m-arith-first-moment-constant",
+  "type": "identity",
+  "name": "Arithmetic part of the Vasyunin first moment",
+  "statement": "F_arith(b)/(phi(b) b) -> kappa_arith = (3/2)C - 3/8 = (3/4)(log 2pi - gamma) - 3/8 = 0.5704960511. Explicit remainders: L0(b)=Sum_{a in R_b} log a = phi(b)(log b - 1)+E0, L1(b)=Sum a log a = phi(b) b((1/2)log b - 1/4)+E1, |E0|<=2^omega(b)(log b+2), |E1|<=b 2^omega(b)(log b+2).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-97096-route-m-arith-first-moment-evaluation; imp-97133-route-m-arith-first-moment-explicit-remainder",
+  "tags": [
+   "large-sieve",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "vasyunin-fixed-modulus-antisymmetry",
+  "type": "identity",
+  "name": "Sum over reduced residues of V(a,b) vanishes",
+  "statement": "V(b-a,b) = -V(a,b), hence Sum_{a in R_b} V(a,b) = 0 for every b>=2 and Sum_{a=2,(a,b)=1}^{b-1} V(a,b) = -V(1,b), where V(1,b)=Sum_{m=1}^{b-1}(m/b)cot(pi m/b) = -(b/pi) log b + (2C/pi) b - 1/pi + lower order, which is o(phi(b) b).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-97097-route-m-cotangent-first-moment-reciprocity; imp-97119; imp-96667",
+  "tags": [
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "inverse-line-cotangent-mean-value",
+  "type": "open-lemma",
+  "name": "Absolute-value mean of cotangent sums along the inverse line",
+  "statement": "S(b)=Sum_{a=2,(a,b)=1}^{b-1} V(b,a) = Sum_a c_0(h_a/a), h_a = b^{-1} mod a. Open: A(b)=Sum_a |c_0(h_a/a)| <= c phi(b) b with explicit c<0.5705 (measured about 0.14). The only input is the frequency of small modular inverses b^{-1} mod a: a Kloosterman-type equidistribution statement.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction",
+  "tags": [
+   "large-sieve",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "cotangent-reciprocity-period-function",
+  "type": "mechanism",
+  "name": "Bettin-Conrey reciprocity for c_0(h/k) yields a period function",
+  "statement": "c_0(h/k) + (k/h) c_0(k/h) is not elementary: it is the Bettin-Conrey / Lewis-Zagier period function (i/2)psi (at (2,5) the value is 0.080325). An Euclidean-descent evaluator of V(a,b) costs O(log q) per pair; the asymptotic R series has a resurgence floor exp(-2 pi/x), cap about 3.3e-6.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-97097-route-m-cotangent-first-moment-reciprocity; imp-97078; imp-97093",
+  "tags": [
+   "large-sieve",
+   "hecke"
+  ]
+ },
+ {
+  "id": "arith-first-moment-residual-sign-law",
+  "type": "measured-phenomenon",
+  "name": "Residual sign law (-1)^omega(b) of the arithmetic first moment",
+  "statement": "r(b)=F_arith(b)/(phi(b) b) - kappa_arith satisfies sign r(b) = (-1)^{omega(b)} for 2799 of 2801 b in [200,3000]; on general moduli r(b) b = 0.248 log b + 0.100, with faster convergence on smooth and primorial b.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "imp-97140-route-m-fixed-omega-residual-cohorts; imp-97122",
+  "tags": [
+   "large-sieve",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "vasyunin-top-eigenpair-logistic",
+  "type": "measured-phenomenon",
+  "name": "Two-scale spectrum of the Vasyunin Gram",
+  "statement": "Rank-r power-iteration log-slopes of lam_max follow a logistic in r (half-saturation r0=2.94, width k=0.863, R^2=0.996). The logistic is the exact form of the top-eigenpair weight share w1 lam1^r/Sum w_i lam_i^r in a top-plus-bulk-edge spectrum, width 1/ln(lam1/lam2). The top-eigenvector overlap w1 drifts down over N=1000..6000.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation; imp-96636; imp-96669",
+  "tags": [
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "signed-force-lp-margin",
+  "type": "mechanism",
+  "name": "Signed-force feasibility LP at near-collision extrema",
+  "statement": "Strict system g_k.w>0, g_k = sign(Z''(x*)) a(x*) at every near-collision extremum x*, feasible iff 0 is not in conv{ghat_k} (Gordan). Scale-free margin rho(N,T)=dist(0,conv{ghat_k}) by Gilbert min-norm point; rho decreases in the support N.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96148-route-bd-online-margin-decay-law (cites imp-96020)",
+  "tags": [
+   "zero-channel",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "online-margin-positive-floor",
+  "type": "measured-phenomenon",
+  "name": "On-line signed-force margin flattens to a positive floor",
+  "statement": "rho(32,T) fits c + d/ln T with c=0.143, d=2.50 (R^2=0.991) over heights to gamma_200, with decelerating slope; leave-one-out floors stay in [0.121,0.212]. Extensions to gamma_8000 lower the fitted intercept (0.160 -> 0.111 -> 0.071 -> 0.037): the floor is not established.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96148; imp-96265; imp-96367-route-bd-intercept-se-trajectory",
+  "tags": [
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "offline-margin-below-line",
+  "type": "measured-phenomenon",
+  "name": "Off-anchor heights sit below the on-line margin law",
+  "statement": "Over 27 off-anchor heights, 23 lie below the seven-anchor reciprocal-log line (mean -0.0305, worst -0.0608 at T=4506.31). A uniform off-line version of the LP is a statement of Weil-positivity strength; no coefficient set has a universal confining sign on complex pairs.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96345-route-bd-offline-margin-envelope; imp-96148",
+  "tags": [
+   "zero-channel",
+   "weil"
+  ]
+ },
+ {
+  "id": "li-herglotz-cmv-detector-reach",
+  "type": "measured-phenomenon",
+  "name": "Reach law of the Li-Herglotz-CMV zero detector",
+  "statement": "Truncation order N needed to detect a zero at height gamma: N_det = 0.364 gamma^1.272 (r^2=0.98); equivalently gamma_det about 2.21 N^0.786. Extrapolated N at the Platt-Trudgian height is of order 1e15. A finite detector restates verified height.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96149-route-l-detector-reach-law-fit; imp-96273; imp-96287",
+  "tags": [
+   "pick",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "cmv-christoffel-atomic-measure",
+  "type": "object",
+  "name": "Christoffel function of the zero measure nu_a on the circle",
+  "statement": "Atoms z_rho = (i gamma - a)/(i gamma + a) with mass 4a^2/(a^2+gamma^2), a=20; moments are the Herglotz base sequence and need no zero input. The CMV/Verblunsky Christoffel function lambda_N(theta_k)=1/K_N gives reach N_C = 0.396870 gamma^1.248736; the detector exponent exceeds it by 0.023.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96182-christoffel-reach-law; imp-96269; imp-96385",
+  "tags": [
+   "pick",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "gue-two-interval-rigidity-drift",
+  "type": "identity",
+  "name": "Adjacent-box count correlation tends to -1/2 at rate 1/log",
+  "statement": "For GUE the correlation of counts in adjacent boxes of length L is rho_exact = -1/2 + (log 2)/(2 log(2 pi L)) to leading order. At the Platt-Trudgian height (L=5.9148e6) rho_exact=-0.4817670. Decade ladder to 1e12: deviation falls only 0.0436 -> 0.0188.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "imp-96267-covariance-drift-rigidity-limit-reach; imp-96128; imp-96312",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "zeta-zero-lag1-anticorrelation",
+  "type": "measured-phenomenon",
+  "name": "Empirical lag-1 box anticorrelation of zeta zeros",
+  "statement": "On Riemann zeros at T=1.5e5 (290 boxes, unfolded edge-to-edge tiling) the adjacent-box correlation of the sd(C-E) statistic is r1=-0.5126; r1 stays in [-0.526,-0.433] for 100 to 1000 zeros per box. GUE proxy: -0.46398. rho_emp is biased toward the rigidity limit relative to GUE.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "imp-96171-number-variance-empirical-lag1-vs-gue-proxy; imp-96193; imp-96695",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "sine-kernel-vif-bound",
+  "type": "identity",
+  "name": "Sine-kernel negative box covariances give variance inflation factor below 1",
+  "statement": "For the sine process all disjoint-box count covariances are nonpositive with O(1/k^2) lag decay, so the mean over n boxes has VIF<1. Explicit: VIF_291<=0.0752 from rho_1 alone; a certified envelope |DeltaCov_k(L)|<=C(k)/L^2; a third integration by parts gives |R_k(L)|<=(1/(2 pi L))[8/k^3+...]. Conditional on the sine-kernel model.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96543-sine-kernel-vif-conditional-lower-bound; imp-96628; imp-96854",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "berry-saturation-scale",
+  "type": "mechanism",
+  "name": "Berry number-variance saturation scale set by the prime 2",
+  "statement": "L_sat(T) = log(T/2pi)/(2 pi log 2): the box length at which the phase of the shortest periodic orbit (prime 2, period log 2) reaches order 1 and Sigma^2 leaves the GUE curve. Tested on three height cuts of Odlyzko zeros. The sign of |rho_emp+1/2|-|rho_GUE+1/2| changes at L in (60,61).",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96710-berry-satscale-vs-height; imp-96729",
+  "tags": [
+   "pair-correlation",
+   "trace-formula",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "number-variance-max-anchor-sample",
+  "type": "measured-phenomenon",
+  "name": "Number-variance offset anchor is a sample maximum",
+  "statement": "The max offset anchor C0_max=0.333721 caps the number-variance excess at 11 measured heights over about 1.5 decades (6 fitted, 5 held out), and a 25-height grid to T=6.37e5. A -16% excursion at T=1.5e5 saturates it. It is a sample maximum, not a height-uniform cap.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "imp-96140-number-variance-max-anchor-sample-max-honest-status; imp-96090; imp-96129",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "per-window-excess-gaussian",
+  "type": "measured-phenomenon",
+  "name": "Per-window number-variance residual is Gaussian at accessible heights",
+  "statement": "The per-window (C-E) residual on zeta zeros passes Kolmogorov-Smirnov at six heights (KS 0.030-0.08 below 0.886/sqrt(n)); extreme-value comparison shows Gaussian tails without anomalous spikes; the raw tiling has positive lag-1 correlation, so windows are not exactly independent.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "imp-96326-order-stats-gaussianity; imp-96271; imp-96332",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "small-gap-exponent",
+  "type": "measured-phenomenon",
+  "name": "Minimal normalised gap of zeta zeros scales near N^{-1/3}",
+  "statement": "Running minimum g_min(N)/y_N on Odlyzko zeros fits 2.1147 N^{-0.3953}; block-minima per window -0.3818 to -0.3983; Weibull/Gumbel MLE -0.3814 +/- 0.026 (shape 3.92). GUE prediction -1/3 with median envelope 0.8582 N^{-1/3}; the difference is about 1.8 sigma and does not reject GUE.",
+  "status": "measured",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "imp-96616-gmin-ratio-extreme-gap-decay; imp-96629; imp-96757; imp-96755",
+  "tags": [
+   "pair-correlation",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "etrunc-floor-height-law",
+  "type": "measured-phenomenon",
+  "name": "Truncation floor of the Lambda bridge is frozen by verified height",
+  "statement": "E_trunc = 3.0 T^{-0.4} (kappa*=0.4): about 3.06e-5 at T=3e12. Inverse: H_required(E)=(3.0/E)^{2.5}; floors 1e-5, 1e-6, 1e-7 need H about 4.93e13, 1.56e16, 4.93e18. E(N) decays as N^{-0.47} to N about 3.28e9, then plateaus at E_trunc.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96207-verified-height-floor-law-kappa-star; imp-96166; imp-96185 (obstruction map F3-F6)",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "fixed-strip-no-n-decaying-tail",
+  "type": "obstruction",
+  "name": "No N-decaying truncation tail at fixed verified height",
+  "statement": "The truncation height H has two parameterisations: fixed H=T_PT gives a floor with no N-dependence; coupling H to N requires zero information above verified height. Neither gives an N-decaying tail, so E(N)->0 is not available unconditionally.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96190-fixed-strip-n-decaying-tail-obstruction (obstruction map: verified-height wall)",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "sigma-share-ushape-stationarity",
+  "type": "identity",
+  "name": "Stationarity identity at the peak of the GUE-conditional share",
+  "statement": "For the share sigma(N)=E_coll/E(N), with a, b the local log-slopes of the component tails: at the peak E_flow/E_trunc = a/b and N_peak/N_flow=(b/a)^{1/(a+b)}, verified across a 0.25x..16x E_trunc sweep to 2e-4. Slope asymptote (1/2,1/2,1). C_C and E_trunc sensitivities combine additively. GUE-conditional diagnostic, not a bound.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident; imp-96244; imp-96851",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "gue-conditional-share-binding",
+  "type": "measured-phenomenon",
+  "name": "GUE-conditional collision term dominates the Lambda bridge error",
+  "statement": "Peak share sigma_max = 0.949 near N about 9.2e5. d sigma_max/d log E_trunc = -0.019 (tightening the unconditional floor raises the conditional share); d sigma_max/d log C_C = +0.048. Landmarks: sigma=0.25 at N about 3.26e10, sigma=0.01 at about 4.62e13, elasticity about -2.09 in E_trunc.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96794-etrunc-reduction-peak-share-leverage; imp-96831; imp-96916; imp-96931",
+  "tags": [
+   "lambda",
+   "pair-correlation",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "step4-bridge-clip-gate",
+  "type": "open-lemma",
+  "name": "E(N)->0 in the Step-4 bridge is gated on an N-uniform C_Lip",
+  "statement": "Bridge assembly G6 and shock Holder mechanism G6a are closed; rate O((log N/N)^{1/2}) is unconditional; the leading constant C_H reduces to the single factor C_Lip. No N-uniform W_1 Lipschitz constant exists; the field-channel reroute replaces it by a table-certified modulus but leaves G6b-Step1 gap-Lipschitz open.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-96290-step4-bridge-subconstant-inventory; imp-96304; imp-96614",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "vortex"
+  ]
+ },
+ {
+  "id": "mirror-descent-preq-false-at-seam",
+  "type": "obstruction",
+  "name": "Mirror-descent hypothesis H_desc-mirror(p_req=4.3743) fails at seam height",
+  "statement": "At the working row (t0=0.1314, y0=0.165) the neutral rigid-lattice Palm mirror count is 2.529 (2-slot) and 3.854 (1-slot); empirical zeta-block minima about 2.67. All are below p_req=4.3743. The 2-slot count grows with slope 0.395 in ln N and reaches p_req at ln N*=18.394.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-97080-palm-mirror-baseline-vs-preq-measurement; imp-97101-palm-mirror-parity-crossing-ladder",
+  "tags": [
+   "bridge",
+   "heat-flow",
+   "lambda",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "debruijn-tpos-mirror-wall",
+  "type": "obstruction",
+  "name": "t>0 de Bruijn flow gives no uniform mirror-count lower bound",
+  "statement": "The well-posed convolution direction is t<0 (multiplier e^{-tau u^2}); the binding direction t>0 has multiplier e^{+t u^2}, unbounded. The flow spreads spacing, the mirror count M decreases in spacing, so M(t)<=M(0)=2.5288<p_req on [0,t0]. Matches obstruction map F1/F2 (flow-blindness).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-97117-debruijn-flow-tpos-mirror-count-assessment (obstruction map F1, F2)",
+  "tags": [
+   "heat-flow",
+   "bridge",
+   "antibridge",
+   "lambda"
+  ]
+ },
+ {
+  "id": "euler-at-t0-flow-continuity-no-bridge",
+  "type": "obstruction",
+  "name": "Euler product at t=0 plus flow continuity does not reach t>0",
+  "statement": "The Euler product exists only at t=0, where the flow-decreasing mirror count is maximal; the uniform bound binds at t=t0 where H_t has no Euler product. Pair-correlation repulsion and gap fluctuations lower M(0). Continuity transports values and derivatives, not multiplicativity.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-97141-euler-product-flow-continuity-bridge-assessment (obstruction map F2)",
+  "tags": [
+   "heat-flow",
+   "euler-product",
+   "bridge",
+   "lambda"
+  ]
+ },
+ {
+  "id": "mollifier-reshaping-range",
+  "type": "measured-phenomenon",
+  "name": "Mollifier reshaping of the pinned prefactor C_F is bounded by 1 + theta",
+  "statement": "The admissible-mollifier reshaping of the pinned flow prefactor C_F (imp-398) is bounded by the mollified second-moment amplification 1+theta: at most about 1.571 for the longest rigorous mollifier (Conrey theta=4/7). A mollifier changes the flow term by an O(1) factor only.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "imp-96550-mollifier-reshaping-range",
+  "tags": [
+   "mollifier",
+   "lambda"
+  ]
+ }
+]

@@ -1,0 +1,104 @@
+D1: 246765 candidate rows (optimistic, P0); processing 246765 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D1 chunk 1/1234  2 s
+  D1 chunk 51/1234  2 s
+  D1 chunk 101/1234  2 s
+  D1 chunk 151/1234  2 s
+  D1 chunk 201/1234  2 s
+  D1 chunk 251/1234  3 s
+  D1 chunk 301/1234  3 s
+  D1 chunk 351/1234  3 s
+  D1 chunk 401/1234  3 s
+  D1 chunk 451/1234  4 s
+  D1 chunk 501/1234  4 s
+  D1 chunk 551/1234  4 s
+  D1 chunk 601/1234  4 s
+  D1 chunk 651/1234  5 s
+  D1 chunk 701/1234  5 s
+  D1 chunk 751/1234  6 s
+  D1 chunk 801/1234  7 s
+  D1 chunk 851/1234  8 s
+  D1 chunk 901/1234  9 s
+  D1 chunk 951/1234  10 s
+  D1 chunk 1001/1234  11 s
+  D1 chunk 1051/1234  12 s
+  D1 chunk 1101/1234  13 s
+  D1 chunk 1151/1234  15 s
+  D1 chunk 1201/1234  16 s
+D1: status {'killed_by_2': 204176, 'killed_by_9': 42589} | kills relying on a ball-zero member: 0 | zeta +389 -246376 | alive tiers {} | 17 s
+D3a: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3a: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 1 s
+D2-F1: 9397 candidate rows (optimistic, P0); processing 9397 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F1 chunk 1/47  0 s
+D2-F1: status {'killed_by_2': 8950, 'killed_by_7': 447} | kills relying on a ball-zero member: 0 | zeta +434 -8963 | alive tiers {} | 0 s
+D2-F2: 4279 candidate rows (optimistic, P0); processing 4279 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F2 chunk 1/22  0 s
+D2-F2: status {'killed_by_2': 4279} | kills relying on a ball-zero member: 0 | zeta +3259 -1020 | alive tiers {} | 0 s
+D2-F3: 1468 candidate rows (optimistic, P0); processing 1468 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F3 chunk 1/8  0 s
+D2-F3: status {'killed_by_2': 1346, 'killed_by_9': 120, 'killed_by_7': 1, 'killed_by_1': 1} | kills relying on a ball-zero member: 0 | zeta +72 -1396 | alive tiers {} | 0 s
+D2-F4: 172 candidate rows (optimistic, P0); processing 172 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F4 chunk 1/1  0 s
+D2-F4: status {'killed_by_2': 172} | kills relying on a ball-zero member: 0 | zeta +0 -172 | alive tiers {} | 0 s
+D2-F5: 1 candidate rows (optimistic, P0); processing 1 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D2-F5 chunk 1/1  0 s
+D2-F5: status {'killed_by_2': 1} | kills relying on a ball-zero member: 0 | zeta +0 -1 | alive tiers {} | 0 s
+D3b-F1: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F1: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F2: 45 candidate rows (optimistic, P0); processing 45 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F2 chunk 1/1  0 s
+D3b-F2: status {'killed_by_2': 45} | kills relying on a ball-zero member: 0 | zeta +45 -0 | alive tiers {} | 0 s
+D3b-F3: 0 candidate rows (optimistic, P0); processing 0 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+D3b-F3: status {} | kills relying on a ball-zero member: 0 | zeta +0 -0 | alive tiers {} | 0 s
+D3b-F4: 3 candidate rows (optimistic, P0); processing 3 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F4 chunk 1/1  0 s
+D3b-F4: status {'killed_by_2': 3} | kills relying on a ball-zero member: 0 | zeta +0 -3 | alive tiers {} | 0 s
+D3b-F5: 5 candidate rows (optimistic, P0); processing 5 with 16 workers; planned memory: per-worker kernel cache at most 200000 balls of 12000 bits = 300 MB
+  D3b-F5 chunk 1/1  0 s
+D3b-F5: status {'killed_by_2': 5} | kills relying on a ball-zero member: 0 | zeta +5 -0 | alive tiers {} | 0 s
+D3b-F5 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, -1.0)} 0 s
+D3b-F4 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 1 s
+D3b-F2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 1 s
+D3b-F1 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D3a-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 4 s
+D3a {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 5 s
+D3b-F1-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 5 s
+D3b-F2-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 4 s
+D3b-F5-rnd {'P0': (6, 0.083), 'P1': (0, 0.0), 'P2': (0, -1.0)} 3 s
+D3b-F3-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 5 s
+D3a-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 2 s
+D3b-F3 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 14 s
+D2-F4 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, -1.0)} 24 s
+D2-F2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 30 s
+D3b-F1-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D2-F5 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, -1.0)} 36 s
+D3b-F2-adp {'P0': (9, 0.083), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D3b-F4-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 1 s
+D3b-F5-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, -1.0)} 1 s
+D3b-F3-adp {'P0': (8, 0.083), 'P1': (8, 0.083), 'P2': (0, 0.0)} 16 s
+D3a-rnd2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D2-F2-rnd {'P0': (1, 0.042), 'P1': (1, 0.042), 'P2': (1, 0.042)} 63 s
+D2-F1 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 80 s
+D2-F5-rnd {'P0': (140, 0.25), 'P1': (34, 0.25), 'P2': (0, -1.0)} 103 s
+D2-F4-adp {'P0': (103, 0.208), 'P1': (0, 0.0), 'P2': (0, 0.0)} 105 s
+D2-F5-adp {'P0': (178, 0.25), 'P1': (178, 0.25), 'P2': (0, -1.0)} 96 s
+D3b-F1-rnd2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D3b-F2-rnd2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D2-F3 {'P0': (1, 0.208), 'P1': (0, 0.0), 'P2': (0, -1.0)} 139 s
+D3b-F3-rnd2 {'P0': (11, 0.083), 'P1': (3, 0.083), 'P2': (0, 0.0)} 15 s
+D3b-F4-rnd2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 3 s
+D3b-F5-rnd2 {'P0': (54, 0.083), 'P1': (0, 0.0), 'P2': (0, -1.0)} 4 s
+D2-F1-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 149 s
+D2-F2-rnd2 {'P0': (9, 0.083), 'P1': (6, 0.083), 'P2': (4, 0.083)} 93 s
+D2-F1-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 169 s
+D2-F4-rnd2 {'P0': (24, 0.208), 'P1': (0, 0.0), 'P2': (0, 0.0)} 74 s
+D2-F2-adp {'P0': (3, 0.042), 'P1': (3, 0.042), 'P2': (3, 0.042)} 173 s
+D2-F1-rnd2 {'P0': (1, 0.083), 'P1': (0, 0.0), 'P2': (0, 0.0)} 127 s
+D2-F3-adp {'P0': (1, 0.208), 'P1': (0, 0.0), 'P2': (0, -1.0)} 177 s
+D1 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 191 s
+D1-rnd {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 192 s
+D2-F5-rnd2 {'P0': (1460, 0.25), 'P1': (385, 0.25), 'P2': (0, -1.0)} 89 s
+D1-rnd2 {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 182 s
+D1-adp {'P0': (0, 0.0), 'P1': (0, 0.0), 'P2': (0, 0.0)} 232 s
+D2-F3-rnd {'P0': (7, 0.208), 'P1': (0, 0.0), 'P2': (0, 0.0)} 239 s
+D2-F3-rnd2 {'P0': (81, 0.25), 'P1': (0, 0.0), 'P2': (0, 0.0)} 242 s
+POST-DONE

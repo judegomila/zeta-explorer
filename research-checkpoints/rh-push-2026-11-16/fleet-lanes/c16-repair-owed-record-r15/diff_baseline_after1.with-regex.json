@@ -1,0 +1,220 @@
+{
+ "nodes": [
+  1701,
+  1707
+ ],
+ "live": [
+  963,
+  963
+ ],
+ "rows": [
+  238,
+  241
+ ],
+ "controls": [
+  20,
+  23
+ ],
+ "byType": {
+  "control": [
+   55,
+   58
+  ],
+  "obstruction": [
+   672,
+   675
+  ]
+ },
+ "edges": [
+  9025,
+  9031
+ ],
+ "edgesByType": {
+  "composes-with": [
+   7474,
+   7474
+  ],
+  "control-defeats": [
+   866,
+   871
+  ],
+  "obstructs": [
+   270,
+   270
+  ],
+  "restates": [
+   185,
+   186
+  ],
+  "separates-from": [
+   4,
+   4
+  ],
+  "special-case-of": [
+   132,
+   132
+  ],
+  "uses": [
+   94,
+   94
+  ]
+ },
+ "devicesMeta": [
+  {
+   "closed": 69,
+   "floored": 6
+  },
+  {
+   "closed": 69,
+   "floored": 6
+  }
+ ],
+ "nodesAdded": [
+  "ctl-NR-q",
+  "ctl-SG",
+  "ctl-ZQ",
+  "row-G41",
+  "row-Q30",
+  "row-S12b"
+ ],
+ "nodesRemoved": [],
+ "edgesAdded": [
+  "ctl-DH -> row-Q30 [control-defeats]",
+  "ctl-HEAT -> row-G41 [control-defeats]",
+  "ctl-NR -> row-G41 [control-defeats]",
+  "ctl-NR -> row-Q30 [control-defeats]",
+  "ctl-WT -> row-S12b [control-defeats]",
+  "row-Q30 -> target-rh [restates]"
+ ],
+ "edgesRemoved": [],
+ "nodesChangedFields": [
+  "row-G37: statement",
+  "row-G38: statement",
+  "row-G39: tags,statement",
+  "row-G40: statement",
+  "row-O1: statement",
+  "row-S12: statement"
+ ],
+ "deviceTypes": [
+  {
+   "closed": 50,
+   "floored": 1,
+   "open": 0
+  },
+  {
+   "closed": 53,
+   "floored": 1,
+   "open": 0
+  }
+ ],
+ "pending": [
+  8,
+  8
+ ],
+ "deviceTypesAdded": [
+  "dictionary-dn-nonhomogeneous-pair-triple-sign-functionals",
+  "fejer-section-prime-chain-growing-p",
+  "window-fe-rigidity-growing-count-one-span"
+ ],
+ "deviceEvidenceChanged": [
+  "catalogued-x2-inequality-torus-parameter-eigenobject",
+  "dictionary-dj-joint-pair-sign-functionals",
+  "joint-pair-ratio-crossgram-twist-transfer",
+  "laxphillips-hecke-norm-outside-l2",
+  "lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal"
+ ],
+ "controlsCurated": [
+  5,
+  8
+ ],
+ "generatorMeta": {},
+ "generatorMeta/graphCounts": {
+  "/byOrigin/map": [
+   330,
+   336
+  ],
+  "/byType/control": [
+   55,
+   58
+  ],
+  "/byType/obstruction": [
+   672,
+   675
+  ],
+  "/controls": [
+   20,
+   23
+  ],
+  "/crossingKeyword": [
+   310,
+   312
+  ],
+  "/edges": [
+   9025,
+   9031
+  ],
+  "/edgesByType/control-defeats": [
+   866,
+   871
+  ],
+  "/edgesByType/restates": [
+   185,
+   186
+  ],
+  "/nodes": [
+   1701,
+   1707
+  ],
+  "/rows": [
+   238,
+   241
+  ]
+ },
+ "generatorMeta/pools": {},
+ "generatorMeta/filters": {},
+ "generatorMeta/r4Rules": {},
+ "generatorMeta/families": {},
+ "generatorMeta/moves": {},
+ "top": {
+  "lenA": 60,
+  "lenB": 60,
+  "keysInCommon": 60,
+  "sameOrder": true,
+  "sameScores": true,
+  "rank1": [
+   "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural (10.25)",
+   "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural (10.25)"
+  ],
+  "entered": [],
+  "left": [],
+  "commonRelativeOrderKept": true,
+  "commonScoreChanged": [],
+  "commonRowsCheckedChanged": {
+   "candidates": 10,
+   "rows": {
+    "+A6": 1,
+    "-G39": 3,
+    "+Q30": 6,
+    "-P19": 1,
+    "+P52": 1,
+    "-P4": 2,
+    "-D2": 1,
+    "-P43": 1,
+    "+G41": 1,
+    "-G36": 1,
+    "+N11": 1,
+    "-G38": 1
+   }
+  }
+ },
+ "scoreboardDiff": {
+  "/C_coverage/nodes": [
+   1701,
+   1707
+  ],
+  "/C_coverage/nodesMarkedClosed": [
+   576,
+   579
+  ]
+ }
+}

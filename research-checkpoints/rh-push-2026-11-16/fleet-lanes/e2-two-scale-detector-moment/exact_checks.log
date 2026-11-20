@@ -1,0 +1,23 @@
+saddle  M1(r*) = 0.5903323534617791  M2(m*) = 0.5903323533675022  long(t*) = 0.5903323537052366  R_c = 0.590332353526
+window of Lemma W2: (0.872850, 1.112460)
+(A) products M_r*^a S_m*^b M_t^c with length in the window: []
+(B) one scale  M_r* S_m*                         Y = 1.1640  threshold N < 1.1366  level 1.1640  fraction of (level - 1) needed f = 0.1667
+(B) two scales (t=1, t*) M_r1 S_m1 M_r* S_m*     Y = 2.1640  threshold N < 1.6060  level 2.1640  fraction of (level - 1) needed f = 0.4794
+(B) two scales (t*, t*+) M_r* S_m* M_t*          Y = 2.3279  threshold N < 1.6829  level 2.3279  fraction of (level - 1) needed f = 0.4857
+(B) two scales (t*, 3/2)                         Y = 2.6640  threshold N < 1.8406  level 2.6640  fraction of (level - 1) needed f = 0.4948
+    f'(Y) sign: R_c - (1 - delta) = 0.059677 > 0, so f increases with Y; f -> 0.5307
+(C) omega = 0.000  y = 0.4183: needed exponent 1.1963, level 1.4183, fraction 0.5307
+(C) omega = 0.000  y = 0.7457: needed exponent 1.3500, level 1.7457, fraction 0.5307
+(C) omega = 0.000  y = 1.1640: needed exponent 1.5463, level 2.1640, fraction 0.5307
+(C) omega = 0.025  y = 0.4183: needed exponent 1.1713, level 1.4183, fraction 0.5904
+(C) omega = 0.025  y = 0.7457: needed exponent 1.3250, level 1.7457, fraction 0.5642
+(C) omega = 0.025  y = 1.1640: needed exponent 1.5213, level 2.1640, fraction 0.5521
+(C) omega = 0.200  y = 0.4183: needed exponent 0.9963, level 1.4183, fraction 1.0088
+(C) omega = 0.200  y = 0.7457: needed exponent 1.1500, level 1.7457, fraction 0.7989
+(C) omega = 0.200  y = 1.1640: needed exponent 1.3463, level 2.1640, fraction 0.7025
+(D) A_P(m*) = 0.590332353 = R_c; (H) with 39/40 gives #B_P(m) <= U^(A_P(m) - 1/40); A_P slope -0.7300 per unit m
+    rows with t=1 plain length m1: saved by (H) iff m1 > m* - (1/40)/slope = 0.3840 ; forced range of m1 at t = 1: [0.2543, 0.4183]
+    count at the critical class with M2 - 1/40: R_c - 0.00409 (t moves by -0.01123); MODEL dB at -0.138 per unit: -0.000564
+(E) K - R - m*(delta/2) at theta = 0: 0.004264 -> omega <= 0.017057 at fixed count on nu=1 plain-witness rows (first moment form, theta = 0)
+    forced size at theta0 for the shortest t=1 plain witness m1 = 0.2543: U^0.04641; saving d forces a count saving on all nu=1 rows iff d > 0.02992 (omega > 0.1197)
+    theta0 = 0.052165197, m*(delta/2 - theta0) = 0.076334313, R_c + that = 0.666666667

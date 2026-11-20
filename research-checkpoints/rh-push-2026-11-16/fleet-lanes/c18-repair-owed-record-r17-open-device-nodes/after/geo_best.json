@@ -1,0 +1,239 @@
+{
+ "tz-one-sided-completion-bound-band": {
+  "twin-ladder": {
+   "scored": 688,
+   "best": {
+    "score": 10.0,
+    "positionAmongAllScored": 31,
+    "nodes": [
+     "hidden-square-volterra-collapse",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "bridge": {
+   "scored": 536,
+   "best": {
+    "score": 11.25,
+    "positionAmongAllScored": 1,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "shear": {
+   "scored": 186,
+   "best": {
+    "score": 11.25,
+    "positionAmongAllScored": 1,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "antibridge": {
+   "scored": 118,
+   "best": {
+    "score": 10.5,
+    "positionAmongAllScored": 5,
+    "nodes": [
+     "bridge-sign-from-phi-positivity",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "torus": {
+   "scored": 0,
+   "best": null
+  },
+  "klein": {
+   "scored": 82,
+   "best": {
+    "score": 9.5,
+    "positionAmongAllScored": 88,
+    "nodes": [
+     "zv-shear-reflection-parity",
+     "prime-delay-domination-15-4",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "spinor": {
+   "scored": 8,
+   "best": {
+    "score": 7.5,
+    "positionAmongAllScored": 1441,
+    "nodes": [
+     "bridge-multiplier-c0",
+     "zv-divisor-cosine-euler-product",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": -1
+   }
+  },
+  "twistor": {
+   "scored": 0,
+   "best": null
+  },
+  "zero-channel": {
+   "scored": 251,
+   "best": {
+    "score": 9.5,
+    "positionAmongAllScored": 86,
+    "nodes": [
+     "two-line-zero-detector",
+     "cotangent-second-moment-upper-lemma",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  },
+  "vortex": {
+   "scored": 2,
+   "best": {
+    "score": 7.25,
+    "positionAmongAllScored": 1747,
+    "nodes": [
+     "zv-cr-gradient-fields",
+     "weil-formula-numeric-check",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "penalties": 0
+   }
+  }
+ },
+ "exact-relation-rigidity": {
+  "twin-ladder": {
+   "scored": 876,
+   "best": {
+    "score": 10.75,
+    "positionAmongAllScored": 2,
+    "nodes": [
+     "sep-opt-lattice-extremal",
+     "tro6-natural",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "bridge": {
+   "scored": 459,
+   "best": {
+    "score": 10.0,
+    "positionAmongAllScored": 23,
+    "nodes": [
+     "zv-annulus-dtn-operator",
+     "star-min-pointwise-prime-bound",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "shear": {
+   "scored": 0,
+   "best": null
+  },
+  "antibridge": {
+   "scored": 104,
+   "best": {
+    "score": 9.0,
+    "positionAmongAllScored": 208,
+    "nodes": [
+     "ns-rigid-primes-enter-as-n-scalars",
+     "gauss-plancherel-alias-lemma",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "torus": {
+   "scored": 117,
+   "best": {
+    "score": 10.25,
+    "positionAmongAllScored": 21,
+    "nodes": [
+     "ramanujan-cube-satake-point",
+     "cmv-truncation-from-taylor-data",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "klein": {
+   "scored": 111,
+   "best": {
+    "score": 10.0,
+    "positionAmongAllScored": 23,
+    "nodes": [
+     "zv-annulus-dtn-operator",
+     "star-min-pointwise-prime-bound",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "spinor": {
+   "scored": 39,
+   "best": {
+    "score": 9.0,
+    "positionAmongAllScored": 196,
+    "nodes": [
+     "blaschke-ghost-index-identity",
+     "alias-denominator-separation-curvature-floor",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "twistor": {
+   "scored": 42,
+   "best": {
+    "score": 10.0,
+    "positionAmongAllScored": 44,
+    "nodes": [
+     "zv-dual-conormal-family",
+     "ramanujan-cube-satake-point",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "zero-channel": {
+   "scored": 403,
+   "best": {
+    "score": 9.5,
+    "positionAmongAllScored": 72,
+    "nodes": [
+     "bridge-winding-equals-NT",
+     "alias-sign-determinacy",
+     "exact-relation-rigidity"
+    ],
+    "penalties": 0
+   }
+  },
+  "vortex": {
+   "scored": 157,
+   "best": {
+    "score": 8.5,
+    "positionAmongAllScored": 515,
+    "nodes": [
+     "ramanujan-cube-satake-point",
+     "collective-lambda-certificate",
+     "exact-relation-rigidity"
+    ],
+    "penalties": -1
+   }
+  }
+ }
+}

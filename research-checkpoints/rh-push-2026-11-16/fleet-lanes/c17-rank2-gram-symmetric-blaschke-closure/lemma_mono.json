@@ -1,0 +1,342 @@
+{
+ "identity": [
+  {
+   "case": "zeta",
+   "T": [
+    0,
+    0
+   ],
+   "rel_defect": 6.224487961371607e-87
+  },
+  {
+   "case": "zeta",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "rel_defect": 1.9034787382436753e-87
+  },
+  {
+   "case": "zeta",
+   "T": [
+    2,
+    0
+   ],
+   "rel_defect": 7.064958169709164e-88
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0,
+    0
+   ],
+   "rel_defect": 2.814543189957926e-87
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "rel_defect": 1.266409198941566e-87
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    2,
+    0
+   ],
+   "rel_defect": 3.33669741237905e-88
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0,
+    0
+   ],
+   "rel_defect": 7.849911417559517e-87
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "rel_defect": 5.454223499320865e-88
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    2,
+    0
+   ],
+   "rel_defect": 1.145749527974767e-87
+  }
+ ],
+ "inertia": [
+  {
+   "case": "zeta",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "zeta",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "sym(0.3,3)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    0.4,
+    1.1
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 2,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": 1,
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  },
+  {
+   "case": "left(0.2+3i)",
+   "T": [
+    2,
+    0
+   ],
+   "d_tau": "K_T-K_0",
+   "status": "ok",
+   "npos": 8,
+   "nneg": 0
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+planned: matrices up to 384 x 384 balls (about 14 MB each); moments memory-mapped; zero lists below 1 MB
+m 96 full-band completions done t=10s
+w 15 m 96 theta 0.75 done t=58s
+w 15 m 96 theta 0.8 done t=101s
+w 15 m 96 theta 0.85 done t=135s
+m 192 full-band completions done t=153s
+w 15 m 192 theta 0.75 done t=235s
+w 15 m 192 theta 0.8 done t=309s
+w 15 m 192 theta 0.85 done t=377s
+m 384 full-band completions done t=408s
+w 15 m 384 theta 0.75 done t=632s
+w 15 m 384 theta 0.8 done t=872s
+w 15 m 384 theta 0.85 done t=1111s
+COMP DONE 1e9 [15]

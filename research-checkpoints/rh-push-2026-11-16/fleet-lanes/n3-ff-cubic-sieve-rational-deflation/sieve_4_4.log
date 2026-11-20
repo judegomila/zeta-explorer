@@ -1,0 +1,19 @@
+q=7 m=4 n=4 rows(sqfree)=2058 cols=2401 k0=2m-2-n=2 kr=3
+planned: Cexp int8 0.005 GB; Gram complex64 0.034 GB; Xr int8 0.001 GB
+symbols built 1s
+Gram built 1s  trace=4.31122e+06 phi=trace/rows=2094.8571 q^n=2401
+undeflated: lam1/phi = 6.5365  lam1/trace = 3.176e-03  lam_min/phi = 0.0000
+top eigenvalues / phi: 6.536 6.536 6.536 6.536 6.536 6.536 6.422 6.422 6.422 6.422 6.422 6.422 6.270 6.150 6.150 6.150
+identity: max |G - F| on coprime off-diagonal pairs = 2.911e-04 (entries of G up to 240.6); on non-coprime pairs = 203.362; diag(Delta)/phi in [0.6182, 1.1461]
+Delta = G - F: eigenvalues/phi in [-0.7823, 5.3151]; fraction of non-coprime pairs 0.1133
+row-side deflation: lam_top/phi after removing family, by max conductor degree k  [rank removed]
+  A: k=0: 6.5365 [1]  k=1: 6.5360 [8]  k=2: 4.9998 [57]  k=3: 4.1682 [400]
+  B: k=0: 6.5365 [1]  k=1: 6.5350 [8]  k=2: 6.5223 [57]  k=3: 5.5155 [400]
+  Cc: k=0: 6.5365 [1]  k=1: 6.5005 [8]  k=2: 6.3461 [57]  k=3: 5.6399 [400]
+  Dc: k=0: 6.5365 [1]  k=1: 6.5365 [8]  k=2: 6.4271 [57]  k=3: 5.4278 [400]
+column-side deflation (Kubota side): lam_top/phi after removing span{conj g(r,.)} (Vc) or span{g(r,.)} (Vn), deg r <= k
+  Vc: [r=1: |Cv|^2/|v|^2 = 0.8146 phi; overlap(Cv,u1)=0.0000; overlap(v, right vec)=0.0000]  k=0: 6.5365 [1]  k=1: 6.5361 [8]  k=2: 5.1108 [57]  k=3: 4.9106 [400]  k=4: 0.0000 [2401]
+  Vn: [r=1: |Cv|^2/|v|^2 = 0.1296 phi; overlap(Cv,u1)=0.0000; overlap(v, right vec)=0.0000]  k=0: 6.5365 [1]  k=1: 6.5365 [8]  k=2: 6.4191 [57]  k=3: 5.7225 [400]  k=4: 0.0000 [2401]
+overlap(u1, A[r=1]) = 0.0000
+overlap(u1, Cc[r=1]) = 0.0000
+done 30s

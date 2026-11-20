@@ -1,0 +1,126 @@
+{
+  "height_rule": "all eight consecutive width-four cells of [32,64]",
+  "initial_theta_subcells_per_window": 128,
+  "windows": [
+    {
+      "interval": [
+        32,
+        36
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "2.544559151614847002884857314719706190344180641796803909404736411541326E-19",
+      "curvature_integral_lower": "96.41692619167451990051068550837935524630626547027272206285983650745346",
+      "endpoint_drop_upper": "-0.095131782948962533898761346809317113644874363221500745084506942199521",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 1,
+      "line_copies_lower": 1
+    },
+    {
+      "interval": [
+        36,
+        40
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "1.256418574759967045530650464641127993189343524410942106048182655794824E-22",
+      "curvature_integral_lower": "108.2867932740671794089028649736092583430479153705315218706546101610026",
+      "endpoint_drop_upper": "0.533896802291203242844706827843243545011610957970027736630673048747836",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 1,
+      "line_copies_lower": 1
+    },
+    {
+      "interval": [
+        40,
+        44
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "2.318060033823881778060378701451711323949482949677004847132751330528153E-24",
+      "curvature_integral_lower": "169.0983311052913654419755921611467090153081200229524366610332695884808",
+      "endpoint_drop_upper": "-2.439778538982228830629516211752880994483462548962114726991921381545837",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 2,
+      "line_copies_lower": 2
+    },
+    {
+      "interval": [
+        44,
+        48
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 256,
+      "shear_lower": "5.8578575151107877745433228300261082569512849207873830960641876503011E-29",
+      "curvature_integral_lower": "4.637770291115470084705432030812254564838726313319097165657879430028474",
+      "endpoint_drop_upper": "196.1599544407302271245921206112375367384439252241248326276588934443048",
+      "endpoint_pass": false,
+      "contour_cells_per_side": 32768,
+      "strip_count": 0,
+      "line_copies_lower": 0
+    },
+    {
+      "interval": [
+        48,
+        52
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "8.518398165400680405216423854403239659180369635851270589416334389471135E-30",
+      "curvature_integral_lower": "166.7508275728592260483773085166247848525971424876792062674978407506398",
+      "endpoint_drop_upper": "-194.0114681312285539626059714328684509057998357351936147704405617676156",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 32768,
+      "strip_count": 2,
+      "line_copies_lower": 2
+    },
+    {
+      "interval": [
+        52,
+        56
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "1.350519634014856437825017731080661261088805401609335058171621544100568E-32",
+      "curvature_integral_lower": "97.17310374828106413187333129224396124188687238789394361137267987231221",
+      "endpoint_drop_upper": "1.636690778859859806342885221707862725431653724485757552334940642413093",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 1,
+      "line_copies_lower": 1
+    },
+    {
+      "interval": [
+        56,
+        60
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "8.470859974501904603762135948804912812315041533030721885865335498991022E-36",
+      "curvature_integral_lower": "117.4485005405691835532086086791779133027996242389801729545662340365547",
+      "endpoint_drop_upper": "-2.671343416212645285246016219086617631241038191688114082563310949316999",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 2,
+      "line_copies_lower": 2
+    },
+    {
+      "interval": [
+        60,
+        64
+      ],
+      "shear_certified": true,
+      "finest_theta_mesh": 128,
+      "shear_lower": "1.787502405058681515760321700168117549400532863763908761480398278404044E-37",
+      "curvature_integral_lower": "105.6247676674441246037019407665855067004359277303263859116590360722790",
+      "endpoint_drop_upper": "1.271363745490560015615556380615053112442356096173479560995203576771837",
+      "endpoint_pass": true,
+      "contour_cells_per_side": 4096,
+      "strip_count": 1,
+      "line_copies_lower": 1
+    }
+  ]
+}

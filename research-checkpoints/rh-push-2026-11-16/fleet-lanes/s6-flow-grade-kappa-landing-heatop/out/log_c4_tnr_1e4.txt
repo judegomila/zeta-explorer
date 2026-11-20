@@ -1,0 +1,13 @@
+04:02:05 T 10000 blocks 8 workers 6 backend cpu
+04:02:05 block 1/8
+04:02:06 block 2/8
+04:02:06 block 3/8
+04:02:06 block 4/8
+04:02:06 block 5/8
+04:02:06 block 6/8
+04:02:06 block 7/8
+04:02:06 block 8/8
+{"tau": 0.0001, "D": 0, "D_gap": 0, "D_gap_isolated": 0, "pred": {"gue": 0.5951592657383113, "bk_pair": 0.3944440731001061, "bk_pair_triple": 0.3941287330004755}, "ratio": {"gue": 0.0, "bk_pair": 0.0, "bk_pair_triple": 0.0}, "rel_stat": null, "D_zeta": 0, "ratio_zeta": {"gue": 0.0, "bk_pair": 0.0, "bk_pair_triple": 0.0}}
+{"tau": 0.001, "D": 12, "D_gap": 8, "D_gap_isolated": 8, "pred": {"gue": 18.712657396323685, "bk_pair": 12.512114858929207, "bk_pair_triple": 12.412110418338436}, "ratio": {"gue": 0.6412771711599624, "bk_pair": 0.9590704797148071, "bk_pair_triple": 0.966797715743041}, "rel_stat": 0.4082482904638631, "D_zeta": 8, "ratio_zeta": {"gue": 0.4275181141066416, "bk_pair": 0.6393803198098713, "bk_pair_triple": 0.6445318104953606}}
+{"tau": 0.003, "D": 94, "D_gap": 70, "D_gap_isolated": 70, "pred": {"gue": 96.00218231912518, "bk_pair": 65.44097890187908, "bk_pair_triple": 63.87445708578221}, "ratio": {"gue": 0.9791444082753282, "bk_pair": 1.4364088309397351, "bk_pair_triple": 1.471636774520991}, "rel_stat": 0.14586499149789456, "D_zeta": 75, "ratio_zeta": {"gue": 0.7812322406452087, "bk_pair": 1.1460708757497886, "bk_pair_triple": 1.174178277543344}}
+{"tau": 0.01, "D": 482, "D_gap": 386, "D_gap_isolated": 414, "pred": {"gue": 558.9583326459813, "bk_pair": 404.8749494539813, "bk_pair_triple": 373.0170907716797}, "ratio": {"gue": 0.8623183014703831, "bk_pair": 1.1904910408757825, "bk_pair_triple": 1.2921659943324895}, "rel_stat": 0.06441566264008308, "D_zeta": 399, "ratio_zeta": {"gue": 0.7138278055740309, "bk_pair": 0.9854894715963427, "bk_pair_triple": 1.0696560824453596}}

@@ -1,0 +1,14 @@
+{
+ "N=12": {
+  "quotient K_B(u)/K_A(u): max rel change under HEAT": 2.217819797184e-16,
+  "triple K_chi^2/(K K_chi^2-twist) at one point": 5.836312038243324e-16,
+  "cross-ratio K_A(u)K_B(v)/(K_A(v)K_B(u))": 6.292197999128741e-16,
+  "K_B(u)/K_A(v), u != v (not blind): max rel change": 0.4303626946405958
+ },
+ "N=40": {
+  "quotient K_B(u)/K_A(u): max rel change under HEAT": 2.128974069652928e-16,
+  "triple K_chi^2/(K K_chi^2-twist) at one point": 5.377588828424496e-16,
+  "cross-ratio K_A(u)K_B(v)/(K_A(v)K_B(u))": 5.739076764542133e-16,
+  "K_B(u)/K_A(v), u != v (not blind): max rel change": 0.4827774643626168
+ }
+}

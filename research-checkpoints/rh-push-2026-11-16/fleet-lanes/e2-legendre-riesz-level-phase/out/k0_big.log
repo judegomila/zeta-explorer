@@ -1,0 +1,20 @@
+# k=0 X=300000 theta=0.3 D=44: planned memory: cumulative arrays 0.014 GB, LP nnz <= 1.44e+06 (0.023 GB)
+k=0 X=3e+05 th=0.3 D=44 val=320225.737167 truth=299659.942853 gap=2.0566e+04 gap/sqrtX=37.5478 exc/sqrtX=36.9270 true_exc/sqrtX=-0.6209 l1=17.4 l1kD=17.4 A=2.64e-03 B=1.03684 C0=-2.978 ynonpp=1.36e+05 rows=2006 it=1 t=0.1s
+# k=0 X=300000 theta=0.4 D=155: planned memory: cumulative arrays 0.014 GB, LP nnz <= 1.81e+06 (0.029 GB)
+k=0 X=3e+05 th=0.4 D=155 val=308797.171248 truth=299659.942853 gap=9.1372e+03 gap/sqrtX=16.6822 exc/sqrtX=16.0614 true_exc/sqrtX=-0.6209 l1=73 l1kD=73 A=9.03e-04 B=1.01884 C0=-3.647 ynonpp=1.42e+05 rows=2006 it=1 t=0.5s
+# k=0 X=300000 theta=0.5 D=548: planned memory: cumulative arrays 0.014 GB, LP nnz <= 2.19e+06 (0.035 GB)
+k=0 X=3e+05 th=0.5 D=548 val=302763.896810 truth=299659.942853 gap=3.1040e+03 gap/sqrtX=5.6670 exc/sqrtX=5.0462 true_exc/sqrtX=-0.6209 l1=729 l1kD=729 A=-3.83e-04 B=1.01413 C0=-5.118 ynonpp=1.43e+05 rows=2006 it=1 t=3.0s
+# k=0 X=300000 theta=0.6 D=1933: planned memory: cumulative arrays 0.014 GB, LP nnz <= 2.57e+06 (0.041 GB)
+k=0 X=3e+05 th=0.6 D=1933 val=299659.942853 truth=299659.942853 gap=-5.2503e-08 gap/sqrtX=-0.0000 exc/sqrtX=-0.6209 true_exc/sqrtX=-0.6209 l1=3.86e+03 l1kD=3.86e+03 A=-2.75e-03 B=1.03055 C0=-19.244 ynonpp=1.42e+05 rows=2006 it=1 t=6.2s
+# k=0 X=300000 theta=0.7 D=6823: planned memory: cumulative arrays 0.014 GB, LP nnz <= 2.95e+06 (0.047 GB)
+k=0 X=3e+05 th=0.7 D=6823 val=299659.942853 truth=299659.942853 gap=-5.2270e-08 gap/sqrtX=-0.0000 exc/sqrtX=-0.6209 true_exc/sqrtX=-0.6209 l1=2.63e+03 l1kD=2.63e+03 A=-1.98e-03 B=1.02178 C0=-35.000 ynonpp=1.42e+05 rows=2006 it=1 t=13.8s
+# k=0 X=1000000 theta=0.3 D=63: planned memory: cumulative arrays 0.048 GB, LP nnz <= 5.14e+06 (0.082 GB)
+k=0 X=1e+06 th=0.3 D=63 val=1057248.907234 truth=999586.597496 gap=5.7662e+04 gap/sqrtX=57.6623 exc/sqrtX=57.2489 true_exc/sqrtX=-0.4134 l1=21.6 l1kD=21.6 A=1.12e-03 B=1.04288 C0=-3.326 ynonpp=1.02e+06 rows=3666 it=1 t=0.3s
+# k=0 X=1000000 theta=0.4 D=251: planned memory: cumulative arrays 0.048 GB, LP nnz <= 6.53e+06 (0.104 GB)
+k=0 X=1e+06 th=0.4 D=251 val=1023027.323567 truth=999586.597496 gap=2.3441e+04 gap/sqrtX=23.4407 exc/sqrtX=23.0273 true_exc/sqrtX=-0.4134 l1=130 l1kD=130 A=5.82e-04 B=1.01561 C0=-3.981 ynonpp=9.79e+05 rows=3666 it=1 t=2.6s
+# k=0 X=1000000 theta=0.5 D=1000: planned memory: cumulative arrays 0.048 GB, LP nnz <= 7.91e+06 (0.127 GB)
+k=0 X=1e+06 th=0.5 D=1000 val=1006001.429659 truth=999586.597496 gap=6.4148e+03 gap/sqrtX=6.4148 exc/sqrtX=6.0014 true_exc/sqrtX=-0.4134 l1=2.26e+03 l1kD=2.26e+03 A=-3.56e-04 B=1.01080 C0=-7.081 ynonpp=9.59e+05 rows=3666 it=1 t=21.6s
+# k=0 X=1000000 theta=0.6 D=3981: planned memory: cumulative arrays 0.048 GB, LP nnz <= 9.29e+06 (0.149 GB)
+k=0 X=1e+06 th=0.6 D=3981 val=999586.597495 truth=999586.597496 gap=-2.0850e-07 gap/sqrtX=-0.0000 exc/sqrtX=-0.4134 true_exc/sqrtX=-0.4134 l1=1.04e+04 l1kD=1.04e+04 A=-2.02e-03 B=1.02584 C0=-34.000 ynonpp=9.5e+05 rows=3666 it=1 t=48.4s
+# k=0 X=1000000 theta=0.7 D=15849: planned memory: cumulative arrays 0.048 GB, LP nnz <= 1.07e+07 (0.171 GB)
+k=0 X=1e+06 th=0.7 D=15849 val=999586.597495 truth=999586.597496 gap=-2.0873e-07 gap/sqrtX=-0.0000 exc/sqrtX=-0.4134 true_exc/sqrtX=-0.4134 l1=7.74e+03 l1kD=7.74e+03 A=-1.65e-03 B=1.02093 C0=-80.333 ynonpp=9.5e+05 rows=3666 it=1 t=117.8s

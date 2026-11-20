@@ -1,0 +1,63 @@
+{
+ "slug": "c19-d10-xd-determinant-pole-term-lemma-q",
+ "round": 19,
+ "kind": "deepen",
+ "nodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat"
+ ],
+ "tags": [
+  "deepen",
+  "u6g",
+  "rank2",
+  "row-D10",
+  "X(d)",
+  "NL(d)",
+  "bezoutian",
+  "inertia",
+  "rational-model"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Partial result; no statement about zeros of zeta. In the rational model with the pole, for every real b: 2N = A[L L b(+-x_12) b(+-y_12)] (c18's term X is zero); N and the sign-free kernel N^+ are one half of Q = L (x) L on Q-orthogonal subspaces; Q has inertia (d^2+1, 2d), so neg(N) + neg(N^+) + z <= 2d; for simple zeros with no partner pair neg(N) equals the negative index of an explicit (2d+1) x (2d+1) matrix on the pole lines; at symmetric sets 2d of those points are null and z >= d, so X(d) follows from NL(d); on the pole line N + N^+ has at most one positive square. X(d) and NL(d) hold exactly at the lane's 220 symmetric configurations (d = 6 to 16) and at 4 further ones run by the referee. X(d) and NL(d) for general d and row D10 remain open.",
+ "obstruction": "Tried, not closed. Failing step: in general position neg(N) is read on 2d+1 crossing points of the pole lines, and 2d of those points are null exactly at symmetric sets. The pole is rank one on the Bezoutian L but rank 2d on L (x) L, so no rank-one or rank-two update exists. PROVED (one referee): c18's term X vanishes; N and N+ are halves of Q on Q-orthogonal subspaces; Q has inertia (d^2+1, 2d), so neg(N) + neg(N+) + z <= 2d; X(d) follows from NL(d) (N+ has d negative squares on the pole line). X(d) and NL(d) hold exactly at 224 symmetric configurations (d = 6..16); open for general d. The row cannot score whatever X(d) gives (symmetric off-line quartets pass, c18).",
+ "obstructionKind": "open-step: NL(d) for general d (d negative squares of a one-variable three-term kernel); model sense only",
+ "controlsThatDefeat": [
+  "symmetric off-line sets (pass; exact at 224 configurations, d = 6..16)",
+  "pole removed (positive in 60 of 60)",
+  "non-symmetric sets follow the deficit count (60 of 60)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error in any PROVED step. Lemma 1, Theorem 2, the crossing identity, Theorem 3, section 3.4, Lemma 4, Theorem 4 and Lemma 5 were re-derived by hand and confirmed exactly with independent code (own closed-form Bezoutian, own point sets, inertia by rational LDL and by characteristic polynomial; logs in /tmp/ref-c19d10/). Lemma 1 was checked against the 36-term definition in 72 of 72 identities. Theorem 3 was checked at the complex crossing points themselves (3 non-symmetric sets: negative index - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The rank-one or rank-two update the assignment asked for does not exist: the pole is rank one on the Bezoutian L but rank 2d on L(x)L, and the crossing points that carry the negative squares in general position degenerate exactly on the symmetric locus. Passing to the orthogonal sign-free kernel N+ turns positivity of a rank d(d-1)/2 form into counting d negative squares of a one-variable three-term kernel. Practical: the server ran about three times slower than the Mac under load; six local d = 16 workers exceed the 8 GB cap.",
+ "followUp": "Prove NL(d): for symmetric g (g(-1-u) = g(u), zeros in the strip) the three-term kernel N+((1,z),(1,z')) built from g(z+1), g(z), g(z-1) has d negative squares. Equivalent pair: N is positive on the pole line, and N+ has rank at least d+1 there. This closes X(d) and row D10 via c18 Proposition L3 (model sense only). A referee pass on Lemma 1 and Theorems 2 to 4 is owed.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-d10-xd-determinant-pole-term-lemma-q/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-d10-xd-determinant-pole-term-lemma-q/REFEREE.md",
+ "launchedNodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat"
+ ],
+ "engineVerdict": "partial",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Holds with corrections. Lemma 1 exact at 64/64; Theorems 2, 3, 4 re-derived and exact at 5 general and 5 symmetric sets. Scope correction: X(d) and NL(d) as printed in sections 2 and 3.5 lack 'd even' and are false for odd d: {1/4,3/4,1/2} gives N (1,2), N^+ (6,1); {1/6,5/6,1/3,2/3,1/2} gives N (6,4), N^+ (15,1). X(d) for even d stays open.",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-d10-xd-determinant-pole-term-lemma-q.md",
+  "scopeCorrections": 1
+ }
+}

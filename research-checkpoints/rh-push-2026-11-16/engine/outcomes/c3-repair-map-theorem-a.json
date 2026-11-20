@@ -1,0 +1,32 @@
+{
+ "slug": "c3-repair-map-theorem-a",
+ "round": 3,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "prime-chain"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane, no attack, no statement about zeros. MAP_PENDING.md is applied to OBSTRUCTION_MAP.md and the round-2 material added (137 rows, previous file kept, edits replayable). Theorem A' of c2-jinner-multidelay-lft holds (now three referee passes), and the DH conductor-5 first-moment formula with bracket a_1 + c_1 conj H(w') + c_2 conj H(w''), real part >= 1.0597 Re a_1, is proved with two independent derivations and ball-arithmetic checks on three finite prime sets; the first-moment no-go therefore holds for DH and uses no multiplicativity. The second-order (Sec) expansion is measured, not proved. aboutZeros is false in the two e1 records; graph and generator counts are as stated. Controls WT and FM are in the engine control list but have no graph edges yet; lead 20 is closed except for boundary nodes of R_a (a >= 1/2), Reinhardt-shell sections and sections containing the gamma term.",
+ "obstruction": "Repair lane, no attack. Theorem A' holds; its first-moment sign comes from Schwarz-Pick on the polydisc and holds for DH (bracket real part >= 1.0597 Re a_1), so the no-go supplies neither R1 nor R3. The second-order (Sec) expansion is measured, not proved. Lead 20 closed except boundary nodes of R_a (a >= 1/2), Reinhardt-shell sections and sections containing the gamma term. Owed: closed-family patterns for rows P41, P42, G25, Q21, Q22 in engine/merge_outcomes.py; second reading of the DH derivation.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane); the Theorem A' no-go holds for DH"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No mathematical error found. Theorem A' (F1-F3, reflection, steps 0-5) and the DH conductor-5 derivation (D1-D7) were re-derived and confirmed. An independent ball-arithmetic run on a new case (P={2,3,5,13}, unequal weights, new phases, 7594 poles) gives a remainder D = S - M/(2 pi delta) - Sec that converges for zeta and DH with successive differences halving. Bookkeeping reproduced: 137 map rows, 83 diff lines in 25 hunks, byte-for-byte replay of both apply scripts, 1502 nodes / 8403 edges / 1 [record truncated in transit; full text in push/c3-repair-map-theorem-a/REFEREE.md]",
+ "lesson": "The first-moment sign in Theorem A' comes from Schwarz-Pick on the polydisc and holds for DH too, so a no-go of this type cannot supply R1 or R3. Theorem A' and the Landau-Gonek tables are the two pairings of one residue computation, so the tables cannot test the Mellin-Barnes steps of A'.",
+ "followUp": "Add closed-family patterns to engine/merge_outcomes.py for the round-2 families (map rows P41, P42, G25, Q21, Q22), which the generator does not yet reject. Give REFEREE2.md section 3 (the DH derivation) a second reading before the DH statement counts as refereed. The lane's lanes.jsonl line is in its own directory, not appended to campaign/lanes.jsonl.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-repair-map-theorem-a/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-repair-map-theorem-a/REFEREE.md"
+}

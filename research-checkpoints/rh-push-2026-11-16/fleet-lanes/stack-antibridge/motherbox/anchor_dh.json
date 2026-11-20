@@ -1,0 +1,21 @@
+{
+ "which": "dh",
+ "K": 80,
+ "bits": 16000,
+ "mu0": "[0.098069576953336366940 +/- 1.87e-22]",
+ "mu1": "[0.0017485049392038543910 +/- 3.30e-23]",
+ "odd_coeff_check": [
+  "[+/- 2.15e-4815]",
+  "[+/- 2.06e-4814]",
+  "[+/- 1.30e-4813]"
+ ],
+ "rows": [
+  {
+   "case": "dh",
+   "H0": 75,
+   "H0_msg": "certified signs to order 80; negative pivots at [75]",
+   "H1": 75,
+   "H1_msg": "certified signs to order 80; negative pivots at [75]"
+  }
+ ]
+}

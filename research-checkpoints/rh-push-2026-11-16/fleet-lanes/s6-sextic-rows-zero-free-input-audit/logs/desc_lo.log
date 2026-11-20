@@ -1,0 +1,31 @@
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 3s
+  window Tc = 1e+09: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 2.40e-07 on 24 values; pad 0.0e+00 0.0e+00; 204s
+    zeta q=0.01: minP 1.651 at T=1000004132.75, mean 9.443, maxRe 7.792; q=0.5625: minP 5.923; total 209s
+  window Tc = 1e+08: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+memcap: RSS 8 GB exceeded cap 8 GB; killing 85659
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 3s
+  window Tc = 1e+08: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 1.86e-06 on 24 values; pad 0.0e+00 0.0e+00; 216s
+    zeta q=0.01: minP 1.437 at T=100012137.85, mean 8.291, maxRe 6.855; q=0.5625: minP 5.100; total 221s
+DONE
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 3s
+  window Tc = 1e+07: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 3.84e-07 on 24 values; pad 0.0e+00 0.0e+00; 199s
+    zeta q=0.01: minP 1.027 at T=10009037.50, mean 7.140, maxRe 6.113; q=0.5625: minP 4.001; total 204s
+DONE
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 2s
+  window Tc = 1e+06: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 3.97e-07 on 24 values; pad 0.0e+00 0.0e+00; 208s
+    zeta q=0.01: minP 0.778 at T=1009873.35, mean 5.989, maxRe 5.216; q=0.5625: minP 3.049; total 212s
+DONE
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 3s
+  window Tc = 100000: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 3.64e-07 on 24 values; pad 0.0e+00 0.0e+00; 207s
+    zeta q=0.01: minP 0.547 at T=94526.75, mean 4.838, maxRe 4.288; q=0.5625: minP 2.270; total 212s
+DONE

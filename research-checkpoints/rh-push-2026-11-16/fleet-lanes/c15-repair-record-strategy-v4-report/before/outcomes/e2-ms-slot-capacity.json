@@ -1,0 +1,57 @@
+{
+ "slug": "e2-ms-slot-capacity",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism: one lemma with a confirmed model price",
+ "nodes": [
+  "map-open-3",
+  "binding-row-bin"
+ ],
+ "launchedNodes": [
+  "map-open-3",
+  "map-pos-34",
+  "mem-abscissa-formula",
+  "binding-row-bin"
+ ],
+ "rowsChecked": [
+  "Z12",
+  "Z15"
+ ],
+ "tags": [
+  "seven-eighths",
+  "slot-capacity",
+  "lemma-17-1",
+  "reflection-conductor",
+  "sign-twist-invariant"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to the unrefereed 7/8 manuscript. PROVED-rel: both conditions of Lemma 17.1 are hypotheses (17.2) of Lemma 17.2 under (M, F_0, z_0) = (2(r+z)-m, r+z, z). PROVED-rel, principal configuration, for r+z >= 2m/3 and r+3z >= m: r+2z <= m is exactly T_d <= F at the dyad v = T_d of the column branch of Lemma 14.3, T_d = 2M+2z_a-F; the 2z_a comes from mark primes in the reflection conductor (corrects r3-critical-count 5.1). For m/2 <= r+z < 2m/3 the binding requirement is 3r+9z <= 4m. PROVED (elementary): with all rows, r+z < m fails at r=0 for z > 5m/6. MEASURED: for cubic rows at r=0, z > 1/2 the prime-supported Gauss vector exceeds mean-value level with law about 0.65 X^(2/3) N(u)^(-1/3)/log X; sextic excess 7-19%, flat, undecided. MODEL: abscissa 0.87329 / 0.87279-0.87299 with relaxed slot, above 13/15.",
+ "obstruction": "A slot lemma uniform in bounded prime coefficients is sign-twist invariant on its slot side, and the cubic Gauss-vector configuration shows such a statement cannot exceed capacity m/2 at r = 0. A relaxed slot must use the specific coefficients (prime sums of a Hecke character times a Moebius sum), i.e. a GRH-type below-level estimate ((M1+), unproved). Not established for the sextic rows of the lemma or for r >= 1/2; non-principal configurations and the two-Poisson recursion are untraced. Reduced-model tests at U <= 5e5 have no power for slots shorter than U^0.4.",
+ "obstructionKind": "coefficient-uniform-lemma-is-twist-invariant",
+ "controlsThatDefeat": [
+  "sign-twisted primes: any coefficient-uniform slot lemma holds equally for the twist",
+  "random-coefficient controls: moment flat, same as the arithmetic case in the window 1-2z < r < 1-z",
+  "cubic Gauss vector: explicit configuration forcing the factor 2 at r = 0"
+ ],
+ "lesson": "Do not look for a coefficient-uniform relaxation of the slot condition. The price even if relaxed is small (abscissa stays above 13/15).",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.2,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "ms-slot-condition-is-reflected-dual-length",
+   "type": "identity",
+   "status": "proved-relative",
+   "statement": "Lemma 17.1 condition r+2z <= m equals T_d <= F on the reflected dual length of Lemma 14.3 (principal configuration, r+z >= 2m/3, r+3z >= m); the 2z_a comes from mark primes in the reflection conductor."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-ms-slot-capacity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-ms-slot-capacity/REFEREE.md"
+}

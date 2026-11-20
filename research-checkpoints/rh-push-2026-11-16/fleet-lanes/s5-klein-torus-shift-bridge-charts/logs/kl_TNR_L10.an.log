@@ -1,0 +1,26 @@
+pair x 0.03 -> 0.04  wind jump -0.000  transport resid median 1.22e-07 max 5.60e-05 (neg k max 4.05e+01) modes 4017
+pair x 0.04 -> 0.05  wind jump +0.000  transport resid median 7.50e-05 max 7.16e+00 (neg k max 1.22e-04) modes 2411
+pair x 0.05 -> 0.07  wind jump -2.000  transport resid median 1.20e+00 max 2.49e+04 (neg k max 1.45e+08) modes 1425
+pair x 0.07 -> 0.09  wind jump +0.000  transport resid median 1.87e-09 max 2.04e-06 (neg k max 1.80e-04) modes 1630
+pair x 0.09 -> 0.11  wind jump +0.000  transport resid median 1.42e-10 max 5.60e-06 (neg k max 6.57e-05) modes 1079
+pair x 0.11 -> 0.15  wind jump +0.000  transport resid median 2.33e-12 max 3.33e-06 (neg k max 1.42e-05) modes 664
+pair x 0.15 -> 0.2  wind jump -2.000  transport resid median 1.40e+01 max 8.65e+05 (neg k max 4.21e+08) modes 502
+pair x 0.2 -> 0.25  wind jump +0.000  transport resid median 1.40e-10 max 1.28e-06 (neg k max 3.67e-05) modes 795
+pair x 0.25 -> 0.29  wind jump +0.000  transport resid median 4.29e-11 max 7.08e-07 (neg k max 2.15e-05) modes 543
+pair x 0.29 -> 0.32  wind jump +0.000  transport resid median 8.94e-11 max 4.88e-07 (neg k max 1.24e-05) modes 437
+pair x 0.32 -> 0.36  wind jump +0.000  transport resid median 7.22e-11 max 6.56e-07 (neg k max 6.35e-06) modes 353
+pair x 0.36 -> 0.45  wind jump +0.000  transport resid median 4.39e-12 max 4.19e-07 (neg k max 4.84e-06) modes 242
+pair x 0.45 -> 0.6  wind jump -2.000  transport resid median 3.92e+01 max 2.70e+06 (neg k max 1.22e+09) modes 168
+triple x ['0.03', '0.04', '0.05'] wind [6.0, 6.0, 6.0] logabs nonconvex 0/2259 (min 5.55e-05) notlogconvex 444 | arg nonconvex 0/2268 (min 1.83e-05) notlogconvex 445 k range [1, 2572]
+triple x ['0.04', '0.05', '0.07'] wind [6.0, 6.0, 4.0] logabs nonconvex 845/1898 (min -2.00e+00) notlogconvex 1463 | arg nonconvex 850/1898 (min -2.00e+00) notlogconvex 1423 k range [1, 2085]
+triple x ['0.05', '0.07', '0.09'] wind [6.0, 4.0, 4.0] logabs nonconvex 4/954 (min -1.98e+00) notlogconvex 594 | arg nonconvex 17/945 (min -2.00e+00) notlogconvex 570 k range [1, 1012]
+triple x ['0.07', '0.09', '0.11'] wind [4.0, 4.0, 4.0] logabs nonconvex 0/666 (min 1.48e-04) notlogconvex 326 | arg nonconvex 0/666 (min 8.63e-05) notlogconvex 328 k range [1, 712]
+triple x ['0.09', '0.11', '0.15'] wind [4.0, 4.0, 4.0] logabs nonconvex 0/667 (min 2.95e-04) notlogconvex 141 | arg nonconvex 0/666 (min 1.72e-04) notlogconvex 142 k range [1, 713]
+triple x ['0.11', '0.15', '0.2'] wind [4.0, 4.0, 2.0] logabs nonconvex 285/666 (min -1.94e+00) notlogconvex 402 | arg nonconvex 288/665 (min -1.94e+00) notlogconvex 403 k range [1, 713]
+triple x ['0.15', '0.2', '0.25'] wind [4.0, 2.0, 2.0] logabs nonconvex 35/481 (min -2.00e+00) notlogconvex 381 | arg nonconvex 44/481 (min -2.00e+00) notlogconvex 377 k range [1, 510]
+triple x ['0.2', '0.25', '0.29'] wind [2.0, 2.0, 2.0] logabs nonconvex 0/331 (min 5.17e-04) notlogconvex 161 | arg nonconvex 0/334 (min 5.55e-04) notlogconvex 172 k range [1, 350]
+triple x ['0.25', '0.29', '0.32'] wind [2.0, 2.0, 2.0] logabs nonconvex 0/271 (min 3.11e-04) notlogconvex 127 | arg nonconvex 0/277 (min 3.34e-04) notlogconvex 140 k range [1, 285]
+triple x ['0.29', '0.32', '0.36'] wind [2.0, 2.0, 2.0] logabs nonconvex 0/263 (min 3.11e-04) notlogconvex 74 | arg nonconvex 0/268 (min 3.35e-04) notlogconvex 80 k range [1, 285]
+triple x ['0.32', '0.36', '0.45'] wind [2.0, 2.0, 2.0] logabs nonconvex 0/264 (min 9.20e-04) notlogconvex 41 | arg nonconvex 0/268 (min 9.91e-04) notlogconvex 46 k range [1, 285]
+triple x ['0.36', '0.45', '0.6'] wind [2.0, 2.0, -0.0] logabs nonconvex 194/285 (min -2.00e+00) notlogconvex 234 | arg nonconvex 189/280 (min -2.00e+00) notlogconvex 232 k range [1, 300]
+A parity x:0.2 odd part of log|F| rel max 7.44e-09 median 1.95e-11; even part of arg rel max 1.02e-08

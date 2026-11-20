@@ -1,0 +1,32 @@
+{
+  "retrieved": "2026-10-22",
+  "repository": "openai/math",
+  "scope": "Source-level statement and selected assembly audit only; no Lean execution or full dependency audit.",
+  "sources": [
+    {
+      "path": "lean/ComparatorChallenges/QuasiRiemannHypothesis.json",
+      "git_blob_sha": "acf552468fc23c1a27d685d33983c58c50040542",
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/QuasiRiemannHypothesis.json"
+    },
+    {
+      "path": "lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean",
+      "git_blob_sha": "46c67f4000906b1391a471d6e6396ac0da3c16a5",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean"
+    },
+    {
+      "path": "lean/OAI/NumberTheory/DirichletL/Detector/FinalAssemblyUnconditional.lean",
+      "git_blob_sha": "e7c20910424837fb954796e1216f5aa453bbd5da",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/NumberTheory/DirichletL/Detector/FinalAssemblyUnconditional.lean"
+    },
+    {
+      "path": "lean/OAI/NumberTheory/DirichletL/Detector/FinalAssemblyCertifiedBands.lean",
+      "git_blob_sha": "8c7337e8f0755ba24fddab46a6630d58a32a9c86",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/NumberTheory/DirichletL/Detector/FinalAssemblyCertifiedBands.lean"
+    },
+    {
+      "path": "lean/OAI/NumberTheory/DirichletL/Energy/CertifiedExistence.lean",
+      "git_blob_sha": "bb8024070c2f9c406801529e962eb94711178179",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/NumberTheory/DirichletL/Energy/CertifiedExistence.lean"
+    }
+  ]
+}

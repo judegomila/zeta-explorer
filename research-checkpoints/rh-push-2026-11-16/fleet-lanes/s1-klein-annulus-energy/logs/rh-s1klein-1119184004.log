@@ -1,0 +1,255 @@
+Thu Nov 19 06:40:04 PM UTC 2026
+li: TNR H 8 rho 1-0.0625 N 2^14 = 16384 nmax 2000; arrays 1 MB; amplification rho^-nmax = 1.14e+56; alias rho^N = 0
+li: arithmetic part evaluated in 0.6 s
+li: c_0 = 0.000000 -2.89e-22i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.30441205 1.1939547  2.59971826 4.41391829 6.49990471]
+li: first negative n: 109  min lambda_n/n: -6.42028e+37 at n=1999
+li: energy split E_minus/E_plus = 3.136e-33 ; max|c_-n| rho^n = 3.192e-16 ; max imag c_n = 4.255e-16
+wrote out/li_TNR_H8.npz in 1.3 s
+li: TNR H 1000 rho 1-0.0005 N 2^18 = 262144 nmax 2000; arrays 17 MB; amplification rho^-nmax = 2.72; alias rho^N = 1.15e-57
+li: arithmetic part evaluated in 3.1 s
+li: c_0 = 10.000000 -1.81e-23i  (number of zeros inside the circle)
+li: lambda_1..5 = [10.27657096 10.84956572 11.65880339 12.63523399 13.70919864]
+li: first negative n: None  min lambda_n/n: 1.54455 at n=18
+li: energy split E_minus/E_plus = 1.789e-05 ; max|c_-n| rho^n = 9.759e+00 ; max imag c_n = 4.746e-13
+wrote out/li_TNR_H1000.npz in 3.8 s
+li: EA:1/8 H 700 rho 1-0.000714286 N 2^19 = 524288 nmax 100000; arrays 34 MB; amplification rho^-nmax = 1.08e+31; alias rho^N = 2.01e-163
+li: arithmetic part evaluated in 8.5 s
+li: c_0 = 0.000000 -1.35e-24i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.04618794 0.18467762 0.41524685 0.73752628 1.15100082]
+li: first negative n: 17856  min lambda_n/n: -2.67104e+22 at n=99962
+li: energy split E_minus/E_plus = 1.450e-29 ; max|c_-n| rho^n = 3.171e-13 ; max imag c_n = 3.477e-13
+wrote out/li_EA18_H700.npz in 11.1 s
+li: EA:1/8 H 500 rho 1-0.001 N 2^19 = 524288 nmax 100000; arrays 34 MB; amplification rho^-nmax = 2.83e+43; alias rho^N = 1.55e-228
+li: arithmetic part evaluated in 15.7 s
+li: c_0 = 0.000000 -1.35e-24i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.04618794 0.18467762 0.41524685 0.73752628 1.15100082]
+li: first negative n: 17856  min lambda_n/n: -2.50313e+25 at n=99988
+li: energy split E_minus/E_plus = 1.715e-32 ; max|c_-n| rho^n = 2.110e-13 ; max imag c_n = 2.600e-13
+wrote out/li_EA18_H500.npz in 18.1 s
+li: EA:1/8 H 20000 rho 1-2.5e-05 N 2^22 = 4194304 nmax 100000; arrays 268 MB; amplification rho^-nmax = 12.2; alias rho^N = 2.89e-46
+li: arithmetic part evaluated in 80.7 s
+li: c_0 = 33.992865 -1.69e-25i  (number of zeros inside the circle)
+li: lambda_1..5 = [34.02775121 34.12410519 34.281787   34.50058292 34.78020609]
+li: first negative n: None  min lambda_n/n: 1.91496 at n=42
+li: energy split E_minus/E_plus = 1.771e-07 ; max|c_-n| rho^n = 3.397e+01 ; max imag c_n = 2.562e-11
+wrote out/li_EA18_H20000.npz in 97.1 s
+li: EA:3/10 H 300 rho 1-0.00166667 N 2^18 = 262144 nmax 50000; arrays 17 MB; amplification rho^-nmax = 1.66e+36; alias rho^N = 1.25e-190
+li: arithmetic part evaluated in 7.3 s
+li: c_0 = 0.000000 -2.70e-24i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.04617142 0.18461174 0.41509941 0.73726615 1.15059831]
+li: first negative n: 6749  min lambda_n/n: -1.33053e+28 at n=49955
+li: energy split E_minus/E_plus = 1.869e-27 ; max|c_-n| rho^n = 1.153e-13 ; max imag c_n = 1.326e-13
+wrote out/li_EA310_H300.npz in 8.8 s
+li: DH H 10000 rho 1-5e-05 N 2^22 = 4194304 nmax 1000000; arrays 268 MB; amplification rho^-nmax = 5.19e+21; alias rho^N = 8.31e-92
+li: arithmetic part evaluated in 242.0 s
+li: c_0 = -0.000000 -3.58e-25i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.09763615 0.38882551 0.86846893 1.52825912 2.35696026]
+li: first negative n: 328997  min lambda_n/n: -3.49034e+12 at n=999954
+li: energy split E_minus/E_plus = 8.233e-26 ; max|c_-n| rho^n = 6.655e-12 ; max imag c_n = 5.419e-12
+wrote out/li_DH_H10000.npz in 245.3 s
+li: DH H 7000 rho 1-7.14286e-05 N 2^22 = 4194304 nmax 1000000; arrays 268 MB; amplification rho^-nmax = 1.05e+31; alias rho^N = 7.65e-131
+li: arithmetic part evaluated in 258.2 s
+li: c_0 = -0.000000 -3.58e-25i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.09763615 0.38882551 0.86846893 1.52825912 2.35696026]
+li: first negative n: 328997  min lambda_n/n: -1.95285e+13 at n=999962
+li: energy split E_minus/E_plus = 5.441e-32 ; max|c_-n| rho^n = 3.346e-12 ; max imag c_n = 3.445e-12
+wrote out/li_DH_H7000.npz in 261.5 s
+li: DH H 50000 rho 1-1e-05 N 2^23 = 8388608 nmax 1000000; arrays 537 MB; amplification rho^-nmax = 2.2e+04; alias rho^N = 3.7e-37
+li: arithmetic part evaluated in 477.8 s
+li: c_0 = 3.999996 -1.79e-25i  (number of zeros inside the circle)
+li: lambda_1..5 = [4.09752687 4.38818477 4.86687098 5.52527831 6.3521711 ]
+li: first negative n: None  min lambda_n/n: 1.20774 at n=7
+li: energy split E_minus/E_plus = 1.407e-09 ; max|c_-n| rho^n = 4.000e+00 ; max imag c_n = 4.662e-11
+wrote out/li_DH_H50000.npz in 482.6 s
+li: ZETA H 30000 rho 1-1.66667e-05 N 2^23 = 8388608 nmax 1000000; arrays 537 MB; amplification rho^-nmax = 1.73e+07; alias rho^N = 1.91e-61
+li: arithmetic part evaluated in 91.2 s
+li: c_0 = 0.000000 -4.22e-26i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.02309571 0.09234574 0.20763892 0.36879048 0.57554271]
+li: first negative n: None  min lambda_n/n: 0.0230957 at n=1
+li: energy split E_minus/E_plus = 1.182e-31 ; max|c_-n| rho^n = 2.291e-11 ; max imag c_n = 2.067e-11
+wrote out/li_ZETA_H30000.npz in 108.6 s
+li: ZETA H 50000 rho 1-1e-05 N 2^23 = 8388608 nmax 1000000; arrays 537 MB; amplification rho^-nmax = 2.2e+04; alias rho^N = 3.7e-37
+li: arithmetic part evaluated in 79.7 s
+li: c_0 = -0.000000 -4.22e-26i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.02309571 0.09234574 0.20763892 0.36879048 0.57554271]
+li: first negative n: None  min lambda_n/n: 0.0230957 at n=1
+li: energy split E_minus/E_plus = 1.065e-31 ; max|c_-n| rho^n = 4.040e-11 ; max imag c_n = 4.234e-11
+wrote out/li_ZETA_H50000.npz in 96.8 s
+li: LCHI3 H 50000 rho 1-1e-05 N 2^23 = 8388608 nmax 1000000; arrays 537 MB; amplification rho^-nmax = 2.2e+04; alias rho^N = 3.7e-37
+li: arithmetic part evaluated in 193.0 s
+li: c_0 = 0.000000 -1.03e-25i  (number of zeros inside the circle)
+li: lambda_1..5 = [0.05661498 0.22611664 0.50747932 0.89900783 1.39835841]
+li: first negative n: None  min lambda_n/n: 0.056615 at n=1
+li: energy split E_minus/E_plus = 1.126e-31 ; max|c_-n| rho^n = 4.246e-11 ; max imag c_n = 4.390e-11
+wrote out/li_LCHI3_H50000.npz in 198.3 s
+Thu Nov 19 07:05:42 PM UTC 2026
+lines: ZETA window [10,210] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 6.0 s
+wrote data/ZETA_1e1.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e1.json
+lines: DH window [70,270] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 46.2 s
+wrote data/DH_70.npz
+combo1 done
+combo3 done
+wrote out/DH_70.json
+lines: DH window [122,158] dy 0.005 pad 8: 10409 points x 5 lines = 52045 evaluations; arrays 5.0 MB
+lines: evaluated in 10.0 s
+wrote data/DH_122_nooff.npz
+combo1 done
+combo3 done
+wrote out/DH_122_nooff.json
+lines: DH window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 139.3 s
+wrote data/DH_1e3.npz
+combo1 done
+combo3 done
+wrote out/DH_1e3.json
+lines: LCHI3 window [10,210] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 19.2 s
+wrote data/LCHI3_1e1.npz
+combo1 done
+combo3 done
+wrote out/LCHI3_1e1.json
+lines: ZETA window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 16.3 s
+wrote data/ZETA_1e3.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e3.json
+lines: ZETA window [10000,10200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 52.8 s
+wrote data/ZETA_1e4.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e4.json
+lines: ZETA window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 28.0 s
+wrote data/ZETA_1e5.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e5.json
+lines: ZETA window [1e+06,1.0002e+06] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 27.6 s
+wrote data/ZETA_1e6.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e6.json
+lines: ZETA window [1e+07,1.00002e+07] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 56.0 s
+wrote data/ZETA_1e7.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e7.json
+lines: EA:1/8 window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 27.4 s
+wrote data/EA18_1e3.npz
+combo1 done
+combo3 done
+wrote out/EA18_1e3.json
+lines: EA:3/10 window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 30.8 s
+wrote data/EA310_1e3.npz
+combo1 done
+combo3 done
+wrote out/EA310_1e3.json
+lines: TNR window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 8.9 s
+wrote data/TNR_1e3.npz
+combo1 done
+combo3 done
+wrote out/TNR_1e3.json
+lines: EA:1/8 window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 61.0 s
+wrote data/EA18_1e5.npz
+combo1 done
+combo3 done
+wrote out/EA18_1e5.json
+lines: EA:3/10 window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 62.8 s
+wrote data/EA310_1e5.npz
+combo1 done
+combo3 done
+wrote out/EA310_1e5.json
+lines: TNR window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 33.2 s
+wrote data/TNR_1e5.npz
+combo1 done
+combo3 done
+wrote out/TNR_1e5.json
+lines: HEAT:-0.5:310 window [100,300] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+Heat quad: bits 477 digits 128 Umax 4.769 panels 96 nodes/panel 64 total nodes 6144 (planned memory ~ 3.9 MB)
+lines: evaluated in 1727.1 s
+wrote data/HEATm05_100.npz
+combo1 done
+combo3 done
+wrote out/HEATm05_100.json
+lines: LCHI3 window [1000,1200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 38.3 s
+wrote data/LCHI3_1e3.npz
+combo1 done
+combo3 done
+wrote out/LCHI3_1e3.json
+lines: LCHI3 window [10000,10200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 165.7 s
+wrote data/LCHI3_1e4.npz
+combo1 done
+combo3 done
+wrote out/LCHI3_1e4.json
+lines: ZETA window [3000,3200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 12.1 s
+wrote data/ZETA_3e3.npz
+combo1 done
+combo3 done
+wrote out/ZETA_3e3.json
+lines: ZETA window [5000,5200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 12.3 s
+wrote data/ZETA_5e3.npz
+combo1 done
+combo3 done
+wrote out/ZETA_5e3.json
+lines: ZETA window [1e+06,1.002e+06] dy 0.005 pad 8: 403209 points x 5 lines = 2016045 evaluations; arrays 193.5 MB
+lines: evaluated in 99.0 s
+wrote data/ZETA_1e6_long.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e6_long.json
+lines: ZETA window [1e+07,1.0002e+07] dy 0.005 pad 8: 403209 points x 5 lines = 2016045 evaluations; arrays 193.5 MB
+lines: evaluated in 262.5 s
+wrote data/ZETA_1e7_long.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e7_long.json
+lines: LCHI3 window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 1529.2 s
+wrote data/LCHI3_1e5.npz
+combo1 done
+combo3 done
+wrote out/LCHI3_1e5.json
+lines: LCHI3 window [1e+06,1.00002e+06] dy 0.005 pad 8: 7209 points x 5 lines = 36045 evaluations; arrays 3.5 MB
+lines: evaluated in 1560.8 s
+wrote data/LCHI3_1e6.npz
+combo1 done
+combo3 done
+wrote out/LCHI3_1e6.json
+ZETA S=100 first negative n: None sum h on-line 52.1 
+DH S=50 first negative n: 131906 sum h on-line 38.1 | controlling off-line zero beta 0.8085 gamma 85.699: 1/(1-|w|) = 23807, gamma^2/x0 = 23805
+DH S=100 first negative n: 108204 sum h on-line 92.6 | controlling off-line zero beta 0.8085 gamma 85.699: 1/(1-|w|) = 23807, gamma^2/x0 = 23805
+DH S=200 first negative n: 116290 sum h on-line 219.1 | controlling off-line zero beta 0.8085 gamma 85.699: 1/(1-|w|) = 23807, gamma^2/x0 = 23805
+DH S=400 first negative n: 134065 sum h on-line 509.7 | controlling off-line zero beta 0.8085 gamma 85.699: 1/(1-|w|) = 23807, gamma^2/x0 = 23805
+HEAT--0.5 S=25 first negative n: 997229 sum h on-line 4.5 | controlling off-line zero beta 0.7430 gamma 111.694: 1/(1-|w|) = 51350, gamma^2/x0 = 51349
+HEAT--0.5 S=50 first negative n: 340337 sum h on-line 17.0 | controlling off-line zero beta 0.7430 gamma 111.694: 1/(1-|w|) = 51350, gamma^2/x0 = 51349
+HEAT--0.5 S=100 first negative n: 225275 sum h on-line 50.0 | controlling off-line zero beta 0.7430 gamma 111.694: 1/(1-|w|) = 51350, gamma^2/x0 = 51349
+HEAT--0.1 S=400 first negative n: None sum h on-line 356.4 | controlling off-line zero beta 0.6403 gamma 564.369: 1/(1-|w|) = 2270986, gamma^2/x0 = 2270984
+Thu Nov 19 08:58:08 PM UTC 2026
+ALLDONE

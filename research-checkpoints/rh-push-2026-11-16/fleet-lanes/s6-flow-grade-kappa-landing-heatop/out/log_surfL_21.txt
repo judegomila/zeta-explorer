@@ -1,0 +1,10 @@
+TNR:1000003:2.2 1/360 1s last {'d': 2, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 2, 'certified_t0': True, 'scale': 0.02199350652974304, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 41/360 1s last {'d': 4, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 4, 'certified_t0': True, 'scale': 1.9545015069031813, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 81/360 1s last {'d': 7, 'n': 8, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 7, 'certified_t0': True, 'scale': 0.17672636612426568, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 121/360 1s last {'d': 10, 'n': 1000, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 10, 'certified_t0': True, 'scale': 16.99521446487089, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 161/360 1s last {'d': 20, 'n': 500, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 20, 'certified_t0': True, 'scale': 8.871210733104666, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 201/360 1s last {'d': 40, 'n': 50, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 40, 'certified_t0': True, 'scale': 1.0128331263611312, 'tstar_raw': 0.0, 'sec': 0.0}
+TNR:1000003:2.2 241/360 2s last {'d': 80, 'n': 3, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 80, 'certified_t0': True, 'scale': 0.0731190076818023, 'tstar_raw': 0.0, 'sec': 0.1}
+TNR:1000003:2.2 281/360 9s last {'d': 128, 'n': 200, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 128, 'certified_t0': True, 'scale': 3.754061508320776, 'tstar_raw': 0.0, 'sec': 1.5}
+TNR:1000003:2.2 321/360 73s last {'d': 200, 'n': 0, 'theta_star': 2.011229860330298e-05, 'bracket': (2.0003680595775824e-05, 2.011229860330298e-05), 'real_roots_t0': 196, 'certified_t0': True, 'scale': 0.02199350652974304, 'tstar_raw': 9.728607033074547e-09, 'sec': 55.5}
+{"obj": "TNR:1000003:2.2", "table": "data/mom_local.pkl", "prec": 4000, "dstar_grid": {"0": 13, "1": 400, "2": 400, "3": 400, "5": 400, "8": 400, "12": 400, "20": 400, "30": 400, "50": 400, "100": 400, "200": 400, "500": 400, "1000": 400, "2000": 400}, "n_cells": 360, "n_positive": 15, "uncertified": 0}

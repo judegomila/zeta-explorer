@@ -1,0 +1,1 @@
+planned allocation: 20000x20000 float64 = 2.98 GiB (x3 with eigensolver work)

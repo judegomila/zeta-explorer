@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/zf-large-values/checks.py", line 2, in <module>
+    import sympy as sp
+ModuleNotFoundError: No module named 'sympy'
+V1a identity (20.9) holds: True
+V1b grid min of -E*: 2.281475e-04 at delta=0.3867, y=0.000 (x=1/2-y)
+V1c exact delta* = 185/138 - 35*sqrt(16354)/4692 = 0.386637562184  min = 0.0002281473088  a*=(1+delta*)/2 = 0.69331878  delta*<2/5: True
+V1d Lemma lower bound 49/440640 = 1.112019e-04
+V1e R*(delta*,1/2) = 0.66846402  1-delta* = 0.61336244
+V2 grid points with sigma<=7/10 where GM < MV: 0 ; points sigma>7/10 where GM < min(MV,Huxley): 48060
+V3 paper retuned binding delta* = 0.3885837123 <2/5: True  ceiling = 0.874957069799
+V4 kappa=3/4: delta*=0.469355752 a*=0.7346779 B*=0.8748869893579 count=0.59032265
+   intrinsic GM (T->U) third term 1+2n/5-2S with S<=delta*n beats count only for n > 0.760476 ; sextic large sieve exponent max(1,n,2(1+n)/3) there = 1.17365 (MV-optimal needs n<=1/2)
+   best intrinsic-GM count with n<=1/2: 0.730644 (>= count: no gain)
+   ambient (difference-conductor U^2) GM count, any length/power: 1.10237 (>= count: no gain)
+V4 kappa=29991/40000: delta*=0.469344941 a*=0.7346725 B*=0.8748866496166 count=0.59033228
+   intrinsic GM (T->U) third term 1+2n/5-2S with S<=delta*n beats count only for n > 0.760489 ; sextic large sieve exponent max(1,n,2(1+n)/3) there = 1.17366 (MV-optimal needs n<=1/2)
+   best intrinsic-GM count with n<=1/2: 0.730655 (>= count: no gain)
+   ambient (difference-conductor U^2) GM count, any length/power: 1.10240 (>= count: no gain)
+V5 n=0.5000: Lemma 9.1 exponent 1.0000 vs optimal max(1,n)=1.0000
+V5 n=0.7605: Lemma 9.1 exponent 1.1737 vs optimal max(1,n)=1.0000
+V5 n=0.8333: Lemma 9.1 exponent 1.2222 vs optimal max(1,n)=1.0000
+V5 n=1.0000: Lemma 9.1 exponent 1.3333 vs optimal max(1,n)=1.0000

@@ -1,0 +1,29 @@
+{
+ "scoredTotal": 12315,
+ "leftTop60": {
+  "n": 37,
+  "stillScored": 33,
+  "sameScore": 32,
+  "noLongerScored": [
+   "connes-adelic-truncated-trace x map-open-4 x zv-polynomial-heat-coefficients",
+   "euler-completed-weil-multiplier x seven-eighths-abscissa-formula x silent-u6e-bost-connes-states-outside-d8",
+   "lean-cg-covering-identity x map-open-4 x weil-small-support-lean",
+   "map-open-4 x mixed-group-rigid-profile x zero-ode-ht"
+  ]
+ },
+ "perProposedNode": {
+  "tz-one-sided-completion-bound-band": {
+   "scored": 1827,
+   "best": 11.25,
+   "withPenalty": 636
+  },
+  "exact-relation-rigidity": {
+   "scored": 2330,
+   "best": 10.75,
+   "withPenalty": 1134
+  }
+ },
+ "withBoth": 12,
+ "withCellMember": 15,
+ "bestWithCell": 8.25
+}

@@ -1,0 +1,73 @@
+thin sets to 202: THIN 16 primes, DEL 32 primes (b=0.90)
+U=10000 L=(47.1,100.0) elements=62 primes=513 rows=1026 threads=2 ; planned output 0.00 GB (in memory)
+DONE rows=1026
+thin sets to 357: THIN 24 primes, DEL 48 primes (b=0.90)
+U=31623 L=(76.2,177.8) elements=99 primes=1463 rows=2926 threads=2 ; planned output 0.00 GB (in memory)
+DONE rows=2926
+thin sets to 634: THIN 36 primes, DEL 72 primes (b=0.90)
+U=100000 L=(123.4,316.2) elements=175 primes=4204 rows=8408 threads=2 ; planned output 0.00 GB (in memory)
+DONE rows=8408
+thin sets to 1126: THIN 54 primes, DEL 109 primes (b=0.90)
+U=316230 L=(199.7,562.3) elements=299 primes=12099 rows=24198 threads=2 ; planned output 0.00 GB (in memory)
+DONE rows=24198
+thin sets to 2002: THIN 83 primes, DEL 167 primes (b=0.90)
+U=1000000 L=(323.2,1000.0) elements=538 primes=35181 rows=70362 threads=2 ; planned output 0.01 GB (in memory)
+DONE rows=70362
+thin sets to 3558: THIN 128 primes, DEL 256 primes (b=0.90)
+U=3162300 L=(523.2,1778.3) elements=929 primes=102973 rows=205946 threads=2 ; planned output 0.02 GB (in memory)
+DONE rows=205946
+thin sets to 6326: THIN 198 primes, DEL 396 primes (b=0.90)
+U=10000000 L=(846.8,3162.3) elements=1621 primes=302932 rows=605864 threads=2 ; planned output 0.05 GB (in memory)
+DONE rows=605864
+thin sets to 11248: THIN 307 primes, DEL 615 primes (b=0.90)
+U=31623000 L=(1370.6,5623.4) elements=2819 primes=895558 rows=1791116 threads=2 ; planned output 0.16 GB (in memory)
+DONE rows=1791116
+rows_1e4.bin rows 1026 k 60 random 0.4095
+   TRUE  omega 0.3782  null 0.4202 (sd 0.0358)  self 0.1262  corr 0.025  mean|S_m*|^2 0.1053 mean|S_h|^2 0.1044 kurt 1.807 overlap 1.000
+   SGN   omega 0.5110  null 0.4149 (sd 0.0451)  self 0.1001  corr -0.048  mean|S_m*|^2 0.1024 mean|S_h|^2 0.1111 kurt 2.082 overlap 0.033
+   LIOU  omega 0.4082  null 0.4196 (sd 0.0364)  self 0.1225  corr 0.022  mean|S_m*|^2 0.1105 mean|S_h|^2 0.1055 kurt 1.945 overlap 0.333
+   THIN  omega 0.3537  null 0.4181 (sd 0.0404)  self 0.1112  corr -0.012  mean|S_m*|^2 0.1002 mean|S_h|^2 0.0993 kurt 2.000 overlap 0.100
+   DEL   omega 0.5020  null 0.4136 (sd 0.0303)  self 0.1632  corr -0.035  mean|S_m*|^2 0.0432 mean|S_h|^2 0.0198 kurt 1.719 overlap 0.167
+rows_3.1623e4.bin rows 2926 k 112 random 0.4088
+   TRUE  omega 0.3973  null 0.4153 (sd 0.0256)  self 0.1134  corr 0.107  mean|S_m*|^2 0.1094 mean|S_h|^2 0.1084 kurt 2.121 overlap 1.000
+   SGN   omega 0.2849  null 0.4119 (sd 0.0276)  self 0.1223  corr 0.105  mean|S_m*|^2 0.1044 mean|S_h|^2 0.1063 kurt 1.990 overlap 0.054
+   LIOU  omega 0.3672  null 0.4114 (sd 0.0268)  self 0.1194  corr -0.006  mean|S_m*|^2 0.1010 mean|S_h|^2 0.1082 kurt 2.129 overlap 0.036
+   THIN  omega 0.3288  null 0.4126 (sd 0.0261)  self 0.1192  corr 0.046  mean|S_m*|^2 0.1055 mean|S_h|^2 0.1062 kurt 2.039 overlap 0.089
+   DEL   omega 0.3927  null 0.4090 (sd 0.0209)  self 0.1468  corr 0.004  mean|S_m*|^2 0.0183 mean|S_h|^2 0.0266 kurt 1.813 overlap 0.089
+rows_1e5.bin rows 8408 k 208 random 0.4094
+   TRUE  omega 0.3479  null 0.4096 (sd 0.0175)  self 0.1334  corr 0.056  mean|S_m*|^2 0.1052 mean|S_h|^2 0.1053 kurt 2.063 overlap 1.000
+   SGN   omega 0.3570  null 0.4129 (sd 0.0169)  self 0.1364  corr 0.030  mean|S_m*|^2 0.1039 mean|S_h|^2 0.1053 kurt 2.043 overlap 0.019
+   LIOU  omega 0.3800  null 0.4100 (sd 0.0174)  self 0.1337  corr 0.047  mean|S_m*|^2 0.1029 mean|S_h|^2 0.1026 kurt 2.063 overlap 0.019
+   THIN  omega 0.3376  null 0.4109 (sd 0.0187)  self 0.1309  corr 0.010  mean|S_m*|^2 0.1043 mean|S_h|^2 0.1041 kurt 2.133 overlap 0.154
+   DEL   omega 0.4304  null 0.4109 (sd 0.0174)  self 0.1383  corr -0.009  mean|S_m*|^2 0.0264 mean|S_h|^2 0.0309 kurt 1.986 overlap 0.048
+rows_3.1623e5.bin rows 24198 k 388 random 0.4095
+   TRUE  omega 0.3421  null 0.4108 (sd 0.0118)  self 0.1434  corr 0.068  mean|S_m*|^2 0.1050 mean|S_h|^2 0.1047 kurt 2.065 overlap 1.000
+   SGN   omega 0.3240  null 0.4104 (sd 0.0120)  self 0.1382  corr 0.053  mean|S_m*|^2 0.1029 mean|S_h|^2 0.1044 kurt 2.097 overlap 0.046
+   LIOU  omega 0.3434  null 0.4104 (sd 0.0123)  self 0.1366  corr 0.063  mean|S_m*|^2 0.1054 mean|S_h|^2 0.1035 kurt 2.144 overlap 0.036
+   THIN  omega 0.3356  null 0.4100 (sd 0.0120)  self 0.1391  corr 0.063  mean|S_m*|^2 0.1032 mean|S_h|^2 0.1059 kurt 2.122 overlap 0.052
+   DEL   omega 0.3910  null 0.4121 (sd 0.0108)  self 0.1562  corr 0.007  mean|S_m*|^2 0.0365 mean|S_h|^2 0.0226 kurt 1.943 overlap 0.160
+rows_1e6.bin rows 70362 k 728 random 0.4095
+   TRUE  omega 0.3065  null 0.4101 (sd 0.0085)  self 0.1452  corr 0.100  mean|S_m*|^2 0.1052 mean|S_h|^2 0.1051 kurt 2.126 overlap 1.000
+   SGN   omega 0.2932  null 0.4111 (sd 0.0093)  self 0.1405  corr 0.097  mean|S_m*|^2 0.1046 mean|S_h|^2 0.1052 kurt 2.170 overlap 0.008
+   LIOU  omega 0.2819  null 0.4099 (sd 0.0092)  self 0.1399  corr 0.097  mean|S_m*|^2 0.1047 mean|S_h|^2 0.1058 kurt 2.178 overlap 0.030
+   THIN  omega 0.2899  null 0.4101 (sd 0.0086)  self 0.1437  corr 0.097  mean|S_m*|^2 0.1043 mean|S_h|^2 0.1048 kurt 2.160 overlap 0.052
+   DEL   omega 0.3621  null 0.4092 (sd 0.0076)  self 0.1569  corr 0.039  mean|S_m*|^2 0.0301 mean|S_h|^2 0.0335 kurt 2.020 overlap 0.080
+rows_3.1623e6.bin rows 205946 k 1371 random 0.4096
+   TRUE  omega 0.2787  null 0.4099 (sd 0.0056)  self 0.1565  corr 0.145  mean|S_m*|^2 0.1049 mean|S_h|^2 0.1049 kurt 2.140 overlap 1.000
+   SGN   omega 0.2619  null 0.4098 (sd 0.0063)  self 0.1502  corr 0.144  mean|S_m*|^2 0.1056 mean|S_h|^2 0.1052 kurt 2.171 overlap 0.012
+   LIOU  omega 0.2598  null 0.4105 (sd 0.0056)  self 0.1456  corr 0.137  mean|S_m*|^2 0.1050 mean|S_h|^2 0.1051 kurt 2.200 overlap 0.010
+   THIN  omega 0.2624  null 0.4106 (sd 0.0062)  self 0.1473  corr 0.140  mean|S_m*|^2 0.1047 mean|S_h|^2 0.1039 kurt 2.178 overlap 0.042
+   DEL   omega 0.3383  null 0.4101 (sd 0.0050)  self 0.1718  corr 0.088  mean|S_m*|^2 0.0255 mean|S_h|^2 0.0274 kurt 2.000 overlap 0.051
+rows_1e7.bin rows 605864 k 2592 random 0.4096
+   TRUE  omega 0.2532  null 0.4097 (sd 0.0037)  self 0.1621  corr 0.203  mean|S_m*|^2 0.1048 mean|S_h|^2 0.1046 kurt 2.165 overlap 1.000
+   SGN   omega 0.2330  null 0.4098 (sd 0.0039)  self 0.1550  corr 0.200  mean|S_m*|^2 0.1050 mean|S_h|^2 0.1050 kurt 2.208 overlap 0.019
+   LIOU  omega 0.2317  null 0.4101 (sd 0.0041)  self 0.1528  corr 0.200  mean|S_m*|^2 0.1047 mean|S_h|^2 0.1052 kurt 2.215 overlap 0.010
+   THIN  omega 0.2313  null 0.4097 (sd 0.0041)  self 0.1543  corr 0.201  mean|S_m*|^2 0.1049 mean|S_h|^2 0.1050 kurt 2.209 overlap 0.049
+   DEL   omega 0.2944  null 0.4097 (sd 0.0034)  self 0.1781  corr 0.152  mean|S_m*|^2 0.0282 mean|S_h|^2 0.0266 kurt 2.007 overlap 0.041
+rows_3.1623e7.bin rows 1791116 k 4914 random 0.4097
+   TRUE  omega 0.2376  null 0.4099 (sd 0.0025)  self 0.1666  corr 0.223  mean|S_m*|^2 0.1049 mean|S_h|^2 0.1049 kurt 2.190 overlap 1.000
+   SGN   omega 0.2242  null 0.4099 (sd 0.0029)  self 0.1577  corr 0.221  mean|S_m*|^2 0.1047 mean|S_h|^2 0.1047 kurt 2.238 overlap 0.010
+   LIOU  omega 0.2226  null 0.4099 (sd 0.0028)  self 0.1569  corr 0.219  mean|S_m*|^2 0.1048 mean|S_h|^2 0.1050 kurt 2.243 overlap 0.006
+   THIN  omega 0.2247  null 0.4097 (sd 0.0030)  self 0.1589  corr 0.219  mean|S_m*|^2 0.1047 mean|S_h|^2 0.1048 kurt 2.234 overlap 0.034
+   DEL   omega 0.2911  null 0.4099 (sd 0.0022)  self 0.1842  corr 0.177  mean|S_m*|^2 0.0301 mean|S_h|^2 0.0283 kurt 2.023 overlap 0.033
+ROWS-A DONE

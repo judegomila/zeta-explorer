@@ -1,0 +1,18 @@
+[
+{
+"code": "HEAT--0.5",
+"t": 0.001,
+"side": "zero",
+"N": 20000,
+"nodeset": "first",
+"lam_min": -7.168720624889157e-06,
+"lam_max": 4.769557394878648,
+"lam_min_rel": -1.5030159051208043e-06,
+"n_neg_above_floor": 4,
+"num_rank": 106,
+"n_online": 79,
+"n_offline": 4,
+"cut_height": 214.47610589527216,
+"sec": 36.845503091812134
+}
+]

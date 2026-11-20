@@ -1,0 +1,5 @@
+PLAN: T-ZETA fun=ZETA a=1 N=40 bits=4000; matrix 40x40 arb, about 2 MB
+L(a) = [0.04613592806046257535946601 +/- 3.46e-27]  jets 0.2 s
+matrix 0.2 s
+pivot 32 [1.371248737019454998444e-110 +/- 1.15e-132]
+{"name": "T-ZETA", "negative_pivots": [], "undecided": [], "pivots_computed": 40, "min_rel_accuracy_bits": 3501, "seconds": 0.20948338508605957}

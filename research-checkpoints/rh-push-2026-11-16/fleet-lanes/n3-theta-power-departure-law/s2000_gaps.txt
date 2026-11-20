@@ -1,0 +1,19 @@
+zeta zeros found 1517 first [14.13472376 21.02204084 25.01085672] last 1999.545776735435
+gaps 1516 with F_w sign change (no first-order merge): 537
+direct lost gaps per w vs first/second-order prediction (gap index sets):
+ w=0.960 on-line=1455 lost=31 pred1=36 pred2=20 lost&pred2=18 lost-only=[241, 397, 476, 692, 744, 754] pred2-only=[766, 828] T1 direct=459.8200000000004
+ w=0.965 on-line=1469 lost=24 pred1=25 pred2=16 lost&pred2=14 lost-only=[397, 476, 692, 1221, 1231, 1416] pred2-only=[1110, 1130] T1 direct=677.5400000000006
+ w=0.970 on-line=1485 lost=16 pred1=21 pred2=9 lost&pred2=8 lost-only=[397, 692, 1231, 1416, 1430, 1442] pred2-only=[776] T1 direct=677.5400000000006
+ w=0.975 on-line=1493 lost=12 pred1=15 pred2=7 lost&pred2=6 lost-only=[692, 1231, 1416, 1430, 1495, 1505] pred2-only=[1277] T1 direct=1054.900000000001
+ w=0.980 on-line=1499 lost=9 pred1=10 pred2=5 lost&pred2=4 lost-only=[692, 1231, 1416, 1430, 1495] pred2-only=[995] T1 direct=1054.900000000001
+ w=0.985 on-line=1503 lost=7 pred1=7 pred2=2 lost&pred2=2 lost-only=[692, 1231, 1416, 1430, 1495] pred2-only=[] T1 direct=1054.900000000001
+ w=0.990 on-line=1505 lost=6 pred1=6 pred2=2 lost&pred2=2 lost-only=[692, 1231, 1416, 1495] pred2-only=[] T1 direct=1054.900000000001
+ w=0.995 on-line=1517 lost=0 pred1=1 pred2=0 lost&pred2=0 lost-only=[] pred2-only=[] T1 direct=None
+ w=1.005 on-line=1517 lost=0 pred1=0 pred2=0 lost&pred2=0 lost-only=[] pred2-only=[] T1 direct=None
+ w=1.010 on-line=1515 lost=1 pred1=2 pred2=1 lost&pred2=1 lost-only=[] pred2-only=[] T1 direct=1283.1700000000012
+ w=1.015 on-line=1513 lost=2 pred1=2 pred2=3 lost&pred2=2 lost-only=[] pred2-only=[1250] T1 direct=1283.1700000000012
+ w=1.020 on-line=1501 lost=8 pred1=6 pred2=7 lost&pred2=7 lost-only=[783] pred2-only=[] T1 direct=630.6000000000006
+ w=1.025 on-line=1489 lost=14 pred1=12 pred2=13 lost&pred2=11 lost-only=[783, 1286, 1473] pred2-only=[1407, 1489] T1 direct=630.5900000000006
+ w=1.030 on-line=1477 lost=20 pred1=20 pred2=17 lost&pred2=17 lost-only=[783, 1286, 1473] pred2-only=[] T1 direct=357.4900000000003
+ w=1.035 on-line=1469 lost=24 pred1=26 pred2=20 lost&pred2=19 lost-only=[642, 694, 783, 1286, 1473] pred2-only=[1270] T1 direct=357.4800000000003
+ w=1.040 on-line=1465 lost=26 pred1=30 pred2=26 lost&pred2=20 lost-only=[642, 694, 783, 1286, 1456, 1473] pred2-only=[297, 656, 745, 918, 1045, 1425] T1 direct=357.4700000000003

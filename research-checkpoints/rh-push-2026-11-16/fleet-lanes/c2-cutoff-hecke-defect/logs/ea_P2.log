@@ -1,0 +1,7 @@
+kernel=ea2 P=2 window U=1.3863 nodes n=14 h=0.1 panels=15 r-nodes=600 Rmax=3.743 dps=60
+planned allocation: 2 x 14 x 40 per panel + 3 x 14^2 = 1708 arb of 203 bits ~ 0 MB
+  panel 0/15  7s
+  panel 10/15  88s
+matrix built 126s
+window p=  2 (0,1.386] nodes= 14: n+=11 n-=3 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-27.27 neg/2x2 pivots log10=[-11.32, -13.81, -25.85]  126s
+done 125.87570881843567

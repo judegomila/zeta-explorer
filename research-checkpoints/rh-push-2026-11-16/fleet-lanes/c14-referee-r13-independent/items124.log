@@ -1,0 +1,336 @@
+{
+ "TNR(2,2.0506)": {
+  "zero": "(0.8238458809063307+4.532360141827194j)",
+  "abs_m_at_zero": 3.3691725143757484e-59,
+  "abs_zeta_at_zero": 0.7104591007836427,
+  "F_at_2": 2.739772751051259,
+  "FE_defect": 4.543068025415991e-17
+ },
+ "TNR(3,2.0785)": {
+  "zero": "(0.7542025972153357+2.859600867380127j)",
+  "abs_m_at_zero": 4.0781153300263564e-59,
+  "abs_zeta_at_zero": 0.5867995610310732,
+  "F_at_2": 3.9097657327787365,
+  "FE_defect": 3.2811390211323214e-17
+ },
+ "Lambda_F(3^k)/log3": [
+  4.81,
+  -7.52,
+  22.03,
+  -53.59
+ ],
+ "lemma_L": {
+  "exp(-x) c=2 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 8.395975472118823e-174,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=2 k=4": {
+   "signs": {
+    "+": 100,
+    "-": 0,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 2.2891458789155888e-169,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=2.0506 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 4.23089753584101e-175,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=2.0506 k=4": {
+   "signs": {
+    "+": 100,
+    "-": 0,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 6.259796793996548e-169,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=3 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 1.2509938068565606e-173,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=3 k=4": {
+   "signs": {
+    "+": 100,
+    "-": 0,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 7.688933642103184e-171,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "exp(-x) c=1.4142 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 4.1336386465342136e-175,
+   "trials_with_a_negative_minor_of_W": 10
+  },
+  "exp(-x) c=1.4142 k=4": {
+   "signs": {
+    "+": 99,
+    "-": 1,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 2.131105740226135e-171,
+   "trials_with_a_negative_minor_of_W": 32
+  },
+  "exp(-x) c=0.5 k=3": {
+   "signs": {
+    "+": 7,
+    "-": 93,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 1.4817669807919549e-174,
+   "trials_with_a_negative_minor_of_W": 62
+  },
+  "exp(-x) c=0.5 k=4": {
+   "signs": {
+    "+": 81,
+    "-": 19,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 2.495002571009012e-170,
+   "trials_with_a_negative_minor_of_W": 96
+  },
+  "theta c=2 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 5.015796287182677e-171,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=2 k=4": {
+   "signs": {
+    "+": 28,
+    "-": 72,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 4.1114276794813223e-168,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=2.0506 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 4.568621780472635e-170,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=2.0506 k=4": {
+   "signs": {
+    "+": 33,
+    "-": 67,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 6.049838447226688e-165,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=3 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 1.8365888643852361e-169,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=3 k=4": {
+   "signs": {
+    "+": 35,
+    "-": 65,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 4.227074293351435e-167,
+   "trials_with_a_negative_minor_of_W": 0
+  },
+  "theta c=1.4142 k=3": {
+   "signs": {
+    "+": 0,
+    "-": 100,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 8.25225336250861e-169,
+   "trials_with_a_negative_minor_of_W": 12
+  },
+  "theta c=1.4142 k=4": {
+   "signs": {
+    "+": 38,
+    "-": 62,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 1.1851770177515496e-167,
+   "trials_with_a_negative_minor_of_W": 47
+  },
+  "theta c=0.5 k=3": {
+   "signs": {
+    "+": 4,
+    "-": 96,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 2.0802067963629224e-171,
+   "trials_with_a_negative_minor_of_W": 73
+  },
+  "theta c=0.5 k=4": {
+   "signs": {
+    "+": 46,
+    "-": 54,
+    "0": 0
+   },
+   "cauchy_binet_max_rel_defect": 3.857447100387082e-164,
+   "trials_with_a_negative_minor_of_W": 96
+  }
+ },
+ "lemma_L_note": "exp(-x): hypothesis of Lemma L holds with eps = (-1)^(k(k-1)/2) (k=3: -, k=4: +); theta: reference signs measured by the lane (k=3: -, k=4: -)",
+ "order2_minor_not_positive_of_200": {
+  "theta": 0,
+  "theta_w_TNR": 0
+ },
+ "lemma_E_transform": {
+  "int_K3_e_plus": "(0.2881244697626331+0.7693183543338029j)",
+  "two_xi": "(0.7226408447012335+0.03795754222760426j)",
+  "product": "(-6.28549507447438+0.09388533420884694j)",
+  "four_abs_xi_sq": 0.5236505654424726,
+  "ref_abs_xi_sq_lane": 0.13091264136,
+  "abs_xi_sq": 0.13091264136061814
+ },
+ "lemma_E_logconcavity_a=0.3": {
+  "max_second_difference_of_log": -10.233148043545107,
+  "all_positive_values": true,
+  "decreasing": true
+ },
+ "lemma_E_logconcavity_a=0.45": {
+  "max_second_difference_of_log": -10.24153471279803,
+  "all_positive_values": true,
+  "decreasing": true
+ },
+ "TNR_xi_kernel_d2log_p0=2_u=0.405": 29.36491056583053,
+ "TNR_xi_kernel_d2log_p0=3_u=0.575": 157.18873671166924,
+ "zeta_xi_kernel_d2log_u=0.405": -29.61769366327774
+}
+zeta M {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 6.392862046263334e-11}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 4.586885833112896e-07}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00010596780320021459}, "x=-0.5": {"ImN": {"negative": 491, "of": 960, "most_negative": -925.9360950612445}, "gram_min_rel_eig": -1.0}}
+BLS a=0.9+14.5i {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 1.153528568470781e-09}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 6.44585176390428e-07}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00016858780748853493}, "x=-0.5": {"ImN": {"negative": 441, "of": 960, "most_negative": -4032.301493797692}, "gram_min_rel_eig": -1.0}}
+BLS a=0.25+3i {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 1.826728578887892e-07}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00011172324930025846}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00019024824075893946}, "x=-0.5": {"ImN": {"negative": 485, "of": 960, "most_negative": -1107.1108800066622}, "gram_min_rel_eig": -1.0}}
+BLS two pairs {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 2.602950587741242e-07}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00011450866735138343}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00020080163785637426}, "x=-0.5": {"ImN": {"negative": 444, "of": 960, "most_negative": -1874.1666328067172}, "gram_min_rel_eig": -1.0}}
+anti-control M/Theta a=0.9+14.5i {"x=0": {"ImN": {"negative": 45, "of": 960, "most_negative": -5.940619363729775}, "gram_min_rel_eig": -0.23505753578366748}, "x=0.5": {"ImN": {"negative": 4, "of": 960, "most_negative": -2.1359715685726064}, "gram_min_rel_eig": -0.03427945692840322}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 5.3116400312133496e-05}, "x=-0.5": {"ImN": {"negative": 512, "of": 960, "most_negative": -211.5892101321268}, "gram_min_rel_eig": -1.0}}
+T-NR q=2 c=2.1 {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 1.332744488558166e-05}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00016761697721784377}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.0004732661888512858}, "x=-0.5": {"ImN": {"negative": 197, "of": 960, "most_negative": -85.04029512038228}, "gram_min_rel_eig": -0.7671070516964829}}
+T-NR q=3 c=2.2 {"x=0": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00019958785582737778}, "x=0.5": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.00030318896484067163}, "x=1": {"ImN": {"negative": 0, "of": 960, "most_negative": 0.0}, "gram_min_rel_eig": 0.0017492339540190742}, "x=-0.5": {"ImN": {"negative": 65, "of": 960, "most_negative": -14.818327893320244}, "gram_min_rel_eig": -0.36135885206739715}}
+minus M {"x=0": {"ImN": {"negative": 152, "of": 960, "most_negative": -11.413162252795384}, "gram_min_rel_eig": -1.0}, "x=0.5": {"ImN": {"negative": 48, "of": 960, "most_negative": -8.038907551802678}, "gram_min_rel_eig": -0.25591705080859384}, "x=1": {"ImN": {"negative": 24, "of": 960, "most_negative": -2.6597617447307913}, "gram_min_rel_eig": -0.009221256951526601}, "x=-0.5": {"ImN": {"negative": 501, "of": 960, "most_negative": -218.46885417893506}, "gram_min_rel_eig": -1.0}}
+{
+ "BLS_a": "(0.9+14.5j)",
+ "BLS_abs_phi_at_a": 2.517875683461036e-61,
+ "BLS_phi(z)phi(-z)-1": 1.3426771501779744e-58,
+ "BLS_phi_at_test_point": "(0.7017452664765786-0.7866410893856836j)",
+ "BLS_abs_on_axis": 1.0,
+ "BLS_gamma_form_defect": 8.288353716419618e-57,
+ "theoremB_identity_max_rel_defect": 2.2714227062634077e-55,
+ "N_even_defect": 2.369618584366135e-57,
+ "TNR_factor_vs_truncated_Blaschke_product": {
+  "factor": "(0.46172330753103125-0.6408054372420533j)",
+  "product_6000_factors": "(0.4617562339752556-0.640787556231613j)"
+ }
+}
+{
+ "first_zero_residues_abs": {
+  "2-beta": 1.0598540200154647e-10,
+  "beta-1": 1.0598540200154647e-10,
+  "1+i gamma": 1.7458833109512997e-49,
+  "1-i gamma": 1.7458833109512997e-49,
+  "i gamma": 1.7458833109512997e-49,
+  "-i gamma": 1.7458833109512997e-49,
+  "formula xi(3-2beta)|xi(rho-1)|^2": 1.0598540200154647e-10,
+  "double-pole coefficient at w=1/2: eps^2 G(1/2+eps)": 1.9111388534692423e-50,
+  "G regular at 1/2: |G(1/2+eps)|": 1.9111388534692424e-10
+ },
+ "generic_beta0.3_residues_abs": {
+  "2-beta": 9.61194349545594e-11,
+  "beta-1": 9.61194349545594e-11,
+  "beta": 1.3861070277750286e-11,
+  "1-beta": 1.3861070277750286e-11,
+  "1+i gamma": 3.004045716678504e-20,
+  "i gamma": 3.004045716678504e-20
+ },
+ "generic_residue_formula_at_2-beta": 9.61194349545594e-11,
+ "G_at_2-beta+0.2_generic": 4.6448174097433214e-10,
+ "parity": {
+  "chi5_4": 0,
+  "chi5_2": 1,
+  "chi7_2": 0
+ },
+ "abs_L(0,chi)": {
+  "chi5_4_even": 0.0,
+  "chi7_2_even": 0.0,
+  "chi5_2_odd": 0.6324555320336759
+ },
+ "twisted_product_at_w=1-beta_first_zero": {
+  "chi5_4_even": 0.0,
+  "chi5_2_odd": 0.03427688148372642
+ },
+ "twisted_product_at_w=1-beta_generic": {
+  "chi5_4_even": NaN,
+  "chi5_2_odd": 0.246807532081319
+ },
+ "gamma_factor_generic": {
+  "rgamma_of_first_factor_at_pole": 0.0,
+  "other_three_finite": 2.0809435093846514e-10
+ },
+ "wstar(1,n^2)": {
+  "2": "3/5 vs 3/5",
+  "3": "4/5 vs 4/5",
+  "4": "15/17 vs 15/17"
+ },
+ "wstar(P,4) vs P-1": {
+  "1": [
+   "3/5",
+   "0"
+  ],
+  "5/4": [
+   "23/28",
+   "1/4"
+  ],
+  "3/2": [
+   "19/18",
+   "1/2"
+  ],
+  "7/4": [
+   "57/44",
+   "3/4"
+  ],
+  "2": [
+   "20/13",
+   "1"
+  ]
+ },
+ "inequality_equivalent_to_beta<=7/4_mismatches_on_grid(P>=1)": 0,
+ "principal_sum_ratio first zero": {
+  "Y2e4": 0.40558227260897733,
+  "Y2e5": 0.4055708360435384,
+  "constant": 0.4055699940585191
+ },
+ "principal_sum_ratio generic 0.3": {
+  "Y2e4": 0.45208398453450666,
+  "Y2e5": 0.45208915977609826,
+  "constant": 0.45208830016443613
+ }
+}
+exit 0

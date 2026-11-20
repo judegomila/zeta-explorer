@@ -1,0 +1,10 @@
+planned memory: tables 17 MB, per-thread accumulators 4 MB each
+tmax=40000 words=337138167 max|imag|=3.39e-12
+0.0486 0.081 real zeros in (0.505, 1): [0.5977827023162173]
+0.0492 0.082 real zeros in (0.505, 1): [0.5768555090174413]
+0.0498 0.083 real zeros in (0.505, 1): [0.5473075767798944]
+0.0501 0.0835 real zeros in (0.505, 1): [0.5199590758719207]
+0.05028 0.0838 real zeros in (0.505, 1): []
+0.05052 0.0842 real zeros in (0.505, 1): []
+0.0507 0.0845 real zeros in (0.505, 1): []
+JOB_DONE fam2

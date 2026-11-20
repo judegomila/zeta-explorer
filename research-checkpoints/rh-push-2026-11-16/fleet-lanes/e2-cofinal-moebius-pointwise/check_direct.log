@@ -1,0 +1,32 @@
+planned memory: arrays of length 200000: < 0.01 GB
+x=1000.0      b1 delta_1           direct -3.41186977  closed form -3.41186977  diff -2.0e-13   psi_b=1.0000
+x=1000.0      b2 powers of 2       direct +1.17626046  closed form +1.17626046  diff -3.9e-13   psi_b=10.0000
+x=1000.0      b3 dt/t              direct +2.49588551  closed form +2.49588551  diff +1.2e-13   psi_b=6.9078
+x=1000.0      Lambda (density 1)   direct +0.68585793  closed form +0.68585793  diff -1.2e-12   psi_b=996.6809
+x=54321.5     b1 delta_1           direct -34.36119588  closed form -34.36119588  diff -8.3e-12   psi_b=1.0000
+x=54321.5     b2 powers of 2       direct -54.72239175  closed form -54.72239175  diff -1.7e-11   psi_b=16.0000
+x=54321.5     b3 dt/t              direct -24.45852050  closed form -24.45852050  diff -2.5e-11   psi_b=10.9027
+x=54321.5     Lambda (density 1)   direct -25.91140668  closed form -25.91140668  diff -5.1e-11   psi_b=54263.5630
+x=199999.0    b1 delta_1           direct -4.01306294  closed form -4.01306294  diff -3.3e-11   psi_b=1.0000
+x=199999.0    b2 powers of 2       direct +7.97387413  closed form +7.97387413  diff -6.6e-11   psi_b=18.0000
+x=199999.0    b3 dt/t              direct +7.19300471  closed form +7.19300471  diff +1.7e-10   psi_b=12.2061
+x=199999.0    Lambda (density 1)   direct +29.05597994  closed form +29.05597994  diff +6.8e-10   psi_b=200026.9388
+x=123456.789  b1 delta_1           direct -49.44610691  closed form -49.44610691  diff -2.5e-11   psi_b=1.0000
+x=123456.789  b2 powers of 2       direct -83.89221382  closed form -83.89221382  diff -4.8e-11   psi_b=17.0000
+x=123456.789  b3 dt/t              direct -38.72246042  closed form -38.72246042  diff +1.4e-10   psi_b=11.7236
+x=123456.789  Lambda (density 1)   direct +25.65636600  closed form +25.65636600  diff -9.8e-11   psi_b=123435.1481
+b1 delta_1  sup |r_b(Y)|/(1+log Y) on samples: 0.5906161087334387
+b2 powers of 2  sup |r_b(Y)|/(1+log Y) on samples: 1.7718483267909324
+b3 dt/t  sup |r_b(Y)|/(1+log Y) on samples: 0.9999999989999999
+DH         x=1000    sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 8.8877e+02  exponent vs x: 0.983   A(x) = +0.0000
+DH         x=54321   sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 7.9246e+04  exponent vs x: 1.035   A(x) = +1.0000
+DH         x=200000  sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 3.4254e+05  exponent vs x: 1.044   A(x) = +0.0000
+   DH: sup_{Y<=N} |A(Y)| = 1.2840790438404124  (target 0, r = T, F_b = psi_b identically)
+   DH a^-1(2..12): [(2, np.float64(-0.2841)), (3, np.float64(0.2841)), (4, np.float64(1.0807)), (5, np.float64(0.0)), (6, np.float64(-1.1614)), (7, np.float64(-0.2841)), (8, np.float64(-0.307)), (9, np.float64(1.0807)), (10, np.float64(0.0)), (11, np.float64(-1.0)), (12, np.float64(0.921))]
+Liouville  x=1000    sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 6.0800e+02  exponent vs x: 0.928   A(x) = -14.0000
+Liouville  x=54321   sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 3.3030e+04  exponent vs x: 0.954   A(x) = -113.0000
+Liouville  x=200000  sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 1.2158e+05  exponent vs x: 0.959   A(x) = -294.0000
+   Liouville: max |a^-1 - mu^2| = 0.0
+E_a a=0.2  x=1000    sum_k a^-1(k) A(x/k) = +1.0000000000   sum|a^-1| = 4.9523e+03  exponent vs x: 1.232   A(x) = +9699.1810
+E_a a=0.2  x=54321   sum_k a^-1(k) A(x/k) = +1.0000000006   sum|a^-1| = 6.0504e+05  exponent vs x: 1.221   A(x) = +1229334.9040
+E_a a=0.2  x=200000  sum_k a^-1(k) A(x/k) = +1.0000000062   sum|a^-1| = 2.8936e+06  exponent vs x: 1.219   A(x) = +5903095.0695

@@ -1,0 +1,3 @@
+{"Y": 0.33, "t_offset": -1179281.82, "T": "1000000000000000", "source": "prime side M_K (grid minimum over 1.34e8 samples)", "screen_value": 3.3412278186298288, "mpmath_value": 3.3158626492844556, "p_req": 4.37426, "below": true}
+{"Y": 0.4, "t_offset": -1179281.8, "T": "1000000000000000", "source": "prime side M_K (grid minimum over 1.34e8 samples)", "screen_value": 3.872092131831618, "mpmath_value": 3.853810719725431, "p_req": 4.37426, "below": true}
+{"Y": 1.0, "t_offset": -1179281.8, "T": "1000000000000000", "source": "prime side M_K (grid minimum over 1.34e8 samples)", "screen_value": 6.498271749608945, "mpmath_value": 6.498212845723233, "p_req": 4.37426, "below": false}

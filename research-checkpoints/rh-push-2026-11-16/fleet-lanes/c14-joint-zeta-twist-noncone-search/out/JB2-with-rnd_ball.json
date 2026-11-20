@@ -1,0 +1,49 @@
+{
+ "family": "JB2-with-rnd",
+ "optimistic_rows": 2,
+ "not_processed": 0,
+ "ball_evaluations": 0,
+ "pos_opposite": 0,
+ "pos_undecided": 0,
+ "killed_by_class": {
+  "7": 2
+ },
+ "killed_fe_by_class": {},
+ "unresolved_class_entries": 0,
+ "alive_all": [],
+ "alive_fe": [
+  {
+   "i": 46973,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    8
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 153788,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  }
+ ],
+ "full_survivors": [],
+ "full_survivors_fe": [],
+ "seconds": 0.03729081153869629
+}

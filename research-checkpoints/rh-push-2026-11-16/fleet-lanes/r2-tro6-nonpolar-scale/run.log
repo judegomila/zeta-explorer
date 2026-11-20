@@ -1,0 +1,45 @@
+identity gamma1 gamma2 = mu alpha G on 2822619 nodes: max |diff| = 4.91e-09
+setup: nodes 2822619 (even 1411211), half rows 54393, bins [1707, 696, 993, 1416, 1986, 2832, 3960, 5625, 7989, 11277, 15912], n3 terms 46937, 5s
+Q grid: 937.5, 1325.8, 1875.0, 2651.7, 3750.0, 5303.3, 7500.0, 10606.6, 15000.0, 21213.2, 30000.0
+R grid: 14480, 23522, 38212, 62076, 100843, 163819, 266125, 432321, 702308, 1140903, 1853403
+exponent cache built: 3240 primes, 187s
+    bin 0 worker 0: 200/214 rows, 140s
+bin 0 (N(m) <= 937.5): 1707 half rows, 169s (total 362s)
+bin 1 (N(m) <= 1325.8): 696 half rows, 71s (total 433s)
+bin 2 (N(m) <= 1875.0): 993 half rows, 106s (total 539s)
+bin 3 (N(m) <= 2651.7): 1416 half rows, 145s (total 683s)
+    bin 4 worker 0: 200/249 rows, 134s
+bin 4 (N(m) <= 3750.0): 1986 half rows, 175s (total 859s)
+    bin 5 worker 0: 200/354 rows, 141s
+bin 5 (N(m) <= 5303.3): 2832 half rows, 243s (total 1102s)
+    bin 6 worker 0: 200/495 rows, 122s
+    bin 6 worker 0: 400/495 rows, 223s
+bin 6 (N(m) <= 7500.0): 3960 half rows, 270s (total 1372s)
+    bin 7 worker 0: 200/704 rows, 63s
+    bin 7 worker 0: 400/704 rows, 113s
+    bin 7 worker 0: 600/704 rows, 165s
+bin 7 (N(m) <= 10606.6): 5625 half rows, 265s (total 1637s)
+    bin 8 worker 0: 200/999 rows, 76s
+    bin 8 worker 0: 400/999 rows, 186s
+    bin 8 worker 0: 600/999 rows, 258s
+    bin 8 worker 0: 800/999 rows, 297s
+bin 8 (N(m) <= 15000.0): 7989 half rows, 423s (total 2060s)
+    bin 9 worker 0: 200/1410 rows, 74s
+    bin 9 worker 0: 400/1410 rows, 140s
+    bin 9 worker 0: 600/1410 rows, 210s
+    bin 9 worker 0: 800/1410 rows, 288s
+    bin 9 worker 0: 1000/1410 rows, 365s
+    bin 9 worker 0: 1200/1410 rows, 426s
+    bin 9 worker 0: 1400/1410 rows, 462s
+bin 9 (N(m) <= 21213.2): 11277 half rows, 470s (total 2530s)
+    bin 10 worker 0: 200/1989 rows, 64s
+    bin 10 worker 0: 400/1989 rows, 126s
+    bin 10 worker 0: 600/1989 rows, 204s
+    bin 10 worker 0: 800/1989 rows, 278s
+    bin 10 worker 0: 1000/1989 rows, 344s
+    bin 10 worker 0: 1200/1989 rows, 410s
+    bin 10 worker 0: 1400/1989 rows, 493s
+    bin 10 worker 0: 1600/1989 rows, 548s
+    bin 10 worker 0: 1800/1989 rows, 601s
+bin 10 (N(m) <= 30000.0): 15912 half rows, 675s (total 3205s)
+ALLDONE

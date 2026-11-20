@@ -1,0 +1,12 @@
+t=10000 P=1e+06 x=3.679e+05: bound log(t/2pi)=7.372, trivial 21.602 | sup over 10001 heights in t+-100: zeta 0.2648 ; 6 random sign seeds 0.361 0.290 0.296 0.271 0.323 0.384
+t=10000 P=1e+06 x=1.353e+05: bound log(t/2pi)=7.372, trivial 26.492 | sup over 10001 heights in t+-100: zeta 0.3175 ; 6 random sign seeds 0.615 0.726 0.602 0.614 0.564 0.526
+t=10000 P=1e+06 x=1000: bound log(t/2pi)=7.372, trivial 7.921 | sup over 10001 heights in t+-100: zeta 1.4717 ; 6 random sign seeds 2.024 1.458 1.444 1.303 1.539 2.157
+t=1000 P=1e+06 x=3.679e+05: bound log(t/2pi)=5.070, trivial 21.602 | sup over 10001 heights in t+-100: zeta 0.2228 ; 6 random sign seeds 0.396 0.209 0.308 0.322 0.370 0.289
+t=1000 P=1e+06 x=1.353e+05: bound log(t/2pi)=5.070, trivial 26.492 | sup over 10001 heights in t+-100: zeta 0.2777 ; 6 random sign seeds 0.497 0.525 0.538 0.829 0.554 0.611
+t=1000 P=1e+06 x=1000: bound log(t/2pi)=5.070, trivial 7.921 | sup over 10001 heights in t+-100: zeta 1.4105 ; 6 random sign seeds 1.478 1.624 1.524 1.812 1.639 1.707
+t=100000 P=1e+06 x=3.679e+05: bound log(t/2pi)=9.675, trivial 21.602 | sup over 10001 heights in t+-100: zeta 0.2236 ; 6 random sign seeds 0.314 0.259 0.305 0.284 0.380 0.303
+t=100000 P=1e+06 x=1.353e+05: bound log(t/2pi)=9.675, trivial 26.492 | sup over 10001 heights in t+-100: zeta 0.4510 ; 6 random sign seeds 0.756 0.642 0.504 0.609 0.506 0.618
+t=100000 P=1e+06 x=1000: bound log(t/2pi)=9.675, trivial 7.921 | sup over 10001 heights in t+-100: zeta 1.3693 ; 6 random sign seeds 1.946 1.249 1.365 1.380 1.350 1.626
+t=10000 P=10000 x=3679: bound log(t/2pi)=7.372, trivial 3.245 | sup over 10001 heights in t+-100: zeta 0.3341 ; 6 random sign seeds 0.408 0.330 0.440 0.353 0.311 0.401
+t=10000 P=10000 x=1353: bound log(t/2pi)=7.372, trivial 3.961 | sup over 10001 heights in t+-100: zeta 0.6647 ; 6 random sign seeds 0.722 0.705 0.626 0.498 0.583 0.964
+t=10000 P=10000 x=100: bound log(t/2pi)=7.372, trivial 2.511 | sup over 10001 heights in t+-100: zeta 1.2306 ; 6 random sign seeds 1.452 1.321 1.327 1.119 1.120 1.211

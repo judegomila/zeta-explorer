@@ -1,0 +1,41 @@
+{
+ "slug": "c1-leeyang-chain-closure",
+ "round": 1,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "lee-yang",
+  "finite-stage"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Partial result, no information on zeros of zeta. (1) For n = 2, 3, 4 the chain set, complete-graph set and Lee-Yang set coincide (proved, explicit inverse). (2) For n = 5..9 explicit Lee-Yang polynomials with nonnegative coefficients, e.g. (w+1)(w^2-w/2+1)^2 and (w+1)^3(w^2-4w/3+1), lie outside the Fortuin-Kasteleyn cone K_n and so are not laws of any zero-field pair ferromagnet of total weight n, hidden spins allowed (proved, exact). (3) GHS holds on the weak closure of pair-ferromagnet laws and fails for (w^2-(44/23)w+1)(w+1)^44 at w = 108/55 (exact rational), so the closure is a proper subclass of the Lee-Yang class. (4) Repaired Thm 6(d') holds for all t <= 0 for Dirichlet stages N = 2, 3, 4, 5, 10 (off-line zeros in the strip certified in ball arithmetic); Prop 7(b) restricted to the Lee-Yang class and the Curie-Weiss correction hold. (5) T-NR fails the uncoupled stage and passes the heat-coupled stage at q = 29, c = 2.5 (measured, confirmed to T = 120). Membership of Phi in the closure would imply RH; whether it is strictly stronger for Phi is not established. GHS does not separate zeta from DH (measured).",
+ "obstruction": "The closure of pair-ferromagnet laws is a proper subclass of the Lee-Yang class (n >= 5: FK cone; limit sense: GHS), but the separating conditions (GHS, FK cone) are kernel-side positivity that Phi and the DH kernel both satisfy, so they carry no zero information. Whether membership of Phi in the closure is strictly stronger than RH is not established. R1 holds at stage level only.",
+ "obstructionKind": "kernel-positivity-shared-with-controls",
+ "controlsThatDefeat": [
+  "DH (GHS holds, measured)",
+  "unimodular twist U (passes every stage)",
+  "sign twists (pass every stage)",
+  "Beurling (passes every stage)",
+  "E_a and T-NR (pass heat-coupled stage at small log M; T-NR passes at q = 29, c = 2.5)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "Ferromagnet membership is strictly stronger than Lee-Yang, but the conditions that separate them (GHS, FK cone) are kernel-side positivity that Phi and DH both satisfy, so they give no handle on zeros. R1 holds at stage level only (product over prime sites; DH stage 55 of 55 off the line; Beurling energies also pass). R3 fails: U, sign twists and Beurling pass every stage, and E_a and T-NR pass at small log M through heat contraction.",
+ "followUp": "Referee this lane first: step 2.1(c) (Laguerre-Polya closure under e^(-lambda D^2) at Gaussian decay) and the GHS-with-hidden-spins input are recalled, not opened. The one remaining open item is whether P0 (atoms +-5 mass 1, +-1 mass 5/4) is a weak limit of ferromagnets with many small spins; it passes every GHS test tried and the FK cone does not apply to limits. Low priority: it carries no zero information.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-leeyang-chain-closure/RESULT.md",
+ "referee2": {
+  "file": "tmp/research-2026-11-16/push/c1-leeyang-chain-closure/REFEREE2.md",
+  "scope": "partial (owed steps only); does not raise the referee count",
+  "holds": true,
+  "note": "Second pass (scope: step 2.1(c) and the GHS input): 2.1(c) holds by two routes; Craven-Csordas Lemma 3.2 read in the source (hypothesis alpha_1 alpha_2 < 1/4 matches 4 a lambda < 1); GHS with site-dependent fields h_i >= 0 (zero allowed) is the classical form, source not opened, brute force on 1500 systems finds no violation.",
+  "by": "c2-repair-owed-passes"
+ }
+}

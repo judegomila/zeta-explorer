@@ -1,0 +1,119 @@
+[
+ {
+  "id": "legendre-dual-limit-density-zero",
+  "type": "identity",
+  "name": "Limit points of Legendre-LP dual-feasible points have density 0",
+  "statement": "Every limit point of Legendre-LP dual-feasible points is feasible at every real scale and has density 0, psi(t) <= 3 log2 t + 3.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "certificate",
+   "legendre-lp"
+  ]
+ },
+ {
+  "id": "legendre-dual-restriction-rule",
+  "type": "identity",
+  "name": "Legendre-LP dual feasibility restricts along divisibility chains",
+  "statement": "Feasibility of a Legendre-LP dual point at qx implies feasibility of its restriction at x.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "certificate",
+   "legendre-lp"
+  ]
+ },
+ {
+  "id": "cofinal-pointwise-mobius-sum",
+  "type": "open-lemma",
+  "name": "Pointwise bound for the Moebius sum of one fixed cofinal sawtooth remainder",
+  "statement": "Pointwise polylog bound for sum_k mu(k) r_b(x/k) for one fixed cofinal r_b. Uses the integers and all primes jointly; fails for DH, Liouville and theta^3 at Lambda_a >= 0; not separated from E_a at the level of exponents (returns 1/2 + a); only a mean-square bound is argued (MV-CAP).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "engine lane e1-cofinal-legendre-dual (push/e1-cofinal-legendre-dual/RESULT.md, refereed once)",
+  "tags": [
+   "moebius",
+   "landau",
+   "legendre-lp",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "vaughan-forcing-is-gauge",
+  "type": "identity",
+  "name": "Vaughan X^(1/4) forcing is a normalisation removable by two linear mollifier conditions",
+  "statement": "The X^{1/4} Vaughan forcing equals -(4+2gamma) sqrt X M'(1) - zeta'(1/2) M'(1/2) and is removed by two linear conditions on the mollifier; residual |Xi'| <= (U + 32 sqrt U + 25)(6 + log X)/sqrt X.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "engine lane e1-forcing-free-bilinear-split (push/e1-forcing-free-bilinear-split/RESULT.md, refereed once)",
+  "tags": [
+   "landau",
+   "mollifier",
+   "moebius"
+  ]
+ },
+ {
+  "id": "vasyunin-lammin-two-sided",
+  "type": "identity",
+  "name": "Two-sided bound for the smallest eigenvalue of the Nyman-Beurling Gram matrix",
+  "statement": "1/(64*2^Omega_N*N^2) <= lam_min(G_N) <= (3+log N)/(N-1)^2; exponent exactly 2 up to N^o(1); p = 2 open. Same law for DH and periodic non-multiplicative sequences; carries no zero information.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "n/a",
+  "source": "engine lane e1-nb-gram-period-transfer (push/e1-nb-gram-period-transfer/RESULT.md, refereed once)",
+  "tags": [
+   "nyman-beurling",
+   "gram"
+  ]
+ },
+ {
+  "id": "ctrl-sel-twisted-selberg",
+  "type": "control",
+  "name": "Control SEL: twisted Selberg zeta of Gamma(2)",
+  "statement": "Twisted Selberg zeta of Gamma(2): Euler product over geodesics, s <-> 1-s equation, real exceptional zeros off the line; lacks INT, order one, finite degree, sign of the zero side.",
+  "status": "measured",
+  "usesMultiplicativity": "n/a",
+  "heightUniform": "n/a",
+  "source": "engine lane e1-selberg-twist-control (push/e1-selberg-twist-control/RESULT.md, refereed once)",
+  "tags": [
+   "control",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "selberg-pc-abscissa-half",
+  "type": "obstruction",
+  "name": "Selberg companion in Theorem PC has abscissa sigma* >= 1/2",
+  "statement": "Any non-negative-coefficient coupling c Z'/Z + E with the PSL2(Z) Selberg zeta has sigma* >= 1/2; Theorem PC is silent at rho/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "engine lane e1-selberg-twist-control (push/e1-selberg-twist-control/RESULT.md, refereed once)",
+  "tags": [
+   "trace-formula",
+   "landau"
+  ]
+ },
+ {
+  "id": "ctrl-rz-reciprocal-shift",
+  "type": "control",
+  "name": "Control RZ_b: 1/zeta(s + 1 - b), 7/8 < b < 1",
+  "statement": "RZ_b(s) = 1/zeta(s + 1 - b) = prod_p (1 - p^(b-1) p^-s) = sum mu(n) n^(b-1) n^-s. Log-derivative coefficients -n^(b-1) Lambda(n): a signed twist of Lambda with |eps_n| <= 1 (control TW-). Meromorphic on C, real zero at s = b (the pole of zeta), functional equation about Re s = b - 1/2 instead of 1/2. Has: Euler product, size, support, continuation. Lacks: Lambda >= 0, the integers (coefficients mu(n) n^(b-1)), symmetry line 1/2. Elementary; stated by the engine in batch 2, not refereed. Answers the open item of lane c1-missing-controls (a twist with a zero in 7/8 < Re s < 1); it needs infinitely many primes, as that lane noted.",
+  "status": "proved",
+  "usesMultiplicativity": "n/a",
+  "heightUniform": "n/a",
+  "source": "engine batch 2 (merge_outcomes.py STATIC_NODES); follow-up of push/c1-missing-controls",
+  "tags": [
+   "control",
+   "euler-product"
+  ]
+ }
+]

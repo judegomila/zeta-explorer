@@ -1,0 +1,85 @@
+[sweep] tier=box tasks=98 done=0 todo=98 workers=2 task_cap=4.0 GB task_limit=3000 s out=../results/apx_kernel.jsonl
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"dh","scheme":"thalf","size":1}
+[done] OK             FAIL            3.7s      35 MB  {"T":52.0,"Y":4.0,"input":"dh","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":1}
+[done] OK             FAIL            6.1s      33 MB  {"T":52.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"liou","scheme":"thalf","size":1}
+[done] OK             FAIL            5.2s      33 MB  {"T":52.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":1}
+[plan] 185 MB planned  {"T":52.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":52.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":1}
+[plan] 212 MB planned  {"T":92.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":2}
+[done] OK             FAIL            6.1s      33 MB  {"T":52.0,"Y":4.0,"input":"liou","scheme":"thalf","size":1}
+[plan] 212 MB planned  {"T":92.0,"Y":4.0,"input":"dh","scheme":"thalf","size":2}
+[done] OK             FAIL            8.8s      36 MB  {"T":92.0,"Y":4.0,"input":"dh","scheme":"thalf","size":2}
+[plan] 212 MB planned  {"T":92.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":2}
+[done] OK             FAIL           24.6s      36 MB  {"T":92.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":2}
+[plan] 212 MB planned  {"T":92.0,"Y":4.0,"input":"liou","scheme":"thalf","size":2}
+[done] OK             FAIL           37.1s      38 MB  {"T":92.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":2}
+[plan] 212 MB planned  {"T":92.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":2}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":92.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"zeta","scheme":"polya","size":1}
+[done] OK             FAIL           22.2s      36 MB  {"T":92.0,"Y":4.0,"input":"liou","scheme":"thalf","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"dh","scheme":"polya","size":1}
+[done] OK             PASS           38.9s      70 MB  {"T":200.0,"input":"dh","scheme":"polya","size":1}
+[plan] 284 MB planned  {"T":200.0,"input":"tw2m","scheme":"polya","size":1}
+[done] OK             PASS           83.6s      67 MB  {"T":200.0,"input":"zeta","scheme":"polya","size":1}
+[plan] 284 MB planned  {"T":200.0,"input":"liou","scheme":"polya","size":1}
+[done] OK             PASS           87.9s      67 MB  {"T":200.0,"input":"tw2m","scheme":"polya","size":1}
+[plan] 284 MB planned  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":1}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":1}
+[plan] 249 MB planned  {"T":148.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":3}
+[done] OK             PASS          103.0s      67 MB  {"T":200.0,"input":"liou","scheme":"polya","size":1}
+[plan] 249 MB planned  {"T":148.0,"Y":4.0,"input":"dh","scheme":"thalf","size":3}
+[done] OK             FAIL           29.5s      40 MB  {"T":148.0,"Y":4.0,"input":"dh","scheme":"thalf","size":3}
+[plan] 249 MB planned  {"T":148.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":3}
+[done] OK             FAIL          156.2s      48 MB  {"T":148.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":3}
+[plan] 249 MB planned  {"T":148.0,"Y":4.0,"input":"liou","scheme":"thalf","size":3}
+[done] OK             FAIL           95.0s      40 MB  {"T":148.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":3}
+[plan] 249 MB planned  {"T":148.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":3}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":148.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"zeta","scheme":"polya","size":2}
+[done] OK             FAIL           90.9s      40 MB  {"T":148.0,"Y":4.0,"input":"liou","scheme":"thalf","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"dh","scheme":"polya","size":2}
+[done] OK             PASS           92.8s      70 MB  {"T":200.0,"input":"dh","scheme":"polya","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"tw2m","scheme":"polya","size":2}
+[done] OK             PASS          217.1s      67 MB  {"T":200.0,"input":"zeta","scheme":"polya","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"liou","scheme":"polya","size":2}
+[done] OK             PASS          224.4s      67 MB  {"T":200.0,"input":"tw2m","scheme":"polya","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":2}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"zeta","scheme":"polya","size":3}
+[done] OK             PASS          272.2s      67 MB  {"T":200.0,"input":"liou","scheme":"polya","size":2}
+[plan] 284 MB planned  {"T":200.0,"input":"dh","scheme":"polya","size":3}
+[done] OK             PASS          162.3s      70 MB  {"T":200.0,"input":"dh","scheme":"polya","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"tw2m","scheme":"polya","size":3}
+[done] OK             FAIL          411.4s      68 MB  {"T":200.0,"input":"zeta","scheme":"polya","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"liou","scheme":"polya","size":3}
+[done] OK             FAIL          366.2s      68 MB  {"T":200.0,"input":"tw2m","scheme":"polya","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":3}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"zeta","scheme":"polya","size":4}
+[done] OK             FAIL          340.0s      68 MB  {"T":200.0,"input":"liou","scheme":"polya","size":3}
+[plan] 284 MB planned  {"T":200.0,"input":"dh","scheme":"polya","size":4}
+[done] OK             PASS          180.9s      70 MB  {"T":200.0,"input":"dh","scheme":"polya","size":4}
+[plan] 284 MB planned  {"T":200.0,"input":"tw2m","scheme":"polya","size":4}
+[done] OK             FAIL          757.7s      68 MB  {"T":200.0,"input":"zeta","scheme":"polya","size":4}
+[plan] 284 MB planned  {"T":200.0,"input":"liou","scheme":"polya","size":4}
+[done] OK             FAIL          762.1s      68 MB  {"T":200.0,"input":"tw2m","scheme":"polya","size":4}
+[plan] 284 MB planned  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":4}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":200.0,"input":"ea:0.25","scheme":"polya","size":4}
+[plan] 298 MB planned  {"T":220.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":4}
+[done] OK             FAIL          752.1s      68 MB  {"T":200.0,"input":"liou","scheme":"polya","size":4}
+[plan] 298 MB planned  {"T":220.0,"Y":4.0,"input":"dh","scheme":"thalf","size":4}
+[done] OK             FAIL          159.7s      52 MB  {"T":220.0,"Y":4.0,"input":"dh","scheme":"thalf","size":4}
+[plan] 298 MB planned  {"T":220.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":4}
+[done] OK             FAIL          683.7s      70 MB  {"T":220.0,"Y":4.0,"input":"zeta","scheme":"thalf","size":4}
+[plan] 298 MB planned  {"T":220.0,"Y":4.0,"input":"liou","scheme":"thalf","size":4}
+[done] OK             FAIL          299.1s      47 MB  {"T":220.0,"Y":4.0,"input":"tw2m","scheme":"thalf","size":4}
+[plan] 298 MB planned  {"T":220.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":4}
+[done] NOT_FORMULABLE                 0.0s       0 MB  {"T":220.0,"Y":4.0,"input":"ea:0.25","scheme":"thalf","size":4}
+[plan] 284 MB planned  {"T":200.0,"input":"zeta","scheme":"polya","size":5}
+[done] OK             FAIL          370.2s      47 MB  {"T":220.0,"Y":4.0,"input":"liou","scheme":"thalf","size":4}
+[plan] 284 MB planned  {"T":200.0,"input":"dh","scheme":"polya","size":5}
+[done] OK             PASS          246.8s      70 MB  {"T":200.0,"input":"dh","scheme":"polya","size":5}
+[plan] 284 MB planned  {"T":200.0,"input":"tw2m","scheme":"polya","size":5}

@@ -1,0 +1,31 @@
+tmp/research-2026-11-16/push/sq-krein-index/levinson_alpha.py:16: RuntimeWarning: overflow encountered in exp
+  return 1 + (1/th)*np.sum(W*np.exp(2*R*V)*d*d)
+.venv-arb/lib/python3.14/site-packages/numpy/_core/fromnumeric.py:83: RuntimeWarning: overflow encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+tmp/research-2026-11-16/push/sq-krein-index/levinson_alpha.py:16: RuntimeWarning: overflow encountered in scalar multiply
+  return 1 + (1/th)*np.sum(W*np.exp(2*R*V)*d*d)
+tmp/research-2026-11-16/push/sq-krein-index/levinson_alpha.py:16: RuntimeWarning: overflow encountered in multiply
+  return 1 + (1/th)*np.sum(W*np.exp(2*R*V)*d*d)
+validation  P=x, lam=1, R=1.3, theta=1/2: kappa = 0.3427   (Levinson 1974: 0.3420)
+theta = 0.5000
+   lam=0.25  P=x: kappa=-0.8135 (R=2.042)    P deg 4 optimised: kappa=-0.8108 (R=2.079)
+   lam=0.50  P=x: kappa=-0.4390 (R=1.439)    P deg 4 optimised: kappa=-0.4389 (R=1.441)
+   lam=0.75  P=x: kappa=0.0356 (R=1.274)    P deg 4 optimised: kappa=0.0357 (R=1.274)
+   lam=1.00  P=x: kappa=0.3428 (R=1.287)    P deg 4 optimised: kappa=0.3486 (R=1.293)
+   lam=1.10  P=x: kappa=0.3280 (R=1.140)    P deg 4 optimised: kappa=0.3434 (R=1.157)
+   lam=1.25  P=x: kappa=0.1706 (R=0.966)    P deg 4 optimised: kappa=0.2069 (R=0.980)
+   lam=1.50  P=x: kappa=-0.3009 (R=0.977)    P deg 4 optimised: kappa=-0.2347 (R=0.969)
+   lam=1.75  P=x: kappa=-0.7776 (R=1.368)    P deg 4 optimised: kappa=-0.7165 (R=1.322)
+   lam=2.00  P=x: kappa=-1.0449 (R=4.499)    P deg 4 optimised: kappa=-1.0001 (R=7.798)
+   joint optimum over lam, R, P(deg 4): kappa=0.35627 at lam=1.0428 R=1.2420
+theta = 0.5714
+   lam=0.25  P=x: kappa=-0.7895 (R=1.804)    P deg 4 optimised: kappa=-0.7865 (R=1.838)
+   lam=0.50  P=x: kappa=-0.3800 (R=1.282)    P deg 4 optimised: kappa=-0.3799 (R=1.284)
+   lam=0.75  P=x: kappa=0.1111 (R=1.148)    P deg 4 optimised: kappa=0.1112 (R=1.147)
+   lam=1.00  P=x: kappa=0.3902 (R=1.157)    P deg 4 optimised: kappa=0.3990 (R=1.159)
+   lam=1.10  P=x: kappa=0.3599 (R=1.035)    P deg 4 optimised: kappa=0.3822 (R=1.046)
+   lam=1.25  P=x: kappa=0.1808 (R=0.906)    P deg 4 optimised: kappa=0.2326 (R=0.913)
+   lam=1.50  P=x: kappa=-0.3153 (R=0.958)    P deg 4 optimised: kappa=-0.2235 (R=0.939)
+   lam=1.75  P=x: kappa=-0.7946 (R=1.370)    P deg 4 optimised: kappa=-0.7116 (R=1.296)
+   lam=2.00  P=x: kappa=-1.0100 (R=353.123)    P deg 4 optimised: kappa=-1.0049 (R=354.018)
+   joint optimum over lam, R, P(deg 4): kappa=0.40219 at lam=1.0280 R=1.1317

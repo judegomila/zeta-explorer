@@ -1,0 +1,18 @@
+{
+ "file": "out_t0p25_deep_A_p128.json",
+ "nodes": 401,
+ "dps": 30,
+ "centre_value_mpmath": [
+  "2.981545819362637933910746e-11",
+  "-1.096277435895506082398784e-12"
+ ],
+ "centre_value_ball_mid": [
+  "2.9815458192959954592e-11",
+  "-1.096277435871002073e-12"
+ ],
+ "centre_rel_diff": "2.2352e-11",
+ "winding_16_samples": "1.0",
+ "max_phase_step": "0.527471",
+ "abs_F_at_newton_root": "2.7456e-27",
+ "abs_F_at_centre": "2.9836e-11"
+}

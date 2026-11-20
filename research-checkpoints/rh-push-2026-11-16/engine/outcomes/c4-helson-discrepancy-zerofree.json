@@ -1,0 +1,39 @@
+{
+ "slug": "c4-helson-discrepancy-zerofree",
+ "round": 4,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "helson",
+  "discrepancy",
+  "euler-product",
+  "landau",
+  "beurling",
+  "control",
+  "zero-free-region"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For completely multiplicative unimodular chi with sum_{n<=x} chi(n) = c x + O(x^theta), c != 0, theta < 1, and sigma_0 the largest real zero of F in (theta,1) (or theta): sum_p (1 - Re chi(p)) p^-sigma converges for sigma > sigma_0, and ord_F(s) + ord_F(conj s) = 2 ord_zeta(s) on Re s > sigma_0 (proved; author check plus this referee's re-derivation; novelty unchecked, likely folklore). So a zero-free statement for F right of sigma_0 is the same statement for zeta and the proposed implication is circular; thinness of the deviation set holds in quadratic form (linear exponent (1+sigma_0)/2). Measured only: greedy thin sign twists with b = 0.5, 0.7, 0.8, 0.9 have a double real zero at s = b and discrepancy exponent well below b on x <= 1e8 (near b/2); random thin twists have a simple zero at b with smaller margin. Best f(theta) = max(Theta, r(theta)) as a formula (with Theta > theta). The argument transfers to Beurling systems. No statement about zeta zeros.",
+ "obstruction": "Landau's argument on H = F F*/zeta^2 = exp(-2A), A a non-negative Dirichlet series, gives ord_F(s) + ord_F(conj s) = 2 ord_zeta(s) on Re s > sigma_0 (sigma_0 = top real zero of F in (theta,1), or theta): the hypothesis compares F with zeta and nothing else, so a zero-free statement for F right of sigma_0 is the same statement for zeta (circular). The proof does not use the additive spacing of the integers and transfers to Beurling systems. Real zeros of F unrelated to zeta can lie right of theta (measured: greedy thin twists have a double zero at b with discrepancy exponent near b/2), so f(theta) = max(Theta, r(theta)). R1 holds for the relative theorem only, not for a conclusion about zeta. Open: r(0), i.e. whether E << x^eps with c != 0 allows a real zero of F in (0,1).",
+ "obstructionKind": "relative-to-zeta-circular",
+ "controlsThatDefeat": [
+  "Beurling (the argument transfers unchanged: not separated)",
+  "greedy thin sign twists b = 0.5, 0.7, 0.8, 0.9 (double real zero at b, discrepancy exponent near b/2; measured to 1e8)",
+  "DH fails at the step producing the non-negative series A (no Euler product); this is the only separation and it is relative to zeta"
+ ],
+ "score": 1,
+ "requirements": {
+  "r1": true,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Theorem 1 (a)-(d), C1-C5, the hyperbola implication and the greedy-set factorisation G = (s-b)^2 e^h were re-derived and confirmed; nothing assumes RH or verified height; novelty is not claimed (the Landau device on F F*/zeta^2 is probably folklore, literature unchecked). Minor errors, none changing the verdict: (1) verdict item 3 quotes b=0.5 exponents as 0.27-0.31, the log gives max fits 0.195-0.309 and rms 0.253-0.273. (2) \"r(theta) >= about 2 theta\" is supported only f",
+ "lesson": "Power-saving discrepancy plus Euler product compares F with zeta and nothing more: the proof never uses the additive spacing of the integers and passes the Beurling control unchanged. r1 is true only for this relative theorem (Euler product gives the non-negative series A; DH fails there), not for any conclusion about zeta. The planner's expectation that a thin twist has discrepancy exponent b was wrong: measured about b/2, so sigma_0 > theta on the evidence (not proved; a proof needs prime exponential sums over S). c3's bounded-discrepancy citation is corrected to Klurman-Mangerel-Pohoata-Teravainen, arXiv:1911.06265 (abstract only read).",
+ "followUp": "Referee Theorem 1 (short Landau argument; novelty unchecked), then decide r(0): whether a chi with E << x^eps, c != 0 can have a real zero of F in (0,1). That is the only part of f(0) < 1 that is not a zero-free strip for zeta.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-helson-discrepancy-zerofree/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-helson-discrepancy-zerofree/REFEREE.md"
+}

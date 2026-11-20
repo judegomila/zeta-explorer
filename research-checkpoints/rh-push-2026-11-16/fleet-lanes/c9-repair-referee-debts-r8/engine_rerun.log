@@ -1,0 +1,49 @@
+### curated/mk_devices.py
+devices.json: 33 device types (closed 28, floored 1, open 4), 72 nodes, 15 target forms, 6 pending
+### merge_outcomes.py
+outcomes.json: 84 entries (60 closed); nodes-15.json: 24 nodes; closed_families.json: 34 families
+### build_graph.py
+records 1275 -> nodes 1239 corpus + 384 map/control/outcome = 1623; live 960; rows 202; edges 8806
+edges by type: composes-with 7436, control-defeats 706, obstructs 255, restates 179, separates-from 4, special-case-of 132, uses 94
+wrote tmp/research-2026-11-16/engine/IDEA_GRAPH.json
+### generate.py --top 60
+ 22  10.5 M1 geometry    ff-lambda-of-elliptic-curve x hasse-weil-checks x ff-order2-vertex-probe
+ 23  10.5 M1 positivity  rz-twin-block-riesz-floor x ff-three-approaches-one-statement x ff-order2-vertex-probe
+ 24  10.5 M3 zero-free   sun-catalan-preprint-verdict x mem-qrh-7-8 x qrh-seven-eighths
+ 25  10.4 M1 positivity  virtual-rungs-positive-extension x star-min-pointwise-prime-bound x map-open-4
+ 26  10.2 M1 prime-chain curvature-charge-d x route-m-vasyunin-gram x tro6-natural
+ 27  10.2 M1 positivity  rz-twin-block-riesz-floor x rung-toeplitz-euler-detector x tro6-natural
+ 28  10.2 M1 positivity  np-pick-seam-pencil x qrh-conditional-lambda x map-open-1
+ 29  10.1 M4 zero-free   dbn-native-triangle-binding x route-m-first-moment-kappa x tro6-natural
+ 30  10.0 M4 zero-free   zv-theta-kernel-phi x staged-strip-triangular-inequality x eh-nonprincipal-row-cancellation
+ 31  10.0 M2 zero-free   sextic-theta-numerics x qrh-seven-eighths x ctl-DH
+ 32   9.9 M1 prime-chain sawtooth-s-of-t-lemma x cm-eta-heights-lambda1 x tro6-natural
+ 33   9.8 M1 geometry    lean-weil-small-support x spec-z-graph-class-pairing x ff-order2-vertex-probe
+ 34   9.8 M3 positivity  ff-order2-vertex-probe x function-field-twin-ladder x sign-only-certificate-reach
+ 35   9.8 M1 prime-chain sun-prop63-plus4-offset x mem-semilocal-fourier-fs x tro6-natural
+ 36   9.5 M1 flow        exact-witness-quadratic-cosine x ff-ghost-second-order x ff-order2-vertex-probe
+ 37   9.4 M2 zero-free   phi-truncation-leftmost-zero x qrh-seven-eighths x ctl-DH
+ 38   9.2 M3 positivity  near-muntz-threshold-cones x arch-native-prime-jordan-product x map-open-4
+ 39   9.0 M1 prime-chain sawtooth-s-of-t-lemma x first-radix-layer-criterion x eh-nonprincipal-row-cancellation
+ 40   8.8 M1 geometry    zv-infinity-end-coordinate x ramanujan-cube-satake-point x eh-nonprincipal-row-cancellation
+ 41   8.7 M4 positivity  frozen-rung-winding-identity x prime-delay-domination x map-open-1
+ 42   8.7 M1 prime-chain gl2-weil-symbol x gauss-plancherel-alias-lemma x ff-order2-vertex-probe
+ 43   8.6 M1 flow        debruijn-landing-rate-thm13 x lane-audit-h-desc x map-open-1
+ 44   8.5 M4 positivity  tilt-det-majorant x restricted-mobius-delay-lift x eh-nonprincipal-row-cancellation
+ 45   8.2 M4 positivity  frozen-rung-winding-identity x qrh-conditional-lambda x ff-order2-vertex-probe
+ 46   8.0 M1 flow        mem-freeze-flow-interlacing x prime-tent-rh-equivalence x eh-nonprincipal-row-cancellation
+ 47   8.0 M4 positivity  tilt-det-majorant x ff-three-approaches-one-statement x map-open-4
+ 48   7.3 M4 positivity  np-pick-seam-pencil x route-i-krein-certificate x map-open-4
+ 49   7.3 M1 geometry    ff-lambda-of-elliptic-curve x spec-z-graph-class-pairing x map-open-4
+ 50   7.2 M4 positivity  exact-witness-quadratic-cosine x qtl-weil-delay-form x map-open-4
+ 51   7.1 M1 flow        strip-ladder-kappa x qrh-symmetric-strip-lean x map-open-1
+ 52   7.1 M1 flow        heat-family-h-tau x mem-mollified-interval-sos x eh-nonprincipal-row-cancellation
+ 53   6.8 M1 flow        route-b-limsup-stieltjes x mem-ds-le-ls x map-open-4
+ 54   6.4 M4 flow        collision-ladder-data x map-pos-22 x map-open-1
+ 55   6.3 M1 geometry    cutoff-energy-kernel-hc x selberg-geodesic-ground-truth x eh-nonprincipal-row-cancellation
+ 56   6.0 M2 zero-free   tro6-dual-term-lambda-c-correlation x qrh-seven-eighths x ctl-DH
+ 57   6.0 M2 zero-free   pr14-boundary-certificate x seven-eighths-abscissa-formula x ctl-DH
+ 58   6.0 M3 nyman       map-open-2 x rm-kappa-arith-exact x rm-kappa-total-measured
+ 59   5.9 M1 geometry    zv-dual-conormal-family x ramanujan-cube-satake-point x seven-eighths-abscissa-formula
+ 60   5.8 M4 flow        lemma-cg-covering-identity x lambda-conditional-qrh-0116091 x map-open-1
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

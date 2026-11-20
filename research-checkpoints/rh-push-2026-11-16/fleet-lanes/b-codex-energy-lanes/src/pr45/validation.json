@@ -1,0 +1,45 @@
+{
+  "checkpoint": "theta-all-order-2026-11-08",
+  "validated_at_utc": "2026-11-08T19:55:27.407503+00:00",
+  "python": "3.12.14",
+  "mpmath": "1.3.0",
+  "certificates": [
+    {
+      "script": "theta_jet_concavity_obstruction_20261108.py",
+      "exit_code": 0,
+      "seconds": 0.061,
+      "replay": "theta_jet_concavity_obstruction_replay.txt",
+      "checks": [
+        "fixed rational negative jet energy",
+        "negative odd-block determinant",
+        "positive diagonal entries",
+        "strictly negative actual theta second derivative at zero"
+      ]
+    },
+    {
+      "script": "theta_gaussian_preimage_obstruction_certificate_20261108.py",
+      "exit_code": 0,
+      "seconds": 1.513,
+      "replay": "theta_gaussian_preimage_obstruction_replay.txt",
+      "checks": [
+        "full theta remainder",
+        "derivative caps",
+        "Simpson and spatial-tail error",
+        "positive D(-1)",
+        "Rouche strict comparison",
+        "unique zero inside certified left-half-plane disk"
+      ]
+    }
+  ],
+  "denominator_json_matches_original": true,
+  "concavity_replay_matches_original": true,
+  "mathematical_status": {
+    "all_order_positivity": "open",
+    "actual_box_zero_leakage": "open",
+    "actual_derivative_pulse_energy": "proved in note",
+    "positive_gaussian_preimage": "excluded for alpha=1",
+    "deformed_counterexample": "existential analytic result; no numerical epsilon certified"
+  },
+  "ci": "Reported separately on the GitHub PR; certificate replays are independent of repository CI.",
+  "verification_limit": "Analytical audit and outward-rounded interval computations; not a proof-assistant formalization."
+}

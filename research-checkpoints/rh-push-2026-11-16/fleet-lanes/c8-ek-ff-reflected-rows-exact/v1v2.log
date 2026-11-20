@@ -1,0 +1,11 @@
+lines compared 155, configs differing 0
+second batch (degrees of P or A above d): lines compared 112, configs differing 0
+third batch (factorised g_3 phase against gphase): lines compared 261, configs differing 0
+fourth batch (diagonal without the table W against the table method; fields sumnorm, diagsum, sumW2): lines compared 180, configs differing 0
+EN 7 2 4 2 5 0 0 0 | 21 | 1564048959 | 2240160 | 54360 | 1563411600 | 33270
+EN 7 2 4 2 1 11 0 0 | 21 | 2936225 | 2437218 | 59157 | 263793 | 35287
+EN 7 2 4 2 5 0 0 0 | 21 | 1564048959 | 2240160 | 54360 | 1563411600 | 33270
+EN 7 2 4 2 1 11 0 0 | 21 | 2936225 | 2437218 | 59157 | 263793 | 35287
+irrcheck q=7 degrees 5..6: polynomials 134456, primes 22904, disagreements 0
+irrcheck q=13 degrees 5..5: polynomials 371293, primes 74256, disagreements 0
+fifth batch (fast irreducibility): lines compared 20, configs differing 0

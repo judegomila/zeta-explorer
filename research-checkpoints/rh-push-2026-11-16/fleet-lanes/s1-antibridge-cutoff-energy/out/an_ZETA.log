@@ -1,0 +1,153 @@
+{
+ "obj": "ZETA",
+ "T": 10000.0,
+ "dt": 0.025,
+ "points": 400001,
+ "offline_pairs_in_table_below_T": 0,
+ "first_offline": null,
+ "laguerre": {
+  "norm_min": 0.1731819872536618,
+  "norm_min_t": 10.8,
+  "rho_min": 0.29589485265674875,
+  "rho_min_t": 8647.15,
+  "negative_samples": 0,
+  "negative_intervals": 0,
+  "first_negative_intervals": [],
+  "match": {
+   "n": 0
+  }
+ },
+ "w": [
+  {
+   "h": 0.01,
+   "a": 0.02,
+   "norm_min": 0.2958796565732296,
+   "norm_min_t": 8647.15,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  },
+  {
+   "h": 0.05,
+   "a": 0.1,
+   "norm_min": 0.2955156319628544,
+   "norm_min_t": 8647.15,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  },
+  {
+   "h": 0.125,
+   "a": 0.25,
+   "norm_min": 0.29354771809695906,
+   "norm_min_t": 8647.15,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  }
+ ],
+ "online_zeros": 10142,
+ "close_pairs": 0,
+ "half_gram": {
+  "intervals": 10141,
+  "violations": 4676,
+  "fraction": 0.4610985109949709,
+  "empty": 2338,
+  "two": 2338,
+  "three_plus": 0,
+  "first_violation_index": 0,
+  "first_violation_interval": [
+   20.65404324566788,
+   25.49150625049537
+  ],
+  "octile_fractions": [
+   0.4980268350434096,
+   0.4794952681388013,
+   0.4696132596685083,
+   0.444794952681388,
+   0.45425867507886436,
+   0.452249408050513,
+   0.444794952681388,
+   0.44558359621451105
+  ]
+ },
+ "gram": {
+  "intervals": 10141,
+  "violations": 1638,
+  "fraction": 0.1615225322946455,
+  "empty": 822,
+  "two": 810,
+  "three_plus": 6,
+  "first_violation_index": 125,
+  "first_violation_interval": [
+   280.8024293540261,
+   282.45472077893237
+  ],
+  "octile_fractions": [
+   0.0962904498816101,
+   0.15220820189274448,
+   0.16258879242304658,
+   0.1608832807570978,
+   0.1750788643533123,
+   0.16416732438831885,
+   0.1829652996845426,
+   0.19794952681388012
+  ]
+ },
+ "half_gram_first_302": {
+  "intervals": 302,
+  "violations": 165,
+  "fraction": 0.5463576158940397,
+  "empty": 82,
+  "two": 83,
+  "three_plus": 0,
+  "first_violation_index": 0,
+  "first_violation_interval": [
+   20.65404324566788,
+   25.49150625049537
+  ],
+  "octile_fractions": [
+   0.6486486486486487,
+   0.5789473684210527,
+   0.5,
+   0.5263157894736842,
+   0.43243243243243246,
+   0.5263157894736842,
+   0.6842105263157895,
+   0.47368421052631576
+  ]
+ },
+ "gram_first_302": {
+  "intervals": 302,
+  "violations": 14,
+  "fraction": 0.046357615894039736,
+  "empty": 7,
+  "two": 7,
+  "three_plus": 0,
+  "first_violation_index": 125,
+  "first_violation_interval": [
+   280.8024293540261,
+   282.45472077893237
+  ],
+  "octile_fractions": [
+   0.0,
+   0.0,
+   0.0,
+   0.10526315789473684,
+   0.0,
+   0.10526315789473684,
+   0.10526315789473684,
+   0.05263157894736842
+  ]
+ },
+ "count_check": {
+  "online_zeros": 10142,
+  "theta_T_over_pi_plus_1": 10142.965348189959
+ }
+}

@@ -1,0 +1,34 @@
+PLAN: mode zeta, prec 128, tau 1, centre Im z = 2500.75, X = 3, Y_k = [1], workers 2, slabs 1; largest allocation: float grid rows of 661 x 2700 complex128 (below 40 MB per worker); samples: fewer than 3000 balls per slab
+Q_gen P8 [7.290603785748278833564430 +/- 4.62e-25] + [+/- 1.51e-33]j abs F (scaled) at the rate points >= [3.08065787043317, 3.08065787043317]
+Q_gen P1 [5.612677626531679303397997 +/- 4.74e-25] + [+/- 1.14e-32]j abs F (scaled) at the rate points >= [3.08065787043317, 3.08065787043317, 7.179893732009422, 7.179893732009422]
+float screen: 16 candidate cells (15s)
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_cells.py", line 206, in nwt
+    w, F, F1 = newton(acb(arb(a[0]), arb(a[1])))
+                          ^^^^^^^^^
+  File "flint/types/arb.pyx", line 202, in flint.types.arb.arb.__init__
+  File "flint/types/arb.pyx", line 118, in flint.types.arb.arb_set_python
+  File "flint/types/arb.pyx", line 53, in flint.types.arb.arb_from_str
+ValueError: invalid string for arb()
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_cells.py", line 243, in <module>
+    nw = pool.map(nwt, cands, chunksize=2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+ValueError: invalid string for arb()

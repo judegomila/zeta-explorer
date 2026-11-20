@@ -1,0 +1,6 @@
+max errors over p in {13,...,193}:
+  D(i) conjugate pair g g-bar = psi(-1) p chi(k2/k1)^e           5.75e-13
+  D(ii) g(chi^3) g(chi^-1) = J g(chi^2), order 12                1.43e-13
+  D(iii) -g(chi^2) = -J(chi^2,rho) g(chi^8)/g(rho) (cubic class) 1.08e-14
+  D index chi(k2 k1^-3)                                          1.25e-12
+  Lemma F twisted form                                           4.02e-14

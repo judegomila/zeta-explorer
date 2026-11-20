@@ -1,0 +1,53 @@
+{
+ "slug": "c12-univ-pointwise-control-wcone",
+ "round": 12,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "universality",
+  "control",
+  "cone",
+  "rs-1",
+  "t-nr",
+  "e-a-control",
+  "stage-a"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. (a) Relative to joint and hybrid universality as printed in Matsumoto's survey (statements checked against the PDF; primary texts not opened): a sup-norm-closed, height-independent condition on a fixed compact window with connected complement in 1/2 < Re s < 1 for finitely many pairwise non-equivalent Dirichlet L-functions that holds outside a set of heights of upper density zero contains every non-vanishing analytic tuple; a continuous inequality in finitely many values and derivatives at fixed offsets then holds on the whole jet space. Class-N conditions are automatic on zero-free windows only. These are classical consequences (Voronin functional independence, Kaczorowski-Kulas), used as a filter; device reading 1 restated (7), 4 in part, 2 restated, 27 out of scope is ARGUED. Not checkable numerically at accessible heights. (b) For K_F = {v >= 0, Fv >= 0}: its linear functionals are the entrywise ones at x and 1/x (proved); at q = 5 the F-fixed extreme rays give zeta(s)(1 + 5^(1/2-s)) +- L(s, chi_5), with at least CT zeros in every sub-strip relative to Nakamura-Pankowski and measured zeros off the line (0.7796 + 61.1685i and others, reproduced and extended to height 200); the T-NR lift has every input of candidate (CW), with zeros at Re s = 1/2 +- arccosh(c/2)/log p_0 (inside the strip only for 2 < c < 2.1213 at p_0 = 2). Candidate (CW) is closed; other F-adapted cones are not covered.",
+ "obstruction": "(a) Relative to joint/hybrid universality (Matsumoto survey statements): a sup-norm-closed height-independent condition on a fixed window in 1/2 < Re s < 1 for finitely many Dirichlet L-functions that holds off a density-zero set of heights contains every non-vanishing analytic tuple; so such a condition is empty, a zero statement in the same window, or false on positive density. Narrow filter (27 of 34 devices out of scope), not numerically checkable. (b) Cone K_F = {v >= 0, Fv >= 0}: linear functionals are entrywise at x and 1/x; at q = 5 the F-fixed extreme rays give zeta(s)(1 + 5^(1/2-s)) +- L(s,chi_5) with off-line zeros. Candidate (CW) closed; other F-adapted cones not covered.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "T-NR lift (has every input of candidate (CW); zeros in the strip for 2 < c < 2.1213 at p_0 = 2)",
+  "extreme-ray combination zeta(s)(1+5^(1/2-s)) +- L(s,chi_5) (off-line zeros, measured)",
+  "universality itself for pointwise open-strip inequalities",
+  "E_a lift fails only the input 'theta-normalised kernel with polar terms non-negative' (not consumed by any cone inequality)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Holds with five corrections, none load-bearing. Independent pass appended to tmp/research-2026-11-16/push/c12-univ-pointwise-control-wcone/REFEREE.md (the file already held the author's own pass; left intact). Survey arXiv:1407.4216 downloaded; Theorems 7, 10, 11, 20, 30, 31 and definition (4.1) match the lane's quotations. E1 (wrong number): section 5 says the T-NR zeros are \"inside the strip for 2 < c < 2.5\" at p_0 = 2; correct range is 2 < c < 2 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A height-uniform local inequality on L-values in the open strip carries no arithmetic: it is empty, a zero statement in the same window, or false on a positive density of heights. This filter is narrow, because most devices read the completed function, kernels or coefficients, and its verdicts cannot be cross-checked at computable heights. In cone language, \"automorphism at every prime\" and \"kernel with polar terms non-negative\" separate T-NR and E_a only as inputs; no inequality over a cone consumes the first, since cone inequalities are preserved by every cone endomorphism.",
+ "followUp": "Independent referee pass on Lemma U1, Corollaries U2-U5 and the device codes (REFEREE.md is the author's own; device 4 and 15 cells were not checked against their lanes). Then enter UNIV from controls_UNIV_proposed.json and the w-adapted-cone device row. One open item: whether \"theta-normalised kernel with polar terms non-negative\", which the E_a lift fails (E*(i, 0.7) = -2.331), can be used inside an inequality together with the functional equation.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-univ-pointwise-control-wcone/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-univ-pointwise-control-wcone/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c13-referee-r12-independent",
+  "outcome": "holds relative to one source theorem; class N wording narrowed",
+  "narrowerForm": "Hypotheses used: pairwise non-equivalent characters; K compact in 1/2 < Re s < 1 with connected complement; non-vanishing targets; positive lower density. Branch F ('false on positive lower density') is relative to Theorem 7 of Matsumoto's survey (opened; primary texts not), not proved. Class N = implied by non-vanishing, fails only in windows containing a zero (not 'equal in content to a zero statement'). Part (b) not refereed here.",
+  "downgrades": [
+   "Corollary U4: PROVED-rel -> ARGUED (Theorem 30 as printed lacks 'connected complement')",
+   "'class N equal in content to a zero statement': reword"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE2_c12-univ-pointwise-control-wcone.md"
+ }
+}

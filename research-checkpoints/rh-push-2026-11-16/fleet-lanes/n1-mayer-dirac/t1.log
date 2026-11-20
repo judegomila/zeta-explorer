@@ -1,0 +1,40 @@
+planned allocation: 3 mp matrices 40x40
+k=1 rho=(0.5 + 14.1347251417j)
+  nearest eigenvalue to 1: |lam-1|=1.341e-15 ; second nearest |lam-1|=9.344e-01
+  explicit f: sup|L f - f|/sup|f| = 8.0594e-27 ; eigvec match rel err = 1.901e-15
+  three-term defect at z=0.7: 9.5019e-34
+  z=50: psi(z) z^(s-1) = (-0.01926146794 + 0.08473654697j)   C=zeta(rho-1)/(rho-1) = (-0.01924717035 + 0.08447973952j)
+  z=400: psi(z) z^(s-1) = (-0.0192473963 + 0.0844837436j)   C=zeta(rho-1)/(rho-1) = (-0.01924717035 + 0.08447973952j)
+  Laplace check x=2: |int - (psi(x)-psi(x+1))| = 3.1071e-15
+  u->0 : Q(1e-4)=4.6074634e+18 Q(1e-2)=4.5620793e+18  predicted |zeta(nu)/Gamma(nu+1)|^2=4.6079242e+18
+  u->inf: Q(u)/u for u=50,200: 590.69962 0.007507287  predicted |zeta(nu)/nu|^2=0.00750728
+  N1[1e-4,1]=3.8782947e+19 N1[1e-2,1]=1.7608173e+19  diff/log(100)=4.5980438e+18 (pred 4.6079242e+18)
+  N1[1,20]=1.0474609e+18 N1[20,40]=2.907635e+10  N1[20,40]/(40-20)=1.4538175e+9 (pred 0.00750728)
+  |zeta(nu)/Gamma(nu+1)|^2 * (|G(nu)|^2 -+ |G(nu+1/2)/G(3/2)|^2): N-coef=-0.12776948  boundary-coef=0.14278404
+  time 93s
+k=2 rho=(0.5 + 21.0220396388j)
+  nearest eigenvalue to 1: |lam-1|=1.422e-15 ; second nearest |lam-1|=9.680e-01
+  explicit f: sup|L f - f|/sup|f| = 4.2679e-24 ; eigvec match rel err = 2.818e-15
+  three-term defect at z=0.7: 8.3404e-31
+  z=50: psi(z) z^(s-1) = (0.02932724659 + 0.1020226766j)   C=zeta(rho-1)/(rho-1) = (0.02924126943 + 0.1015632105j)
+  z=400: psi(z) z^(s-1) = (0.02924260451 + 0.1015703602j)   C=zeta(rho-1)/(rho-1) = (0.02924126943 + 0.1015632105j)
+  Laplace check x=2: |int - (psi(x)-psi(x+1))| = 0.023474
+  u->0 : Q(1e-4)=3.7792388e+28 Q(1e-2)=3.7420215e+28  predicted |zeta(nu)/Gamma(nu+1)|^2=3.7796167e+28
+  u->inf: Q(u)/u for u=50,200: 8.366718e+14 0.010778231  predicted |zeta(nu)/nu|^2=0.011170138
+  N1[1e-4,1]=3.1834997e+29 N1[1e-2,1]=1.4466536e+29  diff/log(100)=3.7715133e+28 (pred 3.7796167e+28)
+  N1[1,20]=9.3394827e+27 N1[20,40]=6.134648e+21  N1[20,40]/(40-20)=3.067324e+20 (pred 0.011170138)
+  |zeta(nu)/Gamma(nu+1)|^2 * (|G(nu)|^2 -+ |G(nu+1/2)/G(3/2)|^2): N-coef=-0.28797993  boundary-coef=0.3103202
+  time 97s
+k=5 rho=(0.5 + 32.9350615877j)
+  nearest eigenvalue to 1: |lam-1|=1.663e-15 ; second nearest |lam-1|=9.329e-01
+  explicit f: sup|L f - f|/sup|f| = 3.1743e-18 ; eigvec match rel err = 3.190e-15
+  three-term defect at z=0.7: 1.7501e-26
+  z=50: psi(z) z^(s-1) = (-0.08088441999 + 0.07634325828j)   C=zeta(rho-1)/(rho-1) = (-0.08064835789 + 0.07561065168j)
+  z=400: psi(z) z^(s-1) = (-0.08065205321 + 0.07562198236j)   C=zeta(rho-1)/(rho-1) = (-0.08064835789 + 0.07561065168j)
+  Laplace check x=2: |int - (psi(x)-psi(x+1))| = 3.4102e+12
+  u->0 : Q(1e-4)=1.8202217e+45 Q(1e-2)=1.8023004e+45  predicted |zeta(nu)/Gamma(nu+1)|^2=1.8204037e+45
+  u->inf: Q(u)/u for u=50,200: 2.8489589e+34 9.8815742e+15  predicted |zeta(nu)/nu|^2=0.012221128
+  N1[1e-4,1]=1.5343526e+46 N1[1e-2,1]=6.9782288e+45  diff/log(100)=1.8165013e+45 (pred 1.8204037e+45)
+  N1[1,20]=4.9096844e+44 N1[20,40]=8.4891078e+39  N1[20,40]/(40-20)=4.2445539e+38 (pred 0.012221128)
+  |zeta(nu)/Gamma(nu+1)|^2 * (|G(nu)|^2 -+ |G(nu+1/2)/G(3/2)|^2): N-coef=-0.5003805  boundary-coef=0.52482276
+  time 139s

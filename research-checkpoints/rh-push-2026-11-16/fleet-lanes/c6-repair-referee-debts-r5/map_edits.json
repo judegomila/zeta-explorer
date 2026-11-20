@@ -1,0 +1,29 @@
+{
+ "lines_before": 471,
+ "lines_after": 490,
+ "edits": [
+  "row Z15b",
+  "row Z22",
+  "section 3.9 rows D1-D7; row count",
+  "P46 largest real zero",
+  "P46 referee count",
+  "P46 status",
+  "P46 source section",
+  "section 4 entry 49",
+  "control THIN status",
+  "THIN note",
+  "interpolation twin note",
+  "header update line"
+ ],
+ "row_count": {
+  "P": 49,
+  "G": 26,
+  "Q": 22,
+  "S": 12,
+  "Z": 23,
+  "F": 8,
+  "T": 3,
+  "L": 5,
+  "D": 7
+ }
+}

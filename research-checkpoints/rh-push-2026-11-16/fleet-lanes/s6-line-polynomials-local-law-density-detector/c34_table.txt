@@ -1,0 +1,239 @@
+== c3 A: P13 triangle certificate (t = 0.1607, y0), N = 690988 | 728999
+  ZETA        zeta  N=690988  T = +0.000670513305  margin +6.702739e-04  share of abs sum from n with a prime factor > 13: 0.9145
+  ZETA        zeta  N=728999  T = +0.015859335700  margin +1.585912e-02  share of abs sum from n with a prime factor > 13: 0.9135
+  TNR101      zeta  N=690988  T = -0.106527435167  margin -1.065277e-01  share of abs sum from n with a prime factor > 13: 0.9294
+  TNR101      zeta  N=728999  T = -0.088365875418  margin -8.836609e-02  share of abs sum from n with a prime factor > 13: 0.9285
+  TNR1000003  zeta  N=690988  T = +0.000670513305  margin +6.702739e-04  share of abs sum from n with a prime factor > 13: 0.9145
+  TNR1000003  zeta  N=728999  T = +0.015859335700  margin +1.585912e-02  share of abs sum from n with a prime factor > 13: 0.9135
+  LIOU13      zeta  N=690988  T = +0.000670513305  margin +6.702739e-04  share of abs sum from n with a prime factor > 13: 0.9145
+  LIOU13      zeta  N=728999  T = +0.015859335700  margin +1.585912e-02  share of abs sum from n with a prime factor > 13: 0.9135
+  SGN13       zeta  N=690988  T = +0.000670513305  margin +6.702739e-04  share of abs sum from n with a prime factor > 13: 0.9145
+  SGN13       zeta  N=728999  T = +0.015859335700  margin +1.585912e-02  share of abs sum from n with a prime factor > 13: 0.9135
+  UNI13       zeta  N=690988  T = +0.000670513305  margin +6.702739e-04  share of abs sum from n with a prime factor > 13: 0.9145
+  UNI13       zeta  N=728999  T = +0.015859335700  margin +1.585912e-02  share of abs sum from n with a prime factor > 13: 0.9135
+  CHI4        own   N=690988  T = +0.246766700585  margin +2.467665e-01  share of abs sum from n with a prime factor > 13: 0.9408
+  CHI4        own   N=728999  T = +0.259820418662  margin +2.598202e-01  share of abs sum from n with a prime factor > 13: 0.9402
+  CHI5        own   N=690988  T = +0.096025624694  margin +9.602539e-02  share of abs sum from n with a prime factor > 13: 0.9236
+  CHI5        own   N=728999  T = +0.109537260772  margin +1.095370e-01  share of abs sum from n with a prime factor > 13: 0.9226
+  EA          zeta  N=690988  T = -22.349151272946  margin -2.234915e+01  share of abs sum from n with a prime factor > 13: 0.9370
+  EA          zeta  N=728999  T = -21.912628934795  margin -2.191263e+01  share of abs sum from n with a prime factor > 13: 0.9368
+  DH          zeta  N=690988  T = -0.613554982039  margin -6.135552e-01  share of abs sum from n with a prime factor > 13: 0.3977
+  DH          zeta  N=728999  T = -0.595337168972  margin -5.953374e-01  share of abs sum from n with a prime factor > 13: 0.3925
+  DH          none  N=690988  T = -0.266104450880  margin -2.661047e-01  share of abs sum from n with a prime factor > 13: 0.5207
+  DH          none  N=728999  T = -0.242357814422  margin -2.423580e-01  share of abs sum from n with a prime factor > 13: 0.5160
+  ZETA        none  N=690988  T = -1.562564658464  margin -1.562565e+00  share of abs sum from n with a prime factor > 13: 0.4644
+  ZETA        none  N=728999  T = -1.516449211664  margin -1.516449e+00  share of abs sum from n with a prime factor > 13: 0.4596
+== c3 B: P97 orbit, 1000 points per window (t = 0.132, y = 0.12649)
+  ZETA        zeta  N=690988    minRe P100 0.9352  max|T| 0.0821  rms T_smooth 0.0179  rms T_rough 0.0113  max|T_rough| 0.0430  min Re(EF) +0.9476  min|EF| 0.9610  min|F| 0.5888
+  ZETA        zeta  N=1000000   minRe P100 0.9487  max|T| 0.1102  rms T_smooth 0.0151  rms T_rough 0.0099  max|T_rough| 0.0525  min Re(EF) +0.9732  min|EF| 0.9888  min|F| 0.6221
+  ZETA        zeta  N=2000000   minRe P100 0.9359  max|T| 0.0637  rms T_smooth 0.0125  rms T_rough 0.0077  max|T_rough| 0.0293  min Re(EF) +0.9712  min|EF| 0.9826  min|F| 0.6450
+  ZETA        zeta  N=5000000   minRe P100 0.9865  max|T| 0.0365  rms T_smooth 0.0088  rms T_rough 0.0055  max|T_rough| 0.0172  min Re(EF) +1.0049  min|EF| 1.0146  min|F| 0.6230
+  ZETA        zeta  N=14999999  minRe P100 1.0112  max|T| 0.0353  rms T_smooth 0.0062  rms T_rough 0.0036  max|T_rough| 0.0100  min Re(EF) +1.0031  min|EF| 1.0090  min|F| 0.6415
+  TNR101      zeta  N=690988    minRe P100 0.9352  max|T| 0.2160  rms T_smooth 0.0179  rms T_rough 0.0634  max|T_rough| 0.1779  min Re(EF) +0.9118  min|EF| 0.9165  min|F| 0.5616
+  TNR101      zeta  N=1000000   minRe P100 0.9487  max|T| 0.2595  rms T_smooth 0.0151  rms T_rough 0.0565  max|T_rough| 0.2015  min Re(EF) +0.9361  min|EF| 0.9424  min|F| 0.5949
+  TNR101      zeta  N=2000000   minRe P100 0.9359  max|T| 0.0988  rms T_smooth 0.0125  rms T_rough 0.0450  max|T_rough| 0.0944  min Re(EF) +0.9410  min|EF| 0.9506  min|F| 0.6239
+  TNR101      zeta  N=5000000   minRe P100 0.9865  max|T| 0.0858  rms T_smooth 0.0088  rms T_rough 0.0335  max|T_rough| 0.0616  min Re(EF) +0.9822  min|EF| 0.9897  min|F| 0.6288
+  TNR101      zeta  N=14999999  minRe P100 1.0112  max|T| 0.0680  rms T_smooth 0.0062  rms T_rough 0.0238  max|T_rough| 0.0464  min Re(EF) +0.9944  min|EF| 0.9990  min|F| 0.6355
+  TNR1000003  zeta  N=690988    minRe P100 0.9352  max|T| 0.0821  rms T_smooth 0.0179  rms T_rough 0.0113  max|T_rough| 0.0430  min Re(EF) +0.9476  min|EF| 0.9610  min|F| 0.5888
+  TNR1000003  zeta  N=1000000   minRe P100 0.9487  max|T| 0.1102  rms T_smooth 0.0151  rms T_rough 0.0099  max|T_rough| 0.0525  min Re(EF) +0.9732  min|EF| 0.9888  min|F| 0.6221
+  TNR1000003  zeta  N=2000000   minRe P100 0.9359  max|T| 0.0640  rms T_smooth 0.0125  rms T_rough 0.0078  max|T_rough| 0.0285  min Re(EF) +0.9713  min|EF| 0.9828  min|F| 0.6443
+  TNR1000003  zeta  N=5000000   minRe P100 0.9865  max|T| 0.0359  rms T_smooth 0.0088  rms T_rough 0.0055  max|T_rough| 0.0167  min Re(EF) +1.0047  min|EF| 1.0146  min|F| 0.6229
+  TNR1000003  zeta  N=14999999  minRe P100 1.0112  max|T| 0.0353  rms T_smooth 0.0062  rms T_rough 0.0036  max|T_rough| 0.0100  min Re(EF) +1.0028  min|EF| 1.0086  min|F| 0.6414
+  LIOU97      zeta  N=690988    minRe P100 0.9352  max|T| 0.0965  rms T_smooth 0.0179  rms T_rough 0.0113  max|T_rough| 0.0377  min Re(EF) +0.9577  min|EF| 0.9724  min|F| 0.5925
+  LIOU97      zeta  N=1000000   minRe P100 0.9487  max|T| 0.0625  rms T_smooth 0.0151  rms T_rough 0.0098  max|T_rough| 0.0530  min Re(EF) +0.9643  min|EF| 0.9755  min|F| 0.6154
+  LIOU97      zeta  N=2000000   minRe P100 0.9359  max|T| 0.0679  rms T_smooth 0.0125  rms T_rough 0.0077  max|T_rough| 0.0328  min Re(EF) +0.9613  min|EF| 0.9736  min|F| 0.6323
+  LIOU97      zeta  N=5000000   minRe P100 0.9865  max|T| 0.0420  rms T_smooth 0.0088  rms T_rough 0.0055  max|T_rough| 0.0193  min Re(EF) +0.9998  min|EF| 1.0080  min|F| 0.6207
+  LIOU97      zeta  N=14999999  minRe P100 1.0112  max|T| 0.0274  rms T_smooth 0.0062  rms T_rough 0.0036  max|T_rough| 0.0106  min Re(EF) +1.0062  min|EF| 1.0126  min|F| 0.6378
+  SGN97       zeta  N=690988    minRe P100 0.9352  max|T| 0.0914  rms T_smooth 0.0179  rms T_rough 0.0112  max|T_rough| 0.0419  min Re(EF) +0.9530  min|EF| 0.9657  min|F| 0.5908
+  SGN97       zeta  N=1000000   minRe P100 0.9487  max|T| 0.0801  rms T_smooth 0.0151  rms T_rough 0.0095  max|T_rough| 0.0328  min Re(EF) +0.9726  min|EF| 0.9878  min|F| 0.6196
+  SGN97       zeta  N=2000000   minRe P100 0.9359  max|T| 0.0628  rms T_smooth 0.0125  rms T_rough 0.0073  max|T_rough| 0.0248  min Re(EF) +0.9639  min|EF| 0.9757  min|F| 0.6384
+  SGN97       zeta  N=5000000   minRe P100 0.9865  max|T| 0.0403  rms T_smooth 0.0088  rms T_rough 0.0053  max|T_rough| 0.0179  min Re(EF) +1.0012  min|EF| 1.0087  min|F| 0.6212
+  SGN97       zeta  N=14999999  minRe P100 1.0112  max|T| 0.0268  rms T_smooth 0.0062  rms T_rough 0.0037  max|T_rough| 0.0117  min Re(EF) +1.0024  min|EF| 1.0086  min|F| 0.6370
+  UNI97       zeta  N=690988    minRe P100 0.9352  max|T| 0.0980  rms T_smooth 0.0179  rms T_rough 0.0112  max|T_rough| 0.0615  min Re(EF) +0.9467  min|EF| 0.9604  min|F| 0.5952
+  UNI97       zeta  N=1000000   minRe P100 0.9487  max|T| 0.0708  rms T_smooth 0.0151  rms T_rough 0.0097  max|T_rough| 0.0395  min Re(EF) +0.9668  min|EF| 0.9787  min|F| 0.6151
+  UNI97       zeta  N=2000000   minRe P100 0.9359  max|T| 0.0607  rms T_smooth 0.0125  rms T_rough 0.0075  max|T_rough| 0.0222  min Re(EF) +0.9620  min|EF| 0.9734  min|F| 0.6368
+  UNI97       zeta  N=5000000   minRe P100 0.9865  max|T| 0.0468  rms T_smooth 0.0088  rms T_rough 0.0053  max|T_rough| 0.0184  min Re(EF) +0.9975  min|EF| 1.0073  min|F| 0.6211
+  UNI97       zeta  N=14999999  minRe P100 1.0112  max|T| 0.0321  rms T_smooth 0.0062  rms T_rough 0.0036  max|T_rough| 0.0106  min Re(EF) +1.0061  min|EF| 1.0123  min|F| 0.6395
+  CHI4        own   N=690988    minRe P100 1.0720  max|T| 0.0926  rms T_smooth 0.0124  rms T_rough 0.0109  max|T_rough| 0.0325  min Re(EF) +1.0557  min|EF| 1.0659  min|F| 0.7858
+  CHI4        own   N=1000000   minRe P100 1.0713  max|T| 0.0535  rms T_smooth 0.0110  rms T_rough 0.0095  max|T_rough| 0.0331  min Re(EF) +1.0797  min|EF| 1.0896  min|F| 0.7965
+  CHI4        own   N=2000000   minRe P100 1.0846  max|T| 0.0451  rms T_smooth 0.0083  rms T_rough 0.0074  max|T_rough| 0.0260  min Re(EF) +1.0774  min|EF| 1.0844  min|F| 0.8105
+  CHI4        own   N=5000000   minRe P100 1.0812  max|T| 0.0287  rms T_smooth 0.0060  rms T_rough 0.0051  max|T_rough| 0.0128  min Re(EF) +1.0777  min|EF| 1.0826  min|F| 0.8318
+  CHI4        own   N=14999999  minRe P100 1.0812  max|T| 0.0161  rms T_smooth 0.0041  rms T_rough 0.0035  max|T_rough| 0.0136  min Re(EF) +1.0798  min|EF| 1.0831  min|F| 0.8395
+  CHI5        own   N=690988    minRe P100 0.9836  max|T| 0.0738  rms T_smooth 0.0155  rms T_rough 0.0112  max|T_rough| 0.0376  min Re(EF) +0.9865  min|EF| 1.0023  min|F| 0.6488
+  CHI5        own   N=1000000   minRe P100 0.9644  max|T| 0.0642  rms T_smooth 0.0133  rms T_rough 0.0095  max|T_rough| 0.0370  min Re(EF) +0.9696  min|EF| 0.9842  min|F| 0.6307
+  CHI5        own   N=2000000   minRe P100 1.0255  max|T| 0.0513  rms T_smooth 0.0104  rms T_rough 0.0074  max|T_rough| 0.0287  min Re(EF) +1.0282  min|EF| 1.0374  min|F| 0.6450
+  CHI5        own   N=5000000   minRe P100 1.0161  max|T| 0.0524  rms T_smooth 0.0080  rms T_rough 0.0051  max|T_rough| 0.0151  min Re(EF) +1.0087  min|EF| 1.0164  min|F| 0.6706
+  CHI5        own   N=14999999  minRe P100 1.0252  max|T| 0.0273  rms T_smooth 0.0053  rms T_rough 0.0036  max|T_rough| 0.0112  min Re(EF) +1.0322  min|EF| 1.0387  min|F| 0.6679
+  EA          zeta  N=690988    minRe P100 -0.0170  max|T| 1.4173  rms T_smooth 0.2009  rms T_rough 0.1404  max|T_rough| 1.2832  min Re(EF) +0.3480  min|EF| 0.4462  min|F| 0.2588
+  EA          zeta  N=1000000   minRe P100 0.2003  max|T| 3.1218  rms T_smooth 0.1675  rms T_rough 0.1188  max|T_rough| 1.9058  min Re(EF) +0.2032  min|EF| 0.2115  min|F| 0.1497
+  EA          zeta  N=2000000   minRe P100 0.0870  max|T| 1.3675  rms T_smooth 0.1388  rms T_rough 0.0747  max|T_rough| 0.5418  min Re(EF) +0.1981  min|EF| 0.3292  min|F| 0.2308
+  EA          zeta  N=5000000   minRe P100 0.4691  max|T| 0.8581  rms T_smooth 0.0957  rms T_rough 0.0441  max|T_rough| 0.3515  min Re(EF) +0.5729  min|EF| 0.5966  min|F| 0.3431
+  EA          zeta  N=14999999  minRe P100 0.5117  max|T| 0.7269  rms T_smooth 0.0668  rms T_rough 0.0241  max|T_rough| 0.2743  min Re(EF) +0.6082  min|EF| 0.6343  min|F| 0.3588
+  EA          own   N=690988    minRe P100 0.1300  max|T| 1.7513  rms T_smooth 0.2064  rms T_rough 0.1235  max|T_rough| 1.1924  min Re(EF) +0.5600  min|EF| 0.5628  min|F| 0.2588
+  EA          own   N=1000000   minRe P100 0.4166  max|T| 1.4541  rms T_smooth 0.1752  rms T_rough 0.0939  max|T_rough| 0.6929  min Re(EF) +0.2988  min|EF| 0.3042  min|F| 0.1497
+  EA          own   N=2000000   minRe P100 0.3031  max|T| 1.2148  rms T_smooth 0.1370  rms T_rough 0.0642  max|T_rough| 0.5251  min Re(EF) +0.3865  min|EF| 0.5190  min|F| 0.2308
+  EA          own   N=5000000   minRe P100 0.7384  max|T| 0.8756  rms T_smooth 0.0974  rms T_rough 0.0349  max|T_rough| 0.2081  min Re(EF) +0.6441  min|EF| 0.6525  min|F| 0.3431
+  EA          own   N=14999999  minRe P100 0.7548  max|T| 0.3955  rms T_smooth 0.0663  rms T_rough 0.0188  max|T_rough| 0.0974  min Re(EF) +0.7836  min|EF| 0.8058  min|F| 0.3588
+  DH          dh96  N=690988    minRe P100 1.0290  max|T| 0.0646  rms T_smooth 0.0128  rms T_rough 0.0095  max|T_rough| 0.0411  min Re(EF) +1.0388  min|EF| 1.0483  min|F| 0.6693
+  DH          dh96  N=1000000   minRe P100 1.0498  max|T| 0.0563  rms T_smooth 0.0113  rms T_rough 0.0084  max|T_rough| 0.0353  min Re(EF) +1.0556  min|EF| 1.0622  min|F| 0.6474
+  DH          dh96  N=2000000   minRe P100 1.0482  max|T| 0.0344  rms T_smooth 0.0089  rms T_rough 0.0061  max|T_rough| 0.0250  min Re(EF) +1.0630  min|EF| 1.0638  min|F| 0.7346
+  DH          dh96  N=5000000   minRe P100 1.0596  max|T| 0.0249  rms T_smooth 0.0063  rms T_rough 0.0043  max|T_rough| 0.0147  min Re(EF) +1.0644  min|EF| 1.0677  min|F| 0.7295
+  DH          dh96  N=14999999  minRe P100 1.0650  max|T| 0.0172  rms T_smooth 0.0041  rms T_rough 0.0029  max|T_rough| 0.0085  min Re(EF) +1.0613  min|EF| 1.0646  min|F| 0.7591
+  DH          none  N=690988    minRe P100 0.6661  max|T| 0.0751  rms T_smooth 0.0132  rms T_rough 0.0099  max|T_rough| 0.0513  min Re(EF) +0.6692  min|EF| 0.6693  min|F| 0.6693
+  DH          none  N=1000000   minRe P100 0.6283  max|T| 0.0793  rms T_smooth 0.0116  rms T_rough 0.0088  max|T_rough| 0.0434  min Re(EF) +0.6451  min|EF| 0.6474  min|F| 0.6474
+  DH          none  N=2000000   minRe P100 0.7053  max|T| 0.0441  rms T_smooth 0.0089  rms T_rough 0.0062  max|T_rough| 0.0318  min Re(EF) +0.7251  min|EF| 0.7346  min|F| 0.7346
+  DH          none  N=5000000   minRe P100 0.7203  max|T| 0.0314  rms T_smooth 0.0064  rms T_rough 0.0044  max|T_rough| 0.0161  min Re(EF) +0.7275  min|EF| 0.7295  min|F| 0.7295
+  DH          none  N=14999999  minRe P100 0.7568  max|T| 0.0205  rms T_smooth 0.0042  rms T_rough 0.0029  max|T_rough| 0.0104  min Re(EF) +0.7591  min|EF| 0.7591  min|F| 0.7591
+== c3 D: time scan at N = 690988
+  ZETA        zeta  t=0.13: minRe +0.948 max|T| 0.082 min|F| 0.589  t=0.12: minRe +0.908 max|T| 0.119 min|F| 0.553  t=0.10: minRe +0.833 max|T| 0.216 min|F| 0.488  t=0.08: minRe +0.755 max|T| 0.417 min|F| 0.418  t=0.06: minRe +0.708 max|T| 0.856 min|F| 0.345  t=0.04: minRe +0.540 max|T| 1.853 min|F| 0.256  t=0.02: minRe -0.120 max|T| 4.302 min|F| 0.031  t=0.00: minRe -2.253 max|T| 10.945 min|F| 0.012
+  TNR101      zeta  t=0.13: minRe +0.912 max|T| 0.216 min|F| 0.562  t=0.12: minRe +0.861 max|T| 0.309 min|F| 0.518  t=0.10: minRe +0.756 max|T| 0.556 min|F| 0.439  t=0.08: minRe +0.633 max|T| 0.978 min|F| 0.356  t=0.06: minRe +0.383 max|T| 1.657 min|F| 0.235  t=0.04: minRe -0.222 max|T| 2.630 min|F| 0.053  t=0.02: minRe -1.570 max|T| 5.468 min|F| 0.008  t=0.00: minRe -5.991 max|T| 16.914 min|F| 0.056
+  LIOU97      zeta  t=0.13: minRe +0.958 max|T| 0.096 min|F| 0.593  t=0.12: minRe +0.924 max|T| 0.135 min|F| 0.555  t=0.10: minRe +0.861 max|T| 0.243 min|F| 0.488  t=0.08: minRe +0.777 max|T| 0.480 min|F| 0.415  t=0.06: minRe +0.684 max|T| 0.987 min|F| 0.337  t=0.04: minRe +0.635 max|T| 2.141 min|F| 0.265  t=0.02: minRe +0.058 max|T| 4.985 min|F| 0.122  t=0.00: minRe -2.240 max|T| 12.707 min|F| 0.037
+  SGN97       zeta  t=0.13: minRe +0.953 max|T| 0.091 min|F| 0.591  t=0.12: minRe +0.915 max|T| 0.130 min|F| 0.555  t=0.10: minRe +0.844 max|T| 0.262 min|F| 0.491  t=0.08: minRe +0.775 max|T| 0.552 min|F| 0.422  t=0.06: minRe +0.686 max|T| 1.235 min|F| 0.340  t=0.04: minRe +0.403 max|T| 2.982 min|F| 0.182  t=0.02: minRe -0.581 max|T| 7.920 min|F| 0.065  t=0.00: minRe -5.081 max|T| 23.702 min|F| 0.039
+  UNI97       zeta  t=0.13: minRe +0.947 max|T| 0.098 min|F| 0.595  t=0.12: minRe +0.908 max|T| 0.143 min|F| 0.561  t=0.10: minRe +0.834 max|T| 0.273 min|F| 0.497  t=0.08: minRe +0.756 max|T| 0.535 min|F| 0.420  t=0.06: minRe +0.677 max|T| 1.088 min|F| 0.325  t=0.04: minRe +0.540 max|T| 2.315 min|F| 0.193  t=0.02: minRe -0.130 max|T| 5.230 min|F| 0.052  t=0.00: minRe -3.801 max|T| 15.297 min|F| 0.024
+  CHI4        own   t=0.13: minRe +1.056 max|T| 0.093 min|F| 0.786  t=0.12: minRe +1.021 max|T| 0.130 min|F| 0.738  t=0.10: minRe +0.945 max|T| 0.222 min|F| 0.646  t=0.08: minRe +0.841 max|T| 0.367 min|F| 0.533  t=0.06: minRe +0.711 max|T| 0.572 min|F| 0.391  t=0.04: minRe +0.593 max|T| 1.161 min|F| 0.206  t=0.02: minRe -0.231 max|T| 3.208 min|F| 0.009  t=0.00: minRe -3.826 max|T| 10.554 min|F| 0.049
+  DH          dh96  t=0.13: minRe +1.039 max|T| 0.065 min|F| 0.669  t=0.12: minRe +1.005 max|T| 0.090 min|F| 0.609  t=0.10: minRe +0.899 max|T| 0.157 min|F| 0.492  t=0.08: minRe +0.685 max|T| 0.305 min|F| 0.347  t=0.06: minRe +0.320 max|T| 0.613 min|F| 0.166  t=0.04: minRe -0.616 max|T| 1.432 min|F| 0.040  t=0.02: minRe -3.527 max|T| 3.809 min|F| 0.050  t=0.00: minRe -11.563 max|T| 12.153 min|F| 0.040
+  EA          zeta  t=0.13: minRe +0.348 max|T| 1.417 min|F| 0.259  t=0.12: minRe +0.162 max|T| 2.129 min|F| 0.143  t=0.10: minRe -0.652 max|T| 4.257 min|F| 0.034  t=0.08: minRe -3.370 max|T| 9.906 min|F| 0.034  t=0.06: minRe -10.466 max|T| 23.399 min|F| 0.018  t=0.04: minRe -29.726 max|T| 54.140 min|F| 0.055  t=0.02: minRe -85.486 max|T| 117.804 min|F| 0.115  t=0.00: minRe -264.347 max|T| 357.228 min|F| 0.418
+== c4: window minimum against the bounds (t = 0.16125, y = 0.1808, 1e4 points per window)
+  ZETA euler11 t=0.16125
+     N=1000      tri -8.7210  two -4.5406  chan_min 0.4210  true_min 0.4587  true/two -  true/tri -  lemma None
+     N=3000      tri -7.0424  two -4.0838  chan_min 0.5907  true_min 0.6406  true/two -  true/tri -  lemma None
+     N=10000     tri -4.9581  two -3.1306  chan_min 0.6832  true_min 0.7998  true/two -  true/tri -  lemma None
+     N=30000     tri -3.1735  two -2.0994  chan_min 0.7422  true_min 0.8569  true/two -  true/tri -  lemma None
+     N=100000    tri -1.5962  two -1.0510  chan_min 0.7899  true_min 0.9200  true/two -  true/tri -  lemma None
+     N=300000    tri -0.5741  two -0.3030  chan_min 0.8311  true_min 0.9482  true/two -  true/tri -  lemma None
+     N=690988    tri -0.0418  two +0.1109  chan_min 0.8421  true_min 0.9689  true/two 8.74  true/tri -  lemma True
+     N=1000000   tri +0.1375  two +0.2548  chan_min 0.8601  true_min 0.9665  true/two 3.79  true/tri 7.03  lemma True
+     N=3000000   tri +0.5113  two +0.5637  chan_min 0.8916  true_min 0.9903  true/two 1.76  true/tri 1.94  lemma True
+     N=10000000  tri +0.7316  two +0.7532  chan_min 0.9105  true_min 0.9898  true/two 1.31  true/tri 1.35  lemma True
+  TNR3 own t=0.16125
+     N=1000      tri -83.6584  two -46.2147  chan_min -1.1526  true_min 0.0646  true/two -  true/tri -  lemma None
+     N=3000      tri -52.0423  two -32.0262  chan_min -0.9695  true_min 0.0508  true/two -  true/tri -  lemma None
+     N=10000     tri -29.2223  two -19.7216  chan_min 0.2548  true_min 0.4293  true/two -  true/tri -  lemma None
+     N=30000     tri -16.2472  two -11.6918  chan_min 0.6706  true_min 0.6790  true/two -  true/tri -  lemma None
+     N=100000    tri -7.8473  two -5.9339  chan_min 0.7416  true_min 0.7430  true/two -  true/tri -  lemma None
+     N=300000    tri -3.5961  two -2.7760  chan_min 0.7952  true_min 0.8016  true/two -  true/tri -  lemma None
+     N=690988    tri -1.7283  two -1.3112  chan_min 0.8252  true_min 0.8446  true/two -  true/tri -  lemma None
+     N=1000000   tri -1.1553  two -0.8487  chan_min 0.8312  true_min 0.8445  true/two -  true/tri -  lemma None
+     N=3000000   tri -0.0649  two +0.0556  chan_min 0.8618  true_min 0.8809  true/two 15.83  true/tri -  lemma True
+     N=10000000  tri +0.4942  two +0.5372  chan_min 0.8876  true_min 0.9161  true/two 1.71  true/tri 1.85  lemma True
+  CHI4 euler11 t=0.16125
+     N=1000      tri -4.6521  two -2.2827  chan_min 0.4653  true_min 0.4655  true/two -  true/tri -  lemma None
+     N=3000      tri -3.8046  two -2.0772  chan_min 0.5905  true_min 0.7408  true/two -  true/tri -  lemma None
+     N=10000     tri -2.6503  two -1.5559  chan_min 0.6853  true_min 0.9143  true/two -  true/tri -  lemma None
+     N=30000     tri -1.6118  two -0.9561  chan_min 0.7417  true_min 0.9559  true/two -  true/tri -  lemma None
+     N=100000    tri -0.6641  two -0.3250  chan_min 0.7928  true_min 0.9821  true/two -  true/tri -  lemma None
+     N=300000    tri -0.0349  two +0.1367  chan_min 0.8242  true_min 1.0050  true/two 7.35  true/tri -  lemma True
+     N=690988    tri +0.2989  two +0.3969  chan_min 0.8544  true_min 1.0023  true/two 2.53  true/tri 3.35  lemma True
+     N=1000000   tri +0.4127  two +0.4885  chan_min 0.8684  true_min 1.0061  true/two 2.06  true/tri 2.44  lemma True
+     N=3000000   tri +0.6536  two +0.6882  chan_min 0.8925  true_min 1.0149  true/two 1.47  true/tri 1.55  lemma True
+     N=10000000  tri +0.7999  two +0.8146  chan_min 0.9166  true_min 1.0155  true/two 1.25  true/tri 1.27  lemma True
+  TNR3 zeta11 t=0.16125
+     N=1000      tri -25.0063  two -13.5392  chan_min -0.8354  true_min 0.0115  true/two -  true/tri -  lemma None
+     N=3000      tri -20.6191  two -12.4712  chan_min -0.2483  true_min 0.0113  true/two -  true/tri -  lemma None
+     N=10000     tri -15.1928  two -10.0966  chan_min 0.0710  true_min 0.1196  true/two -  true/tri -  lemma None
+     N=30000     tri -10.5289  two -7.4717  chan_min 0.2623  true_min 0.2874  true/two -  true/tri -  lemma None
+     N=100000    tri -6.3886  two -4.7758  chan_min 0.3159  true_min 0.3650  true/two -  true/tri -  lemma None
+     N=300000    tri -3.6881  two -2.8365  chan_min 0.3699  true_min 0.4159  true/two -  true/tri -  lemma None
+     N=690988    tri -2.2700  two -1.7553  chan_min 0.4062  true_min 0.4621  true/two -  true/tri -  lemma None
+     N=1000000   tri -1.7887  two -1.3772  chan_min 0.4187  true_min 0.4725  true/two -  true/tri -  lemma None
+     N=3000000   tri -0.7726  two -0.5572  chan_min 0.4647  true_min 0.5215  true/two -  true/tri -  lemma None
+     N=10000000  tri -0.1542  two -0.0411  chan_min 0.5150  true_min 0.5641  true/two -  true/tri -  lemma None
+  CHI5 euler11 t=0.16125
+     N=1000      tri -6.3782  two -3.2374  chan_min 0.3788  true_min 0.4745  true/two -  true/tri -  lemma None
+     N=3000      tri -5.2530  two -2.9730  chan_min 0.5969  true_min 0.7010  true/two -  true/tri -  lemma None
+     N=10000     tri -3.7318  two -2.2929  chan_min 0.6718  true_min 0.8285  true/two -  true/tri -  lemma None
+     N=30000     tri -2.3696  two -1.5104  chan_min 0.7370  true_min 0.8992  true/two -  true/tri -  lemma None
+     N=100000    tri -1.1310  two -0.6884  chan_min 0.7956  true_min 0.9378  true/two -  true/tri -  lemma None
+     N=300000    tri -0.3120  two -0.0892  chan_min 0.8361  true_min 0.9686  true/two -  true/tri -  lemma None
+     N=690988    tri +0.1204  two +0.2472  chan_min 0.8525  true_min 0.9776  true/two 3.96  true/tri 8.12  lemma True
+     N=1000000   tri +0.2672  two +0.3650  chan_min 0.8638  true_min 0.9863  true/two 2.70  true/tri 3.69  lemma True
+     N=3000000   tri +0.5761  two +0.6204  chan_min 0.8916  true_min 0.9885  true/two 1.59  true/tri 1.72  lemma True
+     N=10000000  tri +0.7611  two +0.7797  chan_min 0.9138  true_min 0.9978  true/two 1.28  true/tri 1.31  lemma True
+  TNR1000003 zeta11 t=0.16125
+     N=1000      tri -8.7210  two -4.5406  chan_min 0.4210  true_min 0.4587  true/two -  true/tri -  lemma None
+     N=3000      tri -7.0424  two -4.0838  chan_min 0.5907  true_min 0.6406  true/two -  true/tri -  lemma None
+     N=10000     tri -4.9581  two -3.1306  chan_min 0.6832  true_min 0.7998  true/two -  true/tri -  lemma None
+     N=30000     tri -3.1735  two -2.0994  chan_min 0.7422  true_min 0.8569  true/two -  true/tri -  lemma None
+     N=100000    tri -1.5962  two -1.0510  chan_min 0.7899  true_min 0.9200  true/two -  true/tri -  lemma None
+     N=300000    tri -0.5741  two -0.3030  chan_min 0.8311  true_min 0.9482  true/two -  true/tri -  lemma None
+     N=690988    tri -0.0418  two +0.1109  chan_min 0.8421  true_min 0.9689  true/two 8.74  true/tri -  lemma True
+     N=1000000   tri +0.1375  two +0.2548  chan_min 0.8601  true_min 0.9665  true/two 3.79  true/tri 7.03  lemma True
+     N=3000000   tri +0.5110  two +0.5634  chan_min 0.8916  true_min 0.9902  true/two 1.76  true/tri 1.94  lemma True
+     N=10000000  tri +0.7315  two +0.7530  chan_min 0.9105  true_min 0.9899  true/two 1.31  true/tri 1.35  lemma True
+  LIOU euler11 t=0.16125
+     N=1000      tri -8.7210  two -4.5406  chan_min 0.4722  true_min 0.4985  true/two -  true/tri -  lemma None
+     N=3000      tri -7.0424  two -4.0838  chan_min 0.6047  true_min 0.6434  true/two -  true/tri -  lemma None
+     N=10000     tri -4.9581  two -3.1306  chan_min 0.6630  true_min 0.8046  true/two -  true/tri -  lemma None
+     N=30000     tri -3.1735  two -2.0994  chan_min 0.7348  true_min 0.8585  true/two -  true/tri -  lemma None
+     N=100000    tri -1.5962  two -1.0510  chan_min 0.7947  true_min 0.9231  true/two -  true/tri -  lemma None
+     N=300000    tri -0.5741  two -0.3030  chan_min 0.8316  true_min 0.9490  true/two -  true/tri -  lemma None
+     N=690988    tri -0.0418  two +0.1109  chan_min 0.8572  true_min 0.9735  true/two 8.78  true/tri -  lemma True
+     N=1000000   tri +0.1375  two +0.2548  chan_min 0.8643  true_min 0.9731  true/two 3.82  true/tri 7.08  lemma True
+     N=3000000   tri +0.5113  two +0.5637  chan_min 0.8904  true_min 0.9876  true/two 1.75  true/tri 1.93  lemma True
+     N=10000000  tri +0.7316  two +0.7532  chan_min 0.9121  true_min 0.9938  true/two 1.32  true/tri 1.36  lemma True
+  EA own t=0.16125
+     N=1000      tri -185.3646  two -102.3430  chan_min -1.1901  true_min 0.0206  true/two -  true/tri -  lemma None
+     N=3000      tri -177.1561  two -109.3122  chan_min -1.1000  true_min 0.0113  true/two -  true/tri -  lemma None
+     N=10000     tri -153.7368  two -104.4742  chan_min -1.0023  true_min 0.0106  true/two -  true/tri -  lemma None
+     N=30000     tri -124.0428  two -90.4422  chan_min -0.9894  true_min 0.0584  true/two -  true/tri -  lemma None
+     N=100000    tri -89.1226  two -69.1149  chan_min -0.8518  true_min 0.5053  true/two -  true/tri -  lemma None
+     N=300000    tri -60.2672  two -48.8884  chan_min 0.4319  true_min 0.6673  true/two -  true/tri -  lemma None
+     N=690988    tri -42.2069  two -35.2175  chan_min 0.7013  true_min 0.7021  true/two -  true/tri -  lemma None
+     N=1000000   tri -35.4410  two -29.8994  chan_min 0.7466  true_min 0.7469  true/two -  true/tri -  lemma None
+     N=3000000   tri -19.7640  two -17.1421  chan_min 0.7928  true_min 0.8259  true/two -  true/tri -  lemma None
+     N=10000000  tri -9.1945  two -8.1486  chan_min 0.8215  true_min 0.8517  true/two -  true/tri -  lemma None
+  SGN euler11 t=0.16125
+     N=1000      tri -8.7210  two -4.5406  chan_min 0.4848  true_min 0.5113  true/two -  true/tri -  lemma None
+     N=3000      tri -7.0424  two -4.0838  chan_min 0.5173  true_min 0.6493  true/two -  true/tri -  lemma None
+     N=10000     tri -4.9581  two -3.1306  chan_min 0.6927  true_min 0.7919  true/two -  true/tri -  lemma None
+     N=30000     tri -3.1735  two -2.0994  chan_min 0.7278  true_min 0.8642  true/two -  true/tri -  lemma None
+     N=100000    tri -1.5962  two -1.0510  chan_min 0.7889  true_min 0.9331  true/two -  true/tri -  lemma None
+     N=300000    tri -0.5741  two -0.3030  chan_min 0.8311  true_min 0.9568  true/two -  true/tri -  lemma None
+     N=690988    tri -0.0418  two +0.1109  chan_min 0.8436  true_min 0.9448  true/two 8.52  true/tri -  lemma True
+     N=1000000   tri +0.1375  two +0.2548  chan_min 0.8657  true_min 0.9729  true/two 3.82  true/tri 7.08  lemma True
+     N=3000000   tri +0.5113  two +0.5637  chan_min 0.8916  true_min 0.9824  true/two 1.74  true/tri 1.92  lemma True
+     N=10000000  tri +0.7316  two +0.7532  chan_min 0.9079  true_min 0.9894  true/two 1.31  true/tri 1.35  lemma True
+  EA zeta11 t=0.16125
+     N=1000      tri -119.4368  two -65.7382  chan_min -0.9230  true_min 0.0179  true/two -  true/tri -  lemma None
+     N=3000      tri -125.0599  two -77.0198  chan_min -1.0616  true_min 0.0124  true/two -  true/tri -  lemma None
+     N=10000     tri -118.4695  two -80.4140  chan_min -1.0297  true_min 0.0053  true/two -  true/tri -  lemma None
+     N=30000     tri -102.4303  two -74.6169  chan_min -1.0327  true_min 0.0545  true/two -  true/tri -  lemma None
+     N=100000    tri -78.5804  two -60.9016  chan_min -0.5660  true_min 0.3170  true/two -  true/tri -  lemma None
+     N=300000    tri -56.0118  two -45.4178  chan_min 0.3958  true_min 0.5148  true/two -  true/tri -  lemma None
+     N=690988    tri -40.7201  two -33.9671  chan_min 0.5208  true_min 0.5625  true/two -  true/tri -  lemma None
+     N=1000000   tri -34.7584  two -29.3170  chan_min 0.5361  true_min 0.5891  true/two -  true/tri -  lemma None
+     N=3000000   tri -20.4083  two -17.7026  chan_min 0.5567  true_min 0.6240  true/two -  true/tri -  lemma None
+     N=10000000  tri -10.2188  two -9.0659  chan_min 0.5934  true_min 0.6487  true/two -  true/tri -  lemma None
+  DH none t=0.16125
+     N=1000      tri -5.8258  two -2.9032  chan_min 0.2176  true_min 0.2433  true/two -  true/tri -  lemma None
+     N=3000      tri -5.1178  two -2.8717  chan_min 0.3049  true_min 0.3773  true/two -  true/tri -  lemma None
+     N=10000     tri -3.9064  two -2.4014  chan_min 0.3800  true_min 0.5039  true/two -  true/tri -  lemma None
+     N=30000     tri -2.7044  two -1.7486  chan_min 0.4544  true_min 0.5768  true/two -  true/tri -  lemma None
+     N=100000    tri -1.5424  two -1.0045  chan_min 0.5149  true_min 0.6273  true/two -  true/tri -  lemma None
+     N=300000    tri -0.7342  two -0.4304  chan_min 0.5718  true_min 0.6785  true/two -  true/tri -  lemma None
+     N=690988    tri -0.2875  two -0.0930  chan_min 0.6033  true_min 0.7011  true/two -  true/tri -  lemma None
+     N=1000000   tri -0.1306  two +0.0293  chan_min 0.6188  true_min 0.7129  true/two 24.36  true/tri -  lemma True
+     N=3000000   tri +0.2158  two +0.3066  chan_min 0.6647  true_min 0.7489  true/two 2.44  true/tri 3.47  lemma True
+     N=10000000  tri +0.4460  two +0.4976  chan_min 0.7073  true_min 0.7809  true/two 1.57  true/tri 1.75  lemma True
+  DH zeta11 t=0.16125
+     N=1000      tri -12.0100  two -6.3569  chan_min 0.1891  true_min 0.2469  true/two -  true/tri -  lemma None
+     N=3000      tri -9.8265  two -5.8028  chan_min 0.2140  true_min 0.3215  true/two -  true/tri -  lemma None
+     N=10000     tri -7.1727  two -4.6394  chan_min 0.2675  true_min 0.3750  true/two -  true/tri -  lemma None
+     N=30000     tri -4.9515  two -3.3999  chan_min 0.3195  true_min 0.4286  true/two -  true/tri -  lemma None
+     N=100000    tri -3.0189  two -2.1587  chan_min 0.3763  true_min 0.4830  true/two -  true/tri -  lemma None
+     N=300000    tri -1.7662  two -1.2748  chan_min 0.4149  true_min 0.5057  true/two -  true/tri -  lemma None
+     N=690988    tri -1.1001  two -0.7772  chan_min 0.4494  true_min 0.5345  true/two -  true/tri -  lemma None
+     N=1000000   tri -0.8695  two -0.6000  chan_min 0.4620  true_min 0.5444  true/two -  true/tri -  lemma None
+     N=3000000   tri -0.3635  two -0.2014  chan_min 0.5001  true_min 0.5713  true/two -  true/tri -  lemma None
+     N=10000000  tri -0.0233  two +0.0752  chan_min 0.5497  true_min 0.6117  true/two 8.14  true/tri -  lemma True
+  DH dh96 t=0.16125
+     N=1000      tri -6.3155  two -3.2926  chan_min 0.4008  true_min 0.4383  true/two -  true/tri -  lemma None
+     N=3000      tri -4.8418  two -2.7739  chan_min 0.5224  true_min 0.7119  true/two -  true/tri -  lemma None
+     N=10000     tri -3.1996  two -1.9601  chan_min 0.6743  true_min 0.8597  true/two -  true/tri -  lemma None
+     N=30000     tri -1.8882  two -1.1746  chan_min 0.7503  true_min 0.9743  true/two -  true/tri -  lemma None
+     N=100000    tri -0.7778  two -0.4214  chan_min 0.7910  true_min 1.0026  true/two -  true/tri -  lemma None
+     N=300000    tri -0.0771  two +0.0981  chan_min 0.8391  true_min 1.0177  true/two 10.38  true/tri -  lemma True
+     N=690988    tri +0.2836  two +0.3815  chan_min 0.8662  true_min 1.0207  true/two 2.68  true/tri 3.60  lemma True
+     N=1000000   tri +0.4047  two +0.4797  chan_min 0.8811  true_min 1.0243  true/two 2.14  true/tri 2.53  lemma True
+     N=3000000   tri +0.6576  two +0.6907  chan_min 0.9028  true_min 1.0294  true/two 1.49  true/tri 1.57  lemma True
+     N=10000000  tri +0.8082  two +0.8214  chan_min 0.9246  true_min 1.0269  true/two 1.25  true/tri 1.27  lemma True

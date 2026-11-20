@@ -1,0 +1,10 @@
+X=1e+07 theta=2/9 u=lambda; seeds (demeaned random-phase rows, weight without mu): exponents [-0.0080, +0.0116]
+   nomu raw       r2: 0.844 0.855 0.934 0.978 1.001 0.937   exponent -0.0430
+   nomu demeaned  r2: 0.959 0.975 1.035 1.052 1.068 1.222   exponent -0.0620
+   mu raw         r2: 1.010 1.006 0.994 1.032 1.045 1.004   exponent -0.0051
+   mu demeaned    r2: 1.007 0.993 0.983 1.019 0.966 1.020   exponent -0.0006
+X=1e+07 theta=1/3 u=lambda; seeds (demeaned random-phase rows, weight without mu): exponents [-0.0016, +0.0109]
+   nomu raw       r2: 0.871 0.868 0.997 0.888   exponent -0.0282
+   nomu demeaned  r2: 0.993 1.032 0.995 1.027   exponent -0.0094
+   mu raw         r2: 1.027 0.988 1.013 1.035   exponent -0.0073
+   mu demeaned    r2: 0.982 0.974 0.957 0.999   exponent -0.0045

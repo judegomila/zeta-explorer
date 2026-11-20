@@ -1,0 +1,50 @@
+[
+ {
+  "T": 10000.0,
+  "Ts": 10030.0,
+  "L": 64,
+  "alpha": 0.8515322655932238,
+  "eta_span": 0.002708006668076476,
+  "max_abs_FE_defect_on_span": 0.009117284839958452,
+  "max_abs_F_on_line": 6.91434675444699,
+  "sign_changes_on_line": 75,
+  "mean_zero_count_of_zeta": 75.15823512097636,
+  "n_offline": 0,
+  "offline": [],
+  "mult_defect_a4": 0.08459565350793098
+ },
+ {
+  "T": 100000.0,
+  "Ts": 100300.0,
+  "L": 64,
+  "alpha": 0.6491989714694907,
+  "eta_span": 0.0002070555809156792,
+  "max_abs_FE_defect_on_span": 0.0010884269346992381,
+  "max_abs_F_on_line": 11.185206440894127,
+  "sign_changes_on_line": 98,
+  "mean_zero_count_of_zeta": 98.58299480308779,
+  "n_offline": 0,
+  "offline": [],
+  "mult_defect_a4": 0.04977436899054085
+ },
+ {
+  "T": 1000000.0,
+  "Ts": 1003000.0,
+  "L": 32,
+  "alpha": 0.5244446517715131,
+  "eta_span": 8.36588073900283e-06,
+  "max_abs_FE_defect_on_span": 5.827462680188562e-05,
+  "max_abs_F_on_line": 9.971813389058841,
+  "sign_changes_on_line": 59,
+  "mean_zero_count_of_zeta": 61.01692369986275,
+  "n_offline": 1,
+  "offline": [
+   [
+    0.6214296408733061,
+    1003003.2950764798,
+    5.671244074094358e-26
+   ]
+  ],
+  "mult_defect_a4": 0.03267401419126029
+ }
+]

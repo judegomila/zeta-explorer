@@ -1,0 +1,177 @@
+RULE A  |s - 1| <= 0.05, real vectors, lam >= 7: 288 vector-configurations, violations 0; largest |s - 1| = 2.36e-03 at ((7, 3, 7, 1, 0), 'one')  ->  HOLDS
+        (reported, not in the rule) lam < 7: 366 vector-configurations, largest |s - 1| = 0.188 at ((7, 2, 3, 1, 0), 'one')
+        N = 2, lam in [3, 4]: max |s - 1| = 1.88e-01 (108 vector-configurations)
+        N = 2, lam in [5, 6]: max |s - 1| = 1.51e-02 (120 vector-configurations)
+        N = 2, lam in [7, 8]: max |s - 1| = 1.84e-03 (102 vector-configurations)
+        N = 2, lam in [9, 10]: max |s - 1| = 3.02e-04 (60 vector-configurations)
+        N = 2, lam in [11, 12]: max |s - 1| = 5.35e-05 (24 vector-configurations)
+        N = 3, lam in [3, 4]: max |s - 1| = 1.40e-01 (48 vector-configurations)
+        N = 3, lam in [5, 6]: max |s - 1| = 1.13e-01 (90 vector-configurations)
+        N = 3, lam in [7, 8]: max |s - 1| = 2.36e-03 (54 vector-configurations)
+        N = 3, lam in [9, 10]: max |s - 1| = 5.97e-04 (42 vector-configurations)
+        N = 3, lam in [11, 12]: max |s - 1| = 6.54e-05 (6 vector-configurations)
+RULE B  -1.05 <= c_perp <= 1.5 for a, b/c4, mu, class U (squarefree rows): 596 vector-configurations, violations 3; range [-0.978 at ((13, 2, 5, 2, 0), 'mu'), 8.126 at ((7, 2, 12, 1, 0), 'U2')]
+        violation ((7, 2, 12, 1, 0), 'b', 4.452576868007113)
+        violation ((7, 2, 12, 1, 0), 'U2', 8.125802369582749)
+        violation ((7, 2, 11, 2, 0), 'mu', 1.6564383559820748)
+        mu, beta >= 10: |c/beta - 1| <= 0.1 in 26 of 26; violations []
+        ->  FAILS
+        n = e - beta for a: 58 values, min 0.000, median 0.409, max 1.437
+        n = e - beta for b: 40 values, min 0.000, median 0.486, max 5.310
+        n = e - beta for c4: 18 values, min 0.000, median 0.441, max 1.466
+        n = e - beta for mu: 58 values, min 0.000, median 0.000, max 2.616
+        n = e - beta for one: 58 values, min 0.000, median 0.000, max 9.057
+        n = e - beta for U: 422 values, min 0.000, median 0.467, max 8.983
+        one (not in the rule): c_perp range [-1.188, 8.063]; above 1.5 at [((7, 2, 6, 2), 1.87), ((7, 2, 10, 2), 1.76), ((7, 2, 11, 2), 3.05), ((7, 2, 7, 3), 8.06), ((7, 2, 8, 3), 7.41), ((13, 2, 6, 2), 2.55), ((13, 3, 5, 2), 1.94)]
+RULE C  sb <= 2 dim/q^d, real vectors, lam >= 7: 288 vector-configurations, violations 0; largest sb/(2 dim/q^d) = 0.510 at ((7, 2, 7, 3, 0), 'mu')  ->  HOLDS
+RULE D  (i) class r: mean c within max(3 se, 0.02) of 0 in 50 of 51 F configurations (98%; needed 90%); outside: [((7, 3, 7, 1), -0.281, 0.064)]
+        (ii) slot signs: mean e within max(3 se, 0.02) of s in 97 of 102 (a*e and mu*e; 95%; needed 90%)
+        (iii) target a separated from class U in c_perp in 1 of 51 F configurations
+
+EXCESS CONFIGURATIONS (e >= 2), squarefree rows: vector, configuration, e, c/(e - 1), c_coh/c, beta, n
+  q=7 (2,4,1) mu: e = 9.434, c/(e-1) = 0.99072, c_coh/c = 1.11, beta = 9.434, n = 0
+  q=7 (2,4,1) one: e = 12, c/(e-1) = 1.0059, c_coh/c = 1.082, beta = 12, n = 0
+  q=7 (2,6,1) mu: e = 42.14, c/(e-1) = 1.0004, c_coh/c = 1.02, beta = 42.14, n = 0
+  q=7 (2,6,1) one: e = 3.317, c/(e-1) = 0.99352, c_coh/c = 1.38, beta = 3.317, n = 0
+  q=7 (2,10,1) a: e = 3.52, c/(e-1) = 0.99998, c_coh/c = 1.251, beta = 3.296, n = 0.224
+  q=7 (2,10,1) mu: e = 161.5, c/(e-1) = 1, c_coh/c = 1.005, beta = 161.5, n = 0
+  q=7 (2,10,1) one: e = 4.986, c/(e-1) = 1, c_coh/c = 1.215, beta = 4.986, n = 0
+  q=7 (2,12,1) a: e = 20.64, c/(e-1) = 1, c_coh/c = 0.9819, beta = 19.43, n = 1.21
+  q=7 (2,12,1) b: e = 7.468, c/(e-1) = 1, c_coh/c = 0.3116, beta = 2.158, n = 5.31
+  q=7 (2,12,1) mu: e = 951.9, c/(e-1) = 1, c_coh/c = 1.001, beta = 951.9, n = 0
+  q=7 (2,12,1) one: e = 27.84, c/(e-1) = 1, c_coh/c = 1.032, beta = 27.84, n = 0
+  q=7 (2,4,2) mu: e = 9.018, c/(e-1) = 1.0014, c_coh/c = 1.078, beta = 8.697, n = 0.321
+  q=7 (2,5,2) mu: e = 6.116, c/(e-1) = 0.99942, c_coh/c = 1.154, beta = 5.938, n = 0.179
+  q=7 (2,5,2) one: e = 10.62, c/(e-1) = 0.99988, c_coh/c = 1.076, beta = 10.38, n = 0.237
+  q=7 (2,6,2) mu: e = 36.73, c/(e-1) = 1, c_coh/c = 1.01, beta = 36.12, n = 0.608
+  q=7 (2,6,2) one: e = 3.452, c/(e-1) = 1.001, c_coh/c = 0.2376, beta = 0.6084, n = 2.84
+  q=7 (2,7,2) mu: e = 36.95, c/(e-1) = 1.0001, c_coh/c = 1.003, beta = 36.09, n = 0.863
+  q=7 (2,7,2) one: e = 2.262, c/(e-1) = 0.99927, c_coh/c = 0.7634, beta = 1.002, n = 1.26
+  q=7 (2,10,2) a: e = 4.133, c/(e-1) = 0.99999, c_coh/c = 1.107, beta = 3.51, n = 0.623
+  q=7 (2,10,2) mu: e = 173.3, c/(e-1) = 1, c_coh/c = 0.9976, beta = 172, n = 1.38
+  q=7 (2,10,2) one: e = 6.319, c/(e-1) = 1, c_coh/c = 0.6695, beta = 3.602, n = 2.72
+  q=7 (2,11,2) a: e = 2.977, c/(e-1) = 1, c_coh/c = 1.321, beta = 2.652, n = 0.325
+  q=7 (2,11,2) mu: e = 132.5, c/(e-1) = 1, c_coh/c = 0.9874, beta = 129.9, n = 2.62
+  q=7 (2,11,2) one: e = 6.912, c/(e-1) = 0.99999, c_coh/c = 0.4847, beta = 2.906, n = 4.01
+  q=7 (2,4,3) mu: e = 10.88, c/(e-1) = 1, c_coh/c = 0.8906, beta = 8.816, n = 2.07
+  q=7 (2,4,3) one: e = 2.207, c/(e-1) = 1, c_coh/c = 0.003738, beta = 0.005102, n = 2.2
+  q=7 (2,5,3) mu: e = 8.146, c/(e-1) = 1.0001, c_coh/c = 0.8781, beta = 6.282, n = 1.86
+  q=7 (2,7,3) mu: e = 33.63, c/(e-1) = 0.99999, c_coh/c = 1.001, beta = 32.68, n = 0.957
+  q=7 (2,7,3) one: e = 9.654, c/(e-1) = 1, c_coh/c = 0.06828, beta = 0.5967, n = 9.06
+  q=7 (2,8,3) mu: e = 33.37, c/(e-1) = 1, c_coh/c = 0.9932, beta = 32.15, n = 1.21
+  q=7 (2,8,3) one: e = 9.279, c/(e-1) = 1, c_coh/c = 0.1049, beta = 0.8748, n = 8.4
+  q=7 (3,5,1) mu: e = 61.92, c/(e-1) = 1, c_coh/c = 1.014, beta = 61.92, n = 0
+  q=7 (3,5,1) one: e = 68.2, c/(e-1) = 1.0004, c_coh/c = 1.014, beta = 68.2, n = 0
+  q=7 (3,9,1) mu: e = 171.5, c/(e-1) = 1, c_coh/c = 1.005, beta = 171.5, n = 0
+  q=7 (3,11,1) a: e = 3.338, c/(e-1) = 0.99998, c_coh/c = 0.7522, beta = 1.901, n = 1.44
+  q=7 (3,11,1) b: e = 4.187, c/(e-1) = 0.99999, c_coh/c = 1.138, beta = 3.77, n = 0.417
+  q=7 (3,11,1) mu: e = 1160, c/(e-1) = 1, c_coh/c = 1.001, beta = 1160, n = 0
+  q=7 (3,4,2) mu: e = 8.775, c/(e-1) = 0.99986, c_coh/c = 1.087, beta = 8.493, n = 0.282
+  q=7 (3,5,2) mu: e = 44.8, c/(e-1) = 1, c_coh/c = 1.004, beta = 44.02, n = 0.783
+  q=7 (3,5,2) one: e = 61.4, c/(e-1) = 1.0019, c_coh/c = 0.99, beta = 59.94, n = 1.45
+  q=7 (3,6,2) mu: e = 35.84, c/(e-1) = 1, c_coh/c = 1.009, beta = 35.2, n = 0.644
+  q=7 (3,7,2) one: e = 7.308, c/(e-1) = 0.99966, c_coh/c = 1.139, beta = 7.22, n = 0.0882
+  q=7 (3,9,2) mu: e = 196.6, c/(e-1) = 1, c_coh/c = 1, beta = 195.7, n = 0.912
+  q=7 (3,10,2) mu: e = 167.2, c/(e-1) = 1, c_coh/c = 0.9918, beta = 164.9, n = 2.33
+  q=13 (2,4,1) mu: e = 36.07, c/(e-1) = 1.0008, c_coh/c = 1.025, beta = 36.07, n = 0
+  q=13 (2,4,1) one: e = 42, c/(e-1) = 0.99977, c_coh/c = 1.024, beta = 42, n = 0
+  q=13 (2,6,1) a: e = 2.388, c/(e-1) = 1.0001, c_coh/c = 1.275, beta = 1.847, n = 0.541
+  q=13 (2,6,1) mu: e = 312.2, c/(e-1) = 1, c_coh/c = 1.003, beta = 312.2, n = 0
+  q=13 (2,6,1) one: e = 3.836, c/(e-1) = 1.0005, c_coh/c = 1.325, beta = 3.836, n = 0
+  q=13 (2,4,2) mu: e = 36.51, c/(e-1) = 0.99994, c_coh/c = 1.007, beta = 35.77, n = 0.746
+  q=13 (2,5,2) mu: e = 26.19, c/(e-1) = 1, c_coh/c = 1.039, beta = 26.18, n = 0.0103
+  q=13 (2,5,2) one: e = 37.58, c/(e-1) = 0.99997, c_coh/c = 1.021, beta = 37.37, n = 0.216
+  q=13 (2,6,2) a: e = 2.263, c/(e-1) = 0.99989, c_coh/c = 1.341, beta = 1.705, n = 0.558
+  q=13 (2,6,2) mu: e = 289.9, c/(e-1) = 1, c_coh/c = 0.9974, beta = 288.1, n = 1.73
+  q=13 (2,6,2) one: e = 5.272, c/(e-1) = 1.0002, c_coh/c = 0.4034, beta = 1.73, n = 3.54
+  q=13 (2,7,2) a: e = 2.335, c/(e-1) = 1, c_coh/c = 1.176, beta = 1.582, n = 0.753
+  q=13 (2,7,2) mu: e = 269.6, c/(e-1) = 1, c_coh/c = 0.9955, beta = 267.4, n = 2.19
+  q=13 (2,7,2) one: e = 3.912, c/(e-1) = 0.99993, c_coh/c = 0.6337, beta = 1.857, n = 2.06
+  q=13 (3,5,1) mu: e = 434.6, c/(e-1) = 0.99999, c_coh/c = 1.002, beta = 434.6, n = 0
+  q=13 (3,5,1) one: e = 436, c/(e-1) = 1, c_coh/c = 1.002, beta = 436, n = 0
+  q=13 (3,4,2) mu: e = 32.91, c/(e-1) = 1.0001, c_coh/c = 1.015, beta = 32.39, n = 0.523
+  q=13 (3,5,2) mu: e = 343.4, c/(e-1) = 1, c_coh/c = 1.003, beta = 343.2, n = 0.121
+  q=13 (3,5,2) one: e = 405, c/(e-1) = 1.0002, c_coh/c = 0.9952, beta = 402.2, n = 2.86
+  q=13 (3,6,2) mu: e = 267.5, c/(e-1) = 1, c_coh/c = 0.9967, beta = 265.7, n = 1.86
+  q=13 (3,6,2) one: e = 2.164, c/(e-1) = 0.99572, c_coh/c = 1.619, beta = 1.889, n = 0.275
+
+EXCESS CONFIGURATIONS (e >= 2), completed rows N = 3: vector, configuration, e, c/(e - 1), beta, beta4, n4, share of the excess in the enlarged span (beta4 - sb4)/c
+  q=7 (3,5,1) mu: e = 53.25, c/(e-1) = 1.0027, beta = 53.25, beta4 = 53.25, n4 = 0, (beta4 - sb4)/c = 1.014, c_perp4 = -0.733
+  q=7 (3,5,1) one: e = 58.65, c/(e-1) = 1.0028, beta = 58.65, beta4 = 58.65, n4 = 0, (beta4 - sb4)/c = 1.014, c_perp4 = -0.817
+  q=7 (3,8,1) a: e = 5.198, c/(e-1) = 0.9953, beta = 0.08414, beta4 = 5.079, n4 = 0.119, (beta4 - sb4)/c = 1.129, c_perp4 = -0.538
+  q=7 (3,8,1) b: e = 7.164, c/(e-1) = 1.0011, beta = 0.01545, beta4 = 6.942, n4 = 0.222, (beta4 - sb4)/c = 1.075, c_perp4 = -0.461
+  q=7 (3,9,1) mu: e = 147.5, c/(e-1) = 1.001, beta = 147.5, beta4 = 147.5, n4 = 0, (beta4 - sb4)/c = 1.005, c_perp4 = -0.737
+  q=7 (3,11,1) a: e = 2.869, c/(e-1) = 0.98923, beta = 1.634, beta4 = 1.783, n4 = 1.09, (beta4 - sb4)/c = 0.7687, c_perp4 = 0.428
+  q=7 (3,11,1) b: e = 3.599, c/(e-1) = 1.0026, beta = 3.24, beta4 = 3.258, n4 = 0.341, (beta4 - sb4)/c = 1.131, c_perp4 = -0.342
+  q=7 (3,11,1) mu: e = 997.3, c/(e-1) = 1.0001, beta = 997.3, beta4 = 997.3, n4 = 0, (beta4 - sb4)/c = 1.001, c_perp4 = -0.737
+  q=7 (3,4,2) mu: e = 7.402, c/(e-1) = 0.99985, beta = 7.145, beta4 = 7.145, n4 = 0.256, (beta4 - sb4)/c = 1.104, c_perp4 = -0.668
+  q=7 (3,5,2) mu: e = 38.51, c/(e-1) = 1.0002, beta = 37.84, beta4 = 37.84, n4 = 0.673, (beta4 - sb4)/c = 1.007, c_perp4 = -0.254
+  q=7 (3,5,2) one: e = 52.78, c/(e-1) = 1.0019, beta = 51.53, beta4 = 51.53, n4 = 1.25, (beta4 - sb4)/c = 0.9922, c_perp4 = 0.404
+  q=7 (3,6,2) a: e = 2.1, c/(e-1) = 1.0001, beta = 0.03204, beta4 = 1.756, n4 = 0.344, (beta4 - sb4)/c = 1.512, c_perp4 = -0.563
+  q=7 (3,6,2) mu: e = 31.04, c/(e-1) = 1, beta = 30.05, beta4 = 30.54, n4 = 0.493, (beta4 - sb4)/c = 1.014, c_perp4 = -0.435
+  q=7 (3,6,2) one: e = 2.477, c/(e-1) = 0.98794, beta = 0.844, beta4 = 2.41, n4 = 0.0665, (beta4 - sb4)/c = 1.599, c_perp4 = -0.874
+  q=7 (3,7,2) one: e = 6.972, c/(e-1) = 0.99969, beta = 6.896, beta4 = 6.896, n4 = 0.0758, (beta4 - sb4)/c = 1.143, c_perp4 = -0.857
+  q=7 (3,8,2) a: e = 5.493, c/(e-1) = 0.99999, beta = 0.02088, beta4 = 5.186, n4 = 0.307, (beta4 - sb4)/c = 1.134, c_perp4 = -0.601
+  q=7 (3,8,2) b: e = 5.549, c/(e-1) = 1, beta = 0.2767, beta4 = 5.305, n4 = 0.244, (beta4 - sb4)/c = 1.147, c_perp4 = -0.667
+  q=7 (3,9,2) a: e = 6.274, c/(e-1) = 0.99999, beta = 0.2441, beta4 = 5.844, n4 = 0.429, (beta4 - sb4)/c = 1.091, c_perp4 = -0.478
+  q=7 (3,9,2) b: e = 6.538, c/(e-1) = 1, beta = 0.3699, beta4 = 5.976, n4 = 0.562, (beta4 - sb4)/c = 1.063, c_perp4 = -0.349
+  q=7 (3,9,2) mu: e = 172.5, c/(e-1) = 1, beta = 169, beta4 = 171.9, n4 = 0.538, (beta4 - sb4)/c = 1.002, c_perp4 = -0.391
+  q=7 (3,9,2) one: e = 6.023, c/(e-1) = 0.99997, beta = 0, beta4 = 6.023, n4 = 0, (beta4 - sb4)/c = 1.185, c_perp4 = -0.929
+  q=7 (3,10,2) mu: e = 143.7, c/(e-1) = 1, beta = 141.7, beta4 = 141.7, n4 = 1.99, (beta4 - sb4)/c = 0.9926, c_perp4 = 1.06
+  q=13 (3,5,1) mu: e = 401.3, c/(e-1) = 1.0002, beta = 401.3, beta4 = 401.3, n4 = 0, (beta4 - sb4)/c = 1.002, c_perp4 = -0.853
+  q=13 (3,5,1) one: e = 402.7, c/(e-1) = 1.0002, beta = 402.7, beta4 = 402.7, n4 = 0, (beta4 - sb4)/c = 1.002, c_perp4 = -0.912
+  q=13 (3,6,1) a: e = 2.779, c/(e-1) = 1.0033, beta = 0.01199, beta4 = 2.535, n4 = 0.244, (beta4 - sb4)/c = 1.332, c_perp4 = -0.592
+  q=13 (3,6,1) c4: e = 2.971, c/(e-1) = 1.0028, beta = 0, beta4 = 2.931, n4 = 0.0394, (beta4 - sb4)/c = 1.405, c_perp4 = -0.8
+  q=13 (3,4,2) mu: e = 30.39, c/(e-1) = 1.0001, beta = 29.91, beta4 = 29.91, n4 = 0.48, (beta4 - sb4)/c = 1.017, c_perp4 = -0.498
+  q=13 (3,5,2) mu: e = 317.1, c/(e-1) = 1, beta = 317, beta4 = 317, n4 = 0.112, (beta4 - sb4)/c = 1.003, c_perp4 = -0.864
+  q=13 (3,5,2) one: e = 374, c/(e-1) = 1.0002, beta = 371.4, beta4 = 371.4, n4 = 2.64, (beta4 - sb4)/c = 0.9954, c_perp4 = 1.72
+  q=13 (3,6,2) a: e = 2.363, c/(e-1) = 1.0001, beta = 0.01543, beta4 = 1.703, n4 = 0.66, (beta4 - sb4)/c = 1.231, c_perp4 = -0.314
+  q=13 (3,6,2) c4: e = 2.697, c/(e-1) = 0.99997, beta = 0.0533, beta4 = 2.035, n4 = 0.662, (beta4 - sb4)/c = 1.184, c_perp4 = -0.313
+  q=13 (3,6,2) mu: e = 249.4, c/(e-1) = 1, beta = 245.3, beta4 = 248.1, n4 = 1.23, (beta4 - sb4)/c = 0.999, c_perp4 = 0.253
+  q=13 (3,6,2) one: e = 3.805, c/(e-1) = 0.99836, beta = 2.102, beta4 = 3.782, n4 = 0.0226, (beta4 - sb4)/c = 1.342, c_perp4 = -0.959
+
+COMPLETED ROWS (N = 3, variant 1), rule B with both spans, vectors a, b/c4, mu, class U
+  span {v_0, v_1}: 218 vector-configurations, violations 37: [((7, 3, 8, 1), 'a', 4.24), ((7, 3, 8, 1), 'b', 6.3), ((7, 3, 8, 2), 'a', 4.51), ((7, 3, 8, 2), 'b', 4.31), ((7, 3, 9, 2), 'a', 5.07), ((7, 3, 9, 2), 'b', 5.21), ((7, 3, 9, 2), 'mu', 2.49), ((13, 3, 6, 1), 'a', 1.85), ((13, 3, 6, 1), 'c4', 2.05), ((13, 3, 6, 2), 'c4', 1.66), ((13, 3, 6, 2), 'mu', 3.06)] (+ 26 of class U)
+  span {v_0, v_1, V v_0, V v_1}: violations 0: []
+
+PREDICTIONS (PREREG section 5)
+  1. max |s - 1|: N = 2, lam >= 7: 1.84e-03 (predicted <= 0.01); N = 3, lam >= 7: 2.36e-03 (predicted <= 0.05)  -> HIT
+  2. c_perp of a, b/c4 in [-1, 0.6]: 115 of 116; outside: [((7, 2, 12, 1), 'b', 4.453)]; rows with e = 0 exactly: 49 (one, a, b/c4, mu), of which beta != 0 or c != -s: 0  -> MISS
+  3. q = 7 (2, 12, 1), a: beta = 19.4261 (predicted [18, 21.5]), c_coh/c = 0.9819 (predicted [0.9, 1.1])  -> HIT
+  4. q = 7 (2, 8, 3), one: e = 9.2789, beta = 0.8748, 0.75 (e - 1) = 6.2091  -> MISS
+  5. slot-sign vectors: |e - s| <= 3/sqrt(q^d) in 842 of 844; outside: [((7, 2, 4, 3), 'mu*e', 0.83), ((7, 3, 7, 1), 'a*e', 2.443)]  -> MISS
+  6. class U: beta spread over the seeds by more than a factor 3 in 26 of 27 active F configurations (beta(mu) >= 3); target a separated from U in c_perp in 1 of 51  -> MISS
+
+RATIO beta(a)/beta(mu) times q^N (model law: squared ratio of the Moebius sums), configurations with beta(mu) >= 3
+  q=7 (2,4,1): beta(mu) = 9.4337, beta(a) = 0.19252, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,6,1): beta(mu) = 42.138, beta(a) = 0.85996, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,10,1): beta(mu) = 161.5, beta(a) = 3.296, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,12,1): beta(mu) = 951.88, beta(a) = 19.426, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,4,2): beta(mu) = 8.6968, beta(a) = 0.17749, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,5,2): beta(mu) = 5.9375, beta(a) = 0.12117, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,6,2): beta(mu) = 36.118, beta(a) = 0.73711, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,7,2): beta(mu) = 36.088, beta(a) = 0.73649, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,10,2): beta(mu) = 171.97, beta(a) = 3.5095, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,11,2): beta(mu) = 129.93, beta(a) = 2.6517, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,4,3): beta(mu) = 8.8163, beta(a) = 0.17993, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,5,3): beta(mu) = 6.2816, beta(a) = 0.1282, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,7,3): beta(mu) = 32.675, beta(a) = 0.66684, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (2,8,3): beta(mu) = 32.153, beta(a) = 0.65618, beta(a) q^N / beta(mu) = 1 = 1
+  q=7 (3,5,1): beta(mu) = 61.922, beta(a) = 1.0753, beta(a) q^N / beta(mu) = 5.95633
+  q=7 (3,9,1): beta(mu) = 171.47, beta(a) = 0.56095, beta(a) q^N / beta(mu) = 1.12211
+  q=7 (3,11,1): beta(mu) = 1159.7, beta(a) = 1.9011, beta(a) q^N / beta(mu) = 0.562297
+  q=7 (3,4,2): beta(mu) = 8.4933, beta(a) = 0.96663, beta(a) q^N / beta(mu) = 39.0368
+  q=7 (3,5,2): beta(mu) = 44.017, beta(a) = 0.10559, beta(a) q^N / beta(mu) = 0.822809
+  q=7 (3,6,2): beta(mu) = 35.199, beta(a) = 0.034957, beta(a) q^N / beta(mu) = 0.340645
+  q=7 (3,9,2): beta(mu) = 195.67, beta(a) = 0.28929, beta(a) q^N / beta(mu) = 0.507118
+  q=7 (3,10,2): beta(mu) = 164.87, beta(a) = 0.59234, beta(a) q^N / beta(mu) = 1.23232
+  q=13 (2,4,1): beta(mu) = 36.073, beta(a) = 0.21345, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (2,6,1): beta(mu) = 312.15, beta(a) = 1.8471, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (2,4,2): beta(mu) = 35.767, beta(a) = 0.21164, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (2,5,2): beta(mu) = 26.183, beta(a) = 0.15493, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (2,6,2): beta(mu) = 288.14, beta(a) = 1.705, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (2,7,2): beta(mu) = 267.4, beta(a) = 1.5823, beta(a) q^N / beta(mu) = 1 = 1
+  q=13 (3,5,1): beta(mu) = 434.56, beta(a) = 0.15077, beta(a) q^N / beta(mu) = 0.762264
+  q=13 (3,4,2): beta(mu) = 32.387, beta(a) = 0.99217, beta(a) q^N / beta(mu) = 67.3046
+  q=13 (3,5,2): beta(mu) = 343.24, beta(a) = 0.43937, beta(a) q^N / beta(mu) = 2.81235
+  q=13 (3,6,2): beta(mu) = 265.66, beta(a) = 0.012972, beta(a) q^N / beta(mu) = 0.107283

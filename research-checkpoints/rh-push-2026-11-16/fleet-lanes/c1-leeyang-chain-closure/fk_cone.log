@@ -1,0 +1,11 @@
+n=4: 5 generators; no Lee-Yang polynomial outside K_n found in 6000 samples (float LP)
+n=5: 7 generators; Lee-Yang polynomial with cosines ['-1', '2/3'] and factor (w+1): coefficients ['1', '5/3', '0', '0', '5/3', '1']
+      exact separating functional y = [-1, 1, -1] on (c0..c2); max over generators <= 0: True; y.P = 2/3
+n=6: 11 generators; Lee-Yang polynomial with cosines ['-1', '-1', '2/3']: coefficients ['1', '8/3', '5/3', '0', '5/3', '8/3', '1']
+      exact separating functional y = None on (c0..c3); max over generators <= 0: False; y.P = None
+n=7: 15 generators; Lee-Yang polynomial with cosines ['3/4', '-1', '-1'] and factor (w+1): coefficients ['1', '7/2', '7/2', '0', '0', '7/2', '7/2', '1']
+      exact separating functional y = None on (c0..c3); max over generators <= 0: False; y.P = None
+n=8: 22 generators; Lee-Yang polynomial with cosines ['-1', '-1', '5/6', '1/6']: coefficients ['1', '2', '5/9', '2/9', '4/3', '2/9', '5/9', '2', '1']
+      exact separating functional y = [-2, 2, -2, -2, 1] on (c0..c4); max over generators <= 0: True; y.P = 16/9
+n=9: 30 generators; Lee-Yang polynomial with cosines ['3/4', '-1', '1/2', '-11/12'] and factor (w+1): coefficients ['1', '7/3', '11/12', '1/6', '13/4', '13/4', '1/6', '11/12', '7/3', '1']
+      exact separating functional y = [-3, 1, 1, -3, 1] on (c0..c4); max over generators <= 0: True; y.P = 3

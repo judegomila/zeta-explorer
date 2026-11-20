@@ -1,0 +1,3 @@
+d/dt Phi_alpha: [neg,nonneg] per alpha {0.3: [10000, 0], 1.0: [10000, 0], 10.0: [10000, 0]} largest value {0.3: -0.12361704410853709, 1.0: -0.11180339887498948, 10.0: -0.024514516892273006}
+exact lower bound -dPhi_0/dt >= (1/4) sum 1/Re rho: failures 0 of 10000; kappa(D) != kappa(F) cases 0
+flux identity: zeros in box 3 sum p' = (-5.23781370590245 + 0.0j)  -(1/4)(1/2 pi i) oint M^2 = (-5.23781370590245 - 2.35408335896008e-32j)  |diff| = 7.89e-31

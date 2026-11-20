@@ -1,0 +1,102 @@
+T=10000 seed=0 Kmax(eta)= {'0.01': 239, '0.001': 23, '0.0001': 2, '1e-05': 0, '1e-06': 0}  formula= {'0.01': 236.52, '0.001': 23.65, '0.0001': 2.37, '1e-05': 0.24, '1e-06': 0.02}  sqrtT/logT=10.9
+T=10000 seed=1 Kmax(eta)= {'0.01': 240, '0.001': 23, '0.0001': 2, '1e-05': 0, '1e-06': 0}  formula= {'0.01': 236.85, '0.001': 23.68, '0.0001': 2.37, '1e-05': 0.24, '1e-06': 0.02}  sqrtT/logT=10.9
+T=10000 seed=2 Kmax(eta)= {'0.01': 238, '0.001': 23, '0.0001': 2, '1e-05': 0, '1e-06': 0}  formula= {'0.01': 235.59, '0.001': 23.56, '0.0001': 2.36, '1e-05': 0.24, '1e-06': 0.02}  sqrtT/logT=10.9
+T=100000 seed=0 Kmax(eta)= {'0.01': 3134, '0.001': 308, '0.0001': 30, '1e-05': 3, '1e-06': 0}  formula= {'0.01': 3081.19, '0.001': 308.12, '0.0001': 30.81, '1e-05': 3.08, '1e-06': 0.31}  sqrtT/logT=27.5
+T=100000 seed=1 Kmax(eta)= {'0.01': 3152, '0.001': 310, '0.0001': 30, '1e-05': 3, '1e-06': 0}  formula= {'0.01': 3099.09, '0.001': 309.91, '0.0001': 30.99, '1e-05': 3.1, '1e-06': 0.31}  sqrtT/logT=27.5
+T=100000 seed=2 Kmax(eta)= {'0.01': 3137, '0.001': 308, '0.0001': 30, '1e-05': 3, '1e-06': 0}  formula= {'0.01': 3084.63, '0.001': 308.46, '0.0001': 30.85, '1e-05': 3.08, '1e-06': 0.31}  sqrtT/logT=27.5
+T=1e+06 seed=0 Kmax(eta)= {'0.01': 39229, '0.001': 3850, '0.0001': 384, '1e-05': 38, '1e-06': 3}  formula= {'0.01': 38422.99, '0.001': 3842.3, '0.0001': 384.23, '1e-05': 38.42, '1e-06': 3.84}  sqrtT/logT=72.4
+T=1e+06 seed=1 Kmax(eta)= {'0.01': 39071, '0.001': 3834, '0.0001': 382, '1e-05': 38, '1e-06': 3}  formula= {'0.01': 38268.67, '0.001': 3826.87, '0.0001': 382.69, '1e-05': 38.27, '1e-06': 3.83}  sqrtT/logT=72.4
+T=1e+06 seed=2 Kmax(eta)= {'0.01': 39118, '0.001': 3839, '0.0001': 383, '1e-05': 38, '1e-06': 3}  formula= {'0.01': 38314.81, '0.001': 3831.48, '0.0001': 383.15, '1e-05': 38.31, '1e-06': 3.83}  sqrtT/logT=72.4
+T=1e+08 seed=0 Kmax(eta)= {'0.01': 5485441, '0.001': 534806, '0.0001': 53346, '1e-05': 5333, '1e-06': 533}  formula= {'0.01': 5333106.56, '0.001': 533310.66, '0.0001': 53331.07, '1e-05': 5333.11, '1e-06': 533.31}  sqrtT/logT=542.9
+T=1e+08 seed=1 Kmax(eta)= {'0.01': 5474223, '0.001': 533714, '0.0001': 53237, '1e-05': 5322, '1e-06': 532}  formula= {'0.01': 5322216.98, '0.001': 532221.7, '0.0001': 53222.17, '1e-05': 5322.22, '1e-06': 532.22}  sqrtT/logT=542.9
+T=1e+08 seed=2 Kmax(eta)= {'0.01': 5477818, '0.001': 534064, '0.0001': 53271, '1e-05': 5325, '1e-06': 532}  formula= {'0.01': 5325706.73, '0.001': 532570.67, '0.0001': 53257.07, '1e-05': 5325.71, '1e-06': 532.57}  sqrtT/logT=542.9
+T=1e+10 seed=0 Kmax(eta)= {'0.01': 702919743, '0.001': 68075724, '0.0001': 6785948, '1e-05': 678379, '1e-06': 67835}  formula= {'0.01': 678355223.83, '0.001': 67835522.38, '0.0001': 6783552.24, '1e-05': 678355.22, '1e-06': 67835.52}  sqrtT/logT=4342.9
+T=1e+10 seed=1 Kmax(eta)= {'0.01': 705753672, '0.001': 68349801, '0.0001': 6813265, '1e-05': 681109, '1e-06': 68108}  formula= {'0.01': 681085905.1, '0.001': 68108590.51, '0.0001': 6810859.05, '1e-05': 681085.91, '1e-06': 68108.59}  sqrtT/logT=4342.9
+T=1e+10 seed=2 Kmax(eta)= {'0.01': 698984770, '0.001': 67695160, '0.0001': 6748018, '1e-05': 674587, '1e-06': 67456}  formula= {'0.01': 674563584.31, '0.001': 67456358.43, '0.0001': 6745635.84, '1e-05': 674563.58, '1e-06': 67456.36}  sqrtT/logT=4342.9
+T=1e+12 seed=0 Kmax(eta)= {'0.01': 86502156166, '0.001': 8321509923, '0.0001': 828959514, '1e-05': 82864130, '1e-06': 8286094}  formula= {'0.01': 82860595438.09, '0.001': 8286059543.81, '0.0001': 828605954.38, '1e-05': 82860595.44, '1e-06': 8286059.54}  sqrtT/logT=36191.2
+T=1e+12 seed=1 Kmax(eta)= {'0.01': 86056705131, '0.001': 8278717360, '0.0001': 824697257, '1e-05': 82438073, '1e-06': 8243490}  formula= {'0.01': 82434558018.05, '0.001': 8243455801.81, '0.0001': 824345580.18, '1e-05': 82434558.02, '1e-06': 8243455.8}  sqrtT/logT=36191.2
+T=1e+12 seed=2 Kmax(eta)= {'0.01': 85915782235, '0.001': 8265179440, '0.0001': 823348842, '1e-05': 82303285, '1e-06': 8230012}  formula= {'0.01': 82299776100.39, '0.001': 8229977610.04, '0.0001': 822997761.0, '1e-05': 82299776.1, '1e-06': 8229977.61}  sqrtT/logT=36191.2
+part2 T=10000 W=64 K=2 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=10000 W=64 K=4 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=10000 W=64 K=8 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=10000 W=64 K=16 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=10000 W=64 K=32 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=10000 W=64 K=64 alpha=0.851532 max window defect=2.708e-03 (span 2.708e-03)
+part2 T=100000 W=64 K=2 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=100000 W=64 K=4 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=100000 W=64 K=8 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=100000 W=64 K=16 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=100000 W=64 K=32 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=100000 W=64 K=64 alpha=0.649199 max window defect=2.071e-04 (span 2.071e-04)
+part2 T=1e+06 W=64 K=2 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part2 T=1e+06 W=64 K=4 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part2 T=1e+06 W=64 K=8 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part2 T=1e+06 W=64 K=16 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part2 T=1e+06 W=64 K=32 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part2 T=1e+06 W=64 K=64 alpha=0.524444 max window defect=1.673e-05 (span 1.673e-05)
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=10000 P=2 eps=0.1: alpha_min=27.2559 (heuristic 26.8) lattice defect 1.1e-08 euler 4.28e-02 span(eta=1e-2)=7.37 span(1e-6)=0.000737
+part3 T=10000 P=2 eps=0.01: alpha_min=960.8614 (heuristic 268) lattice defect 3.6e-07 euler 7.36e-04 span(eta=1e-2)=0.219 span(1e-6)=2.19e-05
+part3 T=10000 P=3 eps=0.1: alpha_min=960.8614 (heuristic 841) lattice defect 3.6e-07 euler 3.90e-02 span(eta=1e-2)=0.219 span(1e-6)=2.19e-05
+part3 T=10000 P=3 eps=0.01: none below alpha=2.01e+03
+part3 T=10000 P=5 eps=0.1: none below alpha=2.01e+03
+part3 T=10000 P=5 eps=0.01: none below alpha=2.01e+03
+part3 T=10000 P=7 eps=0.1: none below alpha=2.01e+03
+part3 T=10000 P=7 eps=0.01: none below alpha=2.01e+03
+part3 T=10000 P=11 eps=0.1: none below alpha=2.01e+03
+part3 T=10000 P=11 eps=0.01: none below alpha=2.01e+03
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=100000 P=2 eps=0.1: alpha_min=9.0890 (heuristic 20.4) lattice defect 3.8e-11 euler 1.69e-02 span(eta=1e-2)=221 span(1e-6)=0.0221
+part3 T=100000 P=2 eps=0.01: alpha_min=253.8121 (heuristic 204) lattice defect 1.0e-09 euler 5.15e-05 span(eta=1e-2)=7.91 span(1e-6)=0.000791
+part3 T=100000 P=3 eps=0.1: alpha_min=1332.5884 (heuristic 641) lattice defect 5.4e-09 euler 5.17e-02 span(eta=1e-2)=1.52 span(1e-6)=0.000152
+part3 T=100000 P=3 eps=0.01: none below alpha=2.01e+04
+part3 T=100000 P=5 eps=0.1: alpha_min=16162.3860 (heuristic 2.01e+04) lattice defect 5.8e-08 euler 8.58e-02 span(eta=1e-2)=0.134 span(1e-6)=1.34e-05
+part3 T=100000 P=5 eps=0.01: none below alpha=2.01e+04
+part3 T=100000 P=7 eps=0.1: none below alpha=2.01e+04
+part3 T=100000 P=7 eps=0.01: none below alpha=2.01e+04
+part3 T=100000 P=11 eps=0.1: none below alpha=2.01e+04
+part3 T=100000 P=11 eps=0.01: none below alpha=2.01e+04
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=1e+06 P=2 eps=0.1: alpha_min=27.2711 (heuristic 16.5) lattice defect 1.1e-12 euler 5.33e-02 span(eta=1e-2)=736 span(1e-6)=0.0736
+part3 T=1e+06 P=2 eps=0.01: alpha_min=63.4577 (heuristic 165) lattice defect 2.6e-12 euler 3.24e-03 span(eta=1e-2)=316 span(1e-6)=0.0316
+part3 T=1e+06 P=3 eps=0.1: alpha_min=480.3824 (heuristic 518) lattice defect 2.1e-11 euler 3.36e-02 span(eta=1e-2)=41.8 span(1e-6)=0.00418
+part3 T=1e+06 P=3 eps=0.01: alpha_min=6028.0394 (heuristic 5.18e+04) lattice defect 2.4e-10 euler 8.22e-04 span(eta=1e-2)=3.34 span(1e-6)=0.000334
+part3 T=1e+06 P=5 eps=0.1: alpha_min=6617.2069 (heuristic 1.63e+04) lattice defect 2.8e-10 euler 9.94e-02 span(eta=1e-2)=3.04 span(1e-6)=0.000304
+part3 T=1e+06 P=5 eps=0.01: none below alpha=2.01e+05
+part3 T=1e+06 P=7 eps=0.1: none below alpha=2.01e+05
+part3 T=1e+06 P=7 eps=0.01: none below alpha=2.01e+05
+part3 T=1e+06 P=11 eps=0.1: none below alpha=2.01e+05
+part3 T=1e+06 P=11 eps=0.01: none below alpha=2.01e+05
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=1e+08 P=2 eps=0.1: alpha_min=9.0919 (heuristic 11.9) lattice defect 2.8e-15 euler 1.88e-02 span(eta=1e-2)=2.21e+05 span(1e-6)=22.1
+part3 T=1e+08 P=2 eps=0.01: alpha_min=126.9078 (heuristic 119) lattice defect 6.2e-13 euler 1.18e-03 span(eta=1e-2)=1.58e+04 span(1e-6)=1.58
+part3 T=1e+08 P=3 eps=0.1: alpha_min=108.7240 (heuristic 374) lattice defect 3.0e-13 euler 6.50e-02 span(eta=1e-2)=1.85e+04 span(1e-6)=1.85
+part3 T=1e+08 P=3 eps=0.01: alpha_min=38942.0512 (heuristic 3.74e+04) lattice defect 9.8e-11 euler 8.92e-03 span(eta=1e-2)=51.5 span(1e-6)=0.00515
+part3 T=1e+08 P=5 eps=0.1: alpha_min=5547.5658 (heuristic 1.17e+04) lattice defect 1.7e-11 euler 6.58e-02 span(eta=1e-2)=362 span(1e-6)=0.0362
+part3 T=1e+08 P=5 eps=0.01: alpha_min=6247015.4304 (heuristic 1.17e+07) lattice defect 1.8e-08 euler 9.25e-03 span(eta=1e-2)=0.331 span(1e-6)=3.31e-05
+part3 T=1e+08 P=7 eps=0.1: alpha_min=166382.9466 (heuristic 3.69e+05) lattice defect 6.1e-10 euler 7.72e-02 span(eta=1e-2)=12.1 span(1e-6)=0.00121
+part3 T=1e+08 P=7 eps=0.01: none below alpha=7.56e+06
+part3 T=1e+08 P=11 eps=0.1: alpha_min=5850977.9364 (heuristic 1.16e+07) lattice defect 2.6e-08 euler 8.94e-02 span(eta=1e-2)=0.353 span(1e-6)=3.53e-05
+part3 T=1e+08 P=11 eps=0.01: none below alpha=7.56e+06
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=1e+10 P=2 eps=0.1: alpha_min=9.1916 (heuristic 9.31) lattice defect 3.0e-14 euler 8.79e-02 span(eta=1e-2)=2.18e+07 span(1e-6)=2.18e+03
+part3 T=1e+10 P=2 eps=0.01: alpha_min=63.4516 (heuristic 93.1) lattice defect 4.2e-13 euler 9.75e-04 span(eta=1e-2)=3.16e+06 span(1e-6)=316
+part3 T=1e+10 P=3 eps=0.1: alpha_min=262.9981 (heuristic 293) lattice defect 1.7e-12 euler 9.35e-02 span(eta=1e-2)=7.63e+05 span(1e-6)=76.3
+part3 T=1e+10 P=3 eps=0.01: alpha_min=14829.8919 (heuristic 2.93e+04) lattice defect 7.3e-11 euler 6.61e-03 span(eta=1e-2)=1.35e+04 span(1e-6)=1.35
+part3 T=1e+10 P=5 eps=0.1: alpha_min=5547.5705 (heuristic 9.19e+03) lattice defect 1.5e-11 euler 6.39e-02 span(eta=1e-2)=3.62e+04 span(1e-6)=3.62
+part3 T=1e+10 P=5 eps=0.01: alpha_min=3496525.4826 (heuristic 9.19e+06) lattice defect 9.3e-09 euler 5.71e-03 span(eta=1e-2)=57.4 span(1e-6)=0.00574
+part3 T=1e+10 P=7 eps=0.1: alpha_min=301991.0231 (heuristic 2.89e+05) lattice defect 1.2e-09 euler 9.23e-02 span(eta=1e-2)=664 span(1e-6)=0.0664
+part3 T=1e+10 P=7 eps=0.01: none below alpha=5.93e+06
+part3 T=1e+10 P=11 eps=0.1: alpha_min=5112039.8952 (heuristic 9.07e+06) lattice defect 1.6e-08 euler 9.98e-02 span(eta=1e-2)=39.3 span(1e-6)=0.00393
+part3 T=1e+10 P=11 eps=0.01: none below alpha=5.93e+06
+part3 planned allocation: 20000000 float64 x ~6 arrays = 0.96 GB
+part3 T=1e+12 P=2 eps=0.1: alpha_min=9.0121 (heuristic 7.65) lattice defect 3.1e-14 euler 3.65e-02 span(eta=1e-2)=2.23e+09 span(1e-6)=2.23e+05
+part3 T=1e+12 P=2 eps=0.01: alpha_min=81.5962 (heuristic 76.5) lattice defect 6.1e-13 euler 9.51e-03 span(eta=1e-2)=2.46e+08 span(1e-6)=2.46e+04
+part3 T=1e+12 P=3 eps=0.1: alpha_min=108.6326 (heuristic 240) lattice defect 2.3e-13 euler 9.98e-02 span(eta=1e-2)=1.85e+08 span(1e-6)=1.85e+04
+part3 T=1e+12 P=3 eps=0.01: alpha_min=50998.1149 (heuristic 2.4e+04) lattice defect 2.9e-11 euler 7.67e-03 span(eta=1e-2)=3.93e+05 span(1e-6)=39.3
+part3 T=1e+12 P=5 eps=0.1: alpha_min=5547.5676 (heuristic 7.55e+03) lattice defect 7.1e-12 euler 6.38e-02 span(eta=1e-2)=3.62e+06 span(1e-6)=362
+part3 T=1e+12 P=5 eps=0.01: alpha_min=3496525.4870 (heuristic 7.55e+06) lattice defect 6.4e-09 euler 7.96e-03 span(eta=1e-2)=5.74e+03 span(1e-6)=0.574
+part3 T=1e+12 P=7 eps=0.1: alpha_min=166382.9418 (heuristic 2.37e+05) lattice defect 7.6e-10 euler 8.25e-02 span(eta=1e-2)=1.21e+05 span(1e-6)=12.1
+part3 T=1e+12 P=7 eps=0.01: none below alpha=4.87e+06
+part3 T=1e+12 P=11 eps=0.1: alpha_min=1237189.1461 (heuristic 7.45e+06) lattice defect 3.4e-10 euler 9.50e-02 span(eta=1e-2)=1.62e+04 span(1e-6)=1.62
+part3 T=1e+12 P=11 eps=0.01: none below alpha=4.87e+06

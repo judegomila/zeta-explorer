@@ -1,0 +1,56 @@
+== A. regression against r3-method-limit/tiers.log (w = 0, reflected row only)
+A1 source system (T1)                                      B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+A2 K removed (T2b)                                         B=0.8611111 row=refl  lx=0.5000 ly=0.5000 l=0.3333 w=0.0000 h=0.8333  exact 31/36: CONFIRMED
+A3 K, J removed (T2g)                                      B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.0000 h=0.8889  exact 23/27: CONFIRMED
+A4 k = 0 (T3)                                              B=0.8333333 row=k0    lx=0.5000 ly=0.5000 l=0.5000 w=0.0000 h=1.0000  exact 5/6: CONFIRMED
+A5 free geometry, K only (F5)                              B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+== B. reflection ledger, source geometry lx, ly >= l, ideal high side; w free in [0, 8]
+B1 refl, w free                                            B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+B2 refl | dir | empty, w free                              B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+B3 dir only (no row reflection: THIN / sign-twist control) B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=0.0000 h=-0.0000
+B3  dir only, box 8                                        B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+B3' dir0 only (optimal unreflected sieve)                  B=0.8333333 row=dir0  lx=1.0000 ly=1.0000 l=1.0000 w=0.0000 h=1.0000
+B4 empty only (dual range empty)                           B=0.9166667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+B5 refl, K removed, w free                                 B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+B6 refl | dir0 | empty, G = 0, w free                      B=0.8333333 row=refl  lx=0.0000 ly=1.0000 l=0.0000 w=0.0000 h=1.0000
+B7 k = 0 | empty, G = 0, w free                            B=0.8333333 row=k0    lx=0.5000 ly=0.5000 l=0.5000 w=0.0000 h=1.0000  exact 5/6: CONFIRMED
+== C. tau-dependence of the source system (refl | dir | empty), source geometry: B as a function of w
+C  w = 0                                                   B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+C  w = 1/20                                                B=0.8700000 row=refl  lx=0.3900 ly=0.3900 l=0.1700 w=0.0500 h=0.7800
+C  w = 1/10                                                B=0.8733333 row=refl  lx=0.3800 ly=0.3800 l=0.1400 w=0.1000 h=0.7600
+C  w = 1/5                                                 B=0.8800000 row=refl  lx=0.3600 ly=0.3600 l=0.0800 w=0.2000 h=0.7200
+C  w = 2/5                                                 B=0.9000000 row=refl  lx=0.4000 ly=0.2000 l=0.0000 w=0.4000 h=0.6000
+C  w = 1                                                   B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=1.0000 h=-0.0000
+C  w = 2                                                   B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=2.0000 h=-0.0000
+C  w = 4                                                   B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=4.0000 h=-0.0000
+== C'. same, reflected row only
+C' w = 0                                                   B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+C' w = 1/10                                                B=0.8733333 row=refl  lx=0.3800 ly=0.3800 l=0.1400 w=0.1000 h=0.7600
+C' w = 1/5                                                 B=0.8800000 row=refl  lx=0.3600 ly=0.3600 l=0.0800 w=0.2000 h=0.7200
+C' w = 2/5                                                 B=0.9000000 row=refl  lx=0.4000 ly=0.2000 l=0.0000 w=0.4000 h=0.6000
+C' w = 1                                                   B=1.0555556 row=refl  lx=0.3333 ly=0.0000 l=0.0000 w=1.0000 h=0.6667
+C' w = 2                                                   B=1.3333333 row=refl  lx=0.0000 ly=0.0000 l=0.0000 w=2.0000 h=1.0000
+== D. geometry relaxed (M >= 2l, and free), reflection ledger, w free
+D1 geo Q, refl | dir | empty, G src                        B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D2 geo free, refl | dir | empty, G src, box 4              B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D3 geo free, refl | dir | empty, G src, box 8              B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D4 geo free, refl | dir0 | empty, G polar, box 8           B=0.2500000 row=dir0  lx=4.5000 ly=4.5000 l=8.0000 w=0.0000 h=4.5000
+D5 geo free, dir0 | empty, G = 0, box 8                    B=0.2500000 row=dir0  lx=1.5000 ly=4.5000 l=5.0000 w=0.0000 h=4.5000
+D6 geo free, empty only                                    B=0.9166667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000  exact 11/12: CONFIRMED
+== E. other orders r (transplant), source geometry, reflection ledger, w free
+E  r=3 refl | dir | empty                                  B=0.7333333 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+E  r=3 k = 0 | empty, G polar: expect 1 - 1/r              B=0.6666667 row=k0    lx=0.5000 ly=0.5000 l=0.5000 w=0.0000 h=1.0000  exact 2/3: CONFIRMED
+E  r=4 refl | dir | empty                                  B=0.8000000 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+E  r=4 k = 0 | empty, G polar: expect 1 - 1/r              B=0.7500000 row=k0    lx=0.5000 ly=0.5000 l=0.5000 w=0.0000 h=1.0000  exact 3/4: CONFIRMED
+E  r=6 refl | dir | empty                                  B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+E  r=6 k = 0 | empty, G polar: expect 1 - 1/r              B=0.8333333 row=k0    lx=0.5000 ly=0.5000 l=0.5000 w=0.0000 h=1.0000  exact 5/6: CONFIRMED
+== N. naive ledger (h replaced by hhat = lx + 2ly + l - 1 + w): excluded by Lemma U; for the record
+N1 low side only, k = 0, G = 0, source geo, w = 0          B=0.2500000 row=k0    lx=1.3750 ly=1.3750 l=1.3750 w=0.0000 h=1.0000
+N1 low side only, k = 0, G = 0, source geo, w = 1/2        B=0.2500000 row=k0    lx=1.2500 ly=1.2500 l=1.2500 w=0.5000 h=1.0000
+N1 low side only, k = 0, G = 0, source geo, w = 1          B=0.2500000 row=k0    lx=1.1250 ly=1.1250 l=1.1250 w=1.0000 h=1.0000
+N1 low side only, k = 0, G = 0, source geo, w = 2          B=0.2500000 row=k0    lx=0.8750 ly=0.8750 l=0.8750 w=2.0000 h=1.0000
+N1 low side only, k = 0, G = 0, source geo, w = 4          B=0.2500000 row=k0    lx=0.3750 ly=0.3750 l=0.3750 w=4.0000 h=1.0000
+N2 with ideal high side at hhat, refl, G src, w = 0        B=0.9166667 row=refl  lx=0.5000 ly=0.5000 l=0.0000 w=0.0000 h=0.5000
+N2 with ideal high side at hhat, refl, G src, w = 1/2      B=0.9583333 row=refl  lx=0.2500 ly=0.2500 l=0.0000 w=0.5000 h=0.7500
+N2 with ideal high side at hhat, refl, G src, w = 1        B=1.0000000 row=refl  lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+N2 with ideal high side at hhat, refl, G src, w = 2        B=1.3333333 row=refl  lx=0.0000 ly=0.0000 l=0.0000 w=2.0000 h=1.0000

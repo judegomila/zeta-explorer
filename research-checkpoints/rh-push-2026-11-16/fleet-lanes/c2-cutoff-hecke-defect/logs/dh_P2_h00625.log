@@ -1,0 +1,11 @@
+kernel=dh P=2 window U=1.3863 nodes n=222 h=0.00625 panels=55 r-nodes=16500 Rmax=6.821 dps=1000
+planned allocation: 2 x 222 x 300 per panel + 3 x 222^2 = 281052 arb of 3325 bits ~ 135 MB
+  panel 0/55  15s
+  panel 10/55  122s
+  panel 20/55  190s
+  panel 30/55  240s
+  panel 40/55  288s
+  panel 50/55  336s
+matrix built 355s
+window p=  2 (0,1.386] nodes=222: n+=222 n-=0 unresolved=0 uncertain=0 smallest resolved log10|pivot|=-391.5 neg/2x2 pivots log10=[]  394s
+done 394.1662678718567

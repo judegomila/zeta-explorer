@@ -1,0 +1,206 @@
+TABLE 1. e = E/(X D) (exact rational, shown as float); N = 3: completed row (squarefree row in brackets). rmax = N + lam - 1 - d + floor(d/2).
+q = 7: family (N,lam,d) rmax | one | a | b | mu | al | r1
+A7 (2,7,2) 7 | 2.262 | 1.192 | 0.6293 | 36.95 | 1.152e+05 | 0.9448
+A7 (2,8,2) 8 | 0.1951 | 0.4637 | 0.5523 | 0.09401 | 7.056e+05 | 1.118
+A7 (2,9,2) 9 | 0 | 0.02349 | 0.01762 | 0 | 4.392e+06 | 1.114
+A7 (2,10,2) 10 | 6.319 | 4.133 | 1.552 | 173.3 | 2.767e+07 | 0.942
+A7 (2,11,2) 11 | 6.912 | 2.977 | 1.172 | 132.5 | 1.761e+08 | 0.8833
+A7 (2,12,2) 12 | 39.61 | 18 | 4.979 | 831.6 | 1.13e+09 | 1.046
+A7 (2,13,2) 13 | not run
+B7 (2,7,1) 7 | 0 | 0.2562 | 0.258 | 0 | 6.868e+05 | 0.5049
+B7 (2,8,1) 8 | 0 | 0.08703 | 0.3287 | 0 | 4.205e+06 | 1.613
+B7 (2,9,1) 9 | 0 | 0 | 0 | 0 | 2.618e+07 | 1.432
+B7 (2,10,1) 10 | 4.986 | 3.52 | 1.568 | 161.5 | 1.649e+08 | 0.4855
+B7 (2,11,1) 11 | 0 | 0.1351 | 0.1186 | 0 | 1.049e+09 | 1.614
+B7 (2,12,1) 12 | 27.84 | 20.64 | 7.468 | 951.9 | 6.734e+09 | 1.74
+B7 (2,13,1) 13 | not run
+C7 (2,8,3) 7 | 9.279 | 1.354 | 0.8496 | 33.37 | 1.029e+05 | 0.9233
+C7 (2,9,3) 8 | 0.8164 | 0.6522 | 0.5621 | 0.1978 | 6.405e+05 | 1.061
+C7 (2,10,3) 9 | 8.279 | 4.234 | 1.631 | 181 | 4.035e+06 | 1.018
+C7 (2,11,3) 10 | 4.811 | 3.625 | 1.259 | 147.7 | 2.568e+07 | 1.023
+D7 (3,9,2) 10 | 6.023 [0.07749] | 6.274 [0.8069] | 6.538 [1.116] | 172.5 [196.6] | 2.643e+07 [2.999e+07] | 0.755 [0.7959]
+D7 (3,10,2) 11 | 0.5606 [0.6518] | 0.9232 [1.078] | 0.5904 [0.6906] | 143.7 [167.2] | 1.665e+08 [1.89e+08] | 0.9026 [0.9232]
+D7 (3,11,2) 12 | 4.197 [4.883] | 2.184 [2.542] | 2.92 [3.399] | 858.9 [999.2] | 1.06e+09 [1.203e+09] | 1.137 [1.109]
+D7 (3,12,2) 13 | not run
+E7 (3,9,1) 10 | 0 [0] | 0.6149 [0.7154] | 1.69 [1.967] | 147.5 [171.5] | 1.637e+08 [1.842e+08] | 1.298 [1.257]
+E7 (3,10,1) 11 | 0 [0] | 0.2957 [0.3441] | 0.5014 [0.5833] | 0 [0] | 1.032e+09 [1.161e+09] | 1.26 [0.989]
+E7 (3,11,1) 12 | 1.667 [1.939] | 2.869 [3.338] | 3.599 [4.187] | 997.3 [1160] | 6.565e+09 [7.386e+09] | 0.9484 [0.8598]
+E7 (3,12,1) 13 | 0 [0] | 40.28 [0.5695] | 26.76 [0.3298] | 0 [0] | 4.212e+10 [4.739e+10] | 1.002 [0.8198]
+q = 13: family (N,lam,d) rmax | one | a | c4 | mu | al | r1
+A13 (2,7,2) 7 | 3.912 | 2.335 | 1.158 | 269.6 | 8.911e+06 | 1.01
+A13 (2,8,2) 8 | 0.2903 | 0.5711 | 0.4637 | 0.1455 | 1.014e+08 | 1.127
+A13 (2,9,2) 9 | not run
+B13 (2,7,1) 7 | 0 | 0.3469 | 0.1785 | 0 | 1.068e+08 | 0.9201
+B13 (2,8,1) 8 | 0 | 0.2361 | 0.3646 | 0 | 1.215e+09 | 0.8682
+B13 (2,9,1) 9 | 0 | 0 | 0 | 0 | 1.404e+10 | 1.617
+B13 (2,10,1) 10 | 16.88 | 18.08 | 8.392 | 2453 | 1.643e+11 | 0.6808
+C13 (2,8,3) 7 | 26.6 | 2.17 | 1.323 | 238.7 | 7.843e+06 | 0.953
+E13 (3,9,1) 10 | not run
+
+TABLE 2. Advance predictions (real weights): e against the interval [(1-1/q)^2 B_coh, B_coh + 1.1]; seen = value known before PREREG.
+q=7 (2,7,2) one: B_coh 0 predicted [0, 1.1] measured 2.262 MISS (seen)
+q=7 (2,7,2) a: B_coh 1 predicted [0.735, 2.1] measured 1.192 HIT (seen)
+q=7 (2,7,2) b: B_coh 0.1111 predicted [0.0816, 1.21] measured 0.6293 HIT (seen)
+q=7 (2,7,2) mu: B_coh 49 predicted [36, 50.1] measured 36.95 HIT (seen)
+q=7 (2,8,2) one: B_coh 0 predicted [0, 1.1] measured 0.1951 HIT (seen)
+q=7 (2,8,2) a: B_coh 0 predicted [0, 1.1] measured 0.4637 HIT (seen)
+q=7 (2,8,2) b: B_coh 0 predicted [0, 1.1] measured 0.5523 HIT (seen)
+q=7 (2,8,2) mu: B_coh 0 predicted [0, 1.1] measured 0.09401 HIT (seen)
+q=7 (2,9,2) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,9,2) a: B_coh 0 predicted [0, 1.1] measured 0.02349 HIT
+q=7 (2,9,2) b: B_coh 0 predicted [0, 1.1] measured 0.01762 HIT
+q=7 (2,9,2) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,10,2) one: B_coh 0 predicted [0, 1.1] measured 6.319 MISS
+q=7 (2,10,2) a: B_coh 4.702 predicted [3.45, 5.8] measured 4.133 HIT (seen)
+q=7 (2,10,2) b: B_coh 0.5224 predicted [0.384, 1.62] measured 1.552 HIT (seen)
+q=7 (2,10,2) mu: B_coh 230.4 predicted [169, 231] measured 173.3 HIT (seen)
+q=7 (2,11,2) one: B_coh 4.987 predicted [3.66, 6.09] measured 6.912 MISS
+q=7 (2,11,2) a: B_coh 3.664 predicted [2.69, 4.76] measured 2.977 HIT
+q=7 (2,11,2) b: B_coh 0.4071 predicted [0.299, 1.51] measured 1.172 HIT
+q=7 (2,11,2) mu: B_coh 179.5 predicted [132, 181] measured 132.5 HIT
+q=7 (2,12,2) one: B_coh 33.35 predicted [24.5, 34.4] measured 39.61 MISS
+q=7 (2,12,2) a: B_coh 24.5 predicted [18, 25.6] measured 18 HIT
+q=7 (2,12,2) b: B_coh 2.722 predicted [2, 3.82] measured 4.979 MISS
+q=7 (2,12,2) mu: B_coh 1200 predicted [882, 1.2e+03] measured 831.6 MISS
+q=7 (2,7,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,7,1) a: B_coh 0 predicted [0, 1.1] measured 0.2562 HIT
+q=7 (2,7,1) b: B_coh 0 predicted [0, 1.1] measured 0.258 HIT
+q=7 (2,7,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,8,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,8,1) a: B_coh 0 predicted [0, 1.1] measured 0.08703 HIT
+q=7 (2,8,1) b: B_coh 0 predicted [0, 1.1] measured 0.3287 HIT
+q=7 (2,8,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,9,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,9,1) a: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,9,1) b: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,9,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,10,1) one: B_coh 0 predicted [0, 1.1] measured 4.986 MISS
+q=7 (2,10,1) a: B_coh 4.702 predicted [3.45, 5.8] measured 3.52 HIT
+q=7 (2,10,1) b: B_coh 0.5224 predicted [0.384, 1.62] measured 1.568 HIT
+q=7 (2,10,1) mu: B_coh 230.4 predicted [169, 231] measured 161.5 MISS
+q=7 (2,11,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,11,1) a: B_coh 0 predicted [0, 1.1] measured 0.1351 HIT
+q=7 (2,11,1) b: B_coh 0 predicted [0, 1.1] measured 0.1186 HIT
+q=7 (2,11,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=7 (2,12,1) one: B_coh 0 predicted [0, 1.1] measured 27.84 MISS
+q=7 (2,12,1) a: B_coh 28.58 predicted [21, 29.7] measured 20.64 MISS
+q=7 (2,12,1) b: B_coh 3.176 predicted [2.33, 4.28] measured 7.468 MISS
+q=7 (2,12,1) mu: B_coh 1401 predicted [1.03e+03, 1.4e+03] measured 951.9 MISS
+q=7 (2,8,3) one: B_coh 0 predicted [0, 1.1] measured 9.279 MISS
+q=7 (2,8,3) a: B_coh 0.8746 predicted [0.643, 1.97] measured 1.354 HIT
+q=7 (2,8,3) b: B_coh 0.09718 predicted [0.0714, 1.2] measured 0.8496 HIT
+q=7 (2,8,3) mu: B_coh 42.86 predicted [31.5, 44] measured 33.37 HIT
+q=7 (2,9,3) one: B_coh 0 predicted [0, 1.1] measured 0.8164 HIT
+q=7 (2,9,3) a: B_coh 0 predicted [0, 1.1] measured 0.6522 HIT
+q=7 (2,9,3) b: B_coh 0 predicted [0, 1.1] measured 0.5621 HIT
+q=7 (2,9,3) mu: B_coh 0 predicted [0, 1.1] measured 0.1978 HIT
+q=7 (2,10,3) one: B_coh 0 predicted [0, 1.1] measured 8.279 MISS
+q=7 (2,10,3) a: B_coh 4.702 predicted [3.45, 5.8] measured 4.234 HIT
+q=7 (2,10,3) b: B_coh 0.5224 predicted [0.384, 1.62] measured 1.631 MISS
+q=7 (2,10,3) mu: B_coh 230.4 predicted [169, 231] measured 181 HIT
+q=7 (2,11,3) one: B_coh 4.987 predicted [3.66, 6.09] measured 4.811 HIT
+q=7 (2,11,3) a: B_coh 3.664 predicted [2.69, 4.76] measured 3.625 HIT
+q=7 (2,11,3) b: B_coh 0.4071 predicted [0.299, 1.51] measured 1.259 HIT
+q=7 (2,11,3) mu: B_coh 179.5 predicted [132, 181] measured 147.7 HIT
+q=7 (3,9,2) one: B_coh 0 predicted [0, 1.1] measured 0.07749 HIT [squarefree row]
+q=7 (3,9,2) a: B_coh 0.4924 predicted [0.362, 1.59] measured 0.8069 HIT [squarefree row]
+q=7 (3,9,2) b: B_coh 0.6556 predicted [0.482, 1.76] measured 1.116 HIT [squarefree row]
+q=7 (3,9,2) mu: B_coh 250.9 predicted [184, 252] measured 196.6 HIT [squarefree row]
+q=7 (3,10,2) one: B_coh 0.1097 predicted [0.0806, 1.21] measured 0.6518 HIT [squarefree row]
+q=7 (3,10,2) a: B_coh 0.3897 predicted [0.286, 1.49] measured 1.078 HIT [squarefree row]
+q=7 (3,10,2) b: B_coh 0.54 predicted [0.397, 1.64] measured 0.6906 HIT [squarefree row]
+q=7 (3,10,2) mu: B_coh 202.8 predicted [149, 204] measured 167.2 HIT [squarefree row]
+q=7 (3,11,2) one: B_coh 0.7276 predicted [0.535, 1.83] measured 4.883 MISS [squarefree row]
+q=7 (3,11,2) a: B_coh 2.584 predicted [1.9, 3.68] measured 2.542 HIT [squarefree row]
+q=7 (3,11,2) b: B_coh 3.581 predicted [2.63, 4.68] measured 3.399 HIT [squarefree row]
+q=7 (3,11,2) mu: B_coh 1345 predicted [988, 1.35e+03] measured 999.2 HIT [squarefree row]
+q=7 (3,9,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT [squarefree row]
+q=7 (3,9,1) a: B_coh 0.4908 predicted [0.361, 1.59] measured 0.7154 HIT [squarefree row]
+q=7 (3,9,1) b: B_coh 0.6534 predicted [0.48, 1.75] measured 1.967 MISS [squarefree row]
+q=7 (3,9,1) mu: B_coh 250 predicted [184, 251] measured 171.5 MISS [squarefree row]
+q=7 (3,10,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT [squarefree row]
+q=7 (3,10,1) a: B_coh 0 predicted [0, 1.1] measured 0.3441 HIT [squarefree row]
+q=7 (3,10,1) b: B_coh 0 predicted [0, 1.1] measured 0.5833 HIT [squarefree row]
+q=7 (3,10,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT [squarefree row]
+q=7 (3,11,1) one: B_coh 0 predicted [0, 1.1] measured 1.939 MISS [squarefree row]
+q=7 (3,11,1) a: B_coh 2.929 predicted [2.15, 4.03] measured 3.338 HIT [squarefree row]
+q=7 (3,11,1) b: B_coh 3.9 predicted [2.87, 5] measured 4.187 HIT [squarefree row]
+q=7 (3,11,1) mu: B_coh 1492 predicted [1.1e+03, 1.49e+03] measured 1160 HIT [squarefree row]
+q=7 (3,12,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT [squarefree row]
+q=7 (3,12,1) a: B_coh 0 predicted [0, 1.1] measured 0.5695 HIT [squarefree row]
+q=7 (3,12,1) b: B_coh 0 predicted [0, 1.1] measured 0.3298 HIT [squarefree row]
+q=7 (3,12,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT [squarefree row]
+q=13 (2,7,2) one: B_coh 0 predicted [0, 1.1] measured 3.912 MISS
+q=13 (2,7,2) a: B_coh 1.857 predicted [1.58, 2.96] measured 2.335 HIT
+q=13 (2,7,2) c4: B_coh 0.8254 predicted [0.703, 1.93] measured 1.158 HIT
+q=13 (2,7,2) mu: B_coh 313.9 predicted [267, 315] measured 269.6 HIT
+q=13 (2,8,2) one: B_coh 0 predicted [0, 1.1] measured 0.2903 HIT
+q=13 (2,8,2) a: B_coh 0 predicted [0, 1.1] measured 0.5711 HIT
+q=13 (2,8,2) c4: B_coh 0 predicted [0, 1.1] measured 0.4637 HIT
+q=13 (2,8,2) mu: B_coh 0 predicted [0, 1.1] measured 0.1455 HIT
+q=13 (2,7,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,7,1) a: B_coh 0 predicted [0, 1.1] measured 0.3469 HIT
+q=13 (2,7,1) c4: B_coh 0 predicted [0, 1.1] measured 0.1785 HIT
+q=13 (2,7,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,8,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,8,1) a: B_coh 0 predicted [0, 1.1] measured 0.2361 HIT
+q=13 (2,8,1) c4: B_coh 0 predicted [0, 1.1] measured 0.3646 HIT
+q=13 (2,8,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,9,1) one: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,9,1) a: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,9,1) c4: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,9,1) mu: B_coh 0 predicted [0, 1.1] measured 0 HIT
+q=13 (2,10,1) one: B_coh 0 predicted [0, 1.1] measured 16.88 MISS
+q=13 (2,10,1) a: B_coh 16.7 predicted [14.2, 17.8] measured 18.08 MISS
+q=13 (2,10,1) c4: B_coh 7.422 predicted [6.32, 8.52] measured 8.392 HIT
+q=13 (2,10,1) mu: B_coh 2822 predicted [2.4e+03, 2.82e+03] measured 2453 HIT
+q=13 (2,8,3) one: B_coh 0 predicted [0, 1.1] measured 26.6 MISS
+q=13 (2,8,3) a: B_coh 1.625 predicted [1.38, 2.72] measured 2.17 HIT
+q=13 (2,8,3) c4: B_coh 0.7222 predicted [0.615, 1.82] measured 1.323 HIT
+q=13 (2,8,3) mu: B_coh 274.6 predicted [234, 276] measured 238.7 HIT
+advance predictions (unseen): 87 hit, 22 missed; by class (hit, miss): {'active/mu': (11, 4), 'active/one': (2, 3), 'active/target': (24, 6), 'inactive/mu': (12, 0), 'inactive/one': (14, 9), 'inactive/target': (24, 0)}
+
+TABLE 3. Slopes of log_q(x), x = e - 1, against the active dual length r*, active N = 2 configurations (rule of PREREG section 3).
+q=7 one: 3 sizes; slope 0.595; x at the largest r*: 38.61; points (r*, x): (2,11,3) r*=10 x=3.811, (2,11,2) r*=11 x=5.912, (2,12,2) r*=12 x=38.61
+q=7 a: 9 sizes; slope 0.3047; x at the largest r*: 19.639; points (r*, x): (2,7,2) r*=6 x=0.1922, (2,8,3) r*=6 x=0.3542, (2,10,3) r*=8 x=3.234, (2,10,2) r*=9 x=3.133, (2,10,1) r*=10 x=2.52, (2,11,3) r*=10 x=2.625, (2,11,2) r*=11 x=1.977, (2,12,2) r*=12 x=17, (2,12,1) r*=12 x=19.64
+q=7 b: 9 sizes; slope 0.44; x at the largest r*: 6.4682; points (r*, x): (2,7,2) r*=6 x=-0.3707, (2,8,3) r*=6 x=-0.1504, (2,10,3) r*=8 x=0.6311, (2,10,2) r*=9 x=0.5525, (2,11,3) r*=10 x=0.2586, (2,10,1) r*=10 x=0.5681, (2,11,2) r*=11 x=0.1719, (2,12,2) r*=12 x=3.979, (2,12,1) r*=12 x=6.468
+q=7 mu: 9 sizes; slope 0.2311; x at the largest r*: 950.8769; points (r*, x): (2,8,3) r*=6 x=32.37, (2,7,2) r*=6 x=35.95, (2,10,3) r*=8 x=180, (2,10,2) r*=9 x=172.3, (2,11,3) r*=10 x=146.7, (2,10,1) r*=10 x=160.5, (2,11,2) r*=11 x=131.5, (2,12,2) r*=12 x=830.6, (2,12,1) r*=12 x=950.9
+q=13 one: 0 sizes; slope None; x at the largest r*: None; points (r*, x): 
+q=13 a: 3 sizes; slope 0.2548; x at the largest r*: 17.0766; points (r*, x): (2,8,3) r*=6 x=1.17, (2,7,2) r*=6 x=1.335, (2,10,1) r*=10 x=17.08
+q=13 c4: 3 sizes; slope 0.3401; x at the largest r*: 7.3923; points (r*, x): (2,7,2) r*=6 x=0.1577, (2,8,3) r*=6 x=0.3228, (2,10,1) r*=10 x=7.392
+q=13 mu: 3 sizes; slope 0.2215; x at the largest r*: 2452.4765; points (r*, x): (2,8,3) r*=6 x=237.7, (2,7,2) r*=6 x=268.6, (2,10,1) r*=10 x=2452
+
+Cross-q exponent ln(x_13/x_7)/ln(13/7):
+(2, 7, 2) one: x_7 = 1.262, x_13 = 2.912, exponent 1.351
+(2, 7, 2) a: x_7 = 0.1922, x_13 = 1.335, exponent 3.131
+(2, 7, 2) mu: x_7 = 35.95, x_13 = 268.6, exponent 3.249
+(2, 8, 3) one: x_7 = 8.279, x_13 = 25.6, exponent 1.823
+(2, 8, 3) a: x_7 = 0.3542, x_13 = 1.17, exponent 1.930
+(2, 8, 3) mu: x_7 = 32.37, x_13 = 237.7, exponent 3.221
+(2, 10, 1) one: x_7 = 3.986, x_13 = 15.88, exponent 2.233
+(2, 10, 1) a: x_7 = 2.52, x_13 = 17.08, exponent 3.091
+(2, 10, 1) mu: x_7 = 160.5, x_13 = 2452, exponent 4.404
+(2, 8, 2) one: x_7 = -0.8049, x_13 = -0.7097, no exponent (an excess is <= 0)
+(2, 8, 2) a: x_7 = -0.5363, x_13 = -0.4289, no exponent (an excess is <= 0)
+(2, 8, 2) mu: x_7 = -0.906, x_13 = -0.8545, no exponent (an excess is <= 0)
+(2, 7, 1) one: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 7, 1) a: x_7 = -0.7438, x_13 = -0.6531, no exponent (an excess is <= 0)
+(2, 7, 1) mu: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 8, 1) one: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 8, 1) a: x_7 = -0.913, x_13 = -0.7639, no exponent (an excess is <= 0)
+(2, 8, 1) mu: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 9, 1) one: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 9, 1) a: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+(2, 9, 1) mu: x_7 = -1, x_13 = -1, no exponent (an excess is <= 0)
+
+CONTROLS.
+r1 inside |x| <= 3/sqrt(q^d) in all 30 configurations: True; al: x > 100 and e/(nsupp/q^d) in [0.5, 2] in all 30 configurations: True
+mu (Liouville-twisted) q=7: 9 sizes, slope 0.2311, x at the largest r* 950.88: control passes
+mu (Liouville-twisted) q=13: 3 sizes, slope 0.2215, x at the largest r* 2452.48: control passes
+
+RULE (PREREG section 3).
+probe vector one (q=13: one): q=7: 3 sizes, slope 0.595, x at largest r* 38.61 -> positive growth; q=13: 0 sizes, slope None, x at largest r* None -> (fewer than three active sizes: q=13 not required)
+probe vector a (q=13: a): q=7: 9 sizes, slope 0.3047, x at largest r* 19.639 -> positive growth; q=13: 3 sizes, slope 0.2548, x at largest r* 17.077 -> positive growth
+probe vector b (q=13: c4): q=7: 9 sizes, slope 0.44, x at largest r* 6.468 -> positive growth; q=13: 3 sizes, slope 0.3401, x at largest r* 7.392 -> positive growth
+largest excess of a probe vector over all configurations run: 39.28
+VERDICT BY THE RULE: FAILS in the model (probe vectors: one, a, b)

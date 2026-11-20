@@ -1,0 +1,245 @@
+{
+ "obj": "DH",
+ "T": 600.0,
+ "dt": 0.025,
+ "points": 24001,
+ "offline_pairs_in_table_below_T": 15,
+ "first_offline": [
+  0.3085171824566374,
+  85.6993484853776
+ ],
+ "laguerre": {
+  "norm_min": -0.9999572965598831,
+  "norm_min_t": 411.875,
+  "rho_min": -555.6636249625046,
+  "rho_min_t": 520.95,
+  "negative_samples": 239,
+  "negative_intervals": 15,
+  "first_negative_intervals": [
+   [
+    85.42500000000001,
+    85.97500000000001,
+    23
+   ],
+   [
+    114.025,
+    114.30000000000001,
+    12
+   ],
+   [
+    166.425,
+    166.55,
+    6
+   ],
+   [
+    176.5,
+    176.9,
+    17
+   ],
+   [
+    240.125,
+    240.70000000000002,
+    24
+   ]
+  ],
+  "match": {
+   "n": 239,
+   "inside_half_disk": 239,
+   "outside": 0,
+   "first_negative_t": 85.42500000000001,
+   "outside_examples": [],
+   "zeros_located_by_newton": 0
+  },
+  "offline_pairs_seen": 15,
+  "offline_pairs_total": 15
+ },
+ "w": [
+  {
+   "h": 0.01,
+   "a": 0.02,
+   "norm_min": -485.0969783225578,
+   "norm_min_t": 520.95,
+   "negative_samples": 239,
+   "first_negative_intervals": [
+    [
+     85.42500000000001,
+     85.97500000000001,
+     23
+    ],
+    [
+     114.025,
+     114.30000000000001,
+     12
+    ],
+    [
+     166.425,
+     166.55,
+     6
+    ],
+    [
+     176.5,
+     176.9,
+     17
+    ],
+    [
+     240.125,
+     240.70000000000002,
+     24
+    ]
+   ],
+   "match": {
+    "n": 239,
+    "inside_half_disk": 239,
+    "outside": 0,
+    "first_negative_t": 85.42500000000001,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 15,
+   "offline_pairs_total": 15,
+   "pairs_with_d_gt_h": 15
+  },
+  {
+   "h": 0.05,
+   "a": 0.1,
+   "norm_min": -106.3010666477292,
+   "norm_min_t": 166.47500000000002,
+   "negative_samples": 230,
+   "first_negative_intervals": [
+    [
+     85.42500000000001,
+     85.97500000000001,
+     23
+    ],
+    [
+     114.025,
+     114.30000000000001,
+     12
+    ],
+    [
+     166.425,
+     166.525,
+     5
+    ],
+    [
+     176.5,
+     176.9,
+     17
+    ],
+    [
+     240.125,
+     240.70000000000002,
+     24
+    ]
+   ],
+   "match": {
+    "n": 230,
+    "inside_half_disk": 230,
+    "outside": 0,
+    "first_negative_t": 85.42500000000001,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 14,
+   "offline_pairs_total": 15,
+   "pairs_with_d_gt_h": 14
+  },
+  {
+   "h": 0.125,
+   "a": 0.25,
+   "norm_min": -44.73035593517066,
+   "norm_min_t": 114.17500000000001,
+   "negative_samples": 190,
+   "first_negative_intervals": [
+    [
+     85.45,
+     85.95,
+     21
+    ],
+    [
+     114.10000000000001,
+     114.22500000000001,
+     6
+    ],
+    [
+     176.55,
+     176.875,
+     14
+    ],
+    [
+     240.125,
+     240.675,
+     23
+    ],
+    [
+     320.625,
+     321.125,
+     21
+    ]
+   ],
+   "match": {
+    "n": 190,
+    "inside_half_disk": 190,
+    "outside": 0,
+    "first_negative_t": 85.45,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 12,
+   "offline_pairs_total": 15,
+   "pairs_with_d_gt_h": 12
+  }
+ ],
+ "online_zeros": 464,
+ "close_pairs": 0,
+ "half_gram": {
+  "intervals": 493,
+  "violations": 320,
+  "fraction": 0.6490872210953347,
+  "empty": 175,
+  "two": 145,
+  "three_plus": 0,
+  "first_violation_index": 1,
+  "first_violation_interval": [
+   8.957103653653354,
+   11.929646857292001
+  ],
+  "octile_fractions": [
+   0.7377049180327869,
+   0.6290322580645161,
+   0.6721311475409836,
+   0.6129032258064516,
+   0.6935483870967742,
+   0.6065573770491803,
+   0.6290322580645161,
+   0.6129032258064516
+  ]
+ },
+ "gram": {
+  "intervals": 493,
+  "violations": 44,
+  "fraction": 0.08924949290060852,
+  "empty": 37,
+  "two": 7,
+  "three_plus": 0,
+  "first_violation_index": 43,
+  "first_violation_interval": [
+   84.0931139682967,
+   85.58474327684364
+  ],
+  "octile_fractions": [
+   0.03278688524590164,
+   0.0967741935483871,
+   0.06557377049180328,
+   0.16129032258064516,
+   0.03225806451612903,
+   0.09836065573770492,
+   0.0967741935483871,
+   0.12903225806451613
+  ]
+ },
+ "count_check": {
+  "online_zeros": 464,
+  "theta_T_over_pi_plus_1": 494.67949801002675
+ }
+}

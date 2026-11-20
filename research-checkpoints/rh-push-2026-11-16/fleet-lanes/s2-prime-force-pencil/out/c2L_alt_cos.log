@@ -1,0 +1,18 @@
+14:45:58 extrema refined on samples: 151782 of 151782, median shift/gap 1.86e-02; parity sign agrees (after global sign -1) on 151782 of 151782
+14:45:58 alt cos N=32: zeros 698848, near-collisions 151782, heights 31.91 .. 499996.54, dim 32
+14:45:58   N=32 K=8 T=168.47 rho in [0.254511, 0.254511] feasible passes 0 support 7
+14:45:58   N=32 K=12 T=245.26 rho in [0.203762, 0.203762] feasible passes 1 support 11
+14:45:58   N=32 K=17 T=303.09 rho in [0.106004, 0.106004] feasible passes 1 support 12
+14:45:58   N=32 K=25 T=394.67 rho in [0.057952, 0.057952] feasible passes 2 support 18
+14:45:58   N=32 K=36 T=529.64 rho in [0.015366, 0.015366] feasible passes 6 support 28
+14:45:58   N=32 K=51 T=680.24 rho in [0.000000, 0.000000] infeasible passes 4 support 38
+14:45:58 ONSET alt cos N=32: K0=49 T0=665.460  T0/(2 pi N^2/q)=0.5171  rho just before 2.195e-04  certificate support 33
+14:45:58 alt cos N=64: zeros 698848, near-collisions 151782, heights 31.91 .. 499996.54, dim 64
+14:45:58   N=64 K=16 T=297.78 rho in [0.207800, 0.207800] feasible passes 0 support 15
+14:45:58   N=64 K=23 T=368.71 rho in [0.099552, 0.099552] feasible passes 1 support 20
+14:45:58   N=64 K=33 T=512.14 rho in [0.071339, 0.071339] feasible passes 2 support 27
+14:45:58   N=64 K=47 T=638.16 rho in [0.033077, 0.033077] feasible passes 3 support 39
+14:45:58   N=64 K=67 T=851.34 rho in [0.016791, 0.016791] feasible passes 2 support 48
+14:45:58   N=64 K=95 T=1075.34 rho in [0.000038, 0.000038] feasible passes 7 support 64
+14:45:58   N=64 K=135 T=1410.68 rho in [0.000000, 0.000000] infeasible passes 1 support 83
+14:45:58 ONSET alt cos N=64: K0=96 T0=1084.660  T0/(2 pi N^2/q)=0.2107  rho just before 3.846e-05  certificate support 65

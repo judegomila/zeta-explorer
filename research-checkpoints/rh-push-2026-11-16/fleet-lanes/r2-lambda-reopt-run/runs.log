@@ -1,0 +1,15 @@
+14:29:52 start t874886647 theta=874886647/1000000000
+14:37:42 consume done t874886647
+14:38:17 verify done t874886647
+14:38:22 start t78 theta=7/8
+14:52:53 consume done t78
+14:54:09 verify done t78
+14:54:18 start t87 theta=87/100
+15:09:09 consume done t87
+15:10:57 verify done t87
+15:11:10 start t80 theta=4/5
+15:32:51 consume done t80
+15:34:28 verify done t80
+ALLDONE
+15:34:50 start misconfig
+15:54:50 misconfig STOPPED at the 20-minute local limit (machine load > 100), no output

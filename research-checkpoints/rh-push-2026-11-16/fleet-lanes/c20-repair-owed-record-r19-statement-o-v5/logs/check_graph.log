@@ -1,0 +1,16 @@
+ctl-HQ2 True proved (re-derived by two referees for the construction, one for the round-19 addendum); ball enclosures of eight off-line zeros None
+ctl-HQ3 True proved (elementary; re-derived by one referee; checked to 1e-60 on the member (5; 0.07, 0.31)) None
+ctl-HQ4 True proved (elementary; re-derived by one referee; Edrei's theorem classical, not opened; 24309 minors of order <= 4 non-negative on the member (5; 0.07, 0.31)) None
+row-X2 True closed ['HQ2', 'HQ3', 'HQ4', 'NR', 'ZQ']
+row-G45 True closed ['DH', 'HEAT', 'HQ2', 'NR', 'NR-q', 'THIN', 'ZQ']
+row-P58 True closed ['DH', 'ZQ']
+row-D10 True closed ['BLS', 'DH', 'EISW', 'ZQ']
+row-Z37 True closed ['DH', 'NR']
+row-X1 True closed ['DH', 'HQ2', 'NR-q', 'ZQ']
+row-G44 True closed ['BLS', 'DH', 'HEAT', 'NR', 'NR-q', 'SG', 'THIN', 'TW+', 'ZQ']
+edge keys ['shared', 'source', 'target', 'type', 'weight', 'why']
+ctl-HQ2 3 Counter({'control-defeats': 3}) ['row-G45', 'row-X1', 'row-X2']
+ctl-HQ3 1 Counter({'control-defeats': 1}) ['row-X2']
+ctl-HQ4 1 Counter({'control-defeats': 1}) ['row-X2']
+23 ['map-open-8', 'map-open-9'] Quadratic or mean-value positivity with automorphic companions (beyond linear 3-4-1): closed for poi | status conjectural | roles ['device', 'lemma'] | live None
+counts {'rawRecords': 1291, 'mergedPairs': 12, 'note': 'Roles and tags are derived from reader labels and keyword rules; they are heuristics, not verdicts.'}

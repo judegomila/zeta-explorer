@@ -1,0 +1,38 @@
+{
+ "slug": "c14-repair-map-engine-checkpoint-record",
+ "round": 14,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "repair",
+  "obstruction-map",
+  "engine",
+  "battery",
+  "checkpoint"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane, nothing about zeros of zeta, no RH assumption, no restated verified height. Confirmed by recomputation: map 191 -> 198 labelled rows (D9, G34, G35, G36, L6, P55, Z36; no row deleted; D9 rank-one PROVED / affine kernel ARGUED; G36 MEASURED, finite search); eight relabels applied to map rows D8, Z35, G33, P54 only (round-12/13 lane files untouched by mtime); corrected battery records in place in c12 with sha256 equal to the c13 corrected files and originals kept; D1 agrees with the corrected record (independent mpmath implementation reproduces zeta zero 34 and all six DH minima at 1000-1020 to printed digits; a new DH window 1020-1040 behaves the same); engine 45 closed / 1 floored / 0 open, 9 pending, graph 1,677 -> 1,685 nodes and 8,937 -> 9,002 edges, top-60 keys and scores unchanged, 24 outcome entries rewritten with no field lost and no verdict changed; headline 1 of 4. Spot checks of recorded PROVED content hold (Theorem B identity; BLS and T-NR pass and -M fails the rank-one inequality on a fresh grid; DH tail sum 0.7376; G35 pole count; G33 twin zero at 2.2423; Edrei-Thoma gloss). Checkpoint draft: eight separate conditional statements, no joint clause, unrefereed; U1 and U2 need the U3 caveat and corrected per-control reasons before the planner uses it.",
+ "obstruction": "Record lane, no attack. Map 191 -> 198 rows (D9, G34, G35, G36, L6, P55, Z36); eight relabels applied to rows D8, Z35, G33, P54; corrected battery records in c12, D1 20 of 20; engine 45 closed / 1 floored / 0 open. Checkpoint draft: eight read classes the record is silent on (U1-U8), unrefereed; with FE defined as zeta's own functional equation every Dirichlet-series control lacks FE by Hamburger, so U1 {FE, GEOM} and U2 {FE, SIZE} are silent for the same by-construction reason as U3 and need that caveat and corrected per-control reasons before use.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No count or label is wrong; six defects of wording or record content. (1) Checkpoint draft: with FE defined as zeta's own functional equation, every Dirichlet-series control lacks FE by Hamburger, so U1 {FE, GEOM} and U2 {FE, SIZE} are silent for the same by-construction reason as U3; the draft states the R3-cannot-be-tested caveat for U3 only. (2) Draft U1 per-control reasons name inputs outside the set (DH \"lacks EP\", HEAT \"not INT\", BLS, UNIV) and treat E_a, EIS-w, T-NR as having FE, which th - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Closing the devices that tested a read set does not close the read set: the record only speaks where a control lies inside the class, and for {FE, GEOM}, {FE, SIZE} and identification classes no control on file does. Process: rerunning merge_outcomes.py after learn steps bypassed it rewrites entries (keyword-filled defeatedBy includes passing controls); build_graph's fixed control code list gives BLS and UNIV no row edges.",
+ "followUp": "Independent referee of tmp/research-2026-11-16/campaign/CHECKPOINT_R14_DRAFT.md before the round-14 learn step uses it (U4 and U6 depend on the round-14 lanes now reporting); then add BLS and UNIV to CONTROL_CODE_RE in engine/build_graph.py and rerun D4 on the 294-pair HEAT table.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-repair-map-engine-checkpoint-record/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-repair-map-engine-checkpoint-record/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

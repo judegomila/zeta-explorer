@@ -1,0 +1,7 @@
+d=4 N=1: m tested 2401, violations 0, |kappa|^2 = 1
+d=4 N=2: m tested 2401, violations 0, |kappa|^2 = 1
+d=4 N=3: m tested 2401, violations 0, |kappa|^2 = 1
+d=4 N=4: m tested 2401, violations 0, |kappa|^2 = 1
+d=5 N=2: m tested 16807, violations 0, |kappa|^2 = 1
+d=5 N=4: m tested 16807, violations 0, |kappa|^2 = 1
+TOTAL 43218 violations 0

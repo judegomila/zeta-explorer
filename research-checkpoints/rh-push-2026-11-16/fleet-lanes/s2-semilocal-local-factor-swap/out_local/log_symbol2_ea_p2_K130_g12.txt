@@ -1,0 +1,16 @@
+[ea@2] KMAX=130 pts/spike=1032 |alpha|max=1.1487 NRES=165 NEXT=70; planned work array 13.7 MB
+  spike 0: mass +8.7711e-01 [1s]
+  spike 10: mass +1.1382e-01 [28s]
+  spike 20: mass +1.1553e-02 [68s]
+  spike 30: mass +1.3754e-03 [118s]
+  spike 40: mass +1.6989e-04 [186s]
+  spike 50: mass +2.1174e-05 [264s]
+  spike 60: mass +2.6448e-06 [344s]
+  spike 70: mass +3.3054e-07 [439s]
+  spike 80: mass +4.1315e-08 [538s]
+  spike 90: mass +5.1644e-09 [650s]
+  spike 100: mass +6.4554e-10 [780s]
+  spike 110: mass +8.0693e-11 [909s]
+  spike 120: mass +1.0087e-11 [1042s]
+  spike 130: mass +1.2608e-12 [1180s]
+RESULT2 ea@2: Lhat(0) = +0.141583 (2theta' = -5.372183, 2ReL'/L = -8.217355, deltahat(0) = 13.731121); min over [0,60] = +0.141583 at t = 0.00; last spike mass +1.26e-12; geometric tail estimate 2*6.7e-12

@@ -1,0 +1,46 @@
+Thu Nov 19 09:37:24 AM UTC 2026
+# ytab q=7 d=2 N=0 lam=9 threads=12 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=0 composites=0
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0000 GB; per thread 0.0002 GB x 12 threads (vertical counters 0.0001, batch masks 0.0000); total 0.0030 GB
+# tables built at 0 s
+# prime loop finished at 1 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 72 primes passed
+# written ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N0_lam9_d2.bin, ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N0_lam9_d2.txt at 1 s
+rc=0
+OK   one: (N, lam, d) = (0, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (0, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N0_lam9_d2 against q7_N0_lam9_d2.txt: 2 identical, 0 different
+Thu Nov 19 09:37:25 AM UTC 2026
+# ytab q=7 d=2 N=3 lam=9 threads=12 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=140 composites=259
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 0.0000 GB; planes TIs 0.0000 GB; T (Res(A', m)) 0.0000 GB; output Y 0.0003 GB; per thread 0.0008 GB x 12 threads (vertical counters 0.0007, batch masks 0.0000); total 0.0103 GB
+# tables built at 0 s
+# prime loop finished at 2 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 75 primes passed
+# written ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N3_lam9_d2.bin, ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N3_lam9_d2.txt at 2 s
+rc=0
+OK   one: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (3, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N3_lam9_d2 against q7_N3_lam9_d2.txt: 5 identical, 0 different
+Thu Nov 19 09:37:27 AM UTC 2026
+# ytab q=7 d=2 N=6 lam=9 threads=12 primes(necklace)=4483696 planes=24 sieve block q^6=117649 blocks=343 sieve primes=728 cofactor primes=23632 composites=113624
+# planned allocations: TP (cubic symbol tables of the cofactor primes) 2.3573 GB; planes TIs 0.0014 GB; T (Res(A', m)) 0.0058 GB; output Y 0.0922 GB; per thread 0.2159 GB x 12 threads (vertical counters 0.2076, batch masks 0.0075); total 5.0460 GB
+# tables built at 17 s
+# prime loop finished at 244 s
+# ytab primes=4483696 (equals the necklace count); self-checks on 73 primes passed
+# written ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N6_lam9_d2.bin, ~/rh-push/c11-ff-row-energy-four-part/results/y_q7_N6_lam9_d2.txt at 244 s
+rc=0
+OK   one: (N, lam, d) = (6, 9, 2): 49 rows, diag, sW2, np identical
+OK   a: (N, lam, d) = (6, 9, 2): 49 rows, diag, sW2, np identical
+OK   b: (N, lam, d) = (6, 9, 2): 49 rows, diag, sW2, np identical
+OK   mu: (N, lam, d) = (6, 9, 2): 49 rows, diag, sW2, np identical
+OK   al: (N, lam, d) = (6, 9, 2): 49 rows, diag, sW2, np identical
+VALIDATION y_q7_N6_lam9_d2 against q7_N6_lam9_d2.txt: 5 identical, 0 different
+Thu Nov 19 09:41:33 AM UTC 2026
+N = 6: 53 vectors assembled
+N = 3: 53 vectors assembled
+ROWS_DONE ~/rh-push/c11-ff-row-energy-four-part/results/rows_lam9.json
+rows rc=0
+Thu Nov 19 09:41:39 AM UTC 2026
+PROD_DONE_9

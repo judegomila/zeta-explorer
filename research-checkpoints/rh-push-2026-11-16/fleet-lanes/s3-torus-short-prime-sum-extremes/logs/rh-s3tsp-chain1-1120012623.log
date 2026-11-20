@@ -1,0 +1,77 @@
++ python c1n.py --K 1e10 --weights 0.375:8.767,0.05:8.767 --fams ZETA,CHI,SGN,UNI,DEL,TNR,EA --out c1n_A.json --hours 1.6
+N=6420 terms=879 cols=14 K=10000000000 step=9701 M=67108864 nf=134217728 blocks=150 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.000 GiB
+block 21/150 done=1.409e+09 t=304s rate=4.636e+06 heights/s
+block 43/150 done=2.886e+09 t=605s rate=4.770e+06 heights/s
+block 70/150 done=4.698e+09 t=909s rate=5.167e+06 heights/s
+block 91/150 done=6.107e+09 t=1214s rate=5.030e+06 heights/s
+block 113/150 done=7.583e+09 t=1527s rate=4.965e+06 heights/s
+block 136/150 done=9.127e+09 t=1830s rate=4.986e+06 heights/s
+block 150/150 done=1.000e+10 t=1994s rate=5.015e+06 heights/s
+done 10000000000 1994s
++ python c1n.py --N 1.18e6 --K 2e9 --weights 0.2:13.98,0.05:13.98 --fams ZETA,CHI,SGN,UNI,DEL,TNR,EA --out c1n_B.json --hours 0.5
+planned host arrays: Z 0.02 GiB; terms 91741
+N=1180000 terms=91741 cols=14 K=2000000000 step=48501 M=67108864 nf=134217728 blocks=30 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.019 GiB
+block 23/30 done=1.544e+09 t=323s rate=4.778e+06 heights/s
+block 30/30 done=2.000e+09 t=433s rate=4.616e+06 heights/s
+done 2000000000 433s
++ python c1n.py --full 1 --K 1e9 --weights 0.375:8.767,0.05:8.767 --out c1n_C.json --hours 0.2
+planned host arrays: Z 0.00 GiB; terms 6419
+N=6420 terms=6419 cols=6 K=1000000000 step=97001 M=67108864 nf=134217728 blocks=15 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.001 GiB
+block 15/15 done=1.000e+09 t=97s rate=1.027e+07 heights/s
+done 1000000000 97s
++ python c1n.py --full 1 --N 1.18e6 --K 1e9 --weights 0.2:13.98,0.05:13.98 --out c1n_C2.json --hours 0.2
+planned host arrays: Z 0.11 GiB; terms 1179999
+N=1180000 terms=1179999 cols=6 K=1000000000 step=97001 M=67108864 nf=134217728 blocks=15 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.246 GiB
+block 15/15 done=1.000e+09 t=112s rate=8.890e+06 heights/s
+done 1000000000 112s
++ python c1n.py --mode haarflow --K 2e9 --weights 0.375:8.767,0.05:8.767 --fams ZETA --out c1n_D.json --hours 0.2
+planned host arrays: Z 0.00 GiB; terms 879
+N=6420 terms=879 cols=2 K=2000000000 step=48501 M=67108864 nf=134217728 blocks=30 mode=haarflow GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.000 GiB
+block 30/30 done=2.000e+09 t=72s rate=2.792e+07 heights/s
+done 2000000000 72s
++ python c1n.py --mode haarflow --N 1.18e6 --K 2e9 --weights 0.2:13.98,0.05:13.98 --fams ZETA --out c1n_D2.json --hours 0.2
+planned host arrays: Z 0.00 GiB; terms 91741
+N=1180000 terms=91741 cols=2 K=2000000000 step=48501 M=67108864 nf=134217728 blocks=30 mode=haarflow GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.019 GiB
+block 30/30 done=2.000e+09 t=91s rate=2.196e+07 heights/s
+done 2000000000 91s
++ python c1n.py --N 6e4 --H0 1e6 --H1 3e8 --K 2.99e8 --weights 0.2:11.0,0.15:11.0 --out c1n_E.json --hours 0.2
+planned host arrays: Z 0.00 GiB; terms 6148
+N=60000 terms=6148 cols=18 K=299000000 step=1 M=67108864 nf=134217728 blocks=5 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.001 GiB
+block 5/5 done=2.990e+08 t=98s rate=3.042e+06 heights/s
+done 299000000 98s
++ python c1n.py --N 6e4 --H0 1e6 --H1 3e8 --K 2.99e8 --weights 0.2:11.0,0.15:11.0 --mode haarflow --fams ZETA --out c1n_E2.json --hours 0.2
+planned host arrays: Z 0.00 GiB; terms 6148
+N=60000 terms=6148 cols=2 K=299000000 step=1 M=67108864 nf=134217728 blocks=5 mode=haarflow GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.001 GiB
+block 5/5 done=2.990e+08 t=14s rate=2.199e+07 heights/s
+done 299000000 14s
++ RH_POOL_GB=22
++ python c4.py --Pmax 1e11 --checks 1e7,1e8,1e9,1e10,1e11 --phimax 1e6 --dphi 0.1 --fine 10 --nf 67108864 --split 0 --out c4_main.json
+planned grids: 20 x 50331648 x 8 B = 7.50 GiB
+Pmax=100000000000 M=20000000 nf=50331648 sigma=2.52 w=12 segments=748 prime powers=28156 GPU=True
+/home/USER/rh-push/s3-torus-short-prime-sum-extremes/s3lib.py:221: RuntimeWarning: overflow encountered in scalar multiply
+  z = p.astype(m.uint64) + m.uint64(seed) * m.uint64(0x9E3779B97F4A7C15)
+checkpoint P=1.0e+07 primes=664579 t=48s  ZETA: max -0.002 pos 0.00e+00  CHI: max -0.009 pos 0.00e+00  SGN: max +11.192 pos 4.51e-02  UNI: max +11.109 pos 4.51e-02  DEL: max +24.745 pos 1.46e-02  TNR: max +181.109 pos 3.73e-01  EA: max +5.426 pos 1.06e-01
+checkpoint P=1.0e+08 primes=5761455 t=87s  ZETA: max -0.002 pos 0.00e+00  CHI: max -0.007 pos 0.00e+00  SGN: max +14.431 pos 6.93e-02  UNI: max +13.488 pos 6.92e-02  DEL: max +45.307 pos 2.81e-02  TNR: max +435.543 pos 4.56e-01  EA: max +8.153 pos 1.81e-01
+sieved to 7.711e+08 primes 39734267 t=88s
+checkpoint P=1.0e+09 primes=50847534 t=135s  ZETA: max -0.002 pos 0.00e+00  CHI: max -0.008 pos 0.00e+00  SGN: max +17.618 pos 9.44e-02  UNI: max +16.336 pos 9.43e-02  DEL: max +80.950 pos 4.39e-02  TNR: max +1034.881 pos 4.83e-01  EA: max +12.356 pos 2.51e-01
+checkpoint P=1.0e+10 primes=455052511 t=249s  ZETA: max -0.002 pos 0.00e+00  CHI: max -0.006 pos 0.00e+00  SGN: max +19.397 pos 1.19e-01  UNI: max +20.310 pos 1.19e-01  DEL: max +142.785 pos 6.04e-02  TNR: max +2443.988 pos 4.93e-01  EA: max +17.895 pos 3.06e-01
+sieved to 1.000e+10 primes 455052511 t=249s
+sieved to 1.940e+10 primes 856694818 t=331s
+sieved to 2.879e+10 primes 1249829178 t=422s
+sieved to 3.819e+10 primes 1637570389 t=523s
+sieved to 4.758e+10 primes 2021363618 t=623s
+sieved to 5.698e+10 primes 2402073526 t=717s
+sieved to 6.637e+10 primes 2780237685 t=822s
+sieved to 7.577e+10 primes 3156255066 t=933s
+sieved to 8.516e+10 primes 3530412041 t=1040s
+sieved to 9.456e+10 primes 3902928985 t=1146s
+checkpoint P=1.0e+11 primes=4118054813 t=1231s  ZETA: max -0.002 pos 0.00e+00  CHI: max -0.006 pos 0.00e+00  SGN: max +22.188 pos 1.42e-01  UNI: max +23.914 pos 1.42e-01  DEL: max +248.387 pos 7.68e-02  TNR: max +5814.279 pos 4.97e-01  EA: max +25.087 pos 3.48e-01
+done 1231s

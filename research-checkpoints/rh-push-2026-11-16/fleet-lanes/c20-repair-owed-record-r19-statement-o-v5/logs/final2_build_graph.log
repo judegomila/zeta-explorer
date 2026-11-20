@@ -1,0 +1,3 @@
+records 1291 -> nodes 1255 corpus + 501 map/control/outcome = 1756; live 977; rows 253; edges 9236
+edges by type: composes-with 7619, control-defeats 920, obstructs 278, restates 189, separates-from 4, special-case-of 132, uses 94
+wrote tmp/research-2026-11-16/engine/IDEA_GRAPH.json

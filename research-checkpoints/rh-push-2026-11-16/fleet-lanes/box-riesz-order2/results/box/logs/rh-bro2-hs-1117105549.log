@@ -1,0 +1,135 @@
+done 300 0.1 21
+done 300 0.08 21
+done 300 0.07 21
+done 300 0.06 21
+done 300 0.05 21
+done 330 0.08 21
+done 330 0.1 21
+done 330 0.07 21
+done 300 0.04 21
+done 330 0.06 21
+done 330 0.05 21
+done 300 0.03 21
+done 330 0.04 21
+done 330 0.03 21
+done 360 0.06 21
+done 360 0.08 21
+done 360 0.05 21
+done 360 0.1 21
+done 360 0.07 21
+done 300 0.02 21
+done 360 0.04 21
+done 330 0.02 21
+done 360 0.03 21
+done 400 0.07 21
+done 400 0.1 21
+done 400 0.08 21
+done 400 0.06 21
+done 400 0.05 21
+done 360 0.02 21
+done 400 0.04 21
+done 450 0.06 21
+done 450 0.07 21
+done 450 0.08 21
+done 450 0.1 21
+done 450 0.05 21
+done 450 0.04 21
+done 400 0.03 21
+done 499 0.07 21
+done 499 0.08 21
+done 499 0.1 21
+done 450 0.03 21
+done 499 0.06 21
+done 499 0.05 21
+done 499 0.04 21
+done 550 0.07 21
+done 400 0.02 21
+done 550 0.08 21
+done 550 0.1 21
+done 550 0.06 21
+done 550 0.05 21
+done 450 0.02 21
+done 550 0.04 21
+done 499 0.03 21
+done 600 0.06 21
+done 600 0.05 21
+done 550 0.03 21
+done 600 0.07 21
+done 600 0.08 21
+done 600 0.1 21
+done 499 0.02 21
+done 600 0.04 21
+done 692 0.07 21
+done 692 0.06 21
+done 692 0.1 21
+done 692 0.08 21
+done 692 0.05 21
+done 692 0.04 21
+done 550 0.02 21
+done 815 0.07 21
+done 600 0.03 21
+done 815 0.1 21
+done 815 0.08 21
+done 815 0.06 21
+done 815 0.04 21
+done 815 0.05 21
+done 692 0.03 21
+done 959 0.07 21
+done 959 0.08 21
+done 959 0.1 21
+done 959 0.06 21
+done 959 0.04 21
+done 815 0.03 21
+done 959 0.05 21
+done 600 0.02 21
+done 1129 0.06 21
+done 1129 0.07 21
+done 1129 0.08 21
+done 1129 0.1 21
+done 1129 0.05 21
+done 959 0.03 21
+done 692 0.02 21
+done 1129 0.04 21
+done 1329 0.06 21
+done 1329 0.07 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done 1329 0.08 21
+done 1329 0.1 20
+done 1329 0.05 21
+done 1329 0.04 21
+done 1129 0.03 21
+done 1564 0.04 21
+done 815 0.02 21
+done 1564 0.07 21
+done 1564 0.1 8
+done 1564 0.08 21
+done 1564 0.06 21
+done 1564 0.05 21
+done 1329 0.03 21
+done 1841 0.06 21
+done 1841 0.07 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done 1841 0.08 21
+Traceback (most recent call last):
+  File "~/rh-push/box-riesz-order2/hsweep.py", line 52, in <module>
+    print('done', out[0].get('N'), out[0].get('rho'), len(out), flush=True)
+                  ~~~^^^
+IndexError: list index out of range

@@ -1,0 +1,7 @@
+[ea@5] delta=1e-05 L=6400000 inside=1600001 complex=False; planned Lanczos basis 1.44 GB, FFT work arrays 0.57 GB
+max||mu|-1| = 1.16e-10
+unitarity ||F_S g||/||g|| = 1.0000000000; ||F_S^* F_S g - g||/||g|| = 5.76e-11; max|Im F_S g|/||.|| = 3.7e-16
+  lanczos step 0 [40s]
+  lanczos step 20 [72s]
+  lanczos step 40 [104s]
+  lanczos step 60 [140s]

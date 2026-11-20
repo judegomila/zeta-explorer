@@ -1,0 +1,24 @@
+real, both left                                      positive 1 negative 2 zero 0   predicted negative 2
+real, both right                                     positive 3 negative 0 zero 0   predicted negative 0
+real, left+right, sum > 1                            positive 2 negative 1 zero 0   predicted negative 1
+real, left+right, sum < 1                            positive 2 negative 1 zero 0   predicted negative 1
+real, symmetric                                      positive 1 negative 0 zero 2   predicted negative 0
+real, symmetric                                      positive 1 negative 0 zero 2   predicted negative 0
+real, one at 1/2, other right                        positive 2 negative 0 zero 1   predicted negative 0
+real, one at 1/2, other left                         positive 1 negative 1 zero 1   predicted negative 1
+real double at 1/2                                   positive 1 negative 0 zero 2   predicted negative 0
+conjugate pair, Re a = 1/5 < 1/2, Im a = 3           positive 1 negative 2 zero 0   predicted negative 2
+conjugate pair, Re a = 2/5 < 1/2, Im a = 1/10        positive 1 negative 2 zero 0   predicted negative 2
+conjugate pair, Re a = 1/20 < 1/2, Im a = 40         positive 1 negative 2 zero 0   predicted negative 2
+conjugate pair, Re a = 9/20 < 1/2, Im a = 1          positive 1 negative 2 zero 0   predicted negative 2
+conjugate pair, Re a = 3/5 > 1/2, Im a = 3           positive 3 negative 0 zero 0   predicted negative 0
+conjugate pair, Re a = 11/20 > 1/2, Im a = 1/10      positive 3 negative 0 zero 0   predicted negative 0
+conjugate pair, Re a = 9/10 > 1/2, Im a = 40         positive 3 negative 0 zero 0   predicted negative 0
+conjugate pair, Re a = 3/2 > 1/2, Im a = 2           positive 3 negative 0 zero 0   predicted negative 0
+conjugate pair, Re a = 5/2 > 1/2, Im a = 1           positive 3 negative 0 zero 0   predicted negative 0
+conjugate pair on the line, Im a = 3                 positive 1 negative 0 zero 2   predicted negative 0
+conjugate pair on the line, Im a = 1/10              positive 1 negative 0 zero 2   predicted negative 0
+conjugate pair on the line, Im a = 40                positive 1 negative 0 zero 2   predicted negative 0
+H_33 in (kappa, m): 4*kappa*(kappa - 1)*(-kappa + m + 1)
+det of the {1, I2} block in (kappa, m): 144*kappa**3*(kappa - 1)*(2*kappa**2 + m)*(-2*kappa + m + 4)*(-2*kappa + 4*m + 1)*(-kappa + m + 1)**3
+H_22 in (kappa, m): 4*kappa*(-kappa + m + 1)*(4*kappa**3 - 22*kappa**2 + 10*kappa*m + 22*kappa - m - 4)

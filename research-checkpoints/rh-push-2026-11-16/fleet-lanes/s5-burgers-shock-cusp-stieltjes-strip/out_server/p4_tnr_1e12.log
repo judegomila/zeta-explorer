@@ -1,0 +1,25 @@
+09:03:39 tnr T 1000000000000 X 10000000000 M 2^28 dt 0.02 h 1.170e-06 grid cells used 19674622 columns 4 GPU True planned: accumulators 1.26 GB, FFT 4.29 GB x 3
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s5-burgers-shock-cusp-stieltjes-strip/p4.py", line 298, in <module>
+    elif cmd == 'run': run(sys.argv[2], sys.argv[3], deriv=(len(sys.argv) > 4 and sys.argv[4] == 'deriv'), Mlog=int(os.environ.get('RH_MLOG', '28')))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s5-burgers-shock-cusp-stieltjes-strip/p4.py", line 205, in run
+    add(ug, ph[s:s + 1_000_000], p, 1, ug); npr += len(ug)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s5-burgers-shock-cusp-stieltjes-strip/p4.py", line 199, in add
+    grid_add(G, uu, B.stack(cols), h, B)
+  File "/home/USER/rh-push/s5-burgers-shock-cusp-stieltjes-strip/p4.py", line 144, in grid_add
+    acc += B.bincount(((j0 + o)[None, :] + offs).ravel(), weights=(W * wg[None, :]).ravel(), minlength=rows * span)[:rows * span]
+                       ~~~~~~~~~~~~~~~~~~^~~~~~
+  File "cupy/_core/core.pyx", line 1566, in cupy._core.core._ndarray_base.__add__
+  File "cupy/_core/_kernel.pyx", line 1374, in cupy._core._kernel.ufunc.__call__
+  File "cupy/_core/_kernel.pyx", line 657, in cupy._core._kernel._get_out_args_from_optionals
+  File "cupy/_core/core.pyx", line 3342, in cupy._core.core._ndarray_init
+  File "cupy/_core/core.pyx", line 300, in cupy._core.core._ndarray_base._init_fast
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 64,000,000 bytes (allocated so far: 2,398,609,920 bytes, limit set to: 25,769,803,776 bytes).

@@ -1,0 +1,11 @@
+# h=0.03 n=134 s=0.03 c=3.99 ; 122 on-line ordinates (max 199.876), off-line: [('0.80852', '85.6993'), ('0.65083', '114.163'), ('0.57436', '166.479'), ('0.72426', '176.702')]
+# tail bound used as absolute entry radius: 5.49e-16
+zero side, all zeros               determined 134/134 | positive pivots of -Z at stages [115, 116] | smallest |pivot| [-3.402e-11 +/- 2.98e-15]
+zero side, quartet 1 removed       determined 134/134 | positive pivots of -Z at stages [] | smallest |pivot| [-3.206e-11 +/- 3.27e-15]
+zero side, quartet 2 removed       determined 134/134 | positive pivots of -Z at stages [115, 116] | smallest |pivot| [-3.405e-11 +/- 4.67e-15]
+zero side, quartet 3 removed       determined 134/134 | positive pivots of -Z at stages [115, 116] | smallest |pivot| [-3.393e-11 +/- 5.88e-16]
+zero side, quartet 4 removed       determined 134/134 | positive pivots of -Z at stages [115, 116] | smallest |pivot| [-3.331e-11 +/- 5.00e-15]
+zero side, all quartets removed    determined 134/134 | positive pivots of -Z at stages [] | smallest |pivot| [-3.133e-11 +/- 3.73e-15]
+# prime side: Lambda_DH table 214
+# max |Z_zero - Z_prime| over the kernel values: 5.02e-18
+prime side                         determined 134/134 | positive pivots of -Z at stages [116, 117] | smallest |pivot| [-2.188e-10 +/- 4.16e-14]

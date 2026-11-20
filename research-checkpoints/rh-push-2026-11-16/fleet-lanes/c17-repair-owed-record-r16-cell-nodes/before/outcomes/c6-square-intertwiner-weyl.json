@@ -1,0 +1,43 @@
+{
+ "slug": "c6-square-intertwiner-weyl",
+ "round": 6,
+ "kind": "combine",
+ "nodes": [
+  "out-c1-spinor-hecke-primitive",
+  "zv-spinor-arithmetic-coupling-missing"
+ ],
+ "tags": [
+  "hilbert-polya",
+  "square-realisation",
+  "hecke-operators",
+  "weyl-law",
+  "casimir",
+  "metaplectic",
+  "spinor",
+  "euler-blind"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, score unchanged, not a statement about zeros of zeta. For covariant squares of Q_L with a cuspidal GL_2 target over Q: (a) no rule T_p = psi(U(log p)) with psi continuous (proved from classical inputs); (b) no rule U(log p) = P(T_p), deg P <= 4, p-independent coefficients, gamma != 0, proved as written for trivial nebentypus (nontrivial nebentypus after a twist repair; injective continuous phi only when the lambda_p lie in a compact set). Casimir class: no Weyl law of the form T log T; full-spectrum density exclusion for H = c r^a, 1 <= a < 2, conditional on unproved multiplicity bounds; float (not certified) exclusion of gamma_1 as r_j or 2 r_j at level 1. Compact at infinity: rank one closed; rank >= 2 without a Hecke rule open and without R1. Non-L^2 rank-one family: F(gamma_n) is not constant (measured on 20 zeros, range about -10.6 to 18.4), Euler-blind. Weight 1/2, quaternionic and n-fold cover rows rest on recalled correspondences; the n-fold cover row additionally needs H2 over Q(omega), not written. The free Borel rule class is equivalent to RH and gives no lever. Nothing separates zeta from any control.",
+ "obstruction": "A covariant square of Q_L is a Hilbert-Polya space, so sub-selection defeats every counting test. Fixed Hecke rules: no GL_2 cusp form has lambda_p = psi(p^(-it)) for continuous psi, nor P(lambda_p) = p^(-it), deg P <= 4 (Theorem H2; proved as written for trivial nebentypus; one referee); the eigencharacter of a zero is that of E(., 1/2 + i gamma) in the continuous spectrum. Casimir class: Weyl laws R^2 or R^3, never T log T. Compact at infinity: rank one closed; rank >= 2 without a Hecke rule open and carries no R1. Non-L^2 rank-one family: F(gamma_n) not constant, Euler-blind. The free Borel rule exists iff RH. The lead had already been run (res-point-spectrum-square). The no-gos are properties of the automorphic target and hold for all controls alike.",
+ "obstructionKind": "no-fixed-hecke-rule-zero-eigencharacter-is-eisenstein",
+ "controlsThatDefeat": [
+  "all controls pass alike: the no-gos concern the automorphic target, not zeta (no R3)",
+  "non-L^2 rank-one family is Euler-blind",
+  "free Borel rule: restatement of RH"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c6-square-intertwiner-weyl/REFEREE.md. No PROVED step failed beyond repair; four statements are false or incomplete as written, none changes the verdict.\nE1 (harmless): \"joint eigenspaces of {T_p} are finite-dimensional\" is false on L^2(Gamma\\G) with all K-types (pi_infinity is infinite-dimensional); the reduction only needs a nonzero component in some pi, which holds.\nE2 (gap, repairable): H2(b) uses U_i(lambda [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A covariant square of Q_L is a Hilbert-Polya space, so sub-selection defeats every counting test; only exact tests decide (multiplicity one with Rankin-Selberg, or a single ordinate missing from the spectrum). Every fixed Hecke rule fails because the eigencharacter of a zero is that of E(.,1/2+i gamma) in the continuous spectrum. These no-gos are properties of the automorphic target and hold for all controls alike, so they give no R3. Check push/ for an existing lane before treating a STRATEGY lead as never run.",
+ "followUp": "Referee Theorem H2, especially the finite-order claim for one-dimensional constituents of sym^i f (i <= 4) in part (b), then add rows A3-C1, A3-C2, A3-C3, A3-R to OBSTRUCTION_MAP.md and correct STRATEGY.md line 80. No further attack lane on square intertwiners is recommended.",
+ "resultFile": "tmp/research-2026-11-16/push/c6-square-intertwiner-weyl/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-square-intertwiner-weyl/REFEREE.md"
+}

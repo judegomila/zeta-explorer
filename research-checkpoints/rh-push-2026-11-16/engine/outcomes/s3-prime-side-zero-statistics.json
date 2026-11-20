@@ -1,0 +1,88 @@
+{
+ "slug": "s3-prime-side-zero-statistics",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "bk-diagonal-prime-identity",
+  "bogomolny-keating-amplitude-one",
+  "gonek-hejhal-J1",
+  "m23-gabor-fingerprint-matrix",
+  "m23-rank-trace-lemma",
+  "m23-three-prime-side-numbers",
+  "m23-zeta-prime-rolle",
+  "number-variance-cap-selberg",
+  "var-s-constant-decomposition",
+  "var-s-constant-pair-correlation-integral"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "bogomolny-keating-amplitude-one",
+    "bk-diagonal-prime-identity"
+   ],
+   "obstruction": "diagonal amplitude is per-prime (Landau); DH and heat fail by the count of missing on-line zeros above off-line height; twists cannot fail",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR",
+    "DH below 85.7"
+   ]
+  },
+  {
+   "nodes": [
+    "var-s-constant-decomposition",
+    "var-s-constant-pair-correlation-integral",
+    "number-variance-cap-selberg"
+   ],
+   "obstruction": "variance constant depends on |c(n)|^2 and on the count of missing zeros only",
+   "controlsThatDefeat": [
+    "T-NR",
+    "sign twist",
+    "unimodular twist",
+    "DH (full zero set)"
+   ]
+  },
+  {
+   "nodes": [
+    "m23-gabor-fingerprint-matrix",
+    "m23-three-prime-side-numbers",
+    "m23-rank-trace-lemma"
+   ],
+   "obstruction": "the lead is the reach of a boundary Pick matrix (analytic continuation from the window): same reach for planted pairs in zeta; precision and cutoff X > T/2pi exceed the cost of verifying the height; twists fail only for lack of a functional equation",
+   "controlsThatDefeat": [
+    "planted pair on zeta (same reach)",
+    "DH at X <= 1e4",
+    "sign/unimodular twist (functional equation only)"
+   ]
+  },
+  {
+   "nodes": [
+    "gonek-hejhal-J1",
+    "m23-zeta-prime-rolle"
+   ],
+   "obstruction": "mean value (twisted moment of zeta for T-NR); window form false for zeta; DH visible only above off-line height or as the small-gap exponent",
+   "controlsThatDefeat": [
+    "T-NR",
+    "zeta itself (window form)",
+    "DH below 1e3"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) diagonal amplitude is per-prime (Landau); DH and heat fail by the count of missing on-line zeros above off-line height; twists cannot fail | (2) variance constant depends on |c(n)|^2 and on the count of missing zeros only | (3) the lead is the reach of a boundary Pick matrix (analytic continuation from the window): same reach for planted pairs in zeta; precision and cutoff X > T/2pi exceed the cost of verifying the height; twists fail only for lack of a functional equation | (4) mean value (twisted moment of zeta for T-NR); window form false for zeta; DH visible only above off-line height or as the small-gap exponent",
+ "controlsThatDefeat": [
+  "DH (full zero set)",
+  "DH at X <= 1e4",
+  "DH below 1e3",
+  "DH below 85.7",
+  "T-NR",
+  "planted pair on zeta (same reach)",
+  "sign twist",
+  "sign/unimodular twist (functional equation only)",
+  "unimodular twist",
+  "zeta itself (window form)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-prime-side-zero-statistics/RESULT.md"
+}

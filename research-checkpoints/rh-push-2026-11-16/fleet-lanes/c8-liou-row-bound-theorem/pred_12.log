@@ -1,0 +1,6 @@
+X 2^12  squarefree c 1728  classes 430  0s
+K_1 0.075316  rho_b 0.283932  E_S 28.9709  I_V 0.837443  C_inf (family) 5.091523e-03
+M = X/1: same-class pairs 2956 (with d != 1: 0)  P_liou 59.4705 (d = 1 part 59.4705)  P_pred 66.5505  ratio 0.8936   limit form 83.4195  P/limit 0.7129   0s
+    nm    P_w 18.8387  P_w/P_liou 0.31677  |mean|^2 0.23939
+    nmph  P_w 27.9488  P_w/P_liou 0.46996  |mean|^2 0.44064
+    iid   P_w 3.9011  P_w/P_liou 0.06560  |mean|^2 0.00147

@@ -1,0 +1,16 @@
+{
+ "n_indices": 44,
+ "P0": 200,
+ "X": 10000000,
+ "mean_z2_all": 38.582546265252844,
+ "mean_z2_Z2even": 20.85044127985228,
+ "mean_z2_Z2odd": 20.90748935089995,
+ "mean_z2_random_half": 19.81568480717939,
+ "mean_even_share": 0.49996876630174075,
+ "n_both_gt3": 31,
+ "n_even_gt3": 33,
+ "n_odd_gt3": 32,
+ "cubic_mean_z2_all": 3384.0096413451274,
+ "cubic_mean_z2_even": 1695.8296951206596,
+ "cubic_mean_z2_odd": 1688.3930065099282
+}

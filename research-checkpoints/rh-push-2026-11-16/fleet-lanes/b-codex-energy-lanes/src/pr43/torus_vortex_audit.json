@@ -1,0 +1,29 @@
+{
+  "r": "2",
+  "mpmath_dps": 32,
+  "jacobi_parameter": "0.0625",
+  "K": "1.596242222131783510148969071498",
+  "Kprime": "2.8012060846652040463603616736194",
+  "first_zeta_zero": "(0.5 + 14.134725141734693790457251983562j)",
+  "first_zero_uniformizing_coordinate": "(0.056604803228814313987183407997224 - 1.4006030423326020231801808368097j)",
+  "critical_oval_phase_normal_component": "1118.4219185260363892351427843304",
+  "curve_equation_residual": "7.9408125882485202723045134987742e-34",
+  "minitwistor_reality_curve_residual": "6.1629758220391547297791294162718e-32",
+  "global_grid": [
+    77,
+    57
+  ],
+  "local_grid": [
+    57,
+    39
+  ],
+  "global_cutoff_abs_s": 50,
+  "mathematical_status": "Illustrative finite numerical sampling; no global sign certification or RH proof.",
+  "critical_oval_phase_tangential_component_residual": "6.450494204085864e-29",
+  "monopole_k": "0.6",
+  "monopole_complementary_modulus": "0.8",
+  "monopole_fiber_scale": "0.700301521166301011590090418404859302307",
+  "monopole_spectral_curve_numeric_residual": "2.302883237715155369251838510505748683998e-41",
+  "monopole_identity_symbolically_verified": true,
+  "minitwistor_status": "The bare curve matches the standard charge-two monopole spectral curve after the stated normalization. No Ward reconstruction of the zeta decoration or positivity theorem is claimed."
+}

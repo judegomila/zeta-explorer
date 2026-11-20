@@ -1,0 +1,94 @@
+# enw q=7 d=1 N=0 lam=9 weights=3 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0019 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 76 primes passed
+done q=7 N=0 lam=9 d=1 1 s
+# enw q=7 d=1 N=2 lam=7 weights=6 threads=16 sieve block q^6=117649 blocks=7 small primes=140 planned memory 0.0019 GB
+# enw primes=117648 (equals the necklace count); self-checks on 7 primes passed
+done q=7 N=2 lam=7 d=1 0 s
+# enw q=7 d=1 N=0 lam=10 weights=3 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0021 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 439 primes passed
+done q=7 N=0 lam=10 d=1 2 s
+# enw q=7 d=2 N=0 lam=9 weights=3 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0020 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 73 primes passed
+done q=7 N=0 lam=9 d=2 1 s
+# enw q=7 d=1 N=2 lam=8 weights=6 threads=16 sieve block q^6=117649 blocks=49 small primes=728 planned memory 0.0019 GB
+# enw primes=720300 (equals the necklace count); self-checks on 16 primes passed
+done q=7 N=2 lam=8 d=1 0 s
+# enw q=7 d=2 N=2 lam=7 weights=6 threads=16 sieve block q^6=117649 blocks=7 small primes=140 planned memory 0.0021 GB
+# enw primes=117648 (equals the necklace count); self-checks on 7 primes passed
+done q=7 N=2 lam=7 d=2 1 s
+# enw q=7 d=1 N=0 lam=11 weights=3 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0021 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2751 primes passed
+done q=7 N=0 lam=11 d=1 12 s
+# enw q=7 d=2 N=0 lam=10 weights=3 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0022 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 440 primes passed
+done q=7 N=0 lam=10 d=2 5 s
+# enw q=7 d=1 N=2 lam=9 weights=6 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0019 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 74 primes passed
+done q=7 N=2 lam=9 d=1 1 s
+# enw q=7 d=2 N=2 lam=8 weights=6 threads=16 sieve block q^6=117649 blocks=49 small primes=728 planned memory 0.0021 GB
+# enw primes=720300 (equals the necklace count); self-checks on 17 primes passed
+done q=7 N=2 lam=8 d=2 1 s
+# enw q=7 d=1 N=0 lam=12 weights=3 threads=16 sieve block q^6=117649 blocks=117649 small primes=23632 planned memory 0.0032 GB
+# enw primes=1153430600 (equals the necklace count); self-checks on 17608 primes passed
+done q=7 N=0 lam=12 d=1 89 s
+# enw q=7 d=2 N=0 lam=11 weights=3 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0022 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2753 primes passed
+done q=7 N=0 lam=11 d=2 32 s
+# enw q=7 d=1 N=2 lam=10 weights=6 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0021 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 440 primes passed
+done q=7 N=2 lam=10 d=1 6 s
+# enw q=7 d=2 N=2 lam=9 weights=6 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0021 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 78 primes passed
+done q=7 N=2 lam=9 d=2 3 s
+# enw q=7 d=3 N=2 lam=8 weights=6 threads=16 sieve block q^6=117649 blocks=49 small primes=728 planned memory 0.0036 GB
+# enw primes=720300 (equals the necklace count); self-checks on 16 primes passed
+done q=7 N=2 lam=8 d=3 4 s
+# enw q=7 d=1 N=3 lam=9 weights=6 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0021 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 76 primes passed
+done q=7 N=3 lam=9 d=1 3 s
+# enw q=7 d=2 N=0 lam=12 weights=3 threads=16 sieve block q^6=117649 blocks=117649 small primes=23632 planned memory 0.0033 GB
+# enw primes=1153430600 (equals the necklace count); self-checks on 17608 primes passed
+done q=7 N=0 lam=12 d=2 220 s
+# enw q=7 d=1 N=2 lam=11 weights=6 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0021 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2751 primes passed
+done q=7 N=2 lam=11 d=1 35 s
+# enw q=7 d=2 N=2 lam=10 weights=6 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0023 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 439 primes passed
+done q=7 N=2 lam=10 d=2 23 s
+# enw q=7 d=3 N=2 lam=9 weights=6 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0036 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 74 primes passed
+done q=7 N=2 lam=9 d=3 23 s
+# enw q=7 d=1 N=3 lam=10 weights=6 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0022 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 439 primes passed
+done q=7 N=3 lam=10 d=1 14 s
+# enw q=7 d=2 N=3 lam=9 weights=6 threads=16 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0023 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 75 primes passed
+done q=7 N=3 lam=9 d=2 7 s
+# enw q=7 d=1 N=2 lam=12 weights=6 threads=16 sieve block q^6=117649 blocks=117649 small primes=23632 planned memory 0.0032 GB
+# enw primes=1153430600 (equals the necklace count); self-checks on 17607 primes passed
+done q=7 N=2 lam=12 d=1 221 s
+# enw q=7 d=2 N=2 lam=11 weights=6 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0023 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2752 primes passed
+done q=7 N=2 lam=11 d=2 135 s
+# enw q=7 d=3 N=2 lam=10 weights=6 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0038 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 440 primes passed
+done q=7 N=2 lam=10 d=3 130 s
+# enw q=7 d=1 N=3 lam=11 weights=6 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0022 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2749 primes passed
+done q=7 N=3 lam=11 d=1 83 s
+# enw q=7 d=2 N=3 lam=10 weights=6 threads=16 sieve block q^6=117649 blocks=2401 small primes=4088 planned memory 0.0024 GB
+# enw primes=28245840 (equals the necklace count); self-checks on 441 primes passed
+done q=7 N=3 lam=10 d=2 36 s
+# enw q=7 d=2 N=2 lam=12 weights=6 threads=16 sieve block q^6=117649 blocks=117649 small primes=23632 planned memory 0.0034 GB
+# enw primes=1153430600 (equals the necklace count); self-checks on 17609 primes passed
+done q=7 N=2 lam=12 d=2 1624 s
+# enw q=7 d=3 N=2 lam=11 weights=6 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0038 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2751 primes passed
+done q=7 N=2 lam=11 d=3 1701 s
+# enw q=7 d=1 N=3 lam=12 weights=6 threads=16 sieve block q^6=117649 blocks=117649 small primes=23632 planned memory 0.0034 GB
+# enw primes=1153430600 (equals the necklace count); self-checks on 17608 primes passed
+done q=7 N=3 lam=12 d=1 1095 s
+# enw q=7 d=2 N=3 lam=11 weights=6 threads=16 sieve block q^6=117649 blocks=16807 small primes=4088 planned memory 0.0025 GB
+# enw primes=179756976 (equals the necklace count); self-checks on 2751 primes passed
+done q=7 N=3 lam=11 d=2 481 s
+ALLDONE

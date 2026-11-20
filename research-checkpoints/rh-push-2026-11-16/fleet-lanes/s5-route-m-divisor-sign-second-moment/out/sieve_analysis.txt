@@ -1,0 +1,26 @@
+x | M-gamma | (M-gamma)sqrt x | zeta W | chi4 W | chi5 W | twist |W| | Liouville D sqrt x | E_a D x^(1/4) | E_a D sqrt x | random D sqrt(x/log x) | Binf-bracket | gap ratio | mertens eps
+1005 | -2.8359e-02 | -0.8990 | 0.3496 | -0.5014 | -0.9189 | 0.2192 | 0.9618 | 1.6885 | 9.51 | 0.458 | 2.3632e-03 | 0.9950250143 | -3.148e-03
+1.002e+04 | -1.3049e-02 | -1.3060 | -0.1493 | 0.3147 | 0.3946 | 0.2452 | 1.3259 | 2.1866 | 21.88 | 0.703 | 1.0874e-03 | 0.9983000530 | -1.235e-03
+9.978e+04 | -3.8691e-03 | -1.2222 | -0.1221 | 0.2607 | -0.1848 | 0.1725 | 1.2285 | 2.1591 | 38.37 | 0.334 | 3.2243e-04 | 0.9995787721 | -2.979e-04
+1.004e+06 | -8.5266e-04 | -0.8542 | 0.2102 | -0.7832 | 0.1553 | 0.1813 | 0.8562 | 1.8209 | 57.63 | -1.954 | 7.1055e-05 | 0.9999137233 | -5.316e-05
+1.007e+08 | -7.4212e-05 | -0.7446 | 0.2829 | 0.3222 | -0.1339 | 0.2732 | 0.7448 | 1.7420 | 174.49 | -2.122 | 6.1844e-06 | 0.9999938801 | -3.526e-06
+9.982e+08 | -3.4480e-05 | -1.0894 | -0.0712 | 0.8665 | -0.1432 | 0.0812 | 1.0895 | 2.0912 | 371.70 | -1.067 | 2.8733e-06 | 0.9999977217 | -1.536e-06
+1.002e+10 | -1.6137e-05 | -1.6150 | -0.6029 | -0.1816 | -0.3838 | 0.6083 | 1.6150 | 2.6140 | 826.94 | -0.159 | 1.3447e-06 | 0.9999991210 | -6.681e-07
+9.974e+10 | -3.4987e-06 | -1.1050 | -0.0969 | -0.3050 | 0.8940 | 0.1005 | 1.1050 | 2.1046 | 1182.75 | -1.483 | 2.9156e-07 | 0.9999998092 | -1.295e-07
+1e+12 | -1.0530e-06 | -1.0530 | -0.0476 | -0.7001 | -0.0746 | 0.0493 | 1.0530 | 2.0520 | 2052.03 | 0.000 | 8.7746e-08 | 0.9999999463 | -3.580e-08
+sup over decades of |W| or |D| sqrt x:
+[1e+04,1e+05] zeta_W=0.6599 chi4_W=1.1269 chi5_W=1.0770 twist_absW=0.7147 liou_Dsqrt=1.7787 rand_Dsqrt_over_sqrtlog=1.1087 Ea_minus_Dsqrt=42.6268 theta_err_over_sqrt=1.6759
+[1e+05,1e+06] zeta_W=0.5719 chi4_W=1.1438 chi5_W=1.1174 twist_absW=0.5320 liou_Dsqrt=1.5245 rand_Dsqrt_over_sqrtlog=2.8474 Ea_minus_Dsqrt=75.8843 theta_err_over_sqrt=1.6991
+[1e+06,1e+07] zeta_W=0.5558 chi4_W=0.8693 chi5_W=0.8618 twist_absW=0.5789 liou_Dsqrt=1.6080 rand_Dsqrt_over_sqrtlog=2.2478 Ea_minus_Dsqrt=111.3095 theta_err_over_sqrt=1.6216
+[1e+07,1e+08] zeta_W=0.3677 chi4_W=0.8265 chi5_W=0.8297 twist_absW=0.3819 liou_Dsqrt=1.4017 rand_Dsqrt_over_sqrtlog=3.0738 Ea_minus_Dsqrt=213.1136 theta_err_over_sqrt=1.3512
+[1e+08,1e+09] zeta_W=0.6138 chi4_W=0.9942 chi5_W=1.1545 twist_absW=0.6247 liou_Dsqrt=1.6386 rand_Dsqrt_over_sqrtlog=2.3551 Ea_minus_Dsqrt=390.1173 theta_err_over_sqrt=1.5788
+[1e+09,1e+10] zeta_W=0.6227 chi4_W=1.2066 chi5_W=1.0240 twist_absW=0.6306 liou_Dsqrt=1.6406 rand_Dsqrt_over_sqrtlog=1.9832 Ea_minus_Dsqrt=776.0499 theta_err_over_sqrt=1.5699
+[1e+10,1e+11] zeta_W=0.6029 chi4_W=1.4744 chi5_W=1.1075 twist_absW=0.6083 liou_Dsqrt=1.6150 rand_Dsqrt_over_sqrtlog=2.2319 Ea_minus_Dsqrt=1265.7268 theta_err_over_sqrt=1.5972
+[1e+11,1e+12] zeta_W=0.6383 chi4_W=0.9353 chi5_W=1.0222 twist_absW=0.6365 liou_Dsqrt=1.5655 rand_Dsqrt_over_sqrtlog=1.7493 Ea_minus_Dsqrt=2308.7367 theta_err_over_sqrt=1.6597
+envelope exponents of |D(x)| (D sqrt x fitted, minus 1/2):
+zeta -0.498
+chi_-4 -0.487
+chi_5 -0.489
+twist -0.496
+Liouville -0.498
+E_a (s-a part) -0.249

@@ -1,0 +1,38 @@
+{
+ "slug": "c8-repair-engine-map-r7",
+ "round": 8,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "generator",
+  "referee",
+  "hilbert-schmidt",
+  "manuscript-check"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane, partial result; no attack and no statement about zeros. After the engine rerun 0 of the top 60 candidates contain a closed device and the five open devices appear 12, 12, 8, 6, 4 times (two of them through diversity limits, three added by this lane; the closed family still rejects about half of the candidates of the two original nodes through the partner word \"theta\"). Theorem K, the Hilbert-Schmidt bound and Proposition B (with its hypotheses and the constant c^(1/2)/b1) hold. Lemma H holds from series (7.10) with (7.8). Lemma 2 holds for monomial m and zeta as a limit statement with relative error O(delta^(1/4)); for monomials the real part of the mean is >= 0, with 0 attained at m = -1. Lemma A (non-principal rows of the twisted target open) and the non-monomial case of Lemma 2 stay ARGUED. Rows Y2, Y6 reproduce and are mislabelled, not stale.",
+ "obstruction": "Repair lane, no attack. Generator: 0 of the top 60 contain a closed device; five open devices appear 12, 12, 8, 6, 4 times. Theorem K, the Hilbert-Schmidt bound and Proposition B hold; Lemma H holds from series (7.10) (third referee); Lemma 2 holds for monomial m (real part of the mean >= 0, 0 attained at m = -1). Still ARGUED: Lemma A for non-principal rows of the Liouville-twisted target; Lemma 2 for non-monomial m. Owed: referees for the blockwise Hilbert-Schmidt bound and the monomial Lemma 2 proof; MAP_PENDING Part 2 not applied to the map.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Claimed verdict holds with four corrections; none changes the decisive check or a status label in RESULT.md. E1 (false sentence in the lane's own c7-laurent-shell-gamma-section/REFEREE2.md): \"for a monomial the real part of the mean is at least 1 - 2^(-1/2) > 0\" omits the constant monomial n = 1; for m = -1 the mean is 0 (my run: 0.0000), so the correct bound is real part >= 0 with 0 attained, as the original lane already states. The consequence (a negative mean needs a non-monomial m) is unchan [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A closed-family regex is tested on the joint text of a candidate, so rewriting an open device node's statement can make the node match the family by itself and silently remove it from every candidate (second occurrence; first was round 5). After any rewrite of an open device node, run generate.py --node <id> and check the scored count. The fix now trusts curated/devices.json for device state, so a device left open after its lane closes it will be offered again.",
+ "followUp": "Learn step: set the three new devices (E-K, E-H, single-row bridge) from the round-8 lane results, decide the landau-siegel single-node record (floored device still rejected in all 1,060 candidates), and apply campaign/MAP_PENDING.md Part 2. Referee debts left: Lemma A non-principal rows for the Liouville-twisted target (the E-H lane can settle it in the same pass), Lemma 2 for non-monomial m, and referees for the two proofs written here (blockwise Hilbert-Schmidt bound; monomial Lemma 2).",
+ "resultFile": "tmp/research-2026-11-16/push/c8-repair-engine-map-r7/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-repair-engine-map-r7/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

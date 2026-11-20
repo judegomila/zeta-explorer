@@ -1,0 +1,20 @@
+# zeta T0=1.000e+06 windows=100000 points=17000000 ncut=1369 y=[32, 1000] nmax=1369; planned GPU/CPU chunk memory about 0.4 GB; host arrays 1.09 GB
+# tables 0s  theta0=1.597915  max|inv|=1
+# CPU path, 1 workers, chunk 1700 points x 1369 terms (0.06 GB per worker)
+done zeta T0=1000000 points=17000000 secs=1576 gpu=False max|Z|=47.593
+zeta T0=1.0e+06 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.377 max|Z|=47.6 cert_max(th=0.5)=2.500 false=0 J17=2.643
+# zeta T0=1.000e+08 windows=10000 points=1700000 ncut=6323 y=[100, 10000] nmax=10000; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.11 GB
+# tables 0s  theta0=3.537916  max|inv|=1
+# CPU path, 1 workers, chunk 1500 points x 10000 terms (0.36 GB per worker)
+done zeta T0=100000000 points=1700000 secs=684 gpu=False max|Z|=74.187
+zeta T0=1.0e+08 zeros=169999 (count-expected -1.0) viol=0 gap_max=3.243 max|Z|=74.2 cert_max(th=0.5)=2.500 false=0 J17=2.690
+# zeta T0=1.000e+10 windows=1000 points=170000 ncut=63197 y=[316, 100000] nmax=100000; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.01 GB
+# tables 0s  theta0=5.606626  max|inv|=1
+# CPU path, 1 workers, chunk 150 points x 100000 terms (0.36 GB per worker)
+done zeta T0=10000000000 points=170000 secs=486 gpu=False max|Z|=79.336
+zeta T0=1.0e+10 zeros=17000 (count-expected +0.0) viol=0 gap_max=3.027 max|Z|=79.3 cert_max(th=0.5)=2.200 false=0 J17=2.748
+# zeta T0=1.000e+12 windows=150 points=25500 ncut=631956 y=[1000, 1000000] nmax=1000000; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.00 GB
+# tables 2s  theta0=0.839384  max|inv|=1
+# CPU path, 1 workers, chunk 15 points x 1000000 terms (0.36 GB per worker)
+done zeta T0=1000000000000 points=25500 secs=401 gpu=False max|Z|=61.788
+zeta T0=1.0e+12 zeros=2550 (count-expected +0.0) viol=0 gap_max=2.583 max|Z|=61.8 cert_max(th=0.5)=2.100 false=0 J17=2.814

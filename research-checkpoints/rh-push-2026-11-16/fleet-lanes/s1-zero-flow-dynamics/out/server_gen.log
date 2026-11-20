@@ -1,0 +1,9 @@
+18:28:18 blocks 152 workers 8
+19:42:45 block [11206324,11533707) zeros 750751 expected 750753.55 diff -2.55 hidden 6 orderviol 0
+19:42:45 max |count - expected| over blocks 2.55
+19:42:46 TOTAL zeros 100116289 ; theta(Tmax)/pi + 1 = 100116297.50 ; S(Tmax) implied -8.50 ; hidden 717 ; monotone True
+tau=-0.0001 zeros at 0: 2998 ; real zeros of the amplified sum: 2996 ; pairs with s^2/8 < |tau| at tau=0: 1 ; ODE order violations 1
+tau=-0.0003 zeros at 0: 2998 ; real zeros of the amplified sum: 2996 ; pairs with s^2/8 < |tau| at tau=0: 1 ; ODE order violations 0
+tau=0.005 zeros at 0: 2998 ; real zeros of the amplified sum: 2998 ; pairs with s^2/8 < |tau| at tau=0: 0 ; ODE order violations 0
+   central 1000: rms position difference 1.76e-07 max 6.22e-07 ; rms gap difference 2.01e-07 ; V start 0.1707 ODE 0.1538 sum 0.1538
+19:45:30 window T0=10000000 tau=0 real zeros 4023315 expected(all) 4023316.04 deficit 1.04 hidden 31

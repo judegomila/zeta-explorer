@@ -1,0 +1,25 @@
+[
+{
+"mode": "scan",
+"kernel": "zeta",
+"t": "-0.05",
+"xmin": 2820.0,
+"xmax": 2840.0,
+"dx": 0.02,
+"prec": 7779,
+"H_sign_changes": 7,
+"first_H_sign_change_x": 2820.06,
+"D_negative_intervals": [
+[
+-1,
+2831.2,
+2831.66
+]
+],
+"n_D_negative_intervals": 1,
+"D_undetermined": 0,
+"first_D_negative_x": 2831.2,
+"min_D_over_H2": -31.58742478971454,
+"seconds": 103.9681658744812
+}
+]

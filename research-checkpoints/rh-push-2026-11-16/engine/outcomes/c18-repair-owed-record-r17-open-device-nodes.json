@@ -1,0 +1,38 @@
+{
+ "slug": "c18-repair-owed-record-r17-open-device-nodes",
+ "round": 18,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "repair",
+  "record",
+  "map-rows",
+  "proposed-device",
+  "generator",
+  "corrections"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane, no attack, nothing about zeros of zeta; headline unchanged at 1 of 4; score 0. The owed list of round 17 is entered (map 208 -> 211 rows; D8 (vi), G33, D10, G42 edited; nine sentence corrections and the c16 ZQ entry; cells U3-inequality, U6 (e), U6 (f) closed, U6 (g) tried-not-closed; eight outcome records already present), with all engine and scoreboard counts confirmed by independent recount. Two untested question nodes were added; the resulting 24 of 60 entries are an effect of tagging and weights, not a finding. One of the two (exact-relation-rigidity) already had a holding referee report of closure for the relation \"multiplicativity\" when the result was filed, and the second referee passes for U3, U6 (e), U6 (f) and the window law were also on file (all hold with corrections), so the \"0 referees\" and \"one referee\" statements need updating by the next record lane.",
+ "obstruction": "Record lane, no attack. Map 208 -> 211 rows (P57, G43, Q31); D8 (vi), G33, D10, G42 edited; nine sentence corrections and the c16 ZQ entry entered; cells U3-inequality, U6 (e), U6 (f) closed, U6 (g) tried-not-closed. Two proposed, untested device nodes entered (tz-one-sided-completion-bound-band, exact-relation-rigidity): top 60 open device 0 -> 24, an effect of tagging and the per-device cap, not a finding; 5 of 24 judged usable, rank 1 not. Both proposed types were reported obstructed by sibling lanes of the same round; device states to be set by the next record lane on the referee files.",
+ "obstructionKind": "record lane",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No count breaks; the lane has no PROVED step of its own. Referee report: tmp/research-2026-11-16/push/c18-repair-owed-record-r17-open-device-nodes/REFEREE.md\n\nRecomputed independently and in agreement: map 208 -> 211 distinct labels (P57, G43, Q31 new); top 60 open device 0 -> 24 (12 + 12), floored-only 60 -> 36, closed 0; rank 1 and score 11.25; 23 keys in common (22 same score), 56/60 against the waiver run; generated/scored and graph counts; the - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A proposed device node gives the generator an open slot again, but the resulting list is fixed by the tags one reader gave the node and by the per-device cap (12 / 12 / 36); only 5 of the 24 proposed-node triples are judged usable and rank 1 is not. A proposed type can be reported closed by a sibling lane of the same round before the record lane finishes, so its state must change on a referee file, not on entry.",
+ "followUp": "Next record lane: set exact-relation-rigidity to closed if the referee of c18-exact-relation-rigidity-klein-spinor holds (add control HQ2 to the map), set tz-one-sided-completion-bound-band from the two c18 tz lanes, and replace the reach statements of S12b, Q30, P45 by row Q31 once c18-referee-r17-independent-sources reports. Planner note for round 19: tmp/research-2026-11-16/campaign/PLANNER_NOTE_R19.md. This lane has no referee; its condensed map rows rest on one referee each.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-repair-owed-record-r17-open-device-nodes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-repair-owed-record-r17-open-device-nodes/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

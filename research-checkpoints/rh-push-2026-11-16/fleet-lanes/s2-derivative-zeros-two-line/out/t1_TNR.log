@@ -1,0 +1,22 @@
+t1_low TNR windows 20 H 10.0 workers 8
+TNR T 0.50 winding 2.0000 count 2 roots (0.443655, 2.853907) (0.401810, 8.570182)  maxstep 0.58 evals 144/586 1.2s
+TNR T 10.50 winding 2.0000 count 2 roots (0.246525, 14.260235) (0.355578, 20.072712)  maxstep 0.56 evals 203/528 0.9s
+TNR T 20.50 winding 1.0000 count 1 roots (0.326082, 25.663169)  maxstep 0.59 evals 229/556 0.6s
+TNR T 30.50 winding 2.0000 count 2 roots (0.347295, 31.436345) (0.271897, 37.240958)  maxstep 0.59 evals 257/598 1.4s
+TNR T 40.50 winding 2.0000 count 2 roots (0.283499, 42.948165) (0.312622, 48.580906)  maxstep 0.60 evals 294/687 1.8s
+TNR T 50.50 winding 2.0000 count 2 roots (0.337033, 54.315051) (0.310774, 60.040340)  maxstep 0.59 evals 271/633 1.1s
+TNR T 60.50 winding 1.0000 count 1 roots (0.310554, 65.741781)  maxstep 0.58 evals 317/680 1.2s
+TNR T 70.50 winding 2.0000 count 2 roots (0.296782, 71.536961) (0.225501, 77.194657)  maxstep 0.59 evals 301/675 1.3s
+TNR T 80.50 winding 2.0000 count 2 roots (0.225895, 82.930287) (0.234933, 88.663630)  maxstep 0.60 evals 310/672 1.0s
+TNR T 90.50 winding 2.0000 count 2 roots (0.239499, 94.412482) (0.317619, 100.088601)  maxstep 0.56 evals 316/645 1.1s
+TNR T 100.50 winding 1.0000 count 1 roots (0.253562, 105.760376)  maxstep 0.57 evals 307/653 1.3s
+TNR T 110.50 winding 2.0000 count 2 roots (0.251284, 111.536909) (0.310548, 117.221708)  maxstep 0.59 evals 338/753 2.5s
+TNR T 120.50 winding 2.0000 count 2 roots (0.220892, 122.961582) (0.303044, 128.704070)  maxstep 0.58 evals 340/704 1.0s
+TNR T 130.50 winding 2.0000 count 2 roots (0.258973, 134.424747) (0.258134, 140.087390)  maxstep 0.53 evals 376/775 2.8s
+TNR T 140.50 winding 1.0000 count 1 roots (0.224697, 145.869515)  maxstep 0.53 evals 347/730 2.8s
+TNR T 150.50 winding 2.0000 count 2 roots (0.276089, 151.508724) (0.242137, 157.316847)  maxstep 0.57 evals 364/723 1.9s
+TNR T 160.50 winding 2.0000 count 2 roots (0.221060, 163.000019) (0.245319, 168.762127)  maxstep 0.54 evals 358/766 1.1s
+TNR T 170.50 winding 2.0000 count 2 roots (0.243967, 174.469270) (0.230481, 180.118169)  maxstep 0.58 evals 392/796 0.8s
+TNR T 180.50 winding 1.0000 count 1 roots (0.229087, 185.834968)  maxstep 0.56 evals 350/746 1.8s
+TNR T 190.50 winding 2.0000 count 2 roots (0.248542, 191.646720) (0.258163, 197.287853)  maxstep 0.52 evals 363/760 2.1s
+total count 35 roots found 35

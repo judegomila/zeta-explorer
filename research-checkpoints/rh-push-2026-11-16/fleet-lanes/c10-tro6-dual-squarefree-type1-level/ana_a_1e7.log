@@ -1,0 +1,36 @@
+[a] X=1e+07 theta=2/9 u=lambda: points 6 (M_j 7812..250000, c 152..2225, pairs 184..7611)
+     r2 along path (theta rows): 1.010 1.006 0.994 1.032 1.045 1.004 | randphase0: 1.003 0.988 0.983 1.003 1.009 1.018
+     exponent r2: theta -0.0051; seeds mean -0.0012 sd 0.0061 [-0.0091, +0.0067]; diff -0.0038; saving False; excess False
+     exponent L: theta +0.0134; seeds mean -0.0041 sd 0.0046 [-0.0086, +0.0043]; diff +0.0175; saving False; excess False
+     other rows, exponent r2 / L: liouville -0.0257 / -0.0078; thin -0.0095 / +0.0007; cubicrows -0.0025 / +0.0040; nomu -0.0430 / +0.0134; plain_weight +0.2029 / +0.0134; random signs on c (theta rows): mean r2 0.998; x2 theta: 1.02 1.03 1.01 1.09 1.13 1.01
+     L values theta: 1.049 1.054 1.046 1.018 1.039 0.997 | liouville: 0.956 0.947 0.944 0.951 0.965 0.980 | cubicrows: 1.006 0.995 0.983 1.009 0.978 0.992 | plain weight r2: 2.27 1.95 1.65 1.40 1.32 1.11
+[a] X=1e+07 theta=2/9 u=y0: points 6 (M_j 7812..250000, c 152..2225, pairs 184..7611)
+     r2 along path (theta rows): 0.990 0.971 1.014 1.000 0.963 1.015 | randphase0: 0.993 1.002 1.014 0.974 1.035 0.986
+     exponent r2: theta -0.0035; seeds mean +0.0020 sd 0.0015 [-0.0008, +0.0037]; diff -0.0055; saving False; excess False
+     exponent L: theta -0.0090; seeds mean +0.0033 sd 0.0040 [-0.0041, +0.0082]; diff -0.0124; saving False; excess False
+     other rows, exponent r2 / L: liouville -0.0182 / +0.0082; thin +0.0022 / -0.0040; cubicrows -0.0025 / +0.0040; nomu -0.0151 / -0.0090; plain_weight +0.1428 / -0.0090; random signs on c (theta rows): mean r2 0.999; x2 theta: 0.81 0.80 1.16 1.10 0.81 1.01
+     L values theta: 0.987 1.007 1.004 1.033 1.031 1.012 | liouville: 0.998 0.974 0.970 1.013 0.959 0.959 | cubicrows: 1.006 0.995 0.983 1.009 0.978 0.992 | plain weight r2: 1.69 1.53 1.39 1.27 1.14 1.02
+[a] X=1e+07 theta=2/9 u=one: points 6 (M_j 7812..250000, c 152..2225, pairs 184..7611)
+     r2 along path (theta rows): 1.015 0.984 1.003 1.013 1.023 1.021 | randphase0: 1.002 1.029 0.997 1.017 1.027 1.035
+     exponent r2: theta -0.0064; seeds mean -0.0031 sd 0.0069 [-0.0111, +0.0083]; diff -0.0034; saving False; excess False
+     exponent L: theta -0.0032; seeds mean +0.0062 sd 0.0064 [-0.0022, +0.0136]; diff -0.0094; saving False; excess False
+     other rows, exponent r2 / L: liouville -0.0237 / +0.0133; thin -0.0048 / -0.0028; cubicrows -0.0025 / +0.0040; nomu -0.0127 / -0.0032; plain_weight +0.1588 / -0.0032; random signs on c (theta rows): mean r2 1.000; x2 theta: 1.02 0.90 1.01 1.05 1.05 1.06
+     L values theta: 1.002 0.994 0.990 0.993 0.990 1.019 | liouville: 1.033 1.038 1.032 1.023 1.003 0.991 | cubicrows: 1.006 0.995 0.983 1.009 0.978 0.992 | plain weight r2: 1.93 1.69 1.43 1.29 1.25 1.09
+[a] X=1e+07 theta=1/3 u=lambda: points 4 (M_j 31250..250000, c 139..559, pairs 907..7111)
+     r2 along path (theta rows): 1.027 0.988 1.013 1.035 | randphase0: 1.006 1.001 1.006 1.002
+     exponent r2: theta -0.0073; seeds mean +0.0021 sd 0.0058 [-0.0061, +0.0107]; diff -0.0093; saving False; excess False
+     exponent L: theta +0.0714; seeds mean +0.0038 sd 0.0127 [-0.0155, +0.0218]; diff +0.0676; saving False; excess True
+     other rows, exponent r2 / L: liouville -0.0536 / +0.0698; thin +0.0046 / +0.0159; cubicrows +0.0526 / +0.0490; nomu -0.0282 / +0.0714; plain_weight +0.1962 / +0.0714; random signs on c (theta rows): mean r2 0.995; x2 theta: 1.08 0.94 1.03 1.09
+     L values theta: 1.285 1.277 1.129 1.136 | liouville: 1.216 1.200 1.084 1.071 | cubicrows: 1.011 1.005 1.009 0.902 | plain weight r2: 1.71 1.38 1.28 1.11
+[a] X=1e+07 theta=1/3 u=y0: points 4 (M_j 31250..250000, c 139..559, pairs 907..7111)
+     r2 along path (theta rows): 1.058 0.973 1.021 1.040 | randphase0: 1.011 1.000 1.002 1.007
+     exponent r2: theta +0.0007; seeds mean +0.0054 sd 0.0065 [-0.0044, +0.0144]; diff -0.0047; saving False; excess False
+     exponent L: theta -0.0199; seeds mean +0.0249 sd 0.0284 [-0.0218, +0.0612]; diff -0.0448; saving False; excess False
+     other rows, exponent r2 / L: liouville +0.0032 / -0.0289; thin +0.0049 / +0.0035; cubicrows +0.0526 / +0.0490; nomu +0.0104 / -0.0199; plain_weight +0.1578 / -0.0199; random signs on c (theta rows): mean r2 0.999; x2 theta: 1.29 0.85 1.02 1.15
+     L values theta: 1.254 1.288 1.252 1.325 | liouville: 1.137 1.105 1.124 1.209 | cubicrows: 1.011 1.005 1.009 0.902 | plain weight r2: 1.59 1.34 1.26 1.13
+[a] X=1e+07 theta=1/3 u=one: points 4 (M_j 31250..250000, c 139..559, pairs 907..7111)
+     r2 along path (theta rows): 1.042 0.957 1.010 1.022 | randphase0: 1.006 0.995 1.022 1.013
+     exponent r2: theta +0.0010; seeds mean +0.0034 sd 0.0122 [-0.0170, +0.0183]; diff -0.0024; saving False; excess False
+     exponent L: theta -0.0433; seeds mean -0.0122 sd 0.0168 [-0.0390, +0.0057]; diff -0.0311; saving True; excess False
+     other rows, exponent r2 / L: liouville -0.0017 / +0.0526; thin -0.0094 / -0.0239; cubicrows +0.0526 / +0.0490; nomu -0.0060 / -0.0433; plain_weight +0.1325 / -0.0433; random signs on c (theta rows): mean r2 0.998; x2 theta: 1.14 0.83 1.06 1.08
+     L values theta: 1.044 1.094 1.141 1.138 | liouville: 1.117 1.080 1.085 0.988 | cubicrows: 1.011 1.005 1.009 0.902 | plain weight r2: 1.45 1.25 1.21 1.08

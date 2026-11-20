@@ -1,0 +1,10 @@
+jobs 315 workers 6
+0 1000000.0 1.0 DH 1 N_R 71 n/w 158 158 resid 6.36e-11 elapsed 2
+40 300000.0 1.0 EA 2 N_R 145 n/w 158 158 resid -1.41e-10 elapsed 23
+80 1000000.0 0.75 HQ2 3 N_R 130 n/w 131 131 resid 1.01e-11 elapsed 41
+120 300000.0 0.75 EA 4 N_R 112 n/w 120 120 resid -7.04e-11 elapsed 59
+160 10000.0 1.0 ZQ 5 N_R 52 n/w 88 88 resid 1.11e-10 elapsed 76
+200 1000000.0 0.5 HQ2 6 N_R 73 n/w 82 82 resid -1.14e-10 elapsed 87
+240 10000.0 0.75 DH 7 N_R 26 n/w 50 50 resid 5.82e-12 elapsed 95
+280 10000.0 0.5 EA 1 N_R 50 n/w 51 51 resid 8.72e-12 elapsed 108
+done 115.01971983909607

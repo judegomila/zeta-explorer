@@ -1,0 +1,31 @@
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "info": "device", "n_online": 179, "sec": 2.3, "terms": 1}
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "info": "device", "n_online": 179, "sec": 2.3, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "info": "device", "n_online": 179, "sec": 2.4, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "info": "device", "n_online": 179, "sec": 2.5, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 2048 bits (about 0.08 GB)
+planned: on-line block 360 x 360 arb entries at 2048 bits (about 0.08 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 60, "b": null, "note": "lo:fail", "sec": 50.3}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "info": "device", "n_online": 179, "sec": 3.1, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 60, "b": null, "note": "lo:fail", "sec": 50.4}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "info": "device", "n_online": 179, "sec": 3.0, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "info": "device", "n_online": 179, "sec": 3.0, "terms": 1}
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "info": "device", "n_online": 179, "sec": 2.8, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "info": "device", "n_online": 179, "sec": 2.9, "terms": 1}
+planned: on-line block 360 x 360 arb entries at 2048 bits (about 0.08 GB)
+planned: on-line block 360 x 360 arb entries at 2048 bits (about 0.08 GB)
+planned: on-line block 360 x 360 arb entries at 4096 bits (about 0.15 GB)
+planned: on-line block 360 x 360 arb entries at 4096 bits (about 0.15 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 60, "b": 0.0664796875, "note": "", "sec": 487.9}
+planned: on-line block 360 x 360 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "info": "device", "n_online": 179, "sec": 2.9, "terms": 1}
+{"T": 1000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 60, "b": 0.05867031249999999, "note": "", "sec": 637.2}
+done

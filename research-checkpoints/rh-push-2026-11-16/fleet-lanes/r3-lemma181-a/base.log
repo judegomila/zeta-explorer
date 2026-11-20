@@ -1,0 +1,5 @@
+M0  source system (expect 0.8748866)                               B=0.8748866 rho=0.5790 lx=0.3732 ly=0.4597 l=0.1671 M+l=1.0000
+M0p source + pointwise numerator per class                         B=0.8748866 rho=0.5790 lx=0.3732 ly=0.4597 l=0.1671 M+l=1.0000
+M0a blockwise, absolute counting on short blocks (source tools)    B=0.8748866 rho=0.5790 lx=0.3732 ly=0.4597 l=0.1671 M+l=1.0000
+M0b blockwise, class pointwise bound on blocks (chord test)        B=0.8748866 rho=0.5790 lx=0.3732 ly=0.4597 l=0.1671 M+l=1.0000
+venv/bin/python numerator_system.py base  75.55s user 1.74s system 28% cpu 4:33.61 total

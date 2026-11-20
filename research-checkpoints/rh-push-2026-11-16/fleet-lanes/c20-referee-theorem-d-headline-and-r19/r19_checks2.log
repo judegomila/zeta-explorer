@@ -1,0 +1,26 @@
+=== DP census: constant of D'/D, D = 1 + 2*2^-s - 4^-s + 0.25*5^-s (P=5, a_P=0.25)
+slabs with count != winding: 0 ; zeros in 0.123<Im<1500.123: 383 ; near real axis: 2 winding there: 2
+mean Re of zeros: -0.8677900138160882 log|a_P|/u: -0.8613531161467861 count/(2T u/pi): 0.4997072040527799
+  s0 (2+3j) T 375.0 residual: (0.0038825678202856206+0.004100354016540908j) predicted tail: 0.003908989860690281 ratio 0.9932406986596801
+  s0 (2+3j) T 750.0 residual: (0.0019607819858560305+0.002050332530931731j) predicted tail: 0.0019544949303451405 ratio 1.0032167162028809
+  s0 (2+3j) T 1500.0 residual: (0.0009756170217298799+0.0010251946318104443j) predicted tail: 0.0009772474651725703 ratio 0.9983315961403876
+  s0 (0.5+0.7j) T 375.0 residual: (0.0018321455327026115+0.0009567717915198275j) predicted tail: 0.0018597898657831766 ratio 0.9851357760415993
+  s0 (0.5+0.7j) T 750.0 residual: (0.000935583927505701+0.00047841395889631697j) predicted tail: 0.0009298949328915883 ratio 1.006117889680743
+  s0 (0.5+0.7j) T 1500.0 residual: (0.0004630157995164641+0.00023921244683784357j) predicted tail: 0.00046494746644579416 ratio 0.995845408204724
+  s0 (-1+11j) T 375.0 residual: (-0.0002183391670557977+0.015039461705316004j) predicted tail: -0.00018941012912392788 ratio 1.1527322644553082
+  s0 (-1+11j) T 750.0 residual: (-8.960889967002394e-05+0.007518496593996726j) predicted tail: -9.470506456196394e-05 ratio 0.9461890985924448
+  s0 (-1+11j) T 1500.0 residual: (-4.9585558958203935e-05+0.0037591228979880764j) predicted tail: -4.735253228098197e-05 ratio 1.0471574923168112
+=== D10 (exact Fractions)
+Lemma 1: exact identities checked: 64 failures: 0
+Theorem 2/3 (general position, real zeros): neg(N) on random points vs the (2d+1) crossing matrix
+ a= ['1/3', '5/3'] N: (2, 1) (rank 3 ; n(n-1)/2 = 3 ) N+: (3, 3) (n(n+1)/2 = 6 ) crossing: (2, 1) crossing-identity failures: 0 | neg(N)+neg(N+) = 4 <= 2d = 4
+ a= ['2/7', '4/9'] N: (1, 2) (rank 3 ; n(n-1)/2 = 3 ) N+: (4, 2) (n(n+1)/2 = 6 ) crossing: (1, 2) crossing-identity failures: 0 | neg(N)+neg(N+) = 4 <= 2d = 4
+ a= ['1/5', '3/7', '5/2'] N: (4, 2) (rank 6 ; n(n-1)/2 = 6 ) N+: (6, 4) (n(n+1)/2 = 10 ) crossing: (3, 2) crossing-identity failures: 0 | neg(N)+neg(N+) = 6 <= 2d = 6
+ a= ['3/2', '7/3', '5/4'] N: (6, 0) (rank 6 ; n(n-1)/2 = 6 ) N+: (4, 6) (n(n+1)/2 = 10 ) crossing: (5, 0) crossing-identity failures: 0 | neg(N)+neg(N+) = 6 <= 2d = 6
+ a= ['1/6', '2/9', '3/11', '9/2'] N: (6, 4) (rank 10 ; n(n-1)/2 = 10 ) N+: (11, 4) (n(n+1)/2 = 15 ) crossing: (3, 4) crossing-identity failures: 0 | neg(N)+neg(N+) = 8 <= 2d = 8
+Symmetric sets: null vectors, X(d), Theorem 4
+ a= ['1/3', '2/3'] N(p_0j,.) non-zero entries: 0 | N: (1, 0) | N+: (2, 2) | N+ on pole line: (1, 2) | Theorem 4: neg(N)=0 <= d - neg(N+) = 0
+ a= ['1/5', '4/5', '2/7', '5/7'] N(p_0j,.) non-zero entries: 0 | N: (6, 0) | N+: (7, 4) | N+ on pole line: (1, 4) | Theorem 4: neg(N)=0 <= d - neg(N+) = 0
+ a= ['1/4', '3/4', '1/2'] N(p_0j,.) non-zero entries: 0 | N: (1, 2) | N+: (6, 1) | N+ on pole line: (3, 1) | Theorem 4: neg(N)=2 <= d - neg(N+) = 2
+ a= ['1/2'] N(p_0j,.) non-zero entries: 0 | N: (0, 0) | N+: (1, 1) | N+ on pole line: (1, 1) | Theorem 4: neg(N)=0 <= d - neg(N+) = 0
+ a= ['1/6', '5/6', '1/3', '2/3', '1/2'] N(p_0j,.) non-zero entries: 0 | N: (6, 4) | N+: (15, 1) | N+ on pole line: (5, 1) | Theorem 4: neg(N)=4 <= d - neg(N+) = 4

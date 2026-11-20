@@ -1,0 +1,37 @@
+== Eq48Pick
+== Eq48Hadamard
+== Eq48Generic
+== Eq48Controls
+== Eq48Xi
+== Eq48LemmaA
+== Eq48Audit
+'Eq48.xiLow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xiGrow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xi_theorem2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xi_theorem2_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xi_residualTarget_iff_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.pick_extend_posSemidef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.pick_extend_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.det_pick_extend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.residual_form_eq_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.residualTarget_iff_fullClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.prefix_posDef_iff_strict_defects' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.bI_of_prefix_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.bI_of_prefix_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.bI_of_strict_defects' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.pair_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.finite_zero_sum_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.finite_zero_sum_on_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.fullClass_of_hadamardOnLine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.complex_form_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.genericNonsingular_of_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.residualTarget_iff_fullClass_of_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.M3_skeleton_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.hypotheses_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.offLine_pair_not_residualTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.literal_a'_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.Lxi_analyticOnNhd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xi_residualTarget_iff_fullClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.xi_bI_of_prefix_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Eq48.residualTarget_iff_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT 0

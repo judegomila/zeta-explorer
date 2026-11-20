@@ -1,0 +1,3 @@
+rows 74 cols 203 mismatches 0
+mu values {-1: 99, 0: 26, 1: 78} norm-1 mu 1.0 first norms [ 1.  4.  7.  7. 13. 13. 16. 19.]
+mean |row-average of chi(n)| over n>1: 0.09632306044131694  (random level 0.11624763874381928 )

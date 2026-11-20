@@ -1,0 +1,76 @@
+rows 11628, Q = 3199, conductors 28224; identity check gamma1 gamma2 = mu alpha G: max |diff| = 3.70e-09
+estimator self-term weights: wt(c) = 0 for N(c) <= 1000; wt at N(c) ~ 2e3, 2e4, 9e4: 1.95e-04, 1.02e-04, 5.22e-05; fit se per class 0.0092
+
+1. generic rows. z2_res(c; Q) = |S_sigma(c;Q)|^2 / sum_m |rho_sigma|^2 at sigma = class of c. Columns Q = [100, 200, 400, 800, 1600, 3200]
+   null value 2, not 1: for c in sigma, chi_c(-1) = chi_sigma(-1), so the terms m and -m are equal (rho_sigma(-y) = chi_sigma(-1) rho_sigma(y)); the conj pairing shows this null
+   all values are LOO (estimator self-term removed; it is 0 for N(c) <= 1000); the raw value at Qmax is shown last
+   band of N(c): mean z2_res by Q | phase alignment A = |sum_c S_res conj(pred)| / sum_c |S_res| with pred = gamma_1(c) conj chi_c(-e0) at Qmax | other-class mean z2 | conj-pairing z2 at Qmax
+   [     1,     1] #c=     1:    31.99    50.24   102.99   114.81   133.99   140.14 | A = 1.0000 (random 1.000) | off-class 95.340 | conj 140.145 | raw z2 140.14
+   [     2,    30] #c=     7:    15.16    28.90    52.92    69.28    94.85   142.59 | A = 1.0000 (random 0.378) | off-class 22.988 | conj 0.493 | raw z2 142.59
+   [    31,   100] #c=    21:     8.32    11.63    23.99    43.26    68.03    85.21 | A = 0.9989 (random 0.218) | off-class 8.311 | conj 0.606 | raw z2 85.21
+   [   101,   300] #c=    55:     4.72     8.54    15.56    21.78    37.00    66.71 | A = 0.9986 (random 0.135) | off-class 3.726 | conj 1.214 | raw z2 66.71
+   [   301,  1000] #c=   198:     3.17     4.71     7.75    12.03    19.26    29.46 | A = 0.9927 (random 0.071) | off-class 1.921 | conj 1.262 | raw z2 29.46
+   [  1001,  3000] #c=   566:     2.22     2.95     4.34     6.56    10.77    16.84 | A = 0.9818 (random 0.042) | off-class 1.268 | conj 1.872 | raw z2 25.64
+   [  3001, 10000] #c=  1983:     1.99     2.46     3.00     3.89     5.53     9.05 | A = 0.9516 (random 0.022) | off-class 0.961 | conj 1.971 | raw z2 13.14
+   [ 10001, 30000] #c=  5628:     1.83     2.04     2.32     2.75     3.51     4.77 | A = 0.8845 (random 0.013) | off-class 0.843 | conj 2.085 | raw z2 6.60
+   [ 30001,100000] #c= 19765:     1.82     2.02     2.16     2.33     2.72     3.39 | A = 0.7423 (random 0.007) | off-class 0.814 | conj 2.067 | raw z2 4.24
+   fit (z2_res - 2) = K Q^a N(c)^(-b) on band means (N(c) >= 2, Q >= 200, excess > 3 null sd; 37 points): a = 0.820 +- 0.052, b = 0.603 +- 0.019, K = 1.423; rms log residual 0.288
+   Q-exponent a by band (lower edge of band: a): 2: 0.56, 31: 0.78, 101: 0.80, 301: 0.83, 1001: 0.98, 3001: 0.97, 10001: 1.04, 30001: 1.05
+   N(c)-exponent b by Q: 200: 0.63, 400: 0.66, 800: 0.63, 1600: 0.58, 3200: 0.55
+   functional-equation prediction (dual point u = 1/3, conductor N(y)): inner range N(c) << N(m)^(1/2): a = 5/6, b = 2/3; outer range: a = 3/2, b = 4/3
+   growth of |S_res(c; Q)| in Q (log-log slope over Q >= 200) for the smallest conductors, and c = 1 (all six classes with chi_sigma(-1)=+1):
+   N=1: slope 0.629, z2 140, phase-pred -0.00; N=7: slope 0.794, z2 162, phase-pred +0.01; N=7: slope 0.794, z2 162, phase-pred -0.01; N=13: slope 0.749, z2 159, phase-pred -0.00; N=13: slope 0.749, z2 159, phase-pred +0.00; N=19: slope 0.750, z2 131, phase-pred +0.01; N=19: slope 0.750, z2 131, phase-pred -0.01; N=25: slope 0.718, z2 96, phase-pred +0.00; N=31: slope 0.792, z2 134, phase-pred -0.02; N=31: slope 0.792, z2 134, phase-pred +0.02; N=37: slope 0.846, z2 122, phase-pred +0.01; N=37: slope 0.846, z2 122, phase-pred -0.01; N=43: slope 0.751, z2 90, phase-pred -0.08; N=43: slope 0.751, z2 90, phase-pred +0.08; N=49: slope 0.988, z2 39, phase-pred -0.00; N=61: slope 0.993, z2 75, phase-pred -0.06
+   mean slope over the 15 smallest c != 1: 0.804 +- 0.021   (sum |rho|^2 ~ Q^(5/6) => random walk slope 0.417; n ~ Q => full coherence slope ~ 0.92)
+
+2. fraction of ||rho_sigma||^2 (generic rows) in the span of {m -> conj chi_c(m) : c in sigma, N(c) <= Cmax}; baseline = same with rho's phases randomised; LOO: the self-terms of these conductors are removed from rho_hat first
+   Cmax=    30: characters per class     1.0 of 11454 rows; captured fraction 0.0105 (classes 0,2,4,8: [0.012, 0.009]); random baseline 0.0000
+   Cmax=   100: characters per class     2.0 of 11454 rows; captured fraction 0.0170 (classes 0,2,4,8: [0.018, 0.012, 0.025, 0.013]); random baseline 0.0002
+   Cmax=   300: characters per class     7.0 of 11454 rows; captured fraction 0.0479 (classes 0,2,4,8: [0.029, 0.05, 0.056, 0.057]); random baseline 0.0006
+   Cmax=  1000: characters per class    23.2 of 11454 rows; captured fraction 0.0911 (classes 0,2,4,8: [0.081, 0.095, 0.094, 0.094]); random baseline 0.0018
+   Cmax=  3000: characters per class    70.0 of 11454 rows; captured fraction 0.1640 (classes 0,2,4,8: [0.147, 0.161, 0.181, 0.167]); random baseline 0.0066
+   Cmax= 10000: characters per class   236.0 of 11454 rows; captured fraction 0.2819 (classes 0,2,4,8: [0.265, 0.268, 0.301, 0.294]); random baseline 0.0203
+   Cmax= 30000: characters per class   703.8 of 11454 rows; captured fraction 0.4133 (classes 0,2,4,8: [0.391, 0.395, 0.449, 0.418]); random baseline 0.0609
+   noise share of ||rho||^2: 0.194 (the captured fraction of the true coefficient is at most 1 - noise share of the measured one)
+
+3. (LOO: self-terms of the row's conductors removed from rho_hat) cubic rows B_m = sum_c gamma_2(c) psi(c) chi_c(m) N(c)^(-1/2) V(N(c)/R) and their correlation with rho_nat (bilinear pairing sum_m rho B), generic rows
+   psi: res = mu conj(alpha G) chi_c(-e0)  [then gamma_2 psi = conj(gamma_1) chi_c(-e0): aligned with the law];  mob = conj(alpha G) chi_c(-e0)  [diagonal part = Moebius sum];
+        a = alpha, aG = alpha G [manuscript-type; diagonal part = sum mu alpha^2 G (G) conj chi_c(-e0)];  res*th9 = res x character mod 9;  res*a6 = res x alpha^6
+   check: row 'a', R = 1e4 rebuilt from stored exponents vs fast.py value: max |diff| = 1.94e-05
+   R=  1000 psi=res     : rms_sigma r by Q = [0.2245, 0.1819, 0.1748, 0.1722, 0.1587, 0.1463]; max_sigma r at Qmax = 0.1951 (1/sqrt(rows) = 0.0093); delta(rms) = 0.077 +- 0.017; delta(max) = 0.141
+   R=  1000 psi=mob     : rms_sigma r by Q = [0.0823, 0.0579, 0.0473, 0.0326, 0.0239, 0.0187]; max_sigma r at Qmax = 0.0235 (1/sqrt(rows) = 0.0093); delta(rms) = 0.424 +- 0.052; delta(max) = 0.465
+   R=  1000 psi=a       : rms_sigma r by Q = [0.0799, 0.0437, 0.0357, 0.0244, 0.0177, 0.0139]; max_sigma r at Qmax = 0.0276 (1/sqrt(rows) = 0.0093); delta(rms) = 0.432 +- 0.060; delta(max) = 0.293
+   R=  1000 psi=aG      : rms_sigma r by Q = [0.0478, 0.029, 0.0267, 0.0293, 0.0286, 0.0199]; max_sigma r at Qmax = 0.0309 (1/sqrt(rows) = 0.0093); delta(rms) = 0.098 +- 0.074; delta(max) = 0.159
+   R=  1000 psi=res*th9 : rms_sigma r by Q = [0.0676, 0.0465, 0.0216, 0.0101, 0.0085, 0.0054]; max_sigma r at Qmax = 0.0099 (1/sqrt(rows) = 0.0093); delta(rms) = 0.758 +- 0.077; delta(max) = 0.797
+   R=  1000 psi=res*a6  : rms_sigma r by Q = [0.0566, 0.0339, 0.0208, 0.0176, 0.0133, 0.01]; max_sigma r at Qmax = 0.0159 (1/sqrt(rows) = 0.0093); delta(rms) = 0.418 +- 0.062; delta(max) = 0.569
+   R=  3000 psi=res     : rms_sigma r by Q = [0.2604, 0.2211, 0.2093, 0.1825, 0.1758, 0.1765]; max_sigma r at Qmax = 0.2359 (1/sqrt(rows) = 0.0093); delta(rms) = 0.090 +- 0.014; delta(max) = 0.093
+   R=  3000 psi=mob     : rms_sigma r by Q = [0.0725, 0.0492, 0.0406, 0.0178, 0.0111, 0.0097]; max_sigma r at Qmax = 0.0160 (1/sqrt(rows) = 0.0093); delta(rms) = 0.655 +- 0.056; delta(max) = 0.668
+   R=  3000 psi=a       : rms_sigma r by Q = [0.053, 0.0369, 0.0225, 0.0179, 0.0135, 0.0117]; max_sigma r at Qmax = 0.0203 (1/sqrt(rows) = 0.0093); delta(rms) = 0.404 +- 0.077; delta(max) = 0.402
+   R=  3000 psi=aG      : rms_sigma r by Q = [0.0508, 0.0379, 0.0259, 0.0155, 0.0133, 0.0111]; max_sigma r at Qmax = 0.0201 (1/sqrt(rows) = 0.0093); delta(rms) = 0.449 +- 0.069; delta(max) = 0.292
+   R=  3000 psi=res*th9 : rms_sigma r by Q = [0.0881, 0.0607, 0.0369, 0.0205, 0.0159, 0.0102]; max_sigma r at Qmax = 0.0191 (1/sqrt(rows) = 0.0093); delta(rms) = 0.637 +- 0.070; delta(max) = 0.661
+   R=  3000 psi=res*a6  : rms_sigma r by Q = [0.0715, 0.0403, 0.0233, 0.0151, 0.0099, 0.0079]; max_sigma r at Qmax = 0.0106 (1/sqrt(rows) = 0.0093); delta(rms) = 0.594 +- 0.067; delta(max) = 0.732
+   R= 10000 psi=res     : rms_sigma r by Q = [0.2617, 0.2436, 0.2446, 0.2251, 0.1986, 0.1813]; max_sigma r at Qmax = 0.2417 (1/sqrt(rows) = 0.0093); delta(rms) = 0.115 +- 0.009; delta(max) = 0.180
+   R= 10000 psi=mob     : rms_sigma r by Q = [0.0458, 0.0276, 0.0248, 0.0197, 0.0145, 0.0145]; max_sigma r at Qmax = 0.0260 (1/sqrt(rows) = 0.0093); delta(rms) = 0.263 +- 0.070; delta(max) = 0.248
+   R= 10000 psi=a       : rms_sigma r by Q = [0.0565, 0.04, 0.0301, 0.0237, 0.0103, 0.0091]; max_sigma r at Qmax = 0.0167 (1/sqrt(rows) = 0.0093); delta(rms) = 0.582 +- 0.084; delta(max) = 0.528
+   R= 10000 psi=aG      : rms_sigma r by Q = [0.0638, 0.0403, 0.0247, 0.0226, 0.0149, 0.0108]; max_sigma r at Qmax = 0.0151 (1/sqrt(rows) = 0.0093); delta(rms) = 0.453 +- 0.080; delta(max) = 0.425
+   R= 10000 psi=res*th9 : rms_sigma r by Q = [0.0771, 0.0515, 0.0552, 0.0405, 0.0271, 0.0142]; max_sigma r at Qmax = 0.0222 (1/sqrt(rows) = 0.0093); delta(rms) = 0.475 +- 0.046; delta(max) = 0.523
+   R= 10000 psi=res*a6  : rms_sigma r by Q = [0.0455, 0.0442, 0.0232, 0.0169, 0.0099, 0.0068]; max_sigma r at Qmax = 0.0105 (1/sqrt(rows) = 0.0093); delta(rms) = 0.663 +- 0.053; delta(max) = 0.642
+
+4. diagonal part vs full form at Qmax, R = 1e4 (generic rows): full = sum_m rho_sigma B_m = sum_c coef(c) S_sigma(c); diag = same restricted to c in sigma
+   psi=res : |full|/(||rho|| ||B||) per class [0.0991, 0.1116, 0.0912, 0.1116, 0.2265, 0.2366, 0.2366, 0.2417, 0.1017, 0.2417, 0.2265, 0.0991]
+            |diag|/(||rho|| ||B||) per class [0.1036, 0.115, 0.0953, 0.115, 0.1125, 0.118, 0.118, 0.1206, 0.1077, 0.1206, 0.1125, 0.1036];  rms full 0.1813, rms diag 0.1121, rms off-diagonal 0.0835
+   psi=mob : |full|/(||rho|| ||B||) per class [0.0071, 0.0043, 0.0072, 0.0043, 0.0021, 0.0209, 0.0209, 0.026, 0.0103, 0.026, 0.0021, 0.0071]
+            |diag|/(||rho|| ||B||) per class [0.0084, 0.0053, 0.0072, 0.0053, 0.0065, 0.0122, 0.0122, 0.0043, 0.0092, 0.0043, 0.0065, 0.0084];  rms full 0.0145, rms diag 0.0079, rms off-diagonal 0.0112
+   psi=a   : |full|/(||rho|| ||B||) per class [0.0109, 0.0167, 0.0084, 0.0167, 0.0037, 0.006, 0.006, 0.0029, 0.003, 0.0029, 0.0037, 0.0109]
+            |diag|/(||rho|| ||B||) per class [0.006, 0.0041, 0.0027, 0.0041, 0.0087, 0.0056, 0.0056, 0.0011, 0.006, 0.0011, 0.0087, 0.006];  rms full 0.0091, rms diag 0.0055, rms off-diagonal 0.0082
+   psi=aG  : |full|/(||rho|| ||B||) per class [0.0151, 0.0042, 0.0142, 0.0042, 0.0138, 0.0111, 0.0111, 0.0027, 0.0085, 0.0027, 0.0138, 0.0151]
+            |diag|/(||rho|| ||B||) per class [0.0061, 0.0041, 0.0027, 0.0041, 0.0088, 0.0057, 0.0057, 0.0012, 0.0061, 0.0012, 0.0088, 0.0061];  rms full 0.0108, rms diag 0.0056, rms off-diagonal 0.0105
+
+5. normalised diagonal Moebius sum rho_M = |sum_{c in sigma} S_sigma(c) coef_psi(c)| / sum_{c in sigma} |S_sigma(c) coef_psi(c)| for psi = a, aG, mob (generic rows);
+   N_eff = (sum |S coef|)^2 / sum |S coef|^2 = effective number of conductors; random signs give rho_M sqrt(N_eff) of mean 0.89 (Rayleigh); no cancellation gives rho_M = 1
+   R=  1000 Q=  800: res: rho_M rms 0.9603, N_eff 38, rho_M sqrt(N_eff) rms 5.90; a: rho_M rms 0.1320, N_eff 38, rho_M sqrt(N_eff) rms 0.81; aG: rho_M rms 0.1320, N_eff 38, rho_M sqrt(N_eff) rms 0.81; mob: rho_M rms 0.1572, N_eff 38, rho_M sqrt(N_eff) rms 0.96
+   R=  1000 Q= 3200: res: rho_M rms 0.9873, N_eff 41, rho_M sqrt(N_eff) rms 6.31; a: rho_M rms 0.1250, N_eff 41, rho_M sqrt(N_eff) rms 0.80; aG: rho_M rms 0.1250, N_eff 41, rho_M sqrt(N_eff) rms 0.80; mob: rho_M rms 0.1533, N_eff 41, rho_M sqrt(N_eff) rms 0.98
+   R=  3000 Q=  800: res: rho_M rms 0.9024, N_eff 109, rho_M sqrt(N_eff) rms 9.41; a: rho_M rms 0.1027, N_eff 109, rho_M sqrt(N_eff) rms 1.07; aG: rho_M rms 0.1027, N_eff 109, rho_M sqrt(N_eff) rms 1.07; mob: rho_M rms 0.0872, N_eff 109, rho_M sqrt(N_eff) rms 0.90
+   R=  3000 Q= 3200: res: rho_M rms 0.9731, N_eff 116, rho_M sqrt(N_eff) rms 10.50; a: rho_M rms 0.0824, N_eff 116, rho_M sqrt(N_eff) rms 0.89; aG: rho_M rms 0.0824, N_eff 116, rho_M sqrt(N_eff) rms 0.89; mob: rho_M rms 0.0649, N_eff 116, rho_M sqrt(N_eff) rms 0.70
+   R= 10000 Q=  800: res: rho_M rms 0.7728, N_eff 346, rho_M sqrt(N_eff) rms 14.37; a: rho_M rms 0.0359, N_eff 346, rho_M sqrt(N_eff) rms 0.67; aG: rho_M rms 0.0359, N_eff 346, rho_M sqrt(N_eff) rms 0.67; mob: rho_M rms 0.0525, N_eff 346, rho_M sqrt(N_eff) rms 0.98
+   R= 10000 Q= 3200: res: rho_M rms 0.9237, N_eff 368, rho_M sqrt(N_eff) rms 17.73; a: rho_M rms 0.0396, N_eff 368, rho_M sqrt(N_eff) rms 0.76; aG: rho_M rms 0.0396, N_eff 368, rho_M sqrt(N_eff) rms 0.76; mob: rho_M rms 0.0563, N_eff 368, rho_M sqrt(N_eff) rms 1.08
+done

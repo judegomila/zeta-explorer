@@ -1,0 +1,59 @@
+samples 1000000 (+ witness), N from 282 to 892061, sum of N 1.108e+11, gpu False
+tables 0s
+  90515 / 166667 samples, N 22513, 2.5% of terms, 174s
+  96111 / 166667 samples, N 29529, 3.3% of terms, 222s
+  102194 / 166667 samples, N 39574, 4.4% of terms, 290s
+  114025 / 166667 samples, N 69984, 7.8% of terms, 525s
+  125628 / 166667 samples, N 122996, 13.7% of terms, 903s
+  127775 / 166667 samples, N 136422, 15.2% of terms, 1038s
+  129237 / 166667 samples, N 146239, 16.3% of terms, 1116s
+  130061 / 166667 samples, N 152222, 17.0% of terms, 1150s
+  135174 / 166667 samples, N 195302, 21.8% of terms, 1446s
+  139418 / 166667 samples, N 239538, 26.8% of terms, 1732s
+  140019 / 166667 samples, N 246497, 27.6% of terms, 1775s
+  140401 / 166667 samples, N 251295, 28.1% of terms, 1811s
+  142219 / 166667 samples, N 274332, 30.7% of terms, 1965s
+  144305 / 166667 samples, N 303347, 33.9% of terms, 2139s
+  146469 / 166667 samples, N 336932, 37.7% of terms, 2384s
+  147012 / 166667 samples, N 345826, 38.7% of terms, 2456s
+  150005 / 166667 samples, N 399037, 44.7% of terms, 2821s
+  151804 / 166667 samples, N 435502, 48.8% of terms, 3088s
+  153310 / 166667 samples, N 468538, 52.4% of terms, 3333s
+  154001 / 166667 samples, N 484854, 54.2% of terms, 3440s
+  154862 / 166667 samples, N 505198, 56.5% of terms, 3558s
+  156610 / 166667 samples, N 548878, 61.5% of terms, 3872s
+  157266 / 166667 samples, N 566998, 63.5% of terms, 4002s
+  158412 / 166667 samples, N 599040, 67.1% of terms, 4186s
+  159212 / 166667 samples, N 622259, 69.8% of terms, 4321s
+  159754 / 166667 samples, N 638690, 71.6% of terms, 4408s
+  160504 / 166667 samples, N 662462, 74.3% of terms, 4544s
+  161000 / 166667 samples, N 678733, 76.1% of terms, 4625s
+  161700 / 166667 samples, N 701745, 78.7% of terms, 4728s
+  162506 / 166667 samples, N 729488, 81.8% of terms, 4854s
+  163156 / 166667 samples, N 753129, 84.4% of terms, 4954s
+  163811 / 166667 samples, N 777435, 87.1% of terms, 5056s
+  164411 / 166667 samples, N 799929, 89.7% of terms, 5151s
+  165011 / 166667 samples, N 823711, 92.3% of terms, 5249s
+  165559 / 166667 samples, N 845375, 94.8% of terms, 5342s
+  166109 / 166667 samples, N 868100, 97.3% of terms, 5437s
+  166659 / 166667 samples, N 891628, 100.0% of terms, 5537s
+  166667 / 166667 samples, N 892049, 100.0% of terms, 5538s
+ZETA                                 rho inf 0.0001 q01 0.0242 med 0.2856 q99 0.7265 sup 0.8895 | sup pilot 3.7413 sup |E| 2.1470 | frac pilot>Rex 6.79e-01 |E|>Rex 1.76e-01
+     per decade sup rho: 0.7293 0.7457 0.8136 0.8387 0.8476 0.8872 0.8895 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.8e-01 1.0e-01 0.0e+00
+LCHI5                                rho inf 0.0006 q01 0.0264 med 0.3106 q99 0.7490 sup 0.8970 | sup pilot 2.6527 sup |E| 1.5449 | frac pilot>Rex 6.32e-01 |E|>Rex 1.63e-01
+     per decade sup rho: 0.6995 0.7459 0.8421 0.8295 0.8797 0.8947 0.8970 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.2e-01 4.8e-01 2.7e-02 0.0e+00
+SGN                                  rho inf 0.0006 q01 0.0247 med 0.2866 q99 0.7233 sup 0.8951 | sup pilot 3.8053 sup |E| 2.1572 | frac pilot>Rex 6.80e-01 |E|>Rex 1.78e-01
+     per decade sup rho: 0.7430 0.7560 0.8365 0.8289 0.8696 0.8951 0.8871 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.8e-01 1.0e-01 8.4e-05
+U                                    rho inf 0.0004 q01 0.0242 med 0.2855 q99 0.7260 sup 0.8779 | sup pilot 3.4438 sup |E| 2.0157 | frac pilot>Rex 6.79e-01 |E|>Rex 1.78e-01
+     per decade sup rho: 0.7382 0.7826 0.8133 0.8453 0.8678 0.8751 0.8779 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.7e-01 6.7e-01 1.0e-01 4.2e-05
+DH:chi                               rho inf 0.0024 q01 0.0577 med 0.4185 q99 0.8569 sup 0.9754 | sup pilot 14.3079 sup |E| 13.5373 | frac pilot>Rex 1.00e+00 |E|>Rex 8.61e-01
+     per decade sup rho: 0.9461 0.9400 0.9673 0.9519 0.9714 0.9486 0.9754 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00
+DH:asif                              rho inf 0.0002 q01 0.0687 med 0.5042 q99 0.9006 sup 0.9718 | sup pilot 3.6887 sup |E| 3.1135 | frac pilot>Rex 8.63e-01 |E|>Rex 3.98e-01
+     per decade sup rho: 0.9158 0.9380 0.9470 0.9413 0.9589 0.9624 0.9718 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 8.6e-01 6.9e-01 5.1e-01
+TNR                                  rho inf 0.0041 q01 0.2008 med 0.7468 q99 0.9362 sup 0.9826 | sup pilot 10.0539 sup |E| 8.5154 | frac pilot>Rex 1.00e+00 |E|>Rex 9.98e-01
+     per decade sup rho: 0.9113 0.9295 0.9408 0.9325 0.9585 0.9725 0.9826 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00
+ZETA packets, random signs           rho inf 0.0011 q01 0.0330 med 0.3116 q99 0.7529 sup 0.9342 | sup pilot 3.7413 sup |E| 2.4647 | frac pilot>Rex 6.79e-01 |E|>Rex 2.06e-01
+     per decade sup rho: 0.8297 0.8544 0.8502 0.8882 0.9130 0.9342 0.9154 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.8e-01 1.0e-01 0.0e+00
+ZETA packet moduli, random phases    rho inf 0.0014 q01 0.0424 med 0.3355 q99 0.6984 sup 0.8731 | sup pilot 3.7413 sup |E| 1.8646 | frac pilot>Rex 6.79e-01 |E|>Rex 2.12e-01
+     per decade sup rho: 0.7734 0.8335 0.8038 0.7950 0.8379 0.8696 0.8731 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.8e-01 1.0e-01 0.0e+00
+done 5541s

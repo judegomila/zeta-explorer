@@ -1,0 +1,94 @@
+c = 1 check (binned H): [ 12.84+1.73j -11.58-1.75j  15.7 +0.j   -11.58+1.75j -14.51+0.j    12.84-1.73j]  data: [ 12.84+1.77j -11.59-1.73j  15.76+0.j   -11.59+1.73j -14.48+0.j    12.84-1.77j]
+
+conductors 1 < N(c) <= 400: 108 (primes and squarefree composites, prime to 6)
+
+--- rows all, Q = 3199, weight (1-x)^2; null rms of a twisted sum per class = 1.01
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9979; LS amplitude data/pred = 0.988+0.000i; rms pred 4.93, rms (data - pred) 0.32;  rms z by twist k=1..5: 4.90 0.36 0.36 0.39 0.34
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9979; LS amplitude data/pred = 1.006+0.000i; rms pred 3.78, rms (data - pred) 0.25;  rms z by twist k=1..5: 3.71 0.56 0.58 0.63 0.57
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9913; LS amplitude data/pred = 0.997+0.000i; rms pred 3.08, rms (data - pred) 0.41;  rms z by twist k=1..5: 3.08 0.69 0.70 0.70 0.62
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9816; LS amplitude data/pred = 0.986+0.000i; rms pred 2.62, rms (data - pred) 0.50;  rms z by twist k=1..5: 2.58 0.65 0.74 0.70 0.79
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.9462; LS amplitude data/pred = 0.955+0.000i; rms pred 2.14, rms (data - pred) 0.71;  rms z by twist k=1..5: 2.12 0.80 0.83 0.78 0.84
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 9.64 pred 9.72;  sigma = class(-c): data 4.60 pred 4.57;  other 4 classes of the block: data 2.99 pred 2.95;  other block (pred 0): data 0.00
+   amplitude exponent in N(c) over 7 <= N(c) <= 400 (resonant cell): data -0.248; finite-X prediction -0.220; X = infinity law N(c)^(-1/3) phi(c)/N(c): -0.323
+      N(c)= 37 class  0: data [-10.19+3.11j   4.93-1.56j  -3.31+3.37j   0.61+1.32j   0.18-0.78j  -4.79-0.61j]
+                               pred [-9.89+3.j    4.61-1.4j  -3.69+3.17j  0.69+1.j    0.02-1.21j -4.87-0.6j ]
+      N(c)= 13 class  1: data [-5.01-3.42j 10.13+6.48j -2.29+0.71j  3.89+5.62j  6.62+1.64j  0.3 -3.11j]
+                               pred [-5.52-3.28j 10.29+6.12j -2.27+1.36j  4.26+5.49j  6.81+1.12j  0.11-2.67j]
+      N(c)= 13 class  3: data [ 0.3 +3.11j  3.89-5.62j -2.29-0.71j 10.13-6.48j  6.62-1.64j -5.01+3.42j]
+                               pred [ 0.11+2.67j  4.26-5.49j -2.27-1.36j 10.29-6.12j  6.81-1.12j -5.52+3.28j]
+      N(c)= 31 class  4: data [10.42-2.99j  4.18-3.6j   1.12+0.88j  5.38+0.67j  0.29-1.44j  4.9 -1.25j]
+                               pred [10.3 -2.95j  4.06-3.34j  0.8 +1.18j  5.2 +0.68j  0.06-1.42j  4.87-1.39j]
+      N(c)= 43 class  4: data [ 5.74+7.93j  4.16+2.19j -0.55+0.35j  0.85+4.6j   1.1 -0.86j  2.67+3.35j]
+                               pred [ 5.81+8.32j  4.02+2.41j -0.63+0.84j  0.87+4.59j  1.  -0.3j   2.62+3.76j]
+      N(c)=  7 class  5: data [-3.53 +7.13j -1.43+12.32j  2.57 +2.7j   1.96 +7.7j  -0.9  +7.44j -3.02 +2.2j ]
+                               pred [-3.64 +7.09j -1.57+12.35j  2.43 +2.82j  1.74 +7.77j -0.95 +7.43j -3.05 +2.12j]
+      N(c)=  7 class  6: data [ 3.02 +2.2j  -2.57 +2.7j   1.43+12.32j  0.9  +7.44j -1.96 +7.7j   3.53 +7.13j]
+                               pred [ 3.05 +2.12j -2.43 +2.82j  1.57+12.35j  0.95 +7.43j -1.74 +7.77j  3.64 +7.09j]
+      N(c)= 19 class  7: data [ -6.32+1.52j  -6.21-2.35j  -6.15-0.52j -10.62-1.26j  -0.79-2.02j  -0.84+1.87j]
+                               pred [ -5.91+1.78j  -5.46-2.89j  -5.81-0.57j -11.37-1.12j  -0.6 -2.01j  -0.98+1.86j]
+      N(c)= 25 class  8: data [ 0.55+1.63j -5.13-2.63j  4.83-0.j   -5.13+2.63j -9.95+0.j    0.55-1.63j]
+                               pred [  0.56+1.6j   -5.22-2.21j   5.31-0.j    -5.22+2.21j -11.03+0.j     0.56-1.6j ]
+      N(c)= 19 class  9: data [ 0.84+1.87j  6.15-0.52j  6.21-2.35j  0.79-2.02j 10.62-1.26j  6.32+1.52j]
+                               pred [ 0.98+1.86j  5.81-0.57j  5.46-2.89j  0.6 -2.01j 11.37-1.12j  5.91+1.78j]
+
+--- rows all, Q = 1600, weight (1-x)^2; null rms of a twisted sum per class = 0.74
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9978; LS amplitude data/pred = 1.003-0.000i; rms pred 2.89, rms (data - pred) 0.19;  rms z by twist k=1..5: 4.01 0.41 0.42 0.44 0.37
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9938; LS amplitude data/pred = 1.018+0.000i; rms pred 2.21, rms (data - pred) 0.26;  rms z by twist k=1..5: 2.99 0.56 0.67 0.64 0.60
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9711; LS amplitude data/pred = 0.980+0.000i; rms pred 1.79, rms (data - pred) 0.43;  rms z by twist k=1..5: 2.47 0.70 0.78 0.78 0.75
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9547; LS amplitude data/pred = 0.959+0.000i; rms pred 1.52, rms (data - pred) 0.46;  rms z by twist k=1..5: 2.03 0.68 0.83 0.71 0.81
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.9104; LS amplitude data/pred = 0.950-0.000i; rms pred 1.23, rms (data - pred) 0.54;  rms z by twist k=1..5: 1.72 0.80 0.83 0.79 0.88
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 5.92 pred 5.92;  sigma = class(-c): data 2.53 pred 2.58;  other 4 classes of the block: data 1.65 pred 1.54;  other block (pred 0): data 0.00
+
+--- rows all, Q = 3199, weight (1-x)^3; null rms of a twisted sum per class = 0.87
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9981; LS amplitude data/pred = 0.993-0.000i; rms pred 3.92, rms (data - pred) 0.24;  rms z by twist k=1..5: 4.57 0.36 0.38 0.40 0.33
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9970; LS amplitude data/pred = 1.011+0.000i; rms pred 3.00, rms (data - pred) 0.24;  rms z by twist k=1..5: 3.45 0.56 0.61 0.63 0.57
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9870; LS amplitude data/pred = 0.992+0.000i; rms pred 2.44, rms (data - pred) 0.40;  rms z by twist k=1..5: 2.85 0.69 0.73 0.74 0.67
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9738; LS amplitude data/pred = 0.976+0.000i; rms pred 2.07, rms (data - pred) 0.48;  rms z by twist k=1..5: 2.37 0.65 0.78 0.70 0.79
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.9349; LS amplitude data/pred = 0.951+0.000i; rms pred 1.69, rms (data - pred) 0.62;  rms z by twist k=1..5: 1.97 0.80 0.83 0.78 0.86
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 7.82 pred 7.86;  sigma = class(-c): data 3.58 pred 3.58;  other 4 classes of the block: data 2.29 pred 2.24;  other block (pred 0): data 0.00
+
+--- rows prime to 6, Q = 3199, weight (1-x)^2; null rms of a twisted sum per class = 0.57
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9971; LS amplitude data/pred = 0.995+0.000i; rms pred 2.85, rms (data - pred) 0.22;  rms z by twist k=1..5: 4.96 0.45 0.34 0.52 0.40
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9972; LS amplitude data/pred = 0.984-0.000i; rms pred 1.96, rms (data - pred) 0.15;  rms z by twist k=1..5: 3.33 0.63 0.53 0.57 0.51
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9872; LS amplitude data/pred = 0.972-0.000i; rms pred 1.51, rms (data - pred) 0.24;  rms z by twist k=1..5: 2.56 0.62 0.59 0.69 0.53
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9758; LS amplitude data/pred = 0.976-0.000i; rms pred 1.24, rms (data - pred) 0.27;  rms z by twist k=1..5: 2.14 0.63 0.63 0.73 0.70
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.9370; LS amplitude data/pred = 0.983+0.000i; rms pred 0.99, rms (data - pred) 0.36;  rms z by twist k=1..5: 1.80 0.79 0.75 0.71 0.71
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 0.77 pred 0.71;  sigma = class(-c): data 4.39 pred 4.51;  other 4 classes of the block: data 2.42 pred 2.40;  other block (pred 0): data 0.00
+   amplitude exponent in N(c) over 7 <= N(c) <= 400 (resonant cell): data -0.312; finite-X prediction -0.317; X = infinity law N(c)^(-1/3) phi(c)/N(c): -0.323
+      N(c)= 37 class  0: data [-0.78+0.12j  4.43-1.28j -1.57+2.37j  1.67+1.37j  0.7 -1.83j -2.8 -0.97j]
+                               pred [-0.59+0.18j  4.57-1.38j -1.65+2.46j  1.65+1.18j  0.72-1.89j -2.76-1.14j]
+      N(c)= 13 class  1: data [-5.2 -3.62j -0.47+0.12j -3.23+0.83j  1.68+3.86j  3.7 +0.25j -0.45-3.97j]
+                               pred [-5.46-3.25j -0.27-0.16j -3.23+1.31j  1.64+3.67j  3.98-0.31j -0.39-3.49j]
+      N(c)= 13 class  3: data [-0.45+3.97j  1.68-3.86j -3.23-0.83j -0.47-0.12j  3.7 -0.25j -5.2 +3.62j]
+                               pred [-0.39+3.49j  1.64-3.67j -3.23-1.31j -0.27+0.16j  3.98+0.31j -5.46+3.25j]
+      N(c)= 31 class  4: data [0.73-0.22j 2.01-2.42j 1.84+1.36j 3.13+1.09j 0.97-1.95j 4.81-1.23j]
+                               pred [0.48-0.14j 1.84-2.59j 1.79+1.36j 2.92+1.22j 0.8 -2.09j 4.82-1.38j]
+      N(c)= 43 class  4: data [ 0.52+0.44j  2.62+0.49j -0.69+1.64j -0.17+2.73j  1.98-0.24j  2.72+3.5j ]
+                               pred [ 0.41+0.58j  2.77+0.76j -0.53+1.78j -0.24+2.85j  1.85+0.11j  2.6 +3.72j]
+      N(c)=  7 class  5: data [-2.73+3.28j  0.25-0.97j  3.26+3.52j  2.04+3.97j -0.87+7.2j  -3.85+2.55j]
+                               pred [-2.82+3.38j  0.12-0.94j  3.04+3.47j  1.88+3.98j -0.93+7.28j -3.81+2.6j ]
+      N(c)=  7 class  6: data [ 3.85+2.55j -3.26+3.52j -0.25-0.97j  0.87+7.2j  -2.04+3.97j  2.73+3.28j]
+                               pred [ 3.81+2.6j  -3.04+3.47j -0.12-0.94j  0.93+7.28j -1.88+3.98j  2.82+3.38j]
+      N(c)= 19 class  7: data [-3.04+1.92j -2.92-2.39j -5.56-0.35j  0.16+0.12j -1.74-2.55j -1.91+2.11j]
+                               pred [-3.12+1.88j -2.69-2.46j -5.76-0.57j -0.07-0.01j -1.48-2.53j -1.95+2.19j]
+      N(c)= 25 class  8: data [ 1.11+2.23j -2.3 -2.23j  5.12-0.j   -2.3 +2.23j -0.29+0.j    1.11-2.23j]
+                               pred [ 1.48+2.03j -2.68-2.08j  5.27+0.j   -2.68+2.08j -0.32+0.j    1.48-2.03j]
+      N(c)= 19 class  9: data [ 1.91+2.11j  5.56-0.35j  2.92-2.39j  1.74-2.55j -0.16+0.12j  3.04+1.92j]
+                               pred [1.95+2.19j 5.76-0.57j 2.69-2.46j 1.48-2.53j 0.07-0.01j 3.12+1.88j]
+
+--- rows prime to 6, Q = 1600, weight (1-x)^2; null rms of a twisted sum per class = 0.42
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9954; LS amplitude data/pred = 0.988-0.000i; rms pred 1.56, rms (data - pred) 0.15;  rms z by twist k=1..5: 3.70 0.37 0.41 0.54 0.40
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9929; LS amplitude data/pred = 0.981+0.000i; rms pred 1.08, rms (data - pred) 0.13;  rms z by twist k=1..5: 2.53 0.57 0.60 0.51 0.59
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9732; LS amplitude data/pred = 0.932+0.000i; rms pred 0.85, rms (data - pred) 0.20;  rms z by twist k=1..5: 1.93 0.65 0.54 0.65 0.62
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9382; LS amplitude data/pred = 0.954-0.000i; rms pred 0.70, rms (data - pred) 0.25;  rms z by twist k=1..5: 1.67 0.65 0.71 0.76 0.75
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.8795; LS amplitude data/pred = 0.974+0.000i; rms pred 0.56, rms (data - pred) 0.29;  rms z by twist k=1..5: 1.45 0.80 0.79 0.74 0.73
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 0.61 pred 0.58;  sigma = class(-c): data 2.41 pred 2.55;  other 4 classes of the block: data 1.29 pred 1.27;  other block (pred 0): data 0.00
+
+--- rows prime to 6, Q = 3199, weight (1-x)^3; null rms of a twisted sum per class = 0.49
+   N(c) in [2,30], #c = 7: corr(data, pred) = 0.9967; LS amplitude data/pred = 0.993-0.000i; rms pred 2.21, rms (data - pred) 0.18;  rms z by twist k=1..5: 4.47 0.40 0.36 0.54 0.39
+   N(c) in [31,56], #c = 7: corr(data, pred) = 0.9961; LS amplitude data/pred = 0.983-0.000i; rms pred 1.52, rms (data - pred) 0.13;  rms z by twist k=1..5: 3.02 0.61 0.54 0.54 0.53
+   N(c) in [57,100], #c = 14: corr(data, pred) = 0.9839; LS amplitude data/pred = 0.958-0.000i; rms pred 1.18, rms (data - pred) 0.21;  rms z by twist k=1..5: 2.31 0.63 0.57 0.67 0.56
+   N(c) in [101,200], #c = 28: corr(data, pred) = 0.9659; LS amplitude data/pred = 0.968-0.000i; rms pred 0.97, rms (data - pred) 0.25;  rms z by twist k=1..5: 1.96 0.63 0.66 0.74 0.72
+   N(c) in [201,400], #c = 52: corr(data, pred) = 0.9200; LS amplitude data/pred = 0.976+0.000i; rms pred 0.78, rms (data - pred) 0.32;  rms z by twist k=1..5: 1.66 0.79 0.76 0.72 0.71
+   N(c) <= 100: mean |S| in cell sigma = class(c): data 0.68 pred 0.64;  sigma = class(-c): data 3.41 pred 3.54;  other 4 classes of the block: data 1.85 pred 1.84;  other block (pred 0): data 0.00
+../../../../.venv-arb/bin/python finiteX_c.py  311.64s user 4.10s system 56% cpu 9:21.42 total

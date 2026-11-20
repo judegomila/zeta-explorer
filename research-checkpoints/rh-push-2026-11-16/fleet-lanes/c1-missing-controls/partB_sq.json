@@ -1,0 +1,199 @@
+{
+ "tau=-0.1": {
+  "offline_found": 3,
+  "omega=0.1": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.9904210248936276,
+   "poles_Re_gt_omega": [
+    {
+     "delta": 0.14025314507309103,
+     "gamma": 564.3693091026836,
+     "v": 0.04025314507309102,
+     "abs_residue": 0.05694514716162421,
+     "ritz_degree_needed_at_t_2": "p > 1128"
+    }
+   ],
+   "n_poles_found": 1
+  },
+  "omega=0.25": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.9762269330392074,
+   "poles_Re_gt_omega": [],
+   "n_poles_found": 0
+  }
+ },
+ "tau=-0.5": {
+  "offline_found": 5,
+  "omega=0.1": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.9905076978195354,
+   "poles_Re_gt_omega": [
+    {
+     "delta": 0.2429565064869738,
+     "gamma": 111.69422767246392,
+     "v": 0.1429565064869738,
+     "abs_residue": 0.11638525552625241,
+     "ritz_degree_needed_at_t_2": "p > 223"
+    },
+    {
+     "delta": 0.19810791112610754,
+     "gamma": 150.69224610050648,
+     "v": 0.09810791112610753,
+     "abs_residue": 0.09804562619309341,
+     "ritz_degree_needed_at_t_2": "p > 301"
+    },
+    {
+     "delta": 0.26099386149214954,
+     "gamma": 169.61188739393268,
+     "v": 0.16099386149214953,
+     "abs_residue": 0.12122566501023918,
+     "ritz_degree_needed_at_t_2": "p > 339"
+    },
+    {
+     "delta": 0.33771395153011907,
+     "gamma": 185.50700991526574,
+     "v": 0.23771395153011907,
+     "abs_residue": 0.13622081144505932,
+     "ritz_degree_needed_at_t_2": "p > 371"
+    },
+    {
+     "delta": 0.3432578707879291,
+     "gamma": 221.22684080599814,
+     "v": 0.24325787078792907,
+     "abs_residue": 0.13686391647637638,
+     "ritz_degree_needed_at_t_2": "p > 442"
+    }
+   ],
+   "n_poles_found": 5
+  },
+  "omega=0.25": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.9764404354960983,
+   "poles_Re_gt_omega": [
+    {
+     "delta": 0.26099386149214954,
+     "gamma": 169.61188739393268,
+     "v": 0.010993861492149537,
+     "abs_residue": 0.020998743803570245,
+     "ritz_degree_needed_at_t_2": "p > 339"
+    },
+    {
+     "delta": 0.33771395153011907,
+     "gamma": 185.50700991526574,
+     "v": 0.08771395153011907,
+     "abs_residue": 0.1259834307499541,
+     "ritz_degree_needed_at_t_2": "p > 371"
+    },
+    {
+     "delta": 0.3432578707879291,
+     "gamma": 221.22684080599814,
+     "v": 0.09325787078792908,
+     "abs_residue": 0.13136615754248746,
+     "ritz_degree_needed_at_t_2": "p > 442"
+    }
+   ],
+   "n_poles_found": 3
+  }
+ },
+ "tau=-2": {
+  "offline_found": 24,
+  "omega=0.1": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.9908194914062075,
+   "poles_Re_gt_omega": [
+    {
+     "delta": 0.2485774140091809,
+     "gamma": 49.71544756988261,
+     "v": 0.1485774140091809,
+     "abs_residue": 0.11883924278123673,
+     "ritz_degree_needed_at_t_2": "p > 99"
+    },
+    {
+     "delta": 0.6247239615534858,
+     "gamma": 60.70787055478885,
+     "v": 0.5247239615534858,
+     "abs_residue": 0.16374615231460177,
+     "ritz_degree_needed_at_t_2": "p > 121"
+    },
+    {
+     "delta": 0.643685456549104,
+     "gamma": 77.38715927183848,
+     "v": 0.543685456549104,
+     "abs_residue": 0.1622030834535996,
+     "ritz_degree_needed_at_t_2": "p > 154"
+    },
+    {
+     "delta": 0.6994428005987716,
+     "gamma": 88.71902240095191,
+     "v": 0.5994428005987716,
+     "abs_residue": 0.16529899691765237,
+     "ritz_degree_needed_at_t_2": "p > 177"
+    },
+    {
+     "delta": 0.8441363201287372,
+     "gamma": 95.8725511352804,
+     "v": 0.7441363201287372,
+     "abs_residue": 0.16540831578931547,
+     "ritz_degree_needed_at_t_2": "p > 191"
+    },
+    {
+     "delta": 1.053545692934185,
+     "gamma": 112.44626956466743,
+     "v": 0.9535456929341851,
+     "abs_residue": 0.1687046535085185,
+     "ritz_degree_needed_at_t_2": "p > 224"
+    }
+   ],
+   "n_poles_found": 24
+  },
+  "omega=0.25": {
+   "max_abs_dev_from_1_on_line": 0.0,
+   "max_modulus_on_Re_1_and_2": 0.977208729784689,
+   "poles_Re_gt_omega": [
+    {
+     "delta": 0.6247239615534858,
+     "gamma": 60.70787055478885,
+     "v": 0.37472396155348575,
+     "abs_residue": 0.28648868178171116,
+     "ritz_degree_needed_at_t_2": "p > 121"
+    },
+    {
+     "delta": 0.643685456549104,
+     "gamma": 77.38715927183848,
+     "v": 0.39368545654910403,
+     "abs_residue": 0.28393403238959375,
+     "ritz_degree_needed_at_t_2": "p > 154"
+    },
+    {
+     "delta": 0.6994428005987716,
+     "gamma": 88.71902240095191,
+     "v": 0.4494428005987716,
+     "abs_residue": 0.3000870859580111,
+     "ritz_degree_needed_at_t_2": "p > 177"
+    },
+    {
+     "delta": 0.8441363201287372,
+     "gamma": 95.8725511352804,
+     "v": 0.5941363201287372,
+     "abs_residue": 0.30921026968874854,
+     "ritz_degree_needed_at_t_2": "p > 191"
+    },
+    {
+     "delta": 1.053545692934185,
+     "gamma": 112.44626956466743,
+     "v": 0.8035456929341851,
+     "abs_residue": 0.32820353039671984,
+     "ritz_degree_needed_at_t_2": "p > 224"
+    },
+    {
+     "delta": 0.7857766310703995,
+     "gamma": 123.86983863336363,
+     "v": 0.5357766310703995,
+     "abs_residue": 0.25422110501459194,
+     "ritz_degree_needed_at_t_2": "p > 247"
+    }
+   ],
+   "n_poles_found": 23
+  }
+ }
+}

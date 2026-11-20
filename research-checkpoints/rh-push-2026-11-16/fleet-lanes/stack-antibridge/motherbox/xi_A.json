@@ -1,0 +1,100 @@
+{
+ "which": "xi",
+ "N": 100,
+ "bits": 20000,
+ "interval": [
+  "1/100",
+  "1/2"
+ ],
+ "twins": [
+  {
+   "n": 1,
+   "gamma": "[14.13472514 +/- 1.74e-9]",
+   "delta": "0.3",
+   "P": 7,
+   "P_msg": "pivot 7 certified negative: [-1.9323834e-27 +/- 4.15e-35]",
+   "Ke": 4,
+   "Ke_msg": "pivot 4 certified negative: [-3.9988079e-39 +/- 1.78e-48]",
+   "Ko": 4,
+   "Ko_msg": "pivot 4 certified negative: [-1.5847499e-33 +/- 1.13e-41]"
+  },
+  {
+   "n": 2,
+   "gamma": "[21.02203964 +/- 1.23e-9]",
+   "delta": "0.3",
+   "P": 12,
+   "P_msg": "pivot 12 certified negative: [-9.0898636e-68 +/- 2.82e-76]",
+   "Ke": 6,
+   "Ke_msg": "pivot 6 certified negative: [-3.8385761e-62 +/- 4.53e-70]",
+   "Ko": 7,
+   "Ko_msg": "pivot 7 certified negative: [-2.3181453e-51 +/- 2.24e-59]"
+  },
+  {
+   "n": 3,
+   "gamma": "[25.01085758 +/- 1.46e-10]",
+   "delta": "0.3",
+   "P": 15,
+   "P_msg": "pivot 15 certified negative: [-4.6946381e-63 +/- 3.95e-71]",
+   "Ke": 8,
+   "Ke_msg": "pivot 8 certified negative: [-1.5641812e-86 +/- 7.00e-95]",
+   "Ko": 8,
+   "Ko_msg": "pivot 8 certified negative: [-2.0277811e-80 +/- 4.72e-88]"
+  },
+  {
+   "n": 5,
+   "gamma": "[32.93506159 +/- 2.27e-9]",
+   "delta": "0.3",
+   "P": 24,
+   "P_msg": "pivot 24 certified negative: [-4.7963235e-144 +/- 4.91e-152]",
+   "Ke": 12,
+   "Ke_msg": "pivot 12 certified negative: [-2.2931522e-136 +/- 4.34e-145]",
+   "Ko": 13,
+   "Ko_msg": "pivot 13 certified negative: [-4.5586717e-122 +/- 3.80e-130]"
+  },
+  {
+   "n": 8,
+   "gamma": "[43.32707328 +/- 9.16e-10]",
+   "delta": "0.3",
+   "P": 34,
+   "P_msg": "pivot 34 certified negative: [-9.4230661e-213 +/- 2.80e-221]",
+   "Ke": 17,
+   "Ke_msg": "pivot 17 certified negative: [-3.4356483e-186 +/- 1.84e-194]",
+   "Ko": 18,
+   "Ko_msg": "pivot 18 certified negative: [-5.2616920e-203 +/- 2.72e-211]"
+  },
+  {
+   "n": 12,
+   "gamma": "[56.44624770 +/- 2.94e-9]",
+   "delta": "0.3",
+   "P": 49,
+   "P_msg": "pivot 49 certified negative: [-1.2426918e-297 +/- 7.48e-306]",
+   "Ke": 25,
+   "Ke_msg": "pivot 25 certified negative: [-9.3045303e-276 +/- 4.72e-284]",
+   "Ko": 25,
+   "Ko_msg": "pivot 25 certified negative: [-1.2629836e-270 +/- 3.41e-278]"
+  },
+  {
+   "n": 20,
+   "gamma": "[77.14484007 +/- 1.13e-9]",
+   "delta": "0.3",
+   "P": 81,
+   "P_msg": "pivot 81 certified negative: [-5.8745761e-515 +/- 3.54e-523]",
+   "Ke": 41,
+   "Ke_msg": "pivot 41 certified negative: [-2.0586611e-476 +/- 3.43e-484]",
+   "Ko": 41,
+   "Ko_msg": "pivot 41 certified negative: [-4.4181649e-471 +/- 8.14e-480]"
+  }
+ ],
+ "P": {
+  "first_not_positive": null,
+  "msg": "all 100 pivots certified positive"
+ },
+ "Ke": {
+  "first_not_positive": null,
+  "msg": "all 100 pivots certified positive"
+ },
+ "Ko": {
+  "first_not_positive": null,
+  "msg": "all 100 pivots certified positive"
+ }
+}

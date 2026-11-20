@@ -1,0 +1,33 @@
+1. genus-1 fakes 1 - a u + 7 u^2 with the vectors c of the family (84 rows of C), a in -20..20
+   identity S^2 = -D.D/(2q^N): 3444 cases, failures 0; cases with -D.D < 0 on the symmetrised vectors: 0
+   form indefinite (x = a P_0 - 2 P_1 gives -x.x = 8q - 2a^2 < 0) exactly for a in [-20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+   a = -6: M_N = h_N for N = 1, 2, 3: [-6, 29, -132]  Weil bound (N+1) q^(N/2): [5.29, 21.0, 74.08]
+2. family maximum of M_N^2/q^N (Weil bound (N+1)^2): {1: ('25/7', 3.5714285714285716), 2: ('324/49', 6.612244897959184), 3: ('3025/343', 8.819241982507288)}
+3. genus 2 (80 seeded prime quintics, y^2 = +-F): functional equation coefficient check passed (80/80)
+   M_2 as an affine function of (t_1..t_4), fitted on 5 curves: mismatches on the 80: 68
+   N = 1 (signal linear, c = e_1): M_1^2 = -D.D/(2q) in 0/80; M_1^2 = (g/2)(-D.D)/q - (phi_1 - phi_2)^2 in 80/80; gap zero in 0/80; gap min 5, max 85
+4. trivial target (w = 1) and w = mu: S_cop(k), k = 0..3 (genus 0: every primitive class is 0, so -D.D = 0)
+   N=1 lam=0: one [-7, -42, -294, -2058]   mu [7, 42, 294, 2058]
+   N=1 lam=2: one [147, 882, 6027, 42336]   mu [-147, -882, -6027, -42336]
+   N=1 lam=7: one [823536, 4941216, 34588512, 242119584]   mu [-823536, -4941216, -34588512, -242119584]
+   N=1 lam=11: one [1258298832, 7549792992, 52848550944, 369939856608]   mu [-1258298832, -7549792992, -52848550944, -369939856608]
+   N=2 lam=0: one [0, -42, -252, -1764]   mu [42, 252, 1764, 12348]
+   N=2 lam=2: one [-21, 735, 4305, 29253]   mu [-861, -5145, -35175, -247107]
+   N=2 lam=7: one [0, 4941216, 29647296, 207531072]   mu [-4941216, -29647296, -207531072, -1452717504]
+   N=2 lam=11: one [0, 7549792992, 45298757952, 317091305664]   mu [-7549792992, -45298757952, -317091305664, -2219639139648]
+   N=3 lam=0: one [0, -42, -546, -3528]   mu [294, 1806, 12600, 88200]
+   N=3 lam=2: one [147, 1764, 17346, 114660]   mu [-6027, -37044, -252546, -1772820]
+   N=3 lam=7: one [0, 4941216, 64235808, 415062144]   mu [-34588512, -212472288, -1482364800, -10376553600]
+   N=3 lam=11: one [0, 7549792992, 98147308896, 634182611328]   mu [-52848550944, -324641098656, -2264937897600, -15854565283200]
+5. S_cop(k; F) for w = eps * nu_F over the 112 curves: fit c on N+1 curves, mismatches on 112 (k = 0..2, lam in 0, 2, 7)
+   Liouville-twisted target w = mu nu_F: 27 (N, lam, k); curves not on the fitted line, total 0 of 3024; where the fit is exact, square identity failures 0
+   random signs on A (not multiplicative), seed 1: 27 (N, lam, k); curves not on the fitted line, total 2851 of 3024; where the fit is exact, square identity failures 0
+   random completely multiplicative signs on primes, seed 1: 27 (N, lam, k); curves not on the fitted line, total 2628 of 3024; where the fit is exact, square identity failures 0
+   random signs on A (not multiplicative), seed 2: 27 (N, lam, k); curves not on the fitted line, total 2626 of 3024; where the fit is exact, square identity failures 0
+   random completely multiplicative signs on primes, seed 2: 27 (N, lam, k); curves not on the fitted line, total 2416 of 3024; where the fit is exact, square identity failures 0
+   random signs on A (not multiplicative), seed 3: 27 (N, lam, k); curves not on the fitted line, total 2577 of 3024; where the fit is exact, square identity failures 0
+   random completely multiplicative signs on primes, seed 3: 27 (N, lam, k); curves not on the fitted line, total 2480 of 3024; where the fit is exact, square identity failures 0
+6. aligned vector w(A) = conj chi_A(m0), chi_A(m) = chi_0(Res(A, m)): norm of M_N(w) = sum mu(A) w(A) in Z[zeta_6]
+   N=1: norms over the 21 prime m0: [7]  (q^N = 7)
+   N=2: norms over the 21 prime m0: [49]  (q^N = 49)
+   N=3: norms over the 21 prime m0: [343]  (q^N = 343)

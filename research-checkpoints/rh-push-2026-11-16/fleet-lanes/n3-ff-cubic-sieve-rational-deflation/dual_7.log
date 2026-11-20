@@ -1,0 +1,25 @@
+q=7 m=7 kmax=4 sqfree rows N=705894 (expected 705894) columns r: 2801
+planned: coefficient array 0.045 GB; X int8 1.977 GB; K complex128 0.126 GB
+  r 500 7s
+  r 1000 15s
+  r 1500 24s
+  r 2000 33s
+  r 2500 42s
+K built 84s
+E(m,k0;k) = (q-1) lam_max(Schur_k) / q^m   [n = 2m-2-k0;  k = -1 means no deflation]
+  k0=0 (n=12, family size 1, eig>0.5: 1): k=-1: 5.1429
+      top spectrum: 5.14
+  k0=1 (n=11, family size 8, eig>0.5: 8): k=-1: 5.1429  k=0: 4.5000
+      top spectrum: 5.14 4.50 4.50 4.50 4.50 4.50 4.50 4.50
+  k0=2 (n=10, family size 57, eig>0.5: 57): k=-1: 5.1429  k=0: 5.0433  k=1: 5.0433
+      top spectrum: 5.14 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04 5.04
+  k0=3 (n=9, family size 400, eig>0.5: 399): k=-1: 33.1809  k=0: 5.1666  k=1: 5.1666  k=2: 5.1664
+      top spectrum: 33.18 5.17 5.17 5.17 5.17 5.17 5.17 5.16 5.16 5.15 5.15 5.15 5.15 5.15
+  k0=4 (n=8, family size 2801, eig>0.5: 2751): k=-1: 33.1811  k=0: 30.0174  k=1: 5.3319  k=2: 5.3319  k=3: 5.3244
+      top spectrum: 33.18 30.02 30.02 30.02 30.02 30.02 30.02 30.02 5.33 5.28 5.28 5.28 5.28 5.28
+  signed excess k0=0 (n=12): top 5.1429  bottom -0.7500   (units of q^n)
+  signed excess k0=1 (n=11): top 5.1429  bottom -0.8406   (units of q^n)
+  signed excess k0=2 (n=10): top 5.0433  bottom -0.8611   (units of q^n)
+  signed excess k0=3 (n=9): top 33.1808  bottom -0.8874   (units of q^n)
+done 118s
+exit 0

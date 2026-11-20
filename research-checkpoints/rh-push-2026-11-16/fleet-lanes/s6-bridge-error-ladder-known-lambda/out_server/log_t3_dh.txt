@@ -1,0 +1,11 @@
+11:51:35 dh: 847701 ordinates 5.094 .. 499996.193; list 0.01 GB, planned peak 0.53 GB
+11:51:35 15 records
+11:51:35 record at index 125 gap 3.817478e-01: t_c 1.90598393e-02 (pair value 1.82164247e-02, retardation 4.63e-02)
+11:51:35 record at index 176 gap 3.172468e-01: t_c 1.30299136e-02 (pair value 1.25806952e-02, retardation 3.57e-02)
+11:51:36 record at index 191 gap 3.002478e-01: t_c 1.17476339e-02 (pair value 1.12685962e-02, retardation 4.25e-02)
+11:51:36 record at index 336 gap 1.841188e-01: t_c 4.32497950e-03 (pair value 4.23746526e-03, retardation 2.07e-02)
+11:51:36 record at index 528 gap 5.483735e-02: t_c 3.76364445e-04 (pair value 3.75891880e-04, retardation 1.26e-03)
+11:51:40 record at index 1248 gap 1.048137e-02: t_c 1.37335441e-05 (pair value 1.37323980e-05, retardation 8.35e-05)
+11:51:46 record at index 57904 gap 1.653659e-03: t_c 3.41824524e-07 (pair value 3.41823696e-07, retardation 2.42e-06)
+11:51:52 record at index 637727 gap 1.142719e-03: t_c 1.63225802e-07 (pair value 1.63225757e-07, retardation 2.74e-07)
+{"fit_all": {"p_tc": -1.2882448466568346, "p_E": -0.46978403149770365}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -1.9729271904969923, "p_E": -0.4490800508856395, "p_Ecoll": -0.43090590812505464, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 0, "p_increments": -0.5793863494754461, "tc_over_E_lo": 0.7877103195405943, "tc_over_E_hi": 0.033857184149656355}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -1.0234109038035732, "p_E": -0.47074700637762024, "p_Ecoll": -0.44465876807593013, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 4, "p_increments": null, "tc_over_E_lo": 0.03974151850028368, "tc_over_E_hi": 0.0038586899513029693}, {"lo": 10000.0, "hi": 100000.0, "p_tc": -1.9029453252188437, "p_E": -0.47435185086370113, "p_Ecoll": -0.4554084474144666, "sigma_mid": 0.9206101058768068, "dyadic_steps": 5, "zero_increments": 3, "p_increments": null, "tc_over_E_lo": 0.0045482789076586655, "tc_over_E_hi": 0.00030353135849015104}], "blocks": -0.9143203552996265}

@@ -1,0 +1,13 @@
+{
+ "tag": "X165_K11_4",
+ "X": 9900000003031,
+ "N0": 887590,
+ "plan": "r2-height-out/plans/X165_K11_4.json",
+ "onepoint_only": true,
+ "usable_cells": 127,
+ "n_failed": 1,
+ "seconds": {
+  "producers": 154.4,
+  "records": 0.4
+ }
+}

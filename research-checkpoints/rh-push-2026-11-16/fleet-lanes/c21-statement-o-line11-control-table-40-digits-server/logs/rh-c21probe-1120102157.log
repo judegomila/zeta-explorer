@@ -1,0 +1,81 @@
+['agm', 'airy', 'airy_ai', 'airy_ai_prime', 'airy_bi', 'airy_bi_prime', 'atan', 'beta_lower', 'chi', 'ci', 'coeffs', 'cos', 'cos_pi', 'cot_pi', 'coulomb', 'coulomb_f', 'coulomb_g', 'derivative', 'dirichlet_l', 'ei', 'elliptic_k', 'elliptic_p', 'erf', 'erfc', 'erfi', 'exp', 'fresnel', 'fresnel_c', 'fresnel_s', 'gamma', 'gamma_lower', 'gamma_upper', 'hypgeom', 'integral', 'inv', 'lambertw', 'length', 'lgamma', 'li', 'log', 'modular_theta', 'polylog', 'prec', 'repr', 'reversion', 'rgamma', 'rising', 'rsqrt', 'shi', 'si', 'sin', 'sin_cos', 'sin_cos_pi', 'sin_pi', 'sqrt', 'str', 'tan', 'valuation', 'zeta']
+['abs_lower', 'abs_upper', 'acos', 'acosh', 'agm', 'airy', 'airy_ai', 'airy_bi', 'arg', 'asin', 'asinh', 'atan', 'atanh', 'barnes_g', 'bernoulli_poly', 'bessel_i', 'bessel_j', 'bessel_k', 'bessel_y', 'beta_lower', 'bits', 'chebyshev_t', 'chebyshev_u', 'chi', 'ci', 'complex_rad', 'conjugate', 'contains', 'contains_integer', 'contains_interior', 'cos', 'cos_pi', 'cosh', 'cot', 'cot_pi', 'coth', 'coulomb', 'coulomb_f', 'coulomb_g', 'csc', 'csch', 'csgn', 'dft', 'digamma', 'dirichlet_eta', 'dirichlet_l', 'ei', 'elliptic_e', 'elliptic_e_inc', 'elliptic_f', 'elliptic_inv_p', 'elliptic_invariants', 'elliptic_k', 'elliptic_p', 'elliptic_pi', 'elliptic_pi_inc', 'elliptic_rc', 'elliptic_rd', 'elliptic_rf', 'elliptic_rg', 'elliptic_rj', 'elliptic_roots', 'elliptic_sigma', 'elliptic_zeta', 'erf', 'erfc', 'erfi', 'exp', 'exp_pi_i', 'expint', 'expm1', 'fresnel_c', 'fresnel_s', 'gamma', 'gamma_lower', 'gamma_upper', 'gegenbauer_c', 'hermite_h', 'hypgeom', 'hypgeom_0f1', 'hypgeom_1f1', 'hypgeom_2f1', 'hypgeom_u', 'imag', 'integral', 'is_exact', 'is_finite', 'is_zero', 'jacobi_p', 'laguerre_l', 'lambertw', 'legendre_p', 'legendre_q', 'lerch_phi', 'lgamma', 'li', 'log', 'log1p', 'log_barnes_g', 'log_sin_pi', 'mid', 'modular_delta', 'modular_eta', 'modular_j', 'modular_lambda', 'modular_theta', 'neg', 'overlaps', 'pi', 'polygamma', 'polylog', 'pow', 'rad', 'real', 'real_abs', 'real_ceil', 'real_floor', 'real_heaviside', 'real_max', 'real_min', 'real_sgn', 'real_sqrt', 'rel_accuracy_bits', 'rel_one_accuracy_bits', 'repr', 'rgamma', 'rising', 'rising2', 'root', 'rsqrt', 'sec', 'sech', 'sgn', 'shi', 'si', 'sin', 'sin_cos', 'sin_cos_pi', 'sin_pi', 'sinc', 'sinc_pi', 'sinh', 'sinh_cosh', 'spherical_y', 'sqrt', 'stieltjes', 'str', 'tan', 'tan_pi', 'tanh', 'union', 'unique_fmpz', 'zeta', 'zeta_zero', 'zeta_zeros']
+([-0.163000860195660227203862536512189962115290507549819323545 +/- 4.07e-58] + [-0.061614720517855192318298801785715339803948439585797677174 +/- 2.63e-58]j) + ([0.905219239048975460895412455578719339877254995257794972083 +/- 5.29e-58] + [0.202227169878370002323222939525099867873215225011243993860 +/- 8.42e-58]j)*x + ([-0.35049546648340883728510791271681864724690732791248359876 +/- 1.05e-57] + [-0.160511682054623978951509509924909368150466884740946799329 +/- 8.62e-58]j)*x^2 + O(x^3)
+([1.852304454107180469975898568192718467518124665778275452471 +/- 2.64e-58] + [1.924176396334275029099528385383585351800494360285812661843 +/- 4.06e-58]j) + ([0.680173982149829370779043824276344730435201546896364914037 +/- 9.04e-58] + [-0.470821413621870276562304877076140121784823083732795230956 +/- 8.19e-58]j)*x + ([0.66646189226603946255283814459740585761177113818952064132 +/- 5.50e-57] + [0.54195281680125076725854854285181918321903172977560539571 +/- 5.36e-57]j)*x^2 + O(x^3)
+[0.15303821559156061016922565830854724164788421882707643797380 +/- 2.32e-60] + [0.018410014614142463913156725411441328920695191193145334313385 +/- 2.46e-61]j
+acb.gamma_upper(self, s, int regularized=0)
+
+Upper incomplete gamma function `\Gamma(s,z)`. The argument *z*
+is given by *self* and the order *s* is passed as an extra parameter.
+Optionally the regularized version `Q(s,z)` can be computed.
+
+    >>> from flint import showgood
+    >>> showgood(lambda: acb(2+3j).gamma_upper(1+2j), dps=25)
+    0.02614303924198793235765248 - 0.0007536537278463329391666679j
+    >>> showgood(lambda: acb(2+3j).gamma_upper(1+2j, regularized=True), dps=25)
+    0.1685897763996036749499208 - 0.02694171301624093921683609j
+acb.integral(func, a, b, params=None, rel_tol=None, abs_tol=None, deg_limit=None, eval_limit=None, depth_limit=None, use_heap=None, verbose=None)
+
+Computes the integral `\int_a^b f(x) dx` where the integrand
+*f* is defined by *func*.
+
+    >>> from flint import arb
+    >>> from flint import showgood
+    >>> showgood(lambda: acb.integral(lambda x, _: x.sin(), 0, arb.pi()), dps=25)
+    2.000000000000000000000000
+    >>> showgood(lambda: acb.integral(lambda x, _: (x + x.sin()).gamma(), 1, 1+1j), dps=25)
+    -0.2732681890680958866139676 + 0.7064496061603478580993410j
+
+The function *func* takes two parameters as input: the
+argument *x* and a boolean flag *analytic*. If *analytic*
+is False, *func* should return `f(x)`, and in this case
+there are no restrictions on *f*; for instance, the integrand
+can be discontinuous on *x*.
+If *analytic* is True, *func* must verify that *f* is analytic
+on *x*, and if not, return a non-finite ball instead of `f(x)`.
+
+The *analytic* flag can be ignored for meromorphic functions,
+because evaluation at poles automatically leads to non-finite
+balls. However, it *must* be checked for functions that are
+non-analytic in some regions (for instance, functions with
+branch cuts such as `\sqrt{x}` and `\log(x)`), even if the
+integration path does not touch any non-analytic points.
+Some methods have an *analytic* option built-in, so the user
+simply has to forward this flag:
+
+    >>> from flint import showgood
+    >>> showgood(lambda: acb.integral(lambda x, _: x.sqrt(), 1, 4), dps=25)  # WRONG!!!
+    4.669414894781006338774348
+    >>> showgood(lambda: acb.integral(lambda x, a: x.sqrt(analytic=a), 1, 4), dps=25)  # correct
+    4.666666666666666666666667
+
+The following works without handling the *analytic* flag,
+because the integrand is meromorphic:
+
+    >>> from flint import showgood
+    >>> showgood(lambda: acb.integral(lambda x, _: x.sech(), -1000, 1000), dps=25)
+    3.141592653589793238462643
+
+The options *rel_tol* and *abs_tol* specify the relative
+and absolute tolerance goal for the integration.
+Both default to `2^{-p}` where *p* is the current precision.
+
+The options *deg_limit*, *eval_limit*, *depth_limit* and
+*use_heap* allow control over the amount of work done before
+aborting; see the documentation for *acb_calc_integrate* for
+details.
+1.0000000000000000000000000000000000000000000000000000000000j [0.95871612271688315539193642933117852641597153075829606867240 +/- 5.75e-60] + [0.14556587678508959046170451181198645372080514688909901383423 +/- 3.86e-60]j
+dirichlet_char.l(self, s)
+
+Alias for :meth:`l_function`
+[-0.17861571688697783705048011088512035283318465600965553654525 +/- 3.77e-60] + [-1.7995358423131501532853593589338178894282017648505854839346 +/- 5.87e-60]j
+acb.zeta(s, a=None)
+
+Riemann zeta function `\zeta(s)`, or the Hurwitz
+zeta function `\zeta(s,a)` if a second parameter is passed.
+
+    >>> from flint import showgood
+    >>> showgood(lambda: acb(0.5,1000).zeta(), dps=25)
+    0.3563343671943960550744025 + 0.9319978312329936651150604j
+    >>> showgood(lambda: acb(1,2).zeta(acb(2,3)), dps=25)
+    -2.953059572088556722876240 + 3.410962524512050603254574j

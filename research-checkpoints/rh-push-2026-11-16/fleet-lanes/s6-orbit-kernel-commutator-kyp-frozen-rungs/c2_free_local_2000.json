@@ -1,0 +1,35 @@
+[
+ {
+  "ratio_R_over_D": 0.8304802824245927,
+  "trK_over_trD": 0.17068799977140153,
+  "min_eig_K": -6.887498884050353e-17,
+  "n": 2000,
+  "nodes": "log-prime-powers",
+  "range": [
+   0.6931471805599453,
+   9.728360056322414
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.8287973795819883,
+  "trK_over_trD": 0.1724487552185539,
+  "min_eig_K": -2.2971222811239297e-17,
+  "n": 2000,
+  "nodes": "log-smooth-count (arithmetic-free, same counting function)",
+  "range": [
+   0.6931471805599453,
+   9.705750208673837
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7321351460887517,
+  "trK_over_trD": 0.26540538975470157,
+  "min_eig_K": -3.3731001791120277e-18,
+  "n": 2000,
+  "nodes": "equispaced on [log 2, log p_n]",
+  "range": [
+   0.6931471805599453,
+   9.728360056322414
+  ]
+ }
+]

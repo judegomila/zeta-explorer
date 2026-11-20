@@ -1,0 +1,1265 @@
+{
+ "generated": 38112,
+ "rejected": 27386,
+ "scored": 10726,
+ "rejectedBy": {
+  "contains a closed device: finite-support-positivity": 441,
+  "closed family: fam-order2-theta-rows": 668,
+  "closed family: fam-legendre-dual-limits": 1439,
+  "contains a combination closed in outcomes.json": 1973,
+  "contains a closed device: positive-kernel-transport": 546,
+  "closed family: fam-vaughan-split-landau": 329,
+  "contains a closed device: residue-explicit-formula": 480,
+  "covariant under shift and reciprocal (RZ_b passes every step)": 401,
+  "closed family: fam-one-zero-forces-many": 213,
+  "closed family: fam-nb-gram-lammin": 382,
+  "closed family: fam-projection-domination-gonek": 283,
+  "closed family: fam-arithmetic-nb-span": 266,
+  "shares two nodes with a closed lane (nodes or launchedNodes)": 541,
+  "contains a closed device: euler-fe-phase-at-height": 368,
+  "closed family: fam-euler-anchor-heat": 666,
+  "closed family: fam-hecke-shear-commutator": 53,
+  "closed family: fam-pd-log-strip": 6,
+  "contains a closed device: monotone-flow-functional": 750,
+  "contains a closed device: mean-value-convexity": 398,
+  "closed family: fam-laxphillips-hecke-compression": 35,
+  "contains a closed device: exact-uniqueness": 26,
+  "closed family: fam-linear-zero-measure-lmi": 32,
+  "closed family: fam-helson-discrepancy-zerofree": 13,
+  "closed family: fam-selberg-control-companion": 641,
+  "closed family: fam-torus-exclusion-sign-test": 123,
+  "contains a closed device: geometric-positivity": 152,
+  "only arithmetic step is target-blind algebra (same for every control)": 15,
+  "contains a closed device: recurrence-ergodicity": 46,
+  "closed family: fam-heat-monotone-hankel": 204,
+  "no open or floored crossing device (curated/devices.json)": 14298,
+  "all members flow-stable and none arithmetic (backward heat passes)": 586,
+  "closed family: fam-primitive-test-restriction": 597,
+  "all members attached to one closed row": 13,
+  "contains a closed device: dual-measure-compactness": 34,
+  "closed family: fam-multidelay-section": 52,
+  "all members from one module": 4,
+  "closed family: fam-stage-limit-semicontinuity": 135,
+  "closed family: fam-reflected-euler-stage-canonical": 18,
+  "no member uses multiplicativity (DH passes)": 38,
+  "contains a closed device: maximum-principle": 121
+ },
+ "graph": {
+  "nodes": 1572,
+  "edges": 8558,
+  "byType": {
+   "mechanism": 79,
+   "identity": 394,
+   "conjecture": 14,
+   "tool": 57,
+   "obstruction": 560,
+   "measured-phenomenon": 217,
+   "open-lemma": 118,
+   "control": 49,
+   "object": 61,
+   "open-direction": 22,
+   "target": 1
+  },
+  "byOrigin": {
+   "corpus": 1226,
+   "map": 269,
+   "outcome": 77
+  },
+  "edgesByType": {
+   "composes-with": 7311,
+   "control-defeats": 621,
+   "obstructs": 221,
+   "restates": 176,
+   "separates-from": 4,
+   "special-case-of": 131,
+   "uses": 94
+  },
+  "live": 953,
+  "rows": 182,
+  "controls": 15,
+  "underused": 20,
+  "devices": {
+   "closed": 51,
+   "open": 3,
+   "floored": 6
+  },
+  "devicesLive": {
+   "closed": 48,
+   "open": 3,
+   "floored": 6
+  },
+  "crossingKeyword": 262
+ },
+ "r4Rules": {
+  "active": true,
+  "firedIndependentlyOfOrder": {
+   "closed device": 3362,
+   "shift-reciprocal covariant": 401,
+   "target-blind": 15,
+   "no crossing device": 17011
+  },
+  "targetBlindArithNodes": [
+   "theta-dual-mseries-is-twisted-kubota"
+  ],
+  "deviceNodesLive": {
+   "open": [
+    "map-open-1",
+    "map-open-21",
+    "map-open-9"
+   ],
+   "floored": [
+    "map-open-2",
+    "map-open-4",
+    "map-pos-35",
+    "qrh-seven-eighths",
+    "seven-eighths-abscissa-formula",
+    "tro6-natural"
+   ],
+   "closed": [
+    "bagchi-strong-recurrence",
+    "cofinal-legendre-dual",
+    "cofinal-mobius-sum-equals-x-m",
+    "cofinal-pointwise-mobius-sum",
+    "collision-local-index",
+    "dbn-prime-torus-phase-closure",
+    "discriminant-gradient-flow",
+    "euler-anchor-heat-certificate",
+    "euler-fe-coupling-at-height",
+    "fe-plus-reality-rigidity",
+    "fourth-stage-schwarzian",
+    "h5-euler-products-bounded",
+    "harmonic-strip-transport",
+    "heat-evolved-von-mangoldt-positivity",
+    "heegner-height-upper-bound-h4prime",
+    "heegner-nb-ratio",
+    "inverse-line-cotangent-mean-value",
+    "klein-phase-transport-certificate",
+    "kronecker-sup-rms-transfer",
+    "lac-eq-caratheodory-interpolation",
+    "map-open-10",
+    "map-open-11",
+    "map-open-12",
+    "map-open-16",
+    "map-open-17",
+    "map-open-19",
+    "map-open-20",
+    "map-open-6",
+    "map-open-7",
+    "map-open-8",
+    "nyman-beurling-dx",
+    "offline-zero-visibility-law",
+    "phase-retrieval-zeta",
+    "pick-weil-native-span",
+    "positive-real-ladder-step",
+    "pulse-leakage-zero-target",
+    "resolvent-burgers-identity",
+    "route-m-quarter-ceiling",
+    "scalar-comparison-target",
+    "schur-ratio-max-principle-gap",
+    "selberg-control-pair",
+    "selberg-freeze-sandbox",
+    "selberg-zeta-companion",
+    "spec-z-squared-hodge-index",
+    "suzuki-reserve-update",
+    "suzuki-screw-response-psi",
+    "suzuki-spectral-convergence",
+    "tinfty-flow-generator-spectrum"
+   ]
+  },
+  "topWithOpenDevice": 25,
+  "topWithFlooredDeviceOnly": 35,
+  "topWithClosedDevice": 0,
+  "topWithDevice": 60,
+  "topWithSharedObject": 56
+ },
+ "top": [
+  {
+   "rank": 1,
+   "score": 18.79,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 2,
+   "score": 17.21,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "phi-autocorrelation-weight",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 3,
+   "score": 15.36,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "alias-width-law-octave-weight",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 4,
+   "score": 15.36,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-theta-kernel-phi",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 5,
+   "score": 15.28,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "subleading-k-closed-form",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 6,
+   "score": 15.28,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "katz-sarnak-family-checks",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 7,
+   "score": 15.0,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "sep-opt-lattice-extremal",
+    "cotangent-reciprocity-period-function",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 8,
+   "score": 15.0,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "sextic-theta-numerics",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 9,
+   "score": 15.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "tro6-natural",
+    "gauss-plancherel-alias-lemma",
+    "route-m-first-moment-kappa"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 10,
+   "score": 14.96,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "lean-weil-small-support",
+    "mem-atlas-closing-line",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 11,
+   "score": 14.62,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "zv-boundary-kernel-pa",
+    "restricted-mobius-delay-lift",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 12,
+   "score": 14.54,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "map-open-4",
+    "finite-support-euler-detector",
+    "connes-twin-ladder-crosswalk"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 13,
+   "score": 14.54,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "theta-density-positivity",
+    "staged-strip-triangular-inequality",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 14,
+   "score": 14.31,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-theta-kernel-phi",
+    "qrh-seven-eighths",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    },
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 15,
+   "score": 14.28,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-dirichlet-energy-fold",
+    "ramanujan-cube-satake-point",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 16,
+   "score": 14.23,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "star-min-pointwise-prime-bound",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 17,
+   "score": 14.03,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "gl2-weil-symbol",
+    "finite-support-euler-detector",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 18,
+   "score": 14.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "sun-catalan-preprint-verdict",
+    "mem-qrh-7-8",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 19,
+   "score": 14.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "sun-catalan-preprint-verdict",
+    "qrh-seven-eighths-input",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 20,
+   "score": 14.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "tro6-natural",
+    "map-pos-49",
+    "mem-qrh-7-8"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 21,
+   "score": 13.92,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-annulus-dtn-operator",
+    "star-min-pointwise-prime-bound",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 22,
+   "score": 13.81,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "theta-modular-ode-system",
+    "ramanujan-cube-satake-point",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 23,
+   "score": 13.76,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "two-tents-joint-zero-completeness",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 24,
+   "score": 13.58,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "lean-weil-small-support",
+    "arch-native-prime-jordan-product",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 25,
+   "score": 13.37,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "two-line-zero-detector",
+    "zv-divisor-cosine-euler-product",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 26,
+   "score": 13.37,
+   "move": "M3",
+   "theme": "nyman",
+   "nodes": [
+    "rm-kappa-smooth-open",
+    "binet-positive-kernel",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 27,
+   "score": 13.32,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "rz-twin-block-riesz-floor",
+    "route-i-toeplitz-krein",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 28,
+   "score": 13.25,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-signed-shear-w",
+    "staged-strip-triangular-inequality",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 29,
+   "score": 13.22,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "theta-density-positivity",
+    "ns-rigid-loophole-dirichlet-coefficients",
+    "tro6-natural"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 30,
+   "score": 13.0,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "multi-rung-weil-symbol",
+    "box-defect-psi-w",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 31,
+   "score": 13.0,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "sextic-theta-numerics",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 32,
+   "score": 13.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "tro6-natural",
+    "qrh-seven-eighths",
+    "mem-abscissa-formula"
+   ],
+   "devices": [
+    {
+     "id": "tro6-natural",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 33,
+   "score": 13.0,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "map-open-21",
+    "mobius-deaveraging-price",
+    "v7-floor-theorem-c"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 34,
+   "score": 13.0,
+   "move": "M3",
+   "theme": "geometry",
+   "nodes": [
+    "map-open-9",
+    "frobenius-gcd-factorisation",
+    "route-m-lammax-bounded"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 35,
+   "score": 13.0,
+   "move": "M3",
+   "theme": "nyman",
+   "nodes": [
+    "map-open-9",
+    "rm-inverse-line-detection-identity",
+    "rm-kappa-total-measured"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 36,
+   "score": 12.93,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "gamma-bulk-identity",
+    "landau-transport-lemma-l",
+    "map-open-21"
+   ],
+   "devices": [
+    {
+     "id": "map-open-21",
+     "kind": "open",
+     "type": "twisted-discrepancy"
+    }
+   ]
+  },
+  {
+   "rank": 37,
+   "score": 12.93,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "phi-truncation-leftmost-zero",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 38,
+   "score": 12.86,
+   "move": "M1",
+   "theme": "statistics",
+   "nodes": [
+    "parity-pure-maj-witness-threshold",
+    "cotangent-second-moment-upper-lemma",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 39,
+   "score": 12.74,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "route-m-vasyunin-gram",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 40,
+   "score": 12.39,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "two-line-zero-detector",
+    "prime-delay-domination-18-2",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 41,
+   "score": 12.08,
+   "move": "M1",
+   "theme": "statistics",
+   "nodes": [
+    "m23-conjugation-closed-ordinates",
+    "alpoge-furman-inertia-mechanism",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 42,
+   "score": 12.0,
+   "move": "M3",
+   "theme": "nyman",
+   "nodes": [
+    "map-open-9",
+    "rm-e0-uniform-remainder",
+    "rm-sign-law-t-negative"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 43,
+   "score": 11.98,
+   "move": "M1",
+   "theme": "nyman",
+   "nodes": [
+    "zeta-half-line-bound-6",
+    "rm-second-moment-split",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 44,
+   "score": 11.81,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 45,
+   "score": 11.36,
+   "move": "M1",
+   "theme": "flow",
+   "nodes": [
+    "mesoscopic-density-floor-cotangent",
+    "lane-audit-h-desc",
+    "map-open-9"
+   ],
+   "devices": [
+    {
+     "id": "map-open-9",
+     "kind": "open",
+     "type": "quadratic-positivity-companions"
+    }
+   ]
+  },
+  {
+   "rank": 46,
+   "score": 11.01,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "hasse-weil-checks",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 47,
+   "score": 11.0,
+   "move": "M3",
+   "theme": "flow",
+   "nodes": [
+    "s-barrier-statement",
+    "heat-family-h-tau",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 48,
+   "score": 10.97,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "tilt-det-majorant",
+    "ff-three-approaches-one-statement",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 49,
+   "score": 10.7,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-taylor-rouche-channel-criterion",
+    "prime-tent-rh-equivalence",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 50,
+   "score": 10.64,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "zv-signed-shear-w",
+    "function-field-twin-ladder",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 51,
+   "score": 10.34,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "np-pick-seam-pencil",
+    "route-i-krein-certificate",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 52,
+   "score": 10.24,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "exact-witness-quadratic-cosine",
+    "qtl-weil-delay-form",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 53,
+   "score": 10.0,
+   "move": "M4",
+   "theme": "prime-chain",
+   "nodes": [
+    "lemma-cg-covering-identity",
+    "route-m-first-moment-kappa",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    {
+     "id": "seven-eighths-abscissa-formula",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 54,
+   "score": 9.97,
+   "move": "M1",
+   "theme": "flow",
+   "nodes": [
+    "tilt-det-majorant",
+    "ce17-carrier-contract-open-family",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 55,
+   "score": 9.83,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "lean-cg-covering-identity",
+    "weil-small-support-lean",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 56,
+   "score": 9.76,
+   "move": "M1",
+   "theme": "flow",
+   "nodes": [
+    "route-b-limsup-stieltjes",
+    "corr23-continuity-spectral-criterion",
+    "map-open-4"
+   ],
+   "devices": [
+    {
+     "id": "map-open-4",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 57,
+   "score": 9.72,
+   "move": "M3",
+   "theme": "prime-chain",
+   "nodes": [
+    "mem-concentration-dip-open",
+    "gauss-plancherel-alias-lemma",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    {
+     "id": "seven-eighths-abscissa-formula",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 58,
+   "score": 9.57,
+   "move": "M4",
+   "theme": "flow",
+   "nodes": [
+    "collision-ladder-data",
+    "selberg-zeta-freeze-sandbox",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    {
+     "id": "seven-eighths-abscissa-formula",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  },
+  {
+   "rank": 59,
+   "score": 9.22,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "qrh-conditional-lambda",
+    "map-open-1"
+   ],
+   "devices": [
+    {
+     "id": "map-open-1",
+     "kind": "open",
+     "type": "effective-order-two"
+    }
+   ]
+  },
+  {
+   "rank": 60,
+   "score": 9.21,
+   "move": "M3",
+   "theme": "flow",
+   "nodes": [
+    "joint-h3-h4-minimal-input",
+    "cm-flow-theta-trap",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    {
+     "id": "qrh-seven-eighths",
+     "kind": "floored",
+     "type": "coherent-set-large-sieve"
+    }
+   ]
+  }
+ ]
+}

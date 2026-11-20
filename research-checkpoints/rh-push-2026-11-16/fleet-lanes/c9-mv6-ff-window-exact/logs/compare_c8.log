@@ -1,0 +1,11 @@
+q d N lam mode p1 p2 p3 = 7 2 2 10 0 3 2 3 | c8 (ffx en, stored tables): 205929528390 | c9 (ffw enw, streaming): 205929528390 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 10 0 3 8 3 | c8 (ffx en, stored tables): 77353483554 | c9 (ffw enw, streaming): 77353483554 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 10 4 0 0 0 | c8 (ffx en, stored tables): 8637013434798 | c9 (ffw enw, streaming): 8637013434798 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 10 5 0 0 0 | c8 (ffx en, stored tables): 1341148005139807971 | c9 (ffw enw, streaming): 1341148005139807971 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 10 1 11 0 0 | c8 (ffx en, stored tables): 44249885135 | c9 (ffw enw, streaming): 46936506032 | np, sumnorm, diag, sW2 identical: False
+q d N lam mode p1 p2 p3 = 7 2 2 7 0 3 2 3 | c8 (ffx en, stored tables): 247423680 | c9 (ffw enw, streaming): 247423680 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 7 0 3 8 3 | c8 (ffx en, stored tables): 130589712 | c9 (ffw enw, streaming): 130589712 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 7 4 0 0 0 | c8 (ffx en, stored tables): 7668597888 | c9 (ffw enw, streaming): 7668597888 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 7 5 0 0 0 | c8 (ffx en, stored tables): 23266856566800 | c9 (ffw enw, streaming): 23266856566800 | np, sumnorm, diag, sW2 identical: True
+q d N lam mode p1 p2 p3 = 7 2 2 7 1 11 0 0 | c8 (ffx en, stored tables): 226388096 | c9 (ffw enw, streaming): 196068716 | np, sumnorm, diag, sW2 identical: False
+10 energies in common with the round-8 result files; identical: 8

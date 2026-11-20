@@ -1,0 +1,89 @@
+{
+ "slug": "s3-truncated-euler-strip",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "euler-product-resolves-window",
+  "first-radix-layer-criterion",
+  "gauss-plancherel-alias-lemma",
+  "h5-euler-products-bounded",
+  "harmonic-strip-transport",
+  "mv-cap-function-side-gap",
+  "poisson-prime-tail-energy",
+  "prime-square-pole-recurrence",
+  "prime-square-remainder-c3",
+  "window-edge-depth-requirement",
+  "zv-divisor-cosine-euler-product",
+  "zv-prime-mode-mixer"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "h5-euler-products-bounded",
+    "harmonic-strip-transport",
+    "poisson-prime-tail-energy"
+   ],
+   "obstruction": "explicit formula: no control fails below the resolution of its own zero; non-RH controls pass a statement that is RH-equivalent for zeta",
+   "controlsThatDefeat": [
+    "THIN",
+    "DEL",
+    "T-NR q=1000003",
+    "E_a",
+    "DH below Y=1e6"
+   ]
+  },
+  {
+   "nodes": [
+    "first-radix-layer-criterion",
+    "prime-square-pole-recurrence",
+    "prime-square-remainder-c3"
+   ],
+   "obstruction": "prime-square bias term, not zeros; THIN, DEL pass and T-NR q=1000003 fails only from N=q",
+   "controlsThatDefeat": [
+    "THIN",
+    "DEL",
+    "T-NR q=1000003"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-divisor-cosine-euler-product",
+    "zv-prime-mode-mixer",
+    "gauss-plancherel-alias-lemma"
+   ],
+   "obstruction": "tests the multiplicative coefficient relation, independent of zeros: stops separating at the first multiplicative control",
+   "controlsThatDefeat": [
+    "T-NR",
+    "E_a (test empty)"
+   ]
+  },
+  {
+   "nodes": [
+    "euler-product-resolves-window",
+    "mv-cap-function-side-gap",
+    "window-edge-depth-requirement"
+   ],
+   "obstruction": "separation exists only to the right of 1; DH is pinned by its own Dirichlet series: no control fails",
+   "controlsThatDefeat": [
+    "DH",
+    "every control"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) explicit formula: no control fails below the resolution of its own zero; non-RH controls pass a statement that is RH-equivalent for zeta | (2) prime-square bias term, not zeros; THIN, DEL pass and T-NR q=1000003 fails only from N=q | (3) tests the multiplicative coefficient relation, independent of zeros: stops separating at the first multiplicative control | (4) separation exists only to the right of 1; DH is pinned by its own Dirichlet series: no control fails",
+ "controlsThatDefeat": [
+  "DEL",
+  "DH",
+  "DH below Y=1e6",
+  "E_a",
+  "E_a (test empty)",
+  "T-NR",
+  "T-NR q=1000003",
+  "THIN",
+  "every control"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-truncated-euler-strip/RESULT.md"
+}

@@ -1,0 +1,7 @@
+rows 43996 XMAX 100000000000 pi(XMAX) 4118054813
+prime count checks {'pi(1e+07)': [664579, 664579, True], 'pi(1e+08)': [5761455, 5761455, True], 'pi(1e+09)': [50847534, 50847534, True], 'pi(1e+10)': [455052511, 455052511, True], 'pi(1e+11)': [4118054813, 4118054813, True]}
+{'theta(1e10)': ['9999939830.657757384', '9999939830.657757 (literature)']}
+tents done {'0.55': {'largest_gamma_with_violation': 7.4980284192426065, 'smallest_gamma_without_violation': 7.407881645270294}, '0.6': {'largest_gamma_with_violation': 15.968441289197592, 'smallest_gamma_without_violation': 8.565063759422728}, '0.7': {'largest_gamma_with_violation': 77.40787980599185, 'smallest_gamma_without_violation': 26.862322027024963}, '0.75': {'largest_gamma_with_violation': 131.8011636870002, 'smallest_gamma_without_violation': 54.17766492998948}, '0.8': {'largest_gamma_with_violation': 267.43762081484937, 'smallest_gamma_without_violation': 108.61016941280167}, '0.9': {'largest_gamma_with_violation': 929.5791010003067, 'smallest_gamma_without_violation': 398.63282219155866}, '1.0': {'largest_gamma_with_violation': 3059.92999303551, 'smallest_gamma_without_violation': 1631.3721402498109}}
+pascal done ['14531.8848456286', '14531.8848456286']
+robin done
+ALL DONE

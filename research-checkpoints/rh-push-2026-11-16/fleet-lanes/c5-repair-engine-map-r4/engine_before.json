@@ -1,0 +1,190 @@
+{
+ "generated": 63111,
+ "rejected": 42418,
+ "scored": 20693,
+ "rejectedBy": {
+  "closed family: fam-legendre-dual-limits": 2637,
+  "no crossing device for R4: crossing member is a mean-value object (MV-CAP)": 3097,
+  "no crossing device for R4: crossing member is on the flow / Lambda side (HEAT, verified height)": 9060,
+  "contains a combination closed in outcomes.json": 1988,
+  "no crossing device for R4: crossing member is a measured phenomenon": 3682,
+  "closed family: fam-nb-gram-lammin": 2066,
+  "closed family: fam-selberg-control-companion": 1885,
+  "closed family: fam-one-zero-forces-many": 862,
+  "shares two nodes with a closed lane (nodes or launchedNodes)": 794,
+  "closed family: fam-stage-limit-semicontinuity": 521,
+  "no crossing device for R4: crossing member is a finite certificate, a formal replay or a visualisation": 899,
+  "closed family: fam-projection-domination-gonek": 415,
+  "closed family: fam-torus-exclusion-sign-test": 319,
+  "covariant under shift and reciprocal (RZ_b passes every step)": 373,
+  "closed family: fam-order2-theta-rows": 510,
+  "closed family: fam-heat-monotone-hankel": 123,
+  "closed family: fam-hecke-shear-commutator": 178,
+  "closed family: fam-arithmetic-nb-span": 339,
+  "closed family: fam-reflected-euler-stage-canonical": 49,
+  "closed family: fam-euler-anchor-heat": 605,
+  "closed family: fam-pd-log-strip": 16,
+  "closed family: fam-linear-zero-measure-lmi": 58,
+  "closed family: fam-vaughan-split-landau": 242,
+  "closed family: fam-primitive-test-restriction": 290,
+  "only arithmetic step is target-blind algebra (same for every control)": 109,
+  "no crossing device for R4: no member has the crossing role": 7761,
+  "all members flow-stable and none arithmetic (backward heat passes)": 573,
+  "all members attached to one closed row": 13,
+  "closed family: fam-multidelay-section": 50,
+  "all members from one module": 5,
+  "no member uses multiplicativity (DH passes)": 2899
+ },
+ "top": 60,
+ "topClosed": 24,
+ "topOpen": 0,
+ "topFloored": 1,
+ "topTargetForm": 17,
+ "closedRanks": [
+  [
+   2,
+   [
+    "inverse-line-cotangent-mean-value"
+   ]
+  ],
+  [
+   3,
+   [
+    "pick-weil-native-span"
+   ]
+  ],
+  [
+   6,
+   [
+    "inverse-line-cotangent-mean-value"
+   ]
+  ],
+  [
+   7,
+   [
+    "harmonic-strip-transport"
+   ]
+  ],
+  [
+   8,
+   [
+    "hecke-compression-lax-phillips"
+   ]
+  ],
+  [
+   10,
+   [
+    "helson-discrepancy-rigidity"
+   ]
+  ],
+  [
+   11,
+   [
+    "hecke-compression-lax-phillips"
+   ]
+  ],
+  [
+   14,
+   [
+    "helson-discrepancy-rigidity"
+   ]
+  ],
+  [
+   16,
+   [
+    "pick-weil-native-span",
+    "harmonic-strip-transport"
+   ]
+  ],
+  [
+   18,
+   [
+    "schur-ratio-max-principle-gap"
+   ]
+  ],
+  [
+   23,
+   [
+    "schur-ratio-max-principle-gap"
+   ]
+  ],
+  [
+   27,
+   [
+    "tinfty-flow-generator-spectrum"
+   ]
+  ],
+  [
+   29,
+   [
+    "rouche-fe-symmetrised-euler-stage"
+   ]
+  ],
+  [
+   33,
+   [
+    "rouche-fe-symmetrised-euler-stage"
+   ]
+  ],
+  [
+   34,
+   [
+    "discriminant-gradient-flow"
+   ]
+  ],
+  [
+   35,
+   [
+    "kronecker-sup-rms-transfer"
+   ]
+  ],
+  [
+   39,
+   [
+    "klein-phase-transport-certificate"
+   ]
+  ],
+  [
+   42,
+   [
+    "scalar-comparison-target"
+   ]
+  ],
+  [
+   48,
+   [
+    "kronecker-sup-rms-transfer"
+   ]
+  ],
+  [
+   55,
+   [
+    "klein-phase-transport-certificate"
+   ]
+  ],
+  [
+   56,
+   [
+    "lac-eq-caratheodory-interpolation"
+   ]
+  ],
+  [
+   57,
+   [
+    "suzuki-screw-response-psi"
+   ]
+  ],
+  [
+   58,
+   [
+    "scalar-comparison-target"
+   ]
+  ],
+  [
+   59,
+   [
+    "positive-real-ladder-step"
+   ]
+  ]
+ ]
+}

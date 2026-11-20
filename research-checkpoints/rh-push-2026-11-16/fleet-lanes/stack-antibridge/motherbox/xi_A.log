@@ -1,0 +1,10 @@
+twin {'n': 1, 'gamma': '[14.13472514 +/- 1.74e-9]', 'delta': '0.3', 'P': 7, 'Ke': 4, 'Ko': 4} t=167s
+twin {'n': 2, 'gamma': '[21.02203964 +/- 1.23e-9]', 'delta': '0.3', 'P': 12, 'Ke': 6, 'Ko': 7} t=169s
+twin {'n': 3, 'gamma': '[25.01085758 +/- 1.46e-10]', 'delta': '0.3', 'P': 15, 'Ke': 8, 'Ko': 8} t=170s
+twin {'n': 5, 'gamma': '[32.93506159 +/- 2.27e-9]', 'delta': '0.3', 'P': 24, 'Ke': 12, 'Ko': 13} t=173s
+twin {'n': 8, 'gamma': '[43.32707328 +/- 9.16e-10]', 'delta': '0.3', 'P': 34, 'Ke': 17, 'Ko': 18} t=176s
+twin {'n': 12, 'gamma': '[56.44624770 +/- 2.94e-9]', 'delta': '0.3', 'P': 49, 'Ke': 25, 'Ko': 25} t=179s
+twin {'n': 20, 'gamma': '[77.14484007 +/- 1.13e-9]', 'delta': '0.3', 'P': 81, 'Ke': 41, 'Ko': 41} t=187s
+xi P all 100 pivots certified positive t=194s
+xi Ke all 100 pivots certified positive t=202s
+xi Ko all 100 pivots certified positive t=209s

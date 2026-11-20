@@ -1,0 +1,7 @@
+klein LCHI4 r=1.5 L=100 N=2^15 kmax=16000 circles 7; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.05 v=0.250305944638 xmin=0.05 wind=-0.000000-1.09e-09j max|t|=2.499e+04 tail |hhat| at N/2: 2.05e-02 (rel to max 3.54e-08) 1.6 s
+circle x:0.1 v=0.250611888846 xmin=0.1 wind=-0.000000+5.41e-10j max|t|=1.25e+04 tail |hhat| at N/2: 1.24e-09 (rel to max 4.61e-15) 1.7 s
+circle x:0.15 v=0.250917832191 xmin=0.15 wind=-0.000000+2.22e-10j max|t|=8331 tail |hhat| at N/2: 1.27e-09 (rel to max 7.39e-15) 1.8 s
+circle x:0.3 v=0.251835652750 xmin=0.3 wind=-0.000000-4.40e-11j max|t|=4167 tail |hhat| at N/2: 3.10e-10 (rel to max 3.92e-15) 1.4 s
+circle x:0.5 v=0.253059375293 xmin=0.5 wind=0.001899-2.34e-11j max|t|=2500 tail |hhat| at N/2: 1.19e-02 (rel to max 2.68e-07) 1.5 s
+circle x:0.7 v=0.254283028904 xmin=0.7 wind=-0.000000-1.03e-11j max|t|=1786 tail |hhat| at N/2: 4.15e-11 (rel to max 1.36e-15) 1.4 s

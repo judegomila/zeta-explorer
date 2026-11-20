@@ -1,0 +1,3 @@
+x=10000: psi(x)-x = 13.397; kappa(Lambda; Y<=3e6) = 1.0000 at c = -1.000; Lambda value in cof units (psi(x)-x)/(kappa(1+log x)) = 1.312 = 0.0131 sqrt(x)
+x=40000: psi(x)-x = 12.894; kappa(Lambda; Y<=3e6) = 1.0000 at c = -1.000; Lambda value in cof units (psi(x)-x)/(kappa(1+log x)) = 1.112 = 0.0056 sqrt(x)
+x=160000: psi(x)-x = 37.203; kappa(Lambda; Y<=3e6) = 1.0000 at c = -1.000; Lambda value in cof units (psi(x)-x)/(kappa(1+log x)) = 2.866 = 0.0072 sqrt(x)

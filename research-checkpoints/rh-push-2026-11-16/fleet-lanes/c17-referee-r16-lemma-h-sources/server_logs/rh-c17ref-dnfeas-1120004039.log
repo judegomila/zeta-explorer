@@ -1,0 +1,14 @@
+planned memory: float64 blocks below 3 MB per worker; ball caches per node only; workers 8
+{'b2-with': 15784, 'b5l-with': 6724} 22508
+family-nodes 500, jobs 247
+job 25/247 30s
+job 50/247 52s
+job 75/247 74s
+job 100/247 96s
+job 125/247 119s
+job 150/247 142s
+job 175/247 165s
+job 200/247 190s
+job 225/247 212s
+{'b2-with/ttrain': 351, 'b5l-with/ttrain': 149} nleft>0: 0
+REF2-DONE 231s

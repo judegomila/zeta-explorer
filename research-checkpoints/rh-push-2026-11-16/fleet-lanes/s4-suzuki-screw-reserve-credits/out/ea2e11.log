@@ -1,0 +1,6 @@
+N=200000000000 chunks=746 threads=1 sizeof(long double)=8 LDBL_MANT=53
+planned memory: chunk records 0.001 GB, per-thread accumulators 0.001 GB x 1, moments 0.002 GB x 1
+pass A done 349.3 s
+pass B done 966.1 s
+DONE 966.1 s
+$M 8 ./sweep_local 2e11 params_ea_2e11.txt out/ea2e11 28  966.24s user 5.08s system 100% cpu 16:08.22 total

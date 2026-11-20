@@ -1,0 +1,9 @@
+T 1e+08 windows 150 H 63095.7 step 100000.0 y {'1/2': 10000, '4/7': 37275} R 1.30 gpu False extended False
+grid: h <= 0.1203, M = 524288 samples per window, FFT size 1048576, sources up to 70086
+planned allocation: per-window working set ~40 complex128 arrays of M and 3 of 2M = 385.9 MB
+window 300 Tw 1.3e+08  7.4s  ZETA|MU|4/7 kJ 0.4567 knJ 0.7738 gap 0.3171   DH|MURE|4/7 kJ -0.1866 knJ 0.6363 gap 0.8229
+window 301 Tw 1.301e+08  14.5s  ZETA|MU|4/7 kJ 0.4546 knJ 0.7736 gap 0.3189   DH|MURE|4/7 kJ -0.1872 knJ 0.6373 gap 0.8245
+window 302 Tw 1.302e+08  21.3s  ZETA|MU|4/7 kJ 0.4554 knJ 0.7740 gap 0.3185   DH|MURE|4/7 kJ -0.1877 knJ 0.6383 gap 0.8260
+window 350 Tw 1.35e+08  272.3s  ZETA|MU|4/7 kJ 0.4545 knJ 0.7736 gap 0.3191   DH|MURE|4/7 kJ -0.1890 knJ 0.6381 gap 0.8271
+window 400 Tw 1.4e+08  467.9s  ZETA|MU|4/7 kJ 0.4547 knJ 0.7740 gap 0.3193   DH|MURE|4/7 kJ -0.1888 knJ 0.6367 gap 0.8255
+done 150 windows in 640s

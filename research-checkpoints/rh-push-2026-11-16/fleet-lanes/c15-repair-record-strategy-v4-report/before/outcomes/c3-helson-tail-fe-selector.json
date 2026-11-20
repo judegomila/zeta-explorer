@@ -1,0 +1,39 @@
+{
+ "slug": "c3-helson-tail-fe-selector",
+ "round": 3,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "torus",
+  "prime-torus",
+  "helson",
+  "tail-set",
+  "functional-equation",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No selector found. chi = 1 is in Helson's exceptional set E (pole at 1); RH is the statement 1 not in E_zero. E and E_zero are tail, flow-invariant, H-invariant, null and dense. E is comeagre (proved in the result); E_zero is comeagre (proved in the referee report, through non-continuation at s = 1 for generic chi, not through zeros). No closed set or G_delta contains the good set and misses E, and no rotation-invariant class separates chi = 1. The twin's drifted product measure is singular to Haar for 1/2 <= beta_0 < 0.975 and plants a simple zero at beta_0 when beta_0 > 1/2; equivalence to Haar excludes strip zeros and poles; zeta is the Dirac case. A property that holds at chi = 1 cannot be both tail and fail for finite modifications: strip zeros are a tail datum, the functional equation a one-orbit datum. Exact bounded discrepancy is not tail (Omega(log x) for chi(2) = -1, with corrected identity S(n) - n/3 = (2/3) sum (-1)^k b_k(n)); it names chi = 1 by Klurman / Klurman-Mangerel (recalled, not opened). H^2 cyclicity holds for every chi. Orbit genericity for log|zeta| is unconditional and density-only. The Mertens, half-plane outer and band-limited window forms are each equivalent to zero-freeness. The band-gap identity (Prop. 6) is correct, confirmed by independent code on zeta(s+a)zeta(s-a) and DH to about 1e-7; DH and zeta(s+a)zeta(s-a) both satisfy it, so it separates no control. No statement about zeros of zeta is established and no bound moves.",
+ "obstruction": "chi = 1 lies in Helson's exceptional set E (pole at 1); E and E_zero are tail, flow-invariant, null, dense and comeagre, so no closed set, G_delta or rotation-invariant class contains the good set and misses E. A property holding at chi = 1 cannot be both tail-measurable and fail for finite modifications: strip zeros are a tail datum, the functional equation a one-orbit datum. Every every-window statistic that sorts E_zero correctly (Mertens sum, half-plane outer, band-limited window mean) is equivalent to zero-freeness. The band-gap identity for window means of log|F| holds for DH and E_a as well.",
+ "obstructionKind": "tail-datum-versus-one-orbit-datum",
+ "controlsThatDefeat": [
+  "DH (satisfies the band-gap identity, about 1e-7)",
+  "E_a (satisfies the band-gap identity)",
+  "finite modifications of zeta (same tail class; defeat any tail-measurable property)",
+  "drifted product measure with a planted zero at beta_0 (singular to Haar; generic and a.e. statements do not see it)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, no selector) holds; five corrections, none changes it. Report: tmp/research-2026-11-16/push/c3-helson-tail-fe-selector/REFEREE.md\n\n1. Candidate 1a (labelled PROVED) has the wrong constant. The result states S(n) - n/3 = (1/2) sum (-1)^k b_k(n) + O(1). The correct identity is S(n) - n/3 = (2/3) sum (-1)^k b_k(n) exactly; the fractional-part sum was dropped as O(1) and is not. Measured for n <= 2^22: residual 0.000 with  [record truncated in transit; full text in push/c3-helson-tail-fe-selector/REFEREE.md]",
+ "lesson": "On T^inf the strip zeros are a tail datum (coset of chi under finite or summable changes) while the functional equation is a property of a single flow orbit, so a tail-measurable property cannot fail for finite modifications of zeta; Helson's a.e. statement does not reach chi = 1 (in E by its pole, E comeagre, Dirac mass singular to Haar), and every every-window statistic that sorts E_zero correctly is the zero-free statement itself.",
+ "followUp": "Test whether a quantitative non-tail property gives a strictly weaker tail conclusion: does sum chi(n) = cx + O(x^theta) for completely multiplicative unimodular chi force a zero-free region Re s > f(theta) with f(0) < 1, provable for finite modifications of zeta (discrepancy O(log x)) without going through zeta. Also open the Klurman-Mangerel source to confirm the Chudakov hypotheses, and referee Lemma 3 and Prop. 1(e). Server not used; all runs local under the 8 GB cap.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-helson-tail-fe-selector/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-helson-tail-fe-selector/REFEREE.md"
+}

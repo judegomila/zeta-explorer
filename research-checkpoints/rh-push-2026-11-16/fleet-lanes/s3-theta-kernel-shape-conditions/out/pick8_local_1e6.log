@@ -1,0 +1,5 @@
+pool zeta 125.8 s
+pool dh 258.0 s
+zeta det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+dh det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+./run_local.sh t_tp.py pick out/pick8_local_1e6.json zeta,dh 1000000 1024 204  401.83s user 3.32s system 92% cpu 7:16.84 total

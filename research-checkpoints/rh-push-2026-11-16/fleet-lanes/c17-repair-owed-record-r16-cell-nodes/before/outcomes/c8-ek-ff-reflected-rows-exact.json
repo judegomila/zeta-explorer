@@ -1,0 +1,51 @@
+{
+ "slug": "c8-ek-ff-reflected-rows-exact",
+ "round": 8,
+ "kind": "compute",
+ "nodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe",
+  "out-c8-ek-ff-reflected-rows-exact"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "prime-marks",
+  "mean-square",
+  "bessel",
+  "circular",
+  "pre-registered"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_q[T] model, exact integers, q = 7 and 13: 2452 row energies of squarefree unreflected marked rows, columns to degree 12. Reflected completed rows NOT-RUN.\n\nPROVED and independently confirmed:\n- Lemma R: the mean energy over random phases equals the diagonal.\n- Lemma AL: the aligned vector reaches the Hilbert-Schmidt size.\n- Lemma Q: the counting identity for marked Moebius sums.\n- Proposition C: energy / diagonal >= B_0 at dual length 0, relative to c7's norms, orthogonality and Proposition 3. A bound on the row energy therefore implies a bound on the Moebius sum of the weight.\n\nMEASURED:\n- In the bulk (N >= 2, lam <= 6, d >= 3) the Weil targets and the vectors r1, n1, th, dh, mn all sit at the diagonal level (exponent <= 1.05; target a largest 1.010). The row energy does not separate the targets from generic vectors.\n- mu and tb exceed the diagonal by about the coherent term.\n- At 5 small long-mark configurations (N <= 2, d <= 4, q = 7 only) +-1 weights exceed the diagonal by factors of 4 to 15.\n\nARGUED only: that this excess is a failure of (E-K) for Weil targets beyond h = 3, and any growth in the degree.\n\nCompensated probe: the modulus identity is exact in 40 blocks at dual length 0; the rescaled term is of order q^(-lam) of the marked one in the target blocks (one slot, lam <= 2); the low input is unchanged.\n\nNo statement about zeta.",
+ "obstruction": "F_q[T], q = 7, 13, squarefree unreflected marked rows only (reflected completed rows not run). Row energy / diagonal = n + B_coh with B_coh the squared probe signal; at dual length 0 energy / diagonal >= B_0 is proved, so a diagonal-level row bound implies the bound on the Moebius sum of the weight (the target's own bound restated). In the bulk the Weil targets sit at the diagonal (exponent <= 1.05) and so do random-phase, random-sign, multiplicative-sign, DH-type and two-character vectors: the row energy does not separate targets from generic vectors. The mean over random phases equals the diagonal exactly, so the K-loss is seen only on an aligned vector. Failure of (E-K) for targets beyond h = 3 and any growth in the degree are ARGUED from 5 small configurations (N <= 2, q = 7). Compensated probe (12.5): h > 1 survives, low input unchanged.",
+ "obstructionKind": "row-energy-is-diagonal-plus-squared-signal-target-not-separated",
+ "controlsThatDefeat": [
+  "random unimodular, random-sign, multiplicative-sign, two-character and model DH vectors (same diagonal-level energy as the targets: no R3 in the row energy)",
+  "mu and a sign twist (exceed the diagonal by the coherent term: the bound fails where the Moebius sum is large)",
+  "aligned vector (reaches Hilbert-Schmidt size)",
+  "not run: reflected completed rows, heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps were confirmed with referee-written code that shares nothing with the lane's code. The verdict holds only in a reduced form: one headline sentence is stronger than the data.\n\nReport: tmp/research-2026-11-16/push/c8-ek-ff-reflected-rows-exact/REFEREE.md. A same-agent check already occupied that file; I put the independent report first and kept the author's text unchanged as an appendix.\n\nConfirmed:\n- Exact integers (sumnorm, diagsum [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A mean-square hypothesis over a row set is diagonal plus squared signal, so test its Bessel part first: here (E-K) is the target's own Moebius bound restated. A random vector always shows the diagonal (exact mean over phases); the pre-registered \"random vector shows K-loss\" control was wrong, and operator-norm sizes need an aligned vector. My first draft verdict \"(E-K) holds for targets\" was too strong until long-mark runs were added; 2 of 6 advance predictions missed. One server unit was killed by its own memory limit (job dropped, limit not raised).",
+ "followUp": "Close (E-K) as a circular input and point c8-ek-theta-second-moment-formula at the coherent term wt^2 |M(nu)|^2. If the branch is kept: completed rows (cube part) for one target, and one more point with dual length above 3N at N >= 2 to measure growth in the degree. An independent referee is still owed; lanes line is in lanes_line.json in the lane directory (campaign/lanes.jsonl not edited).",
+ "resultFile": "tmp/research-2026-11-16/push/c8-ek-ff-reflected-rows-exact/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-ek-ff-reflected-rows-exact/REFEREE.md",
+ "launchedNodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe"
+ ],
+ "engineVerdict": "partial"
+}

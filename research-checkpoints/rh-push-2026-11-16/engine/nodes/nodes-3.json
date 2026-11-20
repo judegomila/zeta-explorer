@@ -1,0 +1,816 @@
+[
+ {
+  "id": "dyson-gap-ode-gronwall-branch",
+  "type": "identity",
+  "name": "Gap ODE and Gronwall lower branch for the backward Dyson flow",
+  "statement": "Squared min gap u obeys du/ds = -8 + 4 B(s) u. With |B| <= beta: u(s) >= m(s) = (g^2 + 2/beta) e^{-4 beta s} - 2/beta, positive up to a horizon T_-(g,beta) ~ g^2/8.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35167 (imp-2563 Theorem B)",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation",
+   "vortex"
+  ]
+ },
+ {
+  "id": "horizon-front-mismatch-m5",
+  "type": "obstruction",
+  "name": "Horizon-front mismatch (M5) for certified non-collision",
+  "statement": "The certified non-collision window T_- ~ g^2/8 shrinks like O(1/N^2) while the first-collision front t_c(N) stays O(1) (OLS t_c = 0.0066 + 4.91/N); horizon/front ratio falls about 100x per decade of N. Whole-trajectory g_min(t) > 0 stays open.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35167, imp-35195, imp-35219, imp-35326",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "beta-gmin-span-three-factor-invariant",
+  "type": "measured-phenomenon",
+  "name": "Three-factor near-front invariant beta * g_min * (x_2 - x_0) -> 1",
+  "statement": "Along the backward Dyson flow the background-field sup beta, the min gap g_min and the neighbouring span x_2 - x_0 satisfy beta * g_min * (x_2 - x_0) -> 1 at the front, linearly in the min-gap fraction; holds for unit spacing, real zeta ordinates (N = 50..200) and GUE-simulated ordinates.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-35215, imp-35238, imp-35281, imp-35301, imp-35305",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "self-referential-gap-ode-collapse",
+  "type": "obstruction",
+  "name": "Self-referential gap ODE reproduces the collision",
+  "statement": "Substituting beta = 1/sqrt(u) into the gap ODE gives the autonomous du/ds = -8 + 4 sqrt(u): unstable fixed point u* = 4; for u0 < 4 collapse in time T_SR = log(2/(2 - sqrt(u0))) - sqrt(u0)/2 -> u0/8. No candidate form of an a-priori g_min > 0 bound closes into a positive floor.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35284, imp-35355",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "beta-n-uniformity-fails-real-ordinates",
+  "type": "measured-phenomenon",
+  "name": "Background-field sup is N-uniform on unit spacing, not on real ordinates",
+  "statement": "At matched front progress beta(N) = sup |B_p(s)| has spread below 1.5 percent across N = 50..200 for unit spacing, but on the first N real zeta ordinates it grows 1.10 -> 1.71 -> 2.69 (spread 121 to 143 percent).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35194, imp-35218, imp-35239",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "strip-schedule-incompatibility",
+  "type": "obstruction",
+  "name": "No strip schedule y*(N) serves both field-Lipschitz and front adherence",
+  "statement": "Strip field Jacobian L_field = 2N/y^2 bounded forces y*(N) >= sqrt(2NS/E_acc) -> infinity; bounding the near-front error needs y* <= y_ceil = O(1). Corridor empty beyond N_crit = y_ceil^2 E_acc/(2S) (about 15.7 in the worked case).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35168, imp-35196, imp-35220",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "mesoscopic-strip-propagation-constant",
+  "type": "mechanism",
+  "name": "Mesoscopic strip gives an N-uniform propagation constant",
+  "statement": "Restricting the backward-flow Gronwall lemma (imp-2520) to Im z >= y* with sub-front horizon S < y*^2 E_vac/2 gives an N-uniform propagation constant L_prop = 2/y*^2; the accumulation constant L_field = 2N/y*^2 remains N-linear.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35168",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "min-gap-field-lipschitz-surrogate",
+  "type": "mechanism",
+  "name": "Min-gap field-Lipschitz surrogate L_gap ~ c_pair/g^2",
+  "statement": "On the real axis at the collapsing-pair scale the field-Lipschitz surrogate is c_pair/g^2 with no factor N (L_strip/L_gap = 2N), but its accumulation integral log-diverges at the front: E_acc = (c_pair/8) log(g0^2/g_min^2). Obligation I3 collapses into the g_min > 0 certificate.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35214, imp-35239, imp-35283",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "step-error-certificate-five-ingredients",
+  "type": "open-lemma",
+  "name": "Certified a-priori RK4/DP5 truncation bound for the backward Dyson flow",
+  "statement": "Reduces to five ingredients: derivative bounds sup|y^(p+1)|, a certified min-gap lower bound, an N-uniform Lipschitz constant, an absolute per-scheme error constant, and accumulation. Vacuous without the min-gap lower bound.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35127, imp-35170, imp-36192",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "common-mode-blindness-rk4-dp5",
+  "type": "measured-phenomenon",
+  "name": "RK4-DP5 gap is blind to shared integrator bias",
+  "statement": "On the desingularized small-N Dyson backward flow RK4 and DP5 share a common-mode absolute bias which the two-method gap |t_c_RK4 - t_c_DP5| cancels; blindness is largest in the smooth interior. The gap across N is quantization-dominated and non-monotone.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35171, imp-36077",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "tool"
+  ]
+ },
+ {
+  "id": "r2-map-to-flow-one-sided-bound",
+  "type": "open-lemma",
+  "name": "R2: true-flow collision time below the map upper bracket",
+  "statement": "Claim t_c_flow(N) <= t_c_hi(N) (map upper bracket 1.2e-3 at N = 2000). Order-robust references (RK4, DP45, BS3, dense output) support it at N = 500..4000; the N-independent overshoot sign is mechanistic and empirical, and the discrete order-preservation lemma lifting per-step lag to collision-time ordering is open.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35150, imp-35190, imp-35197, imp-35213, imp-35324, imp-35412, imp-35558",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "endpoint-positivity-knife-edge",
+  "type": "measured-phenomenon",
+  "name": "Endpoint-positivity knife edge at N = 2000, pair 1495",
+  "statement": "The first within-step crossing at N = 2000 (pair 1495) is sign-sensitive: one DP45 dt/2 cell has min endpoint gap +1.775e-3 while RK4, BS3 and dense-output interpolants at dt, dt/2, dt/4, dt/8 report a crossing. Collision detection by endpoint sampling is integrator-dependent.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35325, imp-35351, imp-35416, imp-35452, imp-35477, imp-35573, imp-35607",
+  "tags": [
+   "heat-flow",
+   "tool"
+  ]
+ },
+ {
+  "id": "r5-tail-monotonicity-split",
+  "type": "open-lemma",
+  "name": "R5 tail monotonicity splits into a finite part and an irreducible tail",
+  "statement": "Monotonicity of tau_c(N) on any bounded window is a finite computation not using GUE (certified window {50,100,200,500}); the tail N -> infinity part is equivalent to the GUE-universality conditional C_mb (imp-486).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35151, imp-35191",
+  "tags": [
+   "heat-flow",
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "interval-rk4-witness-width-equals-dt",
+  "type": "obstruction",
+  "name": "Interval RK4 witness width equals the step, not the enclosure",
+  "statement": "The single-scale interval RK4 witness (imp-362) reports bracket width / dt = 1 at every closed row, so width measures step resolution. An N-uniform enclosure [t_c_lo(N), t_c_hi(N)] is not supplied; seeded from a bundled 870-zero table.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35129, imp-36193",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "tool"
+  ]
+ },
+ {
+  "id": "g6a-shock-lipschitz-two-routes",
+  "type": "open-lemma",
+  "name": "G6a shock-Lipschitz modulus: two surviving routes",
+  "statement": "W_1-channel C_Lip diverges (imp-2640). Route M: mesoscopic modulus, residual y2-adapted flow depth plus pair-separation extension. Route F: field-channel transfer modulus certified on N in [1e4,1e6]; residual is an N-uniform Lipschitz certificate for the true xi heat-flow field error.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35457",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "vortex"
+  ]
+ },
+ {
+  "id": "model-cusp-rho-expansion",
+  "type": "identity",
+  "name": "Model-cusp ratio rho(eps) = C_ren/C_curv expansion",
+  "statement": "On the quadratic fold z0* = i eps, eps = sqrt(2 pi/N), the ratio rho -> 2/3 with next term coefficient K = 8 sqrt(2)/(9 pi) at order eps^(3/2) (not 2/5; difference about 1.4e-4). H3 curvature input suffices for the H4 strip-height derivative at the operative strip height on the ladder N = 1e3..1e7.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35076, imp-35216, imp-35240, imp-35244, imp-35265, imp-35322, imp-35375",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "n-uniform-fold-modulus-five-inputs",
+  "type": "open-lemma",
+  "name": "N-uniform fold-modulus back-conversion",
+  "statement": "Upgrading rho -> 2/3 from a ladder observation to an N-uniform bound needs five uniform-in-eps inputs on the Riemann-von Mangoldt Holder-1/2 cusp jet (uniform H4 amplitude, curvature lower bound, remainder control, fold inversion, back-conversion).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35152, imp-35192, imp-35193",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "finite-height-shock-surrogate",
+  "type": "mechanism",
+  "name": "Finite-height stand-in for the Holder-1/2 shock modulus",
+  "statement": "At strip floor y_N = sqrt(2 pi/N) the Burgers shock footer stays off the real axis and C_H(N) = sqrt(2/|u_0''(z0*; y_N)|) is finite; needs a certified curvature lower bound, simple-shock non-degeneracy and a finite-strip fold inversion. Valid only up to T*(N); the limit y_N -> 0 reinstates the divergence.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36172",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "whitham-cw-same-modulus",
+  "type": "identity",
+  "name": "Whitham composition constant equals the G6a modulus",
+  "statement": "The constant C_W in |t_c(m_N) - t_c(m_inf)| <= C_W sqrt(D(N)) is the same Holder-1/2 modulus required by the open shock-Lipschitz sub-gap; only a symbolic placeholder C_W = 1.0 exists.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-36152",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "route-b-koksma-hlawka-per-n-rate",
+  "type": "mechanism",
+  "name": "Route B: unconditional per-N rate from the discrepancy bound",
+  "statement": "Deterministic discrepancy at the strip y_N = sqrt(2 pi/N): D(N) = (pi C_Selberg/sqrt(2 pi)) log gamma_N / sqrt(N). Composed with the Holder-1/2 fold: |t_c(m_N) - t_c(m_inf)| <= C_W sqrt(D(N)), so r(N) = C' sqrt(log gamma_N) N^(-1/4). Consumable modulo the anchor t_c(m_inf).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36082, imp-36147",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "route-b-quarter-exponent-gap",
+  "type": "obstruction",
+  "name": "Unconditional rate is weaker than the GUE-conditional collision rate by N^(1/4)",
+  "statement": "Route B gives Theta(sqrt(log N) N^(-1/4)); the GUE-conditional collision term is E_coll = C_C sqrt(log T0/N) = Theta(sqrt(log N) N^(-1/2)). The 1/4 exponent loss comes from the Holder-1/2 composition step, not from the unconditional discrepancy input.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36140, imp-36160, imp-36151",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "route-c-density-squeeze-rate",
+  "type": "mechanism",
+  "name": "Route C: per-N rate from the density squeeze",
+  "statement": "Under the pointwise premise S_k*(tau) >= c(N)/B(tau)^2 with c(N) > 2, integrating the boundary identity gives |t_c(N)| <= B(0)^2/(4 c(N) - 8). Consumable modulo sub-gap G3a (the pointwise squeeze premise).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36137, imp-36045",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "bridge-absolute-tc-consumption",
+  "type": "open-lemma",
+  "name": "Step-4 bridge needs |t_c(N)| absolutely in two places",
+  "statement": "The bridge |Lambda - (-t_c(N))| <= E(N) uses t_c(N) in the identification term and in the E_flow exponent exp(C_G |t_c|); a per-N deviation rate must be converted to an absolute bound through an anchor value.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36198",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "esy-local-law-inputs-for-cmb",
+  "type": "open-lemma",
+  "name": "Local-law inputs needed to discharge the C_mb conditional",
+  "statement": "The many-body Calogero-Moser correction C_mb (imp-486) would need an Erdos-Schlein-Yau type local law for the Calogero-Moser empirical measure, split into three input categories; none is established for zeta ordinates.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-36180",
+  "tags": [
+   "pair-correlation",
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "en-bridge-three-term-surrogate",
+  "type": "object",
+  "name": "E(N) = E_coll + E_trunc + E_flow bridge surrogate",
+  "statement": "E_coll = C_C sqrt(log T0/N) with C_C = (1/8) sqrt(3 pi) (GUE-conditional, C_H = 1/8 ansatz); E_trunc = 3.06e-5 (constant, C_T = 1 idealisation); E_flow unconditional modulo constants. T0 = effective height for zero index N via Riemann-von Mangoldt.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35105, imp-35121, imp-36024",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "en-surrogate-floor",
+  "type": "obstruction",
+  "name": "Surrogate E(N) floors at E_trunc and gives no rate to zero",
+  "statement": "E(N) -> E_trunc = 3.06e-5 > 0: E_coll and E_flow vanish but the constant truncation term remains; E_trunc is the only non-negligible term beyond N* ~ 4.72e13. The surrogate cannot supply the Step-4 rate E(N) -> 0.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35100, imp-35156, imp-35971, imp-36043",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "crossover-closed-form",
+  "type": "identity",
+  "name": "Closed-form crossover of collision and truncation terms",
+  "statement": "E_coll = E_trunc at N_cross = (C_C/E_trunc)^2 log T0(N_cross), about 3.28e9 (T0 ~ 1.14e9); sigma = E_coll/E halves at N_half ~ 3.267e9 < N_cross; interior sigma peak 0.949 at N ~ 9.22e5. Height enters only through log T0, so height-map changes are damped about 18x.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35016, imp-35054, imp-35106, imp-35337, imp-35594",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "crossover-map-bernstein-function",
+  "type": "identity",
+  "name": "Crossover map g(N) = K log T0(N) is a Bernstein function",
+  "statement": "(-1)^(n+1) g^(n) >= 0 for n >= 1 with numerator polynomials P_n all positive via a_k^(n+1) = n a_(k-1) + (2n-1-k) a_k; so g has a Levy-Khintchine form a + bx + int (1 - e^(-xt)) dmu(t). K = (C_C/E_trunc)^2 ~ 1.5727e8; killing term a = K log(2 pi e).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35012, imp-34974, imp-35107, imp-35172, imp-35316",
+  "tags": [
+   "lambda",
+   "tool"
+  ]
+ },
+ {
+  "id": "ramanujan-polynomial-triangle",
+  "type": "identity",
+  "name": "Crossover numerator polynomials are the Ramanujan polynomials reversed",
+  "statement": "With R_1 = 1, R_(n+1)(x) = n(1+x) R_n(x) + x^2 R_n'(x): the coefficient triangle of P_n is R_n read in reverse; boundary values (n-1)! and (2n-3)!!; R_n(1) = n^(n-1); generating function via the tree function T(z) = -W(-z). Verified n = 2..12.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35068",
+  "tags": [
+   "tool"
+  ]
+ },
+ {
+  "id": "eflow-qeff-closed-form",
+  "type": "identity",
+  "name": "Closed form for the E_flow local decay exponent",
+  "statement": "With N = (T0/2 pi)(v - 1), v = ln(T0/2 pi): d ln T0/d ln N = 1 - 1/v and q_eff(v) = (1 - 1/v)(1 - 1/(v + ln 2 pi) - 1/(v + 1)), increasing to 1; far-tail E_flow exponent -1 + 3/log N at leading order.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35131, imp-35198, imp-35217",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "budget-at-verified-height",
+  "type": "measured-phenomenon",
+  "name": "E(N) component budget at the verified height 3e12",
+  "statement": "At T0 = 3e12 (N ~ 1.236e13) E_trunc carries share 0.981 of E(N); the GUE-conditional share sigma is below 2 percent; E_flow never dominates at any height.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35456, imp-35997, imp-36060",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "etrunc-count-integral-unsound",
+  "type": "obstruction",
+  "name": "E_trunc count integral is not a realness certificate",
+  "statement": "The 2/gamma count integral behind E_trunc (3.06e-5 clean, 5.106e-5 corrected) misprices a single admissible deep off-line zero; the operative content is an unported barrier lemma. Explicit density bounds (Chourasiya-Simonic 2025) give about 3.34 at sigma = 3/4, about 1.1e5 times worse.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35419, imp-35459, imp-35931, imp-35531",
+  "tags": [
+   "lambda",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "knob-a-vanishing-etrunc",
+  "type": "mechanism",
+  "name": "Knob A: E_trunc -> 0 by growing verified height at a fixed off-line abscissa",
+  "statement": "Hold the density abscissa at sigma = 3/4 (kappa = 0.4) and let the verified height T_v(N) -> infinity: the density-tail integral vanishes analytically. Requires the verified height to grow with N.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35149, imp-35169",
+  "tags": [
+   "lambda",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "s-barrier-statement",
+  "type": "open-lemma",
+  "name": "S_barrier: no off-line zero of H_t above the verified height",
+  "statement": "For every x > T_PT = 3e12 the function H_t has no non-real zero at the repo heat parameter. Platt-Trudgian supplies only the base case below T_PT; the statement needs a finite winding check (B1) and a semi-infinite tail lemma (B2).",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "imp-35419, imp-35653, imp-35728",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "w3-tail-lemma",
+  "type": "open-lemma",
+  "name": "W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta",
+  "statement": "Polymath15 mollified triangle-inequality lower bound on |A_t + B_t| against the error cap E_A + E_B + E_C0, uniformly above the barrier. Margin is monotone in t, hardest at t = 0; re-anchoring 6e10 -> 3e12 raises the term count floor(sqrt(x/4 pi)) from 6.9e4 to 4.89e5. No finite mesh covers it.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "imp-35674, imp-35698",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "w2-certified-winding-ingredients",
+  "type": "open-lemma",
+  "name": "Certified winding count on the transition rectangle",
+  "statement": "Argument-principle count on the boundary of [T_PT, T_PT + Delta] x [-h, h] needs: interval extension of H_t (I1), per-panel cap |Delta arg| < pi (I2), modulus floor (I3), integer closure (I4), corner composition (I5). All five are not built; the repo holds only point-sampled phase unwrapping.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35727, imp-35803, imp-35804, imp-35805",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "tool"
+  ]
+ },
+ {
+  "id": "i2-i3-same-obstruction",
+  "type": "identity",
+  "name": "Panel cap and modulus floor are one condition",
+  "statement": "Per-panel cap L_panel * sup|f'/f| < pi and modulus floor |H_t| >= delta are coupled: delta equals the surplus |A_t + B_t| - |C_t| - (E_A + E_B + E_C0). Joint panel count is minimised at the boundary h* = 1/w, w = (1/2) log(T/2 pi) ~ 13.45 rad per unit height at 3e12.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35757, imp-35758, imp-35777, imp-35778, imp-35806",
+  "tags": [
+   "lambda",
+   "tool"
+  ]
+ },
+ {
+  "id": "winding-barrier-mesh-cost",
+  "type": "measured-phenomenon",
+  "name": "Finite winding barrier cost is linear",
+  "statement": "Cost = k * rho * Delta interval evaluations of A + B - C, rho = (1/2 pi) log(T_PT/2 pi) ~ 4.28 zeros per unit height at 3e12; roundoff alone reaches the pi budget only at about 4.5e15 panels.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35697, imp-35675, imp-35989, imp-36055",
+  "tags": [
+   "lambda",
+   "tool"
+  ]
+ },
+ {
+  "id": "ported-barrier-parity-no-beat",
+  "type": "obstruction",
+  "name": "Porting the barrier gives parity with Lambda <= 0.2, not an improvement",
+  "statement": "With S_barrier ported the far-tail bridge has one remaining conditionality (GUE, on the vanishing share sigma) and matches Platt-Trudgian Lambda <= 0.2. The finite-height figure L_pt ~ 0.121 is a conditional reading in a different regime, not an unconditional bound.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35654, imp-35678, imp-35711, imp-35740 (obstruction map F3, F5)",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "backward-heat-sign-reconciliation",
+  "type": "obstruction",
+  "name": "Negative-time proxy cannot seed the positive-t barrier",
+  "statement": "The repo Gaussian-convolution proxy is de Bruijn flow at t = -4 tau_repo. Backward heat is ill-posed; de Bruijn Theorem 13 preserves real zeros only forward, so the proxy has a tighter margin. Forward transport needs the same positivity |A + B| > |C|; cost equals the direct barrier.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35717, imp-35726, imp-35773, imp-35780 (control HEAT; obstruction map F1)",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "exact-de-bruijn-evaluator-ceiling",
+  "type": "tool",
+  "name": "Exact de Bruijn integral evaluator and its precision ceiling",
+  "statement": "Double precision caps the exact evaluator at x below about 104 because |H_0(x)| ~ exp(-pi x/8); resolving the signal needs about (pi/(8 ln 10)) x working digits, measured with 520-digit BigInt arithmetic.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35759, imp-35781, imp-35811, imp-35870; scripts/imp-34813-exact-debruijn-winding-offline.mjs",
+  "tags": [
+   "heat-flow",
+   "tool",
+   "lambda"
+  ]
+ },
+ {
+  "id": "w1-summation-precision-non-binding",
+  "type": "measured-phenomenon",
+  "name": "Summation precision does not bind the A + B - C sum at 3e12",
+  "statement": "For the 488602-term oscillatory sum (N = floor(sqrt(T_PT/4 pi))) compensated summation stays near 1.9e-20 normalised error under worst orderings and pairing trees; the deterministic a-priori bound sits about 3.3 orders above achieved error. Remaining work is the interval implementation.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35812, imp-36023, imp-36083, imp-36146",
+  "tags": [
+   "tool",
+   "lambda"
+  ]
+ },
+ {
+  "id": "derivative-cap-route-comparison",
+  "type": "mechanism",
+  "name": "Two routes to a certified sup|H_t'|",
+  "statement": "Route I: differentiated additive cap E_A' + E_B' + E_C0', amplified by about log N = w - (1/2) log 2 over the undifferentiated cap. Route II: Cauchy cap M(r)/r, optimal radius r* = 1/g under M(r) <= M(0) e^(gr). Route I is tighter; panel counts differ by a few percent.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35832, imp-35845, imp-35988, imp-36040, imp-36141",
+  "tags": [
+   "tool",
+   "lambda"
+  ]
+ },
+ {
+  "id": "i3-cusp-modulus-point-vs-uniform",
+  "type": "obstruction",
+  "name": "Model-cusp modulus gives a point estimate, not a uniform floor",
+  "statement": "The scale-free cusp modulus C_PS = pi/sqrt(2) ~ 2.2214 at h = meanGap/sqrt(2) is a point value; the certified boundary modulus floor remains delta = 0 without the interval cap check.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36011, imp-36058",
+  "tags": [
+   "heat-flow",
+   "tool"
+  ]
+ },
+ {
+  "id": "collision-constant-cc-ansatz",
+  "type": "conjecture",
+  "name": "Collision constant C_C = (1/8) sqrt(3 pi)",
+  "statement": "E_coll(N) = C_C sqrt(log T0/N) with Holder constant C_H = 1/8, read as E[min gap] over M(N) spacings with GUE small-gap density p(s) ~ (pi^2/3) s^2. No effective derivation; five analytic inputs listed.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-35718, imp-35538, imp-2642, imp-2643",
+  "tags": [
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "restricted-support-cannot-resolve-collision",
+  "type": "obstruction",
+  "name": "Proven |alpha| < 1 pair correlation cannot reach the collision scale",
+  "statement": "A statistic inside the proven Montgomery/Rudnick-Sarnak support is band-limited with resolution one mean spacing; the min-gap scale is s_min ~ M^(-1/3) (Ben Arous-Bourgade), below it by M^(1/3): 97x at N ~ 9.22e5, 1486x at N ~ 3.28e9. C_C is carried by |alpha| >= 1.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-35652, imp-35673, imp-35695, imp-35696 (obstruction map P31)",
+  "tags": [
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "band-limited-amplitude-mismatch",
+  "type": "measured-phenomenon",
+  "name": "Band-limited proxy amplitude misses C_C",
+  "statement": "From R_2(x) = 1 - (sin(pi x)/(pi x))^2 restricted to |alpha| < 1 the band-mean amplitude is A_band = 1/2, ratio 1.3029 to C_C; partial band A_band(c) = c/2. The position-space curvature reading (pi^2/3)/C_C ~ 8.573 is a different object.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-35680, imp-35721, imp-35733",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "finite-n-remainder-requirements",
+  "type": "open-lemma",
+  "name": "Finite-N remainder for the collision term",
+  "statement": "E_coll_true = C_C sqrt(log T0/N)(1 + err(N)) with bounded err needs: effective C_H provenance, explicit-rate local law, restricted-to-full Fourier support, height threshold, assembly. At full support the second is Montgomery's conjecture with a rate. Literature has asymptotic rigorous results or heuristic finite-T terms only.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35493, imp-35538, imp-35551",
+  "tags": [
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "e200-wall-leading-rate-artifact",
+  "type": "measured-phenomenon",
+  "name": "Height threshold log T0 >= 200 is set by the leading 1/log T0 rate",
+  "statement": "A rate O(1/(log T0)^a) needs log T0 >= 200^(1/a): a = 2 gives 14.14, between the peak (13.23) and crossover (20.86) log-heights and below the verified height (28.73). A power rate T0^(-delta) needs log T0 >= 5.2983/delta. No subleading rate is proved for zeta zeros.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35571, imp-35722, imp-35853, imp-35888",
+  "tags": [
+   "pair-correlation",
+   "lambda"
+  ]
+ },
+ {
+  "id": "gue-spacing-fidelity-at-peak",
+  "type": "measured-phenomenon",
+  "name": "Zero-spacing statistics against GUE near the 921860th zero",
+  "statement": "Window of 100001 real zeros at height 5.57e5: max pdf residual 0.049, KL 0.00143, KS sup-distance 0.012591 (at unfolded spacing 0.6286). The crossover height 1.14e9 is about 1905 times beyond the in-repo 1e6-zero table.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35488, imp-35529, imp-35530, imp-35604",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "kl-vs-ecoll-order-mismatch",
+  "type": "obstruction",
+  "name": "Divergence measures cannot bound the collision term",
+  "statement": "KL is second order in the spacing-pdf deviation while E_coll is first order; Pinsker TV <= sqrt(KL/2) and Bretagnolle-Huber give upper bounds only, 414x to 782x above E_coll at the crossover. No reverse inequality is available.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35556, imp-35617, imp-35655, imp-35705",
+  "tags": [
+   "pair-correlation",
+   "tool"
+  ]
+ },
+ {
+  "id": "g7-shear-invariance-orbit-complete",
+  "type": "obstruction",
+  "name": "Shear-invariance orbit classification is complete for the K_a softening levers",
+  "statement": "For the exponential-shear scalar-multiplier metric pair (imp-3066) the remainder norm ||R|| depends on one variable s = a*U; the coefficient c and decoupled rate b span the transverse plane and are inadmissible. Truncation degree raises ||R||; Legendre/Chebyshev bases and non-exponential multipliers give no softening. K_a >= 0 stays open (RH-equivalent).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "imp-35075, imp-35148, imp-35189 (imp-33765)",
+  "tags": [
+   "shear",
+   "weil",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "reentry-band-zero-residue-lemma",
+  "type": "identity",
+  "name": "Reentry band is a floating-point artifact of the surrogate",
+  "statement": "Under contraction rate r in (0,1), positive floor EPS and ceil-quantised iteration count: for each fixed N there is EPS*(N) > 0 with band count B_N(EPS) = 0 for 0 < EPS < EPS*(N). Floor-slide identity d xArg/d log(FLOOR) = -1/ln(1/r). Band [10^27.08, 10^37.17] has no continuum residue.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35356, imp-35357, imp-35414, imp-35453",
+  "tags": [
+   "tool"
+  ]
+ },
+ {
+  "id": "true-dynamic-collapse-model-open",
+  "type": "open-lemma",
+  "name": "Certified true-dynamic model of the iterate collapse",
+  "statement": "A collapse map beyond the single-rate log law, with certified rates and a floor mechanism, is needed for the true-dynamic residues R2/R3 of the reentry band; nearest object is the two-rate law (imp-34862). E_trunc fails as an intrinsic floor (11.1 decades coarser than machine epsilon).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35439, imp-35430, imp-35537",
+  "tags": [
+   "tool",
+   "lambda"
+  ]
+ },
+ {
+  "id": "krawczyk-crossover-certificate",
+  "type": "tool",
+  "name": "Krawczyk existence-uniqueness certificate for the crossover root",
+  "statement": "Residual node F(m) = m - K log T0(m); the lemma (imp-34714) is exact real analysis but hypotheses were checked in round-to-nearest doubles. Headroom S(N) has closed-form floor S_inf; -dFP/dG ratio 2.00042 with exact closed form. Directed-rounding layer (five obligations) is not implemented.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-34993, imp-34996, imp-35136, imp-35266, imp-35374, imp-36066, imp-36154",
+  "tags": [
+   "tool",
+   "lambda"
+  ]
+ },
+ {
+  "id": "tstar-finite-height-bookkeeping",
+  "type": "measured-phenomenon",
+  "name": "Achieved rung gives RH only up to T*(N)",
+  "statement": "T*(N) = effectiveHeightForN(N) at the achieved rung N = 1e6 is about 6e5, far below the verified height 3e12; T* reaches 3e12 only at N ~ 1.236e13. Closed steps 3-4 of the Lambda chain are finite-height statements.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-36080, imp-36173, imp-35642",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "verified-height-multiple-for-floor",
+  "type": "measured-phenomenon",
+  "name": "Zero data needed to extend the unconditional floor to the landmarks",
+  "statement": "Extending the unconditional leading-order floor from the 1e6-zero assembly (T0 ~ 6.0e5) to the halving landmark N ~ 3.27e9 (T0 ~ 1.14e9) needs about 3.51 further decades of zero index; both landmarks lie below the verified height.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "imp-35642, imp-35604",
+  "tags": [
+   "lambda",
+   "pair-correlation"
+  ]
+ }
+]

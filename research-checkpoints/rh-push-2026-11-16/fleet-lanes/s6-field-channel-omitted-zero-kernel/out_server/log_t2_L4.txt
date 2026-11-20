@@ -1,0 +1,9 @@
+12:29:29 L4 i0 250 h 355.744 H 0.13355 t_true/pair 1.00769082 decl pg [0.99978672, 1.01701112] in=True uni in=True honest pg in=True Kon 0.04784 Koff 0 near None direct/flow None
+12:29:30 L4 i0 434 h 559.789 H 0.31617 t_true/pair 1.04567139 decl pg [0.99907015, 1.12353038] in=True uni in=True honest pg in=True Kon 0.03725 Koff 0 near None direct/flow None
+12:29:30 L4 i0 753 h 887.421 H 0.26078 t_true/pair 1.04395691 decl pg [0.99859498, 1.12125188] in=True uni in=True honest pg in=True Kon 0.0828 Koff 0 near None direct/flow None
+12:29:30 L4 i0 1309 h 1417.4 H 0.12757 t_true/pair 1.00902755 decl pg [0.99977693, 1.01994999] in=True uni in=True honest pg in=True Kon 0.05484 Koff 0 near None direct/flow None
+12:29:31 L4 i0 2273 h 2274.96 H 0.20124 t_true/pair 1.02927566 decl pg [0.99884330, 1.07330888] in=True uni in=True honest pg in=True Kon 0.1144 Koff 0 near None direct/flow None
+12:29:31 L4 i0 3947 h 3670.79 H 0.098654 t_true/pair 1.00759993 decl pg [0.99983856, 1.01665730] in=True uni in=True honest pg in=True Kon 0.06636 Koff 0 near None direct/flow None
+12:29:32 L4 i0 6854 h 5948.75 H 0.10657 t_true/pair 1.00906540 decl pg [0.99976382, 1.02003239] in=True uni in=True honest pg in=True Kon 0.0832 Koff 0 near None direct/flow None
+12:29:32 L4 i0 11902 h 9679.21 H 0.1148 t_true/pair 1.01450786 decl pg [0.99968358, 1.03373949] in=True uni in=True honest pg in=True Kon 0.09608 Koff 0 near None direct/flow None
+{"name": "L4", "kind": "plain", "windows": 8, "declared_pg": {"inside": 8, "outside": 0, "not_certified": 0}, "declared_uni": {"inside": 8, "outside": 0, "not_certified": 0}, "honest_pg": {"inside": 8, "outside": 0, "not_certified": 0}, "honest_uni": {"inside": 8, "outside": 0, "not_certified": 0}}

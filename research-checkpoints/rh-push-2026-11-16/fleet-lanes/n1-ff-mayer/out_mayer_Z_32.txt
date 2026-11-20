@@ -1,0 +1,11 @@
+truncation NN = 32
+check 1: |det(1-L_s)| at s=1 : 1.1897e-11   at s=rho1/2: 1.398e-11   at s=rho1/2+0.01: 0.012969
+check 2: Newton zero of det(1-L_s) near rho1/2: (0.25000000000605880408 + 7.0673625708761745747j)   rho1/2 = (0.25 + 7.0673625708673468952j)
+   truncation 24 : (0.24999999306468126502 + 7.0673626269087285399j)
+   truncation 28 : (0.24999999990568093127 + 7.0673625700910800345j)
+lambda-rotation: zero s(theta) of det(1 - e^{i theta} L_s) continued from rho_1/2 and rho_2/2
+   rho1/2: theta=0/64 pi  s = (0.25000000000606 + 7.0673625708762j)   Re s - 1/4 = 6.0588e-12
+   rho1/2: theta=1/64 pi  s = (0.26199794724048 + 7.1083492357596j)   Re s - 1/4 = 0.0119979
+   rho1/2: theta=2/64 pi  s = (0.27370182544839 + 7.1492225707698j)   Re s - 1/4 = 0.0237018
+scripts/memcap.sh: line 17: 86066 Terminated: 15          "$@"
+scripts/memcap.sh 8 tmp/research-2026-11-16/push/n1-ff-mayer/venv/bin/python   455.14s user 3.92s system 90% cpu 8:29.86 total

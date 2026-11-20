@@ -1,0 +1,41 @@
+{
+ "slug": "c2-projection-domination-gonek",
+ "round": 2,
+ "kind": "explore",
+ "nodes": [
+  "telescoping-kernel-projection-domination",
+  "straddle-exclusion-window-completeness",
+  "m23-unconditional-window-positivity"
+ ],
+ "tags": [
+  "explicit-formula",
+  "short-intervals",
+  "prime-oscillation",
+  "zero-free"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For w = sinc(x/8)^8 and 3 <= H <= T^{7/8 - eps}, S_w(u) equals the finite prime sum of the classical smoothed explicit formula up to a remainder of about H(8H/T)^7 log T (no explicit constant). For n0+1 < H it is the single term -(H w^(0)/2pi) Lambda(n0)/sqrt(n0) with w^(0) = 12.0478. This was checked on zeta zeros at T = 1e3, 2.5e3, 5e3, 1e4, 2e4. It vanishes at non-prime-powers for every Euler product and not for DH (b(6) = 1.936), so it uses the support of Lambda only. If exactly one off-line pair exists, |prime side| >= 2|W| sinh(delta u) - M_on; this lower bound is below the trivial Brun-Titchmarsh upper bound for every H, N and delta < 1/2 because N^delta < sqrt(N), so the route excludes nothing (classical trivial-strip obstruction). Measured, first order, T <= 3e4, H <= 10: the change in S_w on u <= theta log(T/2pi) from one off-line pair is reproduced by real displacements of neighbouring points for theta <= 0.45 and not for theta >= 0.5; the same holds for lattice and Poisson point sets, so it is a sampling-density statement. No statement about zeta zeros.",
+ "obstruction": "One off-line pair of depth delta forces |short twisted prime sum| >= 2|W| sinh(delta log N) - M_on, which is below the trivial Brun-Titchmarsh upper bound for every H, N and delta < 1/2 since N^delta < sqrt(N). Closing the gap is the zero-free statement. Only the support and size of Lambda are used. Referee: obstruction stands; the claim as worded is false in three places (the identity has a remainder of about H(8H/T)^7 log T and needs H = o(T^(7/8))).",
+ "obstructionKind": "trivial-strip-size-gap",
+ "controlsThatDefeat": [
+  "Liouville twist (passes every step)",
+  "sign twists (keep support and size of Lambda)",
+  "DH fails only at support (b(6) = 1.936)",
+  "lattice and Poisson point sets show the same absorbability threshold (sampling-density statement)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c2-projection-domination-gonek/REFEREE.md. The obstruction survives, but the claim is false as worded in three places.\n\nE1 (headline wording). The identity is not \"exact with no H-dependent error\". The remainder R is nonzero, about H(8H/T)^7 log T, because the sinc^8 window decays only like x^-8 (mirrored zeros and the archimedean singularity near t = 0). It tends to 0 only for H = o(T^{7/8}). My run at T=3000,  [record truncated in transit; full text in push/c2-projection-domination-gonek/REFEREE.md]",
+ "lesson": "Window-local explicit-formula identities are exact, so there is no error term to beat. The comparison that matters is off-line amplitude N^delta against the trivial sqrt(N) bound on short twisted prime sums, and closing that gap is the zero-free statement itself. Only prime-power support and the size of Lambda are used (inputs the sign twists keep); multiplicativity of the test polynomial D gives no gain. Every control with a symmetric zero side fails only at size or support; the Liouville twist passes every step. The averaged form is MV-CAP (P27, Q9, Z17); the single-window form stops at the Re s = 1 wall (P29).",
+ "followUp": "none of high value. The only adjacent option, N between T^(1/2) and T where the measured residual is O(1), needs the same bound on short twisted prime sums. The absorbability thresholds (1/2 and 1) are float64, first-order, band-truncated measurements at T <= 3e4; an interval-arithmetic recheck would be needed before they are cited as filters.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-projection-domination-gonek/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-projection-domination-gonek/REFEREE.md"
+}

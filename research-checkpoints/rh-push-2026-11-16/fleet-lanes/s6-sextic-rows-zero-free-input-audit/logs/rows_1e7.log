@@ -1,0 +1,13 @@
+table X = 1e+07, nodes 2822619; columns 908 (N <= 3000); workers 2; Lcuts [300, 1000, 3000]
+planned: R arrays per worker 0.63 GB x 2; B total 0.024 GB
+  worker 0: 0/454 columns, 0s
+  worker 0: 50/454 columns, 8s
+  worker 0: 100/454 columns, 15s
+  worker 0: 150/454 columns, 23s
+  worker 0: 200/454 columns, 29s
+  worker 0: 250/454 columns, 36s
+  worker 0: 300/454 columns, 44s
+  worker 0: 350/454 columns, 51s
+  worker 0: 400/454 columns, 58s
+  worker 0: 450/454 columns, 65s
+done 72s

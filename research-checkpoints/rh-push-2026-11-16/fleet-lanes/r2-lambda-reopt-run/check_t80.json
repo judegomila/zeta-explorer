@@ -1,0 +1,41 @@
+{
+ "dump": "dump-t80.steps.jsonl.gz",
+ "theta": "4/5",
+ "q0": "3600001/10000000",
+ "substeps": 47652,
+ "U": "2908415146281/31250000000000",
+ "U_float": 0.093069284680992,
+ "terminal_k": 47651,
+ "cell": 372,
+ "sub": 35,
+ "fails": {},
+ "S1_margin": 4.0216734729224075e-08,
+ "min_admissibility_margin": 2.0026663478476705e-07,
+ "heights": [
+  "107/100",
+  "47/25"
+ ],
+ "terminal": {
+  "q_K": 1.8506265444318956e-06,
+  "outq_minus_qe": -2.0656200502514183e-06,
+  "lag_over_delta": 0.4711966674093342,
+  "U_unrounded_gap": 9.661441757060064e-16,
+  "horizon_margin": 0.070930715319008
+ },
+ "kinds": {
+  "X:QC_cliff": 21888,
+  "X:QA_m0.88": 1664,
+  "X:QB_m0.91": 2432,
+  "X:m091": 4096,
+  "cat:0.94": 8960,
+  "X:m094": 256,
+  "X:W4": 4096,
+  "X:m097": 256,
+  "multi:P_3_5": 2560,
+  "multi:P_31_50": 1280,
+  "multi:P_27_40": 164
+ },
+ "kernel_certs_checked": 40,
+ "cells_with_two_or_more_heights": {},
+ "substeps_in_multi_height_cells": {}
+}

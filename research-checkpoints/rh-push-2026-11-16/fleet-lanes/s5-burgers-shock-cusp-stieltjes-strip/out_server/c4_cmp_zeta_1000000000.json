@@ -1,0 +1,70 @@
+{
+ "obj": "zeta",
+ "T": "1000000000",
+ "list": "zeta9",
+ "samples": 1500,
+ "a_flat": 0.6666666666666666,
+ "logX": 23.025850929940457,
+ "rows": [
+  {
+   "delta": 0.0825,
+   "Y": 0.165,
+   "M_K_prime_vs_zero_max_abs": 9.793922822076695e-06,
+   "M_K_prime_vs_zero_rms": 2.6475692957081593e-06,
+   "M_true_minus_M_K_rms": 0.7431165713321609,
+   "M_true_minus_M_K_max_abs": 2.0341526667665413,
+   "M_true_min": 0.9588725758390162,
+   "M_K_min": 0.7453890452675771,
+   "M_true_std": 2.073916535954751,
+   "M_K_std": 1.8830717923567981,
+   "corr_true_K": 0.934062544367653,
+   "frac_below_preq_true": 0.4673333333333333,
+   "frac_below_preq_K": 0.378
+  },
+  {
+   "delta": 0.165,
+   "Y": 0.33,
+   "M_K_prime_vs_zero_max_abs": 1.791621736302318e-05,
+   "M_K_prime_vs_zero_rms": 5.0358142986318376e-06,
+   "M_true_minus_M_K_rms": 0.10513357271822557,
+   "M_true_minus_M_K_max_abs": 0.2921650352982992,
+   "M_true_min": 1.8017200772723243,
+   "M_K_min": 1.8934784550545642,
+   "M_true_std": 1.0173406135768985,
+   "M_K_std": 1.0058699191471265,
+   "corr_true_K": 0.9946692620349656,
+   "frac_below_preq_true": 0.35733333333333334,
+   "frac_below_preq_K": 0.3473333333333333
+  },
+  {
+   "delta": 0.2,
+   "Y": 0.4,
+   "M_K_prime_vs_zero_max_abs": 2.168412037484302e-05,
+   "M_K_prime_vs_zero_rms": 6.094839131728479e-06,
+   "M_true_minus_M_K_rms": 0.04844462686681518,
+   "M_true_minus_M_K_max_abs": 0.14023996103811243,
+   "M_true_min": 2.1075559908861434,
+   "M_K_min": 2.155147408634949,
+   "M_true_std": 0.8285329853096199,
+   "M_K_std": 0.8249371558636326,
+   "corr_true_K": 0.9982940381271818,
+   "frac_below_preq_true": 0.328,
+   "frac_below_preq_K": 0.32866666666666666
+  },
+  {
+   "delta": 0.5,
+   "Y": 1.0,
+   "M_K_prime_vs_zero_max_abs": 5.419709679088669e-05,
+   "M_K_prime_vs_zero_rms": 1.522982478419651e-05,
+   "M_true_minus_M_K_rms": 9.853110223113492e-05,
+   "M_true_minus_M_K_max_abs": 0.00030255020892244744,
+   "M_true_min": 3.6032725610172647,
+   "M_K_min": 3.6034013253190773,
+   "M_true_std": 0.30943337112816127,
+   "M_K_std": 0.3094391119442109,
+   "corr_true_K": 0.9999999478698696,
+   "frac_below_preq_true": 0.134,
+   "frac_below_preq_K": 0.134
+  }
+ ]
+}

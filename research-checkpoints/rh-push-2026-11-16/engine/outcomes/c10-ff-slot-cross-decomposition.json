@@ -1,0 +1,53 @@
+{
+ "slug": "c10-ff-slot-cross-decomposition",
+ "round": 10,
+ "kind": "combine",
+ "nodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe",
+  "out-c10-ff-slot-cross-decomposition"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "prime-marks",
+  "cross-term",
+  "slot-decomposition",
+  "mean-square",
+  "window",
+  "pre-registered",
+  "control"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "F_q[T] model, exact integers, q = 7 and 13, N = 2, 3, d <= 3, long marks (lam > N, lam > d), 58 configurations plus one optional; no statement about zeta. (i) Identity E = D + (SD - D) + CRperp + CRcoh, B = SB + CRcoh. (ii) |SD/D - 1| = O(N q^(N - lam/2)) by Weil's bound for a non-principal cubic character (measured <= 2.4e-3 for lam >= 7), so the excess over the diagonal is the cross term over pairs of distinct marked primes (c/(e-1) within 5e-5 of 1 for lam >= 10); random signs on the marked primes have mean energy SD exactly. (iii) Target a at q = 7 (2,12,1): e = 20.639, Cross/D = 19.639, B/D = 19.426. (iv) Registered rule c_perp in [-1.05, 1.5] holds in 593 of 596 and fails for the second target (c_perp 4.45, n 5.31), one U seed and mu; n <= 1.5 in 583 of 596; the label \"excess = coherent cross\" is not awarded. (v) Post hoc, at d = 1 only (7 rows, lam = 10, 12), the remainder of a, b and one U seed is a squared signal in the vector's own character at the row variable (specific: rank 1 of 63 sign directions); the d = 2 cases for mu and `one` are forced by a 2-dimensional symmetry space and carry no evidence; `one` at d = 3 open. (vi) At short marks, interior N >= 4 configurations show targets within control ranges (6 values); window-edge and N = 3 rows do not. (vii) The Z[omega] estimate (predicted term 1.5e-4 to 3.2e-4 of the diagonal against resolution 0.01; visibility near 1e10 columns) is an argued float proxy. Target not separated from random multiplicative signs (50 of 51). R1-R4 all false.",
+ "obstruction": "F_q[T], q = 7, 13, N = 2, 3, long marks (lam > N, lam > d). The excess of the row energy over the diagonal is the cross term over pairs of distinct marked primes (proved via Weil's bound: slot-diagonal = diagonal up to O(N q^(N - lam/2))). The registered rule 'excess = coherent cross B_coh' is not awarded: it fails for the second target (c_perp 4.45, n 5.31), one U seed and mu; the row energy carries more than one squared signal (post hoc, d = 1 only: a second signal in the vector's own character at the row variable). The target is not separated from random multiplicative signs (50 of 51). The round-9 disagreement between the model and the Z[omega] screen is geometry: the screen ran at P = Z^(1/3) (dual length below N), the model excess needs marks of length at least 3.5N; the predicted screen term is 1.5e-4 to 3.2e-4 of the diagonal against resolution 0.01 (argued float proxy). No requirement flag; no statement about zeta.",
+ "obstructionKind": "model-excess-is-cross-term-over-distinct-marked-primes-not-separated-from-random-multiplicative-signs",
+ "controlsThatDefeat": [
+  "random multiplicative signs (target not separated: 50 of 51)",
+  "random signs on the marked primes (mean energy equals the slot-diagonal exactly: the excess is removed, as required of a control)",
+  "U seed and mu also break the registered coherent-cross rule",
+  "not run: DH-type model weight, heat, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps (X1-X5) re-derived and confirmed; independent brute force (Sylvester resultants, own prime sieve and Moebius) matches the stored exact integers on three new cases (q=13 (2,3,1), q=13 (2,3,2), q=7 (2,5,2)); X3's formula for SD-D reproduced to the integer and |Pi_lam| under the Weil bound; rule counts and headline numbers (20.639, 19.426, 593/596, 288 max 2.36e-3, B(a)=B(mu)/q^N 20/20) reproduce from raw files. Corrections: (1) \"n <= 1.5 in 593 of 596\" is misworded (task claim and - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The round-9 caveat was geometry, not model against number field: the screen ran at P = Z^(1/3) (dual length below N), the model excess needs marks of length at least 3.5N. The row energy carries more than one squared signal, so B_coh alone under-counts (second target: 2.16 of 7.47). Process error to report: while restarting my local queue I sent SIGTERM to PID 80786, a waiter script queue3.sh of tmp/research-2026-11-16/euler that I did not start, through a name-filtered PID list. It was deadlocked and had not run its payload; its sibling waiter (PID 90095) and polling shell (PID 94875) were not touched. Details in RESULT.md section 9. Both server units are inactive.",
+ "followUp": "Owner decision first: restart or clear the stale euler waiters (PID 90095, 94875; queue3.sh was terminated by my error). Research: identify the row directions of the trivial-target vector at d = 3 from the stored row values, and repeat the u(m) signal with a per-prime split and seeded classes. A larger Z[omega] screen at P = Z^(1/3) is not worth a lane.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-ff-slot-cross-decomposition/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-ff-slot-cross-decomposition/REFEREE.md",
+ "launchedNodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe"
+ ],
+ "engineVerdict": "partial"
+}

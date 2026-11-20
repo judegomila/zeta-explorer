@@ -1,0 +1,8 @@
+{
+ "id": "bost-connes-crossed-product-positivity",
+ "state": "closed",
+ "name": "Positivity in the Bost-Connes Hecke algebra C*(Q/Z) x N^x (KMS states, dual-system state, archimedean vector states with Poisson summation on e(r))",
+ "evidence": "lane c12-bost-connes-crossed-product-duality (round 12; author referee pass only). Stage A stops: E_a passes every marked step in its tensor system and T-NR (c > 2) is a positive density in A itself (inner perturbation of the dynamics) passing every step an inequality uses. Sigma-invariant states factor through C(Z^) and are zeta-free on the algebraic Hecke algebra; vector states read {L(s, chi)} with the mu_n and Poisson steps as identities; Bochner positivity holds only on lines sigma > 1; the Weil prime side is phi_{1/2}(H_g) (target, row P1). Closure covers these three classes of states, not all states.",
+ "controls": ["E_a", "T-NR", "WT", "EIS-w"],
+ "nodes": []
+}

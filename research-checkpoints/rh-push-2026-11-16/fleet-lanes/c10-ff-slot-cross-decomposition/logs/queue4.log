@@ -1,0 +1,17 @@
+zw done 2000 12.6 rc=0 3 s
+zw done 4000 16 rc=0 6 s
+zw done 8000 20 rc=0 22 s
+done q=7 N=2 lam=9 d=2 kind=F 122 s
+done q=7 N=2 lam=8 d=3 kind=F 135 s
+done q=7 N=3 lam=9 d=1 kind=F 86 s
+done q=7 N=3 lam=8 d=2 kind=F 75 s
+done q=13 N=2 lam=7 d=1 kind=F 191 s
+done q=13 N=2 lam=6 d=2 kind=F 148 s
+done q=13 N=3 lam=6 d=1 kind=F 109 s
+done q=13 N=3 lam=5 d=2 kind=F 103 s
+done q=7 N=2 lam=11 d=1 kind=F 882 s
+done q=7 N=2 lam=10 d=2 kind=F 766 s
+done q=7 N=2 lam=9 d=3 kind=F 833 s
+ALLDONE
+zw done 16000 25 rc=0 124 s
+QUEUE4DONE

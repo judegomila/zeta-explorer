@@ -1,0 +1,25 @@
+== 1. direct product against the eta route (beta = 1, phases +)
+['pole', 2, 1] j 10 direct -1.9068411419 eta route -1.9068411419 diff 0.00e+00
+['pole', 2, 1] j 12 direct -4.3981688247 eta route -4.3981688247 diff 0.00e+00
+['pole', 4, 3] j 10 direct -4.8472224003 eta route -4.8472224003 diff 0.00e+00
+['pole', 4, 3] j 12 direct -1.4058158476 eta route -1.4058158476 diff 0.00e+00
+['rat', 1, 1] j 10 direct -1655.1543404810 eta route -1655.1543404810 diff 0.00e+00
+['rat', 1, 1] j 12 direct -6697.4475889839 eta route -6697.4475889839 diff 0.00e+00
+['rat', 1, 2] j 10 direct -407.7050671918 eta route -407.7050671918 diff 0.00e+00
+['rat', 1, 2] j 12 direct -1665.0215490215 eta route -1665.0215490215 diff 0.00e+00
+['rat', 2, 5] j 10 direct -62.9609731749 eta route -62.9609731749 diff 0.00e+00
+['rat', 2, 5] j 12 direct -263.1119200877 eta route -263.1119200877 diff 0.00e+00
+['gen', 9.66148613153966] j 10 direct -0.8654554178 eta route -0.8654554178 diff 0.00e+00
+['gen', 9.66148613153966] j 12 direct -0.5249394115 eta route -0.5249394115 diff 0.00e+00
+['gen', 5.176298546792083] j 10 direct 0.8691227914 eta route 0.8691227914 diff 0.00e+00
+['gen', 5.176298546792083] j 12 direct 1.7557045353 eta route 1.7557045353 diff 0.00e+00
+== 2. Theorem R: |Xi(delta + i p_i)| at a zero point of the numerator factor i (mu_i = log prime nearest e^(i^2), i = 1..7)
+factor 2 p = 1.821276  (j, log|Xi|, exponent): ['(10, -8.536, 1.231)', '(20, -15.350, 1.107)', '(30, -22.281, 1.072)', '(40, -29.213, 1.054)', '(50, -36.144, 1.043)', '(60, -43.076, 1.036)']
+factor 3 p = 3.247058  (j, log|Xi|, exponent): ['(10, -1.216, 0.175)', '(20, -8.146, 0.588)', '(30, -15.078, 0.725)', '(40, -22.009, 0.794)', '(50, -28.941, 0.835)', '(60, -35.872, 0.863)']
+factor 4 p = 2.777339  (j, log|Xi|, exponent): ['(10, 4.346, -0.627)', '(20, -2.252, 0.162)', '(30, -9.183, 0.442)', '(40, -16.115, 0.581)', '(50, -23.046, 0.665)', '(60, -29.978, 0.721)']
+== 3. Theorem T, Kronecker step, finite stage K = 4 (primes 3, 7, 19, 53), delta = 0.02, scan y in [1, 20000] step 0.01
+scan min 1.860e-05  prod(1 - e^-ld) 3.621e-06   scan max 14.4342  prod(1 + e^-ld) 14.5046
+== 4. CYC: (1 - w) prod_{k<70} (1 + w^(2^k)) - 1 at three points
+(0.001+1.3j) abs((1-w) prod - (1 - w^(2^70))) = 9.20e-62
+(1e-20+5.719j) abs((1-w) prod - (1 - w^(2^70))) = 2.26e-60
+(1e-12+5.719201734760254j) abs((1-w) prod - (1 - w^(2^70))) = 7.78e-61

@@ -1,0 +1,350 @@
+{
+ "family": "JB2-with-rnd2",
+ "optimistic_rows": 22,
+ "not_processed": 0,
+ "ball_evaluations": 0,
+ "pos_opposite": 0,
+ "pos_undecided": 0,
+ "killed_by_class": {
+  "7": 21,
+  "1": 1
+ },
+ "killed_fe_by_class": {},
+ "unresolved_class_entries": 0,
+ "alive_all": [],
+ "alive_fe": [
+  {
+   "i": 15978,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 138878,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    3,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 429651,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    3,
+    9,
+    5,
+    8
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 605957,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    6,
+    9,
+    6,
+    11
+   ],
+   "ph_same": 18,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 641636,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    6
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 686393,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    6
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 746220,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 772367,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 810879,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    7,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 848281,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    4,
+    6
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 910202,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    7,
+    8
+   ],
+   "ph_same": 19,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 998966,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    5,
+    9,
+    7,
+    9
+   ],
+   "ph_same": 19,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 1202219,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 1339228,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    9,
+    9,
+    5,
+    8
+   ],
+   "ph_same": 22,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 1393452,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    7,
+    9,
+    6,
+    11
+   ],
+   "ph_same": 18,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 1428693,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    6
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 1858358,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    10
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 2139617,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    10
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 2256436,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 2280379,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    6
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 2503936,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    4,
+    9,
+    4,
+    7
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  },
+  {
+   "i": 2888587,
+   "s": 1,
+   "ttrain": true,
+   "tweak": false,
+   "full": false,
+   "heldout": [
+    2,
+    9,
+    5,
+    10
+   ],
+   "ph_same": 20,
+   "undecided_after_balls": 0
+  }
+ ],
+ "full_survivors": [],
+ "full_survivors_fe": [],
+ "seconds": 0.3326287269592285
+}

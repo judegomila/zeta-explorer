@@ -1,0 +1,58 @@
+{
+ "status": {
+  "CERTIFIED": 369
+ },
+ "complete": 333,
+ "incomplete": [
+  176,
+  181,
+  182,
+  185,
+  186,
+  187,
+  188,
+  190,
+  191,
+  192,
+  193,
+  195,
+  196,
+  197,
+  198,
+  199,
+  200,
+  201,
+  202,
+  203,
+  204,
+  205,
+  206,
+  207,
+  208,
+  254,
+  277,
+  278,
+  279,
+  281,
+  282,
+  283,
+  284,
+  285,
+  286,
+  287
+ ],
+ "meets_target": 333,
+ "missing": []
+}
+{"checked": 369, "bad": [], "not_checked": [], "max_margin_diff_vs_report": 0.0}
+{"mode": "fullref", "entries": 642, "from_base": 273, "from_verified": 369, "bad": 0, "margins": 369, "min_slack": 1.1322516738891863e-13, "mine_entries": 642, "mine_eq_cf": 469}
+r6                   146660920737233/1000000000000000 = 0.146660920737233  [CERTIFIED] floors 0 below_0.145 False
+full                 36249333125141/250000000000000 = 0.144997332500564  [CERTIFIED] floors 369 below_0.145 True
+fullref              36249332027817/250000000000000 = 0.144997328111268  [CERTIFIED] floors 369 below_0.145 True
+scen_target_missing  36249333125141/250000000000000 = 0.144997332500564  [MEASURED (hypothetical margins)] floors 369 below_0.145 True
+scen_target          72495209656029/500000000000000 = 0.144990419312058  [MEASURED (hypothetical margins)] floors 369 below_0.145 True
+bands full     E1-E8 fails {} reproduced True steps 74239 h [0.6336, 2.18] altlog fails {} U_robust 36249333125141/250000000000000
+bands fullref  E1-E8 fails {} reproduced True steps 74239 h [0.6336, 2.18] altlog fails {} U_robust 36249332027817/250000000000000
+ROUTE-P CERTIFIED VALUE (fullref): 36249332027817/250000000000000 = 0.144997328111268  all_checks_pass=True  below_0.145=True
+CERTIFIED (interval/Arb, single engine v4c, internal referee only; conditional on the shared ledger as in r6)
+PT Lambda <= 0.2 is the accepted benchmark; RH open; no QED.

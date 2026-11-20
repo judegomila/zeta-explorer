@@ -1,0 +1,21 @@
+(a) d=0: {0: 0.0, 1: 8.9e-16, 2: 2.8e-14, 3: 2.4e-13, 4: 2.1e-11, 5: 2.5e-10, 6: 1.7e-09, 7: 4.4e-08}  |c_7(1)| = 13073339.831808386
+(b) Lemma H, predecessor tables q=7: max over k of (spread of class sums)/(max |class sum| or rms scale)
+  d=2 J=1 (J <= (d+1)/2: True) k in 0..7: 1.73e-15
+  d=2 J=2 (J <= (d+1)/2: False) k in 0..7: 1.54e-01
+  d=3 J=1 (J <= (d+1)/2: True) k in 0..6: 8.20e-17
+  d=3 J=2 (J <= (d+1)/2: True) k in 0..6: 7.84e-17
+  d=3 J=3 (J <= (d+1)/2: False) k in 0..6: 1.17e-01
+  d=4 J=1 (J <= (d+1)/2: True) k in 0..6: 9.52e-17
+  d=4 J=2 (J <= (d+1)/2: True) k in 0..6: 1.31e-16
+  d=4 J=3 (J <= (d+1)/2: False) k in 0..6: 2.20e-02
+  d=4 J=4 (J <= (d+1)/2: False) k in 0..6: 4.41e-02
+  brute q=7 d=2 k=1 |c_k|=45.4: (J, J<=(d+1)/2, spread) = [(1, True, 2.3e-17), (2, False, 0.15)]
+  brute q=7 d=2 k=2 |c_k|=840: (J, J<=(d+1)/2, spread) = [(1, True, 4.2e-17), (2, False, 0.15)]
+  brute q=7 d=2 k=3 |c_k|=6.35e+03: (J, J<=(d+1)/2, spread) = [(1, True, 9.7e-18), (2, False, 7.8e-17)]
+  brute q=7 d=3 k=2: c_k identically 0
+  brute q=7 d=3 k=3 |c_k|=1.56e+04: (J, J<=(d+1)/2, spread) = [(1, True, 1.5e-16), (2, True, 9.4e-17), (3, False, 0.12)]
+  brute q=13 d=1 k=1: c_k identically 0
+  brute q=13 d=1 k=2 |c_k|=2.2e+03: (J, J<=(d+1)/2, spread) = [(1, True, 1e-16)]
+  brute q=13 d=2 k=1 |c_k|=162: (J, J<=(d+1)/2, spread) = [(1, True, 2.1e-17), (2, False, 0.08)]
+  brute q=13 d=2 k=2 |c_k|=7.61e+03: (J, J<=(d+1)/2, spread) = [(1, True, 8.8e-17), (2, False, 0.08)]
+  brute q=13 d=3 k=2: c_k identically 0

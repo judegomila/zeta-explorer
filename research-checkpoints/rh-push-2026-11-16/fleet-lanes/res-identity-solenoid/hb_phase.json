@@ -1,0 +1,43 @@
+{
+ "zeta a=0.40": {
+  "min": -3.0646004797411432,
+  "max": -0.01847923935013784,
+  "n_points": 481,
+  "n_positive": 0,
+  "positive_range": null
+ },
+ "zeta a=0.05": {
+  "min": -20.041513324721056,
+  "max": -0.0023104900184821833,
+  "n_points": 2401,
+  "n_positive": 0,
+  "positive_range": null
+ },
+ "DH a=0.35": {
+  "min": -25.91303269491017,
+  "max": -0.7393236257280291,
+  "n_points": 601,
+  "n_positive": 0,
+  "positive_range": null
+ },
+ "DH a=0.25": {
+  "min": -4.402162596100341,
+  "max": 15.084853685666312,
+  "n_points": 601,
+  "n_positive": 17,
+  "positive_range": [
+   85.54,
+   85.86
+  ]
+ },
+ "DH a=0.3085": {
+  "min": -1.8659919724682141,
+  "max": 38.57078980159088,
+  "n_points": 281,
+  "n_positive": 1,
+  "positive_range": [
+   85.7,
+   85.7
+  ]
+ }
+}

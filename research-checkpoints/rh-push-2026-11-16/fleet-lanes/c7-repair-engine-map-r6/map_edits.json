@@ -1,0 +1,29 @@
+{
+ "linesBefore": 490,
+ "linesAfter": 515,
+ "rowCount": {
+  "P": 51,
+  "G": 30,
+  "Q": 22,
+  "S": 12,
+  "Z": 28,
+  "F": 8,
+  "T": 3,
+  "L": 5,
+  "D": 7
+ },
+ "edits": [
+  "rows P50, P51",
+  "rows G27-G30 (lane labels A3-C1, A3-C2, A3-C3, A3-R)",
+  "row Z15 update",
+  "rows Z15c, Z23, Z24, Z25, Z26",
+  "row count line",
+  "section 6 item 1",
+  "section 6 item 9",
+  "section 6 item 18",
+  "section 6 item 21",
+  "section 6 item 22",
+  "section 7: 12 entries for rounds 5 and 6",
+  "header update line"
+ ]
+}

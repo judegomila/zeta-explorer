@@ -1,0 +1,18 @@
+planned memory < 50 MB
+B |w0| at claimed q=7 odd zero: 9.033e-16  |w0| at s0+0.001: 0.01716
+B refined (0.5085957730951408223203614 + 17.48111285037289304777363j)
+B winding number 1.0
+B nearest L zeros check: |L_k(1/2+it)| min near 17.48: ['0.7532', '2.314', '0.5976']
+B q=7 odd t 16.7 S_v 0.0430637 S_w 0.0375172
+B q=7 odd t 16.75 S_v -0.0074082 S_w -0.12715
+B q=7 odd t 16.8 S_v -0.0563667 S_w -0.377075
+B q=7 odd t 17.0 S_v -0.12229 S_w 0.102201
+B q=7 odd t 2.31 S_v 0.843539 S_w -0.0111292
+B q=7 odd t 2.25 S_v 0.848897 S_w 0.0694196
+C zeta t 13.0 S_v normalised 0.335011
+C zeta t 13.5 S_v normalised 0.0284031
+C zeta t 13.54 S_v normalised -0.00312095
+C zeta t 13.6 S_v normalised -0.0523558
+C zeta t 14.0 S_v normalised -0.421674
+C zeta t 14.2 S_v normalised 0.603403
+C Lemma T identity diff 5.74e-42

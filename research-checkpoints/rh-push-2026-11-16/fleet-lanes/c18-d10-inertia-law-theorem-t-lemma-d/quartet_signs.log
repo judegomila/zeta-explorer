@@ -1,0 +1,14 @@
+factor^1  deg(s,t) = (2, 2)  numerator coefficients: all coefficients > 0  denominator: 16*(s + 1)**2
+    in (eta, g): (4*eta**2 - 12*eta + 36*g**2 + 9)*(4*eta**2 + 12*eta + 36*g**2 + 9)/16
+factor^1  deg(s,t) = (2, 2)  numerator coefficients: all coefficients > 0  denominator: 16*(s + 1)**2
+    in (eta, g): (36*eta**2 - 36*eta + 4*g**2 + 9)*(36*eta**2 + 36*eta + 4*g**2 + 9)/16
+factor^1  deg(s,t) = (4, 4)  numerator coefficients: mixed (19 positive, 6 negative)  denominator: 256*(s + 1)**4
+    in (eta, g): (468736*eta**8 + 1874944*eta**6*g**2 + 659712*eta**6 + 2812416*eta**4*g**4 + 659712*eta**4*g**2 + 470944*eta**4 + 1874944*eta**2*g**6 - 659712*eta**2*g**4 - 1818560*eta**2*g**2 - 362352*eta**2 + 468736*g**8 - 659712*g**6 + 470944*g**4 + 362352*g**2 + 62071)/256
+factor^1  deg(s,t) = (8, 8)  numerator coefficients: all coefficients > 0  denominator: 32768*(s + 1)**8
+    in (eta, g): (long)
+factor^4  deg(s,t) = (0, 1)  numerator coefficients: all coefficients < 0  denominator: 4
+    in (eta, g): -(4*g**2 + 1)/4
+factor^4  deg(s,t) = (2, 2)  numerator coefficients: all coefficients < 0  denominator: 16*(s + 1)**2
+    in (eta, g): -(4*eta**2 - 4*eta + 4*g**2 + 1)*(4*eta**2 + 4*eta + 4*g**2 + 1)/16
+factor^4  deg(s,t) = (0, 0)  numerator coefficients: all coefficients < 0  denominator: s + 1
+    in (eta, g): (2*eta - 1)*(2*eta + 1)

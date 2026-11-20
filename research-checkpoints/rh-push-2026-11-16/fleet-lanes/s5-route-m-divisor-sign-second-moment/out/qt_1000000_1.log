@@ -1,0 +1,2 @@
+mode QT: B=1000000 slice 1 of 6 planned memory 0.032 GB
+mode QT done 11235s, 49719864768 pairs, 102190139148 nodes

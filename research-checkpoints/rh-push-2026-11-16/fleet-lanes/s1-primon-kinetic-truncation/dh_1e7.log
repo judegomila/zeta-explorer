@@ -1,0 +1,7 @@
+planned allocation: 0.32 GB
+Lambda_DH(n), n=2..12: [0.196909, -0.312093, -1.442232, 0.0, 1.936356, 0.552792, 0.015891, -2.285884, 0.0, 2.397895, -0.762877]  max |Lambda_DH(n)|/log n for n<=N: 871.194
+X=1000  t3 min margin -0.562 at [0.05, 86.5], negatives 3/66;  t2 lam_min -0.0009164;  t1(beta=1) -0.23429
+X=10000  t3 min margin -0.8638 at [0.05, 85.0], negatives 4/66;  t2 lam_min -1.551;  t1(beta=1) -0.20871
+X=100000  t3 min margin -6.071 at [0.05, 85.3], negatives 4/66;  t2 lam_min -0.01486;  t1(beta=1) -0.22443
+X=1e+06  t3 min margin -10.2 at [0.05, 85.3], negatives 9/66;  t2 lam_min -0.7911;  t1(beta=1) -0.21674
+X=1e+07  t3 min margin -5.648 at [0.05, 85.0], negatives 10/66;  t2 lam_min -33.73;  t1(beta=1) -0.20248

@@ -1,0 +1,52 @@
+{
+ "(2,)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": -0.3168033156919492,
+  "at_u": 1.08,
+  "log_concave_on_grid": true
+ },
+ "(3,)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.12532371007623055,
+  "at_u": 0.81,
+  "log_concave_on_grid": false
+ },
+ "(4,)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.6187728238682411,
+  "at_u": 0.0,
+  "log_concave_on_grid": false
+ },
+ "(6,)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 5.351229275252223,
+  "at_u": 0.0,
+  "log_concave_on_grid": false
+ },
+ "(2, 3)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.12170889340801239,
+  "at_u": 0.0,
+  "log_concave_on_grid": false
+ },
+ "(2, 3, 4, 9)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.07065593021771122,
+  "at_u": 0.905,
+  "log_concave_on_grid": false
+ },
+ "(2, 2)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": -0.06720638190405026,
+  "at_u": 1.93,
+  "log_concave_on_grid": true
+ },
+ "(2, 2, 2, 2)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.3295660862545624,
+  "at_u": 3.465,
+  "log_concave_on_grid": false
+ },
+ "(2, 2, 2, 2, 2, 2, 2, 2)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 0.9034650114703169,
+  "at_u": 6.375,
+  "log_concave_on_grid": false
+ },
+ "(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2)": {
+  "max_second_difference_of_log_kernel_on_[0,12]": 1.3296777553462036,
+  "at_u": 9.22,
+  "log_concave_on_grid": false
+ }
+}

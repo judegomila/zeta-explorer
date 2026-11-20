@@ -1,0 +1,60 @@
+TM5_k3 nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 813
+     {'loco_n': 5000, 'loco_pos': 14, 'n': 40000, 'onesigned': 14, 'prec_1024': 561, 'prec_128': 35685, 'prec_2048': 133, 'prec_256': 2316, 'prec_4096': 4, 'prec_512': 1301, 's_excl': 40000, 'why_C': 14, 'why_HEATcol': 35000, 'why_P': 4986}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+TM5_pol nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 911
+     {'loco_n': 5000, 'n': 40000, 'prec_1024': 259, 'prec_128': 35623, 'prec_2048': 10, 'prec_256': 2952, 'prec_512': 1156, 's_excl': 40000, 'why_P': 40000}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+TM6_k3 nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 1087
+     {'loco_n': 5000, 'loco_pos': 1, 'n': 40000, 'onesigned': 1, 'prec_1024': 643, 'prec_128': 35268, 'prec_2048': 150, 'prec_256': 2496, 'prec_4096': 9, 'prec_512': 1434, 's_excl': 40000, 'why_C': 1, 'why_HEATcol': 35000, 'why_P': 4999}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+TM6_pol nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 1118
+     {'loco_n': 5000, 'n': 40000, 'prec_1024': 294, 'prec_128': 34456, 'prec_2048': 10, 'prec_256': 3807, 'prec_512': 1433, 's_excl': 40000, 'why_P': 40000}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DM5_k3 nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 902
+     {'loco_n': 5000, 'n': 40000, 'prec_1024': 1957, 'prec_128': 30337, 'prec_2048': 1003, 'prec_256': 3491, 'prec_4096': 265, 'prec_512': 2928, 'prec_8192': 19, 's_excl': 40000, 'why_HEATcol': 35000, 'why_P': 5000}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DM5_pol nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 835
+     {'loco_n': 5000, 'n': 40000, 'onesigned': 1, 'prec_1024': 233, 'prec_128': 35928, 'prec_2048': 4, 'prec_256': 2748, 'prec_512': 1087, 's_excl': 40000, 'why_C': 1, 'why_P': 39999}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DM6_k3 nodes 40000 excl 40000 ttrain 0 hold 0 und 0 cut False sec 1032
+     {'loco_n': 5000, 'n': 40000, 'prec_1024': 2184, 'prec_128': 28988, 'prec_2048': 1178, 'prec_256': 4007, 'prec_4096': 321, 'prec_512': 3309, 'prec_8192': 13, 's_excl': 40000, 'why_HEATcol': 35000, 'why_P': 5000}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DM6_pol nodes 38500 excl 38500 ttrain 0 hold 0 und 0 cut True sec 1005
+     {'loco_n': 5000, 'n': 38500, 'prec_1024': 240, 'prec_128': 33835, 'prec_2048': 3, 'prec_256': 3209, 'prec_512': 1213, 's_excl': 38500, 'why_P': 38500}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+TMt5_k3 nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 1361
+     {'lazy': 2268, 'loco_n': 1000, 'loco_pos': 285, 'lt_TH': 50, 'n': 10000, 'posfeas': 3013, 'prec_128': 9982, 'prec_256': 18, 's_excl': 10000, 'why_C': 237, 'why_None': 508, 'why_P': 6987, 'why_lazy:H': 122, 'why_lazy:HT': 2146}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 508, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 21.0, 'EH': 0}
+TMt5_pol nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 1690
+     {'lazy': 3259, 'loco_n': 1000, 'loco_pos': 369, 'n': 10000, 'posfeas': 3628, 'prec_128': 10000, 's_excl': 10000, 'why_C': 369, 'why_P': 6372, 'why_lazy:T': 3259}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+TMt6_k3 nodes 9900 excl 9900 ttrain 0 hold 0 und 0 cut True sec 1597
+     {'lazy': 1666, 'loco_n': 1000, 'loco_pos': 269, 'lt_TH': 51, 'n': 9900, 'posfeas': 2469, 'prec_1024': 1, 'prec_128': 9883, 'prec_256': 16, 's_excl': 9900, 'why_C': 223, 'why_None': 580, 'why_P': 7431, 'why_lazy:H': 115, 'why_lazy:HT': 1551}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 2, 'TH': 580, 'EH': 0} best {'full': 0, 'TE': 3, 'TH': 24.0, 'EH': 0}
+TMt6_pol nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 1635
+     {'lazy': 2461, 'loco_n': 1000, 'loco_pos': 271, 'n': 10000, 'posfeas': 2732, 'prec_128': 10000, 's_excl': 10000, 'why_C': 271, 'why_P': 7268, 'why_lazy:T': 2456, 'why_lazy:TE': 5}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DMt5_k3 nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 372
+     {'lazy': 3605, 'loco_n': 1000, 'loco_pos': 395, 'n': 10000, 'posfeas': 4021, 'prec_128': 9814, 'prec_256': 167, 'prec_512': 19, 's_excl': 10000, 'why_C': 415, 'why_None': 1, 'why_P': 5979, 'why_lazy:H': 6, 'why_lazy:HT': 3599}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 1, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 21.0, 'EH': 0}
+DMt5_pol nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 1915
+     {'lazy': 3758, 'loco_n': 1000, 'loco_pos': 432, 'n': 10000, 'posfeas': 4190, 'prec_128': 10000, 's_excl': 10000, 'why_C': 432, 'why_P': 5810, 'why_lazy:T': 3758}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DMt6_k3 nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 451
+     {'lazy': 2405, 'loco_n': 1000, 'loco_pos': 274, 'n': 10000, 'posfeas': 2688, 'prec_128': 9753, 'prec_256': 225, 'prec_512': 22, 's_excl': 10000, 'why_C': 283, 'why_P': 7312, 'why_lazy:H': 6, 'why_lazy:HT': 2399}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+DMt6_pol nodes 10000 excl 10000 ttrain 0 hold 0 und 0 cut False sec 1472
+     {'lazy': 2134, 'loco_n': 1000, 'loco_pos': 213, 'n': 10000, 'posfeas': 2347, 'prec_128': 10000, 's_excl': 10000, 'why_C': 213, 'why_P': 7653, 'why_lazy:T': 2134}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+T3_k3 nodes 646920 excl 646920 ttrain 0 hold 0 und 0 cut True sec 1081
+     {'b_excl': 1580, 'b_lazy': 258, 'b_undecided': 56, 'ball': 1636, 'bu_EH': 28, 'bu_TE': 28, 'bu_TH': 56, 'bu_full': 56, 'fhu_EH': 786, 'fhu_TE': 28, 'fhu_TH': 56, 'fhu_full': 28, 'ft_TE': 84014, 'ft_TH': 418, 'fu_EH': 1636, 'fu_TE': 6721, 'fu_TH': 20806, 'fu_full': 1636, 'n': 646920, 'posfeas': 329448, 'prec_128': 1580, 'prec_16384': 56}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+T3_pol nodes 180000 excl 180000 ttrain 0 hold 0 und 0 cut False sec 284
+     {'ft_EH': 48, 'fu_EH': 283, 'n': 180000, 'posfeas': 68407}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+T6_k3 nodes 642960 excl 642960 ttrain 0 hold 0 und 0 cut True sec 1501
+     {'b_excl': 1496, 'b_lazy': 227, 'b_undecided': 40, 'ball': 1536, 'bu_EH': 21, 'bu_TE': 21, 'bu_TH': 40, 'bu_full': 40, 'fhu_EH': 752, 'fhu_TE': 21, 'fhu_TH': 40, 'fhu_full': 21, 'ft_TE': 98719, 'ft_TH': 565, 'fu_EH': 1536, 'fu_TE': 7495, 'fu_TH': 20004, 'fu_full': 1536, 'n': 642960, 'posfeas': 328950, 'prec_128': 1496, 'prec_16384': 40}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} best {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0}
+T6_pol nodes 97920 excl 96862 ttrain 1058 hold 0 und 0 cut True sec 3301
+     {'b_excl': 512, 'b_lazy': 414, 'b_ttrain': 1058, 'ball': 1570, 'bt_EH': 1058, 'bt_TE': 1058, 'bt_TH': 1058, 'bt_full': 1058, 'fhu_TH': 98, 'ft_EH': 543, 'ft_TE': 1079, 'ft_TH': 398, 'ft_full': 398, 'fu_EH': 1708, 'fu_TE': 512, 'fu_TH': 1382, 'fu_full': 1172, 'n': 97920, 'posfeas': 41780, 'prec_128': 1570}
+     loco hold {'full': 0, 'TE': 0, 'TH': 0, 'EH': 0} loco ttrain (records) {'full': 1058, 'TE': 1058, 'TH': 1058, 'EH': 1058} best {'full': 15.0, 'TE': 15.0, 'TH': 17, 'EH': 15.0}

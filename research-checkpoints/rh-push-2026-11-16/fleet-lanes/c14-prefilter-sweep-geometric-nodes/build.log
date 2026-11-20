@@ -1,0 +1,63 @@
+{
+ "counts": {
+  "silent": 70,
+  "not formulable": 239,
+  "PASS": 134
+ },
+ "silentByClass": {
+  "t": 30,
+  "L": 10,
+  "c": 18,
+  "Z": 7,
+  "K": 5
+ },
+ "passedBy": {
+  "T-NR (Q-P)": 133,
+  "symmetric multiplier (Q-S)": 13,
+  "BLS (Q-B)": 3
+ },
+ "answers": {
+  "QP": {
+   "N": 71,
+   "-": 239,
+   "Y": 133
+  },
+  "QB": {
+   "-": 402,
+   "N": 38,
+   "Y": 3
+  },
+  "QS": {
+   "N": 190,
+   "-": 240,
+   "Y": 13
+  }
+ },
+ "ctl": {
+  "deviceTypesRound13WithRecord": 14,
+  "ofWhichByName": 13,
+  "recordedCells": 22,
+  "disagreements": 0,
+  "recordedPassesSilentUnderLemmaPOnly": 3,
+  "recordedPassesSilentUnderThreeQuestions": 0,
+  "devicesAddedSinceRound13": [
+   38,
+   40,
+   41,
+   42
+  ]
+ },
+ "nflags": 9
+}
+{"antibridge": {"PASS": 15, "not formulable": 8, "silent": 1}, "bridge": {"PASS": 63, "not formulable": 46, "silent": 27}, "bridge-square": {}, "klein": {"PASS": 6, "not formulable": 9, "silent": 2}, "prime-torus": {}, "shear": {"PASS": 23, "silent": 9, "not formulable": 22}, "spinor": {"PASS": 10, "silent": 2, "not formulable": 5}, "torus": {"not formulable": 30, "silent": 7, "PASS": 11}, "twin-ladder": {"silent": 26, "not formulable": 104, "PASS": 35}, "twistor": {"silent": 2, "PASS": 3, "not formulable": 5}, "vortex": {"silent": 6, "not formulable": 27, "PASS": 20}, "zero-channel": {"PASS": 38, "silent": 12, "not formulable": 40}}
+(50, 'connes-twin-ladder-crosswalk', 'log-level object named, no X1 step typed')
+(98, 'ff-ghost-index-toeplitz', 'RH-equivalence in the text but typed not formulable')
+(149, 'l2-detection-modulus', 'log-level object named, no X1 step typed')
+(204, 'mem-v52-unaudited-kyp', 'RH-equivalence in the text but typed not formulable')
+(206, 'mem-widom-parseval-peak', 'measured record typed as an identity')
+(226, 'multi-rung-weil-symbol', 'log-level object named, no X1 step typed')
+(232, 'ns-rigid-loophole-dirichlet-coefficients', 'RH-equivalence in the text but typed not formulable')
+(259, 'pontryagin-index-detectors', 'log-level object named, no X1 step typed')
+(272, 'qtl-weil-delay-form', 'log-level object named, no X1 step typed')
+[]
+NF reasons Counter({'n3': 116, 'n1': 66, 'n2': 25, 'n5': 16, 'n4': 14, 'n6': 2})

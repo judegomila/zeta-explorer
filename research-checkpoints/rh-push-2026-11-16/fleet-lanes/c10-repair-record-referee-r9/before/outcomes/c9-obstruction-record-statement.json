@@ -1,0 +1,37 @@
+{
+ "slug": "c9-obstruction-record-statement",
+ "round": 9,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "record",
+  "obstruction-map",
+  "control",
+  "referee",
+  "statement-o"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "STATEMENT_O.md survives as a record of obstructions with no statement about zeros of zeta and no line PROVED: sections A (after fixing the input codes), B (12 separate lemmas, ARGUED or MEASURED), D, E, and MAP_ROWS_PROPOSED.md (map not edited). Section C survives only as a table of 13 conditional statements, one per read class, not as a joint necessity clause. Confirmed by re-derivation and by 40-digit re-runs on different cases: Liouville twist (zero at 0.25 + 10.5110198194i), E_a (a = 0.37, gamma_3; functional equation and Lambda formula), T-NR (q = 5, c = 3.7 and q = 2, c = -9; multiplicativity of shifted coefficients), interpolation twin (prescribed zero at 0.93 + 11.3i, agreement at s = -6..-11, c = 2 root), DH (kappa, a(6) - a(2)a(3) = 1.0807009, both off-line zeros, functional equation). DH supremum abscissa derived independently from the criterion sum over p = 2,3 mod 5 of 2 arctan(p^-sigma) = pi - 2 arctan kappa: 1.12036249, agreeing with the map's 1.1203625. Citations: 55 row ids, 52 lanes, 44 referee-count claims, 0 missing or mismatched; quoted referee scopes and verdicts agree with the files. Referee addition (ARGUED, one pass): deleting a thin prime set S with pi_S ~ int t^(b-1) dt/log t gives a TW+ member and Beurling system zeta(s)(s-b)W(s) with Lambda >= 0 and a zero at any real b in (1/2,1), relative to the same short-interval input as THIN; it would give line 1 a zero-mode control with positivity and replace the unopened Beurling source in line 5.",
+ "obstruction": "Record lane, no attack. No line of Statement O is PROVED under the two-referee rule (ARGUED 9, MEASURED 3). Section C stands only as 13 separate conditional statements (a device whose whole read set lies in class j is defeated by control j), not as a joint necessity clause. Binding debts: sources not on file (Beurling construction, ray-class short-interval theorem, hypothesis H_W); no single two-referee statement for MV-CAP or for finite Pick orders. The Liouville twist is not a zero-mode control (zeros in Re s < 1/2).",
+ "obstructionKind": "record",
+ "controlsThatDefeat": [
+  "not applicable (record lane); referee addition, ARGUED: thin prime deletion gives a positivity-keeping Beurling-type control with a zero at any real b in (1/2, 1), relative to the THIN short-interval input"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Record lane; no PROVED step and no claim about zeros, so the verdict partial-result holds, with seven corrections (REFEREE.md at tmp/research-2026-11-16/push/c9-obstruction-record-statement/REFEREE.md). E1 (not held as worded): the clause of section C states a joint necessity (\"must read, in one step, at least the items below\"); section B supports only 13 separate conditional statements (a device whose whole read set lies in class j is defeated by [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "With one referee per lane, no line of the record reaches PROVED. The binding debts are sources not on file (Beurling construction, ray-class short-interval theorem, hypothesis H_W) and the lack of single two-referee statements for MV-CAP and finite Pick orders. The outline's single definition of defeat (a zero right of the abscissa) holds without qualification in 5 of 12 lines; the Liouville twist is not a zero-mode control because its zeros lie in Re s < 1/2.",
+ "followUp": "Lane B: primary source for line 7, a two-referee MV-CAP statement, the finite-Pick lemma, a second referee on F1. Then one referee pass on STATEMENT_O.md (definition A4 first), lines 13 to 20, a line or deletion for clause item 2c (RZ_b), and applying MAP_PENDING Part 2 with MAP_ROWS_PROPOSED.md Part 2. lanes_line.json is in the lane directory, not appended to campaign/lanes.jsonl.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-obstruction-record-statement/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-obstruction-record-statement/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

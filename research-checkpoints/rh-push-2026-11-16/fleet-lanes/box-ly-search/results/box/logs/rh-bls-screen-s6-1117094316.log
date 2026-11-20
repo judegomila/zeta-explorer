@@ -1,0 +1,70 @@
+[screen_run] plan=stage6 tasks=279 done=0 gpu=True
+[1/279 22s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=[np.float64(185053.63), 0, 2, 0, 0] n_bad=5 susp=0  22.3s
+[2/279 45s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=[np.float64(185053.63), 1, 0, 0, 0] n_bad=5 susp=0  22.2s
+[3/279 64s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.5s
+[4/279 83s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.2s
+[5/279 102s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.0s
+[6/279 119s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.3s
+[7/279 178s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.5s
+[8/279 346s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  167.9s
+[9/279 536s] {"T0":0.63,"T1":1000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  189.8s
+[10/279 558s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.0s
+[11/279 580s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.2s
+[12/279 599s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.4s
+[13/279 619s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.2s
+[14/279 638s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.1s
+[15/279 654s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.2s
+[16/279 713s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.5s
+[17/279 805s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  91.7s
+[18/279 975s] {"T0":1000000.63,"T1":2000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  170.2s
+[19/279 997s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.0s
+[20/279 1020s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=[np.float64(2530662.63), 1, 1, 1, 0] n_bad=1 susp=0  22.2s
+[21/279 1039s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.4s
+[22/279 1058s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.2s
+[23/279 1077s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.0s
+[24/279 1093s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.2s
+[25/279 1153s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.4s
+[26/279 1244s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  91.5s
+[27/279 1415s] {"T0":2000000.63,"T1":3000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  170.2s
+[28/279 1437s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=[np.float64(3083366.63), 1, 1, 1, 0] n_bad=1 susp=0  22.1s
+[29/279 1459s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=[np.float64(3083366.63), 1, 1, 1, 0] n_bad=1 susp=0  22.2s
+[30/279 1479s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":31,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.8s
+[31/279 1499s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":32,"weight":"riesz1"} -> first_bad=[np.float64(3083366.63), 1, 1, 1, 0] n_bad=1 susp=0  20.3s
+[32/279 1518s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":30,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.6s
+[33/279 1538s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.4s
+[34/279 1557s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.2s
+[35/279 1576s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.0s
+[36/279 1592s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.3s
+[37/279 1652s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.5s
+[38/279 1744s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  91.7s
+[39/279 1914s] {"T0":3000000.63,"T1":4000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  170.4s
+[40/279 1936s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.2s
+[41/279 1958s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=[np.float64(4052439.63), 0, 3, 1, 0] n_bad=1 susp=0  22.3s
+[42/279 1978s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":31,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.9s
+[43/279 1999s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":32,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  20.4s
+[44/279 2018s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":30,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.8s
+[45/279 2038s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.6s
+[46/279 2057s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.3s
+[47/279 2077s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.2s
+[48/279 2093s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.5s
+[49/279 2153s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.7s
+[50/279 2245s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  91.8s
+[51/279 2415s] {"T0":4000000.63,"T1":5000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  170.4s
+[52/279 2437s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.1s
+[53/279 2459s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.3s
+[54/279 2479s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":31,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.8s
+[55/279 2500s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":32,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  20.4s
+[56/279 2519s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":30,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.6s
+[57/279 2539s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.5s
+[58/279 2558s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":28,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.3s
+[59/279 2577s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":27,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.1s
+[60/279 2593s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":26,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  16.4s
+[61/279 2653s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":300,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  59.9s
+[62/279 2745s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":500,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  91.9s
+[63/279 2916s] {"T0":5000000.63,"T1":6000000,"input":"zeta","scheme":"afep","size":1000,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  170.4s
+[64/279 2938s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":33,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.1s
+[65/279 2960s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":34,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  22.2s
+[66/279 2980s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":31,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.8s
+[67/279 3000s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":32,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  20.4s
+[68/279 3020s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":30,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.6s
+[69/279 3039s] {"T0":6000000.63,"T1":7000000,"input":"zeta","scheme":"afep","size":29,"weight":"riesz1"} -> first_bad=None n_bad=0 susp=0  19.5s

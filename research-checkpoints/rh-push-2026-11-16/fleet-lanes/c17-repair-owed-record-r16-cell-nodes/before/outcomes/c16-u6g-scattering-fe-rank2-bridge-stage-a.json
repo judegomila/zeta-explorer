@@ -1,0 +1,52 @@
+{
+ "slug": "c16-u6g-scattering-fe-rank2-bridge-stage-a",
+ "round": 16,
+ "kind": "explore",
+ "nodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-bls-right",
+  "lemma-r-reflection"
+ ],
+ "tags": [
+  "explore",
+  "u6g",
+  "rank2",
+  "eisenstein",
+  "gram-positivity",
+  "control-bls",
+  "stage-a"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Relative to the recalled rank-2 Langlands inner product formula (checked for M = 1 against the direct integral): Gram positivity of truncated minimal-parabolic SL3 Eisenstein series is not closed under Blaschke insertion. A zero of M with 0 < Re a < 1/2 forces a zero at 1 - a (Lemma R, confirmed, valid for a general simple pole p). Measured in addition by this referee: an odd number of real inserted zeros (other than a single zero at 1) fails. Symmetric insertions (zeta times a symmetric polynomial) and non-real conjugate pairs right of 1/2 pass at every tested T >= 0. This is MEASURED twice on different samples (lane: about 4,700 matrices of order up to 5; referee: order-7 matrices plus 3,960 residue-form values per case along the three polar divisors, 0 negative); closure is not proved. DH passes on 400 low-height diagonals and is not shown to fail. At a hypothetical off-line pair, form (*) is confirmed: Q(eta, t_2) is height-independent and positive on a 99 x 34 grid for t_2 >= 0, so it gives no contradiction. Verdict precise-obstruction with a device row stands, with the BLS-right row restricted as above.",
+ "obstruction": "Stops at stage A. Relative to the recalled rank-2 Langlands inner product formula (checked for M = 1 against the direct integral; source not opened), Gram positivity adds one condition to rank one: a zero of M with 0 < Re a < 1/2 forces a zero at 1 - a (Lemma R, PROVED), which is the functional equation of the zero set. Symmetric Blaschke insertions (zeta times a symmetric polynomial, with f(z) = f(1-z); T-NR is the infinite case) and non-real conjugate pairs right of 1/2 pass at every tested T >= 0 (MEASURED twice: about 4,700 matrices of order up to 5; order-7 matrices and 3,960 residue-form values per case; closure not proved). A single real inserted zero right of 1/2 fails (referee E1; the BLS-right row is restricted to non-real conjugate pairs). At a hypothetical off-line pair the form (*) is height-independent and positive for every eta: no contradiction. DH passes on 400 low-height diagonals and is not shown to fail.",
+ "obstructionKind": "control-passes: BLS with a symmetric zero set (polynomial ZQ, T-NR) and BLS with unpaired zeros right of 1/2 pass the rank-2 Gram inequality (measured)",
+ "controlsThatDefeat": [
+  "BLS with a symmetric zero set / polynomial ZQ (passes; has f(z) = f(1-z); measured, closure not proved)",
+  "T-NR (infinite symmetric case)",
+  "BLS with non-real conjugate pairs right of 1/2 (passes; measured)",
+  "DH (passes on 400 low-height diagonals; not shown to fail)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step broke. Lemma R, Lemma S, Lemma D and form (*) were re-derived by hand and confirmed with an independent kernel implementation (no import of gram.py) on new cases: Lemma R defect 3e-11 to 3e-8, also for generic poles p = 0.7 and 2.5; form (*) 1e-20 to 6e-18; M = 1 kite integral 6e-27. Corrections needed before the rows are entered:\n\nE1 (claim too wide). \"BLS-right: unpaired zeros with Re a > 1/2 pass\" is false for a single real zero. With Theta = (u-a)/(u+a): a = 0.55 gives 335 of  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Rank 2 adds one condition to rank one: left-half zeros of the scattering coefficient must be reflected, which is the functional equation of the zero set. Reading f(z) = f(1-z) or the exact normalisation does not leave the Blaschke control: its symmetric form is zeta times a symmetric polynomial and stays positive on a larger set of T than zeta. The BLS control row's \"lacks f(z) = f(1-z)\" is wrong for symmetric zero sets.",
+ "followUp": "Prove or refute closure of the rank-2 Gram form under symmetric and right-unpaired Blaschke factors; cheap first step is a larger adversarial search on the server (order 10 to 20, zero heights to 1e3). Also owed: an independent referee, and a source check of the inner product formula and the valid range of T.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-u6g-scattering-fe-rank2-bridge-stage-a/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-u6g-scattering-fe-rank2-bridge-stage-a/REFEREE.md",
+ "launchedNodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-bls-right",
+  "lemma-r-reflection"
+ ],
+ "engineVerdict": "closed"
+}

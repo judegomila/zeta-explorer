@@ -1,0 +1,101 @@
+{
+ "q": 7,
+ "d": 1,
+ "ks": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "c_norm2": {
+  "0": "7",
+  "1": "0",
+  "2": "117649",
+  "3": "0",
+  "4": "0",
+  "5": "0",
+  "6": "3488004374652",
+  "7": "0",
+  "8": "58622889524776164",
+  "9": "0",
+  "10": "0"
+ },
+ "c_infl": {
+  "0": 1.0,
+  "1": 0.0,
+  "2": 8.166666666666666,
+  "3": 0.0,
+  "4": 0.0,
+  "5": 0.0,
+  "6": 42.0,
+  "7": 0.0,
+  "8": 294.0,
+  "9": 0.0,
+  "10": 0.0
+ },
+ "F1": {
+  "3": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  },
+  "4": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  },
+  "5": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  },
+  "6": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 7
+  },
+  "7": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  },
+  "8": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 7
+  },
+  "9": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  },
+  "10": {
+   "tested": 7,
+   "violations": 0,
+   "nonzero_c": 0
+  }
+ },
+ "F2p": {
+  "0": {
+   "partner": 2,
+   "violations": 0,
+   "tested": 7,
+   "log_q_abs_lambda": 2.5
+  }
+ },
+ "F2": {
+  "0": {
+   "partner": 2,
+   "violations": 0,
+   "tested": 7,
+   "log_q_abs_lambda": 2.5
+  }
+ }
+}

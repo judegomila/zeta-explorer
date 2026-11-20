@@ -1,0 +1,245 @@
+{
+ "obj": "DH",
+ "T": 4000.0,
+ "dt": 0.05,
+ "points": 80001,
+ "offline_pairs_in_table_below_T": 84,
+ "first_offline": [
+  0.3085171824566374,
+  85.6993484853776
+ ],
+ "laguerre": {
+  "norm_min": -0.9999927938046792,
+  "norm_min_t": 3476.5,
+  "rho_min": -555.6636249625046,
+  "rho_min_t": 520.95,
+  "negative_samples": 1240,
+  "negative_intervals": 192,
+  "first_negative_intervals": [
+   [
+    85.45,
+    85.95,
+    11
+   ],
+   [
+    114.05000000000001,
+    114.30000000000001,
+    6
+   ],
+   [
+    166.45000000000002,
+    166.55,
+    3
+   ],
+   [
+    176.5,
+    176.9,
+    9
+   ],
+   [
+    240.15,
+    240.70000000000002,
+    12
+   ]
+  ],
+  "match": {
+   "n": 1240,
+   "inside_half_disk": 1240,
+   "outside": 0,
+   "first_negative_t": 85.45,
+   "outside_examples": [],
+   "zeros_located_by_newton": 108
+  },
+  "offline_pairs_seen": 84,
+  "offline_pairs_total": 84
+ },
+ "w": [
+  {
+   "h": 0.01,
+   "a": 0.02,
+   "norm_min": -485.0969783225578,
+   "norm_min_t": 520.95,
+   "negative_samples": 1239,
+   "first_negative_intervals": [
+    [
+     85.45,
+     85.95,
+     11
+    ],
+    [
+     114.05000000000001,
+     114.30000000000001,
+     6
+    ],
+    [
+     166.45000000000002,
+     166.55,
+     3
+    ],
+    [
+     176.5,
+     176.9,
+     9
+    ],
+    [
+     240.15,
+     240.70000000000002,
+     12
+    ]
+   ],
+   "match": {
+    "n": 1239,
+    "inside_half_disk": 1239,
+    "outside": 0,
+    "first_negative_t": 85.45,
+    "outside_examples": [],
+    "zeros_located_by_newton": 108
+   },
+   "offline_pairs_seen": 84,
+   "offline_pairs_total": 84,
+   "pairs_with_d_gt_h": 84
+  },
+  {
+   "h": 0.05,
+   "a": 0.1,
+   "norm_min": -102.23333870614361,
+   "norm_min_t": 1726.75,
+   "negative_samples": 1183,
+   "first_negative_intervals": [
+    [
+     85.45,
+     85.95,
+     11
+    ],
+    [
+     114.05000000000001,
+     114.30000000000001,
+     6
+    ],
+    [
+     166.45000000000002,
+     166.5,
+     2
+    ],
+    [
+     176.5,
+     176.9,
+     9
+    ],
+    [
+     240.15,
+     240.70000000000002,
+     12
+    ]
+   ],
+   "match": {
+    "n": 1183,
+    "inside_half_disk": 1183,
+    "outside": 0,
+    "first_negative_t": 85.45,
+    "outside_examples": [],
+    "zeros_located_by_newton": 104
+   },
+   "offline_pairs_seen": 80,
+   "offline_pairs_total": 84,
+   "pairs_with_d_gt_h": 80
+  },
+  {
+   "h": 0.125,
+   "a": 0.25,
+   "norm_min": -63.358771285498804,
+   "norm_min_t": 1664.0,
+   "negative_samples": 882,
+   "first_negative_intervals": [
+    [
+     85.45,
+     85.95,
+     11
+    ],
+    [
+     114.10000000000001,
+     114.2,
+     3
+    ],
+    [
+     176.55,
+     176.85000000000002,
+     7
+    ],
+    [
+     240.15,
+     240.65,
+     11
+    ],
+    [
+     320.65000000000003,
+     321.1,
+     10
+    ]
+   ],
+   "match": {
+    "n": 882,
+    "inside_half_disk": 882,
+    "outside": 0,
+    "first_negative_t": 85.45,
+    "outside_examples": [],
+    "zeros_located_by_newton": 85
+   },
+   "offline_pairs_seen": 61,
+   "offline_pairs_total": 84,
+   "pairs_with_d_gt_h": 61
+  }
+ ],
+ "online_zeros": 4110,
+ "close_pairs": 0,
+ "half_gram": {
+  "intervals": 4497,
+  "violations": 2666,
+  "fraction": 0.5928396708917055,
+  "empty": 1527,
+  "two": 1139,
+  "three_plus": 0,
+  "first_violation_index": 1,
+  "first_violation_interval": [
+   8.957098614710839,
+   11.92963736929519
+  ],
+  "octile_fractions": [
+   0.6494661921708185,
+   0.6067615658362989,
+   0.594306049822064,
+   0.5640569395017794,
+   0.5854092526690391,
+   0.5871886120996441,
+   0.5907473309608541,
+   0.5648312611012434
+  ]
+ },
+ "gram": {
+  "intervals": 4498,
+  "violations": 575,
+  "fraction": 0.12783459315251222,
+  "empty": 484,
+  "two": 86,
+  "three_plus": 5,
+  "first_violation_index": 43,
+  "first_violation_interval": [
+   84.09311372472288,
+   85.58474274886143
+  ],
+  "octile_fractions": [
+   0.08896797153024912,
+   0.11565836298932385,
+   0.1387900355871886,
+   0.13854351687388988,
+   0.13167259786476868,
+   0.13167259786476868,
+   0.14056939501779359,
+   0.13676731793960922
+  ]
+ },
+ "count_check": {
+  "online_zeros": 4110,
+  "theta_T_over_pi_plus_1": 4499.232340973892
+ }
+}

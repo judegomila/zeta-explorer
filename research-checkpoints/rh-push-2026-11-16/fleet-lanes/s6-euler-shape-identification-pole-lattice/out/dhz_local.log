@@ -1,0 +1,13 @@
+t 50.5 grid min so far 0.376391210902009 cands 0
+t 2050.5 grid min so far 0.18393232183344463 cands 6
+t 4050.5 grid min so far 0.18393232183344463 cands 15
+t 6050.5 grid min so far 0.15605345115455027 cands 24
+t 8050.5 grid min so far 0.15605345115455027 cands 30
+t 10050.5 grid min so far 0.15605345115455027 cands 35
+t 12050.5 grid min so far 0.15605345115455027 cands 40
+t 14050.5 grid min so far 0.15605345115455027 cands 46
+t 16050.5 grid min so far 0.15605345115455027 cands 54
+t 18050.5 grid min so far 0.15414801761376096 cands 58
+t 20050.5 grid min so far 0.15388861393443823 cands 65
+check vs mpmath at t= 20011.15 3.137483729849246e-08
+grid minimum 0.15388861393443823 candidates 65 zeros with Re >= 1: 0

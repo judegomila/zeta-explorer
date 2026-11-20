@@ -1,0 +1,3 @@
+q=3 blocks 506 ; windows needing a finer pass: 10 blocks
+   block [3696.38, 3716.36): 23 -> 25 zeros
+q=3 zeros below 10110: 12039 ; phase count 12039.11 ; difference 0.11 ; largest window difference 1.36 ; first zeros [ 8.03973109 11.24921186 15.70461224] ; min gap 0.04857

@@ -1,0 +1,5 @@
+{"code": "ZETA", "a": 2.5, "K": 64, "prec": 1800, "nterms": 47, "lam_min": "3.21215121437e-152", "lam_2": "2.20313453892e-148", "lam_max": "6.5539737", "n_neg_eig": 0, "ldl_decided": 129, "ldl_negatives": 0, "first_neg_pivot_index": null, "max_entry_rad": 0.0}
+{"code": "ZETA", "a": 3.0, "K": 77, "prec": 1800, "nterms": 98, "lam_min": "7.25665630052e-200", "lam_2": "6.90084213448e-196", "lam_max": "7.846004", "n_neg_eig": 0, "ldl_decided": 155, "ldl_negatives": 0, "first_neg_pivot_index": null, "max_entry_rad": 0.0}
+{"code": "ZETA", "a": 3.5, "K": 90, "prec": 1800, "nterms": 209, "lam_min": "2.48910872707e-250", "lam_2": "3.11973678512e-246", "lam_max": "8.6281527", "n_neg_eig": 0, "ldl_decided": 181, "ldl_negatives": 0, "first_neg_pivot_index": null, "max_entry_rad": 0.0}
+{"code": "LCHI5", "a": 4.0, "K": 102, "prec": 1800, "nterms": 465, "lam_min": "4.25779375274e-213", "lam_2": "9.44365270213e-209", "lam_max": "11.088126", "n_neg_eig": 0, "ldl_decided": 205, "ldl_negatives": 0, "first_neg_pivot_index": null, "max_entry_rad": 0.0}
+DONE

@@ -1,0 +1,31 @@
+noncm_ipi2 off-line zeros in 0.505<sigma<1.005, 10<t<50: 4
+   s = 0.73162943 + 22.44936876 i   |F| = 1.1e-14
+   s = 0.73721483 + 48.44412907 i   |F| = 4.9e-14
+   s = 0.80901253 + 17.93596823 i   |F| = 1.4e-15
+   s = 0.82235080 + 24.68511074 i   |F| = 3.7e-15
+first zero s0 = (0.7316294273767268+22.449368760543102j)  Fy = (-126.4008395815086-14.011448689563721j)  Fxx = (987.6436072531192+420.6232856240888j)  Fs = (4.219353040735285+1.8106796024763838j)
+predicted boundary direction arg(delta) mod pi = 2.8466219631420477 rad
+   theta=0.131  W=-3.0000  predicted interior zero near anchor: False
+   theta=0.393  W=-3.0000  predicted interior zero near anchor: False
+   theta=0.654  W=-3.0000  predicted interior zero near anchor: False
+   theta=0.916  W=-3.0000  predicted interior zero near anchor: False
+   theta=1.178  W=-3.0000  predicted interior zero near anchor: False
+   theta=1.440  W=-3.0000  predicted interior zero near anchor: False
+   theta=1.702  W=-3.0000  predicted interior zero near anchor: False
+   theta=1.963  W=-3.0000  predicted interior zero near anchor: False
+   theta=2.225  W=-3.0000  predicted interior zero near anchor: False
+   theta=2.487  W=-3.0000  predicted interior zero near anchor: False
+   theta=2.749  W=-3.0000  predicted interior zero near anchor: False
+   theta=3.011  W=-2.0000  predicted interior zero near anchor: True
+   theta=3.272  W=-2.0000  predicted interior zero near anchor: True
+   theta=3.534  W=-2.0000  predicted interior zero near anchor: True
+   theta=3.796  W=-2.0000  predicted interior zero near anchor: True
+   theta=4.058  W=-2.0000  predicted interior zero near anchor: True
+   theta=4.320  W=-2.0000  predicted interior zero near anchor: True
+   theta=4.581  W=-2.0000  predicted interior zero near anchor: True
+   theta=4.843  W=-2.0000  predicted interior zero near anchor: True
+   theta=5.105  W=-2.0000  predicted interior zero near anchor: True
+   theta=5.367  W=-2.0000  predicted interior zero near anchor: True
+   theta=5.629  W=-2.0000  predicted interior zero near anchor: True
+   theta=5.890  W=-2.0000  predicted interior zero near anchor: True
+   theta=6.152  W=-3.0000  predicted interior zero near anchor: False

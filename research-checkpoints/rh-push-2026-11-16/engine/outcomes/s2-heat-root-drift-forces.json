@@ -1,0 +1,88 @@
+{
+ "slug": "s2-heat-root-drift-forces",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "connes-adelic-truncated-trace",
+  "connes-twin-ladder-crosswalk",
+  "eps0-pd-persistence-window",
+  "mem-gaussian-damped-primon-gram",
+  "native-span-no-intermediate-grade",
+  "ns-rigid-pencil-psd-past-lehmer",
+  "qtl-weil-delay-form",
+  "weil-support-kappa-ladder",
+  "winding-lyapunov",
+  "window-boundary-influx",
+  "zv-theta-root-drift"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "zv-theta-root-drift",
+    "winding-lyapunov",
+    "window-boundary-influx"
+   ],
+   "obstruction": "truncated explicit formula for psi_F(x): each off-line zero enters with weight X^(beta-1/2)/distance; zeta's pass at X is implied by verified height H while sqrt X log^2 X < H",
+   "controlsThatDefeat": [
+    "DH (smooth cut-off)",
+    "unimodular twist (equals zeta)",
+    "E_a, sign twist, heat (no version)"
+   ]
+  },
+  {
+   "nodes": [
+    "mem-gaussian-damped-primon-gram",
+    "connes-adelic-truncated-trace",
+    "connes-twin-ladder-crosswalk"
+   ],
+   "obstruction": "dimension counts on-line zeros below the off-line pair and precision must exceed t*gamma_off^2/log 2 bits (verified height); pole-subtracted premise false for zeta",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "zeta itself (pole-subtracted form)"
+   ]
+  },
+  {
+   "nodes": [
+    "weil-support-kappa-ladder",
+    "qtl-weil-delay-form"
+   ],
+   "obstruction": "support exchanges for height: every control onset sits at the scale of its lowest off-line zero or pole; displacement alone forces nothing",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "Liouville twist"
+   ]
+  },
+  {
+   "nodes": [
+    "eps0-pd-persistence-window",
+    "ns-rigid-pencil-psd-past-lehmer",
+    "native-span-no-intermediate-grade"
+   ],
+   "obstruction": "flow-blind: onset order counts on-line zeros below the first non-real pair (extrapolated 9e7 at eps=1e-6); DH positive to order 120",
+   "controlsThatDefeat": [
+    "DH",
+    "heat (small eps)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) truncated explicit formula for psi_F(x): each off-line zero enters with weight X^(beta-1/2)/distance; zeta's pass at X is implied by verified height H while sqrt X log^2 X < H | (2) dimension counts on-line zeros below the off-line pair and precision must exceed t*gamma_off^2/log 2 bits (verified height); pole-subtracted premise false for zeta | (3) support exchanges for height: every control onset sits at the scale of its lowest off-line zero or pole; displacement alone forces nothing | (4) flow-blind: onset order counts on-line zeros below the first non-real pair (extrapolated 9e7 at eps=1e-6); DH positive to order 120",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (smooth cut-off)",
+  "E_a",
+  "E_a, sign twist, heat (no version)",
+  "Liouville twist",
+  "T-NR",
+  "heat",
+  "heat (small eps)",
+  "unimodular twist (equals zeta)",
+  "zeta itself (pole-subtracted form)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-heat-root-drift-forces/RESULT.md"
+}

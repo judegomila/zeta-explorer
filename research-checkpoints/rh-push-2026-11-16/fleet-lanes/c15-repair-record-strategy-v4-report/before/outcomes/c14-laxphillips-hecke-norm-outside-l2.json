@@ -1,0 +1,44 @@
+{
+ "slug": "c14-laxphillips-hecke-norm-outside-l2",
+ "round": 14,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "lax-phillips",
+  "hecke-norm",
+  "solid-norm",
+  "banach-lattice",
+  "hecke-sup-norm",
+  "control-eis-w",
+  "control-non-arithmetic",
+  "zagier-criterion",
+  "row-G26",
+  "row-G31"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. For four families of norms on Eisenstein resonance states of the modular surface, the obtainable eigenvalue bound is either the definition of the space or implied by admissibility: (a) a solid space X containing a resonance state and the bounded compactly supported functions contains the constants, so ||T_p^k||_X >= (p^(1/2)+p^(-1/2))^k on the full space, and on the mean-zero subspace off-resonance Eisenstein series with 1/2 < Re w' <= Re w give spectral radius >= p^a+p^-a (referee addition closing the mean-zero escape); (b) the Hecke-sup norm sup_n N_0(T_n f)/lambda_theta(n) satisfies N(T_m f) <= lambda_theta(m) N(f), is finite on a joint eigenvector iff |Re mu| <= theta (the conclusion itself), and on the Eisenstein channel is at most twice sup_t e^(-theta|t|) N_0(cosh(t sqrt(Delta+1/4)) f), a construction that exists for every one-parameter group; (c) in L^q, 1 <= q < 2, admissibility q < 1/(1/2+a) implies the bound; (d) the Hecke-invariant space with zero mode O(y^(1/2+delta)) as y -> 0 contains E(.,w), Re w > 1/2, exactly when phi(w)=0, and the rate statement on it is Zagier's horocycle criterion (classical, equivalent to RH). Not established: the same conclusion for truncated-setting gauges in general (argued only), for norms outside these families, or for arbitrary invariant subspaces. Checks are 30-digit consistency runs, not certified.",
+ "obstruction": "Decisive test: in four families of norms the growth bound is the definition of the space or implied by admissibility. (a) A solid space containing a resonance state and the bounded compactly supported functions contains the constants, so ||T_p^k|| >= (p^(1/2)+p^(-1/2))^k; on the mean-zero subspace off-resonance Eisenstein series give spectral radius >= p^a + p^-a (referee addition). (b) The Hecke-sup norm sup_n N_0(T_n f)/lambda_theta(n) is finite on a joint eigenvector iff |Re mu| <= theta (the conclusion), and on the Eisenstein channel is dominated by a two-sided wave-growth norm that exists for every one-parameter group. (c) In L^q, 1 <= q < 2, admissibility implies the bound. (d) The Hecke-invariant space that reads phi(w) = 0 exists; the rate statement on it is Zagier's horocycle criterion (classical, equivalent to RH). Not established: truncated-setting gauges in general (argued), non-solid norms outside the four families, arbitrary invariant subspaces.",
+ "obstructionKind": "control-passes",
+ "controlsThatDefeat": [
+  "EIS-w (passes every step where an inequality is proved)",
+  "non-arithmetic group control (the wave-growth norm exists for every Lax-Phillips triple; passes)",
+  "BLS (conditions read through the scattering coefficient are passed; noted by c14-prefilter-sweep-geometric-nodes)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction) holds; all PROVED steps (H1, H2, H3, L, L1, L2, E, O) re-derived and confirmed. Seven corrections, none reversing a conclusion. (1) Theorem L / Corollary L1 \"reads 0<=beta<=1 and nothing else\" is proved only for the operator norm on the whole solid space X; the resonance state lies in the T_p-invariant mean-zero subspace (integral of E(.,w) is 0 for 1/2<Re w<1), where the constants bound says nothing. Repair derived in this pass: a solid X containing f_rho contains  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "On the channel that carries the resonances, T_n is a sum of wave-group elements at times log(d/d'), so a Hecke-built norm is a wave-growth norm and the Hecke multiplication rule is an identity the wave group supplies itself. Positivity-based norms stop at the edge because constants are forced into the space. EIS-w and the non-arithmetic control pass every step where an inequality is proved. Not excluded: non-solid norms outside the four families treated.",
+ "followUp": "Add proposed map row G37 and mark the G26 pending item closed for these four families. REFEREE.md is a same-agent audit, so an independent referee pass is still owed. Incident: the first run of checks.py overwrote the untracked repo-root checks.json (a stray output, probably from c5-angular-family-absorption or g-coupling-norm); the old content is lost and the root file now holds this lane's output — rerun that lane's checks.py in its own directory if the file is needed. Server not used.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-laxphillips-hecke-norm-outside-l2/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-laxphillips-hecke-norm-outside-l2/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

@@ -1,0 +1,37 @@
+{
+ "slug": "c17-repair-owed-record-r16-cell-nodes",
+ "round": 17,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "repair",
+  "record",
+  "cell-node-type",
+  "generator",
+  "map-rows"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; no attack; nothing about zeros of zeta; headline unchanged at 1 of 4. The eleven silent-* nodes are cells in engine/curated/devices.json (U2-POS closed, U6 (g) tried-not-closed, nine cells) with field and role 'cell' in the graph (graph node type unchanged: open-direction); generate.py gives them no device weight and no waived penalty. Top 60 with an open device 57 -> 0, floored only 3 -> 60, closed 0 -> 0 (reproduced; forced by five floored nodes times the per-device cap of 12, a statement about the generator, not about leads). Map 205 -> 208 rows (D10, P56, G42) with G41, Q30, P45, S12b and the BLS notes edited; rows agree with their referee files except that G42 carries \"394 of 528\" without its referee's restriction. STRATEGY 0b, 3.1 (items 42 to 47, of which 45 and 47 are not closures) and 4.0 updated. S2 disposition recorded. No round-16 outcome record was missing; merge_outcomes.py not run. Changed numbers are attributed in ENGINE_LOG; in RESULT section 5 the increase 861 -> 988 is 117 from s2-* files and 10 from the c17-u6e line. Nine of the eleven corrected sentences remain uncorrected in lane files and are in the map and campaign/CORRECTIONS_R16.md. Literature: one search returned no 2611 identifier and missed three already on file; it is not evidence about new preprints; four identifiers not on file are listed, none opened. One independent referee (this pass).",
+ "obstruction": "Record lane, no attack. The eleven silent-* nodes are cells (U2-POS closed, U6 (g) tried-not-closed, nine cells) with no device weight in generate.py; top 60 with an open device 57 -> 0, floored only 3 -> 60, so the generator cannot name the next explore slot. Map 205 -> 208 rows. Not done: nine of eleven corrected sentences remain in lane files outside the edit scope (in the map and campaign/CORRECTIONS_R16.md); row G42 carries '394 of 528' without its referee's restriction; the literature line is one unlogged search and is not evidence about new preprints.",
+ "obstructionKind": "record",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict holds; the lane has no PROVED step of its own. Engine counts were reproduced by rerunning build_graph.py, generate.py and scoreboard.py on a scratch copy (graph byte-identical; CANDIDATES identical except the dump path; scoreboard identical except the timestamp). Seven corrections, none changing a count, state or verdict. E1 (literature line misleading): \"no 2611 preprint found\" describes one unlogged search; the campaign files already hold at least 14 identifiers 2611.*, three of them o - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "With the cells out of the device pool the generator has no open device node: all 60 top entries stand on the one floored 7/8 device type, so it cannot name the next explore slot. A record lane limited to engine/, campaign/ and the map cannot correct sentences in lane files. Other lanes wrote lanes.jsonl and outcomes/ during the run, so scoreboard changes needed an attribution run on the pre-lane inputs.",
+ "followUp": "Independent referee for this lane: check rows D10, P56, G42 against their sources (G42's T >= N half was written from the claim line and second-referee table, not a full read of the c15 lane) and the reading of 'scored as a tag' (cell nodes still enter as open-lemma members: 2 of the top 60). Then dated correction notes in the nine lane files, and revise cell U6 (g) / row D10 when c17-rank2-gram-symmetric-blaschke-closure reports.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-repair-owed-record-r16-cell-nodes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-repair-owed-record-r16-cell-nodes/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

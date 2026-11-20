@@ -1,0 +1,191 @@
+{
+ "L(0,chi5)": "4.814824861e-35",
+ "lemma_T": [
+  {
+   "beta": "0.6",
+   "r": "sym3",
+   "m": -0.6,
+   "P": 1.6,
+   "beta0": 0.6,
+   "diff": 1.0,
+   "min_weight_imag": 45.63731418878927,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.64265,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 1.023272873887055e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.6",
+   "r": "sym2_of_sym4",
+   "m": -1.6,
+   "P": 2.6,
+   "beta0": 1.6,
+   "diff": 1.0,
+   "min_weight_imag": 121.69950450343805,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.64265,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 1.4841336492068826e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.6",
+   "r": "std_x_conjstd",
+   "m": -0.4,
+   "P": 1.4,
+   "beta0": 0.4,
+   "diff": 1.0,
+   "min_weight_imag": 0.0,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.64265,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 1.8170893655324256e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.6",
+   "r": "sym2_x_conj_sym2",
+   "m": -0.8,
+   "P": 1.8,
+   "beta0": 0.8,
+   "diff": 1.0,
+   "min_weight_imag": 0.0,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.64265,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 2.7197881757352094e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.85",
+   "r": "sym3",
+   "m": -0.225,
+   "P": 1.225,
+   "beta0": 0.225,
+   "diff": 1.0,
+   "min_weight_imag": 45.63731418878927,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.53746,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 6.807401295386933e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.85",
+   "r": "sym2_of_sym4",
+   "m": -0.6,
+   "P": 1.6,
+   "beta0": 0.6,
+   "diff": 1.0,
+   "min_weight_imag": 121.69950450343805,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.53746,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 5.616282654624945e-33,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.85",
+   "r": "std_x_conjstd",
+   "m": -0.15,
+   "P": 1.15,
+   "beta0": 0.15,
+   "diff": 1.0,
+   "min_weight_imag": 0.0,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.53746,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 2.1234781560872453e-34,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  },
+  {
+   "beta": "0.85",
+   "r": "sym2_x_conj_sym2",
+   "m": -0.3,
+   "P": 1.3,
+   "beta0": 0.3,
+   "diff": 1.0,
+   "min_weight_imag": 0.0,
+   "n_min_weights": 1,
+   "min |other factor| at pole (non-pole ones)": 0.53746,
+   "n_extra_poles": 0,
+   "|twisted finite part at -l0|": 2.6067156941041323e-33,
+   "|inverse local factor p=11 at -l0|": 0.0,
+   "real parts symmetric": true
+  }
+ ],
+ "O2_shadow_beta_half_pole_order": {
+  "(s-1)^2 F at 1+1e-8": 3.79765507077493,
+  "(s-1) F at 1+1e-8": 379765507.077493
+ },
+ "E9_O1_vanishing_order_at_w=beta": {
+  "|G(1/2+10^-k)|": {
+   "3": 0.00031505694292945525,
+   "4": 3.146022126696224e-05,
+   "5": 3.1455678369149762e-06,
+   "6": 3.1455224123373154e-07
+  },
+  "ratio k=4/k=5": 10.001444221853735,
+  "ratio k=5/k=6": 10.000144410281365
+ },
+ "prop_E": {
+  "rows": [
+   {
+    "zero": 5,
+    "|xi(rho)|": 1.0673694476735568e-41,
+    "|xi(rho-1)|": 8.672670384036979e-12,
+    "|xi(2-rho)|": 8.672670384036979e-12,
+    "|xi(2rho)|": 3.9145395223444667e-23,
+    "|xi(2rho-1)|": 3.9145395223444667e-23
+   },
+   {
+    "zero": 10,
+    "|xi(rho)|": 2.12912786371862e-47,
+    "|xi(rho-1)|": 1.6198698690879824e-17,
+    "|xi(2-rho)|": 1.6198698690879824e-17,
+    "|xi(2rho)|": 2.239527948705308e-34,
+    "|xi(2rho-1)|": 2.239527948705308e-34
+   }
+  ],
+  "edge t=11.9": [
+   1.0733825543162676e-08,
+   1.0733825543162676e-08
+  ]
+ },
+ "D_zero1_p<200": [
+  131,
+  0.03270064366423789
+ ],
+ "D_zero2_p<500": [
+  293,
+  0.004502955750287714
+ ],
+ "A_second_zero": [
+  {
+   "x": 15000,
+   "sum": 65518.87604894138,
+   "ratio_with_osc": 0.9995367415430593,
+   "ratio_main_only": 1.0039692148685815
+  },
+  {
+   "x": 30000,
+   "sum": 139347.6296962317,
+   "ratio_with_osc": 0.9996298657750119,
+   "ratio_main_only": 1.0007110816665719
+  },
+  {
+   "x": 60000,
+   "sum": 294374.0599808589,
+   "ratio_with_osc": 0.9998838114326435,
+   "ratio_main_only": 0.9946579476422803
+  }
+ ]
+}

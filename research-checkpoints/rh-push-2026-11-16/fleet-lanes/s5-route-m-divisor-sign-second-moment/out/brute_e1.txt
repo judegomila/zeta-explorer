@@ -1,0 +1,2 @@
+planned memory per block 0.13 GB
+b 223092870 phi 36495360 E1/b from the definition = -0.002098461072

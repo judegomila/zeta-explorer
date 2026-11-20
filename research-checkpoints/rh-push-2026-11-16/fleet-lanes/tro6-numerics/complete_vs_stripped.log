@@ -1,0 +1,15 @@
+rows with exactly one correction term (good part squarefree, one prime p | m with N(p) <= 100): 3030
+model rho_cor = kappa(p) * rho_str / N(p): least-squares kappa over rows and classes, and alignment cos(rho_cor, rho_str)
+  N(p)=  7: rows  1164  kappa = +0.882+0.000i  cos = 0.822  (noise share of rho_str 0.25)
+  N(p)= 13: rows   528  kappa = +0.893+0.000i  cos = 0.832  (noise share of rho_str 0.22)
+  N(p)= 19: rows   336  kappa = +0.919+0.000i  cos = 0.842  (noise share of rho_str 0.19)
+  N(p)= 25: rows   114  kappa = +1.018+0.000i  cos = 0.860  (noise share of rho_str 0.17)
+  N(p)= 31: rows   156  kappa = +0.998-0.000i  cos = 0.861  (noise share of rho_str 0.15)
+  N(p)= 37: rows   132  kappa = +0.989+0.000i  cos = 0.875  (noise share of rho_str 0.14)
+  N(p)= 43: rows   120  kappa = +1.009+0.000i  cos = 0.864  (noise share of rho_str 0.14)
+  N(p)= 61: rows   108  kappa = +1.014-0.000i  cos = 0.837  (noise share of rho_str 0.15)
+  N(p)= 67: rows    96  kappa = +0.962+0.000i  cos = 0.840  (noise share of rho_str 0.14)
+  N(p)= 73: rows    96  kappa = +0.966+0.000i  cos = 0.852  (noise share of rho_str 0.13)
+  N(p)= 79: rows    96  kappa = +0.988+0.000i  cos = 0.831  (noise share of rho_str 0.16)
+  N(p)= 97: rows    84  kappa = +0.974+0.000i  cos = 0.817  (noise share of rho_str 0.15)
+all rows: Re<rho_str, rho_cor> / ||rho_str||^2 = 0.0500; ||rho_nat||^2/||rho_str||^2 = 1.1092

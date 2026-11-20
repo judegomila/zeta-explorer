@@ -1,0 +1,33 @@
+[zeta k=2 primes=[2, 3]] gpu=False delta=5e-06 L=12800000 inside=3200001 complex=False; planned: Lanczos basis 1.93 GB, FFT work arrays 1.53 GB
+max||mu|-1| = 2.33e-10; setup 9s
+top values (value, 1-value^2, residual); converged (res<1e-7): 25
+RESULT1 zeta k=2 delta=5e-06: gap 1-sup|lam| = 3.700449e-04; nconv=25; Sigma = 53.3381 +- 0.0673 (top part 51.2901); Tr|A|^3 = 6.2154 (top 4.1978, rest 2.0176 +- 0.0652; half-m rest 2.0061); TrA^4 = 3.3736 (top 3.0759, rest 0.2977 +- 0.0159); TrA^2 rest = 25.99; model tails (zeta-type): cubic 1.7695, quartic 0.2500; 210s
+[zeta k=1 primes=[2]] gpu=False delta=5e-06 L=12800000 inside=3200001 complex=False; planned: Lanczos basis 1.93 GB, FFT work arrays 1.53 GB
+max||mu|-1| = 2.33e-10; setup 13s
+top values (value, 1-value^2, residual); converged (res<1e-7): 31
+RESULT1 zeta k=1 delta=5e-06: gap 1-sup|lam| = 2.691725e-05; nconv=31; Sigma = 145.7111 +- 0.0053 (top part 145.4747); Tr|A|^3 = 3.1562 (top 2.9210, rest 0.2352 +- 0.0052; half-m rest 0.2333); TrA^4 = 2.4159 (top 2.3953, rest 0.0206 +- 0.0006); TrA^2 rest = 5.90; model tails (zeta-type): cubic 0.6036, quartic 0.1250; 251s
+[zeta k=3 primes=[2, 3, 5]] gpu=False delta=5e-06 L=12800000 inside=3200001 complex=False; planned: Lanczos basis 1.93 GB, FFT work arrays 1.53 GB
+max||mu|-1| = 2.33e-10; setup 14s
+top values (value, 1-value^2, residual); converged (res<1e-7): 22
+RESULT1 zeta k=3 delta=5e-06: gap 1-sup|lam| = 2.258678e-03; nconv=22; Sigma = 35.9815 +- 0.2393 (top part 27.6822); Tr|A|^3 = 13.3263 (top 5.2722, rest 8.0540 +- 0.2237; half-m rest 8.0055); TrA^4 = 5.4791 (top 3.8170, rest 1.6621 +- 0.0792); TrA^2 rest = 70.42; model tails (zeta-type): cubic 3.4034, quartic 0.3437; 222s
+[zeta k=8 primes=[2, 3, 5, 7, 11, 13, 17, 19]] gpu=False delta=5e-06 L=12800000 inside=3200001 complex=False; planned: Lanczos basis 1.93 GB, FFT work arrays 1.53 GB
+max||mu|-1| = 2.33e-10; setup 17s
+top values (value, 1-value^2, residual); converged (res<1e-7): 9
+RESULT1 zeta k=8 delta=5e-06: gap 1-sup|lam| = 4.796141e-02; nconv=9; Sigma = 177.1156 +- 1.4577 (top part 7.1537); Tr|A|^3 = 161.6937 (top 3.8220, rest 157.8718 +- 1.2862; half-m rest 157.4689); TrA^4 = 53.1390 (top 2.9616, rest 50.1774 +- 0.5888); TrA^2 rest = 740.41; model tails (zeta-type): cubic 19.6846, quartic 0.6059; 244s
+[zeta k=2 primes=[2, 3]] gpu=False delta=2.5e-06 L=25600000 inside=6400001 complex=False; planned: Lanczos basis 1.96 GB, FFT work arrays 3.05 GB
+max||mu|-1| = 3.49e-10; setup 32s
+top values (value, 1-value^2, residual); converged (res<1e-7): 6
+RESULT1 zeta k=2 delta=2.5e-06: gap 1-sup|lam| = 3.700452e-04; nconv=6; Sigma = 53.7672 +- 0.2934 (top part 49.7618); Tr|A|^3 = 6.5919 (top 2.8247, rest 3.7673 +- 0.2604; half-m rest 3.7271); TrA^4 = 3.5470 (top 2.4820, rest 1.0650 +- 0.1200); TrA^2 rest = 32.93; model tails (zeta-type): cubic 1.7695, quartic 0.2500; 283s
+[ea k=2 primes=[2, 3]] gpu=False delta=5e-06 L=12800000 inside=3200001 complex=False; planned: Lanczos basis 1.93 GB, FFT work arrays 1.53 GB
+max||mu|-1| = 2.33e-10; setup 13s
+top values (value, 1-value^2, residual); converged (res<1e-7): 0
+RESULT1 ea k=2 delta=5e-06: gap 1-sup|lam| = 1.720278e-02; nconv=0; Sigma = 1548.8744 +- 8.6860 (top part 0.0000); Tr|A|^3 = 1289.4165 (top 0.0000, rest 1289.4165 +- 5.9578; half-m rest 1286.8475); TrA^4 = 598.9097 (top 0.0000, rest 598.9097 +- 3.5003); TrA^2 rest = 3598.16; model tails (zeta-type): cubic 1.7695, quartic 0.2500; 239s
+[zeta k=8 primes=[2, 3, 5, 7, 11, 13, 17, 19]] gpu=False delta=2.5e-06 L=25600000 inside=6400001 complex=False; planned: Lanczos basis 1.96 GB, FFT work arrays 3.05 GB
+max||mu|-1| = 3.49e-10; setup 40s
+top values (value, 1-value^2, residual); converged (res<1e-7): 2
+RESULT1 zeta k=8 delta=2.5e-06: gap 1-sup|lam| = 4.796146e-02; nconv=2; Sigma = 199.8817 +- 3.6252 (top part 3.7232); Tr|A|^3 = 184.5594 (top 1.3932, rest 183.1662 +- 2.9466; half-m rest 182.4307); TrA^4 = 56.4220 (top 1.2508, rest 55.1713 +- 1.6358); TrA^2 rest = 946.74; model tails (zeta-type): cubic 19.6846, quartic 0.6059; 241s
+[zeta k=1 primes=[2]] gpu=False delta=2.5e-06 L=25600000 inside=6400001 complex=False; planned: Lanczos basis 1.96 GB, FFT work arrays 3.05 GB
+max||mu|-1| = 3.49e-10; setup 18s
+top values (value, 1-value^2, residual); converged (res<1e-7): 11
+RESULT1 zeta k=1 delta=2.5e-06: gap 1-sup|lam| = 2.691734e-05; nconv=11; Sigma = 145.6417 +- 0.0052 (top part 145.3078); Tr|A|^3 = 3.0890 (top 2.7587, rest 0.3303 +- 0.0049; half-m rest 0.3260); TrA^4 = 2.4006 (top 2.3596, rest 0.0410 +- 0.0018); TrA^2 rest = 6.90; model tails (zeta-type): cubic 0.6036, quartic 0.1250; 187s
+C1LOCALDONE

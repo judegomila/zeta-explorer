@@ -1,0 +1,133 @@
+{
+ "4": {
+  "generators": 5,
+  "outside_found": false
+ },
+ "5": {
+  "generators": 7,
+  "outside_found": true,
+  "cosines": [
+   "-1",
+   "2/3"
+  ],
+  "coefficients": [
+   "1",
+   "5/3",
+   "0",
+   "0",
+   "5/3",
+   "1"
+  ],
+  "y": [
+   "-1",
+   "1",
+   "-1"
+  ],
+  "exact_ok": true,
+  "yP": "2/3"
+ },
+ "6": {
+  "generators": 11,
+  "outside_found": true,
+  "cosines": [
+   "-1",
+   "-1",
+   "2/3"
+  ],
+  "coefficients": [
+   "1",
+   "8/3",
+   "5/3",
+   "0",
+   "5/3",
+   "8/3",
+   "1"
+  ],
+  "y": null,
+  "exact_ok": false,
+  "yP": "None"
+ },
+ "7": {
+  "generators": 15,
+  "outside_found": true,
+  "cosines": [
+   "3/4",
+   "-1",
+   "-1"
+  ],
+  "coefficients": [
+   "1",
+   "7/2",
+   "7/2",
+   "0",
+   "0",
+   "7/2",
+   "7/2",
+   "1"
+  ],
+  "y": null,
+  "exact_ok": false,
+  "yP": "None"
+ },
+ "8": {
+  "generators": 22,
+  "outside_found": true,
+  "cosines": [
+   "-1",
+   "-1",
+   "5/6",
+   "1/6"
+  ],
+  "coefficients": [
+   "1",
+   "2",
+   "5/9",
+   "2/9",
+   "4/3",
+   "2/9",
+   "5/9",
+   "2",
+   "1"
+  ],
+  "y": [
+   "-2",
+   "2",
+   "-2",
+   "-2",
+   "1"
+  ],
+  "exact_ok": true,
+  "yP": "16/9"
+ },
+ "9": {
+  "generators": 30,
+  "outside_found": true,
+  "cosines": [
+   "3/4",
+   "-1",
+   "1/2",
+   "-11/12"
+  ],
+  "coefficients": [
+   "1",
+   "7/3",
+   "11/12",
+   "1/6",
+   "13/4",
+   "13/4",
+   "1/6",
+   "11/12",
+   "7/3",
+   "1"
+  ],
+  "y": [
+   "-3",
+   "1",
+   "1",
+   "-3",
+   "1"
+  ],
+  "exact_ok": true,
+  "yP": "3"
+ }
+}

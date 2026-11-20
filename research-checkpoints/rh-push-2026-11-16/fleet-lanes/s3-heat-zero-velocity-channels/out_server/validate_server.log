@@ -1,0 +1,42 @@
+first zero ordinate                                            got 14.13472514173 want 14.13472514173 OK
+|xi'(rho_1)| (doc: >= 0.0013827, |F_s|^2 n/a)                  got 0.001382719089216 want 0.0013827 OK
+heat zero tau=-0.1                                             got 14.16371765576 want 14.16371765576 OK
+heat zero tau=-0.1                                             got 21.0598272737 want 21.0598272737 OK
+heat zero tau=-0.1                                             got 25.04013162739 want 25.04013162739 OK
+heat zero tau=-0.2                                             got 14.19273210018 want 14.19273210018 OK
+heat zero tau=-0.2                                             got 21.0976910027 want 21.0976910027 OK
+heat zero tau=-0.2                                             got 25.06936990656 want 25.06936990656 OK
+heat zero tau=0.2                                              got 14.07680614422 want 14.07680614422 OK
+heat zero tau=0.2                                              got 20.94669042883 want 20.94669042883 OK
+heat zero tau=0.2                                              got 24.95220543745 want 24.95220543745 OK
+   d gamma/d tau at 14.1347 = -0.289815 (finite difference from the table: -0.289815)
+   d gamma/d tau at 21.0220 = -0.377498 (finite difference from the table: -0.377501)
+   d gamma/d tau at 25.0109 = -0.292917 (finite difference from the table: -0.292911)
+P(0.02, 0.35)                                                  got 0.0001158064779419 want 0.00011580648 OK
+   P(0.05, 0.35) = 0.00028965697 (doc: enclosed below 0.00029)
+quartic v_coll                                                 got 0.1340695840364 want 0.1340695840364 OK
+quartic v_exit (r = 0.35)                                      got 0.08175425079886 want 0.08175425079886 OK
+   {'c4_status': 'ok', 'c4_steps': 15, 'v_coll': 0.13406958403644717, 'h_coll': 0.15107267178505446, 'wind0_0.7': 1, 'v_exit_0.7': 0.08175425079885777, 'v_exit_0.7_how': 'line+'}
+kappa = S1^2 + 3 S2 (polynomial)                               got 34.44058617169 want 34.44058617169 OK
+DH first off-line zero beta                                    got 0.8085171824566 want 0.8085171824566 OK
+DH first off-line zero gamma                                   got 85.69934848538 want 85.69934848538 OK
+   DH on the line: F = [1.50586684468e-6 +/- 4.59e-19] + [+/- 2.60e-158]j
+DH first on-line zero                                          got 5.094159844571 want 5.09415984 OK
+   L4 first zero 6.020948904698 ; value on the line at t=10: [-0.000685957213112 +/- 4.23e-16] + [+/- 2.20e-156]j
+   L3 first zero 8.039737155681 ; value on the line at t=10: [-0.00181621325015 +/- 1.56e-15] + [+/- 5.79e-156]j
+TNR off-line zero beta                                         got 0.9037532248277 want 0.9037532248277 OK
+TNR M at the off-line zero                                     got 1.080428235143 want 1.080428235143 OK
+   zero 14.135 v_coll     n=100: 88.9662969832  n=76: nan
+   zero 14.135 v_exit_0.7 n=100: 15.8221579658  n=76: 15.8221579658
+   zero 14.135 lgdel_R    n=100: -0.911101310575  n=76: -0.911101310575
+   zero 14.135 lgdel_TR   n=100: -1.21058654563  n=76: -1.21058654563
+   zero 14.135 kappa      n=100: 0.539019754074  n=76: 0.539019754074
+    {'code': 'ZETA', 're': 0.5, 'im': 14.134725141734695, 'x': 0.0, 'online': True, 'res': 8.070704459605394e-154, 'g': 6.887, 'lg_a1': -2.859266041434362, 'lg_a0': -155.95237377354624, 'Qre': -2.2728284128776725e-154, 'Qim': 1.159261154955765, 'M': 0.0, 'kappa': 0.539019754074359, 'lgdel_R': -0.9111013105753016, 'ropt_R': 0.15000000000000002, 'floor_R': 0.5465224046564334, 'lgdel_TR': -1.2105865456335214, 'ropt_TR': 0.05, 'floor_TR': 0.2579677660321555, 'lgK1': -1.6388022451357072, 'sym_im': 1.6778708818205272e-137, 'c4_status': 'ok', 'c4_steps': 212, 'v_coll': 88.96629698316781, 'h_coll': -0.7217510700831445, 'wind0_0.7': 1, 'v_exit_0.7': 15.822157965842289, 'v_exit_0.7_how': 'line+'}
+   zero 9996.557 v_coll     n=100: 0.390647490644  n=76: 0.390647490644
+   zero 9996.557 v_exit_0.7 n=100: 0.388588395014  n=76: 0.388588395014
+   zero 9996.557 lgdel_R    n=100: -3400.25262344  n=76: -3400.25262344
+   zero 9996.557 lgdel_TR   n=100: -3400.39590671  n=76: -3400.39590671
+   zero 9996.557 kappa      n=100: 14.3591728648  n=76: 14.3591728648
+    {'code': 'ZETA', 're': 0.5, 'im': 9996.556933962112, 'x': 0.0, 'online': True, 'res': 3.982450517218501e-151, 'g': 0.6797020011399582, 'lg_a1': -3401.735514371133, 'lg_a0': -3552.1353639871127, 'Qre': -4.451766197633244e-154, 'Qim': -1.9316083372732606, 'M': 0.0, 'kappa': 14.359172864783988, 'lgdel_R': -3400.252623439415, 'ropt_R': 0.45, 'floor_R': 0.17564876286949796, 'lgdel_TR': -3400.395906707757, 'ropt_TR': 0.30000000000000004, 'floor_TR': 0.12586622271982015, 'lgK1': -1.6388022451357072, 'sym_im': 2.803656245338999e-153, 'c4_status': 'ok', 'c4_steps': 27, 'v_coll': 0.39064749064384996, 'h_coll': -0.509099673558892, 'wind0_0.7': 1, 'v_exit_0.7': 0.38858839501391024, 'v_exit_0.7_how': 'line-'}
+time for 4 full analyses 4.9s
+ALL OK

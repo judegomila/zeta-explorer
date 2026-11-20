@@ -1,0 +1,5 @@
+round 0 final deficit 52 deficient intervals 26 max |count - integer| 3.637978807091713e-12 sec 388.9660427570343
+   new on-line 2 new off-line pairs 25
+round 1 final deficit 0 deficient intervals 0 max |count - integer| 3.637978807091713e-12 sec 2942.951518535614
+zeros 12684 on 11552 off pairs 566 max beta 0.8977501549770109 planned memory per worker: 104 MB
+done 2978.9157359600067

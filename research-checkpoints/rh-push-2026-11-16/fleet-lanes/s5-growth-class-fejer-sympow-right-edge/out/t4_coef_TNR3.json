@@ -1,0 +1,1 @@
+{"object": "TNR3", "N": 200000, "first_negative_n": 9, "n_negative": 5, "first_n_not_prime_power_with_Lambda_nonzero": null, "n_not_prime_power": 0, "max_abs_Lambda_over_log_n": 5033.138248868375, "at_n": 177147, "Lambda_2..12": [0.693147, 5.284887, 0.693147, 1.609438, 0.0, 1.94591, 0.693147, -8.261564, 0.0, 2.397895, 0.0]}

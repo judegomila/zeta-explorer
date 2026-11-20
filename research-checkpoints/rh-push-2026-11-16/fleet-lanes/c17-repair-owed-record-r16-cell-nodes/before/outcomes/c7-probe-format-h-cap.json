@@ -1,0 +1,43 @@
+{
+ "slug": "c7-probe-format-h-cap",
+ "round": 7,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-1",
+  "out-c5-target-fe-order2-ledger"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "linear-program",
+  "large-sieve",
+  "hilbert-schmidt",
+  "operator-norm",
+  "sextic-theta",
+  "cap"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to the r3 transcription of the unrefereed sources, and assuming the signal exponent (S) and the floor-class high bound (H0 or H0') at all lx, ly, l >= 0 (MODEL outside lx >= l): (1) PROVED identity: B >= L', B >= L_K, B >= H0 imply B >= 1 - 1/r + lx/(2r) (2lx/(3r) with H0'), attained on the segment l = lx/2, ly = 1 - 3lx/2, which contains the 13/15 point; exact LP infimum 1 - 1/r at (0,1,0) for r = 2..12. (2) PROVED: an l2-l2 operator bound of the full reflected row matrix with unimodular entries cannot be below the K-branch (Hilbert-Schmidt); other uses of duality are not covered. (3) ARGUED: a low estimate depending on the target only through moduli has B >= 1 by alignment with the Liouville-twisted target; this requires G + k_dir/2 >= h/r in the unreflected system, and keeping the polar term suffices (G = 0 is a false input there if (S) and k_dir hold). (4) Going below 1 - 1/r needs an estimate outside (1)-(2): with the polar term kept, deleting the K-loss alone gives 31/36 and no h > 1 vertex; deleting H0 alone gives 13/15; deleting all range losses gives an inconsistent system. CAP is not a consequence of the format (only h <= r/2 was found), but no probe with h > 1 is exhibited. No statement about zeros.",
+ "obstruction": "No bound h <= 1 on the parameter (format gives h <= r/2). The abscissa is capped: square-root level + K-branch + floor-class high bound give B >= 1 - 1/r + lx/(2r) for all lx, ly, l >= 0 (exact identity; LP for r = 2..12), and the K-branch is the Hilbert-Schmidt lower bound of the reflected row operator, so no l2-l2 operator-norm (large-sieve) estimate passes it. The cap is target-independent (U, DH, THIN). Phase-blind low estimates have B >= 1 (ARGUED: aligned probe for the Liouville-twisted target). Only escape: a vector-specific mean square (E-K) of reflected theta rows for QP > Z, undecided. Inputs at lx < l are MODEL.",
+ "obstructionKind": "k-loss-is-hilbert-schmidt-floor-cap-one-minus-one-over-r",
+ "controlsThatDefeat": [
+  "U, DH, THIN (the cap is target-independent)",
+  "Liouville-twisted target (alignment gives B >= 1 for phase-blind estimates; size of aligned probe argued)",
+  "not run: heat, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c7-probe-format-h-cap/REFEREE.md. The PROVED steps are confirmed (Theorem K by hand and at new r = 7, 9, 10, 15, 100; Lemma HS by hand and on a Legendre-symbol matrix; the linear-algebra part of Lemma A). Six corrections:\nE1 (wrong value): \"(E-H) alone gives 1 - 2/r\" holds only in the three-input system at the degenerate point (0,0,1), where Q = 1. With J, K, P kept and H0 removed the infimum is 4/5 at G = [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The 1 - 1/r cap does not need lx >= l: K-loss plus the trivial row bound suffice, and the K-loss is the Hilbert-Schmidt lower bound of the reflected operator, so no large-sieve (operator-norm) improvement can pass it. The cap is target-independent (holds for U, DH, THIN). The 31/36 and 5/6 tiers exist only under a non-operator, vector-specific row mean square. Inputs at lx < l are MODEL (no numbered source).",
+ "followUp": "Decide (E-K) numerically: mean square of completed marked cubic-theta rows over m ~ Q in the range QP > Z (Q^{1+eps} or the Hilbert-Schmidt size), using tmp/sextic tools as stand-alone scripts; and referee Lemma A's aligned-probe size (non-principal rows for the sign-twisted target). If (E-K) is false, ORDER-2 closes at 13/15-type floors.",
+ "resultFile": "tmp/research-2026-11-16/push/c7-probe-format-h-cap/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c7-probe-format-h-cap/REFEREE.md"
+}

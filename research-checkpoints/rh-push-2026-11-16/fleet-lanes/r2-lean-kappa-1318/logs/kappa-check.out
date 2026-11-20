@@ -1,0 +1,110 @@
+@CenteredMomentEnergyCertifiedExistence.terminal_certificate : ∀ {α : Type u_1} [Fintype α] [DecidableEq α]
+  (M : Ideal HeckeFamily.O) [inst : NeZero M] (H : Subgroup (HeckeFamily.O ⧸ M)ˣ)
+  (hH : RayOrthogonality.globalUnits M ≤ H) (W : ℝ → ℂ) (aslot bslot a b radial Bmask L lo hi Mcap κ ε : ℝ),
+  0 < aslot →
+    Function.support W ⊆ Set.Icc aslot bslot →
+      ContDiff ℝ (↑⊤) W →
+        0 ≤ bslot →
+          0 < a →
+            a ≤ 1 / 4 →
+              1 ≤ b →
+                0 < radial →
+                  0 ≤ Bmask →
+                    0 < Mcap →
+                      2 / 3 ≤ κ →
+                        0 < ε →
+                          51 / 100 ≤ HeckeZeroSupremum.beta →
+                            2 * HeckeZeroSupremum.beta - 1 ≤ κ →
+                              CenteredMomentEnergyCappedWidthInduction.CertifiedBand M H hH W bslot a b radial Bmask L
+                                lo hi Mcap κ ε (CenteredMomentEnergyWidthSchedule.count Mcap ε)
+'OAI.SevenEighths.CenteredMomentEnergyCertifiedExistence.terminal_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyCertifiedExistence.certified_bands' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_stage_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_of_half_add' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_two_thirds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_stage_one : ∀ {α : Type u_1} [Fintype α] [DecidableEq α]
+  (M : Ideal OAI.SevenEighths.HeckeFamily.O) [inst : NeZero M] (H : Subgroup (OAI.SevenEighths.HeckeFamily.O ⧸ M)ˣ)
+  (hH : OAI.SevenEighths.RayOrthogonality.globalUnits M ≤ H) (W : ℝ → ℂ)
+  (aslot bslot a b radial Bmask L lo hi Mcap ε : ℝ),
+  0 < aslot →
+    Function.support W ⊆ Set.Icc aslot bslot →
+      ContDiff ℝ (↑⊤) W →
+        0 ≤ bslot →
+          0 < a →
+            a ≤ 1 / 4 →
+              1 ≤ b →
+                0 < radial →
+                  0 ≤ Bmask →
+                    0 < Mcap →
+                      0 < ε →
+                        51 / 100 ≤ OAI.SevenEighths.HeckeZeroSupremum.beta →
+                          OAI.SevenEighths.HeckeZeroSupremum.beta ≤ 69991 / 80000 →
+                            OAI.SevenEighths.CenteredMomentEnergyCappedWidthInduction.CertifiedBand M H hH W bslot a b
+                              radial Bmask L lo hi Mcap (29991 / 40000) ε
+                              (OAI.SevenEighths.CenteredMomentEnergyWidthSchedule.count Mcap ε)
+@OAI.SevenEighths.KappaThirteenEighteenths.terminal_certificate_of_half_add : ∀ {α : Type u_1} [Fintype α]
+  [DecidableEq α] (M : Ideal OAI.SevenEighths.HeckeFamily.O) [inst : NeZero M]
+  (H : Subgroup (OAI.SevenEighths.HeckeFamily.O ⧸ M)ˣ) (hH : OAI.SevenEighths.RayOrthogonality.globalUnits M ≤ H)
+  (W : ℝ → ℂ) (aslot bslot a b radial Bmask L lo hi Mcap κ ε : ℝ),
+  0 < aslot →
+    Function.support W ⊆ Set.Icc aslot bslot →
+      ContDiff ℝ (↑⊤) W →
+        0 ≤ bslot →
+          0 < a →
+            a ≤ 1 / 4 →
+              1 ≤ b →
+                0 < radial →
+                  0 ≤ Bmask →
+                    0 < Mcap →
+                      13 / 18 ≤ κ →
+                        0 < ε →
+                          51 / 100 ≤ OAI.SevenEighths.HeckeZeroSupremum.beta →
+                            OAI.SevenEighths.HeckeZeroSupremum.beta ≤ (1 + κ) / 2 →
+                              OAI.SevenEighths.CenteredMomentEnergyCappedWidthInduction.CertifiedBand M H hH W bslot a b
+                                radial Bmask L lo hi Mcap κ ε
+                                (OAI.SevenEighths.CenteredMomentEnergyWidthSchedule.count Mcap ε)
+OAI.SevenEighths.CenteredMomentReflectionRetainedLength.positive_slot_width_drop : ∀ (M A z xi kappa : ℝ),
+  0 ≤ M →
+    0 ≤ z →
+      2 / 3 ≤ kappa →
+        5 * M / 6 ≤ A →
+          A + (6 * kappa - 1) * z ≤ M →
+            3 * M / 2 - A + 2 * z + xi ≤ 7 * M / 9 + xi ∧
+              3 * M / 2 - A + 2 * z + xi + (6 * kappa - 1) * z ≤ 17 * M / 18 + xi
+OAI.SevenEighths.CenteredMomentEnergyLiveClippingDefect.robust_slot_budgets : ∀ (M total ell kappa defect : ℝ),
+  0 ≤ ell →
+    2 / 3 ≤ kappa →
+      5 * M / 6 - defect ≤ total + ell →
+        total + ell + (6 * kappa - 1) * ell ≤ M → ell ≤ M / 18 + defect / 3 ∧ (6 * kappa - 1) * ell ≤ M / 6 + defect
+'OAI.SevenEighths.CenteredMomentReflectionRetainedLength.positive_slot_width_drop' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceState.balanced_reference_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceLowBranchGeometry.slot_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyReferenceLowBranchGeometry.reflected_low' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyLiveClippingDefect.robust_slot_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.CenteredMomentEnergyLiveClippingDefect.live_profiles_reference_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

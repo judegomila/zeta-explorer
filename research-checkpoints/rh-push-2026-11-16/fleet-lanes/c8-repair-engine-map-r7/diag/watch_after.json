@@ -1,0 +1,1228 @@
+{
+ "map-open-1": {
+  "rawCount": 820,
+  "rejected": {
+   "closed family: fam-one-zero-forces-many": 3,
+   "closed family: fam-order2-theta-rows": 389,
+   "closed family: fam-legendre-dual-limits": 10,
+   "contains a combination closed in outcomes.json": 37,
+   "contains a closed device: positive-kernel-transport": 22,
+   "contains a closed device: residue-explicit-formula": 3,
+   "contains a closed device: finite-support-positivity": 2,
+   "closed family: fam-projection-domination-gonek": 1,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 63,
+   "closed family: fam-helson-discrepancy-zerofree": 1,
+   "closed family: fam-selberg-control-companion": 13,
+   "contains a closed device: euler-fe-phase-at-height": 2,
+   "contains a closed device: monotone-flow-functional": 2
+  },
+  "scoredCount": 272,
+  "best": [
+   [
+    968,
+    10.17,
+    [
+     "np-pick-seam-pencil",
+     "qrh-conditional-lambda",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.67,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1222,
+    9.94,
+    [
+     "t3-zero-free-strip-dictionary",
+     "qrh-conditional-lambda",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.44,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1227,
+    9.94,
+    [
+     "shift-bridge-threshold",
+     "qrh-conditional-lambda",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.44,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1228,
+    9.94,
+    [
+     "mem-t3-equals-strip",
+     "qrh-conditional-lambda",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.44,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1330,
+    9.79,
+    [
+     "volterra-hankel-operator",
+     "single-row-bridge",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 1.79,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1342,
+    9.78,
+    [
+     "blaschke-ghost-index-identity",
+     "single-row-bridge",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 1.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1430,
+    9.71,
+    [
+     "frozen-rung-winding-identity",
+     "qrh-conditional-lambda",
+     "map-open-1"
+    ],
+    "M4",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.21,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    1490,
+    9.61,
+    [
+     "mem-sl0-shift-dictionary",
+     "single-row-bridge",
+     "map-open-1"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.11,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ]
+  ]
+ },
+ "ff-order2-vertex-probe": {
+  "rawCount": 2261,
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 4,
+   "closed family: fam-order2-theta-rows": 1129,
+   "closed family: fam-legendre-dual-limits": 49,
+   "contains a combination closed in outcomes.json": 49,
+   "closed family: fam-one-zero-forces-many": 10,
+   "closed family: fam-nb-gram-lammin": 33,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 7,
+   "contains a closed device: residue-explicit-formula": 15,
+   "closed family: fam-projection-domination-gonek": 3,
+   "closed family: fam-heat-monotone-hankel": 1,
+   "closed family: fam-helson-discrepancy-zerofree": 3,
+   "contains a closed device: positive-kernel-transport": 22,
+   "contains a closed device: monotone-flow-functional": 5,
+   "contains a closed device: mean-value-convexity": 12,
+   "contains a closed device: exact-uniqueness": 1,
+   "closed family: fam-selberg-control-companion": 16,
+   "closed family: fam-torus-exclusion-sign-test": 8,
+   "closed family: fam-primitive-test-restriction": 5,
+   "contains a closed device: geometric-positivity": 16,
+   "closed family: fam-vaughan-split-landau": 10,
+   "contains a closed device: euler-fe-phase-at-height": 3
+  },
+  "scoredCount": 860,
+  "best": [
+   [
+    478,
+    11.0,
+    [
+     "selberg-geodesic-ground-truth",
+     "frobenius-gcd-factorisation",
+     "ff-order2-vertex-probe"
+    ],
+    "M3",
+    "geometry",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   ],
+   [
+    680,
+    10.57,
+    [
+     "parity-pure-maj-witness-threshold",
+     "alias-sign-determinacy",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.57,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   ],
+   [
+    685,
+    10.57,
+    [
+     "ingham-offlattice-riesz-floor",
+     "alias-energy-in-sieve-algebra",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.57,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   ],
+   [
+    715,
+    10.5,
+    [
+     "ff-ghost-index-toeplitz",
+     "selberg-geodesic-ground-truth",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "geometry",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    721,
+    10.5,
+    [
+     "ff-lambda-of-elliptic-curve",
+     "hasse-weil-checks",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "geometry",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    724,
+    10.5,
+    [
+     "rz-twin-block-riesz-floor",
+     "ff-three-approaches-one-statement",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    740,
+    10.5,
+    [
+     "ff-lambda-of-elliptic-curve",
+     "selberg-geodesic-ground-truth",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "geometry",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    743,
+    10.5,
+    [
+     "ff-ghost-index-toeplitz",
+     "hasse-weil-checks",
+     "ff-order2-vertex-probe"
+    ],
+    "M1",
+    "geometry",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ]
+  ]
+ },
+ "landau-siegel-2026-mechanism": {
+  "rawCount": 1060,
+  "rejected": {
+   "contains a combination closed in outcomes.json": 1060
+  },
+  "scoredCount": 0,
+  "best": []
+ },
+ "ek-vector-specific-row-mean-square": {
+  "rawCount": 2648,
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 14,
+   "closed family: fam-legendre-dual-limits": 47,
+   "contains a combination closed in outcomes.json": 67,
+   "contains a closed device: positive-kernel-transport": 43,
+   "contains a closed device: residue-explicit-formula": 42,
+   "closed family: fam-one-zero-forces-many": 15,
+   "closed family: fam-order2-theta-rows": 72,
+   "closed family: fam-nb-gram-lammin": 36,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 13,
+   "contains a closed device: euler-fe-phase-at-height": 9,
+   "closed family: fam-heat-monotone-hankel": 4,
+   "closed family: fam-helson-discrepancy-zerofree": 3,
+   "closed family: fam-euler-anchor-heat": 1,
+   "closed family: fam-pd-log-strip": 2,
+   "contains a closed device: monotone-flow-functional": 11,
+   "closed family: fam-arithmetic-nb-span": 2,
+   "contains a closed device: mean-value-convexity": 19,
+   "contains a closed device: strip-dtn-identity": 4,
+   "contains a closed device: exact-uniqueness": 4,
+   "closed family: fam-linear-zero-measure-lmi": 1,
+   "closed family: fam-projection-domination-gonek": 3,
+   "closed family: fam-primitive-test-restriction": 24,
+   "closed family: fam-selberg-control-companion": 19,
+   "closed family: fam-torus-exclusion-sign-test": 3,
+   "closed family: fam-laxphillips-hecke-compression": 1,
+   "contains a closed device: recurrence-ergodicity": 4,
+   "closed family: fam-vaughan-split-landau": 11,
+   "closed family: fam-multidelay-section": 2,
+   "closed family: fam-stage-limit-semicontinuity": 1,
+   "contains a closed device: twisted-discrepancy": 2
+  },
+  "scoredCount": 2169,
+  "best": [
+   [
+    8,
+    13.0,
+    [
+     "capture-ratio-psd-slope",
+     "ek-vector-specific-row-mean-square",
+     "tro6-natural"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    11,
+    13.0,
+    [
+     "route-m-first-moment-kappa",
+     "sextic-theta-mean-square",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M3",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 2,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    15,
+    12.92,
+    [
+     "capture-ratio-psd-slope",
+     "mem-sextic-theta-squarefree",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.92,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    19,
+    12.78,
+    [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 2,
+     "cheapTest": 2,
+     "cohesion": 0.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    21,
+    12.61,
+    [
+     "capture-ratio-psd-slope",
+     "staged-strip-triangular-inequality",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.61,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    29,
+    12.54,
+    [
+     "lean-weil-small-support",
+     "star-min-pointwise-prime-bound",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 3,
+     "crossing": 3,
+     "underused": 0.0,
+     "cheapTest": 2,
+     "cohesion": 1.04,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ],
+   [
+    35,
+    12.5,
+    [
+     "sun-prop63-plus4-offset",
+     "tro6-natural",
+     "ek-vector-specific-row-mean-square"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    36,
+    12.5,
+    [
+     "sep-opt-lattice-extremal",
+     "ek-vector-specific-row-mean-square",
+     "tro6-natural"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 2,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   ]
+  ]
+ },
+ "eh-nonprincipal-row-cancellation": {
+  "rawCount": 2255,
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 12,
+   "closed family: fam-legendre-dual-limits": 46,
+   "contains a combination closed in outcomes.json": 36,
+   "contains a closed device: positive-kernel-transport": 41,
+   "closed family: fam-one-zero-forces-many": 11,
+   "closed family: fam-nb-gram-lammin": 32,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 5,
+   "contains a closed device: residue-explicit-formula": 34,
+   "closed family: fam-order2-theta-rows": 46,
+   "contains a closed device: euler-fe-phase-at-height": 5,
+   "closed family: fam-heat-monotone-hankel": 5,
+   "closed family: fam-helson-discrepancy-zerofree": 3,
+   "closed family: fam-euler-anchor-heat": 1,
+   "closed family: fam-pd-log-strip": 2,
+   "contains a closed device: monotone-flow-functional": 8,
+   "closed family: fam-arithmetic-nb-span": 4,
+   "contains a closed device: mean-value-convexity": 16,
+   "contains a closed device: strip-dtn-identity": 4,
+   "contains a closed device: exact-uniqueness": 4,
+   "closed family: fam-linear-zero-measure-lmi": 1,
+   "closed family: fam-projection-domination-gonek": 3,
+   "closed family: fam-primitive-test-restriction": 9,
+   "closed family: fam-selberg-control-companion": 19,
+   "closed family: fam-torus-exclusion-sign-test": 1,
+   "closed family: fam-laxphillips-hecke-compression": 1,
+   "contains a closed device: recurrence-ergodicity": 3,
+   "closed family: fam-vaughan-split-landau": 11,
+   "closed family: fam-stage-limit-semicontinuity": 1,
+   "contains a closed device: twisted-discrepancy": 1
+  },
+  "scoredCount": 1890,
+  "best": [
+   [
+    144,
+    11.78,
+    [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 2,
+     "cheapTest": 2,
+     "cohesion": 0.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    155,
+    11.71,
+    [
+     "capture-ratio-psd-slope",
+     "eh-nonprincipal-row-cancellation",
+     "tro6-natural"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.71,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    174,
+    11.61,
+    [
+     "capture-ratio-psd-slope",
+     "staged-strip-triangular-inequality",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.61,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    197,
+    11.5,
+    [
+     "sep-opt-lattice-extremal",
+     "eh-nonprincipal-row-cancellation",
+     "tro6-natural"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 2,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   ],
+   [
+    310,
+    11.29,
+    [
+     "capture-ratio-psd-slope",
+     "mem-sextic-theta-squarefree",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.29,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    313,
+    11.28,
+    [
+     "phi-autocorrelation-weight",
+     "sympow-conductor-normalised-shift",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.5,
+     "cheapTest": 2,
+     "cohesion": 0.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    342,
+    11.11,
+    [
+     "capture-ratio-psd-slope",
+     "prime-delay-domination-15-4",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.11,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ],
+   [
+    377,
+    11.02,
+    [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "eh-nonprincipal-row-cancellation"
+    ],
+    "M4",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.52,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -1
+    }
+   ]
+  ]
+ },
+ "single-row-bridge": {
+  "rawCount": 2076,
+  "rejected": {
+   "contains a combination closed in outcomes.json": 76,
+   "contains a closed device: positive-kernel-transport": 22,
+   "contains a closed device: finite-support-positivity": 36,
+   "closed family: fam-one-zero-forces-many": 11,
+   "closed family: fam-helson-discrepancy-zerofree": 26,
+   "closed family: fam-heat-monotone-hankel": 379,
+   "contains a closed device: exact-uniqueness": 11,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 4,
+   "closed family: fam-legendre-dual-limits": 19,
+   "closed family: fam-order2-theta-rows": 30,
+   "contains a closed device: residue-explicit-formula": 26,
+   "contains a closed device: euler-fe-phase-at-height": 5,
+   "closed family: fam-reflected-euler-stage-canonical": 2,
+   "closed family: fam-stage-limit-semicontinuity": 16,
+   "closed family: fam-arithmetic-nb-span": 6,
+   "contains a closed device: mean-value-convexity": 3,
+   "contains a closed device: strip-dtn-identity": 5,
+   "closed family: fam-linear-zero-measure-lmi": 1,
+   "closed family: fam-primitive-test-restriction": 23,
+   "closed family: fam-laxphillips-hecke-compression": 4,
+   "closed family: fam-selberg-control-companion": 10,
+   "closed family: fam-torus-exclusion-sign-test": 5,
+   "closed family: fam-hecke-shear-commutator": 1,
+   "contains a closed device: maximum-principle": 14
+  },
+  "scoredCount": 1341,
+  "best": [
+   [
+    1,
+    14.11,
+    [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 2,
+     "cheapTest": 2,
+     "cohesion": 1.11,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    2,
+    13.76,
+    [
+     "capture-ratio-psd-slope",
+     "prime-delay-domination-15-4",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.76,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    3,
+    13.61,
+    [
+     "capture-ratio-psd-slope",
+     "mem-sextic-theta-squarefree",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.61,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    4,
+    13.61,
+    [
+     "capture-ratio-psd-slope",
+     "tro6-natural",
+     "single-row-bridge"
+    ],
+    "M1",
+    "zero-free",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.61,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    5,
+    13.4,
+    [
+     "capture-ratio-psd-slope",
+     "zv-divisor-cosine-euler-product",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.5,
+     "cheapTest": 1,
+     "cohesion": 1.9,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    6,
+    13.32,
+    [
+     "zv-annulus-dtn-operator",
+     "star-min-pointwise-prime-bound",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 3,
+     "crossing": 3,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.82,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    7,
+    13.29,
+    [
+     "capture-ratio-psd-slope",
+     "pascal-carry-ballot",
+     "single-row-bridge"
+    ],
+    "M1",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 1.29,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ],
+   [
+    9,
+    13.0,
+    [
+     "ka-offdiagonal-hankel-g7",
+     "capture-ratio-psd-slope",
+     "single-row-bridge"
+    ],
+    "M3",
+    "positivity",
+    {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 3,
+     "underused": 1.0,
+     "cheapTest": 2,
+     "cohesion": 2.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   ]
+  ]
+ },
+ "poolC": [
+  "eh-nonprincipal-row-cancellation",
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe",
+  "landau-siegel-2026-mechanism",
+  "map-open-1",
+  "map-open-2",
+  "map-open-4",
+  "map-pos-35",
+  "qrh-seven-eighths",
+  "seven-eighths-abscissa-formula",
+  "single-row-bridge",
+  "tro6-natural"
+ ],
+ "inA": [
+  "ff-order2-vertex-probe",
+  "landau-siegel-2026-mechanism",
+  "ek-vector-specific-row-mean-square",
+  "eh-nonprincipal-row-cancellation",
+  "single-row-bridge"
+ ]
+}

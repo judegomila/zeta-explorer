@@ -1,0 +1,99 @@
+{
+ "pair 922,923 eta=0.12": {
+  "g1": "1329.04351799652",
+  "g2": "1329.20501878548",
+  "d": "0.080750394",
+  "FE defect max": "7.2e-29",
+  "closed form of m vs product, max rel": "5.14e-30",
+  "abs zeta at the quartet point (must be > 0)": "0.059523057",
+  "abs ZQ at the quartet point": "0.0",
+  "abs ZQ at removed zero 1/2+i g1 (limit; must be > 0)": "0.081185246",
+  "ZQ(2), zeta(2)": [
+   "(1.64493410580835 + 9.93842649650509e-35j)",
+   "1.64493406684823"
+  ],
+  "m(1), m(-2), m(-4) (finite, non-zero, real)": [
+   "(1.00000002368 + 1.10167726034e-35j)",
+   "(1.00000002368 - 2.12768094081e-34j)",
+   "(1.00000002368 + 1.80029425825e-34j)"
+  ],
+  "zeros in (1/2+eta/2, 1.4) x (gb-0.6, gb+0.6): ZQ, zeta": [
+   1,
+   0
+  ],
+  "zeros in (-0.4, 1.4) x (g1-0.05, g2+0.05): ZQ, zeta": [
+   2,
+   2
+  ],
+  "sup abs D (grid resolving cos(gbar L), L <= 80), min D, max D": [
+   0.09157400016857509,
+   -0.09157399055024243,
+   0.09157400016857509
+  ],
+  "proved bound 8e^-2(eta^2+d^2)/(1/2-eta)^2": 0.15685866335143636,
+  "bound holds": true,
+  "-m'/m against the eight partial fractions, abs diff": "2.78e-35",
+  "integral bound 4(eta^2+d^2)/(sigma-1/2-eta)^3 at sigma=1.4 vs abs lhs": [
+   "0.17634",
+   "2.59678e-13"
+  ],
+  "G_+ (pole clause dropped), b = eta + 0.1: min D_+ on grid (>= 0)": 0.0,
+  "G_+ FE defect": "7.18e-29",
+  "G_+ real poles at 1/2 +- b: abs G_+ at distance 1e-10": "4.86e+33",
+  "f(sigma) = -m'/m at sigma = 2, -1 (antisymmetry f(s) = -f(1-s))": [
+   "(1.206654639e-13 + 2.321078669e-45j)",
+   "(-1.206654639e-13 + 3.458304804e-44j)"
+  ]
+ },
+ "pair 34,35 eta=0.31": {
+  "g1": "111.02953554317",
+  "g2": "111.874659176993",
+  "d": "0.42256182",
+  "FE defect max": "5.42e-29",
+  "closed form of m vs product, max rel": "2.38e-29",
+  "abs zeta at the quartet point (must be > 0)": "0.32299133",
+  "abs ZQ at the quartet point": "0.0",
+  "abs ZQ at removed zero 1/2+i g1 (limit; must be > 0)": "0.51701514",
+  "ZQ(2), zeta(2)": [
+   "(1.64500677281787 - 2.57762517394853e-33j)",
+   "1.64493406684823"
+  ],
+  "m(1), m(-2), m(-4) (finite, non-zero, real)": [
+   "(1.00004422128 - 9.73507300338e-34j)",
+   "(1.00004415725 + 9.02822220669e-34j)",
+   "(1.00004400825 + 1.03272099164e-33j)"
+  ],
+  "zeros in (1/2+eta/2, 1.4) x (gb-0.6, gb+0.6): ZQ, zeta": [
+   1,
+   0
+  ],
+  "zeros in (-0.4, 1.4) x (g1-0.05, g2+0.05): ZQ, zeta": [
+   2,
+   2
+  ],
+  "sup abs D (grid resolving cos(gbar L), L <= 80), min D, max D": [
+   1.0854691782009178,
+   -1.0854108319772335,
+   1.0854691782009178
+  ],
+  "proved bound 8e^-2(eta^2+d^2)/(1/2-eta)^2": 8.23733726698046,
+  "bound holds": true,
+  "Laplace identity: lhs, rhs, abs diff": [
+   "(1.93699944722e-8 + 6.6347432637e-8j)",
+   "(1.93699944722e-8 + 6.6347432637e-8j)",
+   "1.82e-20"
+  ],
+  "-m'/m against the eight partial fractions, abs diff": "1.28e-33",
+  "integral bound 4(eta^2+d^2)/(sigma-1/2-eta)^3 at sigma=1.4 vs abs lhs": [
+   "5.3493",
+   "6.91171e-8"
+  ],
+  "G_+ (pole clause dropped), b = eta + 0.1: min D_+ on grid (>= 0)": 0.0,
+  "G_+ FE defect": "5.42e-29",
+  "G_+ real poles at 1/2 +- b: abs G_+ at distance 1e-10": "2.42e+29",
+  "f(sigma) = -m'/m at sigma = 2, -1 (antisymmetry f(s) = -f(1-s))": [
+   "(3.202249376e-8 + 5.055309369e-41j)",
+   "(-3.202249376e-8 - 1.426288809e-41j)"
+  ]
+ }
+}

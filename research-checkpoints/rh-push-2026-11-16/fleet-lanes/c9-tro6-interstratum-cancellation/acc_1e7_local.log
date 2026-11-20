@@ -1,0 +1,25 @@
+X = 10000000, nodes = 2822619, Xc = 2500000, Qmax = 37149.9, rows = 11230, NB = 10, groups = 1080+24, workers = 4
+planned memory: per worker table 440 MB + working arrays 333 MB; x4 workers = 3.09 GB; results 203 MB (held twice at save: 0.41 GB)
+chunk 0/176 9s
+chunk 8/176 26s
+chunk 16/176 43s
+chunk 24/176 62s
+chunk 32/176 80s
+chunk 40/176 97s
+chunk 48/176 113s
+chunk 56/176 129s
+chunk 64/176 145s
+chunk 72/176 161s
+chunk 80/176 177s
+chunk 88/176 192s
+chunk 96/176 207s
+chunk 104/176 222s
+chunk 112/176 237s
+chunk 120/176 252s
+chunk 128/176 273s
+chunk 136/176 292s
+chunk 144/176 309s
+chunk 152/176 325s
+chunk 160/176 340s
+chunk 168/176 355s
+saved data/acc_1e7.npz 363s

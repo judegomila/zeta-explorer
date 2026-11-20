@@ -1,0 +1,277 @@
++ T=tables
++ mkdir -p tables
++ python battery/tables.py tables
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+planned allocation: coef_ZETA int8[10000001] = 10.0 MB
+ZETA sha 31a90bdb2a68e24c max diff 9.999999428522699e-08 0 s
+planned allocation: coef_DH float64[10000001] = 80.0 MB
+DH sha 1509605acb4e6c1c max diff 6.668865485881725e-15 1 s
+planned allocation: coef_EA-1/8 float64[10000001] = 80.0 MB
+EA-1/8 sha bf2e7e3694f1ffee max diff 3.8973191602842405e-06 1 s
+planned allocation: coef_EA-1/4 float64[10000001] = 80.0 MB
+EA-1/4 sha 60312a267292e18b max diff 1.9585208139716315e-05 2 s
+planned allocation: coef_EA-1/2 float64[10000001] = 80.0 MB
+EA-1/2 sha cbb0378778515011 max diff 0.0010403475973275178 2 s
+planned allocation: coef_TNR float64[10000001] = 80.0 MB
+TNR sha 1c92f30a7499921d max diff 2.603503692633069e-07 3 s
+planned allocation: coef_WT complex128[10000001] = 160.0 MB
+WT sha 22bde129a61ae8dd max diff 6.279620365579989e-08 3 s
+planned allocation: coef_SGN-LIOU int8[10000001] = 10.0 MB
+SGN-LIOU sha b4ee902b25555fc2 max diff 1.938260663081337e-11 4 s
+planned allocation: coef_DEL-0.75 int8[10000001] = 10.0 MB
+DEL-0.75 sha 669499f594e15843 max diff 3.9728923262316584e-08 4 s
+planned allocation: coef_DEL-0.9 int8[10000001] = 10.0 MB
+DEL-0.9 sha 67ce5f13ca7de367 max diff 1.5934800812189565e-08 5 s
+planned allocation: coef_THIN-0.9 int8[10000001] = 10.0 MB
+THIN-0.9 sha 4381f6d7e3333ba1 max diff 2.1972669239644915e-08 6 s
+planned allocation: coef_U-00 complex128[10000001] = 160.0 MB
+U-00 sha 2df78e560746dc9f max diff 9.310472815379223e-12 7 s
+planned allocation: coef_U-01 complex128[10000001] = 160.0 MB
+U-01 sha b06cec9dc11e2200 max diff 1.5217223678025505e-11 8 s
+planned allocation: coef_U-02 complex128[10000001] = 160.0 MB
+U-02 sha 3a11fca8bd6ec9ca max diff 1.169872552620834e-11 9 s
+planned allocation: coef_U-03 complex128[10000001] = 160.0 MB
+U-03 sha e52194765e3920ec max diff 1.6426576609804016e-11 10 s
+planned allocation: coef_U-04 complex128[10000001] = 160.0 MB
+U-04 sha 33e97eabde27806b max diff 1.4164268745129685e-11 11 s
+planned allocation: coef_U-05 complex128[10000001] = 160.0 MB
+U-05 sha f13d7eb566318c16 max diff 3.922701075401605e-11 11 s
+planned allocation: coef_U-06 complex128[10000001] = 160.0 MB
+U-06 sha e6464f9db294acaf max diff 1.9659502271476787e-11 12 s
+planned allocation: coef_U-07 complex128[10000001] = 160.0 MB
+U-07 sha 2111648fafad1328 max diff 6.971550321071053e-12 13 s
+planned allocation: coef_U-08 complex128[10000001] = 160.0 MB
+U-08 sha 202ac2deefdd3539 max diff 1.5310212974658624e-11 14 s
+planned allocation: coef_U-09 complex128[10000001] = 160.0 MB
+U-09 sha fcd5e8010a1c15d8 max diff 1.6940285710788082e-11 15 s
+planned allocation: coef_U-10 complex128[10000001] = 160.0 MB
+U-10 sha 0eccbc5e41acc284 max diff 8.624625777106788e-12 16 s
+planned allocation: coef_U-11 complex128[10000001] = 160.0 MB
+U-11 sha 71e2492a69dfe7c3 max diff 1.626749679381583e-11 17 s
+planned allocation: coef_U-12 complex128[10000001] = 160.0 MB
+U-12 sha ecff252391c91624 max diff 3.353454214250312e-11 18 s
+planned allocation: coef_U-13 complex128[10000001] = 160.0 MB
+U-13 sha b60caf02983650dd max diff 2.433118694583458e-11 19 s
+planned allocation: coef_U-14 complex128[10000001] = 160.0 MB
+U-14 sha 24ca9861feea372b max diff 6.937499197291894e-12 20 s
+planned allocation: coef_U-15 complex128[10000001] = 160.0 MB
+U-15 sha 42c63d280afdadcf max diff 2.614538546063622e-11 21 s
+planned allocation: coef_U-16 complex128[10000001] = 160.0 MB
+U-16 sha 792918eeef4db58f max diff 2.2547828749237315e-11 22 s
+planned allocation: coef_U-17 complex128[10000001] = 160.0 MB
+U-17 sha c02fb8104e4adc73 max diff 8.445536754279938e-12 23 s
+planned allocation: coef_U-18 complex128[10000001] = 160.0 MB
+U-18 sha b795bd702ff11421 max diff 1.1697120749799857e-11 24 s
+planned allocation: coef_U-19 complex128[10000001] = 160.0 MB
+U-19 sha 63837b8c6f1e113a max diff 1.1464359013129034e-11 25 s
+planned allocation: coef_U-20 complex128[10000001] = 160.0 MB
+U-20 sha e4b62d243a038d35 max diff 7.536597332685201e-12 27 s
+planned allocation: coef_U-21 complex128[10000001] = 160.0 MB
+U-21 sha 973a99320e141b33 max diff 2.1684422066455794e-11 28 s
+planned allocation: coef_U-22 complex128[10000001] = 160.0 MB
+U-22 sha e657328a9ecfe975 max diff 2.1192076761653694e-11 29 s
+planned allocation: coef_U-23 complex128[10000001] = 160.0 MB
+U-23 sha bbecce6ca08819a5 max diff 3.1871803510711446e-11 31 s
+planned allocation: coef_SGN-00 int8[10000001] = 10.0 MB
+SGN-00 sha 083376787c9938b8 max diff 1.385756459225737e-11 32 s
+planned allocation: coef_SGN-01 int8[10000001] = 10.0 MB
+SGN-01 sha f2305a9805d6e710 max diff 2.2391838650167943e-11 32 s
+planned allocation: coef_SGN-02 int8[10000001] = 10.0 MB
+SGN-02 sha 470a6f088554cd0b max diff 3.00956284326984e-11 33 s
+planned allocation: coef_SGN-03 int8[10000001] = 10.0 MB
+SGN-03 sha 09f0e43ba72a6fca max diff 2.921585195991838e-11 33 s
+planned allocation: coef_SGN-04 int8[10000001] = 10.0 MB
+SGN-04 sha 83644ba1b7267af1 max diff 2.8161378563600577e-11 33 s
+planned allocation: coef_SGN-05 int8[10000001] = 10.0 MB
+SGN-05 sha 3ea66d77ef277054 max diff 6.84674539286334e-12 34 s
+planned allocation: coef_SGN-06 int8[10000001] = 10.0 MB
+SGN-06 sha b0da0a1fb52b40ba max diff 1.094224710840308e-11 34 s
+planned allocation: coef_SGN-07 int8[10000001] = 10.0 MB
+SGN-07 sha d90a81e0d966af4c max diff 1.3230661149943858e-11 34 s
+planned allocation: coef_SGN-08 int8[10000001] = 10.0 MB
+SGN-08 sha d4099f702dfda118 max diff 8.141709528786123e-12 35 s
+planned allocation: coef_SGN-09 int8[10000001] = 10.0 MB
+SGN-09 sha e4b112084e59c854 max diff 8.962154587373411e-12 35 s
+planned allocation: coef_SGN-10 int8[10000001] = 10.0 MB
+SGN-10 sha 7f43dac8f6218fa5 max diff 2.629810571257345e-11 35 s
+planned allocation: coef_SGN-11 int8[10000001] = 10.0 MB
+SGN-11 sha 5ad6ae3d47f7cd14 max diff 8.862355294070312e-12 36 s
+planned allocation: coef_SGN-12 int8[10000001] = 10.0 MB
+SGN-12 sha 9b64bba01087b29f max diff 1.0603851130497333e-11 36 s
+planned allocation: coef_SGN-13 int8[10000001] = 10.0 MB
+SGN-13 sha c47a08c5ffd15217 max diff 1.614284038823487e-11 36 s
+planned allocation: coef_SGN-14 int8[10000001] = 10.0 MB
+SGN-14 sha a2b06b0059bafa51 max diff 9.954259638789154e-12 37 s
+planned allocation: coef_SGN-15 int8[10000001] = 10.0 MB
+SGN-15 sha 6806cc48ce91c534 max diff 2.152744649208671e-11 37 s
+planned allocation: coef_SGN-16 int8[10000001] = 10.0 MB
+SGN-16 sha a6470c8fd3ad571a max diff 1.5352803613967766e-11 37 s
+planned allocation: coef_SGN-17 int8[10000001] = 10.0 MB
+SGN-17 sha afe07b54c7e1af21 max diff 2.6533207204098426e-11 38 s
+planned allocation: coef_SGN-18 int8[10000001] = 10.0 MB
+SGN-18 sha 7ffdb2cb023c94f5 max diff 7.60669305321926e-12 38 s
+planned allocation: coef_SGN-19 int8[10000001] = 10.0 MB
+SGN-19 sha 6b7c6b4c41166448 max diff 3.1554925627785363e-12 39 s
+planned allocation: coef_SGN-20 int8[10000001] = 10.0 MB
+SGN-20 sha fde34479de22d0c9 max diff 7.09325931325111e-11 39 s
+planned allocation: coef_SGN-21 int8[10000001] = 10.0 MB
+SGN-21 sha f1cd1391ee391e20 max diff 1.8819612535025954e-11 39 s
+planned allocation: coef_SGN-22 int8[10000001] = 10.0 MB
+SGN-22 sha abe3f7c366ad7128 max diff 1.570274175931533e-11 40 s
+planned allocation: coef_SGN-23 int8[10000001] = 10.0 MB
+SGN-23 sha ec7987c06d6ece5d max diff 6.455519808835747e-12 40 s
+planned allocation: Beurling integers float64[7402977] = 59.2 MB
+BEU 7402977 [{'s': 2, 'sum_over_integers': 1.4051346951338373, 'zeta_times_H': 1.4051347691657268, 'abs_diff': 7.403188950760864e-08}, {'s': 3, 'sum_over_integers': 1.1049167915332632, 'zeta_times_H': 1.1049167915332672, 'abs_diff': 3.9968028886505635e-15}]
+tables done 41 s
++ python battery/grid.py tables closed
+grid: 13 abscissae x 4001 ordinates, workers 5
+closed ZETA: 4001 rows, 2.0 s
+closed DH: 4001 rows, 18.5 s
+closed EA-1/8: 4001 rows, 3.9 s
+closed EA-1/4: 4001 rows, 4.4 s
+closed EA-1/2: 4001 rows, 4.5 s
+closed TNR: 4001 rows, 2.2 s
+closed WT: 4001 rows, 2.2 s
+closed WT-CONJ: 4001 rows, 2.4 s
+closed SGN-LIOU: 4001 rows, 5.2 s
++ python battery/grid.py tables product
+grid: 13 abscissae x 4001 ordinates, workers 5
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+planned allocation: chi^k matrices complex128[4 x 24 x 664411] = 1020.5 MB
+planned allocation: per worker: p^-sigma float64[664579 x 8] and complex work arrays [664411 x 16] x 3 = 552.8 MB
+product U, SGN: 4001 rows, 464.2 s
++ python battery/grid.py tables beu
+grid: 13 abscissae x 4001 ordinates, workers 5
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+planned allocation: BEU p^-sigma, q^-sigma float64[2 x 664579 x 13] = 138.2 MB
+BEU: 4001 rows, 423.2 s
++ '[' '!' -f tables/zeros_DH.json ']'
++ python devices/d1_debranges.py tables
+ok   CL (3.2) value, rel 1e-11 | got -5.389100507182945181443853e-69 | recorded -5.38910050718e-69
+ok   zeta fails at zero 34, h = 1 (sign certified by ball) | got [-5.389100507182945181443853e-69 +/- 1.29e-94] | recorded < 0
+ok   first failing zero of zeta at h = 1 is the 34th | got 34 | recorded 34
+ok   zeta_1_100 zero count | got 100 | recorded 100
+ok   zeta_1_100 fail counts h = 0.1..4 | got [0, 0, 0, 2, 50, 99] | recorded [0, 0, 0, 2, 50, 99]
+ok   zeta_1_100 min q_1, abs 1e-9 | got -0.17845535996405765 | recorded -0.17845535996405765
+ok   zeta_1_100 no undecided sign | got 0 | recorded 0
+ok   zeta_620_680 zero count | got 61 | recorded 61
+ok   zeta_620_680 fail counts h = 0.1..4 | got [0, 0, 0, 6, 33, 57] | recorded [0, 0, 0, 6, 33, 57]
+ok   zeta_620_680 min q_1, abs 1e-9 | got -0.4774690487348363 | recorded -0.4774690487348363
+ok   zeta_620_680 no undecided sign | got 0 | recorded 0
+ok   DH_t1_200 zero count | got 122 | recorded 122
+ok   DH_t1_200 fail counts h = 0.1..4 | got [0, 0, 0, 2, 54, 122] | recorded [0, 0, 0, 2, 54, 122]
+ok   DH_t1_200 min q_1, abs 1e-9 | got -0.18900481690394497 | recorded -0.18900481690394497
+ok   DH_t1_200 no undecided sign | got 0 | recorded 0
+ok   DH_t1000_1020 zero count | got 17 | recorded 17
+ok   DH_t1000_1020 fail counts h = 0.1..4 | got [0, 0, 0, 3, 10, 16] | recorded [0, 0, 0, 3, 10, 16]
+FAIL DH_t1000_1020 min q_1, abs 1e-9 | got -0.33053338578645175 | recorded -0.3348103021277858
+ok   DH_t1000_1020 no undecided sign | got 0 | recorded 0
+ok   zeta_1_100 min q_0.5, abs 1e-9 | got 0.531848072452459 | recorded 0.531848072452459
+D1 reproduced: False
+extension: zeta all zeros < 2000: {'0.1': 0, '0.25': 0, '0.5': 4, '1': 144, '2': 760, '4': 1449} DH: {'0.1': 1, '0.25': 1, '0.5': 11, '1': 127, '2': 916, '4': 1811} 1861
++ python devices/d2_pick.py tables 100
+ok   DH positive definite through order 100 (every pivot ball > 0) | got None | recorded None
+ok   DH pivot(5), rel 6e-3 | got [9.13551e-18 +/- 1.90e-24] | recorded 9.14e-18
+ok   DH pivot(10), rel 6e-3 | got [4.55453e-47 +/- 2.71e-53] | recorded 4.55e-47
+ok   DH pivot(20), rel 6e-3 | got [1.34403e-105 +/- 1.66e-111] | recorded 1.34e-105
+ok   DH pivot(30), rel 6e-3 | got [8.81911e-159 +/- 3.06e-165] | recorded 8.82e-159
+ok   DH pivot(40), rel 6e-3 | got [7.18061e-229 +/- 6.87e-236] | recorded 7.18e-229
+ok   DH pivot(60), rel 6e-3 | got [3.55044e-360 +/- 2.18e-366] | recorded 3.55e-360
+ok   DH pivot(80), rel 6e-3 | got [1.02084e-490 +/- 4.94e-496] | recorded 1.02e-490
+ok   DH pivot(100), rel 6e-3 | got [9.74265e-637 +/- 6.13e-644] | recorded 9.74e-637
+ok   ZETA positive definite through order 100 (every pivot ball > 0) | got None | recorded None
+ok   ZETA pivot(5), rel 6e-3 | got [3.91335e-21 +/- 1.70e-27] | recorded 3.91e-21
+ok   ZETA pivot(10), rel 6e-3 | got [1.23782e-53 +/- 1.06e-59] | recorded 1.24e-53
+ok   ZETA pivot(20), rel 6e-3 | got [7.34326e-118 +/- 4.19e-124] | recorded 7.34e-118
+ok   ZETA pivot(30), rel 6e-3 | got [5.17389e-176 +/- 2.71e-182] | recorded 5.17e-176
+ok   ZETA pivot(40), rel 6e-3 | got [9.88232e-251 +/- 3.48e-257] | recorded 9.88e-251
+ok   ZETA pivot(60), rel 6e-3 | got [8.56440e-391 +/- 4.20e-397] | recorded 8.56e-391
+ok   ZETA pivot(80), rel 6e-3 | got [1.68022e-529 +/- 4.41e-535] | recorded 1.68e-529
+ok   ZETA pivot(100), rel 6e-3 | got [2.53856e-683 +/- 4.15e-689] | recorded 2.54e-683
+D2 reproduced: True
++ python devices/d3_lemmab.py tables records/dh_form.json
+ok   S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12 | got 4.556231684128436e-12 | recorded 4.425790658356327e-12
+ok   S=[2, 3] Tw=2.4 T=500.0: zero side rel 1e-9 | got 12.351602141980308 | recorded 12.351602141978697
+ok   S=[2, 3] Tw=2.4 T=500.0: arch rel 1e-9 | got 11.783991907726806 | recorded 11.783991907726806
+ok   S=[2, 3] Tw=2.4 T=500.0: residues rel 1e-9 | got 0.5676102341972259 | recorded 0.5676102341972258
+ok   S=[2, 3] Tw=2.4 T=500.0: third line | got 0.0 | recorded 0.0
+ok   S=[2, 3] Tw=2.4 T=500.0: off-line pairs in window | got 14.0 | recorded 14
+ok   S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got 4.383654917356293e-12 | recorded 4.400214195540587e-12
+ok   S=[7] Tw=2.5 T=500.0: zero side rel 1e-9 | got 4.290904034880817 | recorded 4.290904034880888
+ok   S=[7] Tw=2.5 T=500.0: arch rel 1e-9 | got 3.9386481845131915 | recorded 3.9386481845131915
+ok   S=[7] Tw=2.5 T=500.0: residues rel 1e-9 | got 0.3522558503488151 | recorded 0.3522558503488152
+ok   S=[7] Tw=2.5 T=500.0: third line | got 0.0 | recorded 0.0
+ok   S=[7] Tw=2.5 T=500.0: off-line pairs in window | got 13.0 | recorded 13
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: identity |rel| <= 5.4e-12 | got 3.834091993504586e-12 | recorded 3.88396903004221e-12
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: zero side rel 1e-9 | got 14.067815577436717 | recorded 14.067815577437418
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: arch rel 1e-9 | got 11.347242395706026 | recorded 11.347242395706026
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: residues rel 1e-9 | got 2.7205731816767535 | recorded 2.720573181676754
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: third line | got 0.0 | recorded 0.0
+ok   S=[2, 3, 5] Tw=3.3 T=450.0: off-line pairs in window | got 9.0 | recorded 9
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: identity |rel| <= 5.4e-12 | got 4.210725858957317e-12 | recorded 4.2836779301012525e-12
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: zero side rel 1e-9 | got 18.89532244600674 | recorded 18.895322446008123
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: arch rel 1e-9 | got 16.17075182581969 | recorded 16.17075182581969
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: residues rel 1e-9 | got 2.72457062010749 | recorded 2.724570620107493
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: third line | got 0.0 | recorded 0.0
+ok   S=[2, 3, 5] Tw=3.3 T=560.0: off-line pairs in window | got 10.0 | recorded 10
+ok   S=[2] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got 4.196597173721744e-12 | recorded 4.168774851164264e-12
+ok   S=[2] Tw=2.5 T=500.0: zero side rel 1e-9 | got 9.321583344293149 | recorded 9.321583344292891
+ok   S=[2] Tw=2.5 T=500.0: arch rel 1e-9 | got 8.175641803001877 | recorded 8.175641803001879
+ok   S=[2] Tw=2.5 T=500.0: residues rel 1e-9 | got 1.146231232660577 | recorded 1.1462312326605768
+ok   S=[2] Tw=2.5 T=500.0: third line | got -0.0002896914084245378 | recorded -0.00028969140842453775
+ok   S=[2] Tw=2.5 T=500.0: off-line pairs in window | got 13.0 | recorded 13
+ok   S=[3] Tw=3.2 T=520.0: identity |rel| <= 5.4e-12 | got 4.28590440834739e-12 | recorded 4.288052731359083e-12
+ok   S=[3] Tw=3.2 T=520.0: zero side rel 1e-9 | got 8.26857427734832 | recorded 8.268574277348339
+ok   S=[3] Tw=3.2 T=520.0: arch rel 1e-9 | got 7.422968939126068 | recorded 7.422968939126068
+ok   S=[3] Tw=3.2 T=520.0: residues rel 1e-9 | got 0.845843802068353 | recorded 0.8458438020683539
+ok   S=[3] Tw=3.2 T=520.0: third line | got -0.00023846388153956778 | recorded -0.0002384638815395679
+ok   S=[3] Tw=3.2 T=520.0: off-line pairs in window | got 10.0 | recorded 10
+ok   S=[2, 3] Tw=4.0 T=400.0: identity |rel| <= 5.4e-12 | got 4.477389317927638e-12 | recorded 4.48579160906877e-12
+ok   S=[2, 3] Tw=4.0 T=400.0: zero side rel 1e-9 | got 24.101126262978774 | recorded 24.101126262978976
+ok   S=[2, 3] Tw=4.0 T=400.0: arch rel 1e-9 | got 22.33231972361311 | recorded 22.33231972361311
+ok   S=[2, 3] Tw=4.0 T=400.0: residues rel 1e-9 | got 1.768907438150672 | recorded 1.7689074381506735
+ok   S=[2, 3] Tw=4.0 T=400.0: third line | got -0.00010089889291986462 | recorded -0.00010089889291985585
+ok   S=[2, 3] Tw=4.0 T=400.0: off-line pairs in window | got 5.0 | recorded 5
+ok   S=[5] Tw=1.55 T=500.0: identity |rel| <= 5.4e-12 | got 4.6211964522064616e-12 | recorded 4.630444129497856e-12
+ok   S=[5] Tw=1.55 T=500.0: zero side rel 1e-9 | got 2.68921535298732 | recorded 2.689215352987345
+ok   S=[5] Tw=1.55 T=500.0: arch rel 1e-9 | got 2.6163795196362485 | recorded 2.6163795196362485
+ok   S=[5] Tw=1.55 T=500.0: residues rel 1e-9 | got 0.07283583333864432 | recorded 0.07283583333864443
+ok   S=[5] Tw=1.55 T=500.0: third line | got 0.0 | recorded 0.0
+ok   S=[5] Tw=1.55 T=500.0: off-line pairs in window | got 17.0 | recorded 17
+D3 reproduced: True max |rel| 4.6211964522064616e-12
++ python devices/d5_landau.py tables records
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+ok   DEL-0.75: |S| exact | got 16210 | recorded 16210
+ok   DEL-0.75: coefficients of A >= 0 at every prime power <= 1e7 | got 0.0 | recorded >= 0
+ok   DEL-0.75: a(p) = 0 exactly on S, 1 off S | got 16210 | recorded 16210
+ok   DEL-0.75: table completely multiplicative (20000 random products) | got all equal | recorded all equal
+ok   DEL-0.75: log G_X(b), abs 1e-10 | got -2.7267506442281846 | recorded -2.7267506442281846
+ok   DEL-0.75: D(1e7), abs 1e-9 | got -0.42854444631146565 | recorded -0.42854444631146565
+ok   DEL-0.75: exponent estimate (order of the zero at b), abs 1e-9 | got 0.9999820252692794 | recorded 0.9999820252692792
+ok   DEL-0.75: stage identity H = exp(-2A), rel 1e-25 | got 6.121659339392615e-34 | recorded < 1e-25
+ok   DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = 2, within tail bound + 1e-12 | got 3.9728923262316584e-08 | recorded 1e-07
+ok   DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = 3, within tail bound + 1e-12 | got 2.4424906541753444e-15 | recorded 5e-15
+ok   DEL-0.75: Dirichlet sum to 1e7 against zeta G_X at s = (2+10j), within tail bound + 1e-12 | got 3.953770774425024e-09 | recorded 1e-07
+ok   DEL-0.9: |S| exact | got 148727 | recorded 148727
+ok   DEL-0.9: coefficients of A >= 0 at every prime power <= 1e7 | got 0.0 | recorded >= 0
+ok   DEL-0.9: a(p) = 0 exactly on S, 1 off S | got 148727 | recorded 148727
+ok   DEL-0.9: table completely multiplicative (20000 random products) | got all equal | recorded all equal
+ok   DEL-0.9: log G_X(b), abs 1e-10 | got -2.9272801194912508 | recorded -2.9272801194912508
+ok   DEL-0.9: D(1e7), abs 1e-9 | got -0.4228636952561132 | recorded -0.4228636952561132
+ok   DEL-0.9: exponent estimate (order of the zero at b), abs 1e-9 | got 1.0000352253371672 | recorded 1.0000352253371665
+ok   DEL-0.9: stage identity H = exp(-2A), rel 1e-25 | got 8.766918441312083e-33 | recorded < 1e-25
+ok   DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = 2, within tail bound + 1e-12 | got 1.5934800812189565e-08 | recorded 1e-07
+ok   DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = 3, within tail bound + 1e-12 | got 8.881784197001252e-16 | recorded 5e-15
+ok   DEL-0.9: Dirichlet sum to 1e7 against zeta G_X at s = (2+10j), within tail bound + 1e-12 | got 1.5921869245361811e-09 | recorded 1e-07
+D5 reproduced: True
++ python battery/grid.py tables stage
+grid: 13 abscissae x 4001 ordinates, workers 5
+planned allocation: smallest-prime-factor table int32[10000001] = 40.0 MB
+planned allocation: DEL-0.75: 16210 primes x 13 abscissae of 128-bit balls per worker (x 5 workers) = 126.4 MB
+stage DEL-0.75: |S| = 16210, 4001 rows, 150.3 s
+planned allocation: THIN-0.9: 74363 primes x 13 abscissae of 128-bit balls per worker (x 5 workers) = 580.0 MB
+stage THIN-0.9: |S| = 74363, 4001 rows, 951.2 s
+planned allocation: DEL-0.9: 148727 primes x 13 abscissae of 128-bit balls per worker (x 5 workers) = 1160.1 MB
+stage DEL-0.9: |S| = 148727, 4001 rows, 1367.3 s
++ echo MAIN_DONE
+MAIN_DONE

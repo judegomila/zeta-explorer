@@ -1,0 +1,20 @@
+[
+ {
+  "id": "hecke-correspondence-recurrence",
+  "type": "mechanism",
+  "name": "Joint Hecke recurrence (finite correspondences at all primes) with entropy and measure rigidity on Eisenstein resonance states of the modular surface",
+  "statement": "Device read by lane c8-hecke-entropy-resonance-rigidity (round 8; first referee: holds after withdrawal of Lemma G2 (i); second referee push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md: corrected statement holds). Reads one Gamma-invariant function on PSL_2(Z)\\H: (a) invariance, (b) the eigen-relation tau(p) f(z) = p^(-1/2) sum over the p+1 Hecke points for all p together, (c) the Laplace equation, (d) moderate growth and the truncated mass. Corrected statement. (1) At a resonance w = 1 - rho/2 the truncated mass is exactly Y^(2 sigma-1)/(2 sigma-1) (Maass-Selberg, classical; checked numerically). (2) Recurrence inequality: (sum over p in Pr of abs(tau_w(p))^2) int_B abs(f)^2 <= 2 m norm(Lambda^Y f)^2 with Y = P e^r ht(z0) and m = max over points q of the number of triples (p, j, gamma), gamma in Gamma, with q in gamma g_{p,j} B (Gamma-multiplicity; with m = number of pairs (p, j) the inequality is false for balls high in the cusp: ratio 19.5 at ht = 2000, r = 1/2, p = 2). Its P-exponent is -1 for every sigma in (1/2, 1). (3) Control EIS-w: E(z, w') off resonance satisfies (a)-(d) and the inequality for every Re w' in (1/2, 1), so these inputs locate no abscissa. (4) m_sigma = int nu_y y^(2 sigma-2) dy is N-invariant, satisfies (a_s)_* m_sigma = e^(-(2 sigma-1) s) m_sigma under y -> e^s y (sign corrected), and is a joint Hecke eigen-measure with eigenvalue p^(2 sigma-1/2) + p^(1/2-2 sigma), for every sigma > 1/2: the hypotheses of measure rigidity (A-invariant probability measure) fail at every sigma != 1/2. (5) U, THIN and sign twists fail at Gamma-invariance (Lemma G1 with the added line: a Gamma-invariant g = a y^w + b y^(1-w) + f_eps forces a = b = 0). Withdrawn: Lemma G2 (i) and the Davenport-Heilbronn row (the complex characters mod 5 are odd, the weight-0 object is identically 0; DH not run). Uniqueness of the joint eigenfunction (section 6) holds for Im w != 0 with two scalars (even and odd parts). Not proved: that m_sigma is the limit of abs(E(z, sigma+it))^2 dmu (argued and measured). The device returns its input (the conformal exponent 2 sigma - 1). A device on the modular surface must read phi(w) = 0 by a route other than truncated mass or closed-horocycle periods (Zagier's criterion). No statement about zeros of zeta.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "push/c8-hecke-entropy-resonance-rigidity/RESULT.md + REFEREE.md; push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md, ref2_hecke.log",
+  "tags": [
+   "hecke",
+   "automorphic",
+   "eisenstein-series",
+   "measure-rigidity",
+   "entropy",
+   "scattering"
+  ]
+ }
+]

@@ -1,0 +1,26 @@
+== identity (L_K + N_np)/2 = 1 - 1/r + lx/r + l(1/2 - 1/r): 18000 random rational points, violations: 0
+== high side = min(H0, N_np); free geometry; box 8
+r=2, G=0, k = K only                                         B=0.5000000 branch=H0 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000  exact 1/2: CONFIRMED
+r=3, G=0, k = K only                                         B=0.6666667 branch=H0 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000  exact 2/3: CONFIRMED
+r=6, G=0, k = K only                                         B=0.8333333 branch=H0 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000  exact 5/6: CONFIRMED
+r=6, G=zero, k = K only                                      B=0.8333333 branch=H0 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+r=6, G=zero, k = J,K,P                                       B=0.8333333 branch=H0 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+r=6, G=zero, (E-K): K deleted, J,P kept                      B=0.7777778 branch=H0 (lx,ly,l)=(0.0000,8.0000,0.3333) h=1.3333
+r=6, G=zero, k = 0                                           B=0.2500000 branch=H0 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000  [= search bound: no floor]
+r=6, G=polar, k = K only                                     B=0.8666667 branch=H0 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+r=6, G=polar, k = J,K,P                                      B=0.8666667 branch=H0 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+r=6, G=polar, (E-K): K deleted, J,P kept                     B=0.8611111 branch=H0 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+r=6, G=polar, k = 0                                          B=0.2500000 branch=H0 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+r=6, G=src, k = K only                                       B=0.8666667 branch=H0 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+r=6, G=src, k = J,K,P                                        B=0.8666667 branch=H0 (lx,ly,l)=(0.4000,0.4000,0.2000) h=0.8000
+r=6, G=src, (E-K): K deleted, J,P kept                       B=0.8611111 branch=H0 (lx,ly,l)=(0.5000,0.5000,0.3333) h=0.8333
+r=6, G=src, k = 0                                            B=0.2500000 branch=H0 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000  [= search bound: no floor]
+== high side = N_np only (H0 not available), free geometry; box 8
+G=zero, k = K only   B=0.8333333 = 5/6 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+G=zero, k = J,K,P    B=0.8333333 = 5/6 (lx,ly,l)=(0.0000,1.0000,-0.0000) h=1.0000
+G=zero, (E-K)        B=0.7777778 = 7/9 (lx,ly,l)=(0.0000,8.0000,0.3333) h=1.3333
+G=zero, k = 0        B=0.2500000 = 1/4 (lx,ly,l)=(0.0000,8.0000,3.5000) h=4.5000
+G=polar, k = K only   B=0.8974359 = 35/39 (lx,ly,l)=(0.0000,0.9231,0.0769) h=1.0769
+G=polar, k = J,K,P    B=0.8974359 = 35/39 (lx,ly,l)=(0.0000,0.9231,0.0769) h=1.0769
+G=polar, (E-K)        B=0.8730159 = 55/63 (lx,ly,l)=(0.0000,1.1429,0.3333) h=1.3333
+G=polar, k = 0        B=0.2500000 = 1/4 (lx,ly,l)=(4.5000,4.5000,8.0000) h=4.5000

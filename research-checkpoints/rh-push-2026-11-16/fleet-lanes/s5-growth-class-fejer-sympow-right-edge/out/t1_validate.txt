@@ -1,0 +1,5 @@
+Hurwitz evaluator against Arb: worst relative error 2.99e-12
+abs F at 0.80851718245663738 + 85.699348485377592 i (DH): 1.66e-14
+abs F at 0.5 + 14.134725141734693 i (ZETA): 1.67e-14
+abs F at 1/2 + b + i pi/log 3 (TNR3): 4.86e-17
+difference relation psi(x) - psi(x-1) - x^{-z}: 6.130290804855138e-15

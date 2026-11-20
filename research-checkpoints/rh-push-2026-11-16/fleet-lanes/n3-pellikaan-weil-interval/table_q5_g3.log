@@ -1,0 +1,12 @@
+
+== g=3 q=5: tuples=1723 single-interval=1723 max#components=1
+  tuples with isolated points: 4  I_C={q}: 4  undetermined isolated candidates: 0
+  lower endpoint types: {'coll': 1323, 'coll^2': 2, 'cen-': 395, 'cen+/cen-': 2, 'cen-/coll': 1}
+  upper endpoint types: {'cen+': 1099, 'coll': 620, 'coll^2': 2, 'cen+/cen-': 2}
+  log-length of component containing q (finite ones, n=1723): min 0 med 0.1569 max 0.3701
+  margin min(log q/u-, log u+/q): min -2.22e-16 med 0.03397 max 0.1402  #zero-margin: 28
+  lower margin log(q/u-): min -2.22e-16 med 0.05963 max 0.3495 | upper margin log(u+/q): min 2.22e-16 med 0.06929 max 0.2415
+  sqrt(q)*median length: 0.3509 ; q*median lower margin: 0.2982
+real 12.24
+user 11.49
+sys 0.20

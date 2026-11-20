@@ -1,0 +1,124 @@
+{
+  "checkpoint": "theta-propagation-2026-11-08",
+  "repository": "[user]/mathexplorer",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "previous_checkpoint_commit": "69d4049f289217812051188378a0a9f3f061a169",
+  "previous_pull_request": 43,
+  "scope": "New standalone continuation; earlier checkpoint files are not duplicated.",
+  "source_copy_changes": {
+    "theta_pulse_hardy_defect_20261108.md": [
+      "Added the single inverse-Blaschke no-gap corollary and explicit scope of comparison with the actual pulse upper bound."
+    ]
+  },
+  "files": [
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/AUDIT.md",
+      "bytes": 3840,
+      "sha256": "2f595a9cbfa371d9e81b262ab307899ec9a6ecbd12c20bf7ac3eb814b4a27f15"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/README.md",
+      "bytes": 6095,
+      "sha256": "4dcbf43444252a794beacfef3c95e0db074a4c35756baea6a75814d00bd44dbb"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/SOURCES.md",
+      "bytes": 2089,
+      "sha256": "5557a1adb1f0fc4e8e3d5b4697054e31499ae8e7957f2838b55d2baba76afbde"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/requirements.txt",
+      "bytes": 14,
+      "sha256": "a699f46ed76bd216f1081b6b2330e4fb45d7c8c5a5354b208694d6590a5a8645"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md",
+      "bytes": 12206,
+      "sha256": "71d7c868c7810bb6ccd962c1ab5564b49faf554a2f9c166a75dfb4ba31641d95",
+      "source_filename": "theta_flux_analytic_localization_20261108.md",
+      "source_sha256": "71d7c868c7810bb6ccd962c1ab5564b49faf554a2f9c166a75dfb4ba31641d95",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_flux_jet3_certificate_20261108.py",
+      "bytes": 3762,
+      "sha256": "a867d12439dcee8b8609c6b567a123823536231c9bc9c57ffdd762dc3a1b13e2",
+      "source_filename": "theta_flux_jet3_certificate_20261108.py",
+      "source_sha256": "a867d12439dcee8b8609c6b567a123823536231c9bc9c57ffdd762dc3a1b13e2",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_flux_jet3_replay.txt",
+      "bytes": 1192,
+      "sha256": "c16f189ba5ce05d68aedd7c782cc6c185a7ccdb3fb8bf0fd2342c225b976cc3f"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md",
+      "bytes": 14633,
+      "sha256": "a4806722a4465f8ddaea46b28751c3c3321e263d97580ec3b3cc69132449f29b",
+      "source_filename": "theta_pulse_hardy_defect_20261108.md",
+      "source_sha256": "315e57f6e9870687695d225c60ea1d9818cdd8d6fcf1a7c0fb49a2240d62b1b1",
+      "source_copied_without_change": false
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_pulse_leakage_bound_20261108.md",
+      "bytes": 9277,
+      "sha256": "bbf83055c96eab10f9eafcc101c8d06b8483089a5383a6a8df83d24a3c9dc336",
+      "source_filename": "theta_pulse_leakage_bound_20261108.md",
+      "source_sha256": "bbf83055c96eab10f9eafcc101c8d06b8483089a5383a6a8df83d24a3c9dc336",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_pulse_leakage_certificate_20261108.json",
+      "bytes": 1426,
+      "sha256": "eccddb508f7f0534adca2cdff595bcc2613cc0a5cd4f4f0aaff9564baf6a851b",
+      "source_filename": "theta_pulse_leakage_certificate_20261108.json",
+      "source_sha256": "eccddb508f7f0534adca2cdff595bcc2613cc0a5cd4f4f0aaff9564baf6a851b",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_pulse_leakage_certificate_20261108.py",
+      "bytes": 5883,
+      "sha256": "229e3ff1161091ad5b92c1305e0e86b7366ddf4c63d7771e7a27c01e1827537e",
+      "source_filename": "theta_pulse_leakage_certificate_20261108.py",
+      "source_sha256": "229e3ff1161091ad5b92c1305e0e86b7366ddf4c63d7771e7a27c01e1827537e",
+      "source_copied_without_change": true
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_pulse_leakage_replay.txt",
+      "bytes": 1426,
+      "sha256": "eccddb508f7f0534adca2cdff595bcc2613cc0a5cd4f4f0aaff9564baf6a851b"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_separated_tail.md",
+      "bytes": 7526,
+      "sha256": "2e381ddc835b1c920cc9375e481c72a88752b29b6883956b2489bc39de84ad34"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_separated_tail_certificate.json",
+      "bytes": 4069,
+      "sha256": "b458db903967758dd4fed3d4d2cf5e1381a968a96ba373dc81b6b769847ec0d7"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_separated_tail_certificate.py",
+      "bytes": 2182,
+      "sha256": "91a55a1a2a896d0806d15abe15a939877754a4d1b59894b10a15212288561ded"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/theta_separated_tail_replay.txt",
+      "bytes": 4069,
+      "sha256": "b458db903967758dd4fed3d4d2cf5e1381a968a96ba373dc81b6b769847ec0d7"
+    },
+    {
+      "path": "rigorous/theta-propagation-2026-11-08/validation.json",
+      "bytes": 1510,
+      "sha256": "cbe5b15f1aa69e6207e97daff67302aa581b5ae88cbb7b76a64c89f32f618f23"
+    },
+    {
+      "path": "thinking/decisions/2026-11-08-theta-propagation-continuation.md",
+      "bytes": 2501,
+      "sha256": "172bd4e2874800fa85682233e055739a0737b6027ce8f4589abf2dee900505af"
+    }
+  ],
+  "manifest_hashing": "This manifest excludes itself from its file-hash list."
+}

@@ -1,0 +1,13 @@
+SAMPLED 1500 of 5231
+
+== g=3 q=7: tuples=1500 single-interval=1500 max#components=1
+  tuples with isolated points: 3  I_C={q}: 3  undetermined isolated candidates: 0
+  lower endpoint types: {'coll': 1157, 'cen-': 340, 'coll^2': 2, 'cen+/cen-': 1}
+  upper endpoint types: {'cen+': 840, 'coll': 657, 'coll^2': 2, 'cen+/cen-': 1}
+  log-length of component containing q (finite ones, n=1500): min 0 med 0.08868 max 0.215
+  margin min(log q/u-, log u+/q): min -2.22e-16 med 0.0186 max 0.08627  #zero-margin: 12
+  lower margin log(q/u-): min -2.22e-16 med 0.034 max 0.2054 | upper margin log(u+/q): min 2.22e-16 med 0.04 max 0.1603
+  sqrt(q)*median length: 0.2346 ; q*median lower margin: 0.238
+real 14.29
+user 13.77
+sys 0.21

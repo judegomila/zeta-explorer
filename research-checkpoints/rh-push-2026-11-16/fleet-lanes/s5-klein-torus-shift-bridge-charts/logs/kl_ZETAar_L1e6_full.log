@@ -1,0 +1,4 @@
+klein ZETA r=1.5 L=1e+06 N=2^22 kmax=2097151 circles 3; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.27 GB
+circle x:6 v=0.250003671337 xmin=6 wind=0.000000-2.89e-14j max|t|=2.081e+10 tail |hhat| at N/2: 4.19e-11 (rel to max 4.88e-14) 22.4 s
+circle x:7 v=0.250004283226 xmin=7 wind=-0.000000-1.40e-14j max|t|=1.785e+10 tail |hhat| at N/2: 1.89e-10 (rel to max 3.60e-13) 15.5 s
+circle x:8 v=0.250004895115 xmin=8 wind=-0.000000-6.74e-15j max|t|=1.562e+10 tail |hhat| at N/2: 7.10e-11 (rel to max 2.21e-13) 4.2 s

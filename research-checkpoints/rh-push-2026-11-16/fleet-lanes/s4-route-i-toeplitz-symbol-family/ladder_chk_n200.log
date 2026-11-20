@@ -1,0 +1,31 @@
+N = 200, prec 448, 2 supports, z keys ['0.25', '0.75']; planned stage-1 memory per worker: 5 ball matrices 200x200 (about 0.03 GB), 1 workers
+stage1 worker0 node 0/512 0s
+stage1 worker0 node 20/512 3s
+stage1 worker0 node 40/512 6s
+stage1 worker0 node 60/512 9s
+stage1 worker0 node 80/512 12s
+stage1 worker0 node 100/512 15s
+stage1 worker0 node 120/512 18s
+stage1 worker0 node 140/512 21s
+stage1 worker0 node 160/512 25s
+stage1 worker0 node 180/512 28s
+stage1 worker0 node 200/512 31s
+stage1 worker0 node 220/512 34s
+stage1 worker0 node 240/512 37s
+stage1 worker0 node 260/512 41s
+stage1 worker0 node 280/512 44s
+stage1 worker0 node 300/512 47s
+stage1 worker0 node 320/512 50s
+stage1 worker0 node 340/512 53s
+stage1 worker0 node 360/512 56s
+stage1 worker0 node 380/512 59s
+stage1 worker0 node 400/512 62s
+stage1 worker0 node 420/512 65s
+stage1 worker0 node 440/512 68s
+stage1 worker0 node 460/512 71s
+stage1 worker0 node 480/512 74s
+stage1 worker0 node 500/512 78s
+stage 1 done 80s
+2.00 done 6s ZETA pf {'even': '1.354626890088446973507594e-23', 'how0': 'ball', 'odd': '7.987691732253891504598368e-21', 'how1': 'ball'}
+1.6194379124 done 6s ZETA pf {'even': '1.856474869894916822871953e-12', 'how0': 'ball', 'odd': '3.72625289670125761036763e-10', 'how1': 'ball'}
+all done 91s

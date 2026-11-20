@@ -1,0 +1,12 @@
+variant: quadrature step divided by 1, window multiplied by 1
+ok   S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12 | got 4.556231684128436e-12 | recorded 4.425790658356327e-12
+ok   S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got 4.383654917356293e-12 | recorded 4.400214195540587e-12
+variant: quadrature step divided by 2, window multiplied by 1
+FAIL S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12 | got -2.2558962847523326e-11 | recorded 4.425790658356327e-12
+FAIL S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got -2.170445290722584e-11 | recorded 4.400214195540587e-12
+variant: quadrature step divided by 4, window multiplied by 1
+FAIL S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12 | got -2.2559250479333188e-11 | recorded 4.425790658356327e-12
+FAIL S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got -2.1704659898203146e-11 | recorded 4.400214195540587e-12
+variant: quadrature step divided by 1, window multiplied by 1.4
+ok   S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12 | got 4.556231684128436e-12 | recorded 4.425790658356327e-12
+ok   S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12 | got 4.384068899310901e-12 | recorded 4.400214195540587e-12

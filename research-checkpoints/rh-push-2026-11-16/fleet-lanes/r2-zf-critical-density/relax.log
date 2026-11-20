@@ -1,0 +1,10 @@
+kappa = kappa_flat: balanced, averaged only (same grid reference)  B = 0.8748866091  (b,l) = [0.08610798 0.16712023]
+   unequal lengths, averaged only       B = 0.8748866091  diff = -2.19e-14  lx,ly,l = 0.37339,0.45949,0.16712  M+l = 1.00000
+   balanced, class-by-class mixing      B = 0.8748866091  diff = +2.80e-14  lx,ly,l = 0.37339,0.45949,0.16712  M+l = 1.00000
+   unequal lengths + mixing             B = 0.8748866091  diff = -2.34e-14  lx,ly,l = 0.37339,0.45949,0.16712  M+l = 1.00000
+   unequal lengths, pointwise only      B = 0.8749568973  diff = +7.03e-05  lx,ly,l = 0.35486,0.47830,0.16684  M+l = 1.00000
+kappa = 3/4: balanced, averaged only (same grid reference)  B = 0.8748869510  (b,l) = [0.08611356 0.16711886]
+   unequal lengths, averaged only       B = 0.8748869510  diff = -1.22e-15  lx,ly,l = 0.37338,0.45950,0.16712  M+l = 1.00000
+   balanced, class-by-class mixing      B = 0.8748869510  diff = -1.33e-15  lx,ly,l = 0.37338,0.45950,0.16712  M+l = 1.00000
+   unequal lengths + mixing             B = 0.8748869510  diff = -4.66e-15  lx,ly,l = 0.37338,0.45950,0.16712  M+l = 1.00000
+   unequal lengths, pointwise only      B = 0.8749570302  diff = +7.01e-05  lx,ly,l = 0.35486,0.47830,0.16684  M+l = 1.00000

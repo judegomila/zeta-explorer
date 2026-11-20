@@ -1,0 +1,55 @@
++ gcc -O3 -march=native -fopenmp engine.c -o engine -lquadmath -lm
++ python selftest.py K1
+~/rh-push/c18-tz-band-completion-controls-server/selftest.py:30: RuntimeWarning: invalid value encountered in sqrt
+  S = V / np.sqrt(w)
+~/rh-push/c18-tz-band-completion-controls-server/selftest.py:30: RuntimeWarning: invalid value encountered in divide
+  S = V / np.sqrt(w)
+Traceback (most recent call last):
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 192, in <module>
+    K1()
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 49, in K1
+    b = k1_case(u2, 0.0, 1)
+        ^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 36, in k1_case
+    if lam(mid) >= 0:
+       ^^^^^^^^
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 32, in lam
+    return np.linalg.eigvalsh((B + B.conj().T) / 2)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 1359, in eigvalsh
+    w = gufunc(a, signature=signature)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 150, in _raise_linalgerror_eigenvalues_nonconvergence
+    raise LinAlgError("Eigenvalues did not converge")
+numpy.linalg.LinAlgError: Eigenvalues did not converge
++ python selftest.py K4
+K4 DH: -F'/F(3) from the Hurwitz form = [-0.00141876726662425921 +/- 1.20e-21] (compare with the engine line 'DH check')
++ ./launch.sh 1e4 10000 10000 2 2 k2.bin prime 1
+boundaries: 6 158 398 1000 2511 6309 10000
+planned: moments 150944 doubles = 0.001 GB; cells 4717; objects 2; windows 1
+segments 0, base primes 6542
+done in 0.0 s; sabs[0]=197.466
++ python selftest.py K2 k2.bin 30000
+Traceback (most recent call last):
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 194, in <module>
+    
+  File "~/rh-push/c18-tz-band-completion-controls-server/selftest.py", line 120, in K2
+    for sgn in (1.0, -1.0):
+                            
+  File "~/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 1359, in eigvalsh
+    w = gufunc(a, signature=signature)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rh-push/venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 150, in _raise_linalgerror_eigenvalues_nonconvergence
+    raise LinAlgError("Eigenvalues did not converge")
+numpy.linalg.LinAlgError: Eigenvalues did not converge
++ ./launch.sh 1e6 1000000 1000000 2 2 k3.bin
+boundaries: 6 1995 7943 31622 125892 501187 1000000
+planned: moments 9056000 doubles = 0.072 GB; cells 7075; objects 2; windows 40
+segments 351, base primes 6542
+done in 0.5 s; sabs[0]=1996.91
++ python selftest.py K3 k3.bin
+K3 w=0 theta=1.00 y=3.7: D ball [4.54809677358 +/- 5.99e-14] + [-13.1067980687 +/- 6.20e-12]j ; engine 4.548096773580-13.106798068706j ; abs diff D 1.99e-14, D1 2.57e-13 ; radius 3.99e-08 (D), 5.92e-07 (D1)
+K3 w=5 theta=1.00 y=-11.2: D ball [12.9975987275 +/- 2.60e-11] + [-2.54206181242 +/- 3.52e-12]j ; engine 12.997598727474-2.542061812416j ; abs diff D 6.52e-14, D1 5.07e-13 ; radius 3.99e-08 (D), 5.92e-07 (D1)
+K3 w=0 theta=0.55 y=20.1: D ball [0.291415567465 +/- 1.02e-14] + [-7.52129270467 +/- 3.79e-12]j ; engine 0.291415567465-7.521292704674j ; abs diff D 2.64e-14, D1 2.57e-13 ; radius 3.99e-08 (D), 3.43e-07 (D1)
+K3 PASS worst ratio to radius 0.000
+K4 sum abs amplitudes per object: [1996.91, 1996.91]

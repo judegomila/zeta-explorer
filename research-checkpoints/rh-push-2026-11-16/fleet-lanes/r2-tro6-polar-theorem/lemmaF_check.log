@@ -1,0 +1,4 @@
+(F1) coprime case: 42 comparisons, max |diff| = 5.30e-12, failures 0
+(F2) s = delta s': 36 comparisons, max |diff| = 2.24e-11, failures 0
+(F3) p^2 | s, p | c: 12 comparisons, max |fcheck| = 4.18e-12
+../../../../.venv-arb/bin/python lemmaF_check.py  12.48s user 0.30s system 69% cpu 18.340 total

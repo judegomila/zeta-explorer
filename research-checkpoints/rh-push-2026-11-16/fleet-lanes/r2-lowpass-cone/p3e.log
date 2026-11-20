@@ -1,0 +1,7 @@
+beta 0.474 sup gamma with Re H<0: [937.904069 +/- 4.55e-7]
+beta 0.45 sup gamma with Re H<0: [937.876251 +/- 3.19e-7]
+beta 0.3 sup gamma with Re H<0: [937.678897 +/- 3.66e-7]
+d = quartet(0.45+937.8i) + pair(i937.3): <m,d> = [-2.2562110e-489 +/- 2.79e-497] ; negative: True ; heat-trace ratio bound 0.349 (<1 needed)
+d = quartet(0.45+937.85i) + pair(i937.4): <m,d> = [4.9186718e-489 +/- 3.51e-497] ; negative: False ; heat-trace ratio bound 0.416 (<1 needed)
+d = quartet(0.45+937.6i) + pair(i937.1): <m,d> = [-1.1395384e-488 +/- 1.61e-496] ; negative: True ; heat-trace ratio bound 0.349 (<1 needed)
+d = quartet(0.45+101.9i) + pair(i101.5): <m,d> = [-3.6968398e-481 +/- 2.92e-489] ; negative: True ; heat-trace ratio bound 0.498 (<1 needed)

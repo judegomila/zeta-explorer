@@ -1,0 +1,17 @@
+k=2 (source; validation, expect 0.8748865)                         B=0.8748865  lx=0.3719 ly=0.4610 l=0.1671
+2k=6-th moment, K=R+(1-R)/6, theta capacity unchanged              B=0.8692277  lx=0.4051 ly=0.4051 l=0.1898
+2k=6-th moment, K=R+(1-R)/6, theta capacity 2/k                    B=0.8692672  lx=0.4052 ly=0.4052 l=0.1896
+2k=8-th moment, K=R+(1-R)/8, theta capacity unchanged              B=0.8674539  lx=0.4016 ly=0.4016 l=0.1969
+2k=8-th moment, K=R+(1-R)/8, theta capacity 2/k                    B=0.8674644  lx=0.4016 ly=0.4016 l=0.1968
+2k=12-th moment, K=R+(1-R)/12, theta capacity unchanged            B=0.8666666  lx=0.4000 ly=0.4000 l=0.2000
+2k=12-th moment, K=R+(1-R)/12, theta capacity 2/k                  B=0.8666666  lx=0.4000 ly=0.4000 l=0.2000
+2k=24-th moment, K=R+(1-R)/24, theta capacity unchanged            B=0.8666666  lx=0.4000 ly=0.4000 l=0.2000
+2k=24-th moment, K=R+(1-R)/24, theta capacity 2/k                  B=0.8666666  lx=0.4000 ly=0.4000 l=0.2000
+k=inf (Lindelof on the class, K=R; expect 13/15)                   B=0.8666666  lx=0.4000 ly=0.4000 l=0.2000
+fourth moment restricted to the class saves U^-0.01: K=(3R+1-0.01)/4 B=0.8744278  lx=0.3718 ly=0.4592 l=0.1690
+fourth moment restricted to the class saves U^-0.025: K=(3R+1-0.025)/4 B=0.8737351  lx=0.3686 ly=0.4597 l=0.1717
+fourth moment restricted to the class saves U^-0.05: K=(3R+1-0.05)/4 B=0.8725663  lx=0.3654 ly=0.4582 l=0.1764
+fourth moment restricted to the class saves U^-0.1: K=(3R+1-0.1)/4 B=0.8701747  lx=0.3590 ly=0.4551 l=0.1860
+fourth moment restricted to the class saves U^-0.2: K=(3R+1-0.2)/4 B=0.8666666  lx=0.3442 ly=0.4558 l=0.2000
+K -> K - 1e-4 on every class                                       B=0.8748682  lx=0.3719 ly=0.4609 l=0.1672
+slope dB/dK = 0.1830837688032716

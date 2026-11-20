@@ -1,0 +1,4 @@
+TNR3 sigma 1.001 341: min 984.9 at t=14.3 neg 0 first None F4: min 975.3 at t=14.3 neg 0 first None F16: min 929.6 at t=14.3 neg 0 first None F64: min 765 at t=134.4 neg 0 first None
+TNR3 sigma 1.01 341: min 86.14 at t=14.3 neg 0 first None F4: min 77.38 at t=14.3 neg 0 first None F16: min 35.74 at t=14.3 neg 0 first None F64: min -115.2 at t=134.4 neg 6 first 14.3
+TNR3 sigma 1.1 341: min 2.237 at t=14.3 neg 0 first None F4: min -2.251 at t=14.3 neg 22 first 14.3 F16: min -23.07 at t=14.3 neg 70 first 2.8000000000000003 F64: min -100.7 at t=134.4 neg 78 first 2.9000000000000004
+TNR3 sigma 1.3 341: min -0.5078 at t=14.3 neg 13 first 14.200000000000001 F4: min -2.373 at t=14.3 neg 103 first 2.7 F16: min -10.66 at t=14.3 neg 128 first 1.4000000000000001 F64: min -41.9 at t=14.3 neg 90 first 2.9000000000000004

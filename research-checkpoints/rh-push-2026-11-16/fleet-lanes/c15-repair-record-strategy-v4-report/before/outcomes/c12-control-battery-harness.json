@@ -1,0 +1,37 @@
+{
+ "slug": "c12-control-battery-harness",
+ "round": 12,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "control",
+  "seeded-controls",
+  "meta-harness",
+  "de-branges",
+  "stage-a"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Meta-harness, no statement about zeta. The battery reproduces the verdicts of the five replayed devices (5 of 5). Of the 20 registered D1 checks 19 pass; the failing one (min q_1 on DH on-line zeros in 1000 < t < 1020: -0.33053 converged vs -0.33481 recorded) is a defect of the record's root finder, confirmed by an independent code path. Correction: that defect is not confined to t near 1000; the record's DH ordinates are unconverged from heights of order 100 (measured instance: t = 194.075, recorded min q_2 = -0.92982 vs converged -0.92848), so 7 of the 24 recorded min q values in the four replayed windows differ; fail counts and verdicts are unchanged. D2, D3 and the D5 set data carry independent numerical content; D4 and the D5 identity are algebraic and cannot fail. The registered threshold is not met as written. HEAT tau = -0.5 off-line list is incomplete above height 500 (as stated); its first pair at height 111.694 is confirmed. Flags R1 = R2 = R3 = R4 = false.",
+ "obstruction": "Meta-harness. Verdicts reproduced 5 of 5; registered D1 numeric checks 19 of 20, so the registered threshold is not met as written. The mismatch is a defect of the record (c11-rs3 DH ordinates unconverged from heights of order 100; 7 of 24 recorded min q values differ; fail counts unchanged). D4 and the D5 identity are algebraic and cannot fail. HEAT tau = -0.5 off-line list incomplete between 500 and 2000.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (meta-harness)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report appended (author's self-check kept above it) to tmp/research-2026-11-16/push/c12-control-battery-harness/REFEREE.md under \"INDEPENDENT REFEREE (lens: general)\". Scripts: /tmp/ref-c12-general/chk1.py..chk4.py (mpmath only, local, memcap 8 GB; no server use).\n\nE1 (correction required): the record's DH ordinates are unconverged already below height 200, not only \"near t = 1000\". records/screen.json DH window t0-200 has min q_2 = -0.929820160099 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Replaying closed devices through one independently built battery finds defects in the records as well as in the battery. Found in records: mpmath findroot at default tolerance does not converge on a completed function of size 1e-340 (c11-rs3 DH windows at t>=1000); zeta fails (N2_h) at h=1/2 already at zeros 922, 996, 1308, 1496, against \"not seen below 1e4\"; the Lemma B residual 5.4e-12 in row P43 is step-specific (converged float64 value about 2.2e-11). Found in the battery: float underflow of a scale exponent, and complex ball inflation along long products. Devices with no recorded numbers (D4) or algebraic identities (D5) test the tables, not the device.",
+ "followUp": "Orchestrator decides whether 5/5 verdicts with 4/5 full numerics unlocks stage B for round 13. Independent referee on REFEREE.md items A1-A3 (recompute the c11-rs3 DH and GAM rows at t>=1000 with converged ordinates; correct the P43 figure) and a second evaluation of a sample of the stage, product, BEU and HEAT tables. Complete the HEAT tau=-0.5 off-line list between 500 and 2000 (17 pairs short). Battery: push/c12-control-battery-harness/ (README.md, battery/load.py); server ~/rh-push/c12-control-battery-harness/ (4.96 GB); no units left running.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-control-battery-harness/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-control-battery-harness/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

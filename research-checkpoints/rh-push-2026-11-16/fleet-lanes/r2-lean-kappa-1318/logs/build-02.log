@@ -1,0 +1,203 @@
+warning: PrimeNumberTheoremAnd: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/pi1' has local changes
+warning: heights: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/heights' has local changes
+warning: genl: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/iut' has local changes
+warning: gromov: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/fixed-point-theorems' has local changes
+⚠ [6469/7061] Built OAI.NumberTheory.DirichletL.Moments.ReflectionRetainedLength (24s)
+warning: OAI/NumberTheory/DirichletL/Moments/ReflectionRetainedLength.lean:62:5: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [6470/7061] Built OAI.NumberTheory.DirichletL.Hecke.DetectorRowCountCrossing (25s)
+✔ [6788/7061] Built OAI.NumberTheory.DirichletL.Moments.ReflectedChoiceEnergy (5.1s)
+✔ [6789/7061] Built OAI.NumberTheory.DirichletL.Moments.RetainedComparisonEnergy (20s)
+✔ [6790/7061] Built OAI.NumberTheory.DirichletL.Moments.UniformReflectionChoices (20s)
+✔ [6791/7061] Built OAI.NumberTheory.DirichletL.Moments.NaturalRetainedEnergy (9.7s)
+✔ [6792/7061] Built OAI.NumberTheory.DirichletL.Moments.UniformRetainedEnergy (9.7s)
+✔ [6793/7061] Built OAI.NumberTheory.DirichletL.Moments.OriginalComparisonEnergy (11s)
+✔ [6794/7061] Built OAI.NumberTheory.DirichletL.Moments.UniformNaturalRetained (11s)
+✔ [6795/7061] Built OAI.NumberTheory.DirichletL.Moments.OriginalRadialComparison (8.9s)
+✔ [6796/7061] Built OAI.NumberTheory.DirichletL.Moments.UniformOriginalComparison (8.0s)
+✔ [6797/7061] Built OAI.NumberTheory.DirichletL.Moments.UniformRadialComparison (6.6s)
+✔ [6798/7061] Built OAI.NumberTheory.DirichletL.Moments.OriginalRadialTail (6.8s)
+✔ [6799/7061] Built OAI.NumberTheory.DirichletL.Moments.PlainPositiveEnergy (6.9s)
+✔ [6800/7061] Built OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceAllocatedErrorMass (6.8s)
+✔ [6801/7061] Built OAI.NumberTheory.DirichletL.Moments.CommonMaskRadialEnergy (6.7s)
+✔ [6802/7061] Built OAI.NumberTheory.DirichletL.Moments.NaturalRadialCutoff (6.6s)
+✔ [6803/7061] Built OAI.NumberTheory.DirichletL.Moments.AllocatedNaturalRadial (12s)
+✔ [6804/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputTailUniform (13s)
+✔ [6805/7061] Built OAI.NumberTheory.DirichletL.Moments.NaturalMaskedFloor (13s)
+✔ [6806/7061] Built OAI.NumberTheory.DirichletL.Energy.State (14s)
+✔ [6807/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputTailSeed (14s)
+✔ [6808/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondChildPowerBudget (15s)
+✔ [6809/7061] Built OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorNatural (16s)
+✔ [6810/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputZeroUniform (16s)
+✔ [6811/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputFirstTailUniform (16s)
+✔ [6812/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondSourceRemainder (16s)
+✔ [6813/7061] Built OAI.NumberTheory.DirichletL.Energy.ChildState (16s)
+✔ [6814/7061] Built OAI.NumberTheory.DirichletL.Energy.Floor (16s)
+✔ [6815/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorEnergyInitialState (17s)
+✔ [6816/7061] Built OAI.NumberTheory.DirichletL.Energy.CapacityRemoval (17s)
+✔ [6817/7061] Built OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorShared (17s)
+✔ [6818/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputFirstSectorTailUniform (17s)
+✔ [6819/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedFourCoefficients (19s)
+✔ [6820/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondLiveSourceDescent (19s)
+✔ [6821/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondFrozenLiveDescent (19s)
+✔ [6822/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainProfileControl (14s)
+✔ [6823/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedChildren (15s)
+✔ [6824/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputFirstSectorTailNatural (13s)
+✔ [6825/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainExceptional (16s)
+✔ [6826/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalAmplifiedColumn (13s)
+✔ [6827/7061] Built OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorSource (16s)
+✔ [6828/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstHighFourCoefficients (15s)
+✔ [6829/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedBound (7.6s)
+✔ [6830/7061] Built OAI.NumberTheory.DirichletL.Moments.SourceInputFirstRemainder (6.9s)
+✔ [6831/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainStateDictionary (7.1s)
+✔ [6832/7061] Built OAI.NumberTheory.DirichletL.Moments.RayMaskedFloor (7.5s)
+✔ [6833/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondUniformSubsetSource (22s)
+✔ [6834/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstSourceReduction (10s)
+✔ [6835/7061] Built OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorState (12s)
+✔ [6836/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondSourcePowerDescent (13s)
+✔ [6837/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondFrozenUniformSubset (19s)
+✔ [6838/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstPhysicalOriginalMask (11s)
+✔ [6839/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstPhysicalActiveDictionary (12s)
+✔ [6840/7061] Built OAI.NumberTheory.DirichletL.Energy.OriginalSource (12s)
+✔ [6841/7061] Built OAI.NumberTheory.DirichletL.Energy.Bands (14s)
+✔ [6842/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstPhysicalZeroRadius (18s)
+✔ [6843/7061] Built OAI.NumberTheory.DirichletL.Energy.ZeroComparison (18s)
+✔ [6844/7061] Built OAI.NumberTheory.DirichletL.Energy.FixedRadialSource (19s)
+✔ [6845/7061] Built OAI.NumberTheory.DirichletL.Energy.PhysicalEntry (19s)
+✔ [6846/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstReferenceSource (20s)
+✔ [6847/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondSourceSeededPowerDescent (29s)
+✔ [6848/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondFrozenPowerDescent (24s)
+✔ [6849/7061] Built OAI.NumberTheory.DirichletL.Energy.InputParentCapacity (20s)
+✔ [6850/7061] Built OAI.NumberTheory.DirichletL.Energy.SlotHeight (20s)
+✔ [6851/7061] Built OAI.NumberTheory.DirichletL.Energy.PaidBands (20s)
+✔ [6852/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedZero (21s)
+✔ [6853/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainRelativeClass (21s)
+✔ [6854/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainUnmarkedState (21s)
+✔ [6855/7061] Built OAI.NumberTheory.DirichletL.Energy.BandMonotonicity (21s)
+✔ [6856/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainMarkedState (22s)
+✔ [6857/7061] Built OAI.NumberTheory.DirichletL.Energy.WidthFloor (22s)
+✔ [6858/7061] Built OAI.NumberTheory.DirichletL.Energy.FixedRadialEntry (17s)
+✖ [6859/7061] Building OAI.NumberTheory.DirichletL.Energy.ReferenceState (18s)
+trace: .> LEAN_PATH=tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/MD4Lean/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/BibtexQuery/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/UnicodeBasic/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Cli/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/leansqlite/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/batteries/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Qq/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/aesop/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/importGraph/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/plausible/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/fixed-point-theorems/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Zeta3Irrational/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/rellich-kondrachov/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/carleson/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/StrongPNT/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AbsorptionCutoff/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AINTLIB/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/ClassFieldTheory/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/schoenflies-lean/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/SphereEversion/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/TauCeti/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/gromov/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/iut/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tate-curves-theta/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/genl/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/heights/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/pi1/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/orbicurve-cores/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/oka/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tempered-fundamental-groups/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/elliptic-curves/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/formal-schemes/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/belyi/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/PrimeNumberTheoremAnd/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/leancert/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/LeanArchitect/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/PrimeCert/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/doc-gen4/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/checkdecls/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/mathlib/.lake/build/lib/lean:tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/build/lib/lean ~/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/OAI/NumberTheory/DirichletL/Energy/ReferenceState.lean -o tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/build/lib/lean/OAI/NumberTheory/DirichletL/Energy/ReferenceState.olean -i tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/build/lib/lean/OAI/NumberTheory/DirichletL/Energy/ReferenceState.ilean -c tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/build/ir/OAI/NumberTheory/DirichletL/Energy/ReferenceState.c --setup tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/build/ir/OAI/NumberTheory/DirichletL/Energy/ReferenceState.setup.json --json
+error: OAI/NumberTheory/DirichletL/Energy/ReferenceState.lean:84:65: linarith failed to find a contradiction
+Z M X₁ X₂ ell κ : ℝ
+hZ : 1 < Z
+hM : 0 ≤ M
+hX₁ : 0 < X₁
+hX₂ : 0 < X₂
+hell : 0 ≤ ell
+hκ : 13 / 18 ≤ κ
+hlarge : 5 * M / 6 ≤ Real.logb Z (X₁ * X₂) + ell
+hcap : Real.logb Z (X₁ * X₂) + ell + (6 * κ - 1) * ell ≤ M
+a✝ : 6 * κ - 1 < 7 / 2
+⊢ False
+failed
+✔ [6941/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstAnnularAdmission (18s)
+✔ [6942/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstReferenceEnergy (20s)
+✔ [6943/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondReferenceNormalization (19s)
+✔ [6944/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstGaussianCoefficients (20s)
+✔ [6945/7061] Built OAI.NumberTheory.DirichletL.Energy.Reindex (18s)
+✔ [6947/7061] Built OAI.NumberTheory.DirichletL.Energy.PaidRemoval (18s)
+✔ [6948/7061] Built OAI.NumberTheory.DirichletL.Energy.DeletedChildCapacity (19s)
+✔ [6949/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedCapacitySource (19s)
+✔ [6950/7061] Built OAI.NumberTheory.DirichletL.Moments.DetectorPlainMomentParameters (18s)
+✔ [6951/7061] Built OAI.NumberTheory.DirichletL.Energy.FixedRadialReduction (14s)
+✔ [6954/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstColumnPairing (14s)
+✔ [6955/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstPhysicalNormalization (15s)
+✔ [6956/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondFrozenSeededPowerDescent (34s)
+✔ [6957/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstHighNormalizedGaussianPowers (14s)
+✔ [6958/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstNormalizedGaussianPowers (14s)
+✔ [6959/7061] Built OAI.NumberTheory.DirichletL.Energy.BandSubtypeTransport (13s)
+✔ [6960/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedCapacityCommon (13s)
+✔ [6961/7061] Built OAI.NumberTheory.DirichletL.Moments.AllocatedRayDictionary (15s)
+✔ [6962/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedActiveCapacitySource (14s)
+✔ [6963/7061] Built OAI.NumberTheory.DirichletL.Detector.DetectorPlainUnmarkedField (13s)
+✔ [6964/7061] Built OAI.NumberTheory.DirichletL.Energy.LowFixedRadialEntry (9.0s)
+✔ [6965/7061] Built OAI.NumberTheory.DirichletL.Detector.DetectorPlainMarkedFineField (15s)
+✔ [6966/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstGaussianProfileWeights (28s)
+✔ [6970/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondFrozenReferenceSeededPowerDescent (16s)
+✔ [6971/7061] Built OAI.NumberTheory.DirichletL.Moments.SecondInputCapacitySource (16s)
+✔ [6972/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedPaid (16s)
+✔ [6973/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedActiveAffine (15s)
+✔ [6974/7061] Built OAI.NumberTheory.DirichletL.Energy.SourceInputReindexGates (16s)
+✔ [6975/7061] Built OAI.NumberTheory.DirichletL.Detector.DetectorPlainUnmarkedRestrictedField (16s)
+✔ [6977/7061] Built OAI.NumberTheory.DirichletL.Energy.NaturalInputMatches (18s)
+✔ [6982/7061] Built OAI.NumberTheory.DirichletL.Energy.AmplifiedRayDictionary (24s)
+✔ [6983/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstHighGaussianUniformPowers (14s)
+✔ [6984/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstSeededGaussianPower (16s)
+✔ [6985/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedClipped (14s)
+✔ [6986/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedPaidAdmission (16s)
+✔ [6987/7061] Built OAI.NumberTheory.DirichletL.Energy.OriginalProfileControl (15s)
+✔ [6997/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstRawScaleAdmission (15s)
+✔ [6998/7061] Built OAI.NumberTheory.DirichletL.Energy.AmplifiedChildWidth (16s)
+✔ [6999/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstLowHomogeneousPowers (14s)
+✔ [7000/7061] Built OAI.NumberTheory.DirichletL.Energy.AllocatedHomogeneous (14s)
+✔ [7001/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedPaidReserve (15s)
+✔ [7002/7061] Built OAI.NumberTheory.DirichletL.Energy.ActiveChildRestoration (27s)
+✔ [7003/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstLiveAdmission (13s)
+✔ [7005/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalChildBound (10s)
+✔ [7006/7061] Built OAI.NumberTheory.DirichletL.Energy.NaturalLowSourceBound (22s)
+✔ [7009/7061] Built OAI.NumberTheory.DirichletL.Moments.FirstNestedSeededGaussianPower (28s)
+✔ [7010/7061] Built OAI.NumberTheory.DirichletL.Energy.SourceCapSchedule (8.2s)
+✔ [7012/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstTwoSeedAdmission (9.3s)
+✔ [7013/7061] Built OAI.NumberTheory.DirichletL.Energy.FirstRightAdmission (9.4s)
+✔ [7014/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalLiveBound (8.6s)
+✔ [7015/7061] Built OAI.NumberTheory.DirichletL.Energy.NaturalSourceAdmission (9.0s)
+✔ [7019/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalLiveCapacity (5.2s)
+✔ [7020/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalPaidSource (13s)
+✔ [7021/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalCommonPaid (11s)
+✔ [7022/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalReferencePaid (13s)
+✔ [7023/7061] Built OAI.NumberTheory.DirichletL.Energy.ChildEnvelopeFitting (9.2s)
+✔ [7024/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalUniformReference (11s)
+✔ [7025/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalNestedReference (12s)
+✔ [7026/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainPaid (12s)
+✔ [7027/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainUniform (11s)
+✔ [7028/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorPaid (15s)
+✔ [7029/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainGaussian (13s)
+✔ [7030/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorUniform (11s)
+✔ [7031/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainSeparated (12s)
+✔ [7032/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainSeparatedPower (9.8s)
+✔ [7033/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorGaussian (21s)
+✔ [7034/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainHomogeneous (7.7s)
+✔ [7035/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorAdmitted (8.7s)
+✔ [7036/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalMainSubsets (11s)
+✔ [7037/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorPower (13s)
+✔ [7038/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorHomogeneous (20s)
+✔ [7039/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalErrorSubsets (16s)
+✔ [7040/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalAmplifiedUniform (11s)
+✔ [7041/7061] Built OAI.NumberTheory.DirichletL.Energy.AmplifierFamilyAdmission (11s)
+✔ [7042/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalAnnularPower (28s)
+✔ [7043/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalAnnularLower (6.2s)
+✔ [7044/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalLowColumn (10s)
+✔ [7045/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalLowSource (13s)
+✔ [7046/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalHighColumn (15s)
+✔ [7047/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalHighSource (15s)
+✔ [7048/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalRightSourceColumn (16s)
+✔ [7049/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalLowPhysical (44s)
+✔ [7053/7061] Built OAI.NumberTheory.DirichletL.Energy.CanonicalHighPhysical (44s)
+Some required targets logged failures:
+- OAI.NumberTheory.DirichletL.Energy.ReferenceState
+error: build failed

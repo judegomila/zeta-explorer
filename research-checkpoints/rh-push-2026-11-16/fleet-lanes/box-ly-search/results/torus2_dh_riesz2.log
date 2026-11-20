@@ -1,0 +1,10 @@
+{"input": "dh", "weight": "riesz2", "N": 100, "primes": 25, "sigma": 0.5001, "min_abs_B": 0.09841976941321541, "starts": 40}
+{"input": "dh", "weight": "riesz2", "N": 150, "primes": 35, "sigma": 0.5001, "min_abs_B": 0.00039028115125923666, "starts": 40}
+{"input": "dh", "weight": "riesz2", "N": 200, "primes": 46, "sigma": 0.5001, "min_abs_B": 7.30618829043256e-09, "starts": 40}
+{"input": "dh", "weight": "riesz2", "N": 300, "primes": 62, "sigma": 0.5001, "min_abs_B": 3.5004436485799446e-09, "starts": 40}
+{"input": "dh", "weight": "riesz2", "N": 400, "primes": 78, "sigma": 0.5001, "min_abs_B": 2.9694252968549955e-09, "starts": 40}
+{"input": "dh", "weight": "riesz2", "N": 600, "primes": 109, "sigma": 0.5001, "min_abs_B": 4.312686885049302e-09, "starts": 12}
+{"input": "dh", "weight": "riesz2", "N": 800, "primes": 139, "sigma": 0.5001, "min_abs_B": 2.0516674992257654e-09, "starts": 12}
+{"input": "dh", "weight": "riesz2", "N": 1000, "primes": 168, "sigma": 0.5001, "min_abs_B": 1.9428085787449483e-09, "starts": 12}
+{"input": "dh", "weight": "riesz2", "N": 1500, "primes": 239, "sigma": 0.5001, "min_abs_B": 2.8116345384729296e-09, "starts": 12}
+{"input": "dh", "weight": "riesz2", "N": 2000, "primes": 303, "sigma": 0.5001, "min_abs_B": 2.6772935421994145e-09, "starts": 12}

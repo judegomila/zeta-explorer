@@ -1,0 +1,72 @@
+{
+ "slug": "s2-function-field-selberg-sandbox",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "berry-saturation-scale",
+  "ff-ghost-index-toeplitz",
+  "ff-ghost-second-order",
+  "ff-lambda-of-elliptic-curve",
+  "hasse-weil-checks",
+  "selberg-geodesic-ground-truth",
+  "selberg-theorem-u-geodesic-monoid",
+  "selberg-zeta-freeze-sandbox"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "ff-ghost-index-toeplitz",
+    "ff-ghost-second-order"
+   ],
+   "obstruction": "only the full Toeplitz matrix T_2g (location of all 2g zeros) rejects every fake; statistics stopping at delay g are passed by fakes",
+   "controlsThatDefeat": [
+    "function-field fakes (8.29e6 pass delay-g tests)"
+   ]
+  },
+  {
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "hasse-weil-checks"
+   ],
+   "obstruction": "Lambda>0 restates 'has an off-line zero'; no uniform gap (min Lambda over fakes tends to 0 with q and g)",
+   "controlsThatDefeat": [
+    "function-field fakes near the line"
+   ]
+  },
+  {
+   "nodes": [
+    "selberg-zeta-freeze-sandbox",
+    "selberg-theorem-u-geodesic-monoid"
+   ],
+   "obstruction": "Weil-form onset is tied to the offset of the exceptional zero; the Schur/Hankel condition fails on RH-true objects; Jensen is a zero count",
+   "controlsThatDefeat": [
+    "Selberg exceptional characters (onset = zero offset)",
+    "RH-true characters (fail B)"
+   ]
+  },
+  {
+   "nodes": [
+    "berry-saturation-scale",
+    "selberg-geodesic-ground-truth"
+   ],
+   "obstruction": "statistic of squared amplitudes: identical for the sign twist and independent of the exceptional parameter (round-1 pattern 3)",
+   "controlsThatDefeat": [
+    "sign twist",
+    "Selberg exceptional characters"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) only the full Toeplitz matrix T_2g (location of all 2g zeros) rejects every fake; statistics stopping at delay g are passed by fakes | (2) Lambda>0 restates 'has an off-line zero'; no uniform gap (min Lambda over fakes tends to 0 with q and g) | (3) Weil-form onset is tied to the offset of the exceptional zero; the Schur/Hankel condition fails on RH-true objects; Jensen is a zero count | (4) statistic of squared amplitudes: identical for the sign twist and independent of the exceptional parameter (round-1 pattern 3)",
+ "controlsThatDefeat": [
+  "RH-true characters (fail B)",
+  "Selberg exceptional characters",
+  "Selberg exceptional characters (onset = zero offset)",
+  "function-field fakes (8.29e6 pass delay-g tests)",
+  "function-field fakes near the line",
+  "sign twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-function-field-selberg-sandbox/RESULT.md"
+}

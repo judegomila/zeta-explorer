@@ -1,0 +1,5 @@
+x 0.3 theta defect -3.1554e-30
+x 0.7 theta defect 0.0
+x 1.9 theta defect -3.1554e-30
+w_- -1.1441228 zero s0 (1.26554813441 + 4.53236014183j) |D(s0)| 2.7849e-30 |D zeta(s0)| 2.1094e-30
+series check -2.2e-9

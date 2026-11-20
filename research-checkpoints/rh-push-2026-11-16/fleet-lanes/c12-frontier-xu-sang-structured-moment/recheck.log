@@ -1,0 +1,3 @@
+R_def(delta_c, 1/2) = 0.590497 (file 0.590332)
+R_def(delta_c, 0)   = 0.615137 ; (15-16d)/(15-6d) = 0.614784
+classes 450 ; monotonicity violations in x: 0 ; least margin of the forced option (grid error about 2e-3): -0.000150

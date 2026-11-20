@@ -1,0 +1,29 @@
+C = 0.8384
+columns: Q, R | per stratum (prime to 6 / not prime to 6): ratio = sum_sigma X0 conj(pred) / sum |pred|^2 (complex), r measured (rms over sigma), r predicted from C R^(1/6) G,
+         share of ||B||^2 carried by the theta part C^2 R^(1/3) (sum |rho_str_blk|^2 - noise), and corr(conj B^p, rho_str_blk p) over rows
+
+path R = Q^1.4
+  Q     938 R    14480 | ratio +1.204-0.000i  r 0.3059 pred 0.2532  theta share 0.247  corr 0.653 | ratio +1.074-0.000i  r 0.2227 pred 0.2078  theta share 0.416  corr 0.723 |
+  Q    1326 R    23522 | ratio +1.214-0.000i  r 0.3258 pred 0.2678  theta share 0.281  corr 0.696 | ratio +1.064-0.000i  r 0.2312 pred 0.2183  theta share 0.458  corr 0.749 |
+  Q    1875 R    38212 | ratio +1.188-0.000i  r 0.3328 pred 0.2796  theta share 0.311  corr 0.718 | ratio +1.046-0.000i  r 0.2323 pred 0.2225  theta share 0.475  corr 0.755 |
+  Q    2652 R    62076 | ratio +1.132-0.000i  r 0.3318 pred 0.2928  theta share 0.344  corr 0.730 | ratio +1.046-0.000i  r 0.2350 pred 0.2250  theta share 0.494  corr 0.772 |
+  Q    3750 R   100843 | ratio +1.117-0.000i  r 0.3417 pred 0.3055  theta share 0.375  corr 0.757 | ratio +1.046-0.000i  r 0.2399 pred 0.2298  theta share 0.520  corr 0.792 |
+  Q    5303 R   163819 | ratio +1.104-0.000i  r 0.3461 pred 0.3130  theta share 0.399  corr 0.776 | ratio +1.029-0.000i  r 0.2446 pred 0.2380  theta share 0.560  corr 0.812 |
+  Q    7500 R   266125 | ratio +1.085-0.000i  r 0.3460 pred 0.3185  theta share 0.420  corr 0.784 | ratio +1.009-0.000i  r 0.2456 pred 0.2436  theta share 0.595  corr 0.827 |
+  Q   10607 R   432321 | ratio +1.063-0.000i  r 0.3425 pred 0.3220  theta share 0.438  corr 0.790 | ratio +1.003-0.000i  r 0.2473 pred 0.2468  theta share 0.619  corr 0.842 |
+  Q   15000 R   702308 | ratio +1.049-0.000i  r 0.3410 pred 0.3249  theta share 0.455  corr 0.797 | ratio +1.000-0.000i  r 0.2458 pred 0.2459  theta share 0.627  corr 0.850 |
+  Q   21213 R  1140903 | ratio +1.037-0.000i  r 0.3420 pred 0.3299  theta share 0.477  corr 0.811 | ratio +1.002-0.000i  r 0.2462 pred 0.2458  theta share 0.638  corr 0.863 |
+  Q   30000 R  1853403 | ratio +1.024-0.000i  r 0.3448 pred 0.3365  theta share 0.506  corr 0.834 | ratio +1.003-0.000i  r 0.2485 pred 0.2477  theta share 0.660  corr 0.882 |
+
+path R = R_top
+  Q     938 R  1853403 | ratio +0.940-0.000i  r 0.4033 pred 0.4291  theta share 0.710  corr 0.871 | ratio +0.989-0.000i  r 0.2810 pred 0.2843  theta share 0.779  corr 0.923 |
+  Q    1326 R  1853403 | ratio +0.948-0.000i  r 0.3994 pred 0.4212  theta share 0.695  corr 0.866 | ratio +1.002-0.000i  r 0.2816 pred 0.2814  theta share 0.760  corr 0.923 |
+  Q    1875 R  1853403 | ratio +0.952-0.000i  r 0.3978 pred 0.4178  theta share 0.694  corr 0.868 | ratio +1.015-0.000i  r 0.2819 pred 0.2781  theta share 0.742  corr 0.924 |
+  Q    2652 R  1853403 | ratio +0.961-0.000i  r 0.3983 pred 0.4144  theta share 0.688  corr 0.874 | ratio +1.015-0.000i  r 0.2782 pred 0.2745  theta share 0.735  corr 0.922 |
+  Q    3750 R  1853403 | ratio +0.977-0.000i  r 0.3990 pred 0.4084  theta share 0.670  corr 0.880 | ratio +1.004-0.000i  r 0.2752 pred 0.2745  theta share 0.742  corr 0.919 |
+  Q    5303 R  1853403 | ratio +0.989-0.000i  r 0.3939 pred 0.3982  theta share 0.646  corr 0.881 | ratio +0.996-0.000i  r 0.2731 pred 0.2744  theta share 0.744  corr 0.916 |
+  Q    7500 R  1853403 | ratio +0.997-0.000i  r 0.3854 pred 0.3863  theta share 0.618  corr 0.877 | ratio +0.989-0.000i  r 0.2683 pred 0.2715  theta share 0.739  corr 0.910 |
+  Q   10607 R  1853403 | ratio +1.010-0.000i  r 0.3757 pred 0.3719  theta share 0.584  corr 0.869 | ratio +0.986-0.000i  r 0.2639 pred 0.2679  theta share 0.729  corr 0.904 |
+  Q   15000 R  1853403 | ratio +1.016-0.000i  r 0.3651 pred 0.3593  theta share 0.556  corr 0.858 | ratio +0.990-0.000i  r 0.2579 pred 0.2605  theta share 0.704  corr 0.895 |
+  Q   21213 R  1853403 | ratio +1.020-0.000i  r 0.3554 pred 0.3482  theta share 0.531  corr 0.845 | ratio +0.997-0.000i  r 0.2532 pred 0.2541  theta share 0.682  corr 0.889 |
+  Q   30000 R  1853403 | ratio +1.024-0.000i  r 0.3448 pred 0.3365  theta share 0.506  corr 0.834 | ratio +1.003-0.000i  r 0.2485 pred 0.2477  theta share 0.660  corr 0.882 |

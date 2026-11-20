@@ -1,0 +1,4 @@
+syntax ok scoreboard
+scoreboard: nodes=1685 families=79003 lanes=114 best=1/4 -> scoreboard.json, SCOREBOARD.md
+scoreboard: nodes=1685 families=79003 lanes=115 best=1/4 -> scoreboard.json, SCOREBOARD.md
+scoreboard: nodes=1685 families=79003 lanes=116 best=1/4 -> scoreboard.json, SCOREBOARD.md

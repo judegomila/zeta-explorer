@@ -1,0 +1,502 @@
+[
+ {
+  "case": "B unpaired #4",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 30,
+  "neg": 2,
+  "rank": 32,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 2.7
+ },
+ {
+  "case": "B unpaired #5",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 30,
+  "neg": 2,
+  "rank": 32,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 2.7
+ },
+ {
+  "case": "B unpaired #7",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 30,
+  "neg": 6,
+  "rank": 36,
+  "predicted": {
+   "neg": 6
+  },
+  "sec": 2.7
+ },
+ {
+  "case": "B unpaired #8",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 8,
+  "neg": 2,
+  "rank": 10,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.0
+ },
+ {
+  "case": "B unpaired #10",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 17,
+  "neg": 4,
+  "rank": 21,
+  "predicted": {
+   "neg": 4
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #13",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 32,
+  "neg": 4,
+  "rank": 36,
+  "predicted": {
+   "neg": 4
+  },
+  "sec": 2.0
+ },
+ {
+  "case": "B unpaired #14",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #15",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #18",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #24",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 17,
+  "neg": 4,
+  "rank": 21,
+  "predicted": {
+   "neg": 4
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #25",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #26",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #28",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 18,
+  "neg": 1,
+  "rank": 19,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "B unpaired #29",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 32,
+  "neg": 4,
+  "rank": 36,
+  "predicted": {
+   "neg": 4
+  },
+  "sec": 1.9
+ },
+ {
+  "case": "C single real zero 3/4, pole base",
+  "base": "pole",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 0,
+  "neg": 1,
+  "rank": 1,
+  "predicted": {
+   "neg": 1
+  },
+  "sec": 0.0
+ },
+ {
+  "case": "C single real zero 1/4, pole base",
+  "base": "pole",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C one left one right real, not partners",
+  "base": "pole",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 2,
+  "neg": 1,
+  "rank": 3,
+  "predicted": {
+   "neg": 1
+  },
+  "sec": 0.0
+ },
+ {
+  "case": "C symmetric quartet outside the strip eta=3/4 g=2, pole base",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 4,
+  "neg": 2,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C symmetric quartet outside the strip eta=5/4 g=1/2, pole base",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 4,
+  "neg": 2,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C symmetric quartet outside the strip eta=9/16 g=5, pole base",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 4,
+  "neg": 2,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, symmetric quartet (1/4, 2)",
+  "base": "minus",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, left pair 1/5 +- 3i",
+  "base": "minus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, right pair 4/5 +- 3i",
+  "base": "minus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, two left pairs",
+  "base": "minus",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, single real zero 1/4",
+  "base": "minus",
+  "deg_b": 1,
+  "basis": 1,
+  "symmetric": true,
+  "pos": 0,
+  "neg": 0,
+  "rank": 0,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, single real zero 3/4",
+  "base": "minus",
+  "deg_b": 1,
+  "basis": 1,
+  "symmetric": true,
+  "pos": 0,
+  "neg": 0,
+  "rank": 0,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, real left pair {1/5, 1/3}",
+  "base": "minus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, symmetric quartet outside the strip (eta = 5/4, g = 1/2)",
+  "base": "minus",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 2,
+  "neg": 4,
+  "rank": 6,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base minus, pair right of 1: 3/2 +- 2i",
+  "base": "minus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, symmetric quartet (1/4, 2)",
+  "base": "plus",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 10,
+  "neg": 0,
+  "rank": 10,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, left pair 1/5 +- 3i",
+  "base": "plus",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, right pair 4/5 +- 3i",
+  "base": "plus",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, two left pairs",
+  "base": "plus",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 10,
+  "neg": 0,
+  "rank": 10,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, single real zero 1/4",
+  "base": "plus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, single real zero 3/4",
+  "base": "plus",
+  "deg_b": 2,
+  "basis": 3,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, real left pair {1/5, 1/3}",
+  "base": "plus",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, symmetric quartet outside the strip (eta = 5/4, g = 1/2)",
+  "base": "plus",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 4,
+  "rank": 10,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C base plus, pair right of 1: 3/2 +- 2i",
+  "base": "plus",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "C pole base, pair right of 1: 3/2 +- 2i",
+  "base": "pole",
+  "deg_b": 3,
+  "basis": 7,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ }
+]

@@ -1,0 +1,219 @@
+{
+ "before": {
+  "top": 60,
+  "topWithOpenDevice": 57,
+  "floored": 3,
+  "closed": 0,
+  "topWithCell": null,
+  "topWithSilentNode": 57,
+  "generated": 52367,
+  "scored": 19088,
+  "rejected": 33279,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 17,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 11,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {}
+ },
+ "after": {
+  "top": 60,
+  "topWithOpenDevice": 0,
+  "floored": 60,
+  "closed": 0,
+  "topWithCell": 2,
+  "topWithSilentNode": 2,
+  "generated": 38082,
+  "scored": 8432,
+  "rejected": 29650,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 6,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 0,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {
+   "cell": 9,
+   "tried-not-closed": 1,
+   "closed": 1
+  }
+ },
+ "kept": 1,
+ "scoreChanged": 0,
+ "rejectedChanged": {
+  "closed family: fam-arithmetic-nb-span": [
+   411,
+   296
+  ],
+  "closed family: fam-euler-anchor-heat": [
+   771,
+   666
+  ],
+  "closed family: fam-heat-monotone-hankel": [
+   1305,
+   290
+  ],
+  "closed family: fam-hecke-shear-commutator": [
+   74,
+   58
+  ],
+  "closed family: fam-helson-discrepancy-zerofree": [
+   55,
+   13
+  ],
+  "closed family: fam-laxphillips-hecke-compression": [
+   713,
+   151
+  ],
+  "closed family: fam-legendre-dual-limits": [
+   1546,
+   1419
+  ],
+  "closed family: fam-linear-zero-measure-lmi": [
+   39,
+   32
+  ],
+  "closed family: fam-nb-gram-lammin": [
+   408,
+   361
+  ],
+  "closed family: fam-one-zero-forces-many": [
+   302,
+   212
+  ],
+  "closed family: fam-order2-theta-rows": [
+   1043,
+   663
+  ],
+  "closed family: fam-pd-log-strip": [
+   11,
+   5
+  ],
+  "closed family: fam-primitive-test-restriction": [
+   546,
+   577
+  ],
+  "closed family: fam-projection-domination-gonek": [
+   355,
+   287
+  ],
+  "closed family: fam-reflected-euler-stage-canonical": [
+   20,
+   16
+  ],
+  "closed family: fam-selberg-control-companion": [
+   907,
+   630
+  ],
+  "closed family: fam-stage-limit-semicontinuity": [
+   138,
+   113
+  ],
+  "closed family: fam-torus-exclusion-sign-test": [
+   460,
+   147
+  ],
+  "closed family: fam-vaughan-split-landau": [
+   335,
+   283
+  ],
+  "contains a closed cell: silent-cell-u2-pos": [
+   0,
+   49
+  ],
+  "contains a closed device: euler-fe-phase-at-height": [
+   384,
+   348
+  ],
+  "contains a closed device: exact-uniqueness": [
+   74,
+   23
+  ],
+  "contains a closed device: finite-support-positivity": [
+   525,
+   402
+  ],
+  "contains a closed device: geometric-positivity": [
+   186,
+   147
+  ],
+  "contains a closed device: mean-value-convexity": [
+   479,
+   395
+  ],
+  "contains a closed device: monotone-flow-functional": [
+   823,
+   767
+  ],
+  "contains a closed device: positive-kernel-transport": [
+   604,
+   511
+  ],
+  "contains a closed device: recurrence-ergodicity": [
+   97,
+   44
+  ],
+  "contains a closed device: residue-explicit-formula": [
+   852,
+   438
+  ],
+  "contains a closed device: strip-dtn-identity": [
+   40,
+   33
+  ],
+  "contains a closed device: vector-specific-row-mean-square": [
+   364,
+   331
+  ],
+  "contains a combination closed in outcomes.json": [
+   3825,
+   3561
+  ],
+  "covariant under shift and reciprocal (RZ_b passes every step)": [
+   368,
+   371
+  ],
+  "no member uses multiplicativity (DH passes)": [
+   204,
+   16
+  ],
+  "no open or floored crossing device (curated/devices.json)": [
+   13534,
+   14549
+  ],
+  "only arithmetic step is target-blind algebra (same for every control)": [
+   43,
+   5
+  ],
+  "shares two nodes with a closed lane (nodes or launchedNodes)": [
+   561,
+   564
+  ]
+ },
+ "edgesAdded": 66,
+ "edgesRemoved": 57,
+ "nodeChanges": 18
+}

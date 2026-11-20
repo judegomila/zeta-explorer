@@ -1,0 +1,34 @@
+samples 20000 (+ witness), N from 282 to 891736, sum of N 2.189e+09, gpu False
+tables 6s
+  14805 / 20001 samples, N 106237, 12.1% of terms, 54s
+  15425 / 20001 samples, N 140250, 15.6% of terms, 71s
+  15952 / 20001 samples, N 170819, 19.4% of terms, 90s
+  16270 / 20001 samples, N 196987, 22.0% of terms, 103s
+  17101 / 20001 samples, N 272925, 30.9% of terms, 149s
+  18006 / 20001 samples, N 394959, 44.5% of terms, 218s
+  18158 / 20001 samples, N 419173, 47.4% of terms, 232s
+  18504 / 20001 samples, N 480121, 54.5% of terms, 266s
+  19251 / 20001 samples, N 659006, 73.7% of terms, 367s
+  19502 / 20001 samples, N 724476, 81.6% of terms, 412s
+  19802 / 20001 samples, N 822020, 92.2% of terms, 467s
+  20001 / 20001 samples, N 891736, 100.0% of terms, 501s
+witness x = 6.0000039166e12: max |D_j - stored| = 4.030e-14 ; |E97| = 0.181497207134319 (stored 0.181497207134323) ; pilot = 0.243754142526489 (stored 0.243754142526558)
+ZETA                                 rho inf 0.0018 q01 0.0253 med 0.2847 q99 0.7223 sup 0.9037 | sup pilot 2.6740 sup |E| 1.5169 | frac pilot>Rex 6.81e-01 |E|>Rex 1.79e-01
+     per decade sup rho: 0.6567 0.6665 0.7266 0.9037 0.8475 0.8680 0.8905 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.7e-01 9.7e-02 0.0e+00
+LCHI5                                rho inf 0.0025 q01 0.0259 med 0.3089 q99 0.7498 sup 0.8777 | sup pilot 2.3578 sup |E| 1.0992 | frac pilot>Rex 6.34e-01 |E|>Rex 1.64e-01
+     per decade sup rho: 0.6166 0.7264 0.8329 0.7912 0.8402 0.8345 0.8777 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.2e-01 4.7e-01 3.1e-02 0.0e+00
+SGN                                  rho inf 0.0005 q01 0.0250 med 0.2839 q99 0.7272 sup 0.8684 | sup pilot 3.1615 sup |E| 1.4911 | frac pilot>Rex 6.81e-01 |E|>Rex 1.79e-01
+     per decade sup rho: 0.6261 0.7377 0.7257 0.8151 0.8087 0.8684 0.8551 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.7e-01 6.7e-01 1.0e-01 0.0e+00
+U                                    rho inf 0.0014 q01 0.0255 med 0.2837 q99 0.7265 sup 0.8552 | sup pilot 2.7663 sup |E| 1.4315 | frac pilot>Rex 6.84e-01 |E|>Rex 1.76e-01
+     per decade sup rho: 0.7048 0.7753 0.7809 0.8335 0.8127 0.8221 0.8552 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.9e-01 1.1e-01 0.0e+00
+DH:chi                               rho inf 0.0017 q01 0.0605 med 0.4178 q99 0.8567 sup 0.9488 | sup pilot 12.1876 sup |E| 11.0450 | frac pilot>Rex 1.00e+00 |E|>Rex 8.62e-01
+     per decade sup rho: 0.9081 0.9229 0.9199 0.9161 0.9231 0.9343 0.9488 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00
+DH:asif                              rho inf 0.0052 q01 0.0728 med 0.5045 q99 0.9000 sup 0.9624 | sup pilot 3.0359 sup |E| 2.4577 | frac pilot>Rex 8.64e-01 |E|>Rex 3.98e-01
+     per decade sup rho: 0.8573 0.9231 0.8935 0.9213 0.9392 0.9624 0.9586 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 8.5e-01 6.9e-01 5.1e-01
+TNR                                  rho inf 0.0109 q01 0.1981 med 0.7469 q99 0.9357 sup 0.9761 | sup pilot 7.9178 sup |E| 6.5743 | frac pilot>Rex 1.00e+00 |E|>Rex 9.98e-01
+     per decade sup rho: 0.8576 0.8965 0.9202 0.9373 0.9585 0.9761 0.9704 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00 1.0e+00
+ZETA packets, random signs           rho inf 0.0030 q01 0.0328 med 0.3125 q99 0.7573 sup 0.9324 | sup pilot 2.6740 sup |E| 1.8345 | frac pilot>Rex 6.81e-01 |E|>Rex 2.06e-01
+     per decade sup rho: 0.8430 0.7819 0.8279 0.9322 0.8654 0.9324 0.9050 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.7e-01 9.7e-02 0.0e+00
+ZETA packet moduli, random phases    rho inf 0.0053 q01 0.0404 med 0.3354 q99 0.6990 sup 0.8164 | sup pilot 2.6740 sup |E| 1.7961 | frac pilot>Rex 6.81e-01 |E|>Rex 2.11e-01
+     per decade sup rho: 0.7062 0.7744 0.7746 0.7937 0.8127 0.8024 0.8164 | frac pilot>Rex: 1.0e+00 1.0e+00 1.0e+00 9.8e-01 6.7e-01 9.7e-02 0.0e+00
+done 501s

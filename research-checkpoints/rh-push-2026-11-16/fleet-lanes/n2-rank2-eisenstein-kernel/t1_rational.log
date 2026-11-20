@@ -1,0 +1,75 @@
+pole c0                      seed=1 tau=    0 | R1 mindiag=-3.352e-81 evmin=0.0 evmax=0.0 | R2 herm=0.0 mindiag=-8.434e-81 evmin=0.0 ev2=0.0 evmax=0.0
+pole c0                      seed=1 tau=  0.1 | R1 mindiag=0.1537 evmin=1.553e-21 evmax=5.348 | R2 herm=2.9e-80 mindiag=0.02461 evmin=1.51e-7 ev2=6.527e-5 evmax=5.424
+pole c0                      seed=1 tau=  0.5 | R1 mindiag=0.9102 evmin=0.007461 evmax=2.243 | R2 herm=1.0e-81 mindiag=0.7994 evmin=0.1262 ev2=0.5708 evmax=1.988
+pole c0                      seed=1 tau=  2.0 | R1 mindiag=4.176 evmin=0.6398 evmax=1.373 | R2 herm=3.1e-83 mindiag=21.26 evmin=0.8305 ev2=0.926 evmax=1.175
+pole c0                      seed=1 tau= -0.3 | R1 mindiag=-0.69 evmin=-2.711 evmax=-6.575e-8 | R2 herm=1.3e-81 mindiag=0.2656 evmin=0.03015 ev2=0.1936 evmax=2.912
+pole c0                      seed=2 tau=    0 | R1 mindiag=-1.647e-81 evmin=0.0 evmax=0.0 | R2 herm=0.0 mindiag=-1.054e-80 evmin=0.0 ev2=0.0 evmax=0.0
+pole c0                      seed=2 tau=  0.1 | R1 mindiag=0.1549 evmin=1.916e-22 evmax=6.157 | R2 herm=4.2e-81 mindiag=0.02126 evmin=7.129e-5 ev2=0.003945 evmax=4.607
+pole c0                      seed=2 tau=  0.5 | R1 mindiag=0.9831 evmin=5.658e-5 evmax=2.71 | R2 herm=9.5e-82 mindiag=0.6175 evmin=0.7102 ev2=0.7986 evmax=1.363
+pole c0                      seed=2 tau=  2.0 | R1 mindiag=4.55 evmin=0.4665 evmax=1.652 | R2 herm=2.1e-83 mindiag=20.95 evmin=0.8684 ev2=0.9533 evmax=1.127
+pole c0                      seed=2 tau= -0.3 | R1 mindiag=-0.7177 evmin=-3.695 evmax=-5.328e-9 | R2 herm=6.5e-82 mindiag=0.2645 evmin=0.2379 ev2=0.4441 evmax=1.955
+pole c0                      seed=3 tau=    0 | R1 mindiag=-3.418e-81 evmin=0.0 evmax=0.0 | R2 herm=0.0 mindiag=-2.53e-80 evmin=0.0 ev2=0.0 evmax=0.0
+pole c0                      seed=3 tau=  0.1 | R1 mindiag=0.1517 evmin=6.387e-23 evmax=6.728 | R2 herm=1.5e-80 mindiag=0.02105 evmin=7.29e-5 ev2=0.0008601 evmax=4.201
+pole c0                      seed=3 tau=  0.5 | R1 mindiag=0.9935 evmin=4.148e-6 evmax=3.093 | R2 herm=1.8e-81 mindiag=0.7356 evmin=0.09669 ev2=0.8273 evmax=1.971
+pole c0                      seed=3 tau=  2.0 | R1 mindiag=4.261 evmin=0.4654 evmax=1.502 | R2 herm=1.1e-82 mindiag=14.57 evmin=0.808 ev2=0.9175 evmax=1.192
+pole c0                      seed=3 tau= -0.3 | R1 mindiag=-0.6439 evmin=-3.818 evmax=-1.183e-9 | R2 herm=7.3e-82 mindiag=0.265 evmin=0.01653 ev2=0.3222 evmax=2.573
+c0*pair on-line g=14         seed=1 tau=    0 | R1 mindiag=0.0001879 evmin=-5.478e-77 evmax=8.0 | R2 herm=2.0e-79 mindiag=3.153e-7 evmin=-7.696e-76 ev2=-1.692e-77 evmax=8.0
+c0*pair on-line g=14         seed=1 tau=  0.1 | R1 mindiag=0.1761 evmin=2.655e-17 evmax=4.95 | R2 herm=9.4e-81 mindiag=0.02518 evmin=0.0009002 ev2=0.04294 evmax=3.525
+c0*pair on-line g=14         seed=1 tau=  0.5 | R1 mindiag=0.9937 evmin=0.01296 evmax=2.104 | R2 herm=6.3e-82 mindiag=0.8583 evmin=0.5353 ev2=0.6429 evmax=1.648
+c0*pair on-line g=14         seed=1 tau=  2.0 | R1 mindiag=4.177 evmin=0.6431 evmax=1.371 | R2 herm=5.0e-83 mindiag=21.33 evmin=0.841 ev2=0.926 evmax=1.163
+c0*pair on-line g=14         seed=1 tau= -0.3 | R1 mindiag=-0.631 evmin=-2.7 evmax=1.133 | R2 herm=1.2e-81 mindiag=-0.4262 evmin=-1.339 ev2=0.1559 evmax=2.325
+c0*pair on-line g=14         seed=2 tau=    0 | R1 mindiag=0.0002167 evmin=-4.157e-78 evmax=8.0 | R2 herm=2.1e-78 mindiag=3.831e-7 evmin=-5.879e-75 ev2=-8.713e-76 evmax=8.0
+c0*pair on-line g=14         seed=2 tau=  0.1 | R1 mindiag=0.184 evmin=1.387e-18 evmax=5.961 | R2 herm=3.4e-81 mindiag=0.02292 evmin=0.008437 ev2=0.01505 evmax=4.32
+c0*pair on-line g=14         seed=2 tau=  0.5 | R1 mindiag=0.9862 evmin=0.0001043 evmax=2.704 | R2 herm=5.5e-82 mindiag=0.6206 evmin=0.7137 ev2=0.8012 evmax=1.362
+c0*pair on-line g=14         seed=2 tau=  2.0 | R1 mindiag=4.552 evmin=0.4667 evmax=1.651 | R2 herm=2.3e-83 mindiag=20.97 evmin=0.8687 ev2=0.9531 evmax=1.127
+c0*pair on-line g=14         seed=2 tau= -0.3 | R1 mindiag=-0.628 evmin=-3.708 evmax=1.288 | R2 herm=4.4e-82 mindiag=0.1987 evmin=0.2267 ev2=0.3972 evmax=1.972
+c0*pair on-line g=14         seed=3 tau=    0 | R1 mindiag=0.0002467 evmin=-3.117e-78 evmax=8.0 | R2 herm=4.7e-80 mindiag=1.668e-7 evmin=-2.805e-74 ev2=-6.586e-75 evmax=8.0
+c0*pair on-line g=14         seed=3 tau=  0.1 | R1 mindiag=0.1666 evmin=3.65e-19 evmax=6.548 | R2 herm=2.6e-81 mindiag=0.02252 evmin=0.000667 ev2=0.0032 evmax=4.016
+c0*pair on-line g=14         seed=3 tau=  0.5 | R1 mindiag=1.004 evmin=5.305e-6 evmax=3.089 | R2 herm=5.7e-82 mindiag=0.7699 evmin=0.0981 ev2=0.8373 evmax=1.969
+c0*pair on-line g=14         seed=3 tau=  2.0 | R1 mindiag=4.263 evmin=0.4659 evmax=1.502 | R2 herm=5.6e-83 mindiag=14.71 evmin=0.8081 ev2=0.9184 evmax=1.192
+c0*pair on-line g=14         seed=3 tau= -0.3 | R1 mindiag=-0.6396 evmin=-3.819 evmax=3.327e-5 | R2 herm=2.1e-81 mindiag=-1.532 evmin=-1.001 ev2=0.01616 evmax=2.581
+c0*quad d=0.2 g=14           seed=1 tau=    0 | R1 mindiag=0.0003758 evmin=-5.416e-78 evmax=7.575 | R2 herm=3.4e-80 mindiag=1.681e-6 evmin=-1.903e-76 ev2=-7.769e-79 evmax=5.392
+c0*quad d=0.2 g=14           seed=1 tau=  0.1 | R1 mindiag=0.18 evmin=2.097e-13 evmax=4.834 | R2 herm=3.4e-81 mindiag=0.02578 evmin=0.02716 ev2=0.0923 evmax=2.931
+c0*quad d=0.2 g=14           seed=1 tau=  0.5 | R1 mindiag=0.9957 evmin=0.01393 evmax=2.094 | R2 herm=5.0e-82 mindiag=0.8614 evmin=0.5149 ev2=0.8426 evmax=1.509
+c0*quad d=0.2 g=14           seed=1 tau=  2.0 | R1 mindiag=4.178 evmin=0.6445 evmax=1.369 | R2 herm=1.6e-82 mindiag=21.4 evmin=0.8433 ev2=0.9316 evmax=1.16
+c0*quad d=0.2 g=14           seed=1 tau= -0.3 | R1 mindiag=-0.6276 evmin=-2.722 evmax=1.176 | R2 herm=7.5e-82 mindiag=-0.7215 evmin=-1.16 ev2=0.0207 evmax=2.267
+c0*quad d=0.2 g=14           seed=2 tau=    0 | R1 mindiag=0.0004331 evmin=-3.54e-78 evmax=7.823 | R2 herm=9.6e-80 mindiag=1.624e-6 evmin=-6.253e-76 ev2=1.004e-76 evmax=5.348
+c0*quad d=0.2 g=14           seed=2 tau=  0.1 | R1 mindiag=0.186 evmin=5.319e-15 evmax=5.873 | R2 herm=3.2e-81 mindiag=0.02467 evmin=0.009784 ev2=0.0202 evmax=4.146
+c0*quad d=0.2 g=14           seed=2 tau=  0.5 | R1 mindiag=0.9894 evmin=0.0001335 evmax=2.7 | R2 herm=5.3e-82 mindiag=0.6239 evmin=0.7169 ev2=0.8032 evmax=1.361
+c0*quad d=0.2 g=14           seed=2 tau=  2.0 | R1 mindiag=4.554 evmin=0.467 evmax=1.65 | R2 herm=4.3e-83 mindiag=20.99 evmin=0.869 ev2=0.953 evmax=1.127
+c0*quad d=0.2 g=14           seed=2 tau= -0.3 | R1 mindiag=-0.6251 evmin=-3.72 evmax=1.096 | R2 herm=4.2e-82 mindiag=0.1344 evmin=0.2126 ev2=0.3607 evmax=1.988
+c0*quad d=0.2 g=14           seed=3 tau=    0 | R1 mindiag=0.0004932 evmin=-1.272e-77 evmax=7.997 | R2 herm=1.6e-80 mindiag=7.69e-7 evmin=-7.772e-76 ev2=2.114e-76 evmax=6.444
+c0*quad d=0.2 g=14           seed=3 tau=  0.1 | R1 mindiag=0.1748 evmin=1.077e-15 evmax=6.394 | R2 herm=5.2e-81 mindiag=0.02395 evmin=0.0008769 ev2=0.004072 evmax=3.925
+c0*quad d=0.2 g=14           seed=3 tau=  0.5 | R1 mindiag=1.007 evmin=6.625e-6 evmax=3.086 | R2 herm=8.9e-82 mindiag=0.8051 evmin=0.09941 ev2=0.8443 evmax=1.967
+c0*quad d=0.2 g=14           seed=3 tau=  2.0 | R1 mindiag=4.265 evmin=0.4666 evmax=1.501 | R2 herm=3.8e-83 mindiag=14.85 evmin=0.8082 ev2=0.9192 evmax=1.192
+c0*quad d=0.2 g=14           seed=3 tau= -0.3 | R1 mindiag=-0.6351 evmin=-3.817 evmax=0.0001178 | R2 herm=4.7e-81 mindiag=-0.7812 evmin=-1.001 ev2=0.01577 evmax=2.59
+c0*quad d=0.2 g=30           seed=1 tau=    0 | R1 mindiag=0.003872 evmin=-2.39e-78 evmax=7.842 | R2 herm=4.1e-80 mindiag=0.0004924 evmin=-4.551e-79 ev2=6.542e-79 evmax=4.915
+c0*quad d=0.2 g=30           seed=1 tau=  0.1 | R1 mindiag=0.1707 evmin=1.061e-12 evmax=3.65 | R2 herm=1.4e-81 mindiag=0.03936 evmin=0.008852 ev2=0.08 evmax=3.366
+c0*quad d=0.2 g=30           seed=1 tau=  0.5 | R1 mindiag=0.9183 evmin=0.1943 evmax=2.063 | R2 herm=6.4e-82 mindiag=0.8385 evmin=0.3076 ev2=0.8228 evmax=1.63
+c0*quad d=0.2 g=30           seed=1 tau=  2.0 | R1 mindiag=4.181 evmin=0.6305 evmax=1.376 | R2 herm=5.6e-83 mindiag=21.46 evmin=0.8287 ev2=0.928 evmax=1.175
+c0*quad d=0.2 g=30           seed=1 tau= -0.3 | R1 mindiag=-0.6799 evmin=-2.331 evmax=1.434 | R2 herm=7.8e-82 mindiag=-0.4386 evmin=-1.968 ev2=-0.8912 evmax=3.481
+c0*quad d=0.2 g=30           seed=2 tau=    0 | R1 mindiag=0.004809 evmin=-6.99e-80 evmax=7.849 | R2 herm=2.1e-81 mindiag=0.000475 evmin=-1.279e-78 ev2=3.753e-78 evmax=4.607
+c0*quad d=0.2 g=30           seed=2 tau=  0.1 | R1 mindiag=0.1698 evmin=7.394e-13 evmax=4.479 | R2 herm=4.5e-82 mindiag=0.03731 evmin=0.1819 ev2=0.3179 evmax=2.163
+c0*quad d=0.2 g=30           seed=2 tau=  0.5 | R1 mindiag=1.042 evmin=0.006953 evmax=2.476 | R2 herm=1.7e-82 mindiag=0.6325 evmin=0.7946 ev2=0.8883 evmax=1.193
+c0*quad d=0.2 g=30           seed=2 tau=  2.0 | R1 mindiag=4.584 evmin=0.4686 evmax=1.643 | R2 herm=2.1e-83 mindiag=21.49 evmin=0.8782 ev2=0.9568 evmax=1.122
+c0*quad d=0.2 g=30           seed=2 tau= -0.3 | R1 mindiag=-0.7036 evmin=-6.175 evmax=4.959 | R2 herm=3.2e-82 mindiag=-0.8386 evmin=-1.255 ev2=-1.013 evmax=2.05
+c0*quad d=0.2 g=30           seed=3 tau=    0 | R1 mindiag=0.00593 evmin=-6.263e-80 evmax=7.908 | R2 herm=1.4e-79 mindiag=0.0001827 evmin=-2.287e-78 ev2=2.216e-78 evmax=6.077
+c0*quad d=0.2 g=30           seed=3 tau=  0.1 | R1 mindiag=0.1703 evmin=6.251e-14 evmax=5.21 | R2 herm=2.3e-80 mindiag=0.03491 evmin=0.00857 ev2=0.06159 evmax=3.444
+c0*quad d=0.2 g=30           seed=3 tau=  0.5 | R1 mindiag=1.012 evmin=0.000527 evmax=2.853 | R2 herm=1.8e-81 mindiag=0.7871 evmin=0.1323 ev2=0.8569 evmax=1.921
+c0*quad d=0.2 g=30           seed=3 tau=  2.0 | R1 mindiag=4.287 evmin=0.484 evmax=1.491 | R2 herm=6.6e-83 mindiag=14.72 evmin=0.8145 ev2=0.9169 evmax=1.185
+c0*quad d=0.2 g=30           seed=3 tau= -0.3 | R1 mindiag=-0.6136 evmin=-10.4 evmax=8.327 | R2 herm=1.1e-81 mindiag=-0.1489 evmin=-1.042 ev2=-0.04979 evmax=2.954
+c0*real zero r=0.5           seed=1 tau=    0 | R1 mindiag=1.953e-7 evmin=-6.779e-75 evmax=8.0 | R2 herm=3.7e-78 mindiag=-0.0001433 evmin=-8.055 ev2=-1.471e-71 evmax=0.05515
+c0*real zero r=0.5           seed=1 tau=  0.1 | R1 mindiag=0.1575 evmin=1.527e-17 evmax=5.316 | R2 herm=2.5e-80 mindiag=0.02476 evmin=2.081e-5 ev2=0.00146 evmax=5.332
+c0*real zero r=0.5           seed=1 tau=  0.5 | R1 mindiag=0.9142 evmin=0.007449 evmax=2.239 | R2 herm=9.4e-82 mindiag=0.8059 evmin=0.1282 ev2=0.5727 evmax=1.979
+c0*real zero r=0.5           seed=1 tau=  2.0 | R1 mindiag=4.177 evmin=0.6398 evmax=1.373 | R2 herm=5.9e-83 mindiag=21.33 evmin=0.8317 ev2=0.9277 evmax=1.174
+c0*real zero r=0.5           seed=1 tau= -0.3 | R1 mindiag=-0.6816 evmin=-2.716 evmax=-6.325e-8 | R2 herm=1.3e-81 mindiag=0.2605 evmin=0.02902 ev2=0.1875 evmax=2.939
+c0*real zero r=0.5           seed=2 tau=    0 | R1 mindiag=2.223e-7 evmin=-7.944e-75 evmax=8.0 | R2 herm=1.7e-76 mindiag=-3.265e-6 evmin=-8.13 ev2=-1.02e-70 evmax=0.13
+c0*real zero r=0.5           seed=2 tau=  0.1 | R1 mindiag=0.1586 evmin=9.384e-19 evmax=6.129 | R2 herm=7.1e-81 mindiag=0.02175 evmin=9.352e-5 ev2=0.004955 evmax=4.584
+c0*real zero r=0.5           seed=2 tau=  0.5 | R1 mindiag=0.9841 evmin=5.992e-5 evmax=2.709 | R2 herm=1.1e-81 mindiag=0.7061 evmin=0.7131 ev2=0.8012 evmax=1.361
+c0*real zero r=0.5           seed=2 tau=  2.0 | R1 mindiag=4.55 evmin=0.4666 evmax=1.652 | R2 herm=4.2e-83 mindiag=20.95 evmin=0.8685 ev2=0.9532 evmax=1.127
+c0*real zero r=0.5           seed=2 tau= -0.3 | R1 mindiag=-0.707 evmin=-3.698 evmax=-5.332e-9 | R2 herm=6.5e-82 mindiag=0.263 evmin=0.2356 ev2=0.4309 evmax=1.961
+c0*real zero r=0.5           seed=3 tau=    0 | R1 mindiag=2.498e-7 evmin=-1.032e-74 evmax=8.0 | R2 herm=8.2e-79 mindiag=-0.002837 evmin=-11.85 ev2=-8.934e-70 evmax=5.847
+c0*real zero r=0.5           seed=3 tau=  0.1 | R1 mindiag=0.1542 evmin=2.575e-19 evmax=6.692 | R2 herm=8.8e-81 mindiag=0.02151 evmin=0.0003185 ev2=0.001499 evmax=4.187
+c0*real zero r=0.5           seed=3 tau=  0.5 | R1 mindiag=0.9973 evmin=4.262e-6 evmax=3.092 | R2 herm=2.1e-81 mindiag=0.7374 evmin=0.09708 ev2=0.8251 evmax=1.971
+c0*real zero r=0.5           seed=3 tau=  2.0 | R1 mindiag=4.26 evmin=0.4654 evmax=1.502 | R2 herm=7.7e-83 mindiag=14.59 evmin=0.8081 ev2=0.9175 evmax=1.192
+c0*real zero r=0.5           seed=3 tau= -0.3 | R1 mindiag=-0.6427 evmin=-3.819 evmax=-1.185e-9 | R2 herm=5.5e-81 mindiag=0.2558 evmin=0.01643 ev2=0.3192 evmax=2.576

@@ -1,0 +1,45 @@
+weights 12 .. 600 count 294 max dim 50 all squarefree True all irreducible True
+{
+ "T2_level1": {
+  "KMAX": 600,
+  "n_weights": 294,
+  "max_dim": 50,
+  "all_squarefree": true,
+  "all_irreducible": true
+ },
+ "laurent_twin": {
+  "p": 2,
+  "eps": 0.2,
+  "FE_defect": 4.657257295871165e-31,
+  "offline_real_part": 2.7604134892487093,
+  "zeros": [
+   [
+    2.7604134892487093,
+    4.532360141827194,
+    3.653564186652002e-31
+   ],
+   [
+    2.7604134892487093,
+    13.59708042548158,
+    5.162624599378353e-31
+   ],
+   [
+    2.7604134892487093,
+    22.66180070913597,
+    3.3924817413481283e-31
+   ]
+  ],
+  "local_factor": "(1 + eps p^{-1/2} x^{-1} + eps p^{1/2} x)/(1-x), x=p^{-s}: Laurent, coefficient support (1/p)N",
+  "note": "eps<1/2: zeros at Re s = 1/2 +- arccosh(1/(2 eps))/log p; eps=0.2,p=2 gives Re s = 2.760413 > 1"
+ },
+ "shifted_product_twin": {
+  "delta": 0.2,
+  "FE_defect": 8.711015467032934e-31,
+  "zero": [
+   0.7,
+   14.134725141734695
+  ],
+  "abs_F_at_zero": 1.6824420176838682e-31,
+  "toeplitz_K1_at_p2": "[[2,m1],[m1,2]], m1 = 2^d+2^-d = 2.019249 > 2: det = -0.077366 < 0"
+ }
+}

@@ -1,0 +1,128 @@
+# zeta T0=1.000e+06 windows=100000 points=17000000 ncut=1369 y=[32, 1000] nmax=1369; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=1.597915  max|inv|=1
+# chunk 0/78 1s
+done zeta T0=1000000 points=17000000 secs=40 gpu=True max|Z|=47.593
+zeta T0=1.0e+06 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.377 max|Z|=47.6 cert_max(th=0.5)=2.500 false=0 J17=2.643
+# chi4 T0=1.000e+06 windows=100000 points=17000000 ncut=2673 y=[32, 1000] nmax=2673; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=1.127156  max|inv|=1
+# chunk 0/76 1s
+done chi4 T0=1000000 points=17000000 secs=38 gpu=True max|Z|=28.546
+chi4 T0=1.0e+06 zeros=1700001 (count-expected +1.0) viol=0 gap_max=3.104 max|Z|=28.5 cert_max(th=0.5)=2.200 false=0 J17=2.788
+# chi5 T0=1.000e+06 windows=100000 points=17000000 ncut=2978 y=[32, 1000] nmax=2978; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=1.595915  max|inv|=1
+# chunk 0/136 1s
+done chi5 T0=1000000 points=17000000 secs=57 gpu=True max|Z|=46.564
+chi5 T0=1.0e+06 zeros=1700001 (count-expected +1.0) viol=0 gap_max=3.129 max|Z|=46.6 cert_max(th=0.5)=2.300 false=0 J17=2.811
+# DH T0=1.000e+06 windows=100000 points=17000000 ncut=2978 y=[32, 1000] nmax=2978; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=2.381313  max|inv|=11.6
+# chunk 0/136 1s
+done DH T0=1000000 points=17000000 secs=64 gpu=True max|Z|=24.954
+DH T0=1.0e+06 zeros=1517305 (count-expected -182695.0) viol=72886 gap_max=8.975 max|Z|=25.0 cert_max(th=0.5)=2.200 false=0 J17=4.393
+# zeta T0=1.000e+08 windows=100000 points=17000000 ncut=6341 y=[100, 10000] nmax=10000; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=3.537916  max|inv|=1
+# chunk 0/567 1s
+# chunk 200/567 83s
+# chunk 400/567 179s
+done zeta T0=100000000 points=17000000 secs=256 gpu=True max|Z|=90.715
+zeta T0=1.0e+08 zeros=1699998 (count-expected -2.0) viol=1 gap_max=3.511 max|Z|=90.7 cert_max(th=0.5)=2.600 false=0 J17=2.691
+# DH T0=1.000e+08 windows=100000 points=17000000 ncut=14174 y=[100, 10000] nmax=14174; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=4.123317  max|inv|=52.2
+# chunk 0/643 1s
+# chunk 200/643 98s
+# chunk 400/643 195s
+# chunk 600/643 299s
+done DH T0=100000000 points=17000000 secs=323 gpu=True max|Z|=41.407
+DH T0=1.0e+08 zeros=1511378 (count-expected -188622.0) viol=69380 gap_max=8.854 max|Z|=41.4 cert_max(th=0.5)=2.400 false=0 J17=7.044
+# chi5 T0=1.000e+08 windows=100000 points=17000000 ncut=14174 y=[100, 10000] nmax=14174; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=3.337919  max|inv|=1
+# chunk 0/643 1s
+# chunk 200/643 105s
+# chunk 400/643 206s
+# chunk 600/643 304s
+done chi5 T0=100000000 points=17000000 secs=322 gpu=True max|Z|=74.764
+chi5 T0=1.0e+08 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.346 max|Z|=74.8 cert_max(th=0.5)=2.500 false=0 J17=2.824
+# chi4 T0=1.000e+08 windows=100000 points=17000000 ncut=12678 y=[100, 10000] nmax=12678; planned GPU/CPU chunk memory about 7.2 GB; host arrays 1.09 GB
+# tables 0s  theta0=4.371271  max|inv|=1
+# chunk 0/360 1s
+# chunk 200/360 80s
+done chi4 T0=100000000 points=17000000 secs=153 gpu=True max|Z|=47.389
+chi4 T0=1.0e+08 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.167 max|Z|=47.4 cert_max(th=0.5)=2.400 false=0 J17=2.805
+# zeta T0=1.000e+10 windows=50000 points=8500000 ncut=63198 y=[316, 100000] nmax=100000; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.54 GB
+# tables 0s  theta0=5.606626  max|inv|=1
+# chunk 0/2834 0s
+# chunk 200/2834 75s
+# chunk 400/2834 140s
+# chunk 600/2834 200s
+# chunk 800/2834 255s
+# chunk 1000/2834 323s
+# chunk 1200/2834 382s
+# chunk 1400/2834 452s
+# chunk 1600/2834 514s
+# chunk 1800/2834 590s
+# chunk 2000/2834 681s
+# chunk 2200/2834 776s
+# chunk 2400/2834 863s
+# chunk 2600/2834 939s
+# chunk 2800/2834 1019s
+done zeta T0=10000000000 points=8500000 secs=1028 gpu=True max|Z|=122.517
+zeta T0=1.0e+10 zeros=850000 (count-expected +0.0) viol=0 gap_max=3.402 max|Z|=122.5 cert_max(th=0.5)=2.700 false=0 J17=2.748
+# DH T0=1.000e+10 windows=20000 points=3400000 ncut=141311 y=[316, 100000] nmax=141311; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.22 GB
+# tables 0s  theta0=5.241826  max|inv|=267
+# chunk 0/1282 1s
+# chunk 200/1282 88s
+# chunk 400/1282 181s
+# chunk 600/1282 276s
+# chunk 800/1282 372s
+# chunk 1000/1282 470s
+# chunk 1200/1282 569s
+done DH T0=10000000000 points=3400000 secs=606 gpu=True max|Z|=54.771
+DH T0=1.0e+10 zeros=301065 (count-expected -38935.0) viol=13600 gap_max=7.820 max|Z|=54.8 cert_max(th=0.5)=2.500 false=0 J17=15.429
+# chi5 T0=1.000e+10 windows=20000 points=3400000 ncut=141311 y=[316, 100000] nmax=141311; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.22 GB
+# tables 0s  theta0=4.456428  max|inv|=1
+# chunk 0/1282 1s
+# chunk 200/1282 101s
+# chunk 400/1282 199s
+# chunk 600/1282 301s
+# chunk 800/1282 402s
+# chunk 1000/1282 501s
+# chunk 1200/1282 604s
+done chi5 T0=10000000000 points=3400000 secs=645 gpu=True max|Z|=91.410
+chi5 T0=1.0e+10 zeros=340000 (count-expected +0.0) viol=0 gap_max=3.144 max|Z|=91.4 cert_max(th=0.5)=2.500 false=0 J17=2.858
+# zeta T0=1.000e+12 windows=5000 points=850000 ncut=631956 y=[1000, 1000000] nmax=1000000; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.05 GB
+# tables 2s  theta0=0.839384  max|inv|=1
+# chunk 0/2834 1s
+# chunk 200/2834 109s
+# chunk 400/2834 215s
+# chunk 600/2834 323s
+# chunk 800/2834 437s
+# chunk 1000/2834 552s
+# chunk 1200/2834 669s
+# chunk 1400/2834 786s
+# chunk 1600/2834 905s
+# chunk 1800/2834 1017s
+# chunk 2000/2834 1136s
+# chunk 2200/2834 1253s
+# chunk 2400/2834 1368s
+# chunk 2600/2834 1485s
+# chunk 2800/2834 1601s
+done zeta T0=1000000000000 points=850000 secs=1621 gpu=True max|Z|=125.947
+zeta T0=1.0e+12 zeros=85001 (count-expected +1.0) viol=0 gap_max=3.161 max|Z|=125.9 cert_max(th=0.5)=2.700 false=0 J17=2.787
+# DH T0=1.000e+12 windows=2000 points=340000 ncut=1413094 y=[1000, 1000000] nmax=1413094; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.02 GB
+# tables 2s  theta0=5.985544  max|inv|=1.42e+03
+# chunk 0/1284 1s
+# chunk 200/1284 132s
+# chunk 400/1284 267s
+# chunk 600/1284 397s
+# chunk 800/1284 530s
+# chunk 1000/1284 666s
+# chunk 1200/1284 802s
+done DH T0=1000000000000 points=340000 secs=858 gpu=True max|Z|=62.680
+DH T0=1.0e+12 zeros=29985 (count-expected -4015.0) viol=1367 gap_max=6.779 max|Z|=62.7 cert_max(th=0.5)=2.200 false=0 J17=46.222
+# chi4 T0=1.000e+10 windows=20000 points=3400000 ncut=126393 y=[316, 100000] nmax=126393; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.22 GB
+# tables 0s  theta0=4.904530  max|inv|=1
+# chunk 0/717 1s
+# chunk 200/717 114s
+# chunk 400/717 232s
+# chunk 600/717 349s
+done chi4 T0=10000000000 points=3400000 secs=418 gpu=True max|Z|=60.375
+chi4 T0=1.0e+10 zeros=339999 (count-expected -1.0) viol=0 gap_max=3.202 max|Z|=60.4 cert_max(th=0.5)=2.600 false=0 J17=2.841

@@ -1,0 +1,8 @@
+@OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re : ∀ {s : ℂ}, 7 / 8 < s.re → riemannZeta s ≠ 0
+'OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+def riemannZeta : ℂ → ℂ :=
+HurwitzZeta.hurwitzZetaEven 0
+LEAN_PATH="$LP" lean AxOAI.lean  1.33s user 3.02s system 23% cpu 18.710 total

@@ -1,0 +1,1793 @@
+OAI.NumberTheory.DirichletL.Foundation rc=0 secs=60
+OAI.NumberTheory.DirichletL.Arithmetic.EisensteinCoordinates rc=0 secs=60
+OAI.NumberTheory.DirichletL.ChineseRemainder.AdditiveCharacters rc=0 secs=60
+OAI.NumberTheory.DirichletL.Mellin.ExponentialSmoothing rc=0 secs=60
+OAI.NumberTheory.DirichletL.Mellin.LogProfiles rc=0 secs=60
+OAI.NumberTheory.DirichletL.Nonvanishing rc=0 secs=61
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyUnconditional rc=0 secs=61
+OAI.NumberTheory.DirichletL.Arithmetic.EisensteinIdeals rc=0 secs=62
+OAI.NumberTheory.DirichletL.GaussSum.SexticNormalization rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.ChineseRemainder rc=0 secs=62
+OAI.NumberTheory.DirichletL.GaussSum.CubicNormalization rc=0 secs=61
+OAI.NumberTheory.DirichletL.Arithmetic.EisensteinEmbedding rc=0 secs=62
+OAI.NumberTheory.DirichletL.GaussSum.FiniteFourier rc=0 secs=62
+OAI.NumberTheory.DirichletL.Cusp.MatrixPhases rc=0 secs=63
+OAI.NumberTheory.DirichletL.Arithmetic.LatticeCount rc=0 secs=56
+OAI.NumberTheory.DirichletL.GaussSum.LocalProductAssembly rc=0 secs=56
+OAI.NumberTheory.DirichletL.GaussSum.RamifiedTracePhase rc=0 secs=56
+OAI.NumberTheory.DirichletL.GaussSum.QuadraticTrace rc=0 secs=56
+OAI.NumberTheory.DirichletL.GaussSum.GaussianDualLimit rc=0 secs=55
+OAI.NumberTheory.DirichletL.GaussSum.QuadraticNormalization rc=0 secs=56
+OAI.NumberTheory.DirichletL.Poisson.BinaryGaussian rc=0 secs=56
+OAI.NumberTheory.DirichletL.Mellin.LocalNonvanishing rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.ThetaLocalRows rc=0 secs=61
+OAI.NumberTheory.DirichletL.PrimeRows.RationalApproximation rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.GaussianFiberMass rc=0 secs=61
+OAI.NumberTheory.DirichletL.Poisson.OscillatoryGaussian rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.AbelPhaseLimit rc=0 secs=61
+OAI.NumberTheory.DirichletL.Poisson.GaussianMoments rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.PrimeExtraction rc=0 secs=60
+OAI.NumberTheory.DirichletL.PrimeRows.NormFiberExtraction rc=0 secs=60
+OAI.NumberTheory.DirichletL.Mellin.FiniteEulerRestoration rc=0 secs=60
+OAI.NumberTheory.DirichletL.Arithmetic.NormFiberMellin rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.LocalEulerIdentities rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.FiniteEulerFactors rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.NormFiberCharacters rc=0 secs=60
+OAI.NumberTheory.DirichletL.Mellin.CompactWeights rc=0 secs=60
+OAI.NumberTheory.DirichletL.PrimeRows.IdealGenerators rc=0 secs=60
+OAI.NumberTheory.DirichletL.Fourier.PositiveLogProfiles rc=0 secs=60
+OAI.NumberTheory.DirichletL.Mellin.CompactScale rc=0 secs=60
+OAI.NumberTheory.DirichletL.GaussSum.SexticRadialPoisson rc=0 secs=60
+OAI.NumberTheory.DirichletL.Poisson.EisensteinLattice rc=0 secs=60
+OAI.NumberTheory.DirichletL.GaussSum.SecondPoissonScale rc=0 secs=60
+OAI.NumberTheory.DirichletL.QuadraticSieve.CrossSeparation rc=0 secs=60
+OAI.NumberTheory.DirichletL.GaussSum.SquarePhaseFactorization rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.ActiveConductor rc=0 secs=61
+OAI.NumberTheory.DirichletL.PrimeRows.ActiveGaussFactorization rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.CubicTrace rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.MixedConversion rc=0 secs=61
+OAI.NumberTheory.DirichletL.Poisson.RadialFourier rc=0 secs=61
+OAI.NumberTheory.DirichletL.GaussSum.RayCharacters rc=0 secs=71
+OAI.NumberTheory.DirichletL.Arithmetic.IdealMobius rc=0 secs=71
+OAI.NumberTheory.DirichletL.GaussSum.CompletedExpansion rc=0 secs=71
+OAI.NumberTheory.DirichletL.Arithmetic.SquarefreeDivisors rc=0 secs=71
+OAI.NumberTheory.DirichletL.Mellin.ReflectedKernel rc=0 secs=71
+OAI.NumberTheory.DirichletL.QuadraticSieve.CoefficientCancellation rc=0 secs=72
+OAI.NumberTheory.DirichletL.QuadraticSieve.InitialBound rc=0 secs=72
+OAI.NumberTheory.DirichletL.CubicSieve.LocalBrackets rc=0 secs=80
+OAI.NumberTheory.DirichletL.QuadraticSieve.MainTermDifference rc=0 secs=81
+OAI.NumberTheory.DirichletL.CubicSieve.CubeLabels rc=0 secs=81
+OAI.NumberTheory.DirichletL.Mellin.InverseContour rc=0 secs=81
+OAI.NumberTheory.DirichletL.CubicSieve.CrossFactorization rc=0 secs=80
+OAI.NumberTheory.DirichletL.Mellin.UniformKernelBounds rc=0 secs=81
+OAI.NumberTheory.DirichletL.QuadraticSieve.FiniteOperator rc=0 secs=82
+OAI.NumberTheory.DirichletL.CubicSieve.RayExpansion rc=0 secs=72
+OAI.NumberTheory.DirichletL.CubicSieve.KernelEnergy rc=0 secs=72
+OAI.NumberTheory.DirichletL.QuadraticSieve.IdealQuotients rc=0 secs=72
+OAI.NumberTheory.DirichletL.GaussSum.ReflectionBrackets rc=0 secs=72
+OAI.NumberTheory.DirichletL.Reciprocity.RamifiedSymbol rc=0 secs=71
+OAI.NumberTheory.DirichletL.QuadraticSieve.CoprimeBilinearBound rc=0 secs=72
+OAI.NumberTheory.DirichletL.Reciprocity.CubicJacobi rc=0 secs=72
+OAI.NumberTheory.DirichletL.CubicSieve.SecondPoisson rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.RayCoefficients rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.FirstPassage rc=0 secs=57
+OAI.NumberTheory.DirichletL.QuadraticSieve.DivisorBlocks rc=0 secs=57
+OAI.NumberTheory.DirichletL.Eisenstein.Rows rc=0 secs=57
+OAI.NumberTheory.DirichletL.Poisson.QuadraticProfiles rc=0 secs=57
+OAI.NumberTheory.DirichletL.Eisenstein.HyperbolicSpace rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.ChildTransfer rc=0 secs=60
+OAI.NumberTheory.DirichletL.CubicSieve.IntegratedTransfer rc=0 secs=60
+OAI.NumberTheory.DirichletL.QuadraticSieve.GcdReduction rc=0 secs=60
+OAI.NumberTheory.DirichletL.Fourier.FrequencyTwists rc=0 secs=60
+OAI.NumberTheory.DirichletL.Poisson.PrincipalTruncation rc=0 secs=60
+OAI.NumberTheory.DirichletL.Eisenstein.PrimitiveRows rc=0 secs=60
+OAI.NumberTheory.DirichletL.Fourier.TupleWeights rc=0 secs=60
+OAI.NumberTheory.DirichletL.Eisenstein.ConstantTermSupport rc=0 secs=57
+OAI.NumberTheory.DirichletL.QuadraticSieve.AnnularRecursion rc=0 secs=58
+OAI.NumberTheory.DirichletL.QuadraticSieve.PrimePools rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.FixedProfiles rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.FrequencyBlocks rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.RowMajorants rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.FourierCoefficients rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.FrequencyCutoffs rc=0 secs=55
+OAI.NumberTheory.DirichletL.QuadraticSieve.UnrestrictedCharacters rc=0 secs=55
+OAI.NumberTheory.DirichletL.QuadraticSieve.PrincipalTruncation rc=0 secs=55
+OAI.NumberTheory.DirichletL.CubicSieve.ResidualSectors rc=0 secs=55
+OAI.NumberTheory.DirichletL.CubicSieve.ConjugateProfiles rc=0 secs=55
+OAI.NumberTheory.DirichletL.QuadraticSieve.SquareParts rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.RamifiedNormWeights rc=0 secs=55
+OAI.NumberTheory.DirichletL.QuadraticSieve.PrincipalDifference rc=0 secs=60
+OAI.NumberTheory.DirichletL.QuadraticSieve.TruncatedSecondTransfer rc=0 secs=60
+OAI.NumberTheory.DirichletL.CubicSieve.FirstCoreCutoff rc=0 secs=60
+OAI.NumberTheory.DirichletL.Eisenstein.ConstantDirichletSeries rc=0 secs=60
+OAI.NumberTheory.DirichletL.QuadraticSieve.DyadicColumns rc=0 secs=60
+OAI.NumberTheory.DirichletL.Fourier.LogDensity rc=0 secs=60
+OAI.NumberTheory.DirichletL.CubicSieve.TwistedProfiles rc=0 secs=61
+OAI.NumberTheory.DirichletL.Eisenstein.SmoothSummands rc=0 secs=58
+OAI.NumberTheory.DirichletL.QuadraticSieve.MiddleWindows rc=0 secs=58
+OAI.NumberTheory.DirichletL.QuadraticSieve.GreenIntegrals rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.GreenIdentity rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.SupportNorms rc=0 secs=58
+OAI.NumberTheory.DirichletL.QuadraticSieve.SpatialDerivatives rc=0 secs=58
+OAI.NumberTheory.DirichletL.Poisson.LatticeEnvelopes rc=0 secs=58
+OAI.NumberTheory.DirichletL.QuadraticSieve.LogarithmicSectors rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.SquarefreeTransfer rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.LogarithmicTargets rc=0 secs=57
+OAI.NumberTheory.DirichletL.QuadraticSieve.DualMiddleExpansion rc=0 secs=57
+OAI.NumberTheory.DirichletL.QuadraticSieve.MaskedPrincipalBounds rc=0 secs=57
+OAI.NumberTheory.DirichletL.Eisenstein.CuspIntegration rc=0 secs=57
+OAI.NumberTheory.DirichletL.Eisenstein.SmoothCuspCutoffs rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.PrincipalNormalization rc=0 secs=62
+OAI.NumberTheory.DirichletL.CubicSieve.GlobalEncoding rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.PrincipalMajorants rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.SeedDefects rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.RetainedDualBounds rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.QuotientTopology rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.HighKernelGeometry rc=0 secs=63
+OAI.NumberTheory.DirichletL.QuadraticSieve.CommonMasks rc=0 secs=70
+OAI.NumberTheory.DirichletL.CubicSieve.PrincipalDensity rc=0 secs=70
+OAI.NumberTheory.DirichletL.CubicSieve.ScaleCaps rc=0 secs=70
+OAI.NumberTheory.DirichletL.QuadraticSieve.PoissonComparison rc=0 secs=70
+OAI.NumberTheory.DirichletL.QuadraticSieve.CuspCoercivity rc=0 secs=71
+OAI.NumberTheory.DirichletL.CubicSieve.ArithmeticBins rc=0 secs=71
+OAI.NumberTheory.DirichletL.Eisenstein.HyperbolicVolume rc=0 secs=70
+OAI.NumberTheory.DirichletL.CubicSieve.UniformTransfer rc=0 secs=70
+OAI.NumberTheory.DirichletL.GaussSum.GlobalScales rc=0 secs=69
+OAI.NumberTheory.DirichletL.QuadraticSieve.AnnularLifting rc=0 secs=69
+OAI.NumberTheory.DirichletL.QuadraticSieve.PoissonConstants rc=0 secs=69
+OAI.NumberTheory.DirichletL.Eisenstein.FundamentalDomain rc=0 secs=69
+OAI.NumberTheory.DirichletL.QuadraticSieve.SelectedExponents rc=0 secs=69
+OAI.NumberTheory.DirichletL.QuadraticSieve.GlobalBinLoss rc=0 secs=70
+OAI.NumberTheory.DirichletL.CubicSieve.LiteralSources rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.LogarithmicLoss rc=0 secs=62
+OAI.NumberTheory.DirichletL.CubicSieve.PooledRows rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.UniformTailBounds rc=0 secs=62
+OAI.NumberTheory.DirichletL.MeanSquare.TransformedColumns rc=0 secs=62
+OAI.NumberTheory.DirichletL.QuadraticSieve.ProductColumns rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.CompactProfiles rc=0 secs=63
+OAI.NumberTheory.DirichletL.MeanSquare.LogarithmicBins rc=0 secs=63
+OAI.NumberTheory.DirichletL.GaussSum.PowerfulParts rc=0 secs=63
+OAI.NumberTheory.DirichletL.CubicSieve.RowCaps rc=0 secs=63
+OAI.NumberTheory.DirichletL.CubicSieve.DivisorTargets rc=0 secs=62
+OAI.NumberTheory.DirichletL.CubicSieve.CubeBlocks rc=0 secs=63
+OAI.NumberTheory.DirichletL.Eisenstein.SmoothTests rc=0 secs=63
+OAI.NumberTheory.DirichletL.MeanSquare.SourceTransfer rc=0 secs=64
+OAI.NumberTheory.DirichletL.MeanSquare.OutsideIdeals rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.QuantitativePassage rc=0 secs=59
+OAI.NumberTheory.DirichletL.CubicSieve.NormalizedMass rc=0 secs=59
+OAI.NumberTheory.DirichletL.MeanSquare.InputEnergy rc=0 secs=59
+OAI.NumberTheory.DirichletL.MeanSquare.PoissonSource rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.DirichletForm rc=0 secs=59
+OAI.NumberTheory.DirichletL.GaussSum.ReflectedBranches rc=0 secs=59
+OAI.NumberTheory.DirichletL.MeanSquare.HarmonicAggregation rc=0 secs=48
+OAI.NumberTheory.DirichletL.MeanSquare.ReflectedDyadicSeries rc=0 secs=48
+OAI.NumberTheory.DirichletL.GaussSum.CompletedDyadicRows rc=0 secs=48
+OAI.NumberTheory.DirichletL.GaussSum.BranchScaling rc=0 secs=48
+OAI.NumberTheory.DirichletL.CubicSieve.DyadicKernel rc=0 secs=49
+OAI.NumberTheory.DirichletL.Eisenstein.LocalCutoffs rc=0 secs=49
+OAI.NumberTheory.DirichletL.CubicSieve.RadialWindows rc=0 secs=49
+OAI.NumberTheory.DirichletL.MeanSquare.HighRadialBounds rc=0 secs=57
+OAI.NumberTheory.DirichletL.MeanSquare.CanonicalDensity rc=0 secs=56
+OAI.NumberTheory.DirichletL.CubicSieve.DualZeroMode rc=0 secs=57
+OAI.NumberTheory.DirichletL.MeanSquare.SourceRemainders rc=0 secs=57
+OAI.NumberTheory.DirichletL.MeanSquare.DiagonalDensity rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.PaddedPassage rc=0 secs=59
+OAI.NumberTheory.DirichletL.Eisenstein.VariationalLaplacian rc=0 secs=59
+OAI.NumberTheory.DirichletL.MeanSquare.RetainedDensity rc=0 secs=50
+OAI.NumberTheory.DirichletL.CubicSieve.LogSeparation rc=0 secs=47
+OAI.NumberTheory.DirichletL.RowCompletion.SupportBounds rc=0 secs=50
+OAI.NumberTheory.DirichletL.MeanSquare.CanonicalTailBounds rc=0 secs=50
+OAI.NumberTheory.DirichletL.CubicSieve.ReopeningSeparation rc=0 secs=49
+OAI.NumberTheory.DirichletL.Eisenstein.CompactEnergyFamilies rc=0 secs=51
+OAI.NumberTheory.DirichletL.CubicSieve.ReopenedFibers rc=0 secs=51
+OAI.NumberTheory.DirichletL.CubicSieve.CanonicalLogEnergy rc=0 secs=59
+OAI.NumberTheory.DirichletL.CubicSieve.DensityBudgets rc=0 secs=58
+OAI.NumberTheory.DirichletL.MeanSquare.PolynomialHeight rc=0 secs=59
+OAI.NumberTheory.DirichletL.CubicSieve.RankMargins rc=0 secs=58
+OAI.NumberTheory.DirichletL.RowCompletion.PolynomialHeight rc=0 secs=59
+OAI.NumberTheory.DirichletL.Eisenstein.CoordinateLaplacian rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.RadialProfiles rc=0 secs=60
+OAI.NumberTheory.DirichletL.Eisenstein.CuspHeight rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.BarrierPotential rc=0 secs=58
+OAI.NumberTheory.DirichletL.MeanSquare.UniformPolynomialHeight rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.ReopeningBounds rc=0 secs=58
+OAI.NumberTheory.DirichletL.MeanSquare.UnitRows rc=0 secs=58
+OAI.NumberTheory.DirichletL.CubicSieve.ClosedRecursion rc=0 secs=57
+OAI.NumberTheory.DirichletL.CubicSieve.CutoffOrders rc=0 secs=59
+OAI.NumberTheory.DirichletL.RowCompletion.DensityTransfer rc=0 secs=57
+OAI.NumberTheory.DirichletL.RowCompletion.CompletedEnergy rc=0 secs=58
+OAI.NumberTheory.DirichletL.RowCompletion.CubicReopening rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.UnitNormalization rc=0 secs=58
+OAI.NumberTheory.DirichletL.Eisenstein.SeedHeight rc=0 secs=57
+OAI.NumberTheory.DirichletL.Eisenstein.FredholmAlternative rc=0 secs=59
+OAI.NumberTheory.DirichletL.Eisenstein.MeromorphicResolvent rc=0 secs=66
+OAI.NumberTheory.DirichletL.RowCompletion.InitialDensity rc=0 secs=54
+OAI.NumberTheory.DirichletL.Hecke.MobiusEulerCorrection rc=0 secs=54
+OAI.NumberTheory.DirichletL.MeanSquare.ThetaDensity rc=0 secs=54
+OAI.NumberTheory.DirichletL.Mellin.SixthPowerAverage rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.CutoffApproximation rc=0 secs=53
+OAI.NumberTheory.DirichletL.RowCompletion.ThetaNonvanishing rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.CuspResidues rc=0 secs=47
+OAI.NumberTheory.DirichletL.Eisenstein.RamifiedGaussSeries rc=0 secs=55
+OAI.NumberTheory.DirichletL.Reciprocity.KubotaCharacter rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.GaussFactorization rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.ResidualFourierBounds rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.ScatteringCoefficients rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.WhittakerContinuation rc=0 secs=56
+OAI.NumberTheory.DirichletL.Eisenstein.ConjugateLevelAction rc=0 secs=66
+OAI.NumberTheory.DirichletL.Eisenstein.ResidualFourierExpansion rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.ResidualFourierSeries rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.ScatteringResidues rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.RationalTranslations rc=0 secs=44
+OAI.NumberTheory.DirichletL.Eisenstein.OppositeCusp rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.SourceQuotient rc=0 secs=54
+OAI.NumberTheory.DirichletL.Eisenstein.SourceProjection rc=0 secs=55
+OAI.NumberTheory.DirichletL.Eisenstein.ResidualCuspDecay rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.BesselMellinTransform rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.PrimePowerGaussSums rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.BesselDerivatives rc=0 secs=61
+OAI.NumberTheory.DirichletL.Eisenstein.SourceBesselExpansion rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.CuspAverage rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.TranslatedFourierResidues rc=0 secs=62
+OAI.NumberTheory.DirichletL.Eisenstein.CuspDilation rc=0 secs=74
+OAI.NumberTheory.DirichletL.Eisenstein.ConjugateCuspProfiles rc=0 secs=74
+OAI.NumberTheory.DirichletL.Eisenstein.ReflectedCuspMellin rc=0 secs=74
+OAI.NumberTheory.DirichletL.Reciprocity.CubeCorrespondence rc=0 secs=74
+OAI.NumberTheory.DirichletL.Eisenstein.InverseCuspCoordinates rc=0 secs=74
+OAI.NumberTheory.DirichletL.Eisenstein.ArbitraryCuspPullback rc=0 secs=75
+OAI.NumberTheory.DirichletL.Cusp.ResiduesModThree rc=0 secs=82
+OAI.NumberTheory.DirichletL.Eisenstein.CubeResidueStrata rc=0 secs=90
+OAI.NumberTheory.DirichletL.Reciprocity.RamifiedCuspPhases rc=0 secs=90
+OAI.NumberTheory.DirichletL.Eisenstein.CubeCuspAverage rc=0 secs=82
+OAI.NumberTheory.DirichletL.Eisenstein.AffineCuspFourier rc=0 secs=90
+OAI.NumberTheory.DirichletL.Reciprocity.PrimaryCongruences rc=0 secs=90
+OAI.NumberTheory.DirichletL.Eisenstein.CoverTrace rc=0 secs=90
+OAI.NumberTheory.DirichletL.Eisenstein.IntegralCover rc=0 secs=91
+OAI.NumberTheory.DirichletL.Eisenstein.InverseCorrespondence rc=0 secs=107
+OAI.NumberTheory.DirichletL.Eisenstein.CorrespondenceTests rc=0 secs=107
+OAI.NumberTheory.DirichletL.Eisenstein.CubeEigenrelation rc=0 secs=106
+OAI.NumberTheory.DirichletL.Eisenstein.CorrespondencePullback rc=0 secs=107
+OAI.NumberTheory.DirichletL.Eisenstein.CorrespondenceEnergy rc=0 secs=106
+OAI.NumberTheory.DirichletL.Eisenstein.CorrespondenceAdjoint rc=0 secs=106
+OAI.NumberTheory.DirichletL.Eisenstein.RamifiedSixBranches rc=0 secs=108
+OAI.NumberTheory.DirichletL.GaussSum.DualKernelSummability rc=0 secs=94
+OAI.NumberTheory.DirichletL.Eisenstein.SquarefreeCoefficients rc=0 secs=94
+OAI.NumberTheory.DirichletL.Mellin.VerticalContourShift rc=0 secs=93
+OAI.NumberTheory.DirichletL.Eisenstein.PrimeGaussFactors rc=0 secs=94
+OAI.NumberTheory.DirichletL.Eisenstein.SourceMellinInversion rc=0 secs=94
+OAI.NumberTheory.DirichletL.Eisenstein.PrimeRecurrence rc=0 secs=95
+OAI.NumberTheory.DirichletL.Eisenstein.ResidualOrthogonality rc=0 secs=95
+OAI.NumberTheory.DirichletL.GaussSum.FiniteTranslations rc=0 secs=107
+OAI.NumberTheory.DirichletL.Eisenstein.RamifiedValuation rc=0 secs=106
+OAI.NumberTheory.DirichletL.Eisenstein.SourceCuspKernels rc=0 secs=106
+OAI.NumberTheory.DirichletL.Eisenstein.EntireMellinProfile rc=0 secs=107
+OAI.NumberTheory.DirichletL.GaussSum.BesselReflection rc=0 secs=108
+OAI.NumberTheory.DirichletL.Eisenstein.RamifiedTransform rc=0 secs=108
+OAI.NumberTheory.DirichletL.GaussSum.MellinSupport rc=0 secs=108
+OAI.NumberTheory.DirichletL.Eisenstein.FullFrequencyExpansion rc=0 secs=94
+OAI.NumberTheory.DirichletL.ChineseRemainder.PrimaryCompletions rc=0 secs=94
+OAI.NumberTheory.DirichletL.RowCompletion.PeriodicRows rc=0 secs=92
+OAI.NumberTheory.DirichletL.Cusp.WeylRepresentatives rc=0 secs=94
+OAI.NumberTheory.DirichletL.ChineseRemainder.FrequencyLifts rc=0 secs=93
+OAI.NumberTheory.DirichletL.Cusp.ResiduePhases rc=0 secs=94
+OAI.NumberTheory.DirichletL.Eisenstein.FixedCuspArrays rc=0 secs=95
+OAI.NumberTheory.DirichletL.Eisenstein.FixedFrequencyExpansion rc=0 secs=90
+OAI.NumberTheory.DirichletL.RowCompletion.FixedCuspBranches rc=0 secs=91
+OAI.NumberTheory.DirichletL.GaussSum.ReflectionPool rc=0 secs=92
+OAI.NumberTheory.DirichletL.GaussSum.FixedRayFibers rc=0 secs=91
+OAI.NumberTheory.DirichletL.Cusp.StaticReflectionPhases rc=0 secs=92
+OAI.NumberTheory.DirichletL.Eisenstein.FixedThetaTwists rc=0 secs=91
+OAI.NumberTheory.DirichletL.Eisenstein.FixedConductor rc=0 secs=92
+OAI.NumberTheory.DirichletL.RowCompletion.ReflectedFibers rc=0 secs=71
+OAI.NumberTheory.DirichletL.Eisenstein.ReflectionFibers rc=0 secs=72
+OAI.NumberTheory.DirichletL.RowCompletion.ControlledPrimeStrata rc=0 secs=71
+OAI.NumberTheory.DirichletL.RowCompletion.RowAmplitudes rc=0 secs=71
+OAI.NumberTheory.DirichletL.GaussSum.ResidualEquivalence rc=0 secs=85
+OAI.NumberTheory.DirichletL.RowCompletion.ZeroFreeRegion rc=0 secs=46
+OAI.NumberTheory.DirichletL.RowCompletion.BranchDecoding rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.CertifiedExistence rc=0 secs=48
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyCertifiedBands rc=0 secs=48
+OAI.NumberTheory.DirichletL.RowCompletion.FreePrimePools rc=0 secs=120
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainSlotProfile rc=0 secs=50
+OAI.NumberTheory.DirichletL.Energy.CappedRadialTransport rc=0 secs=51
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyChosenData rc=0 secs=49
+OAI.NumberTheory.DirichletL.Detector.DetectorInverseFields rc=0 secs=49
+OAI.NumberTheory.DirichletL.Energy.CappedAnalyticSuccessor rc=0 secs=52
+OAI.NumberTheory.DirichletL.Detector.DetectorPlainMarkedFineField rc=0 secs=50
+OAI.NumberTheory.DirichletL.Detector.DetectorPlainUnmarkedRestrictedField rc=0 secs=56
+OAI.NumberTheory.DirichletL.GaussSum.ActiveReindexing rc=0 secs=201
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryUniformHeight rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.CappedWidthInduction rc=0 secs=72
+OAI.NumberTheory.DirichletL.Moments.RetainedEnergy rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionarySlots rc=0 secs=72
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyData rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.NaturalHighStage rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.CappedLowStage rc=0 secs=71
+OAI.NumberTheory.DirichletL.Detector.FinalAssembly rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.CappedSuccessorPacking rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.CappedRequests rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.CappedBandTransport rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.NaturalZeroStage rc=0 secs=72
+OAI.NumberTheory.DirichletL.ParametersHighDataFine rc=0 secs=60
+OAI.NumberTheory.DirichletL.Detector.DetectorInverseRawField rc=0 secs=73
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicGeometry rc=0 secs=77
+OAI.NumberTheory.DirichletL.Detector.DetectorInverseMarkedField rc=0 secs=78
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainProfileControl rc=0 secs=77
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainRelativeClass rc=0 secs=78
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainMomentParameters rc=0 secs=78
+OAI.NumberTheory.DirichletL.Detector.DetectorPlainUnmarkedField rc=0 secs=69
+OAI.NumberTheory.DirichletL.Energy.WidthInduction rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionary rc=0 secs=73
+OAI.NumberTheory.DirichletL.Hecke.DetectorRelativePrime rc=0 secs=71
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryUniformLog rc=0 secs=73
+OAI.NumberTheory.DirichletL.Energy.StageReserveSchedule rc=0 secs=73
+OAI.NumberTheory.DirichletL.Energy.BandMonotonicity rc=0 secs=74
+OAI.NumberTheory.DirichletL.Energy.WidthFloor rc=0 secs=74
+OAI.NumberTheory.DirichletL.ParametersFixedSource rc=0 secs=67
+OAI.NumberTheory.DirichletL.Energy.NaturalLowStage rc=0 secs=84
+OAI.NumberTheory.DirichletL.Energy.PositiveBalancedAdmission rc=0 secs=82
+OAI.NumberTheory.DirichletL.Moments.RetainedProfile rc=0 secs=85
+OAI.NumberTheory.DirichletL.Moments.DivisorRawEnergy rc=0 secs=85
+OAI.NumberTheory.DirichletL.Energy.PositiveHighPhysical rc=0 secs=84
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblySource rc=0 secs=85
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyCountParameters rc=0 secs=85
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthSourceControlled rc=0 secs=86
+OAI.NumberTheory.DirichletL.Energy.StageMonotonicity rc=0 secs=86
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthContourBounded rc=0 secs=86
+OAI.NumberTheory.DirichletL.Energy.FirstSourceParameters rc=0 secs=86
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthPhysical rc=0 secs=87
+OAI.NumberTheory.DirichletL.Energy.PositiveHighSourceBound rc=0 secs=87
+OAI.NumberTheory.DirichletL.Energy.SourceCapSchedule rc=0 secs=87
+OAI.NumberTheory.DirichletL.ParametersHighData rc=0 secs=69
+OAI.NumberTheory.DirichletL.Detector.DetectorMomentData rc=0 secs=75
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawUniform rc=0 secs=76
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedUniform rc=0 secs=75
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceFiberEnergy rc=0 secs=75
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyFixedHigh rc=0 secs=76
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawReference rc=0 secs=77
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceCharacters rc=0 secs=71
+OAI.NumberTheory.DirichletL.Hecke.DetectorSaturation rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.Bands rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.WidthRanges rc=0 secs=71
+OAI.NumberTheory.DirichletL.Moments.DetectorEnergyInitialState rc=0 secs=72
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainMarkedState rc=0 secs=79
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainUnmarkedState rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.StageReserve rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.SlotNormalization rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.PrimeSlotShift rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryUniform rc=0 secs=65
+OAI.NumberTheory.DirichletL.Hecke.DetectorCoefficientTransfer rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.Lattice rc=0 secs=65
+OAI.NumberTheory.DirichletL.Energy.WidthSchedule rc=0 secs=66
+OAI.NumberTheory.DirichletL.PrimeRows.FirstTail rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.CommonProbe rc=0 secs=60
+OAI.NumberTheory.DirichletL.Detector.LowNormalized rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.DetectorPrimeFamily rc=0 secs=62
+OAI.NumberTheory.DirichletL.ParametersProbeWindows rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationProfiles rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.ModulusRefinement rc=0 secs=61
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorCount rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.DivisorRaw rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.HeckeHeight rc=0 secs=63
+OAI.NumberTheory.DirichletL.Energy.PositiveLowBandSource rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.PositiveLowSourceControlled rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.CanonicalHighPhysical rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.NaturalLowPhysical rc=0 secs=63
+OAI.NumberTheory.DirichletL.Energy.LowBandSubtype rc=0 secs=66
+OAI.NumberTheory.DirichletL.Energy.LowBandEmpty rc=0 secs=65
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowBands rc=0 secs=65
+OAI.NumberTheory.DirichletL.Energy.PositiveHighParameters rc=0 secs=66
+OAI.NumberTheory.DirichletL.Energy.OriginalProfileControl rc=0 secs=66
+OAI.NumberTheory.DirichletL.Energy.NaturalSourceAdmission rc=0 secs=67
+OAI.NumberTheory.DirichletL.Energy.PositiveHighBound rc=0 secs=67
+OAI.NumberTheory.DirichletL.Energy.FirstActualFrequencyBudget rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.BackwardSourceRanges rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.StageMargins rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthPhysicalReindex rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthConclusion rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthSource rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.FirstLiveAdmission rc=0 secs=58
+OAI.NumberTheory.DirichletL.ParametersCentralBudget rc=0 secs=50
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawInputBound rc=0 secs=54
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyMomentInput rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowth rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawInitialEnergy rc=0 secs=54
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyHigh rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawInput rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawRealRadial rc=0 secs=60
+OAI.NumberTheory.DirichletL.PrimeRows.Moments rc=0 secs=56
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawCompact rc=0 secs=56
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalRayCube rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawEnergy rc=0 secs=56
+OAI.NumberTheory.DirichletL.Dictionary.InverseClippedUniform rc=0 secs=56
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceDeletedEnergy rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedPhysicalRows rc=0 secs=55
+OAI.NumberTheory.DirichletL.Hecke.DetectorRawBranches rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawFiberSource rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.Floor rc=0 secs=55
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedPadding rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainStateDictionary rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainCapacity rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.NaturalRowSourceDictionary rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.FixedRayInducingTransport rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryRelativeSlots rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.PrimeScale rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.State rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorState rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainFiberSource rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstSecondInputGates rc=0 secs=65
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicActual rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryUniformTests rc=0 secs=66
+OAI.NumberTheory.DirichletL.Hecke.DetectorNormalized rc=0 secs=66
+OAI.NumberTheory.DirichletL.Moments.SuccessorPaidParameters rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceFixedIdeal rc=0 secs=67
+OAI.NumberTheory.DirichletL.Energy.Profiles rc=0 secs=66
+OAI.NumberTheory.DirichletL.Moments.Basic rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.PrimeSlot rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryProfiles rc=0 secs=71
+OAI.NumberTheory.DirichletL.Moments.WholeSlotDeletion rc=0 secs=70
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicProfiles rc=0 secs=71
+OAI.NumberTheory.DirichletL.Moments.LiveCapacity rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.ReferenceScalarReserve rc=0 secs=71
+OAI.NumberTheory.DirichletL.Hecke.PrimeNonprincipal rc=0 secs=66
+OAI.NumberTheory.DirichletL.Hecke.DetectorFamilyInclusion rc=0 secs=66
+OAI.NumberTheory.DirichletL.PrimeRows.Product rc=0 secs=66
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationEndpoint rc=0 secs=66
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationConjugation rc=0 secs=80
+OAI.NumberTheory.DirichletL.Detector.HighRowsFirstRegion rc=0 secs=66
+OAI.NumberTheory.DirichletL.Detector.LowWindowBound rc=0 secs=70
+OAI.NumberTheory.DirichletL.Hecke.Dirichlet rc=0 secs=99
+OAI.NumberTheory.DirichletL.PrimeRows.CubeNormalizer rc=0 secs=99
+OAI.NumberTheory.DirichletL.Hecke.SignalIdentity rc=0 secs=99
+OAI.NumberTheory.DirichletL.Hecke.PrimitiveSupremum rc=0 secs=99
+OAI.NumberTheory.DirichletL.Hecke.DetectorFixedAmplitudeCount rc=0 secs=95
+OAI.NumberTheory.DirichletL.Hecke.IdealOperations rc=0 secs=99
+OAI.NumberTheory.DirichletL.Hecke.FiniteDeletion rc=0 secs=98
+OAI.NumberTheory.DirichletL.Hecke.DetectorHighBatchCount rc=0 secs=67
+OAI.NumberTheory.DirichletL.Detector.CentralMixedMargins rc=0 secs=67
+OAI.NumberTheory.DirichletL.Moments.HeckeTwist rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.DivisorRows rc=0 secs=68
+OAI.NumberTheory.DirichletL.Energy.NaturalLowSourceBound rc=0 secs=68
+OAI.NumberTheory.DirichletL.Energy.CanonicalLowPhysical rc=0 secs=68
+OAI.NumberTheory.DirichletL.Energy.CanonicalHighSource rc=0 secs=69
+OAI.NumberTheory.DirichletL.Energy.CanonicalAmplifiedColumn rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.FirstTwoSeedAdmission rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.FirstColumnPairing rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.FirstPhysicalNormalization rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.CanonicalLowColumn rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.CanonicalAnnularPower rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.CanonicalRightSourceColumn rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.FirstLowHomogeneousPowers rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.FirstAnnularAdmission rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainSubsets rc=0 secs=59
+OAI.NumberTheory.DirichletL.Energy.AmplifierFamilyAdmission rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedPowerBudget rc=0 secs=59
+OAI.NumberTheory.DirichletL.Energy.CanonicalAmplifiedUniform rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.FirstRawScaleAdmission rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.FirstGaussianProfileWeights rc=0 secs=69
+OAI.NumberTheory.DirichletL.Energy.FirstGaussianCoefficients rc=0 secs=68
+OAI.NumberTheory.DirichletL.Energy.AmplifiedChildWidth rc=0 secs=69
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainSeparatedPower rc=0 secs=70
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorSubsets rc=0 secs=70
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainSeparated rc=0 secs=70
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainHomogeneous rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedPaidReserve rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.SecondInputCapacitySource rc=0 secs=64
+OAI.NumberTheory.DirichletL.Energy.ChildEnvelopeFitting rc=0 secs=64
+OAI.NumberTheory.DirichletL.Energy.CanonicalUniformReference rc=0 secs=64
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainUniform rc=0 secs=66
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainPaid rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.FirstSeededGaussianPower rc=0 secs=66
+OAI.NumberTheory.DirichletL.Moments.FirstReferenceEnergy rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.ZeroComparison rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.SourceInputTailUniform rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.NaturalInputMatches rc=0 secs=53
+OAI.NumberTheory.DirichletL.Energy.PositiveHighSource rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedPaidAdmission rc=0 secs=53
+OAI.NumberTheory.DirichletL.Energy.AmplifiedRayDictionary rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.Reindex rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowEmpty rc=0 secs=49
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionSymmetricBounded rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.PositiveHighSourceBounded rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.ReferenceChildProfiles rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.PositiveHighAssembly rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.PositiveHighAssemblyBounded rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceFixedSource rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstSecondCommonGates rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedRadiusLower rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalDyadicRows rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstSourceConductorCaps rc=0 secs=59
+OAI.NumberTheory.DirichletL.Energy.FirstDeclaredCapacityLossBudget rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.SectorLocalization rc=0 secs=59
+OAI.NumberTheory.DirichletL.Energy.StageReserveBounded rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthReserve rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.InputParentCapacity rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.ZeroBalancedAdmission rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.SourceInputReindexGates rc=0 secs=72
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthHighBound rc=0 secs=73
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthOriginal rc=0 secs=72
+OAI.NumberTheory.DirichletL.ParametersDetectorScales rc=0 secs=62
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedEnergy rc=0 secs=64
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyMomentMono rc=0 secs=65
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyCollected rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.HighFromMoments rc=0 secs=65
+OAI.NumberTheory.DirichletL.Inversion.InitialTotalEnergy rc=0 secs=65
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawInitialGates rc=0 secs=64
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawRadial rc=0 secs=76
+OAI.NumberTheory.DirichletL.Moments.OriginalReflectionErrorMass rc=0 secs=76
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedForcing rc=0 secs=76
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawConjugateGates rc=0 secs=79
+OAI.NumberTheory.DirichletL.Dictionary.InverseUniformSource rc=0 secs=76
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationRaw rc=0 secs=76
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawFourier rc=0 secs=76
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerClipping rc=0 secs=95
+OAI.NumberTheory.DirichletL.PrimeRows.Euler rc=0 secs=95
+OAI.NumberTheory.DirichletL.Descent.ClippedEnergy rc=0 secs=95
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferencePaddedEnergy rc=0 secs=95
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerUniform rc=0 secs=96
+OAI.NumberTheory.DirichletL.Detector.RayCharacterFamily rc=0 secs=96
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalCubeChoice rc=0 secs=96
+OAI.NumberTheory.DirichletL.Descent.Basic rc=0 secs=73
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceDeleted rc=0 secs=84
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceShift rc=0 secs=85
+OAI.NumberTheory.DirichletL.Hecke.DetectorRawFiber rc=0 secs=84
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferencePrimeGates rc=0 secs=85
+OAI.NumberTheory.DirichletL.Inversion.InitialPhysicalSlots rc=0 secs=84
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainExceptional rc=0 secs=84
+OAI.NumberTheory.DirichletL.Moments.ExceptionalPair rc=0 secs=86
+OAI.NumberTheory.DirichletL.Moments.FixedRowMask rc=0 secs=86
+OAI.NumberTheory.DirichletL.Moments.NaturalRowSourceFamily rc=0 secs=86
+OAI.NumberTheory.DirichletL.ConductorBounds rc=0 secs=87
+OAI.NumberTheory.DirichletL.Hecke.PrimeRow rc=0 secs=87
+OAI.NumberTheory.DirichletL.Moments.RelativeCapacityRemoval rc=0 secs=101
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloor rc=0 secs=90
+OAI.NumberTheory.DirichletL.Moments.DetectorPlainSource rc=0 secs=79
+OAI.NumberTheory.DirichletL.Hecke.DetectorCommonFrequency rc=0 secs=77
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceSupport rc=0 secs=80
+OAI.NumberTheory.DirichletL.Moments.NaturalMaskedFloor rc=0 secs=81
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicCutoff rc=0 secs=76
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPair rc=0 secs=81
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceFiber rc=0 secs=80
+OAI.NumberTheory.DirichletL.Moments.FirstSecondLossParameters rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.ActualLiveSlotRemoval rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.FirstChildLower rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.ScaleSupremum rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.FirstMixedMainError rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalStability rc=0 secs=66
+OAI.NumberTheory.DirichletL.Moments.AmplificationChildSourceCaps rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.SlotRemoval rc=0 secs=64
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationFamily rc=0 secs=64
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationRowwise rc=0 secs=65
+OAI.NumberTheory.DirichletL.Hecke.Conjugation rc=0 secs=63
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicSupport rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.RayNonprincipal rc=0 secs=64
+OAI.NumberTheory.DirichletL.Energy.ReferenceScalarBounds rc=0 secs=67
+OAI.NumberTheory.DirichletL.Hecke.DetectorZeros rc=0 secs=62
+OAI.NumberTheory.DirichletL.PrimeRows.Ramified rc=0 secs=62
+OAI.NumberTheory.DirichletL.Detector.HighRowsHolomorphic rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.RowNonprincipal rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationScale rc=0 secs=63
+OAI.NumberTheory.DirichletL.Detector.LowCommonBound rc=0 secs=62
+OAI.NumberTheory.DirichletL.Detector.PrincipalNormalized rc=0 secs=61
+OAI.NumberTheory.DirichletL.EulerFactors rc=0 secs=59
+OAI.NumberTheory.DirichletL.Hecke.Operations rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.Euler rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.Reciprocal rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.IdealBridge rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.Origin rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.Signal rc=0 secs=62
+OAI.NumberTheory.DirichletL.Hecke.DetectorAmplitudeFirst rc=0 secs=57
+OAI.NumberTheory.DirichletL.Detector.CentralDyadicWeight rc=0 secs=56
+OAI.NumberTheory.DirichletL.Hecke.DetectorHighCount rc=0 secs=56
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowCountEndpoint rc=0 secs=58
+OAI.NumberTheory.DirichletL.Hecke.DetectorClassBudget rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.DivisorRectangle rc=0 secs=57
+OAI.NumberTheory.DirichletL.Hecke.DetectorBatchCount rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.Height rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.HeckeCancellation rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.LowFixedRadialEntry rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.FirstMixedRightTransport rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.FirstRightAdmission rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.CanonicalHighColumn rc=0 secs=59
+OAI.NumberTheory.DirichletL.Energy.CanonicalLowSource rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstWindowBudgets rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularMajorant rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.FirstHighGaussianUniformPowers rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstCommonReferencePower rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.FirstNormalizedGaussianPowers rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedFourCoefficients rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.FirstReferenceSource rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalLedger rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.AmplificationRadicalChoice rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.FirstErrorAllocationPower rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularInputAmplification rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularActiveInput rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorHomogeneous rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorPower rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorUniform rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorGaussian rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorAdmitted rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.CanonicalErrorPaid rc=0 secs=57
+OAI.NumberTheory.DirichletL.Energy.CanonicalMainGaussian rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondSourceSeededPowerDescent rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstNestedSeededGaussianPower rc=0 secs=66
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedActiveCapacitySource rc=0 secs=51
+OAI.NumberTheory.DirichletL.Moments.AmplifiedChildWidth rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedCapacityCommon rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenReferenceSeededPowerDescent rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.FirstSecondActiveErrorGates rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.SecondReferenceNormalization rc=0 secs=51
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenUniformSubset rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.SourceInputTailSeed rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.SecondChildPowerBudget rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.SecondSourceRemainder rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SourceInputReindex rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalLiveSource rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceSupport rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.CanonicalReferencePaid rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.BandSubtypeTransport rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedActiveAffine rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.SecondCapacitySourceShift rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.AllocatedRayDictionary rc=0 secs=53
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionSymmetric rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.FixedRadialReduction rc=0 secs=52
+OAI.NumberTheory.DirichletL.Energy.ReferenceLivePower rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalZeroRadius rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalOriginalMask rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.PhysicalEntry rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.OriginalSource rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.SourceSupportedTailUniform rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.OriginalCommonHarmonic rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.NaturalRadialCutoff rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.ExceptionalAmplitudePair rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.ReferenceLiveBounded rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.SlotHeight rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionBounded rc=0 secs=55
+OAI.NumberTheory.DirichletL.Energy.ReferenceChild rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.Tail rc=0 secs=53
+OAI.NumberTheory.DirichletL.Energy.FirstStageLossBudget rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceWindowCanonical rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalDyadicAssembly rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.AmplifiedRetainedRadius rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceFixedFamily rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.DescentLedger rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.FirstNonexceptionalPrefactor rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.FirstAmplificationChoice rc=0 secs=64
+OAI.NumberTheory.DirichletL.Moments.SecondRadicalBudget rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.FirstChildProfileControl rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.ZeroUnbalancedOriginal rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.AmplificationRadicalFamily rc=0 secs=63
+OAI.NumberTheory.DirichletL.Energy.ZeroReferencePhysicalBounded rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthBounded rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.ZeroBalancedDictionary rc=0 secs=63
+OAI.NumberTheory.DirichletL.Energy.ReferenceDeletionEnergy rc=0 secs=70
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorCollected rc=0 secs=69
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyNormalized rc=0 secs=69
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorTransport rc=0 secs=69
+OAI.NumberTheory.DirichletL.Energy.ReferenceProfileBudget rc=0 secs=71
+OAI.NumberTheory.DirichletL.Energy.LiveClippingDefect rc=0 secs=70
+OAI.NumberTheory.DirichletL.Energy.ZeroRetainedError rc=0 secs=71
+OAI.NumberTheory.DirichletL.ParametersSlotLengths rc=0 secs=62
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorMoments rc=0 secs=63
+OAI.NumberTheory.DirichletL.Inversion.InitialPhysicalLimit rc=0 secs=62
+OAI.NumberTheory.DirichletL.Inversion.InitialZeroModeBudget rc=0 secs=63
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedElement rc=0 secs=63
+OAI.NumberTheory.DirichletL.Dictionary.InverseRawGeometry rc=0 secs=63
+OAI.NumberTheory.DirichletL.Inversion.InitialFiniteEnergy rc=0 secs=63
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedPolynomial rc=0 secs=70
+OAI.NumberTheory.DirichletL.Inversion.InitialProfileBounds rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.OriginalReflectionEnergy rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.AbsoluteEnergy rc=0 secs=69
+OAI.NumberTheory.DirichletL.Inversion.SecondChildWindows rc=0 secs=69
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedOverlap rc=0 secs=71
+OAI.NumberTheory.DirichletL.Inversion.InitialDetectorSource rc=0 secs=69
+OAI.NumberTheory.DirichletL.Hecke.DetectorInverseFiberCount rc=0 secs=75
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationPowers rc=0 secs=75
+OAI.NumberTheory.DirichletL.Descent.ClippedFourier rc=0 secs=75
+OAI.NumberTheory.DirichletL.Moments.Counting rc=0 secs=75
+OAI.NumberTheory.DirichletL.Hecke.PrimeRay rc=0 secs=75
+OAI.NumberTheory.DirichletL.Dictionary.InverseUniformTests rc=0 secs=75
+OAI.NumberTheory.DirichletL.Moments.ComparisonReflection rc=0 secs=75
+OAI.NumberTheory.DirichletL.Descent.ClippedUniform rc=0 secs=70
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerPhysical rc=0 secs=70
+OAI.NumberTheory.DirichletL.Detector.RayPhaseAmplitude rc=0 secs=70
+OAI.NumberTheory.DirichletL.Moments.HeckeWindowEnergy rc=0 secs=70
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalCubeBins rc=0 secs=71
+OAI.NumberTheory.DirichletL.PrimeRows.BufferedBin rc=0 secs=71
+OAI.NumberTheory.DirichletL.PrimeRows.Character rc=0 secs=71
+OAI.NumberTheory.DirichletL.PrimeRows.PrincipalMask rc=0 secs=64
+OAI.NumberTheory.DirichletL.PrimeRows.Conductor rc=0 secs=64
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceFiber rc=0 secs=63
+OAI.NumberTheory.DirichletL.PrimeRows.RowPartition rc=0 secs=64
+OAI.NumberTheory.DirichletL.Inversion.InitialMarkedDictionary rc=0 secs=63
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceSourceEnergy rc=0 secs=63
+OAI.NumberTheory.DirichletL.Detector.DetectorMomentPrimeGeometry rc=0 secs=63
+OAI.NumberTheory.DirichletL.Hecke.DetectorNoSlotPlainCount rc=0 secs=68
+OAI.NumberTheory.DirichletL.Hecke.DetectorSupportedWitness rc=0 secs=68
+OAI.NumberTheory.DirichletL.Hecke.DetectorNoSlotInverseCount rc=0 secs=69
+OAI.NumberTheory.DirichletL.Hecke.DetectorBranchBudget rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceNaturalPrime rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceFreeExceptional rc=0 secs=69
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorSource rc=0 secs=69
+OAI.NumberTheory.DirichletL.FiniteConductor rc=0 secs=59
+OAI.NumberTheory.DirichletL.Hecke.MaskDescent rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.NaturalRowSourceMask rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.ChildRows rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.NonprincipalGate rc=0 secs=60
+OAI.NumberTheory.DirichletL.Hecke.UnitRows rc=0 secs=59
+OAI.NumberTheory.DirichletL.Hecke.RowClosure rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalControl rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalAmplitude rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.UncenteredTerminal rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.NaturalCoreFloor rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.CommonMaskRadialEnergy rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.PlainPositiveEnergy rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.AllocatedNaturalSource rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceInternal rc=0 secs=67
+OAI.NumberTheory.DirichletL.Hecke.DetectorFrequencyTail rc=0 secs=67
+OAI.NumberTheory.DirichletL.Moments.SourceRectangleEnergy rc=0 secs=67
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourcePhysical rc=0 secs=67
+OAI.NumberTheory.DirichletL.Hecke.DetectorLower rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionarySource rc=0 secs=68
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceCapacity rc=0 secs=68
+OAI.NumberTheory.DirichletL.Hecke.DetectorProfilesCutoffs rc=0 secs=56
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationScaleSup rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondLocalization rc=0 secs=56
+OAI.NumberTheory.DirichletL.Dictionary.InverseUniformScale rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.CommonExceptionalGates rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.ReflectedAnnuli rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.AmplificationChildInput rc=0 secs=56
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicBridge rc=0 secs=51
+OAI.NumberTheory.DirichletL.Moments.FirstSecondCapacityDefect rc=0 secs=51
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowwiseMarked rc=0 secs=51
+OAI.NumberTheory.DirichletL.Moments.PrimeSlotExternal rc=0 secs=51
+OAI.NumberTheory.DirichletL.Hecke.DetectorFinite rc=0 secs=51
+OAI.NumberTheory.DirichletL.Energy.ReferenceDivisors rc=0 secs=51
+OAI.NumberTheory.DirichletL.Moments.FirstMixedNormalizationActual rc=0 secs=51
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationEnergy rc=0 secs=48
+OAI.NumberTheory.DirichletL.Hecke.DetectorSlotSelection rc=0 secs=49
+OAI.NumberTheory.DirichletL.Hecke.BoundaryIntegration rc=0 secs=51
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowwisePlain rc=0 secs=52
+OAI.NumberTheory.DirichletL.Hecke.LocalRamification rc=0 secs=52
+OAI.NumberTheory.DirichletL.Hecke.ExceptionalRows rc=0 secs=52
+OAI.NumberTheory.DirichletL.PrimeRows.Ideal rc=0 secs=100
+OAI.NumberTheory.DirichletL.Detector.HighRowsRamified rc=0 secs=100
+OAI.NumberTheory.DirichletL.Hecke.DeletionBounds rc=0 secs=101
+OAI.NumberTheory.DirichletL.Detector.GlobalHolomorphic rc=0 secs=101
+OAI.NumberTheory.DirichletL.Detector.RayPoolDisjoint rc=0 secs=101
+OAI.NumberTheory.DirichletL.Detector.LowGaussianSum rc=0 secs=102
+OAI.NumberTheory.DirichletL.Detector.PrincipalResidueActual rc=0 secs=105
+OAI.NumberTheory.DirichletL.Detector.PrincipalPhysicalRemainder rc=0 secs=105
+OAI.NumberTheory.DirichletL.ContinuationContour rc=0 secs=104
+OAI.NumberTheory.DirichletL.Hecke.MellinIdentity rc=0 secs=103
+OAI.NumberTheory.DirichletL.Detector.RayPoolThresholds rc=0 secs=105
+OAI.NumberTheory.DirichletL.Hecke.ReciprocalBound rc=0 secs=106
+OAI.NumberTheory.DirichletL.Detector rc=0 secs=318
+OAI.NumberTheory.DirichletL.Hecke.Family rc=0 secs=79
+OAI.NumberTheory.DirichletL.IdealEuler rc=0 secs=79
+OAI.NumberTheory.DirichletL.ResidueCharacter rc=0 secs=77
+OAI.NumberTheory.DirichletL.Hecke.FamilySeries rc=0 secs=77
+OAI.NumberTheory.DirichletL.Hecke.CharacterAnalytic rc=0 secs=77
+OAI.NumberTheory.DirichletL.IdealCharacter rc=0 secs=75
+OAI.NumberTheory.DirichletL.Hecke.ZeroSupremum rc=0 secs=41
+OAI.NumberTheory.DirichletL.Hecke.DetectorBatch rc=0 secs=46
+OAI.NumberTheory.DirichletL.Hecke.DetectorCountFromMoments rc=0 secs=47
+OAI.NumberTheory.DirichletL.Hecke.DetectorAdaptiveCutoff rc=0 secs=46
+OAI.NumberTheory.DirichletL.Hecke.DetectorFiberPartition rc=0 secs=47
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowCountOptimization rc=0 secs=47
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationBudget rc=0 secs=47
+OAI.NumberTheory.DirichletL.Endpoint rc=0 secs=40
+OAI.NumberTheory.DirichletL.Detector.CentralCubeNorm rc=0 secs=46
+OAI.NumberTheory.DirichletL.Detector.CentralExponent rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.DivisorSlots rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.HeckeVolume rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.Cancellation rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.Twist rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.CanonicalAnnularLower rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.FirstMixedRoot rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstMixedCommonRadius rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstCommonTransport rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalAnnularCommonBound rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstMixedDiagonal rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstMixedExceptionalDeclared rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.DyadicCount rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SmoothedWindowEnergy rc=0 secs=44
+OAI.NumberTheory.DirichletL.Energy.FirstHighNormalizedGaussianPowers rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstCommonSourcePowerBudget rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.FirstMixedAllowance rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalActiveDictionary rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstReferenceBlock rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstNonexceptionalLocalWeightSum rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstScale rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstExtractedLedger rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularInput rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.CanonicalNestedReference rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenPowerDescent rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ActiveChildRestoration rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenSeededPowerDescent rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SecondSourcePowerDescent rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondChildRadialWidth rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.CommonRadiusSaving rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedCapacitySource rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalScalar rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondUniformSubsetSource rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenLiveDescent rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenLiveSource rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalUniformSource rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondSourceDiagonal rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalFixedQSource rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalSourceCaps rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalFixedQChosenBlock rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalAggregate rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalSourceFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalUniform rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalFamily rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SourceLowerSupport rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalSaved rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalBudget rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalCommonSaving rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalPhysicalSaving rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondDyadicRowSupport rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondPhysicalBlock rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalKernel rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondDivisorSupport rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalCost rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalAggregate rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceNormalization rc=0 secs=45
+OAI.NumberTheory.DirichletL.Energy.CanonicalCommonPaid rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SecondPhysicalLedger rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SlotClassTransport rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionPower rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ReferenceRobustPower rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.FixedRadialEntry rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstSourceReduction rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SourceProfileMassUniform rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SupportedTailAggregate rc=0 secs=48
+OAI.NumberTheory.DirichletL.Moments.SourceZeroEnergy rc=0 secs=48
+OAI.NumberTheory.DirichletL.Moments.CommonHarmonicMass rc=0 secs=48
+OAI.NumberTheory.DirichletL.Moments.CommonRadialData rc=0 secs=48
+OAI.NumberTheory.DirichletL.Moments.SecondActiveCount rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.OriginalRadialTail rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.AllocatedDetectorAmplitude rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.ExceptionalAllocationShell rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionOriginal rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ReferenceReflection rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ReferenceRobustBounded rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.AllocatedChildren rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.Smooth rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondLedger rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourcePresentation rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstMaskedFamily rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SupportedZeroEnergy rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceWindowColumns rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstActiveRadicalBudget rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSource rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondDyadicPartition rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedRows rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.AmplificationSlotGap rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.AmplificationAllocationScale rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.AmplificationOriginalErrors rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.RadicalFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondRadicalFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Energy.ZeroReferencePhysical rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.CommonRadialPointwise rc=0 secs=45
+OAI.NumberTheory.DirichletL.Energy.ZeroUnbalancedOriginalPower rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ZeroUnbalancedOriginalGates rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ZeroReferenceLiveBounded rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthBounds rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ZeroReflectionSupport rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.UniformOriginalEnergy rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ReferenceHomogeneous rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ReferenceWeightedEnergy rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ReferenceDeletionBudget rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowControl rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowWindow rc=0 secs=46
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowReflectionError rc=0 secs=43
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorDyadic rc=0 secs=46
+OAI.NumberTheory.DirichletL.PrimeRows.NormalizedTransportSaving rc=0 secs=46
+OAI.NumberTheory.DirichletL.PrimeRows.CentralSupportedSplit rc=0 secs=46
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFloorCollected rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorNormalized rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyIntegral rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorDictionary rc=0 secs=43
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorSourceCount rc=0 secs=45
+OAI.NumberTheory.DirichletL.Parameters rc=0 secs=43
+OAI.NumberTheory.DirichletL.Inversion.InitialRetainedSum rc=0 secs=46
+OAI.NumberTheory.DirichletL.Inversion.InitialPhysicalReassembly rc=0 secs=46
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicTailBound rc=0 secs=46
+OAI.NumberTheory.DirichletL.Inversion.InitialHighFrequencyTailInfinite rc=0 secs=46
+OAI.NumberTheory.DirichletL.Inversion.InitialConjugateEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Inversion.InitialZeroModePhysical rc=0 secs=44
+OAI.NumberTheory.DirichletL.Inversion.InitialCanonicalState rc=0 secs=43
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedPeriod rc=0 secs=44
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedPool rc=0 secs=45
+OAI.NumberTheory.DirichletL.Inversion.InitialRayAttachment rc=0 secs=45
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedSource rc=0 secs=44
+OAI.NumberTheory.DirichletL.Inversion.InitialRawDictionary rc=0 secs=41
+OAI.NumberTheory.DirichletL.Inversion.InitialPhysicalMeasure rc=0 secs=43
+OAI.NumberTheory.DirichletL.Detector.RayPoolGood rc=0 secs=44
+OAI.NumberTheory.DirichletL.Descent.SecondDeletedMovingMass rc=0 secs=44
+OAI.NumberTheory.DirichletL.Descent.FreshWindows rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.OriginalReflectionApproximation rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.SourceProfileMass rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstTailAggregate rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.PrimeBin rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.RayQuotient rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.Primitive rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.Dyadic rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.RadialMellin rc=0 secs=45
+OAI.NumberTheory.DirichletL.Dictionary.InverseUniformFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Hecke.DetectorFiberEnergy rc=0 secs=42
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowCount rc=0 secs=42
+OAI.NumberTheory.DirichletL.Inversion.InitialOverlapFourier rc=0 secs=42
+OAI.NumberTheory.DirichletL.Inversion.InitialClippedColumns rc=0 secs=41
+OAI.NumberTheory.DirichletL.Moments.HeckeColumnWindow rc=0 secs=45
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerIntegral rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.Valuation rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.FixedEuler rc=0 secs=42
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalCubeReduction rc=0 secs=42
+OAI.NumberTheory.DirichletL.PrimeRows.DetectorBins rc=0 secs=42
+OAI.NumberTheory.DirichletL.Detector.RaySlots rc=0 secs=42
+OAI.NumberTheory.DirichletL.PrimeRows.Principal rc=0 secs=44
+OAI.NumberTheory.DirichletL.Detector.CalibrationSupport rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.MarkedHolomorphic rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.RowCount rc=0 secs=43
+OAI.NumberTheory.DirichletL.PrimeRows.PhysicalLargeTail rc=0 secs=43
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceMass rc=0 secs=43
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceArithmetic rc=0 secs=42
+OAI.NumberTheory.DirichletL.Inversion.InitialMarkedReserve rc=0 secs=41
+OAI.NumberTheory.DirichletL.Inversion.InitialResidualUniformEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Inversion.InitialMarkedAssignedGeometry rc=0 secs=44
+OAI.NumberTheory.DirichletL.Detector.DetectorMomentFiberGates rc=0 secs=46
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.DetectorPlainFiberCount rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.DetectorSimultaneousSupport rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.DetectorWitnessRows rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourcePrimeBound rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorShared rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.InductionEnergy rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.SecondReducedPredicate rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.FixedRay rc=0 secs=43
+OAI.NumberTheory.DirichletL.CenteredExceptionalProfile rc=0 secs=43
+OAI.NumberTheory.DirichletL.FiniteFourier rc=0 secs=41
+OAI.NumberTheory.DirichletL.Moments.PlainPositiveScale rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.OriginalRadialComparison rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.CommonMaskEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.UniformRadialComparison rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.PlainGlobalEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceDegree rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.RadialEligibleEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalAllocated rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.TerminalEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.SourceRectangleMask rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.SecondHeightFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.RestrictedSource rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceProduct rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryFiber rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionarySupport rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceBatch rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.HeckeExceptionalEnergy rc=0 secs=42
+OAI.NumberTheory.DirichletL.Hecke.DetectorFrequency rc=0 secs=46
+OAI.NumberTheory.DirichletL.GammaDetectorExpansion rc=0 secs=46
+OAI.NumberTheory.DirichletL.Hecke.DetectorBudget rc=0 secs=45
+OAI.NumberTheory.DirichletL.Hecke.DetectorFourierActual rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.SourceSecondZeroEnergy rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.CommonLinearSource rc=0 secs=43
+OAI.NumberTheory.DirichletL.Moments.FirstSecondCapacityShift rc=0 secs=42
+OAI.NumberTheory.DirichletL.Moments.FirstMixedNormalization rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.PrimeSlotUniform rc=0 secs=47
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowwisePolynomial rc=0 secs=47
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowwiseChain rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.DyadicSource rc=0 secs=44
+OAI.NumberTheory.DirichletL.Hecke.DetectorTail rc=0 secs=44
+OAI.NumberTheory.DirichletL.Hecke.DetectorPartition rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowCountCrossing rc=0 secs=45
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationMask rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.Canonical rc=0 secs=45
+OAI.NumberTheory.DirichletL.Hecke.Boundary rc=0 secs=45
+OAI.NumberTheory.DirichletL.PrimeRows.Unramified rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.SourceExclusions rc=0 secs=44
+OAI.NumberTheory.DirichletL.Detector.HighRowsFiniteBounds rc=0 secs=43
+OAI.NumberTheory.DirichletL.Detector.GlobalRegion rc=0 secs=44
+OAI.NumberTheory.DirichletL.Detector.EulerHolomorphic rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.LowGaussianCentral rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.RayNormalization rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.PrincipalPhysical rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.PrincipalRemainderBounds rc=0 secs=45
+OAI.NumberTheory.DirichletL.Detector.PrincipalNormalizer rc=0 secs=44
+OAI.NumberTheory.DirichletL.Detector.FiniteProductBounds rc=0 secs=44
+OAI.NumberTheory.DirichletL.ContinuationInversion rc=0 secs=43
+OAI.NumberTheory.DirichletL.Continuation rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.Theta rc=0 secs=45
+OAI.NumberTheory.DirichletL.ConductorPresentation rc=0 secs=44
+OAI.NumberTheory.DirichletL.Hecke.ThetaSeries rc=0 secs=43
+OAI.NumberTheory.DirichletL.Hecke.Coordinates rc=0 secs=43
+OAI.NumberTheory.DirichletL.Supremum rc=0 secs=40
+OAI.NumberTheory.DirichletL.Hecke.DetectorDynamicSelection rc=0 secs=44
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationPrimePool rc=0 secs=44
+OAI.NumberTheory.DirichletL.PrimeRows.CubeCommonProfile rc=0 secs=46
+OAI.NumberTheory.DirichletL.PrimeRows.ProfileIntegral rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.DivisorTensor rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.MaskedVolume rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstExceptionalPrefactorActual rc=0 secs=42
+OAI.NumberTheory.DirichletL.Moments.FirstSectorEnergy rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.FirstSectorLocalization rc=0 secs=44
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceCommonBound rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstMixedExceptionalLow rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstMixedExceptionalCap rc=0 secs=47
+OAI.NumberTheory.DirichletL.Energy.FirstHighFourCoefficients rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.FirstCommonSourceBudget rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.FirstCanonicalAllowance rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstExceptionalPaidScales rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstDivisorCommonBound rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.SecondActivePhysicalDictionary rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstMixedWindow rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstNonexceptionalFixedWeightSum rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalDyadicCountSource rc=0 secs=46
+OAI.NumberTheory.DirichletL.Moments.Scale rc=0 secs=50
+OAI.NumberTheory.DirichletL.Moments.CanonicalFirst rc=0 secs=50
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularAmplification rc=0 secs=54
+OAI.NumberTheory.DirichletL.Moments.SecondWidthDrop rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.FirstAmplifiedCapacityRadius rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondPhysicalCost rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.SourceBlockWindows rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenRatioCost rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.SecondLiveSourceDescent rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalFamilyUniform rc=0 secs=48
+OAI.NumberTheory.DirichletL.Moments.SecondEnergySplit rc=0 secs=49
+OAI.NumberTheory.DirichletL.Moments.SecondBlockRadicalHarmonicMass rc=0 secs=49
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalFixedQUniform rc=0 secs=49
+OAI.NumberTheory.DirichletL.Moments.SecondLiveFamily rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.ReflectedSource rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalDyadic rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalSaving rc=0 secs=45
+OAI.NumberTheory.DirichletL.Moments.SecondLiveBlock rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalBudget rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalBlock rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondRadicalBlock rc=0 secs=50
+OAI.NumberTheory.DirichletL.Moments.ExceptionalKernel rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.SecondIdealBlockBound rc=0 secs=57
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalPairBound rc=0 secs=53
+OAI.NumberTheory.DirichletL.Moments.SecondBlockHarmonicMass rc=0 secs=65
+OAI.NumberTheory.DirichletL.Moments.SecondSupportedChildren rc=0 secs=75
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalChosenBlock rc=0 secs=75
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptionalPhysical rc=0 secs=75
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourcePool rc=0 secs=54
+OAI.NumberTheory.DirichletL.Energy.CanonicalPaidSource rc=0 secs=56
+OAI.NumberTheory.DirichletL.Energy.AllocatedBound rc=0 secs=52
+OAI.NumberTheory.DirichletL.Moments.AmplificationFamilyEnergy rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.CommonHeightEnvelope rc=0 secs=61
+OAI.NumberTheory.DirichletL.Energy.FixedRadialSource rc=0 secs=62
+OAI.NumberTheory.DirichletL.Energy.ReferenceRobustOriginal rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.FirstRetainedNorm rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.SourceInputFirstRemainder rc=0 secs=56
+OAI.NumberTheory.DirichletL.Moments.SecondTail rc=0 secs=55
+OAI.NumberTheory.DirichletL.Moments.RankinLabels rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.WholeDivisorShell rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.RadialSourceDictionary rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.ActiveCanonicalSource rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.ActiveSource rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.RankinScale rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.SecondSourceMask rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.UniformDivisorShell rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.EligibleEnergy rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.AllocatedDetectorCapped rc=0 secs=60
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionDeleted rc=0 secs=60
+OAI.NumberTheory.DirichletL.Energy.ReferenceState rc=0 secs=58
+OAI.NumberTheory.DirichletL.Energy.ChildState rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.AllocatedNaturalRadial rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.Extraction rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.Initial rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.PartitionNorm rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceWindowEnergy rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.Forcing rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorSlots rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceBound rc=0 secs=58
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceCanonicalData rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceWindow rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstChildBound rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.SourceMass rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.ConjugateWindow rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.FirstInactiveRadicalMass rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.ZeroMeanBridge rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.FirstSectorTransform rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.AmplificationActiveFamily rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.SecondPhysicalWindow rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.AmplificationErrorEnergy rc=0 secs=62
+OAI.NumberTheory.DirichletL.Moments.SecondSourceFrequency rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.AmplificationEligibility rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.FirstChildProfile rc=0 secs=63
+OAI.NumberTheory.DirichletL.Moments.CommonRawScale rc=0 secs=59
+OAI.NumberTheory.DirichletL.Moments.SecondSixthSource rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.FirstFamily rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.AmplificationAllocationCost rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.AmplificationChildEnergy rc=0 secs=60
+OAI.NumberTheory.DirichletL.Moments.AddedZero rc=0 secs=60
+OAI.NumberTheory.DirichletL.Energy.ZeroReferenceLive rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.RadialPointwiseUniform rc=0 secs=74
+OAI.NumberTheory.DirichletL.Moments.CommonRadialCost rc=0 secs=74
+OAI.NumberTheory.DirichletL.Moments.CommonRadialSource rc=0 secs=75
+OAI.NumberTheory.DirichletL.Energy.ZeroUnbalancedOriginalSource rc=0 secs=74
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowBranchGeometry rc=0 secs=74
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthReflection rc=0 secs=73
+OAI.NumberTheory.DirichletL.Energy.ZeroReferenceBounded rc=0 secs=74
+OAI.NumberTheory.DirichletL.Moments.ReflectedChoiceEnergy rc=0 secs=77
+OAI.NumberTheory.DirichletL.Energy.ZeroReferenceError rc=0 secs=77
+OAI.NumberTheory.DirichletL.Energy.ReferenceSource rc=0 secs=77
+OAI.NumberTheory.DirichletL.Moments.CommonMaskExpansion rc=0 secs=77
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowError rc=0 secs=77
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowReflection rc=0 secs=77
+OAI.NumberTheory.DirichletL.Moments.UniformReflectionApproximation rc=0 secs=77
+OAI.NumberTheory.DirichletL.PrimeRows.CubeCalibration rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.CubeBinPartition rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFloorDyadic rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.NormalizedTransport rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorIntegral rc=0 secs=65
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyArithmetic rc=0 secs=65
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFloorSaving rc=0 secs=65
+OAI.NumberTheory.DirichletL.Detector.CentralClassPartition rc=0 secs=70
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerSource rc=0 secs=70
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicAssemblyRetained rc=0 secs=71
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicTailGates rc=0 secs=71
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorBudget rc=0 secs=71
+OAI.NumberTheory.DirichletL.Detector.SourceAmplitudeClasses rc=0 secs=71
+OAI.NumberTheory.DirichletL.Inversion.InitialRetainedWindow rc=0 secs=71
+OAI.NumberTheory.DirichletL.Descent.SecondNormalizedEnergy rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialZeroMode rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialExcludedGeometry rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerRanges rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerState rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialHighFrequencyTailKernel rc=0 secs=73
+OAI.NumberTheory.DirichletL.Inversion.InitialKernelBridge rc=0 secs=74
+OAI.NumberTheory.DirichletL.Descent.SecondWholeKernel rc=0 secs=60
+OAI.NumberTheory.DirichletL.Descent.SecondDeletedMovingEnergy rc=0 secs=61
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowSpecialization rc=0 secs=61
+OAI.NumberTheory.DirichletL.Inversion.InitialCompletePool rc=0 secs=61
+OAI.NumberTheory.DirichletL.Descent.SecondOriginalMass rc=0 secs=61
+OAI.NumberTheory.DirichletL.Descent.SecondBalancedSource rc=0 secs=61
+OAI.NumberTheory.DirichletL.Inversion.InitialOverlap rc=0 secs=61
+OAI.NumberTheory.DirichletL.Moments.SourceRow rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.UniformPhysicalUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Reflection.SectorNormalizedUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Hecke.PrimeAnnular rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.FamilyTailUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Reflection.UniformNormalizedUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Moments.ReflectedNormalization rc=0 secs=84
+OAI.NumberTheory.DirichletL.Descent.SecondPass rc=0 secs=84
+OAI.NumberTheory.DirichletL.Hecke.PrimeDyadicSource rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.LiteralNormalizedUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Moments.RetainedReflection rc=0 secs=84
+OAI.NumberTheory.DirichletL.Moments.FirstDiscardedEnergy rc=0 secs=84
+OAI.NumberTheory.DirichletL.Inversion.ReflectedArithmeticHeight rc=0 secs=84 rev
+OAI.NumberTheory.DirichletL.Detector.GramCommonSum rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Detector.GramCommonParam rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.PeriodicThetaRegularity rc=0 secs=83
+OAI.NumberTheory.DirichletL.RayQuotient rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.OriginalSectorUniformDegree rc=0 secs=84 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorSimultaneous rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.RowTailUniformDegree rc=0 secs=84 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorFiberSpikes rc=0 secs=84
+OAI.NumberTheory.DirichletL.Reflection.OriginalRetainedUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Hecke.RayFamily rc=0 secs=84
+OAI.NumberTheory.DirichletL.Dictionary.InverseUniformLog rc=0 secs=84
+OAI.NumberTheory.DirichletL.Detector.LowGramArithmetic rc=0 secs=84 rev
+OAI.NumberTheory.DirichletL.GaussianTheta rc=0 secs=85
+OAI.NumberTheory.DirichletL.Descent.Marks rc=0 secs=77
+OAI.NumberTheory.DirichletL.Detector.GramCommonLinear rc=0 secs=80 rev
+OAI.NumberTheory.DirichletL.Reflection.RetainedBudgetUniformDegree rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Descent.SecondSeparatedColumns rc=0 secs=82
+OAI.NumberTheory.DirichletL.Reflection.WholeTailUniformDegree rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerRays rc=0 secs=81
+OAI.NumberTheory.DirichletL.Moments.FirstIdealFamily rc=0 secs=82
+OAI.NumberTheory.DirichletL.Reflection.TailEnergyBudgetUniformDegree rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Detector.GramCommonActual rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Descent.DescentProfiles rc=0 secs=83
+OAI.NumberTheory.DirichletL.Detector.LowGramFixedCoefficient rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialProfile rc=0 secs=83
+OAI.NumberTheory.DirichletL.Inversion.AmbientProfileTower rc=0 secs=83
+OAI.NumberTheory.DirichletL.Reflection.ActualSizeCapsUniformDegree rc=0 secs=78 rev
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalReduction rc=0 secs=78
+OAI.NumberTheory.DirichletL.Detector.GramCommonPhase rc=0 secs=81 rev
+OAI.NumberTheory.DirichletL.RayPrimeNormalizer rc=0 secs=77
+OAI.NumberTheory.DirichletL.Detector.GramNumerator rc=0 secs=78 rev
+OAI.NumberTheory.DirichletL.Reflection.Rows rc=0 secs=78 rev
+OAI.NumberTheory.DirichletL.Detector.GramLocalExtension rc=0 secs=78 rev
+OAI.NumberTheory.DirichletL.Detector.HighExcludedLocal rc=0 secs=78
+OAI.NumberTheory.DirichletL.PrimeRows.DetectorZeros rc=0 secs=78
+OAI.NumberTheory.DirichletL.Reflection.OriginalFullUniformDegree rc=0 secs=79 rev
+OAI.NumberTheory.DirichletL.Detector.HighRowsPrime rc=0 secs=84
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFiniteIntegral rc=0 secs=79
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationRows rc=0 secs=79
+OAI.NumberTheory.DirichletL.Detector.PhysicalAnalytic rc=0 secs=86
+OAI.NumberTheory.DirichletL.Detector.GramFrequency rc=0 secs=87 rev
+OAI.NumberTheory.DirichletL.Detector.HighAbsolute rc=0 secs=86
+OAI.NumberTheory.DirichletL.Detector.GramGlobalExtension rc=0 secs=87 rev
+OAI.NumberTheory.DirichletL.Detector.GramJointFixed rc=0 secs=87 rev
+OAI.NumberTheory.DirichletL.PrimeRows.MarkedContinuation rc=0 secs=87
+OAI.NumberTheory.DirichletL.Reflection.Moving rc=0 secs=87 rev
+OAI.NumberTheory.DirichletL.PrimeRows.SelectedHolomorphic rc=0 secs=87
+OAI.NumberTheory.DirichletL.PrimeRows.PhysicalBound rc=0 secs=86
+OAI.NumberTheory.DirichletL.Reflection.FullBudgetUniformDegree rc=0 secs=86 rev
+OAI.NumberTheory.DirichletL.Reflection.UniformSieve rc=0 secs=87 rev
+OAI.NumberTheory.DirichletL.Detector.Calibration rc=0 secs=86
+OAI.NumberTheory.DirichletL.UnitSexticWitness rc=0 secs=88
+OAI.NumberTheory.DirichletL.Detector.GramMean rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.Dictionary.InverseAssignedCount rc=0 secs=95
+OAI.NumberTheory.DirichletL.PrimeRows.LargeSaving rc=0 secs=95
+OAI.NumberTheory.DirichletL.Inversion.InitialUniformFresh rc=0 secs=95
+OAI.NumberTheory.DirichletL.Reflection.Projections rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.Detector.GramGcdSource rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialResidualPool rc=0 secs=94
+OAI.NumberTheory.DirichletL.Detector.GramJoint rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceReindex rc=0 secs=95
+OAI.NumberTheory.DirichletL.Reflection.UniformMeasure rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.Reflection.UniformFiltered rc=0 secs=95 rev
+OAI.NumberTheory.DirichletL.PrimeRows.PhysicalDyad rc=0 secs=96
+OAI.NumberTheory.DirichletL.Inversion.InitialResidualTupleEnergy rc=0 secs=96
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceRemaining rc=0 secs=82
+OAI.NumberTheory.DirichletL.Detector.GramMeanLift rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Reflection.CanonicalWidth rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Detector.GramJointSource rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Detector.DetectorMomentGates rc=0 secs=82
+OAI.NumberTheory.DirichletL.Reflection.WeightedMeasurable rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Dictionary.InverseMarkedReferenceProducts rc=0 secs=82
+OAI.NumberTheory.DirichletL.Hecke.DetectorDyadicLengths rc=0 secs=82
+OAI.NumberTheory.DirichletL.Detector.LowReflectedExponent rc=0 secs=82 rev
+OAI.NumberTheory.DirichletL.Reflection.GlobalBudgetUniformDegree rc=0 secs=83 rev
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourcePrimeGate rc=0 secs=82
+OAI.NumberTheory.DirichletL.Inversion.InitialQuotientGeometry rc=0 secs=83
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorNatural rc=0 secs=82
+OAI.NumberTheory.DirichletL.Reflection.Actual rc=0 secs=101 rev
+OAI.NumberTheory.DirichletL.Moments.SecondFamilyTransport rc=0 secs=101
+OAI.NumberTheory.DirichletL.Detector.GramGcd rc=0 secs=101 rev
+OAI.NumberTheory.DirichletL.Moments.SupportedCorrelation rc=0 secs=100
+OAI.NumberTheory.DirichletL.Detector.GramPrimaryLattice rc=0 secs=101 rev
+OAI.NumberTheory.DirichletL.Reflection.OptionalWidth rc=0 secs=101 rev
+OAI.NumberTheory.DirichletL.Reflection.CommonMeasure rc=0 secs=100 rev
+OAI.NumberTheory.DirichletL.Moments.SecondRadicalColumns rc=0 secs=101
+OAI.NumberTheory.DirichletL.Moments.PositiveSummability rc=0 secs=101
+OAI.NumberTheory.DirichletL.Moments.Primary rc=0 secs=101
+OAI.NumberTheory.DirichletL.Reflection.UniformPhysical rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Moments.RayMaskedFloorCoefficients rc=0 secs=102
+OAI.NumberTheory.DirichletL.CenteredExceptionalCount rc=0 secs=101
+OAI.NumberTheory.DirichletL.Moments.UniformOriginalComparison rc=0 secs=112
+OAI.NumberTheory.DirichletL.Moments.HeckeSlots rc=0 secs=111
+OAI.NumberTheory.DirichletL.Reflection.Local rc=0 secs=112 rev
+OAI.NumberTheory.DirichletL.Moments.UniformEligibleEnergy rc=0 secs=111
+OAI.NumberTheory.DirichletL.Reflection.SurvivingGate rc=0 secs=112 rev
+OAI.NumberTheory.DirichletL.Reflection.SumEnergy rc=0 secs=112 rev
+OAI.NumberTheory.DirichletL.Moments.CoreFloor rc=0 secs=112
+OAI.NumberTheory.DirichletL.Moments.OriginalComparisonEnergy rc=0 secs=113
+OAI.NumberTheory.DirichletL.Moments.RadialPolynomialEnergy rc=0 secs=113
+OAI.NumberTheory.DirichletL.Detector.GramJointMean rc=0 secs=112 rev
+OAI.NumberTheory.DirichletL.Detector.LowReflectedLength rc=0 secs=113 rev
+OAI.NumberTheory.DirichletL.Reflection.MemberBudgetUniformDegree rc=0 secs=113 rev
+OAI.NumberTheory.DirichletL.Moments.PlainGlobalActual rc=0 secs=114
+OAI.NumberTheory.DirichletL.Moments.RestrictedDomain rc=0 secs=98
+OAI.NumberTheory.DirichletL.Moments.OriginalChildEnergy rc=0 secs=97
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalSlots rc=0 secs=99
+OAI.NumberTheory.DirichletL.Moments.SecondChildProfile rc=0 secs=98
+OAI.NumberTheory.DirichletL.Detector.GramLatticeSource rc=0 secs=99 rev
+OAI.NumberTheory.DirichletL.Reflection.Columns rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Detector.GramIdealDilation rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Moments.DivisorRetained rc=0 secs=98
+OAI.NumberTheory.DirichletL.Moments.AllocatedCenteredCapped rc=0 secs=99
+OAI.NumberTheory.DirichletL.Reflection.RetainedWidth rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Reflection.UniformNormalized rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Moments.SourceRectangle rc=0 secs=100
+OAI.NumberTheory.DirichletL.Detector.GramPeriodicPoisson rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Reflection.OriginalSaving rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorCoefficientBounds rc=0 secs=109
+OAI.NumberTheory.DirichletL.Reflection.SumMeasure rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Inversion.ReflectedNormalization rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceSlots rc=0 secs=109
+OAI.NumberTheory.DirichletL.Reflection.LowExponent rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorFourierWitness rc=0 secs=109
+OAI.NumberTheory.DirichletL.Moments.DetectorDictionaryRows rc=0 secs=109
+OAI.NumberTheory.DirichletL.Hecke.DetectorWitnessArithmetic rc=0 secs=108
+OAI.NumberTheory.DirichletL.Moments.HeckeExpansion rc=0 secs=109
+OAI.NumberTheory.DirichletL.Reflection.Cofactor rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Reflection.MemberGeometryUniformDegree rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.GammaZeroDetector rc=0 secs=110
+OAI.NumberTheory.DirichletL.Detector.GramMobiusLattice rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorRowwise rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.FirstSecondCapacityLedger rc=0 secs=104
+OAI.NumberTheory.DirichletL.Hecke.DyadicScaledReflection rc=0 secs=103
+OAI.NumberTheory.DirichletL.Moments.PrimeSlotBound rc=0 secs=104
+OAI.NumberTheory.DirichletL.Detector.GramAnnularLattice rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Detector.GramJointPeriod rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Hecke.DetectorFourierSeparation rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.SecondDiagonal rc=0 secs=104
+OAI.NumberTheory.DirichletL.Detector.GramNonexceptionalBlock rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Moments.ExceptionalMaskedSource rc=0 secs=104
+OAI.NumberTheory.DirichletL.Detector.GramLatticeDecay rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Detector.GramJointConstruction rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Moments.PrimePower rc=0 secs=92
+OAI.NumberTheory.DirichletL.Moments.CRT rc=0 secs=92
+OAI.NumberTheory.DirichletL.Detector.HighLFactorization rc=0 secs=92
+OAI.NumberTheory.DirichletL.Reflection.BoundedTemplates rc=0 secs=92 rev
+OAI.NumberTheory.DirichletL.Detector.HighRowsTermBounds rc=0 secs=92
+OAI.NumberTheory.DirichletL.Reflection.NormalizedEnergy rc=0 secs=92 rev
+OAI.NumberTheory.DirichletL.Reflection.SectorNormalized rc=0 secs=92 rev
+OAI.NumberTheory.DirichletL.Reflection.RetainedCaps rc=0 secs=92 rev
+OAI.NumberTheory.DirichletL.Detector.EulerRegion rc=0 secs=93
+OAI.NumberTheory.DirichletL.Reflection.OriginalExponent rc=0 secs=93 rev
+OAI.NumberTheory.DirichletL.Detector.HighRowsRegion rc=0 secs=93
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationColumn rc=0 secs=93
+OAI.NumberTheory.DirichletL.Detector.GramMobiusPool rc=0 secs=93 rev
+OAI.NumberTheory.DirichletL.Reflection.PhysicalBranchMeasure rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Reflection.Partition rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Detector.GramPrimeSeparation rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Detector.PrincipalInput rc=0 secs=103
+OAI.NumberTheory.DirichletL.Hecke.PrincipalResidue rc=0 secs=102
+OAI.NumberTheory.DirichletL.Reflection.LowBranchSum rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Detector.CompensationActual rc=0 secs=102
+OAI.NumberTheory.DirichletL.Reflection.CanonicalEnergyUniformDegree rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Detector.LowGaussianRemote rc=0 secs=103
+OAI.NumberTheory.DirichletL.Detector.CanonicalPhysicalRows rc=0 secs=102
+OAI.NumberTheory.DirichletL.Detector.GramJointProfile rc=0 secs=102 rev
+OAI.NumberTheory.DirichletL.Detector.PrincipalTransport rc=0 secs=102
+OAI.NumberTheory.DirichletL.PrincipalSignalComparison rc=0 secs=102
+OAI.NumberTheory.DirichletL.CharacterTransport rc=0 secs=94
+OAI.NumberTheory.DirichletL.LatticeSummability rc=0 secs=94
+OAI.NumberTheory.DirichletL.EisensteinTheta rc=0 secs=94
+OAI.NumberTheory.DirichletL.Reflection.LiteralNormalized rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Reflection.Denominator rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Reflection.OriginalBranchSum rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Detector.GramPhysicalScale rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Moments.PrimePool rc=0 secs=93
+OAI.NumberTheory.DirichletL.Reflection.FrozenNorms rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Detector.GramWindowMobius rc=0 secs=94 rev
+OAI.NumberTheory.DirichletL.Hecke.InverseAmplificationAggregate rc=0 secs=94
+OAI.NumberTheory.DirichletL.PrincipalMellinGrowth rc=0 secs=95
+OAI.NumberTheory.DirichletL.PrincipalSlotEstimate rc=0 secs=95
+OAI.NumberTheory.DirichletL.Reflection.Split rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Detector.InitialScales rc=0 secs=103
+OAI.NumberTheory.DirichletL.Reflection.KernelAdmissible rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Moments.FirstSectors rc=0 secs=102
+OAI.NumberTheory.DirichletL.Moments.DivisorExtraction rc=0 secs=103
+OAI.NumberTheory.DirichletL.Moments.Mask rc=0 secs=103
+OAI.NumberTheory.DirichletL.Moments.FirstEnergy rc=0 secs=102
+OAI.NumberTheory.DirichletL.Moments.FirstExceptionalPrefactor rc=0 secs=103
+OAI.NumberTheory.DirichletL.Reflection.Shape rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Detector.GramResidue rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Moments.FirstLocalization rc=0 secs=103
+OAI.NumberTheory.DirichletL.Reflection.LowSector rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Reflection.CanonicalDyadsUniformDegree rc=0 secs=103 rev
+OAI.NumberTheory.DirichletL.Detector.GramSourceBlock rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Reflection.NormalizedColumns rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Reflection.ShapeWeights rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Detector.GramCommonSource rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Reflection.RowTail rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceAllocationControl rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceAllocatedInput rc=0 secs=110
+OAI.NumberTheory.DirichletL.Energy.FirstHighExceptionalPowers rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.CommonAllowance rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.FirstSecondPaidLedger rc=0 secs=110
+OAI.NumberTheory.DirichletL.Detector.LowGramHeight rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Moments.FirstMixedChild rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceFixedEnergy rc=0 secs=110
+OAI.NumberTheory.DirichletL.Reflection.PhysicalEnergy rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Reflection.LowRetained rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Reflection.BranchCount rc=0 secs=109 rev
+OAI.NumberTheory.DirichletL.Moments.SourceInputFirstTailScale rc=0 secs=109
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalDyadicCount rc=0 secs=110
+OAI.NumberTheory.DirichletL.Reflection.OriginalSector rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Reflection.KernelGeometry rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Moments.SecondCanonical rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.FirstDivisorSupport rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.SecondHarmonicBudget rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.FirstCanonicalFamily rc=0 secs=110
+OAI.NumberTheory.DirichletL.Reflection.CanonicalChoiceEnergyUniformDegree rc=0 secs=110 rev
+OAI.NumberTheory.DirichletL.Moments.FirstNonexceptionalWeightSum rc=0 secs=110
+OAI.NumberTheory.DirichletL.Moments.SecondActualWidth rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.SourceDyadicShell rc=0 secs=133 mid
+OAI.NumberTheory.DirichletL.Moments.CompleteCommon rc=0 secs=134 mid
+OAI.NumberTheory.DirichletL.Moments.SourceDyadicShell rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenChosen rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.FirstActiveFourier rc=0 secs=134 mid
+OAI.NumberTheory.DirichletL.Moments.SecondBlockSupport rc=0 secs=134 mid
+OAI.NumberTheory.DirichletL.Reflection.FamilyFactorization rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Detector.GramCanonical rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Reflection.ActualBounds rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularGeometry rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.FirstActiveFourier rc=0 secs=150
+OAI.NumberTheory.DirichletL.Detector.GramAnnularCount rc=0 secs=150 rev
+OAI.NumberTheory.DirichletL.Moments.SecondBlockSupport rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.SecondActualWidth rc=0 secs=134 mid
+OAI.NumberTheory.DirichletL.Moments.FirstAnnularGeometry rc=0 secs=134 mid
+OAI.NumberTheory.DirichletL.Moments.CompleteCommon rc=0 secs=149
+OAI.NumberTheory.DirichletL.Detector.GramShell rc=0 secs=150 rev
+OAI.NumberTheory.DirichletL.Reflection.Sector rc=0 secs=150 rev
+OAI.NumberTheory.DirichletL.Moments.ExceptionalReflection rc=0 secs=141
+OAI.NumberTheory.DirichletL.Reflection.Surviving rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Reflection.CountBudget rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Reflection.KernelSeparation rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedRatioScalar rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Moments.RestrictedEnergy rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Moments.CommonRadicalHarmonicMass rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalFixedQSaved rc=0 secs=141
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedRatioCost rc=0 secs=141
+OAI.NumberTheory.DirichletL.Reflection.WholeTail rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Moments.CommonRadicalHarmonicMass rc=0 secs=141
+OAI.NumberTheory.DirichletL.Reflection.OriginalRetained rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Reflection.LowRetainedBudget rc=0 secs=141 rev
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedRatioCost rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Moments.CommonExceptionalSource rc=0 secs=141
+OAI.NumberTheory.DirichletL.Moments.RestrictedEnergy rc=0 secs=141
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedRatioScalar rc=0 secs=141
+OAI.NumberTheory.DirichletL.Moments.SecondFrozenChosen rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalFixedQSaved rc=0 secs=141 mid
+OAI.NumberTheory.DirichletL.Reflection.Matrices rc=0 secs=142 rev
+OAI.NumberTheory.DirichletL.Moments.SecondMaskedWindow rc=0 secs=142
+OAI.NumberTheory.DirichletL.Moments.SecondWindowBudget rc=0 secs=142
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalOriginalBlock rc=0 secs=142
+OAI.NumberTheory.DirichletL.Reflection.CubeSlots rc=0 secs=142 rev
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedWidth rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Descent.MarkedTwists rc=0 secs=142 rev
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalRows rc=0 secs=142
+OAI.NumberTheory.DirichletL.Detector.GramLatticeWindow rc=0 secs=142 rev
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalOriginalBlock rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Moments.SecondBlockAggregate rc=0 secs=142
+OAI.NumberTheory.DirichletL.Detector.GramClassification rc=0 secs=142 rev
+OAI.NumberTheory.DirichletL.Moments.SecondRetainedWidth rc=0 secs=142
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalPair rc=0 secs=142
+OAI.NumberTheory.DirichletL.Moments.CommonExceptionalSource rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalPair rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalPhysicalRows rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Moments.SecondBlockAggregate rc=0 secs=142 mid
+OAI.NumberTheory.DirichletL.Reflection.CanonicalInactiveEnergyUniformDegree rc=0 secs=143 rev
+OAI.NumberTheory.DirichletL.Moments.ExceptionalWindowHeight rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.CommonExceptionalWindow rc=0 secs=148
+OAI.NumberTheory.DirichletL.Reflection.FilteredEnergy rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptional rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SecondNonexceptional rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Reflection.KernelWeights rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Moments.SecondCanonicalScalar rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.ExceptionalWindowHeight rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.Cauchy rc=0 secs=149 mid
+OAI.NumberTheory.DirichletL.Moments.SecondCanonicalScalar rc=0 secs=149 mid
+OAI.NumberTheory.DirichletL.Moments.CommonExceptionalWindow rc=0 secs=149 mid
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalPairDictionary rc=0 secs=149 mid
+OAI.NumberTheory.DirichletL.Detector.LowGramProfile rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Reflection.RetainedBudget rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Reflection.Energy rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Moments.Cauchy rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.SecondExceptionalPairDictionary rc=0 secs=149
+OAI.NumberTheory.DirichletL.Reflection.FullEnergyBasic rc=0 secs=149 rev
+OAI.NumberTheory.DirichletL.Moments.SecondOriginalChildren rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.AmplificationFamily rc=0 secs=148
+OAI.NumberTheory.DirichletL.Reflection.CubeSlotChoices rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationFamily rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Descent.SecondOriginalBound rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.FirstRetainedAssembly rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SecondBlockCount rc=0 secs=149
+OAI.NumberTheory.DirichletL.Moments.SourceSmoothedAllocation rc=0 secs=148
+OAI.NumberTheory.DirichletL.Descent.SecondSourceSize rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Descent.FirstModeColumns rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.GaussNormalization rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.GaussNormalization rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SourceSmoothedAllocation rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.SecondOriginalChildren rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.SecondBlockCount rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Reflection.CanonicalFrozenEnergyUniformDegree rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Reflection.LowFull rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Energy.CanonicalLiveCapacity rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Energy.ReferenceRobustDeletedEnergy rc=0 secs=148
+OAI.NumberTheory.DirichletL.Energy.CanonicalLiveCapacity rc=0 secs=149
+OAI.NumberTheory.DirichletL.Descent.MarkedFourier rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Descent.MarkedReflection rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.SecondSourceCost rc=0 secs=148
+OAI.NumberTheory.DirichletL.Reflection.Static rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.ActiveSmoothedSource rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.SecondWholeKernel rc=0 secs=148
+OAI.NumberTheory.DirichletL.Reflection.Frozen rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.SecondWholeKernel rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.SourceInputFirstSectorTailNatural rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.ActiveSmoothedSource rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SourceInputFirstSectorTailNatural rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Moments.FirstRetainedActive rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Detector.LowGramExceptional rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.FirstRetainedActive rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SourceInputZeroUniform rc=0 secs=148 mid
+OAI.NumberTheory.DirichletL.Descent.PrioritySourceEnergy rc=0 secs=148 rev
+OAI.NumberTheory.DirichletL.Moments.CanonicalRetainedSource rc=0 secs=148
+OAI.NumberTheory.DirichletL.Moments.SourceInputZeroUniform rc=0 secs=148
+OAI.NumberTheory.DirichletL.Energy.ReferenceRobustDeletedEnergy rc=0 secs=149 mid
+OAI.NumberTheory.DirichletL.Moments.MobiusRegroup rc=0 secs=139
+OAI.NumberTheory.DirichletL.Reflection.SourceSum rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.MobiusRegroup rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Moments.RankinSubset rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Moments.RankinRadical rc=0 secs=139
+OAI.NumberTheory.DirichletL.Moments.SecondSectorColumns rc=0 secs=139
+OAI.NumberTheory.DirichletL.Detector.GramCanonicalBlock rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationLiveMask rc=0 secs=138 mid
+OAI.NumberTheory.DirichletL.Moments.AmplificationLiveMask rc=0 secs=139
+OAI.NumberTheory.DirichletL.Detector.LowGramPoisson rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.SecondSectorColumns rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Moments.RankinRadical rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Detector.GramCanonicalSource rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.RankinSubset rc=0 secs=139
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceDetectorCapped rc=0 secs=139
+OAI.NumberTheory.DirichletL.Reflection.KernelIntegral rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.ActiveDivisorShell rc=0 secs=139
+OAI.NumberTheory.DirichletL.Reflection.OriginalFull rc=0 secs=139 rev
+OAI.NumberTheory.DirichletL.Moments.CanonicalRetainedSource rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Descent.FirstFreshMeasure rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Moments.ActiveDivisorShell rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Reflection.FilteredMeasure rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Descent.FirstModeAssembly rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Moments.Rectangle rc=0 secs=140
+OAI.NumberTheory.DirichletL.Reflection.LowFullBudget rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Moments.ReflectionRetainedLength rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceDetectorCapped rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Descent.FirstModeChild rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Moments.ReflectionRetainedLength rc=0 secs=140
+OAI.NumberTheory.DirichletL.Reflection.UniformTail rc=0 secs=140 rev
+OAI.NumberTheory.DirichletL.Moments.Bridge rc=0 secs=140
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceRayPrime rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Moments.NaturalFixedRaySourceRayPrime rc=0 secs=140
+OAI.NumberTheory.DirichletL.Moments.Support rc=0 secs=140
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowDirect rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowDirect rc=0 secs=140
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionGeometry rc=0 secs=140
+OAI.NumberTheory.DirichletL.Energy.OriginalHighReflectionGeometry rc=0 secs=140 mid
+OAI.NumberTheory.DirichletL.Descent.SecondMarkedTail rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Moments.ReflectedChild rc=0 secs=147
+OAI.NumberTheory.DirichletL.Moments.LogDyadic rc=0 secs=147
+OAI.NumberTheory.DirichletL.Descent.SecondTailAbsorption rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Descent.ReopenedPriority rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Reflection.CubeSlotSource rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Moments.FirstWholeAssembly rc=0 secs=147
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceOriginalColumn rc=0 secs=147
+OAI.NumberTheory.DirichletL.Moments.Partition rc=0 secs=147
+OAI.NumberTheory.DirichletL.Reflection.CompletedCanonicalEnergyUniformDegree rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Descent.SecondAllModes rc=0 secs=147 rev
+OAI.NumberTheory.DirichletL.Moments.AddedZeroUniform rc=0 secs=147
+OAI.NumberTheory.DirichletL.Moments.ZeroMode rc=0 secs=147
+OAI.NumberTheory.DirichletL.Moments.Bridge rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.FirstPhysicalSourceOriginalColumn rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.Partition rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.AddedZeroUniform rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.Support rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.ZeroMode rc=0 secs=147 mid
+OAI.NumberTheory.DirichletL.Moments.AmplificationActiveFactor rc=0 secs=107
+OAI.NumberTheory.DirichletL.Descent.MarkedStratum rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationMask rc=0 secs=107
+OAI.NumberTheory.DirichletL.Moments.SecondSourceRetained rc=0 secs=107
+OAI.NumberTheory.DirichletL.Reflection.WeightedEnergy rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationErrorPool rc=0 secs=107
+OAI.NumberTheory.DirichletL.Detector.GaussianLow rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationSourceError rc=0 secs=107
+OAI.NumberTheory.DirichletL.Reflection.KernelBaseline rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Moments.AmplificationEnergy rc=0 secs=107
+OAI.NumberTheory.DirichletL.Moments.SecondSectorRetained rc=0 secs=107
+OAI.NumberTheory.DirichletL.Descent.MarkedPhase rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Descent.PriorityRetainedBound rc=0 secs=107 rev
+OAI.NumberTheory.DirichletL.Moments.SecondSixthReduction rc=0 secs=104
+OAI.NumberTheory.DirichletL.Detector.GramFrequencySummation rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Reflection.Cross rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Detector.GramCanonicalTrivial rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Moments.PrimaryCharacter rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.AllocationCost rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.AmplificationLiveEnergy rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.FirstColumns rc=0 secs=104
+OAI.NumberTheory.DirichletL.Moments.GaussEnergy rc=0 secs=104
+OAI.NumberTheory.DirichletL.Detector.GramWeightedFrequency rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Reflection.Brackets rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Descent.CuspCongruence rc=0 secs=104 rev
+OAI.NumberTheory.DirichletL.Energy.ZeroReferencePower rc=0 secs=105
+OAI.NumberTheory.DirichletL.Detector.GramFiniteGcd rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Detector.LowGramDiagonal rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Reflection.Extraction rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Moments.OneReflectionScaleEnergy rc=0 secs=107
+OAI.NumberTheory.DirichletL.Detector.GramNonzeroFrequency rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Detector.GramFrequencyConvergence rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Moments.RadialPointwiseEnergy rc=0 secs=108
+OAI.NumberTheory.DirichletL.Reflection.FullBudget rc=0 secs=108 rev
+OAI.NumberTheory.DirichletL.Energy.ReferenceHomogeneousError rc=0 secs=108
+OAI.NumberTheory.DirichletL.Energy.ReferenceDeletionClipped rc=0 secs=108
+OAI.NumberTheory.DirichletL.Energy.ZeroUnbalancedOriginalDeleted rc=0 secs=108
+OAI.NumberTheory.DirichletL.Energy.ZeroGrowthWindow rc=0 secs=108
+OAI.NumberTheory.DirichletL.Energy.ZeroReferenceOriginal rc=0 secs=108
+OAI.NumberTheory.DirichletL.Descent.CanonicalRankPuncture rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.CanonicalRankMonotone rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.FirstTwoPassLowerRank rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.FirstMarkedZero rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerWeights rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.SecondAssignedSource rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.ActualSecondEnergy rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.SecondFixedFamily rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.Descent.FixedSquare rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.CubicSieve.FullImprovement rc=0 secs=41 batch10
+OAI.NumberTheory.DirichletL.HeathBrownIteration rc=0 secs=111 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialCommonRatios rc=0 secs=115 mid
+OAI.NumberTheory.DirichletL.Descent.SecondWholeMass rc=0 secs=115 mid
+OAI.NumberTheory.DirichletL.Moments.UniformReflectionProfile rc=0 secs=132
+OAI.NumberTheory.DirichletL.Descent.SecondDeletedModeEnergy rc=0 secs=115 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialCommonLists rc=0 secs=115 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialOverlapIdealFourier rc=0 secs=115 mid
+OAI.NumberTheory.DirichletL.Reflection.KernelSource rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.Reflection.FamilyTail rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.Moments.ReflectionWeightedEnergy rc=0 secs=132
+OAI.NumberTheory.DirichletL.Descent.Widths rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.Reflection.SurvivingEnergy rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.Reflection.LowGlobalBudget rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.PrimeRows.SmallPartition rc=0 secs=132
+OAI.NumberTheory.DirichletL.CubicSieve.PairPrimes rc=0 secs=132 rev
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFloorNormalized rc=0 secs=132
+OAI.NumberTheory.DirichletL.Moments.ReflectionTailMass rc=0 secs=132
+OAI.NumberTheory.DirichletL.Moments.ReflectionMass rc=0 secs=133
+OAI.NumberTheory.DirichletL.Energy.ReferenceLowMoments rc=0 secs=133
+OAI.NumberTheory.DirichletL.Hecke.DyadicBuffered rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Hecke.PrimeDyadicEuler rc=0 secs=131 mid
+OAI.NumberTheory.DirichletL.Detector.PairPhase rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerAssigned rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerAssignedCanonical rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Descent.FirstEnergy rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Detector.FinalAssemblyClass rc=0 secs=128
+OAI.NumberTheory.DirichletL.PrimeRows.NonfloorArithmetic rc=0 secs=128
+OAI.NumberTheory.DirichletL.Descent.FirstCoupledReindex rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Hecke.PrimeAmplitudeScale rc=0 secs=128
+OAI.NumberTheory.DirichletL.Descent.FirstOldEnergy rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Reflection.CubeSlotBounds rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Descent.FirstCommonMeasure rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Detector.CentralClassArithmetic rc=0 secs=128
+OAI.NumberTheory.DirichletL.Inversion.InitialCanonicalDomains rc=0 secs=127
+OAI.NumberTheory.DirichletL.Detector.SourceBatch rc=0 secs=128
+OAI.NumberTheory.DirichletL.Hecke.DyadicEstimates rc=0 secs=128 mid
+OAI.NumberTheory.DirichletL.Reflection.CompletedRowsEnergyUniformDegree rc=0 secs=128 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialRetainedPhysical rc=0 secs=127
+OAI.NumberTheory.DirichletL.Detector.SpectralSeparation rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialCanonicalStateWindow rc=0 secs=138
+OAI.NumberTheory.DirichletL.Descent.SecondBalancedPhysical rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicAssemblyWindows rc=0 secs=138
+OAI.NumberTheory.DirichletL.Detector.PhaseCancellation rc=0 secs=138 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerEmpty rc=0 secs=138
+OAI.NumberTheory.DirichletL.Detector.LiftedFourier rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Detector.PhysicalPoisson rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialHighFrequencyTailAnnulus rc=0 secs=138
+OAI.NumberTheory.DirichletL.Descent.SecondAllIntegral rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicAssemblySourceCaps rc=0 secs=138
+OAI.NumberTheory.DirichletL.Descent.PrincipalSelectorMass rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerFixedWindows rc=0 secs=138
+OAI.NumberTheory.DirichletL.Reflection.CompletedRowsEnergy rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Descent.ReopenedIdentification rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Detector.Windows rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Detector.LocalSummation rc=0 secs=139 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialDyadicAssemblyTail rc=0 secs=138
+OAI.NumberTheory.DirichletL.Inversion.PrincipalEnergy rc=0 secs=138 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerWindowGeometry rc=0 secs=151
+OAI.NumberTheory.DirichletL.Detector.HighRowsFirstHolomorphic rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.Descent.MarkBounds rc=0 secs=151
+OAI.NumberTheory.DirichletL.Reflection.ActualWeightedEnergy rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerModes rc=0 secs=151
+OAI.NumberTheory.DirichletL.PrimeRows.UniformTail rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.PrimeRows.FirstProduct rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.Descent.SecondVariablePrincipal rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.Descent.SecondRapidTail rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.Descent.SecondModeEnergy rc=0 secs=151
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerSourceMask rc=0 secs=151
+OAI.NumberTheory.DirichletL.Detector.GaussianDerivative rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.PrimeRows.UniformJoins rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.Detector.HighRowsFirstTerms rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialHighFrequencyTailRapid rc=0 secs=151
+OAI.NumberTheory.DirichletL.Descent.SecondCanonicalTail rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.Descent.WholePriorityEnergy rc=0 secs=151 rev
+OAI.NumberTheory.DirichletL.PrimeRows.CentralError rc=0 secs=151 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialPoissonBridge rc=0 secs=152
+OAI.NumberTheory.DirichletL.Descent.Overlap rc=0 secs=133
+OAI.NumberTheory.DirichletL.Descent.ActiveCusp rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Reflection.ThreeBlocks rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Reflection.CrudeCoefficient rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Descent.SecondDeletedPhysicalRecursive rc=0 secs=136
+OAI.NumberTheory.DirichletL.CubicSieve.Gcd rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Descent.CompleteMarkedPool rc=0 secs=136
+OAI.NumberTheory.DirichletL.Detector.HighRowsSelectedError rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Descent.SecondActualMass rc=0 secs=136
+OAI.NumberTheory.DirichletL.PrimeRows.MarkedSubset rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.PrimeRows.FiniteNormalization rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Reflection.RawTail rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Descent.SecondDensityAssembly rc=0 secs=136
+OAI.NumberTheory.DirichletL.PrimeRows.FirstWGrowth rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Reflection.Branch rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Reflection.Ramified rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialArithmetic rc=0 secs=137
+OAI.NumberTheory.DirichletL.Detector.HighRowsSelectedTerms rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Inversion.InitialLargeFourier rc=0 secs=137
+OAI.NumberTheory.DirichletL.Inversion.SecondProfileUniform rc=0 secs=74
+OAI.NumberTheory.DirichletL.Moments.ReflectedTruncation rc=0 secs=90
+OAI.NumberTheory.DirichletL.Detector.LowGramScale rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Detector.GramFrequencyMass rc=0 secs=91 rev
+OAI.NumberTheory.DirichletL.Detector.GramEnergyNonzero rc=0 secs=90 rev
+OAI.NumberTheory.DirichletL.Descent.SecondEnergy rc=0 secs=90
+OAI.NumberTheory.DirichletL.Detector.LowTupleGram rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Reflection.ExtractedKernel rc=0 secs=90 rev
+OAI.NumberTheory.DirichletL.Detector.GramPrefactor rc=0 secs=91 rev
+OAI.NumberTheory.DirichletL.Reflection.LowOriginalEnergy rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Detector.GramWindowGcd rc=0 secs=90 rev
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalVolume rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Descent.SecondProfileIdentity rc=0 secs=90
+OAI.NumberTheory.DirichletL.Reflection.GlobalBudget rc=0 secs=90 rev
+OAI.NumberTheory.DirichletL.Moments.TwistedReflection rc=0 secs=90
+OAI.NumberTheory.DirichletL.Detector.LowActualReflectedEnergy rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Moments.OneReflectionEnergy rc=0 secs=90
+OAI.NumberTheory.DirichletL.Detector.HighRowsSummability rc=0 secs=90 mid
+OAI.NumberTheory.DirichletL.Descent.Canonical rc=0 secs=90
+OAI.NumberTheory.DirichletL.Moments.FirstDiscarded rc=0 secs=47
+OAI.NumberTheory.DirichletL.Moments.RowNorm rc=0 secs=98
+OAI.NumberTheory.DirichletL.Detector.LowPeriodSupport rc=0 secs=98 mid
+OAI.NumberTheory.DirichletL.Hecke.PrimeDyadicScaled rc=0 secs=98
+OAI.NumberTheory.DirichletL.PrimeLogProfile rc=0 secs=98
+OAI.NumberTheory.DirichletL.RayOrthogonality rc=0 secs=98
+OAI.NumberTheory.DirichletL.Reflection.TailAbsorption rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Reflection.LowWidth rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Hecke.DyadicTailBudget rc=0 secs=98
+OAI.NumberTheory.DirichletL.Reflection.AnnularNormalization rc=0 secs=98 rev
+OAI.NumberTheory.DirichletL.Reflection.MarkedTuples rc=0 secs=98 mid
+OAI.NumberTheory.DirichletL.Detector.PhysicalRows rc=0 secs=99 mid
+OAI.NumberTheory.DirichletL.Reflection.KernelActual rc=0 secs=99 rev
+OAI.NumberTheory.DirichletL.Detector.GaussianCrude rc=0 secs=99 mid
+OAI.NumberTheory.DirichletL.Detector.GaussianDensityBudget rc=0 secs=99 mid
+OAI.NumberTheory.DirichletL.Hecke.PrimePowers rc=0 secs=99
+OAI.NumberTheory.DirichletL.Detector.GaussianTailBudget rc=0 secs=99 mid
+OAI.NumberTheory.DirichletL.Reflection.TailEnergyBudget rc=0 secs=99 rev
+OAI.NumberTheory.DirichletL.Inversion.TerminalWidths rc=0 secs=99 rev
+OAI.NumberTheory.DirichletL.Hecke.LogDerivative rc=0 secs=82
+OAI.NumberTheory.DirichletL.Descent.SecondFreshMeasure rc=0 secs=127
+OAI.NumberTheory.DirichletL.Descent.ProfileIntegral rc=0 secs=127
+OAI.NumberTheory.DirichletL.CubicSieve.PairPoisson rc=0 secs=127 rev
+OAI.NumberTheory.DirichletL.TraceConductor rc=0 secs=127
+OAI.NumberTheory.DirichletL.Detector.LowColumnBounds rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Reflection.LowMemberBudget rc=0 secs=127 rev
+OAI.NumberTheory.DirichletL.Descent.FirstCommonChild rc=0 secs=127 rev
+OAI.NumberTheory.DirichletL.Descent.ActualSecondUniform rc=0 secs=126
+OAI.NumberTheory.DirichletL.Detector.SpectralCoefficient rc=0 secs=126 mid
+OAI.NumberTheory.DirichletL.Detector.GaussValuation rc=0 secs=126 mid
+OAI.NumberTheory.DirichletL.Hecke.DetectorPhysicalSelection rc=0 secs=127
+OAI.NumberTheory.DirichletL.Detector.LowCauchy rc=0 secs=126 mid
+OAI.NumberTheory.DirichletL.Descent.FirstFamilyToSecond rc=0 secs=126 rev
+OAI.NumberTheory.DirichletL.Detector.SourceTriple rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Descent.FirstActualEnergy rc=0 secs=127 rev
+OAI.NumberTheory.DirichletL.Detector.EulerMarked rc=0 secs=127 mid
+OAI.NumberTheory.DirichletL.Descent.FirstCommonColumns rc=0 secs=127 rev
+OAI.NumberTheory.DirichletL.Inversion.ClippingProfiles rc=0 secs=128
+OAI.NumberTheory.DirichletL.Inversion.KernelSourceUniform rc=0 secs=117
+OAI.NumberTheory.DirichletL.Moments.CommonAllocationBox rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Reflection.CubeSlotEnergy rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Energy.AllocatedProfiles rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Descent.FirstCommonProfile rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Detector.CentralBranchProduct rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Detector.LocalUnitFrequency rc=0 secs=137
+OAI.NumberTheory.DirichletL.Descent.DescentHeight rc=0 secs=137
+OAI.NumberTheory.DirichletL.Descent.FullProfile rc=0 secs=137
+OAI.NumberTheory.DirichletL.Detector.HighRowsLocal rc=0 secs=136
+OAI.NumberTheory.DirichletL.Detector.HighRowsSeries rc=0 secs=136
+OAI.NumberTheory.DirichletL.Reflection.OriginalCompletedEnergyUniformDegree rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Reflection.OriginalCompletedEnergy rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Inversion.InitialEnergyCallerUnits rc=0 secs=137
+OAI.NumberTheory.DirichletL.Detector.RadialExchange rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Descent.ReopenedOriginalRow rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Descent.FirstCanonicalTail rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.Moments.FiniteProfileExceptionalFixedQCanonical rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Descent.WindowFourier rc=0 secs=137
+OAI.NumberTheory.DirichletL.Energy.PaidRemoval rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Detector.CentralRepeatedSubset rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Descent.PrincipalChild rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Descent.FirstLabelCellStepSource rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Hecke.RayPrimes rc=0 secs=136
+OAI.NumberTheory.DirichletL.Detector.HighRowsCentralDefect rc=0 secs=136 mid
+OAI.NumberTheory.DirichletL.Descent.WholePriorityPrincipal rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Descent.SecondPhysicalEnergy rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Descent.GlobalPrincipalMass rc=0 secs=136 rev
+OAI.NumberTheory.DirichletL.Detector.HighEulerLocal rc=0 secs=137
+OAI.NumberTheory.DirichletL.Detector.HighExcludedEuler rc=0 secs=137
+OAI.NumberTheory.DirichletL.PrimeRows.CanonicalTails rc=0 secs=137
+OAI.NumberTheory.DirichletL.PrimeRows.CentralRowCost rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.PrimeRows.CubeFiniteError rc=0 secs=137
+OAI.NumberTheory.DirichletL.PrimeRows.CentralSlotSum rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.PrimeRows.CentralCosts rc=0 secs=137 mid
+OAI.NumberTheory.DirichletL.Descent.WholePriorityRays rc=0 secs=137 rev
+OAI.NumberTheory.DirichletL.PrimeRows.BufferedContour rc=0 secs=137
+OAI.NumberTheory.DirichletL.PrimeCounting.AnnularPrimeMass rc=0 secs=137
+OAI.NumberTheory.DirichletL.Inversion.WholePriorityRapidTail rc=0 secs=137 rev

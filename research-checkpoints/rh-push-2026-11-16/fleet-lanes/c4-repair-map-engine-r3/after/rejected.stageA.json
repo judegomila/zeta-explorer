@@ -1,0 +1,5060 @@
+{
+ "counts": {
+  "closed family: fam-legendre-dual-limits": 2714,
+  "contains a combination closed in outcomes.json": 1472,
+  "closed family: fam-nb-gram-lammin": 2067,
+  "closed family: fam-selberg-control-companion": 1885,
+  "closed family: fam-one-zero-forces-many": 865,
+  "shares two nodes with a closed lane (nodes or launchedNodes)": 795,
+  "closed family: fam-stage-limit-semicontinuity": 521,
+  "closed family: fam-projection-domination-gonek": 415,
+  "closed family: fam-torus-exclusion-sign-test": 319,
+  "closed family: fam-order2-theta-rows": 510,
+  "closed family: fam-heat-monotone-hankel": 123,
+  "closed family: fam-hecke-shear-commutator": 178,
+  "closed family: fam-arithmetic-nb-span": 339,
+  "closed family: fam-reflected-euler-stage-canonical": 49,
+  "closed family: fam-euler-anchor-heat": 605,
+  "closed family: fam-pd-log-strip": 16,
+  "closed family: fam-linear-zero-measure-lmi": 58,
+  "closed family: fam-vaughan-split-landau": 242,
+  "closed family: fam-primitive-test-restriction": 292,
+  "all members flow-stable and none arithmetic (backward heat passes)": 573,
+  "all members attached to one closed row": 13,
+  "closed family: fam-multidelay-section": 51,
+  "all members from one module": 5,
+  "no member uses multiplicativity (DH passes)": 2899
+ },
+ "samples": {
+  "closed family: fam-legendre-dual-limits": [
+   {
+    "move": "M1",
+    "ids": [
+     "m23-poisson-reproducing-identity",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mesoscopic-density-floor-cotangent",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "af-hl-star-hierarchy",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-rank-trace-lemma",
+     "af-hl-star-hierarchy",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-rank-trace-lemma",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-spectral-convergence",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-degree",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-grade-kappa",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hidden-square-volterra-collapse",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "cofinal-legendre-dual"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "cofinal-mobius-sum-equals-x-m"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "suzuki-finite-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "theta-density-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "whole-even-coercivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "zeta-zero-lag1-anticorrelation"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "theta-density-positivity-p-pos",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zero-ode-ht",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-even-odd-boundary-energy",
+     "af-hl-star-hierarchy",
+     "legendre-dual-limit-density-zero"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mesoscopic-density-floor-cotangent",
+     "af-rank-trace-inertia",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mesoscopic-density-floor-cotangent",
+     "af-rank-trace-inertia",
+     "map-open-16"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "af-rank-trace-inertia",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   }
+  ],
+  "contains a combination closed in outcomes.json": [
+   {
+    "move": "M1",
+    "ids": [
+     "m23-poisson-reproducing-identity",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mesoscopic-density-floor-cotangent",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-rank-trace-lemma",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-spectral-convergence",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-degree",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-grade-kappa",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hidden-square-volterra-collapse",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "theta-density-positivity-p-pos",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zero-ode-ht",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-even-odd-boundary-energy",
+     "af-hl-star-hierarchy",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-twistor-map-s4",
+     "bagchi-strong-recurrence",
+     "map-open-6"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-degree",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-grade-kappa",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "start-substitution-lemma",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "subleading-k-closed-form",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sun-prop63-plus4-offset",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hidden-square-volterra-collapse",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-poisson-reproducing-identity",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mesoscopic-density-floor-cotangent",
+     "binding-row-bin",
+     "map-open-8"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-nb-gram-lammin": [
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "af-hl-star-hierarchy",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ingham-offlattice-riesz-floor",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ingham-offlattice-riesz-floor",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-amgm-gram-sharp",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-amgm-gram-sharp",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-pure-maj-witness-threshold",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-pure-maj-witness-threshold",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "evaluation-christoffel-duality",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "evaluation-christoffel-duality",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-negative-square",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-negative-square",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cayley-schur-trajectory",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cayley-schur-trajectory",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "coal-n-laguerre-law",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "coal-n-laguerre-law",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "conf-lb-laguerre-floor",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-gram-burnol-floor"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "conf-lb-laguerre-floor",
+     "alias-denominator-separation-curvature-floor",
+     "vasyunin-lammin-uniform-lower-bound"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-selberg-control-companion": [
+   {
+    "move": "M1",
+    "ids": [
+     "m23-rank-trace-lemma",
+     "af-hl-star-hierarchy",
+     "selberg-control-pair"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "evaluation-christoffel-duality",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ingham-offlattice-riesz-floor",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-amgm-gram-sharp",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-pure-maj-witness-threshold",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "permutation-defect-bound",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "curvature-charge-d",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "fixed-support-weil-symbol",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gaussian-subordination",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "lean-weil-small-support",
+     "alias-energy-in-sieve-algebra",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "evaluation-christoffel-duality",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ingham-offlattice-riesz-floor",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-amgm-gram-sharp",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-pure-maj-witness-threshold",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "permutation-defect-bound",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "alias-sign-determinacy",
+     "selberg-freeze-sandbox"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-one-zero-forces-many": [
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-spectral-convergence",
+     "af-hl-star-hierarchy",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-screw-response-psi",
+     "af-rank-trace-inertia",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "af-rank-trace-inertia",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "alpha-kh-pcc-gated-region",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "credit-variation-block-freeze",
+     "alpha-kh-pcc-gated-region",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "alpha-kh-pcc-gating-rigid",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "credit-variation-block-freeze",
+     "alpha-kh-pcc-gating-rigid",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-conjugation-closed-ordinates",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "fixed-support-weil-symbol",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "landau-one-sided-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "scalar-comparison-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-finite-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-screw-response-psi"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-spectral-convergence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-reserve-update",
+     "alpoge-furman-inertia-mechanism",
+     "whole-even-coercivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "curvature-charge-d",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gamma-bulk-identity",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gl2-weil-symbol",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "lean-weil-small-support",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "alpoge-furman-inertia-mechanism",
+     "suzuki-reserve-update"
+    ],
+    "control": null
+   }
+  ],
+  "shares two nodes with a closed lane (nodes or launchedNodes)": [
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "af-hl-star-hierarchy",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-annulus-boundary-conditions",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-annulus-dtn-operator",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-dirichlet-energy-fold",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-dual-conormal-family",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-jacobi-uniformization-involutions",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "theta-modular-ode-system",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "virtual-rungs-positive-extension",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-infinity-end-coordinate",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-twistor-map-s4",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "bagchi-strong-recurrence",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "curvature-charge-d",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "bagchi-strong-recurrence",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "bettin-conrey-intercept",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "binding-row-bin",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-legendre-dual",
+     "cofinal-pointwise-mobius-sum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "landau-transport-lemma-l"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "map-open-16"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "prime-square-pole-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "rm-parity-sign-law"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "suzuki-finite-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "legendre-dual-limit-density-zero",
+     "cofinal-pointwise-mobius-sum",
+     "v7-floor-theorem-c"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-stage-limit-semicontinuity": [
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-denominator-separation-curvature-floor",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-energy-in-sieve-algebra",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-sign-determinacy",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "alias-width-law-octave-weight",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sech-toeplitz-poisson-dual-envelope",
+     "alias-width-law-octave-weight",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "twin-pair-block-toeplitz-symbol",
+     "alias-width-law-octave-weight",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "arith-first-moment-residual-sign-law",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "burnol-ratio-conductor-band",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "burnol-ratio-plateau",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "conrey-kappa-theta-table",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "fourth-stage-schwarzian",
+     "conrey-kappa-theta-table",
+     "de-branges-hamiltonian-xi"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "coprime-core-second-moment-regrouping",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "cotangent-reciprocity-period-function",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "cotangent-second-moment-upper-lemma",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "start-substitution-lemma",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "theta-modular-ode-system",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sawtooth-s-of-t-lemma",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "flow-criticality-degree",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "lean-halfplane-substitution",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gauss-conv-equals-negative-time-flow",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gl2-weil-symbol",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "subleading-k-closed-form",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-projection-domination-gonek": [
+   {
+    "move": "M1",
+    "ids": [
+     "gue-two-interval-rigidity-drift",
+     "alpha-kh-pcc-gating-rigid",
+     "spectator-realness-rh-free"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gue-two-interval-rigidity-drift",
+     "bk-diagonal-prime-identity",
+     "spectator-realness-rh-free"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "bohr-torus-scan-certification",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "bohr-torus-scan-certification",
+     "lemma-cg-lambda-euler-weights"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "de-bruijn-sharp-in-ymax"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "euler-transport-flow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "first-radix-layer-criterion"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "freezing-inertia-tool"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "gap-domination-bootstrap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "positive-real-ladder-step"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "prime-square-pole-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "rouche-fe-symmetrised-euler-stage"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "winding-lyapunov"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "de-bruijn-sharp-in-ymax"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "gap-domination-bootstrap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "joint-h3-h4-minimal-input"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "landau-one-sided-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "monotonicity-envelope"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "vonmangoldt-weighted-sign-image"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "ce17-carrier-contract-open-family",
+     "w3-tail-lemma"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-torus-exclusion-sign-test": [
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "bagchi-strong-recurrence",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "bagchi-strong-recurrence",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "bohr-torus-scan-certification",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "bohr-torus-scan-certification",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "phase-retrieval-zeta",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "darlington-losslessness-s7",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "dbn-prime-torus-phase-closure",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "dbn-prime-torus-phase-closure",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "dh-partial-euler-factorisation",
+     "bagchi-strong-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "dh-partial-euler-factorisation",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "euler-product-torus-parametrisation",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-product-torus-parametrisation",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-transport-flow",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hermite-poulain-shift",
+     "five-shell-identity",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "poly-de-bruijn-heatop-lean",
+     "hagedorn-boundary-sigma-one",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "laguerre-hierarchy",
+     "hagedorn-boundary-sigma-one",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hermite-poulain-shift",
+     "heat-evolved-von-mangoldt-positivity",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "hermite-poulain-shift",
+     "heat-evolved-von-mangoldt-positivity",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "poly-de-bruijn-heatop-lean",
+     "heat-evolved-von-mangoldt-positivity",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "hecke-compression-lax-phillips",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "helson-discrepancy-rigidity",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "lean-halfplane-substitution",
+     "helson-discrepancy-rigidity",
+     "poly-de-bruijn-heatop-lean"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "zv-axis-limit-laguerre"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-order2-theta-rows": [
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "bohr-torus-scan-certification",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "bohr-torus-scan-certification",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "cofinal-mobius-sum-equals-x-m"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "helson-discrepancy-rigidity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "landau-transport-lemma-l"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "map-pos-1"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "rouche-fe-symmetrised-euler-stage"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "cubic-r2-conductor-a4",
+     "route-a-primon-reflection-gram"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "dbn-prime-torus-phase-closure",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "dbn-prime-torus-phase-closure",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-product-torus-parametrisation",
+     "helson-discrepancy-rigidity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-product-torus-parametrisation",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-product-torus-parametrisation",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-transport-flow",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-transport-flow",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "euler-transport-flow",
+     "mem-field-channel-bootstrap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "helson-discrepancy-rigidity",
+     "rouche-fe-symmetrised-euler-stage"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-heat-monotone-hankel": [
+   {
+    "move": "M1",
+    "ids": [
+     "zero-ode-ht",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "telescoping-kernel-projection-domination",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "debruijn-family-dyson-ode",
+     "cascade-s21-zeta2s-over-zeta",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "joint-h3-h4-minimal-input"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "monotonicity-envelope"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "mu-pass-overflow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "w3-tail-lemma"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "ce17-carrier-contract-open-family",
+     "zv-signed-shear-w"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gamma-bulk-identity",
+     "connes-adelic-truncated-trace",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "heat-fiber-completion-theorem",
+     "darlington-losslessness-s7",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hs-bound",
+     "krein-uniform-n-lower-bound-open",
+     "map-pos-12"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-spectral-convergence",
+     "krein-uniform-n-lower-bound-open",
+     "map-pos-12"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-17",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-17",
+     "mu-pass-overflow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-17",
+     "zv-signed-shear-w"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cutoff-energy-kernel-hc",
+     "map-pos-17",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-dual-conormal-family",
+     "map-pos-17",
+     "heat-fiber-completion-theorem"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-elliptic-double-cover",
+     "map-pos-17",
+     "route-a-primon-reflection-gram"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-18",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-18",
+     "mu-pass-overflow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "volterra-hankel-operator",
+     "map-pos-18",
+     "zv-signed-shear-w"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-hecke-shear-commutator": [
+   {
+    "move": "M1",
+    "ids": [
+     "t3-dagger-identity",
+     "catalan-signed-ladder",
+     "twisted-log-positivity-b-n"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "t3-dagger-identity",
+     "cm-eta-heights-lambda1",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "cubic-r2-conductor-a4",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "t3-dagger-identity",
+     "cubic-r2-conductor-a4",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "shear-gram-hs-identity",
+     "five-shell-identity",
+     "twisted-log-positivity-b-n"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "shear-gram-hs-identity",
+     "five-shell-p97-identity",
+     "lean-arb-certificate-replay"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "shear-gram-hs-identity",
+     "five-shell-p97-identity",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "shear-gram-hs-identity",
+     "five-shell-p97-identity",
+     "twisted-log-positivity-b-n"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "t3-dagger-identity",
+     "hasse-weil-checks",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "start-substitution-lemma",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "theta-kernel-sqrt-concavity",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sawtooth-s-of-t-lemma",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "helson-discrepancy-rigidity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "mu-pass-overflow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "positive-real-ladder-step"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "pulse-leakage-zero-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "rouche-fe-symmetrised-euler-stage"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "shear-perron-monotone-ceiling"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "capture-ratio-psd-slope",
+     "hecke-compression-lax-phillips",
+     "twisted-log-positivity-b-n"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gauss-conv-equals-negative-time-flow",
+     "hecke-compression-lax-phillips",
+     "klein-phase-transport-certificate"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-arithmetic-nb-span": [
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "hecke-compression-lax-phillips"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "lacunary-cone-weil-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "lean-arb-certificate-replay"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "map-open-12"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "map-pos-1"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "map-pos-2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "rouche-fe-symmetrised-euler-stage"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "cm-eta-heights-lambda1",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "fixed-support-weil-symbol",
+     "cm-eta-heights-lambda1",
+     "lacunary-cone-weil-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "heegner-height-upper-bound-h4prime",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "heegner-height-upper-bound-h4prime",
+     "inverse-line-cotangent-mean-value"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "heegner-height-upper-bound-h4prime",
+     "map-open-12"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "heegner-height-upper-bound-h4prime",
+     "map-pos-39"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "heegner-height-upper-bound-h4prime",
+     "rm-bulk-profile"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "inverse-line-cotangent-mean-value"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "map-open-12"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "map-pos-39"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "rm-bulk-profile"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "heegner-height-upper-bound-h4prime",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-scattering-factorisation",
+     "heegner-height-upper-bound-h4prime",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-scattering-factorisation",
+     "heegner-height-upper-bound-h4prime",
+     "hyperbolic-prime-spiral"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-reflected-euler-stage-canonical": [
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "curvature-charge-d",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "fixed-support-weil-symbol",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gl2-weil-symbol",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "lean-weil-small-support",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ns-rigid-primes-enter-as-n-scalars",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pick-weil-native-span",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "modular-scattering-factorisation",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "suzuki-screw-response-psi",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "gamma-bulk-identity",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "m23-unconditional-window-positivity",
+     "connes-twin-ladder-crosswalk",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "dbn-prime-torus-phase-closure"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "four-closure-routes"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "freezing-inertia-tool"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "mem-v52-unaudited-kyp"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "nyman-beurling-dx"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "schur-ratio-max-principle-gap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "dh-partial-euler-factorisation",
+     "vonmangoldt-weighted-sign-image"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-negative-square",
+     "dh-partial-euler-factorisation",
+     "mem-v52-unaudited-kyp"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-euler-anchor-heat": [
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "attractive-mean-field-gap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "euler-transport-flow"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "finite-height-shock-surrogate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "g6a-shock-lipschitz-two-routes"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-freeze-flow-interlacing",
+     "euler-anchor-heat-certificate",
+     "winding-lyapunov"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "attractive-mean-field-gap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "finite-height-shock-surrogate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "g6a-shock-lipschitz-two-routes"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cole-hopf-viscous-burgers",
+     "euler-anchor-heat-certificate",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "attractive-mean-field-gap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "finite-height-shock-surrogate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "g6a-shock-lipschitz-two-routes"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-gaussian-conv-negative-time",
+     "euler-anchor-heat-certificate",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mem-winding-monotone-classical",
+     "euler-anchor-heat-certificate",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-pd-log-strip": [
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "map-pos-44"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "mem-field-channel-bootstrap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "poly-de-bruijn-heatop-lean"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "route-a-primon-reflection-gram"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "hagedorn-boundary-sigma-one",
+     "tinfty-flow-generator-spectrum"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "field-channel-transfer-modulus"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "heat-fiber-completion-theorem"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "map-pos-44"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "mem-field-channel-bootstrap"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "n-uniform-fold-modulus-five-inputs"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "poly-de-bruijn-heatop-lean"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "pair-kernel-q-t",
+     "zpo-kinetic-equals-logzeta-dd",
+     "route-a-primon-reflection-gram"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-linear-zero-measure-lmi": [
+   {
+    "move": "M1",
+    "ids": [
+     "positive-real-ladder-step",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "first-reduced-kernels",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "first-reduced-kernels",
+     "kyp-bounded-real-prime-delay",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-boundary-kernel-pa",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zv-boundary-kernel-pa",
+     "kyp-bounded-real-prime-delay",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-index-identity",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "blaschke-ghost-negative-square",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "four-closure-routes",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "np-pick-seam-pencil",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "thin-hankel-schur-equivalence",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "wiener-hopf-phase-condition",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cayley-schur-trajectory",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "cayley-schur-trajectory",
+     "kyp-bounded-real-prime-delay",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "phase-cert-phase-am",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "phase-cert-phase-am",
+     "kyp-bounded-real-prime-delay",
+     "toeplitz-krein-sigma2"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "phase-cert-phase-am",
+     "kyp-bounded-real-prime-delay",
+     "vonmangoldt-weighted-sign-image"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "xi-arm-split-incomplete-gamma",
+     "kyp-bounded-real-prime-delay",
+     "prime-tent-rh-equivalence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "xi-arm-split-incomplete-gamma",
+     "kyp-bounded-real-prime-delay",
+     "vonmangoldt-weighted-sign-image"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "four-closure-routes"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "freezing-inertia-tool"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "landau-transport-lemma-l"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "mem-atlas-closing-line"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "nyman-beurling-dx"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "kyp-bounded-real-prime-delay",
+     "positive-real-ladder-step"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-vaughan-split-landau": [
+   {
+    "move": "M1",
+    "ids": [
+     "two-line-zero-detector",
+     "mv-cap-function-side-gap",
+     "prime-square-pole-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "mv-cap-function-side-gap",
+     "map-open-19"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "cofinal-mobius-sum-equals-x-m"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "dbn-global-014-coverage"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "landau-one-sided-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "nyman-beurling-dx"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "mollifier-holomorphy-constraint",
+     "vaughan-forcing-is-gauge",
+     "w3-tail-lemma"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "vaughan-forcing-is-gauge",
+     "bettin-conrey-intercept"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "vaughan-forcing-is-gauge",
+     "cofinal-mobius-sum-equals-x-m"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "vaughan-forcing-is-gauge",
+     "landau-one-sided-target"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "vaughan-forcing-is-gauge",
+     "nyman-beurling-dx"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "zeta-half-line-bound-6",
+     "vaughan-forcing-is-gauge",
+     "w3-tail-lemma"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "vaughan-forcing-law",
+     "h5-euler-products-bounded"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "vaughan-forcing-law",
+     "harmonic-strip-transport"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "vaughan-forcing-law",
+     "landau-transport-lemma-l"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "vaughan-forcing-law",
+     "prime-square-pole-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "landau-one-sided-d-bound",
+     "vaughan-forcing-law",
+     "v7-floor-theorem-c"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "h5-euler-products-bounded"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "landau-transport-lemma-l"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "prime-square-pole-recurrence"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "suzuki-finite-certificate"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "suzuki-screw-response-psi"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "closed-reserve-credit-debt",
+     "vaughan-forcing-law",
+     "v7-floor-theorem-c"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-primitive-test-restriction": [
+   {
+    "move": "M1",
+    "ids": [
+     "ff-ghost-index-toeplitz",
+     "selberg-geodesic-ground-truth",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "evaluation-christoffel-duality",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "family-weil-symbol",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "modular-scattering-factorisation",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "ingham-offlattice-riesz-floor",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-amgm-gram-sharp",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "parity-pure-maj-witness-threshold",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "sep-opt-lattice-extremal",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "multi-rung-weil-symbol",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "permutation-defect-bound",
+     "selberg-theorem-u-geodesic-monoid",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "permutation-defect-bound",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bbm-growth-class-implication",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-scattering-factorisation",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "route-b-limsup-stieltjes",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "vasyunin-fixed-modulus-antisymmetry",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M1",
+    "ids": [
+     "bridge-winding-equals-NT",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "binding-row-bin",
+     "map-pos-45"
+    ],
+    "control": "ctl-TW-"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "katz-sarnak-family-checks",
+     "map-pos-45"
+    ],
+    "control": "ctl-TW-"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "m23-cgdl-class-optimum",
+     "map-pos-45"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "mv-cap-sensitivities",
+     "map-pos-45"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "semilocal-trace-side-positivity",
+     "selberg-theorem-u-geodesic-monoid"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "corr23-mixed-prolate-ladder",
+     "selberg-theorem-u-geodesic-monoid",
+     "semilocal-trace-side-positivity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-12",
+     "map-pos-45",
+     "binding-row-bin"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-12",
+     "map-pos-45",
+     "katz-sarnak-family-checks"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-12",
+     "map-pos-45",
+     "map-pos-22"
+    ],
+    "control": null
+   }
+  ],
+  "all members flow-stable and none arithmetic (backward heat passes)": [
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "discriminant-gradient-flow"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "field-channel-transfer-modulus"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "straddle-exclusion-window-completeness"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "telescoping-kernel-projection-domination"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "adjacent-gap-reserve"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "antihermitian-strip-bound"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "background-field-packing-bound"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "burgers-fluid-bridge"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "burgers-limsup-tc"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "ch-holder-half-sharp"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "cm-flow-theta-trap"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "barrier-slab-height-scaling",
+     "collective-lambda-certificate"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "adjacent-gap-reserve"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "dyson-gap-ode-gronwall-branch"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "discriminant-gradient-flow"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "gap-ode-reserve"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "laguerre-hierarchy"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "mem-field-channel-bootstrap"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "mem-gap-cancellation-kl"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "mem-sg1c-c-half"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "burgers-fluid-bridge"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "collective-lambda-certificate"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "beta-gmin-span-three-factor-invariant",
+     "collision-local-index"
+    ],
+    "control": "ctl-HEAT"
+   }
+  ],
+  "all members attached to one closed row": [
+   {
+    "move": "M2",
+    "ids": [
+     "cue-neff-small-gap-correction",
+     "adjacent-gap-reserve"
+    ],
+    "control": "ctl-HEAT"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "dyson-loop-identity-defect",
+     "adjacent-gap-reserve"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "finite-prime-rigidity",
+     "suzuki-reserve-update"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "finite-prime-rigidity",
+     "suzuki-toeplitz-compression"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "lacunary-cone-4k-certificate",
+     "lac-eq-caratheodory-interpolation"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "lacunary-detection-horizon-law",
+     "lac-eq-caratheodory-interpolation"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "suzuki-finite-certificate",
+     "suzuki-reserve-update"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "suzuki-finite-certificate",
+     "suzuki-toeplitz-compression"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "theta-fisher-degree9",
+     "first-reduced-kernels"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "theta-fisher-degree9",
+     "fourth-stage-schwarzian"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "theta-fisher-degree9",
+     "positive-real-ladder-step"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "theta-fisher-degree9",
+     "single-crossing-compensation"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m23-ceiling-68185",
+     "af-closed-form-constants",
+     "af-rank-trace-inertia"
+    ],
+    "control": null
+   }
+  ],
+  "closed family: fam-multidelay-section": [
+   {
+    "move": "M2",
+    "ids": [
+     "jensen-loss-in-levinson",
+     "map-pos-47"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "kronecker-sup-lower-bounds",
+     "map-pos-41"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "freezing-inertia-tool"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "kyp-bounded-real-prime-delay"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "positive-real-ladder-step"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "restricted-mobius-delay-lift"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "star-min-pointwise-prime-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "twin-ladder-network"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "zpo-divergence-law-at-half"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "darlington-losslessness-s7",
+     "map-pos-41",
+     "zpo-kinetic-equals-logzeta-dd"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "darlington-losslessness-s7"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "h5-euler-products-bounded"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "lane-audit-h-desc"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "map-pos-17"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "poisson-prime-tail-energy"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "rm-parity-sign-law"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "rung-toeplitz-euler-detector"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "star-min-pointwise-prime-bound"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "m1plus-cubic-gauss-prime-sum-uniform",
+     "map-pos-41",
+     "target-0874-restricted-moment"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-2",
+     "map-pos-41",
+     "cascade-s21-zeta2s-over-zeta"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-2",
+     "map-pos-41",
+     "darlington-losslessness-s7"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "map-open-2",
+     "map-pos-41",
+     "h5-euler-products-bounded"
+    ],
+    "control": null
+   }
+  ],
+  "all members from one module": [
+   {
+    "move": "M2",
+    "ids": [
+     "truncated-kinetic-mertens-law",
+     "zpo-divergence-law-at-half"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "M2",
+    "ids": [
+     "truncated-kinetic-mertens-law",
+     "zpo-kinetic-equals-logzeta-dd"
+    ],
+    "control": "ctl-DH"
+   },
+   {
+    "move": "P2",
+    "ids": [
+     "zpo-divergence-law-at-half",
+     "truncated-kinetic-mertens-law"
+    ],
+    "control": null
+   },
+   {
+    "move": "P2",
+    "ids": [
+     "zpo-divergence-law-at-half",
+     "zpo-kinetic-equals-logzeta-dd"
+    ],
+    "control": null
+   },
+   {
+    "move": "P2",
+    "ids": [
+     "zpo-divergence-law-at-half",
+     "hagedorn-boundary-sigma-one"
+    ],
+    "control": null
+   }
+  ],
+  "no member uses multiplicativity (DH passes)": [
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "mem-winding-monotone-classical"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "winding-monotone-backward-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "discriminant-gradient-flow",
+     "winding-monotone-under-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "mem-winding-monotone-classical"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "winding-monotone-backward-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "adjacent-gap-reserve",
+     "winding-monotone-under-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "adjacent-gap-reserve"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "cole-hopf-viscous-burgers"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "mem-winding-monotone-classical"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "winding-monotone-backward-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "burgers-fluid-bridge",
+     "winding-monotone-under-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "cole-hopf-viscous-burgers",
+     "crossing-time-poisson-monotone"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "cole-hopf-viscous-burgers",
+     "mem-winding-monotone-classical"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "cole-hopf-viscous-burgers",
+     "resolvent-burgers-identity"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "cole-hopf-viscous-burgers",
+     "winding-monotone-backward-heat"
+    ],
+    "control": null
+   },
+   {
+    "move": "M3",
+    "ids": [
+     "attractive-mean-field-gap",
+     "cole-hopf-viscous-burgers",
+     "winding-monotone-under-heat"
+    ],
+    "control": null
+   }
+  ]
+ }
+}

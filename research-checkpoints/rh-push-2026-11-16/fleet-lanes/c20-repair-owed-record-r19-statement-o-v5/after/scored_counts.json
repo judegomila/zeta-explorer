@@ -1,0 +1,42 @@
+{
+ "scoredInDump": 8426,
+ "scoredContainingMapOpen23": 0,
+ "scoredNamingHQControl": 0,
+ "scoredWithRowCheckX2orG45": 578,
+ "keysOfCandidate": [
+  "cells",
+  "control",
+  "firstTest",
+  "key",
+  "move",
+  "nodes",
+  "r4Devices",
+  "reason",
+  "requirements",
+  "rowsChecked",
+  "score",
+  "scoreParts",
+  "sharedObjects",
+  "theme",
+  "underused"
+ ],
+ "scoredWithVerdictNamingHQ": 581,
+ "exampleVerdict": {
+  "row": "X2",
+  "name": "HQ2 as a screen for devices reading functional equation + integer frequencies + multiplicativity + positivity ",
+  "overlap": [
+   "de-branges",
+   "euler-product",
+   "hecke",
+   "theta",
+   "trace-formula",
+   "zero-free"
+  ],
+  "jaccard": 0.333,
+  "verdict": "adjacent by tags only; row falls to HQ2/HQ3/HQ4/NR/ZQ: answer Q1 for these controls first"
+ },
+ "top60FinalVerdictNamingHQ": 6,
+ "top60BeforeVerdictNamingHQ": 0,
+ "top60FinalCheckingX2orG45": 6,
+ "top60BeforeCheckingX2orG45": 0
+}

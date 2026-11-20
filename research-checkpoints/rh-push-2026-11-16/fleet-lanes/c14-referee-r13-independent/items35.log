@@ -1,0 +1,112 @@
+{
+ "q=2 c=2.05": {
+  "a": 0.32192809488736235,
+  "a_lt_half": true,
+  "series_times_P_minus_1": 2.1757707302690133e-57,
+  "multiplier_symmetry_w": 1.070462597953282e-59,
+  "multiplier_symmetry_s": 1.0688481771038137e-59,
+  "value_G_s_over_G_w": "(0.538404073746609-0.13891020658128j)",
+  "P_times_inverse_coefficients": [
+   "1",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "P_on_line_range": [
+   0.05005005698722722,
+   4.05
+  ]
+ },
+ "q=3 c=2.2": {
+  "a": 0.4037532248277235,
+  "a_lt_half": true,
+  "series_times_P_minus_1": 8.362333349668577e-58,
+  "multiplier_symmetry_w": 1.2344692057774552e-59,
+  "multiplier_symmetry_s": 1.2369755683023608e-59,
+  "value_G_s_over_G_w": "(0.1530557670070863-0.127781064941309j)",
+  "P_times_inverse_coefficients": [
+   "1",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "P_on_line_range": [
+   0.20005005698722722,
+   4.2
+  ]
+ },
+ "q=5 c=-2.2": {
+  "a": 0.2756044523110968,
+  "a_lt_half": true,
+  "series_times_P_minus_1": 6.3317875939270745e-58,
+  "multiplier_symmetry_w": 4.978545835312873e-59,
+  "multiplier_symmetry_s": 4.964060650871621e-59,
+  "value_G_s_over_G_w": "(0.2859912513751139+1.3546440419248174j)",
+  "P_times_inverse_coefficients": [
+   "1",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "P_on_line_range": [
+   -4.199949943012773,
+   -0.2
+  ]
+ },
+ "note_alpha1": "BRS (4.4): A^+_(1/2)(w,0) = -pi^-w Gamma(w) sum r_1(n) n^-w, so alpha^+_(1,1/2)(0) = -r_1(1) = -2: the term subtracted in BRS (4.6) for H_+ is not identically zero"
+}
+{
+ "estermann_vs_series(3/8; tail ~1e-6)": 1.556811979733162e-08,
+ "T5": {
+  "a/q=3/7 s=(0.5+2.5j)": {
+   "D": "(-1.2663034755930902-1.092202640864204j)",
+   "defect": 4.872040777441278e-58
+  },
+  "a/q=2/5 s=(0.5+10j)": {
+   "D": "(-3.7246490708401603-9.462510557089839e-60j)",
+   "defect": 3.1110052759189814e-57
+  },
+  "a/q=4/11 s=(0.3+1.7j)": {
+   "D": "(-1.4790064610526437+1.1771366165980461j)",
+   "defect": 9.056058959400159e-58
+  }
+ }
+}
+{
+ "a/q=3/8 b=1.9j J=8 c=-0.75 V=400": {
+  "D0": "(-1.5171808273763008+0.763263217242993j)",
+  "main": "(-7.101005893756025-7.358556751866328j)",
+  "E_J": "(5.583825066379724+8.121819969109321j)",
+  "defect": 6.076189999259709e-19,
+  "defect_without_E_J": 9.856117997596897,
+  "dual_j0": "(-0.5543317225675385+0.6556973087913046j)",
+  "abs_integrand_at_V": 3.473676864080474e-17,
+  "seconds": 468.7
+ }
+}
+exit 143
+stopped by the referee during the second Lemma 1 instance (a/q = 2/5, b = 2.5i, J = 6, V = 1500); no output file written; results above are complete for lane 3, (T5) and the first Lemma 1 instance

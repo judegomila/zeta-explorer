@@ -1,0 +1,62 @@
+{
+ "slug": "c18-d10-inertia-law-theorem-t-lemma-d",
+ "round": 18,
+ "kind": "deepen",
+ "nodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat"
+ ],
+ "tags": [
+  "deepen",
+  "u6g",
+  "rank2",
+  "eisenstein",
+  "gram-positivity",
+  "inertia-law",
+  "rational-model",
+  "bezoutian",
+  "row-D10"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Partial result; no statement about zeros of zeta; row D10 not closed. In the rational model with base (u+1)/(u-1), a symmetric quartet gives a positive semidefinite apex kernel of rank 6 for all 0<eta<1/2, g>0 (computer-assisted, exact; reproduced independently at 3 new parameter points, factorisation of e_6 confirmed at 6 off-grid points, sign certificates redone). 6N is the antisymmetrised product of two Bezoutians (identity rechecked on 30 random b), so a pole-free base passes for every insertion in Re a>=0 at every degree. M = M_0 Xi(u)/Xi(u+1), so X(d) for all even d implies positivity of zeta's apex kernel at T=0. X(d) is proved for d=2,4, exact at 17 configurations for d=6..12 (16 from the lane, 1 new from the referee), and open in general. Zeta base: 600 of 600 symmetric insertions positive, unpaired never above the predicted index (table recounted; independent mpmath spot checks agree). Statements about an odd number of real zeros must be redone with b=u(u-1)g; with that correction the model reproduces c17's parity clause in the cases tested.",
+ "obstruction": "Tried, not closed: row D10 not proved. PROVED (one referee, computer-assisted exact): in the rational model with base (u+1)/(u-1) a symmetric quartet 1/2 +- eta +- i g gives a positive semidefinite apex kernel of rank 6 for all 0 < eta < 1/2, g > 0; 6N is the antisymmetrised product of two Bezoutians, so a pole-free base passes for every insertion in Re a >= 0 at every degree; M = M_0 Xi(u)/Xi(u+1), so zeta's apex kernel is a limit of model kernels of symmetric zero sets. Failing transfer step: X(d), model positivity for symmetric sets of every even degree d, proved for d = 2, 4, exact at 17 configurations for d = 6..12, open in general. The c17 parity clause must be restated with b = u(u-1)g. MEASURED on the zeta base, orders 64-128: 600 of 600 symmetric insertions positive.",
+ "obstructionKind": "open-step: X(d) for general d; the kernel reads only the reflection symmetry of the zero set (symmetric off-line quartets pass, proved), so the row cannot score",
+ "controlsThatDefeat": [
+  "symmetric off-line quartet 1/2 +- eta +- i g (passes; proved in the rational model)",
+  "every insertion in Re a >= 0 on a pole-free base (passes at every degree; proved)",
+  "ZQ in rational form, DH base (pass; c17)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Report written to tmp/research-2026-11-16/push/c18-d10-inertia-law-theorem-t-lemma-d/REFEREE.md. The headline PROVED steps were all confirmed (Theorem Q, Theorem H / Corollary H1, Theorem G, L1-L3) by hand re-derivation and by independent exact code on new cases; the section 5.1 table matches the jsonl. Errors found, all in secondary material:\n\nE-1 (wrong identification). The model insertion g(-u)/g(u) equals MINUS the c17 Blaschke product when the - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Zeta enters the rank-2 apex kernel only as the base (u+1)/(u-1) times the Blaschke insertion of its own symmetric zero set. Without the pole the form is an antisymmetrised product of Bezoutians and is positive for every insertion. With the pole, the whole reflection law sits in the cross terms from the single negative square of the Bezoutian. The c17 parity clause does not hold in the model in its stated form.",
+ "followUp": "Prove X(d) for general d: for b=(u-1)g with g(-1-u)=g(u) Hurwitz, show the cross terms in the Bezoutian identity are dominated, or get a determinant formula and wall-crossing direction from the crossing-point Gram formula. Before that, an independent referee and a second implementation of the quartet certificate.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-d10-inertia-law-theorem-t-lemma-d/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-d10-inertia-law-theorem-t-lemma-d/REFEREE.md",
+ "launchedNodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat"
+ ],
+ "engineVerdict": "partial",
+ "secondReferee": {
+  "by": "c19-referee-r18-independent-sources",
+  "outcome": "holds with corrections",
+  "note": "Holds with corrections. Bezoutian identity re-derived by hand and exact at 180/180 fresh instances; Theorem Q: inertia (6,0) at 29/29 fresh interior points, (4,2) outside; e_6 factorisation equal at 12/12 fresh points. Odd-zero rows describe M_0(-Theta) (first referee E-1, confirmed exactly). X(d), d > 4, open.",
+  "report": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE2-c18-d10-inertia-law-theorem-t-lemma-d.md"
+ },
+ "brokenProved": 1
+}

@@ -1,0 +1,6 @@
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:50:8: warning: declaration uses `sorry`
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:56:8: warning: declaration uses `sorry`
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:62:8: warning: declaration uses `sorry`
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:68:8: warning: declaration uses `sorry`
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:83:8: warning: declaration uses `sorry`
+02-stage-selfdual/rh-push-stage-selfdual/RequestProject/Main.lean:92:8: warning: declaration uses `sorry`

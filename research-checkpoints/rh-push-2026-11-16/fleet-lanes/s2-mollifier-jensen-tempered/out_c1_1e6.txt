@@ -1,0 +1,18 @@
+T 1e+06 windows 1000 H 3981.1 step 3981.1 y {'1/2': 1000, '4/7': 2682} R 1.30 gpu True extended True
+grid: h <= 0.1215, M = 32768 samples per window, FFT size 65536, sources up to 13002
+planned allocation: per-window working set ~40 complex128 arrays of M and 3 of 2M = 24.1 MB
+window 0 Tw 1e+06  2.6s  ZETA|MU|4/7 kJ 0.4872 knJ 0.7870 gap 0.2997   DH|MURE|4/7 kJ -0.0547 knJ 0.6780 gap 0.7327
+window 1 Tw 1.00398e+06  5.3s  ZETA|MU|4/7 kJ 0.4829 knJ 0.7808 gap 0.2978   DH|MURE|4/7 kJ -0.0536 knJ 0.6851 gap 0.7387
+window 2 Tw 1.00796e+06  8.0s  ZETA|MU|4/7 kJ 0.4837 knJ 0.7824 gap 0.2986   DH|MURE|4/7 kJ -0.0536 knJ 0.6795 gap 0.7331
+window 50 Tw 1.19905e+06  165.3s  ZETA|MU|4/7 kJ 0.4832 knJ 0.7835 gap 0.3003   DH|MURE|4/7 kJ -0.0625 knJ 0.6830 gap 0.7455
+window 100 Tw 1.39811e+06  324.3s  ZETA|MU|4/7 kJ 0.4768 knJ 0.7825 gap 0.3057   DH|MURE|4/7 kJ -0.0698 knJ 0.6781 gap 0.7479
+window 150 Tw 1.59716e+06  522.1s  ZETA|MU|4/7 kJ 0.4766 knJ 0.7845 gap 0.3079   DH|MURE|4/7 kJ -0.0725 knJ 0.6674 gap 0.7399
+window 200 Tw 1.79621e+06  739.2s  ZETA|MU|4/7 kJ 0.4746 knJ 0.7843 gap 0.3097   DH|MURE|4/7 kJ -0.0819 knJ 0.6763 gap 0.7582
+window 250 Tw 1.99527e+06  950.5s  ZETA|MU|4/7 kJ 0.4725 knJ 0.7849 gap 0.3125   DH|MURE|4/7 kJ -0.0814 knJ 0.6700 gap 0.7514
+window 300 Tw 2.19432e+06  1199.3s  ZETA|MU|4/7 kJ 0.4661 knJ 0.7803 gap 0.3142   DH|MURE|4/7 kJ -0.0875 knJ 0.6669 gap 0.7544
+window 350 Tw 2.39338e+06  1420.6s  ZETA|MU|4/7 kJ 0.4655 knJ 0.7784 gap 0.3129   DH|MURE|4/7 kJ -0.0905 knJ 0.6694 gap 0.7599
+window 400 Tw 2.59243e+06  1645.7s  ZETA|MU|4/7 kJ 0.4657 knJ 0.7796 gap 0.3138   DH|MURE|4/7 kJ -0.0897 knJ 0.6705 gap 0.7602
+window 450 Tw 2.79148e+06  1871.8s  ZETA|MU|4/7 kJ 0.4618 knJ 0.7742 gap 0.3124   DH|MURE|4/7 kJ -0.0968 knJ 0.6681 gap 0.7649
+window 500 Tw 2.99054e+06  2137.2s  ZETA|MU|4/7 kJ 0.4628 knJ 0.7792 gap 0.3163   DH|MURE|4/7 kJ -0.0977 knJ 0.6672 gap 0.7648
+window 550 Tw 3.18959e+06  2424.8s  ZETA|MU|4/7 kJ 0.4637 knJ 0.7819 gap 0.3182   DH|MURE|4/7 kJ -0.1016 knJ 0.6685 gap 0.7700
+window 600 Tw 3.38864e+06  2680.0s  ZETA|MU|4/7 kJ 0.4569 knJ 0.7806 gap 0.3237   DH|MURE|4/7 kJ -0.1009 knJ 0.6707 gap 0.7716

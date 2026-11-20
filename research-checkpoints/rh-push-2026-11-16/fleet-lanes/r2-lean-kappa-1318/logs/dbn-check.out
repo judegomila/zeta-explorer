@@ -1,0 +1,25 @@
+def LeanCert.Analysis.DBN.kernelTerm : ℝ → ℕ → ℝ :=
+fun u n =>
+  (2 * Real.pi ^ 2 * (↑n + 1) ^ 4 * Real.exp (9 * u) - 3 * Real.pi * (↑n + 1) ^ 2 * Real.exp (5 * u)) *
+    Real.exp (-Real.pi * (↑n + 1) ^ 2 * Real.exp (4 * u))
+def LeanCert.Analysis.DBN.Phi : ℝ → ℝ :=
+fun u => ∑' (n : ℕ), kernelTerm u n
+def LeanCert.Analysis.DBN.heatIntegrand : ℝ → ℂ → ℝ → ℂ :=
+fun t z u => ↑(Real.exp (t * u ^ 2) * Phi u) * Complex.cos (z * ↑u)
+def LeanCert.Analysis.DBN.H : ℝ → ℂ → ℂ :=
+fun t z => ∫ (u : ℝ) in Set.Ioi 0, heatIntegrand t z u
+def LeanCert.Analysis.DBN.realZeroTimes : Set ℝ :=
+{t | ∀ (z : ℂ), H t z = 0 → z.im = 0}
+def LeanCert.Analysis.DBN.Lambda : ℝ :=
+sInf realZeroTimes
+def LeanCert.Analysis.DBN.riemannXi : ℂ → ℂ :=
+fun s => (s * (s - 1) * completedRiemannZeta₀ s + 1) / 2
+H_zero_eq_riemannXi : ∀ (z : ℂ), H 0 z = riemannXi (1 / 2 + Complex.I * z / 2) / 8
+@riemannXi_eq_mul_completed : ∀ {s : ℂ}, s ≠ 0 → s ≠ 1 → riemannXi s = s * (s - 1) * completedRiemannZeta s / 2
+real_zeros_iff_Lambda_le : ∀ (t : ℝ), (∀ (z : ℂ), H t z = 0 → z.im = 0) ↔ Lambda ≤ t
+@Lambda_unique : ∀ {a : ℝ}, (∀ (t : ℝ), (∀ (z : ℂ), H t z = 0 → z.im = 0) ↔ a ≤ t) → a = Lambda
+'LeanCert.Analysis.DBN.H_zero_eq_riemannXi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanCert.Analysis.DBN.real_zeros_iff_Lambda_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanCert.Analysis.DBN.Lambda_le_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'H_zero_eq_completedZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lambda_isLeast_realZeros' depends on axioms: [propext, Classical.choice, Quot.sound]

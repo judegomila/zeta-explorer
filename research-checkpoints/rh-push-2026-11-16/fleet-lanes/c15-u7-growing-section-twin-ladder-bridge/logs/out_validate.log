@@ -1,0 +1,3 @@
+t=30.3 P=50  L_F prime side 2.012502+1.271268i  zero side 2.011822+1.271300i  diff 6.81e-04 (tail bound 1.36e-03) | sharp: prime 3.5474+2.0833i zero(400, cond. conv.) 3.5483+2.0039i
+t=47.0 P=300  L_F prime side 0.127795+1.888094i  zero side 0.127328+1.888038i  diff 4.71e-04 (tail bound 9.33e-04) | sharp: prime -0.3006+1.3245i zero(400, cond. conv.) -0.3037+1.2054i
+t=60.5 P=2000  L_F prime side 2.366682+2.252842i  zero side 2.366327+2.252625i  diff 4.16e-04 (tail bound 7.00e-04) | sharp: prime 2.1338+5.1370i zero(400, cond. conv.) 2.1593+4.9082i

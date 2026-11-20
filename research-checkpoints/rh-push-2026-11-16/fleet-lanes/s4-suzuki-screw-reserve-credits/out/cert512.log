@@ -1,0 +1,21 @@
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 1.0, "lam_min_float": 3.334913501985151e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 3.1}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 1.0, "lam_min_float": 0.1400773173376368, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 3.0}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 1.0, "lam_min_float": 0.09014863599529785, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 3.0}
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 2.0, "lam_min_float": 2.1506081088719487e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.8}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 2.0, "lam_min_float": 3.237856525857813e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.8}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 2.0, "lam_min_float": 3.676047590243108e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.8}
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 3.0, "lam_min_float": 1.923964943532943e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 3.0, "lam_min_float": 2.415366315939455e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 3.0, "lam_min_float": 2.5414074113418616e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 4.0, "lam_min_float": 2.004451964567143e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 4.0, "lam_min_float": 2.0415271078891132e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 4.0, "lam_min_float": 2.5605213180357152e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 5.0, "lam_min_float": 1.0563338692731047e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 5.0, "lam_min_float": 2.296708639945205e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 5.0, "lam_min_float": 2.0376035855573762e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "zeta", "m": 512, "W": 6.0, "lam_min_float": 1.9722941101200694e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "L_chi-4", "m": 512, "W": 6.0, "lam_min_float": 2.075861010303473e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.5}
+{"kind": "cert", "obj": "L_chi5", "m": 512, "W": 6.0, "lam_min_float": 2.7077894238789065e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.5}
+{"kind": "cert", "obj": "DH", "m": 512, "W": 3.5, "lam_min_float": 2.432600003260012e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.6}
+{"kind": "cert", "obj": "DH", "m": 512, "W": 3.75, "lam_min_float": 1.9312712206642444e-05, "certified_positive_arb_ldl": true, "prec_bits": 1324, "sec": 2.7}
+LOCALDONE

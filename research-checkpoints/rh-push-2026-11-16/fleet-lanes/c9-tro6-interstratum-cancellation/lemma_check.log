@@ -1,0 +1,3 @@
+strata 31, rows 2166, terms 109, mismatches 0
+sum of strata = Phi(1): True
+net coefficient of Phi(j) in the sum over strata, j with at least one row: {'[]': 1}

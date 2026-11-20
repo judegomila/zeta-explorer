@@ -1,0 +1,313 @@
+{
+ "A_subsolution": {
+  "samples": 1200,
+  "min_ratio_Tp_u_over_lambda_u": 1.0,
+  "holds": true
+ },
+ "D_hecke_relation_weight_maxdev": 5.048709793414476e-29,
+ "C_gauge": [
+  {
+   "state": "zeta rho_1 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.25,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "zeta rho_1 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.2,
+   "sup_over_p_le_13_k_le_60": 40506344929.29416,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "zeta rho_1 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.3,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "zeta rho_2 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.25,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "zeta rho_2 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.2,
+   "sup_over_p_le_13_k_le_60": 72706612885.43306,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "zeta rho_2 (a=1/4)",
+   "a": 0.25,
+   "theta": 0.3,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "moved a=0.40, gamma_1",
+   "a": 0.4,
+   "theta": 0.25,
+   "sup_over_p_le_13_k_le_60": 1.2467742378469023e+38,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "moved a=0.40, gamma_1",
+   "a": 0.4,
+   "theta": 0.2,
+   "sup_over_p_le_13_k_le_60": 1.3746616933604875e+51,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "moved a=0.40, gamma_1",
+   "a": 0.4,
+   "theta": 0.3,
+   "sup_over_p_le_13_k_le_60": 8.994164119675871e+24,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "moved a=0.10, gamma_1",
+   "a": 0.1,
+   "theta": 0.25,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "moved a=0.10, gamma_1",
+   "a": 0.1,
+   "theta": 0.2,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "moved a=0.10, gamma_1",
+   "a": 0.1,
+   "theta": 0.3,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  },
+  {
+   "state": "moved a=0.26, gamma_1",
+   "a": 0.26,
+   "theta": 0.25,
+   "sup_over_p_le_13_k_le_60": 13.378919782255272,
+   "argmax_k": [
+    0,
+    0,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "moved a=0.26, gamma_1",
+   "a": 0.26,
+   "theta": 0.2,
+   "sup_over_p_le_13_k_le_60": 20564808797480.035,
+   "argmax_k": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "expected": "unbounded in k"
+  },
+  {
+   "state": "moved a=0.26, gamma_1",
+   "a": 0.26,
+   "theta": 0.3,
+   "sup_over_p_le_13_k_le_60": 1.0,
+   "argmax_k": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": "equals 1"
+  }
+ ],
+ "E_sign": {
+  "phi(3/4)": -2.9315339954463306,
+  "E(i,3/4)": -1.928811547671364,
+  "E(10i,3/4)": 0.4103267079721441,
+  "automorphy |E(i/2)-E(2i)|": 3.944304526105059e-31
+ },
+ "E_eigen": [
+  {
+   "state": "resonance w = 1 - rho_1/2",
+   "p": 2,
+   "abs_phi(w)": 7.604108563272234e-31,
+   "abs(T_p E - lambda E)/abs(E)": 2.788994177647599e-31,
+   "abs_lambda": 0.5085283467845505,
+   "lambda_at_a=Re(w)-1/2": 2.0301035302564356
+  },
+  {
+   "state": "resonance w = 1 - rho_1/2",
+   "p": 3,
+   "abs_phi(w)": 7.604108563272234e-31,
+   "abs(T_p E - lambda E)/abs(E)": 4.54015358614919e-31,
+   "abs_lambda": 0.5843733925706655,
+   "lambda_at_a=Re(w)-1/2": 2.075909698604085
+  },
+  {
+   "state": "EIS-w w = 0.80 + i(0.37 - gamma_1/2)",
+   "p": 2,
+   "abs_phi(w)": 0.5463798193821063,
+   "abs(T_p E - lambda E)/abs(E)": 2.211916287941799e-31,
+   "abs_lambda": 0.44171451919714305,
+   "lambda_at_a=Re(w)-1/2": 2.043396809701152
+  },
+  {
+   "state": "EIS-w w = 0.80 + i(0.37 - gamma_1/2)",
+   "p": 3,
+   "abs_phi(w)": 0.5463798193821063,
+   "abs(T_p E - lambda E)/abs(E)": 4.692183019861867e-31,
+   "abs_lambda": 1.1649131294045805,
+   "lambda_at_a=Re(w)-1/2": 2.109612263640774
+  }
+ ],
+ "F_Lq": [
+  {
+   "a": 0.05,
+   "q": 1.4090909090909092,
+   "theta_q=1/q-1/2": 0.20967741935483872,
+   "theta_q > a": true
+  },
+  {
+   "a": 0.05,
+   "q": 1.81,
+   "theta_q=1/q-1/2": 0.052486187845303865,
+   "theta_q > a": true
+  },
+  {
+   "a": 0.25,
+   "q": 1.1666666666666667,
+   "theta_q=1/q-1/2": 0.35714285714285715,
+   "theta_q > a": true
+  },
+  {
+   "a": 0.25,
+   "q": 1.33,
+   "theta_q=1/q-1/2": 0.2518796992481203,
+   "theta_q > a": true
+  },
+  {
+   "a": 0.45,
+   "q": 1.0263157894736843,
+   "theta_q=1/q-1/2": 0.47435897435897434,
+   "theta_q > a": true
+  },
+  {
+   "a": 0.45,
+   "q": 1.0521052631578947,
+   "theta_q=1/q-1/2": 0.4504752376188094,
+   "theta_q > a": true
+  }
+ ]
+}

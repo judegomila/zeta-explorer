@@ -1,0 +1,45 @@
+{
+ "slug": "c8-hecke-entropy-resonance-rigidity",
+ "round": 8,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "hecke-recurrence",
+  "entropy",
+  "measure-rigidity",
+  "eisenstein-series",
+  "resonance",
+  "maass-selberg",
+  "modular-surface",
+  "zagier-criterion",
+  "device"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, no statement about zeros, for the device \"joint Hecke recurrence plus measure rigidity on Eisenstein resonance states on PSL_2(Z)\\H\": (i) the truncated mass at a resonance is exactly Y^(2 sigma-1)/(2 sigma-1), free of gamma (Maass-Selberg; confirmed numerically at two further zeros); (ii) the recurrence inequality of Lemma 3, with m counted with Gamma-multiplicity, is uniform in gamma and has P-exponent -1 for every sigma in (1/2,1), so it does not contradict the cusp growth; (iii) the off-resonance Eisenstein series E(z,w') (window translate included) satisfies every hypothesis the device reads, so the device cannot locate sigma; (iv) m_sigma is an N-invariant, A-conformal joint Hecke eigen-measure for every sigma > 1/2, so rigidity hypotheses fail at sigma = 3/4 as well (that m_sigma is the limit stays argued and measured only); (v) U, THIN and sign twists fail at Gamma-invariance (Lemma G1, with a one-line extension). The pivot is Zagier's classical criterion. NOT surviving: the DH-type control on Gamma_1(5) (object identically zero; DH not run). Five further controls not run.",
+ "obstruction": "Referee does not hold the record as written: Lemma G2 (i), labelled PROVED, is vacuous (the DH-type object on Gamma_1(5) is identically zero; DH not run). Standing: truncated mass at a resonance is exactly Y^(2 sigma-1)/(2 sigma-1), free of gamma (Maass-Selberg); the recurrence bound is uniform in gamma with P-exponent -1 for every sigma in (1/2, 1), so it does not contradict the cusp growth; the off-resonance Eisenstein series E(z, w') satisfies every hypothesis the device reads, so the device cannot locate sigma; m_sigma is an A-conformal (not A-invariant) Hecke eigen-measure for every sigma > 1/2, so rigidity hypotheses fail at sigma = 3/4 too. The device returns the conformal exponent 2 sigma - 1. A device on the modular surface must read phi(w) = 0.",
+ "obstructionKind": "off-resonance-eisenstein-series-passes-every-step",
+ "controlsThatDefeat": [
+  "EIS-w: E(z, w') off resonance (keeps group, functional equation, Euler product, Hecke algebra; passes every step)",
+  "U, THIN, sign twists fail at Gamma-invariance only (lack of automorphy, not a separation of zeta's zeros)",
+  "not run: DH (model object identically zero), heat, E_a, T-NR, Beurling, phase-rotated transfer operator"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c8-hecke-entropy-resonance-rigidity/REFEREE.md\n\n1. SUBSTANTIVE: Lemma G2 (i), labelled PROVED, is vacuous. The complex characters mod 5 are odd (chi(-1) = chi(2)^2 = -1), so in G_chi = sum_{(c,d)=1, 5|c} chi(d) y^w/|cz+d|^(2w) the terms (c,d) and (-c,-d) cancel: G_chi = G_conj(chi) = D = 0 identically. Numeric check: truncated sum 4.8e-17 against sum of absolute values 1.75. The relation displayed reads 0 [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "On the modular surface, \"a step fails for U and THIN\" is necessary but not sufficient: those controls fail only because they lack automorphy. The sharper control is E(z,w') off resonance, which keeps the group, functional equation, Euler product and Hecke algebra. A device there must read phi(w)=0, not the existence of a joint eigenfunction; under RH resonances sit at Re w = 3/4, off the unitary axis, so invariant-measure tools do not apply.",
+ "followUp": "Referee this lane, then apply its proposals (not applied here; see DEVICE_NODE.json in the lane directory): add auxiliary control EIS-w to map section 2, add a G row, add device node hecke-correspondence-recurrence. No further attack lane on this device unless it names a way to read phi(w)=0 other than truncated mass or horocycle periods.",
+ "resultFile": "tmp/research-2026-11-16/push/c8-hecke-entropy-resonance-rigidity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-hecke-entropy-resonance-rigidity/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "refereeFile2": "tmp/research-2026-11-16/push/c9-repair-referee-debts-r8/RESULT.md",
+ "reconciliation": "round 9: first referee did not hold the record as written (Lemma G2 (i) vacuous). The second referee (lane c9-repair-referee-debts-r8, itself refereed) holds the corrected statement: Lemma G2 (i) withdrawn (weight-0 object is zero for odd characters; DH not run), Lemma 3 corrected (the pair-count version is false high in the cusp), Lemma 5 with factor e^(-(2 sigma - 1) s). The device is closed on the corrected statement; control EIS-w passes every step. refereeHolds refers to the corrected statement."
+}

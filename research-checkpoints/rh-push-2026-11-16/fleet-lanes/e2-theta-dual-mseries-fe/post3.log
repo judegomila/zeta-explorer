@@ -1,0 +1,37 @@
+null window n=3 |l|=0 kill=1: R quantiles 2%/10%/50%/90% = 0.370 0.491 0.909 1.550; min 0.349
+null window n=3 |l|=1 kill=0: R quantiles 2%/10%/50%/90% = 0.234 0.366 0.850 1.620; min 0.185
+null window n=6 |l|=0 kill=1: R quantiles 2%/10%/50%/90% = 0.409 0.590 0.907 1.317; min 0.347
+null window n=6 |l|=1 kill=0: R quantiles 2%/10%/50%/90% = 0.224 0.350 0.832 1.568; min 0.156
+null window n=6 |l|=2 kill=0: R quantiles 2%/10%/50%/90% = 0.261 0.380 0.922 1.469; min 0.157
+cub l=0 y=1              R = 0.065   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 15
+cub l=+1 y=1             R = 0.022   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 15
+cub l=-1 y=1             R = 0.031   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 144
+sex l=0 y=1              R = 0.407   fraction of null draws with smaller R: 0.017   onset(z<0.2 from X on): None
+sex l=+1 y=1             R = 0.418   fraction of null draws with smaller R: 0.167   onset(z<0.2 from X on): None
+sex l=-1 y=1             R = 0.820   fraction of null draws with smaller R: 0.500   onset(z<0.2 from X on): None
+sex l=+2 y=1 (m-ser)     R = 0.153   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): None
+sex l=-2 y=1             R = 0.803   fraction of null draws with smaller R: 0.433   onset(z<0.2 from X on): None
+cub l=0 y=7              R = 0.369   fraction of null draws with smaller R: 0.017   onset(z<0.2 from X on): None
+cub l=+1 y=7             R = 0.046   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 3058
+cub l=-1 y=7             R = 0.072   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 972
+sex l=0 y=7              R = 0.686   fraction of null draws with smaller R: 0.217   onset(z<0.2 from X on): None
+sex l=+1 y=7             R = 0.383   fraction of null draws with smaller R: 0.133   onset(z<0.2 from X on): None
+sex l=-1 y=7             R = 0.542   fraction of null draws with smaller R: 0.250   onset(z<0.2 from X on): None
+sex l=+2 y=7 (m-ser)     R = 0.965   fraction of null draws with smaller R: 0.567   onset(z<0.2 from X on): None
+sex l=-2 y=7             R = 1.921   fraction of null draws with smaller R: 0.967   onset(z<0.2 from X on): None
+cub l=0 y=13             R = 0.254   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): None
+cub l=+1 y=13            R = 0.076   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 3058
+cub l=-1 y=13            R = 0.087   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 4481
+sex l=0 y=13             R = 0.550   fraction of null draws with smaller R: 0.100   onset(z<0.2 from X on): None
+sex l=+1 y=13            R = 0.993   fraction of null draws with smaller R: 0.683   onset(z<0.2 from X on): None
+sex l=-1 y=13            R = 0.176   fraction of null draws with smaller R: 0.017   onset(z<0.2 from X on): None
+sex l=+2 y=13 (m-ser)    R = 0.642   fraction of null draws with smaller R: 0.350   onset(z<0.2 from X on): None
+sex l=-2 y=13            R = 0.592   fraction of null draws with smaller R: 0.317   onset(z<0.2 from X on): None
+cub l=0 y=31             R = 0.260   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 139693
+cub l=+1 y=31            R = 0.042   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 4481
+cub l=-1 y=31            R = 0.054   fraction of null draws with smaller R: 0.000   onset(z<0.2 from X on): 14104
+sex l=0 y=31             R = 0.916   fraction of null draws with smaller R: 0.550   onset(z<0.2 from X on): None
+sex l=+1 y=31            R = 0.596   fraction of null draws with smaller R: 0.250   onset(z<0.2 from X on): None
+sex l=-1 y=31            R = 0.800   fraction of null draws with smaller R: 0.483   onset(z<0.2 from X on): None
+sex l=+2 y=31 (m-ser)    R = 0.657   fraction of null draws with smaller R: 0.367   onset(z<0.2 from X on): None
+sex l=-2 y=31            R = 0.808   fraction of null draws with smaller R: 0.450   onset(z<0.2 from X on): None

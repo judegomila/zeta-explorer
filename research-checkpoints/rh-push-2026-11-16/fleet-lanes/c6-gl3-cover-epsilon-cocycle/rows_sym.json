@@ -1,0 +1,162 @@
+{
+ "1,0,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 + U*Xu**2*Yu**2 - U*Yu**2*r**2 - Xu**2*Yu**2 + r**4)/r**4"
+ },
+ "1,0,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "-T*Yu*(U - 1)*(-Xu + r)*(Xu + r)/r**3"
+ },
+ "1,0,0,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "T*Xu*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**5"
+ },
+ "1,0,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**4"
+ },
+ "1,0,1,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu*(-U*Xu**2*Yu**4 + U*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5"
+ },
+ "1,0,1,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "-Xu*Yu**3*(U - 1)*(-Xu + r)*(Xu + r)/r**4"
+ },
+ "1,1,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-Xu + r)*(Xu + r)*(U**2*Xu**2*Yu**4*r**2 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 - U*Yu**2*r**2 + r**4)/r**6"
+ },
+ "1,1,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-U*Xu**4*Yu**4 + U*Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5"
+ },
+ "1,1,0,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "Xu**3*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(U*Yu**2 - 1)/r**4"
+ },
+ "1,1,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)/r**6"
+ },
+ "1,2,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**4 - U*Xu**4*Yu**6*r**2 + U*Xu**4*Yu**4*r**4 - 3*U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**4 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 + U*Xu**2*Yu**2*r**4 - U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**2*Yu**2*r**6 + Xu**2*Yu**2*r**4 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6"
+ },
+ "1,2,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-Xu + r)*(Xu + r)*(U*Xu**2*Yu**2*r**2 - Xu**2*Yu**2*r**2 + Xu**2*Yu**2 - Xu**2*r**2 - r**2)/r**5"
+ },
+ "1,2,0,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu**3*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)*(U*Yu**2 - Yu**2 - 1)/r**5"
+ },
+ "1,2,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-Yu + r)*(Yu + r)*(U*Xu**2*Yu**2*r**4 + Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**6"
+ },
+ "1,2,1,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu**3*(-U*Xu**2*Yu**4*r**2 + U*Yu**4*r**4 - U*Yu**4*r**2 + U*Yu**2*r**4 + Xu**2*Yu**4*r**2 - Xu**2*Yu**4 + Xu**2*Yu**2*r**2 - Yu**4*r**4 + Yu**4*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5"
+ },
+ "1,2,1,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "-Xu**3*Yu**5*(U - 1)*(-Xu + r)*(Xu + r)/r**4"
+ },
+ "1,3,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-Xu + r)*(Xu + r)*(-U**2*Xu**4*Yu**6*r**2 + U**2*Xu**4*Yu**6 - U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**6*r**2 - U*Xu**4*Yu**6 + U*Xu**4*Yu**4*r**2 - U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**2 - U*Xu**2*Yu**4 + U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 - r**4)/r**6"
+ },
+ "1,3,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-U*Xu**6*Yu**6 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**4*Yu**2*r**4 + 2*Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**4*r**4 + Xu**4*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5"
+ },
+ "1,3,0,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "Xu**5*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(Yu**2 + 1)*(U*Yu**2 - 1)/r**4"
+ },
+ "1,3,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)*(U*Xu**2*Yu**2 - Xu**2*Yu**2 - Xu**2 - 1)/r**6"
+ },
+ "-1,0,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(2*U**2*Xu**2*Yu**4 - U*Xu**2*Yu**4 - U*Xu**2*Yu**2*r**2 - U*Xu**2*Yu**2 - U*Yu**2*r**2 + Xu**2*Yu**2 + r**4)/r**4"
+ },
+ "-1,0,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "-T*Yu*(U - 1)*(-Xu + r)*(Xu + r)/r**3"
+ },
+ "-1,0,0,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "T*Xu*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**5"
+ },
+ "-1,0,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)/r**4"
+ },
+ "-1,0,1,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu*(-U*Xu**2*Yu**4 + U*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5"
+ },
+ "-1,0,1,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "Xu*Yu**3*(U - 1)*(-Xu + r)*(Xu + r)/r**4"
+ },
+ "-1,1,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-U**2*Xu**4*Yu**4*r**2 - U**2*Xu**2*Yu**4*r**4 + 2*U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**4*r**2 - U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**4*r**4 - U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**4 - U*Xu**2*Yu**2*r**2 - U*Yu**2*r**4 - 2*Xu**2*Yu**2*r**4 + 2*Xu**2*Yu**2*r**2 - Xu**2*r**4 + r**6)/r**6"
+ },
+ "-1,1,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-U*Xu**4*Yu**4 + U*Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5"
+ },
+ "-1,1,0,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "-Xu**3*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(U*Yu**2 - 1)/r**4"
+ },
+ "-1,1,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)/r**6"
+ },
+ "-1,2,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 + U**2*Xu**2*Yu**4*r**4 - 2*U**2*Xu**2*Yu**4*r**2 + U*Xu**4*Yu**6*r**2 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**4 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 - U*Xu**2*Yu**4*r**4 + U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 - U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 - Xu**4*Yu**4*r**2 - Xu**2*Yu**2*r**6 + 3*Xu**2*Yu**2*r**4 - 2*Xu**2*Yu**2*r**2 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6"
+ },
+ "-1,2,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-Xu + r)*(Xu + r)*(U*Xu**2*Yu**2*r**2 - Xu**2*Yu**2*r**2 + Xu**2*Yu**2 - Xu**2*r**2 - r**2)/r**5"
+ },
+ "-1,2,0,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu**3*(-Yu + r)*(Yu + r)*(-U*Xu**2*Yu**2 + r**2)*(U*Yu**2 - Yu**2 - 1)/r**5"
+ },
+ "-1,2,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-Yu + r)*(Yu + r)*(U*Xu**2*Yu**2*r**4 + Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**6"
+ },
+ "-1,2,1,(1, 0)": {
+  "trunc_ok": true,
+  "numerator": "-T*Xu**3*(-U*Xu**2*Yu**4*r**2 + U*Yu**4*r**4 - U*Yu**4*r**2 + U*Yu**2*r**4 + Xu**2*Yu**4*r**2 - Xu**2*Yu**4 + Xu**2*Yu**2*r**2 - Yu**4*r**4 + Yu**4*r**2 - Yu**2*r**4 + Yu**2*r**2 - r**4)/r**5"
+ },
+ "-1,2,1,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "Xu**3*Yu**5*(U - 1)*(-Xu + r)*(Xu + r)/r**4"
+ },
+ "-1,3,0,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(U**2*Xu**6*Yu**6*r**2 - U**2*Xu**6*Yu**6 + U**2*Xu**6*Yu**4*r**2 + U**2*Xu**4*Yu**6*r**4 - U**2*Xu**4*Yu**6*r**2 - U**2*Xu**4*Yu**4*r**4 + U**2*Xu**4*Yu**4*r**2 + U**2*Xu**2*Yu**4*r**4 - 2*U**2*Xu**2*Yu**4*r**2 - U*Xu**6*Yu**6*r**2 + U*Xu**6*Yu**6 - U*Xu**6*Yu**4*r**2 + U*Xu**6*Yu**4 - U*Xu**6*Yu**2*r**2 - U*Xu**4*Yu**6*r**4 + U*Xu**4*Yu**6*r**2 - U*Xu**4*Yu**4*r**4 + U*Xu**4*Yu**4 - U*Xu**4*Yu**2*r**2 - U*Xu**2*Yu**4*r**4 + U*Xu**2*Yu**4*r**2 + U*Xu**2*Yu**2*r**6 - U*Xu**2*Yu**2*r**4 + U*Xu**2*Yu**2*r**2 + U*Yu**2*r**4 + 2*Xu**4*Yu**4*r**4 - 2*Xu**4*Yu**4*r**2 + Xu**4*Yu**2*r**4 - Xu**4*Yu**2*r**2 + Xu**4*r**4 - Xu**2*Yu**2*r**6 + 3*Xu**2*Yu**2*r**4 - 2*Xu**2*Yu**2*r**2 - Xu**2*r**6 + Xu**2*r**4 - r**6)/r**6"
+ },
+ "-1,3,0,(0, 1)": {
+  "trunc_ok": true,
+  "numerator": "T*Yu*(U - 1)*(-U*Xu**6*Yu**6 + U*Xu**4*Yu**4*r**4 - U*Xu**4*Yu**4*r**2 + U*Xu**4*Yu**2*r**4 - U*Xu**4*Yu**2*r**2 + U*Xu**2*Yu**2*r**4 + Xu**4*Yu**4*r**2 - Xu**4*Yu**2*r**4 + 2*Xu**4*Yu**2*r**2 - Xu**4*Yu**2 - Xu**4*r**4 + Xu**4*r**2 - Xu**2*Yu**2*r**4 + Xu**2*Yu**2*r**2 - Xu**2*r**4 + Xu**2*r**2 - r**4)/r**5"
+ },
+ "-1,3,0,(1, 1)": {
+  "trunc_ok": true,
+  "numerator": "-Xu**5*Yu*(U - 1)*(-Yu + r)*(Yu + r)*(Yu**2 + 1)*(U*Yu**2 - 1)/r**4"
+ },
+ "-1,3,1,(0, 0)": {
+  "trunc_ok": true,
+  "numerator": "-(-Xu + r)*(Xu + r)*(-Yu + r)*(Yu + r)*(-Xu*Yu + r)*(Xu*Yu + r)*(U*Xu**2*Yu**2 - Xu**2*Yu**2 - Xu**2 - 1)/r**6"
+ }
+}

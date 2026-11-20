@@ -1,0 +1,2 @@
+{"run": "U2", "U": "36063660805739/250000000000000", "reproduced": true, "fails": {}, "h_min_float": 0.685, "h_max_float": 2.18, "window_min_margin": null, "start": {"q0": "1000002000001/1000000000000", "ok": true, "margin": 2.000001e-06}, "seconds": 109.1}
+tmp/routes-b1-r1-venv/bin/python tmp/r3-bb-replay.py U2   63.88s user 0.68s system 58% cpu 1:50.14 total

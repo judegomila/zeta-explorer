@@ -1,0 +1,44 @@
+Z=8000 M=1.0 l=0.3333 NMAX=159953 primary elements=64464
+primes: 14677
+rows: 1813 (norm in (2000,8000])
+planned: symbol table 14677 x 1813 int8 = 26.6 MB
+symbol table done 2.2s
+gauss sums done 42.9s  max||g|-1|=7.33e-15
+check g^3 = -alpha: max dev with alpha=c/|c|: 7.41e-14; with conj: 2.00e+00
+selftest composite Gauss sum (brute force vs twisted multiplicativity): max dev 5.88e-15
+slot primes: 5 norms [25, 31, 31, 37, 37]
+columns used: 38108  (48.6s)
+squarefree rows: 1690 of 1813
+
+UNMARKED  ratio = mean_m |C|^2 / mean_m diag ; lemma 5.8 factor Z^(M-N)_+ ; classical factor Z^(2N-M)_+
+  A  gamma2*chi6         N=M/2   X=       89 ratio=  0.965  sf-rows= 0.960  max-row=    5.42  lemma=  89.44  classical=      1.0
+  A  gamma2*chi6         N=3M/4  X=      846 ratio=  1.018  sf-rows= 1.017  max-row=    8.56  lemma=   9.46  classical=     89.4
+  A  gamma2*chi6         N=M     X=     8000 ratio=  1.030  sf-rows= 1.015  max-row=   19.72  lemma=   1.00  classical=   8000.0
+  A  gamma2*chi6         N=1+l   X=   159952 ratio=  1.144  sf-rows= 0.951  max-row=  182.52  lemma=   1.00  classical=3198083.3
+  A' gamma2*abar*chi6    N=M/2   X=       89 ratio=  1.001  sf-rows= 1.002  max-row=    6.78  lemma=  89.44  classical=      1.0
+  A' gamma2*abar*chi6    N=3M/4  X=      846 ratio=  0.998  sf-rows= 0.992  max-row=    7.16  lemma=   9.46  classical=     89.4
+  A' gamma2*abar*chi6    N=M     X=     8000 ratio=  0.963  sf-rows= 0.951  max-row=    8.50  lemma=   1.00  classical=   8000.0
+  A' gamma2*abar*chi6    N=1+l   X=   159952 ratio=  0.991  sf-rows= 0.978  max-row=    7.40  lemma=   1.00  classical=3198083.3
+  A+ gamma2*alpha*chi6   N=M/2   X=       89 ratio=  0.938  sf-rows= 0.942  max-row=    4.96  lemma=  89.44  classical=      1.0
+  A+ gamma2*alpha*chi6   N=3M/4  X=      846 ratio=  1.008  sf-rows= 1.001  max-row=    8.49  lemma=   9.46  classical=     89.4
+  A+ gamma2*alpha*chi6   N=M     X=     8000 ratio=  1.010  sf-rows= 1.012  max-row=    6.15  lemma=   1.00  classical=   8000.0
+  A+ gamma2*alpha*chi6   N=1+l   X=   159952 ratio=  0.937  sf-rows= 0.939  max-row=    6.69  lemma=   1.00  classical=3198083.3
+  B  gamma2*chi6^5       N=M/2   X=       89 ratio=  1.040  sf-rows= 1.032  max-row=    5.36  lemma=  89.44  classical=      1.0
+  B  gamma2*chi6^5       N=3M/4  X=      846 ratio=  0.973  sf-rows= 0.968  max-row=    8.47  lemma=   9.46  classical=     89.4
+  B  gamma2*chi6^5       N=M     X=     8000 ratio=  1.008  sf-rows= 0.916  max-row=   20.37  lemma=   1.00  classical=   8000.0
+  B  gamma2*chi6^5       N=1+l   X=   159952 ratio=  1.500  sf-rows= 1.000  max-row=  113.63  lemma=   1.00  classical=3198083.3
+  K  gamma2*chi6^4 (Kubo N=M/2   X=       89 ratio=  0.870  sf-rows= 0.864  max-row=    5.96  lemma=  89.44  classical=      1.0
+  K  gamma2*chi6^4 (Kubo N=3M/4  X=      846 ratio=  1.712  sf-rows= 1.697  max-row=   15.26  lemma=   9.46  classical=     89.4
+  K  gamma2*chi6^4 (Kubo N=M     X=     8000 ratio=  4.770  sf-rows= 4.763  max-row=   56.58  lemma=   1.00  classical=   8000.0
+  K  gamma2*chi6^4 (Kubo N=1+l   X=   159952 ratio= 24.166  sf-rows=23.845  max-row=  400.35  lemma=   1.00  classical=3198083.3
+  R  random phase*chi6 ( N=M/2   X=       89 ratio=  1.014  sf-rows= 1.019  max-row=    8.02  lemma=  89.44  classical=      1.0
+  R  random phase*chi6 ( N=3M/4  X=      846 ratio=  0.987  sf-rows= 0.998  max-row=    8.30  lemma=   9.46  classical=     89.4
+  R  random phase*chi6 ( N=M     X=     8000 ratio=  1.006  sf-rows= 1.003  max-row=    7.35  lemma=   1.00  classical=   8000.0
+  R  random phase*chi6 ( N=1+l   X=   159952 ratio=  1.059  sf-rows= 1.054  max-row=    9.01  lemma=   1.00  classical=3198083.3
+
+MARKED  X=Z^(1+l)=159952  K-loss factor Z^(M+l-1)_+ = 19.99  marks=5  MP edge (1+sqrt(P/R))^2 = 1.108
+  A  gamma2*chi6         diag=0.903 off_rms=0.0345 eig[min,max]=[0.814,1.037]  R_ones=0.906  R_signs=0.904  R_worst=0.884
+  A' gamma2*abar*chi6    diag=0.908 off_rms=0.0382 eig[min,max]=[0.794,1.044]  R_ones=0.915  R_signs=0.901  R_worst=0.923
+  A+ gamma2*alpha*chi6   diag=0.900 off_rms=0.0258 eig[min,max]=[0.844,1.010]  R_ones=0.886  R_signs=0.880  R_worst=0.908
+  R  random phase*chi6 ( diag=0.898 off_rms=0.0323 eig[min,max]=[0.831,1.037]  R_ones=0.907  R_signs=0.900  R_worst=0.919
+total 48.6s

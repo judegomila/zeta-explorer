@@ -1,0 +1,6 @@
+/usr/bin/ld: /tmp/cc2LPW8F.o: in function `ffx_main':
+ffw.c:(.text+0x15a08): undefined reference to `log'
+/usr/bin/ld: ffw.c:(.text+0x15a59): undefined reference to `exp'
+/usr/bin/ld: ffw.c:(.text+0x16ebd): undefined reference to `log'
+/usr/bin/ld: ffw.c:(.text+0x16f0e): undefined reference to `exp'
+collect2: error: ld returned 1 exit status

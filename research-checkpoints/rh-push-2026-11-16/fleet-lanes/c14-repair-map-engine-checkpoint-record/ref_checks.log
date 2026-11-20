@@ -1,0 +1,28 @@
+rows_before : 191
+rows_after : 198
+rows_with_cell_count_not_6 : []
+facts : {'c13-noncone-kernel-separator-search/RESULT.md': {'12,994,697': True, '629,432': True, '459,547': True, '841,651': True, '0.646': True}, 'c13-noncone-kernel-separator-search/REFEREE.md': {'0.287': True, '0.193': True, '1,226': True, '459,547': True}, 'c13-kacmoody-eisenstein-affine-weyl-shift/REFEREE.md': {'0.738': True, 'A single real factor': True, 'x = -0.03': True}, 'c13-referee-r12-independent/referee_updates.json': {'2.2423': True, 'false at beta = 1/2': True, 'MEASURED -> PROVED': True}, 'c13-tnr-invariance-prefilter-noncone-census/REFEREE.md': {'13 device types with a record, 8 recorded passes, 7 recorded failures': True, 'w >= 3.5': True}, 'c13-lrs-twist-amplification-zero-representation/REFEREE.md': {'beta <= 7/4': True, 'L(0, chi) = 0': True}, 'c13-bilinear-reciprocity-height-antibridge/REFEREE.md': {'abs(v)^(-(J + 3/2 + c))': True, 'Re c-hat(chi)': True}, 'c13-fourier-interpolation-zero-nodes/REFEREE.md': {'outside a countable set': True, 'sum_{d <= y} |b(d)|/d << y^eps': True}}
+facts_all : True
+c12_screen_is_corrected : True
+c12_heat_is_corrected : True
+c12_originals_kept : True
+D1 : {'corrected': '20/20', 'original': '19/20', 'same_as_c13': True}
+heat : {'online': 929, 'pairs': 294, 'listed': 294, 'count': 1517, 'zeta': 1517, 'diag': 0}
+devices : {'closed': 45, 'floored': 1}
+device_ids_unique : True
+new_devices_cite_referee_and_row : {'kacmoody-loop-eisenstein-maass-selberg': True, 'fourier-interpolation-zero-nodes': True, 'lrs-amplification-eisenstein-at-zero': True, 'edrei-thoma-local-total-positivity': True, 'bilinear-reciprocity-height-jform': True, 'dictionary-d-kernel-sign-functionals': True}
+kacmoody_scope : True
+dictionary_label : True
+map_G36_label : True
+map_D9_label : True
+rows_parsed : (227, 234)
+top60_identical : True
+headline_unchanged : True
+partA_diff : {'scoreHistogram': ({'0': 112, '1': 2, '2': 0, '3': 0, '4': 0}, {'0': 114, '1': 2, '2': 0, '3': 0, '4': 0})}
+partD_diff : {'lanesRun': (114, 116), 'lanesRefereed': (114, 115)}
+checkpoint_rows_cited_missing : []
+checkpoint_statements : 8
+checkpoint_says_no_joint_clause : True
+strategy_untouched : True
+map_diff: {'inserted': 14, 'replaced': 14, 'deleted': 0}
+[('+', ''), ('+', 'Update 2026-11-19, tenth (`c'), ('~', '- Filter UNIV (`c12-univ-poi'), ('+', '- Control BLS, scattering-le'), ('+', '- NR on a scattering carrier'), ('+', '- Pre-filter Lemma P (`c13-t'), ('~', '| P53 | de Branges shift pos'), ('~', '| P54 | Height-uniform point'), ('~', '| P55 | Pre-filter for T-NR '), ('~', '| G33 | Hecke operators T_{p'), ('~', '| G34 | Fourier interpolatio'), ('~', '| G35 | Luo-Rudnick-Sarnak m'), ('~', '| G36 | Dictionary D: sign f'), ('~', '| Z35 | Depth-aspect termwis'), ('~', '| Z36 | Bilinear twist-modul'), ('+', '| L6 | Edrei-Thoma local tot'), ('~', 'Seven device types tested by'), ('~', '| D8 | Positivity in the Bos'), ('~', '| D9 | Borel Eisenstein seri'), ('~', 'Row count (2026-11-19, `c14-'), ('+', '| "Any inner factor" preserv'), ('+', '| "Exponent 1/4 + eps for al'), ('+', '| "For every Eisenstein obje'), ('+', '| "14 device types carry a r'), ('+', '| Remainder integrand of Lem'), ('+', '| Registered prediction "T-N'), ('+', '| Lemma C beyond its first s'), ('+', '| Section 3.5 first bullet (')]

@@ -1,0 +1,441 @@
+done (300, 0.1) 21
+done (300, 0.08) 21
+done (300, 0.07) 21
+done (300, 0.06) 21
+done (300, 0.05) 21
+done (330, 0.07) 21
+done (330, 0.06) 21
+done (300, 0.04) 21
+done (330, 0.08) 21
+done (330, 0.1) 21
+done (330, 0.05) 21
+done (330, 0.04) 21
+done (300, 0.03) 21
+done (300, 0.02) 21
+done (360, 0.06) 21
+done (360, 0.1) 21
+done (330, 0.03) 21
+done (360, 0.05) 21
+done (360, 0.08) 21
+done (360, 0.07) 21
+done (330, 0.02) 21
+done (400, 0.08) 21
+done (360, 0.04) 21
+done (400, 0.07) 21
+done (400, 0.05) 21
+done (400, 0.1) 21
+done (400, 0.06) 21
+done (360, 0.03) 21
+done (400, 0.04) 21
+done (400, 0.03) 21
+done (450, 0.05) 21
+done (450, 0.06) 21
+done (450, 0.1) 21
+done (450, 0.07) 21
+done (450, 0.08) 21
+done (450, 0.04) 21
+done (360, 0.02) 21
+done (400, 0.02) 21
+done (499, 0.07) 21
+done (499, 0.08) 21
+done (499, 0.1) 21
+done (499, 0.06) 21
+done (499, 0.05) 21
+done (499, 0.04) 21
+done (550, 0.07) 21
+done (450, 0.03) 21
+done (550, 0.08) 21
+done (550, 0.1) 21
+done (550, 0.06) 21
+done (550, 0.04) 21
+done (550, 0.05) 21
+done (600, 0.05) 21
+done (499, 0.03) 21
+done (600, 0.06) 21
+done (600, 0.1) 21
+done (450, 0.02) 21
+done (600, 0.07) 21
+done (600, 0.08) 21
+done (550, 0.03) 21
+done (499, 0.02) 21
+done (692, 0.06) 21
+done (600, 0.04) 21
+done (692, 0.1) 21
+done (692, 0.08) 21
+done (692, 0.07) 21
+done (692, 0.05) 21
+done (692, 0.04) 21
+done (550, 0.02) 21
+done (815, 0.06) 21
+done (600, 0.03) 21
+done (815, 0.07) 21
+done (815, 0.08) 21
+done (815, 0.1) 21
+done (815, 0.04) 21
+done (815, 0.05) 21
+done (600, 0.02) 21
+done (959, 0.07) 21
+done (959, 0.08) 21
+done (692, 0.03) 21
+done (959, 0.1) 21
+done (959, 0.06) 21
+done (959, 0.05) 21
+done (959, 0.04) 21
+done (1129, 0.05) 21
+done (815, 0.03) 21
+done (1129, 0.08) 21
+done (1129, 0.07) 21
+done (1129, 0.1) 21
+done (959, 0.03) 21
+done (1129, 0.06) 21
+done (1129, 0.04) 21
+done (1329, 0.05) 21
+done (1329, 0.06) 21
+done (1329, 0.04) 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (1329, 0.1) 20
+done (1329, 0.08) 21
+done (1329, 0.07) 21
+done (1129, 0.03) 21
+done (692, 0.02) 21
+done (1564, 0.05) 21
+done (1564, 0.07) 21
+done (1564, 0.08) 21
+done (1564, 0.06) 21
+done (1564, 0.1) 8
+done (1329, 0.03) 21
+done (1564, 0.04) 21
+done (815, 0.02) 21
+done (1841, 0.06) 21
+done (1841, 0.05) 21
+done (1841, 0.07) 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (1841, 0.1) 1
+done (1841, 0.08) 21
+done (959, 0.02) 21
+done (1841, 0.04) 21
+done (1564, 0.03) 21
+done (2167, 0.05) 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: divide by zero encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: divide by zero encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (2167, 0.07) 21
+done (2167, 0.06) 21
+done (2167, 0.08) 8
+done (2167, 0.1) 1
+done (1841, 0.03) 21
+done (2167, 0.04) 21
+done (2550, 0.05) 21
+done (2550, 0.06) 21
+done (2550, 0.07) 10
+done (2550, 0.08) 1
+done (2550, 0.1) 1
+done (2550, 0.04) 21
+done (1129, 0.02) 21
+done (1329, 0.02) 21
+done (3000, 0.05) 21
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: overflow encountered in exp
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:59: RuntimeWarning: invalid value encountered in multiply
+  ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
+~/rh-push/box-riesz-order2/hsearch.py:60: RuntimeWarning: invalid value encountered in scalar divide
+  f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in scalar divide
+  if abs(f / fp) < 1e-14: ok = True; break
+done (2167, 0.03) 21
+done (3000, 0.06) 14
+done (3000, 0.08) 1
+done (3000, 0.07) 2
+done (3000, 0.1) 1
+done (3000, 0.04) 21
+done (2550, 0.03) 21
+done (3000, 0.03) 21
+done (1564, 0.02) 21
+done (1841, 0.02) 21
+done (2167, 0.02) 21
+done (2550, 0.02) 21
+done (3000, 0.02) 21
+certifying 483
+CERTIFIED off-line zero {"N": 400, "T_log10": 28.014633101698273, "re_s": 0.517047361150894, "rho": 0.03, "abs_X": 0.34358270338180524}
+CERTIFIED off-line zero {"N": 400, "T_log10": 37.04550316569339, "re_s": 0.513804145061991, "rho": 0.02, "abs_X": 0.3159633364033632}
+CERTIFIED off-line zero {"N": 400, "T_log10": 36.65389407691535, "re_s": 0.5206771126571281, "rho": 0.02, "abs_X": 0.18138750116598124}
+CERTIFIED off-line zero {"N": 400, "T_log10": 37.04550316569339, "re_s": 0.513804145061991, "rho": 0.02, "abs_X": 0.3159633364033632}
+CERTIFIED off-line zero {"N": 400, "T_log10": 37.10940334770384, "re_s": 0.5144208765180254, "rho": 0.02, "abs_X": 0.29947483202153324}
+CERTIFIED off-line zero {"N": 400, "T_log10": 37.10940334770384, "re_s": 0.5144208765180254, "rho": 0.02, "abs_X": 0.29947483202153324}
+CERTIFIED off-line zero {"N": 400, "T_log10": 38.187296986571155, "re_s": 0.5201895390884431, "rho": 0.02, "abs_X": 0.1758453783443388}
+CERTIFIED off-line zero {"N": 400, "T_log10": 38.187296986571155, "re_s": 0.5201895390884431, "rho": 0.02, "abs_X": 0.1758453783443388}
+CERTIFIED off-line zero {"N": 450, "T_log10": 28.185164844264154, "re_s": 0.5041207547748416, "rho": 0.03, "abs_X": 0.7711608101084167}
+CERTIFIED off-line zero {"N": 450, "T_log10": 28.831390202522353, "re_s": 0.5125294943681846, "rho": 0.03, "abs_X": 0.44540803675555424}
+CERTIFIED off-line zero {"N": 450, "T_log10": 28.831390202522353, "re_s": 0.5125294943681846, "rho": 0.03, "abs_X": 0.44540803675555424}
+CERTIFIED off-line zero {"N": 450, "T_log10": 38.71081619838204, "re_s": 0.5158500897560762, "rho": 0.02, "abs_X": 0.2506578506121858}
+CERTIFIED off-line zero {"N": 450, "T_log10": 39.228851956113544, "re_s": 0.5241169310570694, "rho": 0.02, "abs_X": 0.11835050919261005}
+CERTIFIED off-line zero {"N": 450, "T_log10": 38.837119408404774, "re_s": 0.5294655756855472, "rho": 0.02, "abs_X": 0.075711307790564}
+CERTIFIED off-line zero {"N": 450, "T_log10": 39.677654084801276, "re_s": 0.517633609034768, "rho": 0.02, "abs_X": 0.20625978095055833}
+CERTIFIED off-line zero {"N": 450, "T_log10": 38.71081619838204, "re_s": 0.5158500897560762, "rho": 0.02, "abs_X": 0.2506578506121858}
+CERTIFIED off-line zero {"N": 450, "T_log10": 39.228851956113544, "re_s": 0.5241169310570694, "rho": 0.02, "abs_X": 0.11835050919261005}
+CERTIFIED off-line zero {"N": 450, "T_log10": 39.677654084801276, "re_s": 0.517633609034768, "rho": 0.02, "abs_X": 0.20625978095055833}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.152945207563697, "re_s": 0.5238228969887889, "rho": 0.03, "abs_X": 0.19984093325900285}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.152945207563697, "re_s": 0.5238228969887889, "rho": 0.03, "abs_X": 0.19984093325900285}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.928299929012475, "re_s": 0.5255895349813215, "rho": 0.03, "abs_X": 0.16942763111698675}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.293042063846293, "re_s": 0.5206608802530688, "rho": 0.03, "abs_X": 0.2458160207662754}
+CERTIFIED off-line zero {"N": 499, "T_log10": 39.16351596809858, "re_s": 0.529811426759722, "rho": 0.02, "abs_X": 0.07182482768524162}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.728336750406044, "re_s": 0.5217236838684762, "rho": 0.03, "abs_X": 0.22377251025223616}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.928299929012475, "re_s": 0.5255895349813215, "rho": 0.03, "abs_X": 0.16942763111698675}
+CERTIFIED off-line zero {"N": 499, "T_log10": 30.728336750406044, "re_s": 0.5217236838684762, "rho": 0.03, "abs_X": 0.22377251025223616}
+CERTIFIED off-line zero {"N": 499, "T_log10": 41.26783098448576, "re_s": 0.5303640996870285, "rho": 0.02, "abs_X": 0.059043960253496855}
+CERTIFIED off-line zero {"N": 499, "T_log10": 40.437500041467686, "re_s": 0.5302404102858311, "rho": 0.02, "abs_X": 0.06328352972248598}
+CERTIFIED off-line zero {"N": 499, "T_log10": 40.46129356191265, "re_s": 0.5330503695075193, "rho": 0.02, "abs_X": 0.04887867635532737}
+CERTIFIED off-line zero {"N": 550, "T_log10": 16.677113056377838, "re_s": 0.5095348202526673, "rho": 0.05, "abs_X": 0.7056628043069559}
+CERTIFIED off-line zero {"N": 550, "T_log10": 16.677113056377838, "re_s": 0.5095348202526673, "rho": 0.05, "abs_X": 0.7056628043069559}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.236913369676312, "re_s": 0.5303032405752187, "rho": 0.04, "abs_X": 0.20894580704918445}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.615583418826876, "re_s": 0.5114339977965896, "rho": 0.04, "abs_X": 0.5484106222048454}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.236913369676312, "re_s": 0.5303032405752187, "rho": 0.04, "abs_X": 0.20894580704918445}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.615583418826876, "re_s": 0.5114339977965896, "rho": 0.04, "abs_X": 0.5484106222048454}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.909320987011984, "re_s": 0.5191121892079964, "rho": 0.04, "abs_X": 0.36165585305137893}
+CERTIFIED off-line zero {"N": 550, "T_log10": 30.23568574778733, "re_s": 0.5151678993410946, "rho": 0.03, "abs_X": 0.35768017880769365}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.30065633729532, "re_s": 0.5082196178171889, "rho": 0.04, "abs_X": 0.6531880691238842}
+CERTIFIED off-line zero {"N": 550, "T_log10": 23.909320987011984, "re_s": 0.5191121892079964, "rho": 0.04, "abs_X": 0.36165585305137893}
+CERTIFIED off-line zero {"N": 550, "T_log10": 30.760503291575738, "re_s": 0.5305014281653118, "rho": 0.03, "abs_X": 0.12192881259507615}
+CERTIFIED off-line zero {"N": 550, "T_log10": 30.760503291575738, "re_s": 0.5305014281653118, "rho": 0.03, "abs_X": 0.12192881259507615}
+CERTIFIED off-line zero {"N": 550, "T_log10": 41.41159081167105, "re_s": 0.5337261287549157, "rho": 0.02, "abs_X": 0.04268417318736562}
+CERTIFIED off-line zero {"N": 550, "T_log10": 41.41159081167105, "re_s": 0.5337261287549157, "rho": 0.02, "abs_X": 0.04268417318736562}
+CERTIFIED off-line zero {"N": 550, "T_log10": 31.709586726598694, "re_s": 0.5147957678819209, "rho": 0.03, "abs_X": 0.3488526281912316}
+CERTIFIED off-line zero {"N": 550, "T_log10": 31.66703800688982, "re_s": 0.5303396882376562, "rho": 0.03, "abs_X": 0.11573067011499517}
+CERTIFIED off-line zero {"N": 550, "T_log10": 31.66703800688982, "re_s": 0.5303396882376562, "rho": 0.03, "abs_X": 0.11573067011499517}
+CERTIFIED off-line zero {"N": 550, "T_log10": 31.709586726598694, "re_s": 0.5147957678819209, "rho": 0.03, "abs_X": 0.3488526281912316}
+CERTIFIED off-line zero {"N": 550, "T_log10": 41.544494825968705, "re_s": 0.5392350309408394, "rho": 0.02, "abs_X": 0.02519515717224888}
+CERTIFIED off-line zero {"N": 550, "T_log10": 41.74614226764194, "re_s": 0.5382081612488715, "rho": 0.02, "abs_X": 0.027255468388796517}
+CERTIFIED off-line zero {"N": 550, "T_log10": 42.21681345121916, "re_s": 0.5384668436414128, "rho": 0.02, "abs_X": 0.02551266920897676}
+CERTIFIED off-line zero {"N": 550, "T_log10": 41.74614226764194, "re_s": 0.5382081612488715, "rho": 0.02, "abs_X": 0.027255468388796517}
+CERTIFIED off-line zero {"N": 550, "T_log10": 42.21681345121916, "re_s": 0.5384668436414128, "rho": 0.02, "abs_X": 0.02551266920897676}
+CERTIFIED off-line zero {"N": 600, "T_log10": 24.369701120820164, "re_s": 0.5157850474897497, "rho": 0.04, "abs_X": 0.42454371667299096}
+CERTIFIED off-line zero {"N": 600, "T_log10": 24.369701120820164, "re_s": 0.5157850474897497, "rho": 0.04, "abs_X": 0.42454371667299096}
+CERTIFIED off-line zero {"N": 600, "T_log10": 24.678112196186532, "re_s": 0.5171263606683266, "rho": 0.04, "abs_X": 0.3899632365520203}
+CERTIFIED off-line zero {"N": 600, "T_log10": 31.49082879574307, "re_s": 0.539416714773906, "rho": 0.03, "abs_X": 0.06168742067882201}
+CERTIFIED off-line zero {"N": 600, "T_log10": 24.678112196186532, "re_s": 0.5171263606683266, "rho": 0.04, "abs_X": 0.3899632365520203}
+CERTIFIED off-line zero {"N": 600, "T_log10": 30.78719343786819, "re_s": 0.5418466071238666, "rho": 0.03, "abs_X": 0.05559830237265189}
+CERTIFIED off-line zero {"N": 600, "T_log10": 31.49082879574307, "re_s": 0.539416714773906, "rho": 0.03, "abs_X": 0.06168742067882201}
+CERTIFIED off-line zero {"N": 600, "T_log10": 31.7219748371272, "re_s": 0.5364041700463946, "rho": 0.03, "abs_X": 0.0748591530915744}
+CERTIFIED off-line zero {"N": 600, "T_log10": 31.7219748371272, "re_s": 0.5364041700463946, "rho": 0.03, "abs_X": 0.0748591530915744}
+CERTIFIED off-line zero {"N": 600, "T_log10": 32.88920154530773, "re_s": 0.5344653380405917, "rho": 0.03, "abs_X": 0.07833792968646322}
+CERTIFIED off-line zero {"N": 600, "T_log10": 41.96836090699444, "re_s": 0.5380299200215612, "rho": 0.02, "abs_X": 0.027183245527678524}
+CERTIFIED off-line zero {"N": 600, "T_log10": 41.96836090699444, "re_s": 0.5380299200215612, "rho": 0.02, "abs_X": 0.027183245527678524}
+CERTIFIED off-line zero {"N": 600, "T_log10": 32.88920154530773, "re_s": 0.5344653380405917, "rho": 0.03, "abs_X": 0.07833792968646322}
+CERTIFIED off-line zero {"N": 600, "T_log10": 42.23274032763007, "re_s": 0.5361867747309746, "rho": 0.02, "abs_X": 0.031667727164049295}
+CERTIFIED off-line zero {"N": 600, "T_log10": 43.67909546987511, "re_s": 0.5455207952374, "rho": 0.02, "abs_X": 0.011169317111769637}
+CERTIFIED off-line zero {"N": 600, "T_log10": 42.28048265067343, "re_s": 0.5407033323178111, "rho": 0.02, "abs_X": 0.020489532269837737}
+CERTIFIED off-line zero {"N": 600, "T_log10": 43.67909546987511, "re_s": 0.5455207952374, "rho": 0.02, "abs_X": 0.011169317111769637}
+CERTIFIED off-line zero {"N": 600, "T_log10": 42.28048265067343, "re_s": 0.5407033323178111, "rho": 0.02, "abs_X": 0.020489532269837737}
+CERTIFIED off-line zero {"N": 692, "T_log10": 16.677113056377838, "re_s": 0.5248042281616636, "rho": 0.05, "abs_X": 0.40377118110659943}
+CERTIFIED off-line zero {"N": 692, "T_log10": 16.677113056377838, "re_s": 0.5248042281616636, "rho": 0.05, "abs_X": 0.40377118110659943}
+CERTIFIED off-line zero {"N": 692, "T_log10": 24.537861519529386, "re_s": 0.5205350491382453, "rho": 0.04, "abs_X": 0.3254651339234313}
+CERTIFIED off-line zero {"N": 692, "T_log10": 24.537861519529386, "re_s": 0.5205350491382453, "rho": 0.04, "abs_X": 0.3254651339234313}
+CERTIFIED off-line zero {"N": 692, "T_log10": 24.044019823280788, "re_s": 0.5220660413013469, "rho": 0.04, "abs_X": 0.30694201191943316}
+CERTIFIED off-line zero {"N": 692, "T_log10": 25.179350192134155, "re_s": 0.5286263966515926, "rho": 0.04, "abs_X": 0.2004725651719581}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.20718835459621, "re_s": 0.5321874476232934, "rho": 0.03, "abs_X": 0.09750439332364792}
+CERTIFIED off-line zero {"N": 692, "T_log10": 25.179350192134155, "re_s": 0.5286263966515926, "rho": 0.04, "abs_X": 0.2004725651719581}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.46073616659336, "re_s": 0.5284891943885154, "rho": 0.03, "abs_X": 0.12530236808343628}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.46073616659336, "re_s": 0.5284891943885154, "rho": 0.03, "abs_X": 0.12530236808343628}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.82418661108464, "re_s": 0.5361687341318195, "rho": 0.03, "abs_X": 0.06944802136484321}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.86915192387685, "re_s": 0.5313532961212833, "rho": 0.03, "abs_X": 0.09873458753664388}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.82418661108464, "re_s": 0.5361687341318195, "rho": 0.03, "abs_X": 0.06944802136484321}
+CERTIFIED off-line zero {"N": 692, "T_log10": 32.86915192387685, "re_s": 0.5313532961212833, "rho": 0.03, "abs_X": 0.09873458753664388}
+CERTIFIED off-line zero {"N": 692, "T_log10": 45.212186222384005, "re_s": 0.5557504712386465, "rho": 0.02, "abs_X": 0.003341167252699317}
+CERTIFIED off-line zero {"N": 692, "T_log10": 43.67963125575363, "re_s": 0.5555472025028824, "rho": 0.02, "abs_X": 0.004150069178837973}
+CERTIFIED off-line zero {"N": 692, "T_log10": 44.50025035766518, "re_s": 0.5539958489157123, "rho": 0.02, "abs_X": 0.0043678689991109515}
+CERTIFIED off-line zero {"N": 692, "T_log10": 44.50025035766518, "re_s": 0.5539958489157123, "rho": 0.02, "abs_X": 0.0043678689991109515}
+CERTIFIED off-line zero {"N": 692, "T_log10": 45.212186222384005, "re_s": 0.5557504712386465, "rho": 0.02, "abs_X": 0.003341167252699317}
+CERTIFIED off-line zero {"N": 692, "T_log10": 45.83936727540517, "re_s": 0.5523031477186657, "rho": 0.02, "abs_X": 0.0044076197622586}
+CERTIFIED off-line zero {"N": 692, "T_log10": 45.83936727540517, "re_s": 0.5523031477186657, "rho": 0.02, "abs_X": 0.0044076197622586}
+CERTIFIED off-line zero {"N": 815, "T_log10": 18.39236075276895, "re_s": 0.5243915099567432, "rho": 0.05, "abs_X": 0.37226427619801006}
+CERTIFIED off-line zero {"N": 815, "T_log10": 24.072041640042936, "re_s": 0.5166097478684801, "rho": 0.04, "abs_X": 0.4106076383036676}
+CERTIFIED off-line zero {"N": 815, "T_log10": 24.072041640042936, "re_s": 0.5166097478684801, "rho": 0.04, "abs_X": 0.4106076383036676}
+CERTIFIED off-line zero {"N": 815, "T_log10": 24.210260010450423, "re_s": 0.5394455812448034, "rho": 0.04, "abs_X": 0.11926057273002734}
+CERTIFIED off-line zero {"N": 815, "T_log10": 32.607991150518934, "re_s": 0.5260942675273621, "rho": 0.03, "abs_X": 0.14789254223202847}
+CERTIFIED off-line zero {"N": 815, "T_log10": 32.01111910058375, "re_s": 0.5542331486936563, "rho": 0.03, "abs_X": 0.020287289444641178}
+CERTIFIED off-line zero {"N": 815, "T_log10": 32.607991150518934, "re_s": 0.5260942675273621, "rho": 0.03, "abs_X": 0.14789254223202847}
+CERTIFIED off-line zero {"N": 815, "T_log10": 33.546625929088876, "re_s": 0.5443057917150097, "rho": 0.03, "abs_X": 0.03540414981638628}
+CERTIFIED off-line zero {"N": 815, "T_log10": 33.93254903063665, "re_s": 0.5416116302755934, "rho": 0.03, "abs_X": 0.041804677843106874}
+CERTIFIED off-line zero {"N": 815, "T_log10": 33.546625929088876, "re_s": 0.5443057917150097, "rho": 0.03, "abs_X": 0.03540414981638628}
+CERTIFIED off-line zero {"N": 815, "T_log10": 46.29516707470688, "re_s": 0.5628637192475887, "rho": 0.02, "abs_X": 0.001380035218216334}
+CERTIFIED off-line zero {"N": 815, "T_log10": 33.93254903063665, "re_s": 0.5416116302755934, "rho": 0.03, "abs_X": 0.041804677843106874}
+CERTIFIED off-line zero {"N": 815, "T_log10": 46.39149393731033, "re_s": 0.5651679182784386, "rho": 0.02, "abs_X": 0.001068510107529947}
+CERTIFIED off-line zero {"N": 815, "T_log10": 47.391325380503254, "re_s": 0.5598709483892257, "rho": 0.02, "abs_X": 0.0016233949466564008}
+CERTIFIED off-line zero {"N": 815, "T_log10": 47.120742913851274, "re_s": 0.561816542484138, "rho": 0.02, "abs_X": 0.0013693022239757192}
+CERTIFIED off-line zero {"N": 815, "T_log10": 46.39149393731033, "re_s": 0.5651679182784386, "rho": 0.02, "abs_X": 0.001068510107529947}
+CERTIFIED off-line zero {"N": 815, "T_log10": 47.120742913851274, "re_s": 0.561816542484138, "rho": 0.02, "abs_X": 0.0013693022239757192}
+CERTIFIED off-line zero {"N": 815, "T_log10": 47.391325380503254, "re_s": 0.5598709483892257, "rho": 0.02, "abs_X": 0.0016233949466564008}
+CERTIFIED off-line zero {"N": 959, "T_log10": 16.677113056377838, "re_s": 0.5349743128895186, "rho": 0.05, "abs_X": 0.27838460995471603}
+CERTIFIED off-line zero {"N": 959, "T_log10": 16.677113056377838, "re_s": 0.5349743128895186, "rho": 0.05, "abs_X": 0.27838460995471603}
+CERTIFIED off-line zero {"N": 959, "T_log10": 23.726847184325376, "re_s": 0.5194039835957843, "rho": 0.04, "abs_X": 0.35899840208975714}
+CERTIFIED off-line zero {"N": 959, "T_log10": 25.32751673244686, "re_s": 0.5287966895633736, "rho": 0.04, "abs_X": 0.19662389779258388}
+CERTIFIED off-line zero {"N": 959, "T_log10": 25.32751673244686, "re_s": 0.5287966895633736, "rho": 0.04, "abs_X": 0.19662389779258388}
+CERTIFIED off-line zero {"N": 959, "T_log10": 24.63588084021418, "re_s": 0.5382346147453014, "rho": 0.04, "abs_X": 0.12262377643401134}
+CERTIFIED off-line zero {"N": 959, "T_log10": 24.63588084021418, "re_s": 0.5382346147453014, "rho": 0.04, "abs_X": 0.12262377643401134}
+CERTIFIED off-line zero {"N": 959, "T_log10": 32.205600536167005, "re_s": 0.5510297126823716, "rho": 0.03, "abs_X": 0.024962515481697645}
+CERTIFIED off-line zero {"N": 959, "T_log10": 33.93095695337442, "re_s": 0.5502320265847989, "rho": 0.03, "abs_X": 0.021660748539175968}
+CERTIFIED off-line zero {"N": 959, "T_log10": 33.93095695337442, "re_s": 0.5502320265847989, "rho": 0.03, "abs_X": 0.021660748539175968}
+CERTIFIED off-line zero {"N": 959, "T_log10": 34.21320589781749, "re_s": 0.5509116993179436, "rho": 0.03, "abs_X": 0.019896846161920615}
+CERTIFIED off-line zero {"N": 959, "T_log10": 34.78287121653888, "re_s": 0.5452299548356871, "rho": 0.03, "abs_X": 0.029031798787898428}
+CERTIFIED off-line zero {"N": 959, "T_log10": 34.78287121653888, "re_s": 0.5452299548356871, "rho": 0.03, "abs_X": 0.029031798787898428}
+CERTIFIED off-line zero {"N": 959, "T_log10": 48.485846017187924, "re_s": 0.5670391678376332, "rho": 0.02, "abs_X": 0.0006354165836976972}
+CERTIFIED off-line zero {"N": 959, "T_log10": 49.255073322920765, "re_s": 0.571080693710672, "rho": 0.02, "abs_X": 0.00035945985781292406}
+CERTIFIED off-line zero {"N": 959, "T_log10": 34.21320589781749, "re_s": 0.5509116993179436, "rho": 0.03, "abs_X": 0.019896846161920615}
+CERTIFIED off-line zero {"N": 959, "T_log10": 49.255073322920765, "re_s": 0.571080693710672, "rho": 0.02, "abs_X": 0.00035945985781292406}
+CERTIFIED off-line zero {"N": 959, "T_log10": 49.63069088228135, "re_s": 0.5715348108280216, "rho": 0.02, "abs_X": 0.0003212000190482076}
+CERTIFIED off-line zero {"N": 959, "T_log10": 50.16097891438149, "re_s": 0.5708506315374957, "rho": 0.02, "abs_X": 0.00031813724300281716}
+CERTIFIED off-line zero {"N": 959, "T_log10": 50.16097891438149, "re_s": 0.5708506315374957, "rho": 0.02, "abs_X": 0.00031813724300281716}
+CERTIFIED off-line zero {"N": 959, "T_log10": 49.63069088228135, "re_s": 0.5715348108280216, "rho": 0.02, "abs_X": 0.0003212000190482076}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.677113056377838, "re_s": 0.5377770821049602, "rho": 0.05, "abs_X": 0.25126976710191334}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.677113056377838, "re_s": 0.5377770821049602, "rho": 0.05, "abs_X": 0.25126976710191334}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.677113056377838, "re_s": 0.5377770821049602, "rho": 0.05, "abs_X": 0.25126976710191334}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 16.677113056377838, "re_s": 0.5377770821049602, "rho": 0.05, "abs_X": 0.25126976710191334}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 23.388278526090282, "re_s": 0.5292254183138271, "rho": 0.04, "abs_X": 0.21867287606135077}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 25.05586579222607, "re_s": 0.5224022388806046, "rho": 0.04, "abs_X": 0.2861366743657005}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 25.819961666420614, "re_s": 0.5448416592569063, "rho": 0.04, "abs_X": 0.07550605613630608}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 23.907102233827626, "re_s": 0.5271017048382238, "rho": 0.04, "abs_X": 0.23643338875011294}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 23.388278526090282, "re_s": 0.5292254183138271, "rho": 0.04, "abs_X": 0.21867287606135077}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 24.755329243058096, "re_s": 0.5192912370210958, "rho": 0.04, "abs_X": 0.34501418653318544}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 24.755329243058096, "re_s": 0.5192912370210958, "rho": 0.04, "abs_X": 0.34501418653318544}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 25.05586579222607, "re_s": 0.5224022388806046, "rho": 0.04, "abs_X": 0.2861366743657005}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 25.819961666420614, "re_s": 0.5448416592569063, "rho": 0.04, "abs_X": 0.07550605613630608}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 34.342172706915115, "re_s": 0.5521874167703688, "rho": 0.03, "abs_X": 0.01775929271910358}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 35.19012986430855, "re_s": 0.5583857146109443, "rho": 0.03, "abs_X": 0.009817511589463347}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 34.342172706915115, "re_s": 0.5521874167703688, "rho": 0.03, "abs_X": 0.01775929271910358}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 34.421856072166605, "re_s": 0.5523695292826798, "rho": 0.03, "abs_X": 0.0173437859279955}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 35.19012986430855, "re_s": 0.5583857146109443, "rho": 0.03, "abs_X": 0.009817511589463347}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 49.36024161113259, "re_s": 0.5751094452730247, "rho": 0.02, "abs_X": 0.00022518034552042736}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 50.34870708935798, "re_s": 0.5785176025016411, "rho": 0.02, "abs_X": 0.00012865047674018336}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 35.33439908279046, "re_s": 0.5394014533688584, "rho": 0.03, "abs_X": 0.04357353245302691}
+CERTIFIED off-line zero {"N": 1129, "T_log10": 35.33439908279046, "re_s": 0.5394014533688584, "rho": 0.03, "abs_X": 0.04357353245302691}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 22.59158922895823, "re_s": 0.5183484809998661, "rho": 0.04, "abs_X": 0.3982208934620098}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 22.94423457993549, "re_s": 0.5394943133132221, "rho": 0.04, "abs_X": 0.133461738133857}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 22.94423457993549, "re_s": 0.5394943133132221, "rho": 0.04, "abs_X": 0.133461738133857}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 34.001102748528126, "re_s": 0.5555922324174775, "rho": 0.03, "abs_X": 0.014261834562093732}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 34.813488725283406, "re_s": 0.5705202546393946, "rho": 0.03, "abs_X": 0.003992378956314928}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 23.855120333725996, "re_s": 0.5631910670714902, "rho": 0.04, "abs_X": 0.034914620716676864}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 23.855120333725996, "re_s": 0.5631910670714902, "rho": 0.04, "abs_X": 0.034914620716676864}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 33.20086374233144, "re_s": 0.5687041265685916, "rho": 0.03, "abs_X": 0.005940211469073404}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 34.001102748528126, "re_s": 0.5555922324174775, "rho": 0.03, "abs_X": 0.014261834562093732}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 34.813488725283406, "re_s": 0.5705202546393946, "rho": 0.03, "abs_X": 0.003992378956314928}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 35.062784744852145, "re_s": 0.5707418714549499, "rho": 0.03, "abs_X": 0.003767538737372819}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 51.46087055628218, "re_s": 0.5829955096355365, "rho": 0.02, "abs_X": 6.240568675812851e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 35.062784744852145, "re_s": 0.5707418714549499, "rho": 0.03, "abs_X": 0.003767538737372819}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 53.16910628401285, "re_s": 0.5827061160092019, "rho": 0.02, "abs_X": 4.662341537310133e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 51.67629074025055, "re_s": 0.5858946061194454, "rho": 0.02, "abs_X": 4.264270113155482e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 51.67629074025055, "re_s": 0.5858946061194454, "rho": 0.02, "abs_X": 4.264270113155482e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 52.433854101602485, "re_s": 0.5938661998895244, "rho": 0.02, "abs_X": 1.4228380836726948e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 53.16910628401285, "re_s": 0.5827061160092019, "rho": 0.02, "abs_X": 4.662341537310133e-05}
+CERTIFIED off-line zero {"N": 1329, "T_log10": 52.433854101602485, "re_s": 0.5938661998895244, "rho": 0.02, "abs_X": 1.4228380836726948e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 21.38292049602443, "re_s": 0.5261228308846458, "rho": 0.04, "abs_X": 0.28991340838825636}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 22.09511744404188, "re_s": 0.5441400068312748, "rho": 0.04, "abs_X": 0.11480294524161269}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 21.94059279910172, "re_s": 0.5384783089205534, "rho": 0.04, "abs_X": 0.1536298844562529}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 22.55529185087274, "re_s": 0.5128892065973883, "rho": 0.04, "abs_X": 0.5242857920990431}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 22.55529185087274, "re_s": 0.5128892065973883, "rho": 0.04, "abs_X": 0.5242857920990431}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 31.673246537200356, "re_s": 0.5671650747497892, "rho": 0.03, "abs_X": 0.008438666802674912}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 33.67102561192616, "re_s": 0.5570915513623784, "rho": 0.03, "abs_X": 0.013281228197853006}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 33.67102561192616, "re_s": 0.5570915513623784, "rho": 0.03, "abs_X": 0.013281228197853006}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 51.82036777604576, "re_s": 0.5881208553173976, "rho": 0.02, "abs_X": 3.190664655029259e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 34.337763991572565, "re_s": 0.5732626943775497, "rho": 0.03, "abs_X": 0.0034897932543191445}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 33.96243561436721, "re_s": 0.5491394966488585, "rho": 0.03, "abs_X": 0.023459846486401766}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 52.43116166222231, "re_s": 0.5876945170237534, "rho": 0.02, "abs_X": 2.965313392919078e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 52.658851353140065, "re_s": 0.5848932317672331, "rho": 0.02, "abs_X": 3.957127066560324e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 33.96243561436721, "re_s": 0.5491394966488585, "rho": 0.03, "abs_X": 0.023459846486401766}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 34.337763991572565, "re_s": 0.5732626943775497, "rho": 0.03, "abs_X": 0.0034897932543191445}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 51.82036777604576, "re_s": 0.5881208553173976, "rho": 0.02, "abs_X": 3.190664655029259e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 54.10912035680296, "re_s": 0.5834401559461297, "rho": 0.02, "abs_X": 3.5622698241332536e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 52.658851353140065, "re_s": 0.5848932317672331, "rho": 0.02, "abs_X": 3.957127066560324e-05}
+CERTIFIED off-line zero {"N": 1564, "T_log10": 54.10912035680296, "re_s": 0.5834401559461297, "rho": 0.02, "abs_X": 3.5622698241332536e-05}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 20.74570077397726, "re_s": 0.544590980657064, "rho": 0.04, "abs_X": 0.12897943826133848}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 20.74570077397726, "re_s": 0.544590980657064, "rho": 0.04, "abs_X": 0.12897943826133848}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 21.280805635868006, "re_s": 0.5151609528453418, "rho": 0.04, "abs_X": 0.4891745752583124}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 21.280805635868006, "re_s": 0.5151609528453418, "rho": 0.04, "abs_X": 0.4891745752583124}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 31.330179440392534, "re_s": 0.5601583960589953, "rho": 0.03, "abs_X": 0.01456276620490816}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 53.07004756494512, "re_s": 0.5957727469708525, "rho": 0.02, "abs_X": 9.857791798552213e-06}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 31.330179440392534, "re_s": 0.5601583960589953, "rho": 0.03, "abs_X": 0.01456276620490816}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 54.071906288976116, "re_s": 0.5938788258035035, "rho": 0.02, "abs_X": 9.970687788993947e-06}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 32.24974261597041, "re_s": 0.5698943342135369, "rho": 0.03, "abs_X": 0.006334523647877215}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 32.63713072166263, "re_s": 0.5531510078683043, "rho": 0.03, "abs_X": 0.02031083007062968}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 34.127235417501204, "re_s": 0.5567918048657414, "rho": 0.03, "abs_X": 0.012799198688503882}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 32.63713072166263, "re_s": 0.5531510078683043, "rho": 0.03, "abs_X": 0.02031083007062968}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 54.071906288976116, "re_s": 0.5938788258035035, "rho": 0.02, "abs_X": 9.970687788993947e-06}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 34.127235417501204, "re_s": 0.5567918048657414, "rho": 0.03, "abs_X": 0.012799198688503882}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 54.94794874250486, "re_s": 0.5990039733801807, "rho": 0.02, "abs_X": 4.354694810836435e-06}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 55.63318520157609, "re_s": 0.5862335779683795, "rho": 0.02, "abs_X": 1.8680190128507848e-05}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 54.94794874250486, "re_s": 0.5990039733801807, "rho": 0.02, "abs_X": 4.354694810836435e-06}
+CERTIFIED off-line zero {"N": 1841, "T_log10": 55.63318520157609, "re_s": 0.5862335779683795, "rho": 0.02, "abs_X": 1.8680190128507848e-05}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 17.008716891398734, "re_s": 0.523189689053509, "rho": 0.04, "abs_X": 0.42080673981852984}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 18.495225286253575, "re_s": 0.5186321486703569, "rho": 0.04, "abs_X": 0.46802173123247826}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 19.685843899969385, "re_s": 0.530093787026971, "rho": 0.04, "abs_X": 0.2701460745122205}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 19.669317734377, "re_s": 0.5396460590960129, "rho": 0.04, "abs_X": 0.1785803841912653}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 19.669317734377, "re_s": 0.5396460590960129, "rho": 0.04, "abs_X": 0.1785803841912653}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 32.089469549691074, "re_s": 0.5770165039421645, "rho": 0.03, "abs_X": 0.003890937590490729}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 31.632711033788, "re_s": 0.5354290194115928, "rho": 0.03, "abs_X": 0.08082817941358271}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.03717905138891, "re_s": 0.5946228318771699, "rho": 0.02, "abs_X": 9.170122367401704e-06}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 32.089469549691074, "re_s": 0.5770165039421645, "rho": 0.03, "abs_X": 0.003890937590490729}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 19.685843899969385, "re_s": 0.530093787026971, "rho": 0.04, "abs_X": 0.2701460745122205}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 31.632711033788, "re_s": 0.5354290194115928, "rho": 0.03, "abs_X": 0.08082817941358271}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 33.45571301277081, "re_s": 0.5482511917271742, "rho": 0.03, "abs_X": 0.026560430314981502}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 53.82889807830201, "re_s": 0.5980657451161203, "rho": 0.02, "abs_X": 6.302358514257688e-06}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 33.45571301277081, "re_s": 0.5482511917271742, "rho": 0.03, "abs_X": 0.026560430314981502}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.03717905138891, "re_s": 0.5946228318771699, "rho": 0.02, "abs_X": 9.170122367401704e-06}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.05709408639643, "re_s": 0.5920081785312485, "rho": 0.02, "abs_X": 1.2581844466497755e-05}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.05709408639643, "re_s": 0.5920081785312485, "rho": 0.02, "abs_X": 1.2581844466497755e-05}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.785342861021434, "re_s": 0.5914200284934167, "rho": 0.02, "abs_X": 1.1600909022018105e-05}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 54.785342861021434, "re_s": 0.5914200284934167, "rho": 0.02, "abs_X": 1.1600909022018105e-05}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 16.677113056377838, "re_s": 0.5389581059936579, "rho": 0.04, "abs_X": 0.24065053848137236}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 16.677113056377838, "re_s": 0.5389581059936579, "rho": 0.04, "abs_X": 0.24065053848137236}
+CERTIFIED off-line zero {"N": 2167, "T_log10": 31.325224033439056, "re_s": 0.55350799169339, "rho": 0.03, "abs_X": 0.023257293543777667}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 28.965155762859958, "re_s": 0.5575664051772251, "rho": 0.03, "abs_X": 0.023907185594449508}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 29.59516931769484, "re_s": 0.5499558365395966, "rho": 0.03, "abs_X": 0.03642690744203619}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 29.59516931769484, "re_s": 0.5499558365395966, "rho": 0.03, "abs_X": 0.03642690744203619}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 53.6698802525911, "re_s": 0.6045980796033757, "rho": 0.02, "abs_X": 2.9493184962168943e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 30.464614489814643, "re_s": 0.5538600242092228, "rho": 0.03, "abs_X": 0.02524440349293293}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 30.709305747591365, "re_s": 0.5647039605851856, "rho": 0.03, "abs_X": 0.011604640474724403}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 30.709305747591365, "re_s": 0.5647039605851856, "rho": 0.03, "abs_X": 0.011604640474724403}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 30.464614489814643, "re_s": 0.5538600242092228, "rho": 0.03, "abs_X": 0.02524440349293293}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 53.6698802525911, "re_s": 0.6045980796033757, "rho": 0.02, "abs_X": 2.9493184962168943e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 54.61845102711129, "re_s": 0.6013067830878219, "rho": 0.02, "abs_X": 3.5289171633481537e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 53.87901195656561, "re_s": 0.6012043269957127, "rho": 0.02, "abs_X": 4.2460989647192554e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 54.61845102711129, "re_s": 0.6013067830878219, "rho": 0.02, "abs_X": 3.5289171633481537e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 55.70422525009099, "re_s": 0.5977790967404569, "rho": 0.02, "abs_X": 4.27894276076121e-06}
+CERTIFIED off-line zero {"N": 2550, "T_log10": 55.70422525009099, "re_s": 0.5977790967404569, "rho": 0.02, "abs_X": 4.27894276076121e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 28.82476869561871, "re_s": 0.5607014533550204, "rho": 0.03, "abs_X": 0.01989506331488964}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 28.459363639511608, "re_s": 0.5306194204584272, "rho": 0.03, "abs_X": 0.14224289533872086}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 27.509927421411145, "re_s": 0.5295632574421474, "rho": 0.03, "abs_X": 0.16229821014034024}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 28.459363639511608, "re_s": 0.5306194204584272, "rho": 0.03, "abs_X": 0.14224289533872086}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 28.82476869561871, "re_s": 0.5607014533550204, "rho": 0.03, "abs_X": 0.01989506331488964}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 52.61210126354619, "re_s": 0.6111585481573191, "rho": 0.02, "abs_X": 1.7395612439910946e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 53.58910474817373, "re_s": 0.6102819989198932, "rho": 0.02, "abs_X": 1.5069931540935045e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 54.53789297014569, "re_s": 0.5987003269922069, "rho": 0.02, "abs_X": 4.964468328343363e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 54.53789297014569, "re_s": 0.5987003269922069, "rho": 0.02, "abs_X": 4.964468328343363e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 53.58910474817373, "re_s": 0.6102819989198932, "rho": 0.02, "abs_X": 1.5069931540935045e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 54.959106407182134, "re_s": 0.5958147194892971, "rho": 0.02, "abs_X": 6.465260323206172e-06}
+CERTIFIED off-line zero {"N": 3000, "T_log10": 54.959106407182134, "re_s": 0.5958147194892971, "rho": 0.02, "abs_X": 6.465260323206172e-06}

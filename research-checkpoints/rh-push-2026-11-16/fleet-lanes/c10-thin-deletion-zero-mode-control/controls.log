@@ -1,0 +1,120 @@
+planned allocation: bytearray of 10000001 bytes
+planned allocation: bytearray of 20001 bytes
+planned allocation: bytearray of 10000001 bytes
+planned allocation: bytearray of 20001 bytes
+{
+ "zeta_negative_on_[0.5,0.999]": {
+  "subintervals": 4000,
+  "max_upper": -1.4563395848968328
+ },
+ "b=0.9": {
+  "sizeS": 148727,
+  "first_30": [
+   3,
+   5,
+   7,
+   11,
+   13,
+   17,
+   23,
+   29,
+   31,
+   37,
+   41,
+   43,
+   53,
+   59,
+   61,
+   67,
+   79,
+   83,
+   89,
+   97,
+   101,
+   109,
+   127,
+   131,
+   137,
+   149,
+   151,
+   157,
+   167,
+   173
+  ],
+  "sha256_of_S": "9e27a074c2d69dc16594ee01baf4112af526da4745509403cdacc30abccf9a0c",
+  "Lambda_F_min_coefficient": 0.0,
+  "logderiv_s3_sum_vs_euler_primes_le_N": [
+   0.09953200888229617,
+   0.0995320088832188
+  ],
+  "a_values": [
+   0,
+   1
+  ],
+  "count_a_eq_1_up_to_N": 2886,
+  "N": 20000,
+  "completely_multiplicative_m_n_le_140": true,
+  "residue_G(1)": [
+   0.14504308267383303,
+   0.15788441352607346
+  ],
+  "count_ratio_a/N_vs_residue": 0.1443,
+  "G_X(b)_X=1e7": 0.0535424693966309,
+  "piS/pi_at_1e7": 0.22379130246366497
+ },
+ "b=0.75": {
+  "sizeS": 16210,
+  "first_30": [
+   5,
+   7,
+   11,
+   13,
+   19,
+   29,
+   37,
+   41,
+   53,
+   67,
+   79,
+   89,
+   101,
+   127,
+   137,
+   149,
+   167,
+   191,
+   211,
+   227,
+   251,
+   271,
+   293,
+   317,
+   347,
+   367,
+   397,
+   421,
+   449,
+   479
+  ],
+  "sha256_of_S": "ef9db223b540e53ad16304dad33b89ccd72ffe3c1ae14d091ce0f1efed11a5f9",
+  "Lambda_F_min_coefficient": 0.0,
+  "logderiv_s3_sum_vs_euler_primes_le_N": [
+   0.14241900435330146,
+   0.14241900435560312
+  ],
+  "a_values": [
+   0,
+   1
+  ],
+  "count_a_eq_1_up_to_N": 7912,
+  "N": 20000,
+  "completely_multiplicative_m_n_le_140": true,
+  "residue_G(1)": [
+   0.3960132596813223,
+   0.3974600261833903
+  ],
+  "count_ratio_a/N_vs_residue": 0.3956,
+  "G_X(b)_X=1e7": 0.06543155501950305,
+  "piS/pi_at_1e7": 0.024391381611516463
+ }
+}

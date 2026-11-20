@@ -1,0 +1,83 @@
+{
+ "slug": "s2-derivative-zeros-two-line",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "bsy-interior-value-criterion",
+  "euler-transport-flow",
+  "minimum-phase-hilbert-identity",
+  "small-value-shear-energy",
+  "speiser-criterion",
+  "twin-ladder-tomography",
+  "two-line-zero-detector",
+  "xi-arm-split-incomplete-gamma",
+  "zv-cr-gradient-fields",
+  "zv-newton-flow"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "speiser-criterion",
+    "zv-newton-flow",
+    "zv-cr-gradient-fields"
+   ],
+   "obstruction": "exact zero detector with lead 0: each f' zero sits at the ordinate of its off-line zero; uses the functional equation only",
+   "controlsThatDefeat": [
+    "DH",
+    "HEAT",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "euler-transport-flow",
+    "small-value-shear-energy"
+   ],
+   "obstruction": "local zero detector costlier than a winding count; fires only at the ordinate of the zero",
+   "controlsThatDefeat": [
+    "DH",
+    "HEAT",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "minimum-phase-hilbert-identity",
+    "two-line-zero-detector",
+    "bsy-interior-value-criterion"
+   ],
+   "obstruction": "detection needs line data through the ordinate of the off-line zero (within one Poisson width)",
+   "controlsThatDefeat": [
+    "DH",
+    "HEAT",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "xi-arm-split-incomplete-gamma",
+    "twin-ladder-tomography"
+   ],
+   "obstruction": "premise false for zeta itself (derivative alternates between consecutive zeros); DH and L(chi_-3) alternate identically",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "DH"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) exact zero detector with lead 0: each f' zero sits at the ordinate of its off-line zero; uses the functional equation only | (2) local zero detector costlier than a winding count; fires only at the ordinate of the zero | (3) detection needs line data through the ordinate of the off-line zero (within one Poisson width) | (4) premise false for zeta itself (derivative alternates between consecutive zeros); DH and L(chi_-3) alternate identically",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "HEAT",
+  "T-NR",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-derivative-zeros-two-line/RESULT.md"
+}

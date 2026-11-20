@@ -1,0 +1,38 @@
+{
+ "edits": [
+  "header: update line \"seventh\"",
+  "section 2: control row DEL",
+  "section 2: row B, use cell",
+  "section 2: note on control DEL",
+  "row Z30: round-10 slot split in place of \"not reconciled\"",
+  "row Z30: status cell",
+  "row Z30: source cell",
+  "section 3.5: row Z33",
+  "section 3.1: row P52",
+  "row O1: class list, line 5",
+  "row O1: status cell",
+  "row O1: source cell",
+  "section 7: four rows (round 10)",
+  "row count line"
+ ],
+ "linesBefore": 551,
+ "linesAfter": 561,
+ "rowsBefore": 180,
+ "rowsAfter": 182,
+ "newRowIds": [
+  "P52",
+  "Z33"
+ ],
+ "counts": {
+  "P": 52,
+  "G": 31,
+  "Q": 27,
+  "S": 12,
+  "Z": 36,
+  "F": 8,
+  "T": 3,
+  "L": 5,
+  "D": 7,
+  "O": 1
+ }
+}

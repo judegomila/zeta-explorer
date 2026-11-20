@@ -1,0 +1,50 @@
+[zeta-smooth8@1e8 seg0] N=8660 M=160001 K=12 chunk rows=12915 planned chunk bytes<=5.37e+09; F,G host arrays 0.061 GB
+[zeta-smooth8@1e8 seg0] seeds 22298
+[zeta-smooth8@1e8 seg0] count_right=5202 (int err 9.09e-13, unresolved 0) density=0.5202 model=0.6116 fracDneg=0.0941 model=0.0653 newton=5202 4.9s
+JOB zeta-smooth8@1e8 right 5202 newton 5202 dens 0.5202 model 0.6116 Zdens 2.6392 fracDneg 0.0941 model 0.0653 5s
+[zeta-smooth2@1e8 seg0] N=88560 M=160001 K=12 chunk rows=1262 planned chunk bytes<=5.37e+09; F,G host arrays 0.061 GB
+[zeta-smooth2@1e8 seg0] seeds 19558
+[zeta-smooth2@1e8 seg0] count_right=4579 (int err 4.55e-13, unresolved 0) density=0.4579 model=0.6005 fracDneg=0.0778 model=0.0622 newton=4579 33.1s
+JOB zeta-smooth2@1e8 right 4579 newton 4579 dens 0.4579 model 0.6005 Zdens 2.6392 fracDneg 0.0778 model 0.0622 33s
+[dh-smooth8@1e8 seg0] N=19364 M=160001 K=12 chunk rows=5776 planned chunk bytes<=5.37e+09; F,G host arrays 0.061 GB
+[dh-smooth8@1e8 seg0] seeds 20037
+[dh-smooth8@1e8 seg0] count_right=4645 (int err 2.27e-13, unresolved 0) density=0.4645 model=0.6158 fracDneg=0.0639 model=0.0637 newton=4645 10.3s
+JOB dh-smooth8@1e8 right 4645 newton 4645 dens 0.4645 model 0.6158 Zdens 2.8954 fracDneg 0.0639 model 0.0637 10s
+[zeta-smooth8@1e10 seg0] N=86595 M=32001 K=12 chunk rows=1291 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-smooth8@1e10 seg0] seeds 5833
+[zeta-smooth8@1e10 seg0] count_right=1368 (int err 2.27e-13, unresolved 0) density=0.6840 model=0.7945 fracDneg=0.0982 model=0.0657 newton=1368 8.1s
+JOB zeta-smooth8@1e10 right 1368 newton 1368 dens 0.684 model 0.7945 Zdens 3.3722 fracDneg 0.0982 model 0.0657 8s
+[zeta-x0.25@1e8 seg0] N=997 M=32001 K=12 chunk rows=112184 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x0.25@1e8 seg0] seeds 3802
+[zeta-x0.25@1e8 seg0] count_right=938 (int err 1.14e-13, unresolved 0) density=0.4690 model=0.5056 fracDneg=0.0727 model=0.0387 newton=938 1.5s
+JOB zeta-x0.25@1e8 right 938 newton 938 dens 0.469 model 0.5056 Zdens 2.6392 fracDneg 0.0727 model 0.0387 1s
+[zeta-x0.5@1e8 seg0] N=1994 M=32001 K=12 chunk rows=56092 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x0.5@1e8 seg0] seeds 4212
+[zeta-x0.5@1e8 seg0] count_right=1027 (int err 5.68e-14, unresolved 0) density=0.5135 model=0.5605 fracDneg=0.0880 model=0.0512 newton=1027 1.3s
+JOB zeta-x0.5@1e8 right 1027 newton 1027 dens 0.5135 model 0.5605 Zdens 2.6392 fracDneg 0.088 model 0.0512 1s
+[zeta-x1.5@1e8 seg0] N=5984 M=32001 K=12 chunk rows=18691 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x1.5@1e8 seg0] seeds 5054
+[zeta-x1.5@1e8 seg0] count_right=1261 (int err 1.14e-13, unresolved 0) density=0.6305 model=0.6478 fracDneg=0.1188 model=0.0770 newton=1261 1.6s
+JOB zeta-x1.5@1e8 right 1261 newton 1261 dens 0.6305 model 0.6478 Zdens 2.6392 fracDneg 0.1188 model 0.077 2s
+[zeta-x2@1e8 seg0] N=7978 M=32001 K=12 chunk rows=14019 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x2@1e8 seg0] seeds 5186
+[zeta-x2@1e8 seg0] count_right=1295 (int err 2.27e-13, unresolved 0) density=0.6475 model=0.6706 fracDneg=0.1260 model=0.0852 newton=1295 2.1s
+JOB zeta-x2@1e8 right 1295 newton 1295 dens 0.6475 model 0.6706 Zdens 2.6392 fracDneg 0.126 model 0.0852 2s
+[zeta-x4@1e8 seg0] N=15957 M=32001 K=12 chunk rows=7009 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x4@1e8 seg0] seeds 5667
+[zeta-x4@1e8 seg0] count_right=1394 (int err 2.27e-13, unresolved 0) density=0.6970 model=0.7256 fracDneg=0.1453 model=0.1075 newton=1394 2.5s
+JOB zeta-x4@1e8 right 1394 newton 1394 dens 0.697 model 0.7256 Zdens 2.6392 fracDneg 0.1453 model 0.1075 3s
+[zeta-x16@1e8 seg0] N=63830 M=32001 K=12 chunk rows=1752 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x16@1e8 seg0] seeds 6831
+[zeta-x16@1e8 seg0] count_right=1700 (int err 2.27e-13, unresolved 0) density=0.8500 model=0.8358 fracDneg=0.2058 model=0.1638 newton=1700 8.1s
+JOB zeta-x16@1e8 right 1700 newton 1700 dens 0.85 model 0.8358 Zdens 2.6392 fracDneg 0.2058 model 0.1638 8s
+[zeta-x128@1e8 seg0] N=510646 M=32001 K=12 chunk rows=219 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x128@1e8 seg0] seeds 8395
+[zeta-x128@1e8 seg0] count_right=2069 (int err 2.27e-13, unresolved 0) density=1.0345 model=1.0011 fracDneg=0.2988 model=0.2740 newton=2069 69.4s
+JOB zeta-x128@1e8 right 2069 newton 2069 dens 1.0345 model 1.0011 Zdens 2.6392 fracDneg 0.2988 model 0.274 70s
+[zeta-x1024@1e8 seg0] N=4085168 M=32001 K=12 chunk rows=27 planned chunk bytes<=5.37e+09; F,G host arrays 0.012 GB
+[zeta-x1024@1e8 seg0] count_right=2530 (int err 4.55e-13, unresolved 0) density=1.2650 model=1.1664 fracDneg=0.4125 model=0.3965 newton=- 244.2s
+JOB zeta-x1024@1e8 right 2530 newton None dens 1.265 model 1.1664 Zdens 2.6392 fracDneg 0.4125 model 0.3965 253s
+[zeta-xt2pi@1e8 seg0] N=15915494 M=4801 K=12 chunk rows=7 planned chunk bytes<=5.37e+09; F,G host arrays 0.002 GB
+[zeta-xt2pi@1e8 seg0] count_right=269 (int err 3.50e-15, unresolved 0) density=0.8967 model=1.2746 fracDneg=0.2597 model=0.4714 newton=- 158.0s
+JOB zeta-xt2pi@1e8 right 269 newton None dens 0.8967 model 1.2746 Zdens 2.6392 fracDneg 0.2597 model 0.4714 189s

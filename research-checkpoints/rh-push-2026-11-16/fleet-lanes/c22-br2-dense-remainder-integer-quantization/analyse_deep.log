@@ -1,0 +1,40 @@
+b075 overlap j=16: max |deep - first run| = 9.40e-12
+b075 overlap j=17: max |deep - first run| = 1.82e-11
+b075 deep run: k_done 3.354e+09, secs 2701, depths final: [16, 17, 18]
+  b075 pole j=15  min     -67.98 med     -18.85 max      30.89 sd     22.58  n_eff med     4.11 min   -23.57 max    19.15
+  b075 pole j=16  min     -87.19 med     -24.61 max      43.42 sd     28.79  n_eff med     1.06 min   -25.29 max    30.02
+  b075 pole j=17  min    -120.07 med     -26.37 max      51.66 sd     36.02  n_eff med    -3.26 min   -20.77 max    47.42
+  b075 pole j=18  min    -157.03 med     -24.35 max      58.26 sd     43.20  n_eff med    -1.69 min   -29.60 max    53.32
+  b075 rat  j=15  min    -254.72 med     -14.36 max      89.12 sd     67.63  n_eff med     5.96 min   -28.70 max   111.41
+  b075 rat  j=16  min    -364.01 med     -14.31 max      83.37 sd     92.93  n_eff med     2.55 min   -17.09 max   157.66
+  b075 rat  j=17  min    -517.69 med     -15.19 max      66.67 sd    128.66  n_eff med     4.07 min   -22.67 max   221.72
+  b075 rat  j=18  min    -731.74 med     -23.31 max      56.91 sd    180.16  n_eff med    10.25 min   -36.23 max   308.81
+  b075 gen  j=15  min     -92.75 med      -0.12 max      57.01 sd     26.48  n_eff med     0.16 min   -36.43 max    39.90
+  b075 gen  j=16  min     -96.75 med       1.54 max      79.84 sd     33.05  n_eff med     2.84 min   -42.86 max    60.36
+  b075 gen  j=17  min    -148.21 med      -2.25 max     111.64 sd     41.86  n_eff med     1.29 min   -63.07 max    77.10
+  b075 gen  j=18  min    -200.72 med      -4.82 max     154.43 sd     53.94  n_eff med     3.64 min   -61.73 max    75.76
+    b075 a/b = 1/1 j=15: -50.70 j=16: -47.62 j=17: -43.09 j=18: -46.25
+    b075 a/b = 2/1 j=15: -65.84 j=16: -88.83 j=17: -128.47 j=18: -195.14
+    b075 a/b = 3/1 j=15: 0.85 j=16: 12.69 j=17: 18.02 j=18: 2.57
+    b075 a/b = 1/2 j=15: -34.40 j=16: -36.17 j=17: -37.25 j=18: -45.62
+    b075 a/b = 3/2 j=15: -23.55 j=16: -23.17 j=17: -35.05 j=18: -69.91
+    b075 a/b = 5/2 j=15: 89.12 j=16: 78.55 j=17: 30.22 j=18: -67.72
+b050 deep run: k_done 6.711e+09, secs 2422, depths final: [11]
+  b050 pole j= 8  min      -7.94 med      -2.93 max       2.78 sd      2.31  n_eff med     0.76 min    -1.59 max     2.56
+  b050 pole j= 9  min      -9.00 med      -3.71 max       2.93 sd      2.88  n_eff med     0.78 min    -0.56 max     3.96
+  b050 pole j=10  min     -12.26 med      -4.03 max       2.15 sd      3.70  n_eff med     1.24 min    -0.92 max     5.59
+  b050 pole j=11  min     -16.36 med      -5.41 max       0.91 sd      4.89  n_eff med     1.66 min    -1.54 max     7.12
+  b050 rat  j= 8  min     -15.57 med      -4.26 max       0.60 sd      4.43  n_eff med     2.63 min     0.64 max    10.70
+  b050 rat  j= 9  min     -25.13 med      -6.50 max      -0.88 sd      6.89  n_eff med     4.45 min     1.38 max    17.46
+  b050 rat  j=10  min     -44.07 med     -11.15 max      -3.51 sd     11.02  n_eff med     7.04 min     2.19 max    27.32
+  b050 rat  j=11  min     -72.67 med     -18.73 max      -7.38 sd     17.45  n_eff med    11.00 min     3.67 max    41.26
+  b050 gen  j= 8  min      -8.44 med       0.55 max       8.31 sd      2.76  n_eff med     0.05 min    -1.68 max     1.94
+  b050 gen  j= 9  min      -9.08 med       0.27 max       8.31 sd      3.08  n_eff med    -0.15 min    -2.48 max     2.48
+  b050 gen  j=10  min      -8.46 med       0.42 max       8.35 sd      3.50  n_eff med    -0.22 min    -3.32 max     2.36
+  b050 gen  j=11  min      -7.33 med       0.44 max       8.65 sd      3.95  n_eff med    -0.35 min    -3.28 max     3.35
+    b050 a/b = 1/1 j=8: -7.30 j=9: -13.60 j=10: -23.94 j=11: -40.35
+    b050 a/b = 2/1 j=8: -11.04 j=9: -19.80 j=10: -33.96 j=11: -55.82
+    b050 a/b = 3/1 j=8: -13.03 j=9: -25.13 j=10: -44.07 j=11: -72.67
+    b050 a/b = 1/2 j=8: -4.26 j=9: -7.40 j=10: -12.67 j=11: -21.32
+    b050 a/b = 3/2 j=8: -7.83 j=9: -13.99 j=10: -24.13 j=11: -40.18
+    b050 a/b = 5/2 j=8: -15.57 j=9: -24.35 j=10: -38.38 j=11: -59.98

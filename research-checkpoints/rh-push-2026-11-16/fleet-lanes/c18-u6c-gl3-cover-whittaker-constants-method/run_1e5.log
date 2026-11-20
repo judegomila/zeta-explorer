@@ -1,0 +1,77 @@
+[    0.1s] X = 100000: squarefree nodes n = 28224, primes 9601 (inert 33)
+[    0.1s] planned allocations: Ep 271 MB int8, E 797 MB int8, work chunks < 400 MB
+[   18.2s] Ep built
+[   18.2s] Gauss-sum recheck (7 primes), max |direct - table| = 5.216997399792045e-10
+[   22.9s] E built
+[   22.9s] reciprocity check on 4000 random pairs: mismatches 0
+[   22.9s] twisted multiplicativity of table Gauss sums (20000 nodes): max dev 3.7238012298709097e-16
+[   23.6s] twist 1                        nG=  688 defect part done
+[   25.7s] twist P7^(1, 0)                nG=  967 defect part done
+[   28.0s] twist P7^(0, 1)                nG=  967 defect part done
+[   28.8s] twist P7^(1, 1)                nG=  832 defect part done
+[   30.9s] twist P7^(2, 0)                nG=  918 defect part done
+[   31.8s] twist P7^(2, 1)                nG=  747 defect part done
+[   32.8s] twist P7^(1, 2)                nG=  737 defect part done
+[   33.3s] twist P7^(2, 2)                nG=  679 defect part done
+[   34.5s] twist P13^(1, 0)               nG=  963 defect part done
+[   35.9s] twist P13^(0, 1)               nG=  963 defect part done
+[   36.7s] twist P13^(1, 1)               nG=  814 defect part done
+[   38.2s] twist P13^(2, 0)               nG=  873 defect part done
+[   38.9s] twist P13^(2, 1)               nG=  718 defect part done
+[   39.7s] twist P13^(1, 2)               nG=  717 defect part done
+[   40.4s] twist P13^(2, 2)               nG=  625 defect part done
+[   41.5s] twist P19^(1, 0)               nG=  947 defect part done
+[   42.9s] twist P19^(0, 1)               nG=  947 defect part done
+[   43.6s] twist P19^(1, 1)               nG=  802 defect part done
+[   44.7s] twist P19^(2, 0)               nG=  863 defect part done
+[   45.5s] twist P19^(2, 1)               nG=  718 defect part done
+[   46.2s] twist P19^(1, 2)               nG=  717 defect part done
+[   47.0s] twist P19^(2, 2)               nG=  634 defect part done
+[   48.9s] twist P7^(3, 0)                nG=  925 defect part done
+[   50.9s] twist P7^(0, 3)                nG=  925 defect part done
+[   51.6s] twist P7^(3, 3)                nG=  709 defect part done
+[   52.3s] twist P7^(4, 1)                nG=  747 defect part done
+[   53.2s] twist P7^(1, 4)                nG=  747 defect part done
+[   54.5s] twist P7^(1,1)*P13^(1,1)       nG=  966 defect part done
+[   57.8s] twist P7^(1,0)*P13^(0,1)       nG= 1306 defect part done
+[   59.4s] twist P7^(1,1)*P7b^(1,1)       nG=  971 defect part done
+[   61.7s] twist P7^(1,1)*P13^(1,0)       nG= 1139 defect part done
+[   62.9s] twist P7b^(1,1)                nG=  832 defect part done
+[   63.8s] twist I5^(1,1)                 nG=  742 defect part done
+[   65.1s] twist I5^(1,0)                 nG=  902 defect part done
+[   65.2s] trivial-G pass: columns 136, U/V 61 MB each
+[   83.8s] twist 1                        S(X)=+1.40908e+06-2.39773e-10i  S(X/2)=+4.44613e+05-6.50809e-11i
+[   83.8s] twist P7^(1, 0)                S(X)=+4.74746e+03+2.00501e+04i  S(X/2)=+1.32232e+03+8.05409e+03i
+[   83.8s] twist P7^(0, 1)                S(X)=+4.74746e+03+2.00501e+04i  S(X/2)=+1.32232e+03+8.05409e+03i
+[   83.8s] twist P7^(1, 1)                S(X)=-8.37133e+05-5.58491e+05i  S(X/2)=-2.64218e+05-1.76261e+05i
+[   83.8s] twist P7^(2, 0)                S(X)=+1.07931e+04-8.63087e+03i  S(X/2)=+3.87993e+03-3.48282e+03i
+[   83.8s] twist P7^(2, 1)                S(X)=-3.92114e+03-9.05678e+03i  S(X/2)=-1.91144e+03-3.71159e+03i
+[   83.8s] twist P7^(1, 2)                S(X)=-3.92114e+03-9.05678e+03i  S(X/2)=-1.91144e+03-3.71159e+03i
+[   83.8s] twist P7^(2, 2)                S(X)=-8.15371e+02-5.28467e+02i  S(X/2)=-4.87165e+02-6.63526e+02i
+[   83.8s] twist P13^(1, 0)               S(X)=+1.58687e+04+1.30989e+04i  S(X/2)=+6.14260e+03+5.03341e+03i
+[   83.8s] twist P13^(0, 1)               S(X)=+1.58687e+04+1.30989e+04i  S(X/2)=+6.14260e+03+5.03341e+03i
+[   83.8s] twist P13^(1, 1)               S(X)=+6.45915e+05-6.37664e+05i  S(X/2)=+2.03152e+05-2.01619e+05i
+[   83.8s] twist P13^(2, 0)               S(X)=-4.24299e+03-1.09482e+04i  S(X/2)=-2.11659e+03-4.02401e+03i
+[   83.8s] twist P13^(2, 1)               S(X)=+6.85094e+02+6.44783e+03i  S(X/2)=+5.39071e+02+1.87942e+03i
+[   83.8s] twist P13^(1, 2)               S(X)=+6.85094e+02+6.44783e+03i  S(X/2)=+5.39071e+02+1.87942e+03i
+[   83.8s] twist P13^(2, 2)               S(X)=-8.32623e+02+1.49653e+01i  S(X/2)=-3.29961e+02-9.20886e+02i
+[   83.8s] twist P19^(1, 0)               S(X)=-8.41638e+03+3.22991e+03i  S(X/2)=-3.27409e+03+6.76522e+02i
+[   83.8s] twist P19^(0, 1)               S(X)=-8.41638e+03+3.22991e+03i  S(X/2)=-3.27409e+03+6.76522e+02i
+[   83.8s] twist P19^(1, 1)               S(X)=+8.31292e+05-1.79024e+05i  S(X/2)=+2.61839e+05-5.69036e+04i
+[   83.8s] twist P19^(2, 0)               S(X)=-4.97733e+03-1.51279e+03i  S(X/2)=-2.04980e+03-4.85400e+02i
+[   83.8s] twist P19^(2, 1)               S(X)=-2.79174e+03+2.82945e+02i  S(X/2)=-6.88180e+02+1.52735e+01i
+[   83.8s] twist P19^(1, 2)               S(X)=-2.79174e+03+2.82945e+02i  S(X/2)=-6.88180e+02+1.52735e+01i
+[   83.8s] twist P19^(2, 2)               S(X)=-2.92794e+02-1.48762e+03i  S(X/2)=+1.62301e+02-1.43739e+03i
+[   83.8s] twist P7^(3, 0)                S(X)=+1.40980e+06-1.41477e+02i  S(X/2)=+4.46188e+05+1.04863e+02i
+[   83.8s] twist P7^(0, 3)                S(X)=+1.40980e+06-1.41477e+02i  S(X/2)=+4.46188e+05+1.04863e+02i
+[   83.8s] twist P7^(3, 3)                S(X)=+1.40189e+06+5.72884e+01i  S(X/2)=+4.45051e+05+1.18070e+01i
+[   83.8s] twist P7^(4, 1)                S(X)=-8.42712e+05-5.61004e+05i  S(X/2)=-2.65151e+05-1.76166e+05i
+[   83.8s] twist P7^(1, 4)                S(X)=-8.42712e+05-5.61004e+05i  S(X/2)=-2.65151e+05-1.76166e+05i
+[   83.8s] twist P7^(1,1)*P13^(1,1)       S(X)=+4.32875e+05+5.00687e+05i  S(X/2)=+1.36925e+05+1.59450e+05i
+[   83.8s] twist P7^(1,0)*P13^(0,1)       S(X)=+2.67579e+03+9.35847e+03i  S(X/2)=+6.15539e+02+3.83385e+03i
+[   83.8s] twist P7^(1,1)*P7b^(1,1)       S(X)=+7.35510e+05-2.80381e-10i  S(X/2)=+2.30350e+05-8.17637e-11i
+[   83.8s] twist P7^(1,1)*P13^(1,0)       S(X)=+9.33110e+03-1.76487e+03i  S(X/2)=+2.81520e+03-4.05893e+02i
+[   83.8s] twist P7b^(1,1)                S(X)=-8.37133e+05+5.58491e+05i  S(X/2)=-2.64218e+05+1.76261e+05i
+[   83.8s] twist I5^(1,1)                 S(X)=+8.10019e+05-4.13090e-10i  S(X/2)=+2.53230e+05-1.24031e-10i
+[   83.8s] twist I5^(1,0)                 S(X)=-9.44094e+03+8.92416e-11i  S(X/2)=-3.96918e+03+3.12186e-11i
+[   83.9s] saved out_1e5.json

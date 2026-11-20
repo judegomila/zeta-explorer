@@ -1,0 +1,11 @@
+tmp/research-2026-11-16/push/c8-repair-engine-map-r7/c7-probe-format-h-cap/ref2_blocks.py:54: RuntimeWarning: divide by zero encountered in scalar divide
+  worst = min(worst, tot/lower)
+Theorem K identities (both high sides; degree d = 2, 3, 4), r = 2..40, exact: True
+Q = 60 rows, D = 1200 columns, intervals partitions: ||T||^2 = 3972 (max(Q, D) = 1200, Q + D = 1260); min over 40 partitions of blockwise bound / lower bound = 2.655
+Q = 60 rows, D = 1200 columns, progression partitions: ||T||^2 = 3972 (max(Q, D) = 1200, Q + D = 1260); min over 40 partitions of blockwise bound / lower bound = 3.285
+Q = 150 rows, D = 2400 columns, intervals partitions: ||T||^2 = 12854 (max(Q, D) = 2400, Q + D = 2550); min over 40 partitions of blockwise bound / lower bound = 3.334
+Q = 150 rows, D = 2400 columns, progression partitions: ||T||^2 = 12854 (max(Q, D) = 2400, Q + D = 2550); min over 40 partitions of blockwise bound / lower bound = 4.142
+Q = 300 rows, D = 300 columns, intervals partitions: ||T||^2 = 3544 (max(Q, D) = 300, Q + D = 600); min over 40 partitions of blockwise bound / lower bound = 5.096
+Q = 300 rows, D = 300 columns, progression partitions: ||T||^2 = 3544 (max(Q, D) = 300, Q + D = 600); min over 40 partitions of blockwise bound / lower bound = 5.633
+Q = 300 rows, D = 900 columns, intervals partitions: ||T||^2 = 6812 (max(Q, D) = 900, Q + D = 1200); min over 40 partitions of blockwise bound / lower bound = 4.144
+Q = 300 rows, D = 900 columns, progression partitions: ||T||^2 = 6812 (max(Q, D) = 900, Q + D = 1200); min over 40 partitions of blockwise bound / lower bound = 5.056

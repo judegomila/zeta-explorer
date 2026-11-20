@@ -1,0 +1,37 @@
+{
+ "slug": "c2-jinner-multidelay-lft",
+ "round": 2,
+ "kind": "deepen",
+ "nodes": [
+  "fam-multidelay-section"
+ ],
+ "tags": [
+  "passive",
+  "torus",
+  "euler-product",
+  "pick"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, unreviewed beyond this referee pass. Proved: (Lemma R) a J-contractive matrix function holomorphic on the full polydisc (finite P or D^inf∩c_0) with Schur termination equals M(H)V0, V0 constant J-unitary, Re H>=0, so the defect is rank one and additive; (Theorem A') for a positive-real Bohr-lift Dirichlet series h with atomic boundary measure, sum_{gamma_j>t0} r_j zeta(1/2+i gamma_j) e^{-delta gamma_j} = (a_1+conj h(1/2))/(2 pi delta) + O(delta^{-1/2-eps}), real part of the bracket >= 1.1716 Re a_1, confirmed numerically on a new case to second order; (Theorems B', C) no nonconstant such section splits off xi'/xi (hypothesis implies RH; conclusion unconditional and gives no information on zeros); (Proposition L) convergence on 1/2<sigma<1 either excludes the zeta orbit or is equivalent to zero-freeness. The DH analogue (bracket >= 1.0597 Re a_1) is a proved inequality resting on a DH moment formula that is outline plus measured only. Closure is limited to the stated class. No statement about zeros of zeta.",
+ "obstruction": "A J-contractive several-delay section holomorphic on the full polydisc with Schur termination equals M(H)V0 with V0 constant J-unitary and Re H >= 0 (Lemma R): the defect is rank one and additive, so the family is the unipotent one. No nonconstant such section splits off xi'/xi (first-moment bracket >= 1.17 Re a_1 > 0). On 1/2 < sigma < 1 convergence either excludes the zeta orbit or is equivalent to zero-freeness. Not covered: sections on a Reinhardt shell; sections including the gamma term. Theorem A' has one referee pass.",
+ "obstructionKind": "rank-one-additive-defect-prime-blind",
+ "controlsThatDefeat": [
+  "DH (same no-go, bracket >= 1.06 Re a_1, given a DH moment formula that is outline plus measured)",
+  "the no-go uses the functional equation and Schwarz-Pick only, not multiplicativity"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error in a PROVED step; all were re-derived (Lemma R, R', F1-F3, Theorem A' steps 0-5, B', C, Proposition E inequality, L3, L4). Corrections, none changing the verdict: (1) Lemma R step (1) cites the wrong matrix entry: Theta*JTheta<=J gives the bound with Theta_12; the Theta_21 form needs Theta J Theta*<=J (conclusion correct). (2) \"1 to 3 percent\" agreement is case-dependent: referee rerun at PHI=2.5 gives a 13 percent gap at delta=0.01; the gap is explained by residues at the poles of h*(w [record truncated in transit; full text in push/c2-jinner-multidelay-lft/REFEREE.md]",
+ "lesson": "The normalisation S(x) -> -1 (gamma growth) plus a maximum principle for the Potapov-Ginzburg transform forces any J-contractive multi-delay section into the unipotent family, so matrix freedom gives nothing. The first-moment no-go needs only the functional equation and a Schwarz-Pick bound on the coefficient pairing, not multiplicativity: it holds for DH too. Pointwise torus bounds are the wrong tool here (the integrand minimum is 1 - kappa^2/pi_P and would go negative for large P, while the bracket stays positive).",
+ "followUp": "One referee pass on Theorem A' (uniformity in k of the O(1) terms in step 3, the Mellin shift in step 4, boundedness F2 on D^inf ∩ c_0) and a line-by-line write-up of the conductor-5 DH moment formula. Then mark STRATEGY lead 20 and the open clause of map row Q12 closed. Not covered, low priority: sections holomorphic only on a Reinhardt shell (frequencies log(m/n)), and sections that include the gamma term.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-jinner-multidelay-lft/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-jinner-multidelay-lft/REFEREE.md"
+}

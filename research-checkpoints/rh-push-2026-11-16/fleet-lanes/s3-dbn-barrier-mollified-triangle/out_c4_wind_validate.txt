@@ -1,0 +1,4 @@
+T 10000: f_0 1.07163799+0.62547935i  zeta 1.11781305+0.67119772i  |diff| 6.50e-02 ; winding 23, zeros of zeta in the ordinate range 23 (max step of arg 0.14, min |f| on the boundary 0.204)
+T 100000: f_0 0.98382240+0.47129979i  zeta 1.00617495+0.48536115i  |diff| 2.64e-02 ; winding 30, zeros of zeta in the ordinate range 30 (max step of arg 0.13, min |f| on the boundary 0.363)
+T 1e+06: f_0 0.57311361+1.09318345i  zeta 0.57480968+1.10931253i  |diff| 1.62e-02 ; winding 37, zeros of zeta in the ordinate range 37 (max step of arg 0.16, min |f| on the boundary 0.254)
+done

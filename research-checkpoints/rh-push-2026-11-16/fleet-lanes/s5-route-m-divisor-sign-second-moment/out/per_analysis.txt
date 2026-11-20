@@ -1,0 +1,12 @@
+chi_-4 (b <= 5000): Q_F/phi on b>=1000 in [0.25996 (b=1140), 0.26098 (b=1794)], mean on top half 0.26079 ; quadrature s0_F 0.26088
+   Q_F - s0_F phi on b>=1000: min -0.397 max 0.064 ; over log b: [-0.051, 0.008] ; over log^2 b: [-0.007, 0.001]
+   sup |I_F(a,b)|/a: b>=100 0.78493 ; top half 0.78493 ; sup |I_F|/(a(1+log(b/a))): 0.78477 ; kappa_F(b)=F/(phi b) top-half mean 0.280623
+   A_F(b)/(phi b) (leaf absolute sum): b>=1000 in [0.52395, 0.53145 (b=1040)], top-half mean 0.52752 ; |leaf sum|/A_F top-half mean 0.9568
+chi_5 (b <= 5000): Q_F/phi on b>=1000 in [0.07704 (b=1001), 0.07749 (b=1254)], mean on top half 0.07727 ; quadrature s0_F 0.07727
+   Q_F - s0_F phi on b>=1000: min -0.172 max 0.167 ; over log b: [-0.024, 0.024] ; over log^2 b: [-0.003, 0.003]
+   sup |I_F(a,b)|/a: b>=100 0.65987 ; top half 0.65987 ; sup |I_F|/(a(1+log(b/a))): 0.65973 ; kappa_F(b)=F/(phi b) top-half mean 0.112095
+   A_F(b)/(phi b) (leaf absolute sum): b>=1000 in [0.69480, 0.71293 (b=1302)], top-half mean 0.70443 ; |leaf sum|/A_F top-half mean 0.7786
+DH (b <= 5000): Q_F/phi on b>=1000 in [0.56397 (b=1014), 0.56613 (b=4940)], mean on top half 0.56592 ; quadrature s0_F 0.56612
+   Q_F - s0_F phi on b>=1000: min -0.702 max 0.020 ; over log b: [-0.097, 0.002] ; over log^2 b: [-0.014, 0.000]
+   sup |I_F(a,b)|/a: b>=100 0.99687 ; top half 0.99687 ; sup |I_F|/(a(1+log(b/a))): 0.99667 ; kappa_F(b)=F/(phi b) top-half mean 0.406985
+   A_F(b)/(phi b) (leaf absolute sum): b>=1000 in [0.59656, 0.60250 (b=1210)], top-half mean 0.59894 ; |leaf sum|/A_F top-half mean 0.9855

@@ -1,0 +1,48 @@
+-- single conjugate pair x +- i g (not FE-symmetric unless x = 1/2)
+pair x=0.05 g=0.3                            rank= 3 (+1,-2) neg=['-26.1', '-3.89'] smallest|nonzero|=0.0132 floor=3.8e-196
+pair x=0.3 g=0.3                             rank= 3 (+1,-2) neg=['-69.1', '-0.175'] smallest|nonzero|=0.175 floor=2.1e-195
+pair x=0.45 g=0.3                            rank= 3 (+1,-2) neg=['-40.5', '-0.0242'] smallest|nonzero|=0.0242 floor=7.5e-196
+pair x=0.5 g=0.3                             rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=3.2e-196
+pair x=0.55 g=0.3                            rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.0254 floor=2.2e-196
+pair x=1.0 g=0.3                             rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.14 floor=1.2e-196
+pair x=2.5 g=0.3                             rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.24 floor=2.1e-199
+pair x=0.05 g=2                              rank= 3 (+1,-2) neg=['-25.2', '-7.04'] smallest|nonzero|=2.22 floor=3.3e-197
+pair x=0.3 g=2                               rank= 3 (+1,-2) neg=['-180.0', '-14.6'] smallest|nonzero|=14.6 floor=7.6e-198
+pair x=0.45 g=2                              rank= 3 (+1,-2) neg=['-77.0', '-0.769'] smallest|nonzero|=0.769 floor=2.4e-198
+pair x=0.5 g=2                               rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=1.2e-198
+pair x=0.55 g=2                              rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.451 floor=6.3e-199
+pair x=1.0 g=2                               rank= 3 (+3,-0) neg=[] smallest|nonzero|=2.19 floor=3.4e-199
+pair x=2.5 g=2                               rank= 3 (+3,-0) neg=[] smallest|nonzero|=4.11 floor=6.4e-200
+pair x=0.05 g=10                             rank= 3 (+1,-2) neg=['-30.0', '-0.238'] smallest|nonzero|=0.205 floor=1.7e-196
+pair x=0.3 g=10                              rank= 3 (+1,-2) neg=['-143.0', '-2.63'] smallest|nonzero|=2.63 floor=1.7e-196
+pair x=0.45 g=10                             rank= 3 (+1,-2) neg=['-0.979', '-0.0583'] smallest|nonzero|=0.0583 floor=2.9e-197
+pair x=0.5 g=10                              rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=2.6e-197
+pair x=0.55 g=10                             rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.0305 floor=2.7e-197
+pair x=1.0 g=10                              rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.0989 floor=4.3e-198
+pair x=2.5 g=10                              rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.112 floor=7.9e-199
+-- FE-symmetric quadruple 1/2 +- d +- i g
+quad d=0.05 g=0.3                            rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.00967 floor=1.4e-197
+quad d=0.2 g=0.3                             rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.0077 floor=2.7e-197
+quad d=0.45 g=0.3                            rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.000789 floor=7.5e-197
+quad d=0.05 g=2                              rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.124 floor=5.5e-199
+quad d=0.2 g=2                               rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.1 floor=2.0e-199
+quad d=0.45 g=2                              rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.00921 floor=3.1e-199
+quad d=0.05 g=10                             rank= 6 (+6,-0) neg=[] smallest|nonzero|=1.74e-7 floor=2.1e-198
+quad d=0.2 g=10                              rank= 6 (+6,-0) neg=[] smallest|nonzero|=1.27e-7 floor=1.1e-197
+quad d=0.45 g=10                             rank= 6 (+6,-0) neg=[] smallest|nonzero|=6.78e-9 floor=4.0e-198
+-- real zeros
+real pair r=0.1, 1-r                         rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=4.2e-195
+real pair r=0.3, 1-r                         rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=1.3e-195
+real pair r=0.45, 1-r                        rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=5.9e-196
+double real zero at 1/2                      rank= 1 (+1,-0) neg=[] smallest|nonzero|=30.0 floor=7.1e-196
+real pair 0.6, 0.8 (both > 1/2)              rank= 3 (+3,-0) neg=[] smallest|nonzero|=0.0573 floor=4.7e-196
+real pair 0.2, 0.3 (both < 1/2)              rank= 3 (+1,-2) neg=['-82.6', '-0.203'] smallest|nonzero|=0.203 floor=1.3e-195
+-- two pairs
+pairs 0.5+-2i, 0.5+-5i                       rank= 6 (+6,-0) neg=[] smallest|nonzero|=0.868 floor=1.0e-199
+pairs 0.3+-2i, 0.7+-5i                       rank=10 (+8,-2) neg=['-10.5', '-1.36'] smallest|nonzero|=0.249 floor=2.2e-199
+pairs 0.7+-2i, 0.7+-5i                       rank=10 (+10,-0) neg=[] smallest|nonzero|=0.161 floor=1.0e-199
+pairs 0.3+-2i, 0.3+-5i                       rank=10 (+6,-4) neg=['-13.2', '-5.79', '-3.22', '-1.0'] smallest|nonzero|=0.581 floor=2.3e-199
+-- three: quad + on-line pair
+quad(0.2,13) + pair 0.5+-3i                  rank=15 (+15,-0) neg=[] smallest|nonzero|=2.58e-13 floor=1.2e-199
+quad(0.2,3) + pair 0.5+-13i                  rank=15 (+15,-0) neg=[] smallest|nonzero|=4.28e-6 floor=3.8e-200
+3 on-line pairs                              rank=15 (+15,-0) neg=[] smallest|nonzero|=0.000598 floor=4.8e-200

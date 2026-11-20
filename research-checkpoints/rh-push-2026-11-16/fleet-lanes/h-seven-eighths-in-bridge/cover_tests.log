@@ -1,0 +1,20 @@
+== T1 Gauss-lemma holonomy on E[pi], E = C/Z[omega], Aut(E) = mu_6 (split primes p = 1 mod 6)
+   transfer exponent == sextic symbol a^((Np-1)/6): 705/705
+== T2 Moebius absorption by the quadratic (spin) character, r = 6 -> nu = 3
+   max |mu g(chi) - (-J(chi,rho)) g(chi rho)/g(rho)| = 9.51e-15; ord(chi rho) = 3 in all cases
+== T3 deck holonomy (normalised Gauss sum) by cover degree, primes p = 1 mod 12, p < 40000
+   r=2: primes 1033, max||g|/sqrt p - 1| = 8.9e-16, distinct arg values = 1, |mean| = 1.0000, |mean of (g/sqrt p)^r| = 1.0000
+   r=3: primes 1033, max||g|/sqrt p - 1| = 8.9e-16, distinct arg values = 1033, |mean| = 0.2130, |mean of (g/sqrt p)^r| = 0.0127
+   r=4: primes 1033, max||g|/sqrt p - 1| = 7.8e-16, distinct arg values = 1033, |mean| = 0.1308, |mean of (g/sqrt p)^r| = 0.0422
+   r=6: primes 1033, max||g|/sqrt p - 1| = 1.1e-15, distinct arg values = 1033, |mean| = 0.1005, |mean of (g/sqrt p)^r| = 0.0304
+== T4 wall arithmetic (exact): sigma0 = 1 - h/r + G + k/2, distance d = sigma0 - 1/2
+   Part I (balanced, no primes): lx,ly,l=1/2,1/2,0: h=1/2, G=0, k=0, sigma0=11/12, d=5/12
+   low-side floor point: lx,ly,l=2/5,2/5,1/5: h=4/5, G=0, k=0, sigma0=13/15, d=11/30
+   Part II (h=13/16, b=1/8, M+l=1): lx,ly,l=17/48,23/48,1/6: G=1/96, k=0, sigma0=7/8, d=3/8
+   ideal floor by deck order r (h = 1, G = k = 0): d = 1/2 - 1/r
+     r=2: sigma0 = 1/2, d = 0
+     r=3: sigma0 = 2/3, d = 1/6
+     r=4: sigma0 = 3/4, d = 1/4
+     r=6: sigma0 = 5/6, d = 1/3
+     r=8: sigma0 = 7/8, d = 3/8
+     r=12: sigma0 = 11/12, d = 5/12

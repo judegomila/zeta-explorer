@@ -1,0 +1,36 @@
+2a=2.398 N=204 theta=0.00  lam_min DH= 7.71554e-09   zeta=-9.23730e-15
+2a=2.398 N=204 theta=0.10  lam_min DH= 4.48884e-02   zeta= 9.33208e-03
+2a=2.398 N=204 theta=0.20  lam_min DH= 8.91579e-02   zeta= 1.86615e-02
+2a=2.398 N=204 theta=0.30  lam_min DH= 1.32896e-01   zeta= 2.79878e-02
+2a=2.398 N=204 theta=0.35  lam_min DH= 1.54566e-01   zeta= 3.26496e-02
+2a=2.398 N=204 theta=0.50  lam_min DH= 2.18766e-01   zeta= 4.66278e-02
+2a=3.000 N=246 theta=0.00  lam_min DH=-7.48721e-14   zeta=-2.53918e-13
+2a=3.000 N=246 theta=0.10  lam_min DH= 4.24118e-02   zeta= 9.29742e-03
+2a=3.000 N=246 theta=0.20  lam_min DH= 8.45530e-02   zeta= 1.85931e-02
+2a=3.000 N=246 theta=0.30  lam_min DH= 1.26415e-01   zeta= 2.78863e-02
+2a=3.000 N=246 theta=0.35  lam_min DH= 1.47231e-01   zeta= 3.25318e-02
+2a=3.000 N=246 theta=0.50  lam_min DH= 2.09159e-01   zeta= 4.64620e-02
+2a=3.440 N=276 theta=0.00  lam_min DH= 1.55638e-13   zeta=-2.13436e-13
+2a=3.440 N=276 theta=0.10  lam_min DH= 4.15190e-02   zeta= 9.28336e-03
+2a=3.440 N=276 theta=0.20  lam_min DH= 8.28555e-02   zeta= 1.85653e-02
+2a=3.440 N=276 theta=0.30  lam_min DH= 1.23983e-01   zeta= 2.78450e-02
+2a=3.440 N=276 theta=0.35  lam_min DH= 1.44456e-01   zeta= 3.24838e-02
+2a=3.440 N=276 theta=0.50  lam_min DH= 2.05452e-01   zeta= 4.63943e-02
+2a=4.605 N=356 theta=0.00  lam_min DH=-1.43303e+00   zeta= 1.07345e-13
+2a=4.605 N=356 theta=0.10  lam_min DH= 4.03944e-02   zeta= 9.26433e-03
+2a=4.605 N=356 theta=0.20  lam_min DH= 8.07015e-02   zeta= 1.85276e-02
+2a=4.605 N=356 theta=0.30  lam_min DH= 1.20873e-01   zeta= 2.77888e-02
+2a=4.605 N=356 theta=0.35  lam_min DH= 1.40896e-01   zeta= 3.24184e-02
+2a=4.605 N=356 theta=0.50  lam_min DH= 2.00643e-01   zeta= 4.63019e-02
+2a=5.991 N=451 theta=0.00  lam_min DH=-3.67432e+00   zeta=-4.78899e-13
+2a=5.991 N=451 theta=0.10  lam_min DH=-8.30815e-01   zeta= 9.25488e-03
+2a=5.991 N=451 theta=0.20  lam_min DH= 7.96993e-02   zeta= 1.85088e-02
+2a=5.991 N=451 theta=0.30  lam_min DH= 1.19410e-01   zeta= 2.77608e-02
+2a=5.991 N=451 theta=0.35  lam_min DH= 1.39212e-01   zeta= 3.23858e-02
+2a=5.991 N=451 theta=0.50  lam_min DH= 1.98340e-01   zeta= 4.62556e-02
+2a=7.000 N=521 theta=0.00  lam_min DH=-6.31437e+00   zeta=-1.65817e-12
+2a=7.000 N=521 theta=0.10  lam_min DH=-1.87181e+00   zeta= 9.25131e-03
+2a=7.000 N=521 theta=0.20  lam_min DH= 7.93327e-02   zeta= 1.85017e-02
+2a=7.000 N=521 theta=0.30  lam_min DH= 1.18873e-01   zeta= 2.77502e-02
+2a=7.000 N=521 theta=0.35  lam_min DH= 1.38592e-01   zeta= 3.23735e-02
+2a=7.000 N=521 theta=0.50  lam_min DH= 1.97486e-01   zeta= 4.62381e-02

@@ -1,0 +1,4 @@
+  File "~/rh-push/c16-ctheta-proposition5-power-sum/cluster.py", line 269
+    global _F, _WHAT
+    ^^^^^^^^^^^^^^^^
+SyntaxError: name '_F' is assigned to before global declaration

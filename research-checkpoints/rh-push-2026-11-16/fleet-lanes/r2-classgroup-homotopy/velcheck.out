@@ -1,0 +1,6 @@
+phi=0.4000 gamma=5.0793348319  finite difference=0.725880700  -2/(sin(2phi) omega)=0.725880699  omega=-3.840873081  Im(A'/A-B'/B)=-3.840873081
+phi=0.9000 gamma=5.3955328725  finite difference=0.611835850  -2/(sin(2phi) omega)=0.611835850  omega=-3.356634568  Im(A'/A-B'/B)=-3.356634568
+phi=1.3000 gamma=17.5883200453  finite difference=-0.030520211  -2/(sin(2phi) omega)=-0.030520211  omega=127.119634651  Im(A'/A-B'/B)=127.119634651
+phi=2.4416 gamma=10.8047699524  finite difference=-0.390409193  -2/(sin(2phi) omega)=-0.390409193  omega=-5.198469318  Im(A'/A-B'/B)=-5.198469318
+phi=1.9416 gamma=12.9568717353  finite difference=-0.081842943  -2/(sin(2phi) omega)=-0.081842943  omega=-36.178210022  Im(A'/A-B'/B)=-36.178210022
+phi=2.0000 gamma=19.4147573531  finite difference=-0.286236783  -2/(sin(2phi) omega)=-0.286236783  omega=-9.232557024  Im(A'/A-B'/B)=-9.232557024

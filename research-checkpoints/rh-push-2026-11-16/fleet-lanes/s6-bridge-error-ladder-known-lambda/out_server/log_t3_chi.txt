@@ -1,0 +1,16 @@
+11:49:33 chi: 946483 ordinates 6.184 .. 499997.177; list 0.01 GB, planned peak 0.53 GB
+11:49:33 26 records
+11:49:33 record at index 110 gap 3.889052e-01: t_c 1.97276409e-02 (pair value 1.89059077e-02, retardation 4.35e-02)
+11:49:33 record at index 331 gap 2.699650e-01: t_c 9.42915150e-03 (pair value 9.11014060e-03, retardation 3.50e-02)
+11:49:35 record at index 579 gap 8.240328e-02: t_c 8.52063059e-04 (pair value 8.48787637e-04, retardation 3.86e-03)
+11:49:39 record at index 1890 gap 7.364473e-02: t_c 6.81030457e-04 (pair value 6.77943278e-04, retardation 4.55e-03)
+11:49:46 record at index 3043 gap 7.270946e-02: t_c 6.64385101e-04 (pair value 6.60833268e-04, retardation 5.37e-03)
+11:49:50 record at index 5468 gap 7.139264e-02: t_c 6.40023979e-04 (pair value 6.37113591e-04, retardation 4.57e-03)
+11:49:57 record at index 6621 gap 6.088293e-02: t_c 4.64895822e-04 (pair value 4.63341361e-04, retardation 3.35e-03)
+11:50:02 record at index 11524 gap 4.726749e-02: t_c 2.79798395e-04 (pair value 2.79276931e-04, retardation 1.87e-03)
+11:50:07 record at index 16623 gap 2.853482e-02: t_c 1.01890206e-04 (pair value 1.01779527e-04, retardation 1.09e-03)
+11:50:13 record at index 26476 gap 2.006311e-02: t_c 5.03436170e-05 (pair value 5.03160454e-05, retardation 5.48e-04)
+11:50:19 record at index 36858 gap 9.722844e-03: t_c 1.18182061e-05 (pair value 1.18167126e-05, retardation 1.26e-04)
+11:50:26 record at index 360525 gap 9.573164e-03: t_c 1.14581053e-05 (pair value 1.14556842e-05, retardation 2.11e-04)
+11:50:31 record at index 812426 gap 5.220821e-03: t_c 3.40729063e-06 (pair value 3.40712135e-06, retardation 4.97e-05)
+{"fit_all": {"p_tc": -0.9703590112285877, "p_E": -0.4701709038941468}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -1.5386098153427195, "p_E": -0.4484390882730973, "p_Ecoll": -0.4306502877519948, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 1, "p_increments": -0.26384571499520676, "tc_over_E_lo": 0.8137494699799471, "tc_over_E_hi": 0.07642681494445198}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -0.24881406174359705, "p_E": -0.4708011826243116, "p_Ecoll": -0.4448873564515768, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 0, "p_increments": -0.3232547649656137, "tc_over_E_lo": 0.08970921231424615, "tc_over_E_hi": 0.1302467228065747}, {"lo": 10000.0, "hi": 100000.0, "p_tc": -1.8524442204336742, "p_E": -0.4752013413631327, "p_Ecoll": -0.45527041669153323, "sigma_mid": 0.9206101058768068, "dyadic_steps": 5, "zero_increments": 1, "p_increments": -1.5941346841745376, "tc_over_E_lo": 0.09241766593744342, "tc_over_E_hi": 0.01048484792095179}], "blocks": -0.6352072096080881}

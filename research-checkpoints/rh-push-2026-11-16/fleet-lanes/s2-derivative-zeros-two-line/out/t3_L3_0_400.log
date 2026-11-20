@@ -1,0 +1,5 @@
+L3 zeros/poles on line 271 local minima 266 cells 2130 nodes 51120
+L3 done 209.3s; int U dt over [0, 400] = -0.701458; D over the full window, tau in [T_lo+20, T_hi-20]:
+   sigma1 1.0  min D 0.000001 at tau 18.25   max D 0.000245
+   sigma1 1.2  min D 0.000002 at tau 18.25   max D 0.000343
+   sigma1 1.5  min D 0.000003 at tau 0.00   max D 0.000489

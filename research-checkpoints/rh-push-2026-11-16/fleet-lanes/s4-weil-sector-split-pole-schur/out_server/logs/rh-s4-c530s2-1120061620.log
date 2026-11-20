@@ -1,0 +1,9 @@
+N = 600, prec 1500 bits, target 400 digits, supports ['5.2983'], object set big
+planned allocation: up to 6 ball matrices 300x300 per worker plus rungs; about 1.02 GB per worker (471 bytes per ball), 1 workers
+group ['5.2983']: Gauss nodes 1005 (rho = 3.198)
+group ['5.2983']: loaded 3 partial sums 3s
+5.2983 rungs 60 done 586s
+5.2983 ZETA {"even": {"full": 0.0, "pf": 3.567e-321, "S": 0.0}, "odd": {"full": 0.0, "pf": 1.9747987e-317, "S": 4e-323}} 671s
+5.2983 CHI-3 {"even": {"full": 6.026112528805122e-222, "pf": 1.370694158127084e-212, "S": 4.635193056373796e-221}, "odd": {"full": 4.714998441638577e-217, "pf": 4.512618866645277e-209, "S": 2.634853385285616e-215}} 718s
+5.2983 CHI5 {"even": {"full": 5.69097611170046e-174, "pf": 1.2432523626917613e-164, "S": 3.690464651542121e-173}, "odd": {"full": 4.123677603040833e-169, "pf": 2.7555276800198284e-160, "S": 1.4041349338958622e-167}} 768s
+written out/secC_N600.json 771s

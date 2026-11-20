@@ -1,0 +1,4 @@
+FE defect 1.723409638355133e-22  |M| at inserted zero 1.099658953775611e-20  |M| at removed zero + 1e-3 0.9070056037290984
+tasks 3360 workers 4
+totals [count, positive, negative, undecided]: {'ZQ(1,2;eta=0.05)': [560, 560, 0, 0], 'ZQ(1,2;eta=0.3)': [560, 560, 0, 0], 'ZQ(1,2;eta=0.45)': [560, 560, 0, 0], 'ZQ(3,4;eta=0.2)': [560, 560, 0, 0], 'ZQ(6709,6710;eta=0.01)': [560, 560, 0, 0], 'ZQ(6709,6710;eta=0.25)': [560, 560, 0, 0]}
+DONE

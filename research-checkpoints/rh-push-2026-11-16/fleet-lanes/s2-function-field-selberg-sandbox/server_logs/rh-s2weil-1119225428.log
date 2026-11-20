@@ -1,0 +1,91 @@
+PSL2(Z) tau=0.25: geometric 1.0644944590533 spectral 1.0644944590533 diff 1.332e-15  (Maass part 1.354e-10)
+   pieces {'I': np.float64(0.3266743001), 'Hyp': 0.0128263436, 'Ell': np.float64(0.3222129752), 'const': 0.2547782584, 'P1': np.float64(-0.0640369827), 'P2': np.float64(0.1514015955), 'prime': 0.0606379688}
+PSL2(Z) tau=0.1: geometric 1.0254283799239 spectral 1.0254283799239 diff 6.661e-16  (Maass part 1.133e-04)
+   pieces {'I': np.float64(0.826507323), 'Hyp': 7.29207e-05, 'Ell': np.float64(0.3359933737), 'const': 0.4028397975, 'P1': np.float64(-0.3864675846), 'P2': np.float64(-0.1585868982), 'prime': 0.0050694478}
+PSL2(Z) tau=0.08: geometric 1.0209039710590 spectral 1.0209039710590 diff 5.995e-15  (Maass part 7.026e-04)
+   pieces {'I': np.float64(1.0348174509), 'Hyp': 8.0432e-06, 'Ell': np.float64(0.3380775038), 'const': 0.4503885856, 'P1': np.float64(-0.5171377635), 'P2': np.float64(-0.2869539744), 'prime': 0.0017041256}
+geod l_max=24.412 d=0.05 n=479; planned memory: 0.009 GB dense
+PSL2(Z) W_disc first support with min eig < -1e-9: None | min eig at largest support [24.0, 7.717820865156634e-10]
+PSL2(Z) W_el (no zeta primes) first support with min eig < -1e-9: 1.75 | min eig at largest support [24.0, -10.85125212991294]
+PSL2(Z) W_disc + constant eigenfunction (j = 0 kept) first support with min eig < -1e-9: 1.5 | min eig at largest support [24.0, -80190.74018585561]
+Gamma(2) chi=(0.005,0.01) cusp const -9.6884 first support with min eig < -1e-9: 7.5 | min eig at largest support [24.0, -48754.18194857092]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 9.819492980458975]
+Gamma(2) chi=(0.01,0.02) cusp const -7.6097 first support with min eig < -1e-9: 7.25 | min eig at largest support [24.0, -27054.581161952814]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 7.740791750452292]
+Gamma(2) chi=(0.02,0.03) cusp const -6.5124 first support with min eig < -1e-9: 7.25 | min eig at largest support [24.0, -13795.571515118185]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 6.643495842214]
+Gamma(2) chi=(0.03,0.05) cusp const -4.9069 first support with min eig < -1e-9: 7.25 | min eig at largest support [24.0, -2523.638353348073]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 5.038009153696965]
+Gamma(2) chi=(0.05,0.12) cusp const -2.2976 first support with min eig < -1e-9: None | min eig at largest support [24.0, 2.5334962355185045e-08]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 2.4286863842030226]
+Gamma(2) chi=(0.1,0.25) cusp const -0.2312 first support with min eig < -1e-9: None | min eig at largest support [24.0, 7.536499885409365e-09]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [24.0, 0.3622425754676529]
+Gamma(2) chi=(0.25,0.6) cusp const 1.5673 first support with min eig < -1e-9: None | min eig at largest support [24.0, 6.827339194410824e-09]
+   archimedean + parabolic part alone first support with min eig < -1e-9: 4.5 | min eig at largest support [24.0, -1.4362101178571085]
+Gamma(2) chi=(0.3333,0.6667) cusp const 1.6479 first support with min eig < -1e-9: None | min eig at largest support [24.0, 6.57738182619712e-09]
+   archimedean + parabolic part alone first support with min eig < -1e-9: 4.25 | min eig at largest support [24.0, -1.516845918597779]
+geod l_max=24.412 d=0.025 n=479; planned memory: 0.009 GB dense
+PSL2(Z) W_disc first support with min eig < -1e-9: None | min eig at largest support [12.0, 1.823931188807939e-09]
+PSL2(Z) W_el (no zeta primes) first support with min eig < -1e-9: 1.75 | min eig at largest support [12.0, -4.883003234622608]
+PSL2(Z) W_disc + constant eigenfunction (j = 0 kept) first support with min eig < -1e-9: 1.5 | min eig at largest support [12.0, -193.91326399448687]
+Gamma(2) chi=(0.005,0.01) cusp const -9.6884 first support with min eig < -1e-9: 7.5 | min eig at largest support [12.0, -145.75371058274283]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 10.093142012719746]
+Gamma(2) chi=(0.01,0.02) cusp const -7.6097 first support with min eig < -1e-9: 7.25 | min eig at largest support [12.0, -108.37164502044263]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 8.014440782713116]
+Gamma(2) chi=(0.02,0.03) cusp const -6.5124 first support with min eig < -1e-9: 7.25 | min eig at largest support [12.0, -77.7636991435302]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 6.917144874474771]
+Gamma(2) chi=(0.03,0.05) cusp const -4.9069 first support with min eig < -1e-9: 7.25 | min eig at largest support [12.0, -32.42495973005698]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 5.311658185957806]
+Gamma(2) chi=(0.05,0.12) cusp const -2.2976 first support with min eig < -1e-9: None | min eig at largest support [12.0, 0.09201308957497689]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 2.7023354164638524]
+Gamma(2) chi=(0.1,0.25) cusp const -0.2312 first support with min eig < -1e-9: None | min eig at largest support [12.0, 1.9821134954442084e-05]
+   archimedean + parabolic part alone first support with min eig < -1e-9: None | min eig at largest support [12.0, 0.6358916077284545]
+Gamma(2) chi=(0.25,0.6) cusp const 1.5673 first support with min eig < -1e-9: None | min eig at largest support [12.0, 3.7727591618408475e-08]
+   archimedean + parabolic part alone first support with min eig < -1e-9: 4.5 | min eig at largest support [12.0, -1.162561085596324]
+Gamma(2) chi=(0.3333,0.6667) cusp const 1.6479 first support with min eig < -1e-9: None | min eig at largest support [12.0, 1.91000453426292e-08]
+   archimedean + parabolic part alone first support with min eig < -1e-9: 4.25 | min eig at largest support [12.0, -1.2431968863369067]
+PSL2Z_geodesics_only l0=1.9248 {'0.6': (0.0092, 0.866, 1.92, 0.583), '0.4': (0.0364, 0.693, 2.63, 0.308), '0.3': (0.0798, 0.558, 3.13, 0.182), '0.25': (0.1276, 0.472, 3.85, 0.126)}
+PSL2Z_discrete(geodesics+scattering primes) l0=1.3863 {'0.6': (0.024, 0.783, 1.39, 0.528), '0.4': (0.0617, 0.589, 2.2, 0.302), '0.3': (0.1117, 0.457, 2.63, 0.191), '0.25': (0.1629, 0.374, 3.22, 0.138)}
+G2_chi_0_0 l0=3.5255 {'0.6': (0.0014, 1.04, 3.53, 0.937), '0.4': (0.0241, 0.917, 3.53, 0.648), '0.3': (0.0948, 0.776, 4.58, 0.393), '0.25': (0.1999, 0.687, 5.27, 0.262)}
+G2_chi_0.005_0.01 l0=3.5255 {'0.6': (0.0014, 1.04, 3.53, 0.938), '0.4': (0.0238, 0.917, 3.53, 0.651), '0.3': (0.0928, 0.776, 4.58, 0.399), '0.25': (0.1921, 0.687, 5.27, 0.271)}
+G2_chi_0.01_0.02 l0=3.5255 {'0.6': (0.0014, 1.04, 3.53, 0.939), '0.4': (0.0231, 0.917, 3.53, 0.66), '0.3': (0.0874, 0.793, 4.58, 0.416), '0.25': (0.1746, 0.723, 4.58, 0.293)}
+G2_chi_0.02_0.03 l0=3.5255 {'0.6': (0.0013, 1.04, 3.53, 0.942), '0.4': (0.0218, 0.934, 3.53, 0.675), '0.3': (0.0795, 0.811, 4.58, 0.443), '0.25': (0.1519, 0.74, 4.58, 0.326)}
+G2_chi_0.03_0.05 l0=3.5255 {'0.6': (0.0012, 1.04, 3.53, 0.949), '0.4': (0.0186, 0.952, 3.53, 0.719), '0.3': (0.0618, 0.864, 3.53, 0.517), '0.25': (0.1088, 0.811, 4.58, 0.414)}
+G2_chi_0.05_0.12 l0=3.5255 {'0.6': (0.0005, 1.058, 3.53, 0.992), '0.4': (0.0062, 1.04, 3.53, 0.951), '0.3': (0.0158, 0.987, 3.53, 0.888), '0.25': (0.0241, 0.934, 3.53, 0.821)}
+G2_chi_0.1_0.25 l0=3.5255 {'0.6': (0.0, 0.987, 3.53, 0.757), '0.4': (0.001, 0.846, 4.58, 0.332), '0.3': (0.0046, 0.758, 4.58, 0.177), '0.25': (0.0095, 0.705, 4.58, 0.121)}
+G2_chi_0.25_0.6 l0=3.5255 {'0.6': (0.0008, 1.058, 3.53, 0.991), '0.4': (0.0101, 1.04, 3.53, 0.948), '0.3': (0.0255, 1.005, 3.53, 0.894), '0.25': (0.0378, 0.97, 3.53, 0.85)}
+G2_chi_0.3333_0.6667 l0=3.5255 {'0.6': (0.0013, 1.058, 3.53, 0.983), '0.4': (0.0182, 0.987, 3.53, 0.856), '0.3': (0.0578, 0.864, 3.53, 0.645), '0.25': (0.1068, 0.758, 4.58, 0.491)}
+G2_chi_0.5_0.5 l0=3.5255 {'0.6': (0.0002, 1.04, 3.53, 0.942), '0.4': (0.0024, 0.952, 3.53, 0.718), '0.3': (0.0081, 0.846, 3.53, 0.509), '0.25': (0.0155, 0.74, 4.58, 0.376)}
+zeta l0=0.6931 {'0.6': (0.083, 0.669, 0.69, 0.514), '0.4': (0.1168, 0.534, 1.1, 0.402)}
+L_chi4 l0=1.0986 {'0.6': (0.0369, 0.791, 1.1, 0.593), '0.4': (0.0644, 0.643, 1.61, 0.432)}
+zeta_sign_twist l0=0.6931 {'0.6': (0.083, 0.669, 0.69, 0.514), '0.4': (0.1168, 0.534, 1.1, 0.402)}
+fam_chi_0.03_0.05 l0=3.5255 {'0.6': (0.0012, 1.04, 3.53, 0.949), '0.4': (0.0186, 0.952, 3.53, 0.719), '0.3': (0.0618, 0.864, 3.53, 0.517)}
+fam_chi_0.033_0.055 l0=3.5255 {'0.6': (0.0011, 1.04, 3.53, 0.952), '0.4': (0.0177, 0.952, 3.53, 0.732), '0.3': (0.0573, 0.864, 3.53, 0.54)}
+fam_chi_0.036_0.06 l0=3.5255 {'0.6': (0.0011, 1.04, 3.53, 0.954), '0.4': (0.0167, 0.97, 3.53, 0.747), '0.3': (0.0529, 0.881, 3.53, 0.564)}
+fam_chi_0.039_0.065 l0=3.5255 {'0.6': (0.001, 1.04, 3.53, 0.957), '0.4': (0.0157, 0.97, 3.53, 0.763), '0.3': (0.0486, 0.899, 3.53, 0.589)}
+fam_chi_0.042_0.07 l0=3.5255 {'0.6': (0.001, 1.04, 3.53, 0.96), '0.4': (0.0148, 0.97, 3.53, 0.779), '0.3': (0.0445, 0.917, 3.53, 0.616)}
+fam_chi_0.045_0.075 l0=3.5255 {'0.6': (0.0009, 1.04, 3.53, 0.963), '0.4': (0.0138, 0.987, 3.53, 0.796), '0.3': (0.0406, 0.917, 3.53, 0.644)}
+fam_chi_0.048_0.08 l0=3.5255 {'0.6': (0.0009, 1.04, 3.53, 0.967), '0.4': (0.0128, 0.987, 3.53, 0.813), '0.3': (0.0369, 0.934, 3.53, 0.673)}
+fam_chi_0.051_0.085 l0=3.5255 {'0.6': (0.0008, 1.04, 3.53, 0.97), '0.4': (0.0119, 0.987, 3.53, 0.831), '0.3': (0.0335, 0.952, 3.53, 0.703)}
+fam_chi_0.054_0.09 l0=3.5255 {'0.6': (0.0008, 1.04, 3.53, 0.973), '0.4': (0.0109, 1.005, 3.53, 0.85), '0.3': (0.0303, 0.952, 3.53, 0.732)}
+fam_chi_0.06_0.1 l0=3.5255 {'0.6': (0.0007, 1.058, 3.53, 0.98), '0.4': (0.0092, 1.022, 3.53, 0.886), '0.3': (0.0245, 0.97, 3.53, 0.791)}
+fam_chi_0.066_0.11 l0=3.5255 {'0.6': (0.0006, 1.058, 3.53, 0.986), '0.4': (0.0076, 1.022, 3.53, 0.921), '0.3': (0.0197, 0.987, 3.53, 0.846)}
+fam_chi_0.02_0.03 l0=3.5255 {'0.6': (0.0013, 1.04, 3.53, 0.942), '0.4': (0.0218, 0.934, 3.53, 0.675), '0.3': (0.0795, 0.811, 4.58, 0.443)}
+fam_chi_0.01_0.02 l0=3.5255 {'0.6': (0.0014, 1.04, 3.53, 0.939), '0.4': (0.0231, 0.917, 3.53, 0.66), '0.3': (0.0874, 0.793, 4.58, 0.416)}
+fam_chi_0.005_0.01 l0=3.5255 {'0.6': (0.0014, 1.04, 3.53, 0.938), '0.4': (0.0238, 0.917, 3.53, 0.651), '0.3': (0.0928, 0.776, 4.58, 0.399)}
+   band check: planned memory 0.013 GB per chunk
+PSL2Z_geodesics_only band [200,1200] average 0.05909424426453231 diagonal formula 0.059050484096567095
+   band check: planned memory 0.003 GB per chunk
+G2_chi_0.03_0.05 band [200,1200] average 0.030552270069324653 diagonal formula 0.030521349698180735
+   band check: planned memory 0.735 GB per chunk
+zeta band [200,1200] average 0.08301634432011354 diagonal formula 0.08310203694879645
+zeta tau=0.08: geometric 2.288751e-07 spectral 2.288751e-07
+L(chi4) tau=0.08: geometric 1.104852e-01 spectral (first 10 zeros, values quoted from memory, 1e-9 not guaranteed) 1.104852e-01
+zeta tau=0.05: geometric 9.175670e-05 spectral 9.175670e-05
+L(chi4) tau=0.05: geometric 3.374283e-01 spectral (first 10 zeros, values quoted from memory, 1e-9 not guaranteed) 3.374283e-01
+n=339, primes to 24154954; planned memory 0.22 GB sieve
+zeta (zeros only: pole terms moved to the arithmetic side) | first failing support None | min eig at largest support (17.0, 2.272147885353734e-11)
+L(chi_4) | first failing support None | min eig at largest support (17.0, 4.840322200018775e-11)
+Liouville sign twist with the archimedean and pole terms of zeta | first failing support 0.75 | min eig at largest support (17.0, -9658.235610413076)
+chi_4 prime side with the archimedean terms of zeta (functional equation mismatched) | first failing support 1.0 | min eig at largest support (17.0, -4829.4732365833)
+JOB_DONE weil

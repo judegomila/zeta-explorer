@@ -1,0 +1,1 @@
+{"mode": "scan", "kernel": "zeta", "t": "-0.05", "xmin": 800.0, "xmax": 1400.0, "dx": 0.02, "prec": 4189, "H_sign_changes": 213, "first_H_sign_change_x": 800.02, "D_negative_intervals": [], "n_D_negative_intervals": 0, "D_undetermined": 0, "first_D_negative_x": null, "min_D_over_H2": 0.4318060304627222, "seconds": 1210.9953873157501}

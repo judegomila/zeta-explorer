@@ -1,0 +1,2 @@
+checked 5832 pairs (pi, c'), q_pi <= 60, q_pi q_c' <= 29989; lookups missed 0; max |tau(pi c') - tau(pi) tau(c') chi_c'(pi)^4| = 1.600e-15
+checked 5832 pairs; max |G(pi c')/(G(pi) G(c')) - (+-1)| = 2.824e-15; class pairs mod 4 seen 132; sign clashes within a class pair 0; signs -1 on 54 class pairs

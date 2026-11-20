@@ -1,0 +1,56 @@
+v1 vs v2 2 3 8.424127671971871e-13
+v1 vs v2 1 4 7.747848697780443e-12
+v1 vs v2 3 3 1.884479362765149e-12
+n=6 d=0 k=0 done 0.0s
+n=6 d=1 k=0 done 0.0s
+n=6 d=2 k=0 done 0.0s
+n=6 d=3 k=0 done 0.0s
+n=6 d=4 k=0 done 0.0s
+n=6 d=0 k=1 done 0.0s
+n=6 d=1 k=1 done 0.0s
+n=6 d=2 k=1 done 0.0s
+n=6 d=3 k=1 done 0.4s
+n=6 d=4 k=1 done 23.4s
+n=6 d=0 k=2 done 0.0s
+n=6 d=1 k=2 done 0.0s
+n=6 d=2 k=2 done 0.0s
+n=6 d=3 k=2 done 0.6s
+n=6 d=4 k=2 done 24.3s
+n=6 d=0 k=3 done 0.0s
+n=6 d=1 k=3 done 0.0s
+n=6 d=2 k=3 done 0.1s
+n=6 d=3 k=3 done 0.3s
+n=6 d=4 k=3 done 21.1s
+n=6 d=0 k=4 done 0.1s
+n=6 d=1 k=4 done 0.0s
+n=6 d=2 k=4 done 0.2s
+n=6 d=3 k=4 done 1.3s
+n=6 d=4 k=4 done 23.2s
+n=6 d=0 k=5 done 0.5s
+n=6 d=1 k=5 done 0.7s
+n=6 d=2 k=5 done 1.4s
+n=6 d=3 k=5 done 8.0s
+n=6 d=4 k=5 done 65.2s
+n=6 d=0 k=6 done 3.1s
+n=6 d=1 k=6 done 4.2s
+n=6 d=2 k=6 done 9.7s
+n=6 d=3 k=6 done 43.8s
+n=6 d=4 k=6 done 374.1s
+n=6 d=0 k=7 done 25.5s
+n=6 d=1 k=7 done 41.5s
+n=6 d=2 k=7 done 75.0s
+--- stabilisation test c_k = q^(n+1) c_(k-n), n=6 ---
+d=0 k=6: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=0 k=7: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=1 k=6: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=1 k=7: max|c_k - q^7 c_(k-6)| / max = 1.023e+00
+d=2 k=6: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=2 k=7: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=3 k=6: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+d=4 k=6: max|c_k - q^7 c_(k-6)| / max = 1.429e-01
+--- normalised rms: sqrt(mean |c_k(m)|^2) * q^(-k(1+1/n)) ---
+0 ['1.0000', '1.9129', '0.0000', '0.0000', '0.0000', '0.0000', '0.8571', '1.6397']
+1 ['1.0000', '0.0000', '1.3831', '0.0000', '0.0000', '0.0000', '0.8571', '0.0000']
+2 ['1.0000', '0.6694', '1.2805', '1.0000', '0.0000', '0.0000', '0.8571', '0.5738']
+3 ['1.0000', '0.6694', '0.0000', '0.9258', '0.7230', '0.0000', '0.8571']
+4 ['1.0000', '0.6694', '0.4840', '0.9258', '0.6694', '0.5228', '0.8571']

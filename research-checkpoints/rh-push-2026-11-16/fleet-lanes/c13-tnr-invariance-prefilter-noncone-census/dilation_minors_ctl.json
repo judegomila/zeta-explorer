@@ -1,0 +1,374 @@
+{
+ "finite deletion S={2}: 1 + 2 sum over odd n": {
+  "L=1.0": {
+   "2": {
+    "positive": 91,
+    "negative": 9,
+    "min_abs_det_over_hadamard": -5.608158467120884,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -7.500708744768899,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -15.494031657385104,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 90,
+    "negative": 10,
+    "min_abs_det_over_hadamard": -19.66165625453309,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 85,
+    "negative": 15,
+    "min_abs_det_over_hadamard": -5.803007413579063,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 5,
+    "negative": 95,
+    "min_abs_det_over_hadamard": -10.475056329034791,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 2,
+    "negative": 98,
+    "min_abs_det_over_hadamard": -20.392445891107084,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 99,
+    "negative": 1,
+    "min_abs_det_over_hadamard": -20.00271329453269,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ },
+ "finite deletion S={3}": {
+  "L=1.0": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -5.608158467120884,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -7.635484187765273,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 9,
+    "negative": 91,
+    "min_abs_det_over_hadamard": -15.357907673938302,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -18.612374062364985,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 93,
+    "negative": 7,
+    "min_abs_det_over_hadamard": -5.803007413579063,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -10.475074186870998,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 15,
+    "negative": 85,
+    "min_abs_det_over_hadamard": -20.392445891108665,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 90,
+    "negative": 10,
+    "min_abs_det_over_hadamard": -20.073038018410255,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ },
+ "deletion of all primes > 3 (n = 2^a 3^b only)": {
+  "L=1.0": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -5.608158467120884,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -7.635653686143754,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -15.356719466836742,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -20.071855720700075,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 96,
+    "negative": 4,
+    "min_abs_det_over_hadamard": -5.8101824880688095,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -10.475074186995478,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 15,
+    "negative": 85,
+    "min_abs_det_over_hadamard": -20.392445891108665,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -20.109296393729984,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ },
+ "Liouville twist, polar term kept": {
+  "L=1.0": {
+   "2": {
+    "positive": 86,
+    "negative": 14,
+    "min_abs_det_over_hadamard": -5.608158467120884,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -7.396423836244654,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 8,
+    "negative": 92,
+    "min_abs_det_over_hadamard": -15.671414448135934,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -18.87631204809489,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 74,
+    "negative": 26,
+    "min_abs_det_over_hadamard": -5.803007413579063,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -10.475038471293804,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 19,
+    "negative": 81,
+    "min_abs_det_over_hadamard": -20.3924458911055,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 99,
+    "negative": 1,
+    "min_abs_det_over_hadamard": -19.821371147496137,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ },
+ "theta^2": {
+  "L=1.0": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -5.3071284714643445,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -7.107514345722236,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -14.76209613624054,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 97,
+    "negative": 3,
+    "min_abs_det_over_hadamard": -18.914025041350907,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -6.042506425657538,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -9.900753523318171,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -27.534528248116317,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -19.672054790171924,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ },
+ "theta^(1/2)": {
+  "L=1.0": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -5.909188462783004,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -8.20547095041112,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -16.13809220326978,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -21.262823442282663,
+    "dps": 120,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -6.643232679479102,
+    "dps": 120,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -11.064950884231866,
+    "dps": 120,
+    "zero": 0
+   },
+   "4": {
+    "positive": 0,
+    "negative": 100,
+    "min_abs_det_over_hadamard": -29.312516733678347,
+    "dps": 120,
+    "zero": 0
+   },
+   "5": {
+    "positive": 100,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -21.181304271363743,
+    "dps": 120,
+    "zero": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,20 @@
+S [2] Tw 0.65 log N_S 0.6931471805599453 T 3000.0 X 725.0 grid 724983 (46 MB)
+   zero side 1.19146418243  arch 1.80898087959  residue sum -0.617516697117  diff -4.285e-11 (rel -3.60e-11)  R 4.0628 Obar 6.1685 E -2.1057  sum|res|/den 2.206  k0 size 5.0e-34
+S [2] Tw 0.65 log N_S 0.6931471805599453 T 9000.0 X 725.0 grid 724983 (46 MB)
+   zero side 1.83185957383  arch 2.13116291552  residue sum -0.29930334212  diff 4.334e-10 (rel 2.37e-10)  R 6.2465 Obar 7.2671 E -1.0206  sum|res|/den 1.684  k0 size 2.5e-36
+S [3] Tw 1.05 log N_S 1.0986122886681098 T 3000.0 X 448.8 grid 448799 (29 MB)
+   zero side 1.71063895504  arch 2.19165084258  residue sum -0.481011887493  diff -5.174e-11 (rel -3.02e-11)  R 4.8147 Obar 6.1685 E -1.3538  sum|res|/den 1.815  k0 size 4.7e-34
+S [2, 3] Tw 1.7 log N_S 1.791759469228055 T 3000.0 X 277.2 grid 277200 (18 MB)
+   zero side 3.00289585717  arch 4.47973711265  residue sum -1.47684125537  diff -1.056e-10 (rel -3.52e-11)  R 4.1349 Obar 6.1685 E -2.0336  sum|res|/den 3.046  k0 size 5.0e-33
+S [2, 3] Tw 1.7 log N_S 1.791759469228055 T 3003.1 X 277.2 grid 277200 (18 MB)
+   zero side 3.21649186628  arch 4.85115731346  residue sum -1.63466544706  diff -1.150e-10 (rel -3.58e-11)  R 4.0908 Obar 6.1697 E -2.0790  sum|res|/den 2.407  k0 size 5.0e-33
+S [2, 3, 5] Tw 3.3 log N_S 3.401197381662155 T 3000.0 X 142.8 grid 142800 (9 MB)
+   zero side 7.42732922407  arch 10.8560572261  residue sum -3.4287280018  diff -2.622e-10 (rel -3.53e-11)  R 4.2205 Obar 6.1688 E -1.9483  sum|res|/den 3.156  k0 size 2.0e-32
+S [2, 3, 5, 7] Tw 5.2 log N_S 5.3471075307174685 T 3000.0 X 90.6 grid 90623 (6 MB)
+   zero side 10.0301540209  arch 14.9309847767  residue sum -4.90083075545  diff -3.589e-10 (rel -3.58e-11)  R 4.1439 Obar 6.1687 E -2.0248  sum|res|/den 3.213  k0 size 8.8e-35
+S [2, 3, 5, 7] Tw 5.2 log N_S 5.3471075307174685 T 12000.0 X 90.6 grid 90623 (6 MB)
+   zero side 14.7397479398  arch 20.6049652883  residue sum -5.8652173527  diff 4.158e-09 (rel 2.82e-10)  R 5.4043 Obar 7.5548 E -2.1505  sum|res|/den 4.019  k0 size 6.6e-40
+S [2] Tw 1.2 log N_S 0.6931471805599453 T 3000.0 X 392.7 grid 392700 (25 MB)
+   zero side 2.26855521983  arch 3.34774507999  residue sum -1.07918986008  diff -7.951e-11 (rel -3.50e-11)  R 4.1800 Obar 6.1685 E -1.9885  sum|res|/den 2.087  k0 size 1.3e-33
+S [2, 3] Tw 2.6 log N_S 1.791759469228055 T 3000.0 X 181.2 grid 181246 (12 MB)
+   zero side 5.2147751579  arch 7.37836540901  residue sum -2.16359025093  diff -1.750e-10 (rel -3.36e-11)  R 4.3598 Obar 6.1687 E -1.8089  sum|res|/den 2.079  k0 size 2.2e-35

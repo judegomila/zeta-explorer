@@ -1,0 +1,41 @@
+{
+ "slug": "c1-leeyang-krein-limit",
+ "round": 1,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "lee-yang",
+  "de-branges",
+  "finite-stage",
+  "hankel"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction holds. Rank Gamma_- is lower semicontinuous under bounded weak-* convergence (proved). In the self-dual conductor normalisation every Lee-Yang stage symbol is inner and tends to -1 on Re z > 0 for zeta phases and every unimodular twist (proved relative to the refereed stage theorem; measured), so the semicontinuity chain carries no information. With gamma factor and pole renormalisation the stage symbol has one right-half-plane pole per stage zero, identical for zeta, U and random twists (measured, argument-principle counts; not proved for all P). In the strip topology, zeta is zero-free in Re s > theta iff the pole-renormalised Euler stages are locally bounded on {Re s > theta, s != 1} (proved: Hurwitz + von Koch; no novelty). The Lee-Yang inequality gives a stage bound with exponent of order P, weaker than the trivial bound (proved up to an unjustified constant). No statement about zeros of zeta is established; R4 is not supplied.",
+ "obstruction": "Rank Gamma_- is lower semicontinuous under bounded weak-* convergence, but in the self-dual conductor normalisation every stage symbol tends to the constant -1 on Re z > 0 for zeta and every unimodular twist, so the chain carries no information. With gamma factor and pole renormalisation the stage has one right-half-plane pole per stage zero (measured), liminf rank infinite. In the strip topology the limit step is Hurwitz plus local boundedness of pole-renormalised Euler stages, which is equivalent to the zero-free statement (von Koch). The Lee-Yang inequality gives a stage bound weaker than the trivial one.",
+ "obstructionKind": "restatement-of-rh",
+ "controlsThatDefeat": [
+  "unimodular twist U (same stage behaviour; fails only at the open step)",
+  "random unimodular twists (same pole counts, measured)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "lesson": "The Lee-Yang stage's index 0 is the inequality Re D_M'/D_M > -(log M)/2, which becomes empty as M grows; the conductor factor that makes stages self-dual erases the limit (symbol -> -1). Any limit step from zero-free product stages is Hurwitz plus local boundedness of pole-renormalised stages, which is RH restated as the PNT error term. r1 holds only at stage level (zero-free stages need the Euler product); the U control fails at the open step, not at a proved one. Primes up to 47 cannot show the convergence mode: the pole factor is within 15 percent of 1 there.",
+ "followUp": "Test whether the multivariate (polydisc, per-prime weights) Lee-Yang property yields a one-sided upper bound on log|E_P(s) exp(E_1((s-1)log P))| in the strip better than the trivial exp(P^(1-sigma)/log P); the single-variable consequence is weaker than trivial. Otherwise none: do not re-attempt Krein-index semicontinuity as a limit step.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md",
+ "brokenProved": 0,
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Theorem D holds with four wording corrections (re-derived before reading the lane's proof). R1 NOT confirmed: the stage hypothesis (zero-free stages) holds for Davenport-Heilbronn with exponential stages and fails for the Euler stages of the multiplicative controls T-NR, HQ2, G_q; multiplicativity is neither necessary nor sufficient; every control fails only at local boundedness, the open step. Theorem D is an equivalence that holds for every control: restatement under METRIC section A. First referee had R1 true (stage ingredient only); the two referees agree on all mathematics and on R2-R4.",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2_c1-leeyang-krein-limit.md"
+ },
+ "flagDecision": "round-20 learn step: the two referees agree on the mathematics and disagree on R1; R1 is not counted (DH has zero-free exponential stages by Lemma E; Euler stages of T-NR, HQ2, G_q have local zeros), and Theorem D is an equivalence with its target (restatement, METRIC A)"
+}

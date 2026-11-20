@@ -1,0 +1,16 @@
+{
+ "family": "JC1-with-adp",
+ "optimistic_rows": 0,
+ "not_processed": 0,
+ "ball_evaluations": 0,
+ "pos_opposite": 0,
+ "pos_undecided": 0,
+ "killed_by_class": {},
+ "killed_fe_by_class": {},
+ "unresolved_class_entries": 0,
+ "alive_all": [],
+ "alive_fe": [],
+ "full_survivors": [],
+ "full_survivors_fe": [],
+ "seconds": 0.010365724563598633
+}

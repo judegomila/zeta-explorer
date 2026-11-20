@@ -1,0 +1,60 @@
+N = 160, prec = 320 bits, workers = 4; quadrature nodes 432; planned: (114 + 1) ball matrices 160x160 per worker (~1.77 GB per worker at 0.2 kB per entry incl. serialised copies)
+stage 1 done 223s; A_log[0,0]-1 = [-4e-96 +/- 6.82e-97]
+K3 real objects done 22s
+K2 real objects done 24s
+K3 complex + cramer done 26s
+K2 complex + cramer done 27s
+K4 real objects done 34s
+K5 real objects done 35s
+K5 complex + cramer done 37s
+K4 complex + cramer done 37s
+K2 all done 115s
+K6 real objects done 34s
+K6 complex + cramer done 35s
+K3 all done 250s
+K7 real objects done 29s
+K7 complex + cramer done 30s
+K4 all done 715s
+K8 real objects done 24s
+K8 complex + cramer done 25s
+K5 all done 858s
+K9 real objects done 20s
+K9 complex + cramer done 21s
+K6 all done 864s
+K10 real objects done 49s
+K10 complex + cramer done 54s
+K7 all done 919s
+a0.5 real objects done 4s
+a0.5 complex + cramer done 4s
+a0.5 all done 19s
+s0.9 real objects done 5s
+s0.9 complex + cramer done 5s
+s0.9 all done 27s
+s1.0 real objects done 3s
+s1.0 complex + cramer done 4s
+s1.0 all done 31s
+s1.12 real objects done 10s
+s1.12 complex + cramer done 11s
+s1.12 all done 90s
+s1.16 real objects done 10s
+s1.16 complex + cramer done 10s
+s1.16 all done 91s
+s1.2 real objects done 8s
+s1.2 complex + cramer done 8s
+s1.2 all done 96s
+s1.3 real objects done 10s
+s1.3 complex + cramer done 10s
+s1.3 all done 98s
+s1.4 real objects done 14s
+s1.4 complex + cramer done 16s
+K8 all done 971s
+s1.5 real objects done 15s
+s1.5 complex + cramer done 15s
+s1.4 all done 145s
+s1.6 real objects done 14s
+s1.6 complex + cramer done 15s
+K9 all done 1050s
+s1.5 all done 246s
+s1.6 all done 260s
+K10 all done 1120s
+written weil_N160.json elapsed 2327s

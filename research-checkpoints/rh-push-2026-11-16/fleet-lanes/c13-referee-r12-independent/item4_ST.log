@@ -1,0 +1,18 @@
+families: {'q5pair': [2, 3], 'q7even': [2, 4], 'q7odd3': [3, 5, 6], 'q13odd': [2, 5, 6, 7, 8, 11], 'q13even': [3, 4, 9, 10, 12], 'q13pair': [2, 7]}
+orders q7 even pair: [3, 3] q13 odd count 6 even 5
+[S] q=5 pair: zero of w0 at nan + nan i ; |N(c)|<=nan M<=nan |N'(c)|>=nan Rouche(one zero of N in |s-c|<1e-9)=False denominators_nonzero_on_disc=False disc_inside_strip=False minRe-1/2>=nan
+[S] q=7 even pair: zero of w0 at 0.5054676842298625867825 + 62.06379732232545594046 i ; |N(c)|<=1.44e-88 M<=0.521 |N'(c)|>=4.57 Rouche(one zero of N in |s-c|<1e-9)=True denominators_nonzero_on_disc=True disc_inside_strip=True minRe-1/2>=0.005468
+[S] q=7 three odd: zero of w0 at 0.5085957730951408223204 + 17.48111285037289304777 i ; |N(c)|<=5.08e-88 M<=4.08 |N'(c)|>=16.4 Rouche(one zero of N in |s-c|<1e-9)=True denominators_nonzero_on_disc=True disc_inside_strip=True minRe-1/2>=0.008596
+[S] q=13 six odd: zero of w0 at 0.5066815768421099486833 + 5.756777695214457982420 i ; |N(c)|<=1.78e-87 M<=321 |N'(c)|>=59.9 Rouche(one zero of N in |s-c|<1e-9)=True denominators_nonzero_on_disc=True disc_inside_strip=True minRe-1/2>=0.006682
+[S] q=13 five even: zero of w0 at 0.5083033922110507847601 + 10.48209293943527704292 i ; |N(c)|<=1.14e-88 M<=16.8 |N'(c)|>=8 Rouche(one zero of N in |s-c|<1e-9)=True denominators_nonzero_on_disc=True disc_inside_strip=True minRe-1/2>=0.008303
+all Lemma-S certificates: False elapsed 0.6
+[T] q=5 pair: grid 0.013+0.05k to 40: first certified S_v<0 at t=8.563 value [-8.3268534e-7 +/- 4.20e-16]; first certified S_w<0 at t=3.813 value [-2.9630661 +/- 3.40e-8]; fraction S_v<0 = 0.086; undetermined signs=0
+[T] q=7 even pair: grid 0.013+0.05k to 40: first certified S_v<0 at t=7.863 value [-2.5544510e-6 +/- 2.79e-14]; first certified S_w<0 at t=3.913 value [-0.18950542 +/- 4.85e-9]; fraction S_v<0 = 0.122; undetermined signs=0
+[T] q=7 odd complex pair: grid 0.013+0.05k to 40: first certified S_v<0 at t=9.663 value [-5.9226065e-7 +/- 3.78e-15]; first certified S_w<0 at t=2.313 value [-1.3640385 +/- 2.91e-8]; fraction S_v<0 = 0.109; undetermined signs=0
+[T] q=7 three odd: grid 0.013+0.05k to 40: first certified S_v<0 at t=16.763 value [-4.1855347e-11 +/- 3.50e-19]; first certified S_w<0 at t=2.313 value [-0.39926905 +/- 1.68e-9]; fraction S_v<0 = 0.069; undetermined signs=0
+[T] q=13 pair {2,7}: grid 0.013+0.05k to 40: first certified S_v<0 at t=5.113 value [-3.8072152e-5 +/- 1.25e-13]; first certified S_w<0 at t=2.013 value [-0.031917283 +/- 3.43e-10]; fraction S_v<0 = 0.115; undetermined signs=0
+[T] q=13 five even: grid 0.013+0.05k to 40: first certified S_v<0 at t=16.013 value [-2.4696801e-11 +/- 3.29e-19]; first certified S_w<0 at t=2.113 value [-0.79051821 +/- 3.26e-9]; fraction S_v<0 = 0.045; undetermined signs=0
+[T] q=13 six odd: grid 0.013+0.05k to 40: first certified S_v<0 at t=17.463 value [-4.9396596e-11 +/- 7.75e-21]; first certified S_w<0 at t=2.013 value [-0.87920345 +/- 2.77e-9]; fraction S_v<0 = 0.011; undetermined signs=0
+[T] zeta alone (xi with s(s-1)): grid 0.013+0.05k to 40: first certified S_v<0 at t=13.563 value [-2.1437196e-7 +/- 4.19e-16]; first certified S_w<0 at t=13.563 value [-2201.1850 +/- 1.52e-5]; fraction S_v<0 = 0.099; undetermined signs=0
+[T] q=5 one character: grid 0.013+0.05k to 40: first certified S_v<0 at t=5.413 value [-2.6269389e-5 +/- 4.32e-13]; first certified S_w<0 at t=5.413 value [-1.3710962 +/- 3.83e-8]; fraction S_v<0 = 0.198; undetermined signs=0
+elapsed 14.0

@@ -1,0 +1,421 @@
+{
+ "family": "JA-with-rnd",
+ "functionals": 207427,
+ "stage2": 57265,
+ "stage2_cascade": 49461,
+ "undecided_share_stage1": 0.04420958153743349,
+ "PZ/strict/all": {
+  "one_signed": 39728,
+  "ttrain": 1,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "rejected_train": [
+   29878,
+   22848,
+   23755,
+   235,
+   15738,
+   13252,
+   4307,
+   31349,
+   2670
+  ],
+  "heldout_ge23": [
+   8628,
+   0,
+   86,
+   22,
+   0,
+   0,
+   0,
+   5,
+   7
+  ],
+  "nrej_hist": [
+   14,
+   1301,
+   9083,
+   11303,
+   6618,
+   6334,
+   3363,
+   1361,
+   350,
+   1
+  ],
+  "best_min_heldout": 0.4583333333333333,
+  "best_min_heldout_given_pos": 0.08333333333333333,
+  "survivors": [],
+  "ttrain_rows": [
+   139645
+  ]
+ },
+ "PZ/strict/FE": {
+  "one_signed": 39728,
+  "ttrain": 12,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   2,
+   3,
+   4,
+   8
+  ],
+  "rejected_train": [
+   22848,
+   23755,
+   235,
+   31349
+  ],
+  "heldout_ge23": [
+   0,
+   86,
+   22,
+   5
+  ],
+  "nrej_hist": [
+   345,
+   6779,
+   26416,
+   6176,
+   12
+  ],
+  "best_min_heldout": 0.7083333333333334,
+  "best_min_heldout_given_pos": 0.08333333333333333,
+  "survivors": [],
+  "ttrain_rows": [
+   15172,
+   44295,
+   63639,
+   64021,
+   83686,
+   87440,
+   103148,
+   120355,
+   128258,
+   139645,
+   156226,
+   196745
+  ]
+ },
+ "PZ/fav/all": {
+  "one_signed": 42114,
+  "ttrain": 1,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "rejected_train": [
+   30472,
+   25234,
+   23767,
+   240,
+   15813,
+   13311,
+   4329,
+   32112,
+   2727
+  ],
+  "heldout_ge23": [
+   8628,
+   0,
+   97,
+   22,
+   0,
+   0,
+   0,
+   5,
+   7
+  ],
+  "nrej_hist": [
+   14,
+   2664,
+   9718,
+   11571,
+   6691,
+   6373,
+   3370,
+   1362,
+   350,
+   1
+  ],
+  "best_min_heldout": 0.4583333333333333,
+  "best_min_heldout_given_pos": 0.08333333333333333,
+  "survivors": [],
+  "ttrain_rows": [
+   139645
+  ]
+ },
+ "PZ/fav/FE": {
+  "one_signed": 42114,
+  "ttrain": 12,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   2,
+   3,
+   4,
+   8
+  ],
+  "rejected_train": [
+   25234,
+   23767,
+   240,
+   32112
+  ],
+  "heldout_ge23": [
+   0,
+   97,
+   22,
+   5
+  ],
+  "nrej_hist": [
+   345,
+   8397,
+   27172,
+   6188,
+   12
+  ],
+  "best_min_heldout": 0.7083333333333334,
+  "best_min_heldout_given_pos": 0.08333333333333333,
+  "survivors": [],
+  "ttrain_rows": [
+   15172,
+   44295,
+   63639,
+   64021,
+   83686,
+   87440,
+   103148,
+   120355,
+   128258,
+   139645,
+   156226,
+   196745
+  ]
+ },
+ "PZ/optimistic/all": 6827,
+ "PZ/optimistic/FE": 6992,
+ "PA/strict/all": {
+  "one_signed": 16,
+  "ttrain": 0,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "rejected_train": [
+   0,
+   0,
+   16,
+   0,
+   16,
+   14,
+   5,
+   16,
+   0
+  ],
+  "heldout_ge23": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "nrej_hist": [
+   0,
+   0,
+   0,
+   2,
+   9,
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  "best_min_heldout": 0.3333333333333333,
+  "best_min_heldout_given_pos": 0.0,
+  "survivors": [],
+  "ttrain_rows": []
+ },
+ "PA/strict/FE": {
+  "one_signed": 16,
+  "ttrain": 0,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   2,
+   3,
+   4,
+   8
+  ],
+  "rejected_train": [
+   0,
+   16,
+   0,
+   16
+  ],
+  "heldout_ge23": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nrej_hist": [
+   0,
+   0,
+   16,
+   0,
+   0
+  ],
+  "best_min_heldout": 0.3333333333333333,
+  "best_min_heldout_given_pos": 0.0,
+  "survivors": [],
+  "ttrain_rows": []
+ },
+ "PA/fav/all": {
+  "one_signed": 16,
+  "ttrain": 0,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "rejected_train": [
+   0,
+   0,
+   16,
+   0,
+   16,
+   14,
+   5,
+   16,
+   0
+  ],
+  "heldout_ge23": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "nrej_hist": [
+   0,
+   0,
+   0,
+   2,
+   9,
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  "best_min_heldout": 0.3333333333333333,
+  "best_min_heldout_given_pos": 0.0,
+  "survivors": [],
+  "ttrain_rows": []
+ },
+ "PA/fav/FE": {
+  "one_signed": 16,
+  "ttrain": 0,
+  "tweak": 0,
+  "full": 0,
+  "classes": [
+   2,
+   3,
+   4,
+   8
+  ],
+  "rejected_train": [
+   0,
+   16,
+   0,
+   16
+  ],
+  "heldout_ge23": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "nrej_hist": [
+   0,
+   0,
+   16,
+   0,
+   0
+  ],
+  "best_min_heldout": 0.3333333333333333,
+  "best_min_heldout_given_pos": 0.0,
+  "survivors": [],
+  "ttrain_rows": []
+ },
+ "PA/optimistic/all": 0,
+ "PA/optimistic/FE": 0,
+ "top_score": [
+  900.0377777777778,
+  811.1755555555555,
+  809.1444444444444,
+  809.1433333333333,
+  809.1366666666667
+ ],
+ "planted_rows_recovered": true,
+ "subsample": 10372,
+ "shuffle": {
+  "n": 200,
+  "full": 0,
+  "tweak": 0,
+  "ttrain": 0
+ },
+ "subsample_unshuffled": {
+  "one_signed": 2,
+  "ttrain": 0,
+  "full": 0
+ }
+}

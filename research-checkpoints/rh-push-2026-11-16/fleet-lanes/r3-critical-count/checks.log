@@ -1,0 +1,27 @@
+1. saddle: t* = 1.163954  r* = 0.745700  m* = 0.418254  z_M = (1-r*)/2 = 0.127150  z_S = (1-2m*)/(6k) = 0.036343
+   M1(r*) = 0.590332  M2(m*) = 0.590332  R_c = 0.590332
+2. window: max(1,Y) - delta Y < R_c  iff  0.872850 < Y < 1.112460
+   M_r*       length 0.7457  diagonal-level count 0.650010  outside
+   S_m*^2     length 0.8365  diagonal-level count 0.607390  outside
+   M_r* S_m*  length 1.1640  diagonal-level count 0.617658  outside
+   S_m*^3     length 1.2548  diagonal-level count 0.665845  outside
+   M_r*^2     length 1.4914  diagonal-level count 0.791419  outside
+   S_m*       length 0.4183  diagonal-level count 0.803695  outside
+   prime length needed to enter the window: after M_r*: z > 0.1272 (source capacity 0.1272); after S_m*^2: z > 0.0363 (source capacity 0.0363)
+3. count at (delta_c,1/2) with prime supply L (U-units); source needs only L >= 1/5
+   c1   c2      L=0.2105   L=0.25    L=0.5
+   2.00 4.499   0.590349  0.590349  0.590349
+   1.50 4.499   0.578247  0.578247  0.578247
+   1.00 4.499   0.577003  0.570694  0.530655
+   2.00 1.000   0.579555  0.577120  0.561632
+   1.00 1.000   0.561685  0.551675  0.530655
+4. Jutila: exponent of K^{k(1-2 delta)} at delta_c: 1-2delta = 0.061310 > 0 -> second branch is R <= C R K^{+}: vacuous
+   real part of threshold 3/4; a_c = 0.734672; distance 0.015328
+5. hybrid in t: count exponent  max(1+q, Y, q/3 + 2(1+Y)/3) - delta Y, minimised over Y, as a function of q
+   q = 0.00: 0.765328 at Y = 0.500
+   q = 0.05: 0.791860 at Y = 0.550
+   q = 0.10: 0.818393 at Y = 0.600
+   q = 0.25: 0.897991 at Y = 0.750
+   q = 0.50: 1.030655 at Y = 1.000
+   q = 1.00: 1.295983 at Y = 1.500
+   perfect hybrid sieve max(1+q, Y) - delta Y: min = (1+q)(1-delta): q=0: 0.530655

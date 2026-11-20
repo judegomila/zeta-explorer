@@ -1,0 +1,66 @@
+{
+ "slug": "e2-theta-dual-mseries-fe",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism: functional equation of the theta-dual m-series",
+ "nodes": [
+  "probe-equals-theta-row-form",
+  "cubic-r2-conductor-a4",
+  "map-pos-31"
+ ],
+ "launchedNodes": [
+  "probe-equals-theta-row-form",
+  "cubic-r2-conductor-a4",
+  "sextic-theta-mean-square",
+  "map-pos-31",
+  "tro6-natural"
+ ],
+ "rowsChecked": [
+  "N14",
+  "Z15",
+  "Z16"
+ ],
+ "tags": [
+  "seven-eighths",
+  "multiple-dirichlet-series",
+  "kubota-reflection",
+  "weyl-group-indefinite",
+  "target-blind"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "On squarefree m prime to 6 L s mu, the m-dependence of the theta-dual scalar MS (5.3) at j_p=1, times conj(chi_s(-m)), equals (function of m in finitely many classes) x conj(alpha(m))^2 x gt_1(s mu^3, m), index modulo sixth powers (PROVED-rel MS; checked numerically with power). IF a Kubota-type functional equation is granted for that series (existence, K-type and S-data OPEN), the reflection acts by x' = 3x + z - 3/2, the group <K6, Th3, g> is infinite of indefinite type, and every chamber w(R_+) and the g-image of each of the 8 pieces of n1-tube-hull lies in x >= 3/2 (PROVED-model, word length 16). MEASURED: cubic l=+-1 calibration passes, random rows at null level, sextic series undecided at norm 1e7. No abscissa below 0.874886647.",
+ "obstruction": "The m-reflection is target-blind Gauss-sum algebra (same for every eta and for DH). It lowers x only from points with 2x+z < 3/2 where nothing is known; every chamber it adds lies in x >= 3/2, so the hull abscissa equals the input. Its chamber is reached only by meromorphic continuation across the zeros of the Kubota normalising L-factor, and a hull of a meromorphy tube gives no control of the polar set. Existence of the functional equation for the full m-series is open; order-6 equations cannot be tested by dual lengths at norm 1e7 without the S-data matrix.",
+ "obstructionKind": "target-blind-reflection-no-new-region",
+ "controlsThatDefeat": [
+  "DH and every target eta: the reflection step is identical (contains no target)",
+  "random rows: stay at null level in the dual-length test (calibration only)"
+ ],
+ "lesson": "A second reflection in the modulus adds no region below the input abscissa. Side finding: the 8-piece set of n1-tube-hull is not closed under symmetry transport, so its piece rule is argued, not proved.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.08,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "nodeRepairs": [
+  {
+   "id": "n1-tube-hull",
+   "change": "piece rule status proved -> argued: K6 composed with the numerator reflection sends the theta-dual piece to x-1/2 = T < -1/2, outside the 8-piece set",
+   "source": "e2-theta-dual-mseries-fe"
+  }
+ ],
+ "newNodes": [
+  {
+   "id": "theta-dual-mseries-is-twisted-kubota",
+   "type": "identity",
+   "status": "proved-relative",
+   "statement": "On squarefree m the theta-dual m-series of MS (5.3) is an alpha^(-2)-twisted stripped sextic Kubota series in the modulus m at index 4^5 s mu^3."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-theta-dual-mseries-fe/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-theta-dual-mseries-fe/REFEREE.md"
+}

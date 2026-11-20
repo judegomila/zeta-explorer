@@ -1,0 +1,31 @@
+planned: sieve 100000001 bytes; chunk matrix 160000000 bytes
+prime sums done 4367.3s, primes 5761455
+zeta_fejer       minRe     0.0666 frac_neg 0.0000 maxS      0.99 N- 3.717e-07 N+ 6.930e-01 l1 2.17e+03
+liouville_fejer  minRe    -6.0559 frac_neg 0.2177 maxS       157 N- 7.585e-01 N+ 8.907e-01 l1 2.17e+03
+rand00           minRe   -11.5332 frac_neg 0.1688 maxS      80.5 N- 2.084e+00 N+ 8.188e-01 l1 2.17e+03
+rand01           minRe    -8.4224 frac_neg 0.1593 maxS      16.9 N- 6.708e-01 N+ 2.391e+00 l1 2.17e+03
+rand02           minRe   -10.4885 frac_neg 0.1656 maxS      43.5 N- 7.414e-01 N+ 1.077e+00 l1 2.17e+03
+rand03           minRe    -8.1276 frac_neg 0.1575 maxS      31.2 N- 1.134e+00 N+ 1.833e+00 l1 2.17e+03
+rand04           minRe    -9.5229 frac_neg 0.1622 maxS      34.8 N- 1.073e+00 N+ 9.596e-01 l1 2.17e+03
+rand05           minRe    -8.0528 frac_neg 0.1613 maxS      32.6 N- 7.748e-01 N+ 7.291e-01 l1 2.17e+03
+rand06           minRe    -9.9248 frac_neg 0.1489 maxS      28.2 N- 8.809e-01 N+ 7.411e-01 l1 2.17e+03
+rand07           minRe   -10.7853 frac_neg 0.1573 maxS      21.6 N- 9.986e-01 N+ 5.645e-01 l1 2.17e+03
+rand08           minRe    -9.8792 frac_neg 0.1535 maxS      68.7 N- 9.264e-01 N+ 7.450e-01 l1 2.17e+03
+rand09           minRe    -9.0983 frac_neg 0.1610 maxS       365 N- 9.378e-01 N+ 1.098e+00 l1 2.17e+03
+rand10           minRe    -8.3742 frac_neg 0.1498 maxS      82.7 N- 8.836e-01 N+ 1.616e+00 l1 2.17e+03
+rand11           minRe    -8.1252 frac_neg 0.1641 maxS      49.9 N- 1.531e+00 N+ 6.931e-01 l1 2.17e+03
+rand12           minRe    -8.0749 frac_neg 0.1551 maxS      45.9 N- 6.785e-01 N+ 1.227e+00 l1 2.17e+03
+rand13           minRe    -9.4397 frac_neg 0.1593 maxS      31.3 N- 7.500e-01 N+ 8.724e-01 l1 2.17e+03
+rand14           minRe    -9.6231 frac_neg 0.1529 maxS      27.1 N- 9.408e-01 N+ 5.920e-01 l1 2.17e+03
+rand15           minRe   -10.0468 frac_neg 0.1674 maxS      25.4 N- 1.146e+00 N+ 8.836e-01 l1 2.17e+03
+rand16           minRe   -10.5259 frac_neg 0.1513 maxS      25.5 N- 7.783e-01 N+ 7.637e-01 l1 2.17e+03
+rand17           minRe    -7.7895 frac_neg 0.1512 maxS      19.1 N- 6.626e-01 N+ 9.628e-01 l1 2.17e+03
+rand18           minRe    -8.9524 frac_neg 0.1569 maxS      31.9 N- 8.100e-01 N+ 1.108e+00 l1 2.17e+03
+rand19           minRe   -10.3301 frac_neg 0.1668 maxS      82.4 N- 1.040e+00 N+ 1.050e+00 l1 2.17e+03
+rand20           minRe    -8.6462 frac_neg 0.1671 maxS      24.5 N- 1.104e+00 N+ 8.922e-01 l1 2.17e+03
+rand21           minRe    -9.3672 frac_neg 0.1532 maxS      93.8 N- 2.409e+00 N+ 2.867e+00 l1 2.17e+03
+rand22           minRe    -7.8682 frac_neg 0.1522 maxS      57.2 N- 1.201e+00 N+ 1.188e+00 l1 2.17e+03
+rand23           minRe    -6.9169 frac_neg 0.1568 maxS      49.7 N- 8.703e-01 N+ 9.089e-01 l1 2.17e+03
+zeta_sharp       minRe   -10.3966 frac_neg 0.3978 maxS      60.4 N- 8.763e-01 N+ 7.439e-01 l1 2e+04
+gamma_only       minRe     3.6812 frac_neg 0.0000 maxS     0.589 N- 3.813e-11 N+ 4.809e-07 l1 0
+done 4370.9s

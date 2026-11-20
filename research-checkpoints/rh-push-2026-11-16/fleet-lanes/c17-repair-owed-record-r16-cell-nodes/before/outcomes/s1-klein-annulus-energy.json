@@ -1,0 +1,80 @@
+{
+ "slug": "s1-klein-annulus-energy",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "klein-phase-transport-certificate",
+  "li-coefficients-n300",
+  "pair-correlation-form-factor",
+  "strip-dtn-phase-identity",
+  "zv-annulus-dtn-operator",
+  "zv-dirichlet-energy-fold",
+  "zv-elliptic-double-cover",
+  "zv-gaussian-damped-extension",
+  "zv-shear-reflection-parity",
+  "zv-twistor-map-s4"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "zv-annulus-dtn-operator",
+    "strip-dtn-phase-identity"
+   ],
+   "obstruction": "verified height in another form in window form",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "T-NR",
+    "E_a"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-dirichlet-energy-fold",
+    "zv-gaussian-damped-extension",
+    "li-coefficients-n300"
+   ],
+   "obstruction": "verified height in another form (map row P16): Li-type onset n >= gamma^2/x0",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "klein-phase-transport-certificate",
+    "zv-shear-reflection-parity"
+   ],
+   "obstruction": "bound holds for every function; no separation",
+   "controlsThatDefeat": [
+    "all controls pass"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-twistor-map-s4",
+    "zv-elliptic-double-cover",
+    "pair-correlation-form-factor"
+   ],
+   "obstruction": "coordinate change; winding deficit = argument principle",
+   "controlsThatDefeat": [
+    "T-NR",
+    "DH"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) verified height in another form in window form | (2) verified height in another form (map row P16): Li-type onset n >= gamma^2/x0 | (3) bound holds for every function; no separation | (4) coordinate change; winding deficit = argument principle",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "T-NR",
+  "all controls pass",
+  "heat"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-klein-annulus-energy/RESULT.md"
+}

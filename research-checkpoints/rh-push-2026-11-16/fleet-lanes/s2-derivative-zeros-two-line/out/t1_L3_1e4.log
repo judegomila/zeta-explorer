@@ -1,0 +1,10 @@
+t1_low L3 windows 8 H 10.0 workers 8
+L3 T 10000.50 winding -0.0000 count 0 roots   maxstep 0.52 evals 585/585 18.8s
+L3 T 10010.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 624/624 22.1s
+L3 T 10020.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 612/612 18.4s
+L3 T 10030.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 609/609 15.6s
+L3 T 10040.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 630/630 19.4s
+L3 T 10050.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 637/637 18.3s
+L3 T 10060.50 winding 0.0000 count 0 roots   maxstep 0.52 evals 601/601 16.8s
+L3 T 10070.50 winding -0.0000 count 0 roots   maxstep 0.55 evals 646/646 18.7s
+total count 0 roots found 0

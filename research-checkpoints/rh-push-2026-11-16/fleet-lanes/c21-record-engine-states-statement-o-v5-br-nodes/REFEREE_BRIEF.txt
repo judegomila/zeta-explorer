@@ -1,0 +1,10 @@
+Brief for an independent referee of push/c21-record-engine-states-statement-o-v5-br-nodes/RESULT.md (not used: no referee process was started by the lane).
+Write one file only. Do not run build_graph.py, generate.py, scoreboard.py, mk_devices.py or merge_outcomes.py; read their outputs as text.
+Check: (1) counts of RESULT.md section 2.2 and 2.6 against engine/IDEA_GRAPH.json, engine/CANDIDATES.json, engine/curated/devices.json, campaign/scoreboard.json
+and the copies in before/, after/, final/, final2/; (2) devices.json against engine/scratch/devices.pre-c21-record.json entry by entry; (3) the cell-state rule:
+each cell set to closed has a second referee file on disk, and what that file covers; whether a REFEREE file for the U4 round-20 lane exists;
+(4) statement_o_v5_v5_1.diff against corrections C1 to C5 of push/c20-repair-owed-record-r19-statement-o-v5/REFEREE.md section 4; no label changed; the MV-CAP
+field of line 10 against Theorem 2 of push/b-mvcap-function-side/RESULT.md and its REFEREE.md (h >= 500); (5) sources_dl/*.txt against campaign/SOURCES_R21.md;
+re-derive the short proof of Bohr's inequality and the covering remark for S(theta); (6) campaign/STRATEGY.md against engine/scratch/STRATEGY.pre-c21-record.md:
+insertions only; (7) whether registering BR-2, BR-3 as open device types is consistent with the rules in mk_devices.py and generate.py and whether RESULT.md states
+the limits of that choice. Set R1..R4 yourself.

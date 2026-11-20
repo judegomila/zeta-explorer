@@ -1,0 +1,278 @@
+{
+ "E_a a=0.3": {
+  "L=0.5": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -4.4754111875374605,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -10.143686645683056,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -16.62175883672998,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -31.59561607363942,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.0": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -4.092982119358702,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -9.053445199134527,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -16.507466135592697,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -21.057314176557608,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -2.7426158980975006,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -5.755692603494043,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -11.74658237684716,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -22.999081184070295,
+    "dps": 60,
+    "zero": 0
+   }
+  }
+ },
+ "E_a a=0.2": {
+  "L=0.5": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -4.357084722411177,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -9.89576172074197,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -16.261917499010167,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -31.10571129424459,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.0": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -3.973409583157228,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -8.670342315168975,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -16.13704612647923,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -20.459409382318025,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -2.6222442764019913,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -5.503277244934765,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -11.257991389894016,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -22.47522787343748,
+    "dps": 60,
+    "zero": 0
+   }
+  }
+ },
+ "E_a a=0.1": {
+  "L=0.5": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -4.298956301627568,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -9.772690242318241,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -16.084618572034373,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -30.863192296098735,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.0": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -3.914534474981337,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -8.480280098680685,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -15.953386838190411,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -20.15013983250627,
+    "dps": 60,
+    "zero": 0
+   }
+  },
+  "L=1.6": {
+   "2": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -2.5628914723700187,
+    "dps": 60,
+    "zero": 0
+   },
+   "3": {
+    "positive": 0,
+    "negative": 60,
+    "min_abs_det_over_hadamard": -5.377470067933347,
+    "dps": 60,
+    "zero": 0
+   },
+   "4": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -11.026602902700652,
+    "dps": 60,
+    "zero": 0
+   },
+   "5": {
+    "positive": 60,
+    "negative": 0,
+    "min_abs_det_over_hadamard": -22.264694273034056,
+    "dps": 60,
+    "zero": 0
+   }
+  }
+ }
+}

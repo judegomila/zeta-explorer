@@ -1,0 +1,40 @@
+{
+ "slug": "c3-multiwindow-converse-defect",
+ "round": 3,
+ "kind": "combine",
+ "nodes": [
+  "euler-fe-coupling-at-height"
+ ],
+ "tags": [
+  "euler-product",
+  "rigidity",
+  "riemann-siegel",
+  "functional-equation",
+  "control",
+  "torus"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No new result; precise obstruction in the round-2 finite model (smoothed approximate functional equation, windows of length 2, all primes p <= 3.2 sqrt(T/2pi) free as unimodular phases).\n\nMEASURED, reproduced by the referee:\n- Unimodular Euler products exist with window defect below 1e-9 and a simple zero of the model function off the line. I re-evaluated the T=1e5, m=1, delta=0.25 survivor in independent ball arithmetic: defect 6.7e-10, |F(s0)| 2.0e-10, |F'(s0)| 5.3; the model at theta=0 matches zeta(s0) to 1.6e-14.\n- At tolerance 1e-5, witnesses were found for m=1 at T=1e5 and m<=4 at T=1e6. None was found at T<=1e4, at m>=2 for T=1e5, or at m>=8 for T=1e6 (local search, no certificate).\n- The crossover is compatible with pi(N)/30 only up to a factor of about 2.\n- Conductor-5 controls (DH and L(chi_5), shifted) give about 1e-3 at one window and order 1 at two, at the same step. The Euler product is not used.\n\nPROVED, re-derived:\n- The phase identity: relative defect of zeta(s+i*alpha) is 2|sin(Psi/2)|.\n- Lemma B with its stated threshold. The Stirling remainder is explicitly bounded (alpha/(12 T_1^2), inside the slack), so it holds exactly, not only to leading order. I checked five new cases at the threshold height; all pass, and the same alphas fail a factor 1000 below it.\n- Consequence: no statement \"defect <= eta in m windows implies chi(p)=1\" holds with m and eta independent of T.\n- Lemma C(a). Lemma C(b) holds with the tolerance corrected to 2 pi eta.\n\nBounded non-multiplicative sequences are also pinned when windows span the scales (lane data, not rerun); the exact form is Hamburger's theorem. Past the crossover the conclusion is \"F equals zeta on the window\".\n\nFlags: R1 false, R2 false, R3 false, R4 false. No statement about zeros of zeta is made or supported.",
+ "obstruction": "For any fixed m, H, eta there is an integer alpha != 0 such that zeta(s + i alpha) passes all m window tests above a height T_0(m,H,eta) (phase identity, defect 2|sin(Psi/2)|; Dirichlet simultaneous approximation): no statement 'defect <= eta in m windows implies chi(p) = 1' holds with m and eta independent of T. In the finite model, unimodular Euler products with defect below 1e-9 and a simple off-line zero exist below a crossover m* of order pi(N)/30 (within a factor about 2; beyond it local search found none, no certificate). Past the crossover the conclusion is 'F = zeta on the window', which also holds for bounded non-multiplicative sequences (Hamburger). The test reads conductor, one phase and about 30 reals per window, not the Euler product.",
+ "obstructionKind": "window-local-fe-admits-translates",
+ "controlsThatDefeat": [
+  "unimodular twist / lattice height translate of zeta (passes any fixed number of windows at large height)",
+  "constructed unimodular Euler products with a prescribed off-line zero (m < m*)",
+  "DH and L(chi_5) fail only by conductor at m >= 2, at the same step as non-multiplicative sequences"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "The precise-obstruction verdict stands; no PROVED step failed. Report: tmp/research-2026-11-16/push/c3-multiwindow-converse-defect/REFEREE.md. Seven statements are stronger than the files support:\n\n1. The \"best lattice translate\" column is not the best translate. mw.py ranks minima by the sampled residual on a 0.0025 grid, so it refines six effectively random lattice points. At T=1e5, m=1 the lane reports alpha=-8.44 with defect 3.5e-4; alpha=+-0.6 [record truncated in transit; full text in push/c3-multiwindow-converse-defect/REFEREE.md]",
+ "lesson": "A window functional-equation test reads the analytic conductor, one phase and about 30 further real numbers per window; it never reads the Euler product. Multiplicativity only changes the unknown count from 2N to pi(N). Rigidity needs a window count growing like sqrt(T)/log T (Riemann-Siegel size), and lattice translates n^(-i*alpha) pass any fixed number of windows at large height (Dirichlet simultaneous approximation). Filter entry: a window argument with a T-independent number of windows fails against the unimodular twist.",
+ "followUp": "none for this route. If the filter entry is to be cited as a theorem, give Lemma B explicit constants (bound the Stirling remainder of 2*theta') and replace the local-search \"not found\" entries near the crossover (T=1e5 m=2, T=1e6 m=8) with a certified infeasibility or a witness.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-multiwindow-converse-defect/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-multiwindow-converse-defect/REFEREE.md"
+}

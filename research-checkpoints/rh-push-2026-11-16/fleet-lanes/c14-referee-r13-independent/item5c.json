@@ -1,0 +1,62 @@
+{
+ "chi5.2": {
+  "parity": 1,
+  "R_at_0": 0.7952718604755874,
+  "zeros_on_line_with_abs_ordinate_below_40": 31,
+  "heights": 61,
+  "sign_rule_holds": 61,
+  "sign_rule_fails": 0,
+  "fails": [],
+  "negative_entries": 19,
+  "modulus_defect": 1.6321709353640018e-35,
+  "max_abs_R_minus_sqrt_q_over_pi_Z_t_Z_minus_t": 1.977745831242718e-35
+ },
+ "chi7.3": {
+  "parity": 1,
+  "R_at_0": 1.0975073866771188,
+  "zeros_on_line_with_abs_ordinate_below_40": 36,
+  "heights": 61,
+  "sign_rule_holds": 61,
+  "sign_rule_fails": 0,
+  "fails": [],
+  "negative_entries": 27,
+  "modulus_defect": 2.909707223787098e-35,
+  "max_abs_R_minus_sqrt_q_over_pi_Z_t_Z_minus_t": 4.0069417055125004e-35
+ },
+ "chi7.2": {
+  "parity": 0,
+  "R_at_0": 0.1514084796354756,
+  "zeros_on_line_with_abs_ordinate_below_40": 35,
+  "heights": 61,
+  "sign_rule_holds": 61,
+  "sign_rule_fails": 0,
+  "fails": [],
+  "negative_entries": 18,
+  "modulus_defect": 2.0665272119712173e-35,
+  "max_abs_R_minus_sqrt_q_over_pi_Z_t_Z_minus_t": 2.6210036471719e-35
+ },
+ "chi11.2": {
+  "parity": 1,
+  "R_at_0": 4.320764297294645,
+  "zeros_on_line_with_abs_ordinate_below_40": 42,
+  "heights": 61,
+  "sign_rule_holds": 61,
+  "sign_rule_fails": 0,
+  "fails": [],
+  "negative_entries": 21,
+  "modulus_defect": 5.734234504792501e-35,
+  "max_abs_R_minus_sqrt_q_over_pi_Z_t_Z_minus_t": 8.550259639420639e-35
+ },
+ "chi13.2": {
+  "parity": 1,
+  "R_at_0": 4.848191216535946,
+  "zeros_on_line_with_abs_ordinate_below_40": 44,
+  "heights": 61,
+  "sign_rule_holds": 61,
+  "sign_rule_fails": 0,
+  "fails": [],
+  "negative_entries": 22,
+  "modulus_defect": 1.1769817073973577e-34,
+  "max_abs_R_minus_sqrt_q_over_pi_Z_t_Z_minus_t": 1.7553064371400112e-34
+ }
+}

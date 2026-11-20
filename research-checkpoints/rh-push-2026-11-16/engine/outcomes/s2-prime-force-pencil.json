@@ -1,0 +1,85 @@
+{
+ "slug": "s2-prime-force-pencil",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "angular-spacing-poisson",
+  "arithmetic-freeze-flow-force",
+  "lp-signed-force-gram-surrogate",
+  "mean-field-pencil-real-rooted",
+  "offline-margin-below-line",
+  "online-margin-positive-floor",
+  "prime-phase-crystal",
+  "signed-force-lp-margin",
+  "signed-force-margin-floor"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "mean-field-pencil-real-rooted",
+    "arithmetic-freeze-flow-force"
+   ],
+   "obstruction": "zeta fails the pass criterion at the second size (source premise false at scale); the only family-dependent quantity is shared by DH and T-NR",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "DH",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "signed-force-lp-margin",
+    "lp-signed-force-gram-surrogate",
+    "online-margin-positive-floor"
+   ],
+   "obstruction": "zeta has no positive floor (margin reaches 0 at finite T for each N tested to 32); DH not separated",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "DH",
+    "T-NR q=2",
+    "L(chi mod 5) comparable"
+   ]
+  },
+  {
+   "nodes": [
+    "signed-force-margin-floor",
+    "offline-margin-below-line"
+   ],
+   "obstruction": "the off-line margin never goes negative: to first order the off-line system is the on-line system under a positive diagonal rescaling of the modes",
+   "controlsThatDefeat": [
+    "DH",
+    "planted pairs in zeta"
+   ]
+  },
+  {
+   "nodes": [
+    "prime-phase-crystal",
+    "angular-spacing-poisson"
+   ],
+   "obstruction": "mixed-pair failure is per-prime coefficient identification (Landau), not an all-primes statement about zeros; own-list failure is a weighted count of missing on-line zeros",
+   "controlsThatDefeat": [
+    "DH (own list: zero count)",
+    "HEAT (zero count)",
+    "T-NR (one prime term)",
+    "random heights (gap law)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) zeta fails the pass criterion at the second size (source premise false at scale); the only family-dependent quantity is shared by DH and T-NR | (2) zeta has no positive floor (margin reaches 0 at finite T for each N tested to 32); DH not separated | (3) the off-line margin never goes negative: to first order the off-line system is the on-line system under a positive diagonal rescaling of the modes | (4) mixed-pair failure is per-prime coefficient identification (Landau), not an all-primes statement about zeros; own-list failure is a weighted count of missing on-line zeros",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (own list: zero count)",
+  "HEAT (zero count)",
+  "L(chi mod 5) comparable",
+  "T-NR",
+  "T-NR (one prime term)",
+  "T-NR q=2",
+  "planted pairs in zeta",
+  "random heights (gap law)",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-prime-force-pencil/RESULT.md"
+}

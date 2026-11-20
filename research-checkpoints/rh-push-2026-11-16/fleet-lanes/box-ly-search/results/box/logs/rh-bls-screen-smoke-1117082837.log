@@ -1,0 +1,19 @@
+[screen_run] plan=smoke tasks=17 done=0 gpu=True
+[1/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":1,"weight":"sharp"} -> first_bad=None n_bad=0 susp=0  3.4s
+[2/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":2,"weight":"sharp"} -> first_bad=None n_bad=0 susp=0  0.1s
+[3/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":5,"weight":"sharp"} -> first_bad=[np.float64(75.63), 1, 0, 0, 0] n_bad=2 susp=0  0.0s
+[4/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":20,"weight":"sharp"} -> first_bad=[np.float64(4.63), 1, 0, 0, 0] n_bad=2 susp=0  0.0s
+[5/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":1,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[6/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":2,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[7/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":5,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[8/17 3s] {"T1":120,"Y":0.5,"input":"zeta","scheme":"afe","size":20,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[9/17 3s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":1,"weight":"sharp"} -> first_bad=None n_bad=0 susp=0  0.0s
+[10/17 3s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":2,"weight":"sharp"} -> first_bad=None n_bad=0 susp=0  0.0s
+[11/17 3s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":5,"weight":"sharp"} -> first_bad=None n_bad=0 susp=0  0.0s
+[12/17 3s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":20,"weight":"sharp"} -> first_bad=[np.float64(50.63), 1, 0, 0, 0] n_bad=6 susp=0  0.0s
+[13/17 3s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":1,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[14/17 4s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":2,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[15/17 4s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":5,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[16/17 4s] {"T1":120,"Y":0.5,"input":"dh","scheme":"afe","size":20,"weight":"riesz2"} -> first_bad=None n_bad=0 susp=0  0.0s
+[17/17 4s] {"T1":120,"Y":0.45,"input":"zeta","scheme":"euler","size":13,"weight":"sharp"} -> first_bad=[np.float64(0.63), 1, 0, 0, 0] n_bad=6 susp=0  0.1s
+[screen_run] finished

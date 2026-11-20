@@ -1,0 +1,26 @@
+Thu Nov 19 06:29:49 AM UTC 2026
+# enw q=7 d=2 N=6 lam=9 weights=8 threads=12 sieve block q^6=117649 blocks=343 small primes=728 planned memory 13.8558 GB
+# planned allocations: TA (Res(A', r) table) 13.8413 GB; T (Res(A', m)) 0.0058 GB; bit masks BM 0.0346 GB; coefficient planes TIa 0.0071 GB; A' list 0.0188 GB; per thread 0.0029 GB x 12 threads
+# tables built at 167 s
+# block 0 of 343 started at 168 s
+# block 21 of 343 started at 278 s
+# block 42 of 343 started at 533 s
+# block 63 of 343 started at 810 s
+# block 84 of 343 started at 1064 s
+# block 105 of 343 started at 1210 s
+# block 126 of 343 started at 1420 s
+# block 147 of 343 started at 1642 s
+# block 168 of 343 started at 1853 s
+# block 189 of 343 started at 2004 s
+# block 210 of 343 started at 2206 s
+# block 231 of 343 started at 2425 s
+# block 252 of 343 started at 2640 s
+# block 273 of 343 started at 2787 s
+# block 294 of 343 started at 3002 s
+# block 315 of 343 started at 3223 s
+# block 336 of 343 started at 3439 s
+# prime loop finished at 3562 s
+# enw primes=4483696 (equals the necklace count); self-checks on 72 primes passed
+rc=0
+Thu Nov 19 07:29:12 AM UTC 2026
+PROD_DONE

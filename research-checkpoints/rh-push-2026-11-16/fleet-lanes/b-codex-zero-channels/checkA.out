@@ -1,0 +1,6 @@
+T_11 direct 1.088230218209e-02   zero sum (400 zeros) 1.088218394887e-02   last term 6.56e-10   rel diff -1.09e-05
+T_13 direct -3.026738896798e+00   zero sum (400 zeros) -3.026715938415e+00   last term -1.27e-07   rel diff -7.59e-06
+T_33 direct 8.603980172269e+02   zero sum (400 zeros) 8.603935591959e+02   last term 2.47e-05   rel diff -5.18e-06
+T_00 direct 2.515169379485e-03   zero sum (400 zeros) 2.382520053208e-03   last term 2.16e-07   rel diff -5.27e-02
+T_02 direct -2.104204230690e-01   zero sum (400 zeros) -2.004837895315e-01   last term -1.62e-05   rel diff -4.72e-02
+T_22 direct 1.797366457544e+01   zero sum (400 zeros) 1.722932090732e+01   last term 1.21e-03   rel diff -4.14e-02

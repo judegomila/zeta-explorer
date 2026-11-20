@@ -1,0 +1,9 @@
+done 500 1 0.5 rc=0
+done 1000 1 0.5 rc=0
+done 2000 1 0.5 rc=0
+done 1000 1 0.3333 rc=0
+done 2000 1 0.3333 rc=0
+done 4000 1 0.3333 rc=0
+done 2000 0.8 0.5 rc=0
+done 4000 0.8 0.5 rc=0
+done 4000 1 0.5 rc=0

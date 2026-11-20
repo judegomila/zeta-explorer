@@ -1,0 +1,18 @@
+q=7 m=5 n=5 rows(sqfree)=14406 cols=16807 k0=2m-2-n=3 kr=3
+planned: Cexp int8 0.242 GB; Gram complex64 1.660 GB; Xr int8 0.006 GB
+symbols built 20s
+Gram built 27s  trace=2.11412e+08 phi=trace/rows=14675.2653 q^n=16807
+undeflated: lam1/phi = 38.7563  lam1/trace = 2.690e-03  lam_min/phi = nan
+top eigenvalues / phi: 38.756 6.721 6.721 6.721 6.721 6.721 6.721 6.692 6.662 6.662 6.662 6.662
+row-side deflation: lam_top/phi after removing family, by max conductor degree k  [rank removed]
+  A: k=0: 6.7214 [1]  k=1: 6.7213 [8]  k=2: 6.7155 [57]  k=3: 5.0417 [400]
+  B: k=0: 6.7214 [1]  k=1: 6.7211 [8]
+  Cc: k=0: 38.7563 [1]  k=1: 38.6344 [8]
+  Dc: k=0: 38.7563 [1]  k=1: 38.7563 [8]
+column-side deflation (Kubota side): lam_top/phi after removing span{conj g(r,.)} (Vc) or span{g(r,.)} (Vn), deg r <= k
+  Vc: [r=1: |Cv|^2/|v|^2 = 34.5806 phi; overlap(Cv,u1)=0.9982; overlap(v, right vec)=0.9429]  k=0: 6.7214 [1]  k=1: 6.7212 [8]  k=2: 6.7151 [57]
+  Vn: [r=1: |Cv|^2/|v|^2 = 0.1394 phi; overlap(Cv,u1)=0.0000; overlap(v, right vec)=0.0000]  k=0: 38.7563 [1]  k=1: 38.7563 [8]  k=2: 37.8828 [57]
+overlap(u1, A[r=1]) = 0.9928
+overlap(u1, Cc[r=1]) = 0.0000
+done 55s
+exit 0

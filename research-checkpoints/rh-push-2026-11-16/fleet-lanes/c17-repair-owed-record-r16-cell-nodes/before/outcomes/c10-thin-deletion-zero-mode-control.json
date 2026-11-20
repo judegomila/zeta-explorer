@@ -1,0 +1,47 @@
+{
+ "slug": "c10-thin-deletion-zero-mode-control",
+ "round": 10,
+ "kind": "combine",
+ "nodes": [
+  "out-c4-thin-twist-control-78",
+  "out-c10-thin-deletion-zero-mode-control"
+ ],
+ "tags": [
+  "control",
+  "thin",
+  "prime-deletion",
+  "euler-product",
+  "positivity",
+  "beurling",
+  "zero-mode",
+  "hoheisel",
+  "short-interval",
+  "statement-o",
+  "record"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "A control, not an attack; nothing about zeros of zeta. Relative to a classical short-interval prime theorem in counting form (one theta < 1), and with the repaired Lemma 0: for b in (1/2,1) the greedy floor set S with pi_S(x) = int_2^x t^(b-1)dt/log t + O(x^(b-eta)) gives F = prod over p not in S of (1-p^-s)^-1 = zeta(s)(s-b)W(s), W analytic and non-vanishing on Re s > max(b-eta, b/2), Lambda_F >= 0, coefficients 0/1, simple pole at 1. Density one gives a simple zero; density one half gives a square-root branch point (confirmed by proof and by an independent float64 rerun at the new case b = 0.8, X = 3e6: exponents 0.999988 and 0.500084; replay of b = 0.75 reproduces size 16,210, D(X) = -0.42854, W_X(b) = 1.87837). Lemmas N, I and C (C for the deleted factor G) hold. Tier 0 lower bounds for W(b) hold from D <= 0; the Tier E enclosures of W(b) and F'(b+) follow by a confirmed derivation relative to the two cited explicit pi-li bounds (sources not opened by this referee). Finite data do not enclose the zero. Device table: argued read, count 14 pass / 20 not confirmed against the table. One referee so far.",
+ "obstruction": "Control lane, no attack. Relative to a classical short-interval prime theorem (counting form, one theta < 1) and with the referee's repair of Lemma 0: deleting a greedy prime set S of density t^(b-1)/log t (density one, not one half) gives F = zeta(s)(s - b)W(s) with Lambda_F >= 0, coefficients 0/1, a simple pole at 1 and a simple zero at b. Limits: the zero comes from the theorem, not from data (every finite truncation is positive at b; finite data do not enclose the zero); the F'(b+) enclosures are relative to two cited explicit pi-li bounds; the device read (14 pass, 20 do not) is argued, not re-run, and the count is not confirmed against the table; character twists past b are open; one referee.",
+ "obstructionKind": "control-construction",
+ "controlsThatDefeat": [
+  "the control itself defeats any device whose read set is {degree-one Euler product, Lambda >= 0, pole at 1} without the functional equation or periodicity: 14 of 34 devices pass it (argued read)",
+  "devices it does not pass read the functional equation, periodicity with unimodular parameters, an attached object, or positivity with zeta's gamma side"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c10-thin-deletion-zero-mode-control/REFEREE.md. E1 (gap, repaired in the referee file): Lemma 0 lower bound uses pi(y)-pi(x) >= c'(y-x)/log x for all y-x >= x^theta', but H(theta') covers only y-x <= x and the inequality as displayed fails for y > x^(1/c'); repair by additivity of B and a dyadic split, conclusion unchanged. E2: verdict item 6 and the comparison table state Lemma C for the deletion product  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The zero of a control built from an infinite prime set comes from the theorem, not the data: every finite truncation is positive at b, and an enclosure left of b needs an explicit Hoheisel-type bound at all scales (explicit power-saving bounds stop near 1.4e25). Positivity plus unimodular parameters at every rational prime identifies zeta, so THIN and the deletion control together cover every degree-one Euler-product read set without the functional equation or periodicity. The devices the control does not pass read only the two known sets (functional equation; periodicity with unimodular parameters), an attached object, or positivity with zeta's gamma side.",
+ "followUp": "One referee on Lemma 1 and on the tail-bound derivation behind the F'(b+) enclosure (it uses one recalled verification height). If it holds: add the map section 2 row for the deletion control and update Statement O section C rows 1b and 2a, which still cite the Beurling source. Optional: a per-residue-class greedy variant so character twists continue past b (open here).",
+ "resultFile": "tmp/research-2026-11-16/push/c10-thin-deletion-zero-mode-control/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-thin-deletion-zero-mode-control/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

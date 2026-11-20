@@ -1,0 +1,7 @@
+X=1000000000000 X2=0 nseg=59605 sqrt=1000002 threads=1
+primes=78498 ; planned per-thread 0.03 GB, segment tables 0.01 GB
+seg 2000/59605 t=217s
+seg 4000/59605 t=434s
+seg 5961/59605 t=649s
+FINAL M(X)=276273 Mchi4=-145884 Mchi3=207374 Q(X)=60798172651 t=649s DONE
+  649.94s user 4.90s system 83% cpu 13:01.00 total

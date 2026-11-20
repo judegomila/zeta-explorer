@@ -1,0 +1,7 @@
+TAU_1_DONE
+TAU_4_DONE
+./run_local2.sh: line 9: 50197 Terminated: 15          $M $PY escape.py direct $k $tau out/esc_${k}_$tau.json out/dir_${k}_$tau.json 3 > out/dir_${k}_$tau.txt 2>&1
+./run_local2.sh: line 9: 49556 Terminated: 15          $M $PY escape.py direct $k $tau out/esc_${k}_$tau.json out/dir_${k}_$tau.json 3 > out/dir_${k}_$tau.txt 2>&1
+TAU_0.25_DONE
+TAU_16_DONE
+LOCAL2_DONE

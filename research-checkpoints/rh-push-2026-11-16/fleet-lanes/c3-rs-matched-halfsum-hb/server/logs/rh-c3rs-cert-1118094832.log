@@ -1,0 +1,13 @@
+zeta@1e+08 N 3989 attempted 5372 certified 5372 5s
+dh@1e+08 N 8920 attempted 4028 certified 4028 6s
+dh@1e+08 N 8921 attempted 715 certified 715 7s
+chi5@1e+08 N 8920 attempted 4712 certified 4712 7s
+chi5@1e+08 N 8921 attempted 802 certified 802 9s
+transl@1e+08 N 3989 attempted 5833 certified 5833 5s
+per3@1e+08 N 3989 attempted 5769 certified 5769 5s
+zeta@1e+10 N 39894 attempted 7260 certified 7260 61s
+dh@1e+10 N 89206 attempted 1262 certified 1262 18s
+chi5@1e+10 N 89206 attempted 1463 certified 1463 22s
+zeta@1e+12 N 398942 attempted 8835 certified 8835 611s
+dh@1e+12 N 892062 attempted 383 certified 383 45s
+cert_watch done

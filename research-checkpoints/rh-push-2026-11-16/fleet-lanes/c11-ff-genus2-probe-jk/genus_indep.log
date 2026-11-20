@@ -1,0 +1,10 @@
+q=5: polynomials of genus 3 equal to those of genus 2 after L3 = q L1 (same r, N, lam, k): 220/220
+   q=5 deg=5: N>=2 vector-strata with at least 5 free points: 120; linear in t_0..t_N: 0; S^2 in span t_0..t_2N: 0; S in span t_0..t_2N: 0; polynomial lemma: 120
+   q=5 deg=5: N=1 vector-strata 80: linear 80; with >= 3 free points 60 of which S^2 in span t_0..t_2: 0
+   q=5 deg=7: N>=2 vector-strata with at least 5 free points: 160; linear in t_0..t_N: 0; S^2 in span t_0..t_2N: 0; S in span t_0..t_2N: 0; polynomial lemma: 160
+   q=5 deg=7: N=1 vector-strata 100: linear 100; with >= 3 free points 80 of which S^2 in span t_0..t_2: 0
+q=7: polynomials of genus 3 equal to those of genus 2 after L3 = q L1 (same r, N, lam, k): 240/240
+   q=7 deg=5: N>=2 vector-strata with at least 5 free points: 160; linear in t_0..t_N: 0; S^2 in span t_0..t_2N: 0; S in span t_0..t_2N: 20; polynomial lemma: 160
+   q=7 deg=5: N=1 vector-strata 80: linear 80; with >= 3 free points 80 of which S^2 in span t_0..t_2: 0
+   q=7 deg=7: N>=2 vector-strata with at least 5 free points: 200; linear in t_0..t_N: 0; S^2 in span t_0..t_2N: 0; S in span t_0..t_2N: 0; polynomial lemma: 200
+   q=7 deg=7: N=1 vector-strata 120: linear 120; with >= 3 free points 120 of which S^2 in span t_0..t_2: 0

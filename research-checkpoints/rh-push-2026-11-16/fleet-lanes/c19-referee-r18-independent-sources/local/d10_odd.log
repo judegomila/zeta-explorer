@@ -1,0 +1,4 @@
+a = 1/4  b=(u-1)(u+a): (pos,neg,zero), fit failures ((1, 0, 2), 0)   b=u(u-1)(u+a): ((1, 2, 4), 0)
+a = 3/4  b=(u-1)(u+a): (pos,neg,zero), fit failures ((0, 1, 2), 0)   b=u(u-1)(u+a): ((2, 1, 4), 0)
+a = 11/20  b=(u-1)(u+a): (pos,neg,zero), fit failures ((0, 1, 2), 0)   b=u(u-1)(u+a): ((2, 1, 4), 0)
+a = 9/10  b=(u-1)(u+a): (pos,neg,zero), fit failures ((0, 1, 2), 0)   b=u(u-1)(u+a): ((2, 1, 4), 0)

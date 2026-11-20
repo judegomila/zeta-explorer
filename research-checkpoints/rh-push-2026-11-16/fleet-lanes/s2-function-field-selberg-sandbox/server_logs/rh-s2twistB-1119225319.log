@@ -1,0 +1,18 @@
+dh: 15197 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 27s
+20 76 260s
+40 76 458s
+60 76 732s
+done 980s
+zeta: 15197 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 15s
+20 76 141s
+40 76 268s
+60 76 404s
+done 484s
+arm: 15197 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 10s
+20 76 127s
+40 76 222s
+60 76 322s
+done 380s

@@ -1,0 +1,17 @@
+12:04:33 T=1e+18 spacing 0.15863 delta 0.03966 window 324.9 = 2048 spacings; cut-offs [31622.776601683792, 1000000000.0]; M=8192
+12:04:33 cut-off 31622.8 reached: 3476 prime powers
+12:10:51 cut-off 1e+09 reached: 50851223 prime powers
+zeta        X=31622.8  rms 0.3716 sup 1.3470 r_rms 0.855 r_sup 3.101
+liou        X=31622.8  rms 0.3716 sup 1.3796 r_rms 0.856 r_sup 3.176
+rnd         X=31622.8  rms 0.3735 sup 1.3012 r_rms 0.860 r_sup 2.996
+chi4        X=31622.8  rms 0.3323 sup 1.1050 r_rms 0.765 r_sup 2.544
+chi5        X=31622.8  rms 0.3595 sup 1.3692 r_rms 0.828 r_sup 3.152
+ea0.1       X=31622.8  rms 0.8200 sup 3.0556 r_rms 1.888 r_sup 7.034
+tnr1000003  X=31622.8  rms 0.3716 sup 1.3470 r_rms 0.855 r_sup 3.101
+zeta        X=1e+09    rms 0.4161 sup 1.5251 r_rms 0.958 r_sup 3.511
+liou        X=1e+09    rms 0.4160 sup 1.5335 r_rms 0.958 r_sup 3.530
+rnd         X=1e+09    rms 0.4174 sup 1.5411 r_rms 0.961 r_sup 3.548
+chi4        X=1e+09    rms 0.3802 sup 1.2375 r_rms 0.875 r_sup 2.849
+chi5        X=1e+09    rms 0.4081 sup 1.6095 r_rms 0.940 r_sup 3.705
+ea0.1       X=1e+09    rms 1.2442 sup 4.6099 r_rms 2.864 r_sup 10.613
+tnr1000003  X=1e+09    rms 0.6508 sup 2.0576 r_rms 1.498 r_sup 4.737

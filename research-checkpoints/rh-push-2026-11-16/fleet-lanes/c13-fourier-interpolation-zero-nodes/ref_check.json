@@ -1,0 +1,84 @@
+{
+ "R1_DH_FE": [
+  {
+   "s": "(0.3 + 7.7j)",
+   "abs(F*(s)-F*(1-s))/abs(F*(s))": "9.1435e-31"
+  },
+  {
+   "s": "(1.4 - 22.1j)",
+   "abs(F*(s)-F*(1-s))/abs(F*(s))": "2.1368e-30"
+  },
+  {
+   "s": "(0.5 + 85.7j)",
+   "abs(F*(s)-F*(1-s))/abs(F*(s))": "4.4438e-31"
+  }
+ ],
+ "R1_DH_offline_zero": "(0.808517182456637385553351960607 + 85.6993484853775921719292677089j)",
+ "R1_b_first_agree": 0.0,
+ "R1_partial_1e4_sigma_1.3": [
+  2.7124582579747107,
+  2.7124582579747214
+ ],
+ "R1_partial_1e4_sigma_2.0": [
+  1.2908652760192247,
+  1.2908652760192172
+ ],
+ "R1_max_abs_b_to_3e4": 117.26208966862629,
+ "R2_TNR": [
+  {
+   "q": 2,
+   "c": 2.05,
+   "a": "0.321928094887",
+   "a<1/2": true,
+   "g_root_vs_recursion": "9.6935e-27",
+   "biorthogonality_transfer_max_dev": "0.0",
+   "abs P(1/2+a+i h0)": "2.538e-31",
+   "abs P(1/2-a+i(h0+2pi/L))": "2.2892e-31"
+  },
+  {
+   "q": 3,
+   "c": 2.2,
+   "a": "0.403753224828",
+   "a<1/2": true,
+   "g_root_vs_recursion": "1.6544e-22",
+   "biorthogonality_transfer_max_dev": "0.0",
+   "abs P(1/2+a+i h0)": "1.5541e-31",
+   "abs P(1/2-a+i(h0+2pi/L))": "4.6624e-31"
+  },
+  {
+   "q": 5,
+   "c": -2.2,
+   "a": "0.275604452311",
+   "a<1/2": true,
+   "g_root_vs_recursion": "1.6544e-22",
+   "biorthogonality_transfer_max_dev": "0.0",
+   "abs P(1/2+a+i h0)": "0.0",
+   "abs P(1/2-a+i(h0+2pi/L))": "3.1082e-31"
+  },
+  {
+   "q": 2,
+   "c": 2.1213,
+   "a": "0.499958491673",
+   "a<1/2": true,
+   "g_root_vs_recursion": "7.6514e-24",
+   "biorthogonality_transfer_max_dev": "0.0",
+   "abs P(1/2+a+i h0)": "3.9877e-31",
+   "abs P(1/2-a+i(h0+2pi/L))": "3.5968e-31"
+  }
+ ],
+ "R3_quotes_found": {
+  "H(1\u2212w, s) = \u2212H(w, s) and H(w, 1\u2212s) = H(w, s)": true,
+  "Dirichlet series without Euler products": true,
+  "the techniques from [26] must be abandoned": true,
+  "any com-": true,
+  "We may for instance take linear combinations of L-functions that satisfy the same": true,
+  "Bochner\u2019s Converse Theorem": true,
+  "break down if one removes any single point": true,
+  "n a square": true,
+  "Ramachandra": true
+ },
+ "R4_sup_abs_partial_over_sqrt_x": {
+  "zeta(mu)": 0.5671049640066687,
+  "DH": 1.0730400888166887
+ }
+}

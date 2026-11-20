@@ -1,0 +1,11 @@
+[zeta@2] KMAX=80 pts/spike=2272 |alpha|max=1.0000 NRES=99 NEXT=57; planned work array 21.2 MB
+  spike 0: mass +7.5880e-01 [1s]
+  spike 10: mass +4.3433e-02 [28s]
+  spike 20: mass +1.3575e-03 [59s]
+  spike 30: mass +4.2411e-05 [93s]
+  spike 40: mass +1.3256e-06 [133s]
+  spike 50: mass +4.1428e-08 [171s]
+  spike 60: mass +1.2947e-09 [214s]
+  spike 70: mass +4.0455e-11 [269s]
+  spike 80: mass +1.2640e-12 [324s]
+RESULT2 zeta@2: Lhat(0) = +0.065285 (2theta' = -5.372183, 2ReL'/L = -3.346811, deltahat(0) = 8.784279); min over [0,60] = +0.065285 at t = 0.00; last spike mass +1.26e-12; geometric tail estimate 2*4.3e-12

@@ -1,0 +1,45 @@
+{
+ "about": "Two proposed, untested device types entered as open device nodes by push/c18-repair-owed-record-r17-open-device-nodes (campaign round 18) so that generate.py can rank explore slots. Not leads: no lane has passed stage A on either. Entry conditions and the controls that must fail are in curated/devices.json (fields entryConditions, controlsThatMustFail). Tags are the reader's: each geometric-program tag is one that the round-18 planner named as a carrier for the type.",
+ "nodes": [
+  {
+   "id": "tz-one-sided-completion-bound-band",
+   "type": "open-direction",
+   "name": "Proposed device type (untested): one-sided completion bound in the band 1/2 < theta <= 1",
+   "statement": "Proposed, untested device type. Question: is there a one-sided bound N(theta) for the band operator T_Z (the Weil form on tests supported on an interval of length u = theta log(t/2 pi)), 1/2 < theta <= 1, with a completion term taken from the reflected half of the approximate functional equation or from the pole term, that zeta satisfies and every control fails at a named step. Background (window information law, one referee): band devices are forms of one operator; between P = sqrt(t/2 pi) and P = t/2 pi the missing input is this bound; the truncated Euler product identity holds for every completely multiplicative chain and is not that input; sign chains fail the bound at theta >= 1 only in measurements. Carriers named by the planner: bridge and antibridge Hankel blocks, pole-term Schur complement. No inequality is on file. Not a statement about zeros.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c17-window-information-law-ctheta-u5/RESULT.md section 3 and REFEREE.md; campaign/ROUND_LOG.md round 17 (lesson 5, combinable 2) and round 18 allocation (lanes 2, 3); entered by push/c18-repair-owed-record-r17-open-device-nodes",
+   "tags": [
+    "weil",
+    "toeplitz",
+    "hankel",
+    "explicit-formula",
+    "functional-equation",
+    "bridge",
+    "antibridge",
+    "turan"
+   ]
+  },
+  {
+   "id": "exact-relation-rigidity",
+   "type": "open-direction",
+   "name": "Proposed device type (untested): exact-relation rigidity",
+   "statement": "Proposed, untested device type. Question: is there an exact relation that zeta satisfies at defect 0, on a class that excludes the symmetric-factor twins by the support clause and the non-rational local factor by integrality, whose failure set is open in a topology in which the zero set moves continuously, and which a named control fails for a multiplicative reason. Background (round 17, one referee each): positivity of a state is invariant under conjugation by an invertible element, so twins of the form b xi are rejected only by an exact relation; a quantitative identification is target-level; stability reads the functional equation and integrality. Carriers named by the planner: Klein seam identity, spinor square root S causal, Bost-Connes twin ladder. No relation is on file. Not a statement about zeros.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c17-u6e-bost-connes-non-invariant-state-twin-ladder; push/c17-u3-inequality-discontinuity-functional; push/c16-pos-fe-u2-positivity-rigidity (Theorem P); campaign/ROUND_LOG.md round 17 (lessons 1, 3; combinable 1) and round 18 allocation (lane 6); entered by push/c18-repair-owed-record-r17-open-device-nodes",
+   "tags": [
+    "rigidity",
+    "identification",
+    "functional-equation",
+    "klein",
+    "spinor",
+    "twin-ladder",
+    "bost-connes",
+    "hecke"
+   ]
+  }
+ ]
+}

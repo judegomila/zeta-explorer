@@ -1,0 +1,30 @@
+# h=0.036 n=120 s=0.027 cutoff c=4.284 dps=320 ; planned: 120x120 mp matrix (~2.3 MB), Lambda table 334 entries
+# arch table z=0.75 built in 16s
+DH           base 0 | determined 120/120 | i_+ final 0 | first stage i_+ > base: None (cutoff -) | positive pivots at [] | smallest |pivot| [-3.286e-6 +/- 7.06e-11] | K(0)=-0.1161, negative off-diagonal K(jh): 44 of 119 | 17s
+# arch table z=0.25 built in 46s
+zeta         base 1 | determined 120/120 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [5] | smallest |pivot| [-3.347e-7 +/- 1.44e-11] | K(0)=-0.03677, negative off-diagonal K(jh): 1 of 119 | 47s
+# h=0.036 n=120 s=0.036 cutoff c=4.284 dps=320 ; planned: 120x120 mp matrix (~2.3 MB), Lambda table 545 entries
+# arch table z=0.75 built in 13s
+DH           base 0 | determined 120/120 | i_+ final 1 | first stage i_+ > base: 119 (cutoff 4.248) | positive pivots at [119] | smallest |pivot| [-9.805e-11 +/- 1.52e-15] | K(0)=-0.1369, negative off-diagonal K(jh): 48 of 119 | 14s
+# arch table z=0.25 built in 36s
+zeta         base 1 | determined 120/120 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [4] | smallest |pivot| [-2.484e-11 +/- 2.08e-15] | K(0)=-0.03017, negative off-diagonal K(jh): 1 of 119 | 37s
+# h=0.025 n=170 s=0.01875 cutoff c=4.225 dps=320 ; planned: 170x170 mp matrix (~4.6 MB), Lambda table 203 entries
+# arch table z=0.75 built in 25s
+DH           base 0 | determined 170/170 | i_+ final 2 | first stage i_+ > base: 142 (cutoff 3.525) | positive pivots at [142, 144] | smallest |pivot| [-2.756e-6 +/- 2.89e-10] | K(0)=-0.09249, negative off-diagonal K(jh): 55 of 169 | 26s
+# arch table z=0.25 built in 69s
+zeta         base 1 | determined 170/170 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [7] | smallest |pivot| [-6.948e-7 +/- 1.34e-11] | K(0)=-0.0379, negative off-diagonal K(jh): 1 of 169 | 70s
+# h=0.02 n=200 s=0.02 cutoff c=3.98 dps=320 ; planned: 200x200 mp matrix (~6.4 MB), Lambda table 172 entries
+# arch table z=0.75 built in 24s
+DH           base 0 | determined 200/200 | i_+ final 4 | first stage i_+ > base: 174 (cutoff 3.46) | positive pivots at [174, 176, 198, 199] | smallest |pivot| [-3.603e-9 +/- 2.17e-13] | K(0)=-0.09641, negative off-diagonal K(jh): 67 of 199 | 25s
+# arch table z=0.25 built in 73s
+zeta         base 1 | determined 200/200 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [8] | smallest |pivot| [-6.260e-11 +/- 4.26e-15] | K(0)=-0.0381, negative off-diagonal K(jh): 1 of 199 | 75s
+# h=0.045 n=100 s=0.03375 cutoff c=4.455 dps=320 ; planned: 100x100 mp matrix (~1.6 MB), Lambda table 570 entries
+# arch table z=0.75 built in 13s
+DH           base 0 | determined 100/100 | i_+ final 0 | first stage i_+ > base: None (cutoff -) | positive pivots at [] | smallest |pivot| [-3.415e-6 +/- 3.34e-10] | K(0)=-0.1321, negative off-diagonal K(jh): 38 of 99 | 14s
+# arch table z=0.25 built in 39s
+zeta         base 1 | determined 100/100 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [3] | smallest |pivot| [-5.273e-8 +/- 2.08e-12] | K(0)=-0.03226, negative off-diagonal K(jh): 1 of 99 | 39s
+# h=0.06 n=80 s=0.045 cutoff c=4.74 dps=320 ; planned: 80x80 mp matrix (~1.0 MB), Lambda table 1405 entries
+# arch table z=0.75 built in 10s
+DH           base 0 | determined 80/80 | i_+ final 1 | first stage i_+ > base: 79 (cutoff 4.68) | positive pivots at [79] | smallest |pivot| [-1.625e-7 +/- 4.15e-12] | K(0)=-0.154, negative off-diagonal K(jh): 31 of 79 | 11s
+# arch table z=0.25 built in 29s
+zeta         base 1 | determined 80/80 | i_+ final 1 | first stage i_+ > base: None (cutoff -) | positive pivots at [3] | smallest |pivot| [-1.281e-15 +/- 7.87e-20] | K(0)=-0.01928, negative off-diagonal K(jh): 0 of 79 | 30s

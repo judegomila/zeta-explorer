@@ -1,0 +1,243 @@
+{
+ "scoredAfter": 19088,
+ "scoredWithSilentNode": 11729,
+ "scoredWithout": 7359,
+ "baselineTop60InAfterScoredSet": {
+  "sameScore": 42,
+  "differentScore": 5,
+  "missing": 13,
+  "detail": [
+   [
+    4,
+    "missing"
+   ],
+   [
+    5,
+    "missing"
+   ],
+   [
+    7,
+    "missing"
+   ],
+   [
+    15,
+    "missing"
+   ],
+   [
+    19,
+    7.67,
+    7.66,
+    "phi-truncation-leftmost-zero x qrh-seven-eighths"
+   ],
+   [
+    24,
+    "missing"
+   ],
+   [
+    25,
+    "missing"
+   ],
+   [
+    34,
+    4.15,
+    4.14,
+    "katz-sarnak-family-checks x seven-eighths-abscissa-formula x theta-density-positivity"
+   ],
+   [
+    35,
+    "missing"
+   ],
+   [
+    36,
+    3.87,
+    3.86,
+    "bbm-growth-class-implication x selberg-zeta-freeze-sandbox x seven-eighths-abscissa-formula"
+   ],
+   [
+    38,
+    3.59,
+    3.6,
+    "ingham-offlattice-riesz-floor x map-open-2 x mv-cap-function-side-gap"
+   ],
+   [
+    39,
+    "missing"
+   ],
+   [
+    42,
+    "missing"
+   ],
+   [
+    51,
+    "missing"
+   ],
+   [
+    52,
+    2.57,
+    2.56,
+    "h6-symbol-offline-poisson x seven-eighths-abscissa-formula x zv-taylor-rouche-channel-criterion"
+   ],
+   [
+    54,
+    "missing"
+   ],
+   [
+    58,
+    "missing"
+   ],
+   [
+    60,
+    "missing"
+   ]
+  ]
+ },
+ "bestNonSilentAfter": [
+  10.25,
+  "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural"
+ ],
+ "top60After": {
+  "minScore": 8.0,
+  "withSilentNode": 57,
+  "withoutSilentNode": [
+   [
+    50,
+    8.5,
+    "staged-strip-triangular-inequality x theta-density-positivity x tro6-natural"
+   ],
+   [
+    55,
+    8.25,
+    "map-pos-49 x mem-qrh-7-8 x tro6-natural"
+   ],
+   [
+    60,
+    8.0,
+    "alias-width-law-octave-weight x tro6-natural x zv-theta-kernel-phi"
+   ]
+  ],
+  "perSilentNode": {
+   "silent-u2-pos-fe-positivity-rigidity": 1,
+   "silent-u3-identification-relaxation": 3,
+   "silent-u4-joint-functionals-not-scaling-invariant": 3,
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject": 12,
+   "silent-u6b-nonsolid-laxphillips-norms": 0,
+   "silent-u6c-gl3-cover-global-whittaker-constants": 1,
+   "silent-u6d-rank2-compact-squares-without-hecke-rule": 2,
+   "silent-u6e-bost-connes-states-outside-d8": 5,
+   "silent-u6f-isogenous-points-nonlinear-functionals": 9,
+   "silent-u6g-scattering-exact-normalisation-affine-kernel": 10,
+   "silent-u8-kernel-conditions-beyond-searched-range": 12
+  }
+ },
+ "baselineTop60WithScoreAtLeastAfterMin": 14,
+ "baselineTop60Missing": [
+  {
+   "rank": 4,
+   "score": 9.25,
+   "move": "M1",
+   "key": "gauss-plancherel-alias-lemma x subleading-k-closed-form x tro6-natural",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 5,
+   "score": 9.25,
+   "move": "M4",
+   "key": "euler-detection-depth-law x tro6-natural x zv-theta-kernel-phi",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": [
+    "tro6-natural - zv-theta-kernel-phi"
+   ]
+  },
+  {
+   "rank": 7,
+   "score": 8.75,
+   "move": "M1",
+   "key": "finite-support-euler-detector x gl2-weil-symbol x tro6-natural",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 15,
+   "score": 7.99,
+   "move": "M1",
+   "key": "pole-term-schur-complement x tro6-natural x zv-boundary-kernel-pa",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 24,
+   "score": 6.25,
+   "move": "M1",
+   "key": "h6-symbol-offline-poisson x qrh-seven-eighths x sawtooth-s-of-t-lemma",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 25,
+   "score": 6.1,
+   "move": "M1",
+   "key": "gl2-weil-symbol x map-open-2 x route-m-first-moment-kappa",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 35,
+   "score": 4.0,
+   "move": "M3",
+   "key": "mem-sextic-theta-squarefree x seven-eighths-abscissa-formula x sextic-theta-mean-square",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": [
+    "mem-sextic-theta-squarefree - seven-eighths-abscissa-formula"
+   ]
+  },
+  {
+   "rank": 39,
+   "score": 3.5,
+   "move": "M4",
+   "key": "connes-twin-ladder-crosswalk x exact-witness-quadratic-cosine x map-open-4",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 42,
+   "score": 3.22,
+   "move": "M4",
+   "key": "map-open-4 x route-i-krein-certificate x tilt-det-majorant",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 51,
+   "score": 2.67,
+   "move": "M4",
+   "key": "confluent-laguerre-floor x map-open-4 x pole-term-schur-complement",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 54,
+   "score": 2.08,
+   "move": "M4",
+   "key": "lean-cg-covering-identity x map-open-4 x weil-small-support-lean",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 58,
+   "score": 1.29,
+   "move": "M4",
+   "key": "ch-holder-half-sharp x corr23-mixed-prolate-ladder x map-open-4",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  },
+  {
+   "rank": 60,
+   "score": 0.3,
+   "move": "M4",
+   "key": "connes-adelic-truncated-trace x map-open-4 x zv-polynomial-heat-coefficients",
+   "sameNodesOtherMove": [],
+   "removedEdgesAmongMembers": []
+  }
+ ]
+}

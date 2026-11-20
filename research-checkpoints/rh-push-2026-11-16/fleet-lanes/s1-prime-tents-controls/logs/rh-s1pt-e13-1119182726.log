@@ -1,0 +1,11 @@
+checkpoints 55940 max 10000000000000 {'T88': 4502, 'T91': 3710, 'T93': 3613, 'T92': 4504, 'GRID': 17969}
+X=10000000000000 checkpoints=55940 tasks=125044 task-table=55.0 MB extras=0
+tasks 20000/125044  0s
+tasks 40000/125044  10s
+tasks 60000/125044  2061s
+tasks 80000/125044  4902s
+tasks 100000/125044  6626s
+tasks 120000/125044  8026s
+sieve done 8370.7s
+total primes 346065536839  wall 8371.7s
+DONE 1e13

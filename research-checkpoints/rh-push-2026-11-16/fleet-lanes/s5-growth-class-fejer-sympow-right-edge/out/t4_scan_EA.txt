@@ -1,0 +1,4 @@
+EA sigma 1.251 341: min 998 at t=30.4 neg 0 first None F4: min 996.4 at t=60.7 neg 0 first None F16: min 994 at t=158.9 neg 0 first None F64: min 981.3 at t=0.1 neg 0 first None
+EA sigma 1.26 341: min 98.03 at t=30.4 neg 0 first None F4: min 96.5 at t=60.7 neg 0 first None F16: min 94.14 at t=158.9 neg 0 first None F64: min 84.16 at t=0.1 neg 0 first None
+EA sigma 1.35 341: min 8.299 at t=185 neg 0 first None F4: min 7.144 at t=60.7 neg 0 first None F16: min 5.663 at t=158.9 neg 0 first None F64: min 1.47 at t=0.2 neg 0 first None
+EA sigma 1.55 341: min 1.919 at t=185.1 neg 0 first None F4: min 1.298 at t=25 neg 0 first None F16: min 0.6441 at t=60.7 neg 0 first None F64: min 0.04196 at t=0.2 neg 0 first None

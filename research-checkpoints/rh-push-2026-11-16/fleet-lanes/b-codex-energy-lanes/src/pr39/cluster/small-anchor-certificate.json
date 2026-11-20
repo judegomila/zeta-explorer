@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "bits": 192,
+  "mesh": "1/4096",
+  "theta_terms": 8,
+  "quadrature_taylor_degree": 7,
+  "remainder_derivative_order": 8,
+  "cutoff": 5,
+  "kernel_and_first_derivative_tail": "[1.00000000000000000000000000000000000000000000000000000000e-60 +/- 1.52e-118]",
+  "second_derivative_tail": "[1.00000000000000000000000000000000000000000000000000000000e-56 +/- 2.61e-115]",
+  "uniform_moment_tail": "[1.00000000000000000000000000000000000000000000000000000000e-56 +/- 2.61e-115]",
+  "ell": "[0.0462099862308379415778676208607 +/- 3.74e-32]",
+  "counts": [
+    512,
+    11776
+  ],
+  "origin_test": "Nprime>0 on [0,1/8], with exact N(0)=0",
+  "compact_test": "N>0 on [1/8,3] by centered Taylor enclosure",
+  "analytic_tail": "t>=3, by the accompanying monotone derivative-ratio proof",
+  "controls": {
+    "symbolic_identities": "passed",
+    "tail_constants": "passed",
+    "non_theta_counterexample_epsilon": "1/1000000",
+    "counterexample_center_D": "[-7.5e-7 +/- 1.68e-9]"
+  },
+  "min_normalized_lower": [
+    "0.000670043775244266726076602935791015625000000000000000000000",
+    "0.000135017890670496853999793529510498046875000000000000000000"
+  ],
+  "failed_count": 0,
+  "first_failures": [],
+  "weaker_rational_lower_bounds": {
+    "Wprime/J^2 on [0,1/8]": "3/5000",
+    "W/J^2 on [1/8,3]": "1/10000"
+  },
+  "elapsed_seconds": 6.096518757000013,
+  "python_flint": "0.9.0"
+}

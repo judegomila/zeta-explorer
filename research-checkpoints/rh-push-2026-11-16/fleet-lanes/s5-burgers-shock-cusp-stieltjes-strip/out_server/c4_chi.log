@@ -1,0 +1,5 @@
+08:16:25 chi zeros 346483 T0 0.0 heights 328560 .. 499997 grid points 13694473 dt 0.0125 planned largest temporary 0.72 GB GPU True
+08:16:40 Y 0.165: min 0.3847 at 369298.8305 (gap 2.92 mean spacings) mean 3.1747 (formula 3.1747) std 1.9711 below p_req 0.7191 blocks below 208 of 208; ratio to mean: min 0.122 q1e-3 0.164
+08:16:41 Y 0.33: min 0.7535 at 369298.8305 (gap 2.92 mean spacings) mean 3.1747 (formula 3.1747) std 1.0090 below p_req 0.8921 blocks below 208 of 208; ratio to mean: min 0.239 q1e-3 0.314
+08:16:41 Y 0.4: min 0.9019 at 369298.8305 (gap 2.92 mean spacings) mean 3.1747 (formula 3.1747) std 0.8234 below p_req 0.9343 blocks below 208 of 208; ratio to mean: min 0.287 q1e-3 0.372
+08:16:42 Y 1: min 1.8994 at 369298.8180 (gap 2.92 mean spacings) mean 3.1747 (formula 3.1747) std 0.2968 below p_req 1.0000 blocks below 208 of 208; ratio to mean: min 0.603 q1e-3 0.696

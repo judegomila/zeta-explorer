@@ -1,0 +1,12 @@
+GPU True
+  planned: band storage 55 x 12800 complex128 = 0.01 GB
+zeta         N= 12800  max split 0.00e+00  C N^2 271.182781  C/Cpred 0.999315  ladder resid 2.61e-06  ratios L3/L2 2.666668 L4/L2 5.000005 (8/3, 5)  252s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+zeta         N= 20000  max split 0.00e+00  C N^2 271.263661  C/Cpred 0.999557  ladder resid 1.07e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  652s
+  planned: band storage 55 x 12800 complex128 = 0.01 GB
+zeta_repo    N= 12800  max split 0.00e+00  C N^2 207.607541  C/Cpred 0.999417  ladder resid 1.01e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  318s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+zeta_repo    N= 20000  max split 0.00e+00  C N^2 207.662539  C/Cpred 0.999626  ladder resid 4.12e-07  ratios L3/L2 2.666667 L4/L2 5.000001 (8/3, 5)  633s
+  planned: band storage 66 x 12800 complex128 = 0.01 GB
+chi-3        N= 12800  max split 0.00e+00  C N^2 649.028495  C/Cpred 0.998897  ladder resid 7.53e-06  ratios L3/L2 2.666670 L4/L2 5.000014 (8/3, 5)  206s
+  planned: band storage 66 x 20000 complex128 = 0.02 GB

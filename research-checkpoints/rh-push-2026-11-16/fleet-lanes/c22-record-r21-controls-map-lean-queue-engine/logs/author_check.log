@@ -1,0 +1,301 @@
+{
+ "paths": {
+  "LEAN_QUEUE": {
+   "cited": 15,
+   "missing": [
+    "engine/checks.py"
+   ]
+  },
+  "CORRECTIONS": {
+   "cited": 21,
+   "missing": []
+  },
+  "MAP_PENDING_R22": {
+   "cited": 11,
+   "missing": []
+  },
+  "controls": {
+   "cited": 3,
+   "missing": []
+  }
+ },
+ "quotes": [
+  {
+   "file": "push/c4-helson-discrepancy-zerofree/RESULT.md",
+   "found": true,
+   "text": "A is an ordinary Dirichlet series with coefficients a_n >= 0 (supporte"
+  },
+  {
+   "file": "push/c4-helson-discrepancy-zerofree/REFEREE.md",
+   "found": true,
+   "text": "- R1 = true, in the restricted sense the RESULT states: step (a) needs"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "for a pole of the local factor with a parameter of modulus > 1 (HQ1 to"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "Eight on file fail it: HQ1, HQ2, HQ3, HQ4, G_q,"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "eight multiplicative controls on file fail H(a)"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "**Theorem 1' (PROVED; the proof of c4 Theorem 1 with one change).**"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "which contains non-multiplicative members with real zeros in the strip"
+  },
+  {
+   "file": "push/c21-c4-r1-flag-test-lemma-e-hq-beurling/RESULT.md",
+   "found": true,
+   "text": "461 negative a_n, n <= 3000"
+  },
+  {
+   "file": "push/c20-euler-shape-rigidity-infinite-modified-primes/RESULT.md",
+   "found": true,
+   "text": "no (sigma_rel = 1)"
+  },
+  {
+   "file": "push/c20-euler-shape-rigidity-infinite-modified-primes/RESULT.md",
+   "found": true,
+   "text": "In Re s > 1 where N != 0 the product of the L_p converges to zeta/N, s"
+  },
+  {
+   "file": "push/c21-br2-sparse-pole-lattice-natural-boundary-or-twin/MAP_ROW.md",
+   "found": true,
+   "text": "the product is 1/(1 - w) (control CYC)"
+  },
+  {
+   "file": "push/c21-br2-sparse-pole-lattice-natural-boundary-or-twin/MAP_ROW.md",
+   "found": true,
+   "text": "(Lemma P, Corollary P1, telescoping example, Theorem W; author only)"
+  },
+  {
+   "file": "push/c21-br0-br3-hamburger-finite-poles-regime3/MAP_ROW.md",
+   "found": true,
+   "text": "zero referees"
+  },
+  {
+   "file": "push/c21-br0-br3-hamburger-finite-poles-regime3/MAP_ROW.md",
+   "found": true,
+   "text": "(+ REFEREE.md, author's pass)"
+  },
+  {
+   "file": "push/OBSTRUCTION_MAP.md",
+   "found": true,
+   "text": "Zeros on Re s = 1/2 +- arccosh(abs(c)/2)/log q (MEASURED at c = 2.1: z"
+  }
+ ],
+ "modifiedSinceStart_outside_lane_dir": [
+  "campaign/CORRECTIONS_R21.md",
+  "campaign/LEAN_QUEUE.md",
+  "campaign/MAP_PENDING.md",
+  "campaign/SCOREBOARD.md",
+  "campaign/STATEMENT_O.md",
+  "campaign/STRATEGY.md",
+  "campaign/scoreboard.json",
+  "engine/CANDIDATES.json",
+  "engine/ENGINE_LOG.md",
+  "engine/IDEA_GRAPH.json",
+  "engine/build_graph.py",
+  "engine/curated/controls.json",
+  "engine/curated/devices.json",
+  "engine/curated/mk_devices.py",
+  "engine/nodes/nodes-23.json",
+  "push/c22-br2-dense-census-cyc-nwm-server/PREREG.md",
+  "push/c22-br2-dense-census-cyc-nwm-server/arbcheck.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/gen_cycp.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/nwm.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/sets.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/stat1.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/stat2.py",
+  "push/c22-br2-dense-census-cyc-nwm-server/test_small.py",
+  "push/c22-br2-dense-remainder-integer-quantization/analyse_eta.py",
+  "push/c22-br2-dense-remainder-integer-quantization/arb_census.py",
+  "push/c22-br2-dense-remainder-integer-quantization/common.py",
+  "push/c22-br2-dense-remainder-integer-quantization/gpu_batch.sh",
+  "push/c22-br2-dense-remainder-integer-quantization/gpu_census.py",
+  "push/c22-br2-dense-remainder-integer-quantization/out/cross.json",
+  "push/c22-br2-dense-remainder-integer-quantization/out/cyc.json",
+  "push/c22-br2-dense-remainder-integer-quantization/out/eta_b1_plus.json",
+  "push/c22-br2-dense-remainder-integer-quantization/out/thin.json",
+  "push/c22-br2-dense-remainder-integer-quantization/run_all.sh",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/MAP_ROW.md",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/REFEREE.md",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/RESULT.md",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/checks.json",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/checks.log",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/checks.py",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/lanes.jsonl",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/ref_check.json",
+  "push/c22-br3prime-integer-frequencies-no-growth-two-sided-almost-periodic/ref_check.py",
+  "push/c22-input-d-geometric-joins-prefilter-v6/REFEREE.md",
+  "push/c22-input-d-geometric-joins-prefilter-v6/RESULT.md",
+  "push/c22-input-d-geometric-joins-prefilter-v6/checks.log",
+  "push/c22-input-d-geometric-joins-prefilter-v6/checks.py",
+  "push/c22-input-d-geometric-joins-prefilter-v6/lanes.jsonl",
+  "push/c22-input-d-geometric-joins-prefilter-v6/ref2/REFEREE_same_agent_pass.md",
+  "push/c22-input-d-geometric-joins-prefilter-v6/ref2/ind_check.log",
+  "push/c22-input-d-geometric-joins-prefilter-v6/ref2/ind_check.py",
+  "push/c22-input-d-geometric-joins-prefilter-v6/referee_check.log",
+  "push/c22-input-d-geometric-joins-prefilter-v6/referee_check.py",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/REFEREE.md",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/RESULT.md",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/checks.json",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/checks.log",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/checks.py",
+  "push/c22-no-stage-objects-axis-support-weyl-independence-prefilter/lanes.jsonl",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-br0-br3-hamburger-finite-poles-regime3/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-br2-relative-product-pole-lattice-census-server/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-br2-sparse-pole-lattice-natural-boundary-or-twin/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-c4-r1-flag-test-lemma-e-hq-beurling/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-statement-o-line11-control-table-40-digits-server/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/c21-twin-screen-ts/REFEREE2.md",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/code/ref2_misc.py",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/code/ref2_s1.py",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/code/ref2_w.py",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/code/ref2_w2.py",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/out/misc.json",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/out/rh-c22refm-1120145537.log",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/out/s1.json",
+  "push/c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11/out/w_arb.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/PREREG.md",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/ball_part1_float_p192.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/ball_part1_p128.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_c20.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_cells.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/r21_u4_confirm.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/ref_heat.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/ref_u4.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/rr.sh",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/scan_r21range.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/u4_ball.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/u4_fftscan.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/u4lib.py",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/units.txt",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/win_part1.json",
+  "push/c22-w1-u4-windows-del09-heat-limit-ball-server/win_part1_float.json",
+  "push/s6-flow-grade-kappa-landing-heatop/RESULT.md",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_60.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_61.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_71.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_72.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_73.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/log_surfM_74.txt",
+  "push/s6-flow-grade-kappa-landing-heatop/out/run_local8.log",
+  "push/s6-flow-grade-kappa-landing-heatop/out/run_local9.log",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_60.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_61.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_71.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_72.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_73.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out/surfM_74.json",
+  "push/s6-flow-grade-kappa-landing-heatop/out_server/log_c1_DH_100000.txt"
+ ],
+ "statementO": {
+  "title": "# Statement O, version 5.2: record of obstructions",
+  "marks": 11,
+  "lines": 1155,
+  "line_headings": 17
+ },
+ "leanQueue": [
+  {
+   "id": "Q1",
+   "title": "CYC telescoping identity",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q2",
+   "title": "Lemma TS-1 (i): invisibility at a stage is a coefficient con",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q3",
+   "title": "V6: closed form and the sign of the log coefficients",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q4",
+   "title": "Lemma P0: the relative product with alpha_q = +q^(1/2) is no",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q5",
+   "title": "Lemma E: zero-free exponential stages for any bounded-coeffi",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q6",
+   "title": "Theorem A: summable Euler-shape modifications with zeta's fu",
+   "refereesWritten": 2,
+   "refereesInLanesJsonl": 2,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q7",
+   "title": "Corollary A2: lower bound for the failure of the symmetry",
+   "refereesWritten": 2,
+   "refereesInLanesJsonl": 2,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q8",
+   "title": "Theorem C (regime (K)): a twin has no off-line zero of its o",
+   "refereesWritten": 2,
+   "refereesInLanesJsonl": 2,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q9",
+   "title": "Lemma S: the archimedean multiplier is a scalar on window ve",
+   "refereesWritten": 2,
+   "refereesInLanesJsonl": 2,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q10",
+   "title": "Theorem H: Hamburger's theorem with finitely many poles",
+   "refereesWritten": 1,
+   "refereesInLanesJsonl": 1,
+   "holds": true,
+   "aboutZeros": false
+  },
+  {
+   "id": "Q11",
+   "title": "Theorem P: positivity, the pole clause and the functional eq",
+   "refereesWritten": 3,
+   "refereesInLanesJsonl": 3,
+   "holds": true,
+   "aboutZeros": false
+  }
+ ]
+}

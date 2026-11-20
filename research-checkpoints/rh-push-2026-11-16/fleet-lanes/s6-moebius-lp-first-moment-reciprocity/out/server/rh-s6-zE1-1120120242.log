@@ -1,0 +1,5 @@
+# zeta {} k=1 X=100000 D=696: planned LP nnz about 1.06e+06 (0.02 GB), arrays 0.01 GB
+{"name": "zeta", "kw": {}, "k": 1, "X": 100000, "D": 696, "truth_re": 50000.32290967964, "main_re": 50000.0, "status": 0, "neg_count": 0, "time": 3.125516653060913, "val": 50000.32290967724, "gap": -2.4010660126805305e-09, "gap_over_sqrtX": -7.592837412489207e-12, "excess_over_sqrtX": 0.0010211300661845937, "rows": 1159, "it": 1, "worst": -8.21043233401042e-12, "cmax": 1621.7745805152351, "at_box": 0, "y_tot": 75004.05325542379, "y_on_zero_lam": 73902.1941226442}
+# zeta {} k=1 X=1000000 D=2200: planned LP nnz about 1.06e+07 (0.17 GB), arrays 0.08 GB
+{"name": "zeta", "kw": {}, "k": 1, "X": 1000000, "D": 2200, "truth_re": 500006.13668711216, "main_re": 500000.0, "status": 4, "neg_count": 0, "time": 2140.164132833481, "msg": "(HiGHS Status 0: Not Set)"}
+# zeta {} k=1 X=3000000 D=3811: planned LP nnz about 3.18e+07 (0.51 GB), arrays 0.24 GB

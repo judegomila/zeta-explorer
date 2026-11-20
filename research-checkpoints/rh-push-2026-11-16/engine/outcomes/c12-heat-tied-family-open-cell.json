@@ -1,0 +1,50 @@
+{
+ "slug": "c12-heat-tied-family-open-cell",
+ "round": 12,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "de-branges",
+  "heat-flow",
+  "rs-3",
+  "conductor-aspect",
+  "t-nr",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands; no statement about zeros of zeta. Cell 1: for X_tau the quantity q_1 is negative at on-line zeros for each of the six tau<0 tested (11 to 25 below height 500; independently reproduced at tau=-2 (84.332, q_1=-0.140), tau=-0.5 (173.811, q_1=-0.0036), tau=-0.05 (111.080, q_1=-0.131)); first-failure height is not monotone in tau, and the close pair near 111 has left the line at tau=-0.5 (off-line zero located by this referee at 0.742957+111.694228i). Forward heat tau>=0.5 has q_1>=0 at all on-line zeros below 500 at h=1 only. The lattice control is flow-invariant with q_h=1 (proved). Cell 2: given Conrey-Li Theorem 2 and a weight function W for the tied weight, the tied family in readings (a), (b), (c) requires no zeros or poles of the weight in 1/2<Re s<3/2 (Lemma S) and Re m>=0 on Re s=1/2 (Lemma T, the boundary form of Theorem 2). Both are violated for q=5, 7, 13. Independently confirmed: the q=7 three-odd zero 0.50859577+17.48111285i (winding 1), the second q=5 zero 0.50666312+106.61575217i (winding 1), 33 confirmed records for q=5, S_v<0 at t=16.75 (q=7 odd) and 8.55 (q=5 pair), S_w<0 at 2.31, zeta alone at 13.54. T-NR fails the same boundary step at t=3.24 (reproduced). Side observation (S_v>0 up to T_0(q) for the full odd family) is a measured mean-value statement over characters, not re-run here. All four requirement flags false.",
+ "obstruction": "Cell 1: q_1 < 0 at on-line zeros for each of six tau < 0 tested (11 to 25 below height 500); forward heat tau >= 0.5 passes (N2) below 500 at h = 1; (N2) fails for zeta, so the condition is on the wrong side of the flow. Cell 2: for the tied weight the outer function drops out on the boundary; Lemma S (no zeros/poles of the weight in 1/2 < Re s < 3/2) and Lemma T (Re m >= 0 on Re s = 1/2) are both violated for q = 5, 7, 13 (zeros with winding 1; certified negative values). T-NR fails the same boundary step. S_v > 0 up to T_0(q) for the full odd family is a mean-value statement over characters.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "the condition is false for zeta itself (zeta alone at 13.54)",
+  "forward heat passes (N2), backward heat fails with zeta: wrong side of the flow",
+  "lattice control is flow-invariant with q_h = 1",
+  "T-NR fails the same boundary step at t = 3.24 (no separation)",
+  "MV-CAP for the conductor-aspect side observation"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed re-derivation (Theorem 2 and Theorem 1 re-read in Conrey-Li math/9812166v1; Lemmas H1, H2, H3, S, T, the Corollary, the T-NR factor and the orthogonality identity re-derived). All rechecked numbers reproduced with independent mpmath code on different cases; all 13 rows of the heat table match the stored JSON. Wording and scope defects, none changing the verdict: (1) \"fails Theorem 1's hypothesis for every tau<0 tested\" is demonstrated in the lane only at tau=-2 (zero at Re  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In the weight form the outer function drops out on the boundary line (W(x-i/2)/W(x+i/2) = 1/(m |W(x+i/2)|^2)), so any tied weight reduces to a sign test of Re m on Re s=1/2; tying characters only helps as a conductor-aspect average (orthogonality, no multiplicativity) and fails in every fixed family at finite height. (N2) holds for forward-heated zeta and fails at tau<=0.2, so it is on the wrong side of the flow. One run whose output is used exceeded the 20-minute local cap by 41 s; three others were stopped late and discarded.",
+ "followUp": "None for the device (closed). Optional: an independent referee for Lemmas S and T, and a decision whether the conductor-aspect inequality S_v>0 for t<c*q^2 belongs in the map as an MV-CAP row (q=199 run not completed).",
+ "resultFile": "tmp/research-2026-11-16/push/c12-heat-tied-family-open-cell/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-heat-tied-family-open-cell/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c13-referee-r12-independent",
+  "outcome": "holds",
+  "narrowerForm": "PROVED given Conrey-Li Theorem 2 (opened; statement matches). Closed in three readings of 'tied' (m = w, 1/w, v), not for a tie with one shift per character. Cell 1 (heat) not refereed here.",
+  "downgrades": [],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE2_c12-heat-tied-family-open-cell.md"
+ }
+}

@@ -1,0 +1,15 @@
+pick: ZETA a=0.05 rect [0.01,2]x[-3.533681285433673,3.533681285433673] n=300 bits=4000 kernels 12; matrix memory per kernel ~ 0.05 GB
+S values: 2.8 s
+sinh:7 first_neg None n_neg 0 undet None last log10 rho -348.22 26.1 s
+sinh:10 first_neg None n_neg 0 undet None last log10 rho -447.039 24.1 s
+sinh:12 first_neg None n_neg 0 undet None last log10 rho -496.073 33.6 s
+sinh:13.5 first_neg None n_neg 0 undet None last log10 rho -527.404 32.8 s
+sinh:14.0 first_neg None n_neg 0 undet None last log10 rho -537.03 28.7 s
+sinh:14.13 first_neg None n_neg 0 undet None last log10 rho -539.473 28.3 s
+sinh:14.5 first_neg None n_neg 0 undet None last log10 rho -546.298 26.2 s
+sinh:15 first_neg None n_neg 0 undet None last log10 rho -555.234 29.6 s
+sinh:16 first_neg None n_neg 0 undet None last log10 rho -572.195 33.0 s
+sinh:18 first_neg None n_neg 0 undet None last log10 rho -603.0 31.9 s
+sinh:22 first_neg None n_neg 0 undet None last log10 rho -655.091 26.8 s
+lin first_neg None n_neg 0 undet 269 last log10 rho -1093.267 24.0 s
+done 82.1 s

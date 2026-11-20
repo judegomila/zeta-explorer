@@ -1,0 +1,83 @@
+{
+ "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8. BLS added and UNIV source extended by c14-repair-map-engine-checkpoint-record (round 14). NR-vec added by c15-repair-record-strategy-v4-report (round 15); BLS, UNIV and NR-vec are in CONTROL_CODE_RE of build_graph.py from that lane on.",
+ "controls": {
+  "EISW": {
+   "name": "EIS-w: Eisenstein series E(z, w') of PSL_2(Z) off resonance (phi(w') != 0), Re w' in (1/2, 1)",
+   "has": "the group, the functional equation, the Euler product, the Hecke algebra: Gamma-invariance, the joint eigen-relation for all T_p with eigenvalue p^(w'-1/2) + p^(1/2-w'), the Laplace equation, moderate growth, an explicit truncated mass (Maass-Selberg)",
+   "lacks": "phi(w') = 0: the constant term carries both powers y^w' and y^(1-w'); it is not attached to a zero of zeta",
+   "kills": "any argument on the modular surface whose inputs are invariance, the joint Hecke eigen-relation, the growth exponent and the truncated mass (it exists for every Re w', so such inputs locate no abscissa)",
+   "kw": "EIS-w|\\bEISW\\b|off[- ]resonance eisenstein",
+   "status": "proved",
+   "source": "push/c8-hecke-entropy-resonance-rigidity/RESULT.md Proposition 4 (classical properties of E); REFEREE.md (confirmed, Maass-Selberg checked at 3 points to 14 digits); push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md"
+  },
+  "DEL": {
+   "name": "DEL: thin prime deletion, F = prod over p not in S of (1 - p^-s)^-1 = zeta(s)(s - b)W(s), S a greedy set of primes of density t^(b-1)/log t, 1/2 < b < 1",
+   "has": "Euler product, Lambda >= 0, abs(Lambda(n)) <= log n, prime-power support, ordinary Dirichlet series with coefficients 0 or 1 (completely multiplicative), one simple pole at 1, continuation to Re s > max(b - eta, b/2); simple real zero at s = b; right of b its zeros are those of zeta",
+   "lacks": "the functional equation; periodicity of the coefficients modulo any q; unimodular local parameter at the primes of S (it is 0); zeros at non-zero height off the zero set of zeta",
+   "kills": "any argument for a zero-free half-plane that uses the target only through prime positivity, size, support, the Euler product, the pole and the integers, without the functional equation or periodicity",
+   "kw": "\\bDEL(_b)?\\b|thin prime deletion|prime deletion control|deletion control",
+   "status": "proved-relative",
+   "source": "push/c10-thin-deletion-zero-mode-control/RESULT.md Lemma 1 (+ REFEREE.md, Lemma 0 repaired); push/c11-repair-del-referee-record/REFEREE2.md (second pass; relative to a counting form S(theta) of a short-interval prime theorem; Huxley 1972 opened by push/c12-repair-sources-statement-o-v3: it states the density estimate with exponent 12/5 and the gap bound, not a count; the count is the deduction of Ingham 1937, not opened)"
+  },
+  "UNIV": {
+   "name": "UNIV: joint universality filter. For pairwise non-equivalent Dirichlet characters chi_1..chi_m (zeta included) and a compact K with connected complement in 1/2 < Re s < 1, the translates (L(s + i tau, chi_j))_j approximate every m-tuple of non-vanishing analytic functions on K for a set of tau of positive lower density",
+   "has": "every property of the L-functions that is a closed condition (sup norm) on a fixed compact window in 1/2 < Re s < 1 with constants independent of height and that holds at all heights (or outside a set of upper density zero); the same jointly with finitely many prime phases p^(-i tau) (hybrid form); continuous inequalities in finitely many values and derivatives at finitely many fixed offsets that hold at all heights hold for every jet (no content); linear combinations of two or more of the L-functions with non-vanishing Dirichlet-polynomial coefficients have at least CT zeros in every sub-strip",
+   "lacks": "Re s <= 1/2 and Re s > 1 (right of 1 the corresponding control is U, Kronecker-Weyl); statements non-local in height (t with 2t, positive-definiteness in t, mean values, sums over zeros); families with m growing with T and the conductor aspect; inequalities using s and 1 - conj s together or the completed function (height-dependent through the gamma factor); height-dependent constants or regions; conditions not closed on a compact window; existence statements in short intervals; companions that are not Dirichlet L-functions; effectivity (the heights are not located; a sample up to height 8000 shows 58 of 256 sign patterns)",
+   "kills": "any step of an argument that is a height-uniform local inequality on values of finitely many Dirichlet L-functions in the open right half of the strip and is claimed to carry arithmetic: it is of class T (true for every analytic tuple), class N (true for every non-vanishing tuple; automatic on zero-free windows, can fail only on a window containing a zero) or class F (false on a set of heights of positive lower density)",
+   "kw": "\\bUNIV\\b|joint universality|universality filter|Voronin universality",
+   "status": "relative to joint universality",
+   "source": "push/c12-univ-pointwise-control-wcone/RESULT.md sections 1-3 (Lemma U1, Corollaries U2-U5), DEVICE_READ_UNIV.md and REFEREE.md (independent referee pass of 2026-11-19: holds with corrections E1 to E5; E2 narrows the class-N sentence); relative to Theorems 7, 10, 11, 20, 30, 31 as printed in K. Matsumoto, A survey on the theory of universality for zeta and L-functions, arXiv:1407.4216 (opened by the lane and by its referee); primary texts (Voronin, Gonek, Bagchi, Kaczorowski-Kulas, Nakamura-Pankowski) not opened. Map row P54 and the UNIV note of map section 2. Entered by c13-repair-map-engine-battery-records (previous file scratch/controls.pre-c13-repair.json) Second independent referee (push/c13-referee-r12-independent/REFEREE2_c12-univ-pointwise-control-wcone.md, part (a) only): holds relative to Theorem 7 of the survey; Corollary U4 (hybrid form) is ARGUED until \"connected complement\" is read in the primary source.",
+   "scope": "filter for one step type, not a function with zeros off the line. Against the 34 device rows read in push/c12-univ-pointwise-control-wcone/DEVICE_READ_UNIV.md (codes ARGUED from one-line readings, not checked against the device lanes by the referee): decides 1 device (7), part of 4 (1, 4, 14, 25), restates 2 (12, 32), out of scope for 27. Not numerically checkable: the approximating heights are not located"
+  },
+  "BLS": {
+   "name": "BLS: scattering-level Blaschke control. M_B(z) = [xi(z)/xi(z+1)] * prod_j (z - a_j)(z - conj a_j)/((z + a_j)(z + conj a_j)), Re a_j > 0, Im a_j != 0. Equivalently f(z)/f(z+1) with f = xi(z) prod_j Gamma(z + a_j)Gamma(z + conj a_j)/(Gamma(z - a_j)Gamma(z - conj a_j)).",
+   "has": "every p-adic local factor of zeta; M(z)M(-z) = 1; unimodular on Re z = 0; holomorphic in Re z > 0 off z = 1; Maass-Selberg positivity for every T >= 1 (proved, Theorem C of the lane); a zero at each prescribed a_j, anywhere in the open right half-plane",
+   "lacks": "a vector at the archimedean place of a group representation; the relation f(z) = f(1 - z) for f itself; a single real Blaschke factor is not covered by the proof (the Moebius step does not preserve the half-plane); the sign is not free (phi = -M fails); on the two-variable affine kernel BLS is not a group object (its passing there is argued)",
+   "kills": "kills any argument on an Eisenstein/scattering carrier that uses only the cocycle relation, unitarity, holomorphy in the positive chamber and positivity of truncated norms. T-NR with c > 2 and arccosh(c/2)/log q < 1/2 is a case: the factor D(z)/D(z+1), D(z) = q^(z-1/2) + q^(1/2-z) + c, is a convergent Blaschke product over non-real pairs. Pre-filter question Q-B: does the inequality survive multiplication of the scattering coefficient by a Blaschke product over non-real conjugate pairs",
+   "kw": "\\bBLS\\b|scattering-level Blaschke|Blaschke control",
+   "status": "proved in rank one",
+   "source": "push/c13-kacmoody-eisenstein-affine-weyl-shift/RESULT.md section 3.3 (Theorem C) and REFEREE.md (independent referee pass of 2026-11-19: Theorems B and C and the T-NR factor re-derived, convergence of the product supplied; holds with five corrections of wording or scope); map section 2 note BLS and row D9. Entered by c14-repair-map-engine-checkpoint-record from controls_BLS_proposed.json",
+   "scope": "control for Eisenstein / scattering carriers: proved for the rank-one Maass-Selberg inequality (T >= 1); argued for the affine (loop-group) kernel; not a Dirichlet-series control (no statement about devices that do not read a scattering coefficient)"
+  },
+  "NR-vec": {
+   "name": "NR-vec: local-vector control on the double cover of SL_2. For F a weight-1/2 Hecke eigenfunction of level 4 with coefficients b(m) and q an odd prime: f_q = (F_0 - F x chi_q)/2, F_0 = F - (1/q) sum_{j mod q} F(z + j/q); coefficients b(m) 1[(m/q) = -1]",
+   "has": "the automorphic representation of F; the T_(p^2) eigenvalues of F for p not dividing 2q; vanishing of every square-index coefficient at the cusp infinity, at every parameter; zero constant term at infinity",
+   "lacks": "level 4 (it has level 4q^2); the Hecke relation at q",
+   "kills": "kills a device that reads theta-orthogonality as vanishing of the square-index coefficients of one vector at one cusp (it holds at every parameter, with no zero of zeta)",
+   "kw": "\\bNR-vec\\b|local-vector control",
+   "status": "coefficient statement elementary (re-derived by one independent referee); level relative to Shimura 1973 Lemma 3.6 (not opened)",
+   "source": "push/c14-theta-orthogonal-metaplectic-eigenobject/RESULT.md Lemma V and engine_device_proposal.json, with the definition repaired by REFEREE.md (independent pass, correction 2: the principal twist is replaced by F - (1/q) sum F(z + j/q)); map section 2 note NR-vec and row G39. Entered by c15-repair-record-strategy-v4-report",
+   "scope": "control for weight-1/2 (metaplectic) Hecke eigen-objects on Gamma_0(4); not a Dirichlet-series control; not computed as a function"
+  },
+  "ZQ": {
+   "name": "ZQ: zero-quartet multiplier twin zeta(s) m(s), m rational in s(1-s) of degree 0; two on-line zero pairs at +-g1, +-g2 exchanged for the quartet 1/2 +- eta +- i (g1+g2)/2",
+   "has": "zeta's own functional equation exactly, at all heights; the simple pole at 1; order 1; N(T) for T > g2; every prime-power atom of log zeta (Euler product, GEOM, SIZE read on the atoms)",
+   "lacks": "INT and SUPP (absolutely continuous signed density D with sup abs D <= 8 e^-2 (eta^2 + d^2)/(1/2 - eta)^2); POS (forced with the pole clause: Lemma L)",
+   "kills": "kills a device that reads zeta's functional equation with multiplicative structure on the prime-power atoms and not the absence of coefficient mass off log N; if GEOM and SIZE are read on ordinary coefficients the read set is an identification class and ZQ does not apply",
+   "kw": "\\bZQ\\b|zero-quartet",
+   "status": "construction and defect bound proved (re-derived by one independent referee); instances measured; second referee owed",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "control for read sets containing FE of zeta without INT; conditional on the atom reading (referee E2); zeros at any prescribed 1/2 + eta, 0 < eta < 1/2"
+  },
+  "SG": {
+   "name": "SG: real-zero twin zeta(s)(t^2 + b^2)/(t^2 - g1^2), t^2 = s(1-s) - 1/4; zeros 1/2 +- i g1 of zeta replaced by the real pair 1/2 +- b",
+   "has": "zeta's own functional equation exactly; exact prime-power atoms; Lambda_SG <= Lambda (density -2 x^(-1/2)(cosh(b log x) - cos(g1 log x)) <= 0)",
+   "lacks": "INT, SUPP, POS; real zero at 1/2 + b",
+   "kills": "kills steps that use an upper bound for Lambda, or positivity of the atoms only, together with the functional equation",
+   "kw": "\\bSG\\b|real-zero twin",
+   "status": "proved (re-derived by one independent referee); measured at b = 0.3",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "companion of ZQ; one-sided relaxation of POS with exact atoms"
+  },
+  "NR-q": {
+   "name": "NR-q: T-NR at a base with no rational power, zeta(s)(q^(s-1/2) + c + q^(1/2-s)), q = 1 + sqrt 2, 2 < abs c < q^(1/2) + q^(-1/2)",
+   "has": "zeta's own functional equation exactly; discrete frequencies; integer-frequency part equal to c zeta; Hecke relation at every rational prime on each coset q^j N",
+   "lacks": "INT; GEOM, SIZE, POS at the one added generalised prime q; zeros on Re s = 1/2 +- arccosh(abs c/2)/log q",
+   "kills": "kills steps that read the coefficients at integers only, or covariance at rational primes only, together with the functional equation",
+   "kw": "\\bNR-q\\b|no rational power",
+   "status": "proved (re-derived by one independent referee); measured at c = 2.1",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "companion of ZQ; discrete relaxation of INT with GEOM kept at rational primes"
+  }
+ }
+}

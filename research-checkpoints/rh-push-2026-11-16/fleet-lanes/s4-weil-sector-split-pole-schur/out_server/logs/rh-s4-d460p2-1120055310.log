@@ -1,0 +1,5 @@
+N = 600, prec 1500 bits, target 400 digits, supports ['4.6052'], object set bigdh
+planned allocation: up to 6 ball matrices 300x300 per worker plus rungs; about 1.02 GB per worker (471 bytes per ball), 1 workers
+group ['4.6052']: Gauss nodes 976 (rho = 3.500)
+group ['4.6052']: partial stage 1 (2 of 5) done 2064s
+written out/secD_N600.json 2064s

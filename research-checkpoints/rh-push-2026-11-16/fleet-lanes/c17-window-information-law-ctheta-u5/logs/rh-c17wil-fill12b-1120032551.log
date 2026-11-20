@@ -1,0 +1,49 @@
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "info": "device", "n_online": 181, "sec": 2.4, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "info": "device", "n_online": 181, "sec": 2.4, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "info": "device", "n_online": 181, "sec": 2.4, "terms": 1}
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "info": "device", "n_online": 181, "sec": 2.8, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "info": "device", "n_online": 181, "sec": 2.4, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "info": "device", "n_online": 181, "sec": 2.4, "terms": 1}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "info": "device", "n_online": 181, "sec": 2.5, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "info": "device", "n_online": 181, "sec": 2.6, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 16, "b": 0.06257499999999999, "note": "", "sec": 35.6}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 24, "b": 0.14847812500000002, "note": "", "sec": 35.8}
+planned: on-line block 362 x 362 arb entries at 4096 bits (about 0.15 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 32, "b": 0.14847812500000002, "note": "", "sec": 32.5}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 24, "b": 0.049884765624999994, "note": "", "sec": 54.5}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 60, "b": 0.167025390625, "note": "", "sec": 102.3}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "info": "device", "n_online": 181, "sec": 3.3, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 40, "b": 0.13188320312500001, "note": "", "sec": 48.7}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 16, "b": 0.04695624999999999, "note": "", "sec": 43.5}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 32, "b": 0.04500390624999999, "note": "", "sec": 75.2}
+planned: on-line block 362 x 362 arb entries at 4096 bits (about 0.15 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 24, "b": 0.039146875, "note": "", "sec": 39.2}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 60, "b": 0.13969257812500002, "note": "", "sec": 99.3}
+planned: on-line block 362 x 362 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "info": "device", "n_online": 181, "sec": 3.2, "terms": 1}
+planned: on-line block 362 x 362 arb entries at 2048 bits (about 0.08 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 32, "b": 0.4999, "note": "cap", "sec": 25.1}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 32, "b": 0.036218359374999995, "note": "", "sec": 64.0}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 40, "b": 0.4999, "note": "cap", "sec": 8.7}
+{"T": 1000000000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 60, "b": 0.0001, "note": "", "sec": 265.6}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 60, "b": 0.4999, "note": "cap", "sec": 14.0}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 40, "b": 0.036218359374999995, "note": "", "sec": 87.4}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 40, "b": 0.042075390625, "note": "", "sec": 201.7}
+planned: on-line block 362 x 362 arb entries at 4096 bits (about 0.15 GB)
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 60, "b": 0.039146875, "note": "", "sec": 391.9}
+{"T": 1000000000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 60, "b": 0.035242187499999994, "note": "", "sec": 458.0}
+done

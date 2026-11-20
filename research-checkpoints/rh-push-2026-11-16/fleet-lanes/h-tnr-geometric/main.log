@@ -1,0 +1,17 @@
+{'zeta': '(1.0 + 3.31582889132e-30j)', 'DH': '(1.26156626101 - 6.78607499079e-31j)', 'NR': '(1.0 + 2.75480901479e-29j)', 'NRt': '(1.0 + 6.77969055199e-29j)', 'EA': '(1.0 - 2.59720985477e-31j)'}
+zeta {'min_kappa': '9.2038924e-4059', 'kappa0': '0.4466969', 'positive': True, 'max_second_diff_log': '-4.6947485', 'log_concave': True, 'csordas_convex': True, 'interior_local_maxima': 0}
+DH {'min_kappa': '1.4998541e-811', 'kappa0': '0.57635496', 'positive': True, 'max_second_diff_log': '-0.6412941', 'log_concave': True, 'csordas_convex': True, 'interior_local_maxima': 0}
+NR {'min_kappa': '1.1469895e-445', 'kappa0': '0.98273318', 'positive': True, 'max_second_diff_log': '38.313951', 'log_concave': False, 'csordas_convex': False, 'interior_local_maxima': 1}
+NRt {'min_kappa': '1.1469895e-445', 'kappa0': '0.4466969', 'positive': True, 'max_second_diff_log': '38.231196', 'log_concave': False, 'csordas_convex': False, 'interior_local_maxima': 1}
+NR- {'min_kappa': '-0.98273318', 'kappa0': '-0.98273318', 'positive': False, 'max_second_diff_log': '-4.683627', 'log_concave': True, 'csordas_convex': False, 'interior_local_maxima': 1}
+EA {'min_kappa': '3.521925e-140', 'kappa0': '0.16058476', 'positive': True, 'max_second_diff_log': '-2.5547645', 'log_concave': True, 'csordas_convex': True, 'interior_local_maxima': 0}
+zeta N_right (0.0 + 1.1043593e-18j)
+NR N_right (10.0 - 1.1043593e-18j)
+NRt N_right (2.2087185e-18 - 1.1043593e-18j)
+EA N_right (13.0 - 2.2087185e-18j)
+{'zeta': [{'z': '(0.2 + 14.134725j)', 'Q': '25.067661'}, {'z': '(0.15 + 2.86j)', 'Q': '0.048133861'}, {'z': '(0.15 + 85.7j)', 'Q': '1.7754762'}], 'NR': [{'z': '(0.20187661 + 2.8596009j)', 'Q': '-16.111077'}], 'NRt': [{'z': '(0.2 + 1.9064006j)', 'Q': '25.546648'}, {'z': '(0.2 + 2.8596009j)', 'Q': '2.369001'}], 'EA': [{'z': '(0.15 + 14.134725j)', 'Q': '-29.494586'}], 'DH': [{'z': '(0.154 + 85.699348j)', 'Q': '-27.134755'}, {'z': '(0.075 + 114.16334j)', 'Q': '-115.81291'}]}
+zeta {'P': {'min_normalised_eig': '2.33243e-21', 'n_negative': 0}, 'K_e=P+B': {'min_normalised_eig': '1.56559e-37', 'n_negative': 0}, 'K_o=P-B': {'min_normalised_eig': '9.20717e-37', 'n_negative': 0}}
+DH {'P': {'min_normalised_eig': '1.21876e-16', 'n_negative': 0}, 'K_e=P+B': {'min_normalised_eig': '1.38653e-29', 'n_negative': 0}, 'K_o=P-B': {'min_normalised_eig': '1.93199e-28', 'n_negative': 0}}
+NR {'P': {'min_normalised_eig': '-8.0167e-6', 'n_negative': 2}, 'K_e=P+B': {'min_normalised_eig': '-0.00971358', 'n_negative': 2}, 'K_o=P-B': {'min_normalised_eig': '-0.000302061', 'n_negative': 2}}
+NRt {'P': {'min_normalised_eig': '8.35983e-13', 'n_negative': 0}, 'K_e=P+B': {'min_normalised_eig': '8.4551e-25', 'n_negative': 0}, 'K_o=P-B': {'min_normalised_eig': '1.08217e-22', 'n_negative': 0}}
+EA {'P': {'min_normalised_eig': '-1.96028e-22', 'n_negative': 1}, 'K_e=P+B': {'min_normalised_eig': '-3.72854e-15', 'n_negative': 1}, 'K_o=P-B': {'min_normalised_eig': '-6.38521e-17', 'n_negative': 1}}

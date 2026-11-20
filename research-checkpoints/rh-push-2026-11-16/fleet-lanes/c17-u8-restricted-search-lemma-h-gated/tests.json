@@ -1,0 +1,220 @@
+{
+ "planted_minor": {
+  "TM5": {
+   "n": 25,
+   "ttrain": 25,
+   "hold": 25,
+   "undecided": 0,
+   "prec": [
+    128
+   ]
+  },
+  "TM6": {
+   "n": 25,
+   "ttrain": 25,
+   "hold": 25,
+   "undecided": 0,
+   "prec": [
+    128
+   ]
+  },
+  "DM5": {
+   "n": 25,
+   "ttrain": 25,
+   "hold": 25,
+   "undecided": 0,
+   "prec": [
+    128
+   ]
+  },
+  "DM6": {
+   "n": 25,
+   "ttrain": 25,
+   "hold": 25,
+   "undecided": 0,
+   "prec": [
+    128
+   ]
+  }
+ },
+ "planted_minor_thr": {
+  "TMt5": {
+   "n": 10,
+   "ttrain": 10,
+   "hold": 10,
+   "undecided": 0
+  },
+  "DMt6": {
+   "n": 10,
+   "ttrain": 10,
+   "hold": 10,
+   "undecided": 0
+  }
+ },
+ "planted_turan": {
+  "T3": {
+   "cnt": {
+    "n": 720,
+    "posfeas": 720,
+    "ball": 694,
+    "b_excl": 0,
+    "b_ttrain": 694,
+    "b_undecided": 0,
+    "ft_full": 654,
+    "fu_full": 40,
+    "fh_full": 642,
+    "fhu_full": 40,
+    "bt_full": 694,
+    "bh_full": 682,
+    "bu_full": 0,
+    "ft_TE": 654,
+    "fu_TE": 40,
+    "fh_TE": 642,
+    "fhu_TE": 40,
+    "bt_TE": 694,
+    "bh_TE": 682,
+    "bu_TE": 0,
+    "ft_TH": 663,
+    "fu_TH": 40,
+    "fh_TH": 642,
+    "fhu_TH": 40,
+    "bt_TH": 694,
+    "bh_TH": 682,
+    "bu_TH": 0,
+    "ft_EH": 654,
+    "fu_EH": 40,
+    "fh_EH": 642,
+    "fhu_EH": 40,
+    "bt_EH": 694,
+    "bh_EH": 682,
+    "bu_EH": 0,
+    "prec_128": 694
+   },
+   "hold_small_rho": 160
+  },
+  "T6": {
+   "cnt": {
+    "n": 720,
+    "posfeas": 720,
+    "ball": 720,
+    "b_excl": 0,
+    "b_ttrain": 720,
+    "b_undecided": 0,
+    "ft_full": 680,
+    "fu_full": 40,
+    "fh_full": 659,
+    "fhu_full": 40,
+    "bt_full": 720,
+    "bh_full": 699,
+    "bu_full": 0,
+    "ft_TE": 680,
+    "fu_TE": 40,
+    "fh_TE": 659,
+    "fhu_TE": 40,
+    "bt_TE": 720,
+    "bh_TE": 699,
+    "bu_TE": 0,
+    "ft_TH": 680,
+    "fu_TH": 40,
+    "fh_TH": 659,
+    "fhu_TH": 40,
+    "bt_TH": 720,
+    "bh_TH": 699,
+    "bu_TH": 0,
+    "ft_EH": 680,
+    "fu_EH": 40,
+    "fh_EH": 662,
+    "fhu_EH": 40,
+    "bt_EH": 720,
+    "bh_EH": 702,
+    "bu_EH": 0,
+    "prec_128": 720
+   },
+   "hold_small_rho": 160
+  }
+ },
+ "zeta_logconcave": {
+  "n": 2000,
+  "ball_positive": 2000,
+  "undecided": 0,
+  "float_positive": 2000
+ },
+ "zeta_minor_rows": {
+  "2": {
+   "n": 500,
+   "expected_sign": 500,
+   "opposite": 0,
+   "undecided": 0
+  },
+  "3": {
+   "n": 500,
+   "expected_sign": 500,
+   "opposite": 0,
+   "undecided": 0
+  }
+ },
+ "P_zeta_only": {
+  "n": 20,
+  "onesigned": 20,
+  "status": [
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl",
+   "excl"
+  ]
+ },
+ "float_vs_ball": {
+  "T3_k3": {
+   "agree": 949,
+   "disagree": 0,
+   "float_undecided_tiers": 11,
+   "ball_undecided": 0
+  },
+  "T3_pol": {
+   "agree": 960,
+   "disagree": 0,
+   "float_undecided_tiers": 0,
+   "ball_undecided": 0
+  },
+  "T6_k3": {
+   "agree": 947,
+   "disagree": 0,
+   "float_undecided_tiers": 13,
+   "ball_undecided": 0
+  },
+  "T6_pol": {
+   "agree": 926,
+   "disagree": 0,
+   "float_undecided_tiers": 34,
+   "ball_undecided": 0
+  }
+ },
+ "heat_pol_float_vs_ball_maxrel": 4.440892098500626e-16,
+ "ea_float_vs_ball_max_abs_log_diff": {
+  "k3": 8.526512829121202e-14,
+  "pol": 3.730349362740526e-13,
+  "sign_mismatch": 0
+ },
+ "lemmaH_tie": {
+  "n": 200,
+  "contain0": 200,
+  "max_rel_radius": 8.220574710179149e-73
+ },
+ "sec": 89.03977131843567
+}

@@ -1,0 +1,46 @@
+{
+ "slug": "c8-single-row-bridge-crossing",
+ "round": 8,
+ "kind": "combine",
+ "nodes": [
+  "single-row-bridge"
+ ],
+ "tags": [
+  "bridge",
+  "krein-square",
+  "sextic-theta",
+  "kubota-patterson",
+  "functional-equation",
+  "edge-of-strip",
+  "single-row",
+  "gauss-sum-series"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For a cubic-theta row T = L0 D with L0(s) = L(3s - 1/2, psi) (imprimitive at the bad primes), the row's reflection axis Re s = 1/2 is Re w = 1 for L0, 1/6 from L0's own axis Re s = 1/3; the reflection quotient of T about its axis has no pole from a zero of L0 (classical non-vanishing on Re w >= 1). For the unweighted row eta = 1, m = 1, mask at 2 (T has a simple pole at 5/6, confirmed by a parameter-free test, and no pole at 1/6), a float64 fit gives T(s_rho) != 0 at eight low zeros of zeta_F (one, 18.262, with margin about 4), so D has poles there; where T(s_rho) != 0 the reflected pole of D has real part (5/2 - beta)/3, which restates beta and carries no sign or rank condition. About Re s = 1/3 the non-trivial zeros of L0 cancel from the reflection quotient of D and the log-derivative form is H(T) - H(L0) with no sign from the row's functional equation. This is the classical Kubota-Patterson normalisation in bridge language: an obstruction record, not a new theorem. Not established: T(s_rho) != 0 for any twisted or weighted row; non-existence of a continuation for THIN; the Mellin form of the unrefereed manuscript's Prop. 5.1.",
+ "obstruction": "A cubic-theta row is T = L0 D with L0(s) = L(3s - 1/2, psi). The row's reflection axis Re s = 1/2 is Re w = 1 for L0, at distance 1/6 (in s) from L0's own axis Re s = 1/3. The reflection quotient of T about its axis has no pole from a zero of L0 (classical non-vanishing on Re w >= 1); where T(s_rho) != 0 (float fit at eight low zeros, one unweighted row) the zero is a pole of D with reflected real part (5/2 - beta)/3, which restates beta with no sign or rank condition. About Re s = 1/3 the form is H(T) - H(L0) with no sign from the row's functional equation. The target L(s, eta) enters a single row only as a coefficient twist; it appears as an L-function only after the sum over rows. Classical Kubota-Patterson normalisation in bridge language.",
+ "obstructionKind": "single-row-axis-is-edge-re-w-1-of-its-euler-factor",
+ "controlsThatDefeat": [
+  "not a control separation: the form reads zeros as an identity at every height with no sign (holds for any row L-function)",
+  "THIN fails only by non-existence of the continuation (not established)",
+  "not run: DH, heat, sign twists, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c8-single-row-bridge-crossing/REFEREE.md (referee scripts and logs in /tmp/c8ref/, two local runs through scripts/memcap.sh 8; compute server not used). The verdict (precise obstruction, 0 requirements) survives; five statements are wrong or overstated as printed, none changes it.\nE1. \"Poles of T only at 5/6 and 1/6\" is wrong: the Dirichlet series T has no pole at 1/6 (Gamma(s - 1/6) supplies that pole of the co [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A theta or Eisenstein-type row carries its Euler factor at the edge: its unitary axis is Re w = 1 for the L-function in its coefficients, 1/6 (in s) from that L-function's critical line. Bridges built on single rows land on the right-of-1 side of the R4 wall (Langlands-Shahidi / Sarnak setting). The target L(s, eta) appears only after the sum over rows, never inside one row.",
+ "followUp": "none on this object; add the proposed map row (RESULT.md section 7) in the next repair lane. Optional: a referee re-derivation of the Mellin form of Prop. 5.1 and an interval-certified check of T(s_rho) != 0.",
+ "resultFile": "tmp/research-2026-11-16/push/c8-single-row-bridge-crossing/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-single-row-bridge-crossing/REFEREE.md",
+ "launchedNodes": [
+  "single-row-bridge"
+ ],
+ "engineVerdict": "closed"
+}

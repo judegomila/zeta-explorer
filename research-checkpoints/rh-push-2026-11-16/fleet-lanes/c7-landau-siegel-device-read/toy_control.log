@@ -1,0 +1,81 @@
+d=13 N=3 H=2 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 10; S1=191 S2=187; log10|Norm| ~ 1115
+  p= 3 chi(p)=+1  4E=  164  v_p(Norm)=  200  no prediction; v>=4E holds
+  p= 5 chi(p)=-1  4E=   60  v_p(Norm)=   80  predicted v>=4E: OK
+  p= 7 chi(p)=-1  4E=   20  v_p(Norm)=   36  predicted v>=4E: OK
+  p=11 chi(p)=-1  4E=    0  v_p(Norm)=   12  predicted v>=4E: OK
+  p=17 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=19 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=23 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=29 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=31 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=37 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+d=7 N=3 H=2 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 10; S1=191 S2=187; log10|Norm| ~ 998
+  p= 3 chi(p)=+1  4E=  164  v_p(Norm)=  200  no prediction; v>=4E holds
+  p= 5 chi(p)=-1  4E=   60  v_p(Norm)=   68  predicted v>=4E: OK
+  p=11 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=13 chi(p)=-1  4E=    0  v_p(Norm)=   12  predicted v>=4E: OK
+  p=17 chi(p)=-1  4E=    0  v_p(Norm)=    4  predicted v>=4E: OK
+  p=19 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=23 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=29 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=31 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=37 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+d=-11 N=3 H=2 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 10; S1=191 S2=187; log10|Norm| ~ 1085
+  p= 3 chi(p)=+1  4E=  164  v_p(Norm)=  200  no prediction; v>=4E holds
+  p= 5 chi(p)=+1  4E=   60  v_p(Norm)=   52  no prediction; v>=4E fails
+  p= 7 chi(p)=-1  4E=   20  v_p(Norm)=   20  predicted v>=4E: OK
+  p=13 chi(p)=-1  4E=    0  v_p(Norm)=   12  predicted v>=4E: OK
+  p=17 chi(p)=-1  4E=    0  v_p(Norm)=    4  predicted v>=4E: OK
+  p=19 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=23 chi(p)=+1  4E=    0  v_p(Norm)=   12  no prediction; v>=4E holds
+  p=29 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=31 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=37 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+d=3 N=3 H=2 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 10; S1=191 S2=187; log10|Norm| ~ 833
+  p= 5 chi(p)=-1  4E=   60  v_p(Norm)=   72  predicted v>=4E: OK
+  p= 7 chi(p)=-1  4E=   20  v_p(Norm)=   20  predicted v>=4E: OK
+  p=11 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=13 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=17 chi(p)=-1  4E=    0  v_p(Norm)=    4  predicted v>=4E: OK
+  p=19 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=23 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=29 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=31 chi(p)=-1  4E=    0  v_p(Norm)=    4  predicted v>=4E: OK
+  p=37 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+d=5 N=3 H=4 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 16; S1=360 S2=124; log10|Norm| ~ 1124
+  p= 7 chi(p)=-1  4E=   96  v_p(Norm)=   96  predicted v>=4E: OK
+  p=11 chi(p)=+1  4E=   28  v_p(Norm)=    4  no prediction; v>=4E fails
+  p=13 chi(p)=-1  4E=   12  v_p(Norm)=   12  predicted v>=4E: OK
+  p=17 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=19 chi(p)=+1  4E=    0  v_p(Norm)=    4  no prediction; v>=4E holds
+  p=23 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=29 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=31 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=37 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+d=-11 N=3 H=4 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 16; S1=360 S2=124; log10|Norm| ~ 1379
+  p= 5 chi(p)=+1  4E=  180  v_p(Norm)=   44  no prediction; v>=4E fails
+  p= 7 chi(p)=-1  4E=   96  v_p(Norm)=   96  predicted v>=4E: OK
+  p=13 chi(p)=-1  4E=   12  v_p(Norm)=   36  predicted v>=4E: OK
+  p=17 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=19 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=23 chi(p)=+1  4E=    0  v_p(Norm)=   36  no prediction; v>=4E holds
+  p=29 chi(p)=-1  4E=    0  v_p(Norm)=    4  predicted v>=4E: OK
+  p=31 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=37 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+d=-19 N=3 H=4 M=81; block matrix 324x324 integers (planned < 50 MB)
+ max weight 16; S1=360 S2=124; log10|Norm| ~ 1523
+  p= 5 chi(p)=+1  4E=  180  v_p(Norm)=   52  no prediction; v>=4E fails
+  p= 7 chi(p)=+1  4E=   96  v_p(Norm)=  132  no prediction; v>=4E holds
+  p=11 chi(p)=+1  4E=   28  v_p(Norm)=    4  no prediction; v>=4E fails
+  p=13 chi(p)=-1  4E=   12  v_p(Norm)=   36  predicted v>=4E: OK
+  p=17 chi(p)=+1  4E=    0  v_p(Norm)=    0  no prediction; v>=4E holds
+  p=23 chi(p)=+1  4E=    0  v_p(Norm)=    4  no prediction; v>=4E holds
+  p=29 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=31 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK
+  p=37 chi(p)=-1  4E=    0  v_p(Norm)=    0  predicted v>=4E: OK

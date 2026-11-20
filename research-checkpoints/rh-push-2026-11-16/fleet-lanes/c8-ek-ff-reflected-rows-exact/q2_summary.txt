@@ -1,0 +1,20 @@
+# blocks: 432
+Law L (exact integers): r = 0, J_m != 0: |B|^2 S_m(k)^2 == |J_m|^2 (pi(lam) S_b(k-lam))^2 in 40 of 40 blocks
+signal-law blocks, lx<l=True, lam=1, weight a: 7 blocks; rho=|B|/|J_m| in [0.0000, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=True, lam=1, weight b: 7 blocks; rho=|B|/|J_m| in [0.0000, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=True, lam=1, weight n1: 7 blocks; rho=|B|/|J_m| in [0.0000, 0.4495] (q^-lam = 0.1429); |C|/|J_m| in [0.7833, 1.3382] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=True, lam=1, weight mu: 7 blocks; rho=|B|/|J_m| in [0.0000, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=True, lam=2, weight a: 5 blocks; rho=|B|/|J_m| in [0.0000, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=True, lam=2, weight b: 5 blocks; rho=|B|/|J_m| in [0.0000, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=True, lam=2, weight n1: 5 blocks; rho=|B|/|J_m| in [0.0000, 0.0244] (q^-lam = 0.0204); |C|/|J_m| in [0.9968, 1.0038] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=True, lam=2, weight mu: 5 blocks; rho=|B|/|J_m| in [0.0000, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=False, lam=1, weight a: 10 blocks; rho=|B|/|J_m| in [0.1836, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=False, lam=1, weight b: 10 blocks; rho=|B|/|J_m| in [0.1744, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=False, lam=1, weight n1: 10 blocks; rho=|B|/|J_m| in [0.0000, 0.4495] (q^-lam = 0.1429); |C|/|J_m| in [0.7833, 1.3382] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=False, lam=1, weight mu: 10 blocks; rho=|B|/|J_m| in [0.1871, 0.2333] (q^-lam = 0.1429); |C|/|J_m| in [0.8654, 1.1662] over both signs; max |shift of h_up| = 0.474; |cos(relative phase)| values [0.6547]
+signal-law blocks, lx<l=False, lam=2, weight a: 2 blocks; rho=|B|/|J_m| in [0.0244, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=False, lam=2, weight b: 2 blocks; rho=|B|/|J_m| in [0.0244, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=False, lam=2, weight n1: 2 blocks; rho=|B|/|J_m| in [0.0000, 0.0244] (q^-lam = 0.0204); |C|/|J_m| in [0.9968, 1.0038] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+signal-law blocks, lx<l=False, lam=2, weight mu: 2 blocks; rho=|B|/|J_m| in [0.0244, 0.0251] (q^-lam = 0.0204); |C|/|J_m| in [0.9967, 1.0039] over both signs; max |shift of h_up| = 0.012; |cos(relative phase)| values [0.1429]
+region lx<l, all blocks with J_m != 0: 111; rescaled term exactly 0 in 56; rho <= 0.25 in 77; rho > 0.25 in 34 (of which obeying the signal law: 1)
+blocks with J_m = 0 and rescaled term != 0: 0 (lx<l: 0)

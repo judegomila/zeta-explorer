@@ -1,0 +1,38 @@
+{
+ "100": {
+  "first_index": 25,
+  "log2E_at_break": -23.985254499740414,
+  "last_pd_size": 25,
+  "prefix": [
+   1,
+   1
+  ]
+ },
+ "1000": {
+  "first_index": 34,
+  "log2E_at_break": -43.18393426341721,
+  "last_pd_size": 34,
+  "prefix": [
+   3,
+   3
+  ]
+ },
+ "10000": {
+  "first_index": 43,
+  "log2E_at_break": -60.54019419472836,
+  "last_pd_size": 43,
+  "prefix": [
+   5,
+   5
+  ]
+ },
+ "100000": {
+  "first_index": 50,
+  "log2E_at_break": -91.62820653120635,
+  "last_pd_size": 50,
+  "prefix": [
+   7,
+   6
+  ]
+ }
+}

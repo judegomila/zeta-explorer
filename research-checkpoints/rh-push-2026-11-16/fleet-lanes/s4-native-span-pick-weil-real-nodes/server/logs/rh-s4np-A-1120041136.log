@@ -1,0 +1,2 @@
+  values c ZETA chebv:1/2:5/2 1000 18000 sec 306.2
+  undecided ZETA chebv:1/2:5/2 1000 18000 at 963 -> double precision

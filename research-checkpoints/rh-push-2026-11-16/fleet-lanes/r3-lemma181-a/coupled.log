@@ -1,0 +1,8 @@
+C0 source (validation)                                                 B=0.8748866 rho=0.5790 lx=0.3732 ly=0.4597 l=0.1671
+Ca plain-witness count saving tau = 0.0083, re-balanced  [MODEL]       B=0.8746991 rho=0.5790 lx=0.3704 ly=0.4617 l=0.1679
+Ca plain-witness count saving tau = 0.0200, re-balanced  [MODEL]       B=0.8743933 rho=0.5880 lx=0.3483 ly=0.4827 l=0.1691
+Ca plain-witness count saving tau = 0.0500, re-balanced  [MODEL]       B=0.8735251 rho=0.5870 lx=0.3369 ly=0.4905 l=0.1726
+Ca plain-witness count saving tau = 0.1000, re-balanced  [MODEL]       B=0.8720148 rho=0.5840 lx=0.3199 ly=0.5015 l=0.1786
+Cb prime capacity doubled in count and numerator (s = 2)  [MODEL]      B=0.8736974 rho=0.5740 lx=0.3649 ly=0.4632 l=0.1719
+Cc prime capacity doubled in numerator only (bypass-78 row)  [MODEL]   B=0.8741892 rho=0.5760 lx=0.3684 ly=0.4616 l=0.1699
+Cd prime capacity doubled in count only  [MODEL]                       B=0.8743753 rho=0.5840 lx=0.3559 ly=0.4750 l=0.1692

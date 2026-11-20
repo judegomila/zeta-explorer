@@ -1,0 +1,9 @@
+S [2] Tw 2.5 log N_S 0.6931471805599453 T 3000.0 X 188.5 grid 188496 (12 MB)
+   zero side 6.31777368287  arch 9.59111921214  residue sum -3.2754149878  diff 2.069e-03 (rel 3.28e-04)  R 4.0633 Obar 6.1686 E -2.1053  sum|res|/den 2.151  k0 size 8.6e-39
+   prime correction (8 terms) 0.00206945875724   diff before 2.069e-03  after -2.288e-10 (rel -3.6e-11)
+S [2, 3] Tw 4.0 log N_S 1.791759469228055 T 3000.0 X 117.8 grid 117810 (8 MB)
+   zero side 8.94095147689  arch 12.9968876582  residue sum -4.05699449456  diff 1.058e-03 (rel 1.18e-04)  R 4.2436 Obar 6.1687 E -1.9251  sum|res|/den 2.173  k0 size 4.9e-39
+   prime correction (20 terms) 0.00105831359113   diff before 1.058e-03  after -3.090e-10 (rel -3.5e-11)
+S [3] Tw 3.2 log N_S 1.0986122886681098 T 5000.0 X 147.3 grid 147263 (9 MB)
+   zero side 7.09342092011  arch 7.24707053728  residue sum -0.155343404013  diff 1.694e-03 (rel 2.39e-04)  R 6.5376 Obar 6.6792 E -0.1416  sum|res|/den 0.395  k0 size 3.2e-33
+   prime correction (8 terms) 0.00169378536889   diff before 1.694e-03  after 1.474e-09 (rel 2.1e-10)

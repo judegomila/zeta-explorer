@@ -1,0 +1,15 @@
+Z=2000 P=12.6 columns=106574 live=36197 slot primes=5 (norms [13, 13, 19, 19, 25])
+  vector   A/A(ALIGNED)   cross part / cross part(ALIGNED)  slot part / A
+ ALIGNED      1.000e+00                          1.000e+00          0.485
+    LIOU      1.479e-04                          8.401e-05          0.708
+   THETA      2.297e-03                          2.230e-05          0.995
+       U      3.082e-03                          1.691e-03          0.718
+   RAND1      3.180e-03                          1.586e-03          0.743
+   RAND2      3.819e-03                          6.576e-05          0.991
+   RAND3      1.379e-03                         -1.736e-03          1.648
+   RAND4      2.445e-03                         -1.456e-04          1.031
+   RAND5      3.786e-03                          1.902e-03          0.741
+   RAND6      2.585e-03                          1.862e-04          0.963
+   RAND7      1.362e-03                          4.697e-05          0.982
+   RAND8      3.747e-03                         -9.728e-05          1.013
+l2 mass sum_c A0^2/q_c = 1.1103e-06;  6 * l2 / A(ALIGNED) = 2.587e-03  (size of a vector with square-root cancellation)

@@ -1,0 +1,16 @@
+GPU True
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+heat+0.05    N= 20000  max split 0.00e+00  C N^2 271.522939  C/Cpred 0.999576  ladder resid 1.07e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  654s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+heat-0.05    N= 20000  max split 0.00e+00  C N^2 271.004806  C/Cpred 0.999569  ladder resid 1.07e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  669s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+heat-0.2     N= 20000  max split 0.00e+00  C N^2 270.230771  C/Cpred 0.999574  ladder resid 1.06e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  780s
+  planned: band storage 88 x 20000 complex128 = 0.03 GB
+E_b=0.2      N= 20000  max split 0.00e+00  C N^2 557.276472  C/Cpred 0.999340  ladder resid 1.79e-06  ratios L3/L2 2.666667 L4/L2 5.000003 (8/3, 5)  806s
+  planned: band storage 88 x 20000 complex128 = 0.03 GB
+E_b=0.35     N= 20000  max split 0.00e+00  C N^2 557.088200  C/Cpred 0.999357  ladder resid 1.79e-06  ratios L3/L2 2.666667 L4/L2 5.000003 (8/3, 5)  740s
+  planned: band storage 77 x 20000 complex128 = 0.02 GB
+T-NR(3,2.2)  N= 20000  max split 0.00e+00  C N^2 3812.391481  C/Cpred 0.998267  ladder resid 4.25e-05  ratios L3/L2 2.666684 L4/L2 5.000080 (8/3, 5)  649s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+liouville    N= 20000  max split 0.00e+00  C N^2 165.082442  C/Cpred 0.999684  ladder resid 2.41e-08  ratios L3/L2 2.666667 L4/L2 5.000000 (8/3, 5)  335s
+DONE_BAND

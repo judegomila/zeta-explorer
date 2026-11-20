@@ -1,0 +1,52 @@
+{
+ "slug": "c19-rs-real-zero-completion-band-server",
+ "round": 19,
+ "kind": "compute",
+ "nodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "tags": [
+  "band-device",
+  "N(theta)",
+  "Riemann-Siegel",
+  "positive-completion",
+  "ZQ",
+  "server",
+  "mode-count"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Precise obstruction, registered outcome (b): the device is closed.\n\nOn m = 96, 192, 384 Fourier modes centred at t_w (not on every band): Q_D = T_sigma + E with T_sigma >= -3e-11 Lg (enclosed >= 0 per cell), so the sub-device N(theta) holds there with tolerance -lambda_min(E).\n\nMEASURED (prime side, relative to the hand-derived radius; 1e6 / 1e9 / 1e12, 8 windows): zeta's defect is 0.036-0.137, 0.008-0.020, 0.0016-0.0052 Lg (medians 1.3-2.1 times (t/2pi)^(-1/4); cells 0.7-3.3 times); at most 5e-4 Lg with the C0 term.\n\nThe one-sided statistic changes under a ZQ exchange only by the pair form, of size at most u(sinh(u eta)/(u eta) - 1) (PROVED in c17, re-derived here). At tolerance tau Lg it therefore cannot exclude an off-line pair with (u eta)^2 below about 6 tau Lg/u. At the registered tolerance 0.05 this includes eta = 0.01 at 1e9 and 1e12, but not above about t = 1e31 and not at the C0 tolerance.\n\nExchange threshold eta* > 0 in 432 of 432 cells (422 ball-certified). Chains, Liouville, DH (1e6 and 1e9 only), E_a, T-NR and HQ2 fail by missing functional equation, zero or pole location, or size; no step reads multiplicativity. The two-sided version is the target in the window (ARGUED).\n\nR1 to R4 are all false.",
+ "obstruction": "Registered outcome (b): the device is closed by ZQ. The referee does not hold the lane as written (E1: 'sigma >= 0 for every point set' and 'T_sigma >= 0 on every band' are false as stated; repaired form: on m = 96, 192, 384 modes centred at t_w, T_sigma >= -3e-11 Lg); no number changes and the obstruction stands. Q_D = T_sigma + E, so the device proves only N(theta) with tolerance -lambda_min(E). Under a ZQ exchange the one-sided statistic changes only by the pair form, of size at most u(sinh(u eta)/(u eta) - 1), which vanishes with eta: at tolerance tau Lg an off-line pair with (u eta)^2 below about 6 tau Lg/u is not excluded (eta = 0.01 at 1e9 and 1e12 at the registered tolerance 0.05). MEASURED: zeta's defect 0.036-0.137, 0.008-0.020, 0.0016-0.0052 Lg at 1e6, 1e9, 1e12. The two-sided defect excludes every pair but is the target in the window (ARGUED). No step reads multiplicativity.",
+ "obstructionKind": "control-passes: ZQ (eta = 0.01) passes at every mode count with zeta's defect plus a pair form of -0.0015 to -0.0084 Lg; the two-sided statement is target-level",
+ "controlsThatDefeat": [
+  "ZQ eta = 0.01 (passes at every mode count; exchange threshold eta* > 0 in 432 of 432 cells)",
+  "chains, Liouville, DH, E_a, T-NR, HQ2 fail only by missing functional equation, zero or pole location, or size (no step reads multiplicativity)",
+  "not run: DH at 1e12, backward heat, item 5 at (1e12, theta' = 1), direct ball prime sums above X = 1e9"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 1,
+ "refereeNote": "Written to tmp/research-2026-11-16/push/c19-rs-real-zero-completion-band-server/REFEREE.md. The obstruction verdict (device closed, nothing about zeros of zeta) survives; holds=false only because a step labelled PROVED is false as stated.\n\nE1 (PROVED step false as stated; repairable; no number changes). \"sigma >= 0 for every point set G\" and \"T_sigma >= 0 on every band\" are false: outside J sigma has density rho = (Re psi(1/4+ix/2) - log pi)/(2 pi) - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A completion that is positive by construction moves all content into its defect against the data, and the positivity lemma reads only the defect's smallest eigenvalue. An off-line quartet enters that through a pair form that vanishes with eta, so the device can prove only N(theta) with tolerance, which ZQ satisfies (forced on paper before the runs, then confirmed). The two-sided defect does exclude every pair, but it is the target in the window. Mode count: completion verdicts do not change with m; data-form chain pass rates fall with m (0 of 192 at M = 0, theta >= 0.80, m = 384).",
+ "followUp": "None on this device. A successor would have to bound the defect from the prime side (a lower bound for abs(D_N) on the line at N = sqrt(t/2pi)) and aim at the two-sided statement, which is the target itself. Owed items 1, 4, 5 are delivered in RESULT.md section 6; not run: DH at 1e12, item 5 at (1e12, theta' = 1), direct ball prime sums above X = 1e9. No server unit of this lane is running; 2.1 GB of moment files and zero lists remain in ~/rh-push/c19-rs-real-zero-completion-band-server/.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-rs-real-zero-completion-band-server/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-rs-real-zero-completion-band-server/REFEREE.md",
+ "launchedNodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Named statement holds after repair: Lemma P is correct for sigma >= 0; the constructed sigma is signed (rho(0) = -0.85501, sign change 6.289836, negative mass 2.247887). Lemma P': T_sigma >= -2.247887 sup_{|x|<=6.29} |g|^2; on the mode space eps <= 3.3e-10 / 2.2e-16 / 1.7e-22 at 1e6 / 1e9 / 1e12. Positivity is not given by the construction. RESULT.md text unrepaired (refereeHolds stays false for the printed text).",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-rs-real-zero-completion-band-server.md"
+ }
+}

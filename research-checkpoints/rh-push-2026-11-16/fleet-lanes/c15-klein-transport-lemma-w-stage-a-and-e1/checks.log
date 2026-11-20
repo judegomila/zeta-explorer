@@ -1,0 +1,14 @@
+{'a': 1.0, 'h': 0.5, 't': 100.0, 'mu': 1.106228967068008, 'M': 1.2514209040492388, 'half_log': 1.383646559789373, 'R': 0.5117646379699651, 'core': 0.2356403924518301, 'tail': 0.3094643095494697, 'rhs_over_A2': -0.07382391709763961, 'core_over_tail': 0.7614461027666959}
+{'a': 1.0, 'h': 0.5, 't': 1000.0, 'mu': 2.4106507658712353, 'M': 2.6281048939057023, 'half_log': 2.5349391062863957, 'R': 0.2944588032516673, 'core': 0.1778598416578966, 'tail': 0.6733579623239349, 'rhs_over_A2': -0.49549812066603827, 'core_over_tail': 0.26413861810448586}
+{'a': 1.0, 'h': 0.5, 't': 10000.0, 'mu': 3.727226625637769, 'M': 4.034300173055399, 'half_log': 3.6862316527834187, 'R': 0.18642246631826637, 'core': 0.08650586946440761, 'tail': 0.9483362234811197, 'rhs_over_A2': -0.8618303540167122, 'core_over_tail': 0.09121856502208137}
+{'a': 2.0, 'h': 1.0, 't': 100.0, 'mu': 1.304486902534574, 'M': 1.3261684098633277, 'half_log': 1.383646559789373, 'R': 0.573593757769049, 'core': 0.04466726679931903, 'tail': 0.16177741171569643, 'rhs_over_A2': -0.1171101449163774, 'core_over_tail': 0.2761032354616735}
+{'a': 2.0, 'h': 1.0, 't': 1000.0, 'mu': 2.5427570600857736, 'M': 2.551150956007086, 'half_log': 2.5349391062863957, 'R': 0.30148638824898316, 'core': 0.016371427242313816, 'tail': 0.22468592428666284, 'rhs_over_A2': -0.20831449704434904, 'core_over_tail': 0.07286360858736539}
+{'a': 2.0, 'h': 1.0, 't': 10000.0, 'mu': 3.701240775113096, 'M': 3.7585675452442557, 'half_log': 3.6862316527834187, 'R': 0.2073897403414145, 'core': 0.008221494207096348, 'tail': 0.25346138033778554, 'rhs_over_A2': -0.24523988613068917, 'core_over_tail': 0.0324368714324038}
+{'case': 'strip_inside_a (beta=.2, a=.25)', 'a': 0.25, 'predicted_schur': True, 'sampled_sup': 0.9999845439177167, 'axis_defect': 4.591774807899561e-41, 'observed_schur': True}
+{'case': 'cancelling (beta=.35,.15; a=.25)', 'a': 0.25, 'predicted_schur': True, 'sampled_sup': 0.9999813765317815, 'axis_defect': 6.887662211849341e-41, 'observed_schur': True}
+{'case': 'chain (beta=.45,.25,.05; a=.1)', 'a': 0.1, 'predicted_schur': True, 'sampled_sup': 0.9999926913653248, 'axis_defect': 6.887662211849341e-41, 'observed_schur': True}
+{'case': 'non-cancelling (beta=.35; a=.25)', 'a': 0.25, 'predicted_schur': False, 'sampled_sup': 8.21537313612371, 'axis_defect': 4.591774807899561e-41, 'observed_schur': False}
+{'case': 'companion at other ordinate (beta=.35@3,.15@4; a=.25)', 'a': 0.25, 'predicted_schur': False, 'sampled_sup': 5.875721739051636, 'axis_defect': 4.591774807899561e-41, 'observed_schur': False}
+{'case': 'broken chain (beta=.45,.05; a=.1)', 'a': 0.1, 'predicted_schur': False, 'sampled_sup': 2.057253574114642, 'axis_defect': 4.591774807899561e-41, 'observed_schur': False}
+{'case': 'multiplicity deficit (.35 double,.15 single; a=.25)', 'a': 0.25, 'predicted_schur': False, 'sampled_sup': 2.897990316306944, 'axis_defect': 8.035605913824231e-41, 'observed_schur': False}
+done

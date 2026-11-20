@@ -1,0 +1,25 @@
+# ytab q=7 d=1 N=2 lam=3 threads=4 primes(necklace)=112 planes=8 sieve block q^2=49 blocks=7 sieve primes=7 cofactor primes=28 composites=28
+# ytab primes=112 (equals the necklace count); self-checks on 4 primes passed
+OK   ru1 at (N, lam, d) = (2, 3, 1): 7 rows from the definition identical; sum of norms 0
+OK   ru2 at (N, lam, d) = (2, 3, 1): 7 rows from the definition identical; sum of norms 0
+OK   cm3 at (N, lam, d) = (2, 3, 1): 7 rows from the definition identical; sum of norms 0
+OK   a at (N, lam, d) = (2, 3, 1): 7 rows from the definition identical; sum of norms 0
+OK   mu at (N, lam, d) = (2, 3, 1): 7 rows from the definition identical; sum of norms 0
+BRUTE PASS
+# ytab q=7 d=2 N=2 lam=3 threads=4 primes(necklace)=112 planes=8 sieve block q^2=49 blocks=7 sieve primes=7 cofactor primes=28 composites=28
+# ytab primes=112 (equals the necklace count); self-checks on 4 primes passed
+OK   ru1 at (N, lam, d) = (2, 3, 2): 49 rows from the definition identical; sum of norms 4536
+OK   ru2 at (N, lam, d) = (2, 3, 2): 49 rows from the definition identical; sum of norms 5684
+OK   cm3 at (N, lam, d) = (2, 3, 2): 49 rows from the definition identical; sum of norms 5488
+OK   a at (N, lam, d) = (2, 3, 2): 49 rows from the definition identical; sum of norms 9408
+OK   mu at (N, lam, d) = (2, 3, 2): 49 rows from the definition identical; sum of norms 0
+BRUTE PASS
+# ytab q=7 d=1 N=3 lam=4 threads=4 primes(necklace)=588 planes=11 sieve block q^3=343 blocks=7 sieve primes=28 cofactor primes=140 composites=259
+# ytab primes=588 (equals the necklace count); self-checks on 4 primes passed
+OK   ru1 at (N, lam, d) = (3, 4, 1): 7 rows from the definition identical; sum of norms 1388160
+OK   ru2 at (N, lam, d) = (3, 4, 1): 7 rows from the definition identical; sum of norms 413448
+OK   cm3 at (N, lam, d) = (3, 4, 1): 7 rows from the definition identical; sum of norms 918516
+OK   a at (N, lam, d) = (3, 4, 1): 7 rows from the definition identical; sum of norms 973062
+OK   mu at (N, lam, d) = (3, 4, 1): 7 rows from the definition identical; sum of norms 0
+BRUTE PASS
+BRUTE_DONE

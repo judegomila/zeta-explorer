@@ -1,0 +1,25 @@
+objects 650; groups {'P': 23, 'PX': 506, 'PH': 24, 'C3': 10, 'H3': 24, 'C4': 10, 'H4': 24, 'C2': 5, 'H2': 24}; names equal to the stored c15 objects: True
+planned memory: per worker float64 blocks of at most 25 nodes x 650 pairs x 4 arrays x 4 families = 2.08 MB; ball caches per node only
+g1: 19293 distinct nodes, 37674 family-nodes
+g2: 14652 distinct nodes, 29464 family-nodes
+jobs 3396; meta {'b1-Aw': {'und': 19253, 'feas': 0, 'nodes': 215769}, 'b3-with': {'und': 18381, 'feas': 0, 'nodes': 215769}, 'b6-with': {'und': 40, 'feas': 0, 'nodes': 215769}, 'b2-with': {'und': 14652, 'feas': 15784, 'nodes': 163377}, 'b5l-with': {'und': 14652, 'feas': 6724, 'nodes': 163377}, 'b5m-with': {'und': 80, 'feas': 0, 'nodes': 163377}, 'b5p-with': {'und': 80, 'feas': 0, 'nodes': 163377}}
+job slice [960:976): 16 jobs
+  job 1/16 6s; rows 20
+  job 2/16 12s; rows 38
+  job 3/16 18s; rows 57
+  job 4/16 24s; rows 75
+  job 5/16 30s; rows 94
+  job 6/16 35s; rows 113
+  job 7/16 41s; rows 133
+  job 8/16 47s; rows 153
+  job 9/16 53s; rows 173
+  job 10/16 59s; rows 193
+  job 11/16 65s; rows 212
+  job 12/16 71s; rows 232
+  job 13/16 76s; rows 252
+  job 14/16 82s; rows 271
+  job 15/16 88s; rows 291
+  job 16/16 94s; rows 310
+b1-Aw {'identity': 0, 'excluded': 160, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 5280, 'maxprec': {'256': 93, '512': 28, '128': 39}}
+b3-with {'identity': 0, 'excluded': 150, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 4935, 'maxprec': {'256': 93, '512': 28, '128': 29}}
+CBALL-DONE 94s

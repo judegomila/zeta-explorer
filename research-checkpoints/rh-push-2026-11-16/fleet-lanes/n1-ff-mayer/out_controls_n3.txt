@@ -1,0 +1,8 @@
+q=3 N=[1, 0, 2, 1] k=2: zeros of det(1 - e^(i theta) M | V+) after removing (1-qu),(1-u),(1+u) factors
+  theta=0/1 pi: pole order 1, (1-u)^4 (1+u)^0, #roots 2, at q^-1/2: 2, at 1/q: 0, other radii: []
+  theta=1/16 pi: pole order 2, (1-u)^0 (1+u)^0, #roots 7, at q^-1/2: 0, at 1/q: 0, other radii: [0.30624, 0.56699, 0.56878, 0.8095, 0.95823, 0.99677, 1.0]
+  theta=1/8 pi: pole order 2, (1-u)^0 (1+u)^0, #roots 7, at q^-1/2: 0, at 1/q: 0, other radii: [0.27822, 0.5425, 0.55058, 0.58592, 0.83242, 0.98708, 1.0]
+  theta=1/4 pi: pole order 2, (1-u)^0 (1+u)^0, #roots 7, at q^-1/2: 0, at 1/q: 0, other radii: [0.24978, 0.37598, 0.4902, 0.51109, 0.64125, 0.94797, 1.0]
+  theta=1/2 pi: pole order 2, (1-u)^0 (1+u)^0, #roots 7, at q^-1/2: 0, at 1/q: 0, other radii: [0.25114, 0.25667, 0.41307, 0.45696, 0.48526, 0.78343, 1.0]
+  theta=3/4 pi: pole order 2, (1-u)^0 (1+u)^0, #roots 7, at q^-1/2: 0, at 1/q: 0, other radii: [0.22967, 0.34967, 0.42131, 0.42776, 0.43177, 0.44152, 1.0]
+  theta=1/1 pi: pole order 2, (1-u)^0 (1+u)^1, #roots 6, at q^-1/2: 0, at 1/q: 0, other radii: [0.27431, 0.27431, 0.40857, 0.40857, 0.43383, 0.43383]

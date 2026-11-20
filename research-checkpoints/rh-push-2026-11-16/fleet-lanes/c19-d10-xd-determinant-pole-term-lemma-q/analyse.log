@@ -1,0 +1,16 @@
+records 340 errors 0
+symmetric: d -> [configs, neg=0, rank=C(d,2), neg>0]
+  6 [60, 60, 60, 0]
+  8 [50, 50, 50, 0]
+  10 [40, 40, 40, 0]
+  12 [32, 32, 32, 0]
+  14 [22, 22, 22, 0]
+  16 [16, 16, 16, 0]
+ by category: {('line', True): 21, ('real', True): 22, ('generic', True): 45, ('confluent', True): 43, ('boundary', True): 45, ('nearconf', True): 22, ('degenerate', True): 22}
+ counterexamples: []
+ rank anomalies: []
+non-symmetric, pole base: 60 neg>0: 50 neg == predicted deficit: 60 rank == predicted: 60
+ neg = 0 cases: [(264, [['r', '1/4'], ['r', '5/14'], ['l', '13'], ['s', '3/4'], ['s', '27/32']], {'d': 8, 'neg': 0, 'rank': 30}), (272, [['q', '1/4', '166/5'], ['r', '1/6'], ['s', '1/32'], ['s', '31/32']], {'d': 8, 'neg': 0, 'rank': 28}), (236, [['q', '3/8', '137/5'], ['p', '17/32', '6']], {'d': 6, 'neg': 0, 'rank': 17}), (242, [['r', '3/8'], ['l', '18/5'], ['s', '5/8'], ['s', '5/8']], {'d': 6, 'n
+ mismatches: []
+pole removed: 60 neg=0: 60 by base: {('minus', True): 30, ('plus', True): 30}
+max time 1380.19

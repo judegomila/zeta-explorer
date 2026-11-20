@@ -1,0 +1,9 @@
+planned: T=1e+06 N=1277 P=206 windows=16; full rows 8064 x 1277 complex x2 = 330 MB; weights chunk 4000 x 2401 complex = 154 MB
+  window T_j=1000000.000 built, 53s
+  window T_j=100.000 built, 105s
+  window T_j=10000.000 built, 158s
+  window T_j=100000.000 built, 211s
+  window T_j=1000.000 built, 264s
+  window T_j=316227.766 built, 316s
+  window T_j=31622.777 built, 369s
+  window T_j=3162.278 built, 421s

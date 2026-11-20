@@ -1,0 +1,1 @@
+ZETA sigma 1.01 341: min 98.31 at t=3.0011e+12 neg 0 first None F4: min 97.32 at t=3.0011e+12 neg 0 first None F16: min 94.12 at t=3.0011e+12 neg 0 first None F64: min 93.34 at t=3.0011e+12 neg 0 first None

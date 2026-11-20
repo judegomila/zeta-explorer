@@ -1,0 +1,48 @@
+== 1. composition identity ==
+ group law err (30 primes): 5.238838668292982866031794e-26
+ S chain vs direct: 0.000002701767049224397205826507  (tail of primes > 2e5 ~ 5e-6)
+ J - M*JM - ReZ*E err: 1.065797824068515890310653e-26
+ 1-|S|^2 - 4a ReL/|1+aL|^2: 6.46234853557052870993288e-27
+== 3. reserve bound and draw ==
+ min over grid of ReG - [0.5 log(t/2pi) - 1/(3t) - 1/(2t^2)] = 3.333333338084027e-10
+ Q=3: D(Q)=3.1741  2sqrtQ=3.464  RS upper bound=6.710
+ Q=37: D(Q)=12.5180  2sqrtQ=12.166  RS upper bound=19.491
+ Q=1000: D(Q)=64.5967  2sqrtQ=63.246  RS upper bound=75.051
+ Q=100000: D(Q)=636.0019  2sqrtQ=632.456  RS upper bound=658.244
+ Q=2000000: D(Q)=2833.2728  2sqrtQ=2828.427  RS upper bound=2892.927
+ t=1e+02: R(t)=1.3803  Q*=None  (log(t/2pi))^2/16=0.5
+ t=1e+04: R(t)=3.6862  Q*=3  (log(t/2pi))^2/16=3.4
+ t=1e+06: R(t)=5.9888  Q*=7  (log(t/2pi))^2/16=9.0
+ t=1e+09: R(t)=9.4427  Q*=17  (log(t/2pi))^2/16=22.3
+ t=1e+12: R(t)=12.8966  Q*=37  (log(t/2pi))^2/16=41.6
+ t=1e+15: R(t)=16.3504  Q*=59  (log(t/2pi))^2/16=66.8
+ t=1e+20: R(t)=22.1069  Q*=107  (log(t/2pi))^2/16=122.2
+ t=1e+30: R(t)=33.6198  Q*=263  (log(t/2pi))^2/16=282.6
+ t=1e+100: R(t)=114.2103  Q*=3167  (log(t/2pi))^2/16=3261.0
+ t=1e+300: R(t)=344.4688  Q*=29153  (log(t/2pi))^2/16=29664.7
+== 4. worst case on the torus vs the actual line; mean square ==
+ T=1e+04 Q=3: torus sup D(Q)=3.174 | line max on [T,2T]=3.174 | reserve at T=3.686 | rms line=0.736 torus rms=0.736
+ T=1e+04 Q=7: torus sup D(Q)=5.659 | line max on [T,2T]=5.163 | reserve at T=3.686 | rms line=1.087 torus rms=1.087
+ T=1e+04 Q=17: torus sup D(Q)=8.585 | line max on [T,2T]=6.701 | reserve at T=3.686 | rms line=1.412 torus rms=1.412
+ T=1e+04 Q=37: torus sup D(Q)=12.518 | line max on [T,2T]=7.459 | reserve at T=3.686 | rms line=1.743 torus rms=1.743
+ T=1e+04 Q=100: torus sup D(Q)=20.262 | line max on [T,2T]=8.912 | reserve at T=3.686 | rms line=2.199 torus rms=2.198
+ T=1e+04 Q=1000: torus sup D(Q)=64.597 | line max on [T,2T]=10.210 | reserve at T=3.686 | rms line=3.362 torus rms=3.361
+ T=1e+04 Q=10000: torus sup D(Q)=202.566 | line max on [T,2T]=11.712 | reserve at T=3.686 | rms line=4.518 torus rms=4.527
+ T=1e+06 Q=3: torus sup D(Q)=3.174 | line max on [T,2T]=3.174 | reserve at T=5.989 | rms line=0.736 torus rms=0.736
+ T=1e+06 Q=7: torus sup D(Q)=5.659 | line max on [T,2T]=5.454 | reserve at T=5.989 | rms line=1.087 torus rms=1.087
+ T=1e+06 Q=17: torus sup D(Q)=8.585 | line max on [T,2T]=7.519 | reserve at T=5.989 | rms line=1.412 torus rms=1.412
+ T=1e+06 Q=37: torus sup D(Q)=12.518 | line max on [T,2T]=9.012 | reserve at T=5.989 | rms line=1.743 torus rms=1.743
+ T=1e+06 Q=100: torus sup D(Q)=20.262 | line max on [T,2T]=10.278 | reserve at T=5.989 | rms line=2.198 torus rms=2.198
+ T=1e+06 Q=1000: torus sup D(Q)=64.597 | line max on [T,2T]=13.709 | reserve at T=5.989 | rms line=3.361 torus rms=3.361
+ T=1e+06 Q=10000: torus sup D(Q)=202.566 | line max on [T,2T]=14.275 | reserve at T=5.989 | rms line=4.525 torus rms=4.527
+ rms coverage: torus variance of Re draw = sum log^2 p/(2(p-1)); compare (0.5 log(t/2pi))^2
+  t=1e+04: first Q with rms draw >= reserve: 1901; t/2pi=1592
+  t=1e+06: first Q with rms draw >= reserve: 180847; t/2pi=159155
+== 5. sign-twist control ==
+ t0=1e+04: twisted draw first exceeds reserve at Q=5; Q*=3
+ t0=1e+06: twisted draw first exceeds reserve at Q=19; Q*=7
+ t0=1e+09: twisted draw first exceeds reserve at Q=43; Q*=17
+ t0=1e+12: twisted draw first exceeds reserve at Q=73; Q*=37
+== 6. backward-heat control: term formula ==
+ |lhs-rhs| = 2.5777398000432113429e-12  |lhs| = 0.11603099507258931931
+ weight e^{tau log^2 n/4}: w(6)/(w(2)w(3)) = 0.98114256845104659126 (=1 iff multiplicative)

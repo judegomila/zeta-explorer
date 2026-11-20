@@ -1,0 +1,1 @@
+a=0.01 b=0.02 points=400 nproc=6; planned memory per process < 0.5 GB

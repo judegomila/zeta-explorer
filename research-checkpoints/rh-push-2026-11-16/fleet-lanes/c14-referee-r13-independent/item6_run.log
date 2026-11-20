@@ -1,0 +1,22 @@
+planned memory: sign matrices are memory-mapped (375 MB largest, not loaded); tasks hold a few kB each
+D1 P2-one-signed rows in the stored matrix: 19269 with battery T-NR opposite: 6824
+D2-F1 P2-one-signed rows in the stored matrix: 1352 with battery T-NR opposite: 48
+D2-F2 P2-one-signed rows in the stored matrix: 1092 with battery T-NR opposite: 82
+D3a P2-one-signed rows in the stored matrix: 27421 with battery T-NR opposite: 17683
+tasks 300 objects 35
+0 D1 0.6 1
+20 D1 1.1 6
+40 D2-F1 0.3 8
+60 D2-F1 0.4 11
+80 D2-F2 0.3 12
+100 D2-F3 0.8 14
+120 D2-F4 0.1 17
+140 D2-F5 0.2 19
+160 D2-F5 0.8 20
+180 D3a 3.5 24
+200 D3b-F1 0.4 26
+220 D3b-F1 0.3 27
+240 D3b-F2 1.0 29
+260 D3b-F4 0.2 31
+280 D3b-F5 0.1 32
+done 33.189796686172485

@@ -1,0 +1,172 @@
++ python gpu_torus.py 1 20,22,24,25,26,27,28 20000 results/box_gt_k1.jsonl
+N=20 terms=20 primes=8 batch=20000 planned GPU memory about 0.04 GB
+{"k": 1.0, "N": 20, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 8, "min_abs_B": 0.08823388607764121, "starts_reaching_zero": 0, "gpu": true, "seconds": 5.2}
+N=22 terms=22 primes=8 batch=20000 planned GPU memory about 0.04 GB
+{"k": 1.0, "N": 22, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 8, "min_abs_B": 0.06276628113510027, "starts_reaching_zero": 0, "gpu": true, "seconds": 0.9}
+N=24 terms=24 primes=9 batch=20000 planned GPU memory about 0.04 GB
+{"k": 1.0, "N": 24, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 9, "min_abs_B": 0.03243857254903258, "starts_reaching_zero": 0, "gpu": true, "seconds": 0.8}
+N=25 terms=25 primes=9 batch=20000 planned GPU memory about 0.04 GB
+{"k": 1.0, "N": 25, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 9, "min_abs_B": 0.020240846473592384, "starts_reaching_zero": 0, "gpu": true, "seconds": 0.8}
+N=26 terms=26 primes=9 batch=20000 planned GPU memory about 0.05 GB
+{"k": 1.0, "N": 26, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 9, "min_abs_B": 0.007934080340237815, "starts_reaching_zero": 0, "gpu": true, "seconds": 0.9}
+N=27 terms=27 primes=9 batch=20000 planned GPU memory about 0.05 GB
+{"k": 1.0, "N": 27, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 9, "min_abs_B": 0.0, "starts_reaching_zero": 13306, "gpu": true, "seconds": 0.9}
+N=28 terms=28 primes=9 batch=20000 planned GPU memory about 0.05 GB
+{"k": 1.0, "N": 28, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 9, "min_abs_B": 0.0, "starts_reaching_zero": 13270, "gpu": true, "seconds": 0.9}
+++ seq -s, 262 292
++ python gpu_torus.py 2 262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292 20000 results/box_gt_k2.jsonl
+N=262 terms=262 primes=55 batch=20000 planned GPU memory about 0.47 GB
+{"k": 2.0, "N": 262, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 55, "min_abs_B": 0.014274417653019636, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.7}
+N=263 terms=263 primes=56 batch=20000 planned GPU memory about 0.47 GB
+{"k": 2.0, "N": 263, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.013736723958184812, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
+N=264 terms=264 primes=56 batch=20000 planned GPU memory about 0.47 GB
+{"k": 2.0, "N": 264, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.013196791038799309, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
+N=265 terms=265 primes=56 batch=20000 planned GPU memory about 0.47 GB
+{"k": 2.0, "N": 265, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.012650858430482415, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
+N=266 terms=266 primes=56 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 266, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.012098803771683217, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
+N=267 terms=267 primes=56 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 267, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.011545716982428402, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=268 terms=268 primes=56 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 268, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 56, "min_abs_B": 0.01092166346252349, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
+N=269 terms=269 primes=57 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 269, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 57, "min_abs_B": 0.010312029208016415, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=270 terms=270 primes=57 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 270, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 57, "min_abs_B": 0.00968872114885005, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=271 terms=271 primes=58 batch=20000 planned GPU memory about 0.48 GB
+{"k": 2.0, "N": 271, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.009071610196754218, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=272 terms=272 primes=58 batch=20000 planned GPU memory about 0.49 GB
+{"k": 2.0, "N": 272, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.008441329733340766, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=273 terms=273 primes=58 batch=20000 planned GPU memory about 0.49 GB
+{"k": 2.0, "N": 273, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.007817992443599448, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=274 terms=274 primes=58 batch=20000 planned GPU memory about 0.49 GB
+{"k": 2.0, "N": 274, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.00718569421234735, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=275 terms=275 primes=58 batch=20000 planned GPU memory about 0.49 GB
+{"k": 2.0, "N": 275, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.0065493745797837585, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=276 terms=276 primes=58 batch=20000 planned GPU memory about 0.49 GB
+{"k": 2.0, "N": 276, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 58, "min_abs_B": 0.005905501214146171, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=277 terms=277 primes=59 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 277, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 59, "min_abs_B": 0.005250326502402036, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=278 terms=278 primes=59 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 278, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 59, "min_abs_B": 0.004435731804707773, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.4}
+N=279 terms=279 primes=59 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 279, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 59, "min_abs_B": 0.0036104155727658205, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=280 terms=280 primes=59 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 280, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 59, "min_abs_B": 0.0027882095353762796, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=281 terms=281 primes=60 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 281, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 60, "min_abs_B": 0.0019479621626044494, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=282 terms=282 primes=60 batch=20000 planned GPU memory about 0.50 GB
+{"k": 2.0, "N": 282, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 60, "min_abs_B": 0.0010860589364973705, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=283 terms=283 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 283, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.00020664238024703437, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.5}
+N=284 terms=284 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 284, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 18641, "gpu": true, "seconds": 6.5}
+N=285 terms=285 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 285, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19988, "gpu": true, "seconds": 6.5}
+N=286 terms=286 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 286, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 5.6}
+N=287 terms=287 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 287, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 4.6}
+N=288 terms=288 primes=61 batch=20000 planned GPU memory about 0.51 GB
+{"k": 2.0, "N": 288, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 3.8}
+N=289 terms=289 primes=61 batch=20000 planned GPU memory about 0.52 GB
+{"k": 2.0, "N": 289, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 3.5}
+N=290 terms=290 primes=61 batch=20000 planned GPU memory about 0.52 GB
+{"k": 2.0, "N": 290, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 3.1}
+N=291 terms=291 primes=61 batch=20000 planned GPU memory about 0.52 GB
+{"k": 2.0, "N": 291, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19998, "gpu": true, "seconds": 2.7}
+N=292 terms=292 primes=61 batch=20000 planned GPU memory about 0.52 GB
+{"k": 2.0, "N": 292, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 61, "min_abs_B": 0.0, "starts_reaching_zero": 19999, "gpu": true, "seconds": 2.6}
++ python gpu_torus.py 2 100,150,200,230,250,260 20000 results/box_gt_k2.jsonl
+N=100 terms=100 primes=25 batch=20000 planned GPU memory about 0.18 GB
+{"k": 2.0, "N": 100, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 25, "min_abs_B": 0.1479397466643158, "starts_reaching_zero": 0, "gpu": true, "seconds": 2.4}
+N=150 terms=150 primes=35 batch=20000 planned GPU memory about 0.27 GB
+{"k": 2.0, "N": 150, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 35, "min_abs_B": 0.09072240613882396, "starts_reaching_zero": 0, "gpu": true, "seconds": 3.2}
+N=200 terms=200 primes=46 batch=20000 planned GPU memory about 0.36 GB
+{"k": 2.0, "N": 200, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 46, "min_abs_B": 0.0512292597486857, "starts_reaching_zero": 0, "gpu": true, "seconds": 4.5}
+N=230 terms=230 primes=50 batch=20000 planned GPU memory about 0.41 GB
+{"k": 2.0, "N": 230, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 50, "min_abs_B": 0.03193947389372516, "starts_reaching_zero": 0, "gpu": true, "seconds": 5.3}
+N=250 terms=250 primes=53 batch=20000 planned GPU memory about 0.45 GB
+{"k": 2.0, "N": 250, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 53, "min_abs_B": 0.02065772783101288, "starts_reaching_zero": 0, "gpu": true, "seconds": 5.6}
+N=260 terms=260 primes=55 batch=20000 planned GPU memory about 0.46 GB
+{"k": 2.0, "N": 260, "sigma": 0.5001, "drop": [], "starts": 20000, "primes": 55, "min_abs_B": 0.015341882994560206, "starts_reaching_zero": 0, "gpu": true, "seconds": 6.3}
++ python gpu_torus.py 1.5 60,70,80,90,100,110,120,130,140,160 10000 results/box_gt_k1p5.jsonl
+N=60 terms=60 primes=17 batch=10000 planned GPU memory about 0.05 GB
+{"k": 1.5, "N": 60, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 17, "min_abs_B": 0.09055405885957057, "starts_reaching_zero": 0, "gpu": true, "seconds": 1.4}
+N=70 terms=70 primes=19 batch=10000 planned GPU memory about 0.06 GB
+{"k": 1.5, "N": 70, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 19, "min_abs_B": 0.06690751049193532, "starts_reaching_zero": 0, "gpu": true, "seconds": 1.1}
+N=80 terms=80 primes=22 batch=10000 planned GPU memory about 0.07 GB
+{"k": 1.5, "N": 80, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 22, "min_abs_B": 0.034831126370941094, "starts_reaching_zero": 0, "gpu": true, "seconds": 1.2}
+N=90 terms=90 primes=24 batch=10000 planned GPU memory about 0.08 GB
+{"k": 1.5, "N": 90, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 24, "min_abs_B": 0.0024493934345660422, "starts_reaching_zero": 0, "gpu": true, "seconds": 1.2}
+N=100 terms=100 primes=25 batch=10000 planned GPU memory about 0.09 GB
+{"k": 1.5, "N": 100, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 25, "min_abs_B": 0.0, "starts_reaching_zero": 5705, "gpu": true, "seconds": 1.2}
+N=110 terms=110 primes=29 batch=10000 planned GPU memory about 0.10 GB
+{"k": 1.5, "N": 110, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 29, "min_abs_B": 0.0, "starts_reaching_zero": 9999, "gpu": true, "seconds": 0.1}
+N=120 terms=120 primes=30 batch=10000 planned GPU memory about 0.11 GB
+{"k": 1.5, "N": 120, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 30, "min_abs_B": 0.0, "starts_reaching_zero": 9998, "gpu": true, "seconds": 0.1}
+N=130 terms=130 primes=31 batch=10000 planned GPU memory about 0.12 GB
+{"k": 1.5, "N": 130, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 31, "min_abs_B": 0.0, "starts_reaching_zero": 9998, "gpu": true, "seconds": 0.1}
+N=140 terms=140 primes=34 batch=10000 planned GPU memory about 0.13 GB
+{"k": 1.5, "N": 140, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 34, "min_abs_B": 0.0, "starts_reaching_zero": 9998, "gpu": true, "seconds": 0.1}
+N=160 terms=160 primes=37 batch=10000 planned GPU memory about 0.14 GB
+{"k": 1.5, "N": 160, "sigma": 0.5001, "drop": [], "starts": 10000, "primes": 37, "min_abs_B": 0.0, "starts_reaching_zero": 9998, "gpu": true, "seconds": 0.1}
++ python gpu_torus.py 3 1800,1900,2000,2050,2100,2120,2140,2150,2160,2170,2180,2184 4000 results/box_gt_k3.jsonl
+N=1800 terms=1800 primes=278 batch=4000 planned GPU memory about 0.64 GB
+{"k": 3.0, "N": 1800, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 278, "min_abs_B": 0.01980932167996781, "starts_reaching_zero": 0, "gpu": true, "seconds": 23.5}
+N=1900 terms=1900 primes=290 batch=4000 planned GPU memory about 0.68 GB
+{"k": 3.0, "N": 1900, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 290, "min_abs_B": 0.014280315846374153, "starts_reaching_zero": 0, "gpu": true, "seconds": 27.0}
+N=2000 terms=2000 primes=303 batch=4000 planned GPU memory about 0.72 GB
+{"k": 3.0, "N": 2000, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 303, "min_abs_B": 0.00904502869499757, "starts_reaching_zero": 0, "gpu": true, "seconds": 27.3}
+N=2050 terms=2050 primes=309 batch=4000 planned GPU memory about 0.73 GB
+{"k": 3.0, "N": 2050, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 309, "min_abs_B": 0.006528192394113189, "starts_reaching_zero": 0, "gpu": true, "seconds": 28.7}
+N=2100 terms=2100 primes=317 batch=4000 planned GPU memory about 0.75 GB
+{"k": 3.0, "N": 2100, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 317, "min_abs_B": 0.004074177451367733, "starts_reaching_zero": 0, "gpu": true, "seconds": 28.1}
+N=2120 terms=2120 primes=319 batch=4000 planned GPU memory about 0.76 GB
+{"k": 3.0, "N": 2120, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 319, "min_abs_B": 0.003109482635933969, "starts_reaching_zero": 0, "gpu": true, "seconds": 28.0}
+N=2140 terms=2140 primes=322 batch=4000 planned GPU memory about 0.77 GB
+{"k": 3.0, "N": 2140, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 322, "min_abs_B": 0.0021541734398589224, "starts_reaching_zero": 0, "gpu": true, "seconds": 30.0}
+N=2150 terms=2150 primes=324 batch=4000 planned GPU memory about 0.77 GB
+{"k": 3.0, "N": 2150, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 324, "min_abs_B": 0.001679982739657547, "starts_reaching_zero": 0, "gpu": true, "seconds": 30.1}
+N=2160 terms=2160 primes=325 batch=4000 planned GPU memory about 0.77 GB
+{"k": 3.0, "N": 2160, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 325, "min_abs_B": 0.001208072223200192, "starts_reaching_zero": 0, "gpu": true, "seconds": 30.0}
+N=2170 terms=2170 primes=326 batch=4000 planned GPU memory about 0.78 GB
+{"k": 3.0, "N": 2170, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 326, "min_abs_B": 0.0007384204879860717, "starts_reaching_zero": 0, "gpu": true, "seconds": 30.0}
+N=2180 terms=2180 primes=327 batch=4000 planned GPU memory about 0.78 GB
+{"k": 3.0, "N": 2180, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 327, "min_abs_B": 0.0002710064460560366, "starts_reaching_zero": 0, "gpu": true, "seconds": 33.4}
+N=2184 terms=2184 primes=327 batch=4000 planned GPU memory about 0.78 GB
+{"k": 3.0, "N": 2184, "sigma": 0.5001, "drop": [], "starts": 4000, "primes": 327, "min_abs_B": 8.466274230795046e-05, "starts_reaching_zero": 0, "gpu": true, "seconds": 33.4}
++ python gpu_torus.py 2 900,1000,1100,1200,1300,1400,1500 4000 results/box_gt_k2_drop2.jsonl 0.5001 2
+N=900 terms=450 primes=154 batch=4000 planned GPU memory about 0.16 GB
+{"k": 2.0, "N": 900, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 154, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.6}
+N=1000 terms=500 primes=168 batch=4000 planned GPU memory about 0.18 GB
+{"k": 2.0, "N": 1000, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 168, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.2}
+N=1100 terms=550 primes=184 batch=4000 planned GPU memory about 0.20 GB
+{"k": 2.0, "N": 1100, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 184, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.2}
+N=1200 terms=600 primes=196 batch=4000 planned GPU memory about 0.21 GB
+{"k": 2.0, "N": 1200, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 196, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.2}
+N=1300 terms=650 primes=211 batch=4000 planned GPU memory about 0.23 GB
+{"k": 2.0, "N": 1300, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 211, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.2}
+N=1400 terms=700 primes=222 batch=4000 planned GPU memory about 0.25 GB
+{"k": 2.0, "N": 1400, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 222, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.3}
+N=1500 terms=750 primes=239 batch=4000 planned GPU memory about 0.27 GB
+{"k": 2.0, "N": 1500, "sigma": 0.5001, "drop": [2], "starts": 4000, "primes": 239, "min_abs_B": 0.0, "starts_reaching_zero": 3998, "gpu": true, "seconds": 0.3}
++ python gpu_torus.py 4 14000,15000,15500,15800,16000,16100,16200,16238 600 results/box_gt_k4.jsonl
+N=14000 terms=14000 primes=1652 batch=600 planned GPU memory about 0.75 GB
+{"k": 4.0, "N": 14000, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1652, "min_abs_B": 0.012255481445901242, "starts_reaching_zero": 0, "gpu": true, "seconds": 136.3}
+N=15000 terms=15000 primes=1754 batch=600 planned GPU memory about 0.80 GB
+{"k": 4.0, "N": 15000, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1754, "min_abs_B": 0.006608372757740698, "starts_reaching_zero": 0, "gpu": true, "seconds": 149.8}
+N=15500 terms=15500 primes=1810 batch=600 planned GPU memory about 0.83 GB
+{"k": 4.0, "N": 15500, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1810, "min_abs_B": 0.003928692059545585, "starts_reaching_zero": 0, "gpu": true, "seconds": 155.1}
+N=15800 terms=15800 primes=1843 batch=600 planned GPU memory about 0.85 GB
+{"k": 4.0, "N": 15800, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1843, "min_abs_B": 0.0023633069588471084, "starts_reaching_zero": 0, "gpu": true, "seconds": 166.9}
+N=16000 terms=16000 primes=1862 batch=600 planned GPU memory about 0.86 GB
+{"k": 4.0, "N": 16000, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1862, "min_abs_B": 0.0013366366153736778, "starts_reaching_zero": 0, "gpu": true, "seconds": 168.6}
+N=16100 terms=16100 primes=1874 batch=600 planned GPU memory about 0.86 GB
+{"k": 4.0, "N": 16100, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1874, "min_abs_B": 0.0008282482702562515, "starts_reaching_zero": 0, "gpu": true, "seconds": 170.1}
+N=16200 terms=16200 primes=1883 batch=600 planned GPU memory about 0.87 GB
+{"k": 4.0, "N": 16200, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1883, "min_abs_B": 0.00032310232516698234, "starts_reaching_zero": 0, "gpu": true, "seconds": 170.3}
+N=16238 terms=16238 primes=1887 batch=600 planned GPU memory about 0.87 GB
+{"k": 4.0, "N": 16238, "sigma": 0.5001, "drop": [], "starts": 600, "primes": 1887, "min_abs_B": 0.00013198854487460332, "starts_reaching_zero": 0, "gpu": true, "seconds": 170.8}
++ echo ALLDONE
+ALLDONE

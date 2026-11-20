@@ -1,0 +1,47 @@
+== P1. regression against c5 tiers_fe2.log (r3 guess for the uncompensated high side, comp=False)
+P1a Y2 refl|dir|empty, polar, lx<=l, guess high side               B=0.9000000 row=refl  lx=0.0667 ly=0.8667 l=0.0667 h=1.0000 hE=0.6000 M-(1+l)=-0.1333
+P1b Y3 dir0, polar, lx<=l, guess high side, box 8                  B=0.4653168 row=dir0  lx=5.7919 ly=5.7919 l=8.0000 h=3.2081 hE=3.2081 M-(1+l)=+2.5838
+== P2. derived uncompensated high side (E(0), E(2B-1, 1/2)), lx <= l, w = 0, box 8
+P2a refl (Liu II 2.4), G src                                       B=0.9122807 row=refl  lx=0.2632 ly=0.5789 l=0.2632 h=1.0000 hE=0.8421 M-(1+l)=-0.4211
+P2b refl, G polar                                                  B=0.8888889 row=refl  lx=0.1111 ly=0.7778 l=0.1111 h=1.0000 hE=0.6667 M-(1+l)=-0.2222
+P2c refl | dir (proved rows), G polar                              B=0.8888889 row=refl  lx=0.1111 ly=0.7778 l=0.1111 h=1.0000 hE=0.6667 M-(1+l)=-0.2222
+P2d dir (Lemma 9.1), G polar                                       B=1.0000000 row=dir   lx=0.0000 ly=2.0000 l=0.0000 h=1.0000 hE=-0.0000 M-(1+l)=+1.0000  exact 1: CONFIRMED
+P2e dir0 (K + D), G polar                                          B=0.2500000 row=dir0  lx=4.5000 ly=4.5000 l=8.0000 h=4.5000 hE=4.5000 M-(1+l)=+0.0000  [= search bound]
+P2f dir0, G polar, box 16                                          B=0.2500000 row=dir0  lx=4.5000 ly=4.5000 l=8.0000 h=4.5000 hE=4.5000 M-(1+l)=+0.0000  [= search bound]
+P2g k0, G polar                                                    B=0.2500000 row=k0    lx=2.7000 ly=2.7000 l=6.2000 h=4.5000 hE=4.5000 M-(1+l)=-1.8000  [= search bound]
+P2h refl, K removed, G polar                                       B=0.8611111 row=refl  lx=0.3333 ly=0.6667 l=0.3333 h=1.0000 hE=0.8333 M-(1+l)=-0.3333
+P2i refl, K and P removed, G polar                                 B=0.5416667 row=refl  lx=6.2500 ly=6.2500 l=8.0000 h=2.7500 hE=2.7500 M-(1+l)=+3.5000
+P2j refl, strict h > 1 (h >= 11/10), G polar                       B=0.9051282 row=refl  lx=0.0000 ly=0.9231 l=0.1000 h=1.1000 hE=0.6385 M-(1+l)=-0.1769
+P2k refl, h >= 2, G polar                                          B=1.2380952 row=refl  lx=0.0000 ly=0.8571 l=1.0000 h=2.0000 hE=1.5714 M-(1+l)=-1.1429
+== P3. same with the energy necessity at beta0 = 1/2 (decisive test)
+P3a dir0, G polar, box 8                                           B=0.5000000 row=dir0  lx=3.0000 ly=3.0000 l=5.0000 h=3.0000 hE=3.0000 M-(1+l)=+0.0000  exact 1/2: CONFIRMED
+P3a dir0, G polar, box 16                                          B=0.5000000 row=dir0  lx=3.0000 ly=3.0000 l=5.0000 h=3.0000 hE=3.0000 M-(1+l)=+0.0000  exact 1/2: CONFIRMED
+P3b k0, G polar                                                    B=0.2500000 row=k0    lx=2.7000 ly=2.7000 l=6.2000 h=4.5000 hE=4.5000 M-(1+l)=-1.8000  [= search bound]  exact 1/2: NOT confirmed
+P3c dir0, G = 0                                                    B=0.2500000 row=dir0  lx=1.5000 ly=4.5000 l=5.0000 h=4.5000 hE=3.0000 M-(1+l)=+0.0000  [= search bound]  exact 1/2: NOT confirmed
+P3d refl, K and P removed, G polar                                 B=0.5416667 row=refl  lx=6.2500 ly=6.2500 l=8.0000 h=2.7500 hE=2.7500 M-(1+l)=+3.5000
+P3e refl, K removed, G polar                                       B=0.8611111 row=refl  lx=0.3333 ly=0.6667 l=0.3333 h=1.0000 hE=0.8333 M-(1+l)=-0.3333
+P3f refl | dir | dir0, G polar, free geometry                      B=0.5000000 row=dir0  lx=3.0000 ly=3.0000 l=5.0000 h=3.0000 hE=3.0000 M-(1+l)=+0.0000  exact 1/2: CONFIRMED
+P3g dir0, G polar, guess high side (comp=False)                    B=0.5000000 row=dir0  lx=5.0000 ly=5.0000 l=7.0000 h=3.0000 hE=3.0000 M-(1+l)=+2.0000  exact 1/2: CONFIRMED
+== P3'. necessity at beta0 = B (self-consistent reading: the abscissa of the system is beta*)
+P3' dir0, nec at beta0 = B = 1/2  : feasible at B: True; at B - 1e-6 with nec(B): False   lx=3.0000 ly=3.0000 l=5.0000 h=3.0000 hE=3.0000 M-(1+l)=+0.0000
+P3' dir0, nec at beta0 = B = 7/12 : feasible at B: True; at B - 1e-6 with nec(B): False   lx=2.5000 ly=2.5000 l=4.0000 h=2.5000 hE=2.5000 M-(1+l)=+0.0000
+P3' dir0, nec at beta0 = B = 3/5  : feasible at B: True; at B - 1e-6 with nec(B): False   lx=2.4000 ly=2.4000 l=3.8000 h=2.4000 hE=2.4000 M-(1+l)=+0.0000
+P3' dir0, nec at beta0 = B = 2/3  : feasible at B: True; at B - 1e-6 with nec(B): False   lx=2.0000 ly=2.0000 l=3.0000 h=2.0000 hE=2.0000 M-(1+l)=+0.0000
+P3' dir0, nec at beta0 = B = 3/4  : feasible at B: True; at B - 1e-6 with nec(B): False   lx=1.5000 ly=1.5000 l=2.0000 h=1.5000 hE=1.5000 M-(1+l)=+0.0000
+P3' dir0, nec at beta0 = B = 5/6  : feasible at B: True; at B - 1e-6 with nec(B): False   lx=1.0000 ly=1.0000 l=1.0000 h=1.0000 hE=1.0000 M-(1+l)=+0.0000
+== P4. normaliser floors: dir0 + necessity(1/2), G polar, lx <= l, b <= 1: max h and min l at fixed B
+P4 B = 5/6   max h (b <= 0) = 5.2000; max h (b <= 1) = 5.7000; 6(1-B) = 1.0000; min l = 1.0000 at lx=1.0000 ly=1.0000 l=1.0000 h=1.0000 hE=1.0000 M-(1+l)=+0.0000   h = 1 line
+P4 B = 3/4   max h (b <= 0) = 5.1000; max h (b <= 1) = 5.6000; 6(1-B) = 1.5000; min l = 2.0000 at lx=1.5000 ly=1.5000 l=2.0000 h=1.5000 hE=1.5000 M-(1+l)=+0.0000   
+P4 B = 2/3   max h (b <= 0) = 5.0000; max h (b <= 1) = 5.5000; 6(1-B) = 2.0000; min l = 3.0000 at lx=2.0000 ly=2.0000 l=3.0000 h=2.0000 hE=2.0000 M-(1+l)=+0.0000   H_eta: zero-free reading stops here (h_eff = 2)
+P4 B = 3/5   max h (b <= 0) = 4.9200; max h (b <= 1) = 5.4200; 6(1-B) = 2.4000; min l = 3.8000 at lx=2.4000 ly=2.4000 l=3.8000 h=2.4000 hE=2.4000 M-(1+l)=+0.0000   slot term a_p^2 Q^(3-5s), slots <= 1/5
+P4 B = 7/12  max h (b <= 0) = 4.9000; max h (b <= 1) = 5.4000; 6(1-B) = 2.5000; min l = 4.0000 at lx=2.5000 ly=2.5000 l=4.0000 h=2.5000 hE=2.5000 M-(1+l)=+0.0000   (2.2) false below
+P4 B = 1/2   max h (b <= 0) = 4.8000; max h (b <= 1) = 5.3000; 6(1-B) = 3.0000; min l = 5.0000 at lx=3.0000 ly=3.0000 l=5.0000 h=3.0000 hE=3.0000 M-(1+l)=+0.0000   h_eff = 3
+== P5. cone (t, t, 2t - 1): B_low = 1 - t/6, derived high side values
+P5 t = 6/5  l = 7/5   h = hE = 6/5  B_low = 4/5   H0 = 1/5    E(2B-1,1/2) = -3/5   ksig(1/2) = -3/5  dir0 consistent with zeros on the line: True
+P5 t = 3/2  l = 2     h = hE = 3/2  B_low = 3/4   H0 = 0      E(2B-1,1/2) = -3/4   ksig(1/2) = -1/2  dir0 consistent with zeros on the line: True
+P5 t = 2    l = 3     h = hE = 2    B_low = 2/3   H0 = -1/3   E(2B-1,1/2) = -1     ksig(1/2) = -1/3  dir0 consistent with zeros on the line: True
+P5 t = 12/5 l = 19/5  h = hE = 12/5 B_low = 3/5   H0 = -3/5   E(2B-1,1/2) = -6/5   ksig(1/2) = -1/5  dir0 consistent with zeros on the line: True
+P5 t = 5/2  l = 4     h = hE = 5/2  B_low = 7/12  H0 = -2/3   E(2B-1,1/2) = -5/4   ksig(1/2) = -1/6  dir0 consistent with zeros on the line: True
+P5 t = 3    l = 5     h = hE = 3    B_low = 1/2   H0 = -1     E(2B-1,1/2) = -3/2   ksig(1/2) = 0     dir0 consistent with zeros on the line: True
+P5 t = 7/2  l = 6     h = hE = 7/2  B_low = 5/12  H0 = -4/3   E(2B-1,1/2) = -7/4   ksig(1/2) = 1/6   dir0 consistent with zeros on the line: False
+scripts/memcap.sh 8 python3   52.54s user 0.22s system 99% cpu 52.959 total

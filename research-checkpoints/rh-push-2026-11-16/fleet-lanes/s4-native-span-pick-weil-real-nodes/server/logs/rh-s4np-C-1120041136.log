@@ -1,0 +1,526 @@
+  values parts ZETA four 8 800 sec 0.0
+{"kind": "box", "family": "four", "n": 8, "bits": 800, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.12804082985747808, "width_over_Z_first3": [[-0.06434053990655618, 0.00012976142500607346], [-0.01660367791992491, 0.5400185235910001], [-9474.754380301463, 2442.910337275603]]}
+  values c LCHI4 four 8 800 sec 0.0
+  values Z LCHI4 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.32031839645896, "ratio_first4": [17.061796982944163, 70.32031839645896, 0.00010575109917132377, 1.1057056855859385e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06711344630457461}
+  values c LCHI5 four 8 800 sec 0.0
+  values Z LCHI5 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.51781335914282, "ratio_first4": [20.354815739835757, 114.51781335914282, 0.00021108492670972767, 2.2114113711565023e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.05940148269291967}
+  values c DH four 8 800 sec 0.0
+  values Z DH four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.038539624138316, "ratio_first4": [16.30772913768296, 54.038539624138316, 7.568151238032122e-05, 7.915978716546416e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06827538693323731}
+  values c EA-1/8 four 8 800 sec 0.0
+  values Z EA-1/8 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9066.132170960936, "ratio_first4": [9066.132170960936, 1.874209267570465, 0.0004124320055814435, 8.630875178800748e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 8 800 sec 0.0
+  values Z EA-1/4 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14510.382226138392, "ratio_first4": [14510.382226138392, 1.9419399509074422, 0.0004217079322213778, 8.824408015688689e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 8 800 sec 0.0
+  values Z TNR four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2913.968138494336, "ratio_first4": [2913.968138494336, 1.3109826584276956, 3.0671090875507475e-06, 2.269450922889785e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 8 800 sec 0.0
+  values Z SGNLIOU four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.35233612311586, "ratio_first4": [27.680849206235994, 116.35233612311586, 0.00021108499314730672, 2.2114113711565023e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.04148653894662857}
+  values c SGNP:2 four 8 800 sec 0.0
+  values Z SGNP:2 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.1136813472937, "ratio_first4": [5.783800421286828, 89.1136813472937, 0.00021066979524475603, 2.211411371141128e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32842863141559064}
+  values c SGNR:7:100 four 8 800 sec 0.0
+  values Z SGNR:7:100 four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.84934452702554, "ratio_first4": [17.470430911404872, 112.84934452702554, 0.00021108486027259193, 2.2114113711565023e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.0714208097779192}
+  values c WTRE four 8 800 sec 0.0
+  values Z WTRE four 8 800 sec 0.0
+{"kind": "control", "family": "four", "n": 8, "bits": 800, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.407111508140087, "ratio_first4": [17.254113504045065, 30.407111508140087, 3.669879654326164e-05, 3.834885194455095e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.061276853550225496}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 198, in _work
+    o = get(code); return k, pack(logder(o, nu).real)
+                                  ^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 126, in logder
+    y = obj.completed(x)
+        ^^^^^^^^^^^^^
+AttributeError: 'Heat' object has no attribute 'completed'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/run2_box.py", line 93, in <module>
+    main()
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/run2_box.py", line 59, in main
+    own = [lib2.unpack(t) for t in lib2.values(code, family, n, bits, pool, 'c')]
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 215, in values
+    res = dict(pool.imap_unordered(_work, jobs, chunksize=2) if pool else map(_work, jobs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 451, in <genexpr>
+    return (item for chunk in result for item in chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+AttributeError: 'Heat' object has no attribute 'completed'
+  values parts ZETA four 12 800 sec 0.0
+{"kind": "box", "family": "four", "n": 12, "bits": 800, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.1279819874832459, "width_over_Z_first3": [[-0.06431241331495545, 0.0001297006128333697], [-0.016595437721637955, 0.5397709627926542], [-9467.173744453752, 2440.9372496849423]]}
+  values c LCHI4 four 12 800 sec 0.0
+  values Z LCHI4 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.35523482210003, "ratio_first4": [17.069258842497835, 70.35523482210003, 0.00010583577709051615, 1.1086333201610691e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06708431243896484}
+  values c LCHI5 four 12 800 sec 0.0
+  values Z LCHI5 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.57467534165248, "ratio_first4": [20.363717778492255, 114.57467534165248, 0.000211253948426823, 2.217266640306723e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.05937577650183812}
+  values c DH four 12 800 sec 0.0
+  values Z DH four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.065371593810305, "ratio_first4": [16.31486121085124, 54.065371593810305, 7.574211272433576e-05, 7.936938265989521e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06824570323806256}
+  values c EA-1/8 four 12 800 sec 0.0
+  values Z EA-1/8 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9070.382969652564, "ratio_first4": [9070.382969652564, 1.875068855756066, 0.0004127653875527781, 8.653281405459496e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 12 800 sec 0.0
+  values Z EA-1/4 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14517.18564711426, "ratio_first4": [14517.18564711426, 1.9428306031242626, 0.00042204881222067175, 8.847316664236225e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 12 800 sec 0.0
+  values Z TNR four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2915.334398296971, "ratio_first4": [2915.334398296971, 1.311583928106707, 3.0695883298502493e-06, 2.2753425423044733e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 12 800 sec 0.0
+  values Z SGNLIOU four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.41010900846464, "ratio_first4": [27.692955235238085, 116.41010900846464, 0.00021125401491760051, 2.217266640306723e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.04146853258134797}
+  values c SGNP:2 four 12 800 sec 0.0
+  values Z SGNP:2 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.1579293157233, "ratio_first4": [5.78632992661814, 89.1579293157233, 0.00021083848455425542, 2.217266640291308e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32829123025294393}
+  values c SGNR:7:100 four 12 800 sec 0.0
+  values Z SGNR:7:100 four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.9053780581112, "ratio_first4": [17.478071484196434, 112.9053780581112, 0.00021125388193648915, 2.217266640306723e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.07138996000867337}
+  values c WTRE four 12 800 sec 0.0
+  values Z WTRE four 12 800 sec 0.0
+{"kind": "control", "family": "four", "n": 12, "bits": 800, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.422209671404193, "ratio_first4": [17.261659471906423, 30.422209671404193, 3.672818231563185e-05, 3.8450390198656915e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.06125014019198716}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 198, in _work
+    o = get(code); return k, pack(logder(o, nu).real)
+                                  ^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 126, in logder
+    y = obj.completed(x)
+        ^^^^^^^^^^^^^
+AttributeError: 'Heat' object has no attribute 'completed'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/run2_box.py", line 93, in <module>
+    main()
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/run2_box.py", line 59, in main
+    own = [lib2.unpack(t) for t in lib2.values(code, family, n, bits, pool, 'c')]
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s4-native-span-pick-weil-real-nodes/lib2.py", line 215, in values
+    res = dict(pool.imap_unordered(_work, jobs, chunksize=2) if pool else map(_work, jobs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 451, in <genexpr>
+    return (item for chunk in result for item in chunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+AttributeError: 'Heat' object has no attribute 'completed'
+  values parts ZETA four 16 1200 sec 0.0
+{"kind": "box", "family": "four", "n": 16, "bits": 1200, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.12798176084691337, "width_over_Z_first3": [[-0.0643123050821079, 0.0001297003721215716], [-0.016595405105101796, 0.539770010170228], [-9467.14457903988, 2440.9294410727143]]}
+  values c LCHI4 four 16 1200 sec 0.0
+  values Z LCHI4 four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.35537309796892, "ratio_first4": [17.0692875687966, 70.35537309796892, 0.00010583610313858857, 1.1086449267085385e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06708420033100992}
+  values c LCHI5 four 16 1200 sec 0.1
+  values Z LCHI5 four 16 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.57490052621516, "ratio_first4": [20.363752049121477, 114.57490052621516, 0.0002112545992364506, 2.217289853401662e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.059375677548814565}
+  values c DH four 16 1200 sec 0.1
+  values Z DH four 16 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.0654778536537, "ratio_first4": [16.314888667554648, 54.0654778536537, 7.574234606291494e-05, 7.937021359695141e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06824558903463185}
+  values c EA-1/8 four 16 1200 sec 0.0
+  values Z EA-1/8 four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9070.399803437684, "ratio_first4": [9070.399803437684, 1.8750721650037254, 0.0004127667080026028, 8.653367755573748e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 16 1200 sec 0.0
+  values Z EA-1/4 four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14517.212589657318, "ratio_first4": [14517.212589657318, 1.9428340319624124, 0.0004220501623684722, 8.847404950606328e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 16 1200 sec 0.0
+  values Z TNR four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2915.339808885804, "ratio_first4": [2915.339808885804, 1.3115862428782585, 3.0695981495625952e-06, 2.2753652476897815e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 16 1200 sec 0.0
+  values Z SGNLIOU four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.41033780038057, "ratio_first4": [27.69300184043126, 116.41033780038057, 0.00021125466572743294, 2.217289853401662e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.041468463256023824}
+  values c SGNP:2 four 16 1200 sec 0.0
+  values Z SGNP:2 four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.15810454632519, "ratio_first4": [5.7863396645829654, 89.15810454632519, 0.00021083913408396427, 2.2172898533862463e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32829070155275986}
+  values c SGNR:7:100 four 16 1200 sec 0.0
+  values Z SGNR:7:100 four 16 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.90559996184435, "ratio_first4": [17.478100898496603, 112.90559996184435, 0.0002112545327459119, 2.217289853401662e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.0713898412650451}
+  values c WTRE four 16 1200 sec 0.0
+  values Z WTRE four 16 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 16, "bits": 1200, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.422269463081197, "ratio_first4": [17.2616885220012, 30.422269463081197, 3.6728295464071596e-05, 3.8450792744991166e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.061250037397257984}
+  values parts ZETA four 24 1200 sec 0.0
+{"kind": "box", "family": "four", "n": 24, "bits": 1200, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.12798175996410138, "width_over_Z_first3": [[-0.06431230466070538, 0.00012970037117128238], [-0.016595404976337273, 0.5397700064612108], [-9467.144465484977, 2440.9294102456647]]}
+  values c LCHI4 four 24 1200 sec 0.0
+  values Z LCHI4 four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.35537364385955, "ratio_first4": [17.069287680642084, 70.35537364385955, 0.00010583610440805357, 1.1086449725294934e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0670841999235563}
+  values c LCHI5 four 24 1200 sec 0.1
+  values Z LCHI5 four 24 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.57490141520718, "ratio_first4": [20.363752182553743, 114.57490141520718, 0.00021125460177037154, 2.217289945043571e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.05937567714136094}
+  values c DH four 24 1200 sec 0.1
+  values Z DH four 24 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.065478273150276, "ratio_first4": [16.31488877445698, 54.065478273150276, 7.574234697141644e-05, 7.937021687736957e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06824558856897056}
+  values c EA-1/8 four 24 1200 sec 0.0
+  values Z EA-1/8 four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9070.399869894725, "ratio_first4": [9070.399869894725, 1.8750721778882404, 0.0004127667132155269, 8.653368091778235e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 24 1200 sec 0.0
+  values Z EA-1/4 four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14517.21269602209, "ratio_first4": [14517.21269602209, 1.9428340453125514, 0.00042205016769863914, 8.847405294349635e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 24 1200 sec 0.0
+  values Z TNR four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2915.3398302459277, "ratio_first4": [2915.3398302459277, 1.311586251890793, 3.0695981883292443e-06, 2.2753653360932826e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 24 1200 sec 0.0
+  values Z SGNLIOU four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.41033870361385, "ratio_first4": [27.693002021887995, 116.41033870361385, 0.0002112546682613547, 2.217289945043571e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.04146846302319318}
+  values c SGNP:2 four 24 1200 sec 0.0
+  values Z SGNP:2 four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.15810523810711, "ratio_first4": [5.78633970249761, 89.15810523810711, 0.00021083913661290186, 2.217289945028156e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32829069945728406}
+  values c SGNR:7:100 four 24 1200 sec 0.0
+  values Z SGNR:7:100 four 24 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.9056008378842, "ratio_first4": [17.478101013020815, 112.9056008378842, 0.00021125453527983206, 2.217289945043571e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.07138984085759148}
+  values c WTRE four 24 1200 sec 0.0
+  values Z WTRE four 24 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 24, "bits": 1200, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.42226969912901, "ratio_first4": [17.26168863510738, 30.42226969912901, 3.672829590461394e-05, 3.845079433418532e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.06125003698980436}
+  values parts ZETA four 32 1200 sec 0.0
+{"kind": "box", "family": "four", "n": 32, "bits": 1200, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.127981759964088, "width_over_Z_first3": [[-0.064312304660699, 0.0001297003711712678], [-0.016595404976335295, 0.5397700064611546], [-9467.144465483256, 2440.9294102451913]]}
+  values c LCHI4 four 32 1200 sec 0.0
+  values Z LCHI4 four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.35537364386794, "ratio_first4": [17.06928768064378, 70.35537364386794, 0.0001058361044080728, 1.108644972530197e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0670841999235563}
+  values c LCHI5 four 32 1200 sec 0.1
+  values Z LCHI5 four 32 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.57490141522084, "ratio_first4": [20.363752182555764, 114.57490141522084, 0.00021125460177040994, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.05937567714136094}
+  values c DH four 32 1200 sec 0.1
+  values Z DH four 32 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.06547827315672, "ratio_first4": [16.3148887744586, 54.06547827315672, 7.57423469714302e-05, 7.937021687741996e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06824558856897056}
+  values c EA-1/8 four 32 1200 sec 0.0
+  values Z EA-1/8 four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9070.399869895748, "ratio_first4": [9070.399869895748, 1.8750721778884358, 0.000412766713215607, 8.65336809178333e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 32 1200 sec 0.0
+  values Z EA-1/4 four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14517.212696023724, "ratio_first4": [14517.212696023724, 1.942834045312754, 0.000422050167698721, 8.847405294354844e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 32 1200 sec 0.0
+  values Z TNR four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2915.339830246256, "ratio_first4": [2915.339830246256, 1.3115862518909296, 3.0695981883298397e-06, 2.2753653360946222e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 32 1200 sec 0.0
+  values Z SGNLIOU four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.41033870362772, "ratio_first4": [27.693002021890745, 116.41033870362772, 0.00021125466826139307, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.04146846302319318}
+  values c SGNP:2 four 32 1200 sec 0.0
+  values Z SGNP:2 four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.15810523811774, "ratio_first4": [5.786339702498184, 89.15810523811774, 0.0002108391366129402, 2.2172899450295634e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32829069945728406}
+  values c SGNR:7:100 four 32 1200 sec 0.0
+  values Z SGNR:7:100 four 32 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.90560083789765, "ratio_first4": [17.47810101302255, 112.90560083789765, 0.00021125453527987044, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.07138984085759148}
+  values c WTRE four 32 1200 sec 0.1
+  values Z WTRE four 32 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 32, "bits": 1200, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.422269699132638, "ratio_first4": [17.261688635109095, 30.422269699132638, 3.672829590462062e-05, 3.8450794334209725e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.06125003698980436}
+  values parts ZETA four 40 1200 sec 0.0
+{"kind": "box", "family": "four", "n": 40, "bits": 1200, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 0.127981759964088, "width_over_Z_first3": [[-0.064312304660699, 0.0001297003711712678], [-0.016595404976335295, 0.5397700064611546], [-9467.144465483256, 2440.9294102451913]]}
+  values c LCHI4 four 40 1200 sec 0.0
+  values Z LCHI4 four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 70.35537364386794, "ratio_first4": [17.06928768064378, 70.35537364386794, 0.0001058361044080728, 1.108644972530197e-19], "Zc_over_Z_first4": [-0.0977652296586788, -0.16757591788137502, -0.0019656900951944005, -6.952368487874585e-12], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0670841999235563}
+  values c LCHI5 four 40 1200 sec 0.1
+  values Z LCHI5 four 40 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 114.57490141522084, "ratio_first4": [20.363752182555764, 114.57490141522084, 0.00021125460177040994, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.3096398343995004, -0.9014168891092815, -0.9999778339586057, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.05937567714136094}
+  values c DH four 40 1200 sec 0.1
+  values Z DH four 40 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 54.06547827315672, "ratio_first4": [16.3148887744586, 54.06547827315672, 7.57423469714302e-05, 7.937021687741996e-20], "Zc_over_Z_first4": [-0.049248097368399496, 0.10276149281770729, 0.28293625906671216, 0.28407904383646226], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.06824558856897056}
+  values c EA-1/8 four 40 1200 sec 0.0
+  values Z EA-1/8 four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 9070.399869895748, "ratio_first4": [9070.399869895748, 1.8750721778884358, 0.000412766713215607, 8.65336809178333e-20], "Zc_over_Z_first4": [2.1764342297972976, 2.012107721573972, 2.0075344098582177, 2.007511775870008], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.295218942454085}
+  values c EA-1/4 four 40 1200 sec 0.0
+  values Z EA-1/4 four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 14517.212696023724, "ratio_first4": [14517.212696023724, 1.942834045312754, 0.000422050167698721, 8.847405294354844e-20], "Zc_over_Z_first4": [2.882887875046518, 2.048683545191416, 2.0301946669347233, 2.030103530256754], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 4.145410955883563}
+  values c TNR four 40 1200 sec 0.0
+  values Z TNR four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 2915.339830246256, "ratio_first4": [2915.339830246256, 1.3115862518909296, 3.0695981883298397e-06, 2.2753653360946222e-30], "Zc_over_Z_first4": [1.3781206580733203, 1.7079549196575285, 1.0074926724955298, 1.0000000000264921], "hybrid_negatives": 0, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 6.1405382416560315}
+  values c SGNLIOU four 40 1200 sec 0.0
+  values Z SGNLIOU four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 116.41033870362772, "ratio_first4": [27.693002021890745, 116.41033870362772, 0.00021125466826139307, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.7810007830011909, -0.9318767142190605, -0.9999784634383487, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.04146846302319318}
+  values c SGNP:2 four 40 1200 sec 0.0
+  values Z SGNP:2 four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 89.15810523811774, "ratio_first4": [5.786339702498184, 89.15810523811774, 0.0002108391366129402, 2.2172899450295634e-19], "Zc_over_Z_first4": [0.6278671581826384, -0.47961486334928494, -0.9960445652924648, -0.9999999999860952], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.32829069945728406}
+  values c SGNR:7:100 four 40 1200 sec 0.0
+  values Z SGNR:7:100 four 40 1200 sec 0.0
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 112.90560083789765, "ratio_first4": [17.47810101302255, 112.90560083789765, 0.00021125453527987044, 2.217289945044979e-19], "Zc_over_Z_first4": [-0.12405695723997791, -0.873714170001373, -0.9999772044830627, -1.0], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.07138984085759148}
+  values c WTRE four 40 1200 sec 0.0
+  values Z WTRE four 40 1200 sec 0.1
+{"kind": "control", "family": "four", "n": 40, "bits": 1200, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1], "coords_undecided": [], "max_ratio": 30.422269699132638, "ratio_first4": [17.261688635109095, 30.422269699132638, 3.672829590462062e-05, 3.8450794334209725e-20], "Zc_over_Z_first4": [-0.11013897845926152, 0.4951301140435998, 0.6522879166999396, 0.6531730600218842], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 0.06125003698980436}
+  values parts ZETA geo:1 8 1500 sec 0.0
+{"kind": "box", "family": "geo:1", "n": 8, "bits": 1500, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 5.831764940382336e-05, "width_over_Z_first3": [[-1.1302173713590844e-05, 9.880023348715645e-09], [-7.448644333262394e-08, 2.1464182757893295e-05], [-0.0002501471417036312, 3.3727584269020345e-06]]}
+  values c LCHI4 geo:1 8 1500 sec 0.1
+  values Z LCHI4 geo:1 8 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15934285.349494474, "ratio_first4": [97128.68139149358, 15934285.349494474, 4667.556502663113, 802.0285020285713], "Zc_over_Z_first4": [-0.0977652296586788, -0.18688824273097993, -0.16757591788137502, -0.04704114164081091], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 2.152356319129467e-05}
+  values c LCHI5 geo:1 8 1500 sec 0.2
+  values Z LCHI5 geo:1 8 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 22003465.216824815, "ratio_first4": [115875.04028757414, 22003465.216824815, 7601.193746047429, 1527.2684891368067], "Zc_over_Z_first4": [-0.3096398343995004, -0.6389598649943836, -0.9014168891092815, -0.9938355537405478], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 2.1257088519632816e-05}
+  values c DH geo:1 8 1500 sec 0.2
+  values Z DH geo:1 8 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 13961655.581044566, "ratio_first4": [92835.95562742771, 13961655.581044566, 3586.8429320104765, 574.0101301372201], "Zc_over_Z_first4": [-0.049248097368399496, -0.03995406726708881, 0.10276149281770729, 0.25063483348518817], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 2.085760934278369e-05}
+  values c EA-1/8 geo:1 8 1500 sec 0.1
+  values Z EA-1/8 geo:1 8 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 119072009.0707304, "ratio_first4": [119072009.0707304, 48000.06384687616, 300083.07547351357, 37.65143768725445], "Zc_over_Z_first4": [2.1764342297972976, 2.0302821427998965, 2.012107721573972, 2.0081502391285158], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.3087028430891223}
+  values c EA-1/4 geo:1 8 1500 sec 0.1
+  values Z EA-1/4 geo:1 8 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 190575245.4817108, "ratio_first4": [190575245.4817108, 52360.84999136609, 310927.55912395986, 38.56739297673362], "Zc_over_Z_first4": [2.882887875046518, 2.1238828535733174, 2.048683545191416, 2.0326757446826385], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.2829930412117392}
+  values c TNR geo:1 8 1500 sec 0.0
+  values Z TNR geo:1 8 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 38271231.22360577, "ratio_first4": [38271231.22360577, 37960.40413562459, 209903.8324270984, 6.814488562277445], "Zc_over_Z_first4": [1.3781206580733203, 1.8147890519305345, 1.7079549196575285, 1.1824639029899287], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 3.6263372749090195e-08}
+  values c SGNLIOU geo:1 8 1500 sec 0.1
+  values Z SGNLIOU geo:1 8 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 24288022.91394846, "ratio_first4": [157580.37596427498, 24288022.91394846, 7722.961378099236, 1527.9703107273976], "Zc_over_Z_first4": [-0.7810007830011909, -0.8091284424412938, -0.9318767142190605, -0.9947517756423654], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.235445961356163e-05}
+  values c SGNP:2 geo:1 8 1500 sec 0.0
+  values Z SGNP:2 geo:1 8 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 11762063.811061809, "ratio_first4": [32925.77616019762, 11762063.811061809, 5914.978093582616, 1453.0988751376715], "Zc_over_Z_first4": [0.6278671581826384, 0.12388570046263775, -0.47961486334928494, -0.8970077762734244], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.01831582497106865}
+  values c SGNR:7:100 geo:1 8 1500 sec 0.0
+  values Z SGNR:7:100 geo:1 8 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 20735953.792165745, "ratio_first4": [99454.9354597427, 20735953.792165745, 7490.448050856835, 1526.5692590506121], "Zc_over_Z_first4": [-0.12405695723997791, -0.5445474470880622, -0.873714170001373, -0.9929227150248825], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 2.864428097382188e-05}
+  values c WTRE geo:1 8 1500 sec 0.1
+  values Z WTRE geo:1 8 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 8, "bits": 1500, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 11318556.102979936, "ratio_first4": [98223.49280690328, 11318556.102979936, 2018.2916443417084, 284.4423247812418], "Zc_over_Z_first4": [-0.11013897845926152, 0.15692101222826016, 0.4951301140435998, 0.6286630516039838], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.6406935174018145e-05}
+  values parts ZETA geo:1 16 1500 sec 0.0
+{"kind": "box", "family": "geo:1", "n": 16, "bits": 1500, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 4.499305081855191e-05, "width_over_Z_first3": [[-8.802141344731893e-06, 7.457506880995565e-09], [-5.614135191152845e-08, 1.668550360442535e-05], [-0.00019306720855002344, 2.5276733887444623e-06]]}
+  values c LCHI4 geo:1 16 1500 sec 0.1
+  values Z LCHI4 geo:1 16 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 21141069.858833525, "ratio_first4": [124715.7011760206, 21141069.858833525, 6047.510225325797, 1093.1296162122912], "Zc_over_Z_first4": [-0.0977652296586788, -0.18688824273097993, -0.16757591788137502, -0.04704114164081091], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6784702893346548e-05}
+  values c LCHI5 geo:1 16 1500 sec 0.2
+  values Z LCHI5 geo:1 16 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 29193452.048984744, "ratio_first4": [148786.50354590404, 29193452.048984744, 9848.471438466087, 2081.599859806191], "Zc_over_Z_first4": [-0.3096398343995004, -0.6389598649943836, -0.9014168891092815, -0.9938355537405478], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6581383533775806e-05}
+  values c DH geo:1 16 1500 sec 0.2
+  values Z DH geo:1 16 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 18523851.525804415, "ratio_first4": [119203.73194147553, 18523851.525804415, 4647.285854085468, 782.350591870255], "Zc_over_Z_first4": [-0.049248097368399496, -0.03995406726708881, 0.10276149281770729, 0.25063483348518817], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6263569705188274e-05}
+  values c EA-1/8 geo:1 16 1500 sec 0.1
+  values Z EA-1/8 geo:1 16 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 157751678.7540993, "ratio_first4": [157751678.7540993, 61747.1409449484, 400410.79914866015, 50.06449683768032], "Zc_over_Z_first4": [2.1764342297972976, 2.0302821427998965, 2.012107721573972, 2.0081502391285158], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.3087028430891223}
+  values c EA-1/4 geo:1 16 1500 sec 0.1
+  values Z EA-1/4 geo:1 16 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 252482217.5953736, "ratio_first4": [252482217.5953736, 67356.84341437796, 414880.95331506216, 51.282427506742394], "Zc_over_Z_first4": [2.882887875046518, 2.1238828535733174, 2.048683545191416, 2.0326757446826385], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.2829930412117392}
+  values c TNR geo:1 16 1500 sec 0.0
+  values Z TNR geo:1 16 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 50703360.266003765, "ratio_first4": [50703360.266003765, 48832.152223109115, 280081.64457085246, 9.06111325443588], "Zc_over_Z_first4": [1.3781206580733203, 1.8147890519305345, 1.7079549196575285, 1.1824639029899287], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 2.741580829024315e-08}
+  values c SGNLIOU geo:1 16 1500 sec 0.1
+  values Z SGNLIOU geo:1 16 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 32224525.78791205, "ratio_first4": [202337.21696222536, 32224525.78791205, 10006.239426818636, 2082.556411804071], "Zc_over_Z_first4": [-0.7810007830011909, -0.8091284424412938, -0.9318767142190605, -0.9947517756423654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 9.632203727960587e-06}
+  values c SGNP:2 geo:1 16 1500 sec 0.0
+  values Z SGNP:2 geo:1 16 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15605507.69988592, "ratio_first4": [42277.53534542867, 15605507.69988592, 7663.729508814641, 1980.5099340985382], "Zc_over_Z_first4": [0.6278671581826384, 0.12388570046263775, -0.47961486334928494, -0.8970077762734244], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.0152074841898866}
+  values c SGNR:7:100 geo:1 16 1500 sec 0.0
+  values Z SGNR:7:100 geo:1 16 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 27511760.84113668, "ratio_first4": [127702.67065896747, 27511760.84113668, 9704.98400051139, 2080.646839914962], "Zc_over_Z_first4": [-0.12405695723997791, -0.5445474470880622, -0.873714170001373, -0.9929227150248825], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 2.2351567167788744e-05}
+  values c WTRE geo:1 16 1500 sec 0.2
+  values Z WTRE geo:1 16 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 16, "bits": 1500, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15017076.701329244, "ratio_first4": [126121.46692278271, 15017076.701329244, 2614.995522792723, 387.68239350124014], "Zc_over_Z_first4": [-0.11013897845926152, 0.15692101222826016, 0.4951301140435998, 0.6286630516039838], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.2789212632924318e-05}
+  values parts ZETA geo:1 24 1500 sec 0.0
+{"kind": "box", "family": "geo:1", "n": 24, "bits": 1500, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 4.494737288627332e-05, "width_over_Z_first3": [[-8.793522839726934e-06, 7.449187611205312e-09], [-5.607840685288162e-08, 1.6669048665548783e-05], [-0.0001928715261658795, 2.5247835576530018e-06]]}
+  values c LCHI4 geo:1 24 1500 sec 0.1
+  values Z LCHI4 geo:1 24 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 21164799.596477676, "ratio_first4": [124837.93465563659, 21164799.596477676, 6053.645870345834, 1094.47122150922], "Zc_over_Z_first4": [-0.0977652296586788, -0.18688824273097993, -0.16757591788137502, -0.04704114164081091], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6768346540629864e-05}
+  values c LCHI5 geo:1 24 1500 sec 0.3
+  values Z LCHI5 geo:1 24 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 29226220.16160512, "ratio_first4": [148932.32874575316, 29226220.16160512, 9858.46343889022, 2084.1546212512962], "Zc_over_Z_first4": [-0.3096398343995004, -0.6389598649943836, -0.9014168891092815, -0.9938355537405478], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6565260011702776e-05}
+  values c DH geo:1 24 1500 sec 0.3
+  values Z DH geo:1 24 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 18544643.573690433, "ratio_first4": [119320.56315679985, 18544643.573690433, 4652.000868239208, 783.3107759898157], "Zc_over_Z_first4": [-0.049248097368399496, -0.03995406726708881, 0.10276149281770729, 0.25063483348518817], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.624773722141981e-05}
+  values c EA-1/8 geo:1 24 1500 sec 0.1
+  values Z EA-1/8 geo:1 24 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 157927856.19034034, "ratio_first4": [157927856.19034034, 61808.094959207876, 400869.10361330584, 50.120264652768746], "Zc_over_Z_first4": [2.1764342297972976, 2.0302821427998965, 2.012107721573972, 2.0081502391285158], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.3087028430891223}
+  values c EA-1/4 geo:1 24 1500 sec 0.1
+  values Z EA-1/4 geo:1 24 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 252764190.31441987, "ratio_first4": [252764190.31441987, 67423.33507587227, 415355.8201108754, 51.33955199845064], "Zc_over_Z_first4": [2.882887875046518, 2.1238828535733174, 2.048683545191416, 2.0326757446826385], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.2829930412117392}
+  values c TNR geo:1 24 1500 sec 0.1
+  values Z TNR geo:1 24 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 50759985.89491004, "ratio_first4": [50759985.89491004, 48880.35713846839, 280402.22200893617, 9.071206604422139], "Zc_over_Z_first4": [1.3781206580733203, 1.8147890519305345, 1.7079549196575285, 1.1824639029899287], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 2.735760062932968e-08}
+  values c SGNLIOU geo:1 24 1500 sec 0.1
+  values Z SGNLIOU geo:1 24 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 32260696.121190373, "ratio_first4": [202535.5270535121, 32260696.121190373, 10016.391494499538, 2085.112347231848], "Zc_over_Z_first4": [-0.7810007830011909, -0.8091284424412938, -0.9318767142190605, -0.9947517756423654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 9.622774086892605e-06}
+  values c SGNP:2 geo:1 24 1500 sec 0.0
+  values Z SGNP:2 geo:1 24 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15623024.060505074, "ratio_first4": [42318.97142930688, 15623024.060505074, 7671.5049274652365, 1982.940627200984], "Zc_over_Z_first4": [0.6278671581826384, 0.12388570046263775, -0.47961486334928494, -0.8970077762734244], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.01519621763145551}
+  values c SGNR:7:100 geo:1 24 1500 sec 0.1
+  values Z SGNR:7:100 geo:1 24 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 27542641.343932807, "ratio_first4": [127827.831658294, 27542641.343932807, 9714.830422350065, 2083.200431712374], "Zc_over_Z_first4": [-0.12405695723997791, -0.5445474470880622, -0.873714170001373, -0.9929227150248825], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 2.232985571026802e-05}
+  values c WTRE geo:1 24 1500 sec 0.2
+  values Z WTRE geo:1 24 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 24, "bits": 1500, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15033932.57913884, "ratio_first4": [126245.0781891339, 15033932.57913884, 2617.6486285600595, 388.1581986984769], "Zc_over_Z_first4": [-0.11013897845926152, 0.15692101222826016, 0.4951301140435998, 0.6286630516039838], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.2776756193488836e-05}
+  values parts ZETA geo:1 32 1500 sec 0.0
+{"kind": "box", "family": "geo:1", "n": 32, "bits": 1500, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 4.494719518919041e-05, "width_over_Z_first3": [[-8.793489314617857e-06, 7.449155022633972e-09], [-5.60781602828108e-08, 1.6668984657776695e-05], [-0.00019287076499679214, 2.524772237671066e-06]]}
+  values c LCHI4 geo:1 32 1500 sec 0.1
+  values Z LCHI4 geo:1 32 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 21164892.655987993, "ratio_first4": [124838.41059928382, 21164892.655987993, 6053.66976120406, 1094.4764830487534], "Zc_over_Z_first4": [-0.0977652296586788, -0.18688824273097993, -0.16757591788137502, -0.04704114164081091], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.676828833296895e-05}
+  values c LCHI5 geo:1 32 1500 sec 0.2
+  values Z LCHI5 geo:1 32 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 29226348.66637665, "ratio_first4": [148932.89654908897, 29226348.66637665, 9858.50234555199, 2084.1646405754395], "Zc_over_Z_first4": [-0.3096398343995004, -0.6389598649943836, -0.9014168891092815, -0.9938355537405478], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6565201804041862e-05}
+  values c DH geo:1 32 1500 sec 0.2
+  values Z DH geo:1 32 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 18544725.11263637, "ratio_first4": [119321.01806551148, 18544725.11263637, 4652.0192274719075, 783.3145416627123], "Zc_over_Z_first4": [-0.049248097368399496, -0.03995406726708881, 0.10276149281770729, 0.25063483348518817], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6247679013758898e-05}
+  values c EA-1/8 geo:1 32 1500 sec 0.1
+  values Z EA-1/8 geo:1 32 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 157928547.09329408, "ratio_first4": [157928547.09329408, 61808.33229810624, 400870.90093622624, 50.12048180967271], "Zc_over_Z_first4": [2.1764342297972976, 2.0302821427998965, 2.012107721573972, 2.0081502391285158], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.3087028430891223}
+  values c EA-1/4 geo:1 32 1500 sec 0.1
+  values Z EA-1/4 geo:1 32 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 252765296.10746932, "ratio_first4": [252765296.10746932, 67423.59397691237, 415357.68238593946, 51.33977443818116], "Zc_over_Z_first4": [2.882887875046518, 2.1238828535733174, 2.048683545191416, 2.0326757446826385], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.2829930412117392}
+  values c TNR geo:1 32 1500 sec 0.1
+  values Z TNR geo:1 32 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 50760207.95975048, "ratio_first4": [50760207.95975048, 48880.54483572912, 280403.47921069106, 9.071245907389812], "Zc_over_Z_first4": [1.3781206580733203, 1.8147890519305345, 1.7079549196575285, 1.1824639029899287], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 2.735760062932968e-08}
+  values c SGNLIOU geo:1 32 1500 sec 0.1
+  values Z SGNLIOU geo:1 32 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 32260837.96824968, "ratio_first4": [202536.29921862125, 32260837.96824968, 10016.431024428155, 2085.122371160144], "Zc_over_Z_first4": [-0.7810007830011909, -0.8091284424412938, -0.9318767142190605, -0.9947517756423654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 9.622774086892605e-06}
+  values c SGNP:2 geo:1 32 1500 sec 0.0
+  values Z SGNP:2 geo:1 32 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15623092.75338176, "ratio_first4": [42319.1327700537, 15623092.75338176, 7671.535203242929, 1982.9501599509526], "Zc_over_Z_first4": [0.6278671581826384, 0.12388570046263775, -0.47961486334928494, -0.8970077762734244], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.015196173451840878}
+  values c SGNR:7:100 geo:1 32 1500 sec 0.1
+  values Z SGNR:7:100 geo:1 32 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 27542762.4461764, "ratio_first4": [127828.31900090011, 27542762.4461764, 9714.868762160699, 2083.210446449365], "Zc_over_Z_first4": [-0.12405695723997791, -0.5445474470880622, -0.873714170001373, -0.9929227150248825], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 2.2329739294946194e-05}
+  values c WTRE geo:1 32 1500 sec 0.1
+  values Z WTRE geo:1 32 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 32, "bits": 1500, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15033998.681839108, "ratio_first4": [126245.55949750482, 15033998.681839108, 2617.6589591729844, 388.1600647226058], "Zc_over_Z_first4": [-0.11013897845926152, 0.15692101222826016, 0.4951301140435998, 0.6286630516039838], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.2776697985827923e-05}
+  values parts ZETA geo:1 40 1500 sec 0.0
+{"kind": "box", "family": "geo:1", "n": 40, "bits": 1500, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 4.494719449631626e-05, "width_over_Z_first3": [[-8.793489183904026e-06, 7.4491548951175085e-09], [-5.6078159318001925e-08, 1.666898440821148e-05], [-0.000192870762029007, 2.5247721933768884e-06]]}
+  values c LCHI4 geo:1 40 1500 sec 0.1
+  values Z LCHI4 geo:1 40 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 21164893.02012399, "ratio_first4": [124838.41245498713, 21164893.02012399, 6053.669854354473, 1094.4765036368294], "Zc_over_Z_first4": [-0.0977652296586788, -0.18688824273097993, -0.16757591788137502, -0.04704114164081091], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.676828833296895e-05}
+  values c LCHI5 geo:1 40 1500 sec 0.2
+  values Z LCHI5 geo:1 40 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 29226349.16920772, "ratio_first4": [148932.898762953, 29226349.16920772, 9858.502497248992, 2084.16467978043], "Zc_over_Z_first4": [-0.3096398343995004, -0.6389598649943836, -0.9014168891092815, -0.9938355537405478], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6565201804041862e-05}
+  values c DH geo:1 40 1500 sec 0.2
+  values Z DH geo:1 40 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 18544725.431693118, "ratio_first4": [119321.01983919962, 18544725.431693118, 4652.019299054522, 783.3145563975554], "Zc_over_Z_first4": [-0.049248097368399496, -0.03995406726708881, 0.10276149281770729, 0.25063483348518817], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 1.6247679013758898e-05}
+  values c EA-1/8 geo:1 40 1500 sec 0.1
+  values Z EA-1/8 geo:1 40 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 157928549.79675373, "ratio_first4": [157928549.79675373, 61808.33322349013, 400870.90796903777, 50.12048265636723], "Zc_over_Z_first4": [2.1764342297972976, 2.0302821427998965, 2.012107721573972, 2.0081502391285158], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.3087028430891223}
+  values c EA-1/4 geo:1 40 1500 sec 0.1
+  values Z EA-1/4 geo:1 40 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 252765300.43436772, "ratio_first4": [252765300.43436772, 67423.594986367, 415357.6896729046, 51.33977530547341], "Zc_over_Z_first4": [2.882887875046518, 2.1238828535733174, 2.048683545191416, 2.0326757446826385], "hybrid_negatives": 1, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.2829930412117392}
+  values c TNR geo:1 40 1500 sec 0.1
+  values Z TNR geo:1 40 1500 sec 0.0
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 50760208.82867619, "ratio_first4": [50760208.82867619, 48880.545567560366, 280403.4841300424, 9.071246060632037], "Zc_over_Z_first4": [1.3781206580733203, 1.8147890519305345, 1.7079549196575285, 1.1824639029899287], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 1, "own_undecided": null, "ray_theta_star": 2.735760062932968e-08}
+  values c SGNLIOU geo:1 40 1500 sec 0.1
+  values Z SGNLIOU geo:1 40 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 32260838.523288272, "ratio_first4": [202536.30222929144, 32260838.523288272, 10016.431178555275, 2085.1224103831505], "Zc_over_Z_first4": [-0.7810007830011909, -0.8091284424412938, -0.9318767142190605, -0.9947517756423654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 9.622774086892605e-06}
+  values c SGNP:2 geo:1 40 1500 sec 0.0
+  values Z SGNP:2 geo:1 40 1500 sec 0.1
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15623093.022172654, "ratio_first4": [42319.13339912095, 15623093.022172654, 7671.535321288132, 1982.9501972520088], "Zc_over_Z_first4": [0.6278671581826384, 0.12388570046263775, -0.47961486334928494, -0.8970077762734244], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.015196173277217895}
+  values c SGNR:7:100 geo:1 40 1500 sec 0.1
+  values Z SGNR:7:100 geo:1 40 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 27542762.92004184, "ratio_first4": [127828.32090104795, 27542762.92004184, 9714.86891164755, 2083.2104856364062], "Zc_over_Z_first4": [-0.12405695723997791, -0.5445474470880622, -0.873714170001373, -0.9929227150248825], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 2.2329739294946194e-05}
+  values c WTRE geo:1 40 1500 sec 0.2
+  values Z WTRE geo:1 40 1500 sec 0.2
+{"kind": "control", "family": "geo:1", "n": 40, "bits": 1500, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3], "coords_undecided": [], "max_ratio": 15033998.940494806, "ratio_first4": [126245.56137412519, 15033998.940494806, 2617.6589994520255, 388.1600720242418], "Zc_over_Z_first4": [-0.11013897845926152, 0.15692101222826016, 0.4951301140435998, 0.6286630516039838], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.2776697985827923e-05}
+  values parts ZETA geo:2 16 3000 sec 0.2
+{"kind": "box", "family": "geo:2", "n": 16, "bits": 3000, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 1.0582184177909173e-14, "width_over_Z_first3": [[-1.8170065272562567e-15, 7.812013914670371e-19], [-1.247199788934785e-18, 1.4519713232494892e-15], [-3.3599145545410113e-15, 5.759988110603168e-18]]}
+  values c LCHI4 geo:2 16 3000 sec 0.9
+  values Z LCHI4 geo:2 16 3000 sec 0.8
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 9.208388403507113e+17, "ratio_first4": [604161412296268.8, 9.208388403507113e+17, 353249531636710.75, 1.8600262814448452e+16], "Zc_over_Z_first4": [-0.0977652296586788, -0.14847000732835922, -0.18688824273097993, -0.19715472943450454], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c LCHI5 geo:2 16 3000 sec 2.0
+  values Z LCHI5 geo:2 16 3000 sec 2.4
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.1828544985618406e+18, "ratio_first4": [720767820453073.5, 1.1828544985618406e+18, 487798078906288.56, 2.776857159931181e+16], "Zc_over_Z_first4": [-0.3096398343995004, -0.47525588094688836, -0.6389598649943836, -0.7872476938301016], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c DH geo:2 16 3000 sec 2.4
+  values Z DH geo:2 16 3000 sec 2.0
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 8.483560645504904e+17, "ratio_first4": [577459729301468.6, 8.483560645504904e+17, 309518010171289.6, 1.5293952439677088e+16], "Zc_over_Z_first4": [-0.049248097368399496, -0.05806950464891645, -0.03995406726708881, 0.015646839103616063], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c EA-1/8 geo:2 16 3000 sec 0.4
+  values Z EA-1/8 geo:2 16 3000 sec 0.3
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.505929511451641e+18, "ratio_first4": [1.505929511451641e+18, 731761669575769.5, 1.788687967781254e+17, 53991067866004.94], "Zc_over_Z_first4": [2.1764342297972976, 2.0624969596771856, 2.0302821427998965, 2.0177695105053126], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.09378974518040195}
+  values c EA-1/4 geo:2 16 3000 sec 0.4
+  values Z EA-1/4 geo:2 16 3000 sec 0.3
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.4102464429954447e+18, "ratio_first4": [2.4102464429954447e+18, 871529226342369.8, 1.951189537187478e+17, 56857119512287.51], "Zc_over_Z_first4": [2.882887875046518, 2.265435444022934, 2.1238828535733174, 2.071796594917855], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.078748639090918}
+  values c TNR geo:2 16 3000 sec 0.2
+  values Z TNR geo:2 16 3000 sec 0.1
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8], "coords_undecided": [], "max_ratio": 4.840245578201521e+17, "ratio_first4": [4.840245578201521e+17, 425187981595983.2, 1.4145672461209514e+17, 45811439210314.23], "Zc_over_Z_first4": [1.3781206580733203, 1.6173607562676993, 1.8147890519305345, 1.8635777713517456], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNLIOU geo:2 16 3000 sec 0.6
+  values Z SGNLIOU geo:2 16 3000 sec 0.8
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.421637660618082e+18, "ratio_first4": [980184031419284.0, 1.421637660618082e+18, 538444776816187.2, 2.9049589756744544e+16], "Zc_over_Z_first4": [-0.7810007830011909, -0.7730661902646133, -0.8091284424412938, -0.869696902261222], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 5, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNP:2 geo:2 16 3000 sec 0.2
+  values Z SGNP:2 geo:2 16 3000 sec 0.5
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 4.852945374968814e+17, "ratio_first4": [204805451293174.6, 4.852945374968814e+17, 260754934482863.9, 1.8296487421191228e+16], "Zc_over_Z_first4": [0.6278671581826384, 0.3947407552626854, 0.12388570046263775, -0.17760306221605954], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 1.2514647096395493e-07}
+  values c SGNR:7:100 geo:2 16 3000 sec 0.2
+  values Z SGNR:7:100 geo:2 16 3000 sec 0.6
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.0918612987177134e+18, "ratio_first4": [618631215891856.5, 1.0918612987177134e+18, 459698430426025.7, 2.678823664443289e+16], "Zc_over_Z_first4": [-0.12405695723997791, -0.3617691813067923, -0.5445474470880622, -0.7241511322722932], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 4, "own_undecided": null, "ray_theta_star": 0.0}
+  values c WTRE geo:2 16 3000 sec 1.1
+  values Z WTRE geo:2 16 3000 sec 1.4
+{"kind": "control", "family": "geo:2", "n": 16, "bits": 3000, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 8.226482657943278e+17, "ratio_first4": [610971376165395.5, 8.226482657943278e+17, 250922746422910.3, 1.0089755505322048e+16], "Zc_over_Z_first4": [-0.11013897845926152, -0.02600674346625258, 0.15692101222826016, 0.3506006531987654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 0.0}
+  values parts ZETA geo:2 32 3000 sec 0.2
+{"kind": "box", "family": "geo:2", "n": 32, "bits": 3000, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 5.728648697281136e-15, "width_over_Z_first3": [[-9.85634017929857e-16, 3.8842537157486843e-19], [-6.197688415138046e-19, 7.871245145412479e-16], [-1.819143598271523e-15, 2.8590015776650093e-18]]}
+  values c LCHI4 geo:2 32 3000 sec 1.0
+  values Z LCHI4 geo:2 32 3000 sec 0.9
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.8530618682333007e+18, "ratio_first4": [1113765565807410.6, 1.8530618682333007e+18, 652443404610121.8, 3.755992682139749e+16], "Zc_over_Z_first4": [-0.0977652296586788, -0.14847000732835922, -0.18688824273097993, -0.19715472943450454], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c LCHI5 geo:2 32 3000 sec 2.2
+  values Z LCHI5 geo:2 32 3000 sec 2.0
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.3803324435341573e+18, "ratio_first4": [1328728321644334.0, 2.3803324435341573e+18, 900951341362857.4, 5.607369786166193e+16], "Zc_over_Z_first4": [-0.3096398343995004, -0.47525588094688836, -0.6389598649943836, -0.7872476938301016], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c DH geo:2 32 3000 sec 2.1
+  values Z DH geo:2 32 3000 sec 2.0
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.7072002233357665e+18, "ratio_first4": [1064541278285171.2, 1.7072002233357665e+18, 571672334308963.5, 3.0883420313716612e+16], "Zc_over_Z_first4": [-0.049248097368399496, -0.05806950464891645, -0.03995406726708881, 0.015646839103616063], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c EA-1/8 geo:2 32 3000 sec 0.5
+  values Z EA-1/8 geo:2 32 3000 sec 0.3
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 3.02872653510622e+18, "ratio_first4": [3.02872653510622e+18, 1349846104458365.2, 3.603643141887819e+17, 99970697044339.86], "Zc_over_Z_first4": [2.1764342297972976, 2.0624969596771856, 2.0302821427998965, 2.0177695105053126], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.09378974518040195}
+  values c EA-1/4 geo:2 32 3000 sec 0.7
+  values Z EA-1/4 geo:2 32 3000 sec 0.4
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 4.847489409387343e+18, "ratio_first4": [4.847489409387343e+18, 1607668698719739.0, 3.931032645638516e+17, 105277522639177.78], "Zc_over_Z_first4": [2.882887875046518, 2.265435444022934, 2.1238828535733174, 2.071796594917855], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.078748639090918}
+  values c TNR geo:2 32 3000 sec 0.4
+  values Z TNR geo:2 32 3000 sec 0.2
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8], "coords_undecided": [], "max_ratio": 9.734705447798947e+17, "ratio_first4": [9.734705447798947e+17, 784324137874818.4, 2.849907668102741e+17, 84825170004521.3], "Zc_over_Z_first4": [1.3781206580733203, 1.6173607562676993, 1.8147890519305345, 1.8635777713517456], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNLIOU geo:2 32 3000 sec 0.6
+  values Z SGNLIOU geo:2 32 3000 sec 1.0
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.8608508067844204e+18, "ratio_first4": [1806959531228290.5, 2.8608508067844204e+18, 994494576547038.4, 5.866048648556675e+16], "Zc_over_Z_first4": [-0.7810007830011909, -0.7730661902646133, -0.8091284424412938, -0.869696902261222], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 5, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNP:2 geo:2 32 3000 sec 0.3
+  values Z SGNP:2 geo:2 32 3000 sec 0.7
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 9.765886959708238e+17, "ratio_first4": [377556816270361.9, 9.765886959708238e+17, 481608104148463.5, 3.694650637381007e+16], "Zc_over_Z_first4": [0.6278671581826384, 0.3947407552626854, 0.12388570046263775, -0.17760306221605954], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 7.217749953269958e-08}
+  values c SGNR:7:100 geo:2 32 3000 sec 0.3
+  values Z SGNR:7:100 geo:2 32 3000 sec 0.7
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.1972211090519311e+18, "ratio_first4": [1140440505088138.8, 2.1972211090519311e+18, 849051965197046.1, 5.4094085555479464e+16], "Zc_over_Z_first4": [-0.12405695723997791, -0.3617691813067923, -0.5445474470880622, -0.7241511322722932], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 4, "own_undecided": null, "ray_theta_star": 0.0}
+  values c WTRE geo:2 32 3000 sec 1.3
+  values Z WTRE geo:2 32 3000 sec 1.7
+{"kind": "control", "family": "geo:2", "n": 32, "bits": 3000, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.6554668043010993e+18, "ratio_first4": [1126319666594812.0, 1.6554668043010993e+18, 463448288839209.6, 2.037446901725007e+16], "Zc_over_Z_first4": [-0.11013897845926152, -0.02600674346625258, 0.15692101222826016, 0.3506006531987654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 0.0}
+  values parts ZETA geo:2 48 3000 sec 0.2
+{"kind": "box", "family": "geo:2", "n": 48, "bits": 3000, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 5.714650368833819e-15, "width_over_Z_first3": [[-9.8323332605143e-16, 3.8733724805599118e-19], [-6.180312748531392e-19, 7.852054086580005e-16], [-1.8146994435197733e-15, 2.8509735944775746e-18]]}
+  values c LCHI4 geo:2 48 3000 sec 1.4
+  values Z LCHI4 geo:2 48 3000 sec 1.2
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.8582716669172872e+18, "ratio_first4": [1116484969104127.1, 1.8582716669172872e+18, 654041222621914.2, 3.766602179073813e+16], "Zc_over_Z_first4": [-0.0977652296586788, -0.14847000732835922, -0.18688824273097993, -0.19715472943450454], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c LCHI5 geo:2 48 3000 sec 2.7
+  values Z LCHI5 geo:2 48 3000 sec 2.3
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.387024639323388e+18, "ratio_first4": [1331972584431090.8, 2.387024639323388e+18, 903157749260931.6, 5.623208840602422e+16], "Zc_over_Z_first4": [-0.3096398343995004, -0.47525588094688836, -0.6389598649943836, -0.7872476938301016], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c DH geo:2 48 3000 sec 2.2
+  values Z DH geo:2 48 3000 sec 2.0
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "DH", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.711999938676796e+18, "ratio_first4": [1067140494090124.6, 1.711999938676796e+18, 573072345936252.8, 3.0970656253948824e+16], "Zc_over_Z_first4": [-0.049248097368399496, -0.05806950464891645, -0.03995406726708881, 0.015646839103616063], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c EA-1/8 geo:2 48 3000 sec 0.5
+  values Z EA-1/8 geo:2 48 3000 sec 0.3
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "EA-1/8", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 3.0372349566216755e+18, "ratio_first4": [3.0372349566216755e+18, 1353145238127060.0, 3.613790547887169e+17, 100216498024393.4], "Zc_over_Z_first4": [2.1764342297972976, 2.0624969596771856, 2.0302821427998965, 2.0177695105053126], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.09378974518040195}
+  values c EA-1/4 geo:2 48 3000 sec 0.6
+  values Z EA-1/4 geo:2 48 3000 sec 0.3
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "EA-1/4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 4.861107173391026e+18, "ratio_first4": [4.861107173391026e+18, 1611597971778745.0, 3.9421019393175494e+17, 105536371672018.3], "Zc_over_Z_first4": [2.882887875046518, 2.265435444022934, 2.1238828535733174, 2.071796594917855], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.078748639090918}
+  values c TNR geo:2 48 3000 sec 0.3
+  values Z TNR geo:2 48 3000 sec 0.2
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "TNR", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8], "coords_undecided": [], "max_ratio": 9.762052577465034e+17, "ratio_first4": [9.762052577465034e+17, 786241089860593.8, 2.857932649775524e+17, 85033732218617.62], "Zc_over_Z_first4": [1.3781206580733203, 1.6173607562676993, 1.8147890519305345, 1.8635777713517456], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNLIOU geo:2 48 3000 sec 0.6
+  values Z SGNLIOU geo:2 48 3000 sec 0.9
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "SGNLIOU", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.868893957973148e+18, "ratio_first4": [1811371457631036.8, 2.868893957973148e+18, 996930069550429.8, 5.882618389346605e+16], "Zc_over_Z_first4": [-0.7810007830011909, -0.7730661902646133, -0.8091284424412938, -0.869696902261222], "hybrid_negatives": 5, "hybrid_undecided": null, "own_negatives": 5, "own_undecided": null, "ray_theta_star": 0.0}
+  values c SGNP:2 geo:2 48 3000 sec 0.3
+  values Z SGNP:2 geo:2 48 3000 sec 0.7
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "SGNP:2", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 9.793343304206415e+17, "ratio_first4": [378478670278408.06, 9.793343304206415e+17, 482787550669029.56, 3.705086862349209e+16], "Zc_over_Z_first4": [0.6278671581826384, 0.3947407552626854, 0.12388570046263775, -0.17760306221605954], "hybrid_negatives": 2, "hybrid_undecided": null, "own_negatives": 2, "own_undecided": null, "ray_theta_star": 7.206108421087265e-08}
+  values c SGNR:7:100 geo:2 48 3000 sec 0.3
+  values Z SGNR:7:100 geo:2 48 3000 sec 0.7
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "SGNR:7:100", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 2.2033984956997281e+18, "ratio_first4": [1143225038713936.0, 2.2033984956997281e+18, 851131272786568.5, 5.424688431826216e+16], "Zc_over_Z_first4": [-0.12405695723997791, -0.3617691813067923, -0.5445474470880622, -0.7241511322722932], "hybrid_negatives": 4, "hybrid_undecided": null, "own_negatives": 4, "own_undecided": null, "ray_theta_star": 0.0}
+  values c WTRE geo:2 48 3000 sec 1.1
+  values Z WTRE geo:2 48 3000 sec 1.5
+{"kind": "control", "family": "geo:2", "n": 48, "bits": 3000, "code": "WTRE", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "coords_undecided": [], "max_ratio": 1.6601210735007854e+18, "ratio_first4": [1129069722359261.8, 1.6601210735007854e+18, 464583262414249.75, 2.0432020478305776e+16], "Zc_over_Z_first4": [-0.11013897845926152, -0.02600674346625258, 0.15692101222826016, 0.3506006531987654], "hybrid_negatives": 3, "hybrid_undecided": null, "own_negatives": 3, "own_undecided": null, "ray_theta_star": 0.0}
+  values parts ZETA geo:4 32 6000 sec 1.3
+{"kind": "box", "family": "geo:4", "n": 32, "bits": 6000, "zeta_negatives": 0, "zeta_undecided": null, "min_width_over_c": 4.4733000833512594e-39, "width_over_Z_first3": [[-1.5137502904843162e-39, 2.242646676750295e-43], [-1.1838350952490381e-43, 5.650989299384742e-40], [-4.973403879251606e-40, 1.4731868979286438e-43]]}
+  values c LCHI4 geo:4 32 6000 sec 9.2
+  values Z LCHI4 geo:4 32 6000 sec 8.7
+{"kind": "control", "family": "geo:4", "n": 32, "bits": 6000, "code": "LCHI4", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], "coords_undecided": [], "max_ratio": 9.492884406484974e+42, "ratio_first4": [7.251957185801462e+38, 9.492884406484974e+42, 2.3092232909529562e+39, 3.524211889186297e+42], "Zc_over_Z_first4": [-0.0977652296586788, -0.1238009715539247, -0.14847000732835922, -0.17015159529282756], "hybrid_negatives": 11, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}
+  values c LCHI5 geo:4 32 6000 sec 19.5
+  values Z LCHI5 geo:4 32 6000 sec 18.2
+{"kind": "control", "family": "geo:4", "n": 32, "bits": 6000, "code": "LCHI5", "Z_definition": "-L'/L of the Dirichlet series", "coords_outside_box": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], "coords_undecided": [], "max_ratio": 1.1759278290738777e+43, "ratio_first4": [8.651624000550898e+38, 1.1759278290738777e+43, 2.9662901239560774e+39, 4.692397067524875e+42], "Zc_over_Z_first4": [-0.3096398343995004, -0.3921046335376685, -0.47525588094688836, -0.5580266133144989], "hybrid_negatives": 11, "hybrid_undecided": null, "own_negatives": 0, "own_undecided": null, "ray_theta_star": 0.0}

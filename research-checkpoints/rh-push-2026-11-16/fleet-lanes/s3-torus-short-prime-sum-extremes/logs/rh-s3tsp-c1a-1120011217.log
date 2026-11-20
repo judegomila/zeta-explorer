@@ -1,0 +1,18 @@
+N=6420 terms=879 cols=36 K=10000000000 step=9701 M=67108864 nf=134217728 blocks=150 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.000 GiB
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s3-torus-short-prime-sum-extremes/c1n.py", line 181, in <module>
+    h, a1, a2, mx, am, mn, vM, vm = T.retry(column, c, phase, lo, hi, bh)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s3-torus-short-prime-sum-extremes/torus.py", line 35, in retry
+    return fn(*args)
+           ^^^^^^^^^
+  File "/home/USER/rh-push/s3-torus-short-prime-sum-extremes/c1n.py", line 156, in column
+    cupyx.scatter_add(grid, IDXf, vals)
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupyx/_scatter.py", line 54, in scatter_add
+    a.scatter_add(slices, value)
+  File "cupy/_core/core.pyx", line 1933, in cupy._core.core._ndarray_base.scatter_add
+  File "cupy/_core/core.pyx", line 1962, in cupy._core.core._ndarray_base._scatter_op
+  File "cupy/_core/_routines_indexing.pyx", line 1078, in cupy._core._routines_indexing._scatter_op
+  File "cupy/_core/_routines_indexing.pyx", line 951, in cupy._core._routines_indexing._scatter_op_single
+TypeError: cupy.add.at only supports int32, int64, float16, float32, float64, uint32, uint64 as data type

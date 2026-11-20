@@ -1,0 +1,4 @@
+r=2 s=2 A=1 dP_r=2 kappa=1 x_1=0.419264 T(x_1)/kappa=0.09977 t_r=40.32 eps bound=0.2395
+r=3 s=3 A=6 dP_r=36 kappa=12 x_1=0.0103274 T(x_1)/kappa=0.09989 t_r=340452 eps bound=0.1597
+r=4 s=4 A=11 dP_r=720 kappa=180 x_1=0.00424945 T(x_1)/kappa=0.09989 t_r=7.66673e+07 eps bound=0.1197
+r=5 s=5 A=18 dP_r=25200 kappa=5040 x_1=0.00208501 T(x_1)/kappa=0.09989 t_r=2.26593e+10 eps bound=0.0958

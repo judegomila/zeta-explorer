@@ -1,0 +1,62 @@
+{
+ "M=12 (2^2*3)": {
+  "window": [
+   76.0,
+   157.0
+  ],
+  "two_pi_M": 75.39822368615503,
+  "afe_length_sqrt_t_over_2pi": 4.998732445873411,
+  "zeta_zeros": 37,
+  "truncation_zeros": 37,
+  "mean_dist_in_spacings": 0.09512012843415257,
+  "max_dist_in_spacings": 0.23414190321330713
+ },
+ "M=30": {
+  "window": [
+   189.0,
+   289.0
+  ],
+  "two_pi_M": 188.49555921538757,
+  "afe_length_sqrt_t_over_2pi": 6.782018766824356,
+  "zeta_zeros": 58,
+  "truncation_zeros": 58,
+  "mean_dist_in_spacings": 0.11286283321390755,
+  "max_dist_in_spacings": 0.27375805295095407
+ },
+ "M=210": {
+  "window": [
+   1320.0,
+   1380.0
+  ],
+  "two_pi_M": 1319.4689145077132,
+  "afe_length_sqrt_t_over_2pi": 14.820047957642227,
+  "zeta_zeros": 50,
+  "truncation_zeros": 50,
+  "mean_dist_in_spacings": 0.15972994840668453,
+  "max_dist_in_spacings": 0.47654865389053547
+ },
+ "M=2520 = lcm(1..10)": {
+  "window": [
+   15834.0,
+   15864.0
+  ],
+  "two_pi_M": 15833.626974092558,
+  "afe_length_sqrt_t_over_2pi": 50.24772648796986,
+  "zeta_zeros": 36,
+  "truncation_zeros": 37,
+  "mean_dist_in_spacings": 0.17372901621544629,
+  "max_dist_in_spacings": 0.5420672849518818
+ },
+ "M=1 (gamma only)": {
+  "window": [
+   76.0,
+   157.0
+  ],
+  "two_pi_M": 6.283185307179586,
+  "afe_length_sqrt_t_over_2pi": 4.998732445873411,
+  "zeta_zeros": 37,
+  "truncation_zeros": 37,
+  "mean_dist_in_spacings": 0.18715290772231735,
+  "max_dist_in_spacings": 0.4542659455355023
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "slug": "c12-frontier-xu-sang-structured-moment",
+ "round": 12,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "frontier",
+  "part-B",
+  "Xu-Sang-2610.17675",
+  "structured-prime-moment",
+  "Z11",
+  "M1",
+  "M2",
+  "slot-withdrawn"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Part B only; nothing about zeros of zeta; no R4 answer. Xu-Sang 2610.17675 v2 Theorem 1.2 (prime second moment Q^((37-10 sqrt 6)/6) = Q^2.084184, as read in the manuscript text, proofs not checked) changes no count in the Liu II scalar system. M1 and M2 are closed by range and shape (theorem at prime length z = 1; M1 needs z < 3/8 at r = 0, corrected from 1/2; M2 z < 3/13; probe supply 0.21; no witness factor). As a Chebyshev count option at Z11 it is never selected: exact identity N - delta - R0(delta) = 6(delta - delta*)^2/(15 - 6 delta) >= 0 and R(delta, x) <= R(delta, 0), confirmed for spikes up to delta on 34680 (lane) and 78070 (referee) exact classes, and for larger spikes by the one-line bin argument in the referee note. At the critical class 0.614839 against 0.590332 (would need below Q^2.059677). Abscissa unchanged at 0.8748866470, resting on unrefereed inputs (7/8 manuscript, Liu 2610.12234, Liu 2610.26835 v2, Xu-Sang 2610.15291). Frontier slot withdrawal is consistent with STRATEGY. Not searched: Z10 and the preliminary stage.",
+ "obstruction": "Part B, relative to unrefereed manuscripts. The structured prime second moment Q^2.084184 sits at prime length z = 1; M1 needs z < 3/8 at r = 0, M2 z < 3/13, no witness factor. As a Chebyshev count at Z11 it is never selected: N - delta - R0(delta) = 6(delta - delta*)^2/(15 - 6 delta) >= 0 and R(delta,x) <= R(delta,0); at the critical class 0.614839 against 0.590332 (would need below Q^2.059677). Abscissa stays 0.8748866470. Not searched: Z10 and the preliminary stage.",
+ "obstructionKind": "moment derived from a count by bins returns at most that count under Chebyshev; prime length outside slot capacity",
+ "controlsThatDefeat": [
+  "not a control question (part B figure); the substitution is blind to every target-side control"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED or EXACT step failed. Four corrections, none changing the verdict or any figure. E1: RESULT states M1 allows z < 1/2 at r = 0; the second M1 condition 2r + 8z < 3 gives z < 3/8 (z = 1 is still outside). E2: \"selected at no class\" is checked only for granted spikes up to delta; the class is \"a zero at a\", not \"rightmost zero\", and at the critical class a granted spike s > 0.493851 would give N - s < R_c. This closes in one line (by Lemma 7.1 such rows lie in a bin >= s, so they number a - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A structured moment proved as a supremum over bins of count times size squared cannot, by Chebyshev, improve the count it came from. An input can move the Z11 count only as a level moment with a witness factor at prime length beyond M1/M2 capacity. The substitution is blind to every target-side control.",
+ "followUp": "None for the frontier slot (withdrawn under STRATEGY section 1 after c11 and c12 without a changed figure). Record lane: enter the Z11 and M-slot lines of RESULT.md section 7. Not searched: map row Z10 (numerator average) and the preliminary stage for a place where a length-1 prime moment could act. The lanes line was appended to campaign/lanes.jsonl with refereeHolds null.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-frontier-xu-sang-structured-moment/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-frontier-xu-sang-structured-moment/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

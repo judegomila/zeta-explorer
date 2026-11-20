@@ -1,0 +1,13 @@
+{
+ "mid_-0.1_230": {
+  "tau": -0.1,
+  "window": [
+   230.0,
+   405.0
+  ],
+  "sign_changes": 109,
+  "zeta_zeros_in_window": 109,
+  "offline_upper_right": [],
+  "total_count": 109
+ }
+}

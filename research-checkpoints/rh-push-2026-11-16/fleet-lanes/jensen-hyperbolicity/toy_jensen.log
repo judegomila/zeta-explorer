@@ -1,0 +1,47 @@
+Gamma=157/10 beta=1 sector bound D0=(|W|/Im W)^2=62.12
+  n=0: d*(n) = 100   ratio d*/D0 = 1.610
+  n=1: hyperbolic for all d <= 200 (cap)
+  n=2: hyperbolic for all d <= 200 (cap)
+  n=3: hyperbolic for all d <= 200 (cap)
+  n=4: hyperbolic for all d <= 200 (cap)
+  n=5: hyperbolic for all d <= 200 (cap)
+  n=6: hyperbolic for all d <= 200 (cap)
+  n=7: hyperbolic for all d <= 200 (cap)
+  n=8: hyperbolic for all d <= 200 (cap)
+Gamma=157/10 beta=2 sector bound D0=(|W|/Im W)^2=15.91
+  n=0: d*(n) = 40   ratio d*/D0 = 2.514
+  n=1: d*(n) = 114   ratio d*/D0 = 7.165
+  n=2: d*(n) = 164   ratio d*/D0 = 10.308
+  n=3: hyperbolic for all d <= 200 (cap)
+  n=4: hyperbolic for all d <= 200 (cap)
+  n=5: hyperbolic for all d <= 200 (cap)
+  n=6: hyperbolic for all d <= 200 (cap)
+  n=7: hyperbolic for all d <= 200 (cap)
+  n=8: hyperbolic for all d <= 200 (cap)
+Gamma=157/10 beta=4 sector bound D0=(|W|/Im W)^2=4.37
+  n=0: d*(n) = 18   ratio d*/D0 = 4.121
+  n=1: d*(n) = 31   ratio d*/D0 = 7.098
+  n=2: d*(n) = 30   ratio d*/D0 = 6.869
+  n=3: d*(n) = 139   ratio d*/D0 = 31.825
+  n=4: d*(n) = 144   ratio d*/D0 = 32.970
+  n=5: hyperbolic for all d <= 200 (cap)
+  n=6: hyperbolic for all d <= 200 (cap)
+  n=7: hyperbolic for all d <= 200 (cap)
+  n=8: hyperbolic for all d <= 200 (cap)
+Gamma=157/10 beta=6 sector bound D0=(|W|/Im W)^2=2.25
+  n=0: d*(n) = 13   ratio d*/D0 = 5.782
+  n=1: d*(n) = 16   ratio d*/D0 = 7.117
+  n=2: d*(n) = 16   ratio d*/D0 = 7.117
+  n=3: d*(n) = 26   ratio d*/D0 = 11.565
+  n=4: d*(n) = 27   ratio d*/D0 = 12.009
+  n=5: d*(n) = 60   ratio d*/D0 = 26.687
+  n=6: hyperbolic for all d <= 200 (cap)
+  n=7: hyperbolic for all d <= 200 (cap)
+  n=8: hyperbolic for all d <= 200 (cap)
+Gamma=314/10 beta=4 sector bound D0=(|W|/Im W)^2=15.91
+  n=0: d*(n) = 71   ratio d*/D0 = 4.463
+  n=1: d*(n) = 121   ratio d*/D0 = 7.605
+  n=2: d*(n) = 123   ratio d*/D0 = 7.731
+  n=3: hyperbolic for all d <= 200 (cap)
+  n=4: hyperbolic for all d <= 200 (cap)
+  n=5: hyperbolic for all d <= 200 (cap)

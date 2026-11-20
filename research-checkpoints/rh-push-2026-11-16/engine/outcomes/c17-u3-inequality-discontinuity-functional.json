@@ -1,0 +1,40 @@
+{
+ "slug": "c17-u3-inequality-discontinuity-functional",
+ "round": 17,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction; no statement about zeros of zeta. PROVED (elementary, confirmed): (1) for a signed member with the exact functional equation, the integral of sinc^2 against the off-integer part of N over [1, inf) is 0, and N_off >= -eps' dx gives off-integer positive mass in the weight sinc^2 at most 0.0485883 eps' (Lipschitz); (2) zeta(s)(q^(s-1/2)+c+q^(1/2-s))/(2+c), q = 1+delta, c = q^b+q^-b, has the exact functional equation, the pole at 1 only, a non-negative coefficient measure with atoms within delta of log n, and zeros on Re s = 1/2 +- b at heights (2k+1) pi/log(1+delta) for every b > 0; it violates the support clause of Theorem P; (3) the zeros of conj(z) q^(s-1/2)+c+z q^(1/2-s) lie on Re s = 1/2 +- arccosh(|c|/2)/log q for every unimodular z, so a local-root bound |alpha| <= q^(1/2+delta) is exactly the statement that the factor's own zeros lie within delta of the line (only z = +-1 keeps zeta's functional equation); (4) any inequality \"zeros within f(defect), f(0)=0\" on a class containing zeta at defect 0 is the target. MEASURED (float64, symmetrised model only, X = 300 to 4000, nine pairs below height 131): the smallest functional-equation defect admitting a model quartet is at least 0.047, grows by kappa eta^2 (kappa 0.24 to 0.51, eta <= 0.2), and agrees between the multiplicative class and the relaxation within a factor 1.0004 to 1.23 (the 1.40 cell is mostly a bound effect); the relaxation is independent of the box from 3 to 3000. The square-root law belongs to the birth-on-the-line mechanism only; the dependence of the threshold on the gap d is not established. Multiplicativity enters none of the proved steps.",
+ "obstruction": "Target-level in all three relaxation directions; multiplicativity enters no proved step. PROVED: (1) the functional-equation defect enters Theorem P at Step 6 as int sinc^2 against the off-integer part of N, Lipschitz with constant 0.0485883; (2) Proposition W: zeta(s)(q^(s-1/2)+c+q^(1/2-s))/(2+c), q = 1+delta, has the exact functional equation, pole at 1 only, N >= 0, atoms within delta of log n, and zeros on Re s = 1/2 +- b for every b > 0 from height pi/log(1+delta), so relaxing the support clause by any delta loses everything; (3) Lemma LR: a local-root bound |alpha| <= q^(1/2+delta) is the statement that the factor's own zeros are within delta of the line; NR-q is multiplicative on its semigroup and fails only through integrality; (4) any inequality 'zeros within f(defect), f(0) = 0' on a class containing zeta at defect 0 is the target. MEASURED (float64, symmetrised model): minimal defect admitting a quartet >= 0.047 below height 131; multiplicative class and relaxation agree within 1.0004 to 1.23. The sqrt law is the discriminant of a function real on the line. Not done: unconstrained LP at X = 4000; pairs with gap d < 0.18.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "zeta times symmetric T-NR at q = 1+delta (exact FE, N >= 0, zeros at any distance b)",
+  "NR-q (multiplicative on its semigroup; cannot be excluded through multiplicativity by any functional)",
+  "ZQ (reach sqrt(eps) from reality on the line)",
+  "n^alpha shift (linear mechanism hidden by the symmetrised model)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps re-derived and confirmed (Lemma S6, kappa_0 = 0.0485883, residue formula, Lemma R as stated, Propositions O, TL, W, Lemma LR, the zero functional of 6.1). Numerics rerun on new cases reproduce (balance for pairs 27/28, 31/32, 1/2; Prop W at delta 0.03, 0.5, 1e-4; LR at q=3, 1+sqrt2, 1.01; tables.md rebuilt byte-identical from logs; LP at X=300 repeated for 2 cells and run for 3 new cells). No RH assumption, no verified-height restatement, nothing classical presented as new. Corr - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A quantitative identification (\"defect delta implies zeros within f(delta)\") on any class containing zeta at defect 0 is the target itself. What can be proved without the target is stability, which reads the functional equation and integrality, not multiplicativity. The sqrt(eps) reach is the discriminant of a function real on the line, not an arithmetic discontinuity. For a finite coefficient vector with a defective functional equation \"a zero\" is not defined by the data; the symmetrised functional used here builds the square-root law in and hides the linear shift mechanism (n^alpha: zeros at distance alpha, defect 1.14 alpha at X = 4000). A real-ray theta defect delta controls G only for |t| <= (4/pi) log(1/delta), so complex rays are needed. NR-q cannot be excluded through multiplicativity by any functional.",
+ "followUp": "Referee the elementary statements first (Proposition W, Lemmas S6, R, LR, Propositions O, TL), then record in the map that U3-as-inequality is target-level in all three directions and that NR-q cannot fail through multiplicativity. Optional compute: finish the unconstrained LP at X = 4000 with an interior-point or first-order solver, and extend the model to pairs with d < 0.18 (needs theta_0 ~ 1/gbar and extended precision) to test the extrapolated threshold d < sqrt(delta/0.3).",
+ "resultFile": "tmp/research-2026-11-16/push/c17-u3-inequality-discontinuity-functional/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-u3-inequality-discontinuity-functional/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c18-referee-r17-independent-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report and push/c18-referee-r17-independent-sources/GATE.md (window law: Remark K for the unwindowed device only; E_a row decided on its own configuration; W4 density form, W5 second bullet ARGUED)",
+  "report": "tmp/research-2026-11-16/push/c17-u3-inequality-discontinuity-functional/REFEREE2.md"
+ }
+}

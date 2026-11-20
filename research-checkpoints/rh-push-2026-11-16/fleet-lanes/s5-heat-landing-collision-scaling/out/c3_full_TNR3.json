@@ -1,0 +1,31 @@
+{
+ "obj": "TNR-3-2.2",
+ "adjacent_pairs": 137668,
+ "offline_pairs": 17485,
+ "first_offline_height": 2.8596008673801268,
+ "index_of_first_offline_pair": 0,
+ "S_on_negative": 0,
+ "S_full_negative": 9912,
+ "first_index_S_full_negative": 203,
+ "first_height_S_full_negative": 402.86191776388614,
+ "negative_distance_to_nearest_pair_in_mean_spacings": [
+  3.0054747681418345e-05,
+  0.21147603135868875,
+  0.40724143254710654,
+  0.7872744534335511
+ ],
+ "negative_distance_over_displacement": [
+  4.256182254849516e-05,
+  0.3034728207397439,
+  0.6032186848948312,
+  1.7945016918529704
+ ],
+ "n_negative_farther_than_10_spacings": 0,
+ "n_negative_farther_than_1_spacing": 0,
+ "gate_full": {
+  "frac_gt_0p909": 0.7595955487113927,
+  "frac_on_gt_0p909": 0.8074643344858645
+ },
+ "rel_change_far": null,
+ "note_index_window": "pairs with index below J=200 are not evaluated (neighbour window)"
+}

@@ -1,0 +1,2 @@
+explicit ZETA X=1e+08 eta=0.5 Tc=1000 delta=0.005 N=2^15 lines [0.1, 0.2, 0.3, 0.45, 0.6] workers 3 direct 0; per-worker accumulators 0.01 GB
+terms 5762859  done 2.3 s

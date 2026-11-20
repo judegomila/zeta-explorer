@@ -1,0 +1,45 @@
+{
+ "slug": "c11-rs3-debranges-positivity-family",
+ "round": 11,
+ "kind": "explore",
+ "nodes": [
+  "out-c11-rs3-debranges-positivity-family"
+ ],
+ "tags": [
+  "de-branges",
+  "positivity",
+  "shift-operator",
+  "twin-ladder",
+  "control",
+  "value-distribution",
+  "rs-3",
+  "stage-a"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "De Branges shift positivity is closed as a device at stage A (precise obstruction; no statement about zeros of zeta). Established: Conrey-Li's two counterexamples reproduce and zero 34 is the first failure of (N2) at h=1; the entire-function condition implies zeros on the line and cos Delta_h >= 0 at every zero; the weight-form condition with shift h implies Delta_h = 0 mod 2 pi at every boundary zero, which fails at the first zeros for h = 1, 0.25, 0.1 (measured); the (a,h) weight family is false for every conclusion half-plane sigma_0 <= 1 relative to Bohr's density theorem (recalled, not opened); V1a = T3 and V2 = G6 are restatements; a lattice-zero function satisfies all hypotheses and necessary conditions, and DH on-line zeros fail like zeta. No Euler-product step is used. Not established: the equivalence wording, the every-h failure in the entire-function form, the tied conductor family (V3b), and the attribution of the failure to the Euler product.",
+ "obstruction": "Stage A. The entire-function condition implies zeros on the line and cos Delta_h >= 0 at every zero (Delta_h = sum over other zeros of arctan(h/(gamma_n - gamma'))); the weight form implies Delta_h = 0 mod 2 pi at every boundary zero. False for zeta: zero 34 at h = 1 (Conrey-Li, reproduced); weight form fails at the first zeros for h = 1, 0.25, 0.1 (measured). The (a,h) weight family is false for every conclusion half-plane sigma_0 <= 1 relative to Bohr (recalled). V1a = T3 and V2 = G6 are restatements. No Euler-product step. Not established: every-h failure in the entire-function form, tied conductor family V3b, attribution of the failure to the Euler product.",
+ "obstructionKind": "device-closed-stage-A-passing-control-and-false-for-zeta",
+ "controlsThatDefeat": [
+  "the hypothesis is false for zeta itself",
+  "lattice-zero function (satisfies all hypotheses and necessary conditions)",
+  "DH on-line zeros fail like zeta (no separation)",
+  "not run: backward heat at the zeta-failing step"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee section appended to push/c11-rs3-debranges-positivity-family/REFEREE.md (author's own pass kept above it). Conrey-Li arXiv:math/9812166v1 re-opened: Theorems 1 and 2, (3.2), (3.4), the chi_4 examples and the Sarnak remark match the result. Lemma 1, Lemma 2, LAT and the V1c Bohr argument re-derived and confirmed. Numerics rerun with different cases (local, memcap 8 GB, not interval-certified): zero 34 is the only fail - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Shift-accretivity conditions of de Branges type test bounded imbalance of zeros at a fixed scale at every zero. The Euler product (independence of p^it) is what violates this, so the device runs against R1. Contractivity of the same shift is the classical Hermite-Biehler property and is RH-neutral. Backward heat was not evaluated at the zeta-failing step; no failure at h <= 0.5 was measured below 1e4.",
+ "followUp": "Repair slot: add the proposed closed device row to the obstruction map and a device node; get an independent referee on the two argued steps (V1c relative to Bohr, V3b relative to joint universality). REFEREE.md is the author's own pass. No attack follow-up.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-rs3-debranges-positivity-family/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-rs3-debranges-positivity-family/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

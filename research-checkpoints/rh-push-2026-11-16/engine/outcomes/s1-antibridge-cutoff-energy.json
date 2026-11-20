@@ -1,0 +1,81 @@
+{
+ "slug": "s1-antibridge-cutoff-energy",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "bridge-multiplier-c0",
+  "cutoff-energy-kernel-hc",
+  "pulse-leakage-bound",
+  "route-b-half-gram-interlacing",
+  "theta-fisher-degree9",
+  "zv-axis-limit-laguerre",
+  "zv-boundary-kernel-pa",
+  "zv-even-odd-boundary-energy",
+  "zv-theta-layer-cancellation"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "zv-theta-layer-cancellation",
+    "cutoff-energy-kernel-hc",
+    "theta-fisher-degree9"
+   ],
+   "obstruction": "verified height in another form in the Mellin variable: fails only at resolution pi/delta of first off-line ordinate",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "pulse-leakage-bound",
+    "bridge-multiplier-c0"
+   ],
+   "obstruction": "leakage = Blaschke mass of off-line zeros; pulse sees a pole at height g only for eps < 4/g",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-even-odd-boundary-energy",
+    "zv-boundary-kernel-pa"
+   ],
+   "obstruction": "pointwise local zero detector (verified height in another form)",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-axis-limit-laguerre",
+    "route-b-half-gram-interlacing"
+   ],
+   "obstruction": "local zero detector; half-Gram fraction has no threshold and T-NR is identical",
+   "controlsThatDefeat": [
+    "T-NR",
+    "DH",
+    "E_a"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) verified height in another form in the Mellin variable: fails only at resolution pi/delta of first off-line ordinate | (2) leakage = Blaschke mass of off-line zeros; pulse sees a pole at height g only for eps < 4/g | (3) pointwise local zero detector (verified height in another form) | (4) local zero detector; half-Gram fraction has no threshold and T-NR is identical",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "T-NR",
+  "heat"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-antibridge-cutoff-energy/RESULT.md"
+}

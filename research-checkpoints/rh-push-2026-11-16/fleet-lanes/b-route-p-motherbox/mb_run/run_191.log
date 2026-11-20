@@ -1,0 +1,13 @@
+### motherbox launch 2026-11-16_21:20:35 idx 191 target 0.06784199970175087 budget 10200
+[191] 407|0.88|sharp cell 407 K0* 0.733554387 target 0.067842000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+   r7f 26576 evals (9844 cheap, 10632 gap, 6100 full, 0 lazy), open 1982, done 8569, top 0.07766, done_max 0.06783, 39933s
+   r7f 26616 evals (9860 cheap, 10642 gap, 6114 full, 0 lazy), open 1985, done 8574, top 0.07763, done_max 0.06783, 40291s
+   r7f 26640 evals (9870 cheap, 10646 gap, 6124 full, 0 lazy), open 1985, done 8579, top 0.07761, done_max 0.06783, 40647s
+   r7f 26663 evals (9880 cheap, 10650 gap, 6133 full, 0 lazy), open 1988, done 8581, top 0.07760, done_max 0.06783, 41018s
+   r7f 26688 evals (9892 cheap, 10655 gap, 6141 full, 0 lazy), open 1988, done 8587, top 0.07756, done_max 0.06783, 41351s
+   r7f 26712 evals (9900 cheap, 10663 gap, 6149 full, 0 lazy), open 1991, done 8589, top 0.07751, done_max 0.06783, 41677s
+   r7f 26738 evals (9910 cheap, 10669 gap, 6159 full, 0 lazy), open 1996, done 8589, top 0.07747, done_max 0.06783, 42021s
+   r7f 26762 evals (9918 cheap, 10677 gap, 6167 full, 0 lazy), open 2000, done 8589, top 0.07745, done_max 0.06783, 42390s
+### motherbox emit 2026-11-16_22:09:11 idx 191
+[191] 407|0.88|sharp cell 407 K0* 0.733554387 target 0.067842000 policy {'coarsen': 0.05, 'adapt': 0.05, 'recmp': 3, 'octgap': 0.03, 'lazy': inf, 'gapr': 0.0, 'fullgap': inf, 'refresh': 1, 'maxdepth': 22} resume True
+[191] 407|0.88|sharp cell 407: margin 0.0774620 (target 0.067842) complete False boxes 10587 open 1998 evals 26750 (cheap 9914 gap 10673 full 6163 lazy 0) wall 42225s cpu 38800s

@@ -1,0 +1,4 @@
+factor: 10783*E**2 + 5154*E*c**2 - 13360*E*c + 187*E + 1831*c**4 - 4408*c**3 + 4459*c**2 - 102*c + 51
+leading coefficient in E: 10783
+discriminant in E: -52410976*c**4 + 52410976*c**3 - 11908392*c**2 - 597176*c - 2164763
+number of real roots of the discriminant (Sturm): 0  value at c = 0: -2164763

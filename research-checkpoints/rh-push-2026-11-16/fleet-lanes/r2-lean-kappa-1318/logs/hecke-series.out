@@ -1,0 +1,36 @@
+'OAI.SevenEighths.HeckeFamily.idealCoeff_of_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.idealCoeff_ne_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.norm_idealCoeff_of_isCoprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.idealTerm_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.LFunction_hasSum_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.LFunction_eq_LSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.LFunction_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.ne_zero_of_hasSum_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.HeckeFamily.LFunction_ne_zero_of_seven_eighths_lt_re' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.HeckeFamily.idealCoeff_of_modulus_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.LFunction_eq_dedekindZeta_of_modulus_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SevenEighths.HeckeFamily.exists_character_modulus_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.SevenEighths.HeckeFamily.idealCoeff_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.SevenEighths.HeckeFamily.LFunction_eq_LSeries : ∀ (χ : OAI.SevenEighths.HeckeFamily.Character) {s : ℂ},
+  1 < s.re → OAI.SevenEighths.HeckeFamily.LFunction χ s = LSeries (OAI.SevenEighths.HeckeFamily.normCoeff χ) s
+OAI.SevenEighths.HeckeFamily.LFunction_unique : ∀ (χ : OAI.SevenEighths.HeckeFamily.Character) (F : ℂ → ℂ),
+  DifferentiableOn ℂ F {0, 1}ᶜ →
+    (∀ (s : ℂ),
+        1 < s.re → HasSum (fun I => (OAI.SevenEighths.HeckeFamily.idealCoeff χ) I / ↑(Ideal.absNorm I) ^ s) (F s)) →
+      Set.EqOn F (OAI.SevenEighths.HeckeFamily.LFunction χ) {0, 1}ᶜ
+OAI.SevenEighths.HeckeFamily.LFunction_eq_dedekindZeta_of_modulus_top : ∀ (χ : OAI.SevenEighths.HeckeFamily.Character),
+  χ.modulus = ⊤ →
+    ∀ {s : ℂ},
+      1 < s.re → OAI.SevenEighths.HeckeFamily.LFunction χ s = NumberField.dedekindZeta OAI.SevenEighths.HeckeFamily.K s
+OAI.SevenEighths.HeckeFamily.ne_zero_of_hasSum_of_seven_eighths_lt_re : ∀ (χ : OAI.SevenEighths.HeckeFamily.Character)
+  (F : ℂ → ℂ),
+  DifferentiableOn ℂ F {0, 1}ᶜ →
+    (∀ (s : ℂ),
+        1 < s.re → HasSum (fun I => (OAI.SevenEighths.HeckeFamily.idealCoeff χ) I / ↑(Ideal.absNorm I) ^ s) (F s)) →
+      ∀ {s : ℂ}, 7 / 8 < s.re → s ≠ 1 → F s ≠ 0

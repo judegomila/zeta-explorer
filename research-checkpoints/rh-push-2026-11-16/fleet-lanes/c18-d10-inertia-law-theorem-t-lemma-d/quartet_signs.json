@@ -1,0 +1,44 @@
+[
+ {
+  "factor": "64*E^2 - 144*E*c - 9*E + 81*c^2",
+  "exponent": 1,
+  "coeff_sign": "all coefficients > 0",
+  "in_eta_g": "(4*eta**2 - 12*eta + 36*g**2 + 9)*(4*eta**2 + 12*eta + 36*g**2 + 9)/16"
+ },
+ {
+  "factor": "64*E^2 + 16*E*c - 49*E + c^2 + 4*c + 4",
+  "exponent": 1,
+  "coeff_sign": "all coefficients > 0",
+  "in_eta_g": "(36*eta**2 - 36*eta + 4*g**2 + 9)*(36*eta**2 + 36*eta + 4*g**2 + 9)/16"
+ },
+ {
+  "factor": "10783*E^2 + 5154*E*c^2 - 13360*E*c + 187*E + 1831*c^4 - 4408*c^3 + 4459*c^2 - 102*c + 51",
+  "exponent": 1,
+  "coeff_sign": "mixed (19 positive, 6 negative)",
+  "in_eta_g": "(468736*eta**8 + 1874944*eta**6*g**2 + 659712*eta**6 + 2812416*eta**4*g**4 + 659712*eta**4*g**2 + 470944*eta**4 + 1874944*eta**2*g**6 - 659712*eta**2*g**4 - 1818560*eta**2*g**2 - 362352*eta**2 + 468736*g**8 - 659712*g**6 + 470944*g**4 + 362352*g**2 + 62071)/256"
+ },
+ {
+  "factor": "133714*E^4 - 37020*E^3*c^2 - 248918*E^3*c - 7198*E^3 + 1421140*E^2*c^4 - 1365610*E^2*c^3 + 749137*E^2*c^2 - 99726*E^2*c + 62008*E^2 - 599100*E*c^6 - 522490*E*c^5 + 1168208*E*c^4 - 778576*E*c^3 + 226276*E*c^2 - 94564*E*c - 8874*E + 69874*c^8 + 159802*c^7 - 62947*c^6 - 162434*c^5 + 225264*c^4 - 129516*c^3 + 41406*c^2 + 6052*c + 1037",
+  "exponent": 1,
+  "coeff_sign": "all coefficients > 0",
+  "in_eta_g": null
+ },
+ {
+  "factor": "E - c",
+  "exponent": 4,
+  "coeff_sign": "all coefficients < 0",
+  "in_eta_g": "-(4*g**2 + 1)/4"
+ },
+ {
+  "factor": "E - c^2",
+  "exponent": 4,
+  "coeff_sign": "all coefficients < 0",
+  "in_eta_g": "-(4*eta**2 - 4*eta + 4*g**2 + 1)*(4*eta**2 + 4*eta + 4*g**2 + 1)/16"
+ },
+ {
+  "factor": "4*E - 1",
+  "exponent": 4,
+  "coeff_sign": "all coefficients < 0",
+  "in_eta_g": "(2*eta - 1)*(2*eta + 1)"
+ }
+]

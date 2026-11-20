@@ -1,0 +1,16 @@
+zeta                                                                        predicted 0  observed nneg histogram {0: 20}
+left pair 0.2+-3i                                                           predicted 2  observed nneg histogram {2: 20}
+two left pairs 0.2+-3i, 0.35+-1i                                            predicted 4  observed nneg histogram {4: 20}
+real left pair {0.3, 0.2}                                                   predicted 2  observed nneg histogram {2: 20}
+real right pair {0.6, 0.8}                                                  predicted 0  observed nneg histogram {0: 20}
+real {0.25 left, 0.9 right} (not partners)                                  predicted 1  observed nneg histogram {1: 20}
+quartet(0.25,2) exact                                                       predicted 0  observed nneg histogram {0: 20}
+quartet(0.25,2) + extra copy of the left pair (left mult 2, right mult 1)   predicted 2  observed nneg histogram {1: 1, 2: 19}
+quartet(0.25,2) + extra copy of the right pair (left mult 1, right mult 2)  predicted 0  observed nneg histogram {0: 20}
+quartet(0.25,2) twice (double quartet)                                      predicted 0  observed nneg histogram {0: 20}
+left pair + quartet elsewhere                                               predicted 2  observed nneg histogram {0: 1, 2: 19}
+on-line double pair 1/2+-2i (mult 2)                                        predicted 0  observed nneg histogram {0: 20}
+on-line simple pair 1/2+-2i (mult 1)                                        predicted None  observed nneg histogram {0: 20}
+single real zero 0.75                                                       predicted None  observed nneg histogram {1: 20}
+single real zero 0.25                                                       predicted None  observed nneg histogram {2: 20}
+three real zeros {0.25, 0.75 (partners), 1}                                 predicted None  observed nneg histogram {0: 20}

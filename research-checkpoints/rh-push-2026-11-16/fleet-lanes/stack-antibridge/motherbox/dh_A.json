@@ -1,0 +1,21 @@
+{
+ "which": "dh",
+ "N": 84,
+ "bits": 10000,
+ "interval": [
+  "1/100",
+  "1/2"
+ ],
+ "P": {
+  "first_not_positive": null,
+  "msg": "all 84 pivots certified positive"
+ },
+ "Ke": {
+  "first_not_positive": 75,
+  "msg": "pivot 75 certified negative: [-1.5684389e-768 +/- 1.46e-776]"
+ },
+ "Ko": {
+  "first_not_positive": 75,
+  "msg": "pivot 75 certified negative: [-4.4970414e-764 +/- 2.78e-772]"
+ }
+}

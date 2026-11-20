@@ -1,0 +1,11 @@
+07:46:29 DH H_gamma=2000: 1861 real, 84 pairs, 2029 particles; pair terms per evaluation 8.23e+06; state 0.2 MB
+07:46:30 step 25 t=0.000608 h=6.32e-05 err=0.37 unlanded=83 rej=0
+07:46:31 step 50 t=0.006421 h=5.26e-04 err=0.39 unlanded=80 rej=0
+07:46:31 snapshot t=0.01: unlanded pairs 76 of 84
+07:46:32 step 75 t=0.047852 h=3.14e-03 err=0.51 unlanded=49 rej=0
+07:46:32 snapshot t=0.05: unlanded pairs 49 of 84
+07:46:32 step 100 t=0.122687 h=3.57e-03 err=0.38 unlanded=20 rej=1
+07:46:33 step 125 t=0.213753 h=4.68e-03 err=0.39 unlanded=1 rej=5
+07:46:34 done t=0.233753 steps 129 rejected 5 evaluations 805
+{"obj": "DH", "Hgamma": 2000.0, "ld": true, "n_real": 1861, "n_pairs": 84, "steps": 129, "landed": 84, "Lambda_max_landing_inner": 0.2306073580455102, "argmax_gamma": 240.40467234919495, "argmax_x": 0.3695305814506988, "debruijn_bound": 0.27310570125458306, "speedup_quantiles": [1.0005423648140694, 1.0078962039683217, 1.0854907161785465, 1.2603033647775286, 1.2851579681112968], "land_over_rung_quantiles": [0.9953551908662945, 0.9976953988557232, 0.9999445988583946, 1.0040087597029883, 1.0140114565250278], "frac_land_gt_rung": 0.42857142857142855, "violations_debruijn": 0}
+{'0.01': {'t': 0.01, 'unlanded': 76, 'real_zero_count': 1877, 'total_zero_count': 2029, 'deficit': 152}, '0.05': {'t': 0.05, 'unlanded': 49, 'real_zero_count': 1931, 'total_zero_count': 2029, 'deficit': 98}}

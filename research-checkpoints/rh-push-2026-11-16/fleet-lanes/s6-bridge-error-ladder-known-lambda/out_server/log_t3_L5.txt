@@ -1,0 +1,12 @@
+11:49:13 L5: 12703 ordinates 6.648 .. 9999.195; list 0.00 GB, planned peak 0.50 GB
+11:49:13 21 records
+11:49:13 record at index 46 gap 3.389528e-01: t_c 1.47737056e-02 (pair value 1.43611209e-02, retardation 2.87e-02)
+11:49:13 record at index 210 gap 2.817182e-01: t_c 1.02633492e-02 (pair value 9.92064456e-03, retardation 3.45e-02)
+11:49:13 record at index 275 gap 2.022460e-01: t_c 5.19965084e-03 (pair value 5.11293173e-03, retardation 1.70e-02)
+11:49:13 record at index 372 gap 1.981973e-01: t_c 4.98531376e-03 (pair value 4.91026972e-03, retardation 1.53e-02)
+11:49:16 record at index 638 gap 1.096596e-01: t_c 1.51140813e-03 (pair value 1.50315304e-03, retardation 5.49e-03)
+11:49:18 record at index 2693 gap 1.092068e-01: t_c 1.50658087e-03 (pair value 1.49076598e-03, retardation 1.06e-02)
+11:49:23 record at index 2908 gap 8.144979e-02: t_c 8.33497328e-04 (pair value 8.29258607e-04, retardation 5.11e-03)
+11:49:28 record at index 6335 gap 5.039085e-02: t_c 3.18301035e-04 (pair value 3.17404681e-04, retardation 2.82e-03)
+11:49:33 record at index 11516 gap 3.173433e-02: t_c 1.26014654e-04 (pair value 1.25883451e-04, retardation 1.04e-03)
+{"fit_all": {"p_tc": -0.9622071109525632, "p_E": -0.46374792657934244}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -1.264486296520021, "p_E": -0.4483167643935344, "p_Ecoll": -0.4309157359851562, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 0, "p_increments": -0.34608822911020465, "tc_over_E_lo": 0.6095027581209986, "tc_over_E_hi": 0.13556260560553485}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -0.6655685999762475, "p_E": -0.4707988541319044, "p_Ecoll": -0.44489041113183786, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 1, "p_increments": 4.040520651052329, "tc_over_E_lo": 0.1591291412617649, "tc_over_E_hi": 0.08917619307531831}], "blocks": null}

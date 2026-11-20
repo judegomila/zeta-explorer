@@ -1,0 +1,35 @@
+PLAN: controls ['HEAT1', 'HEAT025']; prec 256 bits (rows P8, P1, EF), 400 bits (row P45); workers 6; largest allocation: lists of < 1e5 balls (coefficients Lambda_D(n), n <= N) and < 4000 HEAT samples per tau: < 200 MB per process
+HEAT HEAT1: 3523 samples in 0.6s; eps = [1.1083e-69 +/- 2.28e-74], eps1 = [4.4333e-69 +/- 8.90e-75]; cfg {'rect': ('1.15625', '2500.375', '2501.265625'), 'rates': [('0.375', '2500.921875'), ('0.625', '2500.625')]}
+HEAT HEAT025: 1763 samples in 2.7s; eps = [3.2653e-53 +/- 2.44e-58], eps1 = [1.3061e-52 +/- 2.98e-57]; cfg {'rect': ('0.8125', '500009.78125', '500010.671875'), 'rates': [('0.375', '500010.328125'), ('0.625', '500010.03125')]}
+phase1 HEAT025 z: edges 500009.28125 500011.171875 (dist 0.631 0.936); zeros [3]; fails [[]]; 5.0s
+phase1 HEAT1 z: edges 2499.875 2501.140625 (dist 0.940 0.315); zeros [2]; fails [[]]; 12.9s
+phase2: 24 side integrals
+  int HEAT1 cnt0 side 0: rad 6.24e-13, 22.8s
+  int HEAT1 h1 side 0: rad 6.48e-49, 58.5s
+  int HEAT1 h2 side 0: rad 7.36e-49, 50.4s
+  int HEAT1 cnt0 side 1: rad 9.43e-14, 9.7s
+  int HEAT1 h1 side 1: rad 1.34e-49, 26.1s
+  int HEAT1 h2 side 1: rad 1.25e-49, 23.6s
+  int HEAT1 cnt0 side 2: rad 3.54e-12, 86.7s
+  int HEAT1 h1 side 2: rad 3.40e-48, 235.8s
+  int HEAT1 h2 side 2: rad 3.21e-48, 240.7s
+  int HEAT1 cnt0 side 3: rad 9.43e-14, 10.2s
+  int HEAT1 h1 side 3: rad 1.34e-49, 23.8s
+  int HEAT1 h2 side 3: rad 1.25e-49, 25.1s
+  int HEAT025 cnt0 side 0: rad 5.05e-11, 858.4s
+  int HEAT025 h1 side 0: rad 1.03e-47, 2262.8s
+  int HEAT025 h2 side 0: rad 8.81e-48, 2245.4s
+  int HEAT025 cnt0 side 1: rad 3.01e-13, 9.5s
+  int HEAT025 h1 side 1: rad 9.19e-49, 26.9s
+  int HEAT025 h2 side 1: rad 9.81e-49, 30.1s
+  int HEAT025 cnt0 side 2: rad 2.75e-11, 316.2s
+  int HEAT025 h1 side 2: rad 4.87e-48, 922.5s
+  int HEAT025 h2 side 2: rad 3.26e-48, 905.4s
+  int HEAT025 cnt0 side 3: rad 3.01e-13, 9.4s
+  int HEAT025 h1 side 3: rad 9.19e-49, 23.2s
+  int HEAT025 h2 side 3: rad 9.81e-49, 21.2s
+assembled HEAT1 in 0.1s
+{"control": "HEAT1", "complete": true, "P8": {"cell_gen": {"mid": [1.1412318032385459e-57, -1.727233711018889e-77], "rad": 4.85810422158491e-49, "contains0": true, "rad_below_1e_40": true}, "cell_sym": null, "cell_pair": {"mid": [0.0, 1.727233711018889e-77], "rad": 2.1748740873296375e-67, "contains0": true, "rad_below_1e_40": true}, "sym_defect": null}, "P1": {"cell_gen": {"mid": [5.6162494758882315e-58, -5.073749026117986e-77], "rad": 4.72218053642459e-49, "contains0": true, "rad_below_1e_40": true}, "cell_sym": null, "sym_defect": null}, "EF": null, "P45": null}
+assembled HEAT025 in 0.0s
+{"control": "HEAT025", "complete": true, "P8": {"cell_gen": {"mid": [2.0779871029737435e-57, 3.6421299829530113e-69], "rad": 2.3341396857410394e-48, "contains0": true, "rad_below_1e_40": true}, "cell_sym": null, "cell_pair": {"mid": [2.612248425827639e-58, -3.6421299829530113e-69], "rad": 4.344993958954829e-49, "contains0": true, "rad_below_1e_40": true}, "sym_defect": null}, "P1": {"cell_gen": {"mid": [8.448638035336889e-58, 3.65914710401006e-69], "rad": 2.4758640708955518e-48, "contains0": true, "rad_below_1e_40": true}, "cell_sym": null, "sym_defect": null}, "EF": null, "P45": null}
+DONE 2339.3s

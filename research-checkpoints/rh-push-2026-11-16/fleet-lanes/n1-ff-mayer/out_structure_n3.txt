@@ -1,0 +1,27 @@
+q=3 N=[1, 0, 2, 1] k=2 dim=28
+[S1] ||M - W D|| = 2.091873955995484e-15  ||W W^* - 1|| = 3.8459253727671276e-16  ||W - W^*|| = 2.7206127916829737e-15  ||W^2-1|| = 2.6743472926073828e-15
+     ||[D,D^*]|| = 2.2090864226209478e-15   ||D(u)^* - D(conj u)|| = 2.0710196392751575e-15
+     eigenvalues of D(u): (value, predicted multiplicity, found): [((-0.13602+2.56927j), 2, 2), (0j, 18, 18), ((-0.63-0.51j), 6, 6), ((1.1232+0.3774j), 2, 2)]  all match: True
+[S2] Krein symmetry ||M(u)^* W - W M(conj u)|| = 1.946357420895564e-15   signature of W: (+15,-13)
+     ||[M,P]|| = 0.0 ||[W,P]|| = 0.0 ||[D,P]|| = 0.0
+[S3] normality defect at |u|=q^-1/2: ||[M,M^*]||/||M||^2 on V+ = 0.5529899144631215
+[S4] scan over |u|=r (360 angles): max operator norm, max spectral radius of M|V+ ; and of M|V-
+     r=0.0500: max||M+||=   0.353  max specrad(M+)=   0.133  max specrad(M-)=   0.128
+     r=0.1111: max||M+||=   1.000  max specrad(M+)=   0.333  max specrad(M-)=   0.299
+     r=0.1500: max||M+||=   1.636  max specrad(M+)=   0.493  max specrad(M-)=   0.415
+     r=0.2000: max||M+||=   3.000  max specrad(M+)=   0.769  max specrad(M-)=   0.575
+     r=0.2500: max||M+||=   6.000  max specrad(M+)=   1.233  max specrad(M-)=   0.745
+     r=0.3000: max||M+||=  18.000  max specrad(M+)=   2.700  max specrad(M-)=   0.926
+     r=0.4000: max||M+||=  12.000  max specrad(M+)=   2.940  max specrad(M-)=   1.319
+     r=0.5000: max||M+||=   6.000  max specrad(M+)=   2.041  max specrad(M-)=   1.757
+     r=0.5774: max||M+||=   6.464  max specrad(M+)=   2.072  max specrad(M-)=   2.126
+[T1] u=(0.1+0.05j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 7.30e-16   (||lhs||=1.041)
+[T1] u=(0.4-0.3j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 2.99e-15   (||lhs||=2.301)
+[T1] u=(-0.7+0.2j): ||ev_0(1-M)^-1 - Phi_all/((q-1)L)|| = 3.03e-14   (||lhs||=8.398)
+     L zero u0=1.00000+0.00000j |u0|=1.00000: ||Phi_all(u0)||=17.2581, smallest singular value of 1-M(u0) on V+ = 1.13e-16
+     L zero u0=-0.56834+0.10162j |u0|=0.57735: ||Phi_all(u0)||=5.2688, smallest singular value of 1-M(u0) on V+ = 8.69e-17
+[C-def] deformation W -> Q W Q^* (Q unitary, commutes with P): radii of the zeros of det(1 - W'D | V+) that start at the L zeros
+     eps=0: |u| = [0.57735]   (q^-1/2=0.577350)
+     eps=0.001: |u| = [0.578022]   (q^-1/2=0.577350)
+     eps=0.01: |u| = [0.584188]   (q^-1/2=0.577350)
+     eps=0.05: |u| = [0.614423]   (q^-1/2=0.577350)

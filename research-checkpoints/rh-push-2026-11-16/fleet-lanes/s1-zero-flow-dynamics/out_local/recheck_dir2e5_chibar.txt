@@ -1,0 +1,3 @@
+chibar N=349424 closest pair index 243776: float64 list 143847.174864262808 143847.184267279052 gap 9.403016e-03
+  30-digit zeros 143847.17486426334783 143847.18426727902442 gap 0.00940301567659 ; relative gap difference -6.03e-08 ; sign of Z left/mid/right of the pair: +1 -1 +1
+  longdouble (eps 2.2e-16) window flow, step factor 0.01: t_c = 1.1055386739e-05  (float64 run: 1.105537714482952e-05 ; pair value 1.1052087977e-05) ; beta(0.5) = 664.21665 (float64 window value 656.717902353199) ; beta(0.05) = 6585.3852 (6919.147004795977)

@@ -1,0 +1,4 @@
+per band T=2560 U=1860 dt=0.02 points=93000 gpu=False y=50
+planned: block 2560 points x 5444 terms, 3 real matrices = 0.33 GB
+block 1, 2560/93000 points, 0 s
+wrote out/per_2560_00.json.new 5 s

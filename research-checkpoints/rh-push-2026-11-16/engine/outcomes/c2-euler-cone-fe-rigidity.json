@@ -1,0 +1,40 @@
+{
+ "slug": "c2-euler-cone-fe-rigidity",
+ "round": 2,
+ "kind": "explore",
+ "nodes": [
+  "rung-toeplitz-euler-detector",
+  "twisted-log-positivity-b-n",
+  "euler-fe-coupling-at-height"
+ ],
+ "tags": [
+  "euler-product",
+  "toeplitz",
+  "rigidity",
+  "riemann-siegel",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No new result; precise obstruction. (i) C intersect A = {zeta} is Hamburger's theorem (classical; cone and multiplicativity unused), and geometric means of zeta translates fail A at the gamma-factor poles (proved, re-derived). (ii) Lattice translates zeta(s + 2 pi i k/log(Tc/2 pi)) are unitary cone elements whose defect in zeta's functional equation on [T,T+H] is at most (|alpha|H + alpha^2)/(2T) times |zeta| to leading order (re-derived; confirmed directly to T = 2e8), so a one-window tolerance version admits a unimodular-twist control over a range of alpha that grows with T. (iii) In the lane's float64 finite model (not certified), one window imposes about 30 real conditions and does not exclude a prescribed zero at 3/4 + i t0 at tolerance 1e-5 for T = 3e4 (referee run), 1e5, 1e6; the multi-height constraint pins F(s0) (slice and first order only) with a constant that grows with T, which only says F equals zeta in the window. Nothing is established about zeros of zeta.",
+ "obstruction": "Exact uniqueness is Hamburger's theorem and uses neither the cone nor multiplicativity. In one window [T,T+H], lattice translates zeta(s + 2 pi i k/log(T/2pi)) are cone elements with functional-equation defect about (|alpha|H + alpha^2)/(2T), so the feasible set at fixed tolerance grows with T; a window gives about 30 real conditions against about sqrt(T)/log T free primes, and a prescribed zero at 3/4 + i t0 is feasible (float64 model, T up to 1e6). The multi-height constraint only says F equals zeta in the window.",
+ "obstructionKind": "window-local-fe-admits-translates",
+ "controlsThatDefeat": [
+  "lattice height translates of zeta (unimodular twists; pass every single-window functional-equation test)",
+  "L(s, chi_5) at height T/5 (residual about 50/T, measured)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails; the precise-obstruction verdict stands. Seven reporting errors or overstatements, none changing the verdict or a flag: (1) Verdict item 2 says the translates differ from zeta at 3/4+it0 by O(1); for fixed k, alpha_k -> 0 so the difference is about alpha_k|zeta'(s0)|; O(1) needs k growing with T (allowed by the lemma). (2) Lemma 2's admissible range is eps*T/(H*max|zeta|), not eps*T/H, and \"unbounded as T grows\" takes a sup over lattice points only (not proved, not needed).  [record truncated in transit; full text in push/c2-euler-cone-fe-rigidity/REFEREE.md]",
+ "lesson": "The functional equation is linear in a(n) and the Euler cone is convex in log F, so \"cone intersect affine space\" holds in no single variable. A window of length H gives about 30 to 35 real conditions independent of T, against about sqrt(T)/log T free primes; pinning in one window needs H of Riemann-Siegel size. Windowed functional-equation tests cannot separate zeta from its lattice translates or from L(s, chi_5) at height T/5 (measured residual about 50/T). Stability around zeta can never exclude zeros uniformly because inf |zeta(3/4+it)| = 0. Multiplicativity only reduces N unknowns to pi(N) (cone pinned, relaxed model unpinned at T = 1e5 in the multi-height model).",
+ "followUp": "None on this route. If kept at all: record the window-translate lemma (zeta translates and shifted L-functions pass any single-window functional-equation test) as a new control in OBSTRUCTION_MAP section 2, since it kills any attack whose functional-equation input is local in height.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-euler-cone-fe-rigidity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-euler-cone-fe-rigidity/REFEREE.md"
+}

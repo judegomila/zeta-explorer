@@ -1,0 +1,5 @@
+2a = 3.50 lambda_min -4.2579e-15 ; quadruple contributions (85.70, 114.16, 166.48, 176.70):  2.908e-16 -1.629e-16 -1.488e-16 -5.903e-17 ; rest -4.178e-15 ; mass of |ghat|^2 in t<40: 0.545, 75..96: 0.000
+2a = 3.60 lambda_min -2.6963e-07 ; quadruple contributions (85.70, 114.16, 166.48, 176.70): -5.712e-06 -2.996e-09  2.009e-10 -3.022e-10 ; rest  5.445e-06 ; mass of |ghat|^2 in t<40: 1.000, 75..96: 0.000
+2a = 3.80 lambda_min -2.7133e-01 ; quadruple contributions (85.70, 114.16, 166.48, 176.70): -8.059e-01 -4.376e-03  4.908e-05 -1.716e-05 ; rest  5.389e-01 ; mass of |ghat|^2 in t<40: 0.006, 75..96: 0.909
+2a = 4.00 lambda_min -7.6633e-01 ; quadruple contributions (85.70, 114.16, 166.48, 176.70): -9.431e-01 -3.009e-03 -4.101e-05  2.391e-05 ; rest  1.798e-01 ; mass of |ghat|^2 in t<40: 0.020, 75..96: 0.888
+2a = 4.50 lambda_min -1.3380e+00 ; quadruple contributions (85.70, 114.16, 166.48, 176.70): -1.399e+00 -5.173e-04  4.374e-07 -1.929e-05 ; rest  6.155e-02 ; mass of |ghat|^2 in t<40: 0.003, 75..96: 0.973

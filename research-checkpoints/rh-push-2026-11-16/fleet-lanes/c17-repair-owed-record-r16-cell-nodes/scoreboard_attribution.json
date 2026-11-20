@@ -1,0 +1,68 @@
+{
+ "A_requirements.scoreHistogram.0": {
+  "onFile": 146,
+  "baseline": 146,
+  "ownEditsOnly": 146,
+  "final": 147
+ },
+ "C_coverage.families": {
+  "onFile": 106491,
+  "baseline": 117370,
+  "ownEditsOnly": 117370,
+  "final": 117370
+ },
+ "C_coverage.familiesClosed": {
+  "onFile": 3648,
+  "baseline": 3797,
+  "ownEditsOnly": 3797,
+  "final": 3797
+ },
+ "C_coverage.familiesOpenUntried": {
+  "onFile": 102013,
+  "baseline": 112712,
+  "ownEditsOnly": 112712,
+  "final": 112585
+ },
+ "C_coverage.familiesTriedNotClosed": {
+  "onFile": 830,
+  "baseline": 861,
+  "ownEditsOnly": 861,
+  "final": 988
+ },
+ "C_coverage.nodes": {
+  "onFile": 1718,
+  "baseline": 1724,
+  "ownEditsOnly": 1727,
+  "final": 1727
+ },
+ "C_coverage.nodesMarkedClosed": {
+  "onFile": 579,
+  "baseline": 585,
+  "ownEditsOnly": 588,
+  "final": 588
+ },
+ "C_coverage.openLemmasDecided": {
+  "onFile": 125,
+  "baseline": 125,
+  "ownEditsOnly": 125,
+  "final": 130
+ },
+ "C_coverage.outcomeRecords": {
+  "onFile": 158,
+  "baseline": 158,
+  "ownEditsOnly": 158,
+  "final": 168
+ },
+ "C_coverage.tags": {
+  "onFile": 462,
+  "baseline": 485,
+  "ownEditsOnly": 485,
+  "final": 485
+ },
+ "D_reliability.lanesRun": {
+  "onFile": 148,
+  "baseline": 148,
+  "ownEditsOnly": 148,
+  "final": 149
+ }
+}

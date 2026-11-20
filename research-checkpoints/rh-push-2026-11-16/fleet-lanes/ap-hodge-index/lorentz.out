@@ -1,0 +1,24 @@
+zeta, degree 2 part (h_2), 4 primes          nonneg True | M-convex support True | max positive index over all 1 quadratic derivatives: 4 | Lorentzian: False
+  normalised N(h_2)                          nonneg True | M-convex support True | max positive index over all 1 quadratic derivatives: 1 | Lorentzian: True
+zeta, degree 3 part (h_3), 4 primes          nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 4 | Lorentzian: False
+  normalised N(h_3)                          nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: True
+zeta, degree 4 part (h_4), 4 primes          nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 4 | Lorentzian: False
+  normalised N(h_4)                          nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: True
+EA-type local factors (hyperbolic), deg 3    nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: True
+tempered GL2 local factors, deg 3            nonneg False | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: False
+TW+ (eps_2 = 1/2), deg 3                     nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: True
+TW- (eps_2 = -1), deg 3                      nonneg False | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: False
+T-NR local factor at 2 (c=2.2), deg 3        nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: True
+T-NR local factor at 2 (c=-2.2), deg 3       nonneg False | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: False
+elementary symmetric e_3 (zeta(s)/zeta(2s))  nonneg True | M-convex support True | max positive index over all 4 quadratic derivatives: 1 | Lorentzian: True
+EA-type local factors (hyperbolic), deg 4    nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: True
+tempered GL2 local factors, deg 4            nonneg False | M-convex support True | max positive index over all 10 quadratic derivatives: 3 | Lorentzian: False
+TW+ (eps_2 = 1/2), deg 4                     nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: True
+TW- (eps_2 = -1), deg 4                      nonneg False | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: False
+T-NR local factor at 2 (c=2.2), deg 4        nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: True
+T-NR local factor at 2 (c=-2.2), deg 4       nonneg False | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: False
+elementary symmetric e_4 (zeta(s)/zeta(2s))  nonneg True | M-convex support True | max positive index over all 10 quadratic derivatives: 1 | Lorentzian: True
+DH coefficients a(2),a(3),a(4),a(6),a(9): [0.2841, -0.2841, -1, 1, -1]  a(6)-a(2)a(3) = 1.0807
+prime 2: symbol of the single-prime form on one period: max 3.3468, min -0.5742, fraction of period positive 0.250
+prime 3: symbol of the single-prime form on one period: max 3.0015, min -0.8042, fraction of period positive 0.305
+prime 5: symbol of the single-prime form on one period: max 2.6041, min -0.9947, fraction of period positive 0.353

@@ -1,0 +1,64 @@
+K=18000 D=18000 primary elements=7250 primes=2067
+planned: symbol table int8 7250x2067 = 15.0 MB
+MATRIX SIZE rows=6340 cols=6340; planned complex128 matrix 0.643 GB, SVD peak about 7x = 4.502 GB (measured: 4x was too low, K=D=24000 killed by the cap)
+built C  t=0.9s  density of nonzeros=0.9077
+reciprocity max |C - C^T| on common block: 0.0
+prime Gauss sums: max ||g|-1| = 7.327471962526033e-15
+SVD start t=1.9s
+SVD done t=48.3s
+s1^2=88508.4 s2^2=47890.6 s3^2=47404.6   (KD)^(2/3)=471733.5  K+D=36000  MP edge (dims)=23018.4  Frobenius=36484229
+count s^2 > 4(K+D): 0   count s^2 > 1.1*MP edge: 44   count s^2 > 1.5*MP edge: 12
+   count s^2 > 1.0 * MP edge: 69
+   count s^2 > 1.1 * MP edge: 44
+   count s^2 > 1.25 * MP edge: 23
+   count s^2 > 1.5 * MP edge: 12
+   count s^2 > 2.0 * MP edge: 4
+s_J^2 / MP edge for J = 1,2,5,10,20,40: 3.845 2.081 1.869 1.625 1.302 1.123
+top 30 s^2: 88508 47891 47405 46735 43028 41712 41288 39863 37614 37408 35840 34922 33220 32809 32394 32379 31288 31227 30105 29978 29720 29556 29472 28557 28531 28470 28072 28041 27415 27245
+overlap v1: g N^-0.000: 0.0077; conj g N^-0.000: 0.9547; g N^-0.167: 0.0032; conj g N^-0.167: 0.9692; g N^-0.333: 0.0047; conj g N^-0.333: 0.9072; log-log slope of |v1|^2 vs N = -0.318
+overlap u1: g N^-0.000: 0.9547; conj g N^-0.000: 0.0077; g N^-0.167: 0.9692; conj g N^-0.167: 0.0032; g N^-0.333: 0.9072; conj g N^-0.333: 0.0047; log-log slope of |u1|^2 vs N = -0.318
+twist candidates: 1080  (planned 0.110 GB)
+ j   s_j^2   best |<v_j, w>|   label (N(r), r=(a,b), omega^a, lambda^b, sign)   proj energy on all candidates
+projection space: sg=+1, N(r)<=40, all 9 unit twists, dim 135 of 6340
+  0     88508   0.969   (1, 1, 0, 0, 0, 1)   0.953
+  1     47891   0.586   (1, 1, 0, 1, 2, 1)   0.879
+  2     47405   0.649   (1, 1, 0, 1, 1, -1)   0.871
+  3     46735   0.842   (1, 1, 0, 0, 1, -1)   0.876
+  4     43028   0.897   (4, -2, 0, 0, 0, 1)   0.891
+  5     41712   0.622   (7, 1, 3, 0, 0, 1)   0.880
+  6     41288   0.642   (7, -2, -3, 0, 0, 1)   0.873
+  7     39863   0.533   (13, 1, -3, 0, 0, 1)   0.758
+  8     37614   0.595   (13, 4, 3, 0, 0, 1)   0.865
+  9     37408   0.498   (19, -2, 3, 0, 0, 1)   0.770
+ 10     35840   0.546   (19, -5, -3, 0, 0, 1)   0.840
+ 11     34922   0.767   (25, -5, 0, 0, 0, 1)   0.757
+ 12     33220   0.564   (31, 1, 6, 0, 0, 1)   0.758
+ 13     32809   0.523   (31, -5, -6, 0, 0, 1)   0.742
+ 14     32394   0.529   (37, 7, 3, 0, 0, 1)   0.643
+ 15     32379   0.495   (37, 4, -3, 0, 0, 1)   0.734
+ 16     31288   0.533   (43, 7, 6, 0, 0, 1)   0.097
+ 17     31227   0.525   (43, 1, -6, 0, 0, 1)   0.169
+ 18     30105   0.581   (4, -2, 0, 0, 0, -1)   0.085
+ 19     29978   0.549   (4, -2, 0, 0, 0, -1)   0.108
+ 20     29720   0.435   (73, 1, 9, 0, 0, 1)   0.066
+ 21     29556   0.432   (61, 4, 9, 0, 0, 1)   0.053
+ 22     29472   0.450   (61, -5, -9, 0, 0, 1)   0.048
+ 23     28557   0.346   (79, 7, -3, 0, 0, 1)   0.226
+ 24     28531   0.363   (67, -2, -9, 0, 0, 1)   0.287
+Rayleigh quotient |C w_r|^2 (best unit twist) by N(r):
+  N=1:83575  N=4:38164  N=7:36326  N=7:36326  N=13:32640  N=13:32640  N=19:30183  N=19:30183  N=25:28523  N=28:17892  N=28:17892  N=31:26932  N=31:26932  N=37:26049  N=37:26049  N=43:25068  N=43:25068  N=49:16797  N=52:16273  N=52:16273  N=61:22849  N=61:22849  N=67:22163  N=67:22163
+  log-log slope of Rayleigh quotient vs N(r) (r != 1): -0.264   (prediction -1/3)
+explicit deflation (right side): rho, #r, dim, top s^2 after removal, optimal rank-dim value s_{dim+1}^2, bulk MP edge
+  rho=    0 9tw #r=   0 dim=    0 top=     88508 opt=     88508 edge=23018
+  rho=    1 9tw #r=   1 dim=    9 top=     43288 opt=     37408 edge=23018
+  rho=   13 9tw #r=   6 dim=   54 top=     37561 opt=     24289 edge=23018
+  rho=   61 9tw #r=  22 dim=  198 top=     30039 opt=     18305 edge=23018
+quadratic-twist test (weight N^-1/6), m = rows 2..200 (N(m) <= 556): bulk level Frobenius/cols = 5755
+   Rayleigh |C x|^2/|x|^2: cubic twist only mean 14974 (restricted to odd d: 13754);  with quadratic twist mean 5973 max 6208
+   energy in top-40 right singular space: cubic only 0.1153; with quadratic twist mean 0.0061 max 0.0093; random baseline 0.0063
+quadratic-twist test (weight 1), m = rows 2..200 (N(m) <= 556): bulk level Frobenius/cols = 5755
+   Rayleigh |C x|^2/|x|^2: cubic twist only mean 15466 (restricted to odd d: 14192);  with quadratic twist mean 5972 max 6229
+   energy in top-40 right singular space: cubic only 0.1187; with quadratic twist mean 0.0058 max 0.0090; random baseline 0.0063
+span of 199 quadratic-twisted rows: top s^2 of C restricted = 8826;  MP edge for 6340 x 199 = 7974; ratio 1.11
+span of 199 cubic-only rows (odd d): top s^2 of C restricted = 39708;  MP edge for 6340 x 199 = 7974; ratio 4.98
+total t=58.8s

@@ -1,0 +1,8 @@
+workers 1 planned allocation: per worker below 1 GB (object tables, value cache of at most 4000 lists)
+TMt6 0 done 100 of 10000 sec 15 {'lazy': 23, 'n': 100, 'posfeas': 30, 'prec_128': 100, 's_excl': 100, 'why_None': 7, 'why_P': 70, 'why_lazy:HT': 23}
+TMt6 0 done 2100 of 10000 sec 294 {'lazy': 388, 'n': 2100, 'posfeas': 519, 'prec_128': 2095, 'prec_256': 5, 's_excl': 2100, 'why_None': 131, 'why_P': 1581, 'why_lazy:H': 27, 'why_lazy:HT': 361}
+TMt6 0 done 4100 of 10000 sec 514 {'lazy': 763, 'n': 4100, 'posfeas': 1005, 'prec_128': 4091, 'prec_256': 9, 's_excl': 4100, 'why_C': 5, 'why_None': 237, 'why_P': 3095, 'why_lazy:H': 52, 'why_lazy:HT': 711}
+TMt6 0 done 6100 of 10000 sec 740 {'lazy': 1129, 'n': 6100, 'posfeas': 1482, 'prec_128': 6090, 'prec_256': 10, 's_excl': 6100, 'why_C': 5, 'why_None': 348, 'why_P': 4618, 'why_lazy:H': 82, 'why_lazy:HT': 1047}
+TMt6 0 done 8100 of 10000 sec 1053 {'lazy': 1528, 'n': 8100, 'posfeas': 2016, 'prec_128': 8087, 'prec_256': 13, 's_excl': 8100, 'why_C': 5, 'why_None': 483, 'why_P': 6084, 'why_lazy:H': 107, 'why_lazy:HT': 1421}
+FAMILY TMt6 0 done 8300 cut True sec 1085 {"lazy": 1565, "n": 8300, "posfeas": 2068, "prec_128": 8287, "prec_256": 13, "s_excl": 8300, "why_C": 5, "why_None": 498, "why_P": 6232, "why_lazy:H": 109, "why_lazy:HT": 1456}
+ALL DONE

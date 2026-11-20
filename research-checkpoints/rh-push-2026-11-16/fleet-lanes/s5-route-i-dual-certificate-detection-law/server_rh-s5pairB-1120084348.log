@@ -1,0 +1,30 @@
+pair mode: 433 tasks, prime powers up to 1.47e+07, frame size about 841, planned memory per worker < 0.30 GB
+long double eps 1.084202172485504434e-19
+0/433 72s
+50/433 391s
+100/433 469s
+150/433 502s
+200/433 523s
+250/433 540s
+300/433 548s
+350/433 551s
+400/433 552s
+gamma 1e+04 b 0.50 L 7.372 model 5.052  2a*: min 4.4 median 5.0 max 5.1  c = 0.678  (noise 1.0e-07)
+gamma 1e+04 b 0.40 L 7.372 model 5.935  2a*: min 5.2 median 5.75 max 5.9  c = 0.78  (noise 1.0e-07)
+gamma 1e+04 b 0.30 L 7.372 model 7.291  2a*: min 6.4 median 6.65 max 7.5  c = 0.902  (noise 1.0e-07)
+gamma 1e+04 b 0.20 L 7.372 model 9.714  2a*: min 6.8 median 7.5 max 7.6  c = 1.017  (noise 1.0e-07)
+gamma 1e+04 b 0.10 L 7.372 model 15.752  2a*: min 7.5 median 7.6 max 7.7  c = 1.031  (noise 1.0e-07)
+gamma 1e+04 b 0.01 L 7.372 model 75.475  2a*: min 7.7 median 7.949999999999999 max 8.7  c = 1.078  (noise 1.0e-07)
+gamma 1e+06 b 0.50 L 11.978 model 5.757  2a*: min 5.7 median 5.8 max 5.9  c = 0.484  (noise 1.0e-07)
+gamma 1e+06 b 0.40 L 11.978 model 6.783  2a*: min 6.4 median 6.75 max 7.4  c = 0.564  (noise 1.0e-07)
+gamma 1e+06 b 0.30 L 11.978 model 8.361  2a*: min 7.2 median 8.05 max 8.9  c = 0.672  (noise 1.0e-07)
+gamma 1e+06 b 0.20 L 11.978 model 11.189  2a*: min 9.2 median 9.95 max 11.2  c = 0.831  (noise 1.0e-07)
+gamma 1e+06 b 0.10 L 11.978 model 18.259  2a*: min 11.6 median 12.2 max 12.3  c = 1.019  (noise 1.0e-07)
+gamma 1e+06 b 0.01 L 11.978 model 88.414  2a*: min 12.3 median 12.45 max 12.7  c = 1.039  (noise 1.0e-07)
+gamma 1e+12 b 0.50 L 25.793 model 6.981  2a*: min 7.0 median 7.1 max 7.1  c = 0.275  (noise 1.0e-07)
+gamma 1e+12 b 0.40 L 25.793 model 8.266  2a*: min 8.3 median 8.5 max 8.6  c = 0.33  (noise 1.0e-07)
+gamma 1e+12 b 0.30 L 25.793 model 10.254  2a*: min 10.0 median 10.6 max 10.9  c = 0.411  (noise 1.0e-07)
+gamma 1e+12 b 0.20 L 25.793 model 13.836  2a*: min 12.9 median 13.9 max 14.3  c = 0.539  (noise 1.0e-07)
+gamma 1e+12 b 0.10 L 25.793 model 22.856  2a*: min None median None max None  c = None  (noise 1.0e-07)
+gamma 1e+12 b 0.01 L 25.793 model 113.228  2a*: min None median None max None  c = None  (noise 1.0e-07)
+done 552s

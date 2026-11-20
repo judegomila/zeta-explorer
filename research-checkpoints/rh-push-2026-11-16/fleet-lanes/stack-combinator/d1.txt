@@ -1,0 +1,124 @@
+* g-passive-cascade/Thm1-series-stubs [PROVED (referee re-derived)] DH=FAIL HEAT=N/A TWIST=FAIL EA=PASS
+    With Z_p(s) = (log p / 2) coth(s log p / 2) = sum_{k in Z} 1/(s - 2 pi i k/log p), one has log p/(p^s - 1) = Z_p(s) - (log p)/2 for Re s > 0, hence for Re s > 1: xi'/xi(s) = G(s) - sum_p [Z_p(s) - (lo
+* g-passive-cascade/Kronecker-budget [PROVED (Kronecker-Weyl CLASS] DH=? HEAT=N/A TWIST=PASS EA=PASS
+    For fixed sigma > 0, Re[log p/(p^{sigma+it} - 1)] fills exactly [-log p/(p^sigma+1), +log p/(p^sigma-1)], and sup_t Re sum_{p<=Q} log p/(p^{sigma+it}-1) = sum_{p<=Q} log p/(p^sigma - 1): no inter-prim
+* g-passive-cascade/Prop2-scattering [PROVED. Referee: the cited "] DH=? HEAT=? TWIST=N/A EA=?
+    R_a(w) = X(w-a)/X(w+a), X(w) = xi(1/2+w). (a) R_a(w) R_a(-w) = 1, abs(R_a(it)) = 1, so if Schur then inner (no resistor to extract). (b) abs(R_a(w)) < 1 for Re w > sqrt(max(0, Delta^2 - a^2)) uncondit
+* g-passive-cascade/Thm3-no-prime-lossless-cascade [PROVED modulo CLASSICAL inpu] DH=? HEAT=? TWIST=N/A EA=?
+    For a > 0, tau > 0, z = e^{-tau w}: (i) R_a has no factorisation R_a = beta(z) * Gamma with beta nonconstant inner and Gamma bounded holomorphic on Re w > 0; (ii) no delay-line Schur step R_a = (rho +
+* g-passive-cascade/Prop4-DH-junction [PROVED (algebra); numerics c] DH=FAIL HEAT=FAIL TWIST=PASS EA=PASS
+    For f = c1 L(s,chi) + c2 L(s,chibar) (chi mod 5, c2 = conj c1), with lambda = c1 L1/f: f'/f = lambda L1'/L1 + (1 - lambda) L2'/L2. Each branch L_j'/L_j is a series chain of stubs (log p/2) coth((s log
+* g-passive-cascade/S5-HB-reserve [PROVED (proposition) + MEASU] DH=FAIL HEAT=N/A TWIST=PASS EA=PASS
+    A_Q(s) = (1/2)s(s-1) pi^{-s/2} Gamma(s/2) P_Q(s), xi_Q = A_Q(s) + A_Q(1-s). If xi_Q(sigma+it) = 0 with sigma != 1/2 (not a pole) then J_Q(sigma,t) := log abs(A_Q(sigma+it)) - log abs(A_Q(1-sigma+it)) 
+* g-passive-cascade/S2-truncation-not-PR [MEASURED] DH=? HEAT=? TWIST=? EA=?
+    The sharply truncated pole-compensated circuit L_Q(s) = 1/s - (1/2) log pi + (1/2) psi(s/2) - sum_{n<=Q} Lambda(n) n^{-s} + int_1^Q x^{-s} dx is not positive-real on Re s > 1/2 for Q = 10, 1e2, 1e3, 1
+* g-symmetry-schur/Thm1-group [PROVED (referee: small filla] DH=PASS HEAT=PASS TWIST=N/A EA=PASS
+    The group of (anti)holomorphic automorphisms g of the loaded torus E_r with f o g = f or conj f is exactly (Z/2)^3 = {1, D, R, A, C, DC, RC, tau} for every r > 1 and lens L > 0; it acts on the spectra
+* g-symmetry-schur/Thm2-what-symmetry-kills [PROVED ((iii) relies on PR 5] DH=PASS HEAT=PASS TWIST=N/A EA=PASS
+    For every combination of the symmetries, the only blocks of the loaded bridge form forced to vanish are (a) the D-odd (sheet-odd / "spinor sign") sector, which is a NULL sector for every form built fr
+* g-symmetry-schur/inter-sector-identity [PROVED (referee re-derived)] DH=PASS HEAT=? TWIST=? EA=?
+    With f(t) = xi(1/2+it), C(t,s) = (alpha/pi)(f(t)f'(s) - f'(t)f(s))/(t-s), C_+/-(t,s) = C(t,s) +/- C(t,-s): C_+(t,s) = ((t^2+s^2)/(2ts)) C_-(t,s) - (alpha/pi)[f(t)f'(s)/s + f'(t)f(s)/t]. The Schur mult
+* g-symmetry-schur/trace-split (CORRECTED) [lane's statement (odd = 97.9] DH=PASS HEAT=? TWIST=? EA=?
+    tr H_+ - tr H_- = (alpha/pi) int_0^inf (f(0)^2 - f(t)^2)/t^2 dt > 0 for every positive kernel (abs(f(t)) <= f(0)). For xi: tr H_- = 6.63994e-4 alpha (0.0020860 alpha/pi), tr H_+ = 3.07741e-2 alpha (0.
+* g-symmetry-schur/DH-blind-input-set [PROVED given MEASURED DH inp] DH=PASS HEAT=? TWIST=? EA=?
+    Any argument for Delta_- <= 0 whose inputs are limited to {(Z/2)^3 symmetry, kernel positivity, evenness, monotonicity, Csordas-type convexity of -log kappa(sqrt t), entrywise positivity of H_- (PR 56
+* g-coupling-norm/Thm1-RH-equivalence [PROVED (from eq48 on (1/2, i] DH=FAIL HEAT=? TWIST=? EA=?
+    With K(x,y) = (L(x)+L(y))/(x+y) on real nodes x,y > 0, split frozen X / live Y, T = P_Y^{-1/2} B P_X^{-1/2}, 1 - rho(X;y)^2 = Delta_X(y)/K(y,y): (i) RH iff rho(X;y) <= 1 for every finite X with P_X > 
+* g-coupling-norm/Thm2-Schur-Blaschke [PROVED (interval-checked at ] DH=PASS HEAT=? TWIST=? EA=?
+    With b_x(y) = (y-x)/(y+x), Richards iterates L_0 = L, l_k = L_{k-1}(x_k), L_k(z) = l_k (z L_{k-1}(z) - x_k l_k)/(z l_k - x_k L_{k-1}(z)), phi_k = [(L_{k-1}(y) - l_k)/(L_{k-1}(y) + l_k)]/b_{x_k}(y): 1 
+* g-coupling-norm/Thm3-Christoffel [PROVED (needs only P_X > 0; ] DH=PASS HEAT=? TWIST=? EA=?
+    For v = delta_y - sum c_j delta_{x_j}, V(z) = prod(x_j - y) q(z)/((z+y) prod(z+x_j)) with q of degree <= N, q(-y) = 1 (bijection c <-> q), and Delta_X(y) = min_q prod_j (x_j - y)^2 sum_{w in zeros of 
+* g-coupling-norm/Thm4-two-sided-law [upper bound PROVED under RH;] DH=? HEAT=? TWIST=? EA=?
+    Under RH, with m = floor(N/2): 1 - rho(X;y)^2 <= tau_m(y) prod_j (x_j - y)^2 / prod_{k<=m} (y^2 + gamma_k^2)^2 (trial q vanishing at the first m zero pairs), and an explicit lower bound via divided di
+* g-coupling-norm/Thm5-margin-forces-Blaschke [PROVED (referee C4: "non-det] DH=PASS HEAT=? TWIST=? EA=?
+    If a nested real node sequence has all Pick matrices PSD and rho(X_{N-1}; x_N) <= q < 1 for all N, then every dyadic shell [2^i, 2^{i+1}) holds at most 1 + (9/8) log(1/(1-q^2)) nodes and sum_j x_j/(1+
+* g-coupling-norm/DH-order-149-horizon [CERTIFIED (interval) for the] DH=PASS HEAT=? TWIST=? EA=?
+    In Arb ball arithmetic, xi Pick pivots are positive through N = 100 on nested families A ([0.01,0.5]) and B ([0.6,4]) (277 pivots). DH pivots are positive for orders 2..148 and the first non-positive 
+* g-coupling-norm/congruence-invariance [PROVED (trivial; PR 56 secti] DH=PASS HEAT=? TWIST=? EA=?
+    Block-diagonal congruence (S_X, S_Y) leaves every singular value of T unchanged; this covers the Klein fold, doubled cover, diagonal normalisation, bridge vs Pick presentation, annulus chart. The toru
+* g-antibridge-cancel/ThmA-block-form [PROVED (referee re-derived f] DH=PASS HEAT=? TWIST=? EA=?
+    For one-sided exponential tests v_b(t) = sum b_j e^{-x_j t} 1_{t>=0} (x_j > 1/2 real) and J g(t) = g(-t): W(v_b +/- J v_c) = b'Pb + c'Pc +/- 2 b'Bc, P_ij = (L(x_i)+L(x_j))/(x_i+x_j), B_ij = -(L(x_i)-L
+* g-antibridge-cancel/ThmB-sector-factorisation [PROVED] DH=PASS HEAT=? TWIST=? EA=?
+    With s_i = x_i^2, Xi(s) = F(sqrt s), M = Xi'/Xi = L(x)/(2x), lambda = -rho^2: K_e := P + B = sum_{Im rho>0} phi_rho(x_i) phi_rho(x_j), phi_rho(x) = 2x/(x^2 - rho^2), = 4 x_i x_j (-M[s_i,s_j]); K_o := 
+* g-antibridge-cancel/B1-harmonic-mean [PROVED (algebra; residual 3.] DH=PASS HEAT=? TWIST=? EA=?
+    When P > 0, S = P - B P^{-1} B = (P+B) P^{-1} (P-B) = 2 (K_e^{-1} + K_o^{-1})^{-1}; with T = P^{-1/2} B P^{-1/2}: P^{-1/2} K_e P^{-1/2} = 1 + T, P^{-1/2} K_o P^{-1/2} = 1 - T, so norm(T) <= 1 iff K_e 
+* g-antibridge-cancel/B2-sector-RH [PROVED from CLASSICAL Loewne] DH=FAIL HEAT=? TWIST=? EA=?
+    K_e >= 0 on all finite node sets in one interval I of (1/2, inf) iff Loewner matrices of -M are PSD on I iff all lambda real iff RH; same for K_o with sM (needs lambda > 0). In this coordinate the PR 
+* g-antibridge-cancel/no-margin-measured [MEASURED (60-80 digits, not ] DH=PASS HEAT=? TWIST=? EA=?
+    For zeta on six real nodes (0.6..3.5), 1 - norm(T) = 2.7e-30 with T eigenvalues at both ends (-1 + 2.7e-30, ..., 1 - 2.2e-22); referee, seven nodes: 3.0e-29. Min eigenvalues: P 1.66e-18, K_e 3.57e-34,
+* g-arithmetic-gain/two-jet [PROVED (checked to 11 digits] DH=PASS HEAT=? TWIST=? EA=?
+    Anchor s_0 = 1/2 + d + ic, K_d(u) = 16 d^5/(pi (d^2+u^2)^3) (mass 6). For v analytic in Re s > 1/2 with kappa v in H^2: int K_d(t-c) v(1/2+it) dt = 6 v(s_0) - 6 d v'(s_0) + 2 d^2 v''(s_0) =: ell(v). H
+* g-arithmetic-gain/zero-obstruction-covering [PROVED (lower bound); equali] DH=FAIL HEAT=? TWIST=? EA=?
+    A zero 1/2 + b + i gamma, b > 0, forces E_D(d,c) >= 64 d^5 b/((b+d)^2 + (gamma-c)^2)^3 for every D; for zeros with disk coordinates a_j, e_N >= v* Gamma^{-1} v, Gamma_jk = 1/(1 - conj(a_k) a_j), v_j =
+* g-arithmetic-gain/coefficient-mass [PROVED given CLASSICAL omega] DH=? HEAT=? TWIST=? EA=?
+    If E_D(d,c) < 15/16 then sum_n abs(a_n) n^{-1/2-d} >= abs(D(s)) >= 0.00897/abs(zeta(1/2+d+it)) for abs(t-c) <= d/4; with Montgomery's omega theorem, filters passing at every anchor of scale d up to he
+* g-arithmetic-gain/on-line-zero-cost [PROVED (referee corrected th] DH=PASS HEAT=? TWIST=? EA=?
+    If zeta(1/2 + i gamma) = 0 with gamma = c (zero ON the line at the anchor height) and E_D(d,c) < 15/16, then sup abs((zeta D)'(1/2+it)) > 3.538/d near gamma. On-line zeros set the price of each anchor
+* g-arithmetic-gain/finite-cutoff-Euler-blind [MEASURED (float least square] DH=PASS HEAT=? TWIST=? EA=?
+    On 161 anchors c = 30(0.25)70 the pass COUNTS of L(s,chi_5) (Euler product) and DH (none) are 67/71, 76/79, 82/83 (d = 1/2; N = 4, 16, 48) and 111/112, 113/113, 114/114 (d = 1/4): differ by at most 4.
+* g-arithmetic-gain/reach-order-1-only [PROVED (composition); identi] DH=PASS HEAT=? TWIST=? EA=?
+    Gain certificates on the finitely many cells covering the lens {b > x, (gamma - t)^2 < b^2 - x^2} imply only the order-1 complex Weil test Q(e^{-zt}) = Re L(z)/Re z >= 0 at z = x + it (via the sibling
+* g-channel-geometry/ThmA-inertia [PROVED for finitely many off] DH=PASS HEAT=? TWIST=? EA=?
+    For even envelopes psi_j with transforms Psi_j, the channel matrix is Z_jk = H_ell[J_b psi_j, J_b psi_k] = 2 sum_rho cosh^2(rho b) conj(Psi_j(conj rho)) Psi_k(rho) = M* J M with J = identity on on-lin
+* g-channel-geometry/ThmB-separated-tail-blind [PROVED given PR 44 sections ] DH=PASS HEAT=? TWIST=? EA=?
+    For any kernel kappa(t) = c e^{at - lambda e^t} L(t), a >= 1/2, abs(L - 1) <= d_R for t >= R, the PR 44 separated-tail positivity sum conj(a_i) a_j H(U_i,U_j) >= (ell_delta - E_{R,delta}) sum abs(a_i)
+* g-channel-geometry/ThmC-sign-blind-carriers [PROVED given PR 29 eqs (1)-(] DH=FAIL HEAT=N/A TWIST=PASS EA=FAIL
+    (i) The PR 29 separated-carrier theorem (good set G_b of relative measure >= 1 - C r/b in [T,2T], T = e^{2b}; sector floor (1/8) log T; sparse span of dimension >= r e^{(2-eps)b}/4 with floor (1/16) l
+* g-channel-geometry/Prop2-beyond-verified-height [PROVED (referee: true but cl] DH=N/A HEAT=? TWIST=? EA=?
+    For any verified height H_0 and b with e^{2b} > H_0, "the PR 29 sparse span at b is positive" does not follow from {functional equation, gamma factor, all zeros of height <= H_0 on the line}: a twin r
+* g-channel-geometry/Schur-target-is-Weil [PROVED (Schur complement) + ] DH=FAIL HEAT=? TWIST=? EA=?
+    With D the certified sparse block and E, B the blocks on any complement, E - B* D^{-1} B >= 0 iff norm(D^{-1/2} B E^{-1/2}) <= 1; because D > 0, this on the full complement is Q >= 0 on the whole wind
+* g-odd-adversary/no-wrong-sign-certified [CERTIFIED (Arb node Grams an] DH=FAIL HEAT=FAIL TWIST=N/A EA=?
+    For the theta kernel, the one-node odd sign R(t) = pi C_-(t,t)/(f^2 + f'^2) > 0 at 150000 points 0 < t <= 3000 (step 0.02, Arb), where C_-(t,t) = (1/pi)(f'^2 - f f'' + f f'/t), f(t) = xi(1/2+it); odd 
+* g-odd-adversary/depth-law [MEASURED (four DH zeros; pre] DH=this HEAT=? TWIST=? EA=?
+    An off-line quartet at height gamma produces exactly one wrong-sign odd direction, a packet a(x) = sin(gamma x/2) x wide envelope (hundreds of sign changes, support >> 2), with Rayleigh quotient ~ -e^
+* g-odd-adversary/odd-spectrum-no-gap [MEASURED (two discretisation] DH=PASS HEAT=? TWIST=? EA=?
+    The odd-sector operator H_- (alpha = 1; cutoff c and alpha are trivial parameters, PROVED) is compact with simple eigenvalues lambda_1 = 6.6076462918e-4, lambda_2 = 3.2104600479e-6, lambda_3 = 1.91650
+* g-odd-adversary/heat-no-go [PROVED + CLASSICAL (referee:] DH=PASS HEAT=? TWIST=? EA=?
+    For kappa_tau = e^{tau u^2/16} kappa (tau = de Bruijn time exactly), PR 56's proved inputs (F) Csordas convexity, (G) entrywise positivity of H_-, (H) the one-sign cone persist for every real tau, whi
+* g-odd-sign-factor/T1-T2-no-Gaussian-mixture [PROVED (referee reconstructe] DH=PASS HEAT=? TWIST=? EA=?
+    kappa(sqrt t) is not completely monotone, so kappa is not a positive Gaussian mixture (three proofs: log-convexity vs V'' > 0; a mixture gives f > 0 on the real axis, contradicting Hardy; decay). For 
+* g-odd-sign-factor/T3-convexity-excess [PROVED (checked to 16-20 dig] DH=PASS HEAT=? TWIST=? EA=?
+    d/dc H_c(u,v) = -alpha[(c-u)+(c-v)] kappa(c-u) kappa(c-v) (rank two), so <a,H_0 a> = 2 alpha int_0^inf (kappa*a)((v kappa)*a) ds; and for odd a: <a, H_0 a> = -2 alpha int_0^inf (kappa*a)(s) ((v rho ka
+* g-odd-sign-factor/T4-signed-factorisation [PROVED (CLASSICAL ingredient] DH=PASS HEAT=? TWIST=? EA=?
+    With G(t^2) = f(t), zeros lambda_n > 0 (on-line) and conjugate pairs lambda_k (one per off-line quartet): C_-(t,s) = (4 alpha/pi)[sum_n mu_n psi_n(t)psi_n(s) + 2 sum_k mu_k (a_k(t)a_k(s) - b_k(t)b_k(s
+* g-odd-sign-tp/TS-Loewner-STP [PROVED (classical in content] DH=FAIL HEAT=? TWIST=? EA=?
+    With phi = -G'/G, I = (0, gamma_1^2): RH iff the Loewner kernel L_phi(x,y) = (phi(x)-phi(y))/(x-y) is strictly totally positive of every order on I x I (Cauchy-Binet on sum mu_n/((lambda_n - x)(lambda
+* g-odd-sign-tp/Mellin-TP-order [MEASURED (quadrature not int] DH=PASS HEAT=PASS TWIST=N/A EA=?
+    In the Mellin coordinate H_-(x,y) is NOT TP_5: the minor with rows x = 0.1..0.5, columns y = 3.1..3.5 equals -3.10578223195232e-211 (three independent evaluations, persists off-grid: -1.506e-232). It 
+* g-odd-sign-tp/TPF-not-PF5 [PROVED up to a non-enclosed ] DH=differ HEAT=? TWIST=? EA=?
+    With m_j = (-1)^j kappa^{(2j)}(0) (positive multiples of int t^{2j} xi(1/2+it) dt): m_0..m_4 > 0, m_5, m_6 < 0, det[m_{a+b}]_{a,b<=2} = -19653.775, det[kappa^{(i+j)}(0)]_{i,j<=4} = -3631834.016 < 0; h
+* g-klein-bottle-seam/T1-index-seam-flux [PROVED (Backlund minus Hardy] DH=PASS HEAT=? TWIST=? EA=?
+    For F entire with F(1-s) = F(s), F(conj s) = conj F(s), a region Omega in Re s >= 1/2 bounded by a critical-line segment I and an arc C: N_K = N_on(I) + 2 N_right(Omega) = (1/pi) Delta_C arg F; seam f
+* g-klein-bottle-seam/T2-T3-topology-complete [PROVED (referee added "bound] DH=PASS HEAT=? TWIST=? EA=?
+    (T2) The non-orientable Z/2 torsion class in H^1(K; Z^w) = Z + Z/2 equals the sign of F on the critical line (Hardy Z sign, up to enclosed-zero parity); between two heights it changes by N_on mod 2 = 
+* g-klein-bottle-seam/T5-heat-events [PROVED for generic events wi] DH=PASS HEAT=? TWIST=? EA=?
+    Under d/dtau F = F''/4: (a) (N_K, seam sign) is constant on any tau-interval where no zero meets the window boundary; (b) at a generic double on-line zero (h_tt != 0) the pair satisfies (z - t*)^2 = (
+* g-renderer-learnings/ThmA-half-disk [PROVED (referee: strict ineq] DH=PASS HEAT=? TWIST=? EA=?
+    For order-1 entire F with F(1-s) = F(s), F(conj s) = conj F(s), s = 1/2 + x + it, x > 0, with pair-grouped Hadamard sum: Re F'/F(s) = sum_on x/(x^2+d^2) + sum_pairs 2x(d^2 + x^2 - b^2)/(((x-b)^2+d^2)(
+* g-renderer-learnings/CorA1-Euler-bounds-radius [PROVED (classical zero-free ] DH=FAIL HEAT=? TWIST=? EA=?
+    zeta(s) != 0 on Re s >= 1 gives b < 1/2 for every zeta pair; therefore W > 0 on Re s >= 1, B_a > 0 on the right half-plane for every a >= 1/2 (equivalently the starting boundary kernel P_{1/2} is PSD,
+* g-renderer-learnings/ThmB-axis-witness-screened [PROVED (classical: Laguerre ] DH=FAIL HEAT=? TWIST=? EA=?
+    On the line, L_1(t)/Xi(t)^2 = (Xi'^2 - Xi Xi'')/Xi^2 = sum_on 1/(t-gamma)^2 + sum_pairs 2(d^2 - b^2)/(d^2 + b^2)^2. L_1(t) < 0 implies abs(t - gamma) < b for some off-line pair; at a foot L_1/Xi^2 = -
+* g-renderer-learnings/catalogue-classification [PROVED/MEASURED per item (re] DH=n/a HEAT=? TWIST=? EA=?
+    Every regularity the zeta-view renderer shows is (G) an identity/local/topological fact from the functional equation and analyticity that holds for DH, (E) an Euler-proved boundary fact equal to the c
+* g-torus-modular/P1-r-average-null [PROVED] DH=PASS HEAT=? TWIST=? EA=?
+    The bridge block form Q = [[E,B*],[B,D]] built from the pulled-back scalar field is the same quadratic form for every torus parameter r; int Q d mu(r) = mu(total) Q and the relative coupling T is unch
+* g-torus-modular/P2-geodesic-double-Mellin [PROVED (referee: the integra] DH=PASS HEAT=? TWIST=? EA=?
+    For Re(s +/- w) > 1: int_0^inf int_0^inf (theta(t/y) - 1)(theta(ty) - 1) t^s y^w dt/t dy/y = 2 xi*(s+w) xi*(s-w), xi*(z) = pi^{-z/2} Gamma(z/2) zeta(z). In coordinates (t/y, ty) this is a product of t
+* g-torus-modular/P3-Maass-Selberg-Gram [CLASSICAL + algebra. REFUTED] DH=? HEAT=? TWIST=? EA=?
+    With phi(s) = xi*(2s-1)/xi*(2s), a(s) = T^{s-1/2} xi*(2s), b(s) = T^{1/2-s} xi*(2s-1) = a(1-s), the truncated Eisenstein Gram kernel K_T(s,s') = [a(s) conj a(s') - b(s) conj b(s')]/(s + conj s' - 1) +
+* g-torus-modular/P4-shift-family [(i) CLASSICAL with the commo] DH=FAIL HEAT=? TWIST=N/A EA=PASS
+    For entire X with X(w) = X(1-w), K_h(w,w') = [X(w+h) conj X(w'+h) - X(w-h) conj X(w'-h)]/(w + conj w' - 1) is PSD on Re w > 1/2 iff X(w-h)/X(w+h) is Schur there; this holds if X has no zeros in Re w >
+* g-torus-modular/P5-not-unitarisable [PROVED (elementary; Zagier's] DH=N/A HEAT=? TWIST=? EA=?
+    No positive-definite form with symmetric Laplacian exists on a space containing Zagier's vectors E*(z, rho/2): the eigenvalue (rho/2)(1 - rho/2) has imaginary part (gamma/2)(1 - beta), zero only if ga
+* g-zero-channels/L1-wall-height-law [PROVED (heat equation + Hada] DH=PASS HEAT=? TWIST=? EA=?
+    For F_tau = exp((tau/4) d_s^2) xi (d_tau F = F_ss/4) and c(tau) a simple zero of F_s with wall height W = F_tau(c) != 0: d/dtau log W = F_ss/(4F)(c) = -(1/4) sum_rho (c - rho)^{-2}; if all zeros are o
+* g-zero-channels/L3-normalised-wall [PROVED (referee: a change of] DH=PASS HEAT=? TWIST=? EA=?
+    With q_k = g_k^2, q_k' = 2 - q_k S_k: d/dtau log(abs(W_k)/q_k) = S_k + R_k, R_k = (1/4)(1/a^2 + 1/b^2 - 8/g_k^2) + (1/4) sum_{j != k,k+1} (c_k - gamma_j)^{-2}; while all zeros are real S_k, R_k >= 0. 
+* g-zero-channels/Newton-basins-no-arithmetic [PROVED (Prop 4); Prop 5 and ] DH=PASS HEAT=? TWIST=? EA=?
+    If X_tau has only real simple zeros, the Newton flow dy/dl = -X/X_y has basin (c_{k-1}, c_k) for gamma_k; the channel family is canonical and gamma_k leaves its channel only at a double zero (W_k = 0)
+* g-zero-channels/100-channels-certified [CERTIFIED (referee recompute] DH=PASS HEAT=n/a TWIST=N/A EA=?
+    For each of the first 100 zeros of xi there is a chain of 12 overlapping moving disks in (tau, s) containing exactly one zero of F_tau, on the line, for every tau in [-0.1, 0.5]; the 100 tubes are pai
+* SYN/spinor-square-root (from SYNTHESIS_GEOMETRIC.md 1.5; lane g-spinor-square-root not in this group) [PROVED per synthesis; synthe] DH=PASS HEAT=? TWIST=? EA=?
+    H_c on exponentials is the de Branges-type kernel of F + alpha F'; H_c = A* M_c A with M_c = [[G+* G+, -S_QQ* G-],[-G-* S_QQ, -G-* G-]], G+/- the causal/anticausal Hankel blocks of C_0 = A*/A; H_c >= 

@@ -1,0 +1,47 @@
+{
+ "slug": "c8-row-energy-squared-signal",
+ "round": 8,
+ "kind": "combine",
+ "nodes": [
+  "out-c7-uncompensated-high-side-normaliser",
+  "out-c7-ff-order2-vertex-exact",
+  "out-c7-liou-high-row-bound"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "prime-marks",
+  "normaliser",
+  "function-field",
+  "exact-arithmetic",
+  "bessel",
+  "cauchy-schwarz",
+  "circular"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to manuscript (6.2), (12.5), section 15.1 and Lemma 6.2: max_sigma E_sigma(Z) >= c_0 min(X,Y) |I_mark(Z)|^2 for the marked-only rows (Cauchy-Schwarz; classical). Relative in addition to the unproved high half (HC) at one sigma_0 in (1/2, beta*), which by the cited map row Z24 is possible only if beta* > 2/3: every true bound E << Z^(k+eps) K has k >= (2+2l-M)/6 - 2(1-beta*). In the F_q[T] block model: E = S + Rem with Rem >= 0 and S = wt^2 q^(d-2k)|S_cop|^2/(1-1/q) at dual length 0 (22 exact runs of the note at q = 7, d = 3, 4; 11 independent float runs by this referee including q = 13 and d = 2). E >= D + S fails in the computed cases (all with d <= N'+1). Random marks keep every identity and lower the mean signal by 2.5x to 21x. Not established: reading (b) of Lemma C, identity (3.2), the threshold h_E > 3, and the modulus-only exclusion over Z[omega] (ARGUED). The marks branch is reduced to (E-K), which stays open. Nothing about zeros.",
+ "obstruction": "The coherent term is the Cauchy-Schwarz step of Proposition 2.1 solved for the row energy: max_sigma E_sigma(Z) >= c_0 min(X,Y) |I_mark(Z)|^2 (relative to MS (6.2), (12.5), Lemma 6.2). The exponent statement (C1) of round-7 Lemma C follows only relative to the unproved high half (HC) and only if beta* > 2/3. In F_q[T]: E = S + Rem, Rem >= 0, S explicit at dual length 0 (exact). E >= D + S fails in the computed cases; a third Weil target has signal above the diagonal, so target and aligned control are not separated at these sizes. Not established: Lemma C reading (b), identity (3.2), threshold h_E > 3. The marks branch is reduced to (E-K), not closed.",
+ "obstructionKind": "coherent-term-is-cauchy-schwarz-step-of-prop-2-1-needs-high-half",
+ "controlsThatDefeat": [
+  "random marks (every identity kept; mean signal lower by 2.5x to 21x)",
+  "aligned control (not separated from a Weil target at the computed sizes)",
+  "not run: DH, heat, THIN, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 3,
+ "aboutZeros": false,
+ "refereeNote": "Every PROVED / PROVED-rel step was re-derived or recomputed and is confirmed; three small corrections, none changing a result. Report written to tmp/research-2026-11-16/push/c8-row-energy-squared-signal/REFEREE3.md, not REFEREE.md: REFEREE.md already holds the first referee's report, which RESULT.md cites by name, so it was not overwritten.\n\nG1 (verdict label): the confirmed steps are a Cauchy-Schwarz inequality (Theorem Z), an exact model identity [record truncated in the learn-step input; full text in REFEREE3.md]",
+ "lesson": "The round-7 \"coherent term\" is the Cauchy-Schwarz step of Proposition 2.1 solved for the row energy, so it cannot give a conclusion without the format's high half. Lemma C stays a debt in its original form: later lanes may cite only \"(C1) relative to (HC), beta* > 2/3\" or the F_q[T] identity. The squared signal and the exact diagonal are not additive in the model, and a third Weil target has signal above the diagonal, so target and aligned control are not separated at these sizes.",
+ "followUp": "Decide (E-K) directly: an upper bound for the remainder of the reflected marked theta rows (c8-ek-* lanes). Separately, for c8-liou-row-bound-theorem: the inequality gives E_liou >> Z^(7/6) from a lower bound for the Liouville probe (residue at x = 1), avoiding the Poisson remainder; not carried out.",
+ "resultFile": "tmp/research-2026-11-16/push/c8-row-energy-squared-signal/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-row-energy-squared-signal/REFEREE3.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

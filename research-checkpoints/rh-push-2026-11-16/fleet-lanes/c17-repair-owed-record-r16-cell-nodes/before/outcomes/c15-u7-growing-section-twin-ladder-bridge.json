@@ -1,0 +1,62 @@
+{
+ "slug": "c15-u7-growing-section-twin-ladder-bridge",
+ "round": 15,
+ "kind": "deepen",
+ "nodes": [
+  "twin-ladder",
+  "passive-cascade",
+  "bridge-scattering-factorisation",
+  "fejer-tapered-section"
+ ],
+ "tags": [
+  "twin-ladder",
+  "bridge",
+  "passive-cascade",
+  "spinor",
+  "growing-section",
+  "fejer",
+  "weil-form",
+  "control-dh",
+  "control-sign-twist",
+  "control-tnr",
+  "prefilter",
+  "r4"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction; no statement about zeros of zeta. For the Fejer-tapered section of the prime chain on the gamma one-port, L_F(s) = sum_rho K_u(s - rho) on Re s > 0 with Re K_u >= 0 on Re w >= 0; hence the section is J-contractive on Re s > 1/2 + eta_0 for every P if zeta has no zero there, and a uniform lower bound along any sequence P_j -> infinity on that half-plane excludes zeros there (Harnack, Vitali). This is a Fejer-smoothed form of the known criterion Re xi'/xi > 0 and of map row P45, so the stage inequality at unbounded P is the target itself. With P = t^theta the statement follows from RH, is proved unconditionally only for P up to about ((1/4) log t log log t)^2 (where it also holds for every sign twist), and its band-bound consequence (Proposition 4, valid for arbitrary coefficients, constant not explicit) is also met by random sign chains. Sharp sections of zeta are J-expansive on the line for theta >= 1/2 (measured). Measured (float64, heights where RH is verified): zeta min Re L_F > 0 in all cells including an independent cell at t = 3000; sign chains, Liouville, DH and random unimodular twists violate for theta >= 1; DH's violation is the term of its off-line pair. No step uses multiplicativity; controls fail only through zero location or the absence of the identity. Class U7 closes as a row; R1 to R4 all false.",
+ "obstruction": "Class U7 closes as a row. For the Fejer-tapered section L_F(s) = sum_rho K_u(s - rho) with Re K_u >= 0 on Re w >= 0, so J-contractivity on Re s > 1/2 at every P is a Fejer-smoothed form of Re xi'/xi > 0 and of map row P45 (the Weil form): the limit step is sound (Harnack, Vitali) and the stage inequality at unbounded P is the target. With P = t^theta the statement follows from RH and is proved only for P up to about ((1/4) log t log log t)^2, where it also holds for every sign twist; its band-bound consequence (Proposition 4) is met by random sign chains. Sharp sections of zeta are J-expansive on the line for theta >= 1/2 (MEASURED). No step uses multiplicativity; controls fail only through zero location. Proposition 5 (theta-coupled statement forces beta - 1/2 <= c_theta/log gamma) is neither proved nor refuted.",
+ "obstructionKind": "restatement-of-rh; stage-statement-is-weil-form-on-fejer-tests",
+ "controlsThatDefeat": [
+  "random sign chains (meet the band-bound consequence; in the unconditional range every sign twist satisfies the stage statement)",
+  "DH, Liouville, random unimodular twists (violate for theta >= 1, but only through zero location or the absence of the identity: no structural step)",
+  "not run: T-NR as an R1 control (the lane's member had 0 < c <= 2, not the map's T-NR; referee correction E1)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps re-derived and confirmed (Lemma 1 Fejer and sharp by residues; Lemma 2; Theorem 1 (a),(b); Lemma 3; Proposition 4 with unspecified constant; unconditional range; Gaussian variance u^2/24). No step assumes RH; conditional statements carry their hypothesis. Corrections, none changing the verdict or a flag: E1 T-NR is misdescribed: the map's T-NR has abs(c) > 2 and multiplicative coefficients; the result uses 0 < c <= 2 and says \"no Euler product\", so its R1 argument via T-NR does  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A tapered section makes the limit step sound (the positive-real class is closed and Harnack gives compactness), which moves the whole target into the stage inequality at unbounded P. Tying P to t^theta only weakens the target to (argued) a neighbourhood of the line of width c/(theta log t). Band-by-band square-root bounds do not separate zeta from random sign chains; the one-sided sum over all bands does, and that is the Weil form.",
+ "followUp": "None for U7. Owed: an independent referee, map row Q25 as drafted in RESULT section 8, and a proof or refutation of Proposition 5 (whether the theta-coupled stage statement forces beta - 1/2 <= c_theta/log gamma) by a power-sum argument.",
+ "resultFile": "tmp/research-2026-11-16/push/c15-u7-growing-section-twin-ladder-bridge/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-u7-growing-section-twin-ladder-bridge/REFEREE.md",
+ "launchedNodes": [
+  "twin-ladder",
+  "passive-cascade",
+  "bridge-scattering-factorisation",
+  "fejer-tapered-section"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-u7-growing-section-twin-ladder-bridge.md"
+ }
+}

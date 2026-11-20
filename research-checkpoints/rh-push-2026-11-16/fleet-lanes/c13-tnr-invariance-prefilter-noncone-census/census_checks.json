@@ -1,0 +1,580 @@
+{
+ "a_object": [
+  {
+   "q": 2,
+   "c": 2.0506096654409878,
+   "c_strip_max": 2.1213203435596424,
+   "F_at_2": 3.043128023669219,
+   "F_at_half_plus_3i": "(-0.353506727606 - 0.459580098551j)",
+   "FE_rel_defect": 1.5116290875206793e-31,
+   "zero_re": 0.8238766801660445,
+   "zero_im": 4.532360141827194,
+   "absF_at_zero": 1.2356374102962842e-31,
+   "abs_zeta_at_zero": 0.7104624605571964
+  },
+  {
+   "q": 3,
+   "c": 2.0784609690826525,
+   "c_strip_max": 2.309401076758503,
+   "F_at_2": 2.3638311775448586,
+   "F_at_half_plus_3i": "(-0.0525631552049 + 0.0163329860993j)",
+   "FE_rel_defect": 1.4184880864041377e-31,
+   "zero_re": 0.754139800883267,
+   "zero_im": 2.859600867380127,
+   "absF_at_zero": 3.024835852980498e-32,
+   "abs_zeta_at_zero": 0.5867863386905131
+  }
+ ],
+ "b_edrei_thoma": {
+  "zeta_p: 1/(1-x)": {
+   "first_coeffs": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 1596,
+    "negative": 0,
+    "first_negative": null,
+    "most_negative": 0.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 0,
+    "first_negative": null
+   }
+  },
+  "TNR q=2 t=c*sqrt2=29/10 (c=2.0506): (1+t x+2x^2)/(1-x)": {
+   "first_coeffs": [
+    "1",
+    "39/10",
+    "59/10",
+    "59/10",
+    "59/10",
+    "59/10"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 4333,
+    "negative": 0,
+    "first_negative": null,
+    "most_negative": 0.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 0,
+    "first_negative": null
+   }
+  },
+  "TNR q=3 t=c*sqrt3=18/5 (c=2.0785): (1+t x+3x^2)/(1-x)": {
+   "first_coeffs": [
+    "1",
+    "23/5",
+    "38/5",
+    "38/5",
+    "38/5",
+    "38/5"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 4333,
+    "negative": 0,
+    "first_negative": null,
+    "most_negative": 0.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 0,
+    "first_negative": null
+   }
+  },
+  "E_a p=3, p^a=3/2 (a=0.36907): 1/((1-3x/2)(1-2x/3))": {
+   "first_coeffs": [
+    "1",
+    "13/6",
+    "133/36",
+    "1261/216",
+    "11605/1296",
+    "105469/7776"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 3280,
+    "negative": 0,
+    "first_negative": null,
+    "most_negative": 0.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 0,
+    "first_negative": null
+   }
+  },
+  "NEG tempered twin q=2 t=2 (c=1.4142, zeros on the line): (1+2x+2x^2)/(1-x)": {
+   "first_coeffs": [
+    "1",
+    "3",
+    "5",
+    "5",
+    "5",
+    "5"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 4181,
+    "negative": 84,
+    "first_negative": {
+     "order": 4,
+     "rows": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "cols": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "value": -4.0
+    },
+    "most_negative": -40.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 3,
+    "first_negative": [
+     4,
+     1,
+     -4.0
+    ]
+   }
+  },
+  "NEG TNR q=2 t=-29/10 (c=-2.0506): (1-t x+2x^2)/(1-x)": {
+   "first_coeffs": [
+    "1",
+    "-19/10",
+    "1/10",
+    "1/10",
+    "1/10",
+    "1/10"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 2292,
+    "negative": 2041,
+    "first_negative": {
+     "order": 1,
+     "rows": [
+      1
+     ],
+     "cols": [
+      0
+     ],
+     "value": -1.9
+    },
+    "most_negative": -65.0274299
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 3,
+    "first_negative": [
+     1,
+     1,
+     -1.9
+    ]
+   }
+  },
+  "NEG L(chi), chi(p)=-1: 1/(1+x)": {
+   "first_coeffs": [
+    "1",
+    "-1",
+    "1",
+    "-1",
+    "1",
+    "-1"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 825,
+    "negative": 771,
+    "first_negative": {
+     "order": 1,
+     "rows": [
+      1
+     ],
+     "cols": [
+      0
+     ],
+     "value": -1.0
+    },
+    "most_negative": -1.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 20,
+    "first_negative": [
+     1,
+     1,
+     -1.0
+    ]
+   }
+  },
+  "NEG tempered degree 2, trace 1: 1/(1-x+x^2)": {
+   "first_coeffs": [
+    "1",
+    "1",
+    "0",
+    "-1",
+    "-1",
+    "0"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 2286,
+    "negative": 258,
+    "first_negative": {
+     "order": 1,
+     "rows": [
+      3
+     ],
+     "cols": [
+      0
+     ],
+     "value": -1.0
+    },
+    "most_negative": -1.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 13,
+    "first_negative": [
+     1,
+     3,
+     -1.0
+    ]
+   }
+  },
+  "NEG tempered degree 2, trace 19/10: 1/(1-1.9x+x^2)": {
+   "first_coeffs": [
+    "1",
+    "19/10",
+    "261/100",
+    "3059/1000",
+    "32021/10000",
+    "302499/100000"
+   ],
+   "all_minors": {
+    "N": 8,
+    "minors_tested": 4861,
+    "positive": 3280,
+    "negative": 0,
+    "first_negative": null,
+    "most_negative": 0.0
+   },
+   "contiguous": {
+    "kmax": 6,
+    "shifts": 40,
+    "negative_count": 20,
+    "first_negative": [
+     1,
+     9,
+     -0.108903421
+    ]
+   }
+  }
+ },
+ "c_kernel_norm": {
+  "Xi_quad": 0.3610125889256056,
+  "xi_direct": 0.3610125889256056,
+  "xi_half": 0.4971207781883141
+ },
+ "c_kernel": {
+  "zeta Phi": {
+   "min_value": 1.7504112862165126e-29,
+   "max_log_second_diff": -18.72899048068374,
+   "at_u": 0.005,
+   "log_concave_on_grid": true,
+   "increasing_points": 0,
+   "first_increase_u": null,
+   "unimodal_on_grid": true,
+   "samples": {
+    "u0": 0.8933938009342469,
+    "u_half_l": null
+   }
+  },
+  "TNR q=2 c=2.0506": {
+   "min_value": 9.237310369405862e-06,
+   "max_log_second_diff": 29.35424995264439,
+   "at_u": 0.405,
+   "log_concave_on_grid": false,
+   "increasing_points": 49,
+   "first_increase_u": 0.44,
+   "unimodal_on_grid": false,
+   "samples": {
+    "u0": 1.837488706568578,
+    "u_half_l": null
+   },
+   "fourier_check": {
+    "quad": 0.13514402200374062,
+    "exact": 0.13514402200374062
+   }
+  },
+  "TNR q=3 c=2.0785": {
+   "min_value": 0.05936569360322592,
+   "max_log_second_diff": 157.03742398018068,
+   "at_u": 0.575,
+   "log_concave_on_grid": false,
+   "increasing_points": 104,
+   "first_increase_u": 0.58,
+   "unimodal_on_grid": false,
+   "samples": {
+    "u0": 1.856884150775058,
+    "u_half_l": null
+   },
+   "fourier_check": {
+    "quad": 0.31481555833784064,
+    "exact": 0.31481555833784064
+   }
+  },
+  "TNR q=2 c=1.4142": {
+   "min_value": 9.237310369405862e-06,
+   "max_log_second_diff": 28.738486032762033,
+   "at_u": 0.375,
+   "log_concave_on_grid": false,
+   "increasing_points": 60,
+   "first_increase_u": 0.39,
+   "unimodal_on_grid": false,
+   "samples": {
+    "u0": 1.2689363731490106,
+    "u_half_l": null
+   },
+   "fourier_check": {
+    "quad": -0.0946029827469659,
+    "exact": -0.0946029827469659
+   }
+  },
+  "E_a a=0.3 (xi-normalised kernel, convolution)": {
+   "min_value": 1.2249567397571626e-08,
+   "max_log_second_diff": -10.214373158790035,
+   "log_concave_on_grid": true,
+   "increasing_points": 0,
+   "unimodal_on_grid": true,
+   "fourier_check": {
+    "quad": 0.13091264136061806,
+    "exact": 0.13091264136061814
+   }
+  }
+ },
+ "c_theta_polar": {
+  "zeta_theta_min": 1.000000301403455,
+  "Estar_i_0p7": -2.3309938134148154,
+  "Estar_inversion_defect": 3.944304526105059e-31,
+  "E_a_02_max_over_y": -1.1344865229538894,
+  "E_a_03_max_over_y": -1.8576302811759153,
+  "E_a_nonconstant_part_min_a03": 4.530828127889658e-14,
+  "xis_2a_a03": -4.143630418799367,
+  "xis_1p6": 1.0650021536726662
+ },
+ "d_laguerre": {
+  "gamma1": 14.134725141734695,
+  "TNR q=2": {
+   "t": 4.532360141827194,
+   "zeta": 0.0514922598917635,
+   "tnr": -18.93511868613087,
+   "closed_form": -18.93511868613087
+  },
+  "TNR q=3": {
+   "t": 2.859600867380127,
+   "zeta": 0.04813557374919106,
+   "tnr": -30.717453353431956,
+   "closed_form": -30.717453353431956
+  },
+  "E_a a=0.2 at gamma1": {
+   "value": -49.86476700740826,
+   "minus_2_over_a2": -50.0
+  },
+  "E_a a=0.3 at gamma1": {
+   "value": -22.0871543273906,
+   "minus_2_over_a2": -22.22222222222222
+  },
+  "zeta_near_gamma1_pm0.5": [
+   4.063665624462339,
+   4.072534893275129
+  ]
+ },
+ "e_turan": {
+  "zeta (T_k/gamma_k^2, k=1..)": [
+   0.06963238060969087,
+   0.05903932271041453,
+   0.051506363995069485,
+   0.04584748528507703,
+   0.041422534439155896,
+   0.037855668178052054,
+   0.034911387900894285,
+   0.032434331550012886,
+   0.03031764825251505,
+   0.028485292500731303
+  ],
+  "TNR q=2 c=2.0506": [
+   0.22944527238963608,
+   0.2298877712709627,
+   0.16767079825035475,
+   0.1271663136114998,
+   0.10165970093285921,
+   0.08466797051201722,
+   0.07266782624433167,
+   0.06376986966793154,
+   0.0569106411820968,
+   0.051457128035921874
+  ],
+  "TNR q=3 c=2.0785": [
+   0.27591483473270584,
+   0.3091534132057469,
+   0.21534177199082224,
+   0.15940868822911394,
+   0.12546109344534423,
+   0.10323043402007988,
+   0.0876996286201544,
+   0.0762864327116975,
+   0.06756073485510738,
+   0.060677162275281096
+  ],
+  "TNR q=2 c=1.4142": [
+   0.3193607545366531,
+   0.24290839304595876,
+   0.17013123108166883,
+   0.12773188234165336,
+   0.1018080037443465,
+   0.08471063892540592,
+   0.07268097863332541,
+   0.06377414687904104,
+   0.05691209338506305,
+   0.05145763897183316
+  ],
+  "E_a a=0.2": [
+   0.0347756342129515,
+   0.0323721413883076,
+   0.0302128313716532,
+   0.0282933153155136,
+   0.02659134825104529,
+   0.025080180113478526,
+   0.023733925524251534,
+   0.022529469349173388,
+   0.021446898209455167,
+   0.02046933936751964
+  ],
+  "E_a a=0.3": [
+   0.034724979388993,
+   0.03233628833854088,
+   0.030186670705890793,
+   0.028273699153876307,
+   0.026576279474397137,
+   0.025068355208610834,
+   0.02372447058890106,
+   0.022521783705315306,
+   0.021440559365582562,
+   0.020464043813413987
+  ],
+  "E_a a=0.45": [
+   0.034611169513806835,
+   0.03225569804970225,
+   0.030127848904142614,
+   0.02822958335263192,
+   0.026542385646406978,
+   0.02504175507319939,
+   0.023703200198840688,
+   0.02250449274958008,
+   0.02142629788860289,
+   0.020452129274160166
+  ]
+ },
+ "f_dilation_minors": {
+  "zeta": {
+   "sign_of_kernel_at_1": 1.0,
+   "order2_min_d2_log": -1.262177448353619e-29,
+   "order2_max_d2_log": 0.47034110950850133,
+   "order3": {
+    "positive": 0,
+    "negative": 120
+   },
+   "order4": {
+    "positive": 0,
+    "negative": 60
+   }
+  },
+  "TNR q=2 c=2.0506": {
+   "sign_of_kernel_at_1": 1.0,
+   "order2_min_d2_log": 3.006942743316781e-08,
+   "order2_max_d2_log": 0.24296021517334504,
+   "order3": {
+    "positive": 16,
+    "negative": 104
+   },
+   "order4": {
+    "positive": 24,
+    "negative": 36
+   }
+  },
+  "TNR q=3 c=2.0785": {
+   "sign_of_kernel_at_1": 1.0,
+   "order2_min_d2_log": 0.0009834168038165463,
+   "order2_max_d2_log": 0.22359224120414878,
+   "order3": {
+    "positive": 52,
+    "negative": 68
+   },
+   "order4": {
+    "positive": 2,
+    "negative": 58
+   }
+  },
+  "E_a a=0.3": {
+   "sign_of_kernel_at_1": -1.0,
+   "order2_min_d2_log": -104.5705965400193,
+   "order2_max_d2_log": 276.4637961254207,
+   "order3": {
+    "positive": 0,
+    "negative": 120
+   },
+   "order4": {
+    "positive": 60,
+    "negative": 0
+   }
+  },
+  "E_a a=0.2": {
+   "sign_of_kernel_at_1": -1.0,
+   "order2_min_d2_log": -43.52296010554433,
+   "order2_max_d2_log": 97.34844415720376,
+   "order3": {
+    "positive": 0,
+    "negative": 120
+   },
+   "order4": {
+    "positive": 60,
+    "negative": 0
+   }
+  }
+ }
+}

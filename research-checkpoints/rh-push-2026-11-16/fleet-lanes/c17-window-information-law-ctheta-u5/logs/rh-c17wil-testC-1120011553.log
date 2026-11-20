@@ -1,0 +1,26 @@
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 0.5, "M": 0.0, "u": 9.4425, "midpoint": 0.30060326991762687, "lattice point": 0.30060326991762687, "replace": 0.30060326991762687, "ref": "tight law b = 0.300603"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 0.5, "M": 1.0, "u": 9.4425, "midpoint": 0.31154750544921456, "lattice point": 0.31154750544921456, "replace": 0.31154750544921456, "ref": "tight law b = 0.311548"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 0.9, "M": 0.0, "u": 16.9965, "midpoint": 0.1336452074844085, "lattice point": 0.1336452074844085, "replace": 0.1336452074844085, "ref": "tight law b = 0.133645"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 0.9, "M": 1.0, "u": 16.9965, "midpoint": 0.13907175009426911, "lattice point": 0.13907175009426911, "replace": 0.13907175009426911, "ref": "tight law b = 0.139072"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.07, "M": 1.0, "u": 20.206950000000003, "midpoint": 0.11768334196185518, "lattice point": 0.05723923687572592, "replace": 0.05723923687572592, "ref": "passes below 0.037591; excluded above 0.290673 (midpoint), 0.291310 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.07, "M": 0.01, "u": 20.206950000000003, "midpoint": 0.08510777698791418, "lattice point": 0.006502447956552916, "replace": 0.006502447956552916, "ref": "passes below 0.003813; excluded above 0.126432 (midpoint), 0.136230 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.07, "M": 0.0001, "u": 20.206950000000003, "midpoint": 0.015816391235384718, "lattice point": 0.0006513030841104686, "replace": 0.0006513030841104686, "ref": "passes below 0.000381; excluded above 0.022295 (midpoint), 0.048289 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.5, "M": 1.0, "u": 28.3275, "midpoint": 0.05840000187576534, "lattice point": 0.024011899427934736, "replace": 0.024011899427934736, "ref": "passes below 0.022739; excluded above 0.086697 (midpoint), 0.102951 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.5, "M": 0.01, "u": 28.3275, "midpoint": 0.008385603725210394, "lattice point": 0.002436617862283625, "replace": 0.002436617862283625, "ref": "passes below 0.002297; excluded above 0.011861 (midpoint), 0.035185 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 1.5, "M": 0.0001, "u": 28.3275, "midpoint": 0.0008441423064930364, "lattice point": 0.0002436987114693038, "replace": 0.0002436987114693038, "ref": "passes below 0.000230; excluded above 0.001194 (midpoint), 0.011232 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 2.2, "M": 1.0, "u": 41.547000000000004, "midpoint": 0.016835056948269717, "lattice point": 0.013482315572741349, "replace": 0.013482315572741349, "ref": "passes below 0.012844; excluded above 0.030461 (midpoint), 0.055862 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 2.2, "M": 0.01, "u": 41.547000000000004, "midpoint": 0.0017451743338773957, "lattice point": 0.0013621752333085985, "replace": 0.0013621752333085985, "ref": "passes below 0.001293; excluded above 0.003209 (midpoint), 0.018355 (lattice point)"}
+planned: on-line block 1 x 1 arb entries at 512 bits (about 0.00 GB)
+{"thetap": 2.2, "M": 0.0001, "u": 41.547000000000004, "midpoint": 0.00017458559824563562, "lattice point": 0.00013623163573676722, "replace": 0.00013623163573676722, "ref": "passes below 0.000129; excluded above 0.000321 (midpoint), 0.005829 (lattice point)"}

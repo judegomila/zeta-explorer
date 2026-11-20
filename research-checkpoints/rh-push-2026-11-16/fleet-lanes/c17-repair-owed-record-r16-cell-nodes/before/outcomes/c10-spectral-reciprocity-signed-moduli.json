@@ -1,0 +1,50 @@
+{
+ "slug": "c10-spectral-reciprocity-signed-moduli",
+ "round": 10,
+ "kind": "explore",
+ "nodes": [
+  "out-c10-spectral-reciprocity-signed-moduli"
+ ],
+ "tags": [
+  "spectral-reciprocity",
+  "kloosterman",
+  "kuznetsov",
+  "moebius",
+  "mollifier",
+  "window",
+  "hecke-operators",
+  "motohashi",
+  "blomer-khan",
+  "katok-sarnak",
+  "positivity",
+  "e-a-control",
+  "t-nr"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction for the weight-1 (n4) sum: the exact dual of sum_c w(c) sum_n S(n,l;c) f(n) (Lemma R, classical, confirmed by derivation and to 1e-14 numerically) transforms (n,c) only; the twist l is a parameter, so the ledger map is A -> A, and the lattice side has T^(2A-1) terms per l against T spectral terms (exponent count), never shorter for A > 1. Shifted positivity L(1/2+a,phi_j)L(1/2-a,phi_j) >= 0 on even forms for every real a follows from the functional equation alone, so E_a passes the positivity step in the degree >= 4 variants. The anchor B(t_rho) = -1 holds and there is no comparison region in the t-variable. For the variants with a dual family (Motohashi cubic, Blomer-Khan) the closure is a ledger entry over recalled formulas, not a theorem. No A > 1/2 obtained; detector P2 remains open; no statement about zeros.",
+ "obstruction": "Weight-1 (n4) sum: the exact dual of sum_c w(c) sum_n S(n, l; c) f(n) (Lemma R, classical; confirmed by derivation and to 1e-14) transforms (n, c) only. The twist l <= X^2 that carries A is a parameter, so the ledger map is A -> A; the lattice side has T^(2A-1) terms per l against T spectral terms, never shorter for A > 1. The saving needed is cancellation in l, which no reciprocity on file touches. Variants with a dual family (Motohashi cubic weight, Blomer-Khan level exchange) are recalled, not derived: lengths preserved with positivity lost, or dual family longer; a ledger entry, not a theorem. Shifted positivity L(1/2+a, phi_j) L(1/2-a, phi_j) >= 0 follows from the functional equation alone. Detector P2: anchor B(t_rho) = -1 exact, no region of absolute convergence in t, so it cannot be run; it remains open. No A > 1/2 obtained.",
+ "obstructionKind": "reciprocity-dual-fixes-the-mollifier-twist-ledger-map-a-to-a-shifted-positivity-from-functional-equation",
+ "controlsThatDefeat": [
+  "E_a with real a (passes positivity, linearisation and the identities in the degree >= 4 variants)",
+  "T-NR (passes in all variants)",
+  "DH fails at Hecke linearisation (recorded in the n4 lane)",
+  "not run: heat, THIN, U (no automorphic family), Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails. C1 (shifted positivity from the functional equation), Lemma R (R0->R1->R2) and P2-a were re-derived and confirmed; Lemma R was reproduced numerically with independent code on two new cases (l=-7 and l=10, non-Gaussian weight in c): three sides agree to 1e-14, with the k!=0 Kloosterman part 3% and 29% of the total. Corrections, none changing the verdict: (1) Lemma R hypotheses incomplete as written: w must be a smooth, rapidly decaying function on (0,inf), not just a weight  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Reciprocity identities act on the L-value variable (n or the spectral parameter) and leave the mollifier twist l fixed or turn it into a level; the saving n4 needs is cancellation in l, which none of them touches. Moving to weights that have a dual family replaces Katok-Sarnak positivity by functional-equation positivity, which E_a with real a also satisfies. P2 has an exact anchor B(t_rho) = -1 but no region of absolute convergence in t, so the convexity detector cannot be run.",
+ "followUp": "One referee pass on Lemma R and the control screen (C1, T-NR row), then add the device row to the map; no further attack on lead 4 unless a reciprocity acting on the Moebius variable l is named. Section 4 (Motohashi/Blomer-Khan shapes) is recalled, not derived, and should be labelled so in the map.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-spectral-reciprocity-signed-moduli/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-spectral-reciprocity-signed-moduli/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

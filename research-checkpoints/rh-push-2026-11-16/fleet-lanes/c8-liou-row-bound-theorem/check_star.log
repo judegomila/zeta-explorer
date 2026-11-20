@@ -1,0 +1,11 @@
+X 2^12  F = 72: ordered same-class pairs 5912 (with d != 1: 0)  identity fails on 0
+X 2^12  F = 36: ordered same-class pairs 26414 (with d != 1: 888)  identity fails on 0
+X 2^12  F = 24: ordered same-class pairs 60670 (with d != 1: 2594)  identity fails on 0
+X 2^12  F = 18: ordered same-class pairs 109074 (with d != 1: 5214)  identity fails on 41338
+X 2^12  F = 12: ordered same-class pairs 247206 (with d != 1: 12626)  identity fails on 0
+X 2^12  F = 9: ordered same-class pairs 330056 (with d != 1: 17300)  identity fails on 123950
+X 2^12  F = 8: ordered same-class pairs 60670 (with d != 1: 2594)  identity fails on 0
+X 2^12  F = 6: ordered same-class pairs 993894 (with d != 1: 54048)  identity fails on 372806
+X 2^12  F = 4: ordered same-class pairs 247206 (with d != 1: 12626)  identity fails on 0
+X 2^12  F = 3: ordered same-class pairs 2984256 (with d != 1: 164394)  identity fails on 1118014
+X 2^14  F = 72: ordered same-class pairs 106654 (with d != 1: 3588)  identity fails on 0

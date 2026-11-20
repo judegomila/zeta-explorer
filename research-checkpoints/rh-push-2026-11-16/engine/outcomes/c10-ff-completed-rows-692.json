@@ -1,0 +1,51 @@
+{
+ "slug": "c10-ff-completed-rows-692",
+ "round": 10,
+ "kind": "compute",
+ "nodes": [
+  "ff-order2-vertex-probe",
+  "ek-vector-specific-row-mean-square",
+  "out-c10-ff-completed-rows-692"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "completed-rows",
+  "cube-part",
+  "prime-marks",
+  "mean-square",
+  "pre-registered",
+  "heavy"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_q[T] model, q = 7, (N, lam, d) = (6, 9, 2), exact integers, rule fixed before the run (hashes verified). The completed marked row R_m = S_6 + Jbar V_1 S_3 + Jbar^2 V_2 S_0 has energy/diagonal 1.688 (a), 2.002 (b), 5.905 (one). The squarefree part S_6 is at 0.567, 0.597, 0.862; three random vectors are at 0.80 to 1.07; mu is at 1222. The j = 2 term is 1.377 and 1.278 of the diagonal; this was known before the run, and the c9 figure 0.8 is wrong by a factor 1.72. It splits into the n = l^2 part (0.663 D_c, 97.6% along the constant direction) and the squarefree-n part (0.717, 0.614 D_c), whose sum over m is exactly zero, so it is absent from the principal signal. The registered literal band is met on the primary vector only through offsetting deviations. The completed-row law with exact inputs fails: the squarefree part is not at its diagonal, cross terms are not negligible, and the coherent count is off by factors 15.7 and 0.088. This is one configuration: no exponent, no threshold, no contradiction with an N^eps bound. The completion formula is verified by polynomiality for the trivial vector and for twists of conductor degree 1 and 2, not degree 3. The production rows were symmetry-tested, not recomputed. The reading of the squarefree-n half as the odd-l rows of MS (7.16) is dropped. No statement about zeta.",
+ "obstruction": "F_q[T], q = 7, (6, 9, 2), exact integers, rule fixed before the run. Completed row energy/diagonal: 1.688 (a), 2.002 (b), 5.905 (trivial); squarefree part 0.567, 0.597, 0.862; random vectors 0.80 to 1.07. The literal registered band is met on the primary vector only through offsetting deviations: the j = 2 (cube) term is 1.377 of the diagonal (the c9 figure 0.8 is wrong by 1.72), the squarefree part is at 0.57 of its diagonal, cross terms are -0.23. The completed-row law with exact inputs fails (coherent count off by factors 15.7 and 0.088). The cube term is half n = l^2 (principal direction; normaliser factor) and half squarefree n (sum over m exactly zero: absent from the principal signal). One configuration: no exponent, no threshold, no contradiction with an N^eps bound. Device ff-order2-vertex-probe: closure for ORDER-2 through (E-K) at 2 <= h <= 3 is proposed, not applied (model evidence at one size, one referee).",
+ "obstructionKind": "completed-row-law-fails-with-exact-inputs-literal-band-met-by-offsetting-deviations",
+ "controlsThatDefeat": [
+  "not a control separation: the Weil targets exceed the diagonal in the completed row",
+  "controls behave as required (three random vectors 0.80 to 1.07; mu 1222; aligned 9e9)",
+  "not run: DH-type model weight, THIN, heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No arithmetic error found; the claim holds in a narrowed form. Report: tmp/research-2026-11-16/push/c10-ff-completed-rows-692/REFEREE.md.\n\nConfirmed by the referee (local runs through scripts/memcap.sh 8; server not used):\n- Independent re-assembly from the raw row files (own Z[zeta_6] arithmetic, Sylvester-determinant resultant) reproduces the exact integers and every ratio for one, a, b, mu (a: E_c = 37948159053850, D_c = 22474889379376). al and  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A heuristic number can be met within 25% by offsetting errors: here a cube term 1.72 times the stated size, a squarefree part at 0.57 of its diagonal and negative cross terms. Register the exact decomposition, not only the total. The completed-row excess is two things: the principal signal's normaliser term (n = l^2, along c_0) and a part on non-principal frequencies (squarefree n) that the principal probe does not see. The round-8 coherent count at r = 12 does not predict vectors with cancellation (off by 15.7 and 0.088).",
+ "followUp": "One referee pass on this note, then record device ff-order2-vertex-probe as closed for ORDER-2 through (E-K) at 2 <= h <= 3 (proposed, not applied; model evidence at one size). A second size (for example (6,10,2) at q=7, about 5 hours of 12 cores, or q=13) would turn the single ratio into a comparison. Sharper question for the map: is the squarefree-n half of the cube term (0.6-0.7 of the diagonal, orthogonal to the principal direction) bounded once the principal signal is removed.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-ff-completed-rows-692/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-ff-completed-rows-692/REFEREE.md",
+ "launchedNodes": [
+  "ff-order2-vertex-probe",
+  "ek-vector-specific-row-mean-square"
+ ],
+ "engineVerdict": "partial"
+}

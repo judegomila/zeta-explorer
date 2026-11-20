@@ -1,0 +1,194 @@
+{
+ "PA": {
+  "all9": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "FE4": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "canon3(T-NR,E_a,HEAT)": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "canon+DH(1,2,3,4)": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "none": {
+   "ttrain": 94531,
+   "full": 55422,
+   "ttrain_ph23": 55422
+  },
+  "all9 minus DH": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus T-NR": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus E_a": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus HEAT": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus theta^w": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus U": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus THIN": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus BLS": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "all9 minus BEU": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "FE4 minus T-NR": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "FE4 minus E_a": {
+   "ttrain": 4,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "FE4 minus HEAT": {
+   "ttrain": 99,
+   "full": 0,
+   "ttrain_ph23": 12
+  },
+  "FE4 minus BLS": {
+   "ttrain": 0,
+   "full": 0,
+   "ttrain_ph23": 0
+  },
+  "_one": {
+   "one": 94531,
+   "one_ph23": 55422
+  }
+ },
+ "PZ": {
+  "all9": {
+   "ttrain": 3,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "FE4": {
+   "ttrain": 35,
+   "full": 0,
+   "ttrain_ph23": 10
+  },
+  "canon3(T-NR,E_a,HEAT)": {
+   "ttrain": 40,
+   "full": 0,
+   "ttrain_ph23": 10
+  },
+  "canon+DH(1,2,3,4)": {
+   "ttrain": 16,
+   "full": 0,
+   "ttrain_ph23": 4
+  },
+  "none": {
+   "ttrain": 440516,
+   "full": 97370,
+   "ttrain_ph23": 97370
+  },
+  "all9 minus DH": {
+   "ttrain": 3,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus T-NR": {
+   "ttrain": 4,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus E_a": {
+   "ttrain": 60,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus HEAT": {
+   "ttrain": 1121,
+   "full": 0,
+   "ttrain_ph23": 490
+  },
+  "all9 minus theta^w": {
+   "ttrain": 3,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus U": {
+   "ttrain": 3,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus THIN": {
+   "ttrain": 7,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus BLS": {
+   "ttrain": 3,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "all9 minus BEU": {
+   "ttrain": 5,
+   "full": 0,
+   "ttrain_ph23": 2
+  },
+  "FE4 minus T-NR": {
+   "ttrain": 103,
+   "full": 0,
+   "ttrain_ph23": 10
+  },
+  "FE4 minus E_a": {
+   "ttrain": 698,
+   "full": 0,
+   "ttrain_ph23": 12
+  },
+  "FE4 minus HEAT": {
+   "ttrain": 11929,
+   "full": 0,
+   "ttrain_ph23": 3251
+  },
+  "FE4 minus BLS": {
+   "ttrain": 40,
+   "full": 0,
+   "ttrain_ph23": 10
+  },
+  "_one": {
+   "one": 440516,
+   "one_ph23": 97370
+  }
+ }
+}

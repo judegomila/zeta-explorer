@@ -1,0 +1,11 @@
+records 34 in strip & ball_ok & wn 1: 33 max sigma 0.5915220816468161
+second zero (0.506663120192295 + 106.615752173975j) |w0| 3.493e-29 |w0(r+1e-3)| 0.01361
+winding 1.0
+q5 pair S_v 8.5 0.0188817
+q5 pair S_v 8.55 -0.00264611
+q5 pair S_v 8.6 -0.015366
+q5 pair T-NR S_v 3.2 0.0256011  zeta-family at same t 0.770552
+q5 pair T-NR S_v 3.23 0.00569099  zeta-family at same t 0.765637
+q5 pair T-NR S_v 3.24 -0.000973423  zeta-family at same t 0.763989
+q5 pair T-NR S_v 3.3 -0.0412209  zeta-family at same t 0.754013
+q5 pair T-NR S_v 4.0 -0.510431  zeta-family at same t 0.651524

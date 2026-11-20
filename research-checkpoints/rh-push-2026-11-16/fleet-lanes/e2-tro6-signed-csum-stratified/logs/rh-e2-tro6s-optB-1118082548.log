@@ -1,0 +1,103 @@
+[k=5      1s] parity 0: window 113461 conductors; planned x and nu: 2 x 113461 x 36 complex64 = 0.06 GB
+[k=5      1s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 1.462e-05 on values of rms 1.980
+[k=5      1s]    self term: max diff 2.442e-15 (rms 3.318e-01)
+[k=5      1s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 155, 'small': 155, 'all': 38827}, pcut 914
+[k=5     15s] stratum 0 done; opt all (rho, loo) 10956.9 (rnd) 9226.4; band rho 9197.1 rnd 9232.4
+[k=5     26s] stratum 1 done; opt all (rho, loo) 9240.0 (rnd) 9394.7; band rho 9267.2 rnd 9401.2
+[k=5     41s] stratum 2 done; opt all (rho, loo) 9156.8 (rnd) 9416.7; band rho 9157.8 rnd 9408.5
+[k=5     55s] stratum 3 done; opt all (rho, loo) 11226.9 (rnd) 9194.1; band rho 9216.4 rnd 9213.5
+[k=5     55s] parity 1: window 113468 conductors; planned x and nu: 2 x 113468 x 36 complex64 = 0.06 GB
+[k=5     56s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 1.159e-05 on values of rms 1.931
+[k=5     56s]    self term: max diff 2.109e-15 (rms 3.326e-01)
+[k=5     56s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 155, 'small': 155, 'all': 38890}, pcut 914
+[k=5     69s] stratum 0 done; opt all (rho, loo) 11322.9 (rnd) 9186.0; band rho 9244.3 rnd 9182.0
+[k=5     81s] stratum 1 done; opt all (rho, loo) 9286.9 (rnd) 9424.9; band rho 9260.7 rnd 9442.2
+[k=5     93s] stratum 2 done; opt all (rho, loo) 9308.0 (rnd) 9431.8; band rho 9284.3 rnd 9436.8
+[k=5    103s] stratum 3 done; opt all (rho, loo) 11370.4 (rnd) 9216.2; band rho 9223.6 rnd 9210.2
+[k=5    103s] done
+[k=6      1s] parity 0: window 190369 conductors; planned x and nu: 2 x 190369 x 36 complex64 = 0.10 GB
+[k=6      1s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 2.127e-05 on values of rms 2.305
+[k=6      1s]    self term: max diff 4.330e-15 (rms 3.950e-01)
+[k=6      1s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 193, 'all': 62468}, pcut 1184
+[k=6     18s] stratum 0 done; opt all (rho, loo) 16238.1 (rnd) 13772.2; band rho 13846.1 rnd 13769.6
+[k=6     39s] stratum 1 done; opt all (rho, loo) 13892.8 (rnd) 14101.2; band rho 13896.9 rnd 14086.6
+[k=6     57s] stratum 2 done; opt all (rho, loo) 13869.1 (rnd) 14035.8; band rho 13841.9 rnd 14048.2
+[k=6     78s] stratum 3 done; opt all (rho, loo) 15775.0 (rnd) 13822.3; band rho 13842.5 rnd 13831.8
+[k=6     78s] parity 1: window 190364 conductors; planned x and nu: 2 x 190364 x 36 complex64 = 0.10 GB
+[k=6     79s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 1.612e-05 on values of rms 2.258
+[k=6     79s]    self term: max diff 3.109e-15 (rms 3.961e-01)
+[k=6     79s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 193, 'all': 62603}, pcut 1184
+[k=6     97s] stratum 0 done; opt all (rho, loo) 17148.7 (rnd) 13793.7; band rho 13773.1 rnd 13801.3
+[k=6    117s] stratum 1 done; opt all (rho, loo) 14010.9 (rnd) 14041.1; band rho 14010.8 rnd 14056.6
+[k=6    136s] stratum 2 done; opt all (rho, loo) 13801.0 (rnd) 14120.5; band rho 13851.9 rnd 14135.0
+[k=6    154s] stratum 3 done; opt all (rho, loo) 17295.9 (rnd) 13809.2; band rho 13800.5 rnd 13795.9
+[k=6    154s] done
+[k=7      0s] parity 0: window 319378 conductors; planned x and nu: 2 x 319378 x 36 complex64 = 0.17 GB
+[k=7      1s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 3.032e-05 on values of rms 2.690
+[k=7      1s]    self term: max diff 4.663e-15 (rms 4.710e-01)
+[k=7      1s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 237, 'all': 100776}, pcut 1533
+[k=7     26s] stratum 0 done; opt all (rho, loo) 25637.7 (rnd) 20664.7; band rho 20790.8 rnd 20646.5
+[k=7     53s] stratum 1 done; opt all (rho, loo) 20817.5 (rnd) 21103.6; band rho 20896.9 rnd 21085.3
+[k=7     79s] stratum 2 done; opt all (rho, loo) 20903.4 (rnd) 21102.3; band rho 20837.8 rnd 21082.5
+[k=7    105s] stratum 3 done; opt all (rho, loo) 25737.3 (rnd) 20638.1; band rho 20746.7 rnd 20661.6
+[k=7    106s] parity 1: window 319358 conductors; planned x and nu: 2 x 319358 x 36 complex64 = 0.17 GB
+[k=7    106s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 3.324e-05 on values of rms 2.642
+[k=7    106s]    self term: max diff 3.553e-15 (rms 4.724e-01)
+[k=7    107s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 237, 'all': 100868}, pcut 1533
+[k=7    127s] stratum 0 done; opt all (rho, loo) 26159.8 (rnd) 20671.4; band rho 20749.8 rnd 20694.9
+[k=7    146s] stratum 1 done; opt all (rho, loo) 20847.3 (rnd) 21131.4; band rho 20901.6 rnd 21134.5
+[k=7    165s] stratum 2 done; opt all (rho, loo) 21025.9 (rnd) 21150.4; band rho 21049.9 rnd 21157.6
+[k=7    186s] stratum 3 done; opt all (rho, loo) 26524.1 (rnd) 20717.1; band rho 20725.8 rnd 20726.0
+[k=7    186s] done
+[k=8      1s] parity 0: window 483127 conductors; planned x and nu: 2 x 483127 x 36 complex64 = 0.26 GB
+[k=8      2s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 4.141e-05 on values of rms 3.140
+[k=8      2s]    self term: max diff 8.438e-15 (rms 5.817e-01)
+[k=8      2s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 292, 'all': 147736}, pcut 1885
+[k=8     37s] stratum 0 done; opt all (rho, loo) 35827.9 (rnd) 31011.9; band rho 30983.1 rnd 31040.0
+[k=8     71s] stratum 1 done; opt all (rho, loo) 31488.1 (rnd) 31739.9; band rho 31517.0 rnd 31767.1
+[k=8    100s] stratum 2 done; opt all (rho, loo) 31303.3 (rnd) 31717.9; band rho 31326.9 rnd 31690.3
+[k=8    136s] stratum 3 done; opt all (rho, loo) 37636.9 (rnd) 31073.8; band rho 31026.8 rnd 31097.8
+[k=8    136s] parity 1: window 483114 conductors; planned x and nu: 2 x 483114 x 36 complex64 = 0.26 GB
+[k=8    137s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 3.383e-05 on values of rms 3.093
+[k=8    137s]    self term: max diff 7.772e-15 (rms 5.833e-01)
+[k=8    138s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 292, 'all': 147951}, pcut 1885
+[k=8    172s] stratum 0 done; opt all (rho, loo) 42485.0 (rnd) 31099.7; band rho 31204.4 rnd 31062.3
+[k=8    203s] stratum 1 done; opt all (rho, loo) 31492.6 (rnd) 31834.9; band rho 31526.4 rnd 31829.8
+[k=8    232s] stratum 2 done; opt all (rho, loo) 31496.0 (rnd) 31728.5; band rho 31481.0 rnd 31734.3
+[k=8    260s] stratum 3 done; opt all (rho, loo) 43535.4 (rnd) 31065.2; band rho 31065.5 rnd 31098.2
+[k=8    260s] done
+[k=9      1s] parity 0: window 810481 conductors; planned x and nu: 2 x 810481 x 36 complex64 = 0.43 GB
+[k=9      2s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 5.427e-05 on values of rms 3.684
+[k=9      2s]    self term: max diff 9.992e-15 (rms 6.931e-01)
+[k=9      3s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 359, 'all': 239020}, pcut 2442
+[k=9     73s] stratum 0 done; opt all (rho, loo) 60317.0 (rnd) 46736.9; band rho 46805.9 rnd 46762.7
+[k=9    132s] stratum 1 done; opt all (rho, loo) 47618.2 (rnd) 47934.1; band rho 47744.9 rnd 47950.1
+[k=9    184s] stratum 2 done; opt all (rho, loo) 46941.8 (rnd) 47942.5; band rho 46953.3 rnd 47945.5
+[k=9    231s] stratum 3 done; opt all (rho, loo) 57102.9 (rnd) 46881.7; band rho 46724.0 rnd 46890.9
+[k=9    231s] parity 1: window 810528 conductors; planned x and nu: 2 x 810528 x 36 complex64 = 0.43 GB
+[k=9    233s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 5.300e-05 on values of rms 3.638
+[k=9    233s]    self term: max diff 1.088e-14 (rms 6.951e-01)
+[k=9    233s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 359, 'all': 239051}, pcut 2442
+[k=9    288s] stratum 0 done; opt all (rho, loo) 63848.5 (rnd) 46820.9; band rho 46637.2 rnd 46777.8
+[k=9    354s] stratum 1 done; opt all (rho, loo) 47568.9 (rnd) 47864.2; band rho 47601.7 rnd 47858.4
+[k=9    413s] stratum 2 done; opt all (rho, loo) 47555.2 (rnd) 47946.5; band rho 47563.5 rnd 47941.5
+[k=9    463s] stratum 3 done; opt all (rho, loo) 67428.6 (rnd) 46880.6; band rho 46782.1 rnd 46879.1
+[k=9    463s] done
+[k=10      0s] parity 0: window 1359769 conductors; planned x and nu: 2 x 1359769 x 36 complex64 = 0.73 GB
+[k=10      2s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 7.471e-05 on values of rms 4.300
+[k=10      2s]    self term: max diff 2.687e-14 (rms 8.253e-01)
+[k=10      3s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 442, 'all': 386856}, pcut 3163
+[k=10     65s] stratum 0 done; opt all (rho, loo) 87503.9 (rnd) 70547.1; band rho 70590.3 rnd 70548.0
+[k=10    127s] stratum 1 done; opt all (rho, loo) 71835.3 (rnd) 72394.2; band rho 71691.5 rnd 72386.0
+[k=10    189s] stratum 2 done; opt all (rho, loo) 70895.4 (rnd) 72370.7; band rho 70994.8 rnd 72375.6
+[k=10    252s] stratum 3 done; opt all (rho, loo) 95721.5 (rnd) 70745.8; band rho 70658.9 rnd 70714.1
+[k=10    252s] parity 1: window 1359940 conductors; planned x and nu: 2 x 1359940 x 36 complex64 = 0.73 GB
+[k=10    254s] validation against round-2 snapshot: max |sum_s S_s - S_r2| = 7.932e-05 on values of rms 4.252
+[k=10    254s]    self term: max diff 1.710e-14 (rms 8.276e-01)
+[k=10    255s] free phases: {'30': 7, '100': 23, '300': 59, '1000': 165, 'small': 442, 'all': 386790}, pcut 3163
+[k=10    317s] stratum 0 done; opt all (rho, loo) 94191.7 (rnd) 70582.3; band rho 70385.0 rnd 70580.0
+[k=10    378s] stratum 1 done; opt all (rho, loo) 71918.5 (rnd) 72496.8; band rho 72046.6 rnd 72470.7
+[k=10    439s] stratum 2 done; opt all (rho, loo) 71982.9 (rnd) 72288.3; band rho 72042.7 rnd 72289.9
+[k=10    500s] stratum 3 done; opt all (rho, loo) 98864.4 (rnd) 70722.5; band rho 70665.5 rnd 70707.3
+[k=10    500s] done
+OPTDONE

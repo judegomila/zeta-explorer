@@ -1,0 +1,67 @@
+{
+ "round": 9,
+ "slug": "c9-repair-referee-debts-r8",
+ "kind": "repair",
+ "verdict": "partial-result",
+ "claim": "Repair lane; no attack and no statement about zeros. Decisive test: the sixth-power form of the (E-K) second moment is positive semidefinite of rank 6 (exact integer identity on 422 primes, classes mod 36), not of signature (2,2); it is a sum of six squares for every frequency orbit at leading order. Lemma 1 holds (two referees); Theorem 2 is a conditional outline (asymptotic for squarefree unmarked columns; upper bound with cube parts and one mark slot). Theorem A of the Liouville lane holds (step 5 re-derived; twist insertion checked against arXiv:1112.1650v1), relative to a statement not located in the journal version (not openable). Hecke lane: all requested corrections hold; Lemma 3 as written is false high in the cusp (ratio 19.5), the DH object is identically zero; corrected device node closed, control EIS-w added, engine rerun (1,623 nodes, 12,165 scored, top 60: 33 open / 27 floored / 0 closed). Blockwise Hilbert-Schmidt bound holds and extends to row-dependent column partitions; monomial Lemma 2 holds with Abel error O(delta^(-3/4)); non-monomial case not proved, open sub-step named. THIN primary source not openable. Landau-Siegel device closed for the height aspect.",
+ "aboutZeros": false,
+ "r1": false,
+ "r2": false,
+ "r3": false,
+ "r4": false,
+ "score": 0,
+ "referees": 0,
+ "file": "tmp/research-2026-11-16/push/c9-repair-referee-debts-r8/RESULT.md",
+ "items": [
+  {
+   "item": "c8-ek sixth-power form",
+   "outcome": "broken as written; decided positive semidefinite rank 6"
+  },
+  {
+   "item": "c8-ek Lemma 1",
+   "outcome": "holds"
+  },
+  {
+   "item": "c8-ek Theorem 2",
+   "outcome": "holds narrowed (conditional outline)"
+  },
+  {
+   "item": "c8-liou Theorem A step 5",
+   "outcome": "holds"
+  },
+  {
+   "item": "c8-liou Lemma S twist insertion",
+   "outcome": "holds against arXiv v1; journal statement unlocated"
+  },
+  {
+   "item": "c8-hecke corrections (G2 withdrawal, Gamma-multiplicity, sign)",
+   "outcome": "hold; Lemma 3 and Lemma 5 lines broken as written"
+  },
+  {
+   "item": "Proposition B blockwise HS",
+   "outcome": "holds; rectangle tilings narrowed"
+  },
+  {
+   "item": "Lemma 2 monomial",
+   "outcome": "holds; Abel error term narrowed"
+  },
+  {
+   "item": "Lemma 2 non-monomial",
+   "outcome": "not proved; open sub-step S1"
+  },
+  {
+   "item": "outline debt 7",
+   "outcome": "not discharged (closed access)"
+  },
+  {
+   "item": "outline debts 10, 2, 4",
+   "outcome": "not reached"
+  },
+  {
+   "item": "Landau-Siegel record",
+   "outcome": "device closed for the height aspect"
+  }
+ ],
+ "errors": "Not refereed. Server not used. Debts 10, 2, 4 of the outline not reached.",
+ "note": "proposed line; not appended to campaign/lanes.jsonl by this lane"
+}

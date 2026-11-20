@@ -1,0 +1,5 @@
+HEAT-0.5 a 80 N 260 prec 7000 moments 180.9 s  c0 [413.44926137882130534 +/- 2.58e-18]
+   n 50 log2 E 3.4 k 0.46566266809359763
+   n 100 log2 E -25.6 k 0.6582433051195623
+   n 150 log2 E -90.0 k 0.9328774915894897
+DONE HEAT-0.5 first index with E<=0: 151 last n 151 log2E -89.6 lev s 0.1

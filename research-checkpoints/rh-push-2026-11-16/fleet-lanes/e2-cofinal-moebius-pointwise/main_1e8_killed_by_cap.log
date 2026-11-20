@@ -1,0 +1,14 @@
+N=100000000 SEG=10000000
+planned memory: mu int8 0.10 GB, M int32 0.40 GB, m float64 0.80 GB, m_odd float64 0.80 GB, segment temporaries 0.96 GB (freed), then head/tail temporaries 3.20 GB; peak total 5.30 GB
+segment to 10000000: M=1037 m=1.015e-04 t=3s
+segment to 20000000: M=-953 m=-4.805e-05 t=5s
+segment to 30000000: M=-1157 m=-3.656e-05 t=8s
+segment to 40000000: M=-333 m=-6.373e-06 t=10s
+segment to 50000000: M=-908 m=-1.862e-05 t=13s
+segment to 60000000: M=1267 m=2.049e-05 t=16s
+segment to 70000000: M=-1270 m=-1.638e-05 t=18s
+segment to 80000000: M=1088 m=1.226e-05 t=21s
+segment to 90000000: M=2050 m=2.193e-05 t=23s
+segment to 100000000: M=1928 m=2.047e-05 t=26s
+memcap: RSS 8 GB exceeded cap 8 GB; killing 50800
+exit 137

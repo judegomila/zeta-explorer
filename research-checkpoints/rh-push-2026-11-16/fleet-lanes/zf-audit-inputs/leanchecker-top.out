@@ -1,0 +1,1 @@
+LEAN_PATH="$LP" timeout 900 leanchecker    5.31s user 25.21s system 98% cpu 30.958 total

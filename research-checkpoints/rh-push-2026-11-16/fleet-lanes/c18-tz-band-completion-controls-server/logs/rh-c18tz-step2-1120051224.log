@@ -1,0 +1,8 @@
+K2 theta=1.00 T0=10000 X=10000 zeros below 30000: 35673 ; max abs entry difference 2.235e-09 ; diag prime-side 10.286092 zero-side 10.286092 ; lam_min prime -0.000000 zero -0.000000 (866s)
+K2 theta=0.55 T0=10000 X=158 zeros below 30000: 35673 ; max abs entry difference 3.641e-09 ; diag prime-side 12.507099 zero-side 12.507099 ; lam_min prime 1.207600 zero 1.207600 (711s)
+K2 PASS
+K1 augmented: theta=1/2, M=0, tight background Lg: threshold 0.390110 (c17 table: 0.3901)
+K1 augmented: theta=2, M=1, no background: threshold 0.023598 (c17 table: 0.0236)
+K1 lattice span only, m=96: theta=1/2: 0.391600 ; theta=2: 0.023696
+K1 rank-one path against numpy pair matrix: max abs difference 2.887e-15 (max entry 1.373e+01)
+K1 PASS

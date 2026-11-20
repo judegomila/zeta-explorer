@@ -1,0 +1,30 @@
+23:19:43 mp extrema below 1000: 243, max shift/gap 1.212e+00
+23:19:43 zeta cos N=128: zeros 100116297, near-collisions 38825609, heights 23.10 .. 42699999.20, dim 128
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s2-prime-force-pencil/c2_margin.py", line 71, in <module>
+    r = lib.margin(S, K, W0=W)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-prime-force-pencil/lib.py", line 128, in margin
+    v = sysm.dots(p, K)
+        ^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-prime-force-pencil/lib.py", line 84, in dots
+    return self._dots_gpu(p, K)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-prime-force-pencil/lib.py", line 95, in _dots_gpu
+    self._g = (cp.asarray(self.th), cp.asarray(self.x), cp.asarray(self.s), cp.asarray(self.f), cp.asarray(self.a))
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/_creation/from_data.py", line 94, in asarray
+    return _core.array(a, dtype, copy, order, blocking=blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 2821, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 2841, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 3067, in cupy._core.core._array_default
+  File "cupy/_core/core.pyx", line 176, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 282, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 310,605,312 bytes (allocated so far: 0 bytes, limit set to: 3,221,225,472 bytes).

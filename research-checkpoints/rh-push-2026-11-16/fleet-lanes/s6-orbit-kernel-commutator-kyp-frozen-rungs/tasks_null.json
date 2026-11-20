@@ -1,0 +1,7 @@
+[["detect", ["zeta", 0.1, 1000.0, 0.2, 0.1, 32, 768, 0, "null-zeta"]],
+ ["detect", ["zeta", 0.0005, 1000.0, 0.001, 0.0005, 32, 768, 0, "null-zeta"]],
+ ["detect", ["zeta", 0.1, 1000.0, 0.2, 0.1, 32, 768, 37.2, "null-twin"]],
+ ["detect", ["chi5", 0.1, 1000.0, 0.2, 0.1, 32, 768, 0, "null-chi5"]],
+ ["detect", ["zeta+plant(1000.0,0.2)", 0.1, 1000.0, 0.2, 0.1, 32, 768, 0, "zeta-recheck"]],
+ ["detect", ["zeta+plant(1000.0,0.2)", 0.1, 1003.0, 0.2, 0.1, 32, 768, 0, "zeta-mesh-centre-3-above-pole"]],
+ ["detect", ["zeta+plant(1000.0,0.2)", 0.1, 1030.0, 0.2, 0.1, 32, 768, 0, "zeta-mesh-centre-30-above-pole"]]]

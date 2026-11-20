@@ -1,0 +1,8 @@
+{"q": 4, "g": 1, "D": 60, "tested": 11, "members": 10, "rh": 9, "fakes": 1, "borderline": 2,
+ "fakes_pass_T_gplus1": 0, "fakes_ndet_2g": 1, "fakes_pass_serre_d_le_g": 0, "fakes_pass_serre_and_T_gplus1": 0, "bisections": 1,
+ "ndet_hist": {"2": 1},
+ "nu_hist": {"1": 1},
+ "min_pos_Lam": 0.464444065808692,
+ "minimisers": [{"c": [-5], "Lam": 0.464444065808692, "ndet": 2, "nu": 1, "serre": 0}],
+ "fallback_min_abs_negative_eig": 1e+300, "fallback_max_abs_zero_eig": 0,
+ "wall": 0.0}

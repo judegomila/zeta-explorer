@@ -1,0 +1,82 @@
+{
+ "slug": "s4-cmv-li-krein-string-reach",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "berry-keating-xp",
+  "christoffel-reach-law",
+  "cmv-christoffel-atomic-measure",
+  "cmv-truncation-from-taylor-data",
+  "de-branges-hamiltonian-xi",
+  "inverse-spectral-potential",
+  "krein-string-total-length",
+  "li-herglotz-cmv-detector-reach",
+  "li-herglotz-cmv-truncation",
+  "mean-time-compression-trace-class",
+  "weil-li-matrix-low-rank",
+  "zpo-spectrum-pair-correlation"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "cmv-truncation-from-taylor-data",
+    "li-herglotz-cmv-truncation",
+    "christoffel-reach-law"
+   ],
+   "obstruction": "failure index = 3.4-3.7 x N_on(gamma_off); the Euler-truncated test is undefined past order about 60",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "planted pair"
+   ]
+  },
+  {
+   "nodes": [
+    "cmv-christoffel-atomic-measure",
+    "li-herglotz-cmv-detector-reach",
+    "weil-li-matrix-low-rank"
+   ],
+   "obstruction": "reach law is linear in the zero count with exponent above 1; the source matrix is PSD for every input",
+   "controlsThatDefeat": [
+    "planted pair",
+    "every object (source matrix PSD by construction)"
+   ]
+  },
+  {
+   "nodes": [
+    "de-branges-hamiltonian-xi",
+    "krein-string-total-length",
+    "mean-time-compression-trace-class"
+   ],
+   "obstruction": "same 3.4-3.7 x zero-count law as the CMV sections",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "planted pair"
+   ]
+  },
+  {
+   "nodes": [
+    "inverse-spectral-potential",
+    "berry-keating-xp",
+    "zpo-spectrum-pair-correlation"
+   ],
+   "obstruction": "reads the support of Lambda from the on-line list: detects absence of an Euler product, not zero positions; cannot register T-NR",
+   "controlsThatDefeat": [
+    "T-NR",
+    "heat"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) failure index = 3.4-3.7 x N_on(gamma_off); the Euler-truncated test is undefined past order about 60 | (2) reach law is linear in the zero count with exponent above 1; the source matrix is PSD for every input | (3) same 3.4-3.7 x zero-count law as the CMV sections | (4) reads the support of Lambda from the on-line list: detects absence of an Euler product, not zero positions; cannot register T-NR",
+ "controlsThatDefeat": [
+  "DH",
+  "T-NR",
+  "every object (source matrix PSD by construction)",
+  "heat",
+  "planted pair"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-cmv-li-krein-string-reach/RESULT.md"
+}

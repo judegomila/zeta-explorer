@@ -1,0 +1,39 @@
+{
+ "slug": "c12-repair-sources-statement-o-v3",
+ "round": 12,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "referee",
+  "primary-sources",
+  "statement-o",
+  "control",
+  "map",
+  "engine"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane, nothing about zeros of zeta. Five primary sources opened: Bohr 1916 Satz A and Kaczorowski-Perelli 1999 Theorems 2, 3 match; Hamburger 1921 matches with the tighter hypothesis (absolute convergence for sigma > 1); Huxley 1972 states the gap bound and the density estimate (exponent 12/5), not a short-interval count, so DEL is relative to S(theta) with Ingham's deduction not opened; Bettin 2016 gives exact reciprocity for the Hermitian moment abs(L(s, chi))^2 only on the real axis (s = 1/2 and real shifts; primes in moment form, coprime integers in Estermann form), and at height t != 0 only for the bilinear pair L(1/2+it, chi-bar) L(1/2+it, chi). The control tables of the three round-11 stage-A closures hold with corrections R-1 to R-3, T-1 to T-3, B-1 and no broken PROVED step (control-table scope only). Statement O version 3 reader pass with device count 11/23; map 182 -> 186 rows (P53, G32, Q28, Z34); engine: three device types closed, 36,558 generated, 8,437 scored; scoreboard headline unchanged. Now one independent referee.",
+ "obstruction": "Record lane, no attack. DEL is relative to S(theta) (Huxley 1972 gives a gap bound and density estimate; Ingham's short-interval deduction not opened). Bettin 2016: exact reciprocity for |L(s,chi)|^2 only on the real axis; at height t != 0 only for the bilinear pair. Round-11 control tables hold with corrections R-1..R-3, T-1..T-3, B-1. Map 182 -> 186 rows.",
+ "obstructionKind": "record: sources opened, control tables confirmed, labels corrected",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No broken PROVED/CONFIRMED step. Report appended (existing author's check preserved) to tmp/research-2026-11-16/push/c12-repair-sources-statement-o-v3/REFEREE.md under \"Independent referee (lens: general)\".\n\nE1 (wording error, no verdict change): the short forms \"Bettin: exact reciprocity at s = 1/2 only\" (REFEREE2 summary row T-1), \"no exact reciprocity at height t != 0 in that text\" (RESULT label (ii), weakest step 1) and the lane claim \"none at  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A second-hand citation can name the right paper and the wrong statement (Huxley 1972 gives a density estimate and gap bound; the short-interval count is a separate deduction). A control-table entry \"functional equation: yes\" needs degree and root number beside it: the E_a and T-NR lifts keep different halves of the target's structure.",
+ "followUp": "Owner decision on the two euler waiters (PIDs 90095 and 94875 wait on each other and compute nothing; not acted on). Then: open Ingham 1937 for the short-interval count; independent referee for c11-del-device-read-confirm (11/23 table, row G32). Note: the c9 Statement O file was not overwritten; map row O1 points to the new v3 file. A map row was first misplaced as S13 and moved to Q28.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-repair-sources-statement-o-v3/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-repair-sources-statement-o-v3/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

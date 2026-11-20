@@ -1,0 +1,47 @@
+{
+ "slug": "c6-gl3-cover-epsilon-cocycle",
+ "round": 6,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-1",
+  "out-c6-gl3-cover-epsilon-cocycle"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "metaplectic",
+  "double-cover",
+  "gl3",
+  "epsilon-factor",
+  "cocycle",
+  "whittaker",
+  "gauss-sum"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Given the recalled Gelfand-Tsetlin recipe for the double cover (n=2), at an unramified odd place with chi(-1)=+1: in unitary normalisation every pattern weight is a product of 1, 1-1/q, -1/q and T q^(-1/2). So the quadratic symbol T occurs only together with q^(-1/2) and every minus sign only together with q^(-1), in every rank (Lemma L; independently confirmed in rank 2 on new shapes and in rank 3). Row series in either twist direction satisfy the degree-3 recurrence with parameters (1, Yu^2, Xu^2 Yu^2) (confirmed for fixed label up to 4). For l1=0, l2 even the numerator equals the displayed product, and its only U-dependent term above order 1/q is -T Yu q^(-1/2) U. Epsilon factors of quadratic twists of any GL(n) form are a character times a periodic root of unity (no Jacobi-type value). No local term of the form (T-dependent sign) x (unit) occurs at order q^0. Not established: the numerator shape for other labels, any global Euler-product statement, the case chi(-1)=-1, the normalisation convention that turns Lemma 1 into an obstruction, and the global Whittaker constants of a genuine cusp form. No ledger entry with h>1. No statement about zeros.",
+ "obstruction": "Referee does not hold the claim as worded (E1-E5; Lemma 2 labelled PROVED has a false sentence; the numerator shape is shown for l1=0, l2 even only; chi(-1)=-1 not covered; the normalisation convention that turns Lemma 1 into an obstruction is ARGUED). Standing, given the recalled Gelfand-Tsetlin recipe: at an unramified odd place with chi(-1)=+1, in unitary normalisation the quadratic symbol occurs only with q^(-1/2) and every minus sign only with q^(-1), in every rank (Lemma L, rechecked in rank 2 and 3). The exponent group Z/2 has no pair (a, b) with a, b, a+b all nonzero, so no double cover gives mu at shift 0 through local data; twist families of any GL(n) form carry the n-th power of the GL(1) cocycle. Not covered: global Whittaker constants of a genuine cusp form (no explicit example); the Z/4 pivot is closed by map row Z14. No ledger entry with h > 1.",
+ "obstructionKind": "double-cover-no-weight-zero-cocycle",
+ "controlsThatDefeat": [
+  "not a control question: local algebraic statement inside the 7/8 estimate system",
+  "not run: all controls"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee report written to tmp/research-2026-11-16/push/c6-gl3-cover-epsilon-cocycle/REFEREE.md. Lemma 1 (arithmetic) and Lemma L (given the recalled recipe) are confirmed; Lemma L was rechecked with independent code on new rank-2 shapes (max(l1,l2)=5, 344 monomials) and in rank 3 (27 shapes, 2762 monomials). The degree-3 recurrence was reconfirmed, including a new label l=4, and the displayed l1=0, l2-even numerator matches exactly. Errors: (E1) Th [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The absorption criterion reduces to a weight table on the exponent group of the cover: Z/2 has no pair (a, b) with a, b, a+b all nonzero, so no double cover of any rank gives mu at shift 0 through local data. For twist families the cocycle is the n-th power of the GL(1) cocycle, so changing the automorphic form changes nothing. Practical: scripts run from the repo root write relative output files there; three JSON files were moved back into the lane directory and one stray pickle deleted.",
+ "followUp": "Remove STRATEGY 4.0 item 2 (second same-kind obstruction) and referee Lemma L against an opened source for the Gelfand-Tsetlin recipe (Brubaker-Bump-Friedberg / McNamara). The only residue of map 6.18 is the global Whittaker constants of a genuine cusp form on the double cover of GL(3), which are not epsilon-factor data and have no explicit example; the considered pivot (Z/4, quartic squared = mu times quadratic) is already closed by map row Z14.",
+ "resultFile": "tmp/research-2026-11-16/push/c6-gl3-cover-epsilon-cocycle/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-gl3-cover-epsilon-cocycle/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ],
+ "engineVerdict": "open"
+}

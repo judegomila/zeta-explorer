@@ -1,0 +1,615 @@
+adjacent-gap-reserve [mech,prov,crossing] Adjacent squared-gap ODE and integrating-factor certificate
+af-closed-form-constants [iden,prov,] Closed forms in the 2/3 argument
+af-inertia-lossless-lemma [tool,prov,] Lossless Alpoge-Furman inertia criterion (Lemma 1)
+airy-envelope-sign-condition [iden,prov,] Fresnel-Airy envelope sign condition
+angular-spacing-poisson [meas,meas,] Local angular-spacing statistics of prime phases
+antihermitian-strip-bound [mech,prov,] Anti-Hermitian part bounds the strip: |Im x| <= eta, Lambda <= t + eta^2/2
+arb-lege-margins-decay [meas,cert,] ARB-LEGE certified margins past ln 3
+arithmetic-freeze-flow-force [mech,meas,] Route B: Hellmann-Feynman force on a zero under a prime-field deformation
+attractive-mean-field-gap [open,conj,crossing] Mean-field limit for the attractive singular flow
+autocorrelation-moment-ladder [iden,prov,uniform] Bridge-mass moment expansion and degree-d miss factor
+background-field-packing-bound [iden,prov,] Background field of an adjacent pair: B_p G^2 < 2
+backward-flow-displacement-residual [open,conj,underused] Displacement residual of the eps' certificate
+backward-flow-escape-law [conj,conj,] Escape law for zeros of H_{-tau}
+band-limited-amplitude-mismatch [meas,meas,] Band-limited proxy amplitude misses C_C
+barrier-height-schedule-w4 [tool,cert,] Optimised barrier height set W4
+barrier-slab-height-scaling [meas,cert,] Barrier slabs certify at 2X, 5X, 10X
+bbm-growth-class-implication [iden,prov,uniform] Bender-Brody-Muller growth classes
+berry-keating-xp [conj,conj,] Berry-Keating xp Hamiltonian
+beta-gmin-span-three-factor-invariant [meas,meas,underused] Three-factor near-front invariant beta * g_min * (x_2 - x_0) -> 1
+beta-n-uniformity-fails-real-ordinates [meas,meas,crossing] Background-field sup is N-uniform on unit spacing, not on real ordinates
+blaschke-ghost-index-identity [iden,prov,uniform/rh-equivalent] Krein-Langer negative-index identity (section 17.4)
+blaschke-ghost-negative-square [iden,prov,uniform] Inverse Blaschke ghosts: one negative square per off-line zero
+bounded-type-lemma-xi-logderiv [open,conj,uniform] Bounded-type lemma for xi'/xi(1/2 + w)
+bridge-multiplier-c0 [obje,prov,uniform] Unitary bridge multiplier C_0 = N/D
+bridge-scattering-factorisation [iden,prov,uniform] Bridge as scattering matrix on the modular surface
+bridge-sign-from-phi-positivity [iden,prov,uniform] Shear Gram sign pattern forced by Phi >= 0
+bridge-winding-equals-NT [iden,prov,uniform] Winding of the bridge chi(1/2+it) equals N(T)
+bsy-interior-value-criterion [iden,prov,] One line + one interior value (Balazard-Saias-Yor extension)
+burgers-fluid-bridge [mech,prov,rh-equivalent] de Bruijn flow as viscous Burgers fluid with critical point Lambda
+burgers-heat-identity-lean [iden,prov,uniform] Burgers identity for M = -P'/P under polynomial heat flow
+burgers-limsup-tc [iden,prov,] lim sup |t_c(N)| = 0 (Burgers uniformity)
+c-glob-isolation-constant [iden,prov,] Global asymmetric isolation constant c_glob
+capture-ratio-psd-slope [iden,cert,uniform/underused] Linear-shear capture norm = peak slope of the Phi power spectrum
+cauchy-phase-ou-covariance [iden,prov,crossing] OU realization of the Cauchy-phase covariance
+cayley-schur-trajectory [obje,prov,uniform] Cayley-Schur transform of the canonical-system m-function
+cdb-exist [conj,conj,uniform/rh-equivalent] CDB-Exist: Phi-built de Branges canonical system
+cdb-exist-noncircularity [open,conj,uniform/rh-equivalent] CDB-Exist: Phi-built canonical system
+cf-flip-reach-gue-regularization [meas,meas,] GUE level repulsion regularises the near-anchor flip-reach divergence
+ch-holder-half-sharp [iden,prov,] First-collision time modulus is exactly Holder-1/2
+christoffel-reach-law [iden,meas,] Route L: off-line detector reach is the Christoffel function saturation
+clip-field-channel [tool,cert,crossing] C_Lip field-channel reroute
+closed-reserve-credit-debt [iden,prov,uniform/rh-equivalent] Closed reserve: signed credits minus summable debts
+clv-single-gaussian-minorant-citation [open,conj,uniform] Single-Gaussian extremal minorant existence (cited step of SEP-OPT)
+cm-energy-collision-growth [meas,meas,crossing] Calogero-Moser energy growth at the backward collision threshold
+cm-flow-theta-trap [mech,prov,] Theta-trap for the Calogero-Moser collision time
+cmv-christoffel-atomic-measure [obje,meas,] Christoffel function of the zero measure nu_a on the circle
+cmv-truncation-from-taylor-data [tool,cert,] Route L: CMV matrix from Taylor data of xi reproduces low zeros
+coal-n-laguerre-law [iden,prov,uniform] COAL-N: N-fold coalescence majorant in Laguerre form
+cole-hopf-viscous-burgers [iden,prov,uniform/crossing] Backward de Bruijn flow = viscous Burgers
+collective-interaction-rj [meas,meas,] Collective gap interaction R_j at the first zeros
+collective-lambda-certificate [mech,prov,] Collective-zero slab certificate for Lambda
+collision-ladder-data [obje,cert,] Measured backward-Dyson collision-time ladder to N = 1e6
+collision-local-index [iden,prov,] Local collision index for backward heat solutions
+common-mode-blindness-rk4-dp5 [meas,meas,crossing] RK4-DP5 gap is blind to shared integrator bias
+commutator-diagonal-split [iden,prov,uniform] Section-25 commutator diagonal/off-diagonal split
+complex-burgers-fold [obje,prov,] Complex Burgers characteristics and fold for the backward Dyson field
+complex-covariance-bound [iden,prov,uniform] Fisher bound on Re F'/F via the tilted characteristic function
+conf-lb-laguerre-floor [iden,prov,uniform] CONF-LB: confluent floor in Laguerre differences
+confluent-laguerre-floor [iden,prov,] Confluent Laguerre floor for the coalescent signed constant
+conformal-schur-window [iden,cert,] Verified height gives a conformal Schur window
+conjugate-pair-field-lorentzian [iden,prov,uniform] Field term of an off-line conjugate pair is real
+costin-lebowitz-variance [tool,prov,] Costin-Lebowitz / Soshnikov variance bound for zero linear statistics
+cramer-null-breaks-weil [meas,meas,] Random-prime null model violates Weil positivity in 53-66% of trials
+credit-variation-block-freeze [iden,prov,uniform] Credit variation bound and block freezing
+cren-finite-band [meas,meas,] Renormalised fold-reading amplitude stays in a finite band
+crossing-time-poisson-monotone [iden,prov,crossing] Boundary-shock crossing-time field is monotone
+csv-lehmer-criterion [tool,cert,] Csordas-Smith-Varga Lehmer-pair criterion
+cue-neff-small-gap-correction [meas,meas,] Finite-height small-gap deficit matches CUE_Neff
+curvature-charge-d [obje,prov,uniform] Arithmetic charge D(r) and measure nu
+cutoff-energy-kernel-hc [iden,prov,uniform] Exact cutoff energy identity and kernel H_c
+dbn-adversarial-review-protocol [tool,prov,] Fail-closed review protocol with mutation tests
+dbn-closed-barrier-883-prisms [meas,cert,] Closed barrier certificate by argument principle
+dbn-debruijn-contraction-law [iden,prov,uniform] de Bruijn contraction law for the zero strip
+dbn-lambda-01787854 [meas,cert,] Computer-assisted Lambda <= 0.1787854 (not peer reviewed)
+dbn-max-gap-collapse-time [iden,conj,] Collapse time under a real-zero maximum-gap hypothesis
+dbn-moving-real-rung-lemma [mech,conj,] Conditional real-rung velocity lemma
+dbn-polymath-barrier-criterion [mech,prov,] Polymath Theorem 1.2 barrier criterion
+dbn-reanchor-691008 [meas,meas,] Unused verified-height budget and the re-anchor reserve
+dbn-t0-slope-razor [meas,meas,] Finite-lane floor is linear in t_0 with slope about 19
+dbn-uniform-poisson-floor [open,conj,] Uniform Poisson floor from real zeros along the flow
+dbn-window-freeze-theorem [tool,prov,crossing] Riemann-Siegel window freeze
+de-branges-hamiltonian-xi [iden,prov,uniform/crossing/rh-equivalent] de Branges Hamiltonian / Krein string of Xi + i Xi'
+de-bruijn-sharp-in-ymax [iden,prov,uniform/crossing] de Bruijn bound sharp in y_max; count above a height not monotone
+debruijn-family-dyson-ode [obje,prov,uniform] de Bruijn family H_t and Dyson zero ODE
+debruijn-jet-lemma-no-liftoff [mech,prov,uniform] Local jet lemma: real zeros split real under increasing t
+debruijn-landing-rate-thm13 [tool,prov,uniform] de Bruijn Theorem 13 landing rate
+defl-orth-n-collar-free-sandwich [iden,prov,uniform] DEFL-ORTH-N: collar-free block deflation
+degree0-normalized-r [obje,meas,] Degree-0 relative operator R = Gpass^{-1/2} Gshear Gpass^{-1/2}
+derivative-cap-route-comparison [mech,meas,] Two routes to a certified sup|H_t'|
+discrepancy-bridge-constant [iden,prov,] Star discrepancy of zeros from S(T)
+discrepancy-floor-implication [iden,prov,uniform] Floor exponent p gives half-plane (1+p)/2
+discriminant-gradient-flow [iden,prov,underused] Backward Dyson flow is gradient descent of -log Disc
+displacement-leg-field-lipschitz [iden,cert,] Displacement leg of the C_Lip to D_rest field-channel discharge
+dyson-field-order5-delta-minus9 [meas,meas,] Order-5 time derivative of the backward Dyson field scales as gap^-9
+dyson-gap-ode-gronwall-branch [iden,prov,] Gap ODE and Gronwall lower branch for the backward Dyson flow
+e200-wall-leading-rate-artifact [meas,meas,underused] Height threshold log T0 >= 200 is set by the leading 1/log T0 rate
+edge-statistics-deviation [meas,meas,] Windowed edge statistic of zeros versus Tracy-Widom
+en-fartail-rvm-slope [iden,meas,] Far-tail sigma exponent equals the Riemann-von Mangoldt slope
+en-fold-amplitude [iden,meas,] Square-root fold at the sigma peak
+endpoint-bridge-mass [meas,meas,uniform] Shear mass lives at separated endpoints
+endpoint-positivity-knife-edge [meas,meas,] Endpoint-positivity knife edge at N = 2000, pair 1495
+entropy-rate-balance [iden,prov,] Sharp entropy rate of the split damping model
+eps-offline-quarantine-bound [iden,cert,] Contribution bound for hypothetical off-line zeros above verified height
+eps0-pd-persistence-window [meas,meas,uniform] Backward-flow persistence window of finite Pick positivity
+esy-layer-i-local-semicircle-deterministic-seed [open,conj,] Local semicircle law for a deterministic zeta-zero seed
+esy-layer-ii-rigidity-scale [meas,meas,] ESY layer II rigidity ratio is order-unity
+esy-local-law-inputs-for-cmb [open,conj,] Local-law inputs needed to discharge the C_mb conditional
+esy-rigidity-psi-n [meas,meas,] ESY rigidity quantity psi_N on unfolded zeros
+esy-variance-gap-law [meas,meas,uniform] Band-limited variance gap closes as exp(-4 pi W)
+euler-detection-depth-law [meas,meas,separator] Euler-detection depth of 440 DH-type twins
+evaluation-christoffel-duality [iden,prov,uniform] l2-to-pointwise constant equals the diagonal reproducing kernel
+eventual-psd-is-global [iden,prov,uniform/crossing] Tail PSD is already global PSD
+exact-de-bruijn-evaluator-ceiling [tool,meas,] Exact de Bruijn integral evaluator and its precision ceiling
+exact-flow-collision-meter [meas,meas,underused] Exact H_t collision times in the window x in [20,104]
+exact-witness-quadratic-cosine [iden,prov,uniform] Exact de Bruijn-Newman constant of (z^2 + Y^2) cos(cz)
+excess-fraction-onset-pole [meas,meas,] Excess fraction phi(s)=G(s)/F(s): quadratic onset pole
+exhaustive-winding-certificate [open,conj,uniform] Exhaustive zero-winding box certificates
+explicit-kkl-threshold [iden,cert,] Explicit Ki-Kim-Lee threshold x0(t) about 4 pi exp(c/t)
+extreme-gap-exponent [meas,meas,] Extreme normalized gap decay exponent -0.3953
+family-weil-symbol [iden,prov,uniform] Family-averaged Weil symbol over characters mod q
+fe-plus-reality-rigidity [iden,prov,uniform] One line + functional equation + reality gives +-xi
+fejer-riesz-branch-reduction [tool,prov,] Fejer-Riesz branch-reduction lemma for fibre maxima
+ff-ghost-index-toeplitz [iden,prov,uniform/rh-equivalent] Exact ghost index of the Frobenius Toeplitz matrix
+ff-lambda-of-elliptic-curve [iden,prov,uniform] de Bruijn-Newman analogue for elliptic curves over F_q
+field-channel-transfer-modulus [mech,cert,crossing/underused] Collision-time transfer modulus in the vector-field-error channel
+field-channel-two-sided-lipschitz [tool,prov,] Two-sided field-Lipschitz lemma of the field-channel reroute
+fifty-routes-structural-map [tool,meas,] Fifty-routes synthesis: wall census
+finite-height-shock-surrogate [mech,conj,crossing] Finite-height stand-in for the Holder-1/2 shock modulus
+finite-prime-rigidity [meas,cert,uniform] Rigidity of prime weights under positivity
+first-collision-proxy-residual-ra [open,conj,] Residual R_A between first-collision time and its Stieltjes proxy
+first-reduced-kernels [iden,prov,uniform] First reduced theta kernels n_a, b_a
+fixed-support-weil-symbol [iden,prov,uniform/crossing] Fixed-support completed Weil symbol V_L
+flow-criticality-degree [tool,prov,uniform] Flow-criticality degree kappa(P) = sup Lambda
+flow-criticality-grade-kappa [obje,prov,uniform] Graded flow-criticality kappa(P) = sup Lambda
+flow-criticality-kappa [obje,prov,uniform] Flow-criticality degree kappa(P) = sup Lambda(F) over F in P
+fold-curvature-divergence [meas,meas,] Fold curvature diverges as eps^{-5/2} at the real axis
+fold-tower-weights [iden,prov,] N-growth exponents of the open Stieltjes boundary tower
+four-closure-routes [iden,prov,uniform/crossing/rh-equivalent] Four equivalent closure routes for Delta=0 (Section 16)
+fourth-stage-schwarzian [iden,prov,uniform/crossing] Fourth Pick stage as two Schwarzian signs
+freezing-inertia-tool [tool,conj,crossing] Freezing as inertia-preserving reduction (section 23)
+fresnel-airy-envelope-port-gap [open,conj,] Port of the Fresnel-Airy packet envelope into the seam pencil family
+frozen-rung-pt-equivalence [iden,prov,] Frozen-rung <=> Platt-Trudgian
+frozen-rung-winding-identity [iden,prov,] Frozen-rung winding count identity and inertia gate
+g0-chain-external-referee [open,conj,] Raymond chain G0 unrefereed
+g6a-shock-lipschitz-catalogue [open,conj,] G6a shock-Lipschitz: Hölder-1/2 blow-up modulus, hypotheses H1-H5
+g6a-shock-lipschitz-two-routes [open,conj,crossing] G6a shock-Lipschitz modulus: two surviving routes
+gain-ratio-target [open,conj,uniform] Signed network gain G_L(eps)<=1
+gamma-bulk-identity [iden,prov,uniform] Positive bulk realization of the gamma symbol
+gap-domination-bootstrap [tool,cert,crossing] Gap-domination bootstrap: two-sided t_c enclosure on N in [1e4, 1e6]
+gap-ode-reserve [iden,prov,] Gap ODE y' = 8 - 4 S y and exact reserve
+gap-structure-function [meas,meas,] Two-point gap structure function S_2(r)
+gauss-conv-equals-negative-time-flow [iden,prov,uniform] Gaussian convolution of H_0 is the exact flow at negative time
+gaussian-subordination [iden,prov,uniform] Gaussian subordination H_t(z) = E[H_s(z + i sqrt(2(t-s)) G)]
+genuine-theta-box [meas,cert,] Genuine field nonvanishing box through time zero
+ghost-zero-witness [mech,prov,uniform] Ghost-zero witness
+gl2-ramanujan-box-vertex [mech,prov,] Worst case over the Ramanujan box is a vertex
+gl2-weil-symbol [iden,prov,uniform] Weil symbol of a holomorphic newform
+glaisher-precision-trap [tool,meas,] Full-precision Glaisher constant needed past dps 30
+gonek-hejhal-J1 [meas,meas,] Discrete moment J_1 of |zeta'(rho)|^2
+gorz-jensen-hyperbolicity [iden,prov,] Griffin-Ono-Rolen-Zagier Jensen hyperbolicity
+gram-law-statistics [meas,cert,] Gram-law fractions 1e8 to 3e13
+gue-palm-coalesced-pair [iden,prov,] GUE Palm density at a coalesced pair
+gue-spacing-fidelity-at-peak [meas,meas,] Zero-spacing statistics against GUE near the 921860th zero
+gue-two-interval-rigidity-drift [iden,prov,uniform] Adjacent-box count correlation tends to -1/2 at rate 1/log
+h2-flux-kappa-two [meas,meas,] Burgers flux coefficient kappa=2 along the collision flow
+hankel-gap-aU-invariant [iden,prov,] Off-diagonal endpoint-Hankel obstruction depends on s=aU only
+heat-discriminant-ode [iden,prov,uniform/crossing] Discriminant law for zeros under the heat flow
+heat-family-h-tau [obje,prov,uniform/rh-equivalent] Rodgers-Tao heat family H_tau
+heat-fiber-completion-theorem [iden,prov,uniform/crossing] Minimal completion theorem (holomorphic ratio continuation)
+hermite-poulain-shift [mech,prov,uniform] Hermite-Poulain shift and (1 - c D^2) factor
+hidden-square-conj-16-4 [open,conj,uniform/rh-equivalent] Hidden-square kernel factorization (Conj 16.4)
+hidden-square-volterra-collapse [iden,prov,uniform] Hidden-square chain: no-ghost = Volterra contraction
+ht-conjugate-closure-all-t [iden,prov,uniform/crossing] Conjugate closure of the H_t zero set at every real t
+ht-corridor-window-census [obje,cert,] H_t corridor certificates and finite-window census
+hyperbolic-prime-spiral [obje,meas,crossing] Hyperbolic prime spiral
+i2-i3-same-obstruction [iden,meas,] Panel cap and modulus floor are one condition
+ingham-offlattice-riesz-floor [iden,prov,uniform] Ingham-route off-lattice Riesz floor for the sech seam Gram
+inverse-spectral-potential [tool,meas,] Inverse spectral potentials for the first 5000 zeros
+isolation-ratio-rate-identity [iden,prov,] Exact isolation-ratio rate (Lemma R2-T) and c_glob
+joint-h3-h4-minimal-input [open,conj,crossing/underused] N-uniform two-sided bound on renormalised fold moduli
+ka-offdiagonal-hankel-g7 [open,conj,uniform/rh-equivalent] G7: off-diagonal endpoint-Hankel positivity of R
+ka-positivity-residual [open,conj,] K_a >= 0 residual (roadmap gap G7)
+kato-temple-coupling-sqrt3-over-2 [iden,prov,] Kato-Temple certify boundary factorisation
+klein-phase-transport-certificate [mech,prov,crossing] Klein phase transport: positive core minus negative tail
+kms-widom-edge-law-sech [meas,meas,uniform] Finite-section edge law lambda_min(T_N) - inf f ~ C/N^2 for the sech symbol
+koksma-hlawka-collision-limit [iden,prov,] Deterministic Koksma-Hlawka bound for the Dyson-Burgers intercept
+krawczyk-crossover-certificate [tool,meas,] Krawczyk existence-uniqueness certificate for the crossover root
+krein-csharp-floor [open,meas,] Krein c# = lambda_min(P_a M_{sigma_2} P_a) lower bound at 2a = ln 3
+krein-csharp-lower-bracket [open,conj,] Certified lower bound for c_sharp=lambda_min(P_a M_sigma2 P_a) at 2a=ln 3
+krein-string-total-length [iden,meas,uniform/rh-equivalent] Total length of the Krein string of Xi
+kronecker-sup-rms-transfer [iden,prov,crossing] Kronecker-sharp sup/rms transfer constant
+l-damped-finite-window-floor [open,conj,] Deterministic finite-window source floor at t > 0
+l2-detection-modulus [tool,prov,] L2 detection: modulus > 1 forces a negative square
+lac-eq-caratheodory-interpolation [iden,prov,uniform/crossing] LAC-EQ: lacunary Weil positivity as Caratheodory interpolation
+lac-sens-displacement-bound [iden,prov,crossing] LAC-SENS: sensitivity of Pick data to horizontal displacement
+lacunary-cone-4k-certificate [meas,cert,] Certified Pick margin on the cone {4^k}
+lacunary-cone-positivity [meas,cert,crossing] Weil positivity on lacunary cones
+lacunary-cone-weil-positivity [meas,cert,crossing] Route 13: certified Weil positivity on lacunary / Muntz-incomplete cones
+lacunary-detection-horizon-law [meas,meas,] Detection horizon of geometric lattices: T h about 7
+laguerre-hierarchy [iden,prov,uniform] Laguerre hierarchy for |H_t(x + iy)|^2
+lambda-014-fail-closed [meas,cert,] Fail-closed Lambda 0.14 checkpoint
+lambda-ledger-0145276 [obje,cert,] Route-P combined value 0.145276368594868
+lambda-rh-ledger [iden,prov,uniform/rh-equivalent] de Bruijn-Newman ledger
+lambda-to-strip-typeB [mech,prov,] Lambda bound gives region sigma>1/2+L*log(|t|/2pi)-type strip, no converse
+landau-one-sided-d-bound [iden,prov,uniform] One-sided growth of D(W) gives a zero-free half-plane
+lean-arb-certificate-replay [tool,prov,crossing] Lean replay of PSD certificates (ARB-LEGE)
+lean-composition-graph [tool,cert,] Lean import graph of the Lambda chain
+lean-explicit-formula-hypothesis [open,conj,uniform] Discharge Weil's explicit formula in Lean
+lean-halfplane-substitution [iden,prov,uniform] Lean: zero-free half-plane to strip and Lambda
+lean-weil-small-support [tool,prov,uniform] Lean: Yoshida-type small-support Weil positivity
+legendre-dual-limit-density-zero [iden,prov,uniform/crossing] Limit points of Legendre-LP dual-feasible points have density 0
+legendre-dual-restriction-rule [iden,prov,uniform] Legendre-LP dual feasibility restricts along divisibility chains
+lehmer-pair-bounds [meas,cert,] Lehmer-pair hunt and small-gap statistics
+lemma-mp3-multipoint-phase [iden,prov,] Lemma MP3 (multi-point phase lemma)
+lemma-w-wide-support [open,conj,uniform] Lemma W (wide-support diagonal pair correlation)
+li-coefficients-n300 [meas,meas,] Li coefficients lambda_n, n<=300, from 1e6 zeros
+li-herglotz-cmv-detector-reach [meas,meas,] Reach law of the Li-Herglotz-CMV zero detector
+li-herglotz-cmv-truncation [tool,meas,] Li-Herglotz-CMV unitary truncation from Taylor data of xi
+link-a-schur [iden,prov,uniform] Link A: Schur complement form of the Volterra bound
+littlewood-jensen-moment-loss [meas,meas,] Route K: moments see zeros only in integrated form
+local-count-extreme-value-tail [meas,meas,] Worst-window zero-count excess follows Gaussian extreme-value scaling
+log-phase-spiral-arg-zeta [obje,meas,] Log-phase spiral of arg zeta(1/2+it)
+lp-signed-force-gram-surrogate [meas,meas,] LP feasibility of a signed coefficient field aligned with curvature at near-collisions
+m23-ceiling-68185 [conj,conj,] Asserted ceiling 0.68185 for bandwidth-one certificates
+m23-cgdl-class-optimum [meas,meas,] LP optimum of the positivity class
+m23-conjugation-closed-ordinates [iden,prov,uniform] Complex ordinates are conjugation-closed in every window
+m23-dimension-cap [iden,prov,] Dimension cap for bandwidth-lambda families
+m23-discontinuous-input-requirement [open,conj,] An input discontinuous at beta = 0
+m23-edge-lemma [iden,meas,uniform] Edge lemma: even signed weights reduce to the Montgomery-Taylor class
+m23-gabor-fingerprint-matrix [obje,prov,] Gabor fingerprint matrix W = P + Q
+m23-gue-moment-match [iden,meas,] GUE spectrum of W matches the adversary through the third moment
+m23-poisson-reproducing-identity [iden,prov,uniform] Reproducing identity at critical density
+m23-proportion-6725 [meas,prov,] Proportion 0.67250 of zeros on the line (August 2026, Lean-verified per source)
+m23-rank-trace-lemma [iden,prov,uniform] Rank-trace lemma with indefinite off-line blocks
+m23-real-u-positivity-certificate [open,conj,] A certificate acting on |S_I(u)|^2 for real u
+m23-three-prime-side-numbers [iden,prov,] Unconditional trace data of W
+m23-unconditional-window-positivity [iden,prov,uniform/crossing] Positivity of zero pair sums for any non-negative h
+m23-zeta-prime-rolle [mech,prov,] Off-line pairs force zeta-prime zeros near the line
+map-open-1 [open,conj,crossing] Effective order 2 in the 7/8 architecture (h = r/2)
+map-open-10 [open,conj,] Semidefinite coupling of finite-order positivity with the explicit formula in one window (not a
+map-open-11 [open,conj,] Sheared Hecke commutator at tau -> 0 and base-side loading on X_0(4)(R) with Fricke w_4
+map-open-12 [open,conj,] Two-sided or variation information on S(t) for Lambda certificates; certified t > 0 probe floor
+map-open-13 [open,conj,] Hybrid target-row mean value (the coincidence chi_u = eta chi_u for the zeta target); higher-de
+map-open-14 [open,conj,crossing] Controls not run
+map-open-15 [open,conj,] Approaches outside the source set
+map-open-2 [open,conj,] Below-level mixed moment sum_u abs(M_{r*} S_m)^2 << U^E with E < 1.1366-1.1452
+map-open-3 [open,conj,] Slot capacity in MS Lemma 17.1 (r + 2z < 1 versus r + z < 1), and whether the K-loss is the tru
+map-open-4 [open,conj,] TRO6 through the signed c-sum (cancellation in the dual s-tilde sum; stratification by squarefu
+map-open-5 [open,conj,] The 7/8 probe as a period on the 6-fold cover, with the Z/2 factor of Z/6 separating the except
+map-open-6 [open,conj,] Hecke defect on p-primitive tests for all p jointly (window form on (c, c + 2 log p])
+map-open-7 [open,conj,crossing] Jointly inner multi-delay sections of the prime chain; boundary nodes of R_a for a >= 1/2; a DH
+map-open-8 [open,conj,separator] Exact positive-definiteness of log F(sigma + iu) extended to 1/2 < sigma <= 1 without H_W
+map-open-9 [open,conj,] Quadratic or mean-value positivity with automorphic companions (beyond linear 3-4-1)
+map-pos-1 [iden,prov,crossing] Lean: zeta, Dirichlet and OAI-Hecke 7/8 theorems and five Main78 theorems depend only on propex
+map-pos-10 [iden,prov,] Symmetry group of the loaded torus is exactly (Z/2)^3. Referee: holds
+map-pos-11 [iden,prov,rh-equivalent] H_c = A* M_c A
+map-pos-12 [iden,prov,crossing] Inertia: negative index of H_c = rank Gamma_- = number of distinct zeros in Re z > 0. Deps: Had
+map-pos-13 [iden,prov,] Stieltjes characterisation of the pair -P <= B <= P
+map-pos-14 [iden,prov,] Nehari quantum: norm(Gamma_-) >= max_j abs(S_0(z_j))
+map-pos-15 [iden,prov,] Klein seam: N_K = N_on + 2 N_right
+map-pos-2 [iden,prov,crossing] OAI Hecke LFunction equals sum_I chi(I) N(I)^{-s} = Mathlib LSeries on Re s > 1, with unique co
+map-pos-24 [iden,prov,crossing] Escape law for H_{-tau}. Deps: Hadamard, Bohr, Rouche
+map-pos-25 [iden,prov,] Heat-flow cocycle kappa_t(m,n) = 2t log m log n, identical for zeta, DH, twins. Referee: holds
+map-pos-26 [iden,prov,] Zero-free Re s > theta implies Lambda_F <= (2 theta - 1)^2/2 on the extended Selberg class. Dep
+map-pos-27 [iden,prov,] Theorem C (signed probe measures) and the class ceiling -y' <= L_c coth(y L_c) (time >= 0.0962)
+map-pos-28 [iden,prov,] Conditional Lambda values of section 1 line 7. Deps: ZF-XS preprints, Raymond chain. Referee: i
+map-pos-29 [iden,prov,] Calogero-Moser minimal-pair theorems (W nondecreasing
+map-pos-3 [iden,prov,] Liu II Lemma 14.10 as a scalar statement: B_flat = 0.874886647039964130944614..., F_flat(13/18)
+map-pos-36 [iden,prov,] Gram-window ceiling C(lambda) = 2 - lambda/2 - cot(lambda/sqrt2)/sqrt2, C(1) = 0.6725007. Refer
+map-pos-37 [iden,prov,] Volterra norm threshold a* in (31.6213, 31.6214). Referee: reproduced. `b-volterra-norm`.
+map-pos-38 [iden,prov,] Theorem HF (zero count of Gaussian-polynomial sums). Deps: Gaussian variation diminishing. Refe
+map-pos-39 [iden,prov,crossing] Route M first-moment bounds (kappa(b) >= 1/3
+map-pos-4 [iden,prov,] Lean eq48: 7 files, 1612 lines, 29 theorems, no sorry
+map-pos-40 [iden,prov,] Nyman-Baez-Duarte rate law log d_N/log N -> -max(0, sigma_0 - Theta). Referee: holds
+map-pos-5 [iden,prov,] Q_L(v) = sum_rho V(rho) conj V(-conj rho) on one-sided exponential tests
+map-pos-6 [iden,prov,] K-node real Pick positivity for K <= 12 from verified height. Deps: Platt-Trudgian, Trudgian S(
+map-pos-7 [iden,prov,] Lens identity Q(e^{-zt}) = Re L(z)/Re z with exact pair formula
+map-pos-8 [iden,prov,rh-equivalent] Bridge/antibridge algebra: P +- B Loewner in s = x^2
+map-pos-9 [iden,prov,] Schur-Blaschke factorisation 1 - rho^2 = prod b_k^2 (1 - phi_k^2)/(1 - b_k^2 phi_k^2). Deps: no
+mean-field-pencil-real-rooted [meas,meas,] Route B: mean-field pencil keeps 50 real zeros on tau in (-0.56,1.22)
+mean-time-compression-trace-class [iden,prov,uniform] Mean-time compression on the twin-lattice span is trace class
+mean-time-pencil-conf-dom [iden,prov,uniform] Mean-time pencil: phase-split identity and CONF-DOM
+meansquare-pointwise-wall [meas,meas,] Mean-square versus pointwise wall on actual zeros
+mem-aristotle-atp [tool,cert,] Aristotle (Harmonic) autoformalisation
+mem-ballast-live-residuals [open,conj,] Signed-certificate chain: open residuals
+mem-coal-n-laguerre [iden,prov,uniform] COAL-N: N-fold coalescence law via Blaschke-Newton interpolant
+mem-concentration-dip-open [open,conj,] Operator concentration bound on the w_1 dip fraction
+mem-de-bruijn-strip-to-lambda [iden,prov,uniform] Zero-free half-plane to Lambda: Lambda <= 2 d^2
+mem-detector-uncertainty [meas,meas,] Detector uncertainty principle 2a_det ~ 0.9 ln(gamma/2pi)
+mem-epstein-radii [meas,cert,] Epstein zeta radii for 27 forms
+mem-field-channel-bootstrap [mech,cert,crossing] Vector-field-error channel bootstrap for Dyson collision time
+mem-fifth-pair-degeneracy [meas,meas,] Fifth-pair Gram degeneracy: spread is a few-ULP floor
+mem-freeze-flow-interlacing [iden,prov,uniform/rh-equivalent] Arithmetic freeze-flow: confinement iff interlacing
+mem-gap-cancellation-kl [iden,cert,] Gap-cancellation reduction for the record pair
+mem-gaussian-conv-negative-time [iden,cert,uniform] Gaussian convolution of Xi = de Bruijn flow at negative time
+mem-gilbreath-lock [iden,prov,] Gilbreath lock certificate
+mem-gronwall-backward-kh [open,conj,crossing] Gronwall backward-flow stability of Koksma-Hlawka uniformity
+mem-kappa-first-moment [meas,meas,] kappa = F(b)/(phi(b) b) tends to (3/2)C - 1/4 + 1/8 = 0.6954960511
+mem-kkl-x0 [meas,meas,] Explicit KKL threshold x0(t) ~ 4 pi exp(c/t), c about 5.3-5.8
+mem-krein-certificate-lemma [tool,cert,] Toeplitz/Krein lattice-atom certificate lemma
+mem-lacunary-loophole [mech,cert,uniform/rh-equivalent] Lacunary/Blaschke node-family loophole inside the native span
+mem-lambda-theta-table [meas,cert,] Conditional Lambda(theta): 0.01 in theta is about 0.003 in Lambda near 7/8
+mem-lambda1-crossing [meas,meas,] p=2-only form: lambda_1(a) crosses zero near 2a = 1.13
+mem-local-window-substitution [mech,cert,] One local RH window replaces contiguous verification
+mem-positive-extension-certificate [tool,cert,] Dual (positive-extension) certificate for the pole-free Weil form
+mem-retained-trace-pointwise-ratio [meas,meas,] Retained Sonine trace cannot dominate pointwise
+mem-route-m-cs-reduction [iden,prov,] Route M: mean-square lower companion reduces to a first moment
+mem-route-p-ledger [meas,cert,] Route P ledger at Platt-Trudgian height
+mem-rz-pen [iden,prov,uniform] RZ-PEN: r-uniform block symbol pencil
+mem-saddle-ratio-moments [meas,meas,] Exact-saddle moment ratio R_n crosses 1 at n* = 215.2
+mem-sg1c-c-half [iden,prov,uniform] Isolation onset c_glob = c_half = 0.8980208880762339
+mem-sg1c-r1-transfer [open,conj,] sg1c R1 minimality transfer
+mem-sl0-shift-dictionary [iden,cert,uniform] SL0 dictionary E_a = Xi(z+ia)
+mem-t3-equals-strip [iden,prov,uniform/rh-equivalent] T3(a) iff E_a Hermite-Biehler iff zero-free strip
+mem-v52-unaudited-kyp [open,conj,crossing/rh-equivalent] Unaudited v52 constructive claims 15.3, 16.4, 16.6, 18.1, 18.2
+mem-vasyunin-mean-conjecture [conj,conj,] Varying-modulus Vasyunin cotangent mean: sum_a V(b,a)/(phi(b) b) -> -1/(4 pi)
+mem-weil-moment-ladder [meas,meas,] Moment ladder of the pole-free Weil margin at (ln 3)/2
+mem-widom-parseval-peak [meas,prov,rh-equivalent] sigma=1/2 as fluctuation-susceptibility peak
+mem-winding-monotone-classical [iden,prov,uniform/crossing] Winding monotonicity under the flow (de Bruijn Thm 13 + jet lemma)
+mem-wol-c [open,meas,] WOL-C weak outer lemma at P47
+mesoscopic-density-floor-cotangent [iden,prov,uniform] Density floor from the uniform lattice
+mesoscopic-strip-propagation-constant [mech,meas,crossing] Mesoscopic strip gives an N-uniform propagation constant
+min-gap-exponent [meas,meas,] Running minimum gap exponent of zeros versus GUE N^{-1/3}
+min-gap-sandwich [iden,prov,] Minimal-gap sandwich for the collision time
+mingap-beta-condition [open,conj,] Uniform field bound beta g^2 < 0.909 for the minimal gap
+minimum-phase-hilbert-identity [iden,prov,uniform] Minimum-phase identity on vertical lines
+mirror-descent-b1 [open,conj,] Conditional flow-descent theorem B1 (mirror descent), residuals (a),(b)
+mirror-pair-lemma [iden,prov,uniform] Mirror pair lemma for heat-flow descent
+model-cusp-amplitude-phase [iden,prov,] Off-axis fold amplitude and its phase winding
+model-cusp-rho-expansion [iden,meas,] Model-cusp ratio rho(eps) = C_ren/C_curv expansion
+modular-scattering-factorisation [iden,prov,uniform] Modular-surface scattering matrix through the bridge
+mollifier-holomorphy-constraint [iden,prov,uniform] Holomorphy constraint on mollifier weights
+moment-ratio-saddle-anomaly [meas,meas,uniform] Saddle ratio of A-weighted moments dips below 1
+mono-n-rate-monotonicity [iden,prov,uniform] MONO-N: the signed N-rate shift constant decreases in every rate
+monotonicity-envelope [iden,prov,crossing] Envelope form of the collision-time monotonicity
+moving-reference-rouche-gluing [mech,meas,] Moving-reference Rouche gluing over analytic phase charts
+mu-pass-overflow [meas,meas,crossing] Diagonal measure fails to dominate the shear on 64% of tau; cosh completion covers it
+multi-rung-weil-symbol [iden,prov,uniform] Multi-rung Weil symbol w_K
+multiband-lemma-b [mech,cert,] Theorem B'_m: multi-band Lemma B with line walls
+mv-cap-function-side-open [open,conj,] Function-side MV-CAP with explicit constants is not established
+mv-cap-sensitivities [meas,prov,] Window sensitivities of mean-value premises
+n-uniform-fold-modulus-five-inputs [open,conj,crossing] N-uniform fold-modulus back-conversion
+native-span-no-intermediate-grade [meas,meas,] Finite native-span Pick statements survive backward flow to eps = 1e5
+near-muntz-threshold-cones [open,conj,] Near-Muntz-threshold Blaschke cones nu_k = k^p
+nonlocal-pole-term-bridge [open,conj,] Nonlocal / arithmetic pole-term bridge past ln 2
+norm-transfer-closed-form [iden,prov,uniform] Lemma NT norm-transfer closed form
+np-pick-seam-pencil [iden,prov,uniform] LEMMA PICK-ID / SGN-NP: Nevanlinna-Pick matrix = seam pencil
+ns-rigid-pencil-psd-past-lehmer [meas,meas,] Flowed Pick pencil stays PSD ten orders past Lehmer collision
+ns-rigid-primes-enter-as-n-scalars [mech,prov,uniform] Primes enter native-span forms through n scalars (PICK-WEIL A1)
+null-symbol-duality [iden,prov,] Null-symbol dual for fixed-support Weil positivity
+number-variance-cap-selberg [iden,meas,crossing] Envelope r_cap(T) from Selberg's variance of S(T)
+number-variance-max-anchor-sample [meas,meas,] Number-variance offset anchor is a sample maximum
+odd-power-pick-signature [iden,prov,uniform] Pick signature of odd powers; pole does not bound index
+odd-sector-pole-term [iden,prov,uniform] Odd-sector pole term of the Weil form
+offline-margin-below-line [meas,meas,] Off-anchor heights sit below the on-line margin law
+offline-zero-visibility-law [iden,prov,uniform] Visibility law for one off-line pair (Lemma 2)
+one-point-all-jets [iden,prov,uniform/rh-equivalent] One point suffices iff every jet order is controlled
+one-sided-excess-target [open,conj,uniform] One-sided excess Q(x)-4 sqrt x with exponent below 3/8
+online-margin-positive-floor [meas,meas,] On-line signed-force margin flattens to a positive floor
+orbit-pair-kernel [open,conj,uniform] Orbit-pair kernel strict inequality uniform in degree
+overflow-onset-arcsinh1 [iden,prov,crossing] Overflow onset of the cosh completion at s0 = arcsinh(1)
+p47-late-cell-floors [open,conj,crossing] P47 late-cell WOL-C floors (cells 417-424)
+pair-correlation-form-factor [meas,meas,] Montgomery form factor versus GUE on Odlyzko zeros
+pair-kernel-q-t [iden,prov,uniform] Pair kernel: D_t(x) = int Q_t(v) cos(2xv) dv
+palm-mirror-additive-deficit [meas,meas,] Palm two-slot mirror count trails its mean by 1/y0
+parity-amgm-gram-sharp [iden,prov,uniform] Parity AM-GM factor 2 is Gram-sharp
+parity-pure-maj-witness-threshold [obje,cert,uniform] Parity-pure MAJ witness class and its certified rate threshold
+passive-core-ceiling [iden,prov,] Analytic ceiling for the cosh passive core
+per-site-self-similar-depth [mech,meas,] Per-site flow depth s_k = c g_k^2
+per-window-excess-gaussian [meas,meas,] Per-window number-variance residual is Gaussian at accessible heights
+permutation-defect-bound [iden,prov,uniform] Permutation defect: reordered operator product within sum of commutators
+phase-cert-phase-am [iden,prov,uniform] Phase-priced signed seam certificates
+phase-retrieval-zeta [iden,prov,uniform] Phase retrieval: |zeta| on one line fixes zeta up to off-line flips
+phased-forcing-degrades [meas,meas,] Phased forcing of the Dyson flow loses effect with N
+phi-autocorrelation-weight [iden,cert,uniform] Super-exponential law of the Phi autocorrelation A(tau)
+phi-truncation-leftmost-zero [meas,cert,uniform] Positivity range of the truncated kernel Phi_N
+pick-id-seam-pencil [iden,prov,uniform] PICK-ID: the seam pencil is a Nevanlinna-Pick matrix
+pick-weil-native-span [iden,prov,uniform] Theorem PICK-WEIL: Weil form on exponentials is a Caratheodory-Pick matrix
+pointwise-number-variance-suppression [meas,meas,] Pointwise number variance of zeta zeros sits at 0.35-0.48 of the GUE value
+poisson-measure-criterion [iden,prov,uniform/rh-equivalent] RH as a Poisson representation with half-width 1/2
+poly-de-bruijn-heatop-lean [tool,prov,uniform/crossing] Polynomial de Bruijn / Polya-Schur theorem (Lean)
+polya-kernel-cosine-transform [tool,meas,] Polya Phi cosine transform evaluator
+pontryagin-index-detectors [tool,meas,] Two numerical detectors of ind_-(K_a)
+pontryagin-index-ka [meas,meas,] Negative index ind_-(K_a)=0 on window grid; off-line controls give 1,2,3
+positive-real-ladder-step [mech,prov,uniform/crossing] Positive-real ladder step and Montel closure
+prime-log-phase-caustics [obje,meas,] Prime log-phase caustics and resonance heights
+prime-phase-crystal [obje,meas,] Prime phase crystal
+privalov-sokhotski-constant [iden,prov,] Boundary-extension constant C_PS = pi/sqrt(2)
+probe-measure-linearity [mech,cert,] Linearity of the floor in the probe measure
+proper-power-memory [iden,prov,uniform] Proper powers: summable credits, logarithmic memory
+pt-floor-binds-verified-height [meas,cert,] Verified height binds the Lambda<=0.2 floor
+pulse-leakage-bound [meas,cert,] Box-pulse leakage below 1/8 and divergent preimages
+pulse-leakage-zero-target [open,conj,uniform/crossing] Zero leakage of the actual pulse
+pw-polefree-de-branges-isometry [iden,prov,] Pole-free subspace as the de Branges space H(E_a S)
+q65-coercivity [meas,cert,] Recorded full-domain certificate Q_{6/5}>=1e-55
+quadrature-floor-band-clusters [meas,meas,] Irregular band-clearing spikes in the saddle-ratio quadrature floor
+r2-map-to-flow-one-sided-bound [open,meas,] R2: true-flow collision time below the map upper bracket
+r5-tail-monotonicity-split [open,conj,crossing] R5 tail monotonicity splits into a finite part and an irreducible tail
+ramanujan-polynomial-triangle [iden,meas,underused] Crossover numerator polynomials are the Ramanujan polynomials reversed
+random-platt-windows [meas,cert,] 16 random Platt windows at 1.06e13 to 3.09e19
+rank2-antisymmetric-shear-kernel [iden,prov,] Two-point shear kernel is rank-2 antisymmetric
+rate-mono-two-rate [iden,prov,] Theorem RATE-MONO for the two-rate signed constant
+resolvent-burgers-identity [iden,meas,crossing/underused] Finite-N resolvent flux identity (complex Burgers with viscosity)
+rh-szc-vortex-slab [iden,prov,uniform/rh-equivalent] RH and simple zeros iff G = H_t + i H_t' has no zero on the closed slab
+ri-bathtub-floor [iden,cert,] Bathtub joint floor for band-limited forms
+ri-bessel-tail-certified [tool,cert,] Certified spherical-Bessel z^-4 tail constant for the Krein tail integral
+ri-confined-well [iden,cert,] Negativity set of sigma_2 is one confined well; far field positive
+ri-crossing-drift-to-ln3 [meas,meas,] Zero crossing of lambda_min(T_a[sigma_2]) drifts down to ln 3
+ri-csharp-ln3 [meas,meas,] Krein concentration constant c_sharp at 2a = ln 3
+ri-csharp-lower-bound-open [open,conj,] Certified positive lower bound on c_sharp at ln 3
+ri-rkhs-floor-linear-in-a [meas,meas,] Reproducing-kernel floor is linear in the band half-width
+ri-sigma2-symbol [obje,prov,] Pole-free Weil symbol sigma_2 and residual w_1
+ri-w1-no-pointwise-margin [meas,meas,] Bare residual w_1 negative on [0, 3.305) and at t = ln 3
+ri-well-capture-tradeoff [meas,meas,] Well capture versus far-field cost for band-limited minimisers
+riesz-criterion [iden,prov,uniform/rh-equivalent] Riesz series criterion
+rm-bc-reciprocity-wobble [meas,meas,] Bettin-Conrey reciprocity residual does not decay along the Gauss map
+rm-boundary-cotangent [iden,prov,] Boundary cotangent sum V(1,b)
+rm-bulk-profile [iden,meas,crossing] Bulk profile of the Vasyunin coefficient
+rm-cauchy-schwarz-first-to-second [mech,meas,] Cauchy-Schwarz reduction of the absolute cotangent first moment to M2w
+rm-conditioning-ceiling [meas,meas,] Route M conditioning-ceiling band
+rm-cot-cancellation-ratio [meas,meas,] Signed-to-absolute cotangent cancellation ratio 0.540
+rm-cot-leaf-limit-minus-quarter-pi [meas,meas,] Varying-modulus Vasyunin half converges to -1/(4 pi)
+rm-cot-sign-open [open,conj,] Sign of the signed cotangent half S(b) < 0
+rm-estermann-double-pole-wlin [iden,prov,] w_lin from the Estermann double pole
+rm-fixed-a-asymptotic [iden,meas,] Fixed-a asymptotic of I(a,b)
+rm-inverse-line-detection-identity [iden,prov,] Inverse-line second moment M2w = DIAG + OFFDIAG (Kloosterman-type)
+rm-kappa-smooth-open [open,conj,] Cusp coefficient kappa_smooth of the Bettin-Conrey period function
+rm-resonance-crests [meas,meas,] Arithmetic cotangent resonances at x = 1/6 and 1/5
+rm-small-inverse-divisor-count [iden,prov,] Small-inverse frequency is a divisor sum
+rm-vasyunin-coefficient [obje,prov,] Vasyunin two-variable coefficient I(a,b)
+route-b-half-gram-interlacing [meas,meas,] Route B: half-Gram lattice violates interlacing
+route-b-koksma-hlawka-per-n-rate [mech,meas,underused] Route B: unconditional per-N rate from the discrepancy bound
+route-b-limsup-stieltjes [iden,prov,uniform] Route B unconditional lim-sup theorem
+route-c-density-squeeze-rate [mech,conj,] Route C: per-N rate from the density squeeze
+route-h-arch-p2-cancellation-curve [meas,meas,crossing] Archimedean versus p=2 cancellation ratio as a function of support
+route-j-fejer-floor [iden,prov,uniform] Route J: Fejer zero-free-region floor R=5.8284
+route-k-littlewood-jensen-loss [meas,meas,] Route K: moments reach zeros only through Littlewood's integrated lemma
+route-l-cmv-detector-reach [meas,meas,] Route L: Li-Herglotz-CMV detector reach law
+route7-cost-exponential [meas,meas,] Route VII complete-row cost is exponential in 1/t
+rvm-inversion-krawczyk [tool,prov,uniform/crossing] Interval-Newton/Krawczyk enclosure for the height of the N-th zero count
+rz-pen-symbol-pencil-floor [mech,prov,uniform] RZ-PEN chain: r-uniform block symbol-pencil floor
+rz-twin-block-riesz [iden,prov,] m-uniform Riesz lower bound for the seam Gram on the octave twin lattice
+rz-twin-block-riesz-floor [iden,prov,uniform] RZ-TWIN: m-uniform block Riesz lower bound on the octave twin lattice
+s-barrier-statement [open,conj,uniform/underused] S_barrier: no off-line zero of H_t above the verified height
+sawtooth-s-of-t [iden,prov,] Sawtooth bound for S(T)
+sawtooth-s-of-t-lemma [tool,prov,uniform] Sawtooth lemma for S(T)
+scalar-comparison-target [open,conj,uniform/crossing] Cofinal gamma-relative bound on the prime form
+scalar-cover-trace-bound [iden,prov,] Scalar cover bounds R entrywise and by its trace
+scale-normalised-dbn-null [meas,meas,] Volterra norm along the de Bruijn flow tracks kernel scale only
+schur-charge-payment [open,conj,uniform] Signed estimate paying E - B*D^{-1}B
+schur-defect-screw-form [iden,prov,uniform] Pick Schur defect equals the Suzuki screw form on exponentials
+schur-ratio-max-principle-gap [open,conj,uniform/crossing] Route A: |R_a(w)|<1 on Re w>0 by maximum principle
+seam-cross-ratio-pencil [obje,prov,uniform] Cross-seam ratio Lambda(nu,d) of exponential sums
+sech-toeplitz-poisson-dual-envelope [iden,prov,uniform] Sech seam Gram: Poisson dual symbol and finite-section envelope
+section47-winding-h6 [iden,cert,] Lean: packet estimate to de Bruijn chain with (H6) discharged by the argument principle
+sep-opt-lattice-extremal [iden,cert,uniform] SEP-OPT: the lattice is the extremal delta-separated configuration
+sgn-2x-two-rate-closed-form [iden,prov,uniform] SGN-2X: exact two-rate signed constant
+sgn-c-count-certificate [iden,prov,uniform] SGN-C: signed count-priced shift certificate
+shear-decoupled-rate-lever [mech,meas,] Decoupled pass/shear rates soften ||R|| but leave the kernel class
+shear-gram-hollow-antisymmetric [obje,meas,] Shear Gram is the hollow antisymmetric de Branges Wronskian
+shear-gram-hs-identity [iden,prov,uniform] Rank-2 shear Gram: Hilbert-Schmidt norm = sqrt 2 times operator norm = mu
+shear-gram-rank-two [iden,prov,] Antisymmetric shear Gram is exactly rank 2
+shear-norm-plateau [meas,meas,] Shear norm plateau ||R|| from 0.75 to 1.33
+shear-obstruction-one-dimensional [iden,prov,] Shear obstruction depends on s = a*U only
+shear-pass-kernel-R [obje,prov,] De-homogenised shear/pass correlation matrix R(s)
+shear-perron-monotone-ceiling [meas,meas,crossing] ||R(s)|| is monotone in s and saturates at DEG+1
+shear-perron-small-s-collapse [iden,prov,] Perron norm vanishes linearly at small s
+shear-wronskian-rank2 [iden,prov,uniform] Rank-two shear commutator V - V^#
+shift-bridge-ka-psd [conj,conj,uniform/rh-equivalent] Conjecture 15.2/15.3: shift-bridge positivity K_a>=0
+shift-bridge-threshold [iden,prov,uniform/rh-equivalent] Shift-bridge threshold theorem (a-dial)
+shift-ratio-threshold [iden,prov,uniform/rh-equivalent] Strict shift comparison threshold
+sigma-b-abscissa-sensitivity [open,conj,] Effective abscissa sigma_B of the coefficient ladder
+sigma2-tail-supercubic-growth [meas,meas,] Super-cubic N-growth of the sigma_2-weighted Krein tail residual
+signed-certificate-chain [obje,cert,] Seam-chain signed certificates (SGN, COAL, EV-OCT, RZ-PEN, SPLIT)
+signed-complement-bound [open,conj,uniform] Signed bound on physical-complement directions
+signed-force-margin-floor [meas,meas,] Route B/D: on-line signed-force feasibility margin flattens to a positive floor
+sine-kernel-vif-bound [iden,prov,] Sine-kernel negative box covariances give variance inflation factor below 1
+single-crossing-compensation [mech,prov,uniform] Single-crossing compensation with a totally nonnegative kernel
+skew-toeplitz-pair-ladder [meas,meas,underused] Skew-Toeplitz shear sections: paired spectrum with (j^2 - 1) amplitude law
+slab-44-nonvanishing-target [open,conj,] 0.1399 row: slab non-vanishing and directed final-time tail
+small-gap-exponent [meas,meas,] Minimal normalised gap of zeta zeros scales near N^{-1/3}
+small-value-shear-energy [iden,prov,uniform] Regularized negative-shear energy counts zeros
+sparse-verification-theorem-n [mech,prov,] Theorems S and N: sparse RH verification in the Lemma-B framework
+spectator-realness-rh-free [mech,prov,crossing] Realness of the omitted-zero field error without a critical-line assumption
+speiser-criterion [iden,prov,uniform/rh-equivalent] Speiser criterion
+speiser-numerical [meas,meas,rh-equivalent] Speiser criterion check: no zeros of zeta' in 0<sigma<1/2 up to t=50
+split-jitter-breach-threshold [meas,meas,uniform] Off-lattice jitter tolerance of the every-octave certificate vanishes like 0.28/m
+split-loo-every-octave-certificate [mech,prov,uniform] SPLIT-LOO: leave-one-out multi-block split of the signed seam pencil
+start-substitution-lemma [mech,prov,uniform] Half-plane start substitution in a decreasing-barrier chain
+step-error-certificate-five-ingredients [open,conj,crossing] Certified a-priori RK4/DP5 truncation bound for the backward Dyson flow
+straddle-exclusion-window-completeness [mech,prov,underused] Straddle exclusion from an argument-principle-complete zero list
+strip-ladder-kappa [iden,prov,uniform] Strip ladder kappa(Strip_Y) = Y^2/2 with exact witness
+subleading-k-closed-form [iden,cert,uniform] Subleading constant K = 11/2 - 2 gamma - 3 pi^2/8
+sun-catalan-preprint-verdict [conj,conj,] Sun's Catalan-constant irrationality preprint: partial verification
+sun-prop63-offset [iden,prov,] Sun Prop 6.3 additive offset is exactly 4, independent of m
+sun-prop63-plus4-offset [iden,prov,uniform] Prop 6.3 additive offset equals 4 and is modulus-independent
+suzuki-finite-certificate [meas,cert,crossing] Finite Suzuki scalar certificates
+suzuki-reserve-update [iden,prov,uniform/crossing] Convex-conjugate reserve and its update
+suzuki-screw-response-psi [obje,prov,uniform/crossing] Suzuki scalar response Psi and box test
+suzuki-spectral-convergence [tool,prov,uniform/crossing] Suzuki localized Weil operators and spectral convergence
+suzuki-toeplitz-compression [iden,prov,uniform] Toeplitz compression of the Suzuki/Weil form on interval cells
+t3-dagger-identity [iden,prov,uniform] E_a(z) = A_a(z) - i B_a(z) = Xi(z + i a)
+t3-residual-inequality [open,conj,uniform/rh-equivalent] T3: exact Twin Ladder residual inequality
+t3-zero-free-strip-dictionary [iden,prov,uniform/rh-equivalent] T3(a) = zero-free strip dictionary (SL0/SL1)
+tangency-coefficient-8 [iden,prov,] Quadratic tangency law |tau_c| = g^2/8
+telescoping-kernel-projection-domination [mech,prov,uniform/underused] Telescoping gap kernel and projection domination
+theta-central-positivity [meas,cert,] Certified central positivity of H_tau
+theta-density-positivity [iden,prov,crossing] Theorem P-POS: positivity of the theta exit density
+theta-density-positivity-p-pos [iden,prov,uniform/crossing] P-POS: positivity of the theta density with two-sided enclosures
+theta-fisher-degree9 [meas,cert,] Theta-Fisher parity blocks positive through degree 9
+theta-kernel-sqrt-concavity [obje,prov,uniform] Csordas concavity of log kappa(sqrt t)
+theta-modular-ode-system [iden,prov,uniform] Closed polynomial system for the theta kernel on the modular axis
+theta-ratio-convexity [tool,cert,uniform] Anchor-free covariance comparison for canceled Green inverses
+theta-reverse-regularity-order4 [meas,meas,uniform] Reverse regularity of the theta Hankel kernel stops at order four
+theta-trap-invariant [mech,prov,] Theta trap: sharp invariant Theta <= 1/4 for Calogero-Moser-type zero flow
+theta-trap-theorems [iden,prov,] Theta-trap theorems A/B/C for the attractive CM flow
+thin-hankel-certificate [meas,cert,] Signed thin Hankel norm certificates
+thin-hankel-schur-equivalence [iden,prov,uniform] All-window Hankel boundedness = Schur property with cancellation
+tilt-det-majorant [iden,prov,uniform] TILT-DET: exponential-tilt Cauchy-determinant majorant
+triple-correlation-data [meas,meas,] Three-point correlation of 1e6 zeros matches the sine-kernel determinant
+tstar-finite-height-bookkeeping [meas,meas,] Achieved rung gives RH only up to T*(N)
+twin-ladder-jacobi-reconstruction [obje,meas,] Explicit de Branges / Jacobi chain for the twin-ladder m-function
+twin-ladder-tomography [obje,meas,] Twin-ladder tomography P(sigma,t)=|zeta(sigma+it)||zeta(1-sigma+it)|
+twin-pair-block-toeplitz-symbol [iden,prov,uniform] Twin-pair seam Gram as a 2x2 block Toeplitz operator
+twin-sync-dissipation [mech,prov,] Twin prime-ladder synchronization model
+twistor-heat-compat [iden,prov,uniform] Twistor heat compatibility on range F_+
+twistor-heat-compat-lemma [iden,prov,uniform] Twistor heat-compatibility lemma 6.1
+two-line-zero-detector [mech,prov,uniform] Two-line zero detector D(w) (Poisson-Jensen)
+two-point-cutoff-positivity [meas,prov,crossing] Two-feature and far-translated positivity of H_c
+vasyunin-fixed-modulus-antisymmetry [iden,prov,uniform] Sum over reduced residues of V(a,b) vanishes
+vasyunin-lammin-two-sided [iden,prov,] Two-sided bound for the smallest eigenvalue of the Nyman-Beurling Gram matrix
+verified-height-compute-design [tool,meas,] Design for extending verified zero height toward 1e14
+verified-height-multiple-for-floor [meas,meas,] Zero data needed to extend the unconditional floor to the landmarks
+virtual-rungs-positive-extension [mech,prov,uniform] Virtual rungs: positive-extension freedom outside |u| < 2a
+volterra-hankel-operator [obje,prov,uniform] Volterra-Hankel operator V_{a,Phi}
+volterra-homogeneity [iden,prov,uniform] Volterra norm is degree-2 homogeneous in Phi
+volterra-hs-bound [tool,cert,uniform/crossing] Hilbert-Schmidt closed-form bound sqrt(I_0 J_a)
+volterra-selberg-class-extension [mech,meas,uniform] Volterra/HS framework extends to Selberg-class L-functions
+volterra-tail-transfer [tool,prov,uniform] Truncation transfer L^2([0,U]) -> L^2([0,inf))
+w1-summation-precision-non-binding [meas,meas,] Summation precision does not bind the A + B - C sum at 3e12
+w2-certified-winding-ingredients [open,conj,crossing] Certified winding count on the transition rectangle
+w3-tail-lemma [open,conj,uniform/crossing/underused] W3 tail lemma |A_t + B_t| > |C_t| for all x >= T_PT + Delta
+walled-cell-lemmas-b2-b3 [mech,prov,] Lemma B.2/B.3: walled local RH window under the heat flow
+weil-gram-margin-conditioning [meas,meas,] Weil Gram margin on bump bases sinks to the conditioning floor
+weil-li-matrix-low-rank [meas,meas,] Finite Weil-Li Gram matrix M_N is nearly rank one and blind to off-line zeros
+weil-onset-zero-side-law [meas,meas,] Weil-negativity onset follows the first off-line zero
+weil-sector-split [iden,prov,uniform] Even/odd sector split of the Weil form
+weil-support-kappa-ladder [meas,prov,uniform] Weil positivity at fixed support: lower-bound ladder for kappa
+whitham-cw-same-modulus [iden,meas,] Whitham composition constant equals the G6a modulus
+whole-even-coercivity [meas,cert,crossing] Even-sector supported Weil coercivity to sqrt(33/2)
+wiener-hopf-phase-condition [iden,prov,uniform/rh-equivalent] Fixed-thickness frontier is one Wiener-Hopf phase condition
+winding-barrier-above-tpt [open,conj,] Certified argument-principle winding barrier on R=[T_PT,T_PT+Delta]x[-h,h]
+winding-barrier-mesh-cost [meas,meas,] Finite winding barrier cost is linear
+winding-lyapunov [meas,meas,crossing] Winding of arg H_tau is non-increasing in tau
+winding-monotone-backward-heat [iden,prov,crossing] Winding monotonicity under the de Bruijn flow (classical orientation)
+winding-monotone-under-heat [iden,prov,uniform/crossing] Winding of arg H_tau is monotone in heat time (de Bruijn Thm 13 with jet lemma)
+window-boundary-influx [meas,meas,crossing] Widening the window adds boundary in-flux under backward flow
+window-edge-depth-requirement [open,conj,] Depth control next to every window
+window-winding-monotone [iden,prov,crossing] Window winding number is monotone along the flow
+xi-arm-split-incomplete-gamma [iden,prov,uniform] Arm split of the completed zeta function at the self-dual point
+xi-centered-x [obje,prov,uniform] Centered xi function X(w)
+xi-exponential-family [iden,prov,uniform] Xi exponential family and KL identities
+xp-models-residual-s [meas,meas,] Regularised xp models reproduce only the smooth N(T)
+ythaw-0p17759432-obligation-ledger [open,conj,crossing] y-thaw package value 0.17759432 obligations O1-O6
+zero-channel-certificates [meas,cert,] Zero-channel disk certificates under heat flow
+zero-density-log-factor [open,conj,] Explicit zero-density constants: the (log T)^A factor
+zero-flow-graph-laplacian [iden,prov,uniform] Heat-flow zero dynamics as a weighted graph Laplacian
+zero-ode-ht [iden,prov,uniform] Zero ODE of H_t in unfolded units
+zero-packet-identity [iden,prov,uniform] Zero-packet shift identity
+zero-pair-shear-formula [iden,prov,uniform] Reflected-pair contribution to Re F'/F
+zeta-half-line-bound-6 [tool,prov,uniform] Explicit bound |zeta(1/2+it)|<=6 sqrt(1+|t|)
+zeta-zero-lag1-anticorrelation [meas,meas,crossing] Empirical lag-1 box anticorrelation of zeta zeros
+zpo-pair-correlation-gue [meas,meas,] Pair correlation of first 1e4 unfolded zeros versus sine kernel
+zpo-spectrum-pair-correlation [meas,meas,] ZPO operator spectrum versus sine kernel
+zr-zero-repulsion [open,conj,] (ZR) zero-repulsion hypothesis
+zv-annulus-boundary-conditions [iden,prov,uniform] Field symmetries and boundary conditions on the reflection annulus
+zv-annulus-dtn-operator [obje,prov,uniform] Dirichlet-to-Neumann reference operator on the annulus
+zv-axis-limit-laguerre [iden,prov,uniform/crossing] Axis limit of W/x
+zv-bloch-spinor-state [obje,prov,uniform] Two-channel spinor and Bloch vector of the shifted pair
+zv-boundary-kernel-pa [obje,prov,uniform] Strip boundary kernel P_a
+zv-bridge-pick-congruence [iden,prov,uniform] Bridge Gram kernel and ratio-Pick kernel share inertia
+zv-bridge-understates-log-derivative [meas,meas,] Finite bridge versus logarithmic derivative near a zero
+zv-bridge-vs-reference-form-comparison [open,conj,rh-equivalent] Comparison of the theta bridge operator with a positive reference form
+zv-cr-gradient-fields [iden,prov,uniform] Modulus and phase gradients of an analytic field
+zv-dirichlet-energy-fold [iden,prov,uniform] Dirichlet energy under the folds, and its divergence at the puncture
+zv-dual-conormal-family [obje,prov,uniform] Dual conormal CP^1 of the elliptic curve in CP^3
+zv-dyson-trap-model [obje,prov,] Finite interacting-zero trap model in reverse heat time
+zv-elliptic-double-cover [obje,prov,uniform] Elliptic double cover E_r with spectral lens L
+zv-even-odd-boundary-energy [iden,prov,uniform] Even/odd boundary energy decomposition
+zv-finite-bridge-balance [iden,prov,uniform] Finite bridge balance B_a
+zv-first-zero-theta-channel [meas,cert,] Arb certificate: first xi zero stays on the line for |tau| <= 0.05
+zv-gaussian-damped-extension [tool,prov,uniform] Gaussian-weighted xi extends smoothly and flat across the punctures
+zv-heat-zero-velocity [iden,prov,uniform] Zero velocity under the theta heat family
+zv-hessian-log-modulus [iden,prov,uniform] Hessian of log modulus
+zv-infinity-end-coordinate [iden,prov,uniform] Local coordinate at spectral infinity and the exact Klein seam
+zv-jacobi-uniformization-involutions [iden,prov,uniform] Jacobi chart and the three involutions in (u,v)
+zv-newton-flow [mech,prov,uniform] Continuous Newton flow preserves phase
+zv-one-zero-lost-before-collision [meas,prov,] Event order in the quartic: count changes before the collision
+zv-phi-positivity-heat-perturbation-bound [tool,prov,] Positive-kernel bounds on heat perturbation and derivatives
+zv-polynomial-heat-coefficients [tool,prov,uniform] Exact coefficient formula for polynomial heat
+zv-quartet-channel-certificate [meas,cert,crossing] Exact rational certificate: four moving quartet channels
+zv-schur-frozen-block-inertia [tool,prov,uniform] Frozen-block Schur complement and negative-index additivity
+zv-shear-reflection-parity [iden,prov,uniform] Parity of W under the critical reflection
+zv-shifted-field-interference [obje,prov,] Additive shifted-field pencil G = xi(s+a) - c e^{i phi} xi(s-a)
+zv-shifted-ratio-ra [obje,prov,uniform] Shifted ratio R_a and its zero/pole bookkeeping
+zv-signed-shear-w [iden,prov,uniform/crossing] Signed shear W and modulus monotonicity
+zv-spinor-arithmetic-coupling-missing [open,conj,] Arithmetic coupling for intrinsic spinor/Dirac/twistor structures
+zv-strip-end-charts [obje,prov,uniform] Fixed-strip end charts retaining the transverse offset
+zv-symmetric-disk-confinement [mech,prov,] One-zero reflection-symmetric disk forces the zero onto the line
+zv-taylor-rouche-channel-criterion [tool,prov,] Taylor-Rouche one-zero disk criterion
+zv-theta-kernel-phi [obje,prov,uniform] Theta kernel Phi and its cosine transform
+zv-theta-layer-cancellation [meas,meas,] Negative theta layer with positive integrated direction
+zv-theta-root-drift [meas,meas,] Drift of the first three zeros under the theta heat flow
+zv-transverse-distance-identity [iden,prov,uniform] Transverse distance derivative D' = -M/2
+zv-twistor-map-s4 [obje,prov,uniform] Chosen Euclidean twistor map CP^3 -> S^4 on the elliptic quartet

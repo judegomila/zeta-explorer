@@ -1,0 +1,103 @@
+{
+ "round": 14,
+ "by": "c14-referee-r13-independent",
+ "date": "2026-11-19",
+ "note": "Independent referee of round-13 lanes 1 to 6; each report written from the lane's RESULT.md (and PREREG.md, opened source text) before any look at the lane's REFEREE.md. No statement about zeros of zeta. No filter is BROKEN. Do not count as more than one added referee per lane.",
+ "updates": [
+  {
+   "slug": "c13-tnr-invariance-prefilter-noncone-census",
+   "item": "Lemma P (pre-filter), Lemma L (lattice inheritance), Lemma E (E_a convolution kernel)",
+   "refereeHolds": true,
+   "outcome": "holds; two sentences in a narrower form",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "Lemma P and Proposition S hold when every hypothesis of a device is typed in ONE normalisation (Laurent form: exact s <-> 1-s, frequencies log(n/p0^N); D form: integer frequencies, conductor p0^(2N)); a step using both is type X4. Lemma L is conditional on a constant sign of zeta's lattice-row minors (measured, orders 3 to 5, two node ranges; not proved). 'Totally positive exactly when the zeros leave the line' holds for c > 0 with c = 2 separated (totally positive, double zeros on the line). Lemma E concerns the kernel of the product of two Riemann xi functions.",
+   "downgrades": [
+    "verdict item 3 and section 2.3 closing sentence: restrict to c > 0; at c = 2 the zeros are on the line",
+    "census N2 and PREFILTER.md row 'T-NR, c >= 2, lattice rows': 'PROVED from the zeta row' -> 'PROVED relative to the measured zeta row'",
+    "use rule of Lemma P: add 'all hypotheses typed in one normalisation'"
+   ],
+   "brokenProved": 0,
+   "checks": "T-NR object non-zero, zero at 0.823846+4.532360i (c = 2.0506); Lemma L with K = exp(-x) (hypothesis provable): 100/100 for c >= 2 at k = 3, 4, violations for c < 2; with theta: zeta -,-,+ and twins c >= 2 agree 100/100 per order in two ranges, tempered twins fail; Lemma E transform identity 1e-20 and log-concavity of the convolution kernel on a grid (-10.23); X1, X5 numbers reproduced",
+   "refereeAddition": "Wider node range for the hypothesis of Lemma L (rows a in -3..3, abs(log y) <= 2.5): zeta's lattice-row minors keep the signs -,-,+ on 100 node sets per order.",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-tnr-invariance-prefilter-noncone-census.md"
+  },
+  {
+   "slug": "c13-kacmoody-eisenstein-affine-weyl-shift",
+   "item": "Theorem B (Maass-Selberg positivity iff Nevanlinna), Theorem C (closure under Blaschke factors), control BLS",
+   "refereeHolds": true,
+   "outcome": "holds in rank one; one sentence in a narrower form",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "Zeros may be inserted at non-real conjugate pairs and at real points with even multiplicity; a single real factor is not covered (Im N' = q a N (N + a)/|.|^2 changes sign). Everything about the affine kernel (I_aff) is argued or relative to unopened sources: closure of (I_aff) under M -> M Theta is OPEN; the affine Maass-Selberg relation, the argument census (Lemmas A1 to A3), convergence in the Tits cone and the degenerate Whittaker formula are relative to Garland and FKP read through summaries. BLS is a control for rank-one truncated-norm positivity only.",
+   "downgrades": [
+    "verdict item 2 and section 3.3 heading: 'arbitrary conjugate pairs' -> 'non-real conjugate pairs or real points with even multiplicity'",
+    "section 3.3 (b) parenthesis (c = -2.1, single real factors): MEASURED only",
+    "'the inequality carries no constraint on numerator zeros': proved for (I); OPEN for (I_aff)"
+   ],
+   "brokenProved": 0,
+   "checks": "Theorem B identity 2.3e-55 on 80 random triples; Theorem C re-derived; BLS a = 0.9+14.5i: zero at a, unimodular, gamma form, Im N >= 0 on 960 points and Gram matrices positive at x = 0, 0.5, 1 (also two pairs, T-NR q = 2, 3); anti-control M/Theta, -M and x < 0 fail",
+   "refereeAddition": "Convergence step for T-NR: m(z)/m(z+1) is a finite Blaschke product of degree 2 in 1/q^z, hence a locally uniform limit of products of Theta factors; the step 'iff Nevanlinna' on the cut plane uses the real symmetry of N.",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-kacmoody-eisenstein-affine-weyl-shift.md"
+  },
+  {
+   "slug": "c13-fourier-interpolation-zero-nodes",
+   "item": "kernel factorisation (F*(s)/F*(w)) x target-independent factor; orbit under symmetric multipliers (Lemma M); Lemma T",
+   "refereeHolds": true,
+   "outcome": "holds in a narrower form",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "Exact for the kernel H_- of BRS (4.6). For H_+ the source subtracts alpha^+_(1,1/2)(s/2) (not identically zero: value -2 at s = 0), so H_+ = (zeta*(s)/zeta*(w)) x [A^+ - alpha^+_1(s/2) zeta*(w)]/2: the second factor contains the target additively. Lemma M (i)-(iv) holds for both kernels as a statement about H G(s)/G(w); 'the kernel of F = zeta G is the orbit point' holds for H_- only. Lemma T holds for the H_- family; in the H_+ family the coefficient at the lowest frequency m = q^2 is 0. 'The target enters by division' (the filter) stands.",
+   "downgrades": [
+    "section 2 display of BRS (4.6): add the subtracted term in H_+ and h^+_1 := 0",
+    "verdict item 2, map row, engine_device_proposal.json: 'kernel = (F*(s)/F*(w)) x A_k' and 'one orbit' -> restrict to H_-",
+    "Lemma T: frequency set has one sign at m = q^2 in the H_+ family"
+   ],
+   "brokenProved": 0,
+   "checks": "BRS (4.1)-(4.10), Remark after (4.2), 5.3.2, 5.3.3 read in the lane's source text; T-NR multiplier at three (q, c): series for 1/P, symmetry of G(s)/G(w) (1e-59), coefficient form of P x 1/P = 1 in exact rationals; no kernel computed (alpha_n(s) not run, as in the lane)",
+   "refereeAddition": "The two candidate '+' kernels of T-NR differ by a multiple of 1/G(w), the Poisson relation between the progression of zeros of P and the frequencies (j+1) log q/(2 pi).",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-fourier-interpolation-zero-nodes.md"
+  },
+  {
+   "slug": "c13-lrs-twist-amplification-zero-representation",
+   "item": "Lemma 1 (single pole pair, pole at 2 - beta), gamma pole at 1 - beta (Lemma 2), inequality beta <= 7/4 (Lemma 3)",
+   "refereeHolds": true,
+   "outcome": "holds; the inequality sentence in a narrower form",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "'The device yields 1 - beta <= w*(2 - beta)' is relative to the lane's reconstruction (3.1) of the Luo-Rudnick-Sarnak exponent count (paper not opened). The algebra (equivalence with beta <= 7/4) and the independent route (L(0, chi) = 0 for even chi, so the twisted values vanish at w = 1 - beta for every parameter) are proved. Numerically a zero is available only at beta = 1/2; the beta-dependence of the pole is tested on the generic-parameter control.",
+   "downgrades": [
+    "opening summary 'the one displayed inequality the device yields': add 'relative to (3.1)'"
+   ],
+   "brokenProved": 0,
+   "checks": "residues by limits at the first zero (1.0598540200154647e-10 at 3/2 and -1/2; 1e-49 at the other points; no pole at 1/2) and at beta = 0.3, gamma = 14.1347 (eight non-zero, rightmost 1.7); L(0, chi) = 0 for two even characters, 0.632 for an odd one; principal-character sum constant 0.405570 and 0.452088 reproduced; w*(1, n^2) and the table of w*(P, 4) in exact rationals",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-lrs-twist-amplification-zero-representation.md"
+  },
+  {
+   "slug": "c13-bilinear-reciprocity-height-antibridge",
+   "item": "Lemma 1 (reciprocity at height t with remainder E_J); Proposition 3 (iv) sign rule; Lemma 5 (T-NR)",
+   "refereeHolds": true,
+   "outcome": "holds; one status line in a narrower form",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "Lemma 1 holds as displayed at three fresh instances (not re-proved; relative to Bettin, finite-J form assembled in the lane). The integrand of E_J decays like abs(v)^(-J-3/2-c), -1 < c < -1/2, not abs(v)^(-J-1); absolute convergence for J >= 1 is unchanged. Sign rule holds under L(1/2, chi) != 0; abs(R_chi(t)) = (q/pi)^(1/2) abs(L(1/2+it, chi)) abs(L(1/2-it, chi)).",
+   "downgrades": [
+    "Lemma 1 status line: exponent -J-1 -> -J-3/2-c",
+    "map row sentence 'Sign of R_chi(t) = parity of ...': add the hypothesis L(1/2, chi) != 0"
+   ],
+   "brokenProved": 0,
+   "checks": "(T5) at three (a/q, s): below 4e-57; Lemma 1 at a/q = 3/8 (b = 1.9i, J = 8), 4/9 (b = 0.15+1.2i, off the line, J = 8), 5/7 (b = 3.2i, J = 9): defects 6e-19, 5e-19, 7e-18 with E_J of modulus 9.9, 2.2, 133; decay exponents measured at five (J, c); sign rule 305 of 305 heights for five complex characters with zeros located by bisection; R = (q/pi)^(1/2) Z(t) Z(-t) to 2e-34; Lemma 5 ratio 6e-34",
+   "refereeAddition": "none beyond the corrected exponent (found independently; the lane's own second pass lists the same correction, not yet applied to RESULT.md)",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-bilinear-reciprocity-height-antibridge.md"
+  },
+  {
+   "slug": "c13-noncone-kernel-separator-search",
+   "item": "independent sample of the registered dictionary; table 3.1; Lemma H",
+   "refereeHolds": true,
+   "outcome": "holds on the sample and on the grid recount; random, adaptive and A3 stages not refereed",
+   "independentRefereesAdded": 1,
+   "narrowerForm": "Refereed: the stored float64 grid signs (300 functionals x 35 objects recomputed from PREREG with separate code, 0 disagreements in 10,123 jointly decided entries), table 3.1 and the grid tiers (recount from the stored matrices, identical), Lemma H (i)-(iii). The consequence of Lemma H is relative to the classical log-concavity of the Riemann-Polya kernel. Not refereed: the 10.2 million functionals of the random, adaptive and A3 stages (sign matrices on the server), the ball stage, held-out members, seeded SGN/U/DEL/THIN members.",
+   "downgrades": [
+    "section 4, Lemma H 'Consequence': add 'relative to the classical log-concavity of the Riemann-Polya kernel (source not opened)'"
+   ],
+   "brokenProved": 0,
+   "checks": "kernels validated (evenness, E*(i, 0.7), DH coefficients, jets against differences, heat definition at tau = 0); 240 random grid rows + 60 rows one-signed on P2; DH has zeta's sign on 63 of 63 one-signed functionals; T-NR counterexamples to prediction 2a reproduced 10 of 10; Lemma H: 1,200 of 1,200 at five backward-heat values, flips at tau = +60",
+   "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-noncone-kernel-separator-search.md"
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+M4  blockwise, F4 lowered by d = 0.001, theta free  [MODEL]        B=0.8747036 rho=0.5780 lx=0.3723 ly=0.4598 l=0.1679 M+l=1.0000
+M4  blockwise, F4 lowered by d = 0.005, theta free  [MODEL]        B=0.8739664 rho=0.5730 lx=0.3708 ly=0.4584 l=0.1708 M+l=1.0000
+M4  blockwise, F4 lowered by d = 0.01, theta free  [MODEL]         B=0.8730360 rho=0.5680 lx=0.3665 ly=0.4589 l=0.1745 M+l=1.0000

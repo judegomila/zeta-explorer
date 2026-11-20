@@ -1,0 +1,4 @@
+workers 1 planned allocation: per worker below 1 GB (object tables, value cache of at most 4000 lists)
+TMt5 1 done 100 of 10000 sec 171 {'lh_EH': 0, 'lh_TE': 0, 'lh_TH': 0, 'lh_full': 0, 'loco_n': 100, 'loco_pos': 31, 'lt_EH': 0, 'lt_TE': 0, 'lt_TH': 0, 'lt_full': 0, 'n': 100, 'posfeas': 31, 'prec_128': 100, 's_excl': 100, 'why_C': 31, 'why_P': 69}
+FAMILY TMt5 1 done 700 cut True sec 1142 {"lh_EH": 0, "lh_TE": 0, "lh_TH": 0, "lh_full": 0, "loco_n": 700, "loco_pos": 258, "lt_EH": 0, "lt_TE": 0, "lt_TH": 0, "lt_full": 0, "n": 700, "posfeas": 258, "prec_128": 700, "s_excl": 700, "why_C": 258, "why_P": 442}
+ALL DONE

@@ -1,0 +1,5 @@
+{
+ "DEVT12": "not reached: 5000 windows for zeta (85001 zeros, 1621 s on the shared GPU) and 2000 for Davenport-Heilbronn (858 s); at T = 1e10: 50000 windows for zeta, 20000 for the other three objects; 1e5 windows at T = 1e6 and 1e8 for all four. The full size at 1e12 needs about 9 GPU hours per object at the measured rate (7.5e8 phase evaluations per second on the shared card)",
+ "DEV1E7": "reached for k = 0 only (X = 1e7, D = 6958, 11593 rows, 3105 s on the server, gap 1.5e-9 sqrt X). The LP-R run at X = 1e7 (planned matrix 3.4 GB) was ended by the 6 GB memory limit of its unit and was not repeated",
+ "UNITS": "State at the end: every unit of this lane is inactive (`systemctl --user is-active` checked for the twelve unit names). Ended by themselves: `-zE0`, `-truth`, `-holetest`, `-hole`, `-per`, `-restat`. Stopped by me: `-zE1`, `-zE2`, `-zR2`, `-cpos`, `-csgn`. Ended by its own memory limit (6 GB): `-zR1`, during LP-R at X = 1e7. Two earlier launches of the eight LP units failed at once (the code had not arrived: a mistyped rsync target on my side) and left only log lines."
+}

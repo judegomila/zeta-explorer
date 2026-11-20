@@ -1,0 +1,260 @@
+== candidate realish seed 3000014
+  zeta                       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -56.5 4.6  negrel -
+  zeta                       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -56.5 4.6  negrel -
+  zeta                       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -55.8 4.9  negrel -
+  zeta                       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -55.8 4.9  negrel -
+  zeta                       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -49.1 6.0  negrel -
+  zeta                       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -49.1 6.0  negrel -
+  zeta                       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -36.9 6.3  negrel -
+  zeta                       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -36.9 6.3  negrel -
+  quartet(0.2,0.1)           T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -27.8 3.8  negrel -21.27750766026608
+  quartet(0.2,0.1)           T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -27.8 3.8  negrel -21.27750766026608
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -27.3 3.8  negrel -21.23439996579582
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -27.3 3.8  negrel -21.23439996579582
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=256   ok npos=38 nneg=2  log10 piv min/max -23.3 4.0  negrel -22.002579901015817
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=2048  ok npos=38 nneg=2  log10 piv min/max -23.3 4.0  negrel -22.002579901015817
+  quartet(0.2,0.1)           T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -17.6 4.4  negrel -
+  quartet(0.2,0.1)           T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -17.6 4.4  negrel -
+  quartet(0.2,3)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -36.3 5.7  negrel -34.09784267358663
+  quartet(0.2,3)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -36.3 5.7  negrel -34.09784267358663
+  quartet(0.2,3)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -35.9 5.8  negrel -35.69065519964148
+  quartet(0.2,3)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -35.9 5.8  negrel -35.69065519964148
+  quartet(0.2,3)             T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -33.5 5.9  negrel -
+  quartet(0.2,3)             T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -33.5 5.9  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -25.7 6.0  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -25.7 6.0  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -27.9 3.9  negrel -24.60038228232462
+  quartet(0.05,0.1)          T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -27.9 3.9  negrel -24.60038228232462
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -27.4 3.9  negrel -24.89878277391738
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -27.4 3.9  negrel -24.89878277391738
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -24.3 4.1  negrel -27.393431036779116
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -24.3 4.1  negrel -27.393431036779116
+  quartet(0.05,0.1)          T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -17.7 4.5  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -17.7 4.5  negrel -
+  realpair(0.2)              T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -41.0 4.6  negrel -20.10470608028097
+  realpair(0.2)              T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -41.0 4.6  negrel -20.10470608028097
+  realpair(0.2)              T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -40.5 4.6  negrel -20.163188845750412
+  realpair(0.2)              T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -40.5 4.6  negrel -20.163188845750412
+  realpair(0.2)              T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -35.2 4.8  negrel -21.123554296004958
+  realpair(0.2)              T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -35.2 4.8  negrel -21.123554296004958
+  realpair(0.2)              T=(1, 1)     prec=256   ok npos=39 nneg=1  log10 piv min/max -25.8 5.4  negrel -21.864993402780225
+  realpair(0.2)              T=(1, 1)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -25.8 5.4  negrel -21.864993402780225
+  quartet(0.2,1)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -30.5 5.0  negrel -24.655220160368927
+  quartet(0.2,1)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -30.5 5.0  negrel -24.655220160368927
+  quartet(0.2,1)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -30.0 5.0  negrel -25.63793257137663
+  quartet(0.2,1)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -30.0 5.0  negrel -25.63793257137663
+  quartet(0.2,1)             T=(0.3, 0.3) prec=256   ok npos=38 nneg=2  log10 piv min/max -25.4 5.1  negrel -26.69494272664762
+  quartet(0.2,1)             T=(0.3, 0.3) prec=2048  ok npos=38 nneg=2  log10 piv min/max -25.4 5.1  negrel -26.69494272664762
+  quartet(0.2,1)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -20.5 5.6  negrel -
+  quartet(0.2,1)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -20.5 5.6  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -42.0 4.4  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -42.0 4.4  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -41.4 4.4  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -41.4 4.4  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -36.2 4.5  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -36.2 4.5  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -26.8 5.0  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -26.8 5.0  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -30.2 3.9  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -30.2 3.9  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -29.7 3.9  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -29.7 3.9  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -25.6 4.1  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -25.6 4.1  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -17.7 4.5  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -17.7 4.5  negrel -
+== candidate wall seed 3000008
+  zeta                       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -50.8 -0.3  negrel -
+  zeta                       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -50.8 -0.3  negrel -
+  zeta                       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -50.2 0.1  negrel -
+  zeta                       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -50.2 0.1  negrel -
+  zeta                       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -43.8 1.2  negrel -
+  zeta                       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -43.8 1.2  negrel -
+  zeta                       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -31.9 1.7  negrel -
+  zeta                       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -31.9 1.7  negrel -
+  quartet(0.2,0.1)           T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -22.4 1.8  negrel -19.480748329156285
+  quartet(0.2,0.1)           T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -22.4 1.8  negrel -19.480748329156285
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -22.2 1.8  negrel -19.316465286685688
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -22.2 1.8  negrel -19.316465286685688
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -19.3 1.9  negrel -
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -19.3 1.9  negrel -
+  quartet(0.2,0.1)           T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -11.1 2.0  negrel -
+  quartet(0.2,0.1)           T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -11.1 2.0  negrel -
+  quartet(0.2,3)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -28.4 1.0  negrel -18.47748055936655
+  quartet(0.2,3)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -28.4 1.0  negrel -18.47748055936655
+  quartet(0.2,3)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -28.1 1.0  negrel -19.019613674005786
+  quartet(0.2,3)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -28.1 1.0  negrel -19.019613674005786
+  quartet(0.2,3)             T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -25.1 1.2  negrel -25.251830834034376
+  quartet(0.2,3)             T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -25.1 1.2  negrel -25.251830834034376
+  quartet(0.2,3)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -18.1 1.9  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -18.1 1.9  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -22.7 1.8  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -22.7 1.8  negrel -
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -22.5 1.8  negrel -
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -22.5 1.8  negrel -
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -19.0 1.9  negrel -
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -19.0 1.9  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -11.0 2.0  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -11.0 2.0  negrel -
+  realpair(0.2)              T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -33.5 -0.1  negrel -16.383449818493943
+  realpair(0.2)              T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -33.5 -0.1  negrel -16.383449818493943
+  realpair(0.2)              T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -33.0 -0.0  negrel -16.556640496724334
+  realpair(0.2)              T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -33.0 -0.0  negrel -16.556640496724334
+  realpair(0.2)              T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -27.5 0.6  negrel -17.79080086788324
+  realpair(0.2)              T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -27.5 0.6  negrel -17.79080086788324
+  realpair(0.2)              T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -20.5 1.4  negrel -
+  realpair(0.2)              T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -20.5 1.4  negrel -
+  quartet(0.2,1)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -20.5 1.2  negrel -19.085106122488725
+  quartet(0.2,1)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -20.5 1.2  negrel -19.085106122488725
+  quartet(0.2,1)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -20.1 1.2  negrel -19.274974589653315
+  quartet(0.2,1)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -20.1 1.2  negrel -19.274974589653315
+  quartet(0.2,1)             T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -17.9 1.4  negrel -19.232250566270192
+  quartet(0.2,1)             T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -17.9 1.4  negrel -19.232250566270192
+  quartet(0.2,1)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -10.9 1.7  negrel -
+  quartet(0.2,1)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -10.9 1.7  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -34.1 -0.2  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -34.1 -0.2  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -33.5 -0.2  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -33.5 -0.2  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -28.0 0.3  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -28.0 0.3  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -18.5 1.2  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -18.5 1.2  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -24.2 1.8  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -24.2 1.8  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -23.8 1.8  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -23.8 1.8  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -19.2 1.9  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -19.2 1.9  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -11.0 2.0  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -11.0 2.0  negrel -
+== candidate polar seed 3000012
+  zeta                       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -39.0 18.4  negrel -
+  zeta                       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -39.0 18.4  negrel -
+  zeta                       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -38.3 18.7  negrel -
+  zeta                       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -38.3 18.7  negrel -
+  zeta                       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -32.8 19.8  negrel -
+  zeta                       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -32.8 19.8  negrel -
+  zeta                       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -22.1 20.2  negrel -
+  zeta                       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -22.1 20.2  negrel -
+  quartet(0.2,0.1)           T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -13.8 15.4  negrel -22.86869760412257
+  quartet(0.2,0.1)           T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -13.8 15.4  negrel -22.86869760412257
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -13.7 15.4  negrel -22.87977512375945
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -13.7 15.4  negrel -22.87977512375945
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -10.9 15.4  negrel -26.279653247578615
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -10.9 15.4  negrel -26.279653247578615
+  quartet(0.2,0.1)           T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -8.3 15.4  negrel -
+  quartet(0.2,0.1)           T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -8.3 15.4  negrel -
+  quartet(0.2,3)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -21.5 19.2  negrel -34.83601879414063
+  quartet(0.2,3)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -21.5 19.2  negrel -34.83601879414063
+  quartet(0.2,3)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -21.2 19.3  negrel -35.0154115522933
+  quartet(0.2,3)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -21.2 19.3  negrel -35.0154115522933
+  quartet(0.2,3)             T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -19.5 19.5  negrel -
+  quartet(0.2,3)             T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -19.5 19.5  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -13.5 19.7  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -13.5 19.7  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -14.8 15.7  negrel -25.649226146686942
+  quartet(0.05,0.1)          T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -14.8 15.7  negrel -25.649226146686942
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -14.4 15.7  negrel -25.699553446241353
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -14.4 15.7  negrel -25.699553446241353
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -12.1 15.7  negrel -
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -12.1 15.7  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -9.3 15.7  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -9.3 15.7  negrel -
+  realpair(0.2)              T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -24.7 17.8  negrel -21.826966247638225
+  realpair(0.2)              T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -24.7 17.8  negrel -21.826966247638225
+  realpair(0.2)              T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -24.2 17.8  negrel -22.081043281403236
+  realpair(0.2)              T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -24.2 17.8  negrel -22.081043281403236
+  realpair(0.2)              T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -19.5 17.8  negrel -22.48521071285935
+  realpair(0.2)              T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -19.5 17.8  negrel -22.48521071285935
+  realpair(0.2)              T=(1, 1)     prec=256   ok npos=39 nneg=1  log10 piv min/max -12.2 17.8  negrel -22.79456296641942
+  realpair(0.2)              T=(1, 1)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -12.2 17.8  negrel -22.79456296641942
+  quartet(0.2,1)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -13.9 17.9  negrel -28.122906265192643
+  quartet(0.2,1)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -13.9 17.9  negrel -28.122906265192643
+  quartet(0.2,1)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -14.0 18.0  negrel -28.197951477908525
+  quartet(0.2,1)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -14.0 18.0  negrel -28.197951477908525
+  quartet(0.2,1)             T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -12.7 18.0  negrel -
+  quartet(0.2,1)             T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -12.7 18.0  negrel -
+  quartet(0.2,1)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -9.5 18.0  negrel -
+  quartet(0.2,1)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -9.5 18.0  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -25.4 16.7  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -25.4 16.7  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -24.9 16.7  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -24.9 16.7  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -20.1 16.7  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -20.1 16.7  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -12.8 16.8  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -12.8 16.8  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -17.2 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -17.2 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -16.9 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -16.9 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -13.6 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -13.6 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -9.3 15.7  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -9.3 15.7  negrel -
+== candidate height seed 3000004
+  zeta                       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -47.9 0.8  negrel -
+  zeta                       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -47.9 0.8  negrel -
+  zeta                       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -47.3 1.2  negrel -
+  zeta                       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -47.3 1.2  negrel -
+  zeta                       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -40.9 2.3  negrel -
+  zeta                       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -40.9 2.3  negrel -
+  zeta                       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -28.8 2.6  negrel -
+  zeta                       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -28.8 2.6  negrel -
+  quartet(0.2,0.1)           T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -21.6 0.2  negrel -17.733392143778786
+  quartet(0.2,0.1)           T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -21.6 0.2  negrel -17.733392143778786
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -21.2 0.2  negrel -17.972230923196413
+  quartet(0.2,0.1)           T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -21.2 0.2  negrel -17.972230923196413
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -18.7 0.6  negrel -19.30353284066024
+  quartet(0.2,0.1)           T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -18.7 0.6  negrel -19.30353284066024
+  quartet(0.2,0.1)           T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -10.6 1.4  negrel -
+  quartet(0.2,0.1)           T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -10.6 1.4  negrel -
+  quartet(0.2,3)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -26.6 1.8  negrel -20.829950107571523
+  quartet(0.2,3)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -26.6 1.8  negrel -20.829950107571523
+  quartet(0.2,3)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -26.2 1.9  negrel -21.86275598906035
+  quartet(0.2,3)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -26.2 1.9  negrel -21.86275598906035
+  quartet(0.2,3)             T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -24.1 2.1  negrel -
+  quartet(0.2,3)             T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -24.1 2.1  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -16.0 2.3  negrel -
+  quartet(0.2,3)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -16.0 2.3  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -21.8 0.2  negrel -
+  quartet(0.05,0.1)          T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -21.8 0.2  negrel -
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -21.5 0.2  negrel -
+  quartet(0.05,0.1)          T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -21.5 0.2  negrel -
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -18.4 0.6  negrel -
+  quartet(0.05,0.1)          T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -18.4 0.6  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -10.7 1.4  negrel -
+  quartet(0.05,0.1)          T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -10.7 1.4  negrel -
+  realpair(0.2)              T=(0, 0)     prec=256   ok npos=39 nneg=1  log10 piv min/max -32.8 0.6  negrel -15.800424915241463
+  realpair(0.2)              T=(0, 0)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -32.8 0.6  negrel -15.800424915241463
+  realpair(0.2)              T=(0.05, 0)  prec=256   ok npos=39 nneg=1  log10 piv min/max -32.2 0.7  negrel -15.742404197023632
+  realpair(0.2)              T=(0.05, 0)  prec=2048  ok npos=39 nneg=1  log10 piv min/max -32.2 0.7  negrel -15.742404197023632
+  realpair(0.2)              T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -27.0 1.0  negrel -16.60025710930216
+  realpair(0.2)              T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -27.0 1.0  negrel -16.60025710930216
+  realpair(0.2)              T=(1, 1)     prec=256   ok npos=39 nneg=1  log10 piv min/max -18.5 1.8  negrel -18.245730747117655
+  realpair(0.2)              T=(1, 1)     prec=2048  ok npos=39 nneg=1  log10 piv min/max -18.5 1.8  negrel -18.245730747117655
+  quartet(0.2,1)             T=(0, 0)     prec=256   ok npos=38 nneg=2  log10 piv min/max -21.8 0.9  negrel -17.635061579124944
+  quartet(0.2,1)             T=(0, 0)     prec=2048  ok npos=38 nneg=2  log10 piv min/max -21.8 0.9  negrel -17.635061579124944
+  quartet(0.2,1)             T=(0.05, 0)  prec=256   ok npos=38 nneg=2  log10 piv min/max -21.4 0.9  negrel -17.45111013331297
+  quartet(0.2,1)             T=(0.05, 0)  prec=2048  ok npos=38 nneg=2  log10 piv min/max -21.4 0.9  negrel -17.45111013331297
+  quartet(0.2,1)             T=(0.3, 0.3) prec=256   ok npos=39 nneg=1  log10 piv min/max -18.9 1.1  negrel -20.015420917767823
+  quartet(0.2,1)             T=(0.3, 0.3) prec=2048  ok npos=39 nneg=1  log10 piv min/max -18.9 1.1  negrel -20.015420917767823
+  quartet(0.2,1)             T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -12.2 1.8  negrel -
+  quartet(0.2,1)             T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -12.2 1.8  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -33.5 0.1  negrel -
+  right pair 0.7+-0.1i       T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -33.5 0.1  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -33.0 0.1  negrel -
+  right pair 0.7+-0.1i       T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -33.0 0.1  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -27.8 0.5  negrel -
+  right pair 0.7+-0.1i       T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -27.8 0.5  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -18.0 1.5  negrel -
+  right pair 0.7+-0.1i       T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -18.0 1.5  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=256   ok npos=40 nneg=0  log10 piv min/max -23.3 0.2  negrel -
+  double zero at 1/2+-0.1i   T=(0, 0)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -23.3 0.2  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=256   ok npos=40 nneg=0  log10 piv min/max -22.8 0.2  negrel -
+  double zero at 1/2+-0.1i   T=(0.05, 0)  prec=2048  ok npos=40 nneg=0  log10 piv min/max -22.8 0.2  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=256   ok npos=40 nneg=0  log10 piv min/max -18.9 0.6  negrel -
+  double zero at 1/2+-0.1i   T=(0.3, 0.3) prec=2048  ok npos=40 nneg=0  log10 piv min/max -18.9 0.6  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=256   ok npos=40 nneg=0  log10 piv min/max -10.7 1.4  negrel -
+  double zero at 1/2+-0.1i   T=(1, 1)     prec=2048  ok npos=40 nneg=0  log10 piv min/max -10.7 1.4  negrel -

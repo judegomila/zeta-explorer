@@ -1,0 +1,19 @@
+planned memory per run printed below; cap 8 GB
+a=1.0 x=   500 X=5.00e+02 nd=     203 all    | real R2=2.423 R4=13.30 R4/log^2=0.344 max=3.99 | rand R4=81.23 R4/log^2=2.103 max=6.73 | chi21-twist R4=1125.74 max=21.68 | 0s
+a=1.0 x=  1000 X=1.00e+03 nd=     403 all    | real R2=3.165 R4=27.02 R4/log^2=0.566 max=4.90 | rand R4=117.48 R4/log^2=2.462 max=7.53 | chi21-twist R4=2319.95 max=30.93 | 0s
+a=1.0 x=  2000 X=2.00e+03 nd=     810 all    | real R2=3.646 R4=38.75 R4/log^2=0.671 max=6.28 | rand R4=156.49 R4/log^2=2.709 max=8.91 | chi21-twist R4=4768.98 max=44.16 | 0s
+a=1.0 x=  5000 X=5.00e+03 nd=    2026 all    | real R2=4.568 R4=57.39 R4/log^2=0.791 max=7.34 | rand R4=200.77 R4/log^2=2.768 max=11.46 | chi21-twist R4=12183.38 max=70.35 | 0s
+a=1.0 x= 10000 X=1.00e+04 nd=    4055 all    | real R2=5.247 R4=72.76 R4/log^2=0.858 max=7.96 | rand R4=234.54 R4/log^2=2.765 max=10.81 | chi21-twist R4=24661.71 max=99.88 | 0s
+a=1.0 x= 20000 X=2.00e+04 nd=    8103 all    | real R2=5.986 R4=98.07 R4/log^2=1.000 max=8.29 | rand R4=273.78 R4/log^2=2.791 max=11.59 | chi21-twist R4=48994.56 max=141.05 | 0s
+a=1.5 x=   500 X=1.12e+04 nd=    4530 all    | real R2=3.949 R4=41.50 R4/log^2=1.075 max=7.42 | rand R4=89.02 R4/log^2=2.305 max=8.54 | chi21-twist R4=107.01 max=21.68 | 0s
+a=1.5 x=  1000 X=3.16e+04 nd=   12814 all    | real R2=4.786 R4=59.22 R4/log^2=1.241 max=7.46 | rand R4=124.21 R4/log^2=2.603 max=10.11 | chi21-twist R4=150.81 max=30.93 | 0s
+a=1.5 x=  2000 X=8.94e+04 nd=   36245 all    | real R2=5.464 R4=77.26 R4/log^2=1.337 max=8.17 | rand R4=151.30 R4/log^2=2.619 max=11.93 | chi21-twist R4=200.48 max=44.16 | 0s
+a=1.5 x=  5000 X=3.54e+05 nd=  143298 all    | real R2=6.367 R4=106.64 R4/log^2=1.470 max=9.93 | rand R4=196.00 R4/log^2=2.702 max=12.96 | chi21-twist R4=295.24 max=70.35 | 0s
+a=1.5 x= 10000 X=1.00e+06 nd=  405285 all    | real R2=7.077 R4=132.66 R4/log^2=1.564 max=10.60 | rand R4=235.55 R4/log^2=2.777 max=13.87 | chi21-twist R4=397.90 max=99.88 | 2s
+a=1.5 x= 20000 X=2.83e+06 nd= 1146315 all    | real R2=7.862 R4=165.14 R4/log^2=1.684 max=11.41 | rand R4=281.12 R4/log^2=2.866 max=14.86 | chi21-twist R4=529.05 max=141.05 | 12s
+a=2.0 x=   500 X=2.50e+05 nd=  101317 all    | real R2=4.828 R4=65.43 R4/log^2=1.694 max=9.08 | rand R4=89.28 R4/log^2=2.312 max=11.00 | chi21-twist R4=75.52 max=21.68 | 0s
+a=2.0 x=  1000 X=1.00e+06 nd=  405285 all    | real R2=5.758 R4=91.53 R4/log^2=1.918 max=10.29 | rand R4=121.24 R4/log^2=2.541 max=11.58 | chi21-twist R4=104.15 max=30.93 | 0s
+a=2.0 x=  2000 X=4.00e+06 nd= 1008516 sample | real R2=6.486 R4=117.75 R4/log^2=2.038 max=10.94 | rand R4=151.16 R4/log^2=2.616 max=13.02 | chi21-twist R4=134.86 max=44.16 | 3s
+a=2.0 x=  5000 X=2.50e+07 nd= 1462982 sample | real R2=7.442 R4=156.57 R4/log^2=2.158 max=11.80 | rand R4=195.96 R4/log^2=2.701 max=13.56 | chi21-twist R4=174.02 max=12.01 | 8s
+a=2.0 x= 10000 X=1.00e+08 nd= 1500000 sample | real R2=8.194 R4=190.87 R4/log^2=2.250 max=12.49 | rand R4=235.70 R4/log^2=2.778 max=14.76 | chi21-twist R4=212.09 max=12.59 | 15s
+a=2.0 x= 20000 X=4.00e+08 nd= 1500000 sample | real R2=9.005 R4=231.36 R4/log^2=2.359 max=13.12 | rand R4=281.17 R4/log^2=2.867 max=16.09 | chi21-twist R4=256.95 max=14.22 | 24s

@@ -1,0 +1,22 @@
+== (a) data: power sums, kappa; Lemma P exact
+r=2 s=2 A=1 sums_equal_below_r=True dP_r=2 kappa=1 LemmaP_fail=0/3000 not_mod_H^(r+1)=True x1(exact rational cert, 10% holds)=0.419683 t_r=40.32 eps=0.2395
+r=3 s=3 A=6 sums_equal_below_r=True dP_r=36 kappa=12 LemmaP_fail=0/3000 not_mod_H^(r+1)=True x1(exact rational cert, 10% holds)=0.0103378 t_r=339431 eps=0.1597
+r=4 s=4 A=11 sums_equal_below_r=True dP_r=720 kappa=180 LemmaP_fail=0/3000 not_mod_H^(r+1)=True x1(exact rational cert, 10% holds)=0.0042537 t_r=7.63611e+07 eps=0.1197
+r=5 s=5 A=18 sums_equal_below_r=True dP_r=25200 kappa=5040 LemmaP_fail=0/3000 not_mod_H^(r+1)=True x1(exact rational cert, 10% holds)=0.00208709 t_r=2.25462e+10 eps=0.0958
+r=6 s=32 A=63 sums_equal_below_r=True dP_r=23592960 kappa=3932160 LemmaP_fail=0/3000 not_mod_H^(r+1)=True x1(exact rational cert, 10% holds)=0.000497129 t_r=7.58169e+13 eps=0.0150
+== (b) interval checks of proof constants
+1-(1.12/4.5)^(1/r) > 0.9/r certified for r=2..40
+2 sin(0.504) = [0.96586405 +/- 1.82e-9]  2 sin(4.95/2) = [1.2366233 +/- 2.92e-8]
+== (c) three fresh (p,k,t) per the lemma, all m in the window, Arb phase
+p=11 k=4 t=5000.3 r=2: q=1.464e+04 H=121 window m in [4034,8084] tested 3683 (step 1) |tD| in [1.1204,4.5008] min certified |e^(-itD)-1| >= 1.0627 violations=0; N_req=8205.9; sqrt(q)=121; (q|t|)^(1/r)=8556.25
+p=2 k=21 t=400000.0 r=3: q=2.097e+06 H=128 window m in [13079,20791] tested 3857 (step 1) |tD| in [1.0605,4.1278] min certified |e^(-itD)-1| >= 1.0115 violations=0; N_req=21559.4; sqrt(q)=1448.15; (q|t|)^(1/r)=9431.12
+p=13 k=12 t=100000000.0 r=4: q=2.33e+13 H=2197 window m in [552517,782246] tested 19278 (step 11) |tD| in [1.0537,4.1290] min certified |e^(-itD)-1| >= 1.0056 violations=0; N_req=806414; sqrt(q)=4.82681e+06; (q|t|)^(1/r)=219700
+p=3 k=25 t=30000000000.0 r=5: q=8.473e+11 H=243 window m in [123275,162806] tested 26355 (step 1) |tD| in [1.0480,4.1229] min certified |e^(-itD)-1| >= 1.0007 violations=0; N_req=167181; sqrt(q)=920483; (q|t|)^(1/r)=30271.3
+p=17 k=7 t=-123456.789 r=2: q=4.103e+08 H=83521 window m in [13833973,27729635] tested 18845 (step 694) |tD| in [1.1200,4.5001] min certified |e^(-itD)-1| >= 1.0624 violations=0; N_req=2.78132e+07; sqrt(q)=20256.8; (q|t|)^(1/r)=7.11752e+06
+== (d) brute force over ALL characters mod q and optimal unimodular c
+p=7 k=2 q=49 t=50.0 r=2 hypotheses_met=True N_req=54 bound=0.2395: N=5:minerr=0.6308 N=10:minerr=0.7938 N=15:minerr=1.4361 N=20:minerr=1.6048 N=30:minerr=1.7630 N=40:minerr=1.8184 N=54:minerr=1.8250 N=61:minerr=1.8250
+p=3 k=4 q=81 t=60.5 r=2 hypotheses_met=True N_req=76 bound=0.2395: N=5:minerr=0.2793 N=10:minerr=0.5317 N=20:minerr=1.2317 N=40:minerr=1.7789 N=60:minerr=1.7975 N=80:minerr=1.9476
+p=2 k=6 q=64 t=45.0 r=2 hypotheses_met=True N_req=59 bound=0.2395: N=5:minerr=0.2795 N=10:minerr=0.3484 N=20:minerr=1.0772 N=40:minerr=1.7105 N=59:minerr=1.8952
+p=5 k=4 q=625 t=200.0 r=2 hypotheses_met=True N_req=360 bound=0.2395: N=10:minerr=0.4214 N=20:minerr=1.3873 N=50:minerr=1.6924 N=100:minerr=1.9360 N=200:minerr=1.9810 N=360:minerr=1.9951
+p=5 k=3 q=125 t=400000.0 r=3 hypotheses_met=True N_req=843 bound=0.1597: N=10:minerr=0.4290 N=20:minerr=1.5655 N=50:minerr=1.7688 N=100:minerr=1.9494 N=400:minerr=1.9908 N=842:minerr=1.9983
+p=3 k=3 q=27 t=350000.0 r=3 hypotheses_met=True N_req=485 bound=0.1597: N=10:minerr=0.7774 N=20:minerr=1.4508 N=50:minerr=1.8790 N=100:minerr=1.9678 N=480:minerr=1.9966

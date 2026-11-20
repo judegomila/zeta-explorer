@@ -1,0 +1,16 @@
+07:49:02 TNR-3-2.2 H_gamma=20000: 22491 real, 3497 pairs, 29485 particles; pair terms per evaluation 1.74e+09; state 2.8 MB
+07:49:11 snapshot t=0.01: unlanded pairs 3497 of 3497
+07:49:13 step 25 t=0.026556 h=3.40e-03 err=0.42 unlanded=3497 rej=0
+07:49:16 snapshot t=0.05: unlanded pairs 3497 of 3497
+07:49:26 step 50 t=0.073744 h=4.69e-04 err=0.54 unlanded=3497 rej=11
+07:49:39 step 75 t=0.076820 h=1.27e-04 err=0.37 unlanded=3496 rej=23
+07:49:48 step 100 t=0.083143 h=2.27e-04 err=0.69 unlanded=3490 rej=23
+07:49:57 step 125 t=0.087753 h=2.28e-04 err=0.52 unlanded=3457 rej=24
+07:50:10 step 150 t=0.090145 h=8.39e-05 err=0.44 unlanded=3436 rej=34
+07:50:19 step 175 t=0.096929 h=5.20e-04 err=0.46 unlanded=3337 rej=34
+07:50:41 step 200 t=0.122270 h=5.99e-06 err=0.00 unlanded=2462 rej=42
+07:51:07 step 225 t=0.130763 h=1.15e-03 err=0.35 unlanded=2039 rej=62
+07:51:20 step 250 t=0.223229 h=5.00e-03 err=0.11 unlanded=25 rej=62
+07:51:34 done t=0.318229 steps 269 rejected 62 evaluations 1987
+{"obj": "TNR-3-2.2", "Hgamma": 20000.0, "ld": false, "n_real": 22491, "n_pairs": 3497, "steps": 269, "landed": 3497, "Lambda_max_landing_inner": 0.3134906349638338, "argmax_gamma": 2.8596008673801268, "argmax_x": 0.4037532248277237, "debruijn_bound": 0.32603333311757277, "speedup_quantiles": [1.0400098017447506, 1.735598443015254, 2.3450607489209, 3.2920370822598057, 4.083076353036486], "land_over_rung_quantiles": [0.9697780085464228, 1.0252334644277719, 1.1493309559782947, 1.254775100794534, 1.4742190815771985], "frac_land_gt_rung": 0.9899928520371694, "violations_debruijn": 0}
+{'0.01': {'t': 0.01, 'unlanded': 3497, 'real_zero_count': 22491, 'total_zero_count': 29485, 'deficit': 6994}, '0.05': {'t': 0.05, 'unlanded': 3497, 'real_zero_count': 22491, 'total_zero_count': 29485, 'deficit': 6994}}

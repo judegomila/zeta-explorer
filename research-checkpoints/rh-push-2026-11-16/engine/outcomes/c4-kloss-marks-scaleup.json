@@ -1,0 +1,37 @@
+{
+ "slug": "c4-kloss-marks-scaleup",
+ "round": 4,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "seven-eighths",
+  "kloosterman",
+  "large-sieve",
+  "sextic-theta",
+  "tro6",
+  "certificate"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "For the stored mark Gram matrices at (M,l)=(1,1/3), natural slot, manuscript row, without cube completion: mu(G)/tr G = 1.1273, 1.1080, 1.1298, 1.1081 at Z = 128000, 512000, 2.048e6, 8.192e6 (10, 15, 24, 33 marks), two-sided brackets of width at most 5e-5 under a measured (not worst-case a priori) float64 error model; all 305 certificates pass. The value equals lambda_max of the common-column overlap matrix On to within 0.7%; exponent in Z consistent with 0 over a factor 64, against growth for the Kubota pole and quadratic-sum controls. Lemma O (proved, elementary) gives the principal part exactly; with an elementary overlap bound and the prime ideal theorem its ratio is bounded in a dyadic slot and log log over all primes. The off-principal part is measured at or below independent-vector size (excess ratio 0.71 to 1.07), not proved; random per-column coefficients behave identically, so the measurement is not specific to the theta coefficients. Weak support for Conjecture WLS at the model point (conditional value 31/36) in the regime n << R; nothing proved about exponents beyond Lemma O; no abscissa moves; no statement about zeros of zeta.",
+ "obstruction": "Partial result on frontier part B, not an attack on R4. mu(G)/tr G is flat in Z over a factor 64 (1.108-1.130; exponent -0.002 +- 0.004) and equals lambda_max of the common-column overlap matrix to 0.7% (Lemma O, elementary, gives the principal part: bounded in a dyadic slot, log log over all primes). Stops at: the off-principal part is measured at or below independent-vector size, not proved; random per-column coefficients behave identically, so the flatness is not specific to the theta coefficients; the model omits the multi-slot product and the cube completion; the float64 error model is measured, not worst-case a priori. Conjecture WLS at 31/36 stays conditional; no abscissa moves.",
+ "obstructionKind": "frontier-measurement-model-point",
+ "controlsThatDefeat": [
+  "random phase per column (behaves identically: the measurement does not separate the manuscript coefficients)",
+  "Kubota pole and quadratic-sum controls grow (+0.37 in Z), as expected"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict partial-result holds; five label/presentation errors, none changes an exponent. REFEREE.md written at tmp/research-2026-11-16/push/c4-kloss-marks-scaleup/REFEREE.md.\nE1: the \"a priori\" coefficient bound (2.2e-15 sqrt(p) <= 6.3e-12 for Gauss sums) is not a worst-case bound for the sequential float64 summation in klib.c gauss_split; a worst-case bound is about 1.1e-10 to 1.3e-10 (above EPS_W = 1e-11) and needs an incomplete-sum bound; ||g|-1|",
+ "lesson": "The per-(mark, cofactor) random control used by n1 and n2 deletes the common-column overlap and understates the ratio; the reference control is a random phase per column. n2's constant 1.06(1+sqrt(n/R))^2 fails for wide slots (1.33 times at 160 marks). The form the data support is the large sieve with d_a(c) kept (WLS-d), not diagonal weights in a. Flatness is not specific to the manuscript coefficients.",
+ "followUp": "Referee this lane. Then explain the unexplained K4a term (Kubota row with angular factor: regression 0.42 to 0.59 on the overlap, against 0.98 for its random control), since it shows a structured off-principal term of overlap size in a neighbouring system. Build the multi-slot product and the cube completion, which this model omits. All server units for this lane are stopped.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-kloss-marks-scaleup/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-kloss-marks-scaleup/REFEREE.md"
+}

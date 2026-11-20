@@ -1,0 +1,15 @@
+pick: EA:1/8 a=0.05 rect [0.01,2]x[-3.533681285433673,3.533681285433673] n=300 bits=4000 kernels 12; matrix memory per kernel ~ 0.05 GB
+S values: 5.1 s
+sinh:7 first_neg None n_neg 0 undet None last log10 rho -348.22 25.2 s
+sinh:10 first_neg None n_neg 0 undet None last log10 rho -447.039 28.8 s
+sinh:12 first_neg None n_neg 0 undet None last log10 rho -496.073 30.6 s
+sinh:13.5 first_neg None n_neg 0 undet None last log10 rho -527.405 32.2 s
+sinh:14.0 first_neg None n_neg 0 undet None last log10 rho -537.036 24.9 s
+sinh:14.13 first_neg 126 n_neg 2 undet None last log10 rho -539.483 24.4 s
+sinh:14.5 first_neg 49 n_neg 2 undet None last log10 rho -546.228 34.2 s
+sinh:15 first_neg 32 n_neg 2 undet None last log10 rho -555.07 29.1 s
+sinh:16 first_neg 21 n_neg 2 undet None last log10 rho -571.864 27.6 s
+sinh:18 first_neg 15 n_neg 2 undet None last log10 rho -602.386 35.7 s
+sinh:22 first_neg 11 n_neg 4 undet None last log10 rho -653.914 25.2 s
+lin first_neg 8 n_neg 84 undet 291 last log10 rho -1066.04 26.1 s
+done 89.1 s

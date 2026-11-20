@@ -1,0 +1,2 @@
+0.65 50.0 W_boundary -4.000000000000016 W_cells -4 sumSignJ -4 n 56 fails 0 outside 0 |cellw|>1 0
+0.8 50.0 W_boundary -3.999999999999989 W_cells -4 sumSignJ -4 n 50 fails 0 outside 0 |cellw|>1 0

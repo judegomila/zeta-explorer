@@ -1,0 +1,6 @@
+near|zeta|10 {'ta': 628.3322307179586, 'tb': 760.2791221687299, 'gpu': True}
+   0.0: phi2 4 phi3 4 shift 4 | 0.001: phi2 4 phi3 4 shift 4 | 0.003: phi2 4 phi3 4 shift 4 | 0.01: phi2 4 phi3 4 shift 4 | 0.03: phi2 2 phi3 2 shift 2 | 0.1: phi2 4 phi3 0 shift 6 | 0.3: phi2 8 phi3 4 shift 16 | 1.0: phi2 18 phi3 10 shift 14 | -0.001: phi2 4 phi3 4 shift 4 | -0.01: phi2 4 phi3 4 shift 4 | -0.1: phi2 6 phi3 6 shift 6 | -1.0: phi2 12 phi3 14 shift 18
+near|zeta|20 {'ta': 2513.2878228718346, 'tb': 2770.8984204661974, 'gpu': True}
+   0.0: phi2 0 phi3 0 shift 0 | 0.001: phi2 0 phi3 0 shift 0 | 0.003: phi2 0 phi3 0 shift 0 | 0.01: phi2 0 phi3 0 shift 4 | 0.03: phi2 2 phi3 2 shift 6 | 0.1: phi2 4 phi3 4 shift 18 | 0.3: phi2 28 phi3 10 shift 58 | 1.0: phi2 44 phi3 38 shift 6 | -0.001: phi2 2 phi3 0 shift 2 | -0.01: phi2 2 phi3 2 shift 2 | -0.1: phi2 4 phi3 2 shift 14 | -1.0: phi2 56 phi3 24 shift 6
+near|zeta|40 {'ta': 10053.110191487338, 'tb': 10562.048201368883, 'gpu': True}
+   0.0: phi2 6 phi3 6 shift 6 | 0.001: phi2 6 phi3 6 shift 8 | 0.003: phi2 6 phi3 6 shift 8 | 0.01: phi2 6 phi3 6 shift 8 | 0.03: phi2 6 phi3 6 shift 20 | 0.1: phi2 20 phi3 10 shift 66 | 0.3: phi2 70 phi3 34 shift 168 | 1.0: phi2 108 phi3 94 shift 110 | -0.001: phi2 6 phi3 6 shift 4 | -0.01: phi2 4 phi3 6 shift 8 | -0.1: phi2 18 phi3 10 shift 56 | -1.0: phi2 104 phi3 104 shift 100

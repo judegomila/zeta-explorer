@@ -1,0 +1,40 @@
+{
+ "slug": "c14-referee-r13-independent",
+ "round": 14,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "referee",
+  "control",
+  "t-nr",
+  "bls",
+  "lemma-p",
+  "fourier-interpolation",
+  "separator-search"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "No statement about zeros of zeta. As a referee record of round-13 lanes 1 to 6 the result stands: no filter is broken. Confirmed here by hand: Theorem B kernel identity, Theorem C Mobius closure (non-real pairs or even real multiplicity; single real factor fails), T-NR ratio m(z)/m(z+1) as a degree-2 Blaschke product in q^-z, lane-4 residue table and beta <= 7/4 algebra (relative to the reconstructed threshold), Lemma L Cauchy-Binet step (conditional on the measured sign of zeta's lattice minors), Lemma H (i)-(iii), the sign rule argument, and the omission of the subtracted term alpha^+_(1,1/2)(s/2) of H_+ in the lane's display of BRS (4.6) (source lines 1364-1387; factorisation exact for H_- only; target enters by division). Confirmed numerically at fresh cases: abs(xi(0.8+3.7i))^2 = 0.1309126413606; residues at zeros 1, 2, 5 and at generic (0.62, 9.3); T-NR zero at (5, 2.4); Blaschke product at (3, 2.5) and (2, 2.1) converging as 1/K; sign rule 160 of 160 for chi_17(3,.) and chi_19(2,.); lane-6 tallies recounted identically from item6_signs.jsonl (10,123 / 377 / 0; 63 one-signed; T-NR 25). The DH statement holds for the battery DH member only. Lane 6 random/adaptive/A3 stages, the affine kernel of lane 2, and a proof of Bettin Lemma 1 remain not refereed / open. All four requirement flags false.",
+ "obstruction": "Record lane, no attack. No filter is broken; each holds with a scope line: Lemma P needs every hypothesis typed in one normalisation; Lemma L is conditional on a measured sign of zeta's lattice minors; BLS and Theorems B, C hold in rank one (non-real pairs or even real multiplicity), the affine kernel stays open; the Fourier-interpolation factorisation is exact for H_- only (H_+ has an additive target term; the lane omitted the subtracted term of BRS (4.6)); the LRS bound beta <= 7/4 is relative to a reconstructed threshold; the separator-search 'none' is refereed on the grid stage only (random/adaptive/A3 not refereed); the DH statement holds for the battery DH member only. Bettin Lemma 1 reproduced numerically, not re-proved.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No verdict in the summary table is overturned; five wording errors/omissions. (1) Section 6 and 3.6 say \"Davenport-Heilbronn never opposite (0 of 51,764)\" without \"battery member\"; the referee's own item6_recount.log shows at least one held-out DH-class member opposite on 50,999 of those 51,764 functionals. (2) \"(T5) at three fresh (a/q, s)\" is wrong: (3/7, 1/2+2.5i) and (2/5, 1/2+10i) are the lane's own cases; only a/q = 4/11 is new, with the lane's s. (3) \"Lemma 1 at three fresh instances\": (5 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The round-14 filters stand, each with a scope line: Lemma P needs one normalisation per device (Laurent or D form); BLS is a rank-one control only; symmetric-multiplier covariance is exact for the even kernel H_- (H_+ has an additive target term); the separator-search \"none\" is refereed on the grid stage only. Three of this referee's own first-pass numerics were wrong through truncated series or coarse zero location and were superseded; a second check with a different truncation is needed before a sign pattern is reported.",
+ "followUp": "Repair lane: apply the 13 label restrictions in RESULT.md section 4 (first: lane 3's display of BRS (4.6) and its map row; lane 5's decay exponent; lane 1's use rule for Lemma P). Optional: rsync lane 6's random/adaptive/A3 sign matrices from the server and rerun item6_run.py and item6_recount.py on them.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-referee-r13-independent/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

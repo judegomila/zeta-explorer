@@ -1,0 +1,20 @@
+boundaries: 6 1995 7943 31622 125892 501187 1000000
+planned: moments 4528000 doubles = 0.036 GB; cells 7075; objects 1; windows 40
+planned: DH coefficient array 0.008 GB
+DH check: sum c(n) n^-3 (n <= 1000000) = -0.00141876726662424 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 1.5 s; sabs[0]=8747.2
+boundaries: 6 25118 158489 1000000 6309573 39810717 100000000
+planned: moments 6037120 doubles = 0.048 GB; cells 9433; objects 1; windows 40
+planned: DH coefficient array 0.800 GB
+DH check: sum c(n) n^-3 (n <= 100000000) = -0.00141876726662426 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 108.5 s; sabs[0]=151731
+boundaries: 3 316228 3162278 31622777
+planned: moments 6037120 doubles = 0.048 GB; cells 9433; objects 1; windows 40
+planned: DH coefficient array 0.800 GB
+DH check: sum c(n) n^-3 (n <= 100000000) = -0.00141876726662426 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 138.7 s; sabs[0]=151731
+boundaries: 2 3981072 63095734
+planned: moments 6037120 doubles = 0.048 GB; cells 9433; objects 1; windows 40
+planned: DH coefficient array 0.800 GB
+DH check: sum c(n) n^-3 (n <= 100000000) = -0.00141876726662426 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 126.2 s; sabs[0]=151731

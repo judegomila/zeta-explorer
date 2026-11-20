@@ -1,0 +1,237 @@
+{
+ "map_diff": {
+  "inserted": 14,
+  "replaced": 14,
+  "deleted": 0,
+  "lines": [
+   [
+    "+",
+    ""
+   ],
+   [
+    "+",
+    "Update 2026-11-19, tenth (`c"
+   ],
+   [
+    "~",
+    "- Filter UNIV (`c12-univ-poi"
+   ],
+   [
+    "+",
+    "- Control BLS, scattering-le"
+   ],
+   [
+    "+",
+    "- NR on a scattering carrier"
+   ],
+   [
+    "+",
+    "- Pre-filter Lemma P (`c13-t"
+   ],
+   [
+    "~",
+    "| P53 | de Branges shift pos"
+   ],
+   [
+    "~",
+    "| P54 | Height-uniform point"
+   ],
+   [
+    "~",
+    "| P55 | Pre-filter for T-NR "
+   ],
+   [
+    "~",
+    "| G33 | Hecke operators T_{p"
+   ],
+   [
+    "~",
+    "| G34 | Fourier interpolatio"
+   ],
+   [
+    "~",
+    "| G35 | Luo-Rudnick-Sarnak m"
+   ],
+   [
+    "~",
+    "| G36 | Dictionary D: sign f"
+   ],
+   [
+    "~",
+    "| Z35 | Depth-aspect termwis"
+   ],
+   [
+    "~",
+    "| Z36 | Bilinear twist-modul"
+   ],
+   [
+    "+",
+    "| L6 | Edrei-Thoma local tot"
+   ],
+   [
+    "~",
+    "Seven device types tested by"
+   ],
+   [
+    "~",
+    "| D8 | Positivity in the Bos"
+   ],
+   [
+    "~",
+    "| D9 | Borel Eisenstein seri"
+   ],
+   [
+    "~",
+    "Row count (2026-11-19, `c14-"
+   ],
+   [
+    "+",
+    "| \"Any inner factor\" preserv"
+   ],
+   [
+    "+",
+    "| \"Exponent 1/4 + eps for al"
+   ],
+   [
+    "+",
+    "| \"For every Eisenstein obje"
+   ],
+   [
+    "+",
+    "| \"14 device types carry a r"
+   ],
+   [
+    "+",
+    "| Remainder integrand of Lem"
+   ],
+   [
+    "+",
+    "| Registered prediction \"T-N"
+   ],
+   [
+    "+",
+    "| Lemma C beyond its first s"
+   ],
+   [
+    "+",
+    "| Section 3.5 first bullet ("
+   ]
+  ]
+ },
+ "rows_before": 191,
+ "rows_after": 198,
+ "rows_with_cell_count_not_6": [],
+ "facts": {
+  "c13-noncone-kernel-separator-search/RESULT.md": {
+   "12,994,697": true,
+   "629,432": true,
+   "459,547": true,
+   "841,651": true,
+   "0.646": true
+  },
+  "c13-noncone-kernel-separator-search/REFEREE.md": {
+   "0.287": true,
+   "0.193": true,
+   "1,226": true,
+   "459,547": true
+  },
+  "c13-kacmoody-eisenstein-affine-weyl-shift/REFEREE.md": {
+   "0.738": true,
+   "A single real factor": true,
+   "x = -0.03": true
+  },
+  "c13-referee-r12-independent/referee_updates.json": {
+   "2.2423": true,
+   "false at beta = 1/2": true,
+   "MEASURED -> PROVED": true
+  },
+  "c13-tnr-invariance-prefilter-noncone-census/REFEREE.md": {
+   "13 device types with a record, 8 recorded passes, 7 recorded failures": true,
+   "w >= 3.5": true
+  },
+  "c13-lrs-twist-amplification-zero-representation/REFEREE.md": {
+   "beta <= 7/4": true,
+   "L(0, chi) = 0": true
+  },
+  "c13-bilinear-reciprocity-height-antibridge/REFEREE.md": {
+   "abs(v)^(-(J + 3/2 + c))": true,
+   "Re c-hat(chi)": true
+  },
+  "c13-fourier-interpolation-zero-nodes/REFEREE.md": {
+   "outside a countable set": true,
+   "sum_{d <= y} |b(d)|/d << y^eps": true
+  }
+ },
+ "facts_all": true,
+ "c12_screen_is_corrected": true,
+ "c12_heat_is_corrected": true,
+ "c12_originals_kept": true,
+ "D1": {
+  "corrected": "20/20",
+  "original": "19/20",
+  "same_as_c13": true
+ },
+ "heat": {
+  "online": 929,
+  "pairs": 294,
+  "listed": 294,
+  "count": 1517,
+  "zeta": 1517,
+  "diag": 0
+ },
+ "devices": {
+  "closed": 45,
+  "floored": 1
+ },
+ "device_ids_unique": true,
+ "new_devices_cite_referee_and_row": {
+  "kacmoody-loop-eisenstein-maass-selberg": true,
+  "fourier-interpolation-zero-nodes": true,
+  "lrs-amplification-eisenstein-at-zero": true,
+  "edrei-thoma-local-total-positivity": true,
+  "bilinear-reciprocity-height-jform": true,
+  "dictionary-d-kernel-sign-functionals": true
+ },
+ "kacmoody_scope": true,
+ "dictionary_label": true,
+ "map_G36_label": true,
+ "map_D9_label": true,
+ "rows_parsed": [
+  227,
+  234
+ ],
+ "top60_identical": true,
+ "headline_unchanged": true,
+ "partA_diff": {
+  "scoreHistogram": [
+   {
+    "0": 112,
+    "1": 2,
+    "2": 0,
+    "3": 0,
+    "4": 0
+   },
+   {
+    "0": 114,
+    "1": 2,
+    "2": 0,
+    "3": 0,
+    "4": 0
+   }
+  ]
+ },
+ "partD_diff": {
+  "lanesRun": [
+   114,
+   116
+  ],
+  "lanesRefereed": [
+   114,
+   115
+  ]
+ },
+ "checkpoint_rows_cited_missing": [],
+ "checkpoint_statements": 8,
+ "checkpoint_says_no_joint_clause": true,
+ "strategy_untouched": true
+}

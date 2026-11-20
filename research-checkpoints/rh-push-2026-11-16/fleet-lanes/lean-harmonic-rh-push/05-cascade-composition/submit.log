@@ -1,0 +1,8 @@
+WARNING: Your Lean toolchain version (leanprover/lean4:v4.28.0) does not match Aristotle's.
+Aristotle works best with Lean Toolchain leanprover/lean4:v4.34.0
+
+WARNING: Your project contains .lean files but no .lake folder.
+Aristotle works better with access to your project's dependencies.
+Did you forget to run `lake build`?
+
+Project created: afd6a77e-1c8b-4991-b524-0b413401dc96

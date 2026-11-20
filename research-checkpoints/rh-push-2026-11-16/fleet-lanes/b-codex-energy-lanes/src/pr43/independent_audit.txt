@@ -1,0 +1,266 @@
+INDEPENDENT MATHEMATICAL AUDIT OF THE THETA BRIDGE NOTES
+Date: 2026-11-08 UTC
+Scope: adversarial review of the three named source files; no originals altered.
+
+AUDITED FILES AND SHA-256 HASHES
+==============================
+bridge_single_pulse_research_note.txt
+c0802e0575156c0552ab0db75016f95f05a5f4c6bc7c6df86f59d7f29d3b295b
+
+weighted_theta_resolvent_20261108.txt
+6b7882c2304be62499d0d3d29f207717bdbfac043447d487ecf50c53dc21d549
+
+theta_confining_operator_certificate.py
+1fae327dfa34651a613db673e1528a3026cc873bc81645752546822b287242d5
+
+The accompanying existing output was also inspected:
+theta_confining_operator_certificate.json
+0d3cccf637f7fac70eb9235086e485b9ba74b7d214899b425c5a6ca3b2b45c50
+
+VERDICT
+=======
+No blocking mathematical gap was found in the fixed-pulse RH equivalence,
+the xi-specific pole-free-to-inner argument, the weighted-resolvent theorem,
+or the interval Rayleigh exclusion. Two domain/coordinate statements should
+be made precise before publication; they are listed below.
+
+The equivalence criterion is an analytical deduction. Its right-hand
+condition -- finite exp(u/2)-weighted energy for the ACTUAL boundary response
+-- remains unproved. The review does not endorse a proof of RH, establish
+novelty, or replace a formal proof-assistant verification.
+
+1. FIXED-PULSE CRITERION, INCLUDING X=1/2
+======================================
+The claimed equivalence is supported by the argument in the note.
+
+For g in L2(R) intersect L2(exp(Xu)du), the bilateral transform
+Y(z)=integral g(u)exp(zu/2)du is absolutely convergent for 0<Re z<X.
+Split the integral at zero and apply Cauchy-Schwarz with the two endpoint
+weights. The same argument on compact substrips proves analyticity.
+Plancherel and Holder interpolation give a uniformly bounded L2 norm on
+vertical lines, hence the H2 strip property and the endpoint L2 traces.
+
+D and N are bounded analytic multipliers on every finite vertical strip,
+because their defining theta kernels have all exponential moments.
+Consequently DY-NV belongs to H2 of the strip. Its zero boundary trace on
+Re z=0 implies it vanishes identically by Hardy-space boundary uniqueness.
+The pulse transform V(z)=2(exp(z/2)-1)/z has no zeros for Re z>0.
+Thus every denominator zero in 0<Re z<X is removable in N/D.
+
+The known zero strip gives Re(xi'/xi)(s)>0 on Re s>=1, including the boundary
+line; thus D has no zeros for Re z>=1/2. At X=1/2, every possible genuine
+right-half-plane pole is still inside the OPEN strip covered by the argument.
+There is no missing endpoint pole at Re z=1/2.
+
+Under RH, S is an inner right-half-plane function. With the stated Fourier
+sign, its multiplier preserves functions supported in (-infinity,a].
+Unitarity then gives right-tail norm contraction. Integrating that inequality
+against X exp(Xa)da is legitimate by Tonelli and gives the asserted weighted
+norm bound for the pulse. It does not assume the output's weighted norm is
+finite in advance.
+
+2. POLE-FREE S IMPLIES INNER: THE SPECIAL XI GROWTH IS ESSENTIAL
+============================================================
+The common-factor cancellation is legitimate, including multiple zeros.
+D and N vanish together exactly at multiple zeros of F. If such a zero has
+multiplicity m, the common order is m-1, and the removable quotient satisfies
+S(z0+h)=-1+2h/(alpha*m)+O(h^2). Evenness of F allows the common canonical
+factor to be chosen even. Boundary zeros are common and removable.
+
+Here is an explicit uniform bound that strengthens the first paragraph of
+Section 3. For sigma>1 and every real t,
+
+ Re[xi'/xi](sigma+it)
+ >= -log(pi)/2 + psi(sigma/2)/2 + zeta'(sigma)/zeta(sigma).
+
+Indeed, Re psi(a+iy)>=psi(a) follows term by term from the digamma series;
+the real parts of 1/s and 1/(s-1) are positive; and the absolutely convergent
+Euler series gives Re(zeta'/zeta)(sigma+it)>=zeta'(sigma)/zeta(sigma).
+The displayed lower bound tends to infinity as sigma tends to infinity,
+uniformly in t. Hence N is zero-free sufficiently far to the right and D is
+zero-free sufficiently far to the left. This proves the bounded vertical
+strip assertion for the zeros of D.
+
+After cancellation and assuming no genuine right-half-plane poles, the
+remaining denominator zeros are in a bounded left vertical strip. Order-one
+Hadamard factorization, grouped by conjugates, yields S(z)=exp(cz)B(z), with
+c real and B a right-half-plane Blaschke product normalized consistently at
+zero. Absolute convergence of the relevant real exponent corrections follows
+from bounded real parts and sum |d_n|^(-2)<infinity.
+
+The claimed sublinear logarithmic growth of B on the positive real axis is
+also valid. Write its zeros as a_n+i*y_n, with 0<a_n<=A. For x sufficiently
+large, each factor satisfies
+
+  -log|b_n(x)|/x <= C*a_n/(x^2+y_n^2).
+
+These terms are dominated by a summable multiple of a_n/(1+y_n^2), and each
+tends to zero. Dominated convergence proves log|B(x)|/x -> 0. Since
+F'(x)/F(x)->infinity and S(x)->-1, the exponential coefficient c is zero.
+The inner function is nonconstant. Its taking value -1 at an interior F-zero
+would violate the maximum-modulus principle. This deals with common factors
+without a simplicity assumption.
+
+3. TWO PRECISION FIXES FOR THE GRAPH-CORE DISCUSSION
+=================================================
+Fix A: explicitly qualify the bounded single-line multiplier assertion.
+For X>=1/2 it is a bounded contraction by the known exterior positivity.
+For an arbitrary X, the same graph-density argument identifies the maximal
+CLOSED multiplier N(X+it)/D(X+it), which need not be bounded. If Section 4
+inherits X>=1/2 from Section 2, its intended assertion is correct, but the
+qualification should be repeated where the closure is stated.
+
+The graph-density proof itself is valid. Finite exponential sums are dense
+in L2(mu), where dmu=(|D|^2+|N|^2)dt is a finite measure: an orthogonal vector
+would define a finite complex measure with identically zero Fourier transform.
+The parameterization p -> (Dp,Np) identifies this space with the maximal
+multiplier graph, since D is nonzero almost everywhere.
+
+The simultaneous-domain obstruction is valid. For 0<sigma=Re p<X,
+
+  ||ell_p||^2 = integral exp(sigma*u)/(1+exp(Xu))du
+              = pi/[X*sin(pi*sigma/X)].
+
+Translation gives ell_p(h_+(u+2b))=exp(-pb)D(p). The stated pulse-distance
+lower bound and the derivative-evaluation annihilators therefore follow.
+Separate density in the two endpoint spaces does not supply simultaneous
+density. Conversely, simultaneous convergence would justify identification
+with the literal unbounded conjugation by closedness of multiplication.
+
+Fix B: specify the input coordinate in the toy-model cancellation statement.
+The condition ell_p(f)=0 applies to the ORIGINAL unweighted input f. If the
+continued vertical multiplier acts on v=exp(Xu/2)f, then the corresponding
+condition is ell_(p-X)(v)=0. The two written kernels are not to be applied
+to an identical unweighted f and compared without the conjugations.
+The intended example and its domain obstruction are correct with this
+coordinate convention made explicit.
+
+4. WEIGHTED THETA RESOLVENT
+==========================
+The following statements are proved for the stated operators, independently
+of RH: Q=kappa/H is positive, even, bounded and integrable; B_a is
+Hilbert-Schmidt for |a|<=1/4; its Hermitian part is the sum of the two stated
+positive exponential kernels; and I+B_a has a bounded inverse of norm at
+most one. The endpoint rate-zero Gram component is correctly treated as
+a scalar-valued map.
+
+The identity T=I-q(A+Q)^(-1)q and the positive Green-kernel comparison justify
+the bounded extension of the weighted conjugation. The displayed Gram
+identity for I-T_a^*T_a has the correct order of factors and signs.
+
+The compactness obstruction to intertwining all translates is valid. The
+normalization sqrt[(alpha/2) integral u^2 exp(xu) kappa(u)^2 du] is correct.
+The extension to lambda*I+compact is also valid.
+
+Both energy-shift residuals were recomputed and agree with the note. For
+0<p<2c, matching the leading exp(pu) growth makes Z_p-H_p an L2 function;
+the remaining slow correction is exp((p-2c)u). The stated half-line resolvent
+formula and its sign consequence for c<p<2c follow. The restriction p<2c
+is necessary for this ordinary L2 argument and is properly retained.
+
+5. INTERVAL CERTIFICATE: ANALYTIC CHECK AND EXECUTION REPLAY
+=========================================================
+The numerical statements used for exclusion are certified interval
+calculations, subject to the interval backend's directed-rounding guarantees.
+The optional finite-difference eigenvalues remain noncertified illustrations.
+
+The omitted theta-term bound follows from n=5+j,
+n^4<=625 exp(4j/5), n^2>=25+10j, and monotonicity in t=exp(u)>=1.
+The integration-tail estimate follows from the stated positive bound on
+kappa, exp(v)>=1+v, and (3+v)^j<=3^j exp(jv/3). Their denominators are positive.
+The retained interval cells contain the exact rational cells. Multiplying
+the interval range of the integrand by the enclosing rational cell length
+and summing is a valid enclosure, without a quadrature-error assumption.
+
+I re-executed the exact arithmetic statements at the script's stated
+precision, suppressing ONLY its final write_text call so that the original
+JSON was not modified. All assertions passed, and all existing output
+intervals were reproduced exactly. In particular,
+
+ R in [36.194935886422829494208976852636303,
+       46.514196482943803547214284677464244],
+
+ 2*sqrt(R) in [12.032445451598412211138716852184602,
+              13.640263411377920094248329289549861].
+
+The Rayleigh formula is exact: for psi=kappa^2 and
+f=psi*(u^2-m2/m0), the squared norm is m4-m2^2/m0 and the ground-state
+transformed energy is 4*m2. The trial satisfies the Neumann boundary
+condition and is orthogonal to the zero ground state. Min-max therefore
+gives lambda_1<=R. With the stated frequency normalization, the upper bound
+below 14 excludes this specific spectrum from the xi ordinates.
+It does not exclude other spectral operators, a different mode selection,
+or a different independently justified normalization.
+
+6. ADDITIONAL SIGN CHECK FOR THE NEW BOUNDARY-ENERGY KERNEL
+=========================================================
+This extension was communicated after the three source files were read;
+it is not part of the hashed versions above. Adopt the consistent notation
+P_c=1_(-infinity,c] and Q_c=1_(c,infinity).
+For the UNNORMALIZED h_+/-=(1+/-alpha*u/2)kappa(u), let
+
+ H_c(u,v)=2*alpha*integral_[|c-(u+v)/2|,infinity]
+          t*kappa(t-(u-v)/2)*kappa(t+(u-v)/2)dt.
+
+Then the left-tail difference has a PLUS sign:
+
+ ||P_c(h_-*a)||^2-||P_c(h_+*a)||^2 = <a,H_c a>.
+
+The right-tail difference has a MINUS sign:
+
+ ||Q_c(h_-*a)||^2-||Q_c(h_+*a)||^2 = -<a,H_c a>.
+
+The convolution-product bracket is -2*alpha*t, while its integral from
+-infinity to c-(u+v)/2 is the negative of the positive tail from the absolute
+value of that endpoint. This verifies the signs. The root agent confirmed
+the intended new identity used the right-tail projection and will standardize
+the notation. No positive-semidefiniteness claim for H_c was established
+by this sign calculation.
+
+FINAL CLASSIFICATION
+====================
+PROVED ANALYTICAL DEDUCTIONS: fixed-pulse equivalence; pole-free-to-inner
+for this xi family; the stated annihilator obstruction; the qualified
+single-line graph closure; weighted-resolvent contraction and its failed
+intertwining; the explicit energy-shift defects.
+
+COMPUTER-ASSISTED ENCLOSURE WITH ANALYTICAL TAILS: the stated Rayleigh upper
+bound and consequent exclusion of the specific confining candidate.
+
+NUMERICAL ILLUSTRATIONS ONLY: the listed finite-difference eigenfrequencies.
+
+UNPROVED RH-STRENGTH TARGET: exponential integrability of the actual
+boundary pulse response, or a sufficient support/energy theorem proving it.
+
+7. TARGETED AUDIT OF THE NEW CUTOFF NOTES
+=======================================
+A second read-only audit in the same session checked the following originals:
+theta_boundary_energy_derivation.md and theta_flux_two_point_20261108.md.
+Their staged names are theta_boundary_energy.md and theta_boundary_two_point.md.
+No mathematical error was found in these four requested arguments:
+
+* Strict two-point positivity: the squared-argument pairs have equal sums and
+  strictly different spreads for s>0 and distinct feature centers. Csordas's
+  strict convexity of -log(kappa(sqrt(t))) therefore gives the claimed strict
+  entrywise Gram comparison. Cauchy-Schwarz completes the two-point proof.
+* Positive square plus indefinite correction: the Hilbert-Schmidt norm of B_c
+  is 4*alpha*integral_0^infinity t^2*kappa(t)^2 dt. The correction has zero
+  diagonal and positive off-diagonal entries. Narrow bumps around two points
+  transfer its opposite-sign matrix witnesses to actual L2 quadratic forms.
+* Tikhonov pulse convergence: f_epsilon has multiplier |D|^2/(|D|^2+epsilon),
+  g_epsilon has multiplier conjugate(D)^2/(|D|^2+epsilon). Dominated convergence
+  proves ordinary-L2 convergence and hence the exact cutoff limit. Only the
+  combined expression is proved to converge; the separated Gram/remainder
+  terms need not have finite individual limits.
+* Fixed-finite tail theorem: after s=z/Lambda, the product ratio is bounded by
+  C*exp(-z/2), and the extra linear factor by C*(1+z). The leading normalized
+  prefactor (U+V)/(2*sqrt(UV)) tends to one, giving the stated sech limit.
+  Distinct Laplace feature rates imply strict positivity of each fixed finite
+  limiting matrix. The conclusion is not uniform in changing configurations.
+
+The ordinary log-concavity counterexample and its coefficient -4/9 were also
+checked. The only required notation edit was P_c -> Q_c for the right-tail
+projection in the second note; this was applied to the staged copy. The two
+precision fixes from Section 3 were applied to the staged single-pulse note.
+The publication assessment does not upgrade the open full-operator sign or
+the actual-pulse propagation target.

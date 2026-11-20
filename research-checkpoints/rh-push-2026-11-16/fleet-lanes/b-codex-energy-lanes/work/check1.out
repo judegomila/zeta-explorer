@@ -1,0 +1,109 @@
+{
+ "a_envelope_min_L_minus_lower": "-7.5144395e-38",
+ "a_envelope_max_L_minus_1": "-0.00016017161",
+ "b_max_ratio_lhs_over_rhs_(3.2)": "0.39486738",
+ "c_sech_gram": {
+  "0.5": {
+   "lam_min_sech_gram": "5.4234326e-7",
+   "ell_delta": "3.4545236e-11"
+  },
+  "1.0": {
+   "lam_min_sech_gram": "0.0016950199",
+   "ell_delta": "4.9529459e-6"
+  },
+  "2.0": {
+   "lam_min_sech_gram": "0.095823295",
+   "ell_delta": "0.001326126"
+  },
+  "4.0": {
+   "lam_min_sech_gram": "0.53993842",
+   "ell_delta": "0.01531519"
+  },
+  "8.0": {
+   "lam_min_sech_gram": "0.92957579",
+   "ell_delta": "0.035376712"
+  }
+ },
+ "d_table_margins": {
+  "delta=0.5,R=1200000": "1.1958e-11",
+  "delta=1,R=2000": "1.14103e-6",
+  "delta=2,R=100": "0.000658547",
+  "delta=4,R=20": "0.00901423",
+  "delta=8,R=8": "0.0247144"
+ },
+ "e_direct_gram": {
+  "zeta delta=8 R=8": {
+   "lam_min_normalised_H": "0.95516795",
+   "lam_min_sech": "0.95548421",
+   "max_entry_dev_from_sech": "0.00137",
+   "theorem_margin(zeta only)": "0.0247144"
+  },
+  "zeta delta=4 R=20": {
+   "lam_min_normalised_H": "0.64716525",
+   "lam_min_sech": "0.64779871",
+   "max_entry_dev_from_sech": "0.001081",
+   "theorem_margin(zeta only)": "0.00901423"
+  },
+  "zeta delta=2 R=6": {
+   "lam_min_normalised_H": "0.16420166",
+   "lam_min_sech": "0.16560028",
+   "max_entry_dev_from_sech": "0.008097",
+   "theorem_margin(zeta only)": "-0.199704"
+  },
+  "zeta delta=1 R=6": {
+   "lam_min_normalised_H": "0.0075597077",
+   "lam_min_sech": "0.0076594098",
+   "max_entry_dev_from_sech": "0.008713",
+   "theorem_margin(zeta only)": "-0.464421"
+  },
+  "sharp(rho=0.3+3i) delta=8 R=8": {
+   "lam_min_normalised_H": "0.95458869",
+   "lam_min_sech": "0.95508039",
+   "max_entry_dev_from_sech": "0.00196",
+   "theorem_margin(zeta only)": "0.0247144"
+  },
+  "sharp(rho=0.3+3i) delta=4 R=20": {
+   "lam_min_normalised_H": "0.61503596",
+   "lam_min_sech": "0.61560911",
+   "max_entry_dev_from_sech": "0.001101",
+   "theorem_margin(zeta only)": "0.00901423"
+  },
+  "sharp(rho=0.3+3i) delta=2 R=6": {
+   "lam_min_normalised_H": "0.16403181",
+   "lam_min_sech": "0.1658015",
+   "max_entry_dev_from_sech": "0.007929",
+   "theorem_margin(zeta only)": "-0.199704"
+  },
+  "sharp(rho=0.3+3i) delta=1 R=6": {
+   "lam_min_normalised_H": "0.0076614533",
+   "lam_min_sech": "0.0077480659",
+   "max_entry_dev_from_sech": "0.008223",
+   "theorem_margin(zeta only)": "-0.464421"
+  },
+  "DH delta=8 R=8": {
+   "lam_min_normalised_H": "0.95265358",
+   "lam_min_sech": "0.95328717",
+   "max_entry_dev_from_sech": "0.001844",
+   "theorem_margin(zeta only)": "0.0247144"
+  },
+  "DH delta=4 R=20": {
+   "lam_min_normalised_H": "0.65084587",
+   "lam_min_sech": "0.65151453",
+   "max_entry_dev_from_sech": "0.001102",
+   "theorem_margin(zeta only)": "0.00901423"
+  },
+  "DH delta=2 R=6": {
+   "lam_min_normalised_H": "0.20295354",
+   "lam_min_sech": "0.20504101",
+   "max_entry_dev_from_sech": "0.00795",
+   "theorem_margin(zeta only)": "-0.199704"
+  },
+  "DH delta=1 R=6": {
+   "lam_min_normalised_H": "0.003837001",
+   "lam_min_sech": "0.003891438",
+   "max_entry_dev_from_sech": "0.008698",
+   "theorem_margin(zeta only)": "-0.464421"
+  }
+ }
+}
+venv/bin/python -I -c   58.32s user 0.57s system 26% cpu 3:45.82 total

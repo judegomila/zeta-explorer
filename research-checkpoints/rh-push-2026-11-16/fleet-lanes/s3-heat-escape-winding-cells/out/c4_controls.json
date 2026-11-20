@@ -1,0 +1,160 @@
+{
+ "dh": {
+  "kind": "dh",
+  "offline_pairs": 84,
+  "H": 2000.0,
+  "first_offline_gamma": 85.6993484853776,
+  "largest_offline_free_gap_gamma": [
+   240.4046723514407,
+   320.87648966877487
+  ],
+  "largest_gap_z": 160.94363463466834,
+  "mean_gap_z": 45.890965656218995,
+  "D_K_z": [
+   921,
+   1639
+  ],
+  "window_z": [
+   497.98216591579364,
+   629.6747575056388
+  ],
+  "online_in_window": 57,
+  "main_term_count": 56.70475581024468,
+  "walls": [
+   {
+    "tag": "dh_L",
+    "kind": "dh",
+    "xw": 497.98216591579364,
+    "R_min": 1.0747312860961427,
+    "at": [
+     1.0,
+     0.164
+    ],
+    "real_axis_sign_constant": true
+   },
+   {
+    "tag": "dh_R",
+    "kind": "dh",
+    "xw": 629.6747575056388,
+    "R_min": 1.3355049925837188,
+    "at": [
+     1.0,
+     0.164
+    ],
+    "real_axis_sign_constant": true
+   },
+   {
+    "tag": "dh_through_pair",
+    "kind": "dh",
+    "xw": 480.8093447028814,
+    "R_min": 0.004355353478393372,
+    "at": [
+     0.72,
+     0.008
+    ],
+    "real_axis_sign_constant": true
+   }
+  ]
+ },
+ "heat:0.1": {
+  "kind": "heat:0.1",
+  "offline_pairs": 41,
+  "H": 2000.0,
+  "first_offline_gamma": 415.25627896409037,
+  "largest_offline_free_gap_gamma": [
+   750.8507225167028,
+   946.9647672928606
+  ],
+  "largest_gap_z": 392.2280895523156,
+  "mean_gap_z": 78.64208155770064,
+  "D_K_z": [
+   921,
+   1639
+  ],
+  "window_z": [
+   1523.0994387747046,
+   1866.3513002852314
+  ],
+  "online_in_window": 134,
+  "main_term_count": 133.91336751699532,
+  "walls": [
+   {
+    "tag": "heat0.1_L",
+    "kind": "heat:0.1",
+    "xw": 1523.0994387747046,
+    "R_min": 2.9640196936919465,
+    "at": [
+     1.0,
+     0.164
+    ],
+    "real_axis_sign_constant": true
+   },
+   {
+    "tag": "heat0.1_R",
+    "kind": "heat:0.1",
+    "xw": 1866.3513002852314,
+    "R_min": 3.051840970245678,
+    "at": [
+     1.0,
+     0.164
+    ],
+    "real_axis_sign_constant": true
+   },
+   {
+    "tag": "heat0.1_through_pair",
+    "kind": "heat:0.1",
+    "xw": 1501.7014450334057,
+    "R_min": 0.0014704157622452921,
+    "at": [
+     0.0,
+     0.052000000000000005
+    ],
+    "real_axis_sign_constant": false
+   }
+  ]
+ },
+ "tnr": {
+  "kind": "tnr",
+  "pair_spacing_z": 11.438403469520507,
+  "y0": 0.8075064496554473,
+  "window_z": [
+   121.60323642996532,
+   130.04163989948583
+  ],
+  "walls": [
+   {
+    "tag": "tnr_L",
+    "kind": "tnr",
+    "xw": 121.60323642996532,
+    "R_min": 0.04119432637677922,
+    "at": [
+     0.0,
+     0.0
+    ],
+    "real_axis_sign_constant": true
+   },
+   {
+    "tag": "tnr_R",
+    "kind": "tnr",
+    "xw": 130.04163989948583,
+    "R_min": 0.003475824847839636,
+    "at": [
+     0.0,
+     0.056
+    ],
+    "real_axis_sign_constant": false
+   },
+   {
+    "tag": "tnr_through_pair",
+    "kind": "tnr",
+    "xw": 120.10323642996532,
+    "R_min": 0.0005755695186972569,
+    "at": [
+     0.8,
+     0.004
+    ],
+    "real_axis_sign_constant": true
+   }
+  ]
+ }
+}

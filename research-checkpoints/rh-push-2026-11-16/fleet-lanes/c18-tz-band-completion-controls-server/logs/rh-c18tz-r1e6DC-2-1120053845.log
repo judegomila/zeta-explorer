@@ -1,0 +1,16 @@
+planned: matrices 96 x 96 balls (under 1 MB each); windows 26..39; moments memory-mapped
+window done 26 t=28s
+window done 27 t=56s
+window done 28 t=85s
+window done 29 t=116s
+window done 30 t=139s
+window done 31 t=165s
+window done 32 t=185s
+window done 33 t=205s
+window done 34 t=233s
+window done 35 t=252s
+window done 36 t=273s
+window done 37 t=296s
+window done 38 t=314s
+window done 39 t=333s
+finished res_1e6_DC_26.jsonl

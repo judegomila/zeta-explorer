@@ -1,0 +1,18 @@
+ok   thalf(zeta,N=6) = xi at z=(3+0j)
+ok   thalf(zeta,N=6) = xi at z=(20+0.3j)
+ok   thalf(zeta,N=6) = xi at z=(41.5+0j)
+ok   thalf(dh,N=12) proportional to Lambda_DH (FE of the DH theta kernel)  (1.26156626101008-6.657497964839932e-60j)
+ok   DH zero at 0.8085171825+85.6993484854i  6.129348033213847e-11
+ok   a(6)-a(2)a(3) = 1.0807
+ok   taylor_even(zeta) reproduces the function at x=0.3
+ok   taylor_even(dh) reproduces the function at x=0.3
+ok   taylor_even(ea:0.25) reproduces the function at x=0.3
+ok   taylor_even(nr:3:2.2) reproduces the function at x=0.3
+ok   heat:-0.5 Taylor coefficients = kernel moments by quadrature
+ok   heat:0.05 Taylor coefficients = kernel moments by quadrature
+ok   Sturm: 8 real roots
+ok   Sturm: 8 real + one complex pair
+ok   lee_yang_window(xi, T=40): PASS with 12 zeros  {'T': 40.0, 'Y': 1.0, 'eta': 0.02, 'n_up': 0, 'n_tot': 12, 'n_real': 6, 'undecided_pts': 0, 'verdict': 'PASS', 'boxes': 651, 'expansions': 1299, 'evals': 26126}
+ok   lee_yang_window(E_0.25, T=40): FAIL, 12 zeros above the axis, first in Re z in (13.75,14.4)  {'T': 40.0, 'Y': 1.0, 'eta': 0.02, 'n_up': 12, 'verdict': 'FAIL', 'lowest_offaxis_re_in': [13.75, 14.375], 'boxes': 1306, 'expansions': 8391, 'evals': 150778}
+time 70.8 s
+SELFTEST PASSED

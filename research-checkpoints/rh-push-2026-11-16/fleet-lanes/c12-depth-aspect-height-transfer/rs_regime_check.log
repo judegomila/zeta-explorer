@@ -1,0 +1,6 @@
+kappa = 5040.0
+p=3 k=20 q~3.487e+09 H=81 m=38588 top=40046 sqrt(q)=59049 top<=sqrt(q): True  m<=H/x0: True  (A-B)%q=0  x=H/m=0.0021  tD=4.0998  dist to 2piZ=2.1834
+p=3 k=30 q~2.059e+14 H=729 m=3125609 top=3138731 sqrt(q)=14348907 top<=sqrt(q): True  m<=H/x0: True  (A-B)%q=0  x=H/m=0.0002  tD=4.4546  dist to 2piZ=1.8286
+p=5 k=20 q~9.537e+13 H=625 m=2297416 top=2308666 sqrt(q)=9765625 top<=sqrt(q): True  m<=H/x0: True  (A-B)%q=0  x=H/m=0.0003  tD=4.4458  dist to 2piZ=1.8374
+p=2 k=50 q~1.126e+15 H=1024 m=6167079 top=6185511 sqrt(q)=33554432 top<=sqrt(q): True  m<=H/x0: True  (A-B)%q=0  x=H/m=0.0002  tD=4.4608  dist to 2piZ=1.8224
+p=7 k=15 q~4.748e+12 H=343 m=691940 top=698114 sqrt(q)=2178889 top<=sqrt(q): True  m<=H/x0: True  (A-B)%q=0  x=H/m=0.0005  tD=4.4010  dist to 2piZ=1.8821

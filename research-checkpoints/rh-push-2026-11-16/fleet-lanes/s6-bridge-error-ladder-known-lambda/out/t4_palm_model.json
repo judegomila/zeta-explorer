@@ -1,0 +1,11 @@
+{
+ "cue_300 | all close pairs (s < 0.2)": {
+  "pairs": 6413,
+  "rms_to_finite_gap_model": 0.02731296845685788,
+  "rms_to_limit": 0.0,
+  "noise": 0.03948838570573358,
+  "deficit": 1.9449555590207401,
+  "deficit_model": 1.9335565969951098,
+  "chi2_per_bin": 0.7750815616738888
+ }
+}

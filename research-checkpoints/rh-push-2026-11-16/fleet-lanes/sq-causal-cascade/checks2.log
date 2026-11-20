@@ -1,0 +1,15 @@
+ check s= (0.5+1234.5j)  |zeta err|=2.0e-10 |zeta' err|=2.2e-09 |G err|=2.8e-14
+ check s= (0.2+4000.3j)  |zeta err|=1.7e-07 |zeta' err|=1.8e-06 |G err|=4.6e-16
+ check s= (0.75+9000j)  |zeta err|=5.6e-09 |zeta' err|=5.9e-08 |G err|=0.0e+00
+== Lemma M: means over k=1..N of zeta(s_0+2 pi i k/tau), zeta' ; Theorem 5 ratio ==
+ tau=log 2 sigma0=0.5 b=0.3 N=500: mean zeta=2.7309-1.1443j pred=2.6505-1.2557j | mean zeta'=-2.6323+3.0933j pred=-1.9393+3.7436j | |sum zeta'|/N=4.062 |sum G zeta|/N=8.618 (|c|/2)logN=9.113
+ tau=log 2 sigma0=0.5 b=0.3 N=2000: mean zeta=2.7093-1.2197j pred=2.6505-1.2557j | mean zeta'=-2.4634+3.5342j pred=-1.9393+3.7436j | |sum zeta'|/N=4.308 |sum G zeta|/N=10.621 (|c|/2)logN=11.146
+ tau=log 2 sigma0=0.5 b=0.3 N=6000: mean zeta=2.6741-1.2512j pred=2.6505-1.2557j | mean zeta'=-2.1967+3.7585j pred=-1.9393+3.7436j | |sum zeta'|/N=4.353 |sum G zeta|/N=12.125 (|c|/2)logN=12.757
+ tau=log 3 sigma0=0.5 b=1.1 N=4000: mean zeta=0.8707-0.5854j pred=0.8607-0.5842j | mean zeta'=0.4259+0.4870j pred=0.5067+0.4631j | |sum zeta'|/N=0.647 |sum G zeta|/N=3.870 (|c|/2)logN=4.314
+ tau=log 2 sigma0=0.75 b=0.0 N=4000: mean zeta=2.4597+0.0002j pred=2.4667-0.0000j | mean zeta'=-2.4537+0.0002j pred=-2.5078+0.0000j | |sum zeta'|/N=2.454 |sum G zeta|/N=9.624 (|c|/2)logN=10.230
+ tau=log 2 sigma0=0.2 b=0.3 N=4000: mean zeta=3.4698-3.4781j pred=2.7311-3.3120j | mean zeta'=-2.2957+13.8241j pred=4.3262+10.2438j | |sum zeta'|/N=14.013 |sum G zeta|/N=19.227 (|c|/2)logN=17.802
+ tau=1.0 sigma0=0.5 b=0.3 N=4000: mean zeta=0.9826-0.0036j pred=1.0000 | mean zeta'=0.1289+0.0337j pred=0.0000 | |sum zeta'|/N=0.133 |sum G zeta|/N=3.653 (|c|/2)logN=4.147
+ tau=0.8958797346140275 sigma0=0.5 b=0.0 N=4000: mean zeta=1.6415+0.0053j pred=1.0000 | mean zeta'=-1.6865-0.0289j pred=0.0000 | |sum zeta'|/N=1.687 |sum G zeta|/N=6.213 (|c|/2)logN=4.147
+== Corollary 5.1: growth of sum rho_k zeta(s2_k) vs sum zeta(s1_k), a=0.2, w0=0.1 (sigma1=0.4, sigma2=0.8), tau=log 2 ==
+ N=1000: |sum zeta(s1_k)|/N=3.399   |sum (t_k/2pi)^a zeta(s2_k)|/N^(1+a)=1.980
+ N=4000: |sum zeta(s1_k)|/N=3.392   |sum (t_k/2pi)^a zeta(s2_k)|/N^(1+a)=1.978

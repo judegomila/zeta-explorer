@@ -1,0 +1,41 @@
+{
+ "slug": "c2-cutoff-hecke-defect",
+ "round": 2,
+ "kind": "combine",
+ "nodes": [
+  "cutoff-energy-kernel-hc",
+  "two-point-cutoff-positivity"
+ ],
+ "tags": [
+  "hecke",
+  "spinor",
+  "weil",
+  "commutator",
+  "bridge",
+  "hankel"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands. D_p = [Q_c,V_p] = -P_c V_p Q_c has range L^2(c-2 log p, c] and carries the prime only as a length (PROVED). In f-space the defect form is -||Gamma_- D_p v||^2, the PP block of G6; given G6 it vanishes for one prime or any one translation iff RH (PROVED from G6; the commutant form [T_S,T_{V_p}]=0 is classical). In a-space the left compression of H_c is alpha(Gamma_1 Gamma_0 + Gamma_0 Gamma_1), independent of c (PROVED), equal to the Weil form on tests of the form Q_c(kappa*a) (PROVED from G6 (3.1)). MEASURED on finite node sets only (uniform nodes in the result, Chebyshev nodes in the referee rerun): zeta, DH and heat tau=-2 give positive definite node matrices at every size tried; T-NR, E_a, heat tau=-40, seed and the Liouville Hankel form give negative directions. The construction uses no multiplicativity and does not separate zeta from DH at any depth reached. Not established: any upper bound on the negative index of the window operator from node matrices; that the fixed-window compression detects DH's off-line zeros at any dimension.",
+ "obstruction": "D_p = [Q_c,V_p] = -P_c V_p Q_c has range L^2(c - 2 log p, c] and carries the prime only as a length. The defect form is -||Gamma_- D_p v||^2 (zero for one prime or any translation iff RH); in a-space it is the Weil form restricted to one-sided tests, independent of c. No multiplicativity is used. No bound on the negative index of the window operator follows from node matrices.",
+ "obstructionKind": "weil-form-restriction-euler-blind",
+ "controlsThatDefeat": [
+  "DH (positive definite on every window p <= 97, up to 222 nodes; off-line zeros not detected)",
+  "backward heat tau = -2 (passes)",
+  "Liouville twist fails although completely multiplicative, so the form reads the functional equation and lowest off-line height, not the Euler product"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps (Lemma 1, Lemma 2, Prop 2', Lemma 3 incl. (ii),(iv), Prop 4 as a reduction to refereed G6 (3.1)) were re-derived and are correct. Independent rerun (own mpmath code, 90 digits, Chebyshev nodes instead of uniform, 16 nodes on window p=3, two quadratures agreeing to 40 digits) reproduces the table: zeta 0, DH 0, heat tau=-2 0 negative; T-NR 3 (1e-3.7, -6.4, -12.0), seed 2, Liouville 2 (1e-7.8, -11.8), heat tau=-40 3. Depths 1e-153 / 1e-390 not reproduced. Errors found (none rescue [record truncated in transit; full text in push/c2-cutoff-hecke-defect/REFEREE.md]",
+ "lesson": "The cutoff commutator of a Hecke dilation is kernel-free and its range is a whole window, so any form built on it is the cutoff (Weil) form restricted to a window. That form separates kernels by the functional equation and by the height of the lowest off-line zero, not by the Euler product: non-multiplicative DH passes, completely multiplicative Liouville fails at 1e-8. The count of negative directions is set by test-space dimension, not by P.",
+ "followUp": "None on this route. Optional bookkeeping only: find the node dimension at which the left compression alpha(Gamma_1 Gamma_0 + Gamma_0 Gamma_1) first detects DH's off-line pair at height 85.7 (above 222 nodes; would calibrate against P21's order 165), with the quadrature error brought inside the balls.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-cutoff-hecke-defect/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-cutoff-hecke-defect/REFEREE.md"
+}

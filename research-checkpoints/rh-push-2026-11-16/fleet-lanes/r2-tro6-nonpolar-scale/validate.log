@@ -1,0 +1,8 @@
+half rows 54393, N(m) <= 30000
+1. rows also in round 1: 5814; max |rho_str - r1| = 1.12e-14, max |rho_cor - r1| = 1.09e-15, se 3.47e-18; flags equal: True
+   sign symmetry in round-1 data: max |rho(-m) - (-1)^par(sigma) rho(m)| = 1.12e-14
+2. B (types a, aG, res, one; 6 random rows, all k): max |diff| = 5.35e-14;  B3 (type a): max |diff| = 4.87e-16
+3. Q_0 = 937.5: per-conductor sums vs direct (28224 conductors x 12 classes x 2 strata): max |diff| = 5.89e-07; form identity sum_m rho B = sum_c coef S: max |diff| = 4.05e-13 (scale 8.3)
+3. Q_1 = 1325.8: per-conductor sums vs direct (28224 conductors x 12 classes x 2 strata): max |diff| = 5.79e-07; form identity sum_m rho B = sum_c coef S: max |diff| = 3.31e-13 (scale 11.9)
+3. Q_2 = 1875.0: per-conductor sums vs direct (28224 conductors x 12 classes x 2 strata): max |diff| = 6.26e-07; form identity sum_m rho B = sum_c coef S: max |diff| = 6.34e-13 (scale 15.9)
+3. Q_3 = 2651.7: per-conductor sums vs direct (28224 conductors x 12 classes x 2 strata): max |diff| = 1.79e-06; form identity sum_m rho B = sum_c coef S: max |diff| = 1.14e-12 (scale 21.4)

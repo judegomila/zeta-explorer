@@ -1,0 +1,22 @@
+[liou s=0.01 M=4096] gpu=False R=0.129 coefficients n<=4661 (671 nonzero); planned: 3 matrices 4096x4096 = 0.38 GB
+RESULT4 liou s=0.01 M=8: lmax 1.8872e+00 lmin/lmax +4.601e-02; negative below -1e-12/-1e-10/-1e-8: 0/0/0; rank(1e-10) 8 [3s]
+RESULT4 liou s=0.01 M=12: lmax 2.0933e+00 lmin/lmax -5.059e-02; negative below -1e-12/-1e-10/-1e-8: 1/1/1; rank(1e-10) 11 [3s]
+ONSET4 liou s=0.01: first M with lmin/lmax < -1e-10: M* = 10 (log M* = 2.303); lmin/lmax = -5.849e-03; eigenvector saved
+RESULT4 liou s=0.01 M=16: lmax 2.3211e+00 lmin/lmax -1.111e-01; negative below -1e-12/-1e-10/-1e-8: 1/1/1; rank(1e-10) 15 [3s]
+RESULT4 liou s=0.01 M=24: lmax 2.6530e+00 lmin/lmax -1.753e-01; negative below -1e-12/-1e-10/-1e-8: 2/2/2; rank(1e-10) 22 [3s]
+RESULT4 liou s=0.01 M=32: lmax 2.9232e+00 lmin/lmax -2.508e-01; negative below -1e-12/-1e-10/-1e-8: 2/2/2; rank(1e-10) 30 [3s]
+RESULT4 liou s=0.01 M=48: lmax 3.6501e+00 lmin/lmax -3.029e-01; negative below -1e-12/-1e-10/-1e-8: 5/5/5; rank(1e-10) 43 [3s]
+RESULT4 liou s=0.01 M=64: lmax 4.4376e+00 lmin/lmax -3.563e-01; negative below -1e-12/-1e-10/-1e-8: 7/7/7; rank(1e-10) 57 [3s]
+RESULT4 liou s=0.01 M=96: lmax 6.3724e+00 lmin/lmax -4.502e-01; negative below -1e-12/-1e-10/-1e-8: 10/10/10; rank(1e-10) 86 [3s]
+RESULT4 liou s=0.01 M=128: lmax 8.2755e+00 lmin/lmax -5.014e-01; negative below -1e-12/-1e-10/-1e-8: 12/12/12; rank(1e-10) 116 [3s]
+RESULT4 liou s=0.01 M=192: lmax 1.2588e+01 lmin/lmax -5.587e-01; negative below -1e-12/-1e-10/-1e-8: 16/16/16; rank(1e-10) 173 [3s]
+RESULT4 liou s=0.01 M=256: lmax 1.6934e+01 lmin/lmax -5.912e-01; negative below -1e-12/-1e-10/-1e-8: 19/19/19; rank(1e-10) 214 [3s]
+RESULT4 liou s=0.01 M=384: lmax 2.6072e+01 lmin/lmax -6.225e-01; negative below -1e-12/-1e-10/-1e-8: 26/26/26; rank(1e-10) 268 [3s]
+RESULT4 liou s=0.01 M=512: lmax 3.5587e+01 lmin/lmax -6.404e-01; negative below -1e-12/-1e-10/-1e-8: 31/31/31; rank(1e-10) 307 [3s]
+RESULT4 liou s=0.01 M=768: lmax 5.5013e+01 lmin/lmax -6.583e-01; negative below -1e-12/-1e-10/-1e-8: 38/38/38; rank(1e-10) 360 [3s]
+RESULT4 liou s=0.01 M=1024: lmax 7.4973e+01 lmin/lmax -6.680e-01; negative below -1e-12/-1e-10/-1e-8: 42/42/42; rank(1e-10) 397 [3s]
+RESULT4 liou s=0.01 M=1536: lmax 1.1594e+02 lmin/lmax -6.797e-01; negative below -1e-12/-1e-10/-1e-8: 53/52/52; rank(1e-10) 446 [4s]
+RESULT4 liou s=0.01 M=2048: lmax 1.5774e+02 lmin/lmax -6.864e-01; negative below -1e-12/-1e-10/-1e-8: 60/60/60; rank(1e-10) 480 [4s]
+RESULT4 liou s=0.01 M=3072: lmax 2.4348e+02 lmin/lmax -6.947e-01; negative below -1e-12/-1e-10/-1e-8: 72/72/72; rank(1e-10) 525 [7s]
+RESULT4 liou s=0.01 M=4096: lmax 3.3092e+02 lmin/lmax -6.998e-01; negative below -1e-12/-1e-10/-1e-8: 82/82/81; rank(1e-10) 556 [15s]
+done 15s

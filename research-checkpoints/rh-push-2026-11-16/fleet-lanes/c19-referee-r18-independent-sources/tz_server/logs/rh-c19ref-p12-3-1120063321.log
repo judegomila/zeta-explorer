@@ -1,0 +1,11 @@
+planned allocation: moments 4 stages x 2 windows x 12027 cells x 12 x 16 B = 18.5 MB; segment 2^23 bytes
+seg 50 at 12419430400 t=11s
+seg 100 at 12838860800 t=21s
+seg 150 at 13258291200 t=30s
+seg 200 at 13677721600 t=40s
+seg 250 at 14097152000 t=50s
+seg 300 at 14516582400 t=59s
+seg 350 at 14936012800 t=69s
+seg 400 at 15355443200 t=78s
+seg 450 at 15774873600 t=88s
+done mom_1e12_3.npz terms per stage [0, 0, 0, 164814167] sum|c|n^-1/2 [0.0, 0.0, 0.0, 32696.43572316536] t=90s

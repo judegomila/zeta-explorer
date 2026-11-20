@@ -1,0 +1,30 @@
+A. validation: count(min-max) vs closed form (13.16) at kappa_flat
+   d=0.46934 x=0.50  formula 0.590332  minmax 0.590349
+   d=0.46934 x=0.00  formula 0.614784  minmax 0.614785
+   d=0.30000 x=0.25  formula 0.761016  minmax 0.761031
+   d=0.60000 x=0.50  formula 0.457534  minmax 0.457525
+B. count at the critical class (delta_c, 1/2), kappa_flat; R_c = 0.590332, 1 - delta_c = 0.530655
+   c1\c2      6k=4.499     3.0       2.0       1.0
+   2.00     0.590349  0.588766  0.585363  0.530655
+   1.90     0.588709  0.587208  0.583984  0.530655
+   1.75     0.585681  0.584336  0.581432  0.530655
+   1.50     0.578247  0.577238  0.575028  0.530655
+   1.25     0.564507  0.563990  0.562864  0.530655
+   1.00     0.530655  0.530655  0.530655  0.530655
+C. first-order tau per unit of 1/c1 and 1/c2 at the critical class
+   c1: 2 -> 1.98: tau = 0.000305;   c2: 6k -> 0.99*6k: tau = 0.000032
+D. system value B (balanced, kappa = 2B-1 >= 13/18); grid 141x21; MODEL
+   reference (c1=2, c2=6k): optimistic 0.8749133   gates 0.8749164
+   c1 = 1.9               optimistic 0.8746957 (b=0.1019 l=0.1679 k=0.74939)   gates 0.8746967
+   c1 = 1.75              optimistic 0.8742558 (b=0.0976 l=0.1696 k=0.74851)   gates 0.8742836
+   c1 = 1.5               optimistic 0.8732108 (b=0.0949 l=0.1738 k=0.74642)   gates 0.8733855
+   c1 = 1.25              optimistic 0.8717588 (b=0.0354 l=0.1796 k=0.74352)   gates 0.8730210
+   c1 = 1 (natural)       optimistic 0.8703626 (b=-0.0000 l=0.1852 k=0.74073)   gates 0.8730210
+   c2 = 3k                optimistic 0.8743905 (b=0.1019 l=0.1691 k=0.74878)   gates 0.8744163
+   c2 = 2                 optimistic 0.8742018 (b=0.0965 l=0.1699 k=0.74840)   gates 0.8742405
+   c2 = 1 (natural)       optimistic 0.8710468 (b=-0.0000 l=0.1825 k=0.74209)   gates 0.8730210
+   c1 = 1.5, c2 = 3k      optimistic 0.8728772 (b=0.1054 l=0.1752 k=0.74575)   gates 0.8731212
+   c1 = 1, c2 = 1         optimistic 0.8701261 (b=-0.0000 l=0.1862 k=0.74025)   gates 0.8730210
+   c1 = 1, c2 = 1, s = 0  optimistic 0.8666667 (b=-0.0000 l=0.2000 k=0.73333)   gates 0.8730210
+
+[exited with code 0]

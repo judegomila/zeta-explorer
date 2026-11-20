@@ -1,0 +1,31 @@
+04:19:57 X=1e+06 Ltot=262144 chunk length 16384 (M=262144), chunks 0..4 of 16, sets 6, GPU=False
+04:19:57 planned allocation: fine grid 8 MB complex, rows about 4 MB each, per-set outputs about 4 MB
+04:19:57 chunk 0 xc=1008192.0 phases done in 0.1s (nmax 1100)
+04:20:01 done chunk 0 CHI4 t=0 in 3.5s
+04:20:07 done chunk 0 CHI4 t=0.05 in 6.6s
+04:20:15 done chunk 0 CHI4 t=0.16 in 7.5s
+04:20:19 done chunk 0 CHI5 t=0 in 3.8s
+04:20:26 done chunk 0 CHI5 t=0.05 in 6.9s
+04:20:33 done chunk 0 CHI5 t=0.16 in 7.4s
+04:20:33 chunk 1 xc=1024576.0 phases done in 0.0s (nmax 1100)
+04:20:36 done chunk 1 CHI4 t=0 in 3.5s
+04:20:43 done chunk 1 CHI4 t=0.05 in 6.5s
+04:20:50 done chunk 1 CHI4 t=0.16 in 6.7s
+04:20:53 done chunk 1 CHI5 t=0 in 3.3s
+04:20:59 done chunk 1 CHI5 t=0.05 in 6.3s
+04:21:06 done chunk 1 CHI5 t=0.16 in 6.9s
+04:21:06 chunk 2 xc=1040960.0 phases done in 0.0s (nmax 1100)
+04:21:09 done chunk 2 CHI4 t=0 in 3.1s
+04:21:15 done chunk 2 CHI4 t=0.05 in 6.1s
+04:21:22 done chunk 2 CHI4 t=0.16 in 6.6s
+04:21:25 done chunk 2 CHI5 t=0 in 3.0s
+04:21:31 done chunk 2 CHI5 t=0.05 in 5.8s
+04:21:37 done chunk 2 CHI5 t=0.16 in 6.6s
+04:21:37 chunk 3 xc=1057344.0 phases done in 0.0s (nmax 1100)
+04:21:40 done chunk 3 CHI4 t=0 in 3.1s
+04:21:46 done chunk 3 CHI4 t=0.05 in 5.7s
+04:21:53 done chunk 3 CHI4 t=0.16 in 6.6s
+04:21:55 done chunk 3 CHI5 t=0 in 3.0s
+04:22:01 done chunk 3 CHI5 t=0.05 in 5.7s
+04:22:07 done chunk 3 CHI5 t=0.16 in 6.1s
+04:22:07 ALLDONE

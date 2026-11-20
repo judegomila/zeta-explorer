@@ -1,0 +1,1367 @@
+[
+ {
+  "id": "mem-sl0-shift-dictionary",
+  "type": "identity",
+  "name": "SL0 dictionary E_a = Xi(z+ia)",
+  "statement": "With A_a=8 int Phi cosh(2au)cos(2zu), B_a=8 int Phi sinh(2au)sin(2zu), Xi=8 int Phi cos(2 lambda u): E_a := A_a - i B_a = Xi(z+ia). Verified to 1e-30 on the trig core, 1e-15 in full. Canonical shift is a; imp-3382 channel numerics use shift a/2.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "bridge"
+  ]
+ },
+ {
+  "id": "mem-t3-equals-strip",
+  "type": "identity",
+  "name": "T3(a) iff E_a Hermite-Biehler iff zero-free strip",
+  "statement": "Via the Hermite-Biehler reproducing kernel, twin-ladder T3(a) holds iff E_a is in the Hermite-Biehler class iff zeta has no zero with Re s > 1/2 + a. T3(a) for all a>0 is RH. T3 is a restatement of the strip statement, not a mechanism.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "zero-free",
+   "bridge"
+  ]
+ },
+ {
+  "id": "mem-sigma-a-quantized",
+  "type": "obstruction",
+  "name": "sigma(a)=sup|Xi(z-ia)/Xi(z+ia)| takes values in {1, infinity}",
+  "statement": "By Hadamard/Blaschke structure sigma(a) is 1 (no zeros in the strip) or infinite. The measured norm ||R|| about 1.33 is not a constant to push below 1; the gap is norm versus pole-freeness. Related obstruction row G2 (coupling norm).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "twin-ladder",
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-sl2-flow-blindness",
+  "type": "obstruction",
+  "name": "SL2 flow-blindness no-go",
+  "statement": "Any hypothesis stable under Phi -> e^{-eps u^2} Phi cannot imply all zeros real: since Lambda >= 0, the backward-flowed function has a non-real zero for every eps>0. A proof must use arithmetic input. Obstruction rows F1, F2; HEAT control.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; formalization/paper/flow-blindness-no-go.tex",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "mem-ns-rigid",
+  "type": "obstruction",
+  "name": "Theorem NS-RIGID (native-span rigidity)",
+  "statement": "Every Hermitian-form input expressible on E_V = span{e^{-nu t} 1_{t>0}} is either flow-stable (positive definite on a finite node set S, persists under Gaussian damping to eps=100) or equals RH (all-S family = Lagarias-Pick). No intermediate. Covers rows P3, P5, P18.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; src/data/imp-95530-native-span-arithmetic-input-rigidity.js",
+  "tags": [
+   "pick",
+   "weil",
+   "heat-flow",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-lacunary-loophole",
+  "type": "mechanism",
+  "name": "Lacunary/Blaschke node-family loophole inside the native span",
+  "statement": "Geometric (Blaschke) node lattices fail the identity-theorem step, so their PSD family is not equivalent to RH; reaching RH needs sum 1/s = infinity (Muntz-complete), where trace-class structure is unavailable. Route 13: lacunary {4^k} Pick >= 3.6346e-4 certified, no zero information. Row P18.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; mem:project_fifty_routes_campaign.md",
+  "tags": [
+   "pick",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-res-t-verified-height-crossover",
+  "type": "obstruction",
+  "name": "Theorem RES-T: fixed-support Weil positivity vs verified height",
+  "statement": "W_T >= 0 on tests supported in [-T,T] follows from verified height X=3e12 for T < T_X = 3.882 (half-width; 2a = 7.764 in the support-width convention). Above T_X it needs pointwise control of a Dirichlet polynomial up to heights about exp(8 e^T). Row P19.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; mem:project_toeplitz_krein_certificate.md",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "mem-mollifier-proportion-loophole",
+  "type": "mechanism",
+  "name": "Dirichlet-coefficient/mollifier inputs as the non-circular class",
+  "statement": "Levinson-Conrey (>= 41.7% on-line) and Selberg-type inputs are flow-critical, not RH-equivalent, and locate zeros beyond soft methods, but deliver proportions (mean values), not every zero. No in-repo twin-ladder object hosts them. Rows P26, P27, Q9 give the measured limits.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "mollifier",
+   "euler-product",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-statmech-sweep-8-routes",
+  "type": "obstruction",
+  "name": "Stat-mech creative sweep: 8 routes reduce to Weil positivity",
+  "statement": "Reflection positivity, arithmetic freeze-flow, signed interferometer, Peierls, Widom, Kramers-Wannier, log-gas RG, Connes-Consani scaling site: each worked to a verdict; all reduce to Weil positivity. Symmetry-forced properties of sigma=1/2 are RH-blind; no soft deformation confines zeros.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; src/data/rh-novel-routes-sweep-synthesis",
+  "tags": [
+   "weil",
+   "lee-yang",
+   "trace-formula",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-earnshaw-log-gas",
+  "type": "obstruction",
+  "name": "Pure log-gas is anti-confining (Earnshaw)",
+  "statement": "For the 2D log-gas of zeros without arithmetic phases, transverse curvature is F_C''(0) = -4S < 0: electrostatics alone pushes zeros off the line. Confinement comes only from the phase cancellation cos(t log n), i.e. Weil positivity.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "lee-yang",
+   "vortex",
+   "weil"
+  ]
+ },
+ {
+  "id": "mem-signed-interferometer-dh",
+  "type": "control",
+  "name": "FE-compatible signed arm designs reconstruct Davenport-Heilbronn",
+  "statement": "Functional-equation compatibility pins arm signs to root numbers; every design with at least 2 arms is a DH-type combination, and Voronin universality gives >> T off-line zeros. DH control.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "euler-product",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-widom-parseval-peak",
+  "type": "measured-phenomenon",
+  "name": "sigma=1/2 as fluctuation-susceptibility peak",
+  "statement": "Parseval in 2 sigma halves the Hagedorn abscissa 1 -> 1/2, so sigma=1/2 is the susceptibility peak of the primon gas. The property is forced by symmetry and is RH-blind (equivalent to Bohr-Landau/Littlewood zero-density statements).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "lee-yang",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-cc-scaling-site-cancellation",
+  "type": "measured-phenomenon",
+  "name": "Connes-Consani scaling site: exact archimedean vs p=2 cancellation at u=ln 2",
+  "statement": "Positivity across u = ln 2 is an exact cancellation of the archimedean term against the p=2 term; residual/P_2 = 7.5e-5 on the Slepian gap. CC theorem is near-sharp (7-18% past (ln 2)/2). The second adelic direction block-diagonalises into L(s,chi) Weil forms (a family statement).",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "weil",
+   "trace-formula",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-detector-uncertainty",
+  "type": "measured-phenomenon",
+  "name": "Detector uncertainty principle 2a_det ~ 0.9 ln(gamma/2pi)",
+  "statement": "A Weil-type test detects an off-line zero at height gamma only with support 2a about 0.9 ln(gamma/2pi), i.e. primes up to (T/2pi)^0.9, independent of adelic direction.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-gaussian-damped-primon-gram",
+  "type": "mechanism",
+  "name": "Gaussian-damped primon Gram detector (Class II)",
+  "statement": "A Gaussian-damped Gram form on primon-gas states detects off-line zeros, but only up to height about 1/sqrt(t) for damping t; finite-N reflection positivity is false with lambda_min ~ -p_N^{1/2-nu}; infinite-N reflection positivity equals Weil positivity.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "weil",
+   "euler-product",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-freeze-flow-interlacing",
+  "type": "identity",
+  "name": "Arithmetic freeze-flow: confinement iff interlacing",
+  "statement": "Multiplicative flow is inert (translation); the additive force is the Riemann-Siegel partial sum and is tangential. Zero confinement under the flow is equivalent to interlacing (Hermite-Kakeya-Obreschkoff), which is RH.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "heat-flow",
+   "zero-channel",
+   "vortex"
+  ]
+ },
+ {
+  "id": "mem-pole-free-weil-sigma2",
+  "type": "identity",
+  "name": "Pole-free Weil positivity = Toeplitz T_a[sigma_2] >= 0",
+  "statement": "On L^2(-a,a), 2a < ln 3: W(h) = (1/2pi) int w_1 |hhat|^2 with w_1 = 2 theta' - sqrt2 ln2 cos(t ln2). Pole-free positivity is exactly T_a[sigma_2] >= 0, sigma_2 = (t^2+1/4)^2 w_1 (hhat = (t^2+1/4) ghat). sigma_1 = (t^2+1/4) w_1 is only the half-pole-free form.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-arb-lege",
+  "type": "identity",
+  "name": "ARB-LEGE: one-prime pole-free Weil positivity for all 2a <= ln 3",
+  "statement": "Arb (256-bit) certifies W(h) >= 8.2045e-4 ||h||^2 on pole-free h in L^2(-a,a) for every 2a <= ln 3; corollary lambda_1(T_a[sigma_2]) >= 0.0583. Route 11 extends zeta pole-free positivity to 2a <= ln 6, conditional to ln 11. Inside verified-height consequences (RES-T).",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md; src/data/tlb-arb-lege-2026-09-28.js",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-dh-blind-weil-window",
+  "type": "control",
+  "name": "DH twin passes Route I window positivity",
+  "statement": "Davenport-Heilbronn twin (same bridge as L(s,chi_5)): W_DH >= 0 proved for 2a <= 0.783, Arb-certified >= 0 to ln 11, Arb-certified negative at 2a = 3.44. Window positivity at support <= ln 3 does not separate the Euler product from the twin. Row P19; compare P5.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md; src/data/tlb-dh-blind-2026-09-28.js",
+  "tags": [
+   "weil",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-krein-certificate-lemma",
+  "type": "tool",
+  "name": "Toeplitz/Krein lattice-atom certificate lemma",
+  "statement": "If nu = sum c_k t^k trig(x t) has all atoms at x >= X0 (Fourier support at +-x), then sigma_2 + nu >= 0 on R proves T_a[sigma_2] >= 0 for all 2a <= X0. Interval-verified at X0 = 0.90, 0.94, 0.96; certificate l1 norm grows x30-50 per 0.02 in 2a.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md",
+  "tags": [
+   "weil",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-sigma2-not-de-branges",
+  "type": "obstruction",
+  "name": "sigma_2 is sign-indefinite: no definite de Branges realisation",
+  "statement": "w_1 has a negative dip on (6.945, 10.532), so sigma_2 is not a de Branges weight; two-window split bound crosses 0 at 2a = 0.6026 < ln 2. An indefinite Krein-Langer realisation relocates the gap to the same concentration inequality.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md",
+  "tags": [
+   "de-branges",
+   "weil"
+  ]
+ },
+ {
+  "id": "mem-lambda1-crossing",
+  "type": "measured-phenomenon",
+  "name": "p=2-only form: lambda_1(a) crosses zero near 2a = 1.13",
+  "statement": "lambda_1(T_a[sigma_2]) is real-analytic in a, about 8.34 at 2a=1.00, 0.577 at ln 3, 0 at 2a* about 1.1316 (measured 1.132 -> 1.100, N-dependent). One-prime reach a_2 = 0.565920 (2a_2 = ln 3 + 0.033).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md; mem:project_route_i_sonine_excess_port.md",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-concentration-dip-open",
+  "type": "open-lemma",
+  "name": "Operator concentration bound on the w_1 dip fraction",
+  "statement": "Open: an operator-theoretic bound showing the fraction of |ghat|^2 mass a function in L^2(-a,a) can place in the negative dip band [7.4, 10.8) is < 1 by enough to give lambda_1(a) > 0 uniformly on 0.96 < 2a < ln 3 (sub-gap IMP96769).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_toeplitz_krein_certificate.md",
+  "tags": [
+   "weil",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-semilocal-fourier-fs",
+  "type": "object",
+  "name": "Semilocal Fourier transform F_S for S={inf,2}",
+  "statement": "On L^2(X_S)^{Z_2^*} = L^2(R)_even: F_S eta = (1/2) sum_{n>=0} etahat(2^n .) - (1/2) etahat(./2) = I o (u_inf u_2), u_2 = (1-2^{s-1})/(1-2^{-s}) (Tate factor). Covariance F_S eta(2w) = F_S eta(w) - etahat(w) + etahat(w/2)/2.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:project_route_i_semilocal_sonine_identity.md; mem:project_route_i_sonine_excess_port.md",
+  "tags": [
+   "trace-formula",
+   "euler-product",
+   "hecke"
+  ]
+ },
+ {
+  "id": "mem-semilocal-sonine-trace",
+  "type": "identity",
+  "name": "Exact semilocal Sonine trace identity",
+  "statement": "For all f: Tr(theta(f) P Phat_S P) = W_inf(f) + W_2(f) + D_S(f), delta_S(rho) = rho^{1/2} int K_S(rho xy) K_S(xy), K_S(t) = sum cos(2 pi 2^n t) - cos(pi t). Trace side positive: 2 theta' - m_2 + deltahat_S >= 0.0650. Controls (drop -cos(pi t), flip p=2 sign) go negative.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_semilocal_sonine_identity.md; src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js",
+  "tags": [
+   "trace-formula",
+   "weil",
+   "explicit-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-ds-le-ls",
+  "type": "open-lemma",
+  "name": "D_S <= L_S on pole-free tests (ln 2 < 2a < ln 3)",
+  "statement": "Weil positivity on support < ln 3 is equivalent to D_S <= L_S, an inequality between explicit RH-free functionals; on the minimiser D_S/L_S = 0.967 (a=0.5), 0.9971 (a=(ln 3)/2). Binding direction: first p=2 resonance window (7.4, 10.8). Certified by other means (ARB-LEGE); no structural proof.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_semilocal_sonine_identity.md; mem:project_route_i_dual_certificate.md",
+  "tags": [
+   "trace-formula",
+   "weil"
+  ]
+ },
+ {
+  "id": "mem-s23-dense-resonance",
+  "type": "obstruction",
+  "name": "S={inf,2,3}: Sonine remainder has dense log^2 spikes",
+  "statement": "For S containing 2 and 3 the remainder delta_S23 resonates on the dense set 2^a 3^b with log^2 spikes; remainder share 99.7-99.99997% (route 12). The compact-Toeplitz method has no foothold beyond one prime. Adjoining discrete P_3 instead gives Weil positivity W_{inf,2,3} > 0 again.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_semilocal_sonine_identity.md; mem:project_fifty_routes_campaign.md",
+  "tags": [
+   "trace-formula",
+   "weil",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-semilocal-prolate-spectrum",
+  "type": "measured-phenomenon",
+  "name": "Exact semilocal prolate spectrum of A = P_1 F_S P_1",
+  "statement": "lambda_S(0) = 0.9999731, lambda_S(1) = -0.9927022, 0.6202, -0.5609, then dyadic ladder +-2^{-n/2}/2; lambda_k ~ 1/(2 sqrt k); sum lambda^2 = inf, sum |lambda|^3 < inf. Theorem: no eigenvalue of modulus 1. Eigenfunctions lacunary/Zygmund with a log singularity at 0.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "mem:project_route_i_sonine_excess_port.md; tmp/sonine-fft-mellin.py",
+  "tags": [
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-cusp-allocation-half",
+  "type": "identity",
+  "name": "Sonine excess carries exactly half of the rho=2 log cusp",
+  "statement": "eps_S = delta^out + corr. Cusp coefficients at rho = 2^k per log_2: delta_S 2^{k/2}/2, delta^in 2^{-k/2}/2, delta^out (2^{k/2} - 2^{-k/2})/2 (k=1: 0.7071/0.3536/0.3536); c_2 = 1/(2 sqrt2 ln 2). Near rho=1: eps_S(1+u) = u[(1/2) log_2(1/u) + 13.62].",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_sonine_excess_port.md",
+  "tags": [
+   "trace-formula",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-sonine-port-stops-ln2",
+  "type": "obstruction",
+  "name": "Connes-Consani W = S - E port stops at ln 2",
+  "statement": "For any S containing a prime, E_S o Q is unbounded above along p=2 resonances for every 2a > ln 2 (measured 210 vs predicted 202); the CC condition E o Q <= c |ghat(0)|^2 fails and no finite-rank correction repairs it. Forced by Euler-factor covariance of F_S.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_sonine_excess_port.md",
+  "tags": [
+   "trace-formula",
+   "weil",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-weil-moment-ladder",
+  "type": "measured-phenomenon",
+  "name": "Moment ladder of the pole-free Weil margin at (ln 3)/2",
+  "statement": "Minimum of the Weil form at a=(ln 3)/2 under successive constraints: 9.5e-4 (pole-free) -> 0.0334 (hhat(0)=0) -> 0.414 (hhat'(0)=0) -> 0.799 -> 0.814 (saturates). Negativity of the unconstrained minimiser sits in the dip band [7.4,10.8): -0.263 vs well -0.009.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_sonine_excess_port.md",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mem-positive-extension-certificate",
+  "type": "tool",
+  "name": "Dual (positive-extension) certificate for the pole-free Weil form",
+  "statement": "Even phi with phi = alpha cosh(u/2) + beta u sinh(u/2) on |u| < 2a, free outside; if w_1 + phihat >= m then W >= m ||h||^2 for all a' <= a. alpha=2, beta=0 is the Weil pole term; LP optima tend to it. Verified (double precision) 2a <= 0.96.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_dual_certificate.md",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-retained-trace-pointwise-ratio",
+  "type": "measured-phenomenon",
+  "name": "Retained Sonine trace cannot dominate pointwise",
+  "statement": "Lhat_S(t_1)/deltahat_S(t_1) = 1/9.11 at the first resonance; on the extremal at (ln 3)/2 the shared positive part Z is 89% of L_S, S_S(h0) = 0.0351 vs E_S(h0) = 0.0341; operator-norm separation holds only for a <= 0.46.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_dual_certificate.md",
+  "tags": [
+   "trace-formula",
+   "weil"
+  ]
+ },
+ {
+  "id": "mem-route-m-cs-reduction",
+  "type": "identity",
+  "name": "Route M: mean-square lower companion reduces to a first moment",
+  "statement": "Cauchy-Schwarz: Q(b) >= F(b)^2/S(b) >= 3 F(b)^2/b^3, F(b) = sum over a coprime to b of I(a,b). If F(b) >= kappa phi(b) b then Int(N) >= (36 kappa^2/pi^2) log N. Statement about the Nyman-Beurling Gram mean only. Row P15.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_m_lower_companion_first_moment.md; src/data/imp-97071-route-m-lower-companion-first-moment-reduction.js",
+  "tags": [
+   "mollifier",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-kappa-first-moment",
+  "type": "measured-phenomenon",
+  "name": "kappa = F(b)/(phi(b) b) tends to (3/2)C - 1/4 + 1/8 = 0.6954960511",
+  "statement": "Arithmetic part kappa_arith -> 0.5704960511 (rigorous, Mobius/Stirling evaluation); cotangent part kappa_cot -> about 0.125. No scatter at fixed scale (std 6e-5 over b in [1180,1220)). Cotangent part is negative (-0.0105) at b=30; only the sum is robustly positive.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_m_lower_companion_first_moment.md",
+  "tags": [
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mem-vasyunin-mean-conjecture",
+  "type": "conjecture",
+  "name": "Varying-modulus Vasyunin cotangent mean: sum_a V(b,a)/(phi(b) b) -> -1/(4 pi)",
+  "statement": "Measured to b = 30030: the coefficient converges to -0.079579 (gap 1.4e-6 from -1/(4 pi)), giving kappa_cot = 1/8. Weaker sufficient statement for kappa > 0: liminf kappa_cot > -0.5705 (boundedness below of the Bettin-Conrey cotangent mean value).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_m_lower_companion_first_moment.md; src/data/imp-97541-route-m-kappa-cot-extended-measurement.js",
+  "tags": [
+   "mollifier",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-verified-height-binds",
+  "type": "obstruction",
+  "name": "Verified zero height X binds every rigorous Lambda bound",
+  "statement": "Three decompositions (Rouche corridor margin about 1.23; Polymath15 AFE tail margin 1.047, X-independent; constant audit: only E_trunc_pt ~ T_PT^{-kappa} gates) show barrier slack is non-binding at Lambda <= 0.2; Lambda <= 0.19 needs X = 2e13. Rows F3, F5, F6.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md; src/data/pt-floor-sensitivity-audit-2026-07-08.js",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "mem-zero-density-lambda-inert",
+  "type": "obstruction",
+  "name": "Zero-density estimates cannot move Lambda or certify N=0",
+  "statement": "N(sigma,T) << T^{c(1-sigma)+eps} is a positive upper bound (>1 at relevant T); it never certifies N=0 in a strip. The full Density Hypothesis moves the rigorous Lambda by zero. Guth-Maynard and Tao-Trudgian-Yang are not Lambda levers. Row Z17.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md",
+  "tags": [
+   "lambda",
+   "large-sieve",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "mem-obstruction-seam",
+  "type": "obstruction",
+  "name": "Obstruction seam: provable-but-inert vs sufficient-but-RH-hard",
+  "statement": "Across four adversarial rounds every route splits into a provable half that is non-binding and a sufficient half that is RH-hard, with empty overlap. Bracket: certified eps' (provable, non-binding) vs sub-1/2 zero-free strip (sufficient: Lambda <= 2 delta^2, no delta < 1/2 known before 7/8).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "mem-bombieri-garrett-bridge-false",
+  "type": "obstruction",
+  "name": "Bombieri-Garrett: zero-to-eigenvalue bridge is false",
+  "statement": "The pseudo-Laplacian side has an unconditional provable half, but the bridge from zeros to eigenvalues is provably false: wide-support pair-correlation caps capture at about 94%. The overlap of provable and sufficient is empty for this route.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md",
+  "tags": [
+   "trace-formula",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "mem-de-bruijn-strip-to-lambda",
+  "type": "identity",
+  "name": "Zero-free half-plane to Lambda: Lambda <= 2 d^2",
+  "statement": "If all zeros of H_0 satisfy |Im z| <= 2d (zeta zero-free for Re s > 1/2 + d) then Lambda <= 2 d^2 (de Bruijn); 7/8 gives 9/32. No converse: lowering Lambda does not produce a zero-free wall. Row F3.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md; mem:reference_openai_math_release.md",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "mem-mollified-interval-sos",
+  "type": "tool",
+  "name": "Mollified interval-SOS certificate",
+  "statement": "A mollified sum-of-squares interval certificate is an RH-free tool that reproduces the Platt-Trudgian level; it is formalisation infrastructure, not a route below it.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_pt_floor_binds_on_verified_height.md",
+  "tags": [
+   "mollifier",
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "mem-field-channel-bootstrap",
+  "type": "mechanism",
+  "name": "Vector-field-error channel bootstrap for Dyson collision time",
+  "statement": "For dx/dt = F_Dyson + e with |e_{l+1} - e_l| <= eps' g_l at shared zero-table data: t_c in [ln(1+eps' H^2/4)/(2 eps'), H^2/(8 theta(eps'))], theta = 1 - (Psi(T,eps') + 2 eps' H^2)/8. No Gronwall, W_1 or pair correlation; modulus dW/deps' = 3H^4/64.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_clip_field_channel_reroute.md; imp-3933",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "pair-correlation",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mem-gap-cancellation-kl",
+  "type": "identity",
+  "name": "Gap-cancellation reduction for the record pair",
+  "statement": "The eps' premise is equivalent to K_l := 2 sum_y 1/(|x_l - y| |x_{l+1} - y|) <= eps'; the record gap g_l cancels identically, so no self-displacement control is needed. Global bound 2.85 against floor 22.92 at re-anchored plateaus.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_clip_field_channel_reroute.md; src/data/imp-95518-displacement-leg-discharge.js",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "mem-collision-time-lambda-inert",
+  "type": "obstruction",
+  "name": "Window collision time is a t<0 event and cannot enter an upper bound on Lambda",
+  "statement": "Forward de Bruijn-Newman flow preserves reality of zeros, so t_c(N) lies at negative time; the credit -t_c in Lambda <= -t_c + E(N) is not available. Upper bounds run through barrier realness above verified height. Row P31.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:feedback_rh_scaleup_comprehensive_attack.md",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "vortex"
+  ]
+ },
+ {
+  "id": "mem-gaussian-conv-negative-time",
+  "type": "identity",
+  "name": "Gaussian convolution of Xi = de Bruijn flow at negative time",
+  "statement": "Convolving Xi with a Gaussian of width sqrt(2 tau) gives exactly H_{-tau} (verified 1e-9 against the Polymath15 integral); repo units: t = -4 tau_repo. The large-tau drop in real-zero count is zeros leaving the line (content of Lambda >= 0).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_winding_thread_closed_corrected.md; imp-34813",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "vortex"
+  ]
+ },
+ {
+  "id": "mem-winding-monotone-classical",
+  "type": "identity",
+  "name": "Winding monotonicity under the flow (de Bruijn Thm 13 + jet lemma)",
+  "statement": "Even-multiplicity jets under dH/dt = -H_xx are scaled Hermite polynomials with all roots real forward in t (no lift-off); with de Bruijn's landing rate this is the architecture Lambda <= t_0 + Delta^2/2. Classical; gives no bound beyond verification height.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_winding_thread_closed_corrected.md",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mem-sg1c-c-half",
+  "type": "identity",
+  "name": "Isolation onset c_glob = c_half = 0.8980208880762339",
+  "statement": "Unique (0,1) root of R(rho) = 4 + 4 rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)]; the half-lattice majorant telescopes exactly, so R is the universal sharp bound on d_1^2 d rho/ds and every globally-minimal-pair configuration self-improves for rho < c_half.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_sg1c_isolation_tie_artifact.md; src/data/sg1c-cglo-closure-2026-08-28.js",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "mem-sg1c-r1-transfer",
+  "type": "open-lemma",
+  "name": "sg1c R1 minimality transfer",
+  "statement": "Open: transfer of the minimal-pair isolation statement (R2, closed at c_half) to the R1 minimality hypothesis for actual zero configurations. Basin margin to Theorem C threshold 0.72 is 0.178.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "mem:project_sg1c_isolation_tie_artifact.md",
+  "tags": [
+   "heat-flow",
+   "vortex"
+  ]
+ },
+ {
+  "id": "mem-gronwall-backward-kh",
+  "type": "open-lemma",
+  "name": "Gronwall backward-flow stability of Koksma-Hlawka uniformity",
+  "statement": "Proposed theorem (imp-2520): propagate t=0 Koksma-Hlawka uniformity of zero ordinates along the backward flow to an explicit per-N collision bound (about 1.9e-4 at N=1e6), bypassing C_mb, GUE input and OLS projection. Finite-height statement.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fable_referee_audit_2026-06-09.md",
+  "tags": [
+   "heat-flow",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "mem-esy-obstacles",
+  "type": "obstruction",
+  "name": "ESY rigidity port: obstacles O1-O3",
+  "statement": "O1 arithmetic concentration; O2 forward Dyson Brownian motion vs backward de Bruijn flow (ill-posed backward heat equation); O3 high-probability ensemble vs one deterministic sequence (needs Bourgade-type equidistribution). All live ESY-closure routes share the Montgomery pair-correlation obstruction.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_esy_obstacle_audit_track.md; mem:project_v52_audit_pattern.md",
+  "tags": [
+   "pair-correlation",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-volterra-norm",
+  "type": "obstruction",
+  "name": "Volterra norm ||V_{a,Phi}|| <= 1",
+  "statement": "True only for a <= a* (31.62 canonical kernel, 37.66 surrogate), false above; the section-27 identity (||V|| <= 1 iff K_a >= 0) is refuted in both directions; the 5000x margin is a homogeneity artifact (||V_{c Phi}|| = c^2 ||V_Phi||). Passive-norm target is RH-equivalent. Row P20.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_volterra_collapse_2026-05-28.md; imp-2666, imp-2660",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "bridge"
+  ]
+ },
+ {
+  "id": "mem-v52-conjecture-audit",
+  "type": "obstruction",
+  "name": "Twin-ladder v52 conjectures 15.2, 15.4, 17.3, 18.4, 22.4 are RH restatements",
+  "statement": "Shift contractivity (15.2), Re(xi'/xi) > 0 via paired Hadamard (15.4), ghost absence (17.3), Weil-Pontryagin (18.4), zero bridge thickness (22.4) are each equivalent to RH. Unaudited with nontrivial content: 15.3, 16.4, 16.6, 18.1, 18.2 (Hilbert brackets, canonical-system closures, KYP realisations).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_v52_audit_pattern.md; src/data/paper-audit-dashboard.js",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-v52-unaudited-kyp",
+  "type": "open-lemma",
+  "name": "Unaudited v52 constructive claims 15.3, 16.4, 16.6, 18.1, 18.2",
+  "statement": "Constructive existence claims for Hilbert-space brackets, canonical-system closures and KYP (bounded-real) realisations in the twin-ladder paper; not yet classified as RH-equivalent, literature, or new. Later correction PRs 31-37 revised KYP and de Branges page statuses.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "mem:project_v52_audit_pattern.md; mem:reference_user_rh_route_atlas.md",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "bridge"
+  ]
+ },
+ {
+  "id": "mem-conj-22-1",
+  "type": "obstruction",
+  "name": "Conjecture 22.1 (frozen-ladder usefulness)",
+  "statement": "A numerics-benchmark claim, independent of RH in both directions. Strong reading false: coefficient-dimension obstruction D >= 1.24e13 (imp-3932); window escapes pinned to the Odlyzko-Schonhage Nyquist floor; frozen-rung iff PT inertia theorem closes the verification channel. Row P30.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:feedback_rh_scaleup_comprehensive_attack.md; mem:project_flow_blindness_and_T3_strip.md",
+  "tags": [
+   "twin-ladder",
+   "lambda"
+  ]
+ },
+ {
+  "id": "mem-np-seam-pencil",
+  "type": "identity",
+  "name": "LEMMA PICK-ID / SGN-NP: Nevanlinna-Pick matrix = seam pencil",
+  "statement": "The half-plane Nevanlinna-Pick matrix for data w_i = e^{-d nu_i} equals entrywise the seam pencil rho^2 G - D G D (Szego kernel at real nodes = Cauchy Gram); the signed shift constant Lambda is the squared minimal H^inf(C_+) interpolant norm exactly. Multiplier route terminal.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; src/data/imp-95226-np-exact-signed-shift-constant.js",
+  "tags": [
+   "pick",
+   "twin-ladder",
+   "bridge"
+  ]
+ },
+ {
+  "id": "mem-sgn-2x",
+  "type": "identity",
+  "name": "SGN-2X: exact two-rate signed constant",
+  "statement": "Lambda_2 = w_1 w_2 + h^2/2 + (h/2) sqrt(h^2 + 4 w_1 w_2), h = (w_1 - w_2)(nu_1 + nu_2)/(nu_2 - nu_1). Coalescence law: Lambda_2 -> e^{-2x}(1 + 2x^2 + 2x sqrt(1+x^2)). Witness (1,2,ln 2): (13 + 3 sqrt17)/32.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md",
+  "tags": [
+   "pick",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-sgn-sat-no-depth-only",
+  "type": "obstruction",
+  "name": "SGN-SAT / DC-NOGO: no depth-only signed certificate",
+  "statement": "Co-centred signed sup R = 1/2 at every fixed depth; any signed bound R <= F(y_min) forces F >= 1/2. Exact rational witness N=2 refutes R <= e^{-y_min} for multi-rate signed families (factor 3/2). Certificates must be priced by count, weight, or modulus/phase.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95224",
+  "tags": [
+   "pick",
+   "twin-ladder",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "mem-coal-n-laguerre",
+  "type": "identity",
+  "name": "COAL-N: N-fold coalescence law via Blaschke-Newton interpolant",
+  "statement": "For at most N rates in [nu, R nu], depth d, x = nu d: sqrt(Lambda) <= e^{-x}[L_{N-1}(-2Rx) + 2 sum_{k<=N-2} L_k(-2Rx)]; no separation denominators. Two-sided at R=1: sqrt(Lambda_conf) = e^{-x}(2x)^{N-1}/(N-1)! (1+o(1)).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; src/data/imp-95251-nfold-coalescence-law.js",
+  "tags": [
+   "pick",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-tilt-det",
+  "type": "identity",
+  "name": "TILT-DET: exponential tilt + Cauchy determinant majorant",
+  "statement": "Lambda(P,d) <= e^{-2sd} prod_{i,j} (p_i+p_j)/(p_i+p_j-2s) for any 0 < s < min P. All separation factors cancel: valid at coalescence, for arbitrary (off-lattice) rate sets, m-uniform on geometric lattices. Onset 15.48 (m=16, r=1.1).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95499",
+  "tags": [
+   "pick",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-defl-orth-n",
+  "type": "identity",
+  "name": "DEFL-ORTH-N: collar-free block deflation",
+  "statement": "E_{V1 u ... u Vm} = orthogonal sum of B_{U_k} E_{V_k} (U_k later blocks; inner multiplication a Gram isometry); max_k LambdaPerp_k <= Lambda <= sum_k LambdaPerp_k, each LambdaPerp_k <= 1. Every-octave onsets 1.70/3.44/3.56 at m=2/6/16. Collared multi-block reduction is vacuous for N >= 3.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95498",
+  "tags": [
+   "pick",
+   "twin-ladder",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "mem-rz-pen",
+  "type": "identity",
+  "name": "RZ-PEN: r-uniform block symbol pencil",
+  "statement": "2x2 pencil in the (1,+-1) basis: det = (f_a^2 - |f_b|^2)/tanh^2(b/2); the pair identity sin^2(pi tau) cancels the tanh^2(b/2) normalisation. A_pen >= (16/a^2) W(rho) for r in (1, sqrt rho]; full (1,rho) uniformity impossible. Pointwise programme terminal.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md",
+  "tags": [
+   "pick",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "mem-theorem-aw-alias-weight",
+  "type": "obstruction",
+  "name": "THEOREM AW: alias-grid octave weight diverges",
+  "statement": "Alias grid = punctured lattice {n/p : n <= pD, p not dividing n}; width law mu(d) = d^{1/3}/c (beta = 1/3); octave weight (5/32)(pD)^{2/3} <= W(p,D) <= (28/3)(pD)^{2/3}. Bounded weight iff width exponent > 1. Exact identity x(D/2) = 1/Q.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95220",
+  "tags": [
+   "twin-ladder",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-lemma-ng-collar",
+  "type": "obstruction",
+  "name": "LEMMA NG: centre-collar hypothesis cannot give seam localisation",
+  "statement": "Dressed packets |t-c|^k e^{-mu|t-c|} lie in the L^2 closure of the class with cross-seam mass Qbar(2k+1, 2 mu d)/2 -> 1/2; 7-node witness 0.49999999888. A hypothesis must cap per-block rate dressing (mass profile), not position.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md",
+  "tags": [
+   "twin-ladder",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-ballast-live-residuals",
+  "type": "open-lemma",
+  "name": "Signed-certificate chain: open residuals",
+  "statement": "Open: off-lattice rates for the every-octave certificate; large-a uniform branch; map from the seam cap gammaSL(g) = 1/2 + g^2/2 + O(1/kappa) to the chain gate; signed weight / modulus-phase pricing; Fresnel-Airy envelope port (imp-95212) for the fixed-amplitude 1/p alias family.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "mem:project_imp95171_pending_cover_imp95172_tradeoff.md",
+  "tags": [
+   "twin-ladder",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-qrh-7-8",
+  "type": "identity",
+  "name": "Zero-free half-plane Re s > 7/8 (openai/math family 003)",
+  "statement": "zeta, every Dirichlet L-function and finite-order Hecke L over Q(sqrt -3) are zero-free in Re s > 7/8; Lean statement OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re checked locally (2924 modules, 0 sorry, standard axioms). Follow-ups reach about 0.87488665. External claim, not peer-reviewed.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "theta",
+   "metaplectic",
+   "lean",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-abscissa-formula",
+  "type": "identity",
+  "name": "7/8 method abscissa sigma_0 = 5/6 + (M - 2l)/12",
+  "statement": "In the method family the zero-free abscissa is 5/6 + (M-2l)/12; binding items: Lemma 15.1 dual length, Lemma 20.2 critical bin (slack 2.28e-4), and the P_a^{1/6} exceptional term of Prop 15.2. Row Z15 gives B >= 5/6 for r=6.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md; beat78-prop152-2026-10-09.js",
+  "tags": [
+   "zero-free",
+   "theta",
+   "metaplectic",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-xi6-duality",
+  "type": "obstruction",
+  "name": "Exceptional coset duality: xi^6 = 1",
+  "statement": "The exceptional coset producing the P_a^{1/6} term exists exactly when xi^6 = 1, the same condition that produces the high-side signal; subtract, Holder and restrict all fail. PR 14 sixth-phase filter retains eigenvalue one for the same reason. Rows Z9, Z1.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md; mem:reference_user_rh_route_atlas.md",
+  "tags": [
+   "zero-free",
+   "theta",
+   "metaplectic",
+   "hecke"
+  ]
+ },
+ {
+  "id": "mem-xu-sang-ceiling",
+  "type": "identity",
+  "name": "Xu-Sang system ceiling B* = 49619/53814 - sqrt(715621)/17938",
+  "statement": "B* about 0.87488665 is the optimum of the Xu-Sang estimate system (equals the PR 14 Mobius-energy value). Cubic R2 conductor a = 4 closes the cubic lever. Row Z10.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md; mem:reference_user_rh_route_atlas.md",
+  "tags": [
+   "zero-free",
+   "large-sieve",
+   "theta"
+  ]
+ },
+ {
+  "id": "mem-v7-floor-reduction",
+  "type": "mechanism",
+  "name": "V7 discrepancy floor to zero-free region: p -> (1+p)/2",
+  "statement": "If eps_0(lambda) >= -C (1 + log lambda)^m lambda^p then zeta is zero-free for Re s > (1+p)/2. Direct attempts stopped at the one-sided Landau/V7 floor with p = 0, i.e. the all-scale signed arithmetic estimate is the open item.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_user_rh_route_atlas.md; refs/pr/27:research/rh/modules/historical-routes.md",
+  "tags": [
+   "zero-free",
+   "explicit-formula",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mem-atlas-closing-line",
+  "type": "open-lemma",
+  "name": "Atlas open tasks: signed all-scale estimate / cofinal form floor / theta collision certificate",
+  "statement": "The route atlas ends on three open items: an all-scale signed arithmetic estimate; a cofinal floor for the actual quadratic form; an exhaustive theta collision certificate. Uniform positive scalar margin is recorded as the wrong target (section 11).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_user_rh_route_atlas.md",
+  "tags": [
+   "explicit-formula",
+   "theta",
+   "weil"
+  ]
+ },
+ {
+  "id": "mem-sextic-theta-squarefree",
+  "type": "open-lemma",
+  "name": "Sextic theta coefficients at squarefree indices / 6-fold Patterson-type identity",
+  "statement": "A 6-fold analogue of Patterson's cubic identity determining sextic Kubota theta coefficients at squarefree indices would remove the P_a^{1/6} loss; modelled abscissa about 0.864. Equivalent in the campaign to TRO6 (power saving for sextic theta correlations with cubic rows). Rows Z1-Z8.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md; src/data/sextic-theta-campaign-2026-11-03.js",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "hecke",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "mem-new-probe-non-sextic",
+  "type": "open-lemma",
+  "name": "A high-side probe not built from sextic characters",
+  "statement": "Listed remaining lever against 7/8: better high-side row counts near delta about 0.39 with slack range 2M >= 1 + 3l, or a probe whose exceptional coset is not tied to xi^6 = 1. Row Z14: row order nu(r) = 3 iff r = 6.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md",
+  "tags": [
+   "zero-free",
+   "metaplectic",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-lambda-theta-table",
+  "type": "measured-phenomenon",
+  "name": "Conditional Lambda(theta): 0.01 in theta is about 0.003 in Lambda near 7/8",
+  "statement": "With the barrier start q0 = (2 theta - 1)^2 + 2e-6: Raymond chain 0.118505710922701 (7/8), 0.129826 (11/12); re-tuned 0.116091488672439 (Lean-checked modulo five named hypotheses). Lambda < 0.10 needs theta about 0.815. Fixed-t0 bounds do not move. Row F4.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:reference_openai_math_release.md; formalization/lean/qrh-lambda",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free",
+   "lean"
+  ]
+ },
+ {
+  "id": "mem-landau-siegel-uniform",
+  "type": "identity",
+  "name": "Uniform Landau-Siegel exclusion (openai/math)",
+  "statement": "Claimed in the same release: 1 - beta >= c/log q with ineffective c for real zeros of Dirichlet L-functions; also two-point Chowla (007) and large prime gaps (026). External claims; not verified locally.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:reference_openai_math_release.md",
+  "tags": [
+   "zero-free",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-wol-c",
+  "type": "open-lemma",
+  "name": "WOL-C weak outer lemma at P47",
+  "statement": "sup(Phi - K0*) <= -0.0015629 on all 369 open P47 floors (two implementations, no violation); best proof methods give margins >= 0.0748 against a needed 0.0436 (0.0223 for WOL-C). Gap is proof looseness; needs a new label representation. Row F6.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_goal_sub0145_and_ref_check.md",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mem-route-p-ledger",
+  "type": "measured-phenomenon",
+  "name": "Route P ledger at Platt-Trudgian height",
+  "statement": "Certified 0.145276368594868 (3-band, two-point kernels, 255/369 floors); projection at targets 0.144962. Route H: RH to 4.80e12 gives 0.14497 at about 5.7e6 core-hours. Each value is a function of verified height; no zero information.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md; mem:project_goal_sub0145_and_ref_check.md",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mem-kkl-x0",
+  "type": "measured-phenomenon",
+  "name": "Explicit KKL threshold x0(t) ~ 4 pi exp(c/t), c about 5.3-5.8",
+  "statement": "Route 20: covers only t >= 0.217 at X = 6e12. Route 50: beating route P at PT height needs c <= 3.912; the triangle method has c > 4.914.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-local-window-substitution",
+  "type": "mechanism",
+  "name": "One local RH window replaces contiguous verification",
+  "statement": "Route 6 / Lemma B: a FLINT-isolated local window (21,665 zeros near 7.8e12, re-certified via Riemann-Siegel signs + Trudgian Thm 2.2) substitutes for about 1.7e12 units of contiguous verification inside the band-barrier framework.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md; mem:project_goal_sub0145_and_ref_check.md",
+  "tags": [
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mem-lambda-p-head-pinned",
+  "type": "obstruction",
+  "name": "Mollifier coefficients lambda_p are head-pinned",
+  "statement": "The n = p terms freeze the prime coefficients of the mollifier; single-prime lanes are irreducible. Fixed-height mollifier lever capped near 0.174 (measured rho = 1.1151). Finite-lane length trades against t0 via D(sigma_1), sigma_1 = (1+y)/2 + (t/2) log N*.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_mollifier_scout_stage0.md",
+  "tags": [
+   "mollifier",
+   "lambda",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-profile-sector-excision",
+  "type": "tool",
+  "name": "Profile-sector reduction + excision budget (y-transfer)",
+  "statement": "Termwise monotonicity in y is false for the 287-divisor 17-smooth mollifier; realisable active sets reduce to 20,546 profiles; L_N(y) >= L_N(y0) - B with B = sum cnt * supmass = 2.4957e-4 < margin 1.872e-3 (Arb, 256-bit). Gives Lambda <= 0.1758354 pending sign-off.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_ytransfer_excision_budget.md; mem:project_mollifier_scout_stage0.md",
+  "tags": [
+   "mollifier",
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "mem-etrunc-kappa",
+  "type": "identity",
+  "name": "E_trunc at the PT anchor: kappa = 2/5, prefactor 2/kappa = 5",
+  "statement": "At fixed sigma = 3/4, T_PT = 3e12 the locked exponent is kappa = 2/5; boundary term vanishes by N_off(T_PT) = 0; E_trunc_pt = 5.106e-5. Requirement curve A_max(B) = 3917/124.5/3.92/0.490 at B = 0/1/2/2.6; cap (2 beta - 1)^2/2 forces sigma <= 0.8162.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_etrunc_pt_anchor_reclassification.md",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "mem-sigma-landmark-homogeneity",
+  "type": "identity",
+  "name": "Crossing elasticities sum to zero by degree-0 homogeneity",
+  "statement": "E_N = E_trunc + E_flow + E_coll, sigma = E_coll/E_N: scaling all three amplitudes leaves sigma and the crossing N_L invariant, so E_CC + E_ET + E_CF = 0 and E_CF/E_ET = E_flow/E_trunc.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_sigma_landmark_elasticity_additivity.md",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "mem-saddle-ratio-moments",
+  "type": "measured-phenomenon",
+  "name": "Exact-saddle moment ratio R_n crosses 1 at n* = 215.2",
+  "statement": "For moments of A(tau) = int Phi(s) Phi(s+tau) ds: R_n = |D_n|/|D_n^saddle| crosses 1 at n* = 215.231, well r_min = -5.845e-4 near n about 500, eps_n changes sign at n about 149. A is supported on [0, about 1.4].",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "mem:project_saddle_ratio_inner_quadrature_axis.md",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-fifth-pair-degeneracy",
+  "type": "measured-phenomenon",
+  "name": "Fifth-pair Gram degeneracy: spread is a few-ULP floor",
+  "statement": "|lambda_9 - lambda_10|/lambda_9 = 0, 0, 1.97e-16, 1.38e-15, 1.96e-15, 1.96e-15 at N = 1200..2400 (dips at 2400); sigma_4 = lambda_9/lambda_1 climbs toward 1 (0.99876/0.99897/0.99914). Exact pairing of Gram eigenvalues; amplitude law of sigma_4 unmeasured.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "mem:project_fifth_pair_spread_floor_ladder.md",
+  "tags": [
+   "twin-ladder",
+   "pick"
+  ]
+ },
+ {
+  "id": "mem-family-average-euler-blind",
+  "type": "obstruction",
+  "name": "Character-family average certified to 2a ~ 2 log q but Euler-blind",
+  "statement": "Route 14: Weil positivity averaged over a character family is certified to support 2a about 2 log q; the identity holds with Lambda replaced by other functions, so it does not use the Euler product. Row P23.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md",
+  "tags": [
+   "weil",
+   "hecke",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-epstein-radii",
+  "type": "measured-phenomenon",
+  "name": "Epstein zeta radii for 27 forms",
+  "statement": "Route 15: upper bounds on off-line radii certified for 27 Epstein forms; lower ends hold in the even sector only (referee correction). A control family with functional equation and no Euler product for class number > 1.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md",
+  "tags": [
+   "torus",
+   "hecke",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-fifty-routes-verdict",
+  "type": "obstruction",
+  "name": "Fifty-routes synthesis: four walls",
+  "statement": "43 done, 6 partial. 22 routes reduce to verified height, RH-equivalence, the pointwise wall, or flow-blindness; 18 produced new objects, none at RH level; only routes 1, 3, 5, 9 moved a certified Lambda value.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md; formalization/routes/fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "lambda",
+   "weil",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "mem-pointwise-hilbert-wall",
+  "type": "obstruction",
+  "name": "Pointwise wall: Dirichlet polynomial / Hilbert transform at a single height",
+  "statement": "Recurring end point: the argument needs a pointwise (single-height) bound on a prime Dirichlet polynomial or its Hilbert transform, where only mean values are available. Matches MV-CAP and row S4 (one-sided head bound L3) and Q13.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; mem:feedback_rh_scaleup_comprehensive_attack.md",
+  "tags": [
+   "explicit-formula",
+   "large-sieve",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-chi4-signed-ladder",
+  "type": "identity",
+  "name": "Signed twin ladder = chi_4: G = L(2, chi_4)",
+  "statement": "Sign flip on the ladder is the character chi_4: chi_4(2) = 0 deletes the p=2 rung, p = 3 mod 4 alternates, p = 1 mod 4 none; self-dual functional equation with epsilon = +1. Period obstruction: zeta kernel gives 5 zeta(2) - 8 (dim 2), Catalan kernel G - pi + 2 ln 2 + pi^2/12 (dim 5).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:project_catalan_signed_ladder.md; src/data/catalan-signed-ladder.js",
+  "tags": [
+   "twin-ladder",
+   "hecke",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "mem-gilbreath-lock",
+  "type": "identity",
+  "name": "Gilbreath lock certificate",
+  "statement": "Lemmas A/B/C: Gilbreath's conjecture is equivalent to some finite row of the absolute-difference triangle having its entire infinite tail in {0,2}; lockCertificate computes the provable depth. Open half isolated; no proof claimed.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "mem:project_handoff_2026-06-09.md; src/math/gilbreath.js",
+  "tags": [
+   "visualization"
+  ]
+ },
+ {
+  "id": "mem-aristotle-atp",
+  "type": "tool",
+  "name": "Aristotle (Harmonic) autoformalisation",
+  "statement": "CLI returns only kernel-verified Lean proofs. First result: expSum_hasDerivAt (finite exponential sum differentiable termwise), discharging hypothesis hA of DiniGate.summand_antitone. Toolchain v4.28 vs repo v4.22; basic Mathlib proofs transfer.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "mem:reference_aristotle_autoformalization.md",
+  "tags": [
+   "lean",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mem-campaign-metric-r1-r4",
+  "type": "tool",
+  "name": "Requirement score R1-R4 for attack lanes",
+  "statement": "R1 multiplicativity used essentially; R2 height-uniform, every window; R3 controls fail for a structural reason; R4 reaches the critical line. The 7/8 architecture scores 3 (lacks R4). Used with three referees on any lane scoring >= 3.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "mem:project_rh_idea_engine.md",
+  "tags": [
+   "zero-free",
+   "euler-product"
+  ]
+ }
+]

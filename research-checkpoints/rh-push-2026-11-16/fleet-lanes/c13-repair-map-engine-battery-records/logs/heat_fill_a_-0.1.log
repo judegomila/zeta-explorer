@@ -1,0 +1,9 @@
+grid (61, 79700) t range 8.0125 2000.4875000000002 max |Im G| / |G| on the axis 7.26256444187442e-34
+on-line sign changes (step 0.025) below 2000: 1435; table: 1435
+table on-line zeros without a sign change here: [np.float64(1309.2575333314303), np.float64(1919.0493166947053), np.float64(1919.0662844709934)] 3 ; sign changes not in the table: [np.float64(1309.2422999822825), np.float64(1919.0593356448994), np.float64(1919.0639693475964)] 3
+max phase step on the right side X = 3: 0.074 rad
+cut rows: 400, worst horizontal phase step on a cut: 0.085 rad
+boxes 399; worst |count - integer| 2.43e-12; total count 1517; on-line 1435; table pairs 41; sum of deficits 0
+boxes with deficit != 0: 0 odd deficits: 0
+cells with winding != 0 (X >= 0.05): 35 (values [1])
+axis local minima without sign change: 43

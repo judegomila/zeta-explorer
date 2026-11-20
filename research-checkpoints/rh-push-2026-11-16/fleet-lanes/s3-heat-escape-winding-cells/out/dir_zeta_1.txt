@@ -1,0 +1,3 @@
+zeta 1.0 D zero 0.4546140255381983 29039.346048360625 -> z_model [nan, nan] z_true [nan, nan] dist nan
+zeta 1.0 D zero 0.4494926735550168 48364.32341367256 -> z_model [nan, nan] z_true [nan, nan] dist nan
+zeta 1.0 D zero 0.43189675726515503 41341.165150622925 -> z_model [nan, nan] z_true [nan, nan] dist nan

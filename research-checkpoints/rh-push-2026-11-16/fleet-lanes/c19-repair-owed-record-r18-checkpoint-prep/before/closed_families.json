@@ -1,0 +1,345 @@
+[
+ {
+  "id": "fam-legendre-dual-limits",
+  "closedBy": "e1-cofinal-legendre-dual",
+  "name": "Limits or compactness of optimal Legendre-LP duals",
+  "all": [
+   "legendre",
+   "dual|\\bLP\\b|cofinal|compact"
+  ]
+ },
+ {
+  "id": "fam-torus-exclusion-sign-test",
+  "closedBy": "e1-rs-torus-laguerre-orbit",
+  "name": "Prime-torus exclusion sets for the Riemann-Siegel main sum with Laguerre/Turan sign tests",
+  "all": [
+   "torus|riemann-siegel main sum",
+   "laguerre|tur[a\\xe1]n|jensen"
+  ]
+ },
+ {
+  "id": "fam-one-zero-forces-many",
+  "closedBy": "e1-sparse-recurrence-amplifier",
+  "name": "Amplifiers \"one off-line zero forces many\" via Bohr sets, Kronecker or universality",
+  "all": [
+   "strong[- ]recurren|universality|bohr set|almost[- ]period",
+   "off-line zero|forces|returns|RH is equivalent|equivalent to RH"
+  ]
+ },
+ {
+  "id": "fam-selberg-control-companion",
+  "closedBy": "e1-selberg-twist-control",
+  "name": "Selberg/Ruelle zeta as control with functional equation or as companion in Theorem PC",
+  "all": [
+   "selberg[- ]zeta|ruelle|selberg-(zeta|control|freeze|phase)",
+   "control|companion|theorem pc|pole[- ]coupling"
+  ]
+ },
+ {
+  "id": "fam-nb-gram-lammin",
+  "closedBy": "e1-nb-gram-period-transfer",
+  "name": "Smallest eigenvalue of Nyman-Beurling Gram matrices; period-function recursion on Gram entries",
+  "all": [
+   "vasyunin|nyman",
+   "gram",
+   "lam(bda)?_?min|smallest eigen|period[- ]function"
+  ]
+ },
+ {
+  "id": "fam-vaughan-split-landau",
+  "closedBy": "e1-forcing-free-bilinear-split",
+  "name": "Vaughan/Heath-Brown splits or mollifiers feeding the one-sided Landau target",
+  "all": [
+   "vaughan|heath-brown|type[- ]i\\b|bilinear split",
+   "landau|one-sided"
+  ]
+ },
+ {
+  "id": "fam-order2-theta-rows",
+  "closedBy": "e1-gl3-theta-order2-rows",
+  "name": "Order-2 versions of the 7/8 mechanism via theta or half-integral weight forms",
+  "all": [
+   "order[- ]2|order two|half-integral|double cover|h ?= ?r/2",
+   "theta|half-integral|kubota|double cover"
+  ]
+ },
+ {
+  "id": "fam-euler-anchor-heat",
+  "closedBy": "e1-euler-anchor-heat-certificate",
+  "name": "Heat-time certificates anchored in the Euler region without S transport",
+  "all": [
+   "euler[- ]anchor|anchor(ed)? (in|with) (the|an) euler",
+   "heat"
+  ]
+ },
+ {
+  "id": "fam-heat-monotone-hankel",
+  "closedBy": "e1-burgers-cascade-anticausal",
+  "name": "Heat-monotone functionals of the anticausal Hankel block or of zero configurations",
+  "all": [
+   "anticausal|gamma_-|hankel",
+   "burgers|heat|monoton|flow"
+  ]
+ },
+ {
+  "id": "fam-arithmetic-nb-span",
+  "closedBy": "e1-heegner-averaged-nb-span",
+  "name": "Nyman-Beurling spans chosen by an arithmetic family with the ratio as measured quantity",
+  "all": [
+   "heegner|cm point|n[e\\xe9]ron",
+   "nyman|\\bNB\\b|span"
+  ]
+ },
+ {
+  "id": "fam-hecke-shear-commutator",
+  "closedBy": "c1-shear-hecke-fricke",
+  "name": "Hecke operators commuted with a Gaussian shear or heat factor (identity, not inequality)",
+  "all": [
+   "hecke",
+   "shear|fricke",
+   "commut|defect|tau ?-> ?0"
+  ]
+ },
+ {
+  "id": "fam-stage-limit-semicontinuity",
+  "closedBy": "c1-leeyang-krein-limit",
+  "name": "Limit of zero-free product stages by Krein-index semicontinuity or Hurwitz",
+  "all": [
+   "lee-yang|stage",
+   "krein|semicontinu|hurwitz",
+   "limit"
+  ]
+ },
+ {
+  "id": "fam-primitive-test-restriction",
+  "closedBy": "c1-spinor-hecke-primitive",
+  "name": "Restriction of a translation-invariant form (Weil, Q_L) to Hecke-primitive tests",
+  "all": [
+   "primitive",
+   "weil|q_l|hecke",
+   "test"
+  ]
+ },
+ {
+  "id": "fam-linear-zero-measure-lmi",
+  "closedBy": "c1-window-sdp-scaling",
+  "name": "Positivity LMI linear in the zero measure coupled to the explicit formula",
+  "all": [
+   "\\blmi\\b|\\bsdp\\b|semidefinite",
+   "pick",
+   "explicit formula|explicit-formula|zero measure"
+  ]
+ },
+ {
+  "id": "fam-multidelay-section",
+  "closedBy": "c1-multidelay-bohr-section",
+  "name": "Jointly passive multi-delay sections of the prime chain",
+  "all": [
+   "multi-?delay|joint(ly)? (inner|passive|contractive)",
+   "section|prime chain|cascade"
+  ]
+ },
+ {
+  "id": "fam-pd-log-strip",
+  "closedBy": "c1-pd-log-strip",
+  "name": "Positive-definiteness of log zeta on vertical lines left of the pole",
+  "all": [
+   "positive[- ]definite",
+   "log (zeta|F)\\b|log-zeta",
+   "strip|sigma|line"
+  ]
+ },
+ {
+  "id": "fam-euler-product-at-zeros",
+  "closedBy": "c2-euler-at-zeros",
+  "row": "P41",
+  "name": "Partial Euler products sampled at the zeros (depletion / Landau-Gonek diagonal)",
+  "all": [
+   "partial euler product|truncated euler product|finite euler product|euler stage|zeta_S\\b|euler multiplier",
+   "(sampled|evaluated|summed|sum) (at|over) (the |its )?(nontrivial |non-trivial )?zeros|at the zeros of|over (the )?zeros in a window|landau-gonek|deplet"
+  ]
+ },
+ {
+  "id": "fam-projection-domination-gonek",
+  "closedBy": "c2-projection-domination-gonek",
+  "row": "P42",
+  "name": "Window-local projection domination of an off-line pair with the smoothed Landau-Gonek identity",
+  "all": [
+   "projection[- ]dominat|on-line projection|dominat\\w* (by|of) (its|the) (on-line )?projection",
+   "landau-gonek|gonek|explicit[- ]formula|prime sum|von mangoldt|Lambda\\(n\\)|euler[- ]product"
+  ]
+ },
+ {
+  "id": "fam-cutoff-hecke-commutator",
+  "closedBy": "c2-cutoff-hecke-defect",
+  "row": "G25",
+  "name": "Commutator of the cutoff Q_c with Hecke dilations (window defect, square-root form)",
+  "all": [
+   "cut-?off|\\bQ_c\\b|window defect",
+   "hecke|dilation",
+   "commutat|\\[Q_c"
+  ]
+ },
+ {
+  "id": "fam-rotation-invariant-stage-bound",
+  "closedBy": "c2-polydisc-leeyang-bound",
+  "row": "Q21",
+  "name": "Rotation-invariant stage tools as a size bound for Euler stages (polydisc stability, multi-affine Lee-Yang, Grace-Walsh-Szego, Asano, Borcea-Branden, Ruelle radius)",
+  "all": [
+   "polydisc|multi-?affine|grace-walsh|asano|borcea|ruelle radius|lee-yang (radius|property|circle)|stable polynomial",
+   "euler stage|stage|partial euler|truncated euler|finite euler|prime chain",
+   "bound|size|stabil"
+  ]
+ },
+ {
+  "id": "fam-jcontractive-multidelay-lft",
+  "closedBy": "c2-jinner-multidelay-lft",
+  "row": "Q22",
+  "name": "J-contractive linear-fractional sections of the prime chain in several delays",
+  "all": [
+   "j-(inner|contractive|unitary|expansive)|linear-fractional|potapov",
+   "several delays|multi-?delay|multiple delays|delays? (p\\^|at each prime)|prime chain|polydisc",
+   "section|factor|chain"
+  ]
+ },
+ {
+  "id": "fam-pole-lattice-multiplier",
+  "closedBy": "c3-lemmab-referee-dh-poisson",
+  "row": "P43",
+  "name": "Pole-lattice test multipliers (Lemma B, theta-family and shifted forms) as a route to an inequality",
+  "all": [
+   "pole[- ]lattice|periodi[sz]ed (explicit formula|prime measure|prime sum)|S-periodi[sz]ed|2 ?pi ?i ?k ?/ ?log ?p|lemma b\\b.{0,80}(explicit|residue|pole)",
+   "explicit formula|explicit-formula|weil|positiv|multiplier|residue"
+  ]
+ },
+ {
+  "id": "fam-lemmab-sup-bound-halfplane",
+  "closedBy": "c3-lemmab-halfplane-growing-s",
+  "row": "P43",
+  "name": "Lemma B with sup bounds on vertical lines (7/8 half-plane as input, S growing with T)",
+  "all": [
+   "pole[- ]lattice|periodi[sz]ed (explicit formula|prime measure|prime sum)|S-periodi[sz]ed|2 ?pi ?i ?k ?/ ?log ?p",
+   "7/8|seven-eighths|half-plane|sup bound|vertical line|zero-free"
+  ]
+ },
+ {
+  "id": "fam-fixed-point-onesided-in-p",
+  "closedBy": "c3-fixedt-growingp-onesided",
+  "row": "T2",
+  "name": "One-sided bounds in P at a fixed strip point (twisted form of T2/P10)",
+  "all": [
+   "one-sided",
+   "fixed (s\\b|point|strip point)|one fixed point|single strip point",
+   "in P\\b|all P\\b|P ?-> ?inf|growing P|as P grows|euler stage|partial (euler )?product|renormalised (stage|prime sum)"
+  ]
+ },
+ {
+  "id": "fam-reflected-euler-stage-canonical",
+  "closedBy": "c3-twinladder-prime-built-chain",
+  "row": "G10",
+  "name": "Truncated Euler products reflected about Re s = 1/2 as de Branges, Pontryagin or canonical-system stages",
+  "all": [
+   "prime-built|euler stage|truncated euler product|partial euler product|finite euler product|\\bE_X\\b",
+   "de branges|hermite-biehler|pontryagin|canonical system|hamiltonian|negative squares"
+  ]
+ },
+ {
+  "id": "fam-tail-generic-selector",
+  "closedBy": "c3-helson-tail-fe-selector",
+  "name": "Tail, generic, almost-everywhere and rotation-invariant selectors on T^inf",
+  "all": [
+   "helson|tail[- ](set|measurable|event|sigma)|almost[- ]every(where)?|\\ba\\.e\\.|generic|comeagre|haar[- ]null|rotation-invariant",
+   "T\\^inf|prime torus|bohr torus|infinite torus|polytorus|infinite-dimensional torus",
+   "select|exceptional set|sort|separat|characteri[sz]"
+  ],
+  "unless": "twisted sums?|additive(ly)? twist|additive character|e\\(a ?n ?/ ?q\\)"
+ },
+ {
+  "id": "fam-rs-halfsum-hermite-biehler",
+  "closedBy": "c3-rs-matched-halfsum-hb",
+  "name": "Riemann-Siegel half-sum Hermite-Biehler variants at matched height (smooth cut-off, Gabcke terms, unequal lengths); mollified pivot is row P27",
+  "all": [
+   "half-sum|riemann-siegel (main|half)|main sum|sum_\\{?n ?<= ?N\\}? ?n\\^",
+   "hermite-biehler|right zeros|zeros (in|to the) right|levinson|interlac"
+  ]
+ },
+ {
+  "id": "fam-fixed-window-count-rigidity",
+  "closedBy": "c3-multiwindow-converse-defect",
+  "row": "S12",
+  "name": "Window functional-equation rigidity with a fixed number of windows",
+  "all": [
+   "window",
+   "functional[- ]equation",
+   "rigidity|converse|uniqueness",
+   "euler cone|unimodular (euler|twist|phase)|window (test|defect|count)"
+  ],
+  "unless": "riemann-siegel length|sqrt\\(T"
+ },
+ {
+  "id": "fam-jcontractive-several-delay-joint",
+  "closedBy": "c3-repair-map-theorem-a",
+  "row": "Q22",
+  "name": "Jointly J-contractive several-delay sections (lead 20); open only: boundary nodes of R_a (a >= 1/2), Reinhardt-shell sections, sections containing the gamma term",
+  "all": [
+   "joint(ly)?",
+   "j-(inner|contractive)|contractive|passive|schur",
+   "several[- ]delay|multi-?delay|delays"
+  ],
+  "unless": "reinhardt|gamma term"
+ },
+ {
+  "id": "fam-helson-discrepancy-zerofree",
+  "closedBy": "c4-helson-discrepancy-zerofree",
+  "row": "P46",
+  "name": "Power-saving discrepancy of partial sums of a completely multiplicative unimodular chi as a source of a zero-free region (relative to zeta; Beurling passes)",
+  "all": [
+   "discrepancy|partial sums? of chi|c ?x ?\\+ ?O\\(x\\^|close to (its|their) mean",
+   "completely multiplicative|unimodular|helson|multiplicative function",
+   "zero-free|zeros? of|rigidity|forces|continuation"
+  ],
+  "unless": "twisted sums?|additive(ly)? twist|additive character|e\\(a ?n ?/ ?q\\)"
+ },
+ {
+  "id": "fam-fe-symmetrised-stage-rouche",
+  "closedBy": "c4-fe-stage-rouche-crossing",
+  "row": "P44",
+  "name": "Functional-equation-symmetrised Euler stages (Gonek type) with Rouche or Hurwitz comparison, Fejer weights or the approximate functional equation",
+  "all": [
+   "functional-equation-symmetrised|fe-symmetrised|P_X ?\\+ ?chi|gonek",
+   "stage|euler",
+   "rouch[e\\xe9]|hurwitz|fej[e\\xe9]r|approximate functional equation|zero count|comparison|on the line|phase comb"
+  ]
+ },
+ {
+  "id": "fam-stage-collision-index",
+  "closedBy": "c4-stage-collision-law",
+  "row": "P45",
+  "name": "Stage collision / local-index events as carriers of zero information (torus-invariant, positive height-independent rate)",
+  "all": [
+   "collision[- ]local[- ]index|local index|stage collision|collision (event|law)|double zero of the stage",
+   "euler stage|stage zeros?|fe-symmetrised|functional-equation-symmetrised|prime-only|euler[- ]fe|prime torus"
+  ]
+ },
+ {
+  "id": "fam-laxphillips-hecke-compression",
+  "closedBy": "c4-laxphillips-hecke-compression",
+  "row": "G26",
+  "name": "Hecke operators compressed to the Lax-Phillips space; Hecke norm bounds on resonance states (weighted-L2 family)",
+  "all": [
+   "lax-phillips|scattering (matrix|space|factorisation)|incoming and outgoing|resonance states?",
+   "hecke",
+   "compress|norm bound|resonance|strip bound"
+  ]
+ },
+ {
+  "id": "fam-ramare-mr-pointwise",
+  "closedBy": "c4-ramare-factorisation-pointwise",
+  "row": "P47",
+  "name": "Ramare / Matomaki-Radziwill factorisation and pretentious-distance statements as every-window or one-sided inputs (MV-CAP, tail type)",
+  "all": [
+   "matom[a\\xe4]ki|radziwi|ramar[e\\xe9]|pretentious|short[- ]interval factori[sz]ation|factori[sz]ation of dirichlet polynomials",
+   "pointwise|every[- ]window|one-sided|zero-free|inertia|bandwidth|hardy-littlewood|zeros?"
+  ]
+ }
+]

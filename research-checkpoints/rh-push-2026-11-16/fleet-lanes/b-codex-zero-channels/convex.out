@@ -1,0 +1,2 @@
+zeta : certified panels 542 on [0,1]; failures 0 ; min panel width 6.25e-04 ; sup l4 on [0,1/20] <= -2160.15 ; sup l3 on [1/20,1] <= -119.002
+dh : certified panels 208 on [0,1]; failures 0 ; min panel width 2.50e-03 ; sup l4 on [0,1/20] <= -505.792 ; sup l3 on [1/20,1] <= -28.2565

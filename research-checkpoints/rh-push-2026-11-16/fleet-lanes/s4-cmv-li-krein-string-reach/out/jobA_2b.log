@@ -1,0 +1,38 @@
+ZETA a 80 N 4000 prec 46000 moments 2655.2 s  c0 [414.06532412759346653 +/- 1.39e-18]
+   n 200 log2 E -177.0 k 0.863080992317606
+   n 400 log2 E -742.6 k 0.9564818277609021
+   n 600 log2 E -1527.7 k 0.97544193772863
+   n 800 log2 E -2461.9 k 0.9839979465127742
+   n 1000 log2 E -3509.3 k 0.9891640578143621
+   planted add:0.4:600.573889 first indefinite size 1193
+   n 1200 log2 E -4647.6 k 0.9914646495525293
+   planted add:0.1:600.573889 first indefinite size 1218
+   n 1400 log2 E -5862.8 k 0.9932561479058809
+   planted add:0.4:699.714417 first indefinite size 1436
+   planted add:0.1:699.714417 first indefinite size 1469
+   n 1600 log2 E -7144.1 k 0.9946856703132866
+   planted add:0.4:800.629291 first indefinite size 1693
+   planted add:0.1:800.629291 first indefinite size 1724
+   n 1800 log2 E -8483.5 k 0.9955626353655078
+   planted add:0.4:900.354312 first indefinite size 1930
+   planted add:0.1:900.354312 first indefinite size 1994
+   n 2000 log2 E -9874.7 k 0.9962944375502235
+   n 2200 log2 E -11312.8 k 0.9968571618837361
+   planted add:0.4:1000.570527 first indefinite size 2226
+   planted add:0.1:1000.570527 first indefinite size 2256
+   n 2400 log2 E -12793.6 k 0.9972223077414243
+   n 2600 log2 E -14313.7 k 0.9976072797890125
+   planted add:0.4:1150.772708 first indefinite size 2638
+   planted add:0.1:1150.772708 first indefinite size 2664
+   n 2800 log2 E -15870.2 k 0.9978744405670519
+   n 3000 log2 E -17460.6 k 0.9980584367934112
+   planted add:0.4:1299.947595 first indefinite size 3042
+   planted add:0.1:1299.947595 first indefinite size 3092
+   n 3200 log2 E -19082.6 k 0.9982359945058509
+   n 3400 log2 E -20734.3 k 0.998458979089464
+   planted add:0.4:1499.996388 first indefinite size 3573
+   n 3600 log2 E -22414.1 k 0.998573922184635
+   planted add:0.1:1499.996388 first indefinite size 3671
+   n 3800 log2 E -24120.4 k 0.9986893842750155
+   snap size 4000 {"beta+1": {"count": 120, "prefix": 1170, "tracked_from": 1051, "missed_first": [1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180]}, "beta-1": {"count": 120, "prefix": 1170, "tracked_from": 1051, "missed_first": [1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180]}}
+DONE ZETA first index with E<=0: None last n 3999 log2E -25843.2 lev s 2833.1

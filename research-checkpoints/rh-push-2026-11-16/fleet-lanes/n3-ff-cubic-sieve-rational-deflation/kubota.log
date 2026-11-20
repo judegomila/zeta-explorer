@@ -1,0 +1,17 @@
+planned: r table (2801, 5) ; per-modulus FFT array 1.882384 MB; G store deg<=5 878.752128 MB
+n=1 done 0s  max dev vs ff.py direct so far 0.00e+00
+n=2 done 0s  max dev vs ff.py direct so far 0.00e+00
+n=3 done 0s  max dev vs ff.py direct so far 0.00e+00
+n=4 done 1s  max dev vs ff.py direct so far 0.00e+00
+n=5 done 26s  max dev vs ff.py direct so far 0.00e+00
+  n=6 rep 0 26s
+  n=6 rep 2000 47s
+  n=6 rep 4000 66s
+  n=6 rep 6000 85s
+  n=6 rep 8000 105s
+  n=6 rep 10000 127s
+  n=6 rep 12000 150s
+  n=6 rep 14000 172s
+  n=6 rep 16000 194s
+total time 203.3165419101715
+exit 0

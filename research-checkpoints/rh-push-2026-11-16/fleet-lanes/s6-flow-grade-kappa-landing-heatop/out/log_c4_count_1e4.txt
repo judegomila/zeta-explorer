@@ -1,0 +1,12 @@
+04:01:52 T 10000 blocks 8 workers 6 backend cpu
+04:01:52 block 1/8
+04:01:52 block 2/8
+04:01:52 block 3/8
+04:01:52 block 4/8
+04:01:52 block 5/8
+04:01:52 block 6/8
+04:01:52 block 7/8
+04:01:52 block 8/8
+{"tau": 0.0001, "D": 0, "D_gap": 0, "D_gap_isolated": 0, "pred": {"gue": 0.5951592657383113, "bk_pair": 0.3944440731001061, "bk_pair_triple": 0.3941287330004755}, "ratio": {"gue": 0.0, "bk_pair": 0.0, "bk_pair_triple": 0.0}, "rel_stat": null}
+{"tau": 0.001, "D": 8, "D_gap": 8, "D_gap_isolated": 8, "pred": {"gue": 18.712657396323685, "bk_pair": 12.512114858929207, "bk_pair_triple": 12.412110418338436}, "ratio": {"gue": 0.4275181141066416, "bk_pair": 0.6393803198098713, "bk_pair_triple": 0.6445318104953606}, "rel_stat": 0.5}
+{"tau": 0.01, "D": 399, "D_gap": 386, "D_gap_isolated": 414, "pred": {"gue": 558.9583326459813, "bk_pair": 404.8749494539813, "bk_pair_triple": 373.0170907716797}, "ratio": {"gue": 0.7138278055740309, "bk_pair": 0.9854894715963427, "bk_pair_triple": 1.0696560824453596}, "rel_stat": 0.07079923254047886}

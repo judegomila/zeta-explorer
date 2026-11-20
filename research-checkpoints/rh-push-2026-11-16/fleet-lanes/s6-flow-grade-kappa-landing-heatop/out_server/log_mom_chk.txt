@@ -1,0 +1,26 @@
+ZETA variants [('heat', (0, 1))]: nodes 13536 (h = 1/3200, vmax 4.23), jmax 20900, prec 10000 bits; multiplications about 2.83e+08; result memory 26.1 MB
+  ZETA chunk 1/212 5s
+  ZETA chunk 22/212 43s
+  ZETA chunk 43/212 80s
+  ZETA chunk 64/212 117s
+  ZETA chunk 85/212 150s
+  ZETA chunk 106/212 175s
+  ZETA chunk 127/212 200s
+  ZETA chunk 148/212 221s
+  ZETA chunk 169/212 244s
+  ZETA chunk 190/212 262s
+  ZETA chunk 211/212 269s
+ZETA done 270s
+DH variants [('heat', (0, 1))]: nodes 16001 (h = 1/3200, vmax 5.00), jmax 20900, prec 10000 bits; multiplications about 3.34e+08; result memory 26.1 MB
+  DH chunk 1/251 7s
+  DH chunk 26/251 37s
+  DH chunk 51/251 59s
+  DH chunk 76/251 101s
+  DH chunk 101/251 141s
+  DH chunk 126/251 182s
+  DH chunk 151/251 220s
+  DH chunk 176/251 246s
+  DH chunk 201/251 279s
+  DH chunk 226/251 327s
+  DH chunk 251/251 335s
+DH done 335s

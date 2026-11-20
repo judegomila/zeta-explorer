@@ -1,0 +1,12 @@
+sfs.py rs 10000000000.0 80000.0 0.5 out/rs_1e10s_00.json ZETA
+sfs.py rs 10000080000.0 80000.0 0.5 out/rs_1e10s_01.json ZETA
+sfs.py rs 10000160000.0 80000.0 0.5 out/rs_1e10s_02.json ZETA
+sfs.py rs 10000240000.0 80000.0 0.5 out/rs_1e10s_03.json ZETA
+sfs.py rs 10000320000.0 80000.0 0.5 out/rs_1e10s_04.json ZETA
+sfs.py rs 10000400000.0 80000.0 0.5 out/rs_1e10s_05.json ZETA
+sfs.py rs 10000480000.0 80000.0 0.5 out/rs_1e10s_06.json ZETA
+sfs.py rs 10000560000.0 80000.0 0.5 out/rs_1e10s_07.json ZETA
+sfs.py per 1000000.0 1000.0 0.25 out/per_1e6s_00.json
+sfs.py per 1001000.0 1000.0 0.25 out/per_1e6s_01.json
+sfs.py per 1002000.0 1000.0 0.25 out/per_1e6s_02.json
+sfs.py per 1003000.0 1000.0 0.25 out/per_1e6s_03.json

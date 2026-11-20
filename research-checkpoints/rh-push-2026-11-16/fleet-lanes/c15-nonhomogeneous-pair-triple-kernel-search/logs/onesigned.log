@@ -1,0 +1,6 @@
+{'b3-with': {'nodes': 215769, 'none_PA': 32563, 'none_PZ': 0}, 'b3-without': {'nodes': 215769, 'none_PA': 25620, 'none_PZ': 0}}
+{'b5l-with': {'nodes': 163377, 'none_PA': 20491, 'none_PZ': 80}}
+c1 T {'nodes': 3422, 'none_PA': 3422, 'none_PZ': 0}
+c3 T {'nodes': 3306, 'none_PA': 1494, 'none_PZ': 0}
+c1 Q {'nodes': 3422, 'none_PA': 3420, 'none_PZ': 0}
+c3 Q {'nodes': 3306, 'none_PA': 1566, 'none_PZ': 0}

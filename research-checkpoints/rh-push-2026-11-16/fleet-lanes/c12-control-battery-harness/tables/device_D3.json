@@ -1,0 +1,439 @@
+{
+ "cases": [
+  {
+   "S": [
+    2,
+    3
+   ],
+   "Tw": 2.4,
+   "T": 500.0,
+   "zero_side": 12.351602141980308,
+   "zero_online": 12.351602141980333,
+   "zero_offline_pairs": -2.409580657354994e-14,
+   "pairs_in_window": 14,
+   "arch": 11.783991907726806,
+   "residues": 0.5676102341972259,
+   "third": 0.0,
+   "diff": 5.6276761029039335e-11,
+   "rel": 4.556231684128436e-12,
+   "online_zeros_in_window": 344
+  },
+  {
+   "S": [
+    7
+   ],
+   "Tw": 2.5,
+   "T": 500.0,
+   "zero_side": 4.290904034880817,
+   "zero_online": 4.290904034865382,
+   "zero_offline_pairs": 1.5434711615316207e-11,
+   "pairs_in_window": 13,
+   "arch": 3.9386481845131915,
+   "residues": 0.3522558503488151,
+   "third": 0.0,
+   "diff": 1.8809842572409252e-11,
+   "rel": 4.383654917356293e-12,
+   "online_zeros_in_window": 331
+  },
+  {
+   "S": [
+    2,
+    3,
+    5
+   ],
+   "Tw": 3.3,
+   "T": 450.0,
+   "zero_side": 14.067815577436717,
+   "zero_online": 14.067815631756192,
+   "zero_offline_pairs": -5.4319475990509047e-08,
+   "pairs_in_window": 9,
+   "arch": 11.347242395706026,
+   "residues": 2.7205731816767535,
+   "third": 0.0,
+   "diff": 5.3937299071549205e-11,
+   "rel": 3.834091993504586e-12,
+   "online_zeros_in_window": 248
+  },
+  {
+   "S": [
+    2,
+    3,
+    5
+   ],
+   "Tw": 3.3,
+   "T": 560.0,
+   "zero_side": 18.89532244600674,
+   "zero_online": 18.89615868791969,
+   "zero_offline_pairs": -0.0008362419129482315,
+   "pairs_in_window": 10,
+   "arch": 16.17075182581969,
+   "residues": 2.72457062010749,
+   "third": 0.0,
+   "diff": 7.956302283673722e-11,
+   "rel": 4.210725858957317e-12,
+   "online_zeros_in_window": 257
+  },
+  {
+   "S": [
+    2
+   ],
+   "Tw": 2.5,
+   "T": 500.0,
+   "zero_side": 9.321583344293149,
+   "zero_online": 9.32158334428493,
+   "zero_offline_pairs": 8.219661330120357e-12,
+   "pairs_in_window": 13,
+   "arch": 8.175641803001877,
+   "residues": 1.146231232660577,
+   "third": -0.0002896914084245378,
+   "diff": 3.9118930317272316e-11,
+   "rel": 4.196597173721744e-12,
+   "online_zeros_in_window": 331
+  },
+  {
+   "S": [
+    3
+   ],
+   "Tw": 3.2,
+   "T": 520.0,
+   "zero_side": 8.26857427734832,
+   "zero_online": 3.2060217927062324,
+   "zero_offline_pairs": 5.062552484642087,
+   "pairs_in_window": 10,
+   "arch": 7.422968939126068,
+   "residues": 0.845843802068353,
+   "third": -0.00023846388153956778,
+   "diff": 3.5438318946035e-11,
+   "rel": 4.28590440834739e-12,
+   "online_zeros_in_window": 263
+  },
+  {
+   "S": [
+    2,
+    3
+   ],
+   "Tw": 4.0,
+   "T": 400.0,
+   "zero_side": 24.101126262978774,
+   "zero_online": 24.101126261426224,
+   "zero_offline_pairs": 1.5525494335196725e-09,
+   "pairs_in_window": 5,
+   "arch": 22.33231972361311,
+   "residues": 1.768907438150672,
+   "third": -0.00010089889291986462,
+   "diff": 1.0791012527988642e-10,
+   "rel": 4.477389317927638e-12,
+   "online_zeros_in_window": 205
+  },
+  {
+   "S": [
+    5
+   ],
+   "Tw": 1.55,
+   "T": 500.0,
+   "zero_side": 2.68921535298732,
+   "zero_online": 2.6892153503025478,
+   "zero_offline_pairs": 2.6847723008298635e-09,
+   "pairs_in_window": 17,
+   "arch": 2.6163795196362485,
+   "residues": 0.07283583333864432,
+   "third": 0.0,
+   "diff": 1.2427392448444152e-11,
+   "rel": 4.6211964522064616e-12,
+   "online_zeros_in_window": 538
+  }
+ ],
+ "checks": [
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.556231684128436e-12,
+   "recorded": 4.425790658356327e-12
+  },
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 12.351602141980308,
+   "recorded": 12.351602141978697
+  },
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: arch rel 1e-9",
+   "ok": true,
+   "got": 11.783991907726806,
+   "recorded": 11.783991907726806
+  },
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: residues rel 1e-9",
+   "ok": true,
+   "got": 0.5676102341972259,
+   "recorded": 0.5676102341972258
+  },
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: third line",
+   "ok": true,
+   "got": 0.0,
+   "recorded": 0.0
+  },
+  {
+   "check": "S=[2, 3] Tw=2.4 T=500.0: off-line pairs in window",
+   "ok": true,
+   "got": 14.0,
+   "recorded": 14
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.383654917356293e-12,
+   "recorded": 4.400214195540587e-12
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 4.290904034880817,
+   "recorded": 4.290904034880888
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: arch rel 1e-9",
+   "ok": true,
+   "got": 3.9386481845131915,
+   "recorded": 3.9386481845131915
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: residues rel 1e-9",
+   "ok": true,
+   "got": 0.3522558503488151,
+   "recorded": 0.3522558503488152
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: third line",
+   "ok": true,
+   "got": 0.0,
+   "recorded": 0.0
+  },
+  {
+   "check": "S=[7] Tw=2.5 T=500.0: off-line pairs in window",
+   "ok": true,
+   "got": 13.0,
+   "recorded": 13
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 3.834091993504586e-12,
+   "recorded": 3.88396903004221e-12
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 14.067815577436717,
+   "recorded": 14.067815577437418
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: arch rel 1e-9",
+   "ok": true,
+   "got": 11.347242395706026,
+   "recorded": 11.347242395706026
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: residues rel 1e-9",
+   "ok": true,
+   "got": 2.7205731816767535,
+   "recorded": 2.720573181676754
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: third line",
+   "ok": true,
+   "got": 0.0,
+   "recorded": 0.0
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=450.0: off-line pairs in window",
+   "ok": true,
+   "got": 9.0,
+   "recorded": 9
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.210725858957317e-12,
+   "recorded": 4.2836779301012525e-12
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 18.89532244600674,
+   "recorded": 18.895322446008123
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: arch rel 1e-9",
+   "ok": true,
+   "got": 16.17075182581969,
+   "recorded": 16.17075182581969
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: residues rel 1e-9",
+   "ok": true,
+   "got": 2.72457062010749,
+   "recorded": 2.724570620107493
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: third line",
+   "ok": true,
+   "got": 0.0,
+   "recorded": 0.0
+  },
+  {
+   "check": "S=[2, 3, 5] Tw=3.3 T=560.0: off-line pairs in window",
+   "ok": true,
+   "got": 10.0,
+   "recorded": 10
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.196597173721744e-12,
+   "recorded": 4.168774851164264e-12
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 9.321583344293149,
+   "recorded": 9.321583344292891
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: arch rel 1e-9",
+   "ok": true,
+   "got": 8.175641803001877,
+   "recorded": 8.175641803001879
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: residues rel 1e-9",
+   "ok": true,
+   "got": 1.146231232660577,
+   "recorded": 1.1462312326605768
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: third line",
+   "ok": true,
+   "got": -0.0002896914084245378,
+   "recorded": -0.00028969140842453775
+  },
+  {
+   "check": "S=[2] Tw=2.5 T=500.0: off-line pairs in window",
+   "ok": true,
+   "got": 13.0,
+   "recorded": 13
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.28590440834739e-12,
+   "recorded": 4.288052731359083e-12
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 8.26857427734832,
+   "recorded": 8.268574277348339
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: arch rel 1e-9",
+   "ok": true,
+   "got": 7.422968939126068,
+   "recorded": 7.422968939126068
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: residues rel 1e-9",
+   "ok": true,
+   "got": 0.845843802068353,
+   "recorded": 0.8458438020683539
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: third line",
+   "ok": true,
+   "got": -0.00023846388153956778,
+   "recorded": -0.0002384638815395679
+  },
+  {
+   "check": "S=[3] Tw=3.2 T=520.0: off-line pairs in window",
+   "ok": true,
+   "got": 10.0,
+   "recorded": 10
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.477389317927638e-12,
+   "recorded": 4.48579160906877e-12
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 24.101126262978774,
+   "recorded": 24.101126262978976
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: arch rel 1e-9",
+   "ok": true,
+   "got": 22.33231972361311,
+   "recorded": 22.33231972361311
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: residues rel 1e-9",
+   "ok": true,
+   "got": 1.768907438150672,
+   "recorded": 1.7689074381506735
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: third line",
+   "ok": true,
+   "got": -0.00010089889291986462,
+   "recorded": -0.00010089889291985585
+  },
+  {
+   "check": "S=[2, 3] Tw=4.0 T=400.0: off-line pairs in window",
+   "ok": true,
+   "got": 5.0,
+   "recorded": 5
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: identity |rel| <= 5.4e-12",
+   "ok": true,
+   "got": 4.6211964522064616e-12,
+   "recorded": 4.630444129497856e-12
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: zero side rel 1e-9",
+   "ok": true,
+   "got": 2.68921535298732,
+   "recorded": 2.689215352987345
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: arch rel 1e-9",
+   "ok": true,
+   "got": 2.6163795196362485,
+   "recorded": 2.6163795196362485
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: residues rel 1e-9",
+   "ok": true,
+   "got": 0.07283583333864432,
+   "recorded": 0.07283583333864443
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: third line",
+   "ok": true,
+   "got": 0.0,
+   "recorded": 0.0
+  },
+  {
+   "check": "S=[5] Tw=1.55 T=500.0: off-line pairs in window",
+   "ok": true,
+   "got": 17.0,
+   "recorded": 17
+  }
+ ],
+ "reproduced": true,
+ "max_abs_rel": 4.6211964522064616e-12,
+ "verdict": "DH satisfies the Lemma B identity in all 8 recorded cases"
+}

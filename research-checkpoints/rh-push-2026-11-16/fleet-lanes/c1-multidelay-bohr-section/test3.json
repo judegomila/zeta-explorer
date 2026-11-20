@@ -1,0 +1,98 @@
+[
+ {
+  "sigma": 0.5,
+  "Q": 1000,
+  "max_excess_t_14_40": 3.998433302327152,
+  "argmax_t": 14.789999999999983,
+  "pole_size_at_argmax": 2.1368980007464127,
+  "max_abs_U_plus_zl_minus_pole": 7.235552405842501
+ },
+ {
+  "sigma": 0.5,
+  "Q": 10000,
+  "max_excess_t_14_40": 7.57278617891772,
+  "argmax_t": 14.519999999999989,
+  "pole_size_at_argmax": 6.882972680022918,
+  "max_abs_U_plus_zl_minus_pole": 7.594884321802291
+ },
+ {
+  "sigma": 0.5,
+  "Q": 100000,
+  "max_excess_t_14_40": 19.998379321940153,
+  "argmax_t": 14.869999999999981,
+  "pole_size_at_argmax": 21.25414594250649,
+  "max_abs_U_plus_zl_minus_pole": 7.416754035900361
+ },
+ {
+  "sigma": 0.5,
+  "Q": 1000000,
+  "max_excess_t_14_40": 66.41780321701562,
+  "argmax_t": 14.659999999999986,
+  "pole_size_at_argmax": 68.1731843975314,
+  "max_abs_U_plus_zl_minus_pole": 7.633200251476995
+ },
+ {
+  "sigma": 0.75,
+  "Q": 1000,
+  "max_excess_t_14_40": 0.36956641255156253,
+  "argmax_t": 15.699999999999964,
+  "pole_size_at_argmax": 0.3581337866988573,
+  "max_abs_U_plus_zl_minus_pole": 0.6442089630689976
+ },
+ {
+  "sigma": 0.75,
+  "Q": 10000,
+  "max_excess_t_14_40": 0.5256656555955667,
+  "argmax_t": 16.549999999999947,
+  "pole_size_at_argmax": 0.6041606814673418,
+  "max_abs_U_plus_zl_minus_pole": 0.36597650061569664
+ },
+ {
+  "sigma": 0.75,
+  "Q": 100000,
+  "max_excess_t_14_40": 0.9809777796354737,
+  "argmax_t": 15.959999999999958,
+  "pole_size_at_argmax": 1.1140734872153228,
+  "max_abs_U_plus_zl_minus_pole": 0.20721118019802953
+ },
+ {
+  "sigma": 0.75,
+  "Q": 1000000,
+  "max_excess_t_14_40": 1.8697116928919526,
+  "argmax_t": 15.579999999999966,
+  "pole_size_at_argmax": 2.0294419933466163,
+  "max_abs_U_plus_zl_minus_pole": 0.10396665211727293
+ },
+ {
+  "sigma": 0.9,
+  "Q": 1000,
+  "max_excess_t_14_40": 0.05217754537007402,
+  "argmax_t": 17.529999999999923,
+  "pole_size_at_argmax": 0.11381801776677337,
+  "max_abs_U_plus_zl_minus_pole": 0.1687846629486477
+ },
+ {
+  "sigma": 0.9,
+  "Q": 10000,
+  "max_excess_t_14_40": 0.05325568469945907,
+  "argmax_t": 17.229999999999933,
+  "pole_size_at_argmax": 0.14578317625208345,
+  "max_abs_U_plus_zl_minus_pole": 0.0626566644371642
+ },
+ {
+  "sigma": 0.9,
+  "Q": 100000,
+  "max_excess_t_14_40": 0.08563660569572029,
+  "argmax_t": 17.049999999999933,
+  "pole_size_at_argmax": 0.18546764054537948,
+  "max_abs_U_plus_zl_minus_pole": 0.02540609914052595
+ },
+ {
+  "sigma": 0.9,
+  "Q": 1000000,
+  "max_excess_t_14_40": 0.13723940690720315,
+  "argmax_t": 16.939999999999937,
+  "pole_size_at_argmax": 0.23500604143449577,
+  "max_abs_U_plus_zl_minus_pole": 0.008367349698564265
+ }
+]

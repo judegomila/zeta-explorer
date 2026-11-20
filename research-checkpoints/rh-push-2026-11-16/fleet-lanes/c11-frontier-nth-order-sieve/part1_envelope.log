@@ -1,0 +1,30 @@
+check of (9.24): grid max-min against the closed form of the manuscript, and the two new envelopes
+   delta = 0.0200  old closed 1.0000 grid 1.0000 | new direct 1.0000 | new inside the split 1.0000 | R_kappa(delta, 0) = 0.9866
+   delta = 0.2000  old closed 1.0000 grid 1.0000 | new direct 0.9667 | new inside the split 0.9750 | R_kappa(delta, 0) = 0.8551
+   delta = 0.3333  old closed 1.0000 grid 1.0000 | new direct 0.8333 | new inside the split 0.8750 | R_kappa(delta, 0) = 0.7436
+   delta = 0.4000  old closed 0.9333 grid 0.9333 | new direct 0.8000 | new inside the split 0.8250 | R_kappa(delta, 0) = 0.6825
+   delta = 0.5000  old closed 0.8333 grid 0.8333 | new direct 0.7500 | new inside the split 0.7500 | R_kappa(delta, 0) = 0.5833
+   delta = 0.6667  old closed 0.6667 grid 0.6667 | new direct 0.6667 | new inside the split 0.6667 | R_kappa(delta, 0) = 0.3939
+   delta = 0.8000  old closed 0.6000 grid 0.6000 | new direct 0.6000 | new inside the split 0.6000 | R_kappa(delta, 0) = 0.2157
+   delta = 0.8333  old closed 0.5833 grid 0.5833 | new direct 0.5833 | new inside the split 0.5833 | R_kappa(delta, 0) = 0.1667
+== no marks (l = 0), classes delta >= 0.020
+   old envelope (9.16)                B* = 0.912142494  region A  lx=0.37164 ly=0.57407 l=0.00000
+   new envelope, split kept           B* = 0.911611502  region A  lx=0.29354 ly=0.64579 l=0.00000
+   new envelope, direct               B* = 0.911611502  region A  lx=0.29354 ly=0.64579 l=0.00000
+   structured count R_kappa (file)    B* = 0.894736685  region A  lx=0.34065 ly=0.39620 l=0.00000
+== no marks (l = 0), classes delta >= 0.125
+   old envelope (9.16)                B* = 0.912142891  region A  lx=0.37170 ly=0.57401 l=0.00000
+   new envelope, split kept           B* = 0.911611502  region A  lx=0.29354 ly=0.64579 l=0.00000
+   new envelope, direct               B* = 0.911611502  region A  lx=0.29354 ly=0.64579 l=0.00000
+   structured count R_kappa (file)    B* = 0.894736627  region A  lx=0.34150 ly=0.39534 l=0.00000
+== marks allowed (l free), classes delta >= 0.020
+   old envelope (9.16)                B* = 0.909566292  region A  lx=0.38435 ly=0.58724 l=0.02840
+   new envelope, split kept           B* = 0.908705357  region A  lx=0.30255 ly=0.66561 l=0.03185
+   new envelope, direct               B* = 0.908705357  region A  lx=0.30255 ly=0.66561 l=0.03185
+   structured count R_kappa (file)    B* = 0.874956694  region A  lx=0.35463 ly=0.47853 l=0.16684
+== marks allowed (l free), classes delta >= 0.125
+   old envelope (9.16)                B* = 0.909569868  region A  lx=0.38469 ly=0.58692 l=0.02839
+   new envelope, split kept           B* = 0.908705357  region A  lx=0.30255 ly=0.66561 l=0.03185
+   new envelope, direct               B* = 0.908705357  region A  lx=0.30255 ly=0.66561 l=0.03185
+   structured count R_kappa (file)    B* = 0.874956785  region A  lx=0.35463 ly=0.47853 l=0.16684
+scripts/memcap.sh 8 .venv-arb/bin/python -u   71.84s user 0.49s system 98% cpu 1:13.28 total

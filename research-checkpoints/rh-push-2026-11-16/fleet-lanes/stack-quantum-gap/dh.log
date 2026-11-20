@@ -1,0 +1,92 @@
+== 1. DH poles of S in Re z>0, local quantum |r|/(2 Re z), alpha sweep (Lam_DH = 0.5 log(5T/2pi))
+   zero 0.808517+85.699348i  beta=0.308517  Lam=2.1112  beta*Lam=0.6513
+      alpha=0.01   z_j=0.29870435+85.699438i  |r_j|=1.925647e-02  quantum=0.032233   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.032396   mean-field=0.031071
+      alpha=0.03   z_j=0.28018322+85.700098i  |r_j|=5.347005e-02  quantum=0.095420   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.096783   mean-field=0.085643
+      alpha=0.1    z_j=0.22609226+85.705635i  |r_j|=1.342616e-01  quantum=0.296918   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.308339   mean-field=0.213464
+      alpha=0.3    z_j=0.13646782+85.724561i  |r_j|=1.805106e-01  quantum=0.661367   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.697142   mean-field=0.313185
+      alpha=1      z_j=0.05152712+85.743182i  |r_j|=9.694628e-02  quantum=0.940731   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.955557   mean-field=0.231884
+      alpha=3      z_j=0.01775252+85.746708i  |r_j|=3.524534e-02  quantum=0.992685   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.994754   mean-field=0.108868
+      alpha=10     z_j=0.00534737+85.747156i  |r_j|=1.068761e-02  quantum=0.999333   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999524   mean-field=0.037359
+      alpha=100    z_j=0.00053495+85.747200i  |r_j|=1.069895e-03  quantum=0.999993   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999995   mean-field=0.003945
+      alpha=1000   z_j=0.00005350+85.747201i  |r_j|=1.069907e-04  quantum=1.000000   isolated-pair alpha/sqrt(alpha^2+beta^2)=1.000000   mean-field=0.000397
+   zero 0.65083+114.163343i  beta=0.150830  Lam=2.2546  beta*Lam=0.3401
+      alpha=0.01   z_j=0.14117432+114.163393i  |r_j|=1.862856e-02  quantum=0.065977   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.066155   mean-field=0.063276
+      alpha=0.03   z_j=0.12387755+114.163734i  |r_j|=4.801135e-02  quantum=0.193786   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.195078   mean-field=0.171545
+      alpha=0.1    z_j=0.08139770+114.165754i  |r_j|=8.901569e-02  quantum=0.546795   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.552582   mean-field=0.388298
+      alpha=0.3    z_j=0.03625458+114.168568i  |r_j|=6.449539e-02  quantum=0.889479   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.893436   mean-field=0.456126
+      alpha=1      z_j=0.01149327+114.169470i  |r_j|=2.271727e-02  quantum=0.988286   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.988816   mean-field=0.275817
+      alpha=3      z_j=0.00385155+114.169566i  |r_j|=7.692918e-03  quantum=0.998677   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.998739   mean-field=0.119986
+      alpha=10     z_j=0.00115617+114.169577i  |r_j|=2.312070e-03  quantum=0.999881   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999886   mean-field=0.040021
+      alpha=100    z_j=0.00011562+114.169578i  |r_j|=2.312482e-04  quantum=0.999999   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999999   mean-field=0.004179
+      alpha=1000   z_j=0.00001156+114.169578i  |r_j|=2.312486e-05  quantum=1.000000   isolated-pair alpha/sqrt(alpha^2+beta^2)=1.000000   mean-field=0.000420
+   zero 0.574356+166.479306i  beta=0.074356  Lam=2.4432  beta*Lam=0.1817
+      alpha=0.01   z_j=0.06503240+166.479391i  |r_j|=1.731173e-02  quantum=0.133101   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.133288   mean-field=0.127059
+      alpha=0.03   z_j=0.05022284+166.479857i  |r_j|=3.746680e-02  quantum=0.373006   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.374159   mean-field=0.327842
+      alpha=0.1    z_j=0.02472087+166.481244i  |r_j|=3.956734e-02  quantum=0.800282   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.802474   mean-field=0.589893
+      alpha=0.3    z_j=0.00913745+166.481908i  |r_j|=1.772826e-02  quantum=0.970088   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.970631   mean-field=0.530206
+      alpha=1      z_j=0.00278004+166.482018i  |r_j|=5.544472e-03  quantum=0.997192   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.997247   mean-field=0.281351
+      alpha=3      z_j=0.00092785+166.482028i  |r_j|=1.855127e-03  quantum=0.999687   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999693   mean-field=0.117574
+      alpha=10     z_j=0.00027840+166.482029i  |r_j|=5.567770e-04  quantum=0.999972   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999972   mean-field=0.038636
+      alpha=100    z_j=0.00002784+166.482029i  |r_j|=5.568004e-05  quantum=1.000000   isolated-pair alpha/sqrt(alpha^2+beta^2)=1.000000   mean-field=0.004010
+      alpha=1000   z_j=0.00000278+166.482029i  |r_j|=5.568006e-06  quantum=1.000000   isolated-pair alpha/sqrt(alpha^2+beta^2)=1.000000   mean-field=0.000403
+   zero 0.724258+176.702461i  beta=0.224258  Lam=2.4730  beta*Lam=0.5546
+      alpha=0.01   z_j=0.21450754+176.702560i  |r_j|=1.900793e-02  quantum=0.044306   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.044547   mean-field=0.042425
+      alpha=0.03   z_j=0.19647253+176.703263i  |r_j|=5.133632e-02  quantum=0.130645   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.132593   mean-field=0.115045
+      alpha=0.1    z_j=0.14709499+176.708505i  |r_j|=1.157349e-01  quantum=0.393402   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.407260   mean-field=0.269893
+      alpha=0.3    z_j=0.07807511+176.721302i  |r_j|=1.211333e-01  quantum=0.775748   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.800950   mean-field=0.349667
+      alpha=1      z_j=0.02678093+176.728971i  |r_j|=5.195313e-02  quantum=0.969965   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.975765   mean-field=0.227163
+      alpha=3      z_j=0.00906597+176.730033i  |r_j|=1.806843e-02  quantum=0.996497   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.997218   mean-field=0.100527
+      alpha=10     z_j=0.00272474+176.730161i  |r_j|=5.447743e-03  quantum=0.999683   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999749   mean-field=0.033663
+      alpha=100    z_j=0.00027252+176.730173i  |r_j|=5.450426e-04  quantum=0.999997   isolated-pair alpha/sqrt(alpha^2+beta^2)=0.999997   mean-field=0.003519
+      alpha=1000   z_j=0.00002725+176.730173i  |r_j|=5.450453e-05  quantum=1.000000   isolated-pair alpha/sqrt(alpha^2+beta^2)=1.000000   mean-field=0.000353
+== 1b. Blaschke factor over the other known poles (4 zeros and conjugates), per alpha
+      alpha=0.3 pole 0: quantum 0.661367 x Blaschke 0.99998295 = 0.661356
+      alpha=0.3 pole 1: quantum 0.889479 x Blaschke 0.99998571 = 0.889467
+      alpha=0.3 pole 2: quantum 0.970088 x Blaschke 0.99998571 = 0.970074
+      alpha=0.3 pole 3: quantum 0.775748 x Blaschke 0.99998189 = 0.775734
+      alpha=1 pole 0: quantum 0.940731 x Blaschke 0.99999790 = 0.940729
+      alpha=1 pole 1: quantum 0.988286 x Blaschke 0.99999831 = 0.988284
+      alpha=1 pole 2: quantum 0.997192 x Blaschke 0.99999851 = 0.997191
+      alpha=1 pole 3: quantum 0.969965 x Blaschke 0.99999803 = 0.969963
+== 2. windowed approximation on I' = [80.72, 90.72]: minimise max( sup_I' |S-h| , lam * sup_outside |h| ), h polynomial of degree <K in ((z-iy0)-a)/((z-iy0)+a), a=5.0
+   alpha=1.0 lam=0.1: DH pole 0.051527+85.743182i quantum 0.940731, harmonic measure of I' = 0.993439; window-theorem floor for the objective = 0.882087
+      DH    K=50   objective=0.931022  sup_I'|S-h|=0.929884  sup_axis|h|=9.3102  Poisson-L1 over I' at DH pole=0.921100  [necessary: Ein*om+(1+M)(1-om) = 0.991424 >= q]
+      DH    K=100  objective=0.929239  sup_I'|S-h|=0.929086  sup_axis|h|=9.2924  Poisson-L1 over I' at DH pole=0.920806  [necessary: Ein*om+(1+M)(1-om) = 0.990515 >= q]
+      DH    K=200  objective=0.928888  sup_I'|S-h|=0.928686  sup_axis|h|=9.2889  Poisson-L1 over I' at DH pole=0.920634  [necessary: Ein*om+(1+M)(1-om) = 0.990094 >= q]
+      DH    K=400  objective=0.928865  sup_I'|S-h|=0.928494  sup_axis|h|=9.2887  Poisson-L1 over I' at DH pole=0.920552  [necessary: Ein*om+(1+M)(1-om) = 0.989901 >= q]
+      zeta  K=50   objective=0.090461  sup_I'|S-h|=0.090461  sup_axis|h|=1.0899  Poisson-L1 over I' at DH pole=0.072790  [necessary: Ein*om+(1+M)(1-om) = 0.103579 >= q]
+      zeta  K=100  objective=0.089571  sup_I'|S-h|=0.089571  sup_axis|h|=1.0894  Poisson-L1 over I' at DH pole=0.083496  [necessary: Ein*om+(1+M)(1-om) = 0.102692 >= q]
+      zeta  K=200  objective=0.088833  sup_I'|S-h|=0.088823  sup_axis|h|=1.0884  Poisson-L1 over I' at DH pole=0.082552  [necessary: Ein*om+(1+M)(1-om) = 0.101941 >= q]
+      zeta  K=400  objective=0.087870  sup_I'|S-h|=0.087870  sup_axis|h|=1.0877  Poisson-L1 over I' at DH pole=0.084610  [necessary: Ein*om+(1+M)(1-om) = 0.100990 >= q]
+   alpha=1.0 lam=0.3: DH pole 0.051527+85.743182i quantum 0.940731, harmonic measure of I' = 0.993439; window-theorem floor for the objective = 0.920086
+      DH    K=50   objective=0.936508  sup_I'|S-h|=0.936411  sup_axis|h|=3.1217  Poisson-L1 over I' at DH pole=0.927399  [necessary: Ein*om+(1+M)(1-om) = 0.957308 >= q]
+      DH    K=100  objective=0.935317  sup_I'|S-h|=0.935296  sup_axis|h|=3.1177  Poisson-L1 over I' at DH pole=0.926946  [necessary: Ein*om+(1+M)(1-om) = 0.956175 >= q]
+      DH    K=200  objective=0.935142  sup_I'|S-h|=0.934983  sup_axis|h|=3.1171  Poisson-L1 over I' at DH pole=0.926870  [necessary: Ein*om+(1+M)(1-om) = 0.955860 >= q]
+      DH    K=400  objective=0.935121  sup_I'|S-h|=0.935071  sup_axis|h|=3.1171  Poisson-L1 over I' at DH pole=0.926822  [necessary: Ein*om+(1+M)(1-om) = 0.955947 >= q]
+      zeta  K=50   objective=0.227590  sup_I'|S-h|=0.227590  sup_axis|h|=1.2243  Poisson-L1 over I' at DH pole=0.206210  [necessary: Ein*om+(1+M)(1-om) = 0.240689 >= q]
+      zeta  K=100  objective=0.224589  sup_I'|S-h|=0.224007  sup_axis|h|=1.2230  Poisson-L1 over I' at DH pole=0.204978  [necessary: Ein*om+(1+M)(1-om) = 0.237122 >= q]
+      zeta  K=200  objective=0.222295  sup_I'|S-h|=0.222280  sup_axis|h|=1.2217  Poisson-L1 over I' at DH pole=0.214805  [necessary: Ein*om+(1+M)(1-om) = 0.235397 >= q]
+      zeta  K=400  objective=0.220266  sup_I'|S-h|=0.220137  sup_axis|h|=1.2159  Poisson-L1 over I' at DH pole=0.209124  [necessary: Ein*om+(1+M)(1-om) = 0.233230 >= q]
+   alpha=0.3 lam=0.1: DH pole 0.136468+85.724561i quantum 0.661367, harmonic measure of I' = 0.982629; window-theorem floor for the objective = 0.556925
+      DH    K=50   objective=0.638880  sup_I'|S-h|=0.638880  sup_axis|h|=6.3874  Poisson-L1 over I' at DH pole=0.625916  [necessary: Ein*om+(1+M)(1-om) = 0.756111 >= q]
+      DH    K=100  objective=0.637959  sup_I'|S-h|=0.637708  sup_axis|h|=6.3796  Poisson-L1 over I' at DH pole=0.625241  [necessary: Ein*om+(1+M)(1-om) = 0.754823 >= q]
+      DH    K=200  objective=0.637571  sup_I'|S-h|=0.637385  sup_axis|h|=6.3757  Poisson-L1 over I' at DH pole=0.624967  [necessary: Ein*om+(1+M)(1-om) = 0.754439 >= q]
+      DH    K=400  objective=0.637431  sup_I'|S-h|=0.637145  sup_axis|h|=6.3743  Poisson-L1 over I' at DH pole=0.624829  [necessary: Ein*om+(1+M)(1-om) = 0.754179 >= q]
+      zeta  K=50   objective=0.091257  sup_I'|S-h|=0.091257  sup_axis|h|=1.0903  Poisson-L1 over I' at DH pole=0.085840  [necessary: Ein*om+(1+M)(1-om) = 0.125983 >= q]
+      zeta  K=100  objective=0.089747  sup_I'|S-h|=0.089617  sup_axis|h|=1.0893  Poisson-L1 over I' at DH pole=0.082127  [necessary: Ein*om+(1+M)(1-om) = 0.124354 >= q]
+      zeta  K=200  objective=0.089237  sup_I'|S-h|=0.088789  sup_axis|h|=1.0886  Poisson-L1 over I' at DH pole=0.082148  [necessary: Ein*om+(1+M)(1-om) = 0.123528 >= q]
+      zeta  K=400  objective=0.088230  sup_I'|S-h|=0.086855  sup_axis|h|=1.0864  Poisson-L1 over I' at DH pole=0.080848  [necessary: Ein*om+(1+M)(1-om) = 0.121591 >= q]
+   alpha=0.3 lam=0.3: DH pole 0.136468+85.724561i quantum 0.661367, harmonic measure of I' = 0.982629; window-theorem floor for the objective = 0.618909
+      DH    K=50   objective=0.651725  sup_I'|S-h|=0.651725  sup_axis|h|=2.1719  Poisson-L1 over I' at DH pole=0.638443  [necessary: Ein*om+(1+M)(1-om) = 0.695504 >= q]
+      DH    K=100  objective=0.650926  sup_I'|S-h|=0.650699  sup_axis|h|=2.1698  Poisson-L1 over I' at DH pole=0.638052  [necessary: Ein*om+(1+M)(1-om) = 0.694458 >= q]
+      DH    K=200  objective=0.650723  sup_I'|S-h|=0.650513  sup_axis|h|=2.1691  Poisson-L1 over I' at DH pole=0.637848  [necessary: Ein*om+(1+M)(1-om) = 0.694264 >= q]
+      DH    K=400  objective=0.650490  sup_I'|S-h|=0.650442  sup_axis|h|=2.1683  Poisson-L1 over I' at DH pole=0.637753  [necessary: Ein*om+(1+M)(1-om) = 0.694181 >= q]
+      zeta  K=50   objective=0.228267  sup_I'|S-h|=0.228267  sup_axis|h|=1.2280  Poisson-L1 over I' at DH pole=0.152412  [necessary: Ein*om+(1+M)(1-om) = 0.263004 >= q]
+      zeta  K=100  objective=0.225755  sup_I'|S-h|=0.225686  sup_axis|h|=1.2239  Poisson-L1 over I' at DH pole=0.176631  [necessary: Ein*om+(1+M)(1-om) = 0.260397 >= q]
+      zeta  K=200  objective=0.222254  sup_I'|S-h|=0.221867  sup_axis|h|=1.2209  Poisson-L1 over I' at DH pole=0.174806  [necessary: Ein*om+(1+M)(1-om) = 0.256593 >= q]
+      zeta  K=400  objective=0.216892  sup_I'|S-h|=0.216066  sup_axis|h|=1.2136  Poisson-L1 over I' at DH pole=0.156628  [necessary: Ein*om+(1+M)(1-om) = 0.250766 >= q]
+== 3. Poisson-L1 average over I' of |S_DH - h| at the pole, simple candidates (alpha=1)
+      h=S_DH(z+0.7) : sup_I'|S-h|=1.6123  Poisson-L1=1.131900  (quantum 0.940731; H^inf iff sigma>0.6204)
+      h=S_DH(z+0.3) : sup_I'|S-h|=2.0099  Poisson-L1=1.263324  (quantum 0.940731; H^inf iff sigma>0.6204)
+      h=S_DH(z+0.05) : sup_I'|S-h|=40.5756  Poisson-L1=4.390839  (quantum 0.940731; H^inf iff sigma>0.6204)
+      h=0 : Poisson-L1=0.993439

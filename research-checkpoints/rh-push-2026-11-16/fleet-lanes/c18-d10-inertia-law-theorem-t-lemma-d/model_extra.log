@@ -1,0 +1,14 @@
+B #28 zeros: [('r', '1/4'), ('r', '1/4'), ('c', '27/32', '15/32'), ('r', '3/4'), ('r', '53/64')] predicted {'neg': 2}
+single real 1/4 + symmetric quartet (1/4,2)                                      deg b  6 rank  11 (pos   7, neg  4) predicted None  0.1s
+single real 3/4 + symmetric quartet (1/4,2)                                      deg b  6 rank  11 (pos   6, neg  5) predicted None  0.1s
+single real 1/4 + line pair 1/2+-3i                                              deg b  4 rank   4 (pos   2, neg  2) predicted None  0.0s
+single real 3/4 + line pair 1/2+-3i                                              deg b  4 rank   4 (pos   1, neg  3) predicted None  0.0s
+single real 1/4 + two line pairs                                                 deg b  6 rank  11 (pos   7, neg  4) predicted None  0.1s
+single real 3/4 + two line pairs                                                 deg b  6 rank  11 (pos   6, neg  5) predicted None  0.1s
+real {1/4, 3/4, 1} (partners and a zero at 1)                                    deg b  4 rank   1 (pos   1, neg  0) predicted None  0.0s
+left pair doubled 1/4+-i twice                                                   deg b  5 rank  10 (pos   6, neg  4) predicted {'neg': 4}  0.0s
+quartet with the left pair doubled                                               deg b  7 rank  17 (pos  15, neg  2) predicted {'neg': 2}  0.3s
+quartet with the right pair doubled                                              deg b  7 rank  17 (pos  17, neg  0) predicted {'neg': 0}  0.4s
+quartet doubled                                                                  deg b  9 rank  28 (pos  28, neg  0) predicted {'neg': 0}  2.4s
+symmetric quartet with eta = 1/2 exactly (zeros on Re = 0 and Re = 1), g = 2     deg b  5 rank   3 (pos   3, neg  0) predicted None  0.0s
+sym d=12: three quartets                                                         deg b 13 rank  66 (pos  66, neg  0) predicted {'neg': 0}  43.6s

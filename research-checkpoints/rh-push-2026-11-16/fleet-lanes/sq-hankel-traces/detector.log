@@ -1,0 +1,34 @@
+== zeta: alpha=0.3 Dl=1.0
+   | |S(i t0)| - 1 | = 0.0   |S(0.5+i t0)| = 0.628259   |S(1.5+i t0)| = 0.468817
+   u=-0.5: |I(u)| = 1.0449501   |pole sum| = 0.0   |I - pole sum| = 1.045   Gaussian bound = 2.212   (line x=|u|Dl^2=0.5)
+   u=-1.0: |I(u)| = 0.69273191   |pole sum| = 0.0   |I - pole sum| = 0.6927   Gaussian bound = 1.52   (line x=|u|Dl^2=1.0)
+   u=-2.0: |I(u)| = 0.15219215   |pole sum| = 0.0   |I - pole sum| = 0.1522   Gaussian bound = 0.3392   (line x=|u|Dl^2=2.0)
+   u=-3.0: |I(u)| = 0.012560259   |pole sum| = 0.0   |I - pole sum| = 0.01256   Gaussian bound = 0.02785   (line x=|u|Dl^2=3.0)
+   u=-4.0: |I(u)| = 0.00038168025   |pole sum| = 0.0   |I - pole sum| = 0.0003817   Gaussian bound = 0.0008409   (line x=|u|Dl^2=4.0)
+   u=-6.0: |I(u)| = 1.7424896e-8   |pole sum| = 0.0   |I - pole sum| = 1.742e-8   Gaussian bound = 3.818e-8   (line x=|u|Dl^2=6.0)
+== DH: alpha=0.3 Dl=1.0
+   | |S(i t0)| - 1 | = 3.88e-26   |S(0.5+i t0)| = 0.35693   |S(1.5+i t0)| = 0.212741
+   RHP pole z_j = (0.136467815782 + 85.7245607731j)  residue r_j = 2/(alpha L'(z_j)) = (-0.1751365401 + 0.04371821678j)  |r_j|/(2 Re z_j) = 0.66136706
+   u=-0.5: |I(u)| = 1.4509203   |pole sum| = 1.0689442   |I - pole sum| = 0.4649   Gaussian bound = 2.212   (line x=|u|Dl^2=0.5)
+   u=-1.0: |I(u)| = 1.312794   |pole sum| = 0.99843879   |I - pole sum| = 0.3559   Gaussian bound = 1.52   (line x=|u|Dl^2=1.0)
+   u=-2.0: |I(u)| = 0.94921286   |pole sum| = 0.87107235   |I - pole sum| = 0.08588   Gaussian bound = 0.3392   (line x=|u|Dl^2=2.0)
+   u=-3.0: |I(u)| = 0.76660358   |pole sum| = 0.75995348   |I - pole sum| = 0.007199   Gaussian bound = 0.02785   (line x=|u|Dl^2=3.0)
+   u=-4.0: |I(u)| = 0.6632144   |pole sum| = 0.66300955   |I - pole sum| = 0.0002187   Gaussian bound = 0.0008409   (line x=|u|Dl^2=4.0)
+   u=-6.0: |I(u)| = 0.50464428   |pole sum| = 0.50464427   |I - pole sum| = 9.929e-9   Gaussian bound = 3.818e-8   (line x=|u|Dl^2=6.0)
+== zeta: alpha=1.0 Dl=1.0
+   | |S(i t0)| - 1 | = 0.0   |S(0.5+i t0)| = 0.248708   |S(1.5+i t0)| = 0.321839
+   u=-0.5: |I(u)| = 0.72770553   |pole sum| = 0.0   |I - pole sum| = 0.7277   Gaussian bound = 2.212   (line x=|u|Dl^2=0.5)
+   u=-1.0: |I(u)| = 0.51659494   |pole sum| = 0.0   |I - pole sum| = 0.5166   Gaussian bound = 1.52   (line x=|u|Dl^2=1.0)
+   u=-2.0: |I(u)| = 0.11594622   |pole sum| = 0.0   |I - pole sum| = 0.1159   Gaussian bound = 0.3392   (line x=|u|Dl^2=2.0)
+   u=-3.0: |I(u)| = 0.0094063856   |pole sum| = 0.0   |I - pole sum| = 0.009406   Gaussian bound = 0.02785   (line x=|u|Dl^2=3.0)
+   u=-4.0: |I(u)| = 0.00028076382   |pole sum| = 0.0   |I - pole sum| = 0.0002808   Gaussian bound = 0.0008409   (line x=|u|Dl^2=4.0)
+   u=-6.0: |I(u)| = 1.2526315e-8   |pole sum| = 0.0   |I - pole sum| = 1.253e-8   Gaussian bound = 3.818e-8   (line x=|u|Dl^2=6.0)
+== DH: alpha=1.0 Dl=1.0
+   | |S(i t0)| - 1 | = 6.46e-26   |S(0.5+i t0)| = 0.749978   |S(1.5+i t0)| = 0.468823
+   RHP pole z_j = (0.0515271155808 + 85.7431823892j)  residue r_j = 2/(alpha L'(z_j)) = (-0.09587154606 + 0.01439540403j)  |r_j|/(2 Re z_j) = 0.9407307
+   u=-0.5: |I(u)| = 0.60269618   |pole sum| = 0.59385626   |I - pole sum| = 1.075   Gaussian bound = 2.212   (line x=|u|Dl^2=0.5)
+   u=-1.0: |I(u)| = 0.34195839   |pole sum| = 0.57875182   |I - pole sum| = 0.6925   Gaussian bound = 1.52   (line x=|u|Dl^2=1.0)
+   u=-2.0: |I(u)| = 0.43500406   |pole sum| = 0.54968568   |I - pole sum| = 0.1466   Gaussian bound = 0.3392   (line x=|u|Dl^2=2.0)
+   u=-3.0: |I(u)| = 0.51260127   |pole sum| = 0.52207931   |I - pole sum| = 0.01183   Gaussian bound = 0.02785   (line x=|u|Dl^2=3.0)
+   u=-4.0: |I(u)| = 0.49558356   |pole sum| = 0.49585939   |I - pole sum| = 0.0003547   Gaussian bound = 0.0008409   (line x=|u|Dl^2=4.0)
+   u=-6.0: |I(u)| = 0.44730386   |pole sum| = 0.44730387   |I - pole sum| = 1.6e-8   Gaussian bound = 3.818e-8   (line x=|u|Dl^2=6.0)

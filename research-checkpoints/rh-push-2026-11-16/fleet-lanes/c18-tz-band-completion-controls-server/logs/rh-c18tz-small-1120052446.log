@@ -1,0 +1,17 @@
+boundaries: 6 1995 7943 31622 125892 501187 1000000
+planned: moments 117728000 doubles = 0.942 GB; cells 7075; objects 26; windows 40
+segments 351, base primes 6542
+done in 1.9 s; sabs[0]=1996.91
+boundaries: 6 25118 158489 1000000 6309573 39810717 100000000
+planned: moments 156965120 doubles = 1.256 GB; cells 9433; objects 26; windows 40
+segments 943, base primes 6542
+done in 31.1 s; sabs[0]=19997.1
+boundaries: 6 1995 7943 31622 125892 501187 1000000
+planned: moments 4528000 doubles = 0.036 GB; cells 7075; objects 1; windows 40
+planned: DH coefficient array 0.008 GB
+DH check: sum c(n) n^-3 (n <= 1000000) = -0.00141876726662424 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 2.6 s; sabs[0]=8747.2
+boundaries: 6 158 398 1000 2511 6309 10000
+planned: moments 150944 doubles = 0.001 GB; cells 4717; objects 2; windows 1
+segments 0, base primes 6542
+done in 0.0 s; sabs[0]=197.466

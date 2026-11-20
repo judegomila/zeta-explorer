@@ -1,0 +1,39 @@
+{
+ "slug": "c1-multidelay-bohr-section",
+ "round": 1,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "passive",
+  "torus",
+  "euler-product"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, confirmed. For finite P and H holomorphic with Re H >= 0 on the polydisc, the weighted first moment of zeta over the poles of a lossless h = H((p^{-z})) is (T/2pi)(H(0) + conj h(1/2)) + o(T), with real part at least (T/2pi) Re H(0). So no such h other than an imaginary constant can be split off xi'/xi as a positive-real summand (Theorem B; its hypothesis implies RH, its proof does not assume it). No bounded multi-delay factor divides S (trivial, from gamma growth). Within the unipotent chain family the joint defect is rank one and additive, so joint contractivity is the scalar inequality Re U_P <= Re G and twists are torus translations. The sharp joint section fails at fixed sigma < 1 for all large Q by the pole term (classical). The Fejer-tapered section is an explicit-formula identity equivalent to RH that uses no multiplicativity; its measured separation of zeta from twists holds at sigma = 1/2 on the windows tried and is window-dependent at sigma = 0.6. Infinite P, general J-inner sections and the DH analogue remain open. No progress on RH and no statement about zeros of zeta.",
+ "obstruction": "Within the unipotent chain family a block of prime sections has rank-one additive J-defect, so joint contractivity is the scalar inequality Re U_P <= Re G and twists are torus translations. For finite P no positive-real function of several prime delays can be split off xi'/xi (Theorem B). The sharp section fails at fixed sigma < 1 for large Q (pole term). The Fejer-tapered section is an explicit-formula identity equivalent to RH that uses no multiplicativity. Open: infinite P, general J-inner linear-fractional sections, DH analogue.",
+ "obstructionKind": "restatement-of-rh",
+ "controlsThatDefeat": [
+  "sign and unimodular twists (torus translations; fail at the same prime as zeta at sigma = 1/2 in the sharp section)",
+  "tapered section separates zeta from twists only as an RH-equivalent identity; separation is window-dependent at sigma = 0.6"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "Sections of the prime chain commute and have rank-one additive defect, so grouping primes adds no freedom: joint contractivity is the largest-value inequality itself. What separates zeta's phases from twists is one-sidedness of the prime sum coming from the zero measure via the functional equation (visible with Fejer weights), not Kronecker structure of finitely many primes; that is a restatement of RH. Multiplicativity entered only in a no-go (point evaluation of H at p^-1/2).",
+ "followUp": "Referee Theorem A step (iii) (off-diagonal and horizontal error terms; checked numerically to 1-3 percent at T=6000 only), then update row Q12 and item 7 of the obstruction map. The remaining open case is a J-inner linear-fractional section in several delays with Theta(0)=M(c0)U0, c0>0. No server run needed; none was used.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-multidelay-bohr-section/RESULT.md",
+ "referee2": {
+  "file": "tmp/research-2026-11-16/push/c1-multidelay-bohr-section/REFEREE2.md",
+  "scope": "partial (owed steps only); does not raise the referee count",
+  "holds": true,
+  "note": "Second pass (scope: Theorem A step (iii) only): holds; every error term re-derived; error O(T^(1/2+eps)); 'suitable sequence' not needed; new numeric case agrees at rate T^(-1/2).",
+  "by": "c2-repair-owed-passes"
+ }
+}

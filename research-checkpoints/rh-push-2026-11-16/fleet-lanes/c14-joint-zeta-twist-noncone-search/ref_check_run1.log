@@ -1,0 +1,11 @@
+JA-with {'agree': 15, 'disagree': 0, 'skipped': 1, 'bad': []}
+JA-without {'agree': 13, 'disagree': 0, 'skipped': 3, 'bad': []}
+JB1-with {'agree': 16, 'disagree': 0, 'skipped': 0, 'bad': []}
+JB1-without {'agree': 11, 'disagree': 1, 'skipped': 4, 'bad': [('BLS0.25+2.00i|BLS0.25+2.00ixchi4.3', 18885, -1.152040943045221e+233, 1)]}
+JB2-with {'agree': 16, 'disagree': 0, 'skipped': 0, 'bad': []}
+JB2-without {'agree': 9, 'disagree': 0, 'skipped': 7, 'bad': []}
+JC1-with {'agree': 16, 'disagree': 0, 'skipped': 0, 'bad': []}
+JC1-without {'agree': 10, 'disagree': 0, 'skipped': 6, 'bad': []}
+JC2-with {'agree': 15, 'disagree': 0, 'skipped': 1, 'bad': []}
+JC2-without {'agree': 10, 'disagree': 0, 'skipped': 6, 'bad': []}
+REF-TOTAL {'agree': 131, 'disagree': 1, 'skipped': 28}

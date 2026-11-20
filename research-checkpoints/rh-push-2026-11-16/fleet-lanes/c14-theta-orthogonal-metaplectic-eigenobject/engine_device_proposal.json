@@ -1,0 +1,19 @@
+{
+ "id": "lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+ "state": "closed",
+ "name": "Luo-Rudnick-Sarnak exponent count on a rank-one eigen-object attached to a zero (weight-1/2 Eisenstein series at 1/4 + rho/2, theta-orthogonality in place of cuspidality; any cover, any vector)",
+ "evidence": "lane c14-theta-orthogonal-metaplectic-eigenobject (round 14; author's second pass only). Stage A stops. The vanishing row D = 1 is one linear condition b(1) = 0 propagated by the Hecke relation at squares; it removes the first-moment series and no polar term of the second-moment series. Rightmost Rankin-Selberg pole P = 1 + |beta - 1/2|, gamma pole |beta - 1/2|, difference 1. Lemma E: the difference is 1 for every moderate-growth Laplace eigenfunction with non-real eigenvalue on any finite-volume rank-one quotient. The generic parameter passes every step of the count; the sieved local vector NR-vec has a vanishing square row at every parameter.",
+ "closingControl": "generic parameter (EIS-w in weight 1/2); NR-vec",
+ "controls": ["EIS-w", "NR-vec", "E_a", "WT", "T-NR", "DH", "BLS"],
+ "reads": ["Hecke relation at p^2, all odd p (identity)", "zeta(rho) = 0 as one vanishing Whittaker coefficient", "constant-term exponents"],
+ "newControl": {
+  "code": "NR-vec",
+  "name": "local-vector control on the double cover of SL_2",
+  "definition": "f_q = (F x chi_q^2 - F x chi_q)/2 for a weight-1/2 level-4 Hecke eigenfunction F and an odd prime q; coefficients b(m) 1[(m/q) = -1]",
+  "has": ["the automorphic representation of F", "T_(p^2) eigenvalues of F for p not dividing 2q", "vanishing of every square-index coefficient at the cusp infinity, at every parameter"],
+  "lacks": ["level 4 (it has level 4 q^2)", "the Hecke relation at q"],
+  "use": "kills a device that reads theta-orthogonality as vanishing of the square-index coefficients of one vector",
+  "status": "coefficient statement elementary; level relative to Shimura 1973 Lemma 3.6; not refereed"
+ },
+ "nodes": []
+}

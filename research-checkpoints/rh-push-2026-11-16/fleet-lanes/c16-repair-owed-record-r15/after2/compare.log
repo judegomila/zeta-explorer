@@ -1,0 +1,188 @@
+{
+ "nodes": [
+  1707,
+  1718
+ ],
+ "live": [
+  963,
+  974
+ ],
+ "rows": [
+  241,
+  241
+ ],
+ "controls": [
+  23,
+  23
+ ],
+ "byType": {
+  "open-direction": [
+   28,
+   39
+  ]
+ },
+ "edges": [
+  9031,
+  9118
+ ],
+ "edgesByType": {
+  "composes-with": [
+   7474,
+   7559
+  ],
+  "control-defeats": [
+   871,
+   871
+  ],
+  "obstructs": [
+   270,
+   270
+  ],
+  "restates": [
+   186,
+   188
+  ],
+  "separates-from": [
+   4,
+   4
+  ],
+  "special-case-of": [
+   132,
+   132
+  ],
+  "uses": [
+   94,
+   94
+  ]
+ },
+ "devicesMeta": [
+  {
+   "closed": 69,
+   "floored": 6
+  },
+  {
+   "closed": 69,
+   "floored": 6,
+   "open": 11
+  }
+ ],
+ "nodesAdded": [
+  "silent-u2-pos-fe-positivity-rigidity",
+  "silent-u3-identification-relaxation",
+  "silent-u4-joint-functionals-not-scaling-invariant",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+  "silent-u6b-nonsolid-laxphillips-norms",
+  "silent-u6c-gl3-cover-global-whittaker-constants",
+  "silent-u6d-rank2-compact-squares-without-hecke-rule",
+  "silent-u6e-bost-connes-states-outside-d8",
+  "silent-u6f-isogenous-points-nonlinear-functionals",
+  "silent-u6g-scattering-exact-normalisation-affine-kernel",
+  "silent-u8-kernel-conditions-beyond-searched-range"
+ ],
+ "nodesRemoved": [],
+ "edgesRemoved": [
+  "af-rank-trace-inertia -> fold-law-collision [composes-with]",
+  "angular-spacing-poisson -> map-pos-19 [composes-with]",
+  "bagchi-strong-recurrence -> zv-infinity-end-coordinate [composes-with]",
+  "bohr-torus-scan-certification -> zv-infinity-end-coordinate [composes-with]",
+  "box-defect-psi-w -> map-open-6 [composes-with]",
+  "bridge-multiplier-c0 -> zv-divisor-cosine-euler-product [composes-with]",
+  "bridge-scattering-factorisation -> selberg-zeta-companion [composes-with]",
+  "bridge-winding-equals-NT -> cotangent-reciprocity-period-function [composes-with]",
+  "bridge-winding-equals-NT -> map-open-20 [composes-with]",
+  "burgers-limsup-tc -> ramanujan-cube-satake-point [composes-with]",
+  "burgers-limsup-tc -> triple-correlation-data [composes-with]",
+  "catalan-signed-ladder -> sympow-conductor-normalised-shift [composes-with]",
+  "ch-holder-half-sharp -> katz-sarnak-family-checks [composes-with]",
+  "cmv-truncation-from-taylor-data -> cotangent-reciprocity-period-function [composes-with]",
+  "coal-n-laguerre-law -> triple-correlation-data [composes-with]",
+  "collision-constant-cc-ansatz -> confluent-laguerre-floor [composes-with]",
+  "collision-ladder-data -> cotangent-reciprocity-period-function [composes-with]",
+  "commutator-diagonal-split -> laurent-shell-gamma-section [composes-with]",
+  "conf-lb-laguerre-floor -> triple-correlation-data [composes-with]",
+  "cubic-r2-conductor-a4 -> start-substitution-lemma [composes-with]",
+  "darlington-losslessness-s7 -> map-pos-17 [composes-with]",
+  "en-bridge-three-term-surrogate -> spec-z-squared-hodge-index [composes-with]",
+  "en-monotone-no-minimum -> fold-law-collision [composes-with]",
+  "en-monotone-no-minimum -> m23-dimension-cap [composes-with]",
+  "en-monotone-no-minimum -> mesoscopic-density-floor-cotangent [composes-with]",
+  "euler-anchor-heat-certificate -> ff-ghost-second-order [composes-with]",
+  "euler-completed-weil-multiplier -> ramanujan-cube-satake-point [composes-with]",
+  "euler-fe-coupling-at-height -> map-open-12 [composes-with]",
+  "euler-fe-coupling-at-height -> virtual-rungs-positive-extension [composes-with]",
+  "exact-witness-quadratic-cosine -> map-pos-20 [composes-with]",
+  "fejer-riesz-branch-reduction -> laurent-shell-gamma-section [composes-with]",
+  "ff-order2-vertex-probe -> single-crossing-compensation [composes-with]",
+  "ff-three-approaches-one-statement -> link-a-schur [composes-with]",
+  "gamma-bulk-identity -> map-pos-18 [composes-with]",
+  "gue-conditional-share-binding -> theta-trap-theorems [composes-with]",
+  "h5-euler-products-bounded -> vaughan-sqrt-type1-exact [composes-with]",
+  "harmonic-strip-transport -> mem-gaussian-damped-primon-gram [composes-with]",
+  "heegner-height-upper-bound-h4prime -> sympow-conductor-normalised-shift [composes-with]",
+  "klein-phase-transport-certificate -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-annulus-boundary-conditions [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-dirichlet-energy-fold [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-jacobi-uniformization-involutions [composes-with]",
+  "landau-siegel-2026-mechanism -> rig-continuum-sawtooth [composes-with]",
+  "legendre-dual-limit-density-zero -> selberg-zeta-companion [composes-with]",
+  "lemma-cg-covering-identity -> twist-modulus-reciprocity [composes-with]",
+  "lemma-cg-covering-identity -> twisted-second-moment-oversampling [composes-with]",
+  "mem-chi4-signed-ladder -> route-m-first-moment-kappa [composes-with]",
+  "mem-lambda-theta-table -> seven-eighths-abscissa-formula [composes-with]",
+  "mem-qrh-7-8 -> theta-modular-ode-system [composes-with]",
+  "mem-semilocal-fourier-fs -> separating-probe [composes-with]",
+  "mem-sextic-theta-squarefree -> seven-eighths-abscissa-formula [composes-with]",
+  "mem-sextic-theta-squarefree -> start-substitution-lemma [composes-with]",
+  "mem-v7-floor-reduction -> mem-widom-parseval-peak [composes-with]",
+  "offline-zero-visibility-law -> prime-square-pole-recurrence [composes-with]",
+  "pick-weil-native-span -> sympow-conductor-normalised-shift [composes-with]",
+  "positive-real-ladder-step -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "prime-delay-domination-15-4 -> theta-ratio-convexity [composes-with]",
+  "prime-delay-domination-15-4 -> volterra-hankel-operator [composes-with]",
+  "probe-equals-theta-row-form -> start-substitution-lemma [composes-with]",
+  "qrh-seven-eighths -> sextic-theta-numerics [composes-with]",
+  "qrh-seven-eighths -> zv-elliptic-double-cover [composes-with]",
+  "route-a-primon-reflection-gram -> zv-bridge-pick-congruence [composes-with]",
+  "rung-toeplitz-euler-detector -> zv-schur-frozen-block-inertia [composes-with]",
+  "scattering
+edgesAdded: 163
+   af-rank-trace-inertia -> silent-u2-pos-fe-positivity-rigidity [composes-with]
+   alias-energy-in-sieve-algebra -> silent-u3-identification-relaxation [composes-with]
+   alias-sign-determinacy -> silent-u3-identification-relaxation [composes-with]
+   arch-native-prime-jordan-product -> silent-u3-identification-relaxation [composes-with]
+   autocorrelation-moment-ladder -> triple-correlation-data [composes-with]
+   bk-diagonal-prime-identity -> silent-u3-identification-relaxation [composes-with]
+   blaschke-ghost-index-identity -> map-open-6 [composes-with]
+   blaschke-ghost-index-identity -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   blaschke-ghost-index-identity -> triple-correlation-data [composes-with]
+   blaschke-ghost-negative-square -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   blaschke-ghost-negative-square -> triple-correlation-data [composes-with]
+   box-defect-psi-w -> silent-u2-pos-fe-positivity-rigidity [composes-with]
+   bridge-scattering-factorisation -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]
+   bridge-winding-equals-NT -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]
+   cascade-s21-zeta2s-over-zeta -> silent-u3-identification-relaxation [composes-with]
+   catalan-signed-ladder -> silent-u3-identification-relaxation [composes-with]
+   catalan-signed-ladder -> silent-u6b-nonsolid-laxphillips-norms [composes-with]
+   catalan-signed-ladder -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]
+   cm-eta-heights-lambda1 -> silent-u6b-nonsolid-laxphillips-norms [composes-with]
+   cm-flow-theta-trap -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]
+   cmv-truncation-from-taylor-data -> silent-u6e-bost-connes-states-outside-d8 [composes-with]
+   coal-n-laguerre-law -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   cofinal-pointwise-mobius-sum -> silent-u2-pos-fe-positivity-rigidity [composes-with]
+   commutator-diagonal-split -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]
+   conf-lb-laguerre-floor -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   confluent-laguerre-floor -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   conformal-schur-window -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]
+   connes-adelic-truncated-trace -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]
+   connes-twin-ladder-crosswalk -> silent-u3-identification-relaxation [composes-with]
+   connes-twin-ladder-crosswalk -> silent-u6e-bost-connes-states-outside-d8 [composes-with]
+   corr23-mixed-prolate-ladder -> map-open-12 [composes-with]
+   cotangent-reciprocity-period-function -> eh-nonprincipal-row-cancellation [composes-with]
+   cotangent-reciprocity-period-function -> ek-vector-specific-row-mean-square [composes-with]
+   cotangent-reciprocity-period-function -> en-etrunc-guth-maynard [composes-with]
+   cubic-r2-conductor-a4 -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]
+   cubic-r2-conductor-a4 -> silent-u6b-nonsolid-laxphillips-norms [composes-with]
+   cubic-r2-conductor-a4 -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]
+   cutoff-energy-kernel-hc -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]
+   dbn-native-triangle-binding -> silent-u3-identification-relaxation [composes-with]
+   discrepancy-bridge-constant -> en-monotone-no-minimum [composes-with]

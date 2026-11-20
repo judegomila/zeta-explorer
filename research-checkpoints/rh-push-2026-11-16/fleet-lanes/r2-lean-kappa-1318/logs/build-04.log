@@ -1,0 +1,33 @@
+warning: PrimeNumberTheoremAnd: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/pi1' has local changes
+warning: heights: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/heights' has local changes
+warning: genl: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/iut' has local changes
+warning: gromov: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository 'tmp/research-2026-11-16/push/r2-lean-kappa-1318/lean/.lake/packages/fixed-point-theorems' has local changes
+⚠ [5067/5215] Replayed OAI.NumberTheory.DirichletL.Moments.ReflectionRetainedLength
+warning: OAI/NumberTheory/DirichletL/Moments/ReflectionRetainedLength.lean:62:5: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [7060/7061] Built OAI.NumberTheory.DirichletL.Detector.FinalAssemblyUnconditional (22s)
+✔ [7061/7061] Built OAI.NumberTheory.DirichletL.Nonvanishing (17s)
+Build completed successfully (7061 jobs).

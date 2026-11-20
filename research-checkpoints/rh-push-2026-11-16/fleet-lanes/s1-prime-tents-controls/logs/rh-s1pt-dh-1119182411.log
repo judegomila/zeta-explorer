@@ -1,0 +1,7 @@
+X=600000000 planned allocation 9.60 GB (two double arrays)
+inverse done
+convolution done
+lam[2]=0.196908588294147 expect 0.196908588294147 ; lam[7]=0.552792294542988 expect 0.552792294542988 ; lam[6]=1.93635607662104 ; lam[4]=-1.44223196460646 expect -1.44223196460646
+check s=3: sum Lambda n^-3 = -0.00141876726662426 ; -f'/f(3) = -0.00141876726662426
+max |Lambda_DH(n)|/log(n+1) = 14139 at n=589444128
+DONE

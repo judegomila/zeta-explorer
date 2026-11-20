@@ -1,0 +1,52 @@
+{
+ "slug": "c11-ff-row-energy-four-part",
+ "round": 11,
+ "kind": "compute",
+ "nodes": [
+  "ff-order2-vertex-probe",
+  "function-field-order2-vertex",
+  "out-c11-ff-row-energy-four-part"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "completed-rows",
+  "cube-part",
+  "prime-marks",
+  "mean-square",
+  "pre-registered",
+  "seeded-classes",
+  "heavy"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_7[T] model only (q = 7, N = 6, d = 2), no statement about zeta: the squarefree-n part D = |Pi Tf|^2 of the cube term, in units of the completed diagonal, is 0.569/0.603 at lam = 9, 3.9e-5/3.0e-5 at lam = 10, 0 at lam = 11 and 2.798/2.980 at lam = 12 for the two targets (exact, independently reproduced), so the registered constant 1.5 is exceeded at (6, 12, 2). Proved: E|Tf|^2 = q^2 sum_m nu(m)|S_0(m)|^2 over cube coefficients with E c(n) conj c(n') = delta, nu in {31, 36, 41}, and D <= |Tf|^2. Random multiplicative-sign and free-sign vectors give D of the same size as the targets (no separation); the Liouville-twisted vector is below, the trivial vector above. The registered decomposition is an exact (Pythagoras) identity for 53 of 53 vectors at both sizes. Not established: unboundedness in lam, the total row energy at (6, 12, 2), and independent reproduction of the (6, 10, 2) full-row figures.",
+ "obstruction": "F_7[T], N = 6, d = 2, exact. The squarefree-n part D of the cube term is 0.569/0.603 of the diagonal at lam = 9, 3.9e-5/3.0e-5 at lam = 10, 0 at lam = 11, 2.798/2.980 at lam = 12: the registered constant 1.5 is exceeded at (6,12,2). Lemma M: the mean of |Tf|^2 over unimodular cube coefficients is q^2 sum_m nu(m)|S_0(m)|^2 (companion energy times a count). Random multiplicative-sign and free-sign vectors give D of the same size as the targets. Not established: unboundedness in lam; total row energy at (6,12,2); independent reproduction of the (6,10,2) full-row figures.",
+ "obstructionKind": "cube-term-squarefree-part-is-companion-energy-times-count-not-bounded-not-target-specific",
+ "controlsThatDefeat": [
+  "random multiplicative signs (24 seeds, D of the same size: no separation)",
+  "free unimodular signs (24 seeds, same)",
+  "not run: DH-type model weight, heat, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No arithmetic error and no broken PROVED step. Independently recomputed with own code (local, memcap 8 GB; server not used): D, |Tf|^2, C, E_2 and D_c at lam = 9, 10, 11, 12 for a, b, one all reproduce to the printed digits (D = 0.568794/0.603007; 3.885e-5/2.951e-5; 0; 2.79816/2.97975; D_c integers equal, built from my own brute-force support counts). Lemma M re-derived (nu = 41/36/31, mean 36). Different cases: lam = 6 cube parts (companion 6.025); companion row S_0 at lam = 6 recomputed from t - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Before a heavy run, compute every part of the registered statistic that stored data already fixes. Here the stored companion row gave the cube parts at four lengths, decided the question before the run, and showed the registered second size (6,10,2) to be off resonance, so its threshold test is vacuous. Summing over primes first into a weight-independent table (new kernel ffy.c, identical to all stored rows) made the 48 seeded vectors free and cut cost per prime by 15.",
+ "followUp": "None needed for item 23. An independent referee is still owed: REFEREE.md is the author's own pass and lanes.jsonl carries refereeHolds null. Optional: the full row at (6,12,2) with ffy (about 7e5 core-seconds, four 3-hour jobs on 16 cores) would give the total at the second resonant size. Open outside the question: the row of `one` at (6,10,2) is 212 diagonals, and the mu prediction failed.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-ff-row-energy-four-part/REFEREE.md",
+ "launchedNodes": [
+  "ff-order2-vertex-probe",
+  "function-field-order2-vertex"
+ ],
+ "engineVerdict": "closed"
+}

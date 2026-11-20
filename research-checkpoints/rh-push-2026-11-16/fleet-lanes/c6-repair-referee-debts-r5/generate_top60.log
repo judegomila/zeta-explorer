@@ -1,0 +1,129 @@
+generated 36447, scored 8890, rejected 27557
+  rejected  14312  no open or floored crossing device (curated/devices.json)
+  rejected   2916  contains a combination closed in outcomes.json
+  rejected   1359  closed family: fam-legendre-dual-limits
+  rejected    742  contains a closed device: monotone-flow-functional
+  rejected    665  closed family: fam-euler-anchor-heat
+  rejected    604  closed family: fam-primitive-test-restriction
+  rejected    595  closed family: fam-selberg-control-companion
+  rejected    586  all members flow-stable and none arithmetic (backward heat passes)
+  rejected    487  shares two nodes with a closed lane (nodes or launchedNodes)
+  rejected    478  contains a closed device: positive-kernel-transport
+  rejected    434  contains a closed device: residue-explicit-formula
+  rejected    427  contains a closed device: finite-support-positivity
+  rejected    393  covariant under shift and reciprocal (RZ_b passes every step)
+  rejected    393  contains a closed device: mean-value-convexity
+  rejected    373  closed family: fam-nb-gram-lammin
+  rejected    360  contains a closed device: euler-fe-phase-at-height
+  rejected    293  closed family: fam-vaughan-split-landau
+  rejected    281  closed family: fam-projection-domination-gonek
+  rejected    262  closed family: fam-arithmetic-nb-span
+  rejected    222  closed family: fam-order2-theta-rows
+  rejected    202  closed family: fam-heat-monotone-hankel
+  rejected    194  closed family: fam-one-zero-forces-many
+  rejected    151  contains a closed device: geometric-positivity
+  rejected    135  closed family: fam-stage-limit-semicontinuity
+  rejected    123  closed family: fam-torus-exclusion-sign-test
+  rejected    121  contains a closed device: maximum-principle
+  rejected     78  contains a closed device: twisted-discrepancy
+  rejected     54  closed family: fam-multidelay-section
+  rejected     52  closed family: fam-hecke-shear-commutator
+  rejected     42  contains a closed device: recurrence-ergodicity
+  rejected     34  closed family: fam-laxphillips-hecke-compression
+  rejected     34  contains a closed device: dual-measure-compactness
+  rejected     30  closed family: fam-linear-zero-measure-lmi
+  rejected     28  contains a closed device: strip-dtn-identity
+  rejected     23  contains a closed device: exact-uniqueness
+  rejected     21  no member uses multiplicativity (DH passes)
+  rejected     18  closed family: fam-reflected-euler-stage-canonical
+  rejected     13  all members attached to one closed row
+  rejected     11  closed family: fam-helson-discrepancy-zerofree
+  rejected      4  closed family: fam-pd-log-strip
+  rejected      4  all members from one module
+  rejected      3  only arithmetic step is target-blind algebra (same for every control)
+families (move/theme: count, best score):
+  M1/flow               483  8.62
+  M1/geometry           143  11.92
+  M1/nyman               25  9.98
+  M1/positivity        1505  12.25
+  M1/prime-chain       1256  11.54
+  M1/statistics         119  10.59
+  M1/zero-free         3825  12.21
+  M2/zero-free           11  10.0
+  M3/flow                18  7.0
+  M3/geometry            43  10.95
+  M3/nyman               41  11.87
+  M3/positivity          27  12.04
+  M3/prime-chain         29  11.51
+  M3/statistics          54  12.28
+  M3/zero-free          323  11.5
+  M4/flow               499  9.17
+  M4/geometry             2  10.75
+  M4/positivity          76  9.46
+  M4/prime-chain         37  10.78
+  M4/statistics           8  9.25
+  M4/zero-free          365  12.86
+  P2/flow                 1  3.81
+
+top 60:
+  1  12.9 M4 zero-free   zv-theta-kernel-phi x tro6-natural x euler-detection-depth-law
+  2  12.3 M3 statistics  map-open-9 x map-pos-46 x star-min-pointwise-prime-bound
+  3  12.2 M1 positivity  capture-ratio-psd-slope x sympow-conductor-normalised-shift x map-open-9
+  4  12.0 M1 positivity  gl2-weil-symbol x finite-support-euler-detector x tro6-natural
+  5  12.0 M3 positivity  map-open-4 x finite-support-euler-detector x connes-twin-ladder-crosswalk
+  6  11.9 M3 nyman       rm-kappa-smooth-open x binet-positive-kernel x map-open-9
+  7  11.7 M1 zero-free   phi-autocorrelation-weight x sympow-conductor-normalised-shift x tro6-natural
+  8  11.5 M3 zero-free   tro6-natural x gauss-plancherel-alias-lemma x route-m-first-moment-kappa
+  9  11.5 M3 nyman       map-open-9 x rm-inverse-line-detection-identity x rm-kappa-total-measured
+ 10  11.5 M3 zero-free   map-open-9 x mem-route-m-cs-reduction x route-m-first-moment-kappa
+ 11  11.3 M1 zero-free   zv-infinity-end-coordinate x star-min-pointwise-prime-bound x qrh-seven-eighths
+ 12  11.3 M1 zero-free   sun-prop63-plus4-offset x katz-sarnak-family-checks x tro6-natural
+ 13  11.0 M1 zero-free   capture-ratio-psd-slope x qrh-seven-eighths-input x tro6-natural
+ 14  11.0 M1 zero-free   sep-opt-lattice-extremal x cotangent-reciprocity-period-function x tro6-natural
+ 15  11.0 M3 zero-free   tro6-natural x map-pos-49 x mem-qrh-7-8
+ 16  10.9 M1 zero-free   parity-pure-maj-witness-threshold x alias-width-law-octave-weight x tro6-natural
+ 17  10.9 M1 prime-chain two-line-zero-detector x two-tents-joint-zero-completeness x map-open-9
+ 18  10.8 M1 geometry    zv-dirichlet-energy-fold x ramanujan-cube-satake-point x map-open-9
+ 19  10.6 M1 statistics  autocorrelation-moment-ladder x sextic-theta-numerics x map-open-9
+ 20  10.5 M3 zero-free   sun-catalan-preprint-verdict x mem-qrh-7-8 x qrh-seven-eighths
+ 21  10.5 M3 nyman       map-open-9 x rm-e0-uniform-remainder x rm-sign-law-t-negative
+ 22  10.2 M1 prime-chain curvature-charge-d x route-m-vasyunin-gram x tro6-natural
+ 23  10.2 M1 positivity  rz-twin-block-riesz-floor x rung-toeplitz-euler-detector x tro6-natural
+ 24  10.0 M4 zero-free   theta-density-positivity x staged-strip-triangular-inequality x tro6-natural
+ 25  10.0 M2 zero-free   sextic-theta-numerics x qrh-seven-eighths x ctl-DH
+ 26  10.0 M3 zero-free   mem-sextic-theta-squarefree x qrh-seven-eighths x mem-abscissa-formula
+ 27  10.0 M3 zero-free   clv-single-gaussian-minorant-citation x qrh-seven-eighths-input x qrh-seven-eighths
+ 28   9.8 M3 nyman       map-open-9 x map-pos-39 x rm-second-moment-split
+ 29   9.8 M1 positivity  lean-weil-small-support x mem-atlas-closing-line x map-open-4
+ 30   9.8 M4 zero-free   zv-signed-shear-w x staged-strip-triangular-inequality x qrh-seven-eighths
+ 31   9.7 M1 positivity  small-value-shear-energy x prime-delay-domination-15-4 x map-open-9
+ 32   9.6 M1 positivity  zv-boundary-kernel-pa x restricted-mobius-delay-lift x qrh-seven-eighths
+ 33   9.6 M3 statistics  map-open-9 x m23-dimension-cap x alpoge-furman-inertia-mechanism
+ 34   9.4 M2 zero-free   phi-truncation-leftmost-zero x qrh-seven-eighths x ctl-DH
+ 35   9.2 M3 positivity  near-muntz-threshold-cones x arch-native-prime-jordan-product x map-open-4
+ 36   8.7 M1 prime-chain sun-prop63-plus4-offset x route-m-vasyunin-gram x map-open-4
+ 37   8.6 M1 prime-chain family-weil-symbol x weil-small-support-lean x map-open-4
+ 38   8.6 M1 prime-chain gl2-weil-symbol x gauss-plancherel-alias-lemma x map-open-4
+ 39   8.5 M1 prime-chain lean-weil-small-support x weil-small-support-lean x qrh-seven-eighths
+ 40   8.3 M1 geometry    virtual-rungs-positive-extension x ramanujan-cube-satake-point x map-open-4
+ 41   8.3 M1 geometry    virtual-rungs-positive-extension x selberg-geodesic-ground-truth x qrh-seven-eighths
+ 42   8.0 M4 positivity  tilt-det-majorant x ff-three-approaches-one-statement x map-open-4
+ 43   7.5 M1 geometry    ff-lambda-of-elliptic-curve x hasse-weil-checks x map-open-4
+ 44   7.3 M4 positivity  np-pick-seam-pencil x route-i-krein-certificate x map-open-4
+ 45   7.2 M4 positivity  exact-witness-quadratic-cosine x qtl-weil-delay-form x map-open-4
+ 46   7.2 M4 zero-free   zv-taylor-rouche-channel-criterion x prime-tent-rh-equivalence x qrh-seven-eighths
+ 47   7.1 M4 positivity  zv-signed-shear-w x function-field-twin-ladder x map-open-4
+ 48   7.1 M4 zero-free   theta-density-positivity x lane-audit-h-desc x qrh-seven-eighths
+ 49   6.7 M3 positivity  map-open-2 x rung-toeplitz-euler-detector x ff-three-approaches-one-statement
+ 50   6.3 M1 statistics  autocorrelation-moment-ladder x cotangent-second-moment-upper-lemma x map-open-2
+ 51   6.2 M4 positivity  frozen-rung-winding-identity x prime-delay-domination x map-open-2
+ 52   6.1 M4 flow        collision-ladder-data x selberg-zeta-freeze-sandbox x seven-eighths-abscissa-formula
+ 53   6.0 M2 zero-free   pr14-boundary-certificate x seven-eighths-abscissa-formula x ctl-DH
+ 54   6.0 M3 nyman       map-open-2 x rm-kappa-arith-exact x rm-kappa-total-measured
+ 55   5.7 M4 prime-chain lemma-cg-covering-identity x bettin-conrey-intercept x seven-eighths-abscissa-formula
+ 56   5.4 M1 statistics  ingham-offlattice-riesz-floor x mv-cap-function-side-gap x map-open-2
+ 57   5.0 M3 nyman       map-open-2 x rm-parity-sign-law x rm-sign-law-t-negative
+ 58   4.9 M4 flow        ch-holder-half-sharp x katz-sarnak-family-checks x seven-eighths-abscissa-formula
+ 59   4.7 M1 flow        mem-freeze-flow-interlacing x route-m-kappa-first-moment x map-open-2
+ 60   4.7 M3 prime-chain map-open-22 x cm-eta-heights-lambda1 x seven-eighths-abscissa-formula
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

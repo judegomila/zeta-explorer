@@ -1,0 +1,32 @@
+jacobi check 2.8992592271648086e-118
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0506 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0506 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0506 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 2.0 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 3 2.0785 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 3 2.0785 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 3 2.0785 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 0.5 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 5, -1: 95, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 0.5 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 58, -1: 42, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 0.5 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 1.4142 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 1.4142 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+lane range (a in -2..2, |log y| <= 1.2, |log x0| <= 0.5) 2 1.4142 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 7, -1: 93, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0506 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0506 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0506 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 2.0 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 100, -1: 0, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 0.5 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 2, -1: 98, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 0.5 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 19, -1: 81, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 0.5 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 63, -1: 37, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 1.4142 3 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 1.4142 4 {'zeta_lattice_minors': {1: 0, -1: 100, 0: 0}, 'twin_lattice_minors': {1: 0, -1: 100, 0: 0}}
+wider (a in -3..3, |log y| <= 2.5, |log x0| <= 0.35) 2 1.4142 5 {'zeta_lattice_minors': {1: 100, -1: 0, 0: 0}, 'twin_lattice_minors': {1: 88, -1: 12, 0: 0}}
+{'int_K3_e_plus': '(0.7226408447012335+0.03795754222760426j)', 'two_xi_plus': '(0.7226408447012335+0.03795754222760426j)', 'int_K3_e_minus': '(0.7226408447012335-0.03795754222760426j)', 'two_xi_minus': '(0.7226408447012335-0.03795754222760426j)', 'product_over_4': '(0.13091264136061814+2.6443264915229793e-38j)', 'abs_xi_sq': 0.13091264136061814, 'lane_value': 0.13091264136, 'defect_plus': 1.0924848091032835e-20, 'defect_minus': 1.7617417364042732e-20}
+{'max_second_difference_of_log': -10.233148043545107, 'all_positive_values': True, 'decreasing': True, 'phi_a_0': 1.2846780865277547}
+{'max_second_difference_of_log': -10.24153471279803, 'all_positive_values': True, 'decreasing': True, 'phi_a_0': 1.2918004246942885}
+exit 0

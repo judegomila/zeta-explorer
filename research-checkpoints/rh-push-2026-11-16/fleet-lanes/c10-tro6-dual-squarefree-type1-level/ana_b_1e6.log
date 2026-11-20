@@ -1,0 +1,18 @@
+[b] X=1e+06 levels N(a) <= Q^0.4: points 5 (Q 990..7173, levels 4..9)
+     r2 along path (theta rows): 1.344 0.954 1.123 1.048 1.068 | randphase0: 1.161 1.190 1.156 1.224 1.056 | random signs on levels: 1.000 1.020 1.012 1.001 0.996
+     exponent r2: theta +0.0740; seeds mean +0.0354 sd 0.0273 [+0.0008, +0.0860]; diff +0.0386; saving False; excess False
+     exponent L: theta -0.1074; seeds mean -0.0215 sd 0.0341 [-0.0768, +0.0315]; diff -0.0860; saving True; excess False
+     other rows, exponent r2 / L: liouville +0.0452 / -0.0249; thin +0.0089 / -0.0668; cubicrows -0.0778 / +0.0370; nomu_levels +0.0740 / -0.1074; planted10 +0.2484 / +0.0790 | planted r2: 1.95 1.62 1.52 1.27 1.19
+     L values theta: 0.990 0.962 0.877 0.964 1.290 | x2 theta: 2.55 -0.91 0.87 -0.16 0.96 | full form / CS: 0.00051 0.00077 0.00103 0.00181 0.00286
+[b] X=1e+06 levels N(a) <= Q^0.5: points 6 (Q 603..7173, levels 6..22)
+     r2 along path (theta rows): 1.274 1.120 1.127 1.128 1.257 1.114 | randphase0: 1.287 1.213 1.271 1.285 1.135 1.113 | random signs on levels: 0.977 1.005 1.000 1.002 0.977 0.991
+     exponent r2: theta +0.0187; seeds mean +0.0171 sd 0.0237 [-0.0053, +0.0529]; diff +0.0016; saving False; excess False
+     exponent L: theta -0.0084; seeds mean -0.0120 sd 0.0284 [-0.0492, +0.0387]; diff +0.0036; saving False; excess False
+     other rows, exponent r2 / L: liouville +0.0545 / -0.0372; thin +0.0161 / -0.0014; cubicrows -0.0034 / +0.0292; nomu_levels +0.0403 / -0.0084; planted10 +0.2266 / +0.1034 | planted r2: 2.16 1.81 1.58 1.42 1.39 1.18
+     L values theta: 0.981 0.995 0.914 0.967 1.215 0.886 | x2 theta: 1.73 0.66 1.03 0.07 1.67 1.27 | full form / CS: 0.00051 0.00077 0.00103 0.00181 0.00286 0.00508
+[b] X=1e+06 levels N(a) <= Q^0.6: points 6 (Q 603..7173, levels 13..56)
+     r2 along path (theta rows): 1.149 1.200 1.115 1.241 1.221 1.107 | randphase0: 1.178 1.210 1.296 1.254 1.225 1.157 | random signs on levels: 1.015 1.023 0.995 0.994 1.000 0.999
+     exponent r2: theta +0.0015; seeds mean -0.0266 sd 0.0281 [-0.0615, +0.0157]; diff +0.0281; saving False; excess False
+     exponent L: theta -0.0191; seeds mean -0.0106 sd 0.0219 [-0.0426, +0.0259]; diff -0.0085; saving False; excess False
+     other rows, exponent r2 / L: liouville +0.0040 / -0.0317; thin -0.0015 / -0.0043; cubicrows -0.0411 / -0.0093; nomu_levels +0.0903 / -0.0191; planted10 +0.2283 / +0.0532 | planted r2: 2.14 1.91 1.58 1.51 1.39 1.19
+     L values theta: 0.990 0.995 0.933 0.968 1.166 0.954 | x2 theta: 0.96 1.82 0.98 1.15 1.34 0.88 | full form / CS: 0.00051 0.00077 0.00103 0.00181 0.00286 0.00508

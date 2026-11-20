@@ -1,0 +1,52 @@
+U=32000 rows R=9029 (squarefree primary u coprime to 6, N(u)<=U) t=0.0s
+config r=0.0 z=0.5 k=1: marks n=24 (split primes, 44.7 < N <= 178.9); planned A 24x9029 c64 x2 + G: 0.00 GB
+  w=one  mean w=1.0000 tr=0.9900 | I(1)/tr=0.990 | best Gauss g4 I/tr=1.011 | sup/tr >= 1.053 (start rand0) <= 1.059 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=8659 share 0.001 | max overlap conj_g5 0.338 t=0s
+config r=0.0 z=0.6 k=1: marks n=64 (split primes, 126.2 < N <= 504.8); planned A 64x9029 c64 x2 + G: 0.01 GB
+  w=one  mean w=1.0000 tr=0.9962 | I(1)/tr=0.995 | best Gauss conj_g5 I/tr=1.083 | sup/tr >= 1.181 (start conj_g2) <= 1.198 | n/R=0.0071 (1+sqrt(n/R))^2=1.175 | top row N=1171 share 0.001 | max overlap g1 0.478 t=0s
+config r=0.0 z=0.75 k=1: marks n=250 (split primes, 598.1 < N <= 2392.6); planned A 250x9029 c64 x2 + G: 0.04 GB
+  w=one  mean w=1.0000 tr=0.9991 | I(1)/tr=1.012 | best Gauss g1 I/tr=1.155 | sup/tr >= 1.375 (start ones) <= 1.442 | n/R=0.0277 (1+sqrt(n/R))^2=1.360 | top row N=1681 share 0.001 | max overlap conj_g5 0.096 t=0s
+config r=0.0 z=0.9 k=1: marks n=958 (split primes, 2835.1 < N <= 11340.6); planned A 958x9029 c64 x2 + G: 0.20 GB
+  w=one  mean w=1.0000 tr=0.9998 | I(1)/tr=1.088 | best Gauss conj_g5 I/tr=1.163 | sup/tr >= 1.684 (start conj_g2) <= 1.822 | n/R=0.1061 (1+sqrt(n/R))^2=1.758 | top row N=19141 share 0.000 | max overlap conj_g2 0.048 t=4s
+config r=0.0 z=0.5 k=2: marks n=24 (split primes, 44.7 < N <= 178.9); planned A 24x9029 c64 x2 + G: 0.00 GB
+  w=one  mean w=1.0000 tr=0.9900 | I(1)/tr=0.976 | best Gauss conj_g2 I/tr=1.008 | sup/tr >= 1.051 (start g1) <= 1.057 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=8341 share 0.001 | max overlap conj_g4 0.310 t=4s
+config r=0.0 z=0.6 k=2: marks n=64 (split primes, 126.2 < N <= 504.8); planned A 64x9029 c64 x2 + G: 0.01 GB
+  w=one  mean w=1.0000 tr=0.9962 | I(1)/tr=0.989 | best Gauss g2 I/tr=1.316 | sup/tr >= 1.319 (start rand2) <= 1.325 | n/R=0.0071 (1+sqrt(n/R))^2=1.175 | top row N=6139 share 0.001 | max overlap g2 0.995 t=4s
+config r=0.0 z=0.75 k=2: marks n=250 (split primes, 598.1 < N <= 2392.6); planned A 250x9029 c64 x2 + G: 0.04 GB
+  w=one  mean w=1.0000 tr=0.9991 | I(1)/tr=0.975 | best Gauss g2 I/tr=1.711 | sup/tr >= 1.727 (start rand0) <= 1.745 | n/R=0.0277 (1+sqrt(n/R))^2=1.360 | top row N=1 share 0.001 | max overlap g2 0.988 t=5s
+config r=0.0 z=0.9 k=2: marks n=958 (split primes, 2835.1 < N <= 11340.6); planned A 958x9029 c64 x2 + G: 0.20 GB
+  w=one  mean w=1.0000 tr=0.9998 | I(1)/tr=1.020 | best Gauss g2 I/tr=2.667 | sup/tr >= 2.711 (start rand3) <= 2.770 | n/R=0.1061 (1+sqrt(n/R))^2=1.758 | top row N=28825 share 0.001 | max overlap g2 0.986 t=6s
+config r=0.0 z=0.5 k=3: marks n=24 (split primes, 44.7 < N <= 178.9); planned A 24x9029 c64 x2 + G: 0.00 GB
+  w=one  mean w=1.0000 tr=0.9900 | I(1)/tr=0.858 | best Gauss g2 I/tr=1.002 | sup/tr >= 1.056 (start rand1) <= 1.072 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=18793 share 0.001 | max overlap g3 0.272 t=6s
+config r=0.0 z=0.75 k=3: marks n=250 (split primes, 598.1 < N <= 2392.6); planned A 250x9029 c64 x2 + G: 0.04 GB
+  w=one  mean w=1.0000 tr=0.9991 | I(1)/tr=0.929 | best Gauss g2 I/tr=1.008 | sup/tr >= 1.212 (start rand4) <= 1.245 | n/R=0.0277 (1+sqrt(n/R))^2=1.360 | top row N=9919 share 0.001 | max overlap g3 0.085 t=6s
+config r=0.2 z=0.6 k=1: marks n=64 (split primes, 126.2 < N <= 504.8); planned A 64x9029 c64 x2 + G: 0.01 GB
+  inverse r=0.2: X=8.0 primes<=X: 2; table 2x9029 int8 = 0.00 GB
+  w=mu   mean w=0.8769 tr=0.8736 | I(1)/tr=1.013 | best Gauss g1 I/tr=1.086 | sup/tr >= 1.195 (start rand0) <= 1.233 | n/R=0.0071 (1+sqrt(n/R))^2=1.175 | top row N=19351 share 0.002 | max overlap conj_g5 0.479 t=7s
+  w=rand mean w=0.8729 tr=0.8696 | I(1)/tr=0.985 | best Gauss g1 I/tr=1.084 | sup/tr >= 1.210 (start ones) <= 1.227 | n/R=0.0071 (1+sqrt(n/R))^2=1.175 | top row N=307 share 0.002 | max overlap g1 0.432 t=7s
+  w=one  mean w=1.0000 tr=0.9962 | I(1)/tr=0.995 | best Gauss conj_g5 I/tr=1.083 | sup/tr >= 1.181 (start conj_g2) <= 1.198 | n/R=0.0071 (1+sqrt(n/R))^2=1.175 | top row N=1171 share 0.001 | max overlap g1 0.478 t=7s
+config r=0.3 z=0.5 k=1: marks n=24 (split primes, 44.7 < N <= 178.9); planned A 24x9029 c64 x2 + G: 0.00 GB
+  inverse r=0.3: X=22.5 primes<=X: 6; table 6x9029 int8 = 0.00 GB
+  w=mu   mean w=0.9283 tr=0.9189 | I(1)/tr=0.993 | best Gauss conj_g2 I/tr=1.015 | sup/tr >= 1.093 (start rand5) <= 1.108 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=7591 share 0.003 | max overlap conj_g1 0.266 t=7s
+  w=rand mean w=0.9322 tr=0.9229 | I(1)/tr=1.001 | best Gauss conj_g1 I/tr=1.017 | sup/tr >= 1.082 (start g1) <= 1.092 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=28609 share 0.002 | max overlap g3 0.382 t=7s
+  w=one  mean w=1.0000 tr=0.9900 | I(1)/tr=0.990 | best Gauss g4 I/tr=1.011 | sup/tr >= 1.053 (start g3) <= 1.059 | n/R=0.0027 (1+sqrt(n/R))^2=1.106 | top row N=8659 share 0.001 | max overlap g1 0.340 t=7s
+config r=0.4 z=0.45 k=1: marks n=18 (split primes, 26.6 < N <= 106.5); planned A 18x9029 c64 x2 + G: 0.00 GB
+  inverse r=0.4: X=63.4 primes<=X: 15; table 15x9029 int8 = 0.00 GB
+  w=mu   mean w=0.9550 tr=0.9392 | I(1)/tr=1.227 | best Gauss conj_g3 I/tr=1.104 | sup/tr >= 1.312 (start rand4) <= 1.684 | n/R=0.0020 (1+sqrt(n/R))^2=1.091 | top row N=3331 share 0.002 | max overlap ones 0.434 t=7s
+  w=rand mean w=0.9483 tr=0.9329 | I(1)/tr=1.069 | best Gauss conj_g2 I/tr=1.070 | sup/tr >= 1.290 (start conj_g3) <= 1.678 | n/R=0.0020 (1+sqrt(n/R))^2=1.091 | top row N=25717 share 0.003 | max overlap ones 0.359 t=7s
+  w=one  mean w=1.0000 tr=0.9826 | I(1)/tr=0.996 | best Gauss g5 I/tr=1.008 | sup/tr >= 1.034 (start rand4) <= 1.044 | n/R=0.0020 (1+sqrt(n/R))^2=1.091 | top row N=27949 share 0.001 | max overlap g1 0.225 t=7s
+config r=0.5 z=0.4 k=1: marks n=10 (split primes, 15.8 < N <= 63.4); planned A 10x9029 c64 x2 + G: 0.00 GB
+  inverse r=0.5: X=178.9 primes<=X: 38; table 38x9029 int8 = 0.00 GB
+  w=mu   mean w=0.9385 tr=0.9117 | I(1)/tr=1.027 | best Gauss conj_g3 I/tr=1.017 | sup/tr >= 1.057 (start rand2) <= 1.074 | n/R=0.0011 (1+sqrt(n/R))^2=1.068 | top row N=11677 share 0.004 | max overlap ones 0.449 t=7s
+  w=rand mean w=0.9376 tr=0.9108 | I(1)/tr=0.999 | best Gauss conj_g3 I/tr=1.009 | sup/tr >= 1.047 (start rand4) <= 1.052 | n/R=0.0011 (1+sqrt(n/R))^2=1.068 | top row N=28489 share 0.003 | max overlap g5 0.372 t=7s
+  w=one  mean w=1.0000 tr=0.9707 | I(1)/tr=1.005 | best Gauss conj_g3 I/tr=1.003 | sup/tr >= 1.018 (start rand5) <= 1.021 | n/R=0.0011 (1+sqrt(n/R))^2=1.068 | top row N=121 share 0.001 | max overlap g3 0.368 t=7s
+config r=0.6 z=0.3 k=1: marks n=6 (split primes, 5.6 < N <= 22.5); planned A 6x9029 c64 x2 + G: 0.00 GB
+  inverse r=0.6: X=504.8 primes<=X: 93; table 93x9029 int8 = 0.00 GB
+  w=mu   mean w=0.9389 tr=0.8677 | I(1)/tr=1.130 | best Gauss conj_g3 I/tr=1.062 | sup/tr >= 1.131 (start conj_g2) <= 1.139 | n/R=0.0007 (1+sqrt(n/R))^2=1.052 | top row N=1 share 0.003 | max overlap ones 0.997 t=7s
+  w=rand mean w=0.9485 tr=0.8773 | I(1)/tr=0.982 | best Gauss g5 I/tr=1.042 | sup/tr >= 1.074 (start g5) <= 1.092 | n/R=0.0007 (1+sqrt(n/R))^2=1.052 | top row N=24763 share 0.003 | max overlap g5 0.746 t=7s
+  w=one  mean w=1.0000 tr=0.9178 | I(1)/tr=1.002 | best Gauss g3 I/tr=1.002 | sup/tr >= 1.008 (start conj_g4) <= 1.040 | n/R=0.0007 (1+sqrt(n/R))^2=1.052 | top row N=12769 share 0.001 | max overlap g2 0.749 t=7s
+config r=0.7457 z=0.2 k=1: marks n=2 (split primes, 2.0 < N <= 8.0); planned A 2x9029 c64 x2 + G: 0.00 GB
+  inverse r=0.7457: X=2288.2 primes<=X: 341; table 341x9029 int8 = 0.00 GB
+  w=mu   mean w=0.9448 tr=0.8386 | I(1)/tr=1.087 | best Gauss g3 I/tr=1.087 | sup/tr >= 1.087 (start rand5) <= 1.087 | n/R=0.0002 (1+sqrt(n/R))^2=1.030 | top row N=3319 share 0.002 | max overlap ones 0.999 t=7s
+  w=rand mean w=0.9469 tr=0.8428 | I(1)/tr=1.021 | best Gauss g3 I/tr=1.021 | sup/tr >= 1.023 (start rand0) <= 1.023 | n/R=0.0002 (1+sqrt(n/R))^2=1.030 | top row N=25159 share 0.002 | max overlap ones 0.985 t=7s
+  w=one  mean w=1.0000 tr=0.8748 | I(1)/tr=1.002 | best Gauss g3 I/tr=1.002 | sup/tr >= 1.002 (start ones) <= 1.002 | n/R=0.0002 (1+sqrt(n/R))^2=1.030 | top row N=1 share 0.000 | max overlap ones 0.998 t=7s
+total 7.0s

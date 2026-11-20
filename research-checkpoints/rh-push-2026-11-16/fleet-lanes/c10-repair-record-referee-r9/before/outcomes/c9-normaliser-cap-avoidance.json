@@ -1,0 +1,45 @@
+{
+ "slug": "c9-normaliser-cap-avoidance",
+ "round": 9,
+ "kind": "deepen",
+ "nodes": [
+  "out-c7-uncompensated-high-side-normaliser",
+  "out-c9-normaliser-cap-avoidance"
+ ],
+ "tags": [
+  "seven-eighths",
+  "normaliser",
+  "format-ceiling",
+  "ladder",
+  "common-zero",
+  "infinite-order-character",
+  "hecke-character",
+  "target-blind"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Format step only; no statement about zeros. In MS Prop. 2.1, hypothesis (2.2) can be replaced by: H_eta holomorphic on Re s > sigma_0, bounded on Re s >= 2, and ord_rho H_eta < ord_rho L at one zero within eps* of the supremum (Lemma U1, proved). With the normaliser of Lemma H and the format ASSUMED on levels G_(f_j), f_0 = 0, f_(j+1) = 6 f_j + 6, j < k (no source for j >= 1; none below 7/8 for j = 0): beta(0) <= max(sigma_0, 3/5 + (2/5)6^-k); with all levels, B <= sigma_0 or 4/7 <= B <= 3/5. The ladder argument yields nothing inside [4/7, 3/5] (not shown to be a limit of the format). A second normaliser condition via eta^sigma exists exactly when eta^6 != (eta^sigma)^6 (absent for 1, chi o N and all chi with chi^6 = (chi^sigma)^6). The step separates no control (Liouville, sign twists, THIN share the normaliser zeros; typical unimodular twists have a zero-free normaliser to 7/12).",
+ "obstruction": "Hypothesis (2.2) fails only by exact resonance ord_rho H >= ord_rho L at a zero (Lemma U1). A ladder over levels f -> 6f + 6 gives beta(0) <= max(sigma_0, 3/5 + (2/5) 6^-k), relative to Lemma H and to the format hypotheses (F_j) on infinite-order targets alpha^f chi, which have no source for j >= 1 (and none below 7/8 for j = 0). With all levels the supremum is <= sigma_0 or in [4/7, 3/5], the fixed points of 6s - 3 and 4 - 6s; inside that window the needed input is a common-zero exclusion, not reachable by counting. The step is target-blind (Liouville, sign twists, THIN have the same normaliser zeros). Without the format for infinite-order targets the ceiling stays 2/3.",
+ "obstructionKind": "normaliser-resonance-ladder-stops-in-window-four-sevenths-to-three-fifths-format-hypotheses-have-no-source",
+ "controlsThatDefeat": [
+  "Liouville, sign twists, THIN (same normaliser zeros: the step separates no control)",
+  "typical unimodular twists (zero-free normaliser to 7/12)",
+  "not run: DH, heat, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Proved core (Lemma U1; Theorem A relative to Lemma H and the hypotheses (F_j)) re-derived and correct; numerics reproduced with independent code and different cases (split 1.25, zero count for alpha^6 below height 30 complete = 12.0000 by phase count; next ladder level alpha^42 with no resonance at the first five image points). Corrections needed outside the proved core: E1: section 2 \"(2.2b) holds automatically iff beta* > (3+beta_1)/6\" is only \"if\" (also automatic for beta* < (4-beta_1)/6). E2 [truncated in the learn-step input; full text in tmp/research-2026-11-16/push/c9-normaliser-cap-avoidance/REFEREE.md]",
+ "lesson": "The normaliser obstruction is exact resonance at a zero, not smallness of H, so only a family closed under eta -> (alpha eta)^6 moves it. The map 6s-3 and its reflection 4-6s have fixed points 3/5 and 4/7; the sextic format cannot pass that window without a common-zero exclusion.",
+ "followUp": "Decide whether the format can be posed for infinite-order targets alpha^6 chi (derive MS (7.10)-(7.13) with the angular factor in the archimedean weight); if not, the ceiling stays 2/3. Two referees owed on Lemma U1 and Theorem A; proposed map row Z24b is in RESULT.md section 8.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-normaliser-cap-avoidance/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-normaliser-cap-avoidance/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

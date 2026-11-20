@@ -1,0 +1,3 @@
+# zeta {} k=2 X=100000 D=696: planned LP nnz about 1.06e+06 (0.02 GB), arrays 0.01 GB
+{"name": "zeta", "kw": {}, "k": 2, "X": 100000, "D": 696, "truth_re": 16665.622000813873, "main_re": 16666.666666666668, "status": 4, "neg_count": 0, "time": 8.772188425064087, "msg": "(HiGHS Status 0: Not Set)"}
+# zeta {} k=2 X=1000000 D=2200: planned LP nnz about 1.06e+07 (0.17 GB), arrays 0.10 GB

@@ -1,0 +1,62 @@
+B DH a=0.05 d=0.1 [60,84] m=8 dps=150 {'n': 16, 'neg': 0, 'min_rel': '0.10793', 'smallest_abs_rel': '0.10793', 'dps': 150, 'maxabsR': '0.97614786', 'note': 'zero 0.8085+85.699i'} [3s]
+B DH a=0.05 d=0.1 [60,84] m=16 dps=150 {'n': 32, 'neg': 0, 'min_rel': '0.021308', 'smallest_abs_rel': '0.021308', 'dps': 150, 'maxabsR': '0.97208938', 'note': 'zero 0.8085+85.699i'} [5s]
+B DH a=0.05 d=0.1 [60,84] m=32 dps=150 {'n': 64, 'neg': 2, 'min_rel': '-3.609e-8', 'smallest_abs_rel': '1.2853e-25', 'dps': 150, 'maxabsR': '0.97840095', 'note': 'zero 0.8085+85.699i'} [12s]
+B DH a=0.05 d=0.1 [60,84] m=64 dps=150 {'n': 128, 'neg': 2, 'min_rel': '-4.7988e-7', 'smallest_abs_rel': '6.3348e-93', 'dps': 150, 'maxabsR': '0.97836164', 'note': 'zero 0.8085+85.699i'} [38s]
+B DH a=0.05 d=0.1 [1,60] m=8 dps=150 {'n': 16, 'neg': 0, 'min_rel': '0.066427', 'smallest_abs_rel': '0.066427', 'dps': 150, 'maxabsR': '0.9742832', 'note': 'zero 0.8085+85.699i'} [2s]
+B DH a=0.05 d=0.1 [1,60] m=16 dps=150 {'n': 32, 'neg': 0, 'min_rel': '0.0011489', 'smallest_abs_rel': '0.0011489', 'dps': 150, 'maxabsR': '0.9965407', 'note': 'zero 0.8085+85.699i'} [4s]
+B DH a=0.05 d=0.1 [1,60] m=32 dps=150 {'n': 64, 'neg': 0, 'min_rel': '2.6252e-25', 'smallest_abs_rel': '2.6252e-25', 'dps': 150, 'maxabsR': '0.99755485', 'note': 'zero 0.8085+85.699i'} [7s]
+B DH a=0.05 d=0.1 [1,60] m=64 dps=150 {'n': 128, 'neg': 0, 'min_rel': '8.6934e-121', 'smallest_abs_rel': '8.6934e-121', 'dps': 150, 'maxabsR': '0.99778743', 'note': 'zero 0.8085+85.699i'} [27s]
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=8 dps=150 {'n': 16, 'neg': 4, 'min_rel': '-8.7675e-5', 'smallest_abs_rel': '9.8359e-23', 'dps': 150, 'maxabsR': '0.99906294', 'note': 'zeros 0.5+-0.35+14.135i'} [0s]
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=16 dps=150 {'n': 32, 'neg': 8, 'min_rel': '-0.00032732', 'smallest_abs_rel': '2.0278e-55', 'dps': 150, 'maxabsR': '0.9990683', 'note': 'zeros 0.5+-0.35+14.135i'} [1s]
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=32 dps=150 {'n': 64, 'neg': 18, 'min_rel': '-0.00050391', 'smallest_abs_rel': '8.0269e-130', 'dps': 150, 'maxabsR': '0.99907048', 'note': 'zeros 0.5+-0.35+14.135i'} [3s]
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=64 dps=150 {'n': 128, 'neg': 50, 'min_rel': '-0.00057153', 'smallest_abs_rel': '2.5161e-152', 'dps': 150, 'maxabsR': '0.99907144', 'note': 'zeros 0.5+-0.35+14.135i'} [22s]
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=8 dps=150 {'n': 16, 'neg': 5, 'min_rel': '-0.08567', 'smallest_abs_rel': '9.7629e-34', 'dps': 150, 'maxabsR': '0.99743953', 'note': 'zeros 0.5+-0.404+2.8596i'} [0s]
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=16 dps=150 {'n': 32, 'neg': 8, 'min_rel': '-0.10353', 'smallest_abs_rel': '8.3395e-81', 'dps': 150, 'maxabsR': '1.0045282', 'note': 'zeros 0.5+-0.404+2.8596i'} [1s]
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=32 dps=150 {'n': 64, 'neg': 18, 'min_rel': '-0.10853', 'smallest_abs_rel': '2.1509e-153', 'dps': 150, 'maxabsR': '1.0097442', 'note': 'zeros 0.5+-0.404+2.8596i'} [4s]
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=64 dps=150 {'n': 128, 'neg': 50, 'min_rel': '-0.1098', 'smallest_abs_rel': '1.2117e-154', 'dps': 150, 'maxabsR': '1.0128357', 'note': 'zeros 0.5+-0.404+2.8596i'} [20s]
+B zeta a=0.05 d=0.1 [60,84] m=8 dps=150 {'n': 16, 'neg': 0, 'min_rel': '0.038182', 'smallest_abs_rel': '0.038182', 'dps': 150, 'maxabsR': '0.99021016', 'note': ''} [0s]
+B zeta a=0.05 d=0.1 [60,84] m=16 dps=150 {'n': 32, 'neg': 0, 'min_rel': '1.5376e-10', 'smallest_abs_rel': '1.5376e-10', 'dps': 150, 'maxabsR': '0.99089869', 'note': ''} [1s]
+B zeta a=0.05 d=0.1 [60,84] m=32 dps=150 {'n': 64, 'neg': 0, 'min_rel': '3.2047e-41', 'smallest_abs_rel': '3.2047e-41', 'dps': 150, 'maxabsR': '0.99252666', 'note': ''} [4s]
+B zeta a=0.05 d=0.1 [60,84] m=64 dps=150 {'n': 128, 'neg': 0, 'min_rel': '1.2296e-142', 'smallest_abs_rel': '1.2296e-142', 'dps': 150, 'maxabsR': '0.99286197', 'note': ''} [19s]
+B zeta a=0.05 d=0.1 [1,13] m=8 dps=150 {'n': 16, 'neg': 0, 'min_rel': '7.3642e-27', 'smallest_abs_rel': '7.3642e-27', 'dps': 150, 'maxabsR': '0.99953105', 'note': ''} [0s]
+B zeta a=0.05 d=0.1 [1,13] m=16 dps=150 {'n': 32, 'neg': 0, 'min_rel': '3.0353e-64', 'smallest_abs_rel': '3.0353e-64', 'dps': 150, 'maxabsR': '0.99953375', 'note': ''} [1s]
+B zeta a=0.05 d=0.1 [1,13] m=32 dps=150 {'n': 64, 'neg': 0, 'min_rel': '2.5857e-150', 'smallest_abs_rel': '2.5857e-150', 'dps': 150, 'maxabsR': '0.99953484', 'note': ''} [3s]
+B zeta a=0.05 d=0.1 [1,13] m=64 dps=150 {'n': 128, 'neg': 24, 'min_rel': '-3.3744e-150', 'smallest_abs_rel': '1.1423e-152', 'dps': 150, 'maxabsR': '0.99953533', 'note': ''} [18s]
+B chi-3 a=0.05 d=0.1 [60,84] m=8 dps=150 {'n': 16, 'neg': 0, 'min_rel': '0.033673', 'smallest_abs_rel': '0.033673', 'dps': 150, 'maxabsR': '0.97896804', 'note': ''} [0s]
+B chi-3 a=0.05 d=0.1 [60,84] m=16 dps=150 {'n': 32, 'neg': 0, 'min_rel': '0.00033195', 'smallest_abs_rel': '0.00033195', 'dps': 150, 'maxabsR': '0.98446291', 'note': ''} [1s]
+B chi-3 a=0.05 d=0.1 [60,84] m=32 dps=150 {'n': 64, 'neg': 0, 'min_rel': '2.0137e-29', 'smallest_abs_rel': '2.0137e-29', 'dps': 150, 'maxabsR': '0.98442773', 'note': ''} [3s]
+B chi-3 a=0.05 d=0.1 [60,84] m=64 dps=150 {'n': 128, 'neg': 0, 'min_rel': '4.3656e-101', 'smallest_abs_rel': '4.3656e-101', 'dps': 150, 'maxabsR': '0.98496831', 'note': ''} [21s]
+B liouville a=0.05 d=0.1 [1,6] m=8 dps=150 {'n': 16, 'neg': 16, 'min_rel': '7.2241', 'smallest_abs_rel': '-1.0', 'dps': 150, 'maxabsR': '1.1036311', 'note': 'no functional equation'} [0s]
+B liouville a=0.05 d=0.1 [1,6] m=16 dps=150 {'n': 32, 'neg': 32, 'min_rel': '201.26', 'smallest_abs_rel': '-1.0', 'dps': 150, 'maxabsR': '1.1158594', 'note': 'no functional equation'} [1s]
+B liouville a=0.05 d=0.1 [1,6] m=32 dps=150 {'n': 64, 'neg': 63, 'min_rel': '-54.28', 'smallest_abs_rel': '0.0031018', 'dps': 150, 'maxabsR': '1.1239923', 'note': 'no functional equation'} [4s]
+B liouville a=0.05 d=0.1 [1,6] m=64 dps=150 {'n': 128, 'neg': 124, 'min_rel': '-51.043', 'smallest_abs_rel': '1.1317e-5', 'dps': 150, 'maxabsR': '1.1287183', 'note': 'no functional equation'} [21s]
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c4.py", line 101, in Rval
+    uc = mp.mpc(d, -t)
+                   ^^
+TypeError: bad operand type for unary -: 'str'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c4.py", line 247, in <module>
+    r = testB(pool, name, mp.mpf(str(a)), mp.mpf(str(delta)), mp.mpf(tlo), mp.mpf(thi), m, dps)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c4.py", line 144, in testB
+    vals = pool.map(Rval, [(name, delta, float(t) if False else mp.nstr(t, 30), a, dps) for t in ts], chunksize=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+TypeError: bad operand type for unary -: 'str'

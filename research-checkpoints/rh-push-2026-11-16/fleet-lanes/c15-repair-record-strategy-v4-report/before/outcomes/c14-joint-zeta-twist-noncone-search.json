@@ -1,0 +1,47 @@
+{
+ "slug": "c14-joint-zeta-twist-noncone-search",
+ "round": 14,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "noncone",
+  "kernel-pair",
+  "character-twist",
+  "hermitian-forms",
+  "mixed-minors",
+  "turan-cross",
+  "control-battery",
+  "backward-heat",
+  "thin",
+  "closed-device-class"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "MEASURED, on the registered grid and draws, under the normalisation Re omega > 0; no statement about zeta. Among 38,101,627 functionals of dictionary DJ on 833 pairs, 4,266,644 are one-signed on the 529 training positive pairs. None rejects a training pair of each of the nine lifted control classes; the most classes rejected is 8, on 1,692 rows. 15,014 float64-undecided rows were excluded in balls. With only the 23 pairs (zeta, chi) as positives, 278 reach T-train in float64, each contradicted by at least 4 pairs (chi, chi'). FE tier: 59 at T-train read per class, 0 read per member (none rejects the DH member that keeps a functional equation), 0 on held-out in either reading. PROVED: Lemma J1 (JC2 without polar terms has the same sign on a backward-heat pair as on (zeta, chi) with the same character; JC1 up to a rescaling of lam). Lemma T: the twist keeps the functional equation for every member of T-NR, HEAT, BLS (PROVED) and E_a (CLASSICAL), and for 5 of 28 DH members (MEASURED); it is lost on the others (MEASURED). R1 = R2 = R3 = R4 = false.",
+ "obstruction": "Registered question, outcome 'none' (MEASURED, finite search, lane-defined lifts). Dictionary DJ (mixed dilation minors of orders 2-4, Hermitian minors and forms, Turan cross expressions, with and without polar terms, at most 3 real parameters): 38,101,627 functionals x 833 pairs. Of 4,266,644 functionals one-signed on the 529 training positive pairs, none rejects a training pair of each of the nine lifted control classes (most classes rejected: 8, on 1,692 rows). FE tier: 0 survivors read per member (no row rejects the DH member DH x chi4.3 that keeps a functional equation), 0 on held-out. Structural reason (Lemma J1, PROVED, and Lemma T): for HEAT, BLS and T-NR the twist commutes with the control's defining operation, so the control pair is the image of (zeta, chi) under one map applied to both members; functionals homogeneous in each kernel see only monomial distortion. Not covered: functionals not homogeneous in each kernel (quotient or logarithm of the two kernels; three kernels F, F x chi, F x chi^2).",
+ "obstructionKind": "control-passes: HEAT (Lemma J1 exact for JC2; 99.98% overall), THIN on Hermitian forms; positives not one-signed across (chi, chi') pairs",
+ "controlsThatDefeat": [
+  "backward heat (same sign as (zeta, chi) on JC2 without polar terms, Lemma J1 proved; rejected by 975 functionals only, 0 among minors)",
+  "T-NR and BLS (twist commutes with the control operation; functional equation kept, Lemma T proved)",
+  "DH (5 of 28 twisted members keep a functional equation, measured; no FE-tier row rejects DH x chi4.3)",
+  "E_a (twist keeps the functional equation; classical)",
+  "THIN (never rejected by Hermitian forms)",
+  "no functional rejects all nine lifted classes together"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails; outcome \"none\" stands as MEASURED. Four corrections, none creates a survivor.\n\n(1) FE tier / Lemma T \"only\" is inaccurate. 5 of 28 twisted DH members keep a functional equation, including the training pair DH x chi4.3 (consistent with the root-number relation: chi5(4) = -1 is real). The FE tier excludes DH by class. Re-evaluating the 59 FE-tier rows: 0 of 59 reject DH x chi4.3; they reject only the DH members without a functional equation. Read per member, the FE tier at T- - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Reading a kernel together with its character twist does not help: for HEAT, BLS and T-NR the twist commutes with the control's defining operation, so the control pair is the image of (zeta, chi) under one map applied to both members, and functionals homogeneous in each kernel see only monomial distortion (none at all for JC2 without polar terms, Lemma J1). Requiring one sign on (chi, chi') pairs as well cuts the one-signed set fivefold; held-out signs can follow the twisting conductor rather than the class, so held-out positives are essential. Caveats: finite search with lane-defined lifts; most signs float64 (PZ-tier counts not ball-resolved; no ball for the theta^w twist); referee is the author; a 2-core unit overlapped the 16-core unit for about a minute.",
+ "followUp": "None as a lead (no survivor; no round-15 lead). If the class is revisited, the only untested shape is a functional not homogeneous in each kernel (pointwise quotient or logarithm of K_F and its twist, or three kernels F, F x chi, F x chi^2 using the group law), where Lemma J1 does not apply; an independent referee should first rule on the lane-defined lifts (theta^w twist on index m, Beurling character) and the u >= 0 Hermitian completion.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-joint-zeta-twist-noncone-search/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-joint-zeta-twist-noncone-search/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

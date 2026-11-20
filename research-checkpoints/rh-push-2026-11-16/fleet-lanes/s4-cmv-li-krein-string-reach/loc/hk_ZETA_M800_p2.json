@@ -1,0 +1,629 @@
+{
+ "code": "ZETA",
+ "M": 800,
+ "prec": 17000,
+ "s0": "[0.04620998623083794157786762 +/- 8.61e-28]",
+ "base": {
+  "n_coeff": 799,
+  "first_negative": null,
+  "negatives_head": [],
+  "n_negative": 0
+ },
+ "log2_head": [
+  -9.28,
+  -8.783,
+  -9.666,
+  -9.864,
+  -10.43,
+  -10.542,
+  -10.837,
+  -10.796,
+  -10.935,
+  -11.01,
+  -11.357,
+  -11.58,
+  -11.843,
+  -11.842,
+  -11.824,
+  -11.712,
+  -11.847,
+  -12.021,
+  -12.22,
+  -12.241,
+  -12.334,
+  -12.453,
+  -12.67,
+  -12.722,
+  -12.665,
+  -12.507,
+  -12.578,
+  -12.783,
+  -13.002,
+  -13.042,
+  -13.085,
+  -13.128,
+  -13.212,
+  -13.153,
+  -13.075,
+  -13.086,
+  -13.278,
+  -13.384,
+  -13.375,
+  -13.332
+ ],
+ "planted": [
+  {
+   "n_coeff": 799,
+   "first_negative": 13,
+   "negatives_head": [
+    13,
+    15
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:17.578382",
+   "gamma": 17.578382390253125,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 1
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 11,
+   "negatives_head": [
+    11,
+    13
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:17.578382",
+   "gamma": 17.578382390253125,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 1
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 11,
+   "negatives_head": [
+    11,
+    13
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:17.578382",
+   "gamma": 17.578382390253125,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 1
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 23,
+   "negatives_head": [
+    23,
+    25
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:27.717867",
+   "gamma": 27.7178668530026,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 3
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 21,
+   "negatives_head": [
+    21,
+    23
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:27.717867",
+   "gamma": 27.7178668530026,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 3
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 19,
+   "negatives_head": [
+    19,
+    21
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:27.717867",
+   "gamma": 27.7178668530026,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 3
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 52,
+   "negatives_head": [
+    52,
+    54
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:51.372077",
+   "gamma": 51.37207697769338,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 10
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 50,
+   "negatives_head": [
+    50,
+    52
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:51.372077",
+   "gamma": 51.37207697769338,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 10
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 49,
+   "negatives_head": [
+    49,
+    51
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:51.372077",
+   "gamma": 51.37207697769338,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 10
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 83,
+   "negatives_head": [
+    83,
+    85
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:73.885924",
+   "gamma": 73.88592418678292,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 18
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 80,
+   "negatives_head": [
+    80,
+    82
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:73.885924",
+   "gamma": 73.88592418678292,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 18
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 76,
+   "negatives_head": [
+    76,
+    78
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:73.885924",
+   "gamma": 73.88592418678292,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 18
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 125,
+   "negatives_head": [
+    125,
+    127
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:100.074523",
+   "gamma": 100.07452261196254,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 29
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 122,
+   "negatives_head": [
+    122,
+    124
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:100.074523",
+   "gamma": 100.07452261196254,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 29
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 119,
+   "negatives_head": [
+    119,
+    121
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:100.074523",
+   "gamma": 100.07452261196254,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 29
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 209,
+   "negatives_head": [
+    209,
+    211
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:148.738143",
+   "gamma": 148.73814288167225,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 52
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 204,
+   "negatives_head": [
+    204,
+    206
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:148.738143",
+   "gamma": 148.73814288167225,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 52
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 198,
+   "negatives_head": [
+    198,
+    200
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:148.738143",
+   "gamma": 148.73814288167225,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 52
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 302,
+   "negatives_head": [
+    302,
+    304
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:199.640031",
+   "gamma": 199.64003080997787,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 79
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 296,
+   "negatives_head": [
+    296,
+    298
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:199.640031",
+   "gamma": 199.64003080997787,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 79
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 292,
+   "negatives_head": [
+    292,
+    294
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:199.640031",
+   "gamma": 199.64003080997787,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 79
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 513,
+   "negatives_head": [
+    513,
+    515
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:300.744826",
+   "gamma": 300.74482575795776,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 138
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 507,
+   "negatives_head": [
+    507,
+    509
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:300.744826",
+   "gamma": 300.74482575795776,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 138
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 496,
+   "negatives_head": [
+    496,
+    498
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:300.744826",
+   "gamma": 300.74482575795776,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 138
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 732,
+   "negatives_head": [
+    732,
+    734
+   ],
+   "n_negative": 2,
+   "label": "add:0.1:400.912174",
+   "gamma": 400.91217423836406,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 202
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 725,
+   "negatives_head": [
+    725,
+    727
+   ],
+   "n_negative": 2,
+   "label": "add:0.25:400.912174",
+   "gamma": 400.91217423836406,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 202
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 713,
+   "negatives_head": [
+    713,
+    715
+   ],
+   "n_negative": 2,
+   "label": "add:0.4:400.912174",
+   "gamma": 400.91217423836406,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 202
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.1:499.444934",
+   "gamma": 499.4449336856885,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 269
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.25:499.444934",
+   "gamma": 499.4449336856885,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 269
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.4:499.444934",
+   "gamma": 499.4449336856885,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 269
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.1:600.573889",
+   "gamma": 600.5738885501487,
+   "delta": 0.1,
+   "kind": "add",
+   "nbelow": 341
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.25:600.573889",
+   "gamma": 600.5738885501487,
+   "delta": 0.25,
+   "kind": "add",
+   "nbelow": 341
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": null,
+   "negatives_head": [],
+   "n_negative": 0,
+   "label": "add:0.4:600.573889",
+   "gamma": 600.5738885501487,
+   "delta": 0.4,
+   "kind": "add",
+   "nbelow": 341
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 7,
+   "negatives_head": [
+    7,
+    9,
+    43,
+    45
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k1",
+   "gamma": 14.134725141734695,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 0
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 16,
+   "negatives_head": [
+    16,
+    18,
+    65,
+    67
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k3",
+   "gamma": 25.01085758014569,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 2
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 29,
+   "negatives_head": [
+    29,
+    31,
+    87,
+    89
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k6",
+   "gamma": 37.586178158825675,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 5
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 45,
+   "negatives_head": [
+    45,
+    47,
+    110,
+    112
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k10",
+   "gamma": 49.7738324776723,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 9
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 83,
+   "negatives_head": [
+    83,
+    85,
+    152,
+    154
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k20",
+   "gamma": 77.1448400688748,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 19
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 155,
+   "negatives_head": [
+    155,
+    157,
+    247,
+    249
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k40",
+   "gamma": 122.94682929355258,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 39
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 295,
+   "negatives_head": [
+    295,
+    297,
+    407,
+    409
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k80",
+   "gamma": 201.2647519437038,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 79
+  },
+  {
+   "n_coeff": 799,
+   "first_negative": 570,
+   "negatives_head": [
+    570,
+    572,
+    707,
+    709
+   ],
+   "n_negative": 4,
+   "label": "disp:0.1:k160",
+   "gamma": 334.2113548332444,
+   "delta": 0.1,
+   "kind": "disp",
+   "nbelow": 159
+  }
+ ],
+ "seconds": 315.6
+}

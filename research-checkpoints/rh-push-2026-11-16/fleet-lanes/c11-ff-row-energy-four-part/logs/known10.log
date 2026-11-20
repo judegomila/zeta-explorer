@@ -1,0 +1,12 @@
+(6, 9, 2) one: D_c = 22540391694240; diagonal shares j = 0, 1, 2: 0.8582, 0.1070, 0.0348; E_j1/D_c = 0.046907; squarefree row of length 3: energy/diagonal = 0.07749
+(6, 9, 2) a: D_c = 22474889379376; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.05879; squarefree row of length 3: energy/diagonal = 0.8069
+(6, 9, 2) b: D_c = 22474889379376; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.11921; squarefree row of length 3: energy/diagonal = 1.116
+(6, 9, 2) mu: D_c = 22143611500416; diagonal shares j = 0, 1, 2: 0.8736, 0.1089, 0.0175; E_j1/D_c = 23.191; squarefree row of length 3: energy/diagonal = 196.6
+(6, 10, 2) one: D_c = 141997204389600; diagonal shares j = 0, 1, 2: 0.8582, 0.1070, 0.0348; E_j1/D_c = 0.011435; squarefree row of length 3: energy/diagonal = 0.6518
+(6, 10, 2) a: D_c = 141584560913040; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.12797; squarefree row of length 3: energy/diagonal = 1.078
+(6, 10, 2) b: D_c = 141584560913040; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.075146; squarefree row of length 3: energy/diagonal = 0.6906
+(6, 10, 2) mu: D_c = 139497617024640; diagonal shares j = 0, 1, 2: 0.8736, 0.1089, 0.0175; E_j1/D_c = 2.986; squarefree row of length 3: energy/diagonal = 167.2
+(6, 11, 2) one: D_c = 903672472177440; diagonal shares j = 0, 1, 2: 0.8582, 0.1070, 0.0348; E_j1/D_c = 0.085669; squarefree row of length 3: energy/diagonal = 4.883
+(6, 11, 2) a: D_c = 901046402515056; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.35592; squarefree row of length 3: energy/diagonal = 2.542
+(6, 11, 2) b: D_c = 901046402515056; diagonal shares j = 0, 1, 2: 0.8582, 0.1069, 0.0349; E_j1/D_c = 0.3859; squarefree row of length 3: energy/diagonal = 3.399
+(6, 11, 2) mu: D_c = 887765058343296; diagonal shares j = 0, 1, 2: 0.8736, 0.1089, 0.0175; E_j1/D_c = 17.845; squarefree row of length 3: energy/diagonal = 999.2

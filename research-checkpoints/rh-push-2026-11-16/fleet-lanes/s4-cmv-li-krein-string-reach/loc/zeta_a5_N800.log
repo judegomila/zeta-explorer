@@ -1,0 +1,56 @@
+ZETA a 5 N 800 prec 30000 moments 99.6 s  c0 [4.4513088827794853440 +/- 4.39e-20]
+   planted disp:0.1:k1 first indefinite size 9
+   planted add:0.4:17.578382 first indefinite size 12
+   planted add:0.25:17.578382 first indefinite size 13
+   planted add:0.1:17.578382 first indefinite size 14
+   planted disp:0.1:k3 first indefinite size 17
+   planted add:0.4:27.717867 first indefinite size 21
+   planted add:0.25:27.717867 first indefinite size 22
+   planted add:0.1:27.717867 first indefinite size 24
+   planted disp:0.1:k6 first indefinite size 31
+   planted disp:0.1:k10 first indefinite size 46
+   planted add:0.4:51.372077 first indefinite size 50
+   n 50 log2 E -283.4 k 0.9965347890134346
+   planted add:0.25:51.372077 first indefinite size 51
+   planted add:0.1:51.372077 first indefinite size 54
+   planted add:0.4:73.885924 first indefinite size 78
+   planted add:0.25:73.885924 first indefinite size 81
+   planted disp:0.1:k20 first indefinite size 84
+   planted add:0.1:73.885924 first indefinite size 85
+   snap size 100 {"beta+1": {"count": 21, "prefix": 21, "missed_first": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31]}, "beta-1": {"count": 21, "prefix": 21, "missed_first": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31]}}
+   n 100 log2 E -681.4 k 0.9986581973270312
+   planted add:0.4:100.074523 first indefinite size 120
+   planted add:0.25:100.074523 first indefinite size 123
+   planted add:0.1:100.074523 first indefinite size 126
+   n 150 log2 E -1130.3 k 0.9992527293616917
+   planted disp:0.1:k40 first indefinite size 157
+   planted add:0.4:148.738143 first indefinite size 199
+   snap size 200 {"beta+1": {"count": 48, "prefix": 48, "missed_first": [49, 50, 51, 52, 53, 54, 55, 56, 57, 58]}, "beta-1": {"count": 47, "prefix": 47, "missed_first": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]}}
+   n 200 log2 E -1613.7 k 0.9994698162133046
+   planted add:0.25:148.738143 first indefinite size 205
+   planted add:0.1:148.738143 first indefinite size 210
+   n 250 log2 E -2123.4 k 0.9996006237968346
+   planted add:0.4:199.640031 first indefinite size 293
+   planted add:0.25:199.640031 first indefinite size 297
+   planted disp:0.1:k80 first indefinite size 297
+   n 300 log2 E -2654.3 k 0.9997083086737095
+   planted add:0.1:199.640031 first indefinite size 304
+   n 350 log2 E -3202.9 k 0.9997790680173024
+   snap size 400 {"beta+1": {"count": 105, "prefix": 105, "missed_first": [106, 107, 108, 109, 110, 111, 112, 113, 114, 115]}, "beta-1": {"count": 105, "prefix": 105, "missed_first": [106, 107, 108, 109, 110, 111, 112, 113, 114, 115]}}
+   n 400 log2 E -3767.2 k 0.9998222735543971
+   n 450 log2 E -4345.0 k 0.999841821106311
+   planted add:0.4:300.744826 first indefinite size 497
+   n 500 log2 E -4935.2 k 0.9998675577802816
+   planted add:0.25:300.744826 first indefinite size 508
+   planted add:0.1:300.744826 first indefinite size 514
+   n 550 log2 E -5536.4 k 0.9998890210454584
+   planted disp:0.1:k160 first indefinite size 571
+   n 600 log2 E -6147.7 k 0.9998984328567558
+   n 650 log2 E -6768.3 k 0.9999153063043033
+   n 700 log2 E -7397.4 k 0.9999233766659005
+   planted add:0.4:400.912174 first indefinite size 714
+   planted add:0.25:400.912174 first indefinite size 726
+   planted add:0.1:400.912174 first indefinite size 733
+   n 750 log2 E -8034.5 k 0.9999322983126199
+   snap size 800 {"beta+1": {"count": 221, "prefix": 221, "missed_first": [222, 223, 224, 225, 226, 227, 228, 229, 230, 231]}, "beta-1": {"count": 221, "prefix": 221, "missed_first": [222, 223, 224, 225, 226, 227, 228, 229, 230, 231]}}
+DONE ZETA first index with E<=0: None last n 799 log2E -8666.3 lev s 247.0

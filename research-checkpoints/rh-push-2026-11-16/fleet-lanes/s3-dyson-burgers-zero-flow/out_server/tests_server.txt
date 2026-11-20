@@ -1,0 +1,32 @@
+lattice central Theta_K, K=1                               got 0.5 want 0.5 ok
+lattice central Theta_K, K=6                               got 0.857142857143 want 0.857142857143 ok
+lattice central Theta_K, K=50                              got 0.980392156863 want 0.980392156863 ok
+four-tie central Theta                                     got 0.307142857143 want 0.307142857143 ok
+symmetric triplet Theta                                    got 0.25 want 0.25 ok
+extra complex pair                                         got 0.129312064511 want 0.129312064511 ok
+window fail count N=2                                      got 3655 want 3655 ok
+window max Theta N=2                                       got 12.6433157172 want 12.6433157172 ok
+number of windows N=2                                      got 3999 want 3999 ok
+window fail count N=7                                      got 2273 want 2273 ok
+window max Theta N=7                                       got 3.55588354792 want 3.55588354792 ok
+number of windows N=7                                      got 3994 want 3994 ok
+window fail count N=20                                     got 1008 want 1008 ok
+window max Theta N=20                                      got 1.28560660114 want 1.28560660114 ok
+number of windows N=20                                     got 3981 want 3981 ok
+window fail count N=64                                     got 248 want 248 ok
+window max Theta N=64                                      got 0.489598163899 want 0.489598163899 ok
+number of windows N=64                                     got 3937 want 3937 ok
+span_of is maximal window                                  got 1 want 1 ok
+two-body t_c = g^2/8                                       got 0.0112499999025 want 0.01125 ok
+symmetric triplet t_c = g^2/6                              got 0.014999999999 want 0.015 ok
+conjugate pair separates: b(s)^2 = b0^2 + 2 s              got 0.260006466755 want 0.260000124141 ok
+real pair next to a far conjugate pair                     got 1.00001242365 want 1 ok
+pairwise forces (backend gpu)                              got 7.57644541014e-16 want 0 ok
+two-body long double                                       got 0.0112499999025 want 0.01125 ok
+frozen linearised far field vs full flow (rel)             got 0.999999997856 want 1 ok
+ALL OK
+exact window fail count N=100                              got 64 want 64 ok
+exact window max N=100                                     got 0.315103645442 want 0.315103645442 ok
+exact window fail count N=180                              got 26 want 26 ok
+exact window max N=180                                     got 0.315143916235 want 0.315143916235 ok
+ALL OK

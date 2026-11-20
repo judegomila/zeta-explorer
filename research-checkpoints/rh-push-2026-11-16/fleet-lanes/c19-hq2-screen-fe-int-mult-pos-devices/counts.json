@@ -1,0 +1,86 @@
+{
+ "N(theta) M=0 (as written, own poles added)": {
+  "neg,neg": 2242,
+  "neg,pos": 801,
+  "pos,pos": 2075,
+  "undecided,pos": 66
+ },
+ "N(theta) M=1 (as written, own poles added)": {
+  "neg,neg": 1359,
+  "neg,pos": 455,
+  "pos,pos": 3370
+ },
+ "q=2, theta<=0.85, M=0": {
+  "1e-8": {
+   "neg,pos": 19,
+   "pos,pos": 365
+  },
+  "1e-6": {
+   "neg,pos": 27,
+   "pos,pos": 357
+  },
+  "1e-4": {
+   "neg,pos": 76,
+   "pos,pos": 308
+  },
+  "1e-3": {
+   "neg,neg": 78,
+   "neg,pos": 133,
+   "pos,pos": 173
+  },
+  "1e-2": {
+   "neg,neg": 285,
+   "neg,pos": 93,
+   "pos,pos": 6
+  },
+  "1e-1": {
+   "neg,neg": 384
+  }
+ },
+ "q=2, theta<=0.85, M=1": {
+  "1e-8": {
+   "pos,pos": 384
+  },
+  "1e-6": {
+   "pos,pos": 384
+  },
+  "1e-4": {
+   "pos,pos": 384
+  },
+  "1e-3": {
+   "neg,neg": 30,
+   "neg,pos": 67,
+   "pos,pos": 287
+  },
+  "1e-2": {
+   "neg,neg": 238,
+   "neg,pos": 114,
+   "pos,pos": 32
+  },
+  "1e-1": {
+   "neg,neg": 384
+  }
+ },
+ "C(theta) M=0 at grid minimum (as written, own poles added)": {
+  "neg,neg": 139,
+  "neg,pos": 75,
+  "pos,pos": 434
+ },
+ "cells": {
+  "dev objects x cells": 21888,
+  "cth records": 2520,
+  "dev3 records": 2592
+ },
+ "zeta": {
+  "cells": 576,
+  "M0": {
+   "undecided": 178,
+   "pos": 398
+  },
+  "M1": {
+   "pos": 576
+  },
+  "M0 pos with theta<=0.75": 288,
+  "cells theta<=0.75": 288
+ }
+}

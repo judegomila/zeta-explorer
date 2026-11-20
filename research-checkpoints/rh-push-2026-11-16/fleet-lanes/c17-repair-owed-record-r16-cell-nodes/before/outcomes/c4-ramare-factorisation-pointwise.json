@@ -1,0 +1,42 @@
+{
+ "slug": "c4-ramare-factorisation-pointwise",
+ "round": 4,
+ "kind": "explore",
+ "nodes": [
+  "af-rank-trace-inertia"
+ ],
+ "tags": [
+  "matomaki-radziwill",
+  "ramare-identity",
+  "mean-value",
+  "pretentious",
+  "hardy-littlewood",
+  "tail-set",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, no statement about zeta zeros. The Ramaré/Matomäki-Radziwiłł factorisation supplies no every-window or one-sided statement. (i) Bandwidth alpha in (1,2) in the inertia chain is the averaged Hardy-Littlewood bound |(1/H) sum_{h<=H}(1-h/H)E(h)| << X^(1/alpha) log X with H = X^(1-1/alpha): a power saving of exponent 1-1/alpha over the sieve bound, against proved log-power savings (recalled from memory, H >= X^(8/33)); on V(X,H) this bound would exclude isolated zeros with beta > 1/2+1/(2 alpha). (ii) Outputs are mean squares on Re s = 1; the large-value count at threshold P^-a is (TP)^(2a+o(1)), T^(2a) when P^k = T, against exponent 0 needed to exclude a zero at a = 1-sigma. (iii) Pretentious and log-averaged statements are unconditional theorems, invariant under finite modification and rotation, with tolerances (log x)^-A above the size x^(beta-1) of a zero term. DH (trivially, periodic coefficients), Liouville, bounded twists and unimodular twists satisfy the method's conclusions. Lemma D verified numerically for zeta to 7e-11; the DH peak is consistent in size only, not separated from background.",
+ "obstruction": "(i) Bandwidth alpha in (1,2) in the inertia chain needs the Fejer-averaged Hardy-Littlewood error below X^(1/alpha) log X with H = X^(1-1/alpha): a power saving of exponent 1-1/alpha, against proved log-power savings (range H >= X^(8/33) recalled, source not opened). (ii) Outputs are mean squares on Re s = 1; the large-value count at threshold P^-a is T^(2a), against exponent 0 needed at a = 1-sigma to exclude a zero. (iii) Pretentious and log-averaged statements are invariant under finite modification and rotation (tail type), with tolerances (log x)^-A above the size x^(beta-1) of a zero term. The method's conclusions are closed under linear combination, so DH satisfies them: multiplicativity is essential to the proof, not to the conclusion class. MV-CAP and tail type.",
+ "obstructionKind": "mean-value-cap-log-power-saving",
+ "controlsThatDefeat": [
+  "DH (conclusions hold by linearity, periodic coefficients)",
+  "Liouville twist",
+  "bounded and unimodular twists",
+  "finite modifications FM (tail-type hypotheses)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error changes the verdict. All PROVED steps were re-derived and confirmed (Lemma D, (N1) expansion and needed saving 1-1/alpha, large-value count, Props 3b/3c, the converse remark). Independent rerun (different weight (1-u^2)^6, X=1300/7000, t=33.3/101.3178/150, 200 zeros): Lemma D for zeta agrees to 4e-12..7e-11. Corrections: (1) The DH measurement is weaker than the proposed map row states: at zero 0.8085+85.699i the peak exceeds the largest background value by only 3-14%, the fitted slope ",
+ "lesson": "The Matomäki-Radziwiłł family is a mean-value device on Re s = 1 whose saving is capped at a power of log (integers without a prime factor in [P,Q] have density about log P/log Q). Its conclusions are closed under linear combination, so DH passes: multiplicativity is essential to the proof, not to the conclusion class. A zero at beta < 1 enters at relative size x^(beta-1), below every tolerance in the family. Add it to the closed families under MV-CAP and tail type.",
+ "followUp": "Referee by-product (D3) in RESULT.md section 1: the single-scale explicit formula at X = T plus the mean value theorem bounds off-line zeros isolated within T^eps by T^(2-2 sigma) log T, with failure for clusters argued from Turán-type cancellation. It is a density statement and was not compared with the density literature. Also open the quoted sources (8/33 range, MR Lemma 8, two-function averaged Elliott) before the three map rows in section 7 are merged.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-ramare-factorisation-pointwise/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-ramare-factorisation-pointwise/REFEREE.md"
+}

@@ -1,0 +1,11 @@
+{
+"obj": "PLANT:ZETA:544.98036167497:0.3",
+"table": "data/mom_local.pkl",
+"pairs": [
+{
+"g": "544.98036167497",
+"b": "0.3",
+"note": "no convergence at t = 0"
+}
+]
+}

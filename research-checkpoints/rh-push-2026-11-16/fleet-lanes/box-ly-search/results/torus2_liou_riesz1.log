@@ -1,0 +1,5 @@
+{"input": "liou", "weight": "riesz1", "N": 20, "primes": 8, "sigma": 0.5001, "min_abs_B": 0.08823377370237312, "starts": 40}
+{"input": "liou", "weight": "riesz1", "N": 25, "primes": 9, "sigma": 0.5001, "min_abs_B": 0.02024704357233938, "starts": 40}
+{"input": "liou", "weight": "riesz1", "N": 27, "primes": 9, "sigma": 0.5001, "min_abs_B": 2.275730258017108e-05, "starts": 40}
+{"input": "liou", "weight": "riesz1", "N": 30, "primes": 10, "sigma": 0.5001, "min_abs_B": 5.200381839696216e-09, "starts": 40}
+{"input": "liou", "weight": "riesz1", "N": 40, "primes": 12, "sigma": 0.5001, "min_abs_B": 3.5357911867478062e-09, "starts": 40}

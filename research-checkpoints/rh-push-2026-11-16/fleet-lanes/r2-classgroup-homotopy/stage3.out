@@ -1,0 +1,170 @@
+coverage: [0, 2000], chunks 456, gaps []
+flags (expected: only the forced critical point t=0 of the odd function W): [] total 2
+counts: zeros of A: 3987, zeros of B: 3986, critical points of R in (0,T]: 3091
+max enclosure widths: a 2.27e-13 b 2.27e-13 w 2.27e-13
+min separation between consecutive enclosures of zeros of A*B: 2.445e-05 (positive => all zeros simple and distinct)
+sign of R alternates across consecutive intervals: True  sign on [0, first zero): -1
+interval types (type, number of critical points):  {('aa', 1): 1460, ('ab', 0): 4967, ('ab', 2): 86, ('bb', 1): 1459}
+parity rule (ab even, aa/bb odd) holds on every interval: True
+
+== collision statistics for zeros of A (angle from phi=0) and B (angle from phi=pi/2)
+T    | set side : #colliding  #transit  min angle  q10  median  q90
+  100| A Z1side :    32    73  1.785e-02  0.0228 0.0523 0.9211
+  100| A Z2side :    49    56  1.069e-04  0.0009 0.0617 0.5148
+  100| B Z1side :    31    73  2.306e-03  0.0225 0.1046 0.3557
+  100| B Z2side :    48    56  5.670e-06  0.0015 0.0421 0.3643
+  200| A Z1side :    83   170  7.596e-04  0.0074 0.0523 0.6930
+  200| A Z2side :   111   142  1.069e-04  0.0023 0.0476 0.5975
+  200| B Z1side :    82   169  2.306e-03  0.0232 0.1221 0.3416
+  200| B Z2side :   109   142  5.670e-06  0.0015 0.0760 0.3963
+  264| A Z1side :   125   232  7.596e-04  0.0079 0.0697 0.9211
+  264| A Z2side :   153   204  8.123e-05  0.0017 0.0495 0.5292
+  264| B Z1side :   124   232  2.306e-03  0.0223 0.1046 0.4623
+  264| B Z2side :   152   204  5.670e-06  0.0016 0.0760 0.5735
+  500| A Z1side :   283   493  1.888e-04  0.0059 0.0697 0.8378
+  500| A Z2side :   328   448  2.672e-06  0.0016 0.0557 0.5260
+  500| B Z1side :   282   494  1.936e-05  0.0047 0.1032 0.7695
+  500| B Z2side :   328   448  5.670e-06  0.0016 0.0573 0.6264
+ 1000| A Z1side :   627  1147  5.620e-06  0.0029 0.0802 0.9211
+ 1000| A Z2side :   728  1046  2.672e-06  0.0016 0.0510 0.6246
+ 1000| B Z1side :   625  1147  1.010e-06  0.0045 0.0788 0.7584
+ 1000| B Z2side :   726  1046  1.141e-06  0.0015 0.0573 0.6264
+ 1500| A Z1side :  1012  1841  5.620e-06  0.0029 0.0762 0.9136
+ 1500| A Z2side :  1143  1710  2.672e-06  0.0016 0.0521 0.6700
+ 1500| B Z1side :  1011  1841  3.921e-08  0.0032 0.0730 0.8166
+ 1500| B Z2side :  1143  1709  8.155e-07  0.0015 0.0521 0.7083
+ 2000| A Z1side :  1407  2580  1.694e-06  0.0029 0.0762 0.8939
+ 2000| A Z2side :  1600  2387  1.945e-08  0.0016 0.0514 0.6785
+ 2000| B Z1side :  1406  2580  3.921e-08  0.0023 0.0744 0.9108
+ 2000| B Z2side :  1598  2387  3.794e-09  0.0015 0.0519 0.7164
+
+== phi_0(T) = min collision angle over zeros of A below T (either side); psi_0(T) same for B (angle from pi/2)
+phi_0 records (A zeros)
+   gamma=    2.3589  angle=2.626798e-01  Z2side  |R(t_c)|^(+-1)=3.719   log(1/angle)/sqrt(log t * loglog t)=nan
+   gamma=   14.1347  angle=2.337118e-03  Z2side  |R(t_c)|^(+-1)=427.88   log(1/angle)/sqrt(log t * loglog t)=3.772
+   gamma=   77.1448  angle=1.068504e-04  Z2side  |R(t_c)|^(+-1)=9358.9   log(1/angle)/sqrt(log t * loglog t)=3.619
+   gamma=  231.2063  angle=8.123368e-05  Z2side  |R(t_c)|^(+-1)=12310   log(1/angle)/sqrt(log t * loglog t)=3.101
+   gamma=  283.1961  angle=4.355774e-05  Z2side  |R(t_c)|^(+-1)=22958   log(1/angle)/sqrt(log t * loglog t)=3.212
+   gamma=  385.8613  angle=2.671729e-06  Z2side  |R(t_c)|^(+-1)=3.7429e+05   log(1/angle)/sqrt(log t * loglog t)=3.937
+   gamma= 1505.2615  angle=1.945341e-08  Z2side  |R(t_c)|^(+-1)=5.1405e+07   log(1/angle)/sqrt(log t * loglog t)=4.653
+psi_0 records (B zeros)
+   gamma=    6.0209  angle=7.857168e-02  Z2side  |R(t_c)|^(+-1)=0.078734   log(1/angle)/sqrt(log t * loglog t)=2.482
+   gamma=    9.8314  angle=4.293047e-02  Z2side  |R(t_c)|^(+-1)=0.042957   log(1/angle)/sqrt(log t * loglog t)=2.290
+   gamma=   16.0338  angle=2.248807e-02  Z1side  |R(t_c)|^(+-1)=0.022492   log(1/angle)/sqrt(log t * loglog t)=2.255
+   gamma=   28.3596  angle=1.052361e-03  Z2side  |R(t_c)|^(+-1)=0.0010524   log(1/angle)/sqrt(log t * loglog t)=3.412
+   gamma=   63.7095  angle=5.670261e-06  Z2side  |R(t_c)|^(+-1)=5.6703e-06   log(1/angle)/sqrt(log t * loglog t)=4.966
+   gamma=  851.6454  angle=1.009598e-06  Z1side  |R(t_c)|^(+-1)=1.0096e-06   log(1/angle)/sqrt(log t * loglog t)=3.847
+   gamma= 1252.9326  angle=3.920597e-08  Z1side  |R(t_c)|^(+-1)=3.9206e-08   log(1/angle)/sqrt(log t * loglog t)=4.556
+   gamma= 1504.7521  angle=3.793586e-09  Z2side  |R(t_c)|^(+-1)=3.7936e-09   log(1/angle)/sqrt(log t * loglog t)=5.081
+
+== log|R| at critical points by interval type (mean, sd), window [T/2,T]; Bombieri-Hejhal/Selberg scale sqrt(2 loglog T)
+ T=200: aa minima n=56 mean 2.895 sd 1.990 | bb maxima n=55 mean -2.636 sd 1.996 | extra (ab) n=2 | sqrt(2 loglog T)=1.826
+ T=500: aa minima n=171 mean 3.076 sd 2.505 | bb maxima n=173 mean -3.085 sd 2.462 | extra (ab) n=18 | sqrt(2 loglog T)=1.911
+ T=1000: aa minima n=356 mean 3.087 sd 2.493 | bb maxima n=355 mean -3.103 sd 2.436 | extra (ab) n=64 | sqrt(2 loglog T)=1.966
+ T=2000: aa minima n=805 mean 3.107 sd 2.529 | bb maxima n=805 mean -3.208 sd 2.883 | extra (ab) n=84 | sqrt(2 loglog T)=2.014
+
+== zeros of F_phi with 0<gamma<T: real (certified from level sets of R) vs total (argument principle, stage2)
+  T      phi        real   total   off-line pairs
+  100.01   1pi/16         85    105  10.0
+  100.01   2pi/16         81    105  12.0
+  100.01   3pi/16         81    105  12.0
+  100.01   pi/4 (Z1)      79    105  13.0
+  100.01   5pi/16         77    105  14.0
+  100.01   6pi/16         77    105  14.0
+  100.01   7pi/16         85    105  10.0
+  100.01   9pi/16         65    105  20.0
+  100.01   10pi/16        59    105  23.0
+  100.01   11pi/16        59    105  23.0
+  100.01   3pi/4 (Z2)     59     83  12.0
+  100.01   13pi/16        61    105  22.0
+  100.01   14pi/16        65    105  20.0
+  100.01   15pi/16        69    105  18.0
+  200.01   1pi/16        197    253  28.0
+  200.01   2pi/16        189    253  32.0
+  200.01   3pi/16        189    253  32.0
+  200.01   pi/4 (Z1)     183    253  35.0
+  200.01   5pi/16        179    253  37.0
+  200.01   6pi/16        179    253  37.0
+  200.01   7pi/16        201    253  26.0
+  200.01   9pi/16        169    253  42.0
+  200.01   10pi/16       157    253  48.0
+  200.01   11pi/16       153    253  50.0
+  200.01   3pi/4 (Z2)    149    209  30.0
+  200.01   13pi/16       157    253  48.0
+  200.01   14pi/16       163    253  45.0
+  200.01   15pi/16       171    253  41.0
+  264.01   1pi/16        275    357  41.0
+  264.01   2pi/16        263    357  47.0
+  264.01   3pi/16        267    357  45.0
+  264.01   pi/4 (Z1)     257    357  50.0
+  264.01   5pi/16        253    357  52.0
+  264.01   6pi/16        255    357  51.0
+  264.01   7pi/16        277    357  40.0
+  264.01   9pi/16        249    357  54.0
+  264.01   10pi/16       231    357  63.0
+  264.01   11pi/16       221    357  68.0
+  264.01   3pi/4 (Z2)    215    299  42.0
+  264.01   13pi/16       219    357  69.0
+  264.01   14pi/16       233    357  62.0
+  264.01   15pi/16       245    357  56.0
+  1000.01  1pi/16       1360   1774  207.0
+  1000.01  2pi/16       1312   1774  231.0
+  1000.01  3pi/16       1310   1774  232.0
+  1000.01  pi/4 (Z1)    1288   1774  243.0
+  1000.01  5pi/16       1286   1774  244.0
+  1000.01  6pi/16       1299   1773  237.0
+  1000.01  7pi/16       1367   1773  203.0
+  1000.01  9pi/16       1256   1772  258.0
+  1000.01  10pi/16      1182   1772  295.0
+  1000.01  11pi/16      1164   1772  304.0
+  1000.01  3pi/4 (Z2)   1160   1554  197.0
+  1000.01  13pi/16      1162   1774  306.0
+  1000.01  14pi/16      1190   1774  292.0
+  1000.01  15pi/16      1244   1774  265.0
+  2000.01  1pi/16       3055    n/a  
+  2000.01  2pi/16       2971    n/a  
+  2000.01  3pi/16       2945    n/a  
+  2000.01  pi/4 (Z1)    2923    n/a  
+  2000.01  5pi/16       2927    n/a  
+  2000.01  6pi/16       2953    n/a  
+  2000.01  7pi/16       3089    n/a  
+  2000.01  9pi/16       2839    n/a  
+  2000.01  10pi/16      2697    n/a  
+  2000.01  11pi/16      2675    n/a  
+  2000.01  3pi/4 (Z2)   2667    n/a  
+  2000.01  13pi/16      2681    n/a  
+  2000.01  14pi/16      2739    n/a  
+  2000.01  15pi/16      2849    n/a  
+
+== small-angle counts: number of colliding zeros with angle < eps (all T<=2000); ratio per decade (sqrt(10)=3.16 predicted by the eps^(1/2) law)
+  A Z1side n=1407: 1e-1:790 1e-2:290 1e-3:74 1e-4:20 1e-5:4 1e-6:0 1e-7:0   ratios 2.72 3.92 3.70 5.00 - -
+  A Z2side n=1600: 1e-1:982 1e-2:392 1e-3:132 1e-4:40 1e-5:6 1e-6:2 1e-7:2   ratios 2.51 2.97 3.30 6.67 3.00 1.00
+  B Z1side n=1406: 1e-1:770 1e-2:295 1e-3:100 1e-4:38 1e-5:12 1e-6:2 1e-7:2   ratios 2.61 2.95 2.63 3.17 6.00 1.00
+  B Z2side n=1598: 1e-1:978 1e-2:406 1e-3:140 1e-4:40 1e-5:16 1e-6:6 1e-7:2   ratios 2.41 2.90 3.50 2.50 2.67 3.00
+
+== phi_0(T) against the count n(T) of colliding A-zeros below T: phi_0 * n^2 (constant under the eps^(1/2) law)
+  T=   25  n=   12  phi_0=2.337e-03  phi_0*n^2=0.337   phi_0*T^2=1.461
+  T=   50  n=   33  phi_0=2.337e-03  phi_0*n^2=2.545   phi_0*T^2=5.843
+  T=  100  n=   81  phi_0=1.069e-04  phi_0*n^2=0.701   phi_0*T^2=1.069
+  T=  200  n=  194  phi_0=1.069e-04  phi_0*n^2=4.021   phi_0*T^2=4.274
+  T=  400  n=  467  phi_0=2.672e-06  phi_0*n^2=0.583   phi_0*T^2=0.427
+  T=  800  n= 1042  phi_0=2.672e-06  phi_0*n^2=2.901   phi_0*T^2=1.710
+  T= 1200  n= 1665  phi_0=2.672e-06  phi_0*n^2=7.407   phi_0*T^2=3.847
+  T= 1600  n= 2317  phi_0=1.945e-08  phi_0*n^2=0.104   phi_0*T^2=0.050
+  T= 2000  n= 3007  phi_0=1.945e-08  phi_0*n^2=0.176   phi_0*T^2=0.078
+
+== the 12 smallest collision angles of A-zeros: factor of each partner (zeta or L(chi_-20)), gap delta
+  angle=1.945e-08  t_c=1505.261542  Z2side  zeros 1505.261530 (zeta), 1505.261554 (L(chi_-20))  delta=2.445e-05  angle/delta^2=32.546
+  angle=1.694e-06  t_c=1547.805511  Z1side  zeros 1547.804451 (L(chi_-20)), 1547.806564 (zeta)  delta=2.113e-03  angle/delta^2=0.379
+  angle=2.672e-06  t_c=385.865183  Z2side  zeros 385.861301 (zeta), 385.869074 (L(chi_-20))  delta=7.773e-03  angle/delta^2=0.044
+  angle=5.620e-06  t_c=786.459532  Z1side  zeros 786.457889 (L(chi_-20)), 786.461147 (zeta)  delta=3.258e-03  angle/delta^2=0.529
+  angle=7.395e-06  t_c=970.124503  Z2side  zeros 970.123399 (L(chi_-20)), 970.125611 (zeta)  delta=2.212e-03  angle/delta^2=1.511
+  angle=1.559e-05  t_c=1198.686245  Z1side  zeros 1198.685939 (L(chi_-20)), 1198.686569 (zeta)  delta=6.302e-04  angle/delta^2=39.261
+  angle=1.566e-05  t_c=1237.969450  Z2side  zeros 1237.961588 (L(chi_-20)), 1237.977299 (zeta)  delta=1.571e-02  angle/delta^2=0.063
+  angle=2.138e-05  t_c=1861.375572  Z1side  zeros 1861.371608 (L(chi_-20)), 1861.379672 (zeta)  delta=8.064e-03  angle/delta^2=0.329
+  angle=2.261e-05  t_c=1089.790178  Z2side  zeros 1089.784992 (L(chi_-20)), 1089.795338 (zeta)  delta=1.035e-02  angle/delta^2=0.211
+  angle=2.414e-05  t_c=1844.746459  Z2side  zeros 1844.733795 (L(chi_-20)), 1844.759044 (zeta)  delta=2.525e-02  angle/delta^2=0.038
+  angle=2.616e-05  t_c=485.540995  Z2side  zeros 485.539148 (zeta), 485.542854 (L(chi_-20))  delta=3.706e-03  angle/delta^2=1.904
+  angle=2.733e-05  t_c=1900.575315  Z2side  zeros 1900.571884 (zeta), 1900.578773 (L(chi_-20))  delta=6.889e-03  angle/delta^2=0.576
+
+== first 200 zeros of A: see table_A_zeros.txt (rows 1-200).  gamma_200 = 165.537069

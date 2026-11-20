@@ -1,0 +1,6 @@
+GPU True KMAX 16384 planned: sector matrices 16385x16385 float64 = 2.15 GB each (two held, plus eigh workspace)
+ZETA       2a=11.513 lam=-6.6962e-11 (even -6.696e-11 odd -6.696e-11) centroid 7477.2  mass ratio 0.2869 floorL2 -854.134  floor_s2 -1.857e+14  [148s]
+CHI5       2a=11.513 lam=-6.1217e-11 (even -6.122e-11 odd -6.121e-11) centroid 7645.4  mass ratio 0.1802 floorL2 -15.634  floor_s2 -2.018e+14  [134s]
+DH         2a=11.513 lam=-1.0790e+02 (even -1.079e+02 odd -1.079e+02) centroid 2442.4  mass ratio 0.3756 floorL2 -265.870  floor_s2 -2.364e+15  [152s]
+LIOU       2a=11.513 lam=-1.3135e+01 (even -1.314e+01 odd -1.313e+01) centroid 4990.3  mass ratio 0.3640 floorL2 -810.460  floor_s2 -4.132e+14  [256s]
+done

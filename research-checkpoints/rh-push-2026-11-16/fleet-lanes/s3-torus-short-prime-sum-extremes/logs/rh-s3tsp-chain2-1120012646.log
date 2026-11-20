@@ -1,0 +1,389 @@
++ python c2.py --logM 26 --ntrue 16 --nhaar 8 --nsgn 4 --nbeu 4 --out c2_main.json
+N=690988 primes=55874 M=67108864 nf=134217728 dx=0.1294 window length=8.6839e+06 GPU=True t=1s
+planned: grid 2.00 GiB, FFT output 2.00 GiB, kernel tables 0.12 GiB
+GPU out of memory (attempt 1); waiting 20s
+GPU out of memory (attempt 2); waiting 20s
+GPU out of memory (attempt 3); waiting 20s
+GPU out of memory (attempt 4); waiting 20s
+true 0 t=94s  minG per row: +0.3296 +0.3674 +0.3948 +0.4139 +0.4264 +0.4292
+true 1 t=99s  minG per row: +0.3266 +0.3641 +0.3911 +0.4098 +0.4220 +0.4232
+true 2 t=103s  minG per row: +0.3286 +0.3663 +0.3935 +0.4125 +0.4248 +0.4269
+true 3 t=109s  minG per row: +0.3280 +0.3657 +0.3929 +0.4118 +0.4242 +0.4266
+true 4 t=114s  minG per row: +0.3263 +0.3636 +0.3905 +0.4092 +0.4213 +0.4219
+true 5 t=119s  minG per row: +0.3282 +0.3658 +0.3929 +0.4118 +0.4241 +0.4254
+true 6 t=123s  minG per row: +0.3292 +0.3670 +0.3944 +0.4134 +0.4258 +0.4283
+true 7 t=128s  minG per row: +0.3275 +0.3650 +0.3921 +0.4109 +0.4232 +0.4249
+true 8 t=132s  minG per row: +0.3280 +0.3656 +0.3927 +0.4115 +0.4236 +0.4244
+true 9 t=136s  minG per row: +0.3289 +0.3666 +0.3938 +0.4127 +0.4250 +0.4267
+true 10 t=141s  minG per row: +0.3295 +0.3673 +0.3945 +0.4134 +0.4258 +0.4273
+true 11 t=145s  minG per row: +0.3295 +0.3673 +0.3946 +0.4135 +0.4259 +0.4277
+true 12 t=150s  minG per row: +0.3294 +0.3672 +0.3945 +0.4135 +0.4259 +0.4281
+true 13 t=155s  minG per row: +0.3294 +0.3673 +0.3946 +0.4136 +0.4261 +0.4286
+true 14 t=160s  minG per row: +0.3289 +0.3666 +0.3938 +0.4127 +0.4250 +0.4266
+true 15 t=164s  minG per row: +0.3287 +0.3665 +0.3937 +0.4127 +0.4250 +0.4266
+haar 0 t=168s  minG per row: +0.3294 +0.3673 +0.3946 +0.4137 +0.4262 +0.4293
+haar 1 t=172s  minG per row: +0.3299 +0.3677 +0.3950 +0.4140 +0.4263 +0.4279
+haar 2 t=176s  minG per row: +0.3293 +0.3672 +0.3945 +0.4136 +0.4261 +0.4290
+haar 3 t=179s  minG per row: +0.3289 +0.3667 +0.3940 +0.4129 +0.4252 +0.4269
+haar 4 t=183s  minG per row: +0.3300 +0.3678 +0.3952 +0.4142 +0.4267 +0.4289
+haar 5 t=187s  minG per row: +0.3284 +0.3661 +0.3934 +0.4123 +0.4247 +0.4269
+haar 6 t=191s  minG per row: +0.3294 +0.3672 +0.3945 +0.4136 +0.4261 +0.4289
+haar 7 t=196s  minG per row: +0.3306 +0.3686 +0.3961 +0.4153 +0.4279 +0.4307
+sgn 0 t=200s  minG per row: +0.3293 +0.3670 +0.3943 +0.4132 +0.4255 +0.4267
+sgn 1 t=204s  minG per row: +0.3308 +0.3688 +0.3963 +0.4154 +0.4279 +0.4306
+sgn 2 t=207s  minG per row: +0.3288 +0.3666 +0.3938 +0.4128 +0.4252 +0.4268
+sgn 3 t=211s  minG per row: +0.3294 +0.3672 +0.3943 +0.4132 +0.4254 +0.4261
+beurling 0 t=214s  minG per row: +0.3295 +0.3673 +0.3946 +0.4137 +0.4261 +0.4287
+beurling 1 t=217s  minG per row: +0.3299 +0.3678 +0.3952 +0.4143 +0.4269 +0.4297
+beurling 2 t=221s  minG per row: +0.3293 +0.3671 +0.3944 +0.4134 +0.4257 +0.4277
+beurling 3 t=225s  minG per row: +0.3301 +0.3681 +0.3955 +0.4147 +0.4271 +0.4291
+done 225s
++ python c3.py --heights 1e6,1e8,1e10,1e12,1e13 --nz 1e6 --Tmax 1e6 --out c3_main.json
+planned: NUFFT grid 0.00 GiB (M=32768, terms=398)
+planned grids: 1 x 65536 x 16 B = 0.00 GiB
+Z max err vs mpmath siegelz: 3.749429988708641e-09
+planned: NUFFT grid 0.02 GiB (M=524288, terms=399)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=400)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=401)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=402)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=403)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=404)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=405)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=406)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=407)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=408)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=409)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=410)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=411)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=412)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=413)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=414)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=415)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=416)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=417)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=418)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=419)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=420)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=421)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=422)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=423)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=424)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=425)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=426)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=427)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=428)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=429)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=430)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=431)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=432)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=433)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=434)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=435)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=436)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=437)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=438)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=439)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=440)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=441)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=442)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=443)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=444)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=445)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=446)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=447)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=448)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=449)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=450)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=451)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=452)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=453)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=454)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=455)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=456)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=457)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=458)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=459)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=460)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=461)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=462)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=463)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=464)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=465)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=466)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=467)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=468)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=469)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=470)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=471)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=472)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=473)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=474)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=475)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=476)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=477)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=478)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=479)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=480)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=481)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=482)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=483)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=484)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=485)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=486)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=487)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=488)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=489)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=490)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=491)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+planned: NUFFT grid 0.02 GiB (M=524288, terms=492)
+planned grids: 1 x 1048576 x 16 B = 0.02 GiB
+{"label": "ZETA T=1e+06", "njumps": 1018838, "span": 524576.52103, "rho": 1.97342, "c": 0.49137, "mean_S": 0.0, "supS": 1.82293, "infS": -1.89677, "grid_per_spacing": 49, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.5043694123555167, "A_lo": 0.7113600657612551, "A_hi": 0.7512215194809824, "bound_lo": 1.9080607433526091, "bound_hi": 1.9870930017395039, "ratio_hi": 0.9940848098749122, "ratio_lo": 0.9545472706234803}, {"delta_mean_spacings": 2, "delta": 1.0087388247110334, "A_lo": 1.028050139761035, "A_hi": 1.0679115934807624, "bound_lo": 2.014475630747805, "bound_hi": 2.053991759941252, "ratio_hi": 0.9415721750783104, "ratio_lo": 0.9234575514264542}, {"delta_mean_spacings": 4, "delta": 2.027985345512807, "A_lo": 1.2888007529836614, "A_hi": 1.3286622067033886, "bound_lo": 2.636539183573088, "bound_hi": 2.6561948747781186, "ratio_hi": 0.7194181725434923, "ratio_lo": 0.7140945189286635}, {"delta_mean_spacings": 8, "delta": 4.055970691025614, "A_lo": 1.4736199864419177, "A_hi": 1.513481440161645, "bound_lo": 4.3653836854171555, "bound_hi": 4.375211531019671, "ratio_hi": 0.43450343382684964, "ratio_lo": 0.4335274278369363}, {"delta_mean_spacings": 16, "delta": 8.111941382051228, "A_lo": 1.4736199864419177, "A_hi": 1.513481440161645, "bound_lo": 8.185785627116648, "bound_hi": 8.190699549917905, "ratio_hi": 0.2317155967293001, "ratio_lo": 0.23157658142941812}, {"delta_mean_spacings": 32, "delta": 16.213375068011715, "A_lo": 1.600902446982218, "A_hi": 1.6407639007019452, "bound_lo": 16.0966216712842, "bound_hi": 16.099080225012372, "ratio_hi": 0.11783678836592398, "ratio_lo": 0.117818793047477}], "max_ratio_hi": 0.99408, "A_global": 1.72035, "sqrt2Arho": 2.60575, "ratio_global": 0.72792, "T": 1000000.0, "t0": 1000000, "dt": 0.01311, "grid_points": 40000000, "pairs_from_parabola": 4, "nearest_unresolved_extremum": Infinity, "Z_maxerr_vs_mpmath": 0.0}
+{"label": "T-NR true S, T=1e+06", "njumps": 1110560, "span": 524576.52103, "rho": 2.32312, "c": 1.3388, "mean_S": 0.0, "supS": 2.61602, "infS": -2.57551, "grid_per_spacing": 45, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.4303660797108117, "A_lo": 0.9157370210896261, "A_hi": 0.9706562680255795, "bound_lo": 2.62770485565734, "bound_hi": 2.7553153935809074, "ratio_hi": 0.9955516966834954, "ratio_lo": 0.9494434043840098}, {"delta_mean_spacings": 2, "delta": 0.8607321594216234, "A_lo": 1.555768039135728, "A_hi": 1.6106872860716814, "bound_lo": 2.807284563256178, "bound_hi": 2.871089832217961, "ratio_hi": 0.9318670653034189, "ratio_lo": 0.9111578460825142}, {"delta_mean_spacings": 4, "delta": 1.7214643188432468, "A_lo": 2.324824973155046, "A_hi": 2.3797442200909993, "bound_lo": 3.3500742190562844, "bound_hi": 3.381976853537176, "ratio_hi": 0.7808830062786059, "ratio_lo": 0.7735168337113423}, {"delta_mean_spacings": 8, "delta": 3.4429286376864936, "A_lo": 2.8880561091937125, "A_hi": 2.942975356129666, "bound_lo": 4.838000116695555, "bound_hi": 4.853951433936, "ratio_hi": 0.5407226052776354, "ratio_lo": 0.5389456534615209}, {"delta_mean_spacings": 16, "delta": 6.885857275372987, "A_lo": 2.8880561091937125, "A_hi": 2.942975356129666, "bound_lo": 8.417744655168741, "bound_hi": 8.425720313788965, "ratio_hi": 0.31077398217666463, "ratio_lo": 0.31047980825472327}, {"delta_mean_spacings": 32, "delta": 13.771714550745974, "A_lo": 2.8978878906491445, "A_hi": 2.952807137585098, "bound_lo": 16.20707543244042, "bound_hi": 16.21106326175053, "ratio_hi": 0.16141197332844223, "ratio_lo": 0.16137226690155035}], "max_ratio_hi": 0.99555, "A_global": 3.12152, "sqrt2Arho": 3.80832, "ratio_global": 0.68692, "offline_pairs_in_window": 91722, "S0_drift_slope": -0.3497, "S0_drift_exceeds_sqrt2Arho_after_t": 7.4514}
+planned: NUFFT grid 0.12 GiB (M=4194304, terms=3989)
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+Z max err vs mpmath siegelz: 1.165110660727997e-09
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3990)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3991)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3992)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3993)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3994)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3995)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=3996)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+{"label": "ZETA T=1e+08", "njumps": 1000113, "span": 378897.64779, "rho": 2.63984, "c": 0.87385, "mean_S": -0.0, "supS": 1.95604, "infS": -1.96808, "grid_per_spacing": 49, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.37885472123027497, "A_lo": 0.5561772067449056, "A_hi": 0.5866105134067567, "bound_lo": 1.9681061366735915, "bound_hi": 2.0484358909472706, "ratio_hi": 0.9999862014715831, "ratio_lo": 0.9607715762073601}, {"delta_mean_spacings": 2, "delta": 0.7577094424605499, "A_lo": 0.8654874886851758, "A_hi": 0.895920795347027, "bound_lo": 2.142356657821824, "bound_hi": 2.1825215349586635, "ratio_hi": 0.9186514171296397, "ratio_lo": 0.9017455031628874}, {"delta_mean_spacings": 4, "delta": 1.5154188849210999, "A_lo": 1.2128608110360801, "A_hi": 1.2432941176979313, "bound_lo": 2.8005763776103585, "bound_hi": 2.8206588161787787, "ratio_hi": 0.7027406913231324, "ratio_lo": 0.697737340091116}, {"delta_mean_spacings": 8, "delta": 3.0308377698421998, "A_lo": 1.4405931209330447, "A_hi": 1.4710264275948959, "bound_lo": 4.475770804015569, "bound_hi": 4.485812023299778, "ratio_hi": 0.4397184453545784, "ratio_lo": 0.4387341621723622}, {"delta_mean_spacings": 16, "delta": 6.0616755396843995, "A_lo": 1.4415705059363972, "A_hi": 1.4720038125982484, "bound_lo": 8.238735066422555, "bound_hi": 8.243755676064659, "ratio_hi": 0.23888120735016202, "ratio_lo": 0.23873572398795834}, {"delta_mean_spacings": 32, "delta": 12.123351079368799, "A_lo": 1.4415705059363972, "A_hi": 1.4720038125982484, "bound_lo": 16.12074438189586, "bound_hi": 16.123254686716916, "ratio_hi": 0.12208362920978738, "ratio_lo": 0.12206462143940032}], "max_ratio_hi": 0.99999, "A_global": 1.75444, "sqrt2Arho": 3.0435, "ratio_global": 0.64665, "T": 100000000.0, "t0": 100000000, "dt": 0.00947, "grid_points": 40000000, "pairs_from_parabola": 8, "nearest_unresolved_extremum": Infinity, "Z_maxerr_vs_mpmath": 0.0}
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=39894)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+Z max err vs mpmath siegelz: 7.292402237624174e-10
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=39894)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=39894)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+{"label": "ZETA T=1e+10", "njumps": 1000001, "span": 296544.88663, "rho": 3.37218, "c": 0.21536, "mean_S": 0.0, "supS": 2.04748, "infS": -2.18118, "grid_per_spacing": 49, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.296544499301822, "A_lo": 0.49854599048558157, "A_hi": 0.5249467351591135, "bound_lo": 2.1811844614045546, "bound_hi": 2.2702123972984567, "ratio_hi": 0.9999999853272628, "ratio_lo": 0.9607843001809911}, {"delta_mean_spacings": 2, "delta": 0.593088998603644, "A_lo": 0.7797953904446331, "A_hi": 0.806196135118165, "bound_lo": 2.3148034236060826, "bound_hi": 2.3593173915530334, "ratio_hi": 0.9422763104448333, "ratio_lo": 0.924498093054293}, {"delta_mean_spacings": 4, "delta": 1.186177997207288, "A_lo": 1.1199548184449668, "A_hi": 1.1463555631184987, "bound_lo": 2.9441711469711374, "bound_hi": 2.966428130944613, "ratio_hi": 0.7408483816046278, "ratio_lo": 0.7352898277383999}, {"delta_mean_spacings": 8, "delta": 2.372355994414576, "A_lo": 1.332929344724107, "A_hi": 1.359330089397639, "bound_lo": 4.561859280235761, "bound_hi": 4.572987772222499, "ratio_hi": 0.4781349654625652, "ratio_lo": 0.4769714108245996}, {"delta_mean_spacings": 16, "delta": 4.744711988829152, "A_lo": 1.4726862540264847, "A_hi": 1.4990869987000166, "bound_lo": 8.310385499591206, "bound_hi": 8.315949745584575, "ratio_hi": 0.2624648916115747, "ratio_lo": 0.2622892749632989}, {"delta_mean_spacings": 32, "delta": 9.489423977658303, "A_lo": 1.4726862540264847, "A_hi": 1.4990869987000166, "bound_lo": 16.15519387116271, "bound_hi": 16.157975994159393, "ratio_hi": 0.13501443850166717, "ratio_lo": 0.13499119135893248}], "max_ratio_hi": 1.0, "A_global": 1.74362, "sqrt2Arho": 3.42922, "ratio_global": 0.63606, "T": 10000000000.0, "t0": 10000000000, "dt": 0.00741, "grid_points": 40000000, "pairs_from_parabola": 2, "nearest_unresolved_extremum": Infinity, "Z_maxerr_vs_mpmath": 0.0}
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=398942)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+Z max err vs mpmath siegelz: None
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=398942)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+Z max err vs mpmath siegelz: None
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=398942)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+Z max err vs mpmath siegelz: None
+{"label": "ZETA T=1e+12", "njumps": 1000000, "span": 243599.04691, "rho": 4.10511, "c": -0.26718, "mean_S": -0.0, "supS": 2.25518, "infS": -2.39242, "grid_per_spacing": 50, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.24359897382660028, "A_lo": 0.4609906548175786, "A_hi": 0.4843022590596427, "bound_lo": 2.3924160975990088, "bound_hi": 2.4881127414553896, "ratio_hi": 0.9999999995028109, "ratio_lo": 0.9615384610787824}, {"delta_mean_spacings": 2, "delta": 0.48719794765320057, "A_lo": 0.7163335398054187, "A_hi": 0.7396451440474827, "bound_lo": 2.470312840392422, "bound_hi": 2.518161162320613, "ratio_hi": 0.9684668505505877, "ratio_lo": 0.9500647266773001}, {"delta_mean_spacings": 4, "delta": 0.9743958953064011, "A_lo": 1.0052354952122187, "A_hi": 1.0285470994542827, "bound_lo": 3.031649387915155, "bound_hi": 3.0555735488792504, "ratio_hi": 0.7891466955071523, "ratio_lo": 0.7829679299609844}, {"delta_mean_spacings": 8, "delta": 1.9487917906128023, "A_lo": 1.3249154707227717, "A_hi": 1.3482270749648357, "bound_lo": 4.679863909615931, "bound_hi": 4.691825990097978, "ratio_hi": 0.5112148862905432, "ratio_lo": 0.5099115145060111}, {"delta_mean_spacings": 16, "delta": 3.8975835812256046, "A_lo": 1.4958801575630787, "A_hi": 1.5191917618051427, "bound_lo": 8.383794488731763, "bound_hi": 8.389775528972786, "ratio_hi": 0.28536196821439885, "ratio_lo": 0.28515853471260205}, {"delta_mean_spacings": 32, "delta": 7.795167162451209, "A_lo": 1.4958801575630787, "A_hi": 1.5191917618051427, "bound_lo": 16.191893757698914, "bound_hi": 16.194884277819426, "ratio_hi": 0.14775393985474866, "ratio_lo": 0.14772665586046746}], "max_ratio_hi": 1.0, "A_global": 1.76316, "sqrt2Arho": 3.80472, "ratio_global": 0.6288, "T": 1000000000000.0, "t0": 1000000000000, "dt": 0.00609, "grid_points": 40000000, "pairs_from_parabola": 4, "nearest_unresolved_extremum": Infinity, "Z_maxerr_vs_mpmath": null}
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=1261566)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+Z max err vs mpmath siegelz: None
+planned: NUFFT grid 1.00 GiB (M=33554432, terms=1261566)
+planned grids: 1 x 67108864 x 16 B = 1.00 GiB
+Z max err vs mpmath siegelz: None
+planned: NUFFT grid 0.25 GiB (M=8388608, terms=1261566)
+planned grids: 1 x 16777216 x 16 B = 0.25 GiB
+Z max err vs mpmath siegelz: None
+{"label": "ZETA T=1e+13", "njumps": 1000000, "span": 223634.89039, "rho": 4.47157, "c": 0.06445, "mean_S": 0.0, "supS": 2.31752, "infS": -2.15364, "grid_per_spacing": 50, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.22363482329836093, "A_lo": 0.4064605970761477, "A_hi": 0.4271917161022586, "bound_lo": 2.317519103801027, "bound_hi": 2.4102198680216897, "ratio_hi": 1.000000000740248, "ratio_lo": 0.9615384622228627}, {"delta_mean_spacings": 2, "delta": 0.44726964659672186, "A_lo": 0.6520553996952003, "A_hi": 0.6727865187213112, "bound_lo": 2.457857180409749, "bound_hi": 2.5042075625200804, "ratio_hi": 0.9429022662456787, "ratio_lo": 0.9254500865672484}, {"delta_mean_spacings": 4, "delta": 0.8945392931934437, "A_lo": 0.9778770466703008, "A_hi": 0.9986081656964118, "bound_lo": 3.0931621660575637, "bound_hi": 3.1163373571127293, "ratio_hi": 0.7492394452989173, "ratio_lo": 0.7436675943402149}, {"delta_mean_spacings": 8, "delta": 1.7890785863868874, "A_lo": 1.256044949646821, "A_hi": 1.276776068672932, "bound_lo": 4.702061283392828, "bound_hi": 4.713648878920411, "ratio_hi": 0.49287301160914115, "ratio_lo": 0.49166137848760566}, {"delta_mean_spacings": 16, "delta": 3.578157172773775, "A_lo": 1.454661663439765, "A_hi": 1.4753927824658761, "bound_lo": 8.406536948605435, "bound_hi": 8.412330746369227, "ratio_hi": 0.275680594718735, "ratio_lo": 0.2754907261007077}, {"delta_mean_spacings": 32, "delta": 7.15631434554755, "A_lo": 1.454661663439765, "A_hi": 1.4753927824658761, "bound_lo": 16.203264883855493, "bound_hi": 16.206161782737386, "ratio_hi": 0.1430279096298476, "ratio_lo": 0.14300234297211328}], "max_ratio_hi": 1.0, "A_global": 1.73542, "sqrt2Arho": 3.93956, "ratio_global": 0.58827, "T": 10000000000000.0, "t0": 10000000000000, "dt": 0.00559, "grid_points": 40000000, "pairs_from_parabola": 14, "nearest_unresolved_extremum": Infinity, "Z_maxerr_vs_mpmath": null}
+planned: NUFFT grid 0.12 GiB, terms 1200040, blocks 21
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 1/21 t=126s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 2/21 t=127s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 3/21 t=128s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 4/21 t=128s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 5/21 t=129s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 6/21 t=130s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 7/21 t=131s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 8/21 t=132s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 9/21 t=132s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 10/21 t=133s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 11/21 t=134s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 12/21 t=135s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 13/21 t=135s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 14/21 t=136s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 15/21 t=137s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 16/21 t=138s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 17/21 t=139s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 18/21 t=140s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 19/21 t=140s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 20/21 t=141s
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+planned grids: 1 x 8388608 x 16 B = 0.12 GiB
+dirichlet block 21/21 t=142s
+{"label": "CHI", "njumps": 2003295, "span": 999999.0, "rho": 2.16245, "c": 0.15833, "mean_S": 0.0, "supS": 1.83579, "infS": -1.77068, "grid_per_spacing": 24, "by_delta": [{"delta_mean_spacings": 1, "delta": 0.45757887081693194, "A_lo": 0.6139420819235966, "A_hi": 0.690307439381538, "bound_lo": 1.8364642175719286, "bound_hi": 2.0033542606405774, "ratio_hi": 0.9996331298969269, "ratio_lo": 0.9163583844467624}, {"delta_mean_spacings": 2, "delta": 0.9151577416338639, "A_lo": 0.9095067093003308, "A_hi": 0.9858720667582723, "bound_lo": 1.9833163081312404, "bound_hi": 2.0667613296655647, "ratio_hi": 0.9256165878477007, "ratio_lo": 0.8882450273308521}, {"delta_mean_spacings": 4, "delta": 1.8511145228503156, "A_lo": 1.2849451346992926, "A_hi": 1.361310492157234, "bound_lo": 2.69561766019834, "bound_hi": 2.7368713787096914, "ratio_hi": 0.6810277662374652, "ratio_lo": 0.6707624216599569}, {"delta_mean_spacings": 8, "delta": 3.7022290457006313, "A_lo": 1.6006089932145768, "A_hi": 1.6769743506725183, "bound_lo": 4.435278381510739, "bound_hi": 4.455905240766414, "ratio_hi": 0.41390648249001977, "ratio_lo": 0.4119904653626302}, {"delta_mean_spacings": 16, "delta": 7.4044580914012625, "A_lo": 1.6006089932145768, "A_hi": 1.6769743506725183, "bound_lo": 8.22205191359569, "bound_hi": 8.232365343223528, "ratio_hi": 0.22327643914769504, "ratio_lo": 0.22299672053139247}, {"delta_mean_spacings": 32, "delta": 14.788117143219937, "A_lo": 1.6006089932145768, "A_hi": 1.6769743506725183, "bound_lo": 16.097514982391044, "bound_hi": 16.102678949968414, "ratio_hi": 0.11404185526544289, "ratio_lo": 0.11400528318666744}], "max_ratio_hi": 0.99963, "A_global": 2.89816, "sqrt2Arho": 3.54037, "ratio_global": 0.51853, "zeros": 2003295}
+{"steps_located": 106203, "clean_steps": 13861, "offline_pairs_by_final_level": 106199, "first_step_heights": [85.37814948512138, 114.54896447388398, 166.2432646057967, 176.38562599387012, 240.73167348756942, 320.67065032932953, 330.7029453876432, 366.7822782908137, 411.3735586818049, 440.85413961256677, 521.1392477395511, 531.5076686219322, 549.0994267470469, 566.5984622850397, 595.2963003741518, 611.2198217471184, 646.9515705148938, 656.7981622539803, 693.049655270294, 737.239481252027, 783.6508291699655, 811.8356906060224, 857.0823057202001, 859.190945290673, 864.0566731112915, 891.5486979918492, 921.6309039810226, 984.1756313715218, 1012.2896472885386, 1018.9215129121491, 1029.1952583018642, 1078.7192945226534, 1092.4730533326278, 1108.827364700805, 1154.3514333675894, 1190.1980334736145, 1212.3756343820291, 1218.691732427043, 1264.280372196194, 1274.0850672586926], "profile_events": 13861, "lead_mean_spacings": 3.75}
+done 203s

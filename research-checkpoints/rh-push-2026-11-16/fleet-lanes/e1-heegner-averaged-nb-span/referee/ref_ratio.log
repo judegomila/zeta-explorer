@@ -1,0 +1,14 @@
+acoef vs convolution definition, D=-23, n<=2000: max diff 0
+pv check D=-7: (1.5707963267948966, 0.2821278407534838)  class-number formula p= 1.5707963267948966
+span X=100 n_D=31 N=50002 planned alloc MB 99
+   shuffle=False: R with numeric value functional = 6.7493 ; with L-prime value functional = 6.7490 ; |v_num.c_L - 1| = 2.26e-05
+span X=100 n_D=31 N=50002 planned alloc MB 99
+   shuffle=True: R with numeric value functional = 2.0947 ; with L-prime value functional = 6.2185 ; |v_num.c_L - 1| = 8.63e-02
+span X=100 n_D=31 N=50002 planned alloc MB 99
+   shuffle=True: R with numeric value functional = 1.6733 ; with L-prime value functional = 4.8644 ; |v_num.c_L - 1| = 2.53e-01
+span X=150 n_D=47 N=61239 planned alloc MB 150
+   shuffle=False: R with numeric value functional = 5.2610 ; with L-prime value functional = 5.2612 ; |v_num.c_L - 1| = 1.21e-05
+span X=150 n_D=47 N=61239 planned alloc MB 150
+   shuffle=True: R with numeric value functional = 1.4680 ; with L-prime value functional = 3.6572 ; |v_num.c_L - 1| = 1.35e-04
+span X=150 n_D=47 N=61239 planned alloc MB 150
+   shuffle=True: R with numeric value functional = 1.3695 ; with L-prime value functional = 2.6436 ; |v_num.c_L - 1| = 3.66e-02

@@ -1,0 +1,670 @@
+{
+ "excludedTokens": {
+  "L0": "the L-function L0 of section D",
+  "T4": "theorem T4 of twist-rigidity (line 1)",
+  "ctrl-rz-reciprocal-shift": "engine node id"
+ },
+ "rows": {
+  "D1": "map",
+  "D3": "map",
+  "D4": "map",
+  "D5": "map",
+  "D6": "map",
+  "D7": "map",
+  "F1": "map",
+  "F8": "map",
+  "G2": "map",
+  "L2": "map",
+  "L4": "map",
+  "P1": "map",
+  "P3": "map",
+  "P6": "map",
+  "P7": "map",
+  "P8": "map",
+  "P9": "map",
+  "P14": "map",
+  "P15": "map",
+  "P18": "map",
+  "P21": "map",
+  "P23": "map",
+  "P25": "map",
+  "P27": "map",
+  "P29": "map",
+  "P36": "map",
+  "P40": "map",
+  "P46": "map",
+  "P50": "map",
+  "P51": "map",
+  "Q3": "map",
+  "Q9": "map",
+  "Q10": "map",
+  "Q18": "map",
+  "Q19": "map",
+  "Q20": "map",
+  "Q21": "map",
+  "Q25": "pending (MAP_PENDING Part 2)",
+  "Q26": "proposed (MAP_ROWS_PROPOSED)",
+  "S1": "map",
+  "S12": "map",
+  "T1": "map",
+  "T2": "map",
+  "Z15b": "map",
+  "Z15c": "map",
+  "Z16": "map",
+  "Z17": "map",
+  "Z18": "map",
+  "Z22": "map",
+  "Z23": "map",
+  "Z24": "map",
+  "Z25": "map",
+  "Z27": "pending (MAP_PENDING Part 2)",
+  "Z28": "pending (MAP_PENDING Part 2)",
+  "Z30": "proposed (MAP_ROWS_PROPOSED)",
+  "Z31": "proposed (MAP_ROWS_PROPOSED)"
+ },
+ "rowsMissing": [],
+ "lanes": {
+  "b-codex-zero-channels": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "b-escape-law": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "b-euler-detector": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "b-lacunary-threshold": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "b-mvcap-function-side": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "b-route-m-first-moment": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "bootstrap": {
+   "refereeFiles": [],
+   "result": true
+  },
+  "c1-leeyang-krein-limit": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c1-missing-controls": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c1-pd-log-strip": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c2-polydisc-leeyang-bound": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c4-helson-discrepancy-zerofree": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c4-thin-twist-control-78": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c5-angular-family-absorption": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c5-device-table-extension": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c5-repair-engine-map-r4": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c5-target-fe-order2-ledger": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c5-thin-propd-dichotomy": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c5-thin-walk-replay": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c5-twisted-helson-arcs": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c6-gl3-cover-epsilon-cocycle": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c6-marks-bc-manuscript-check": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md"
+   ],
+   "result": true
+  },
+  "c6-pair-probe-bridge-order2": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c6-quadratic-companion-positivity": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c7-bridge-seven-eighths-krein-index": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c7-liou-high-row-bound": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c7-probe-format-h-cap": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-eh-nonprincipal-row-cancellation": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-ek-ff-reflected-rows-exact": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-ek-theta-second-moment-formula": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-hecke-entropy-resonance-rigidity": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-liou-row-bound-theorem": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c8-row-energy-squared-signal": {
+   "refereeFiles": [
+    "REFEREE.md",
+    "REFEREE2.md",
+    "REFEREE3.md"
+   ],
+   "result": true
+  },
+  "c8-single-row-bridge-crossing": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "c9-eh-dual-r5-target-excess": {
+   "refereeFiles": [],
+   "result": false
+  },
+  "c9-normaliser-cap-avoidance": {
+   "refereeFiles": [],
+   "result": true
+  },
+  "c9-obstruction-record-statement": {
+   "refereeFiles": [],
+   "result": true
+  },
+  "c9-repair-referee-debts-r8": {
+   "refereeFiles": [],
+   "result": false
+  },
+  "dh-separator": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "e1-burgers-cascade-anticausal": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "e1-cofinal-legendre-dual": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "e1-euler-anchor-heat-certificate": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "g-channel-geometry": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "g-renderer-learnings": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "nyman-baez-duarte": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "pick-induction": {
+   "refereeFiles": [],
+   "result": true
+  },
+  "r2-pick-euler-entry": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "r3-tnr-control": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "screw-canonical": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "sq-causal-cascade": {
+   "refereeFiles": [],
+   "result": true
+  },
+  "sym-power-positivity": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  },
+  "twist-rigidity": {
+   "refereeFiles": [
+    "REFEREE.md"
+   ],
+   "result": true
+  }
+ },
+ "lanesMissing": [],
+ "outsidePush": {
+  "eq48": [
+   "REFEREE.md"
+  ],
+  "pick": [
+   "REFEREE.md"
+  ]
+ },
+ "refClaims": [
+  {
+   "slug": "screw-canonical",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "twist-rigidity",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "r2-pick-euler-entry",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "pick-induction",
+   "claimed": 0,
+   "onDisk": 0,
+   "ok": true
+  },
+  {
+   "slug": "g-channel-geometry",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "sq-causal-cascade",
+   "claimed": 0,
+   "onDisk": 0,
+   "ok": true
+  },
+  {
+   "slug": "r2-pick-euler-entry",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "dh-separator",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-lacunary-threshold",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-codex-zero-channels",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-device-table-extension",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c1-missing-controls",
+   "claimed": 2,
+   "onDisk": 2,
+   "ok": true
+  },
+  {
+   "slug": "nyman-baez-duarte",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "sym-power-positivity",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "bootstrap",
+   "claimed": 0,
+   "onDisk": 0,
+   "ok": true
+  },
+  {
+   "slug": "e1-euler-anchor-heat-certificate",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-escape-law",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "e1-burgers-cascade-anticausal",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-codex-zero-channels",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c4-helson-discrepancy-zerofree",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-repair-engine-map-r4",
+   "claimed": 2,
+   "onDisk": 2,
+   "ok": true
+  },
+  {
+   "slug": "e1-cofinal-legendre-dual",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "sym-power-positivity",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "r3-tnr-control",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c4-thin-twist-control-78",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-thin-walk-replay",
+   "claimed": 2,
+   "onDisk": 2,
+   "ok": true
+  },
+  {
+   "slug": "c5-twisted-helson-arcs",
+   "claimed": 2,
+   "onDisk": 2,
+   "ok": true
+  },
+  {
+   "slug": "c4-helson-discrepancy-zerofree",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-device-table-extension",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-thin-propd-dichotomy",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-device-table-extension",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-device-table-extension",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-mvcap-function-side",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c1-pd-log-strip",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "twist-rigidity",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c6-quadratic-companion-positivity",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c7-bridge-seven-eighths-krein-index",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "dh-separator",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "g-renderer-learnings",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "b-euler-detector",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c5-device-table-extension",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c7-bridge-seven-eighths-krein-index",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c1-leeyang-krein-limit",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  },
+  {
+   "slug": "c2-polydisc-leeyang-bound",
+   "claimed": 1,
+   "onDisk": 1,
+   "ok": true
+  }
+ ],
+ "refClaimsWrong": [],
+ "lineLabels": {
+  "1": "ARGUED",
+  "2": "MEASURED",
+  "3": "ARGUED",
+  "4": "MEASURED",
+  "5": "ARGUED",
+  "6": "ARGUED",
+  "7": "ARGUED",
+  "8": "ARGUED",
+  "9": "MEASURED",
+  "10": "ARGUED",
+  "11": "ARGUED",
+  "12": "ARGUED"
+ },
+ "labelCounts": {
+  "PROVED": 0,
+  "ARGUED": 9,
+  "MEASURED": 3
+ }
+}

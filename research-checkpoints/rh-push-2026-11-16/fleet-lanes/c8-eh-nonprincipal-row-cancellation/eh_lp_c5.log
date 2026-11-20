@@ -1,0 +1,82 @@
+== R. regression (theta = 0): c5 values
+A1 source system                                           B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+A2 K removed                                               B=0.8611111 row=refl  lx=0.5000 ly=0.5000 l=0.3333 w=0.0000 h=0.8333  exact 31/36: CONFIRMED
+X5 free, refl | dir | empty, G polar                       B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+== geometry src, G src, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 0                         B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 1/4                       B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+ledger J,K,P; floor class, theta 1/2                       B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; dh, theta 1/2                                B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 0                     B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 1/4                   B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+(E-K): K deleted; floor class, theta 1/2                   B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+== geometry src, G polar, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 0                         B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 1/4                       B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+ledger J,K,P; floor class, theta 1/2                       B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; dh, theta 1/2                                B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 0                     B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 1/4                   B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+(E-K): K deleted; floor class, theta 1/2                   B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+== geometry src, G zero, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.8333333 row=refl  lx=0.0000 ly=1.0000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; floor class, theta 0                         B=0.8333333 row=refl  lx=0.0000 ly=1.0000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; floor class, theta 1/4                       B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+ledger J,K,P; floor class, theta 1/2                       B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; dh, theta 1/2                                B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.8333333 row=refl  lx=0.3333 ly=0.6667 l=0.3333 w=0.0000 h=1.0000
+(E-K): K deleted; floor class, theta 0                     B=0.8333333 row=refl  lx=0.3333 ly=0.6667 l=0.3333 w=0.0000 h=1.0000
+(E-K): K deleted; floor class, theta 1/4                   B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+(E-K): K deleted; floor class, theta 1/2                   B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+== geometry free, G src, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 0                         B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 1/4                       B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+ledger J,K,P; floor class, theta 1/2                       B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; dh, theta 1/2                                B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 0                     B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 1/4                   B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+(E-K): K deleted; floor class, theta 1/2                   B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+== geometry free, G polar, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 0                         B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+ledger J,K,P; floor class, theta 1/4                       B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+ledger J,K,P; floor class, theta 1/2                       B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; dh, theta 1/2                                B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 0                     B=0.8518519 row=refl  lx=0.4444 ly=0.4444 l=0.3333 w=0.2222 h=0.8889
+(E-K): K deleted; floor class, theta 1/4                   B=0.7916667 row=empty lx=0.5000 ly=0.0000 l=0.0000 w=0.0000 h=0.5000
+(E-K): K deleted; floor class, theta 1/2                   B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.5833333 row=empty lx=0.0000 ly=0.5000 l=0.0000 w=0.0000 h=1.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+== geometry free, G zero, rows refl | dir | empty, w free, box 8
+ledger J,K,P; dh, theta 0                                  B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+ledger J,K,P; floor class, theta 0                         B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+ledger J,K,P; floor class, theta 1/4                       B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+ledger J,K,P; floor class, theta 1/2                       B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+ledger J,K,P; dh, theta 1/2                                B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+ledger J,K,P; high side deleted                            B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000
+(E-K): K deleted; dh, theta 0                              B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+(E-K): K deleted; floor class, theta 0                     B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+(E-K): K deleted; floor class, theta 1/4                   B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+(E-K): K deleted; floor class, theta 1/2                   B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+(E-K): K deleted; dh, theta 1/2                            B=0.3333333 row=dir   lx=0.0000 ly=8.0000 l=3.0000 w=0.0000 h=4.0000
+(E-K): K deleted; high side deleted                        B=0.2500000 row=empty lx=0.0000 ly=0.0000 l=0.0000 w=1.0000 h=1.0000

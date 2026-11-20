@@ -1,0 +1,114 @@
+* b-euler-detector/E_p  (route-30 inequality 1: Euler at p) [PROVED (elementary, take log] DH=FAIL HEAT=FAIL TWIST=PASS EA=PASS
+    Q_{p,j,m}(a) = a(1) a(p^j m) - a(p^j) a(m) = 0 for all j >= 1, all m prime to p (each equality = pair of
+* b-euler-detector/T_pK  (route-30 inequality 2: local temperedness / rung Toeplitz) [CLASSICAL (Herglotz-Caratheo] DH=FAIL HEAT=N/A TWIST=depend EA=FAIL
+    Toeplitz matrix [m_{|i-j|}(p)]_{0<=i,j<=K} is PSD with m_0 = d (degree), m_{-k} = conj m_k. For all K this
+* b-euler-detector/I  (integrality) [definition; with FE of zeta:] DH=PASS HEAT=N/A. TWIST=? EA=?
+    each local factor is a power series in x = p^-s (frequencies in log N), not a Laurent series.
+* b-euler-detector/LaurentTwin-NOGO [PROVED (explicit example; FE] DH=N/A. HEAT=? TWIST=? EA=?
+    
+* b-euler-detector/LemmaA [PROVED (numerical check: 100] DH=PASS HEAT=N/A. TWIST=? EA=?
+    V finite-dimensional space of Dirichlet series with basis L_1..L_d of normalised multiplicative series
+* b-euler-detector/CorA1-gap + CorA2 + CorA3 (abrupt collapse) [PROVED / MEASURED-exact / CL] DH=PASS HEAT=N/A. TWIST=? EA=?
+    (A1, PROVED given Kaczorowski-Perelli) no degree-1 FE function has an Euler factor on a set of primes of
+* b-euler-detector/ThmB-dichotomy (NO-GO) [CLASSICAL inputs (Davenport-] DH=PASS HEAT=? TWIST=? EA=?
+    
+* b-euler-detector/ThmC-right-edge [PROVED here (Kronecker + Hur] DH=PASS HEAT=? TWIST=? EA=?
+    F = c L(chi) + conj(c) L(conj chi), chi complex, T = arg(-c/conj c), chi(p) = e^{i phi_p}, r = p^-sigma,
+* b-euler-detector/census-mixing-phase [MEASURED (float argument pri] DH=N/A HEAT=? TWIST=? EA=?
+    over 94 DH-type twins (q = 5..41, both root numbers; 37,431 zeros, 7,294 off-line) the off-line share is
+* b-euler-detector/PropD-formal-tail [PROVED given PNT in progress] DH=N/A HEAT=? TWIST=? EA=?
+    if the non-Euler primes beyond P have density delta and mean |sin phi| = mbar, then
+* b-euler-detector/WeilClassRadius (route-30 nextStep; NO-GO) [MEASURED (Rayleigh-Ritz, flo] DH=N/A HEAT=? TWIST=FAIL EA=?
+    with W_c(g) = 2 Re(u conj v) + (C(a) - log pi) F(0) + int_0^{2a} k(x)[2F(0) - F(x) - F(-x)] dx
+* b-euler-detector/WeilPinsC2 (converse rigidity) [MEASURED (outer bounds, n = ] DH=N/A HEAT=? TWIST=FAIL EA=?
+    W_c(g) >= 0 on tests of support 2a, with zeta's archimedean and pole terms, confines c(2) = t ln 2 to:
+* b-mvcap-function-side/Thm1-forcing [PROVED (two-constants theore] DH=PASS HEAT=PASS TWIST=N/A EA=?
+    D holomorphic on Q = {|Re s - 1/2| <= a, |Im s - c| <= H} and its conjugate, D(s) = chi(s) D(1-s),
+* b-mvcap-function-side/Thm2-cluster-lift (NO-GO) [PROVED given H_W and Trudgia] DH=PASS HEAT=? TWIST=? EA=?
+    
+* b-mvcap-function-side/Prop2prime-critical-line [PROVED (central half-window)] DH=PASS HEAT=? TWIST=? EA=?
+    in the Theorem 2 setting, for real t = c + tau, |tau| <= h/2:
+* b-mvcap-function-side/Prop3-exact-positive-definiteness [PROVED (Bochner + size compa] DH=FAIL HEAT=FAIL TWIST=eps_n EA=PASS
+    for sigma > 1, u -> log zeta(sigma+iu) = sum_n Lambda(n)/(log n) n^-sigma e^{-iu log n} is a positive
+* b-alpoge-furman/AF-chain [QUOTED (AF arXiv:2608.13637 ] DH=FAIL HEAT=?. TWIST=? EA=FAIL
+    Gabor compression G~ of Weil's form at bandwidth L = lambda log(T/2pi): zero side tr G~ = N(1+o(1)),
+* b-alpoge-furman/Prop1-chain-ceiling [PROVED (referee: confirmed, ] DH=? HEAT=? TWIST=? EA=?
+    for 0 < lambda < pi/sqrt2 and real psi on [-1/2,1/2] with int psi != 0,
+* b-alpoge-furman/Prop3-theta-blind-ceiling (NO-GO) [PROVED given the QUOTED AF L] DH=? HEAT=? TWIST=? EA=?
+    
+* b-alpoge-furman/Prop2-bandwidth-criterion [DERIVED (main-term algebra);] DH=N/A HEAT=? TWIST=? EA=?
+    with the flat window and bilinear form factor F, N_0^s/N >= 2 - 2/lambda + 2/(3 lambda^2)
+* b-codex-energy-lanes/SeparatedTail [PROVED + CERTIFIED constants] DH=PASS HEAT=PASS TWIST=N/A. EA=?
+    if E_{R,delta} < ell_delta = (4 - pi^2/3)/delta * sech(4 pi/delta), then for all N and all U_j >= R with
+* b-codex-energy-lanes/AllOrderIdentities [PROVED (PR 45; verified to 3] DH=PASS HEAT=? TWIST=? EA=?
+    (d_u + d_v) H = -alpha (u+v) kappa(u) kappa(v); J_{m+1,n} + J_{m,n+1} = -alpha[m k_{m-1} k_n + n k_m k_{n-1}];
+* b-codex-energy-lanes/PropZ (NO-GO) [PROVED; referee narrowings: ] DH=? HEAT=? TWIST=? EA=?
+    
+* b-codex-energy-lanes/ThmC-weighted-energy [PROVED identity; positivity ] DH=FAIL HEAT=FAIL TWIST=N/A EA=?
+    (Lemma D, CLASSICAL) Re[1/(z-beta-i gamma) + 1/(z+beta-i gamma)] = 2x(x^2 + (t-gamma)^2 - beta^2)/(...), so
+* b-codex-energy-lanes/LeakageVacuity (NO-GO) [PROVED (re-certified by refe] DH=? HEAT=? TWIST=? EA=?
+    
+* b-codex-energy-lanes/JetHierarchy-DH [MEASURED (multiprecision flo] DH=PASS HEAT=? TWIST=N/A EA=?
+    the PR 45 derivative-jet hierarchy J_N(0) (PSD for all N iff RH for each alpha, PR 44 Thm 2/Cor 3) is PD
+* b-codex-zero-channels/ThmA-one-sided-Weil [PROVED (author; termwise int] DH=PASS HEAT=PASS TWIST=? EA=?
+    for any even real entire F of order 1 with positive rapidly decaying kernel K (F(z) = 4 int K(u) e^{2zu} du),
+* b-codex-zero-channels/OddCone-Csordas [PROVED in PR 56 given convex] DH=PASS HEAT=? TWIST=? EA=?
+    strict convexity of t -> -log K(sqrt t) (i.e. l''' < 0 for l = log K) implies entrywise positivity of the
+* b-codex-zero-channels/TaylorBlocks-DH [MEASURED (Arb balls for roun] DH=PASS HEAT=? TWIST=FAIL EA=?
+    the Taylor blocks J_N (LDL pivots of T_ab = d_u^a d_v^b H_0(0,0), both parity sectors) are positive for
+* b-codex-zero-channels/FE-rigidity [MEASURED (`rigidity.out`, N ] DH=PASS HEAT=? TWIST=FAIL EA=?
+    replacing one coefficient a(n) by lambda a(n) in the theta series (breaks evenness of K) makes a Taylor
+* b-codex-zero-channels/RoucheChannel + verified-height bound [CERTIFIED (replayed, margin ] DH=PASS HEAT=PASS TWIST=N/A. EA=?
+    (PR 57, CERTIFIED replay) one fixed disk, centre 1/2 + 14.134725141734693 i, radius 7/20, for all
+* b-conjecture-22-1/ThmHF [PROVED (referee re-derived e] DH=PASS HEAT=? TWIST=? EA=?
+    f(t) = sum_{j=1}^N Q_j(t) exp(-(t-c_j)^2/(2 s_j)), s_j > 0, (c_j, s_j) distinct, Q_j real of exact degree
+* b-conjecture-22-1/D1-D2-damped-Pick [CLASSICAL (short proofs; ref] DH=identi HEAT=FAIL TWIST=N/A EA=FAIL
+    (D1) for a >= 0 and v = sum b_j e^{-x_j t}, Q_a(v) := sum b_i conj(b_j)(L(x_i+a) + L(x_j+a))/(x_i+x_j)
+* b-dyson-defect/Prop1-drift-explicit-formula [CLASSICAL tool (symmetric-su] DH=PASS HEAT=? TWIST=? EA=?
+    for a zero gamma_k and X > 0 (e^X not a prime power), W_k(X) := sum_{j != k} [1 - cos(X(gamma_k - gamma_j))]
+* b-dyson-defect/Defect-sign-and-formula [MEASURED (1.04e8 zeros); (st] DH=PASS/b HEAT=PASS TWIST=PASS EA=FAIL/N
+    defect Q + 1 > 0 at every height measured for zeta (0.0415 at L = 14.4 down to 0.0112 at L = 25.8;
+* b-dyson-defect/Mode-dictionary [CLASSICAL effective approxim] DH=PASS HEAT=? TWIST=? EA=?
+    the n-th Riemann-Siegel term has local frequency omega_n = (1/2)(L/2 - log n) in z = 2 gamma; forward heat
+* b-escape-law/Lemma1-exact-Dirichlet-form + LemmaR [PROVED (Lemma 1); Lemma R PR] DH=PASS HEAT=N/A TWIST=? EA=?
+    for tau > 0, F = H_{-tau}: F(z) = sum_{n>=1} T_n(z), T_n(z) = int_{Im w = -kappa_0} J_0(w) n^{-(1+iw)/2}
+* b-escape-law/ThmA-escape (NO-GO for strips) [PROVED internally, referee-c] DH=PASS HEAT=N/A TWIST=? EA=?
+    for every tau > 0 and every Y, H_{-tau} has zeros with |Im z| > Y; along a relatively dense set of heights
+* b-escape-law/C1-strip-statements-are-flow-critical [PROVED from Theorem A(i)] DH=FAIL HEAT=FAIL TWIST=? EA=PASS
+    hypothesis class Strip_Y = {all zeros in |Im z| <= Y} (beta in [1-theta, theta] is Strip_{2 theta - 1}):
+* b-escape-law/C2-density-o(T) [PROVED from Corollary A1 (o(] DH=FAIL HEAT=FAIL TWIST=? EA=FAIL
+    every statement "N(sigma, T) = o(T) for some sigma > 1/2" (Bohr-Landau/Selberg/Ingham/Guth-Maynard type)
+* b-escape-law/C4-flow-stable-blindness (NO-GO) [PROVED from Theorem A (refer] DH=? HEAT=? TWIST=? EA=?
+    
+* b-lacunary-threshold/ThmBT [PROVED (referee confirmed)] DH=PASS HEAT=? TWIST=? EA=PASS
+    for every F in E, with B the Blaschke product of the zeros in Re w > 0 and L_C the Caratheodory part,
+* b-lacunary-threshold/ThmM-Muntz-Blaschke [PROVED (equivalences; no pos] DH=FAIL HEAT=FAIL TWIST=N/A. EA=FAIL
+    F in E, Lambda a set of distinct points of Re w > 0 (none a zero) with sum Re w/(1+|w|^2) = infinity. Then
+* b-lacunary-threshold/PropS-blind-cone (NO-GO) [PROVED given the route-13 ce] DH=? HEAT=? TWIST=? EA=?
+    
+* b-lacunary-threshold/SchwarzPick-two-node [CLASSICAL (Schwarz-Pick); th] DH=FAIL HEAT=FAIL TWIST=? EA=uncond
+    RH implies |L'(w)| <= Re L(w)/Re w on Re w > 0. Unconditionally (L Caratheodory on Re w > 1/2 because
+* b-lean-eq48/Schur-Pick-equivalence [PROVED (Lean 4.22 / Mathlib,] DH=PASS HEAT=? TWIST=? EA=?
+    for any L and Pick matrix P_T = [(L(x_i)+L(x_j))/(x_i+x_j)], defect Delta_T(y) = L(y)/y - p.(P_T^-1 p):
+* b-route-m-first-moment/Vasyunin-continuous-A [PROVED conditional on the CL] DH=PASS HEAT=? TWIST=? EA=?
+    I(a,b) = b A(a/b) with A(lambda) = int_0^inf {t}{lambda t} dt/t^2 continuous, lambda <= A(lambda) <=
+* b-route-m-first-moment/lam_max-bounded [PROVED (upper bound) / SKETC] DH=PASS HEAT=? TWIST=? EA=?
+    lam_max(G_N) <= 18 for every N (Schur test with p_n = n^-1/2; G(m,n) = A(m/n)/m);
+* b-route-p-motherbox/ledger-bound [CERTIFIED relative to the le] DH=inputs HEAT=N/A TWIST=? EA=?
+    under the route-P ledger, de Bruijn-Newman constant <= 0.144997328111268 (route P alone, collect7,
+* b-sg1c-r1-transfer/Identity2 + cubic deficit [PROVED (symbolic N = 3, 4 + ] DH=PASS HEAT=? TWIST=? EA=?
+    for every adjacent pair (gap g, Theta = (1/2) sum mu_j, mu_j = g^2/((a-y_j)(b-y_j))):
+* b-sg1c-r1-transfer/W-monotone + collision bounds [PROVED (referee confirmed; r] DH=PASS HEAT=? TWIST=? EA=?
+    along the global minimal-pair process (N >= 3), Theta_min jumps only downward at minimality transfers and
+* b-toeplitz-beyond/LemmaA-pair-kernel [PROVED (kernel, theta = 0; r] DH=consis HEAT=? TWIST=? EA=?
+    the zero-side contribution of a pair z = H +- i delta to W_theta is the form with kernel
+* b-toeplitz-beyond/Thm1-Thm2-damped-dichotomy [Thm 1, Lemma B PROVED (refer] DH=FAIL HEAT=FAIL TWIST=theta EA=FAIL
+    (Thm 1) for theta > Theta and all a, g: W_theta(g) = (1/pi) int s_theta(t) |g^(t)|^2 dt with
+* b-toeplitz-beyond/cost-obstruction [MODEL / MEASURED (float Ritz] DH=? HEAT=? TWIST=? EA=?
+    prime-only certificate at support 2a and damping theta needs margin lambda_min(a,theta) and control of the
+* b-volterra-norm/T1-norm-bracket [PROVED; threshold CERTIFIED ] DH=PASS HEAT=PASS TWIST=? EA=?
+    (V f)(t) = int_0^t Phi(t)Phi(s) sinh(a(t-s)) f(s) ds. For any real measurable Phi:
+* b-volterra-norm/T2-sign-gauge (NO-GO) [PROVED; referee narrowing: d] DH=? HEAT=? TWIST=? EA=?
+    
+* b-volterra-norm/b_a-Hankel-domination [identity PROVED (referee re-] DH=FAIL HEAT=FAIL TWIST=? EA=?
+    K_a(w,z) = (1/2pi) iint b_a(s,t) e^{-izs} e^{i conj(w) t} ds dt with

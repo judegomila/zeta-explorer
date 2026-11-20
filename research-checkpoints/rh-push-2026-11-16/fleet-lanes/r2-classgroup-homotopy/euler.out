@@ -1,0 +1,29 @@
+== (E1) R(s) = tanh(s log2/2) * prod_{p = 3,7 mod 20} tanh(s log p/2)^2   [product truncated at 1e8]
+  s=(2+3j)  B/A=(1.7334557773885422+0.5925511438275586j)  product=(1.7334557778029043+0.5925511439868866j)
+  s=(1.5+40j)  B/A=(0.8441859352912201+0.4442723064270985j)  product=(0.8441858138840939+0.44427225789270713j)
+  s=(3-7.7j)  B/A=(0.9465793502362556+0.0700873453452289j)  product=(0.9465793502364017+0.07008734534514781j)
+  s=(1.2+100.5j)  B/A=(0.881112009396489+0.36227221594716974j)  product=(0.8811182649217483+0.36228345150550684j)
+== (E2) velocity identity  dgamma/dphi = -2/(sin(2 phi) omega(gamma)),  omega = d/dt log|R(1/2+it)| = Im(A'/A - B'/B)(1/2+i gamma)
+  phi 0.3 no bracket f(a) and f(b) must have different signs
+  phi=0.90 gamma=5.3955328725  finite difference=0.61183585  formula=0.61183585  omega=-3.35663457  Im(A'/A-B'/B)=-3.35663457
+  phi=1.20 gamma=20.5421087045  finite difference=0.00000000  formula=0.00000000  omega=-80725965491449.25000000  Im(A'/A-B'/B)=-80725965491449.25000000
+  phi 2.0 no bracket f(a) and f(b) must have different signs
+  phi 2.9 no bracket f(a) and f(b) must have different signs
+== (E3) sigma>1.  H(sigma) = -log R(sigma) = log(A(sigma)/B(sigma));  G(sigma) = 2 arctan 2^-sigma + 4 sum_P arctan p^-sigma
+  kappa = L(1,chi5) L(1,chi-4)/L(1,chi-20) = 0.240605912530 ; closed form (sqrt5/2... ) 2 log((1+sqrt5)/2)/sqrt5 * (pi/4) / (pi/sqrt5) = 0.240605912530
+  sigma=1.0001  R(sigma)=0.00002406  R/(kappa (sigma-1))=1.000081   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.000024
+  sigma=1.001   R(sigma)=0.00024080  R/(kappa (sigma-1))=1.000813   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.000241
+  sigma=1.01    R(sigma)=0.00242555  R/(kappa (sigma-1))=1.008102   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.002426
+  sigma=1.05    R(sigma)=0.01250932  R/(kappa (sigma-1))=1.039818   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.012509
+  sigma=1.1     R(sigma)=0.02593423  R/(kappa (sigma-1))=1.077872   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.025928
+  sigma=1.5     R(sigma)=0.15816662  R/(kappa (sigma-1))=1.314736   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.156867
+  sigma=2.0     R(sigma)=0.34860982  R/(kappa (sigma-1))=1.448883   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.335436
+  sigma=3.0     R(sigma)=0.66256094  R/(kappa (sigma-1))=1.376859   F_phi zero-free on Re s>=sigma when |phi| or |phi-pi/2| < 0.585155
+  G(1.01) = 4.459839 + tail estimate 1.290540 = 5.750379
+  G(1.02) = 4.298033 + tail estimate 0.758412 = 5.056445
+  G(1.03) = 4.149488 + tail estimate 0.500625 = 4.650113
+  G(1.04) = 4.012725 + tail estimate 0.348767 = 4.361491
+  G(1.06) = 3.769530 + tail estimate 0.184413 = 3.953943
+  G(1.1) = 3.377284 + tail estimate 0.060973 = 3.438258
+  sigma_pi: G = pi at sigma = 1.133906 (with tail estimate); truncated sum alone gives 1.130214 (rigorous lower value for the root)
+  Z_2: sigma*_real (tanh U = 2^-sigma) = 2.10700912    sigma_tan (tan U = 2^-sigma) = 2.16679381   [tails beyond 1e8 < 1e-9]

@@ -1,0 +1,4 @@
+rs band T=1.025e+07 U=62500 dt=0.025 points=2500000 gpu=False objs=['ZETA', 'TNR', 'HEAT-0.1', 'HEAT-0.5'] y=1277
+planned: block 23644 points x 1282 terms, 3 real matrices = 0.73 GB
+block 1, 23400/2500000 points, 1 s
+wrote out/rs_1e7_04.json.new 49 s

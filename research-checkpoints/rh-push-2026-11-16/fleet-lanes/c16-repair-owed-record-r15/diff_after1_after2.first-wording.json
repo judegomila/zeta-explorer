@@ -1,0 +1,1225 @@
+{
+ "nodes": [
+  1707,
+  1718
+ ],
+ "live": [
+  963,
+  974
+ ],
+ "rows": [
+  241,
+  241
+ ],
+ "controls": [
+  23,
+  23
+ ],
+ "byType": {
+  "open-direction": [
+   28,
+   39
+  ]
+ },
+ "edges": [
+  9031,
+  9135
+ ],
+ "edgesByType": {
+  "composes-with": [
+   7474,
+   7564
+  ],
+  "control-defeats": [
+   871,
+   879
+  ],
+  "obstructs": [
+   270,
+   274
+  ],
+  "restates": [
+   186,
+   188
+  ],
+  "separates-from": [
+   4,
+   4
+  ],
+  "special-case-of": [
+   132,
+   132
+  ],
+  "uses": [
+   94,
+   94
+  ]
+ },
+ "devicesMeta": [
+  {
+   "closed": 69,
+   "floored": 6
+  },
+  {
+   "closed": 69,
+   "floored": 6,
+   "open": 11
+  }
+ ],
+ "nodesAdded": [
+  "silent-u2-pos-fe-positivity-rigidity",
+  "silent-u3-identification-relaxation",
+  "silent-u4-joint-functionals-not-scaling-invariant",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+  "silent-u6b-nonsolid-laxphillips-norms",
+  "silent-u6c-gl3-cover-global-whittaker-constants",
+  "silent-u6d-rank2-compact-squares-without-hecke-rule",
+  "silent-u6e-bost-connes-states-outside-d8",
+  "silent-u6f-isogenous-points-nonlinear-functionals",
+  "silent-u6g-scattering-exact-normalisation-affine-kernel",
+  "silent-u8-kernel-conditions-beyond-searched-range"
+ ],
+ "nodesRemoved": [],
+ "edgesAdded": [
+  "af-rank-trace-inertia -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "alias-energy-in-sieve-algebra -> silent-u3-identification-relaxation [composes-with]",
+  "alias-sign-determinacy -> silent-u3-identification-relaxation [composes-with]",
+  "arch-native-prime-jordan-product -> silent-u3-identification-relaxation [composes-with]",
+  "bk-diagonal-prime-identity -> silent-u3-identification-relaxation [composes-with]",
+  "blaschke-ghost-index-identity -> map-open-6 [composes-with]",
+  "blaschke-ghost-index-identity -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "blaschke-ghost-negative-square -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "box-defect-psi-w -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "bridge-scattering-factorisation -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "bridge-winding-equals-NT -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "cascade-s21-zeta2s-over-zeta -> silent-u3-identification-relaxation [composes-with]",
+  "catalan-signed-ladder -> silent-u3-identification-relaxation [composes-with]",
+  "catalan-signed-ladder -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "catalan-signed-ladder -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "cm-eta-heights-lambda1 -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "cm-flow-theta-trap -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "cmv-truncation-from-taylor-data -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "cofinal-pointwise-mobius-sum -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "commutator-diagonal-split -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "conformal-schur-window -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "connes-adelic-truncated-trace -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "connes-twin-ladder-crosswalk -> silent-u3-identification-relaxation [composes-with]",
+  "connes-twin-ladder-crosswalk -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "corr23-mixed-prolate-ladder -> map-open-12 [composes-with]",
+  "cotangent-reciprocity-period-function -> eh-nonprincipal-row-cancellation [composes-with]",
+  "cotangent-reciprocity-period-function -> ek-vector-specific-row-mean-square [composes-with]",
+  "cotangent-reciprocity-period-function -> en-etrunc-guth-maynard [composes-with]",
+  "ctl-BLS -> silent-u6b-nonsolid-laxphillips-norms [control-defeats]",
+  "ctl-DH -> silent-u6f-isogenous-points-nonlinear-functionals [control-defeats]",
+  "ctl-DH -> silent-u8-kernel-conditions-beyond-searched-range [control-defeats]",
+  "ctl-EISW -> silent-u6b-nonsolid-laxphillips-norms [control-defeats]",
+  "ctl-EISW -> silent-u8-kernel-conditions-beyond-searched-range [control-defeats]",
+  "ctl-NR -> silent-u6b-nonsolid-laxphillips-norms [control-defeats]",
+  "ctl-NR -> silent-u6f-isogenous-points-nonlinear-functionals [control-defeats]",
+  "ctl-NR -> silent-u8-kernel-conditions-beyond-searched-range [control-defeats]",
+  "cubic-r2-conductor-a4 -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "cubic-r2-conductor-a4 -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "cubic-r2-conductor-a4 -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "cutoff-energy-kernel-hc -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "dbn-native-triangle-binding -> silent-u3-identification-relaxation [composes-with]",
+  "etrunc-pt-anchor-lock -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "euler-completed-weil-multiplier -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "euler-completed-weil-multiplier -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "euler-completed-weil-multiplier -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "fejer-riesz-branch-reduction -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "ff-ghost-second-order -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "finite-support-euler-detector -> silent-u3-identification-relaxation [composes-with]",
+  "first-reduced-kernels -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "flat-window-diagonal-v7 -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "flow-criticality-degree -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "fold-law-collision -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "four-closure-routes -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "frozen-rung-winding-identity -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "gap-domination-bootstrap -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "gauss-plancherel-alias-lemma -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "gauss-plancherel-alias-lemma -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "ghost-zero-witness -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "gue-palm-coalesced-pair -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "h6-symbol-offline-poisson -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "heat-family-h-tau -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "heegner-height-upper-bound-h4prime -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "katz-sarnak-family-checks -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "kyp-bounded-real-prime-delay -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "lambda-slope-per-theta -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "landau-one-sided-d-bound -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "landau-transport-lemma-l -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "lean-halfplane-substitution -> map-open-14 [composes-with]",
+  "lean-halfplane-substitution -> silent-u8-kernel-conditions-beyond-searched-range [composes-with]",
+  "lean-weil-small-support -> weil-small-support-lean [restates]",
+  "legendre-dual-limit-density-zero -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "lemma-cg-covering-identity -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "link-a-schur -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "mem-chi4-signed-ladder -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "mem-chi4-signed-ladder -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "mem-gaussian-damped-primon-gram -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "mem-new-probe-non-sextic -> seven-eighths-abscissa-formula [composes-with]",
+  "mem-qrh-7-8 -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "mem-qrh-7-8 -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "mem-qrh-7-8 -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "mem-semilocal-fourier-fs -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "mem-semilocal-sonine-trace -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "mem-sextic-theta-squarefree -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "mem-sextic-theta-squarefree -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "mem-sgn-sat-no-depth-only -> signed-depth-currency-nogo [restates]",
+  "mem-v7-floor-reduction -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "multi-rung-arb-lege -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "multi-rung-weil-symbol -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "np-pick-seam-pencil -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "pole-term-schur-complement -> silent-u6g-scattering-exact-normalisation-affine-kernel [composes-with]",
+  "prime-square-pole-recurrence -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "probe-equals-theta-row-form -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "probe-equals-theta-row-form -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "qrh-seven-eighths-input -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "qrh-seven-eighths-input -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "ramanujan-cube-satake-point -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "ramanujan-cube-satake-point -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "ramanujan-cube-satake-point -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "ramanujan-cube-satake-point -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "ramanujan-cube-satake-point -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "rig-continuum-sawtooth -> silent-u2-pos-fe-positivity-rigidity [composes-with]",
+  "route-i-weil-symbol -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "route-m-first-moment-kappa -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "row-G33 -> silent-u6f-isogenous-points-nonlinear-functionals [obstructs]",
+  "row-G36 -> silent-u8-kernel-conditions-beyond-searched-range [obstructs]",
+  "row-G37 -> silent-u6b-nonsolid-laxphillips-norms [obstructs]",
+  "row-P55 -> silent-u8-kernel-conditions-beyond-searched-range [obstructs]",
+  "rung-toeplitz-euler-detector -> silent-u3-identification-relaxation [composes-with]",
+  "rung-toeplitz-euler-detector -> silent-u6b-nonsolid-laxphillips-norms [composes-with]",
+  "rung-toeplitz-euler-detector -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "rung-toeplitz-euler-detector -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "rung-toeplitz-euler-detector -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "scattering-causality-at-one-line -> silent-u4-joint-functionals-not-scaling-invariant [composes-with]",
+  "selberg-zeta-freeze-sandbox -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "separating-probe -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "separating-probe -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "separating-probe -> silent-u6d-rank2-compact-squares-without-hecke-rule [composes-with]",
+  "separating-probe -> silent-u6e-bost-connes-states-outside-d8 [composes-with]",
+  "separating-probe -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "seven-eighths-abscissa-formula -> target-0874-restricted-moment [composes-with]",
+  "sextic-theta-mean-square -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "sextic-theta-mean-square -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "sextic-theta-mean-square -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "sextic-theta-numerics -> silent-u6a-rank2-nonborel-metaplectic-eigenobject [composes-with]",
+  "sextic-theta-numerics -> silent-u6c-gl3-cover-global-whittaker-constants [composes-with]",
+  "sextic-theta-numerics -> silent-u6f-isogenous-points-nonlinear-functionals [composes-with]",
+  "silent-u2-pos-fe-positivity-rigidity -> v7-floor-theorem-c [composes-with]",
+  "silent-u2-pos-fe-positivity-rigidity -> vaughan-sqrt-type1-exact [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> map-pos-14 [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> map-pos-17 [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> map-pos-18 [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> map-pos-20 [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> staged-strip-triangular-inequality [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> volterra-hankel-operator [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> zv-divisor-cosine-euler-product [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> zv-phi-positivity-heat-perturbation-bound [composes-with]",
+  "silent-u4-joint-functionals-not-scaling-invariant -> zv-theta-kernel-phi [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> map-pos-19 [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> map-pos-22 [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> sympow-conductor-normalised-shift [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> theta-modular-ode-system [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> virtual-rungs-positive-extension [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> zv-elliptic-double-cover [composes-with]",
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject -> zv-infinity-end-coordinate [composes-with]",
+  "silent-u6c-gl3-cover-global-whittaker-constants -> map-pos-22 [composes-with]",
+  "silent-u6c-gl3-cover-global-whittaker-constants -> sympow-conductor-normalised-shift [composes-with]",
+  "silent-u6c-gl3-cover-global-whittaker-constants -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "silent-u6d-rank2-compact-squares-without-hecke-rule -> sympow-conductor-normalised-shift [composes-with]",
+  "silent-u6d-rank2-compact-squares-without-hecke-rule -> volterra-homogeneity [composes-with]",
+  "silent-u6e-bost-connes-states-outside-d8 -> sympow-conductor-normalised-shift [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> map-pos-15 [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> sympow-conductor-normalised-shift [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> twisted-second-moment-oversampling [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> twistor-heat-compat-lemma [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-annulus-boundary-conditions [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-annulus-dtn-operator [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-dirichlet-energy-fold [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-gaussian-damped-extension [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-infinity-end-coordinate [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-jacobi-uniformization-involutions [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-shear-reflection-parity [composes-with]",
+  "silent-u6f-isogenous-points-nonlinear-functionals -> zv-strip-end-charts [composes-with]",
+  "silent-u6g-scattering-exact-normalisation-affine-kernel -> zv-boundary-kernel-pa [composes-with]",
+  "silent-u6g-scattering-exact-normalisation-affine-kernel -> zv-bridge-pick-congruence [composes-with]",
+  "silent-u6g-scattering-exact-normalisation-affine-kernel -> zv-schur-frozen-block-inertia [composes-with]",
+  "silent-u8-kernel-conditions-beyond-searched-range -> single-crossing-compensation [composes-with]",
+  "silent-u8-kernel-conditions-beyond-searched-range -> theta-ratio-convexity [composes-with]",
+  "silent-u8-kernel-conditions-beyond-searched-range -> zv-theta-kernel-phi [composes-with]",
+  "twisted-second-moment-oversampling -> vasyunin-lammax-log-bound [composes-with]"
+ ],
+ "edgesRemoved": [
+  "af-rank-trace-inertia -> fold-law-collision [composes-with]",
+  "angular-spacing-poisson -> map-pos-19 [composes-with]",
+  "bagchi-strong-recurrence -> zv-infinity-end-coordinate [composes-with]",
+  "bohr-torus-scan-certification -> zv-infinity-end-coordinate [composes-with]",
+  "box-defect-psi-w -> map-open-6 [composes-with]",
+  "bridge-multiplier-c0 -> zv-divisor-cosine-euler-product [composes-with]",
+  "bridge-scattering-factorisation -> selberg-zeta-companion [composes-with]",
+  "bridge-winding-equals-NT -> cotangent-reciprocity-period-function [composes-with]",
+  "bridge-winding-equals-NT -> map-open-20 [composes-with]",
+  "burgers-limsup-tc -> ramanujan-cube-satake-point [composes-with]",
+  "catalan-signed-ladder -> sympow-conductor-normalised-shift [composes-with]",
+  "ch-holder-half-sharp -> katz-sarnak-family-checks [composes-with]",
+  "cmv-truncation-from-taylor-data -> cotangent-reciprocity-period-function [composes-with]",
+  "collision-ladder-data -> cotangent-reciprocity-period-function [composes-with]",
+  "commutator-diagonal-split -> laurent-shell-gamma-section [composes-with]",
+  "cubic-r2-conductor-a4 -> start-substitution-lemma [composes-with]",
+  "darlington-losslessness-s7 -> map-pos-17 [composes-with]",
+  "euler-anchor-heat-certificate -> ff-ghost-second-order [composes-with]",
+  "euler-completed-weil-multiplier -> ramanujan-cube-satake-point [composes-with]",
+  "euler-fe-coupling-at-height -> map-open-12 [composes-with]",
+  "euler-fe-coupling-at-height -> virtual-rungs-positive-extension [composes-with]",
+  "exact-witness-quadratic-cosine -> map-pos-20 [composes-with]",
+  "fejer-riesz-branch-reduction -> laurent-shell-gamma-section [composes-with]",
+  "ff-order2-vertex-probe -> single-crossing-compensation [composes-with]",
+  "ff-three-approaches-one-statement -> link-a-schur [composes-with]",
+  "gamma-bulk-identity -> map-pos-18 [composes-with]",
+  "h5-euler-products-bounded -> vaughan-sqrt-type1-exact [composes-with]",
+  "harmonic-strip-transport -> mem-gaussian-damped-primon-gram [composes-with]",
+  "heegner-height-upper-bound-h4prime -> sympow-conductor-normalised-shift [composes-with]",
+  "klein-phase-transport-certificate -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-annulus-boundary-conditions [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-dirichlet-energy-fold [composes-with]",
+  "kronecker-sup-lower-bounds -> zv-jacobi-uniformization-involutions [composes-with]",
+  "landau-siegel-2026-mechanism -> rig-continuum-sawtooth [composes-with]",
+  "legendre-dual-limit-density-zero -> selberg-zeta-companion [composes-with]",
+  "lemma-cg-covering-identity -> twist-modulus-reciprocity [composes-with]",
+  "lemma-cg-covering-identity -> twisted-second-moment-oversampling [composes-with]",
+  "mem-chi4-signed-ladder -> route-m-first-moment-kappa [composes-with]",
+  "mem-lambda-theta-table -> seven-eighths-abscissa-formula [composes-with]",
+  "mem-qrh-7-8 -> theta-modular-ode-system [composes-with]",
+  "mem-semilocal-fourier-fs -> separating-probe [composes-with]",
+  "mem-sextic-theta-squarefree -> seven-eighths-abscissa-formula [composes-with]",
+  "mem-sextic-theta-squarefree -> start-substitution-lemma [composes-with]",
+  "mem-v7-floor-reduction -> mem-widom-parseval-peak [composes-with]",
+  "offline-zero-visibility-law -> prime-square-pole-recurrence [composes-with]",
+  "pick-weil-native-span -> sympow-conductor-normalised-shift [composes-with]",
+  "positive-real-ladder-step -> theta-dual-mseries-is-twisted-kubota [composes-with]",
+  "prime-delay-domination-15-4 -> theta-ratio-convexity [composes-with]",
+  "prime-delay-domination-15-4 -> volterra-hankel-operator [composes-with]",
+  "probe-equals-theta-row-form -> start-substitution-lemma [composes-with]",
+  "qrh-seven-eighths -> sextic-theta-numerics [composes-with]",
+  "qrh-seven-eighths -> zv-elliptic-double-cover [composes-with]",
+  "route-a-primon-reflection-gram -> zv-bridge-pick-congruence [composes-with]",
+  "rung-toeplitz-euler-detector -> zv-schur-frozen-block-inertia [composes-with]",
+  "scattering-causality-at-one-line -> map-open-14 [composes-with]",
+  "selberg-geodesic-ground-truth -> zv-annulus-dtn-operator [composes-with]",
+  "separating-probe -> seven-eighths-abscissa-formula [composes-with]",
+  "single-row-bridge -> zv-gaussian-damped-extension [composes-with]",
+  "single-row-bridge -> zv-theta-kernel-phi [composes-with]",
+  "sympow-conductor-normalised-shift -> map-open-12 [composes-with]",
+  "sympow-conductor-normalised-shift -> volterra-homogeneity [composes-with]",
+  "thin-hankel-certificate -> map-pos-14 [composes-with]",
+  "toeplitz-krein-sigma2 -> zv-boundary-kernel-pa [composes-with]",
+  "tro6-natural -> zv-theta-kernel-phi [composes-with]",
+  "zv-phi-positivity-heat-perturbation-bound -> map-open-14 [composes-with]",
+  "zv-shear-reflection-parity -> map-open-14 [composes-with]"
+ ],
+ "nodesChangedFields": [],
+ "deviceTypes": [
+  {
+   "closed": 53,
+   "floored": 1,
+   "open": 0
+  },
+  {
+   "closed": 53,
+   "floored": 1,
+   "open": 11
+  }
+ ],
+ "pending": [
+  8,
+  7
+ ],
+ "deviceTypesAdded": [
+  "silent-cell-u2-pos",
+  "silent-cell-u3",
+  "silent-cell-u4",
+  "silent-cell-u6a",
+  "silent-cell-u6b",
+  "silent-cell-u6c",
+  "silent-cell-u6d",
+  "silent-cell-u6e",
+  "silent-cell-u6f",
+  "silent-cell-u6g",
+  "silent-cell-u8"
+ ],
+ "deviceEvidenceChanged": [],
+ "controlsCurated": [
+  8,
+  8
+ ],
+ "generatorMeta": {
+  "generated": [
+   36558,
+   52112
+  ],
+  "scored": [
+   8437,
+   18815
+  ]
+ },
+ "generatorMeta/graphCounts": {
+  "/byOrigin/corpus": [
+   1242,
+   1253
+  ],
+  "/byType/open-direction": [
+   28,
+   39
+  ],
+  "/crossingKeyword": [
+   312,
+   313
+  ],
+  "/devices/open": [
+   null,
+   11
+  ],
+  "/devicesLive/open": [
+   null,
+   11
+  ],
+  "/edges": [
+   9031,
+   9135
+  ],
+  "/edgesByType/composes-with": [
+   7474,
+   7564
+  ],
+  "/edgesByType/control-defeats": [
+   871,
+   879
+  ],
+  "/edgesByType/obstructs": [
+   270,
+   274
+  ],
+  "/edgesByType/restates": [
+   186,
+   188
+  ],
+  "/live": [
+   963,
+   974
+  ],
+  "/nodes": [
+   1707,
+   1718
+  ]
+ },
+ "generatorMeta/pools": {
+  "/crossing": [
+   6,
+   17
+  ],
+  "/lemma": [
+   150,
+   161
+  ]
+ },
+ "generatorMeta/filters": {},
+ "generatorMeta/r4Rules": {
+  "/deviceNodesLive/open": [
+   "[]",
+   "[\"silent-u2-pos-fe-positivity-rigidity\", \"silent-u3-identification-relaxation\", \"silent-u4-joint-functionals-not-scaling-invariant\", \"silent-u6a-rank2-nonborel-metaplectic-eigenobject\", \"silent-u6b-nonsolid-laxphillips-norms\", \"silent-u6c-gl3-cover-global-whittaker-constants\", \"silent-u6d-rank2-compact-squares-without-hecke-rule\", \"silent-u6e-bost-connes-states-outside-d8\", \"silent-u6f-isogenous-points-nonlinear-functionals\", \"silent-u6g-scattering-exact-normalisation-affine-kernel\", \"silent-u8-kernel-conditions-beyond-searched-range\"]"
+  ],
+  "/firedIndependentlyOfOrder/closed device": [
+   3521,
+   4641
+  ],
+  "/firedIndependentlyOfOrder/closed family matched by the open device text alone (exempt)": [
+   null,
+   2436
+  ],
+  "/firedIndependentlyOfOrder/no crossing device": [
+   16809,
+   16441
+  ],
+  "/firedIndependentlyOfOrder/shift-reciprocal covariant": [
+   375,
+   368
+  ],
+  "/firedIndependentlyOfOrder/target-blind": [
+   5,
+   43
+  ],
+  "/topWithFlooredDeviceOnly": [
+   60,
+   3
+  ],
+  "/topWithOpenDevice": [
+   0,
+   57
+  ],
+  "/topWithSharedObject": [
+   53,
+   60
+  ]
+ },
+ "generatorMeta/families": {
+  "/M1/flow/best": [
+   4.72,
+   10.0
+  ],
+  "/M1/flow/count": [
+   483,
+   1127
+  ],
+  "/M1/geometry/best": [
+   8.0,
+   10.75
+  ],
+  "/M1/geometry/count": [
+   92,
+   781
+  ],
+  "/M1/nyman/best": [
+   2.72,
+   6.73
+  ],
+  "/M1/nyman/count": [
+   12,
+   27
+  ],
+  "/M1/positivity/best": [
+   10.03,
+   11.25
+  ],
+  "/M1/positivity/count": [
+   1474,
+   4667
+  ],
+  "/M1/prime-chain/best": [
+   9.25,
+   10.5
+  ],
+  "/M1/prime-chain/count": [
+   1200,
+   4920
+  ],
+  "/M1/statistics/best": [
+   5.0,
+   8.98
+  ],
+  "/M1/statistics/count": [
+   49,
+   117
+  ],
+  "/M1/zero-free/best": [
+   10.25,
+   11.0
+  ],
+  "/M1/zero-free/count": [
+   3775,
+   4467
+  ],
+  "/M2/zero-free/best": [
+   7.67,
+   7.66
+  ],
+  "/M3/flow/best": [
+   2.75,
+   9.0
+  ],
+  "/M3/flow/count": [
+   16,
+   55
+  ],
+  "/M3/geometry/best": [
+   4.5,
+   10.75
+  ],
+  "/M3/geometry/count": [
+   1,
+   166
+  ],
+  "/M3/positivity/best": [
+   5.25,
+   11.03
+  ],
+  "/M3/positivity/count": [
+   20,
+   207
+  ],
+  "/M3/prime-chain/best": [
+   7.5,
+   11.5
+  ],
+  "/M3/prime-chain/count": [
+   19,
+   287
+  ],
+  "/M3/zero-free/best": [
+   8.75,
+   11.25
+  ],
+  "/M3/zero-free/count": [
+   266,
+   390
+  ],
+  "/M4/flow/best": [
+   6.75,
+   9.5
+  ],
+  "/M4/flow/count": [
+   497,
+   737
+  ],
+  "/M4/geometry/best": [
+   null,
+   9.75
+  ],
+  "/M4/geometry/count": [
+   null,
+   15
+  ],
+  "/M4/positivity/best": [
+   7.71,
+   10.0
+  ],
+  "/M4/positivity/count": [
+   79,
+   244
+  ],
+  "/M4/prime-chain/best": [
+   8.75,
+   9.75
+  ],
+  "/M4/prime-chain/count": [
+   35,
+   161
+  ],
+  "/M4/statistics/best": [
+   2.0,
+   9.48
+  ],
+  "/M4/statistics/count": [
+   4,
+   20
+  ],
+  "/M4/zero-free/best": [
+   9.25,
+   9.5
+  ],
+  "/M4/zero-free/count": [
+   363,
+   375
+  ]
+ },
+ "generatorMeta/moves": {},
+ "top": {
+  "lenA": 60,
+  "lenB": 60,
+  "keysInCommon": 2,
+  "sameOrder": false,
+  "sameScores": false,
+  "rank1": [
+   "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural (10.25)",
+   "gauss-plancherel-alias-lemma x silent-u6d-rank2-compact-squares-without-hecke-rule x sympow-conductor-normalised-shift (11.5)"
+  ],
+  "entered": [
+   {
+    "rank": 1,
+    "key": "gauss-plancherel-alias-lemma x silent-u6d-rank2-compact-squares-without-hecke-rule x sympow-conductor-normalised-shift",
+    "score": 11.5
+   },
+   {
+    "rank": 2,
+    "key": "capture-ratio-psd-slope x silent-u6e-bost-connes-states-outside-d8 x sympow-conductor-normalised-shift",
+    "score": 11.25
+   },
+   {
+    "rank": 3,
+    "key": "mem-sextic-theta-squarefree x silent-u6a-rank2-nonborel-metaplectic-eigenobject x sun-prop63-plus4-offset",
+    "score": 11.0
+   },
+   {
+    "rank": 4,
+    "key": "capture-ratio-psd-slope x silent-u6a-rank2-nonborel-metaplectic-eigenobject x tro6-natural",
+    "score": 10.75
+   },
+   {
+    "rank": 5,
+    "key": "cmv-truncation-from-taylor-data x ramanujan-cube-satake-point x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 10.75
+   },
+   {
+    "rank": 6,
+    "key": "silent-u6e-bost-connes-states-outside-d8 x sun-prop63-plus4-offset x tro6-natural",
+    "score": 10.5
+   },
+   {
+    "rank": 7,
+    "key": "alias-sign-determinacy x finite-support-euler-detector x silent-u3-identification-relaxation",
+    "score": 10.25
+   },
+   {
+    "rank": 8,
+    "key": "ramanujan-cube-satake-point x silent-u6c-gl3-cover-global-whittaker-constants x zv-annulus-dtn-operator",
+    "score": 10.0
+   },
+   {
+    "rank": 9,
+    "key": "selberg-geodesic-ground-truth x silent-u6a-rank2-nonborel-metaplectic-eigenobject x theta-modular-ode-system",
+    "score": 10.0
+   },
+   {
+    "rank": 10,
+    "key": "gauss-plancherel-alias-lemma x gl2-weil-symbol x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 10.0
+   },
+   {
+    "rank": 11,
+    "key": "h-desc-mirror-palm-surplus x mesoscopic-density-floor-cotangent x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 10.0
+   },
+   {
+    "rank": 12,
+    "key": "prime-delay-domination-15-4 x silent-u6g-scattering-exact-normalisation-affine-kernel x tilt-det-majorant",
+    "score": 10.0
+   },
+   {
+    "rank": 13,
+    "key": "silent-u6g-scattering-exact-normalisation-affine-kernel x star-min-pointwise-prime-bound x zv-annulus-dtn-operator",
+    "score": 9.82
+   },
+   {
+    "rank": 14,
+    "key": "mem-sextic-theta-squarefree x silent-u6e-bost-connes-states-outside-d8 x subleading-k-closed-form",
+    "score": 9.75
+   },
+   {
+    "rank": 15,
+    "key": "autocorrelation-moment-ladder x cotangent-second-moment-upper-lemma x silent-u6g-scattering-exact-normalisation-affine-kernel",
+    "score": 9.75
+   },
+   {
+    "rank": 16,
+    "key": "sep-opt-lattice-extremal x silent-u4-joint-functionals-not-scaling-invariant x tro6-natural",
+    "score": 9.75
+   },
+   {
+    "rank": 17,
+    "key": "route-m-vasyunin-gram x silent-u6a-rank2-nonborel-metaplectic-eigenobject x subleading-k-closed-form",
+    "score": 9.75
+   },
+   {
+    "rank": 18,
+    "key": "lean-weil-small-support x mem-atlas-closing-line x silent-u4-joint-functionals-not-scaling-invariant",
+    "score": 9.75
+   },
+   {
+    "rank": 19,
+    "key": "residue-averaged-sign-image x sep-opt-lattice-extremal x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 9.75
+   },
+   {
+    "rank": 20,
+    "key": "katz-sarnak-family-checks x m23-poisson-reproducing-identity x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 9.75
+   },
+   {
+    "rank": 21,
+    "key": "silent-u6a-rank2-nonborel-metaplectic-eigenobject x star-min-pointwise-prime-bound x zv-annulus-boundary-conditions",
+    "score": 9.5
+   },
+   {
+    "rank": 22,
+    "key": "coal-n-laguerre-law x selberg-zeta-freeze-sandbox x silent-u6c-gl3-cover-global-whittaker-constants",
+    "score": 9.5
+   },
+   {
+    "rank": 23,
+    "key": "link-a-schur x prime-delay-domination-15-4 x silent-u6d-rank2-compact-squares-without-hecke-rule",
+    "score": 9.5
+   },
+   {
+    "rank": 24,
+    "key": "silent-u8-kernel-conditions-beyond-searched-range x staged-strip-triangular-inequality x zv-theta-kernel-phi",
+    "score": 9.5
+   },
+   {
+    "rank": 25,
+    "key": "pascal-carry-ballot x silent-u6g-scattering-exact-normalisation-affine-kernel x zv-signed-shear-w",
+    "score": 9.48
+   },
+   {
+    "rank": 26,
+    "key": "dyadic-near-frequency-target x isolation-ratio-rate-identity x silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "score": 9.48
+   },
+   {
+    "rank": 27,
+    "key": "silent-u6g-scattering-exact-normalisation-affine-kernel x two-line-zero-detector x two-tents-joint-zero-completeness",
+    "score": 9.25
+   },
+   {
+    "rank": 28,
+    "key": "katz-sarnak-family-checks x mesoscopic-density-floor-cotangent x silent-u6e-bost-connes-states-outside-d8",
+    "score": 9.25
+   },
+   {
+    "rank": 29,
+    "key": "prime-tent-rh-equivalence x sawtooth-s-of-t-lemma x silent-u6g-scattering-exact-normalisation-affine-kernel",
+    "score": 9.25
+   },
+   {
+    "rank": 30,
+    "key": "route-m-first-moment-kappa x sextic-theta-mean-square x silent-u6f-isogenous-points-nonlinear-functionals",
+    "score": 9.25
+   },
+   {
+    "rank": 31,
+    "key": "arch-native-prime-jordan-product x silent-u6g-scattering-exact-normalisation-affine-kernel x zv-schur-frozen-block-inertia",
+    "score": 9.25
+   },
+   {
+    "rank": 32,
+    "key": "alias-energy-in-sieve-algebra x silent-u3-identification-relaxation x vonmangoldt-weighted-sign-image",
+    "score": 9.25
+   },
+   {
+    "rank": 33,
+    "key": "m23-conjugation-closed-ordinates x silent-u2-pos-fe-positivity-rigidity x var-s-constant-pair-correlation-integral",
+    "score": 9.0
+   },
+   {
+    "rank": 34,
+    "key": "selberg-geodesic-ground-truth x silent-u6f-isogenous-points-nonlinear-functionals x zv-annulus-boundary-conditions",
+    "score": 9.0
+   },
+   {
+    "rank": 35,
+    "key": "ingham-offlattice-riesz-floor x silent-u2-pos-fe-positivity-rigidity x vonmangoldt-weighted-sign-image",
+    "score": 9.0
+   },
+   {
+    "rank": 36,
+    "key": "ns-rigid-loophole-dirichlet-coefficients x silent-u6g-scattering-exact-normalisation-affine-kernel x theta-density-positivity",
+    "score": 8.8
+   },
+   {
+    "rank": 37,
+    "key": "mem-qrh-7-8 x silent-u6a-rank2-nonborel-metaplectic-eigenobject x silent-u6d-rank2-compact-squares-without-hecke-rule",
+    "score": 8.75
+   },
+   {
+    "rank": 38,
+    "key": "cascade-s21-zeta2s-over-zeta x mem-freeze-flow-interlacing x silent-u6g-scattering-exact-normalisation-affine-kernel",
+    "score": 8.5
+   },
+   {
+    "rank": 39,
+    "key": "connes-twin-ladder-crosswalk x mem-semilocal-fourier-fs x silent-u6e-bost-connes-states-outside-d8",
+    "score": 8.5
+   },
+   {
+    "rank": 40,
+    "key": "prime-tent-rh-equivalence x silent-u4-joint-functionals-not-scaling-invariant x zv-divisor-cosine-euler-product",
+    "score": 8.5
+   },
+   {
+    "rank": 41,
+    "key": "connes-twin-ladder-crosswalk x corr23-mixed-prolate-ladder x silent-u3-identification-relaxation",
+    "score": 8.5
+   },
+   {
+    "rank": 42,
+    "key": "silent-u6g-scattering-exact-normalisation-affine-kernel x zpo-divergence-law-at-half x zv-boundary-kernel-pa",
+    "score": 8.5
+   },
+   {
+    "rank": 44,
+    "key": "confluent-laguerre-floor x kyp-bounded-real-prime-delay x silent-u6g-scattering-exact-normalisation-affine-kernel",
+    "score": 8.5
+   },
+   {
+    "rank": 45,
+    "key": "arch-native-prime-jordan-product x silent-u4-joint-functionals-not-scaling-invariant x tilt-det-majorant",
+    "score": 8.47
+   },
+   {
+    "rank": 46,
+    "key": "heat-family-h-tau x qrh-seven-eighths x silent-u8-kernel-conditions-beyond-searched-range",
+    "score": 8.25
+   },
+   {
+    "rank": 48,
+    "key": "bohr-torus-scan-certification x silent-u6f-isogenous-points-nonlinear-functionals x zv-jacobi-uniformization-involutions",
+    "score": 8.0
+   },
+   {
+    "rank": 49,
+    "key": "h-desc-mirror-palm-surplus x mirror-pair-lemma x silent-u8-kernel-conditions-beyond-searched-range",
+    "score": 8.0
+   },
+   {
+    "rank": 50,
+    "key": "mem-freeze-flow-interlacing x mirror-euler-rate-t0 x silent-u3-identification-relaxation",
+    "score": 8.0
+   },
+   {
+    "rank": 51,
+    "key": "flat-window-diagonal-v7 x landau-transport-lemma-l x silent-u2-pos-fe-positivity-rigidity",
+    "score": 8.0
+   },
+   {
+    "rank": 52,
+    "key": "catalan-signed-ladder x silent-u3-identification-relaxation x zpo-divergence-law-at-half",
+    "score": 8.0
+   },
+   {
+    "rank": 53,
+    "key": "burgers-fluid-bridge x silent-u6g-scattering-exact-normalisation-affine-kernel x zpo-kinetic-equals-logzeta-dd",
+    "score": 8.0
+   },
+   {
+    "rank": 54,
+    "key": "alias-width-law-octave-weight x tro6-natural x zv-theta-kernel-phi",
+    "score": 8.0
+   },
+   {
+    "rank": 55,
+    "key": "bbm-growth-class-implication x selberg-zeta-freeze-sandbox x silent-u6d-rank2-compact-squares-without-hecke-rule",
+    "score": 7.86
+   },
+   {
+    "rank": 56,
+    "key": "af-hl-star-hierarchy x gap-ode-reserve x silent-u2-pos-fe-positivity-rigidity",
+    "score": 7.8
+   },
+   {
+    "rank": 57,
+    "key": "ns-rigid-loophole-dirichlet-coefficients x silent-u2-pos-fe-positivity-rigidity x zv-signed-shear-w",
+    "score": 7.8
+   },
+   {
+    "rank": 58,
+    "key": "euler-transport-flow x mem-sg1c-c-half x silent-u6d-rank2-compact-squares-without-hecke-rule",
+    "score": 7.78
+   },
+   {
+    "rank": 59,
+    "key": "euler-transport-flow x gap-ode-reserve x silent-u3-identification-relaxation",
+    "score": 7.78
+   },
+   {
+    "rank": 60,
+    "key": "cmv-truncation-from-taylor-data x separating-probe x silent-u6e-bost-connes-states-outside-d8",
+    "score": 7.75
+   }
+  ],
+  "left": [
+   {
+    "rank": 1,
+    "key": "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural",
+    "score": 10.25
+   },
+   {
+    "rank": 2,
+    "key": "autocorrelation-moment-ladder x qrh-seven-eighths x sympow-conductor-normalised-shift",
+    "score": 9.53
+   },
+   {
+    "rank": 3,
+    "key": "katz-sarnak-family-checks x sun-prop63-plus4-offset x tro6-natural",
+    "score": 9.25
+   },
+   {
+    "rank": 4,
+    "key": "gauss-plancherel-alias-lemma x subleading-k-closed-form x tro6-natural",
+    "score": 9.25
+   },
+   {
+    "rank": 5,
+    "key": "euler-detection-depth-law x tro6-natural x zv-theta-kernel-phi",
+    "score": 9.25
+   },
+   {
+    "rank": 6,
+    "key": "alias-width-law-octave-weight x theta-density-positivity-p-pos x tro6-natural",
+    "score": 9.0
+   },
+   {
+    "rank": 7,
+    "key": "finite-support-euler-detector x gl2-weil-symbol x tro6-natural",
+    "score": 8.75
+   },
+   {
+    "rank": 8,
+    "key": "mem-sextic-theta-squarefree x qrh-seven-eighths x sun-prop63-plus4-offset",
+    "score": 8.75
+   },
+   {
+    "rank": 9,
+    "key": "mollifier-holomorphy-constraint x route-m-vasyunin-gram x tro6-natural",
+    "score": 8.75
+   },
+   {
+    "rank": 11,
+    "key": "capture-ratio-psd-slope x prime-delay-domination-15-4 x qrh-seven-eighths",
+    "score": 8.25
+   },
+   {
+    "rank": 12,
+    "key": "lean-weil-small-support x qrh-seven-eighths x star-min-pointwise-prime-bound",
+    "score": 8.25
+   },
+   {
+    "rank": 14,
+    "key": "ramanujan-cube-satake-point x tro6-natural x zv-infinity-end-coordinate",
+    "score": 8.0
+   },
+   {
+    "rank": 15,
+    "key": "pole-term-schur-complement x tro6-natural x zv-boundary-kernel-pa",
+    "score": 7.99
+   },
+   {
+    "rank": 16,
+    "key": "mem-qrh-7-8 x qrh-seven-eighths x sun-catalan-preprint-verdict",
+    "score": 7.75
+   },
+   {
+    "rank": 17,
+    "key": "dbn-native-triangle-binding x route-m-first-moment-kappa x tro6-natural",
+    "score": 7.75
+   },
+   {
+    "rank": 18,
+    "key": "qrh-seven-eighths x staged-strip-triangular-inequality x zv-signed-shear-w",
+    "score": 7.75
+   },
+   {
+    "rank": 19,
+    "key": "phi-truncation-leftmost-zero x qrh-seven-eighths",
+    "score": 7.67
+   },
+   {
+    "rank": 20,
+    "key": "qrh-seven-eighths x restricted-mobius-delay-lift x zv-boundary-kernel-pa",
+    "score": 7.25
+   },
+   {
+    "rank": 21,
+    "key": "qrh-seven-eighths x sextic-theta-numerics",
+    "score": 7.25
+   },
+   {
+    "rank": 22,
+    "key": "finite-support-euler-detector x multi-rung-weil-symbol x qrh-seven-eighths",
+    "score": 6.75
+   },
+   {
+    "rank": 23,
+    "key": "qrh-seven-eighths x ramanujan-cube-satake-point x virtual-rungs-positive-extension",
+    "score": 6.55
+   },
+   {
+    "rank": 24,
+    "key": "h6-symbol-offline-poisson x qrh-seven-eighths x sawtooth-s-of-t-lemma",
+    "score": 6.25
+   },
+   {
+    "rank": 25,
+    "key": "gl2-weil-symbol x map-open-2 x route-m-first-moment-kappa",
+    "score": 6.1
+   },
+   {
+    "rank": 26,
+    "key": "lean-weil-small-support x map-open-2 x v7-floor-theorem-c",
+    "score": 5.75
+   },
+   {
+    "rank": 27,
+    "key": "route-m-vasyunin-gram x seven-eighths-abscissa-formula x subleading-k-closed-form",
+    "score": 5.25
+   },
+   {
+    "rank": 28,
+    "key": "autocorrelation-moment-ladder x cotangent-second-moment-upper-lemma x map-open-2",
+    "score": 5.0
+   },
+   {
+    "rank": 29,
+    "key": "map-open-2 x multi-rung-weil-symbol x prime-delay-domination",
+    "score": 5.0
+   },
+   {
+    "rank": 30,
+    "key": "map-open-4 x star-min-pointwise-prime-bound x zv-infinity-end-coordinate",
+    "score": 4.81
+   },
+   {
+    "rank": 31,
+    "key": "frobenius-gcd-factorisation x lane-audit-h-desc x map-open-2",
+    "score": 4.5
+   },
+   {
+    "rank": 32,
+    "key": "arch-native-prime-jordan-product x map-open-4 x near-muntz-threshold-cones",
+    "score": 4.5
+   },
+   {
+    "rank": 33,
+    "key": "map-open-4 x selberg-geodesic-ground-truth x virtual-rungs-positive-extension",
+    "score": 4.31
+   },
+   {
+    "rank": 34,
+    "key": "katz-sarnak-family-checks x seven-eighths-abscissa-formula x theta-density-positivity",
+    "score": 4.15
+   },
+   {
+    "rank": 35,
+    "key": "mem-sextic-theta-squarefree x seven-eighths-abscissa-formula x sextic-theta-mean-square",
+    "score": 4.0
+   },
+   {
+    "rank": 36,
+    "key": "bbm-growth-class-implication x selberg-zeta-freeze-sandbox x seven-eighths-abscissa-formula",
+    "score": 3.87
+   },
+   {
+    "rank": 37,
+    "key": "ns-rigid-loophole-dirichlet-coefficients x seven-eighths-abscissa-formula x zv-signed-shear-w",
+    "score": 3.75
+   },
+   {
+    "rank": 38,
+    "key": "ingham-offlattice-riesz-floor x map-open-2 x mv-cap-function-side-gap",
+    "score": 3.59
+   },
+   {
+    "rank": 39,
+    "key": "connes-twin-ladder-crosswalk x exact-witness-quadratic-cosine x map-open-4",
+    "score": 3.5
+   },
+   {
+    "rank": 40,
+    "key": "pr14-boundary-certificate x seven-eighths-abscissa-formula",
+    "score": 3.25
+   },
+   {
+    "rank": 41,
+    "key": "map-open-2 x rm-kappa-arith-exact x rm-kappa-total-measured",
+    "score": 3.25
+   },
+   {
+    "rank": 42,
+    "key": "map-open-4 x route-i-krein-certificate x tilt-det-majorant",
+    "score": 3.22
+   },
+   {
+    "rank": 43,
+    "key": "ff-lambda-of-elliptic-curve x map-open-4 x spec-z-graph-class-pairing",
+    "score": 3.0
+   },
+   {
+    "rank": 44,
+    "key": "map-open-2 x rm-parity-sign-law x rm-sign-law-t-negative",
+    "score": 3.0
+   },
+   {
+    "rank": 45,
+    "key": "cm-eta-heights-lambda1 x map-open-22 x seven-eighths-abscissa-formula",
+    "score": 3.0
+   },
+   {
+    "rank": 46,
+    "key": "map-open-2 x mem-freeze-flow-interlacing x route-m-kappa-first-moment",
+    "score": 2.97
+   },
+   {
+    "rank": 47,
+    "key": "debruijn-landing-rate-thm13 x map-open-2 x mem-landau-siegel-uniform",
+    "score": 2.75
+   },
+   {
+    "rank": 48,
+    "key": "ff-lambda-of-elliptic-curve x map-open-2 x route-m-lammax-bounded",
+    "score": 2.75
+   },
+   {
+    "rank": 49,
+    "key": "map-open-2 x rung-toeplitz-euler-detector x sextic-theta-numerics",
+    "score": 2.75
+   },
+   {
+    "rank": 50,
+    "key": "collision-ladder-data x route-m-conductor-tones x seven-eighths-abscissa-formula",
+    "score": 2.75
+   },
+   {
+    "rank": 51,
+    "key": "confluent-laguerre-floor x map-open-4 x pole-term-schur-complement",
+    "score": 2.67
+   },
+   {
+    "rank": 52,
+    "key": "h6-symbol-offline-poisson x seven-eighths-abscissa-formula x zv-taylor-rouche-channel-criterion",
+    "score": 2.57
+   },
+   {
+    "rank": 53,
+    "key": "corr23-continuity-spectral-criterion x map-open-4 x route-b-limsup-stieltjes",
+    "score": 2.26
+   },
+   {
+    "rank": 54,
+    "key": "lean-cg-covering-identity x map-open-4 x weil-small-support-lean",
+    "score": 2.08
+   },
+   {
+    "rank": 55,
+    "key": "af-hl-star-hierarchy x mem-concentration-dip-open x seven-eighths-abscissa-formula",
+    "score": 2.0
+   },
+   {
+    "rank": 56,
+    "key": "frozen-rung-winding-identity x map-open-4 x prime-delay-domination",
+    "score": 2.0
+   },
+   {
+    "rank": 57,
+    "key": "five-shell-p97-identity x frozen-rung-winding-identity x seven-eighths-abscissa-formula",
+    "score": 2.0
+   },
+   {
+    "rank": 58,
+    "key": "ch-holder-half-sharp x corr23-mixed-prolate-ladder x map-open-4",
+    "score": 1.29
+   },
+   {
+    "rank": 59,
+    "key": "meansquare-pointwise-wall x seven-eighths-abscissa-formula",
+    "score": 1.25
+   },
+   {
+    "rank": 60,
+    "key": "connes-adelic-truncated-trace x map-open-4 x zv-polynomial-heat-coefficients",
+    "score": 0.3
+   }
+  ],
+  "commonRelativeOrderKept": true,
+  "commonScoreChanged": [],
+  "commonRowsCheckedChanged": {
+   "candidates": 0,
+   "rows": {}
+  }
+ },
+ "scoreboardDiff": {
+  "/C_coverage/nodes": [
+   1707,
+   1718
+  ]
+ }
+}

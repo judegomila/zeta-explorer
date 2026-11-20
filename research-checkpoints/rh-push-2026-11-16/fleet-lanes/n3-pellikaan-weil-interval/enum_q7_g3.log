@@ -1,0 +1,8 @@
+q=7 g=3 deg=7 lead=1: 823543 polys; chunk alloc <= 55 MB
+q=7 g=3 deg=7 lead=3: 823543 polys; chunk alloc <= 55 MB
+q=7 g=3 deg=8 lead=1: 5764801 polys; chunk alloc <= 55 MB
+q=7 g=3 deg=8 lead=3: 5764801 polys; chunk alloc <= 55 MB
+curves (models): 11294304 distinct tuples: 5231
+real 89.75
+user 87.43
+sys 0.81

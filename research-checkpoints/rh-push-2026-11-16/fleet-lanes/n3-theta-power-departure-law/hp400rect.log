@@ -1,0 +1,4 @@
+hp nodes 9696 build s 0.5
+w=1 tau 30.5 rel err vs pi^{-s/2}Gamma(s/2)zeta(s): [2.3448e-62 +/- 1.50e-67]
+w=1 tau 150.25 rel err vs pi^{-s/2}Gamma(s/2)zeta(s): [6.4328e-58 +/- 1.67e-63]
+done 21400 points 674.6

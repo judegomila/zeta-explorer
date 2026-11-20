@@ -1,0 +1,1 @@
+{"object": "DH", "N": 200000, "first_negative_n": 3, "n_negative": 33989, "first_n_not_prime_power_with_Lambda_nonzero": 6, "n_not_prime_power": 49850, "max_abs_Lambda_over_log_n": 51.75605680012967, "at_n": 150696, "Lambda_2..12": [0.196909, -0.312093, -1.442232, 0.0, 1.936356, 0.552792, 0.015891, -2.285884, 0.0, 2.397895, -0.762877]}

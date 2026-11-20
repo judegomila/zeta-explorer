@@ -1,0 +1,15 @@
+{
+ "max_workers": 14,
+ "unit_mem_gb": 36,
+ "mem_plan_frac": 0.9,
+ "mem_guard_gb": 33.0,
+ "per_worker_gb_live": 1.9,
+ "round1_budget_s": 10800,
+ "round_increment_s": 5400,
+ "total_active_limit_s": 604800,
+ "hang_log_stale_s": 1200,
+ "overrun_grace_s": 1800,
+ "status_every_s": 120,
+ "max_restarts_per_run": 6,
+ "max_errors_per_floor": 3
+}

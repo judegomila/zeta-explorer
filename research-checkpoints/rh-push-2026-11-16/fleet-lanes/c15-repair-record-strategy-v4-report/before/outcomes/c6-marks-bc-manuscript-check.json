@@ -1,0 +1,46 @@
+{
+ "slug": "c6-marks-bc-manuscript-check",
+ "round": 6,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-1",
+  "out-c6-marks-bc-manuscript-check"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "prime-marks",
+  "normaliser",
+  "grh-equivalent",
+  "circular",
+  "manuscript-check",
+  "selberg"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Unconditional: H_eta(s) = zeta_F^S(2)^-1 L^S(6s-3,(alpha eta)^6) E_eta(s) on Re s > 1/2 with E_eta non-vanishing; H_eta has infinitely many zeros with 7/12 <= Re s < 2/3, so hypothesis (2.2) of MS Prop. 2.1 is false for sigma_0 < 7/12; f_eta << Z^(C(B)+eps) iff H_eta/L^S(s,eta) is holomorphic on Re s > B (1/2 <= B < 1); the Liouville signal has main term c Z^(C(1)), c != 0 (fails by Z^(1/2)). Relative to the unsourced identity (ID_g) (including that the vertex probe's principal row is c_S A_eta f_eta) and high side: GRH => low input (N) => (R) [beta* <= 2/3 and top-layer zeros are common zeros with L(6s-3,(alpha eta)^6)]; (R) => GRH is open, not refuted. For h > 3 with strict slack at the principal target, no low exponent below C(1/2) holds (Selberg count vs O_S(T) zeros of H on the line). Theorem C as stated for sigma <= 1/3 only. The c5 \"equivalent to GRH\" sentence is replaced by this chain; in that model the long-marks branch gives no input weaker than its conclusion. THIN undecided. No statement about zeros of zeta.",
+ "obstruction": "The reduced exponent system drops the normaliser H_eta = zeta_F^S(2)^-1 L^S(6s-3,(alpha eta)^6) E_eta of Prop. 2.1. H_eta has infinitely many zeros with 7/12 <= Re s < 2/3, so hypothesis (2.2) is false for sigma_0 < 7/12 and the format's unconditional conclusion stops at abscissa 2/3 (h = 2, effective order 3). Relative to an unsourced identity and high side: GRH => low input (N) => (R) [beta* <= 2/3 and top-layer zeros common with L(6s-3,(alpha eta)^6)]; (R) => GRH open. For h > 3 no low exponent below C(1/2) holds. Every h > 1 geometry has lx < l and lies outside all proved low estimates. In that model the long-marks branch gives no input weaker than its conclusion. THIN undecided; Liouville signal fails by Z^(1/2).",
+ "obstructionKind": "normaliser-zeros-cap-format-at-two-thirds",
+ "controlsThatDefeat": [
+  "Liouville weight (signal main term c Z^(C(1)), fails by Z^(1/2))",
+  "THIN undecided",
+  "not run: DH, heat, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error found in a PROVED step; five wording/label corrections (written to tmp/research-2026-11-16/push/c6-marks-bc-manuscript-check/REFEREE.md). E1: \"low input => GRH fails\" is too strong; nothing refutes it. Established: derivation via MS Prop. 2.1 is unavailable below 7/12, replacement conclusion is (R), (R) => GRH is OPEN (and (R) = GRH if no common zeros). E2: (2.2) is not literally verifiable at sigma_0 = 2/3 (sup of |L^S(w,psi)-1| over Re w [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A reduced exponent system must carry the normaliser H of Prop. 2.1, not only C(s). For the sextic rows H contains L(6s-3, infinite-order character), so the format's unconditional conclusion stops at abscissa 2/3 (h = 2, effective order 3); every h > 1 geometry has lx < l and lies outside all proved low estimates.",
+ "followUp": "Referee this lane (Lemma H, Lemma S, Theorem B1'). Then add to ORDER-2 the requirement that the probe's normaliser has no zeros in Re s > 1/2; one decidable item: derive the exact compensated principal signal below Re s = 3/5, where the slot multiplier is -1 + a_p^2 Q^(3-5s) (weakest step 2).",
+ "resultFile": "tmp/research-2026-11-16/push/c6-marks-bc-manuscript-check/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-marks-bc-manuscript-check/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ]
+}

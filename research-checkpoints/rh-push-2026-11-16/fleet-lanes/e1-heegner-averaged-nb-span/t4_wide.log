@@ -1,0 +1,5 @@
+alloc MB 22.534512
+X 50 n_D 16 cells with nonzero winding, 3<=Re s<=120: 1  max Re: 7.588726335812195
+   7.588726 + 46.605605 i  |f|=7.8e-17
+X 100 n_D 31 cells with nonzero winding, 3<=Re s<=120: 0  max Re: None
+X 200 n_D 62 cells with nonzero winding, 3<=Re s<=120: 0  max Re: None

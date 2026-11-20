@@ -1,0 +1,43 @@
+{
+ "slug": "c11-frontier-nth-order-sieve",
+ "round": 11,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "frontier",
+  "part-B",
+  "large-sieve",
+  "de-Faveri-2610.04045",
+  "Z12",
+  "Z6",
+  "Z5",
+  "Z14",
+  "Ji-2611.16665",
+  "figure-unchanged"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, part B only, no statement about zeros of zeta, no R4 answer. Relative to de Faveri 2610.04045 Theorem 1.1 (unrefereed, proof unchecked; n = 6 coverage of the sextic rows asserted by Xu-Sang 2610.17675 v2, matching not checked) and to the unrefereed 7/8 manuscripts: replacing (KD)^(2/3) by the n = 6 bound changes no figure in the ledgers tested. Z12 product-polynomial count option becomes 7/6 - delta (0.6973 at the critical class), strictly above R at every class (proved). Z6 toy exponent Q^0.8 -> Q^0.75 against Q^(1/2 - eta). Z5 Gram exponent 1/3 -> 1/6. Framework A with the bound on the Poisson dual has exponent exactly 2 at every order (identity). Reduced-model LP floor 13/15 unchanged (exact LP, model). The sextic sieve enters the manuscripts only in the preliminary 11/12 stage (text search, confirmed by my own search), whose margin -1/24 is unchanged. Part-B abscissa stays 0.8748866470. Ji 2611.16665 exponent arithmetic replays; it has no P_a^(1/6)-type term and no r = 6 statement.",
+ "obstruction": "Part B, relative to de Faveri 2610.04045 Theorem 1.1 (unrefereed; n = 6 coverage matching not checked) and the unrefereed 7/8 manuscripts. Replacing (KD)^(2/3) by the n = 6 bound changes no figure: Z12 count option 7/6 - delta is above R at every class (proved); Z6 Q^0.75 against Q^(1/2 - eta); Z5 Gram exponent 1/6 = the cap; Framework A on the Poisson dual has exponent 2 at every order; reduced LP floor 13/15 unchanged. The manuscripts use the sextic sieve only in the preliminary 11/12 stage (margin -1/24 unchanged). Abscissa stays 0.8748866470. Ji 2611.16665 has no P_a^(1/6)-type term and no r = 6 statement.",
+ "obstructionKind": "arbitrary-coefficient inequality, sharp on the Gauss-sum vector; structured counts already smaller; THIN, U, sign twists pass",
+ "controlsThatDefeat": [
+  "THIN, U and sign twists pass the sieve inequality (arbitrary coefficients)",
+  "not a control question otherwise (part B figure)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Lemmas 1-3, the 3.1 window, Z6/Z5 exponents, the Part I exponent and Ji's replay were re-derived by hand and rerun on different cases with my own exact-rational script (0 mismatches); ledger_dir6.py was rerun and reproduced its log. Transcriptions were confirmed against the downloaded texts and the 7/8 manuscript text. Five defects, none changing a figure: (D1) RESULT 3.6 cites `paper.txt` with no path; the file is ~/lean-deps/qrh-verify/paper.txt (outside the repo), and t - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "An optimal arbitrary-coefficient sieve cannot move the 7/8 ledgers. Its new off-diagonal term is exactly what the architecture already carries: the Prop 15.2 exponent 1/6, the polar branch b/12, and the amplifier factor H^(1/n). THIN, U and sign twists pass it, so it cannot raise R3. The standing figure's chain uses the sextic sieve only in the preliminary 11/12 stage, where the low side binds; its counts come from structured moments that are already smaller. Also: the window where the bound is not mean-value-optimal is still D^(1/2) < K < D^2, which corrects c10 item 1.",
+ "followUp": "Frontier slot: first of two rounds without a changed figure. The only candidate left from this input family is the structured prime second moment of Xu-Sang 2610.17675 v2 Theorem 1.2 (exponent (37 - 10 sqrt 6)/6 = 2.08418): read its Sections 6-7 and test whether it fits the Z11 'below-level mixed moment' slot or the M2 prime-capacity slot of the scalar system. If it fits neither, withdraw the slot. Separately, an independent referee should check the coverage matching (REFEREE.md P3) and the text-search scope (P1); the repair lane can apply the record updates listed in RESULT.md section 7.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-frontier-nth-order-sieve/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-frontier-nth-order-sieve/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

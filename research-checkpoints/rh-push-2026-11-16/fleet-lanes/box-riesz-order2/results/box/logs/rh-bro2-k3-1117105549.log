@@ -1,0 +1,10 @@
+done 3000 0.05 3
+done 3000 0.03 3
+done 5000 0.05 2
+done 5000 0.03 3
+done 10000 0.03 2
+Traceback (most recent call last):
+  File "~/rh-push/box-riesz-order2/hsweep.py", line 52, in <module>
+    print('done', out[0].get('N'), out[0].get('rho'), len(out), flush=True)
+                  ~~~^^^
+IndexError: list index out of range

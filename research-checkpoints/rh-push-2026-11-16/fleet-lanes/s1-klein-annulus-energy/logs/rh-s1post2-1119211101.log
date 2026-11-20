@@ -1,0 +1,45 @@
+Thu Nov 19 09:11:01 PM UTC 2026
+lines: ZETA window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 58.3 s
+wrote data/ZETA_1e5_exact.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e5_exact.json
+lines: ZETA window [1e+06,1.0002e+06] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 37.4 s
+wrote data/ZETA_1e6_exact.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e6_exact.json
+lines: ZETA window [1e+07,1.00002e+07] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 53.7 s
+wrote data/ZETA_1e7_exact.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e7_exact.json
+lines: ZETA window [1e+07,1.0002e+07] dy 0.005 pad 8: 403209 points x 5 lines = 2016045 evaluations; arrays 193.5 MB
+lines: evaluated in 502.4 s
+wrote data/ZETA_1e7_long_exact.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e7_long_exact.json
+lines: ZETA window [1e+06,1.002e+06] dy 0.005 pad 8: 403209 points x 5 lines = 2016045 evaluations; arrays 193.5 MB
+lines: evaluated in 573.9 s
+wrote data/ZETA_1e6_long_exact.npz
+combo1 done
+combo3 done
+wrote out/ZETA_1e6_long_exact.json
+lines: DH window [70,270] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 32.3 s
+wrote data/DH_70_exact.npz
+combo1 done
+combo3 done
+wrote out/DH_70_exact.json
+lines: TNR window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 176.7 s
+wrote data/TNR_1e5_exact.npz
+combo1 done
+combo3 done
+wrote out/TNR_1e5_exact.json
+Thu Nov 19 09:37:19 PM UTC 2026
+POST2DONE

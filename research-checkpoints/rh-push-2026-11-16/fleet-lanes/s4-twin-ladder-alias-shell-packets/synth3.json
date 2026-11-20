@@ -1,0 +1,34 @@
+[
+ {
+  "D": 8.0,
+  "pair_gap": 0.1,
+  "distance_to_edge": 0.1,
+  "R_closed": 1.2677101482801576,
+  "R_quadrature": 1.2677101482800173,
+  "limit": 1.2998616806736338
+ },
+ {
+  "D": 32.0,
+  "pair_gap": 0.1,
+  "distance_to_edge": 0.1,
+  "R_closed": 1.6725649949733359,
+  "R_quadrature": 1.6725649949732286,
+  "limit": 1.7626482831116088
+ },
+ {
+  "D": 128.0,
+  "pair_gap": 0.1,
+  "distance_to_edge": 0.05,
+  "R_closed": 1.8645755137551738,
+  "R_quadrature": null,
+  "limit": 1.9348645683261299
+ },
+ {
+  "D": 128.0,
+  "pair_gap": 1.0,
+  "distance_to_edge": 2.0,
+  "R_closed": 0.6883823072290528,
+  "R_quadrature": null,
+  "limit": 1.9348645683261299
+ }
+]

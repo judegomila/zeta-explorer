@@ -1,0 +1,14 @@
+# planned memory: grid 600000 points, blocks 256 terms: under 1 GB
+# zeta check 4.577566798522238e-15 8.671562978962895e-10
+#   I(2,5) = 3.16322820
+# zeta pair check I(2,5),I(3,7),I(7,11),I(5,12) target 3.16405234, 4.63587159, 9.33400853, 7.77474706; b = 5 last I(b-?)
+#   I(3,7) = 4.63515470
+# zeta pair check I(2,5),I(3,7),I(7,11),I(5,12) target 3.16405234, 4.63587159, 9.33400853, 7.77474706; b = 7 last I(b-?)
+#   I(7,11) = 9.33347964
+# zeta pair check I(2,5),I(3,7),I(7,11),I(5,12) target 3.16405234, 4.63587159, 9.33400853, 7.77474706; b = 11 last I(b-?)
+#   I(5,12) = 7.77418217
+# zeta pair check I(2,5),I(3,7),I(7,11),I(5,12) target 3.16405234, 4.63587159, 9.33400853, 7.77474706; b = 12 last I(b-?)
+zeta kappa_F 0.695496  kappa(b) at b= [(5, np.float64(0.61063)), (11, np.float64(0.67892)), (23, np.float64(0.69241)), (30, np.float64(0.6847)), (37, np.float64(0.69474)), (40, np.float64(0.69059))]  min kappa(b) 0.44095  loss range, top half of b [np.float64(1.332), np.float64(1.798)]
+Ea0.02 kappa_F 1.150476  kappa(b) at b= [(5, np.float64(1.03853)), (11, np.float64(1.1072)), (23, np.float64(1.12984)), (30, np.float64(1.11361)), (37, np.float64(1.13845)), (40, np.float64(1.13208))]  min kappa(b) 0.81347  loss range, top half of b [np.float64(1.395), np.float64(2.134)]
+Ea0.25 kappa_F 1.579073  kappa(b) at b= [(5, np.float64(1.42201)), (11, np.float64(1.52519)), (23, np.float64(1.55477)), (30, np.float64(1.52716)), (37, np.float64(1.56503)), (40, np.float64(1.55273))]  min kappa(b) 1.09849  loss range, top half of b [np.float64(1.417), np.float64(2.251)]
+unimod1 kappa_F 0.350685  kappa(b) at b= [(5, np.float64(0.31771)), (11, np.float64(0.34471)), (23, np.float64(0.34892)), (30, np.float64(0.35336)), (37, np.float64(0.3497)), (40, np.float64(0.35139))]  min kappa(b) 0.2363  loss range, top half of b [np.float64(1.292), np.float64(1.453)]

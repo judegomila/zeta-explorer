@@ -1,0 +1,3 @@
+zeta N=10000040 closest pair index 8546949: float64 list 4316832.467101350427 4316832.469424745068 gap 2.323395e-03
+  30-digit zeros 4316832.4671013489916 4316832.4694247522457 gap 0.00232340325409 ; relative gap difference 3.71e-06 ; sign of Z left/mid/right of the pair: +1 -1 +1
+  longdouble (eps 2.2e-16) window flow, step factor 0.01: t_c = 6.7478758657e-07  (float64 run: 6.747819357232633e-07 ; pair value 6.7477533514e-07) ; beta(0.5) = 2114.4319 (float64 window value 2090.66780207438) ; beta(0.05) = 20903.67 (21963.292208318468)

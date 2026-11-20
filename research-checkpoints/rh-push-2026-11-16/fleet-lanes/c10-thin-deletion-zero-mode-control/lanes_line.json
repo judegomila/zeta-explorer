@@ -1,0 +1,20 @@
+{
+ "round": 10,
+ "slug": "c10-thin-deletion-zero-mode-control",
+ "verdict": "partial-result",
+ "claim": "Record lane A; a control, no attack, no statement about zeros of zeta. Lemma 1 (proved relative to a classical short-interval prime theorem S(theta), secondary source opened): for b in (1/2,1) the greedy floor set S with pi_S(x) = int_2^x t^(b-1) dt/log t + O(x^(b-eta)) gives F = prod over p not in S = zeta(s)(s-b)W(s), W analytic and non-vanishing on Re s > max(b-eta, b/2), Lambda_F >= 0, coefficients 0/1, simple pole at 1. Density must be one, not one half (half density gives a square-root branch; measured exponents 0.49999 against 1.00004). Decisive test at b = 0.75, 0.9, S to 1e7 in ball arithmetic: finite data cannot enclose the zero (finite truncations are positive at b; explicit power-saving prime bounds stop near 1.4e25); enclosed instead, relative to explicit pi(x)-li(x) bounds: F'(b+) in [-15.158,-14.494] (b=0.9), [-6.737,-6.464] (b=0.75). Statement O lines 1 and 5 rewritten with DEL in place of the Beurling source. 34 devices read against DEL: passes 14, does not pass 20 (read sets: FE; periodicity with unimodular parameters; attached object; positivity with zeta's gamma side).",
+ "aboutZeros": false,
+ "refHolds": null,
+ "threeReferees": false,
+ "allHold": null,
+ "r1": false,
+ "r2": false,
+ "r3": false,
+ "r4": false,
+ "score": 0,
+ "errors": "No referee pass yet. Assignment text had the THIN density (1/2); corrected to density one. Tier E enclosure uses one recalled input (verification height for Buthe's range) and a one-pass derivation. Device table argued from recorded read sets, not re-run. Twists of DEL by characters: continuation not established (open). Server not used.",
+ "surviving": "RESULT.md Lemma 0, Lemma 1, Lemmas N, I, C; STATEMENT_O.md lines 1 and 5; DEVICE_READ.md; del_*.json, controls.json",
+ "lesson": "A control built from an infinite prime set has its zero by theorem, not by data: finite truncations carry no zero, and a numerical enclosure left of b needs an explicit Hoheisel-type bound at all scales. POS and unimodular parameters at every rational prime together identify zeta, so THIN and DEL between them cover every degree-one Euler-product read set without FE or periodicity.",
+ "followUp": "One referee on Lemma 1 and the Tier E derivation; then map section 2 row DEL and Statement O section C rows 1b, 2a. Optional: per-class greedy variant so that character twists of DEL continue past b.",
+ "file": "push/c10-thin-deletion-zero-mode-control/RESULT.md"
+}

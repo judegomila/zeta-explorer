@@ -1,0 +1,2625 @@
+{
+ "nodes": 1649,
+ "edges": 8900,
+ "meta": {
+  "nodes": 1649,
+  "edges": 8900,
+  "byType": {
+   "obstruction": 623,
+   "mechanism": 83,
+   "identity": 395,
+   "conjecture": 14,
+   "tool": 57,
+   "measured-phenomenon": 217,
+   "open-lemma": 118,
+   "control": 52,
+   "object": 61,
+   "open-direction": 28,
+   "target": 1
+  },
+  "byOrigin": {
+   "corpus": 1242,
+   "map": 307,
+   "outcome": 100
+  },
+  "edgesByType": {
+   "composes-with": 7474,
+   "control-defeats": 751,
+   "obstructs": 262,
+   "restates": 183,
+   "separates-from": 4,
+   "special-case-of": 132,
+   "uses": 94
+  },
+  "live": 963,
+  "rows": 218,
+  "controls": 17,
+  "underused": 20,
+  "devices": {
+   "closed": 66,
+   "open": 3,
+   "floored": 6
+  },
+  "devicesLive": {
+   "closed": 58,
+   "open": 3,
+   "floored": 6
+  },
+  "crossingKeyword": 293
+ },
+ "edgesByType": {
+  "composes-with": 7474,
+  "control-defeats": 751,
+  "obstructs": 262,
+  "restates": 183,
+  "separates-from": 4,
+  "special-case-of": 132,
+  "uses": 94
+ },
+ "nodesByType": {
+  "obstruction": 623,
+  "mechanism": 83,
+  "identity": 395,
+  "conjecture": 14,
+  "tool": 57,
+  "measured-phenomenon": 217,
+  "open-lemma": 118,
+  "control": 52,
+  "object": 61,
+  "open-direction": 28,
+  "target": 1
+ },
+ "deviceTypes": {
+  "closed": 33,
+  "floored": 1,
+  "open": 3
+ },
+ "pending": 9,
+ "candMeta": {
+  "meta": {
+   "graph": "IDEA_GRAPH.json",
+   "graphCounts": {
+    "nodes": 1649,
+    "edges": 8900,
+    "byType": {
+     "obstruction": 623,
+     "mechanism": 83,
+     "identity": 395,
+     "conjecture": 14,
+     "tool": 57,
+     "measured-phenomenon": 217,
+     "open-lemma": 118,
+     "control": 52,
+     "object": 61,
+     "open-direction": 28,
+     "target": 1
+    },
+    "byOrigin": {
+     "corpus": 1242,
+     "map": 307,
+     "outcome": 100
+    },
+    "edgesByType": {
+     "composes-with": 7474,
+     "control-defeats": 751,
+     "obstructs": 262,
+     "restates": 183,
+     "separates-from": 4,
+     "special-case-of": 132,
+     "uses": 94
+    },
+    "live": 963,
+    "rows": 218,
+    "controls": 17,
+    "underused": 20,
+    "devices": {
+     "closed": 66,
+     "open": 3,
+     "floored": 6
+    },
+    "devicesLive": {
+     "closed": 58,
+     "open": 3,
+     "floored": 6
+    },
+    "crossingKeyword": 293
+   },
+   "moves": {
+    "M1": "rigid structure x arithmetic input x crossing mechanism",
+    "M2": "measured phenomenon x explaining mechanism x control it must fail on",
+    "M3": "open lemma x proved tool x arithmetic or crossing partner",
+    "M4": "flow functional x prime-side input x crossing mechanism or DH-separator",
+    "P2": "under-used node x arithmetic partner"
+   },
+   "pools": {
+    "arithmetic": 270,
+    "rigidUniform": 196,
+    "crossing": 9,
+    "phenomenon": 206,
+    "explainer": 394,
+    "lemma": 150,
+    "separator": 9,
+    "flowFunctional": 56,
+    "underusedExplicit": 18,
+    "underusedAuto": 352
+   },
+   "generated": 44860,
+   "scored": 14980,
+   "rejected": {
+    "contains a closed device: finite-support-positivity": 462,
+    "closed family: fam-legendre-dual-limits": 1432,
+    "contains a combination closed in outcomes.json": 3570,
+    "contains a closed device: positive-kernel-transport": 568,
+    "closed family: fam-vaughan-split-landau": 309,
+    "contains a closed device: residue-explicit-formula": 678,
+    "covariant under shift and reciprocal (RZ_b passes every step)": 373,
+    "closed family: fam-one-zero-forces-many": 258,
+    "closed family: fam-hecke-shear-commutator": 99,
+    "closed family: fam-order2-theta-rows": 601,
+    "closed family: fam-projection-domination-gonek": 355,
+    "closed family: fam-nb-gram-lammin": 497,
+    "contains a closed device: exact-uniqueness": 53,
+    "closed family: fam-heat-monotone-hankel": 191,
+    "closed family: fam-arithmetic-nb-span": 304,
+    "shares two nodes with a closed lane (nodes or launchedNodes)": 537,
+    "contains a closed device: euler-fe-phase-at-height": 376,
+    "closed family: fam-reflected-euler-stage-canonical": 46,
+    "contains a closed device: vector-specific-row-mean-square": 340,
+    "closed family: fam-euler-anchor-heat": 750,
+    "closed family: fam-stage-limit-semicontinuity": 226,
+    "closed family: fam-pd-log-strip": 9,
+    "contains a closed device: monotone-flow-functional": 826,
+    "contains a closed device: mean-value-convexity": 461,
+    "closed family: fam-laxphillips-hecke-compression": 38,
+    "contains a closed device: strip-dtn-identity": 35,
+    "closed family: fam-linear-zero-measure-lmi": 32,
+    "closed family: fam-primitive-test-restriction": 630,
+    "closed family: fam-helson-discrepancy-zerofree": 18,
+    "closed family: fam-cutoff-hecke-commutator": 3,
+    "closed family: fam-selberg-control-companion": 744,
+    "closed family: fam-torus-exclusion-sign-test": 144,
+    "contains a closed device: geometric-positivity": 167,
+    "only arithmetic step is target-blind algebra (same for every control)": 17,
+    "contains a closed device: recurrence-ergodicity": 79,
+    "no open or floored crossing device (curated/devices.json)": 13524,
+    "all members flow-stable and none arithmetic (backward heat passes)": 586,
+    "all members attached to one closed row": 13,
+    "contains a closed device: dual-measure-compactness": 34,
+    "closed family: fam-multidelay-section": 45,
+    "all members from one module": 4,
+    "no member uses multiplicativity (DH passes)": 264,
+    "contains a closed device: twisted-discrepancy": 91,
+    "contains a closed device: maximum-principle": 91
+   },
+   "families": {
+    "M1/flow": {
+     "count": 1158,
+     "best": 9.5
+    },
+    "M1/geometry": {
+     "count": 210,
+     "best": 11.5
+    },
+    "M1/nyman": {
+     "count": 42,
+     "best": 9.0
+    },
+    "M1/positivity": {
+     "count": 4758,
+     "best": 11.5
+    },
+    "M1/prime-chain": {
+     "count": 2608,
+     "best": 11.5
+    },
+    "M1/statistics": {
+     "count": 62,
+     "best": 7.06
+    },
+    "M1/zero-free": {
+     "count": 3977,
+     "best": 11.0
+    },
+    "M2/zero-free": {
+     "count": 10,
+     "best": 8.42
+    },
+    "M3/flow": {
+     "count": 16,
+     "best": 3.5
+    },
+    "M3/geometry": {
+     "count": 1,
+     "best": 4.5
+    },
+    "M3/nyman": {
+     "count": 29,
+     "best": 10.0
+    },
+    "M3/positivity": {
+     "count": 59,
+     "best": 10.5
+    },
+    "M3/prime-chain": {
+     "count": 45,
+     "best": 11.0
+    },
+    "M3/statistics": {
+     "count": 20,
+     "best": 2.5
+    },
+    "M3/zero-free": {
+     "count": 269,
+     "best": 9.5
+    },
+    "M4/flow": {
+     "count": 928,
+     "best": 9.0
+    },
+    "M4/positivity": {
+     "count": 357,
+     "best": 9.68
+    },
+    "M4/prime-chain": {
+     "count": 76,
+     "best": 9.5
+    },
+    "M4/statistics": {
+     "count": 8,
+     "best": 7.25
+    },
+    "M4/zero-free": {
+     "count": 346,
+     "best": 11.5
+    },
+    "P2/flow": {
+     "count": 1,
+     "best": 2.0
+    }
+   },
+   "closedRowsByTheme": {
+    "flow": {
+     "count": 36,
+     "rows": [
+      "A1",
+      "A6",
+      "D3",
+      "F2",
+      "F3",
+      "F5",
+      "F8",
+      "G5",
+      "G7",
+      "G11",
+      "G17",
+      "G25",
+      "L1",
+      "O1",
+      "P3",
+      "P6",
+      "P13",
+      "P16",
+      "P17",
+      "P21",
+      "P22",
+      "P27",
+      "P30",
+      "P31",
+      "P37",
+      "P38",
+      "P41",
+      "Q4",
+      "Q7",
+      "Q20",
+      "S5",
+      "S6",
+      "S7",
+      "S10",
+      "T2",
+      "Z20"
+     ]
+    },
+    "positivity": {
+     "count": 83,
+     "rows": [
+      "A1",
+      "A2",
+      "A5",
+      "A7",
+      "D3",
+      "D7",
+      "G1",
+      "G2",
+      "G3",
+      "G8",
+      "G9",
+      "G10",
+      "G11",
+      "G12",
+      "G14",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G25",
+      "L1",
+      "L3",
+      "L5",
+      "N2",
+      "N7",
+      "N8",
+      "N12",
+      "OBS-SPARSE-FERRO",
+      "OBS-IDENTITY-SOLENOID",
+      "OBS-ORDER-TWO-NONPOISSON",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P12",
+      "P13",
+      "P14",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P21",
+      "P30",
+      "P42",
+      "P43",
+      "P45",
+      "Q3",
+      "Q4",
+      "Q6",
+      "Q8",
+      "Q10",
+      "Q12",
+      "Q14",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "S3",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "T1",
+      "Z22",
+      "Z24",
+      "Z30",
+      "Z33",
+      "Z15c",
+      "Z24b"
+     ]
+    },
+    "prime-chain": {
+     "count": 83,
+     "rows": [
+      "A3",
+      "D2",
+      "D4",
+      "D5",
+      "D6",
+      "F7",
+      "F8",
+      "G10",
+      "G14",
+      "G15",
+      "G16",
+      "G18",
+      "G19",
+      "G21",
+      "G22",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G29",
+      "G31",
+      "L2",
+      "L5",
+      "N1",
+      "N7",
+      "N8",
+      "N9",
+      "N11",
+      "N12",
+      "N20",
+      "N21",
+      "N24",
+      "N25",
+      "O1",
+      "P4",
+      "P14",
+      "P15",
+      "P25",
+      "P33",
+      "P35",
+      "P36",
+      "P37",
+      "P38",
+      "P41",
+      "P42",
+      "P43",
+      "P45",
+      "P46",
+      "P48",
+      "P50",
+      "P51",
+      "P52",
+      "Q4",
+      "Q10",
+      "Q12",
+      "Q14",
+      "Q22",
+      "Q23",
+      "Q24",
+      "S1",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S10",
+      "S11",
+      "S12",
+      "T1",
+      "T2",
+      "T3",
+      "Z14",
+      "Z17",
+      "Z21",
+      "Z22",
+      "Z23",
+      "Z25",
+      "Z27",
+      "Z28",
+      "Z29",
+      "Z30",
+      "Z31",
+      "Z32",
+      "Z33"
+     ]
+    },
+    "zero-free": {
+     "count": 112,
+     "rows": [
+      "A1",
+      "A2",
+      "A3",
+      "A5",
+      "A6",
+      "A7",
+      "D4",
+      "D6",
+      "D7",
+      "F3",
+      "F4",
+      "F5",
+      "F7",
+      "F8",
+      "G10",
+      "G18",
+      "G20",
+      "G25",
+      "G27",
+      "G30",
+      "L1",
+      "L2",
+      "N3",
+      "N6",
+      "N7",
+      "N11",
+      "N14",
+      "N15",
+      "N17",
+      "N18",
+      "N21",
+      "N24",
+      "N25",
+      "OBS-IDENTITY-SOLENOID",
+      "OBS-ORDER-TWO-NONPOISSON",
+      "P2",
+      "P4",
+      "P8",
+      "P11",
+      "P12",
+      "P14",
+      "P16",
+      "P17",
+      "P19",
+      "P20",
+      "P22",
+      "P26",
+      "P27",
+      "P35",
+      "P36",
+      "P37",
+      "P39",
+      "P40",
+      "P42",
+      "P43",
+      "P44",
+      "P46",
+      "P47",
+      "P48",
+      "P50",
+      "P51",
+      "P52",
+      "Q3",
+      "Q5",
+      "Q9",
+      "Q10",
+      "Q14",
+      "Q18",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "S1",
+      "S2",
+      "S5",
+      "S6",
+      "S10",
+      "T1",
+      "T2",
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6",
+      "Z7",
+      "Z8",
+      "Z9",
+      "Z10",
+      "Z12",
+      "Z14",
+      "Z15",
+      "Z16",
+      "Z17",
+      "Z18",
+      "Z20",
+      "Z21",
+      "Z22",
+      "Z23",
+      "Z24",
+      "Z26",
+      "Z27",
+      "Z28",
+      "Z29",
+      "Z30",
+      "Z31",
+      "Z32",
+      "Z15b"
+     ]
+    },
+    "statistics": {
+     "count": 42,
+     "rows": [
+      "A6",
+      "D1",
+      "D2",
+      "D3",
+      "D7",
+      "G23",
+      "N6",
+      "N9",
+      "N16",
+      "O1",
+      "P15",
+      "P25",
+      "P29",
+      "P36",
+      "P40",
+      "P44",
+      "P48",
+      "P50",
+      "P52",
+      "Q4",
+      "Q9",
+      "Q12",
+      "Q18",
+      "Q23",
+      "Q24",
+      "Q25",
+      "S1",
+      "T2",
+      "Z3",
+      "Z10",
+      "Z11",
+      "Z12",
+      "Z14",
+      "Z16",
+      "Z17",
+      "Z22",
+      "Z25",
+      "Z27",
+      "Z28",
+      "Z30",
+      "Z32",
+      "Z24b"
+     ]
+    },
+    "nyman": {
+     "count": 5,
+     "rows": [
+      "G9",
+      "P12",
+      "P14",
+      "P15",
+      "P38"
+     ]
+    },
+    "geometry": {
+     "count": 52,
+     "rows": [
+      "A4",
+      "A5",
+      "A7",
+      "D4",
+      "D5",
+      "D7",
+      "G3",
+      "G6",
+      "G12",
+      "G13",
+      "G17",
+      "G18",
+      "G19",
+      "G24",
+      "G26",
+      "G27",
+      "G31",
+      "N1",
+      "N2",
+      "N3",
+      "N8",
+      "N13",
+      "N15",
+      "N18",
+      "N20",
+      "N21",
+      "N22",
+      "OBS-POINT-SPEC-SQ",
+      "P25",
+      "P26",
+      "P39",
+      "P40",
+      "P44",
+      "P50",
+      "P52",
+      "Q10",
+      "Q12",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q26",
+      "Q27",
+      "S4",
+      "T1",
+      "T3",
+      "Z4",
+      "Z17",
+      "Z29",
+      "Z30",
+      "Z31",
+      "Z33"
+     ]
+    }
+   },
+   "scoring": "weights of 2026-11-19 (STRATEGY v3): multiplicativity 0-2; heightUniform 0-1; controls 0-4; crossing 0-2 (2 = open device, 0 = floored device of curated/devices.json); underused 0-2; cheapTest 0-2; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; sharedObject 0-1; penalties <= 0",
+   "r4Rules": {
+    "active": true,
+    "firedIndependentlyOfOrder": {
+     "closed device": 4261,
+     "shift-reciprocal covariant": 373,
+     "target-blind": 17,
+     "no crossing device": 16358
+    },
+    "targetBlindArithNodes": [
+     "theta-dual-mseries-is-twisted-kubota"
+    ],
+    "deviceNodesLive": {
+     "open": [
+      "de-branges-positivity-family",
+      "regular-rep-matrix-bridge",
+      "twist-modulus-reciprocity"
+     ],
+     "floored": [
+      "map-open-2",
+      "map-open-4",
+      "map-pos-35",
+      "qrh-seven-eighths",
+      "seven-eighths-abscissa-formula",
+      "tro6-natural"
+     ],
+     "closed": [
+      "bagchi-strong-recurrence",
+      "cofinal-legendre-dual",
+      "cofinal-mobius-sum-equals-x-m",
+      "cofinal-pointwise-mobius-sum",
+      "collision-local-index",
+      "dbn-prime-torus-phase-closure",
+      "discriminant-gradient-flow",
+      "eh-nonprincipal-row-cancellation",
+      "ek-vector-specific-row-mean-square",
+      "euler-anchor-heat-certificate",
+      "euler-fe-coupling-at-height",
+      "fe-plus-reality-rigidity",
+      "ff-order2-vertex-probe",
+      "fourth-stage-schwarzian",
+      "h5-euler-products-bounded",
+      "harmonic-strip-transport",
+      "heat-evolved-von-mangoldt-positivity",
+      "heegner-height-upper-bound-h4prime",
+      "heegner-nb-ratio",
+      "inverse-line-cotangent-mean-value",
+      "klein-phase-transport-certificate",
+      "kronecker-sup-rms-transfer",
+      "lac-eq-caratheodory-interpolation",
+      "landau-siegel-2026-mechanism",
+      "laurent-shell-gamma-section",
+      "map-open-1",
+      "map-open-10",
+      "map-open-11",
+      "map-open-12",
+      "map-open-16",
+      "map-open-17",
+      "map-open-19",
+      "map-open-20",
+      "map-open-21",
+      "map-open-6",
+      "map-open-7",
+      "map-open-8",
+      "map-open-9",
+      "nyman-beurling-dx",
+      "offline-zero-visibility-law",
+      "phase-retrieval-zeta",
+      "pick-weil-native-span",
+      "positive-real-ladder-step",
+      "pulse-leakage-zero-target",
+      "resolvent-burgers-identity",
+      "route-m-quarter-ceiling",
+      "scalar-comparison-target",
+      "schur-ratio-max-principle-gap",
+      "selberg-control-pair",
+      "selberg-freeze-sandbox",
+      "selberg-zeta-companion",
+      "single-row-bridge",
+      "spec-z-squared-hodge-index",
+      "strip-dtn-phase-identity",
+      "suzuki-reserve-update",
+      "suzuki-screw-response-psi",
+      "suzuki-spectral-convergence",
+      "tinfty-flow-generator-spectrum"
+     ]
+    },
+    "topWithOpenDevice": 36,
+    "topWithFlooredDeviceOnly": 24,
+    "topWithClosedDevice": 0,
+    "topWithDevice": 60,
+    "topWithSharedObject": 59
+   },
+   "filters": {
+    "top": 60,
+    "node": null,
+    "move": null,
+    "theme": null,
+    "per_node": 2,
+    "per_family": 6,
+    "per_device": 12,
+    "dump_all": null,
+    "dump_rejected": null,
+    "no_r4_rules": false
+   },
+   "note": "Heuristic ranking. Read each candidate against OBSTRUCTION_MAP.md section 2 (Q1-Q3) before work."
+  }
+ },
+ "top": [
+  [
+   1,
+   11.5,
+   [
+    {
+     "id": "lean-weil-small-support",
+     "role": "rigid",
+     "name": "Lean: Yoshida-type small-support Weil positivity",
+     "type": "tool",
+     "status": "proved",
+     "source": "route:route-39-lean-weil-small-support-2026-10-14"
+    },
+    {
+     "id": "star-min-pointwise-prime-bound",
+     "role": "arithmetic",
+     "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', \u00a77"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   2,
+   11.5,
+   [
+    {
+     "id": "volterra-hs-bound",
+     "role": "rigid",
+     "name": "Hilbert-Schmidt closed-form bound sqrt(I_0 J_a)",
+     "type": "tool",
+     "status": "certified",
+     "source": "[imp:imp-1267-volterra-hs-bound] [imp:imp-2338-volterra-krawczyk] [imp:imp-2654-volterra-rigorous-bound-status]"
+    },
+    {
+     "id": "sympow-conductor-normalised-shift",
+     "role": "arithmetic",
+     "name": "Sym^m functoriality of the contraction needs uniform Rankin-Selberg residue bound",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[imp:imp-2437-sympow-rs-second-moment-2026-06] [imp:imp-2459-sympow-rs-uniform-margin-2026-06] [imp:imp-2436-sympow-volterra-functoriality-2026-06]"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   3,
+   11.5,
+   [
+    {
+     "id": "zv-annulus-dtn-operator",
+     "role": "rigid",
+     "name": "Dirichlet-to-Neumann reference operator on the annulus",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/KLEIN-ANNULUS.md] sec 6"
+    },
+    {
+     "id": "star-min-pointwise-prime-bound",
+     "role": "arithmetic",
+     "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', \u00a77"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   4,
+   11.5,
+   [
+    {
+     "id": "zv-theta-kernel-phi",
+     "role": "flow functional",
+     "name": "Theta kernel Phi and its cosine transform",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5; [zv:docs/ZERO-CHANNELS-MATH.md] sec 1"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "arithmetic",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    },
+    {
+     "id": "euler-detection-depth-law",
+     "role": "separator",
+     "name": "Euler-detection depth of 440 DH-type twins",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "dag:project-attempts-dag#route44-euler-detection-depth"
+    }
+   ]
+  ],
+  [
+   5,
+   11.0,
+   [
+    {
+     "id": "capture-ratio-psd-slope",
+     "role": "rigid",
+     "name": "Linear-shear capture norm = peak slope of the Phi power spectrum",
+     "type": "identity",
+     "status": "certified",
+     "source": "[imp:imp-3400-Ttilde-spectral-slope-closed-form] [imp:imp-3470-Ttilde-spectral-peak-xistar-obstruction] [imp:imp-3548-xistar-quadrature-scheme-invariance]"
+    },
+    {
+     "id": "pascal-carry-ballot",
+     "role": "arithmetic",
+     "name": "Annular cofactor as adjacent Pascal/carry mean comparison",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   6,
+   11.0,
+   [
+    {
+     "id": "gl2-weil-symbol",
+     "role": "rigid",
+     "name": "Weil symbol of a holomorphic newform",
+     "type": "identity",
+     "status": "proved",
+     "source": "route:route-26-gl2-twin-ladder-2026-10-12"
+    },
+    {
+     "id": "finite-support-euler-detector",
+     "role": "arithmetic",
+     "name": "Route 30: finite-support rung Euler detector",
+     "type": "tool",
+     "status": "proved",
+     "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   7,
+   11.0,
+   [
+    {
+     "id": "ingham-offlattice-riesz-floor",
+     "role": "rigid",
+     "name": "Ingham-route off-lattice Riesz floor for the sech seam Gram",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95335-ingham-offlattice-riesz-floor"
+    },
+    {
+     "id": "alias-energy-in-sieve-algebra",
+     "role": "arithmetic",
+     "name": "Theorem U: alias energy fraction inside the sieve algebra",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95539-alias-energy-in-algebra-table"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   8,
+   11.0,
+   [
+    {
+     "id": "sep-opt-lattice-extremal",
+     "role": "rigid",
+     "name": "SEP-OPT: the lattice is the extremal delta-separated configuration",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95419-separated-class-optimal-riesz-floor; imp-95421"
+    },
+    {
+     "id": "alias-denominator-separation-curvature-floor",
+     "role": "arithmetic",
+     "name": "Shifted alias denominators are (1/p)-separated with curvature floor 1/p",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95008-alias-separation-curvature-floor"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   9,
+   11.0,
+   [
+    {
+     "id": "sep-opt-lattice-extremal",
+     "role": "rigid",
+     "name": "SEP-OPT: the lattice is the extremal delta-separated configuration",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95419-separated-class-optimal-riesz-floor; imp-95421"
+    },
+    {
+     "id": "alias-sign-determinacy",
+     "role": "arithmetic",
+     "name": "Paper alias coefficients are determined, with additive-character phases",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95397-alias-sign-determinacy-assessment"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   10,
+   11.0,
+   [
+    {
+     "id": "capture-ratio-psd-slope",
+     "role": "rigid",
+     "name": "Linear-shear capture norm = peak slope of the Phi power spectrum",
+     "type": "identity",
+     "status": "certified",
+     "source": "[imp:imp-3400-Ttilde-spectral-slope-closed-form] [imp:imp-3470-Ttilde-spectral-peak-xistar-obstruction] [imp:imp-3548-xistar-quadrature-scheme-invariance]"
+    },
+    {
+     "id": "sympow-conductor-normalised-shift",
+     "role": "arithmetic",
+     "name": "Sym^m functoriality of the contraction needs uniform Rankin-Selberg residue bound",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[imp:imp-2437-sympow-rs-second-moment-2026-06] [imp:imp-2459-sympow-rs-uniform-margin-2026-06] [imp:imp-2436-sympow-volterra-functoriality-2026-06]"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   11,
+   10.5,
+   [
+    {
+     "id": "krein-uniform-n-lower-bound-open",
+     "role": "open lemma",
+     "name": "N-free coercivity T_a[sigma_2]>=c I for 0.96<2a<=ln3",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96846-krein-uniform-N-lower-bound-routes-assessment; imp-96865; imp-97121; imp-97058"
+    },
+    {
+     "id": "mem-krein-certificate-lemma",
+     "role": "tool",
+     "name": "Toeplitz/Krein lattice-atom certificate lemma",
+     "type": "tool",
+     "status": "certified",
+     "source": "mem:project_toeplitz_krein_certificate.md"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   12,
+   10.5,
+   [
+    {
+     "id": "theta-density-positivity",
+     "role": "flow functional",
+     "name": "Theorem P-POS: positivity of the theta exit density",
+     "type": "identity",
+     "status": "proved",
+     "source": "[impr:31701] [impr:31717] src/data/imp-95420-exit-density-positivity-selfcontained.js"
+    },
+    {
+     "id": "staged-strip-triangular-inequality",
+     "role": "arithmetic",
+     "name": "Staged strip [1/8,7/8] as one triangular prime inequality",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   13,
+   10.0,
+   [
+    {
+     "id": "permutation-defect-bound",
+     "role": "rigid",
+     "name": "Permutation defect: reordered operator product within sum of commutators",
+     "type": "identity",
+     "status": "proved",
+     "source": "lean:lean-aristotle/permutation-calculus/permutation_defect/ norm_permProd_sub_one_le_sum"
+    },
+    {
+     "id": "finite-support-euler-detector",
+     "role": "arithmetic",
+     "name": "Route 30: finite-support rung Euler detector",
+     "type": "tool",
+     "status": "proved",
+     "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   14,
+   10.0,
+   [
+    {
+     "id": "sun-prop63-plus4-offset",
+     "role": "rigid",
+     "name": "Prop 6.3 additive offset equals 4 and is modulus-independent",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95745-sun-prop63-plus4-offset-derivation; imp-95690; imp-95780"
+    },
+    {
+     "id": "katz-sarnak-family-checks",
+     "role": "arithmetic",
+     "name": "Low-lying zeros of L(s,chi) families",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:989] [impr:1022] src/math/family-pair-correlation.js ; OBSTRUCTION_MAP P23"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   15,
+   10.0,
+   [
+    {
+     "id": "bridge-winding-equals-NT",
+     "role": "rigid",
+     "name": "Winding of the bridge chi(1/2+it) equals N(T)",
+     "type": "identity",
+     "status": "proved",
+     "source": "[impr:911] src/data/topological-invariants.js ; OBSTRUCTION_MAP G13"
+    },
+    {
+     "id": "two-tents-joint-zero-completeness",
+     "role": "arithmetic",
+     "name": "Two positive tents remove each other's blind multiplier zeros",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   16,
+   10.0,
+   [
+    {
+     "id": "sawtooth-s-of-t-lemma",
+     "role": "rigid",
+     "name": "Sawtooth lemma for S(T)",
+     "type": "tool",
+     "status": "proved",
+     "source": "route:route-49-unconditional-s-of-t-2026-10-06"
+    },
+    {
+     "id": "prime-tent-rh-equivalence",
+     "role": "arithmetic",
+     "name": "RH iff one nonnegative prime tent on (N,4N]",
+     "type": "identity",
+     "status": "proved",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   17,
+   10.0,
+   [
+    {
+     "id": "subleading-k-closed-form",
+     "role": "rigid",
+     "name": "Subleading constant K = 11/2 - 2 gamma - 3 pi^2/8",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95983-subleading-K-closed-form"
+    },
+    {
+     "id": "gauss-plancherel-alias-lemma",
+     "role": "arithmetic",
+     "name": "Gauss-Plancherel lemma for additive-character aliases",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95519-localized-barrier-sum-prime-zero-nogo"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   18,
+   10.0,
+   [
+    {
+     "id": "rm-kappa-smooth-open",
+     "role": "open lemma",
+     "name": "Cusp coefficient kappa_smooth of the Bettin-Conrey period function",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-97682-exact-x2-wobble-term-kappaK-equivalence.js; imp-97737; imp-97701; imp-97709"
+    },
+    {
+     "id": "binet-positive-kernel",
+     "role": "tool",
+     "name": "Binet positive-kernel representation of Stirling tails over divisors",
+     "type": "tool",
+     "status": "proved",
+     "source": "src/data/imp-97289-route-m-arith-tail-o1-proof.js; imp-97309; imp-97423"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   19,
+   10.0,
+   [
+    {
+     "id": "krein-uniform-n-lower-bound-open",
+     "role": "open lemma",
+     "name": "N-free coercivity T_a[sigma_2]>=c I for 0.96<2a<=ln3",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96846-krein-uniform-N-lower-bound-routes-assessment; imp-96865; imp-97121; imp-97058"
+    },
+    {
+     "id": "route-i-toeplitz-krein",
+     "role": "tool",
+     "name": "Route I: pole-free Weil positivity as Toeplitz positivity T_a[sigma_2]>=0",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "[impr:32887] [impr:33044] [impr:33489] [impr:33822] src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js ; OBSTRUCTION_MAP P19,L3"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   20,
+   9.68,
+   [
+    {
+     "id": "tilt-det-majorant",
+     "role": "flow functional",
+     "name": "TILT-DET: exponential-tilt Cauchy-determinant majorant",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95499-tilt-determinant-perp-majorant; imp-95500-tilt-eigenfloor-depth-credit; mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95499; [impr:"
+    },
+    {
+     "id": "prime-delay-domination-15-4",
+     "role": "arithmetic",
+     "name": "Conj 15.4: Re xi'/xi > 0 on sigma > 1/2",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#twin-conj-15-4"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   21,
+   9.5,
+   [
+    {
+     "id": "sun-prop63-plus4-offset",
+     "role": "rigid",
+     "name": "Prop 6.3 additive offset equals 4 and is modulus-independent",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95745-sun-prop63-plus4-offset-derivation; imp-95690; imp-95780"
+    },
+    {
+     "id": "mem-sextic-theta-squarefree",
+     "role": "arithmetic",
+     "name": "Sextic theta coefficients at squarefree indices / 6-fold Patterson-type identity",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "mem:reference_openai_math_release.md; src/data/sextic-theta-campaign-2026-11-03.js"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "crossing",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   22,
+   9.5,
+   [
+    {
+     "id": "mollifier-holomorphy-constraint",
+     "role": "rigid",
+     "name": "Holomorphy constraint on mollifier weights",
+     "type": "identity",
+     "status": "proved",
+     "source": "route:route-19-mollified-weil-forms-2026-10-10"
+    },
+    {
+     "id": "route-m-vasyunin-gram",
+     "role": "arithmetic",
+     "name": "Route M: Baez-Duarte/Vasyunin Gram with Bettin-Conrey reciprocity",
+     "type": "mechanism",
+     "status": "measured",
+     "source": "[impr:32320] [impr:32347] src/data/imp-96043-route-m-nyman-beurling-first-test.js ; OBSTRUCTION_MAP P15"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   23,
+   9.5,
+   [
+    {
+     "id": "mesoscopic-density-floor-cotangent",
+     "role": "rigid",
+     "name": "Density floor from the uniform lattice",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-3707-mesoscopic-density-floor-coefficient-derivation] [imp:imp-3642-sigma-crossover-tc-direct-dyson-crosscheck]"
+    },
+    {
+     "id": "h-desc-mirror-palm-surplus",
+     "role": "arithmetic",
+     "name": "H_desc-mirror and the Palm surplus 1.73",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#mirror-descent-theorem; dag:project-attempts-dag#twin-mirror-palm"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   24,
+   9.5,
+   [
+    {
+     "id": "ri-csharp-lower-bound-open",
+     "role": "open lemma",
+     "name": "Certified positive lower bound on c_sharp at ln 3",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-97350-krein-csharp-lower-bound-routes-shared-obstruction.js; imp-97416; imp-97491"
+    },
+    {
+     "id": "route-i-krein-certificate",
+     "role": "tool",
+     "name": "Route I: Toeplitz-Krein sigma_2 certificate ladder",
+     "type": "object",
+     "status": "certified",
+     "source": "[page:Imp96621Sigma2LamminMarginLadderViz] [page:Imp96646KreinCertificateMarginViz] [page:Imp97452RkFloorLinearLadderViz]"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   25,
+   9.5,
+   [
+    {
+     "id": "shift-bridge-ka-psd",
+     "role": "open lemma",
+     "name": "Conjecture 15.2/15.3: shift-bridge positivity K_a>=0",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "[impr:2270] [impr:2273] src/data/paper-audit-dashboard.js ; OBSTRUCTION_MAP G20,G2"
+    },
+    {
+     "id": "route-i-krein-certificate",
+     "role": "tool",
+     "name": "Route I: Toeplitz-Krein sigma_2 certificate ladder",
+     "type": "object",
+     "status": "certified",
+     "source": "[page:Imp96621Sigma2LamminMarginLadderViz] [page:Imp96646KreinCertificateMarginViz] [page:Imp97452RkFloorLinearLadderViz]"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   26,
+   9.4,
+   [
+    {
+     "id": "virtual-rungs-positive-extension",
+     "role": "rigid",
+     "name": "Virtual rungs: positive-extension freedom outside |u| < 2a",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09"
+    },
+    {
+     "id": "ramanujan-cube-satake-point",
+     "role": "arithmetic",
+     "name": "RH as Eisenstein Satake points in the Ramanujan cube",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-r2-synthesis.md \u00a71.4"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   27,
+   9.23,
+   [
+    {
+     "id": "subleading-k-closed-form",
+     "role": "rigid",
+     "name": "Subleading constant K = 11/2 - 2 gamma - 3 pi^2/8",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95983-subleading-K-closed-form"
+    },
+    {
+     "id": "route-m-first-moment-kappa",
+     "role": "arithmetic",
+     "name": "First moment F(b)>=kappa phi(b) b of Vasyunin sums",
+     "type": "open-lemma",
+     "status": "measured",
+     "source": "[impr:33371] [impr:33489] src/data/imp-97098-*.js, imp-97181-*.js ; OBSTRUCTION_MAP P15; [page:Imp97388SecondMomentDecompositionViz] [page:Imp97553KappaDecompos"
+    },
+    {
+     "id": "regular-rep-matrix-bridge",
+     "role": "crossing",
+     "name": "Regular-representation matrix Dirichlet series with the bridge (Krein) square (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 2; campaign/STRATEGY.md section 4.0 (RS-1); push/g-spinor-square-root/RESULT.md"
+    }
+   ]
+  ],
+  [
+   28,
+   9.0,
+   [
+    {
+     "id": "parity-pure-maj-witness-threshold",
+     "role": "rigid",
+     "name": "Parity-pure MAJ witness class and its certified rate threshold",
+     "type": "object",
+     "status": "certified",
+     "source": "imp:imp-95134-sharp-cluster-cap-threshold; imp-95143-displacement-witness-certificate; imp-95168"
+    },
+    {
+     "id": "cotangent-reciprocity-period-function",
+     "role": "arithmetic",
+     "name": "Bettin-Conrey reciprocity for c_0(h/k) yields a period function",
+     "type": "mechanism",
+     "status": "measured",
+     "source": "imp-97097-route-m-cotangent-first-moment-reciprocity; imp-97078; imp-97093"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   29,
+   9.0,
+   [
+    {
+     "id": "sech-toeplitz-poisson-dual-envelope",
+     "role": "rigid",
+     "name": "Sech seam Gram: Poisson dual symbol and finite-section envelope",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95825-finite-section-positivity-certificate; imp-95862; imp-95839; imp-95661"
+    },
+    {
+     "id": "alias-width-law-octave-weight",
+     "role": "arithmetic",
+     "name": "Alias-denominator to rate map and octave-Szasz weight",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95220-alias-width-law-weight-nogo"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "crossing",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   30,
+   9.0,
+   [
+    {
+     "id": "rm-cot-sign-open",
+     "role": "open lemma",
+     "name": "Sign of the signed cotangent half S(b) < 0",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-97287-route-m-cotangent-signed-half-residue-resonance-decomposition.js; imp-97181; imp-97314"
+    },
+    {
+     "id": "rm-e1-exact-divisor-identity",
+     "role": "tool",
+     "name": "Per-divisor identity for the weighted coprime sum remainder E1(b)",
+     "type": "identity",
+     "status": "proved",
+     "source": "src/data/imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js; imp-97290; imp-97422"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   31,
+   9.0,
+   [
+    {
+     "id": "mem-v52-unaudited-kyp",
+     "role": "open lemma",
+     "name": "Unaudited v52 constructive claims 15.3, 16.4, 16.6, 18.1, 18.2",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "mem:project_v52_audit_pattern.md; mem:reference_user_rh_route_atlas.md"
+    },
+    {
+     "id": "zpo-divergence-law-at-half",
+     "role": "tool",
+     "name": "Divergence law of the kinetic term at sigma -> 1/2+",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp-34790-phase-boundary-energy"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   32,
+   9.0,
+   [
+    {
+     "id": "tro6-natural",
+     "role": "open lemma",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    },
+    {
+     "id": "map-pos-49",
+     "role": "tool",
+     "name": "Mean-square lower bound for the discrepancy through additive characters: with g = chi * mu and sum_{d<=y} abs(g(d)) <= C y^beta, beta < 1, sum_{n<=X} chi(n) e(-",
+     "type": "identity",
+     "status": "proved",
+     "source": "OBSTRUCTION_MAP.md section 4 (Other)"
+    },
+    {
+     "id": "mem-qrh-7-8",
+     "role": "arithmetic",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math family 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "mem:reference_openai_math_release.md"
+    }
+   ]
+  ],
+  [
+   33,
+   8.86,
+   [
+    {
+     "id": "isolation-ratio-rate-identity",
+     "role": "flow functional",
+     "name": "Exact isolation-ratio rate (Lemma R2-T) and c_glob",
+     "type": "identity",
+     "status": "proved",
+     "source": "[page:ThetaBasinClosurePage] [page:OnsetBracketLedgerPage]"
+    },
+    {
+     "id": "dyadic-near-frequency-target",
+     "role": "arithmetic",
+     "name": "Signed near-frequency pair sum",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[pr:12] research-checkpoints/twin-curve-2026-10-18/near-frequency-2026-10-19/DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   34,
+   8.5,
+   [
+    {
+     "id": "zeta-half-line-bound-6",
+     "role": "rigid",
+     "name": "Explicit bound |zeta(1/2+it)|<=6 sqrt(1+|t|)",
+     "type": "tool",
+     "status": "proved",
+     "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/GROWING_ARITHMETIC_FILTER.md"
+    },
+    {
+     "id": "rm-kappa-total-measured",
+     "role": "arithmetic",
+     "name": "Route M full first-moment constant kappa -> 0.69550",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "src/data/imp-124855-route-m-kappa-first-moment-stability-remeasurement.js"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   35,
+   8.5,
+   [
+    {
+     "id": "route-b-limsup-stieltjes",
+     "role": "rigid",
+     "name": "Route B unconditional lim-sup theorem",
+     "type": "identity",
+     "status": "proved",
+     "source": "[page:RouteBLimsupPage]"
+    },
+    {
+     "id": "ramanujan-cube-satake-point",
+     "role": "arithmetic",
+     "name": "RH as Eisenstein Satake points in the Ramanujan cube",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:rh-attempts/2026-11-01-r2-synthesis.md \u00a71.4"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   36,
+   8.5,
+   [
+    {
+     "id": "krein-csharp-lower-bracket",
+     "role": "open lemma",
+     "name": "Certified lower bound for c_sharp=lambda_min(P_a M_sigma2 P_a) at 2a=ln 3",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[impr:33141] [impr:33658] [impr:33804] [impr:33690]"
+    },
+    {
+     "id": "toeplitz-krein-sigma2",
+     "role": "tool",
+     "name": "Pole-free Weil positivity as the Toeplitz form T_a[sigma_2]",
+     "type": "object",
+     "status": "proved",
+     "source": "imp-96769-krein-de-branges-uniform-gap-assessment; imp-97137; rh-route-i-toeplitz-krein-certificate-2026-09-24; dag:project-attempts-dag#routes-i-toeplitz-krein"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   37,
+   8.5,
+   [
+    {
+     "id": "sun-catalan-preprint-verdict",
+     "role": "open lemma",
+     "name": "Sun's Catalan-constant irrationality preprint: partial verification",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "imp:imp-95516-sun-catalan-objective-verdict; imp-95600"
+    },
+    {
+     "id": "mem-qrh-7-8",
+     "role": "tool",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math family 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "mem:reference_openai_math_release.md"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "arithmetic",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   38,
+   8.5,
+   [
+    {
+     "id": "zv-theta-kernel-phi",
+     "role": "flow functional",
+     "name": "Theta kernel Phi and its cosine transform",
+     "type": "object",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5; [zv:docs/ZERO-CHANNELS-MATH.md] sec 1"
+    },
+    {
+     "id": "staged-strip-triangular-inequality",
+     "role": "arithmetic",
+     "name": "Staged strip [1/8,7/8] as one triangular prime inequality",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   39,
+   8.5,
+   [
+    {
+     "id": "tilt-det-majorant",
+     "role": "flow functional",
+     "name": "TILT-DET: exponential-tilt Cauchy-determinant majorant",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95499-tilt-determinant-perp-majorant; imp-95500-tilt-eigenfloor-depth-credit; mem:project_imp95171_pending_cover_imp95172_tradeoff.md; imp-95499; [impr:"
+    },
+    {
+     "id": "restricted-mobius-delay-lift",
+     "role": "arithmetic",
+     "name": "Restricted reciprocal Mobius-delay lift (App H) and its conditioning barrier",
+     "type": "mechanism",
+     "status": "measured",
+     "source": "[imp:imp-1204-restricted-lift-pilot] [imp:imp-1207-app-S-adaptive-refinement]"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   40,
+   8.5,
+   [
+    {
+     "id": "dbn-native-triangle-binding",
+     "role": "flow functional",
+     "name": "Euler-mollified triangle floor bounds |f_t| from below",
+     "type": "identity",
+     "status": "proved",
+     "source": "[sib:dbn-lambda-01787854-candidate-audit/NATIVE_BINDING.md]"
+    },
+    {
+     "id": "route-m-first-moment-kappa",
+     "role": "arithmetic",
+     "name": "First moment F(b)>=kappa phi(b) b of Vasyunin sums",
+     "type": "open-lemma",
+     "status": "measured",
+     "source": "[impr:33371] [impr:33489] src/data/imp-97098-*.js, imp-97181-*.js ; OBSTRUCTION_MAP P15; [page:Imp97388SecondMomentDecompositionViz] [page:Imp97553KappaDecompos"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   41,
+   8.5,
+   [
+    {
+     "id": "collision-ladder-data",
+     "role": "flow functional",
+     "name": "Measured backward-Dyson collision-time ladder to N = 1e6",
+     "type": "object",
+     "status": "certified",
+     "source": "[imp:imp-360-extended-ladder-N1e6] [imp:imp-2485-dp8-rk4-N1e5] [imp:imp-2636-units-audit]"
+    },
+    {
+     "id": "h6-symbol-offline-poisson",
+     "role": "arithmetic",
+     "name": "H6: symbol = natural part + 4 pi sum of Poisson kernels of off-line zeros",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:rh-attempts/2026-11-01-r2-harmonic-floor.md Proposition H6"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   42,
+   8.5,
+   [
+    {
+     "id": "displacement-leg-field-lipschitz",
+     "role": "flow functional",
+     "name": "Displacement leg of the C_Lip to D_rest field-channel discharge",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95518-displacement-leg-discharge; imp-95518-displacement-leg-lemmas"
+    },
+    {
+     "id": "mirror-euler-rate-t0",
+     "role": "arithmetic",
+     "name": "t = 0 Euler-product descent rate for a topmost zero",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "dag:project-attempts-dag#twin-mirror-poisson-domination; dag:project-attempts-dag#twin-imp97053"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   43,
+   8.42,
+   [
+    {
+     "id": "phi-truncation-leftmost-zero",
+     "role": "phenomenon",
+     "name": "Positivity range of the truncated kernel Phi_N",
+     "type": "measured-phenomenon",
+     "status": "certified",
+     "source": "[imp:imp-3347-phi-leftmost-zero-vs-nphi] [imp:imp-3441-gaussian-curvature-coefficient-closed-form] [imp:imp-3468-gaussian-curvature-subleading-coefficient]"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "mechanism",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   44,
+   8.42,
+   [
+    {
+     "id": "displacement-leg-field-lipschitz",
+     "role": "flow functional",
+     "name": "Displacement leg of the C_Lip to D_rest field-channel discharge",
+     "type": "identity",
+     "status": "certified",
+     "source": "imp:imp-95518-displacement-leg-discharge; imp-95518-displacement-leg-lemmas"
+    },
+    {
+     "id": "euler-transport-flow",
+     "role": "arithmetic",
+     "name": "Euler transport flow of -zeta'/zeta",
+     "type": "object",
+     "status": "proved",
+     "source": "[page:VizEulerTransportFlowPage] src/data/viz-euler-transport-flow.js"
+    },
+    {
+     "id": "de-branges-positivity-family",
+     "role": "crossing",
+     "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)"
+    }
+   ]
+  ],
+  [
+   45,
+   8.4,
+   [
+    {
+     "id": "ff-lambda-of-elliptic-curve",
+     "role": "rigid",
+     "name": "de Bruijn-Newman analogue for elliptic curves over F_q",
+     "type": "identity",
+     "status": "proved",
+     "source": "route:route-27-function-field-twin-ladder-2026-10-06"
+    },
+    {
+     "id": "hasse-weil-checks",
+     "role": "arithmetic",
+     "name": "Function-field RH numerics",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:966] [impr:728] [impr:997] ; OBSTRUCTION_MAP T1-T3"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   46,
+   8.36,
+   [
+    {
+     "id": "zv-signed-shear-w",
+     "role": "flow functional",
+     "name": "Signed shear W and modulus monotonicity",
+     "type": "identity",
+     "status": "proved",
+     "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 1; [zv:docs/ROADMAP.md] sec 3"
+    },
+    {
+     "id": "darlington-losslessness-s7",
+     "role": "arithmetic",
+     "name": "S7: Darlington losslessness of the infinite twin ladder",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:insight-dag#gap-s7; dag:insight-dag#single-oscillator; dag:insight-dag#KYP-bounded-real"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   47,
+   8.19,
+   [
+    {
+     "id": "zv-taylor-rouche-channel-criterion",
+     "role": "flow functional",
+     "name": "Taylor-Rouche one-zero disk criterion",
+     "type": "tool",
+     "status": "proved",
+     "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 2"
+    },
+    {
+     "id": "euler-transport-flow",
+     "role": "arithmetic",
+     "name": "Euler transport flow of -zeta'/zeta",
+     "type": "object",
+     "status": "proved",
+     "source": "[page:VizEulerTransportFlowPage] src/data/viz-euler-transport-flow.js"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   48,
+   8.0,
+   [
+    {
+     "id": "mem-sg1c-c-half",
+     "role": "rigid",
+     "name": "Isolation onset c_glob = c_half = 0.8980208880762339",
+     "type": "identity",
+     "status": "proved",
+     "source": "mem:project_sg1c_isolation_tie_artifact.md; src/data/sg1c-cglo-closure-2026-08-28.js"
+    },
+    {
+     "id": "h-desc-mirror-palm-surplus",
+     "role": "arithmetic",
+     "name": "H_desc-mirror and the Palm surplus 1.73",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "dag:project-attempts-dag#mirror-descent-theorem; dag:project-attempts-dag#twin-mirror-palm"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   49,
+   8.0,
+   [
+    {
+     "id": "mesoscopic-density-floor-cotangent",
+     "role": "rigid",
+     "name": "Density floor from the uniform lattice",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-3707-mesoscopic-density-floor-coefficient-derivation] [imp:imp-3642-sigma-crossover-tc-direct-dyson-crosscheck]"
+    },
+    {
+     "id": "katz-sarnak-family-checks",
+     "role": "arithmetic",
+     "name": "Low-lying zeros of L(s,chi) families",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:989] [impr:1022] src/math/family-pair-correlation.js ; OBSTRUCTION_MAP P23"
+    },
+    {
+     "id": "twist-modulus-reciprocity",
+     "role": "crossing",
+     "name": "Twist-modulus reciprocity of twisted second moments as a crossing device (RS-1)",
+     "type": "mechanism",
+     "status": "conjectural",
+     "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 1; campaign/STRATEGY.md section 4.0 (RS-1, CROSS-1); push/OBSTRUCTION_MAP.md row P52"
+    }
+   ]
+  ],
+  [
+   50,
+   8.0,
+   [
+    {
+     "id": "sextic-theta-numerics",
+     "role": "phenomenon",
+     "name": "Sextic theta coefficients over Z[omega], norm <= 1e7",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "form:paper/sextic-theta-computation.md; form:paper/sextic-theta-synthesis.md \u00a72"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "mechanism",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   51,
+   8.0,
+   [
+    {
+     "id": "tro6-natural",
+     "role": "open lemma",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "tool",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    },
+    {
+     "id": "mem-abscissa-formula",
+     "role": "arithmetic",
+     "name": "7/8 method abscissa sigma_0 = 5/6 + (M - 2l)/12",
+     "type": "identity",
+     "status": "proved",
+     "source": "mem:reference_openai_math_release.md; beat78-prop152-2026-10-09.js"
+    }
+   ]
+  ],
+  [
+   52,
+   8.0,
+   [
+    {
+     "id": "lemma-cg-covering-identity",
+     "role": "flow functional",
+     "name": "Lemma CG: covering identity for finite Euler multiplier coefficients",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/cg-monotonicity.md; lean:lean/raymond-core/RaymondCore/CG.covering_identity"
+    },
+    {
+     "id": "bettin-conrey-intercept",
+     "role": "arithmetic",
+     "name": "Small-a intercept of I(a,b)=(a/2)log b+d_a",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "[impr:33598] [impr:33485] src/data/imp-97330-route-m-smalla-intercept-closed-form.js"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   53,
+   8.0,
+   [
+    {
+     "id": "theta-density-positivity",
+     "role": "flow functional",
+     "name": "Theorem P-POS: positivity of the theta exit density",
+     "type": "identity",
+     "status": "proved",
+     "source": "[impr:31701] [impr:31717] src/data/imp-95420-exit-density-positivity-selfcontained.js"
+    },
+    {
+     "id": "ns-rigid-loophole-dirichlet-coefficients",
+     "role": "arithmetic",
+     "name": "Loophole outside NS-RIGID: Dirichlet-coefficient inputs on the line",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "src/data/imp-95530-native-span-arithmetic-input-rigidity.js (loophole)"
+    },
+    {
+     "id": "tro6-natural",
+     "role": "crossing",
+     "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+     "type": "conjecture",
+     "status": "conjectural",
+     "source": "form:paper/sextic-theta-synthesis.md \u00a73; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8"
+    }
+   ]
+  ],
+  [
+   54,
+   7.3,
+   [
+    {
+     "id": "virtual-rungs-positive-extension",
+     "role": "rigid",
+     "name": "Virtual rungs: positive-extension freedom outside |u| < 2a",
+     "type": "mechanism",
+     "status": "proved",
+     "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09"
+    },
+    {
+     "id": "selberg-geodesic-ground-truth",
+     "role": "arithmetic",
+     "name": "Geometric object with primitive length spectrum {log p}",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "[impr:923] [impr:926] [impr:904] [impr:928]"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "crossing",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   55,
+   6.2,
+   [
+    {
+     "id": "zv-taylor-rouche-channel-criterion",
+     "role": "flow functional",
+     "name": "Taylor-Rouche one-zero disk criterion",
+     "type": "tool",
+     "status": "proved",
+     "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 2"
+    },
+    {
+     "id": "prime-tent-rh-equivalence",
+     "role": "arithmetic",
+     "name": "RH iff one nonnegative prime tent on (N,4N]",
+     "type": "identity",
+     "status": "proved",
+     "source": "[page:OpenFrontierPage]"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "crossing",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   56,
+   5.5,
+   [
+    {
+     "id": "mem-concentration-dip-open",
+     "role": "open lemma",
+     "name": "Operator concentration bound on the w_1 dip fraction",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "mem:project_toeplitz_krein_certificate.md"
+    },
+    {
+     "id": "seven-eighths-abscissa-formula",
+     "role": "tool",
+     "name": "sigma_0 = 1 - h/6 + b/12 = 5/6 + M/12 - l/6",
+     "type": "identity",
+     "status": "proved",
+     "source": "form:paper/beat78-synthesis.md R1; form:paper/qrh-improvement-attempt-a.md"
+    },
+    {
+     "id": "cotangent-reciprocity-period-function",
+     "role": "arithmetic",
+     "name": "Bettin-Conrey reciprocity for c_0(h/k) yields a period function",
+     "type": "mechanism",
+     "status": "measured",
+     "source": "imp-97097-route-m-cotangent-first-moment-reciprocity; imp-97078; imp-97093"
+    }
+   ]
+  ],
+  [
+   57,
+   5.0,
+   [
+    {
+     "id": "autocorrelation-moment-ladder",
+     "role": "rigid",
+     "name": "Bridge-mass moment expansion and degree-d miss factor",
+     "type": "identity",
+     "status": "proved",
+     "source": "[imp:imp-3524-general-degree-d-miss-factor] [imp:imp-3532-moment-tail-closed-error-bound] [imp:imp-3405-bridge-mass-lambda-scaling-law]"
+    },
+    {
+     "id": "cotangent-second-moment-upper-lemma",
+     "role": "arithmetic",
+     "name": "Weighted cotangent second moment Q(b) <= s0* b + O(1)",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp-96770-route-m-weighted-cotangent-homogeneous-envelope; imp-96750; imp-97142"
+    },
+    {
+     "id": "map-open-2",
+     "role": "crossing",
+     "name": "Below-level mixed moment sum_u abs(M_{r*} S_m)^2 << U^E with E < 1.1366-1.1452",
+     "type": "open-direction",
+     "status": "conjectural",
+     "source": "OBSTRUCTION_MAP.md section 6"
+    }
+   ]
+  ],
+  [
+   58,
+   5.0,
+   [
+    {
+     "id": "map-open-2",
+     "role": "open lemma",
+     "name": "Below-level mixed moment sum_u abs(M_{r*} S_m)^2 << U^E with E < 1.1366-1.1452",
+     "type": "open-direction",
+     "status": "conjectural",
+     "source": "OBSTRUCTION_MAP.md section 6"
+    },
+    {
+     "id": "rung-toeplitz-euler-detector",
+     "role": "tool",
+     "name": "Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6",
+     "type": "mechanism",
+     "status": "certified",
+     "source": "route:route-30-finite-support-euler-detector-2026-10-12; dag:project-attempts-dag#route30-euler-detector"
+    },
+    {
+     "id": "sextic-theta-numerics",
+     "role": "arithmetic",
+     "name": "Sextic theta coefficients over Z[omega], norm <= 1e7",
+     "type": "measured-phenomenon",
+     "status": "measured",
+     "source": "form:paper/sextic-theta-computation.md; form:paper/sextic-theta-synthesis.md \u00a72"
+    }
+   ]
+  ],
+  [
+   59,
+   5.0,
+   [
+    {
+     "id": "clv-single-gaussian-minorant-citation",
+     "role": "open lemma",
+     "name": "Single-Gaussian extremal minorant existence (cited step of SEP-OPT)",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp:imp-95421-clv-subordination-citation-boundary; imp-95441"
+    },
+    {
+     "id": "qrh-seven-eighths-input",
+     "role": "tool",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math family 003)",
+     "type": "tool",
+     "status": "certified",
+     "source": "form:external/openai-math-qrh-verification.md"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "arithmetic",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ],
+  [
+   60,
+   5.0,
+   [
+    {
+     "id": "sigma-b-abscissa-sensitivity",
+     "role": "open lemma",
+     "name": "Effective abscissa sigma_B of the coefficient ladder",
+     "type": "open-lemma",
+     "status": "conjectural",
+     "source": "imp:imp-95542-sigmab-sensitivity-zero-side-assessment; imp-95564"
+    },
+    {
+     "id": "pick-id-seam-pencil",
+     "role": "tool",
+     "name": "PICK-ID: the seam pencil is a Nevanlinna-Pick matrix",
+     "type": "identity",
+     "status": "proved",
+     "source": "imp:imp-95226-np-exact-signed-shift-constant"
+    },
+    {
+     "id": "qrh-seven-eighths",
+     "role": "arithmetic",
+     "name": "Zero-free half-plane Re s > 7/8 (openai/math 003)",
+     "type": "identity",
+     "status": "certified",
+     "source": "dag:project-attempts-dag#oai-qrh-lean-check; dag:project-attempts-dag#qrh-path-retune; dag:rh-landscape-dag#qrh-openai-2026"
+    }
+   ]
+  ]
+ ],
+ "outcomes": 100
+}

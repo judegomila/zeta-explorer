@@ -1,0 +1,217 @@
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 1250, "sigma": 0.5, "lam_min": 0.016489779255535887, "lam_max": 23.892415430045393, "lam_2": 0.02448586317557432, "resid_min": 8.8918461899989e-15, "resid_max": 2.6183538949927996e-14, "n_neg": 0, "top_idx_min": [6, 30, 2, 10, 12, 3, 42, 4], "gpu": false, "secs": 0.47585296630859375, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 1250, "sigma": 0.5, "lam_min": 0.06079716514983434, "lam_max": 9.955114923453436, "lam_2": 0.07266698930441624, "resid_min": 5.113661648919898e-15, "resid_max": 8.724629530489626e-15, "n_neg": 0, "top_idx_min": [3, 15, 1, 5, 21, 9, 105, 7], "gpu": false, "secs": 0.42983055114746094, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 1250, "sigma": 0.5, "lam_min": 0.023266577085831474, "lam_max": 18.824384245046794, "lam_2": 0.03297880957324757, "resid_min": 6.816708515586394e-15, "resid_max": 1.4356047507010866e-14, "n_neg": 0, "top_idx_min": [6, 2, 12, 42, 3, 4, 14, 18], "gpu": false, "secs": 0.29224085807800293, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 1250, "sigma": 0.5, "lam_min": 0.1548992129606876, "lam_max": 9.479646810482992, "lam_2": 0.15615941713811066, "resid_min": 3.4974765257939317e-15, "resid_max": 5.900337837328025e-15, "n_neg": 0, "top_idx_min": [4, 36, 1, 9, 16, 44, 11, 76], "gpu": false, "secs": 0.25620174407958984, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 1250, "sigma": 0.5, "lam_min": 7.026295617616696e-05, "lam_max": 108.21321779116968, "lam_2": 0.0001531218329218714, "resid_min": 6.245065285433651e-14, "resid_max": 7.743051483829613e-14, "n_neg": 0, "top_idx_min": [6, 30, 12, 2, 60, 10, 4, 3], "gpu": false, "secs": 0.2723841667175293, "lac4_n": 6, "lac4_min": 0.044701579720291214, "lac4_max": 3.8002700634823166}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 1250, "sigma": 0.5, "lam_min": 3.532791426051626e-05, "lam_max": 154.41524892748976, "lam_2": 8.196270487804043e-05, "resid_min": 4.315672704112795e-14, "resid_max": 2.02881828661914e-13, "n_neg": 0, "top_idx_min": [6, 30, 2, 12, 10, 60, 4, 3], "gpu": false, "secs": 0.2663235664367676, "lac4_n": 6, "lac4_min": 0.037149422416585226, "lac4_max": 4.062344018828178}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 1250, "sigma": 0.75, "lam_min": 0.06174665873869764, "lam_max": 9.918560694585024, "lam_2": 0.08004596442883802, "resid_min": 4.886719691729644e-15, "resid_max": 8.197339146505701e-15, "n_neg": 0, "top_idx_min": [6, 30, 12, 60, 10, 2, 42, 18], "gpu": false, "secs": 0.28912782669067383, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 1250, "sigma": 0.75, "lam_min": 0.17986113763066405, "lam_max": 4.372867453809905, "lam_2": 0.19708333348374993, "resid_min": 2.016374765575113e-15, "resid_max": 3.2254399576892113e-15, "n_neg": 0, "top_idx_min": [15, 3, 21, 105, 45, 9, 5, 1], "gpu": false, "secs": 0.2882716655731201, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 1250, "sigma": 0.75, "lam_min": 0.07810061281229301, "lam_max": 8.265670221498372, "lam_2": 0.09805278086242726, "resid_min": 3.824284990399835e-15, "resid_max": 6.18265486291441e-15, "n_neg": 0, "top_idx_min": [6, 12, 42, 18, 84, 36, 24, 2], "gpu": false, "secs": 0.388962984085083, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 1250, "sigma": 0.75, "lam_min": 0.1914790596374406, "lam_max": 3.813436178766989, "lam_2": 0.25336790777524815, "resid_min": 2.1568784002845026e-15, "resid_max": 3.797278541657065e-15, "n_neg": 0, "top_idx_min": [12, 24, 36, 72, 4, 6, 48, 18], "gpu": false, "secs": 0.27091407775878906, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 1250, "sigma": 0.75, "lam_min": 0.0014632112067028064, "lam_max": 36.19642772318857, "lam_2": 0.002546920988032086, "resid_min": 8.67018366042094e-15, "resid_max": 2.644108497169883e-14, "n_neg": 0, "top_idx_min": [6, 12, 30, 60, 18, 10, 2, 4], "gpu": false, "secs": 0.22850465774536133, "lac4_n": 6, "lac4_min": 0.12657077439897577, "lac4_max": 2.9433972434538447}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 1250, "sigma": 0.75, "lam_min": 0.0010940008359379457, "lam_max": 43.37043739257804, "lam_2": 0.0019553961655230136, "resid_min": 1.066903543729088e-14, "resid_max": 3.964261443218167e-14, "n_neg": 0, "top_idx_min": [6, 12, 30, 60, 2, 10, 4, 18], "gpu": false, "secs": 0.28034234046936035, "lac4_n": 6, "lac4_min": 0.11659112299757984, "lac4_max": 3.0707382531518834}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 1250, "sigma": 1.0, "lam_min": 0.13435987194944107, "lam_max": 5.647529081698654, "lam_2": 0.1620187126416876, "resid_min": 5.3049913629070455e-15, "resid_max": 5.737147363856036e-15, "n_neg": 0, "top_idx_min": [30, 12, 60, 6, 36, 18, 24, 90], "gpu": false, "secs": 0.3522310256958008, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 1250, "sigma": 1.0, "lam_min": 0.32678180052955325, "lam_max": 2.7169012965081722, "lam_2": 0.3444255075216905, "resid_min": 1.6969126659113684e-15, "resid_max": 1.5463106181957962e-15, "n_neg": 0, "top_idx_min": [15, 45, 3, 105, 21, 9, 63, 5], "gpu": false, "secs": 0.27474164962768555, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 1250, "sigma": 1.0, "lam_min": 0.15712963341699418, "lam_max": 4.964834557582648, "lam_2": 0.18189970937886651, "resid_min": 2.4781258422487903e-15, "resid_max": 3.759514021319611e-15, "n_neg": 0, "top_idx_min": [12, 6, 36, 84, 24, 18, 42, 72], "gpu": false, "secs": 0.30724167823791504, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 1250, "sigma": 1.0, "lam_min": 0.26670588125026107, "lam_max": 2.327317964865791, "lam_2": 0.3329105308945848, "resid_min": 1.0583679502509117e-15, "resid_max": 2.2845991493346335e-15, "n_neg": 0, "top_idx_min": [12, 24, 36, 72, 48, 6, 4, 144], "gpu": false, "secs": 0.2910606861114502, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 1250, "sigma": 1.0, "lam_min": 0.009399267315102636, "lam_max": 16.726640956873624, "lam_2": 0.014134337217362285, "resid_min": 7.382737295339568e-15, "resid_max": 1.9652261694646427e-14, "n_neg": 0, "top_idx_min": [12, 60, 30, 6, 36, 24, 18, 90], "gpu": false, "secs": 0.2798335552215576, "lac4_n": 6, "lac4_min": 0.24259660833174712, "lac4_max": 2.358252610084713}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 1250, "sigma": 1.0, "lam_min": 0.008067129866914657, "lam_max": 18.52530916273596, "lam_2": 0.012301003922904768, "resid_min": 7.741323350675892e-15, "resid_max": 1.7981835734658983e-14, "n_neg": 0, "top_idx_min": [12, 6, 30, 60, 36, 24, 18, 20], "gpu": false, "secs": 0.29047274589538574, "lac4_n": 6, "lac4_min": 0.2315779632171702, "lac4_max": 2.4267258688044926}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 1250, "sigma": 1.2, "lam_min": 0.20426761051542197, "lam_max": 4.08815748400634, "lam_2": 0.23720237720451678, "resid_min": 2.0634606819940113e-15, "resid_max": 3.4445436016847185e-15, "n_neg": 0, "top_idx_min": [60, 12, 30, 6, 36, 24, 120, 18], "gpu": false, "secs": 0.3097343444824219, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 1250, "sigma": 1.2, "lam_min": 0.4414266789386426, "lam_max": 2.114189278512918, "lam_2": 0.4575886614503505, "resid_min": 1.175435862466734e-15, "resid_max": 1.75069575359548e-15, "n_neg": 0, "top_idx_min": [15, 45, 3, 9, 105, 21, 63, 315], "gpu": false, "secs": 0.28841376304626465, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 1250, "sigma": 1.2, "lam_min": 0.22856558191405546, "lam_max": 3.718325844309299, "lam_2": 0.253049242567629, "resid_min": 1.7582849891387853e-15, "resid_max": 3.592959007799981e-15, "n_neg": 0, "top_idx_min": [12, 36, 24, 6, 84, 18, 72, 42], "gpu": false, "secs": 0.2882194519042969, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 1250, "sigma": 1.2, "lam_min": 0.3617546288907264, "lam_max": 1.8246056102598676, "lam_2": 0.4205299417782439, "resid_min": 1.0963656549311927e-15, "resid_max": 1.302842787507445e-15, "n_neg": 0, "top_idx_min": [24, 12, 72, 36, 48, 144, 6, 4], "gpu": false, "secs": 0.3549988269805908, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 1250, "sigma": 1.2, "lam_min": 0.025892960959150908, "lam_max": 10.495762641705731, "lam_2": 0.03576160194420485, "resid_min": 4.662057266334848e-15, "resid_max": 1.0253032895597432e-14, "n_neg": 0, "top_idx_min": [12, 60, 30, 6, 36, 24, 18, 120], "gpu": false, "secs": 0.26785731315612793, "lac4_n": 6, "lac4_min": 0.34726133280988924, "lac4_max": 2.0243438872727837}}
+planned allocation: 1250x1250 float64 = 0.01 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 1250, "sigma": 1.2, "lam_min": 0.023437872078539104, "lam_max": 11.256436416592992, "lam_2": 0.03269404290319596, "resid_min": 6.5683945233333974e-15, "resid_max": 1.2486458819146979e-14, "n_neg": 0, "top_idx_min": [12, 60, 30, 6, 36, 24, 18, 120], "gpu": false, "secs": 0.2750430107116699, "lac4_n": 6, "lac4_min": 0.33636342612882075, "lac4_max": 2.068440681212276}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 2500, "sigma": 0.5, "lam_min": 0.013614577674143931, "lam_max": 28.763349017789196, "lam_2": 0.019946871508184364, "resid_min": 1.1437811767387164e-14, "resid_max": 3.5653148326439787e-14, "n_neg": 0, "top_idx_min": [6, 30, 2, 12, 10, 42, 60, 3], "gpu": false, "secs": 2.564746856689453, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 2500, "sigma": 0.5, "lam_min": 0.05101226268610528, "lam_max": 11.72831157566818, "lam_2": 0.06079716514983459, "resid_min": 5.4045592515167466e-15, "resid_max": 1.1782756614057609e-14, "n_neg": 0, "top_idx_min": [3, 15, 1, 21, 5, 105, 9, 7], "gpu": false, "secs": 2.1342458724975586, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 2500, "sigma": 0.5, "lam_min": 0.019612348662948698, "lam_max": 22.318897490061925, "lam_2": 0.027615703237684613, "resid_min": 1.0248616581029838e-14, "resid_max": 1.8856405638955073e-14, "n_neg": 0, "top_idx_min": [6, 12, 2, 42, 3, 4, 14, 18], "gpu": false, "secs": 2.1689891815185547, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 2500, "sigma": 0.5, "lam_min": 0.13689020694085627, "lam_max": 11.232325446507195, "lam_2": 0.14103360160928838, "resid_min": 1.041914816238366e-14, "resid_max": 1.4012338308712067e-14, "n_neg": 0, "top_idx_min": [4, 36, 44, 1, 9, 16, 396, 11], "gpu": false, "secs": 2.0157580375671387, "lac4_n": 6, "lac4_min": 0.3521615862880627, "lac4_max": 2.3934290740676247}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 2500, "sigma": 0.5, "lam_min": 4.495094484692204e-05, "lam_max": 146.32344989875844, "lam_2": 9.920750730686789e-05, "resid_min": 2.88657994940629e-14, "resid_max": 1.4360454797400952e-13, "n_neg": 0, "top_idx_min": [6, 30, 12, 60, 2, 10, 42, 18], "gpu": false, "secs": 2.0134642124176025, "lac4_n": 6, "lac4_min": 0.044701579720291214, "lac4_max": 3.8002700634823166}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 2500, "sigma": 0.5, "lam_min": 2.133357044458347e-05, "lam_max": 221.3974845491622, "lam_2": 5.052650716398766e-05, "resid_min": 4.313059277646949e-14, "resid_max": 1.917605542007844e-13, "n_neg": 0, "top_idx_min": [6, 30, 12, 2, 60, 10, 42, 4], "gpu": false, "secs": 1.8395071029663086, "lac4_n": 6, "lac4_min": 0.037149422416585226, "lac4_max": 4.062344018828178}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 2500, "sigma": 0.75, "lam_min": 0.05555482939409282, "lam_max": 11.043278241585513, "lam_2": 0.07132157702470253, "resid_min": 5.888416109022394e-15, "resid_max": 1.1351440246940027e-14, "n_neg": 0, "top_idx_min": [30, 6, 60, 12, 42, 10, 18, 90], "gpu": false, "secs": 2.3868956565856934, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 2500, "sigma": 0.75, "lam_min": 0.16442210058683981, "lam_max": 4.766459270983515, "lam_2": 0.17986113763066455, "resid_min": 2.829914226146654e-15, "resid_max": 6.203808864757286e-15, "n_neg": 0, "top_idx_min": [15, 3, 105, 21, 45, 9, 5, 35], "gpu": false, "secs": 1.8974480628967285, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 2500, "sigma": 0.75, "lam_min": 0.07183472725691338, "lam_max": 9.072801388423866, "lam_2": 0.08869604960197768, "resid_min": 3.8484605918895744e-15, "resid_max": 1.0068583279212096e-14, "n_neg": 0, "top_idx_min": [6, 12, 42, 84, 18, 36, 24, 2], "gpu": false, "secs": 1.7605960369110107, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 2500, "sigma": 0.75, "lam_min": 0.17099492664583935, "lam_max": 4.1613256483961285, "lam_2": 0.2228867936367627, "resid_min": 3.6016442745232384e-15, "resid_max": 3.181829370836537e-15, "n_neg": 0, "top_idx_min": [12, 36, 24, 72, 4, 6, 48, 144], "gpu": false, "secs": 1.96213698387146, "lac4_n": 6, "lac4_min": 0.49978805852352287, "lac4_max": 1.8554455720053313}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 2500, "sigma": 0.75, "lam_min": 0.0011471343022464123, "lam_max": 43.47708648012795, "lam_2": 0.0019377441648225741, "resid_min": 1.2312673453296347e-14, "resid_max": 6.30630357243305e-14, "n_neg": 0, "top_idx_min": [30, 6, 12, 60, 18, 10, 90, 36], "gpu": false, "secs": 1.601250410079956, "lac4_n": 6, "lac4_min": 0.12657077439897577, "lac4_max": 2.9433972434538447}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 2500, "sigma": 0.75, "lam_min": 0.0008358306902045397, "lam_max": 53.25450503560776, "lam_2": 0.001462558675208547, "resid_min": 1.5793658847888927e-14, "resid_max": 6.577496997406793e-14, "n_neg": 0, "top_idx_min": [30, 6, 12, 60, 18, 10, 42, 2], "gpu": false, "secs": 1.7824792861938477, "lac4_n": 6, "lac4_min": 0.11659112299757984, "lac4_max": 3.0707382531518834}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 2500, "sigma": 1.0, "lam_min": 0.12613559244994263, "lam_max": 6.046150391925404, "lam_2": 0.1500928744500369, "resid_min": 3.750257748121623e-15, "resid_max": 6.317111652672757e-15, "n_neg": 0, "top_idx_min": [60, 30, 12, 6, 90, 36, 180, 18], "gpu": false, "secs": 2.8266265392303467, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 2500, "sigma": 1.0, "lam_min": 0.31068057908319524, "lam_max": 2.8543719234120672, "lam_2": 0.32678180052955336, "resid_min": 2.2384189110873738e-15, "resid_max": 2.560831597523272e-15, "n_neg": 0, "top_idx_min": [15, 105, 45, 3, 21, 9, 315, 63], "gpu": false, "secs": 2.59018874168396, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 2500, "sigma": 1.0, "lam_min": 0.14986316309596187, "lam_max": 5.25598275243721, "lam_2": 0.1699853093602751, "resid_min": 3.1398933333852372e-15, "resid_max": 5.652972787601535e-15, "n_neg": 0, "top_idx_min": [12, 36, 84, 6, 24, 42, 18, 72], "gpu": false, "secs": 2.529630184173584, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 2500, "sigma": 1.0, "lam_min": 0.2454863910476078, "lam_max": 2.43867929217195, "lam_2": 0.3010662806237043, "resid_min": 2.697794347233924e-15, "resid_max": 1.959528290513424e-15, "n_neg": 0, "top_idx_min": [12, 24, 36, 72, 48, 144, 6, 4], "gpu": false, "secs": 2.7596933841705322, "lac4_n": 6, "lac4_min": 0.622081064450553, "lac4_max": 1.5513276081067644}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 2500, "sigma": 1.0, "lam_min": 0.008160815564995632, "lam_max": 18.850471037591063, "lam_2": 0.011804717069739502, "resid_min": 8.735428099078101e-15, "resid_max": 1.6520315891399537e-14, "n_neg": 0, "top_idx_min": [60, 30, 12, 6, 36, 24, 90, 18], "gpu": false, "secs": 3.2420384883880615, "lac4_n": 6, "lac4_min": 0.24259660833174712, "lac4_max": 2.358252610084713}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 2500, "sigma": 1.0, "lam_min": 0.006922508849589617, "lam_max": 21.08414620250756, "lam_2": 0.010182420573237904, "resid_min": 8.395144459853497e-15, "resid_max": 2.1623325262069035e-14, "n_neg": 0, "top_idx_min": [60, 30, 12, 6, 36, 18, 24, 90], "gpu": false, "secs": 2.589357614517212, "lac4_n": 6, "lac4_min": 0.2315779632171702, "lac4_max": 2.4267258688044926}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 2500, "sigma": 1.2, "lam_min": 0.19553080321753738, "lam_max": 4.294369269363236, "lam_2": 0.2239466845164452, "resid_min": 3.1737625219574164e-15, "resid_max": 5.2485237874378094e-15, "n_neg": 0, "top_idx_min": [60, 30, 12, 180, 120, 36, 90, 6], "gpu": false, "secs": 2.8385636806488037, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 2500, "sigma": 1.2, "lam_min": 0.42709413554982933, "lam_max": 2.183950715422436, "lam_2": 0.4414266789386432, "resid_min": 2.2727148937048163e-15, "resid_max": 1.7178813487653922e-15, "n_neg": 0, "top_idx_min": [15, 45, 105, 315, 9, 21, 3, 63], "gpu": false, "secs": 2.683413028717041, "lac4_n": 6, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 2500, "sigma": 1.2, "lam_min": 0.22122895965036743, "lam_max": 3.8712032436272104, "lam_2": 0.24158288487173, "resid_min": 2.2520001656368075e-15, "resid_max": 3.440332950010675e-15, "n_neg": 0, "top_idx_min": [12, 36, 24, 84, 72, 18, 6, 252], "gpu": false, "secs": 2.7808680534362793, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 2500, "sigma": 1.2, "lam_min": 0.34289465382451345, "lam_max": 1.8781150714224304, "lam_2": 0.3923348028873128, "resid_min": 1.584728940718904e-15, "resid_max": 1.5258033510963152e-15, "n_neg": 0, "top_idx_min": [24, 72, 12, 36, 48, 144, 6, 18], "gpu": false, "secs": 2.9000566005706787, "lac4_n": 6, "lac4_min": 0.7017857667441917, "lac4_max": 1.3968033481961977}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 2500, "sigma": 1.2, "lam_min": 0.023516091516931924, "lam_max": 11.459236192589827, "lam_2": 0.0314042536667653, "resid_min": 6.325143126020637e-15, "resid_max": 1.2356857381271868e-14, "n_neg": 0, "top_idx_min": [60, 12, 30, 36, 120, 24, 180, 6], "gpu": false, "secs": 3.286261796951294, "lac4_n": 6, "lac4_min": 0.34726133280988924, "lac4_max": 2.0243438872727837}}
+planned allocation: 2500x2500 float64 = 0.05 GiB (x3 with eigensolver work)
+planned allocation: 6x6 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 2500, "sigma": 1.2, "lam_min": 0.021148871812296636, "lam_max": 12.36182401905172, "lam_2": 0.02852762034380079, "resid_min": 8.727040979600786e-15, "resid_max": 1.2990611548137719e-14, "n_neg": 0, "top_idx_min": [60, 12, 30, 36, 6, 120, 24, 180], "gpu": false, "secs": 3.351813316345215, "lac4_n": 6, "lac4_min": 0.33636342612882075, "lac4_max": 2.068440681212276}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 5000, "sigma": 0.5, "lam_min": 0.011371338593399364, "lam_max": 34.29114014342371, "lam_2": 0.016378805166905746, "resid_min": 1.5341045708099322e-14, "resid_max": 2.6669662866321252e-14, "n_neg": 0, "top_idx_min": [6, 30, 12, 2, 10, 42, 60, 3], "gpu": false, "secs": 20.62457299232483, "lac4_n": 7, "lac4_min": 0.3472634716388789, "lac4_max": 2.4936895471619542}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 5000, "sigma": 0.5, "lam_min": 0.0434847591894499, "lam_max": 13.678581434117705, "lam_2": 0.05101226268610593, "resid_min": 5.556820586688379e-15, "resid_max": 1.5785778436526448e-14, "n_neg": 0, "top_idx_min": [3, 15, 21, 1, 5, 105, 9, 7], "gpu": false, "secs": 17.878143548965454, "lac4_n": 7, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 5000, "sigma": 0.5, "lam_min": 0.01665733268352334, "lam_max": 26.24581065069853, "lam_2": 0.02341217663698266, "resid_min": 1.2165834732099077e-14, "resid_max": 3.001429492816349e-14, "n_neg": 0, "top_idx_min": [6, 12, 42, 2, 18, 3, 4, 84], "gpu": false, "secs": 20.508860111236572, "lac4_n": 7, "lac4_min": 0.3472634716388789, "lac4_max": 2.4936895471619542}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 5000, "sigma": 0.5, "lam_min": 0.12230797276465133, "lam_max": 13.17465451051107, "lam_2": 0.12483315978665728, "resid_min": 7.878217770365838e-15, "resid_max": 1.487616613147139e-14, "n_neg": 0, "top_idx_min": [4, 36, 44, 1, 16, 9, 396, 11], "gpu": false, "secs": 20.74459171295166, "lac4_n": 7, "lac4_min": 0.3472634716388789, "lac4_max": 2.4936895471619542}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 5000, "sigma": 0.5, "lam_min": 3.021740782126671e-05, "lam_max": 195.06408991273545, "lam_2": 6.543281889133272e-05, "resid_min": 3.9821809832918784e-14, "resid_max": 2.3967013312419836e-13, "n_neg": 0, "top_idx_min": [6, 30, 12, 60, 42, 10, 2, 18], "gpu": false, "secs": 18.867878198623657, "lac4_n": 7, "lac4_min": 0.042492991929054064, "lac4_max": 4.070415579105406}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 5000, "sigma": 0.5, "lam_min": 1.3583746643553669e-05, "lam_max": 313.97076439541803, "lam_2": 3.127661768343964e-05, "resid_min": 7.411868929232394e-14, "resid_max": 2.3689328992158376e-13, "n_neg": 0, "top_idx_min": [6, 30, 12, 60, 2, 10, 42, 4], "gpu": false, "secs": 15.89659833908081, "lac4_n": 7, "lac4_min": 0.0353248631282571, "lac4_max": 4.397101250582912}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 5000, "sigma": 0.75, "lam_min": 0.0504391060013288, "lam_max": 12.199682793732254, "lam_2": 0.06408026702260007, "resid_min": 6.757047702145975e-15, "resid_max": 1.2194448071127161e-14, "n_neg": 0, "top_idx_min": [30, 60, 6, 12, 42, 210, 90, 84], "gpu": false, "secs": 18.50352954864502, "lac4_n": 7, "lac4_min": 0.4941544792558925, "lac4_max": 1.900988683138968}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 5000, "sigma": 0.75, "lam_min": 0.15209042057799232, "lam_max": 5.15474540922257, "lam_2": 0.16442210058683956, "resid_min": 4.114427243470742e-15, "resid_max": 4.720875694743626e-15, "n_neg": 0, "top_idx_min": [15, 105, 3, 21, 45, 9, 5, 315], "gpu": false, "secs": 20.86986780166626, "lac4_n": 7, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 5000, "sigma": 0.75, "lam_min": 0.06625002775507323, "lam_max": 9.891974470896404, "lam_2": 0.08036189153853372, "resid_min": 4.785627144393927e-15, "resid_max": 8.390839672413373e-15, "n_neg": 0, "top_idx_min": [6, 12, 42, 84, 18, 36, 126, 24], "gpu": false, "secs": 30.4903404712677, "lac4_n": 7, "lac4_min": 0.4941544792558925, "lac4_max": 1.900988683138968}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 5000, "sigma": 0.75, "lam_min": 0.1533357463469632, "lam_max": 4.505516691597303, "lam_2": 0.19758127093050815, "resid_min": 2.8153481426388137e-15, "resid_max": 4.6905821860940706e-15, "n_neg": 0, "top_idx_min": [12, 36, 72, 24, 6, 4, 144, 48], "gpu": false, "secs": 22.581541776657104, "lac4_n": 7, "lac4_min": 0.4941544792558925, "lac4_max": 1.900988683138968}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 5000, "sigma": 0.75, "lam_min": 0.0009175441081011606, "lam_max": 51.56378925986383, "lam_2": 0.0015341110393321381, "resid_min": 1.4926374078380673e-14, "resid_max": 4.661072451700038e-14, "n_neg": 0, "top_idx_min": [30, 60, 12, 6, 90, 42, 18, 36], "gpu": false, "secs": 19.497637510299683, "lac4_n": 7, "lac4_min": 0.12174391878901135, "lac4_max": 3.07824108898386}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 5000, "sigma": 0.75, "lam_min": 0.0006535199944433281, "lam_max": 64.56583458935785, "lam_2": 0.0011310654646587922, "resid_min": 2.5482731480204488e-14, "resid_max": 5.725691195153571e-14, "n_neg": 0, "top_idx_min": [30, 6, 60, 12, 42, 18, 90, 10], "gpu": false, "secs": 19.735727071762085, "lac4_n": 7, "lac4_min": 0.11214456657420256, "lac4_max": 3.226098737061529}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 5000, "sigma": 1.0, "lam_min": 0.11905557692716155, "lam_max": 6.435290816328869, "lam_2": 0.14054302257518048, "resid_min": 4.22682435151081e-15, "resid_max": 7.715078676174948e-15, "n_neg": 0, "top_idx_min": [60, 30, 12, 180, 90, 6, 120, 210], "gpu": false, "secs": 21.641870737075806, "lac4_n": 7, "lac4_min": 0.6165951037519107, "lac4_max": 1.575032533662933}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 5000, "sigma": 1.0, "lam_min": 0.29735504349863334, "lam_max": 2.9868906550758068, "lam_2": 0.31068057908319513, "resid_min": 2.2449644647286122e-15, "resid_max": 2.9756500146045915e-15, "n_neg": 0, "top_idx_min": [15, 105, 45, 315, 21, 3, 9, 63], "gpu": false, "secs": 18.22521471977234, "lac4_n": 7, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 5000, "sigma": 1.0, "lam_min": 0.14334794622496738, "lam_max": 5.535767374667449, "lam_2": 0.1601254964258137, "resid_min": 4.191115109538642e-15, "resid_max": 6.892859270285453e-15, "n_neg": 0, "top_idx_min": [12, 84, 36, 42, 6, 24, 18, 252], "gpu": false, "secs": 27.93557596206665, "lac4_n": 7, "lac4_min": 0.6165951037519107, "lac4_max": 1.575032533662933}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 5000, "sigma": 1.0, "lam_min": 0.22680914364329335, "lam_max": 2.5494859543663875, "lam_2": 0.2747902326508927, "resid_min": 2.417829645835194e-15, "resid_max": 2.4723435335241864e-15, "n_neg": 0, "top_idx_min": [72, 36, 12, 24, 144, 48, 6, 18], "gpu": false, "secs": 25.342216730117798, "lac4_n": 7, "lac4_min": 0.6165951037519107, "lac4_max": 1.575032533662933}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 5000, "sigma": 1.0, "lam_min": 0.007156281591959923, "lam_max": 21.035573463601256, "lam_2": 0.010173690183521045, "resid_min": 9.39550595655103e-15, "resid_max": 2.1088219543461358e-14, "n_neg": 0, "top_idx_min": [60, 30, 12, 180, 6, 36, 120, 90], "gpu": false, "secs": 29.017495155334473, "lac4_n": 7, "lac4_min": 0.2356079318108486, "lac4_max": 2.431212097490241}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 5000, "sigma": 1.0, "lam_min": 0.006006242225380982, "lam_max": 23.75364286104729, "lam_2": 0.008700512418204317, "resid_min": 1.4485881103390755e-14, "resid_max": 2.2033143281881194e-14, "n_neg": 0, "top_idx_min": [60, 30, 12, 6, 180, 36, 90, 120], "gpu": false, "secs": 22.540977954864502, "lac4_n": 7, "lac4_min": 0.22486910586714542, "lac4_max": 2.507378948082239}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"zeta": {"N": 5000, "sigma": 1.2, "lam_min": 0.18786119443749072, "lam_max": 4.490150254072265, "lam_2": 0.21335648423894776, "resid_min": 3.4581232244689456e-15, "resid_max": 5.1238754089061205e-15, "n_neg": 0, "top_idx_min": [60, 180, 30, 120, 12, 90, 36, 24], "gpu": false, "secs": 27.5350341796875, "lac4_n": 7, "lac4_min": 0.6968003648223797, "lac4_max": 1.41185087364317}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_-4": {"N": 5000, "sigma": 1.2, "lam_min": 0.41462833248082553, "lam_max": 2.252592662711831, "lam_2": 0.4270941355498303, "resid_min": 1.417476182917938e-15, "resid_max": 1.896301598064131e-15, "n_neg": 0, "top_idx_min": [45, 15, 105, 315, 63, 21, 9, 135], "gpu": false, "secs": 23.84145736694336, "lac4_n": 7, "lac4_min": 1.0, "lac4_max": 1.0}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"chi_5": {"N": 5000, "sigma": 1.2, "lam_min": 0.21478946546418548, "lam_max": 4.013947160838573, "lam_2": 0.2317619123795603, "resid_min": 2.9408239219231506e-15, "resid_max": 2.9650062821695062e-15, "n_neg": 0, "top_idx_min": [36, 84, 12, 72, 24, 252, 168, 18], "gpu": false, "secs": 22.00099468231201, "lac4_n": 7, "lac4_min": 0.6968003648223797, "lac4_max": 1.41185087364317}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"DH": {"N": 5000, "sigma": 1.2, "lam_min": 0.3262030854506266, "lam_max": 1.9339040234254654, "lam_2": 0.36892750092404086, "resid_min": 1.8544107835962137e-15, "resid_max": 2.3086948463084575e-15, "n_neg": 0, "top_idx_min": [72, 24, 36, 12, 144, 48, 216, 108], "gpu": false, "secs": 22.376363277435303, "lac4_n": 7, "lac4_min": 0.6968003648223797, "lac4_max": 1.41185087364317}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.02)": {"N": 5000, "sigma": 1.2, "lam_min": 0.021511927962651712, "lam_max": 12.411586156141686, "lam_2": 0.02812643062416854, "resid_min": 7.913224898014971e-15, "resid_max": 1.4102888318312893e-14, "n_neg": 0, "top_idx_min": [60, 180, 30, 120, 12, 36, 90, 24], "gpu": false, "secs": 23.35654377937317, "lac4_n": 7, "lac4_min": 0.33936717062035715, "lac4_max": 2.071193191702985}}
+planned allocation: 5000x5000 float64 = 0.19 GiB (x3 with eigensolver work)
+planned allocation: 7x7 float64 = 0.00 GiB (x3 with eigensolver work)
+{"E_a(0.2)": {"N": 5000, "sigma": 1.2, "lam_min": 0.01922793273421714, "lam_max": 13.464329855188987, "lam_2": 0.025432929796949538, "resid_min": 8.436373723187864e-15, "resid_max": 1.2579787917214334e-14, "n_neg": 0, "top_idx_min": [60, 30, 12, 180, 120, 36, 90, 24], "gpu": false, "secs": 27.311947345733643, "lac4_n": 7, "lac4_min": 0.32864416487077824, "lac4_max": 2.119157037499672}}
+DONE

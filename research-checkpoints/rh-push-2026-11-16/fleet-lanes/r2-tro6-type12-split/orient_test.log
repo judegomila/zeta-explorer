@@ -1,0 +1,38 @@
+Q = 3199, Q^(1/2) = 56.6, generic rows 11454; conductors 28224; estimator-noise share 0.199
+units: mean of (Im Pt)^2/||rho w||^2;  random level 1.00;  noise-only level 0.20
+
+(a) PRIME moduli, by N(c)/Q:
+    0.0000 < N(c)/Q <=  0.0050  (N(c) in (      0,     16]): n =     4   mean = 0.559 +- 0.273
+    0.0050 < N(c)/Q <=  0.0177  (N(c) in (     16,     57]): n =     9   mean = 0.056 +- 0.012
+    0.0177 < N(c)/Q <=  0.0500  (N(c) in (     57,    160]): n =    23   mean = 0.234 +- 0.071
+    0.0500 < N(c)/Q <=  0.1500  (N(c) in (    160,    480]): n =    53   mean = 0.717 +- 0.094
+    0.1500 < N(c)/Q <=  0.4000  (N(c) in (    480,   1280]): n =   116   mean = 0.376 +- 0.048
+    0.4000 < N(c)/Q <=  1.0000  (N(c) in (   1280,   3199]): n =   243   mean = 0.810 +- 0.080
+    1.0000 < N(c)/Q <=  2.5000  (N(c) in (   3199,   7998]): n =   554   mean = 0.892 +- 0.056
+    2.5000 < N(c)/Q <=  6.0000  (N(c) in (   7998,  19194]): n =  1173   mean = 0.751 +- 0.031
+    6.0000 < N(c)/Q <= 15.0000  (N(c) in (  19194,  47985]): n =  2766   mean = 0.834 +- 0.022
+   15.0000 < N(c)/Q <= 32.0000  (N(c) in (  47985, 102368]): n =  4660   mean = 0.944 +- 0.020
+
+(b) all moduli with N(c) > 3 Q^(1/2), by threshold statistic T = N(c)^2/(Q pmin):   [and by number of prime factors]
+     0.03 < T <=     0.10: n =    25  mean = 0.689 +- 0.152   | k=1: n=   25 mean=0.689 | k=2: n=    0            | k=3: n=    0           
+     0.10 < T <=     0.30: n =    96  mean = 0.449 +- 0.053   | k=1: n=   96 mean=0.449 | k=2: n=    0            | k=3: n=    0           
+     0.30 < T <=     1.00: n =   289  mean = 0.754 +- 0.069   | k=1: n=  289 mean=0.754 | k=2: n=    0            | k=3: n=    0           
+     1.00 < T <=     3.00: n =   749  mean = 0.892 +- 0.047   | k=1: n=  732 mean=0.900 | k=2: n=   17 mean=0.536 | k=3: n=    0           
+     3.00 < T <=    10.00: n =  2289  mean = 0.745 +- 0.022   | k=1: n= 2252 mean=0.752 | k=2: n=   37 mean=0.310 | k=3: n=    0           
+    10.00 < T <=   100.00: n =  6404  mean = 0.923 +- 0.017   | k=1: n= 6169 mean=0.929 | k=2: n=  228 mean=0.801 | k=3: n=    7 mean=0.114
+   100.00 < T <= 1000000000.00: n = 18323  mean = 0.815 +- 0.009   | k=1: n=    0            | k=2: n=13404 mean=0.840 | k=3: n= 4647 mean=0.762
+
+(c) fixed N(c) band (Q, 3Q], two prime factors, by pmin (T = N(c)^2/(Q pmin) decreases with pmin):
+   pmin in (6,8]: n =   256, median T = 1694.55, mean = 0.712 +- 0.071
+   pmin in (8,20]: n =   262, median T =  799.97, mean = 0.946 +- 0.073
+   pmin in (20,45]: n =   237, median T =  360.96, mean = 0.941 +- 0.089
+   pmin in (45,100]: n =   113, median T =  242.09, mean = 0.761 +- 0.084
+
+(d) opposite-orientation control: all moduli by N(c)/Q^(1/2) regardless of factorisation:
+       0 < N(c)/Q^(1/2) <=     1: n =    14  mean = 0.196 +- 0.100
+       1 < N(c)/Q^(1/2) <=     3: n =    34  mean = 0.307 +- 0.079
+       3 < N(c)/Q^(1/2) <=    10: n =   113  mean = 0.541 +- 0.055
+      10 < N(c)/Q^(1/2) <=    30: n =   319  mean = 0.639 +- 0.055
+      30 < N(c)/Q^(1/2) <=   100: n =  1114  mean = 0.772 +- 0.035
+     100 < N(c)/Q^(1/2) <=   300: n =  3196  mean = 0.781 +- 0.020
+     300 < N(c)/Q^(1/2) <=  2000: n = 23433  mean = 0.848 +- 0.008

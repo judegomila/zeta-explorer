@@ -1,0 +1,45 @@
+k=0 Q=938: 8141 conductors with 1125 < N(c) <= 30000
+  map s=1 u=0 a=0 b=0: n=8141, groups 1295, 3s
+  map s=1 u=0 a=0 b=1: n=1793, groups 720, 3s
+  map s=1 u=0 a=1 b=0: n=2513, groups 850, 4s
+  map s=1 u=0 a=2 b=0: n=623, groups 357, 4s
+  map s=1 u=1 a=0 b=0: n=8141, groups 1295, 5s
+  map s=1 u=1 a=0 b=1: n=1793, groups 720, 6s
+  map s=1 u=1 a=1 b=0: n=2513, groups 850, 6s
+  map s=1 u=1 a=2 b=0: n=623, groups 357, 6s
+  map s=1 u=2 a=0 b=0: n=8141, groups 1295, 8s
+  map s=1 u=2 a=0 b=1: n=1793, groups 720, 8s
+  map s=1 u=2 a=1 b=0: n=2513, groups 850, 8s
+  map s=1 u=2 a=2 b=0: n=623, groups 357, 9s
+  map s=7 u=0 a=0 b=0: n=894, groups 455, 9s
+  map s=7 u=1 a=0 b=0: n=894, groups 455, 9s
+  map s=7 u=2 a=0 b=0: n=894, groups 455, 9s
+  map s=7 u=0 a=0 b=0: n=894, groups 455, 10s
+  map s=7 u=1 a=0 b=0: n=894, groups 455, 10s
+  map s=7 u=2 a=0 b=0: n=894, groups 455, 10s
+configurations 51840; T: mean 1.0049 sd 0.1896 max 2.340; null (permuted b; max over 12 tau per config): mean 1.2056 max 2.631 n 8640
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'band', 'j': 2, 'sigma': 8, 'par': 0, 'tau': 11, 'conj': 1, 'T': 2.340065284435186, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 1, 'a': 2, 'b': 0, 'var': 'band', 'j': 2, 'sigma': 8, 'par': 0, 'tau': 0, 'conj': 1, 'T': 2.3400652844351457, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 11, 'par': 0, 'tau': 5, 'conj': 0, 'T': 2.2341172348251184, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 0, 'par': 0, 'tau': 6, 'conj': 0, 'T': 2.2341172348250784, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 11, 'par': 0, 'tau': 7, 'conj': 0, 'T': 2.232003915339947, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 0, 'par': 0, 'tau': 9, 'conj': 0, 'T': 2.232003915339943, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 1, 'par': 0, 'tau': 10, 'conj': 1, 'T': 2.1807704158482144, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 3, 'par': 0, 'tau': 4, 'conj': 1, 'T': 2.1807704158481958, 'n': 313, 'ngroups': 5}
+{'s': 7, 'u': 1, 'a': 0, 'b': 0, 'var': 'loo', 'j': 2, 'sigma': 3, 'par': 0, 'tau': 0, 'conj': 0, 'T': 2.179629955378842, 'n': 446, 'ngroups': 9}
+{'s': 7, 'u': 2, 'a': 0, 'b': 0, 'var': 'loo', 'j': 2, 'sigma': 1, 'par': 0, 'tau': 11, 'conj': 0, 'T': 2.1796299553788403, 'n': 446, 'ngroups': 9}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 3, 'par': 0, 'tau': 7, 'conj': 0, 'T': 2.1705585375513414, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 1, 'par': 0, 'tau': 9, 'conj': 0, 'T': 2.1705585375512895, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 0, 'par': 0, 'tau': 10, 'conj': 1, 'T': 2.1688241749669617, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 1, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 11, 'par': 0, 'tau': 4, 'conj': 1, 'T': 2.168824174966937, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 1, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 8, 'par': 0, 'tau': 1, 'conj': 0, 'T': 2.14192960299975, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'loo', 'j': 1, 'sigma': 8, 'par': 0, 'tau': 3, 'conj': 0, 'T': 2.1419296029997366, 'n': 313, 'ngroups': 5}
+{'s': 7, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'j': 0, 'sigma': 11, 'par': 0, 'tau': 3, 'conj': 0, 'T': 2.130947484538389, 'n': 446, 'ngroups': 9}
+{'s': 7, 'u': 0, 'a': 0, 'b': 0, 'var': 'loo', 'j': 0, 'sigma': 0, 'par': 0, 'tau': 1, 'conj': 0, 'T': 2.130947484538389, 'n': 446, 'ngroups': 9}
+{'s': 1, 'u': 1, 'a': 2, 'b': 0, 'var': 'band', 'j': 2, 'sigma': 11, 'par': 0, 'tau': 0, 'conj': 1, 'T': 2.125128396449975, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'band', 'j': 2, 'sigma': 0, 'par': 0, 'tau': 11, 'conj': 1, 'T': 2.125128396449971, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 1, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 8, 'par': 0, 'tau': 2, 'conj': 1, 'T': 2.1190089852946423, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'band', 'j': 0, 'sigma': 8, 'par': 0, 'tau': 2, 'conj': 1, 'T': 2.1190089852946414, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'band', 'j': -2, 'sigma': 2, 'par': 0, 'tau': 7, 'conj': 1, 'T': 2.113435546466085, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 0, 'a': 2, 'b': 0, 'var': 'band', 'j': -2, 'sigma': 2, 'par': 0, 'tau': 9, 'conj': 1, 'T': 2.1134355464660546, 'n': 313, 'ngroups': 5}
+{'s': 1, 'u': 2, 'a': 2, 'b': 0, 'var': 'band', 'j': 2, 'sigma': 8, 'par': 0, 'tau': 2, 'conj': 1, 'T': 2.101506898090534, 'n': 313, 'ngroups': 5}

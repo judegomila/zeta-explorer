@@ -1,0 +1,44 @@
+{
+ "slug": "c20-statement-o-line2-dh-pick-kernel-certified-server",
+ "round": 20,
+ "kind": "compute",
+ "nodes": [
+  "finite-pick-stages"
+ ],
+ "tags": [
+  "certified-conversion",
+  "statement-o-line-2",
+  "davenport-heilbronn",
+  "pick",
+  "control"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Nothing about zeros of zeta; a control statement. Part 1: the DH theta kernel is positive, strictly log-concave and satisfies u L'' - L' < 0 on u > 0 (certified, 0 uncertified subintervals; derivation re-checked). Part 2: on the configurations run (confluent anchors 1/2 and 1, two nested 256-node sequences; plus anchor 2 and a nested sequence in [0.05, 2] to order 160 in this referee pass) DH Pick forms are positive definite to order 148 and indefinite at 149; negative pivots to order 256 are 149, 150, 218, 219; zeta is positive at the same nodes; planted comparisons fail at 21, 101, 2. This is per configuration, not over all node sets. Part 3: Theorem C (elementary, now one independent referee): for every N and bounded node range [0, beta] some D_Q = f_DH * prod (1 + sqrt(q) q^-s) has exact functional equation, positive even kernel, non-multiplicative coefficients, all DH zeros, and positive definite Pick matrices to order N. Certified instance Q = {2, 3, 4, 9} to order 256 at anchor 1 (also at 1/2 and 2 in this pass). Open: unbounded node range; kernel log-concavity of D_Q (false for Q = {3}, {4}, {6}).",
+ "obstruction": "Control statement, not an attack. Certified: DH theta kernel positive, strictly log-concave, u L'' - L' < 0 (0 uncertified subintervals); DH Pick forms positive definite to order 148 and indefinite at 149 on the configurations run (negative pivots to 256: 149, 150, 218, 219), per configuration, not over all node sets. Theorem C (one independent referee): for every N and bounded node range [0, beta] some D_Q = f_DH prod(1 + sqrt(q) q^-s) has exact functional equation, positive even kernel, non-multiplicative coefficients, all DH zeros and positive definite Pick matrices to order N (certified instance Q = {2,3,4,9} to order 256). Stops at: unbounded node range (0, infinity); kernel log-concavity of D_Q (false for Q = {3}, {4}, {6}).",
+ "obstructionKind": "control-passes: finite Pick orders on bounded node ranges are passed by a non-Euler Dirichlet series with off-line zeros",
+ "controlsThatDefeat": [
+  "D_Q = f_DH prod(1 + sqrt(q) q^-s) (passes Pick positivity to any order N on [0, beta]; Q = {2,3,4,9} certified to 256)",
+  "DH itself passes orders 2 to 148 on every configuration run",
+  "not run: unbounded node range; all node sets"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error that changes a claim. Every PROVED step was re-derived by hand and confirmed: Part 1 tail radius, the region-A-to-h step and the u >= 3 tail; the confluent recurrence; Lemmas 1, 2 (a)-(d) including the B_c Moebius argument, and 3; Theorem B as classical; Theorem C items 1-7; Theorem A. Nothing assumes RH or restates verified height.\n\nReruns with different cases (local, memcap 8 GB, python-flint 0.9.0; server not used) all agree:\n- DH confluent at anchor a = 2, order 160: negative pivots - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Pick kernels add under products, so multiplying a control by Dirichlet polynomials with on-line zeros only delays its failure (149 to 210 with one factor, none to 256 with four distinct q). Powers of one factor barely help (221 at the 4096th power): new zero ordinates matter, not multiplicity. \"DH passes orders 2 to 148\" is certified only on the configurations run, not over all node sets; every configuration run here gave the same negative pivots. REFEREE.md is a same-agent second pass and counts as 0 referees.",
+ "followUp": "Independent referee on Theorem C and Lemmas 2 and 3 (RESULT.md section 3); then extend Theorem C from node ranges [0, beta] to (0, infinity) by bounding divided differences of f'/f(1/2 + x) against the smallest eigenvalue of the factor matrices as nodes grow.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-statement-o-line2-dh-pick-kernel-certified-server/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-statement-o-line2-dh-pick-kernel-certified-server/REFEREE.md",
+ "launchedNodes": [
+  "finite-pick-stages"
+ ],
+ "engineVerdict": "partial"
+}

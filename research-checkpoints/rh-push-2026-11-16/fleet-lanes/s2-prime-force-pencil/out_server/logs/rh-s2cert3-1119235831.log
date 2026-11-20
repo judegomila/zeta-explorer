@@ -1,0 +1,5 @@
+23:59:00 mp extrema below 1000: 243, max shift/gap 1.212e+00
+00:06:07 N=64 cut K=10837101 (f=1.02, T=12990928.2): working set 345 refined (max shift 4.27e-04, sign flips 0); refined min-norm 3.963e-05, support 64
+00:10:53 N=64 cut K=11155839 (f=1.05, T=13345775.1): working set 186 refined (max shift 4.88e-04, sign flips 0); refined min-norm 2.206e-05, support 64
+00:17:42 N=64 cut K=12749530 (f=1.20, T=15111324.3): working set 364 refined (max shift 5.66e-04, sign flips 0); refined min-norm 4.703e-05, support 63
+00:24:08 N=64 cut K=15936913 (f=1.50, T=18600527.0): working set 363 refined (max shift 6.06e-04, sign flips 0); refined min-norm 7.647e-05, support 64

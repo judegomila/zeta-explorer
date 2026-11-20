@@ -1,0 +1,39 @@
+{
+ "slug": "c3-rs-matched-halfsum-hb",
+ "round": 3,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "riemann-siegel",
+  "hermite-biehler",
+  "levinson",
+  "torus",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "The Riemann-Siegel half-sum F_N(s) = sum_{n<=N} n^(-s), N = floor(sqrt(t/2 pi)), is not in Hermite-Biehler position in any tested matched window: it has zeros in Re s > 1/2 at about one per five zeros of Z (ratio 0.17 at 1e4 to 0.215 at 1e12; referee recount 0.19 at 3e7). The arb-certified counts 5372, 7260, 8835 in windows of length 1e4 at 1e8, 1e10, 1e12 are rigorous lower bounds for the number of right zeros (disjoint certified squares); absence of further zeros rests on float64 winding counts. Smooth cut-off and unequal lengths do not remove the zeros. DH, chi_5, translate, period-3 and random-sign controls also fail; DH is slightly nearer to passing than zeta. The size of the failure does depend on multiplicativity (Bohr random-multiplicative model reproduces the zeta/chi_5 excess and the DH deficit), in the adverse direction, so the stated reason \"second moments of |a_n| only\" does not survive. By the Siegel/Levinson identity (E3) the family is the unmollified Levinson method with loss equal to the right-zero count. Positive density at matched height is measured/certified in finite windows at six heights, not proved for all heights. No statement about zeros of zeta.",
+ "obstruction": "F_N(s) = sum_{n<=N} n^(-s), N = floor(sqrt(t/2pi)), has zeros in Re s > 1/2 at about one per five zeros of Z in every matched window tested (0.17 at 1e4 to 0.215 at 1e12; arb-certified lower bounds 5372, 7260, 8835 in windows of length 1e4 at 1e8, 1e10, 1e12). Smooth cut-off and unequal lengths do not remove them. By the Siegel/Levinson identity the family is the unmollified Levinson method with loss equal to the right-zero count; the mollified pivot is closed row P27. Positive density is measured or certified in finite windows, not proved for all heights. Multiplicativity affects the size of the failure in the adverse direction (referee: Bohr random-multiplicative model).",
+ "obstructionKind": "unmollified-levinson-loss",
+ "controlsThatDefeat": [
+  "DH (fails alike, slightly nearer to passing than zeta)",
+  "L(chi_5)",
+  "height translate",
+  "period-3 coefficients",
+  "random signs"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c3-rs-matched-halfsum-hb/REFEREE.md. The obstruction verdict holds; three statements need correction.\n\n(1) Substantive: (E4) \"only abs(a_n) enters\", \"the property does not see multiplicativity\" and \"the measured statistics do not order the families by multiplicativity\" are false. The independent-phase Gaussian model is the wrong limit object; n^(-it) is multiplicative. Referee Monte Carlo (120000 samples)  [record truncated in transit; full text in push/c3-rs-matched-halfsum-hb/REFEREE.md]",
+ "lesson": "Any splitting Z = 2 Re f with f a Dirichlet polynomial in the theta frame depends on |a_n| and the functional equation only: by a Gaussian second-moment model the negative-phase fraction is (1-r)/2 with r = c1/sqrt(c0 c2) < 1 (Cauchy-Schwarz), about 6.7% for the sharp cutoff. Multiplicativity never enters; the functional equation only confines the right zeros to within about 2/log N of the line. Close pairs of Z zeros (7 of 8 tested, including Lehmer 7005) carry a right zero of F_N nearby.",
+ "followUp": "None for this family; do not allocate round-4 compute to half-sum Hermite-Biehler variants. The one pivot (mollified M*F_N with zero loss) lands in the closed Levinson/MV-CAP row P27. Optional low-priority: explain why zeta's negative-phase fraction (0.108) exceeds the Gaussian 0.067 while DH's does not.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-rs-matched-halfsum-hb/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-rs-matched-halfsum-hb/REFEREE.md"
+}

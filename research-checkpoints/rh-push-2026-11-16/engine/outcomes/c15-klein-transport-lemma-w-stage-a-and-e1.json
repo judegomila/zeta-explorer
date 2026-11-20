@@ -1,0 +1,60 @@
+{
+ "slug": "c15-klein-transport-lemma-w-stage-a-and-e1",
+ "round": 15,
+ "kind": "combine",
+ "nodes": [
+  "klein-phase-transport-certificate",
+  "lemma-w-wide-support",
+  "wiener-hopf-phase-condition",
+  "thin-hankel-schur-equivalence"
+ ],
+ "tags": [
+  "klein",
+  "bridge",
+  "shear",
+  "torus",
+  "density",
+  "control-ea",
+  "control-tnr",
+  "control-bls",
+  "prefilter",
+  "second-reader"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Lemma W(A) (for all T >= T0) implies the strip |beta-1/2| <= 1/(2A) with kappa = 0 and no verified height (re-derived), is strictly stronger than that strip at multiset level (re-derived, including the partial-summation constant), and fails for E_a0 and T-NR for every A > 0 on their zero sets (re-derived, unconditional after the E1 repair); it is a target-level hypothesis. The section-6 Klein lower bound, for fixed 0 < h < a with a > 1/2, has a negative right side for t >= t0(a,h) (re-derived, asymptotic); for a <= 1/2 this holds only conditionally on a strip of half-width below a. Identity K0 confirmed on new xi cases and on E_a0 (negative below the zero, positive above), for reflection-symmetric F only. Theorem E1' (Schur iff m(lambda-2a) >= m(lambda) for Re lambda > a) is proved and coincides with on-file nodes; referee random test 600/600 with a different design. The pair adds nothing to its parts and stops at stage A. All four requirement flags false.",
+ "obstruction": "The pair stops at stage A. Lemma W(A) (for all T >= T0) contains the strip |beta - 1/2| <= 1/(2A) as its own large-sigma part (kappa = 0, verified height not needed) and is strictly stronger than that strip at multiset level: a target-level hypothesis. The Klein certificate concludes Re xi'/xi > 0 at depth h from phase data at depth a; for fixed 0 < h < a with a > 1/2 its right side is negative for t >= t0(a, h) (it needs R <= pi/(4M) against M >= c log t); for a <= 1/2 only conditionally on a strip of half-width below a. Identity K0 holds for reflection-symmetric F only (referee correction E2). Theorem E1' (Schur iff m(lambda - 2a) >= m(lambda) for Re lambda > a) is proved and coincides with on-file nodes 386, 358. Second reader on 15 of 71 silent nodes: 14 agree, 1 boundary; not blind.",
+ "obstructionKind": "target-level-hypothesis; certificate-not-height-uniform",
+ "controlsThatDefeat": [
+  "BLS (passes Lemma W)",
+  "E_a, T-NR, DH, backward heat (fail Lemma W only on their zero sets: no structural step)",
+  "any reflection-symmetric F (identity K0 holds; the certificate is not sign-definite at height)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Six corrections, none changing the verdict. E1: the E_a0 control is worded as \"all 2N(T) zeros at distance a0\", which presupposes RH; the unconditional bound sum >= 2N(T) T^(2A a0) follows by AM-GM on the offsets e+a0, e-a0, so the failure stands. E2: \"the section-6 inequality uses no property of F beyond analyticity\" / \"theorem for any analytic F\" is false; identity K0 needs the reflection symmetry F(1-conj s)=conj F(s) (referee run: non-symmetric quadratic gives lhs 0.868 vs rhs 1.12; symmetri - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A zero sum weighted by T^(c d) with c > 1 is a pointwise statement above abscissa 1/c: let T go to infinity to read off the strip before typing it as a density statement. A window certificate requiring R <= pi/(4M) cannot be sign-definite at height when M >= c log t. Scripts must write output next to themselves: my first run used a relative path and overwrote an untracked repo-root checks.json left by another lane (not recoverable; recorded in RESULT section 9).",
+ "followUp": "None for the pair. Owed: an independent referee (lanes.jsonl line has refereeHolds null); record delta* = 1/(2A) on node lemma-w-wide-support; apply PROPOSED_E1_REPLACEMENT.md to the c14 text; the owner of the overwritten repo-root checks.json (likely sibling lane c15-control-with-zeta-fe-classes-u1-u2) should rerun its script.",
+ "resultFile": "tmp/research-2026-11-16/push/c15-klein-transport-lemma-w-stage-a-and-e1/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-klein-transport-lemma-w-stage-a-and-e1/REFEREE.md",
+ "launchedNodes": [
+  "klein-phase-transport-certificate",
+  "lemma-w-wide-support",
+  "wiener-hopf-phase-condition",
+  "thin-hankel-schur-equivalence"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-klein-transport-lemma-w-stage-a-and-e1.md"
+ }
+}

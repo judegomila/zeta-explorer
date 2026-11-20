@@ -1,0 +1,12 @@
+vector | E_c, D_c, |Tq|^2, |Tf|^2 equal to results6.json | identity | e_c | A principal | B own | C = |Tq|^2 (C_perp) | D = |Pi Tf|^2 (|Tf|^2) | G bulk | x_CD | x_CG | x_DG   [units D_c]
+one | True | True | 5.905 | 1.209 | 0 | 0.6608 (0.01587) | 3.578 (3.579) | 0.6786 | -0.09144 | 0.07687 | 0.4382
+     principal signal by term: X 0.127, Tq 0.645, Tf 0.001558;  own-character by term: X 0, Tq 0, Tf 0
+a | True | True | 1.688 | 0.5348 | 0.1377 | 0.6628 (0.01579) | 0.5688 (0.7173) | 0.4914 | 0.007088 | -0.01965 | -0.04749
+     principal signal by term: X 0.01597, Tq 0.6468, Tf 8.857e-07;  own-character by term: X 0.001616, Tq 0.000123, Tf 0.1485
+b | True | True | 2.002 | 0.7107 | 0.01123 | 0.6628 (0.01579) | 0.603 (0.6143) | 0.7029 | 0.002863 | 0.007566 | -0.05188
+     principal signal by term: X 0.003664, Tq 0.6468, Tf 9.841e-08;  own-character by term: X 0.00169, Tq 0.0001266, Tf 0.01127
+mu | True | True | 1222 | 1188 | 10.75 | 0 (0) | 0.1007 (0.1008) | 21.69 | 0 | 0 | 1.52
+     principal signal by term: X 1188, Tq 0, Tf 4.405e-05;  own-character by term: X 10.75, Tq 0, Tf 0
+al | True | True | 9.036e+09 | 1.844e+08 | 0 | 2184 (2140) | 7.341e+04 (7.494e+04) | 8.906e+09 | 2.507e+04 | -7.927e+06 | -4.643e+07
+     principal signal by term: X 1.855e+08, Tq 44.63, Tf 1529;  own-character by term: X 0, Tq 0, Tf 0
+FIRST LEMMA at (6, 9, 2): HOLDS (five vectors: integers equal to results6.json, identity exact)

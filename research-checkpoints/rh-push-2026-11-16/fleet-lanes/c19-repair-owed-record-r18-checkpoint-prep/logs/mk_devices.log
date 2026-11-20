@@ -1,0 +1,5 @@
+devices.json: 56 device types (closed 55, floored 1, open 0), 77 nodes, 15 target forms, 6 pending
+devices.json: 11 cells (cell 6, tried-not-closed 1, closed 4)
+devices.json: 56 device types (closed 55, floored 1, open 0), 77 nodes, 15 target forms, 6 pending
+devices.json: 11 cells (cell 6, tried-not-closed 1, closed 4)
+--- note: the first mk_devices run used a wrong slug for the round-19 U4 lane in three evidence strings; corrected and rerun (second block above)

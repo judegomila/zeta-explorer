@@ -1,0 +1,9 @@
+F =  3  classes hit    1  pair-frequency phases tested 799205778  not equal to 1: 628127376
+F =  4  classes hit   12  pair-frequency phases tested  66530142  not equal to 1: 44283952
+F =  6  classes hit    3  pair-frequency phases tested 266378406  not equal to 1: 201304552
+F =  9  classes hit    9  pair-frequency phases tested  88730082  not equal to 1: 57200988
+F = 12  classes hit   12  pair-frequency phases tested  66530142  not equal to 1: 44283952
+F = 18  classes hit   27  pair-frequency phases tested  29475558  not equal to 1: 12757080
+F = 24  classes hit   48  pair-frequency phases tested  16493694  not equal to 1: 9608256
+F = 36  classes hit  108  pair-frequency phases tested   7201530  not equal to 1: 1617840
+F = 72  classes hit  432  pair-frequency phases tested   1543794  not equal to 1: 0

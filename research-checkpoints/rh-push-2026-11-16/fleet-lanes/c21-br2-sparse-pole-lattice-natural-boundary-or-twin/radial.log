@@ -1,0 +1,158 @@
+planned allocation: at most 6e4 mpf per list, < 0.1 GB
+ek zero factors 74 L/log(1/delta) at ends 0.4699380004510147 0.6846522248563108
+   pole 1 1 t=2.21769 y(first,mid,last)= 0.984 27.925 64.816 slope_upper_half= 1.144 lb_viol= -4.09e-01
+   pole 1 2 t=4.43538 y(first,mid,last)= 1.229 35.005 67.917 slope_upper_half= 1.021 lb_viol= -6.53e-01
+   pole 1 3 t=6.65307 y(first,mid,last)= 1.284 25.710 58.578 slope_upper_half= 1.020 lb_viol= -7.08e-01
+   pole 1 5 t=11.0884 y(first,mid,last)= 1.658 37.816 68.813 slope_upper_half= 0.962 lb_viol= -1.08e+00
+   pole 2 1 t=0.850278 y(first,mid,last)= 0.238 34.071 65.714 slope_upper_half= 0.982 lb_viol= -5.84e-01
+   pole 2 2 t=1.70056 y(first,mid,last)= 0.347 33.851 61.181 slope_upper_half= 0.848 lb_viol= -6.92e-01
+   pole 2 3 t=2.55083 y(first,mid,last)= 0.802 34.326 63.414 slope_upper_half= 0.902 lb_viol= -1.15e+00
+   pole 2 5 t=4.25139 y(first,mid,last)= 1.037 56.547 91.016 slope_upper_half= 1.069 lb_viol= -1.38e+00
+   pole 3 1 t=0.312821 y(first,mid,last)= -0.029 30.341 64.093 slope_upper_half= 1.047 lb_viol= -1.09e+00
+   pole 3 2 t=0.625643 y(first,mid,last)= -0.257 31.054 65.396 slope_upper_half= 1.065 lb_viol= -8.58e-01
+   pole 3 3 t=0.938464 y(first,mid,last)= 0.136 32.462 61.580 slope_upper_half= 0.903 lb_viol= -1.25e+00
+   pole 3 5 t=1.56411 y(first,mid,last)= 0.020 36.076 68.385 slope_upper_half= 1.002 lb_viol= -1.13e+00
+   pole 4 1 t=0.115081 y(first,mid,last)= 0.957 27.731 54.590 slope_upper_half= 0.833 lb_viol= -2.33e+00
+   pole 4 2 t=0.230161 y(first,mid,last)= 0.183 32.060 58.715 slope_upper_half= 0.827 lb_viol= -1.56e+00
+   pole 4 3 t=0.345242 y(first,mid,last)= -0.163 24.258 52.295 slope_upper_half= 0.870 lb_viol= -1.21e+00
+   pole 4 5 t=0.575403 y(first,mid,last)= -0.401 36.038 62.719 slope_upper_half= 0.828 lb_viol= -9.76e-01
+   pole 5 1 t=0.0423358 y(first,mid,last)= 1.761 28.904 58.983 slope_upper_half= 0.933 lb_viol= -3.15e+00
+   pole 5 2 t=0.0846715 y(first,mid,last)= 1.297 32.553 58.686 slope_upper_half= 0.811 lb_viol= -2.68e+00
+   pole 5 3 t=0.127007 y(first,mid,last)= 0.834 24.003 51.498 slope_upper_half= 0.853 lb_viol= -2.22e+00
+   pole 5 5 t=0.211679 y(first,mid,last)= 0.245 35.817 61.354 slope_upper_half= 0.792 lb_viol= -1.63e+00
+   generic None None t=58.4919 y(first,mid,last)= -0.208 -5.645 -9.313 slope_upper_half= -0.114 
+   generic None None t=38.6585 y(first,mid,last)= -0.866 -2.575 -6.390 slope_upper_half= -0.118 
+   generic None None t=71.8817 y(first,mid,last)= -0.731 9.231 6.864 slope_upper_half= -0.073 
+   generic None None t=71.1402 y(first,mid,last)= 0.173 -9.204 -7.762 slope_upper_half= 0.045 
+   generic None None t=41.7498 y(first,mid,last)= 0.250 -5.743 -14.608 slope_upper_half= -0.275 
+ek rot factors 74 L/log(1/delta) at ends 0.4699380004510147 0.6846522248563108
+   pole 1 1 t=3.5883 y(first,mid,last)= 2.071 43.101 74.638 slope_upper_half= 0.978 lb_viol= -1.49e+00
+   pole 1 2 t=5.80598 y(first,mid,last)= 1.133 34.750 65.663 slope_upper_half= 0.959 lb_viol= -5.57e-01
+   pole 1 3 t=8.02367 y(first,mid,last)= 1.605 37.440 68.276 slope_upper_half= 0.957 lb_viol= -1.03e+00
+   pole 1 5 t=12.4591 y(first,mid,last)= 1.321 36.291 69.423 slope_upper_half= 1.028 lb_viol= -7.45e-01
+   pole 2 1 t=1.051 y(first,mid,last)= 0.911 30.877 58.022 slope_upper_half= 0.842 lb_viol= -1.26e+00
+   pole 2 2 t=1.90128 y(first,mid,last)= 0.366 34.217 59.741 slope_upper_half= 0.792 lb_viol= -7.11e-01
+   pole 2 3 t=2.75156 y(first,mid,last)= 0.296 32.757 60.650 slope_upper_half= 0.865 lb_viol= -6.41e-01
+   pole 2 5 t=4.45211 y(first,mid,last)= -0.149 32.616 65.118 slope_upper_half= 1.008 lb_viol= -1.96e-01
+   pole 3 1 t=0.580003 y(first,mid,last)= -0.662 30.710 61.683 slope_upper_half= 0.961 lb_viol= -4.53e-01
+   pole 3 2 t=0.892824 y(first,mid,last)= 0.245 30.166 58.652 slope_upper_half= 0.884 lb_viol= -1.36e+00
+   pole 3 3 t=1.20565 y(first,mid,last)= 1.165 34.191 72.300 slope_upper_half= 1.182 lb_viol= -2.28e+00
+   pole 3 5 t=1.83129 y(first,mid,last)= 0.443 34.627 74.524 slope_upper_half= 1.238 lb_viol= -1.56e+00
+   pole 4 1 t=0.169414 y(first,mid,last)= -0.176 28.955 62.990 slope_upper_half= 1.056 lb_viol= -1.20e+00
+   pole 4 2 t=0.284495 y(first,mid,last)= -0.142 32.089 71.385 slope_upper_half= 1.219 lb_viol= -1.23e+00
+   pole 4 3 t=0.399575 y(first,mid,last)= -0.767 31.014 70.685 slope_upper_half= 1.231 lb_viol= -6.09e-01
+   pole 4 5 t=0.629736 y(first,mid,last)= -0.687 29.326 65.226 slope_upper_half= 1.114 lb_viol= -6.90e-01
+   pole 5 1 t=0.0461532 y(first,mid,last)= -0.673 38.830 64.503 slope_upper_half= 0.796 lb_viol= -7.12e-01
+   pole 5 2 t=0.088489 y(first,mid,last)= -0.581 34.128 58.037 slope_upper_half= 0.742 lb_viol= -8.04e-01
+   pole 5 3 t=0.130825 y(first,mid,last)= -0.393 30.532 64.492 slope_upper_half= 1.053 lb_viol= -9.92e-01
+   pole 5 5 t=0.215496 y(first,mid,last)= -0.015 30.889 66.049 slope_upper_half= 1.091 lb_viol= -1.37e+00
+   generic None None t=58.4919 y(first,mid,last)= -0.361 -7.039 -4.323 slope_upper_half= 0.084 
+   generic None None t=38.6585 y(first,mid,last)= 0.095 8.057 5.064 slope_upper_half= -0.093 
+   generic None None t=71.8817 y(first,mid,last)= 0.005 -2.979 2.878 slope_upper_half= 0.182 
+   generic None None t=71.1402 y(first,mid,last)= -1.207 -1.646 -3.383 slope_upper_half= -0.054 
+   generic None None t=41.7498 y(first,mid,last)= -0.006 -4.020 -2.587 slope_upper_half= 0.044 
+k3 zero factors 25712 L/log(1/delta) at ends 0.4762956939788048 121.55270728292594
+   pole 1 1 t=9.06472 y(first,mid,last)= 1.338 11.282 59.311 slope_upper_half= 4.172 lb_viol= -3.19e-01
+   pole 1 2 t=18.1294 y(first,mid,last)= 2.045 8.105 28.760 slope_upper_half= 1.794 lb_viol= -1.03e+00
+   pole 1 3 t=27.1942 y(first,mid,last)= 1.401 13.090 32.123 slope_upper_half= 1.653 lb_viol= -3.81e-01
+   pole 1 5 t=45.3236 y(first,mid,last)= 1.539 8.730 -30.841 slope_upper_half= -3.437 lb_viol= -5.20e-01
+   pole 2 1 t=0.784806 y(first,mid,last)= 0.599 19.888 -15.821 slope_upper_half= -3.102 lb_viol= -1.97e+00
+   pole 2 2 t=1.56961 y(first,mid,last)= 0.485 9.313 11.453 slope_upper_half= 0.186 lb_viol= -1.86e+00
+   pole 2 3 t=2.35442 y(first,mid,last)= 0.505 26.735 50.625 slope_upper_half= 2.075 lb_viol= -1.88e+00
+   pole 2 5 t=3.92403 y(first,mid,last)= 0.481 9.326 46.545 slope_upper_half= 3.233 lb_viol= -1.86e+00
+   pole 3 1 t=0.232711 y(first,mid,last)= 0.648 105.534 5291.161 slope_upper_half= 450.418 lb_viol= -2.86e+00
+   pole 3 2 t=0.465421 y(first,mid,last)= 0.043 96.171 4846.238 slope_upper_half= 412.586 lb_viol= -2.25e+00
+   pole 3 3 t=0.698132 y(first,mid,last)= 0.500 129.651 6390.305 slope_upper_half= 543.794 lb_viol= -2.71e+00
+   pole 3 5 t=1.16355 y(first,mid,last)= -0.343 89.260 4496.709 slope_upper_half= 382.826 lb_viol= -1.87e+00
+   pole 4 1 t=0.0981748 y(first,mid,last)= 1.523 68.890 3580.748 slope_upper_half= 305.036 lb_viol= -3.86e+00
+   pole 4 2 t=0.19635 y(first,mid,last)= 0.832 64.602 3373.528 slope_upper_half= 287.410 lb_viol= -3.17e+00
+   pole 4 3 t=0.294524 y(first,mid,last)= 0.293 69.195 3580.901 slope_upper_half= 305.023 lb_viol= -2.63e+00
+   pole 4 5 t=0.490874 y(first,mid,last)= 0.027 69.353 3581.084 slope_upper_half= 305.025 lb_viol= -2.37e+00
+   pole 5 1 t=0.0502655 y(first,mid,last)= 2.009 56.184 2954.229 slope_upper_half= 251.721 lb_viol= -4.35e+00
+   pole 5 2 t=0.100531 y(first,mid,last)= 1.500 56.536 2954.248 slope_upper_half= 251.692 lb_viol= -3.84e+00
+   pole 5 3 t=0.150796 y(first,mid,last)= 1.080 56.222 2954.278 slope_upper_half= 251.722 lb_viol= -3.42e+00
+   pole 5 5 t=0.251327 y(first,mid,last)= 0.543 53.194 2826.354 slope_upper_half= 240.874 lb_viol= -2.89e+00
+   generic None None t=58.4919 y(first,mid,last)= -0.551 -4.198 31.579 slope_upper_half= 3.108 
+   generic None None t=38.6585 y(first,mid,last)= -0.199 -0.482 7.455 slope_upper_half= 0.689 
+   generic None None t=71.8817 y(first,mid,last)= -0.136 3.237 49.538 slope_upper_half= 4.022 
+   generic None None t=71.1402 y(first,mid,last)= -0.378 4.539 -17.114 slope_upper_half= -1.881 
+   generic None None t=41.7498 y(first,mid,last)= -0.161 -2.955 -29.006 slope_upper_half= -2.263 
+k3 rot factors 25712 L/log(1/delta) at ends 0.4762956939788048 121.55270728292594
+   pole 1 1 t=14.667 y(first,mid,last)= 2.816 19.134 45.974 slope_upper_half= 2.331 lb_viol= -1.80e+00
+   pole 1 2 t=23.7317 y(first,mid,last)= 3.786 24.700 23.731 slope_upper_half= -0.084 lb_viol= -2.77e+00
+   pole 1 3 t=32.7965 y(first,mid,last)= 2.841 18.904 74.311 slope_upper_half= 4.813 lb_viol= -1.82e+00
+   pole 1 5 t=50.9259 y(first,mid,last)= 2.937 11.742 67.592 slope_upper_half= 4.851 lb_viol= -1.92e+00
+   pole 2 1 t=0.970074 y(first,mid,last)= -0.547 14.342 68.455 slope_upper_half= 4.700 lb_viol= -8.29e-01
+   pole 2 2 t=1.75488 y(first,mid,last)= -0.075 6.547 38.798 slope_upper_half= 2.801 lb_viol= -1.30e+00
+   pole 2 3 t=2.53969 y(first,mid,last)= 0.395 23.593 143.728 slope_upper_half= 10.435 lb_viol= -1.77e+00
+   pole 2 5 t=4.1093 y(first,mid,last)= 1.154 22.710 47.239 slope_upper_half= 2.131 lb_viol= -2.53e+00
+   pole 3 1 t=0.431469 y(first,mid,last)= -1.649 6.768 -6.664 slope_upper_half= -1.167 lb_viol= -5.60e-01
+   pole 3 2 t=0.66418 y(first,mid,last)= -1.591 11.617 41.670 slope_upper_half= 2.610 lb_viol= -6.18e-01
+   pole 3 3 t=0.89689 y(first,mid,last)= -0.705 1.782 67.355 slope_upper_half= 5.696 lb_viol= -1.50e+00
+   pole 3 5 t=1.36231 y(first,mid,last)= -1.162 10.813 51.976 slope_upper_half= 3.575 lb_viol= -1.05e+00
+   pole 4 1 t=0.144527 y(first,mid,last)= -1.130 8.081 45.858 slope_upper_half= 3.281 lb_viol= -1.21e+00
+   pole 4 2 t=0.242701 y(first,mid,last)= -1.131 3.771 147.682 slope_upper_half= 12.500 lb_viol= -1.21e+00
+   pole 4 3 t=0.340876 y(first,mid,last)= -1.565 0.631 97.566 slope_upper_half= 8.420 lb_viol= -7.75e-01
+   pole 4 5 t=0.537226 y(first,mid,last)= -1.849 11.066 15.206 slope_upper_half= 0.360 lb_viol= -4.91e-01
+   pole 5 1 t=0.0547979 y(first,mid,last)= -1.582 10.636 10.986 slope_upper_half= 0.030 lb_viol= -7.61e-01
+   pole 5 2 t=0.105063 y(first,mid,last)= -1.362 7.996 27.972 slope_upper_half= 1.735 lb_viol= -9.81e-01
+   pole 5 3 t=0.155329 y(first,mid,last)= -1.076 16.473 -13.268 slope_upper_half= -2.583 lb_viol= -1.27e+00
+   pole 5 5 t=0.25586 y(first,mid,last)= -1.203 13.982 -26.318 slope_upper_half= -3.500 lb_viol= -1.14e+00
+   generic None None t=58.4919 y(first,mid,last)= 0.293 19.155 -42.466 slope_upper_half= -5.352 
+   generic None None t=38.6585 y(first,mid,last)= 0.244 -8.196 -85.848 slope_upper_half= -6.745 
+   generic None None t=71.8817 y(first,mid,last)= -1.390 -5.963 -95.486 slope_upper_half= -7.776 
+   generic None None t=71.1402 y(first,mid,last)= -0.737 1.725 -43.016 slope_upper_half= -3.886 
+   generic None None t=41.7498 y(first,mid,last)= 3.244 -4.910 -39.963 slope_upper_half= -3.045 
+ek2 rot factors 148 L/log(1/delta) at ends 1.0799579282897036 1.3743219249426828
+   pole 1 1 t=6.31674 y(first,mid,last)= 1.920 32.237 54.324 slope_upper_half= 0.685 lb_viol= -2.90e+00
+   pole 1 2 t=10.2207 y(first,mid,last)= 1.008 36.204 67.651 slope_upper_half= 0.976 lb_viol= -1.98e+00
+   pole 1 3 t=14.1247 y(first,mid,last)= 2.446 31.679 69.629 slope_upper_half= 1.177 lb_viol= -3.42e+00
+   pole 1 5 t=21.9326 y(first,mid,last)= 1.060 48.085 92.107 slope_upper_half= 1.366 lb_viol= -2.03e+00
+   pole 2 1 t=2.74121 y(first,mid,last)= 2.705 39.382 61.221 slope_upper_half= 0.677 lb_viol= -4.24e+00
+   pole 2 2 t=4.9589 y(first,mid,last)= 0.285 20.898 48.005 slope_upper_half= 0.841 lb_viol= -1.82e+00
+   pole 2 3 t=7.17659 y(first,mid,last)= 1.493 40.913 67.813 slope_upper_half= 0.834 lb_viol= -3.03e+00
+   pole 2 5 t=11.612 y(first,mid,last)= -0.263 36.383 68.408 slope_upper_half= 0.993 lb_viol= -1.27e+00
+   pole 3 1 t=2.59537 y(first,mid,last)= 2.930 37.016 69.742 slope_upper_half= 1.015 lb_viol= -4.92e+00
+   pole 3 2 t=3.99517 y(first,mid,last)= -0.734 26.860 54.726 slope_upper_half= 0.864 lb_viol= -1.25e+00
+   pole 3 3 t=5.39497 y(first,mid,last)= 1.142 37.778 69.321 slope_upper_half= 0.978 lb_viol= -3.13e+00
+   pole 3 5 t=8.19456 y(first,mid,last)= -0.339 30.237 65.749 slope_upper_half= 1.102 lb_viol= -1.65e+00
+   pole 4 1 t=1.25173 y(first,mid,last)= 0.818 33.136 70.134 slope_upper_half= 1.148 lb_viol= -3.28e+00
+   pole 4 2 t=2.102 y(first,mid,last)= 1.362 35.087 79.527 slope_upper_half= 1.379 lb_viol= -3.82e+00
+   pole 4 3 t=2.95228 y(first,mid,last)= 1.155 13.668 41.635 slope_upper_half= 0.868 lb_viol= -3.61e+00
+   pole 4 5 t=4.65284 y(first,mid,last)= 0.022 35.173 67.730 slope_upper_half= 1.010 lb_viol= -2.48e+00
+   pole 5 1 t=0.562261 y(first,mid,last)= 0.635 32.680 67.138 slope_upper_half= 1.069 lb_viol= -3.52e+00
+   pole 5 2 t=1.07802 y(first,mid,last)= 0.490 27.028 58.503 slope_upper_half= 0.976 lb_viol= -3.38e+00
+   pole 5 3 t=1.59377 y(first,mid,last)= -0.725 38.608 63.653 slope_upper_half= 0.777 lb_viol= -2.16e+00
+   pole 5 5 t=2.62528 y(first,mid,last)= 3.020 42.084 84.766 slope_upper_half= 1.324 lb_viol= -5.91e+00
+   generic None None t=58.4919 y(first,mid,last)= -0.313 -5.945 -8.177 slope_upper_half= -0.069 
+   generic None None t=38.6585 y(first,mid,last)= 0.254 2.697 6.892 slope_upper_half= 0.130 
+   generic None None t=71.8817 y(first,mid,last)= 0.449 -2.378 5.925 slope_upper_half= 0.258 
+   generic None None t=71.1402 y(first,mid,last)= 0.448 -0.040 -3.702 slope_upper_half= -0.114 
+   generic None None t=41.7498 y(first,mid,last)= 1.093 2.661 18.181 slope_upper_half= 0.481 
+cyc pi factors 107 L/log(1/delta) at ends 0.982793227432457 0.9986385182477027
+   pole 1 1 t=8.5788 y(first,mid,last)= 0.666 0.613 0.613 slope_upper_half= -0.000 lb_viol= -1.32e+00
+   pole 1 2 t=14.298 y(first,mid,last)= 0.666 0.613 0.613 slope_upper_half= -0.000 lb_viol= -1.32e+00
+   pole 1 3 t=20.0172 y(first,mid,last)= 0.666 0.613 0.613 slope_upper_half= -0.000 lb_viol= -1.32e+00
+   pole 1 5 t=31.4556 y(first,mid,last)= 0.666 0.613 0.613 slope_upper_half= -0.000 lb_viol= -1.32e+00
+   pole 2 1 t=4.2894 y(first,mid,last)= 0.571 0.648 0.648 slope_upper_half= 0.000 lb_viol= -2.02e+00
+   pole 2 2 t=7.149 y(first,mid,last)= 0.571 0.648 0.648 slope_upper_half= 0.000 lb_viol= -2.02e+00
+   pole 2 3 t=10.0086 y(first,mid,last)= 0.571 0.648 0.648 slope_upper_half= 0.000 lb_viol= -2.02e+00
+   pole 2 5 t=15.7278 y(first,mid,last)= 0.571 0.648 0.648 slope_upper_half= 0.000 lb_viol= -2.02e+00
+   pole 3 1 t=2.1447 y(first,mid,last)= 1.006 1.142 1.142 slope_upper_half= 0.000 lb_viol= -3.13e+00
+   pole 3 2 t=3.5745 y(first,mid,last)= 1.006 1.142 1.142 slope_upper_half= 0.000 lb_viol= -3.13e+00
+   pole 3 3 t=5.0043 y(first,mid,last)= -0.525 -0.452 -0.452 slope_upper_half= 0.000 lb_viol= -1.60e+00
+   pole 3 5 t=7.8639 y(first,mid,last)= 1.006 1.142 1.142 slope_upper_half= 0.000 lb_viol= -3.13e+00
+   pole 4 1 t=1.07235 y(first,mid,last)= 0.180 0.296 0.296 slope_upper_half= 0.000 lb_viol= -2.96e+00
+   pole 4 2 t=1.78725 y(first,mid,last)= 0.904 1.043 1.043 slope_upper_half= 0.000 lb_viol= -3.68e+00
+   pole 4 3 t=2.50215 y(first,mid,last)= 0.844 0.906 0.906 slope_upper_half= 0.000 lb_viol= -3.62e+00
+   pole 4 5 t=3.93195 y(first,mid,last)= 0.904 1.043 1.043 slope_upper_half= 0.000 lb_viol= -3.68e+00
+   pole 5 1 t=0.536175 y(first,mid,last)= -1.051 -1.036 -1.036 slope_upper_half= -0.000 lb_viol= -2.26e+00
+   pole 5 2 t=0.893625 y(first,mid,last)= -0.118 -0.009 -0.009 slope_upper_half= -0.000 lb_viol= -3.19e+00
+   pole 5 3 t=1.25108 y(first,mid,last)= 0.392 0.485 0.485 slope_upper_half= -0.000 lb_viol= -3.70e+00
+   pole 5 5 t=1.96598 y(first,mid,last)= 0.993 1.142 1.142 slope_upper_half= -0.000 lb_viol= -4.30e+00
+   generic None None t=58.4919 y(first,mid,last)= 0.442 0.527 0.527 slope_upper_half= 0.000 
+   generic None None t=38.6585 y(first,mid,last)= 0.517 0.595 0.595 slope_upper_half= 0.000 
+   generic None None t=71.8817 y(first,mid,last)= 0.868 0.942 0.942 slope_upper_half= 0.000 
+   generic None None t=71.1402 y(first,mid,last)= 0.839 0.898 0.898 slope_upper_half= 0.000 
+   generic None None t=41.7498 y(first,mid,last)= 0.848 0.975 0.975 slope_upper_half= 0.000 
+scripts/memcap.sh 8 python3.14   63.98s user 0.32s system 98% cpu 1:05.15 total

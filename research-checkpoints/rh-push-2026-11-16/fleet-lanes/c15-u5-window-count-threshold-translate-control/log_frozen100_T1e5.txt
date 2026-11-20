@@ -1,0 +1,14 @@
+planned: T=100000 Ts=100521.3857 N=404 P=54 R=1.996 points=257 rows=3084; full rows complex x2 = 40 MB; weights chunk 4000 x 2191 complex = 140 MB
+  rows 0/257 0s
+  rows 64/257 18s
+  rows 128/257 36s
+  rows 192/257 55s
+  rows 256/257 75s
+controls (window defect): {1: {'zeta': 1.3468151583079278e-10, 'dh': 0.4051818231192246}, 2: {'zeta': 1.5829277885824664e-10, 'dh': 0.4051818231192246}, 4: {'zeta': 1.5829277885824664e-10, 'dh': 0.4051818231192246}, 8: {'zeta': 1.5829277885824664e-10, 'dh': 0.4051818231192246}, 16: {'zeta': 1.9955285712865589e-10, 'dh': 0.4994669658686852}, 32: {'zeta': 2.6135842944820095e-10, 'dh': 0.9751961406854409}, 64: {'zeta': 2.8178789586690575e-10, 'dh': 0.9751961406854409}} DH multiplicativity defects a(4)-a(2)^2, a(6)-a(2)a(3): [1.080700903149283, 1.080700903149283]
+K=1: rank [23, 29] of 54; score 3.73e-01 (window 3.3e-03, F(s0) 3.7e-01, xdep 1.1e-03; start zeta+1.0+refine; offgrid 1.0e-02); dist to translates 1.03; nonmult rank [25, 31, 806] score 3.4e-11 max|a| 1.39; 3s
+K=2: rank [24, 30] of 54; score 3.73e-01 (window 7.2e-03, F(s0) 3.7e-01, xdep 1.1e-03; start prev+refine; offgrid 8.9e-03); dist to translates 1.01; nonmult rank [26, 36, 806] score 4.3e-11 max|a| 1.37; 4s
+K=4: rank [26, 34] of 54; score 3.73e-01 (window 1.6e-02, F(s0) 3.7e-01, xdep 1.1e-03; start prev+refine; offgrid 1.2e-02); dist to translates 0.98; nonmult rank [28, 38, 806] score 4.8e-11 max|a| 1.35; 6s
+K=8: rank [28, 36] of 54; score 3.73e-01 (window 4.3e-02, F(s0) 3.7e-01, xdep 1.1e-03; start prev+refine; offgrid 3.6e-02); dist to translates 0.97; nonmult rank [30, 41, 806] score 6.7e-11 max|a| 1.54; 11s
+K=16: rank [31, 39] of 54; score 3.73e-01 (window 1.5e-01, F(s0) 3.7e-01, xdep 1.1e-03; start zeta+0.1+refine; offgrid 1.1e-01); dist to translates 0.86; nonmult rank [33, 45, 806] score 1.0e-10 max|a| 2.09; 10s
+K=32: rank [36, 41] of 54; score 3.75e-01 (window 4.8e-02, F(s0) 3.8e-01, xdep 7.1e-03; start zeta+1.0; offgrid 2.4e-02); dist to translates 0.93; nonmult rank [39, 51, 806] score 1.1e-10 max|a| 2.19; 12s
+K=64: rank [41, 46] of 54; score 3.78e-01 (window 3.4e-02, F(s0) 3.8e-01, xdep 5.8e-03; start zeta+0.3; offgrid 1.3e-02); dist to translates 0.61; nonmult rank [50, 63, 806] score 1.1e-10 max|a| 2.75; 13s

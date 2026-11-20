@@ -1,0 +1,13 @@
+Z0 Z0:odl:/home/USER/rh-push/b-dyson-defect/zeros6:x:1000
+Z7 Z7:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e7.npz
+Z8 Z8:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e8.npz
+Z9 Z9:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e9.npz
+Z10 Z10:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e10.npz
+Z11 Z11:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e11.npz
+Z12 Z12:blk:/home/USER/rh-push/b-dyson-defect/zeros_1e12.npz
+CHI CHI:lz:/home/USER/rh-push/s1-zero-statistics-gram/out/LZ.npz:CHI:10000
+CHIBAR CHIBAR:lz:/home/USER/rh-push/s1-zero-statistics-gram/out/LZ.npz:CHIBAR:10000
+DH DH:lz:/home/USER/rh-push/s1-zero-statistics-gram/out/LZ.npz:DH:10000
+HEATa HEATa:heat:/home/USER/rh-push/s1-zero-statistics-gram/out/heat_-0.005.npz
+HEATb HEATb:heat:/home/USER/rh-push/s1-zero-statistics-gram/out/heat_-0.02.npz
+HEATc HEATc:heat:/home/USER/rh-push/s1-zero-statistics-gram/out/heat_-0.08.npz

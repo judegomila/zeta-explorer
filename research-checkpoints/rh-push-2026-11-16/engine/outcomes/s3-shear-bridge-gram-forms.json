@@ -1,0 +1,97 @@
+{
+ "slug": "s3-shear-bridge-gram-forms",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "degree0-normalized-r",
+  "endpoint-bridge-mass",
+  "ka-offdiagonal-hankel-g7",
+  "ka-positivity-residual",
+  "mu-pass-overflow",
+  "scalar-cover-trace-bound",
+  "shear-gram-rank-two",
+  "shear-norm-plateau",
+  "skew-toeplitz-pair-ladder",
+  "zv-annulus-boundary-conditions",
+  "zv-bridge-pick-congruence",
+  "zv-bridge-vs-reference-form-comparison"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "mu-pass-overflow",
+    "endpoint-bridge-mass",
+    "degree0-normalized-r"
+   ],
+   "obstruction": "no zero or prime enters: values order kernels by width (conductor), no threshold; flow-stable",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "E_b",
+    "heat",
+    "L(chi)"
+   ]
+  },
+  {
+   "nodes": [
+    "skew-toeplitz-pair-ladder",
+    "shear-gram-rank-two",
+    "shear-norm-plateau"
+   ],
+   "obstruction": "structural: every kernel passes (skew-symmetry plus Toeplitz edge asymptotics)",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "E_b",
+    "T-NR",
+    "Liouville twist",
+    "unimodular twist"
+   ]
+  },
+  {
+   "nodes": [
+    "ka-offdiagonal-hankel-g7",
+    "ka-positivity-residual",
+    "scalar-cover-trace-bound"
+   ],
+   "obstruction": "kernel-blind; bound holds for every nonnegative-autocorrelation kernel or fails for zeta itself",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "L(chi)",
+    "zeta itself (diagonal core)"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-bridge-vs-reference-form-comparison",
+    "zv-annulus-boundary-conditions",
+    "zv-bridge-pick-congruence"
+   ],
+   "obstruction": "analytic continuation to the pole: negative count equals off-line zeros resolved at about 3.9 digits per unit of height; Euler-product control E_b fails like DH (verified height)",
+   "controlsThatDefeat": [
+    "DH on [1, 60]",
+    "heat tau=-0.2",
+    "E_b=0.2"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) no zero or prime enters: values order kernels by width (conductor), no threshold; flow-stable | (2) structural: every kernel passes (skew-symmetry plus Toeplitz edge asymptotics) | (3) kernel-blind; bound holds for every nonnegative-autocorrelation kernel or fails for zeta itself | (4) analytic continuation to the pole: negative count equals off-line zeros resolved at about 3.9 digits per unit of height; Euler-product control E_b fails like DH (verified height)",
+ "controlsThatDefeat": [
+  "DH",
+  "DH on [1, 60]",
+  "E_b",
+  "E_b=0.2",
+  "L(chi)",
+  "Liouville twist",
+  "T-NR",
+  "heat",
+  "heat tau=-0.2",
+  "unimodular twist",
+  "zeta itself (diagonal core)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-shear-bridge-gram-forms/RESULT.md"
+}

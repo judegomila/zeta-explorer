@@ -1,0 +1,35 @@
+{
+  "certificate": {
+    "precision_decimal_digits": 70,
+    "anchor": {
+      "d": "1/2",
+      "c": "0"
+    },
+    "dirichlet_coefficients": {
+      "1": "13/8",
+      "2": "-13/4"
+    },
+    "integer_cutoff": 4096,
+    "finite_smoothed_residual_energy": [
+      "0.05045375714146351802752271457868032776543738808424229427685222541427863",
+      "0.05045375714146351802752271457868032776543738808424229427685222541521452"
+    ],
+    "finite_smoothed_residual_norm_strict_upper": "19/80",
+    "omitted_residual_norm_upper": "1/16",
+    "full_smoothed_residual_norm_strict_upper": "3/10",
+    "filter_ratio_strict_lower": "1/16",
+    "unfiltered_source_residual_energy": [
+      "0.5776134368462833270738741759864236538289921056242194545202106192149631",
+      "0.5776134368462833270738741759864236538289921056242194545202106192149635"
+    ],
+    "status": "outward-interval finite local certificate"
+  },
+  "controls": {
+    "mobius_initial_cancellation_cases": 780,
+    "pole_neutral_lengths_checked": 39,
+    "compact_filter_telescope_cases": 819,
+    "signed_rank_two_determinant_without_scaling": "-1/48",
+    "universality_ratio_constant": "65536/135",
+    "scope": "exact finite algebra controls; universality itself is cited"
+  }
+}

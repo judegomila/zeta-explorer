@@ -1,0 +1,30 @@
+== 1. Xi(z) = int Phi e^{izu} du = xi((1+iz)/2)/4 ; single term transform = (1/4)(s(s-1)/2)pi^{-s/2}Gamma(s/2)
+ z=0.0  integral=0.124280194547079  xi/4=(0.124280194547079 + 0.0j)
+ z=3.0  integral=0.117973234276296  xi/4=(0.117973234276296 + 1.29019130718571e-32j)
+ z=14.134725  integral=0.0371461006269261  xi/4=(0.0371461006269261 + 6.36249351190264e-33j)
+ single term z=(0.7 + 0.2j)  integral=(-0.0886379159619 + 0.087279723866j)  closed=(-0.0886379159619 + 0.087279723866j)
+ single term z=(5.0 - 0.4j)  integral=(0.173957184171 + 0.0686574213674j)  closed=(0.173957184171 + 0.0686574213674j)
+ evenness defect of Phi: max |Phi(u)-Phi(-u)| on grid = 2.385e-31
+ sign of single term phi1 at u=-0.3: -0.30138781 (negative => single-site density is signed)
+== 2. GHS-type inequality at real field: d^3/dsigma^3 log xi(sigma) <= 0 for sigma > 1/2
+ zeta: max over sigma in (0.5,30.5] step .25 of (log xi)''' = -0.00011142774 at sigma= 0.75
+   sigma=0.51  (log xi)'''=-4.4607061e-6
+   sigma=0.6  (log xi)'''=-4.4601353e-5
+   sigma=2.0  (log xi)'''=-0.00065005846
+   sigma=10.0  (log xi)'''=-0.0017046355
+   sigma=25.0  (log xi)'''=-0.00059388857
+   sigma=60.0  (log xi)'''=-0.0001245983
+   sigma=200.0  (log xi)'''=-1.2121837e-5
+ DH functional equation check |Lam(s)-Lam(1-s)|/|Lam(s)| = 8.5079e-31
+ DH coefficients a(1..5) = 1, kappa, -kappa, -1, 0 with kappa = 0.28407904384
+ DH off-line zero check |f(0.8085171825+85.6993484854i)| = 6.1293e-11
+ DH: min of Lam_DH(sigma) on grid = 1.1430226 (positive => real-field MGF positive)
+ DH: max over sigma in (0.5,30.5] of (log Lam_DH)''' = -0.00053691364 at sigma= 30.5
+   sigma=0.51  (log Lam_DH)'''=-0.00020981821
+   sigma=0.6  (log Lam_DH)'''=-0.0020958202
+   sigma=2.0  (log Lam_DH)'''=-0.024653747
+   sigma=10.0  (log Lam_DH)'''=-0.0050345915
+   sigma=25.0  (log Lam_DH)'''=-0.00079872756
+== 3. Even cumulant signs (Newman 1975 necessary condition): u_{2n} = (2n)! (-1)^{n-1} sigma_n / n
+ zeta: (-1)^{n-1} n c_{2n} (= sum over zero pairs of gamma^{-2n}, n=1..6): 0.00577625, 2.32329e-6, 2.25272e-9, 2.58997e-12, 3.13834e-15, 3.8762e-18
+ DH: (-1)^{n-1} n c_{2n} (= sum over zero pairs of gamma^{-2n}, n=1..6): 0.0245174, 0.000109282, 9.32661e-7, 8.72055e-9, 8.3297e-11, 8.00374e-13

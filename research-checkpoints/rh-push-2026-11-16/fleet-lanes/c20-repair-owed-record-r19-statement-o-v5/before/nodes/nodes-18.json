@@ -1,0 +1,49 @@
+[
+ {
+  "id": "ek-vector-specific-row-mean-square",
+  "type": "open-direction",
+  "name": "(E-K): vector-specific mean square of reflected marked cubic-theta rows beyond the dual range",
+  "statement": "Device under test in campaign round 8 (lanes c8-ek-ff-reflected-rows-exact, c8-ek-theta-second-moment-formula; not reported when this node was written). Hypothesis named by c7-probe-format-h-cap: for the completed marked rows B_m of the Proposition 2.1 probe, Sum over m ~ Q of abs(B_m)^2 << Q^(1+eps) Z^(max(0, k_J, k_P)) when Q P > Z (dual length above the number of rows), for the coefficient vector of the probe itself; in the form with all range losses removed it is restricted to lx >= l (first referee, E3: the unrestricted form contradicts Lemma C for long marks). It is not an l2-l2 operator bound: the Hilbert-Schmidt lower bound max(Q, D) of the reflected row matrix equals the K-branch m + l - 1 of Liu II Lemma 2.4 and holds for every blockwise operator-norm estimate. With the polar term kept, removing the K-loss alone gives the model value 31/36 and no vertex with h > 1. Recalled risk (not opened): sharpness examples of the cubic large sieve use theta-type vectors. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "push/c7-probe-format-h-cap/RESULT.md section 4 + REFEREE.md E2, E3; push/c8-repair-engine-map-r7/c7-probe-format-h-cap/REFEREE2.md; campaign/ROUND_LOG.md round 8 lanes 1, 2",
+  "tags": [
+   "theta",
+   "large-sieve",
+   "zero-free",
+   "metaplectic"
+  ]
+ },
+ {
+  "id": "eh-nonprincipal-row-cancellation",
+  "type": "open-direction",
+  "name": "(E-H): cancellation over the non-principal rows below the floor-class high bound",
+  "statement": "Device under test in campaign round 8 (lane c8-eh-nonprincipal-row-cancellation; not reported when this node was written). Hypothesis named by c7-probe-format-h-cap: the sum over the non-principal rows u of the high side of the Proposition 2.1 probe is below the floor-class bound H0 (trivial count over u). In the three-input model (square-root level, K-branch, H0) removing H0 gives 1 - 2/r at one row (0, 0, 1); with the source ledger kept the values are 4/5 (G = 0) and 13/15 (polar term kept), that is no gain over the present low floor (first referee, E1). First test of the lane: whether the cancellation is a zero-free statement about the target family (circular, as the K + D input was) or an independent input. Manuscript-level ceiling for sextic rows: abscissa 2/3 (normaliser, map row Z24). No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "push/c7-probe-format-h-cap/RESULT.md section 4 + REFEREE.md E1; campaign/ROUND_LOG.md round 8 lane 3",
+  "tags": [
+   "theta",
+   "zero-free",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "single-row-bridge",
+  "type": "open-direction",
+  "name": "Single-row bridge: spinor square-root form built from one completed probe row B_m",
+  "statement": "Device under test in campaign round 8 (lane c8-single-row-bridge-crossing; not reported when this node was written). Left open by c7-bridge-seven-eighths-krein-index, which closed family sums and family-averaged Krein indices of bridge forms (a family sum is a direct sum or the bridge of the product; the 7/8 input bounds the pole of largest real part, the anticausal block reads the pole nearest the line). Proposal: form S = N/D from one completed row B_m of the 7/8 probe (a function with a functional equation from the periodicity of the theta row) in place of xi, and ask for its axis of unimodularity, its anticausal Hankel block, and whether a zero of the target is read at every height. The row carries the periodicity input (lattice-translation invariance) that separates THIN; whether the bridge of a row reads the target zero or only the zeros of the row is the first test. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "push/c7-bridge-seven-eighths-krein-index/RESULT.md (not covered); campaign/ROUND_LOG.md round 8 lane 6",
+  "tags": [
+   "bridge",
+   "spinor",
+   "hankel",
+   "theta"
+  ]
+ }
+]

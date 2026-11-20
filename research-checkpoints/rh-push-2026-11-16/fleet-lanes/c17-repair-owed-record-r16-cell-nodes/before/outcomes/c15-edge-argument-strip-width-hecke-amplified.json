@@ -1,0 +1,48 @@
+{
+ "slug": "c15-edge-argument-strip-width-hecke-amplified",
+ "round": 15,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "explore",
+  "u1",
+  "eisenstein-edge",
+  "maass-selberg",
+  "hecke-amplifier",
+  "truncation",
+  "closed-row-proposed",
+  "r4-direct"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No new statement about zeros of zeta; verdict precise-obstruction stands for T >= N. At a zero rho = 1 - delta + i gamma: ||Lambda^T E*(., rho/2)||^2 = |xi(2 - rho)|^2 T^delta/delta for T >= 1 and M(1) = L + S (proved from Maass-Selberg; measured at zeros 1-6). On the truncated series T_m is the combination (4) of truncations at dilated heights (proved; checked to 2e-14). For T >= N the amplified norm is M(T) x*Kx with K depending on (gamma, delta, N) only, gain at most N^delta, and the amplified inequality is implied by the unamplified one, both against identity (I) (as in RESULT.md) and against Lemma 2 (referee addition C1). With a lower-bound input bounded in gamma, the inequality follows from absolute convergence for delta >= (log log gamma + C)/log gamma, for every Euler product with local parameters of modulus at most 1. Width c/log^5 gamma is argued only and weaker than classical. Amplifiers with T < N are open, not closed (argued, one measured case).",
+ "obstruction": "Stops at the decisive first test. At a zero rho = 1 - delta + i gamma the truncated norm is exactly |xi(2-rho)|^2 T^delta/delta (Maass-Selberg), and at T = 1 the device inequality is the identity M = L + S. On truncated Eisenstein data T_m acts as a combination of truncations at dilated heights, so for T >= N the amplified norm is M(T) x*Kx with K depending on (gamma, delta, N) only, gain at most N^delta, and the amplified inequality is implied by the unamplified one (PROVED). The loss sits outside the norm, in a sieve lower bound for the divisor-type mean and in sup|zeta'|; the width obtained is c/log^5 gamma (ARGUED), weaker than classical, and with a bounded lower-bound input the inequality follows from absolute convergence for delta >= (log log gamma + C)/log gamma for every Euler product with local parameters of modulus at most 1. Not covered: amplifiers with T < N (argued, one measured case).",
+ "obstructionKind": "identity: both sides of the device inequality are one explicit vector with exactly known norm; amplifier gain bounded by N^delta",
+ "controlsThatDefeat": [
+  "EIS-w and BLS (pass the amplified part verbatim: Hecke operators act on truncated Eisenstein data only by dilating the truncation height)",
+  "every Euler product with local parameters of modulus at most 1 (the surviving inequality follows from absolute convergence)",
+  "not run: T-NR and DH on the amplified norm (no Hecke eigen-object)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Report written to tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/REFEREE.md (independent report on top; the earlier same-agent pass kept as an appendix). All PROVED steps were re-derived and confirmed: Lemma 1 (1), (2), (I); Lemma 2 (3); Proposition A (a)-(d); the formula in (e); Proposition C under its hypothesis l <= C_0. No RH assumption, no restated verified height, no known theorem presented as new. Four corrections - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "An amplifier isolates one term of a spectral sum; it cannot improve an inequality whose two sides are one explicit vector with exactly known norm. Here the loss sits in two inputs outside the norm: a sieve lower bound for the divisor-type mean and sup|zeta'|. On truncated Eisenstein data Hecke operators act only by dilating the truncation height (same structure as rows G26, D9), so EIS-w and BLS pass the amplified part verbatim. The device is not in class U1: FE and local data are joined by an identity. Also: a spectral formula derived at a zero is not a check at a hypothetical delta (one reporting error corrected).",
+ "followUp": "Get an independent referee for relations (2), (4), (5) and Proposition C (REFEREE.md is a same-agent pass; lanes.jsonl records referees: 0), then add the proposed closed row G37 (RESULT.md section 9) to the map. Only uncovered cell: the lower-bound side for amplifiers with T < N; low priority, since the norm is exact and the recoverable loss S/M is a constant.",
+ "resultFile": "tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-edge-argument-strip-width-hecke-amplified.md"
+ }
+}

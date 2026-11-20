@@ -1,0 +1,43 @@
+{
+ "slug": "c6-quadratic-companion-positivity",
+ "round": 6,
+ "kind": "explore",
+ "nodes": [
+  "map-open-9"
+ ],
+ "tags": [
+  "positivity",
+  "quadratic-form",
+  "rankin-selberg",
+  "landau",
+  "companions",
+  "sato-tate",
+  "unimodular-twist",
+  "davenport-heilbronn",
+  "device"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction for the four named degree-2 constructions; no statement about zeros. (a) Log-level squares with positive multiplicities are linear in -L'/L and lie inside the P25 cone. (b) A product of two log-level forms has non-negative coefficients at n = pq only if both factors have non-negative prime coefficients up to a common sign (proved for zeta shifts with X the orbit closure; with companions relative to a cited Sato-Tate joint density). (c) Coefficient squares sum |b(n)|^2 n^-s are non-negative for every sequence b, invariant under every unimodular twist, and stay non-negative for Davenport-Heilbronn (sum a(n)^2 n^-s = ((1+kappa^2)/2)(1-5^-s) zeta(s) + ((1-kappa^2)/2) L(s,(./5)), exact). (d) For b = lambda_Pi (positive integer multiplicities, tempered, unramified factors) the series equals L(s, Pi x Pi~) H(s) with log H = O_d(1) on sigma >= 1, and its Landau abscissa is 1 - 2 min Re z_j for every zero configuration, so the Landau device on a coefficient square reaches Re s = 1 only. DH fails the product forms through one coefficient value at n = 3, not at a multiplicative step; the only multiplicative step (factorisation of the coefficient square) supports classical non-vanishing on Re s = 1 and nothing to the left. Density (family) forms were not run.",
+ "obstruction": "Degree-2 positive forms split into three classes. Log-level squares are linear in -L'/L and lie in the P25 cone. Products of two log-level forms are non-negative at n = pq only if both factors are already admissible linear forms (Lemma Q; with companions relative to a cited Sato-Tate joint density). Coefficient squares sum |b(n)|^2 n^-s are non-negative for every sequence, invariant under every unimodular twist, and non-negative for DH (exact). For b = lambda_Pi the series is L(s, Pi x Pi~) H(s) and its Landau abscissa is fixed by the leading pole for every zero configuration: the device reaches Re s = 1 only. Density (family) forms not run (MV-CAP).",
+ "obstructionKind": "coefficient-square-twist-blind-landau-stops-at-one",
+ "controlsThatDefeat": [
+  "every unimodular twist, THIN included (coefficient squares are invariant)",
+  "DH (coefficient square stays non-negative; DH fails the product forms through the sign of a(3), not at a multiplicative step)",
+  "any sequence b (positivity of |b(n)|^2 uses no multiplicativity)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error changes the verdict. Five corrections, written to tmp/research-2026-11-16/push/c6-quadratic-companion-positivity/REFEREE.md: (C1) \"Q1 restricted to zeta is exactly the classical cone\" is wrong with multiplicities m_j > 0: |sum m_j e^{-i t_j theta}|^2 then has all Fourier coefficients >= 0, a strict sub-cone (1 - cos theta needs coefficients (1,-1)); only the inclusion Q1 in P25 holds, which is all the reduction uses. (C2) Lemma Q's density [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A coefficient square |b(n)|^2 is positive without any multiplicativity and is blind to unimodular twists (THIN included). Multiplicativity enters only through factorising the series into L-functions, and at the leading pole every factor is evaluated on Re s >= 1. So quadratic coefficient positivity cannot see inside the strip, and DH passes everything except the factorisation.",
+ "followUp": "Apply the proposed map row (P50, RESULT.md section 5) and mark map-open-9 closed for pointwise outputs; a referee pass should check Lemma Q with companions and the Edge Lemma for non-tempered constituents. No further attack is recommended on this device; the density half was not run (MV-CAP).",
+ "resultFile": "tmp/research-2026-11-16/push/c6-quadratic-companion-positivity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-quadratic-companion-positivity/REFEREE.md"
+}

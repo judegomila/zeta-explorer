@@ -1,0 +1,43 @@
+N = 200, prec 448, 14 supports, z keys ['0.25', '0.75']; planned stage-1 memory per worker: 29 ball matrices 200x200 (about 0.19 GB), 1 workers
+stage1 worker0 node 0/512 0s
+stage1 worker0 node 20/512 5s
+stage1 worker0 node 40/512 10s
+stage1 worker0 node 60/512 15s
+stage1 worker0 node 80/512 20s
+stage1 worker0 node 100/512 24s
+stage1 worker0 node 120/512 29s
+stage1 worker0 node 140/512 34s
+stage1 worker0 node 160/512 38s
+stage1 worker0 node 180/512 43s
+stage1 worker0 node 200/512 48s
+stage1 worker0 node 220/512 53s
+stage1 worker0 node 240/512 58s
+stage1 worker0 node 260/512 62s
+stage1 worker0 node 280/512 67s
+stage1 worker0 node 300/512 71s
+stage1 worker0 node 320/512 76s
+stage1 worker0 node 340/512 81s
+stage1 worker0 node 360/512 86s
+stage1 worker0 node 380/512 90s
+stage1 worker0 node 400/512 95s
+stage1 worker0 node 420/512 100s
+stage1 worker0 node 440/512 105s
+stage1 worker0 node 460/512 109s
+stage1 worker0 node 480/512 114s
+stage1 worker0 node 500/512 119s
+stage 1 done 123s
+2.1972245773 done 7s ZETA pf {'even': '1.228842508900366640638625e-31', 'how0': 'ball', 'odd': '1.091483484870491935126437e-28', 'how1': 'ball'}
+2.20 done 8s ZETA pf {'even': '9.308089656257327126874202e-32', 'how0': 'ball', 'odd': '8.050485314741901726148973e-29', 'how1': 'ball'}
+2.25 done 8s ZETA pf {'even': '4.959919624542499559045712e-34', 'how0': 'ball', 'odd': '4.818807193115181402868906e-31', 'how1': 'ball'}
+2.30 done 8s ZETA pf {'even': '1.901817207757902705601784e-36', 'how0': 'ball', 'odd': '2.103952094867091344150516e-33', 'how1': 'ball'}
+2.3025850930 done 9s ZETA pf {'even': '1.375904517603744930714508e-36', 'how0': 'ball', 'odd': '1.575455664570126497516633e-33', 'how1': 'ball'}
+2.35 done 9s ZETA pf {'even': '5.177586152920213352012399e-39', 'how0': 'ball', 'odd': '5.402061390358868249484402e-36', 'how1': 'ball'}
+2.3978952728 done 10s ZETA pf {'even': '1.105875465318691016479064e-41', 'how0': 'ball', 'odd': '1.516677512469620631840316e-38', 'how1': 'ball'}
+2.40 done 10s ZETA pf {'even': '8.501422923298415658936302e-42', 'how0': 'ball', 'odd': '1.144067443478721242904596e-38', 'how1': 'ball'}
+2.45 done 9s ZETA pf {'even': '1.147927663688385728314464e-44', 'how0': 'ball', 'odd': '1.738745983987800291147294e-41', 'how1': 'ball'}
+2.4849066498 done 10s ZETA pf {'even': '9.288902874037851917133227e-47', 'how0': 'ball', 'odd': '1.487103782164676385256468e-43', 'how1': 'ball'}
+2.50 done 10s ZETA pf {'even': '1.092268488142942648432744e-47', 'how0': 'ball', 'odd': '1.852880085028010944523705e-44', 'how1': 'ball'}
+2.55 done 10s ZETA pf {'even': '6.85532226494348481600608e-51', 'how0': 'ball', 'odd': '1.210453116301339173810828e-47', 'how1': 'ball'}
+2.5649493575 done 10s ZETA pf {'even': '7.446864064113548729314422e-52', 'how0': 'ball', 'odd': '1.318635153085101359315924e-48', 'how1': 'ball'}
+2.60 done 10s ZETA pf {'even': '3.139378909375937232513023e-54', 'how0': 'ball', 'odd': '6.827336830227162943720433e-51', 'how1': 'ball'}
+all done 251s

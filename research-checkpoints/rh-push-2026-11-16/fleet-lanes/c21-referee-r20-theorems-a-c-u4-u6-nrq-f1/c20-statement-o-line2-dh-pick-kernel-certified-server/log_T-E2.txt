@@ -1,0 +1,4 @@
+PLAN: T-E2 fun=E2 a=1 N=24 bits=2000; matrix 24x24 arb, about 0 MB
+L(a) = [0.1155245300933242182362054 +/- 4.65e-26]  jets 0.0 s
+matrix 0.0 s
+{"name": "T-E2", "negative_pivots": [], "undecided": [], "pivots_computed": 24, "min_rel_accuracy_bits": 1732, "seconds": 0.0045909881591796875}

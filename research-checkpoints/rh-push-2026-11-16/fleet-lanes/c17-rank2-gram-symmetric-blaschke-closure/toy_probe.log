@@ -1,0 +1,8 @@
+sym {1/4,3/4} rank-one identity exact: True  sign of K(a,mu0) K(mu0,a)... K(a,mu0)^2/(K(a,a-type)) not available at real points; K(a,mu0) = 0.5874704519480964
+   line (1, 2/3) : degree of q psi along the line: 5
+   line (1, 1/5) : degree of q psi along the line: 5
+   line (2, 1) : degree of q psi along the line: 5
+sym {1/8,7/8} rank-one identity exact: True  sign of K(a,mu0) K(mu0,a)... K(a,mu0)^2/(K(a,a-type)) not available at real points; K(a,mu0) = 0.5490692936083921
+   line (1, 2/3) : degree of q psi along the line: 5
+   line (1, 1/5) : degree of q psi along the line: 5
+   line (2, 1) : degree of q psi along the line: 5

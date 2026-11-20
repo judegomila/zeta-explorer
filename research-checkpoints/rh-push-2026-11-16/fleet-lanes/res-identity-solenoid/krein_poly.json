@@ -1,0 +1,86 @@
+{
+ "trials": 308,
+ "residue_ok": 308,
+ "trace_ok": 305,
+ "u_ok": 308,
+ "path": [
+  {
+   "tau": 1.0,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    4,
+    0
+   ],
+   "det_trace_over_disc": 1.8939278998636754e-05,
+   "disc": 5184.0
+  },
+  {
+   "tau": 0.25,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    4,
+    0
+   ],
+   "det_trace_over_disc": 1.8939278998636866e-05,
+   "disc": 3164.0625
+  },
+  {
+   "tau": 0.01,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    4,
+    0
+   ],
+   "det_trace_over_disc": 1.893927899863228e-05,
+   "disc": 162.20773376640005
+  },
+  {
+   "tau": -0.01,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    3,
+    1
+   ],
+   "det_trace_over_disc": 1.893927899863834e-05,
+   "disc": -165.48455424640008
+  },
+  {
+   "tau": -0.25,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    3,
+    1
+   ],
+   "det_trace_over_disc": 1.893927899863684e-05,
+   "disc": -5220.0625
+  },
+  {
+   "tau": -1.0,
+   "residue_sig": [
+    2,
+    2
+   ],
+   "trace_sig": [
+    3,
+    1
+   ],
+   "det_trace_over_disc": 1.8939278998636808e-05,
+   "disc": -40000.0
+  }
+ ]
+}

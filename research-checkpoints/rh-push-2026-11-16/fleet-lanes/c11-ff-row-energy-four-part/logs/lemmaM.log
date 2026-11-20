@@ -1,0 +1,3 @@
+nu(m) values: [31, 36, 41] mean 36.0
+lam = 9: exact mean |Tf|^2 / D_c = 0.64523; seeds: ru mean 0.66493 (sd 0.126), cm mean 0.65079 (sd 0.101); targets a 0.71727, b 0.61428; one 3.5793; mu 0.1008
+lam = 12: exact mean |Tf|^2 / D_c = 3.28861; seeds: ru mean 3.39082 (sd 0.780), cm mean 3.29562 (sd 0.567); targets a 3.51789, b 3.03426; one 22.1914; mu 0.6253

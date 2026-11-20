@@ -1,0 +1,3 @@
+'lee_yang_inside' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lee_yang_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0

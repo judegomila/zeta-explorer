@@ -1,0 +1,7 @@
+[dropcos@2] gpu=False KMAX=90 NRES=100 NEXT=57 t-points=3001; planned: cos blocks of 4713 t-points x <= 5328 nodes
+  spike 0: mass +9.8824e-01 [2s]
+  spike 20: mass +1.5595e-02 [114s]
+  spike 40: mass +2.8483e-05 [349s]
+  spike 60: mass +4.0759e-08 [546s]
+  spike 80: mass +5.2443e-11 [1001s]
+RESULT3 dropcos@2: Lhat(0) = +14.686158, deltahat(0) = 23.405152; min over [0,60] = -1.263478 at t = 1.040; extras {"with_zeta_m2": {"min": -1.2634784656248677, "at": 1.04}}; last spike mass +1.84e-12 [1369s]

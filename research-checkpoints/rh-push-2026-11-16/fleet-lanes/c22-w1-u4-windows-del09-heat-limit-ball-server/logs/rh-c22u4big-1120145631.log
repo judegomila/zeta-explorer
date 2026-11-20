@@ -1,0 +1,22 @@
+PLAN: range [100000.0, 200100000.0] step 0.1: heights 2000000000, blocks 6404, workers 6, families ['zeta', 'DEL']; prime powers <= 1682523: 127214; largest block 320000 heights; planned peak per worker about 1122 MB (gridded array 369 MB, its FFT the same, B 184 MB, coefficients 73 MB); total about 6.7 GB
+SETS {"DEL b=0.55": {"size": 399, "first": [5, 7, 13, 29, 41, 67, 97, 137, 191, 241], "last": [1660177, 1669177, 1678231], "sha256": "7bc02217b2d217bfc914906aef567000af249b70452bc3483147af88149d4994"}, "DEL b=0.75": {"size": 4861, "first": [5, 7, 11, 13, 19, 29, 37, 41, 53, 67], "last": [1681187, 1681703, 1682207], "sha256": "ea5a7138215fbfbb3ec95ab37e38bd3196c4c551c12d7dc2330242051f8d3a7c"}, "DEL b=0.9": {"size": 34015, "first": [3, 5, 7, 11, 13, 17, 23, 29, 31, 37], "last": [1682399, 1682477, 1682521], "sha256": "aa320afc683a6518c8f04ac1ad4f793ad98b2a9089ead6b436d84bca7bd7cc05"}, "THIN b=0.75": {"size": 2430, "first": [7, 13, 29, 41, 67, 89, 127, 149, 191, 227], "last": [1679627, 1680659, 1681703], "sha256": "8e4e8d236a9aaf6750658583e8cba6ce4e7bc21014970fc704f413dbdf53a62d"}}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/u4_fftscan.py", line 58, in block
+    C = (WALL[nm][:N]*ph)[:, None]*O
+         ~~~~^^^^
+KeyError: 'DEL'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/u4_fftscan.py", line 91, in <module>
+    for bi, (t0, L, P, N, e, dev, res) in enumerate(pool.imap_unordered(block, bl, chunksize=1)):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+KeyError: 'DEL'

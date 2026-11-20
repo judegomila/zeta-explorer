@@ -1,0 +1,43 @@
+planned allocation: symbolic series to order 12 in two variables, < 50 MB
+(a) f|sigma_1 - f = 0    f|sigma_2 - f = 0
+(b) invariant numerators of bidegree <= (3,3): c5*(x*y - 1)   free parameters: [c5]
+(c) coefficient of x^l y^k, l = 0..6   [matches L_p * Q_k]
+   k= 0 [1, 1, 1, 1, 1, 1, 1] True
+   k= 1 [1, 0, 0, 0, 0, 0, 0] True
+   k= 2 [1, 0, p, p, p, p, p] True
+   k= 3 [1, 0, p, 0, 0, 0, 0] True
+   k= 4 [1, 0, p, 0, p**2, p**2, p**2] True
+   k= 5 [1, 0, p, 0, p**2, 0, 0] True
+   k= 6 [1, 0, p, 0, p**2, 0, p**3] True
+   k= 7 [1, 0, p, 0, p**2, 0, p**3] True
+   k= 8 [1, 0, p, 0, p**2, 0, p**3] True
+   k= 9 [1, 0, p, 0, p**2, 0, p**3] True
+   k=10 [1, 0, p, 0, p**2, 0, p**3] True
+   k=11 [1, 0, p, 0, p**2, 0, p**3] True
+   k=12 [1, 0, p, 0, p**2, 0, p**3] True
+(d) monomial x y^k:  from L_p (Euler factor)   from Q_k (Moebius term)   total   target -chi_{p^k}(p)
+   k= 0   +1   +0   +1   -1
+   k= 1   +0   +0   +0   +0
+   k= 2   +1   -1   +0   -1
+   k= 3   +0   +0   +0   +0
+   k= 4   +1   -1   +0   -1
+   k= 5   +0   +0   +0   +0
+   k= 6   +1   -1   +0   -1
+   k= 7   +0   +0   +0   +0
+   k= 8   +1   -1   +0   -1
+   k= 9   +0   +0   +0   +0
+   k=10   +1   -1   +0   -1
+   k=11   +0   +0   +0   +0
+   k=12   +1   -1   +0   -1
+(e) j=1 row coefficients at m = p^l, l=0..5: [1, 0, p, chi*p, p, chi*p]
+(e) j=2 row coefficients at m = p^l, l=0..5: [1, 0, p, 0, p**2, chi*p**2]
+(e) j=3 row coefficients at m = p^l, l=0..5: [1, 0, p, 0, p**2, 0]
+(f) f * (1 - p x^2 y^2) - raw table = 0
+(g) group order: 6
+   word e    s -> 1*s + 0*w + 0   fixes s: True
+   word 1    s -> -1*s + 0*w + 1   fixes s: False
+   word 2    s -> 1*s + 1*w + -1/2   fixes s: False
+   word 21    s -> 0*s + 1*w + 0   fixes s: False
+   word 12    s -> -1*s + -1*w + 3/2   fixes s: False
+   word 121    s -> 0*s + -1*w + 1   fixes s: False
+{"invariant_sigma1": true, "invariant_sigma2": true, "unique_up_to_scalar": true, "numerator": "c5*(x*y - 1)", "columns_are_L_times_Q": true, "any_linear_coefficient_negative": false, "general_chi_linear_coefficient_zero_when_p2_divides_d": true, "f_is_raw_times_zeta_factor": true, "group_order": 6, "elements_fixing_row_variable": ["e"]}

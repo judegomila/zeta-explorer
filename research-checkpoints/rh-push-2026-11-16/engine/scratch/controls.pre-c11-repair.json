@@ -1,0 +1,14 @@
+{
+ "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8.",
+ "controls": {
+  "EISW": {
+   "name": "EIS-w: Eisenstein series E(z, w') of PSL_2(Z) off resonance (phi(w') != 0), Re w' in (1/2, 1)",
+   "has": "the group, the functional equation, the Euler product, the Hecke algebra: Gamma-invariance, the joint eigen-relation for all T_p with eigenvalue p^(w'-1/2) + p^(1/2-w'), the Laplace equation, moderate growth, an explicit truncated mass (Maass-Selberg)",
+   "lacks": "phi(w') = 0: the constant term carries both powers y^w' and y^(1-w'); it is not attached to a zero of zeta",
+   "kills": "any argument on the modular surface whose inputs are invariance, the joint Hecke eigen-relation, the growth exponent and the truncated mass (it exists for every Re w', so such inputs locate no abscissa)",
+   "kw": "EIS-w|\\bEISW\\b|off[- ]resonance eisenstein",
+   "status": "proved",
+   "source": "push/c8-hecke-entropy-resonance-rigidity/RESULT.md Proposition 4 (classical properties of E); REFEREE.md (confirmed, Maass-Selberg checked at 3 points to 14 digits); push/c9-repair-referee-debts-r8/c8-hecke-entropy-resonance-rigidity/REFEREE2.md"
+  }
+ }
+}

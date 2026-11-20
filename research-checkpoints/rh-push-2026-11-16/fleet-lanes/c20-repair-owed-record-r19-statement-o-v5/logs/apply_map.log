@@ -1,0 +1,40 @@
+edited | HQ2 |: no zero of the factor on the line. PROVED (elementary; re-de
+edited | HQ2 |: Source: `c18-exact-relation-rigidity-klein-spinor` (+ REFERE
+inserted after | HQ2 |: | HQ4 | totally positive pole-clause twin (campaig
+inserted after | HQ2 |: | HQ3 | log-positive pole-clause twin (campaign ro
+BLS note extended
+inserted after | X1 |: | X2 | HQ2 as a screen for devices reading functio
+edited | X1 |: Closed (one referee): do not look for a control failing thro
+edited | X1 |: one referee pass, corrections E1 to E5, no verdict change; s
+edited | G44 |: Lemma V: in the 3-4-1 mechanism a simple zero at distance de
+edited | G44 |: for the triple sigma + ikt by the same computation with the 
+edited | G44 |: reads of the phases at different primes jointly (round-19 la
+edited | G44 |: no change of the control table; second referee owed (`c19-re
+inserted after | G44 |: | G45 | Cell U4, quadratic and joint-phase reads: 
+edited | P58 |: truncation tail (u - 2 log abs(a_P))/(pi T). The constant is
+edited | P58 |: height <= 300, complete lists by winding number, E6)
+edited | P58 |: State: device type closed on one referee per lane; a complet
+edited | P58 |: PROVED (Theorem A with constant -u; float64 checks at P = 3 
+edited | P58 |: one referee pass per lane (E1 to E7; E1 to E6), no verdict c
+edited | P58 |: Every Dirichlet series with a_1 = 1 satisfies the identity. 
+edited | P58 |: device type `tz-one-sided-completion-bound-band` closed in `
+edited | D10 |: open in general (round-19 lane `c19-d10-xd-determinant-pole-
+edited | D10 |: symmetric off-line quartets pass, so the row cannot score wh
+edited | D10 |: OPEN (X(d) for d > 4), one referee pass (E-1 to E-4) |
+edited | D10 |: both fail on properties zeta has by the functional equation 
+edited | D10 |: addendum worded after the referee's surviving claim; entered
+edited | Z37 |: double-cover half a cell with a method and no supporting arg
+edited | Z37 |: OPEN, not run (double-cover values); one referee pass, six c
+edited | Z37 |: is the twin for the class-level read (RECALLED, not run).
+edited | Z37 |: (+ REFEREE.md; `MAP_ROW.md`; entered by `c19-repair-owed-rec
+edited | Q31 |: (relative to Turan's second main theorem, compared with a se
+edited | Q31 |: PROVED relative to Turan's theorem (Corollary T'; primary so
+edited | Q31 |: Montgomery's Ten Lectures owed, `c19-referee-r18-independent
+edited | Q31 |: (second referee; PROVED relative to Plancherel-Polya, recall
+edited | O1 |: current text: `c12-repair-sources-statement-o-v3/STATEMENT_O
+section 6 item 23 added
+section 7: 8 rows added
+row count line replaced
+sixteenth update paragraph added
+distinct row labels: 220
+written tmp/research-2026-11-16/push/OBSTRUCTION_MAP.md

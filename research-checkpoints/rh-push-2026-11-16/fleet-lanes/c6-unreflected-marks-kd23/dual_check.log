@@ -1,0 +1,2 @@
+kernel factorisation: 230 triples (c, c', k), max |S - prediction| = 2.84e-13; exponents of eps seen: [0, 3] (0 -> +1, 3 -> -1)
+gamma_2^3 = mu alpha and gamma_1 gamma_2 = mu alpha G on 10 moduli (brute force): max deviation 1.02e-14

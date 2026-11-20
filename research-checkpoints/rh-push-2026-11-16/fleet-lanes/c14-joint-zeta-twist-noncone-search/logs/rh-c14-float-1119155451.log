@@ -1,0 +1,638 @@
+Counter({'PX': 506, 'PH': 24, 'H1': 24, 'H2': 24, 'H3': 24, 'H4': 24, 'H5': 24, 'H6': 24, 'H7': 24, 'H8': 24, 'H9': 24, 'P': 23, 'C3': 10, 'C4': 10, 'C8': 10, 'C6': 9, 'C5': 6, 'C7': 6, 'C9': 5, 'C1': 4, 'C2': 4}) {'pool_H': 132, 'tw5': ['chi3.2', 'chi4.3', 'chi5.2c', 'chi7.2c', 'chi8.5'], 'pool_H24': 39, 'thin_set_matches_battery': True} build 23.8s
+1 DH n 28 herm residual min/median/max 9.52e-17 2.48e-01 1.72e+00 bil max 1.72e+00 | count herm<1e-8: 5
+2 T-NR n 28 herm residual min/median/max 0.00e+00 6.23e-17 2.11e-16 bil max 9.96e-01 | count herm<1e-8: 28
+3 E_a n 34 herm residual min/median/max 0.00e+00 0.00e+00 9.81e-17 bil max 9.57e-01 | count herm<1e-8: 34
+4 HEAT n 34 herm residual min/median/max 0.00e+00 0.00e+00 8.06e-17 bil max 9.85e-01 | count herm<1e-8: 34
+5 theta^w n 30 herm residual min/median/max 2.20e-02 5.98e-01 1.55e+00 bil max 1.95e+00 | count herm<1e-8: 0
+6 U n 33 herm residual min/median/max 7.05e-02 3.63e-01 9.62e-01 bil max 9.62e-01 | count herm<1e-8: 0
+7 THIN n 30 herm residual min/median/max 1.15e-04 2.51e-01 8.97e-01 bil max 1.01e+00 | count herm<1e-8: 0
+8 BLS n 34 herm residual min/median/max 0.00e+00 0.00e+00 8.34e-17 bil max 9.95e-01 | count herm<1e-8: 34
+9 BEU n 29 herm residual min/median/max 9.66e-03 7.58e-02 1.54e+00 bil max 1.54e+00 | count herm<1e-8: 0
+E_a twist: eps two-point consistency max 9.44e-15, | |eps| - 1 | max 8.55e-15
+objects 368 (stage 1: 23) built in 0s; workers 16
+JA-with: 513032 functionals; planned: stage-1 signs int8[513032 x 23] = 11.8 MB; stage-2 signs at most int8[513032 x 345] = 177.0 MB
+  JA-with chunk 10/26 (1s this chunk, 2s family)
+  JA-with chunk 20/26 (2s this chunk, 3s family)
+  JA-with chunk 26/26 (3s this chunk, 4s family)
+JA-with done: stage 2 on 156038 of 513032 (30.4%), 4s
+JA-without: 513032 functionals; planned: stage-1 signs int8[513032 x 23] = 11.8 MB; stage-2 signs at most int8[513032 x 345] = 177.0 MB
+  JA-without chunk 10/26 (1s this chunk, 1s family)
+  JA-without chunk 20/26 (2s this chunk, 3s family)
+  JA-without chunk 26/26 (3s this chunk, 4s family)
+JA-without done: stage 2 on 156038 of 513032 (30.4%), 4s
+JB1-with: 30464 functionals; planned: stage-1 signs int8[30464 x 23] = 0.7 MB; stage-2 signs at most int8[30464 x 345] = 10.5 MB
+  JB1-with chunk 2/2 (2s this chunk, 2s family)
+JB1-with done: stage 2 on 19143 of 30464 (62.8%), 2s
+JB1-without: 30464 functionals; planned: stage-1 signs int8[30464 x 23] = 0.7 MB; stage-2 signs at most int8[30464 x 345] = 10.5 MB
+  JB1-without chunk 2/2 (2s this chunk, 2s family)
+JB1-without done: stage 2 on 19143 of 30464 (62.8%), 2s
+JB2-with: 175104 functionals; planned: stage-1 signs int8[175104 x 23] = 4.0 MB; stage-2 signs at most int8[175104 x 345] = 60.4 MB
+  JB2-with chunk 9/9 (1s this chunk, 1s family)
+JB2-with done: stage 2 on 151425 of 175104 (86.5%), 1s
+JB2-without: 175104 functionals; planned: stage-1 signs int8[175104 x 23] = 4.0 MB; stage-2 signs at most int8[175104 x 345] = 60.4 MB
+  JB2-without chunk 9/9 (1s this chunk, 1s family)
+JB2-without done: stage 2 on 151425 of 175104 (86.5%), 1s
+JC1-with: 16786 functionals; planned: stage-1 signs int8[16786 x 23] = 0.4 MB; stage-2 signs at most int8[16786 x 345] = 5.8 MB
+  JC1-with chunk 1/1 (0s this chunk, 0s family)
+JC1-with done: stage 2 on 9287 of 16786 (55.3%), 0s
+JC1-without: 16786 functionals; planned: stage-1 signs int8[16786 x 23] = 0.4 MB; stage-2 signs at most int8[16786 x 345] = 5.8 MB
+  JC1-without chunk 1/1 (0s this chunk, 0s family)
+JC1-without done: stage 2 on 9287 of 16786 (55.3%), 0s
+JC2-with: 8393 functionals; planned: stage-1 signs int8[8393 x 23] = 0.2 MB; stage-2 signs at most int8[8393 x 345] = 2.9 MB
+  JC2-with chunk 1/1 (0s this chunk, 0s family)
+JC2-with done: stage 2 on 5163 of 8393 (61.5%), 0s
+JC2-without: 8393 functionals; planned: stage-1 signs int8[8393 x 23] = 0.2 MB; stage-2 signs at most int8[8393 x 345] = 2.9 MB
+  JC2-without chunk 1/1 (0s this chunk, 0s family)
+JC2-without done: stage 2 on 5163 of 8393 (61.5%), 0s
+JA-with-rnd: 41617 functionals; planned: stage-1 signs int8[41617 x 23] = 1.0 MB; stage-2 signs at most int8[41617 x 345] = 14.4 MB
+  JA-with-rnd chunk 3/3 (1s this chunk, 1s family)
+JA-with-rnd done: stage 2 on 11582 of 41617 (27.8%), 1s
+JA-without-rnd: 41414 functionals; planned: stage-1 signs int8[41414 x 23] = 1.0 MB; stage-2 signs at most int8[41414 x 345] = 14.3 MB
+  JA-without-rnd chunk 3/3 (1s this chunk, 1s family)
+JA-without-rnd done: stage 2 on 11571 of 41414 (27.9%), 1s
+JB1-with-rnd: 82354 functionals; planned: stage-1 signs int8[82354 x 23] = 1.9 MB; stage-2 signs at most int8[82354 x 345] = 28.4 MB
+  JB1-with-rnd chunk 5/5 (2s this chunk, 2s family)
+JB1-with-rnd done: stage 2 on 51417 of 82354 (62.4%), 2s
+JB1-without-rnd: 82750 functionals; planned: stage-1 signs int8[82750 x 23] = 1.9 MB; stage-2 signs at most int8[82750 x 345] = 28.5 MB
+  JB1-without-rnd chunk 5/5 (2s this chunk, 2s family)
+JB1-without-rnd done: stage 2 on 51861 of 82750 (62.7%), 2s
+JB2-with-rnd: 58628 functionals; planned: stage-1 signs int8[58628 x 23] = 1.3 MB; stage-2 signs at most int8[58628 x 345] = 20.2 MB
+  JB2-with-rnd chunk 3/3 (1s this chunk, 1s family)
+JB2-with-rnd done: stage 2 on 50894 of 58628 (86.8%), 1s
+JB2-without-rnd: 58748 functionals; planned: stage-1 signs int8[58748 x 23] = 1.4 MB; stage-2 signs at most int8[58748 x 345] = 20.3 MB
+  JB2-without-rnd chunk 3/3 (1s this chunk, 1s family)
+JB2-without-rnd done: stage 2 on 51128 of 58748 (87.0%), 1s
+JC1-with-rnd: 73829 functionals; planned: stage-1 signs int8[73829 x 23] = 1.7 MB; stage-2 signs at most int8[73829 x 345] = 25.5 MB
+  JC1-with-rnd chunk 4/4 (0s this chunk, 0s family)
+JC1-with-rnd done: stage 2 on 50467 of 73829 (68.4%), 0s
+JC1-without-rnd: 73627 functionals; planned: stage-1 signs int8[73627 x 23] = 1.7 MB; stage-2 signs at most int8[73627 x 345] = 25.4 MB
+  JC1-without-rnd chunk 4/4 (0s this chunk, 0s family)
+JC1-without-rnd done: stage 2 on 50281 of 73627 (68.3%), 0s
+JC2-with-rnd: 73795 functionals; planned: stage-1 signs int8[73795 x 23] = 1.7 MB; stage-2 signs at most int8[73795 x 345] = 25.5 MB
+  JC2-with-rnd chunk 4/4 (0s this chunk, 0s family)
+JC2-with-rnd done: stage 2 on 44465 of 73795 (60.3%), 0s
+JC2-without-rnd: 73513 functionals; planned: stage-1 signs int8[73513 x 23] = 1.7 MB; stage-2 signs at most int8[73513 x 345] = 25.4 MB
+  JC2-without-rnd chunk 4/4 (0s this chunk, 0s family)
+JC2-without-rnd done: stage 2 on 44253 of 73513 (60.2%), 0s
+RUN-DONE 25s
+JA-with: F=513032 stage2=156038 | PZ one=133208 ttrain=40075 full=1747 rej=[59609, 53125, 55741, 58747, 58186, 62816, 71374, 52666, 54376] | PA one=49420 ttrain=27662 tweak=27574 full=1469 rej=[31105, 34702, 34503, 36229, 35955, 36418, 39163, 32869, 35615] held>=23=[2846, 2073, 2947, 2521, 2763, 3363, 3210, 2010, 3834] bestmin=1.000 | FE-tier PA ttrain=31093 full=1487 | opt PA/all=27662 PA/FE=31093 PZ/all=40075 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-without: F=513032 stage2=156038 | PZ one=133208 ttrain=40075 full=1747 rej=[59609, 53125, 55741, 58747, 58186, 62816, 71374, 52666, 54376] | PA one=49420 ttrain=27662 tweak=27574 full=1469 rej=[31105, 34702, 34503, 36229, 35955, 36418, 39163, 32869, 35615] held>=23=[2846, 2073, 2947, 2521, 2763, 3363, 3210, 2010, 3834] bestmin=1.000 | FE-tier PA ttrain=31093 full=1487 | opt PA/all=27662 PA/FE=31093 PZ/all=40075 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-with: F=30464 stage2=19143 | PZ one=16623 ttrain=6682 full=346 rej=[10979, 9252, 9815, 12371, 11934, 12013, 10532, 9684, 11019] | PA one=15661 ttrain=6465 tweak=6464 full=317 rej=[10573, 9014, 9511, 12020, 11553, 11673, 10121, 9352, 10683] held>=23=[405, 339, 433, 451, 349, 440, 428, 387, 486] bestmin=1.000 | FE-tier PA ttrain=7162 full=317 | opt PA/all=8428 PA/FE=9230 PZ/all=8611 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-without: F=30464 stage2=19143 | PZ one=16623 ttrain=6682 full=346 rej=[10979, 9252, 9815, 12371, 11934, 12013, 10532, 9684, 11019] | PA one=15661 ttrain=6465 tweak=6464 full=317 rej=[10573, 9014, 9511, 12020, 11553, 11673, 10121, 9352, 10683] held>=23=[405, 339, 433, 451, 349, 440, 428, 387, 486] bestmin=1.000 | FE-tier PA ttrain=7162 full=317 | opt PA/all=8428 PA/FE=9230 PZ/all=8611 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-with: F=175104 stage2=151425 | PZ one=149728 ttrain=27469 full=4496 rej=[40365, 31496, 39391, 39861, 44343, 38676, 42815, 37972, 40328] | PA one=147065 ttrain=27262 tweak=27246 full=4487 rej=[40132, 31258, 39130, 39589, 44041, 38406, 42545, 37714, 40049] held>=23=[6107, 6071, 6097, 8497, 5514, 7540, 5797, 6353, 8190] bestmin=1.000 | FE-tier PA ttrain=27825 full=4836 | opt PA/all=27392 PA/FE=27955 PZ/all=27599 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-without: F=175104 stage2=151425 | PZ one=149728 ttrain=27469 full=4496 rej=[40365, 31496, 39391, 39861, 44343, 38676, 42815, 37972, 40328] | PA one=147065 ttrain=27262 tweak=27246 full=4487 rej=[40132, 31258, 39130, 39589, 44041, 38406, 42545, 37714, 40049] held>=23=[6107, 6071, 6097, 8497, 5514, 7540, 5797, 6353, 8190] bestmin=1.000 | FE-tier PA ttrain=27825 full=4836 | opt PA/all=27392 PA/FE=27955 PZ/all=27599 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-with: F=16786 stage2=9287 | PZ one=8900 ttrain=312 full=34 rej=[566, 640, 538, 804, 720, 718, 1152, 546, 760] | PA one=8372 ttrain=310 tweak=310 full=34 rej=[530, 612, 502, 786, 640, 706, 1078, 512, 752] held>=23=[50, 48, 48, 60, 46, 54, 48, 54, 62] bestmin=1.000 | FE-tier PA ttrain=352 full=34 | opt PA/all=310 PA/FE=352 PZ/all=312 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-without: F=16786 stage2=9287 | PZ one=8900 ttrain=312 full=34 rej=[566, 640, 538, 804, 720, 718, 1152, 546, 760] | PA one=8372 ttrain=310 tweak=310 full=34 rej=[530, 612, 502, 786, 640, 706, 1078, 512, 752] held>=23=[50, 48, 48, 60, 46, 54, 48, 54, 62] bestmin=1.000 | FE-tier PA ttrain=352 full=34 | opt PA/all=310 PA/FE=352 PZ/all=312 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-with: F=8393 stage2=5163 | PZ one=4989 ttrain=3 full=0 rej=[41, 3, 171, 13, 227, 18, 29, 21, 3] | PA one=4896 ttrain=3 tweak=3 full=0 rej=[25, 3, 93, 13, 147, 12, 19, 21, 3] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.417 | FE-tier PA ttrain=3 full=0 | opt PA/all=3 PA/FE=3 PZ/all=3 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-without: F=8393 stage2=5163 | PZ one=4989 ttrain=3 full=0 rej=[41, 3, 171, 13, 227, 18, 29, 21, 3] | PA one=4896 ttrain=3 tweak=3 full=0 rej=[25, 3, 93, 13, 147, 12, 19, 21, 3] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.417 | FE-tier PA ttrain=3 full=0 | opt PA/all=3 PA/FE=3 PZ/all=3 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-with-rnd: F=41617 stage2=11582 | PZ one=9789 ttrain=3837 full=222 rej=[4888, 5356, 5191, 5725, 5579, 5863, 6302, 4840, 5581] | PA one=5126 ttrain=2915 tweak=2900 full=172 rej=[3200, 4004, 3729, 4091, 4018, 4091, 4296, 3481, 4126] held>=23=[300, 231, 311, 295, 293, 378, 330, 209, 432] bestmin=1.000 | FE-tier PA ttrain=3302 full=174 | opt PA/all=2915 PA/FE=3302 PZ/all=3837 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-without-rnd: F=41414 stage2=11571 | PZ one=9796 ttrain=3828 full=203 rej=[4918, 5360, 5170, 5709, 5487, 5895, 6319, 4924, 5497] | PA one=5102 ttrain=2865 tweak=2854 full=163 rej=[3144, 3977, 3682, 4104, 3958, 4089, 4288, 3507, 4088] held>=23=[294, 220, 304, 280, 291, 365, 326, 210, 412] bestmin=1.000 | FE-tier PA ttrain=3315 full=163 | opt PA/all=2865 PA/FE=3315 PZ/all=3828 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-with-rnd: F=82354 stage2=51417 | PZ one=48035 ttrain=24508 full=5039 rej=[33291, 30323, 31571, 36291, 35934, 35149, 33918, 30268, 34632] | PA one=45415 ttrain=24091 tweak=24089 full=5007 rej=[32485, 29880, 31003, 35654, 35267, 34529, 33179, 29684, 34056] held>=23=[6395, 5262, 6318, 7100, 5569, 6932, 6048, 5954, 7034] bestmin=1.000 | FE-tier PA ttrain=25387 full=5010 | opt PA/all=25478 PA/FE=26939 PZ/all=25830 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-without-rnd: F=82750 stage2=51861 | PZ one=48477 ttrain=24589 full=5037 rej=[33565, 30341, 31698, 36615, 36254, 35338, 34059, 30565, 34838] | PA one=45828 ttrain=24195 tweak=24193 full=5010 rej=[32727, 29905, 31128, 35987, 35593, 34723, 33288, 29975, 34264] held>=23=[6524, 5310, 6408, 7179, 5559, 7057, 6180, 6008, 7065] bestmin=1.000 | FE-tier PA ttrain=25550 full=5012 | opt PA/all=25600 PA/FE=27131 PZ/all=25895 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-with-rnd: F=58628 stage2=50894 | PZ one=50468 ttrain=9051 full=1393 rej=[13603, 10323, 13172, 13218, 14817, 12784, 14298, 12725, 13435] | PA one=49639 ttrain=8964 tweak=8959 full=1390 rej=[13509, 10229, 13071, 13108, 14707, 12677, 14194, 12627, 13326] held>=23=[1900, 1942, 1885, 2744, 1698, 2389, 1801, 1976, 2643] bestmin=1.000 | FE-tier PA ttrain=9164 full=1508 | opt PA/all=8964 PA/FE=9164 PZ/all=9051 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-without-rnd: F=58748 stage2=51128 | PZ one=50702 ttrain=8999 full=1379 rej=[13597, 10298, 13187, 13155, 14848, 12785, 14316, 12771, 13429] | PA one=49806 ttrain=8929 tweak=8919 full=1378 rej=[13517, 10219, 13092, 13063, 14749, 12694, 14224, 12685, 13335] held>=23=[1894, 1954, 1880, 2728, 1706, 2345, 1811, 1984, 2611] bestmin=1.000 | FE-tier PA ttrain=9130 full=1494 | opt PA/all=8929 PA/FE=9130 PZ/all=8999 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-with-rnd: F=73829 stage2=50467 | PZ one=49293 ttrain=720 full=50 rej=[1685, 2141, 1519, 2546, 2230, 2367, 4571, 1723, 2557] | PA one=46238 ttrain=566 tweak=566 full=37 rej=[1418, 1754, 1107, 2213, 1658, 2042, 4036, 1401, 2237] held>=23=[61, 54, 56, 76, 54, 72, 54, 65, 78] bestmin=1.000 | FE-tier PA ttrain=765 full=39 | opt PA/all=566 PA/FE=765 PZ/all=720 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-without-rnd: F=73627 stage2=50281 | PZ one=49006 ttrain=684 full=44 rej=[1746, 2171, 1444, 2569, 2163, 2370, 4652, 1760, 2573] | PA one=45958 ttrain=566 tweak=565 full=36 rej=[1487, 1785, 1089, 2261, 1648, 2071, 4129, 1466, 2278] held>=23=[54, 58, 54, 79, 54, 70, 57, 56, 81] bestmin=1.000 | FE-tier PA ttrain=778 full=38 | opt PA/all=566 PA/FE=778 PZ/all=684 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-with-rnd: F=73795 stage2=44465 | PZ one=42945 ttrain=20 full=0 rej=[608, 90, 2233, 108, 2615, 349, 448, 157, 143] | PA one=40817 ttrain=16 tweak=16 full=0 rej=[146, 62, 640, 52, 995, 51, 149, 121, 18] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.625 | FE-tier PA ttrain=23 full=0 | opt PA/all=16 PA/FE=23 PZ/all=20 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-without-rnd: F=73513 stage2=44253 | PZ one=42759 ttrain=16 full=0 rej=[601, 68, 2133, 94, 2484, 324, 403, 121, 151] | PA one=40748 ttrain=10 tweak=10 full=0 rej=[120, 41, 627, 41, 965, 36, 129, 89, 11] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.625 | FE-tier PA ttrain=18 full=0 | opt PA/all=10 PA/FE=18 PZ/all=16 | planted=True shuffle={'n': 20, 'full': 0, 'tweak': 0, 'ttrain': 0}
+objects 833 (stage 1: 23) built in 24s; workers 16
+JA-with: 513032 functionals; planned: stage-1 signs int8[513032 x 23] = 11.8 MB; stage-2 signs at most int8[513032 x 810] = 415.6 MB
+  JA-with chunk 10/52 (5s this chunk, 5s family)
+  JA-with chunk 20/52 (3s this chunk, 7s family)
+  JA-with chunk 30/52 (4s this chunk, 10s family)
+  JA-with chunk 40/52 (4s this chunk, 11s family)
+  JA-with chunk 50/52 (3s this chunk, 13s family)
+  JA-with chunk 52/52 (2s this chunk, 14s family)
+JA-with done: stage 2 on 115767 of 513032 (22.6%), 14s
+JA-without: 513032 functionals; planned: stage-1 signs int8[513032 x 23] = 11.8 MB; stage-2 signs at most int8[513032 x 810] = 415.6 MB
+  JA-without chunk 10/52 (5s this chunk, 5s family)
+  JA-without chunk 20/52 (3s this chunk, 8s family)
+  JA-without chunk 30/52 (5s this chunk, 11s family)
+  JA-without chunk 40/52 (3s this chunk, 13s family)
+  JA-without chunk 50/52 (3s this chunk, 14s family)
+  JA-without chunk 52/52 (2s this chunk, 14s family)
+JA-without done: stage 2 on 149038 of 513032 (29.1%), 14s
+JB1-with: 30464 functionals; planned: stage-1 signs int8[30464 x 23] = 0.7 MB; stage-2 signs at most int8[30464 x 810] = 24.7 MB
+  JB1-with chunk 4/4 (1s this chunk, 1s family)
+JB1-with done: stage 2 on 4282 of 30464 (14.1%), 1s
+JB1-without: 30464 functionals; planned: stage-1 signs int8[30464 x 23] = 0.7 MB; stage-2 signs at most int8[30464 x 810] = 24.7 MB
+  JB1-without chunk 4/4 (2s this chunk, 2s family)
+JB1-without done: stage 2 on 10954 of 30464 (36.0%), 2s
+JB2-with: 175104 functionals; planned: stage-1 signs int8[175104 x 23] = 4.0 MB; stage-2 signs at most int8[175104 x 810] = 141.8 MB
+  JB2-with chunk 10/18 (1s this chunk, 1s family)
+  JB2-with chunk 18/18 (1s this chunk, 2s family)
+JB2-with done: stage 2 on 85683 of 175104 (48.9%), 2s
+JB2-without: 175104 functionals; planned: stage-1 signs int8[175104 x 23] = 4.0 MB; stage-2 signs at most int8[175104 x 810] = 141.8 MB
+  JB2-without chunk 10/18 (1s this chunk, 1s family)
+  JB2-without chunk 18/18 (2s this chunk, 3s family)
+JB2-without done: stage 2 on 115946 of 175104 (66.2%), 3s
+JC1-with: 16786 functionals; planned: stage-1 signs int8[16786 x 23] = 0.4 MB; stage-2 signs at most int8[16786 x 810] = 13.6 MB
+  JC1-with chunk 2/2 (1s this chunk, 1s family)
+JC1-with done: stage 2 on 13165 of 16786 (78.4%), 1s
+JC1-without: 16786 functionals; planned: stage-1 signs int8[16786 x 23] = 0.4 MB; stage-2 signs at most int8[16786 x 810] = 13.6 MB
+  JC1-without chunk 2/2 (1s this chunk, 1s family)
+JC1-without done: stage 2 on 14861 of 16786 (88.5%), 1s
+JC2-with: 8393 functionals; planned: stage-1 signs int8[8393 x 23] = 0.2 MB; stage-2 signs at most int8[8393 x 810] = 6.8 MB
+  JC2-with chunk 1/1 (1s this chunk, 1s family)
+JC2-with done: stage 2 on 7368 of 8393 (87.8%), 1s
+JC2-without: 8393 functionals; planned: stage-1 signs int8[8393 x 23] = 0.2 MB; stage-2 signs at most int8[8393 x 810] = 6.8 MB
+  JC2-without chunk 1/1 (1s this chunk, 1s family)
+JC2-without done: stage 2 on 6707 of 8393 (79.9%), 1s
+JA-with-rnd: 207427 functionals; planned: stage-1 signs int8[207427 x 23] = 4.8 MB; stage-2 signs at most int8[207427 x 810] = 168.0 MB
+  JA-with-rnd chunk 10/21 (24s this chunk, 24s family)
+  JA-with-rnd chunk 20/21 (14s this chunk, 32s family)
+  JA-with-rnd chunk 21/21 (13s this chunk, 33s family)
+JA-with-rnd done: stage 2 on 57265 of 207427 (27.6%), 33s
+JA-without-rnd: 206498 functionals; planned: stage-1 signs int8[206498 x 23] = 4.7 MB; stage-2 signs at most int8[206498 x 810] = 167.3 MB
+  JA-without-rnd chunk 10/21 (32s this chunk, 32s family)
+  JA-without-rnd chunk 20/21 (20s this chunk, 47s family)
+  JA-without-rnd chunk 21/21 (20s this chunk, 47s family)
+JA-without-rnd done: stage 2 on 72212 of 206498 (35.0%), 47s
+JB1-with-rnd: 412305 functionals; planned: stage-1 signs int8[412305 x 23] = 9.5 MB; stage-2 signs at most int8[412305 x 810] = 334.0 MB
+  JB1-with-rnd chunk 10/42 (5s this chunk, 5s family)
+  JB1-with-rnd chunk 20/42 (4s this chunk, 7s family)
+  JB1-with-rnd chunk 30/42 (5s this chunk, 10s family)
+  JB1-with-rnd chunk 40/42 (3s this chunk, 11s family)
+  JB1-with-rnd chunk 42/42 (3s this chunk, 12s family)
+JB1-with-rnd done: stage 2 on 77573 of 412305 (18.8%), 12s
+JB1-without-rnd: 413011 functionals; planned: stage-1 signs int8[413011 x 23] = 9.5 MB; stage-2 signs at most int8[413011 x 810] = 334.5 MB
+  JB1-without-rnd chunk 10/42 (10s this chunk, 10s family)
+  JB1-without-rnd chunk 20/42 (7s this chunk, 15s family)
+  JB1-without-rnd chunk 30/42 (10s this chunk, 20s family)
+  JB1-without-rnd chunk 40/42 (7s this chunk, 24s family)
+  JB1-without-rnd chunk 42/42 (7s this chunk, 25s family)
+JB1-without-rnd done: stage 2 on 161818 of 413011 (39.2%), 25s
+JB2-with-rnd: 292784 functionals; planned: stage-1 signs int8[292784 x 23] = 6.7 MB; stage-2 signs at most int8[292784 x 810] = 237.2 MB
+  JB2-with-rnd chunk 10/30 (11s this chunk, 11s family)
+  JB2-with-rnd chunk 20/30 (9s this chunk, 20s family)
+  JB2-with-rnd chunk 30/30 (12s this chunk, 22s family)
+JB2-with-rnd done: stage 2 on 141584 of 292784 (48.4%), 22s
+JB2-without-rnd: 293697 functionals; planned: stage-1 signs int8[293697 x 23] = 6.8 MB; stage-2 signs at most int8[293697 x 810] = 237.9 MB
+  JB2-without-rnd chunk 10/30 (16s this chunk, 16s family)
+  JB2-without-rnd chunk 20/30 (14s this chunk, 28s family)
+  JB2-without-rnd chunk 30/30 (16s this chunk, 32s family)
+JB2-without-rnd done: stage 2 on 193826 of 293697 (66.0%), 32s
+JC1-with-rnd: 368706 functionals; planned: stage-1 signs int8[368706 x 23] = 8.5 MB; stage-2 signs at most int8[368706 x 810] = 298.7 MB
+  JC1-with-rnd chunk 10/37 (35s this chunk, 35s family)
+  JC1-with-rnd chunk 20/37 (31s this chunk, 64s family)
+  JC1-with-rnd chunk 30/37 (38s this chunk, 74s family)
+  JC1-with-rnd chunk 37/37 (19s this chunk, 83s family)
+JC1-with-rnd done: stage 2 on 292530 of 368706 (79.3%), 83s
+JC1-without-rnd: 369019 functionals; planned: stage-1 signs int8[369019 x 23] = 8.5 MB; stage-2 signs at most int8[369019 x 810] = 298.9 MB
+  JC1-without-rnd chunk 10/37 (29s this chunk, 30s family)
+  JC1-without-rnd chunk 20/37 (25s this chunk, 51s family)
+  JC1-without-rnd chunk 30/37 (29s this chunk, 59s family)
+  JC1-without-rnd chunk 37/37 (18s this chunk, 69s family)
+JC1-without-rnd done: stage 2 on 317721 of 369019 (86.1%), 69s
+JC2-with-rnd: 368108 functionals; planned: stage-1 signs int8[368108 x 23] = 8.5 MB; stage-2 signs at most int8[368108 x 810] = 298.2 MB
+  JC2-with-rnd chunk 10/37 (41s this chunk, 41s family)
+  JC2-with-rnd chunk 20/37 (35s this chunk, 69s family)
+  JC2-with-rnd chunk 30/37 (39s this chunk, 82s family)
+  JC2-with-rnd chunk 37/37 (21s this chunk, 90s family)
+JC2-with-rnd done: stage 2 on 321723 of 368108 (87.4%), 90s
+JC2-without-rnd: 368053 functionals; planned: stage-1 signs int8[368053 x 23] = 8.5 MB; stage-2 signs at most int8[368053 x 810] = 298.1 MB
+  JC2-without-rnd chunk 10/37 (22s this chunk, 22s family)
+  JC2-without-rnd chunk 20/37 (19s this chunk, 40s family)
+  JC2-without-rnd chunk 30/37 (25s this chunk, 48s family)
+  JC2-without-rnd chunk 37/37 (14s this chunk, 54s family)
+JC2-without-rnd done: stage 2 on 229369 of 368053 (62.3%), 54s
+RUN-DONE 531s
+JA-with: F=513032 stage2=115767 | PZ one=62604 ttrain=1 full=0 rej=[40403, 39246, 29189, 367, 27479, 23154, 6961, 52554, 5359] | PA one=16 ttrain=0 tweak=0 full=0 rej=[0, 0, 16, 0, 16, 15, 8, 16, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=23360 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-without: F=513032 stage2=149038 | PZ one=130060 ttrain=0 full=0 rej=[49474, 91828, 198, 513, 68046, 49398, 23365, 94664, 39373] | PA one=491 ttrain=0 tweak=0 full=0 rej=[119, 344, 0, 0, 347, 225, 8, 371, 133] held>=23=[0, 0, 4, 12, 0, 2, 7, 0, 45] bestmin=0.417 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-with: F=30464 stage2=4282 | PZ one=2639 ttrain=0 full=0 rej=[1461, 129, 977, 0, 468, 297, 1, 248, 138] | PA one=106 ttrain=0 tweak=0 full=0 rej=[53, 15, 0, 0, 15, 0, 0, 53, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=134 PA/FE=138 PZ/all=312 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-without: F=30464 stage2=10954 | PZ one=9756 ttrain=0 full=0 rej=[7065, 86, 245, 0, 1607, 1073, 8, 1624, 638] | PA one=106 ttrain=0 tweak=0 full=0 rej=[53, 0, 0, 0, 0, 0, 0, 53, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=80 PA/FE=85 PZ/all=134 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-with: F=175104 stage2=85683 | PZ one=80983 ttrain=0 full=0 rej=[23568, 2881, 59112, 16, 15360, 5816, 0, 45338, 1673] | PA one=42180 ttrain=0 tweak=0 full=0 rej=[3140, 523, 37301, 1, 6896, 2738, 0, 24015, 609] held>=23=[0, 0, 4204, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-without: F=175104 stage2=115946 | PZ one=112793 ttrain=0 full=0 rej=[31337, 1535, 2297, 31, 11122, 4921, 0, 9265, 1759] | PA one=45856 ttrain=0 tweak=0 full=0 rej=[4582, 33, 12, 1, 3471, 2245, 0, 4590, 459] held>=23=[0, 0, 0, 0, 0, 0, 0, 42, 0] bestmin=0.292 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-with: F=16786 stage2=13165 | PZ one=12976 ttrain=2 full=0 rej=[8721, 9072, 10466, 18, 6409, 5489, 4647, 6750, 3824] | PA one=112 ttrain=0 tweak=0 full=0 rej=[1, 0, 112, 0, 50, 13, 0, 92, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.083 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=2 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-without: F=16786 stage2=14861 | PZ one=14764 ttrain=0 full=0 rej=[6274, 11266, 576, 14, 7226, 6510, 4496, 7498, 5656] | PA one=108 ttrain=0 tweak=0 full=0 rej=[1, 4, 0, 0, 40, 26, 0, 98, 6] held>=23=[0, 0, 0, 0, 0, 5, 0, 0, 2] bestmin=0.083 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-with: F=8393 stage2=7368 | PZ one=7321 ttrain=0 full=0 rej=[4229, 724, 2682, 4, 826, 1365, 1401, 1690, 873] | PA one=2840 ttrain=0 tweak=0 full=0 rej=[132, 276, 322, 4, 57, 36, 190, 748, 278] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.042 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-without: F=8393 stage2=6707 | PZ one=6620 ttrain=0 full=0 rej=[1006, 1926, 368, 0, 166, 1530, 1577, 3034, 1818] | PA one=2716 ttrain=0 tweak=0 full=0 rej=[140, 342, 0, 0, 58, 284, 306, 1060, 488] held>=23=[0, 0, 0, 2, 3, 31, 95, 2, 76] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-with-rnd: F=207427 stage2=57265 | PZ one=39728 ttrain=1 full=0 rej=[29878, 22848, 23755, 235, 15738, 13252, 4307, 31349, 2670] | PA one=16 ttrain=0 tweak=0 full=0 rej=[0, 0, 16, 0, 16, 14, 5, 16, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=6827 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-without-rnd: F=206498 stage2=72212 | PZ one=65185 ttrain=0 full=0 rej=[20338, 45449, 181, 241, 26784, 20212, 8053, 45520, 15117] | PA one=386 ttrain=0 tweak=0 full=0 rej=[101, 243, 0, 0, 237, 198, 5, 309, 91] held>=23=[0, 0, 3, 7, 0, 0, 6, 0, 38] bestmin=0.333 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-with-rnd: F=412305 stage2=77573 | PZ one=57907 ttrain=0 full=0 rej=[47288, 1601, 43033, 0, 9219, 6564, 13, 7164, 2693] | PA one=400 ttrain=0 tweak=0 full=0 rej=[193, 122, 0, 0, 154, 0, 0, 185, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=829 PA/FE=836 PZ/all=1842 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB1-without-rnd: F=413011 stage2=161818 | PZ one=147806 ttrain=0 full=0 rej=[102582, 1627, 5496, 42, 18312, 12223, 44, 15115, 6065] | PA one=402 ttrain=0 tweak=0 full=0 rej=[204, 0, 0, 0, 1, 0, 0, 171, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=503 PA/FE=526 PZ/all=754 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-with-rnd: F=292784 stage2=141584 | PZ one=133740 ttrain=0 full=0 rej=[37881, 4855, 98435, 25, 25634, 9979, 0, 76359, 3421] | PA one=70942 ttrain=0 tweak=0 full=0 rej=[5665, 787, 62576, 6, 11996, 5030, 0, 41036, 1658] held>=23=[0, 0, 5958, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=2 full=0 | opt PA/all=0 PA/FE=2 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JB2-without-rnd: F=293697 stage2=193826 | PZ one=188669 ttrain=0 full=0 rej=[52351, 2496, 4037, 39, 18341, 7798, 0, 15153, 2313] | PA one=76627 ttrain=0 tweak=0 full=0 rej=[7916, 57, 13, 1, 6287, 4018, 0, 7472, 965] held>=23=[0, 0, 0, 0, 0, 0, 0, 83, 0] bestmin=0.292 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-with-rnd: F=368706 stage2=292530 | PZ one=288425 ttrain=13 full=0 rej=[151880, 178259, 245806, 275, 150180, 114997, 89578, 180877, 71387] | PA one=14410 ttrain=0 tweak=0 full=0 rej=[549, 2804, 14410, 0, 6783, 2719, 642, 10766, 692] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.083 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=13 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC1-without-rnd: F=369019 stage2=317721 | PZ one=314936 ttrain=0 full=0 rej=[113951, 219262, 8295, 153, 147432, 132029, 88138, 196466, 111424] | PA one=14004 ttrain=0 tweak=0 full=0 rej=[553, 1218, 0, 0, 4408, 2730, 435, 13235, 684] held>=23=[0, 0, 0, 0, 0, 554, 42, 0, 80] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-with-rnd: F=368108 stage2=321723 | PZ one=319253 ttrain=0 full=0 rej=[215545, 52682, 146889, 67, 53540, 75363, 89843, 77851, 66533] | PA one=100432 ttrain=0 tweak=0 full=0 rej=[15479, 19733, 27548, 67, 2142, 9264, 21284, 29934, 28261] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.042 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JC2-without-rnd: F=368053 stage2=229369 | PZ one=222104 ttrain=0 full=0 rej=[46363, 96720, 6042, 0, 11618, 68278, 67205, 133486, 83976] | PA one=99095 ttrain=0 tweak=0 full=0 rej=[15976, 33698, 0, 0, 4773, 22645, 25809, 59096, 33796] held>=23=[0, 0, 0, 12, 21, 1338, 9010, 1, 2698] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle={'n': 200, 'full': 0, 'tweak': 0, 'ttrain': 0}
+JA-with centres 200 perturbed in window 35353
+JA-without centres 200 perturbed in window 32750
+JB1-with centres 200 perturbed in window 6489
+JB1-without centres 200 perturbed in window 17246
+JB2-with centres 200 perturbed in window 37964
+JB2-without centres 200 perturbed in window 39071
+JC1-with centres 200 perturbed in window 38842
+JC1-without centres 200 perturbed in window 30982
+JC2-with centres 200 perturbed in window 39704
+JC2-without centres 200 perturbed in window 37792
+objects 833 (stage 1: 23) built in 24s; workers 16
+JA-with-adp: 35353 functionals; planned: stage-1 signs int8[35353 x 23] = 0.8 MB; stage-2 signs at most int8[35353 x 810] = 28.6 MB
+  JA-with-adp chunk 4/4 (23s this chunk, 23s family)
+JA-with-adp done: stage 2 on 20633 of 35353 (58.4%), 23s
+JA-without-adp: 32750 functionals; planned: stage-1 signs int8[32750 x 23] = 0.8 MB; stage-2 signs at most int8[32750 x 810] = 26.5 MB
+  JA-without-adp chunk 4/4 (46s this chunk, 46s family)
+JA-without-adp done: stage 2 on 16690 of 32750 (51.0%), 46s
+JB1-with-adp: 6489 functionals; planned: stage-1 signs int8[6489 x 23] = 0.1 MB; stage-2 signs at most int8[6489 x 810] = 5.3 MB
+  JB1-with-adp chunk 1/1 (4s this chunk, 4s family)
+JB1-with-adp done: stage 2 on 2717 of 6489 (41.9%), 4s
+JB1-without-adp: 17246 functionals; planned: stage-1 signs int8[17246 x 23] = 0.4 MB; stage-2 signs at most int8[17246 x 810] = 14.0 MB
+  JB1-without-adp chunk 2/2 (7s this chunk, 7s family)
+JB1-without-adp done: stage 2 on 7936 of 17246 (46.0%), 7s
+JB2-with-adp: 37964 functionals; planned: stage-1 signs int8[37964 x 23] = 0.9 MB; stage-2 signs at most int8[37964 x 810] = 30.8 MB
+  JB2-with-adp chunk 4/4 (12s this chunk, 12s family)
+JB2-with-adp done: stage 2 on 16588 of 37964 (43.7%), 12s
+JB2-without-adp: 39071 functionals; planned: stage-1 signs int8[39071 x 23] = 0.9 MB; stage-2 signs at most int8[39071 x 810] = 31.6 MB
+  JB2-without-adp chunk 4/4 (14s this chunk, 14s family)
+JB2-without-adp done: stage 2 on 16220 of 39071 (41.5%), 14s
+JC1-with-adp: 38842 functionals; planned: stage-1 signs int8[38842 x 23] = 0.9 MB; stage-2 signs at most int8[38842 x 810] = 31.5 MB
+  JC1-with-adp chunk 4/4 (17s this chunk, 17s family)
+JC1-with-adp done: stage 2 on 29871 of 38842 (76.9%), 17s
+JC1-without-adp: 30982 functionals; planned: stage-1 signs int8[30982 x 23] = 0.7 MB; stage-2 signs at most int8[30982 x 810] = 25.1 MB
+  JC1-without-adp chunk 4/4 (14s this chunk, 14s family)
+JC1-without-adp done: stage 2 on 20378 of 30982 (65.8%), 14s
+JC2-with-adp: 39704 functionals; planned: stage-1 signs int8[39704 x 23] = 0.9 MB; stage-2 signs at most int8[39704 x 810] = 32.2 MB
+  JC2-with-adp chunk 4/4 (18s this chunk, 18s family)
+JC2-with-adp done: stage 2 on 27252 of 39704 (68.6%), 18s
+JC2-without-adp: 37792 functionals; planned: stage-1 signs int8[37792 x 23] = 0.9 MB; stage-2 signs at most int8[37792 x 810] = 30.6 MB
+  JC2-without-adp chunk 4/4 (23s this chunk, 23s family)
+JC2-without-adp done: stage 2 on 28198 of 37792 (74.6%), 23s
+RUN-DONE 201s
+JA-with-adp: F=35353 stage2=20633 | PZ one=19853 ttrain=9 full=0 rej=[18970, 17558, 17688, 40, 19847, 19743, 14719, 19101, 14176] | PA one=138 ttrain=0 tweak=0 full=0 rej=[32, 35, 138, 0, 138, 128, 44, 129, 5] held>=23=[0, 0, 34, 0, 0, 0, 0, 0, 0] bestmin=0.375 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=9 | planted=True shuffle=None
+JA-without-adp: F=32750 stage2=16690 | PZ one=15833 ttrain=0 full=0 rej=[14876, 14735, 107, 157, 15711, 14135, 11862, 13814, 13990] | PA one=22 ttrain=0 tweak=0 full=0 rej=[22, 0, 0, 0, 22, 22, 22, 20, 22] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.000 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JB1-with-adp: F=6489 stage2=2717 | PZ one=2431 ttrain=0 full=0 rej=[2314, 209, 607, 0, 2114, 1792, 0, 273, 1026] | PA one=12 ttrain=0 tweak=0 full=0 rej=[12, 3, 0, 0, 4, 0, 0, 12, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=10 PA/FE=10 PZ/all=51 | planted=True shuffle=None
+JB1-without-adp: F=17246 stage2=7936 | PZ one=7439 ttrain=0 full=0 rej=[7439, 2396, 7433, 47, 7439, 7438, 3, 5789, 5761] | PA one=0 ttrain=0 tweak=0 full=0 rej=[0, 0, 0, 0, 0, 0, 0, 0, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.000 | FE-tier PA ttrain=0 full=0 | opt PA/all=1 PA/FE=1 PZ/all=1 | planted=True shuffle=None
+JB2-with-adp: F=37964 stage2=16588 | PZ one=15503 ttrain=0 full=0 rej=[15196, 3787, 6996, 127, 14969, 15211, 0, 15248, 12326] | PA one=8670 ttrain=0 tweak=0 full=0 rej=[8452, 1099, 5991, 62, 8371, 8605, 0, 8594, 6718] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=35 full=0 | opt PA/all=0 PA/FE=35 PZ/all=0 | planted=True shuffle=None
+JB2-without-adp: F=39071 stage2=16220 | PZ one=14999 ttrain=0 full=0 rej=[13516, 1081, 5576, 53, 14685, 14346, 0, 11810, 10460] | PA one=5949 ttrain=0 tweak=0 full=0 rej=[5259, 292, 224, 17, 5922, 5829, 0, 4908, 3668] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.292 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JC1-with-adp: F=38842 stage2=29871 | PZ one=29400 ttrain=72 full=0 rej=[28552, 28932, 28027, 77, 29393, 29297, 28506, 26070, 24056] | PA one=21 ttrain=0 tweak=0 full=0 rej=[21, 21, 21, 0, 21, 21, 21, 19, 21] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.000 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=72 | planted=True shuffle=None
+JC1-without-adp: F=30982 stage2=20378 | PZ one=19789 ttrain=0 full=0 rej=[18432, 18962, 9831, 14, 19761, 19778, 17522, 17308, 19072] | PA one=40 ttrain=0 tweak=0 full=0 rej=[40, 40, 0, 0, 40, 40, 35, 34, 38] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.083 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JC2-with-adp: F=39704 stage2=27252 | PZ one=26597 ttrain=0 full=0 rej=[25316, 21447, 24921, 11, 24760, 24825, 25597, 12898, 23727] | PA one=1277 ttrain=0 tweak=0 full=0 rej=[3, 25, 6, 11, 0, 0, 854, 894, 946] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.000 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JC2-without-adp: F=37792 stage2=28198 | PZ one=27699 ttrain=0 full=0 rej=[22412, 23650, 10121, 0, 5212, 23823, 23768, 13103, 23010] | PA one=13955 ttrain=0 tweak=0 full=0 rej=[11198, 11192, 0, 0, 4336, 11553, 11996, 7289, 12016] held>=23=[0, 0, 0, 50, 155, 11, 10735, 10, 1973] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+objects 833 (stage 1: 23) built in 24s; workers 16
+JA-with-rnd2: 2069735 functionals; planned: stage-1 signs int8[2069735 x 23] = 47.6 MB; stage-2 signs at most int8[2069735 x 810] = 1676.5 MB
+  JA-with-rnd2 chunk 10/207 (24s this chunk, 25s family)
+  JA-with-rnd2 chunk 20/207 (20s this chunk, 43s family)
+  JA-with-rnd2 chunk 30/207 (25s this chunk, 53s family)
+  JA-with-rnd2 chunk 40/207 (24s this chunk, 69s family)
+  JA-with-rnd2 chunk 50/207 (21s this chunk, 87s family)
+  JA-with-rnd2 chunk 60/207 (19s this chunk, 101s family)
+  JA-with-rnd2 chunk 70/207 (39s this chunk, 114s family)
+  JA-with-rnd2 chunk 80/207 (23s this chunk, 127s family)
+  JA-with-rnd2 chunk 90/207 (21s this chunk, 141s family)
+  JA-with-rnd2 chunk 100/207 (19s this chunk, 153s family)
+  JA-with-rnd2 chunk 110/207 (21s this chunk, 170s family)
+  JA-with-rnd2 chunk 120/207 (21s this chunk, 181s family)
+  JA-with-rnd2 chunk 130/207 (21s this chunk, 200s family)
+  JA-with-rnd2 chunk 140/207 (22s this chunk, 215s family)
+  JA-with-rnd2 chunk 150/207 (20s this chunk, 228s family)
+  JA-with-rnd2 chunk 160/207 (35s this chunk, 241s family)
+  JA-with-rnd2 chunk 170/207 (26s this chunk, 262s family)
+  JA-with-rnd2 chunk 180/207 (24s this chunk, 270s family)
+  JA-with-rnd2 chunk 190/207 (21s this chunk, 284s family)
+  JA-with-rnd2 chunk 200/207 (27s this chunk, 297s family)
+  JA-with-rnd2 chunk 207/207 (20s this chunk, 301s family)
+JA-with-rnd2 done: stage 2 on 576073 of 2069735 (27.8%), 301s
+JA-without-rnd2: 2069562 functionals; planned: stage-1 signs int8[2069562 x 23] = 47.6 MB; stage-2 signs at most int8[2069562 x 810] = 1676.3 MB
+  JA-without-rnd2 chunk 10/207 (29s this chunk, 31s family)
+  JA-without-rnd2 chunk 20/207 (23s this chunk, 53s family)
+  JA-without-rnd2 chunk 30/207 (31s this chunk, 65s family)
+  JA-without-rnd2 chunk 40/207 (31s this chunk, 85s family)
+  JA-without-rnd2 chunk 50/207 (22s this chunk, 103s family)
+  JA-without-rnd2 chunk 60/207 (35s this chunk, 124s family)
+  JA-without-rnd2 chunk 70/207 (26s this chunk, 137s family)
+  JA-without-rnd2 chunk 80/207 (34s this chunk, 158s family)
+  JA-without-rnd2 chunk 90/207 (32s this chunk, 178s family)
+  JA-without-rnd2 chunk 100/207 (29s this chunk, 190s family)
+  JA-without-rnd2 chunk 110/207 (32s this chunk, 209s family)
+  JA-without-rnd2 chunk 120/207 (31s this chunk, 229s family)
+  JA-without-rnd2 chunk 130/207 (30s this chunk, 243s family)
+  JA-without-rnd2 chunk 140/207 (27s this chunk, 263s family)
+  JA-without-rnd2 chunk 150/207 (41s this chunk, 282s family)
+  JA-without-rnd2 chunk 160/207 (26s this chunk, 301s family)
+  JA-without-rnd2 chunk 170/207 (26s this chunk, 316s family)
+  JA-without-rnd2 chunk 180/207 (31s this chunk, 335s family)
+  JA-without-rnd2 chunk 190/207 (25s this chunk, 357s family)
+  JA-without-rnd2 chunk 200/207 (22s this chunk, 363s family)
+  JA-without-rnd2 chunk 207/207 (17s this chunk, 375s family)
+JA-without-rnd2 done: stage 2 on 724154 of 2069562 (35.0%), 375s
+JB1-with-rnd2: 4130424 functionals; planned: stage-1 signs int8[4130424 x 23] = 95.0 MB; stage-2 signs at most int8[4130424 x 810] = 3345.6 MB
+  JB1-with-rnd2 chunk 10/414 (5s this chunk, 5s family)
+  JB1-with-rnd2 chunk 20/414 (3s this chunk, 8s family)
+  JB1-with-rnd2 chunk 30/414 (4s this chunk, 9s family)
+  JB1-with-rnd2 chunk 40/414 (4s this chunk, 13s family)
+  JB1-with-rnd2 chunk 50/414 (4s this chunk, 15s family)
+  JB1-with-rnd2 chunk 60/414 (4s this chunk, 17s family)
+  JB1-with-rnd2 chunk 70/414 (4s this chunk, 21s family)
+  JB1-with-rnd2 chunk 80/414 (6s this chunk, 22s family)
+  JB1-with-rnd2 chunk 90/414 (4s this chunk, 25s family)
+  JB1-with-rnd2 chunk 100/414 (3s this chunk, 28s family)
+  JB1-with-rnd2 chunk 110/414 (4s this chunk, 30s family)
+  JB1-with-rnd2 chunk 120/414 (3s this chunk, 33s family)
+  JB1-with-rnd2 chunk 130/414 (3s this chunk, 35s family)
+  JB1-with-rnd2 chunk 140/414 (4s this chunk, 37s family)
+  JB1-with-rnd2 chunk 150/414 (5s this chunk, 40s family)
+  JB1-with-rnd2 chunk 160/414 (3s this chunk, 43s family)
+  JB1-with-rnd2 chunk 170/414 (3s this chunk, 45s family)
+  JB1-with-rnd2 chunk 180/414 (4s this chunk, 47s family)
+  JB1-with-rnd2 chunk 190/414 (4s this chunk, 50s family)
+  JB1-with-rnd2 chunk 200/414 (4s this chunk, 52s family)
+  JB1-with-rnd2 chunk 210/414 (4s this chunk, 55s family)
+  JB1-with-rnd2 chunk 220/414 (4s this chunk, 57s family)
+  JB1-with-rnd2 chunk 230/414 (3s this chunk, 60s family)
+  JB1-with-rnd2 chunk 240/414 (4s this chunk, 63s family)
+  JB1-with-rnd2 chunk 250/414 (5s this chunk, 65s family)
+  JB1-with-rnd2 chunk 260/414 (5s this chunk, 68s family)
+  JB1-with-rnd2 chunk 270/414 (4s this chunk, 70s family)
+  JB1-with-rnd2 chunk 280/414 (3s this chunk, 72s family)
+  JB1-with-rnd2 chunk 290/414 (5s this chunk, 75s family)
+  JB1-with-rnd2 chunk 300/414 (3s this chunk, 77s family)
+  JB1-with-rnd2 chunk 310/414 (4s this chunk, 80s family)
+  JB1-with-rnd2 chunk 320/414 (3s this chunk, 82s family)
+  JB1-with-rnd2 chunk 330/414 (5s this chunk, 84s family)
+  JB1-with-rnd2 chunk 340/414 (5s this chunk, 87s family)
+  JB1-with-rnd2 chunk 350/414 (4s this chunk, 90s family)
+  JB1-with-rnd2 chunk 360/414 (4s this chunk, 92s family)
+  JB1-with-rnd2 chunk 370/414 (5s this chunk, 95s family)
+  JB1-with-rnd2 chunk 380/414 (4s this chunk, 97s family)
+  JB1-with-rnd2 chunk 390/414 (5s this chunk, 100s family)
+  JB1-with-rnd2 chunk 400/414 (4s this chunk, 103s family)
+  JB1-with-rnd2 chunk 410/414 (4s this chunk, 105s family)
+  JB1-with-rnd2 chunk 414/414 (5s this chunk, 105s family)
+JB1-with-rnd2 done: stage 2 on 775873 of 4130424 (18.8%), 105s
+JB1-without-rnd2: 4129197 functionals; planned: stage-1 signs int8[4129197 x 23] = 95.0 MB; stage-2 signs at most int8[4129197 x 810] = 3344.6 MB
+  JB1-without-rnd2 chunk 10/413 (9s this chunk, 9s family)
+  JB1-without-rnd2 chunk 20/413 (8s this chunk, 16s family)
+  JB1-without-rnd2 chunk 30/413 (11s this chunk, 22s family)
+  JB1-without-rnd2 chunk 40/413 (8s this chunk, 25s family)
+  JB1-without-rnd2 chunk 50/413 (8s this chunk, 31s family)
+  JB1-without-rnd2 chunk 60/413 (7s this chunk, 37s family)
+  JB1-without-rnd2 chunk 70/413 (10s this chunk, 41s family)
+  JB1-without-rnd2 chunk 80/413 (8s this chunk, 48s family)
+  JB1-without-rnd2 chunk 90/413 (7s this chunk, 53s family)
+  JB1-without-rnd2 chunk 100/413 (9s this chunk, 59s family)
+  JB1-without-rnd2 chunk 110/413 (9s this chunk, 64s family)
+  JB1-without-rnd2 chunk 120/413 (9s this chunk, 69s family)
+  JB1-without-rnd2 chunk 130/413 (8s this chunk, 75s family)
+  JB1-without-rnd2 chunk 140/413 (8s this chunk, 80s family)
+  JB1-without-rnd2 chunk 150/413 (9s this chunk, 86s family)
+  JB1-without-rnd2 chunk 160/413 (8s this chunk, 91s family)
+  JB1-without-rnd2 chunk 170/413 (9s this chunk, 98s family)
+  JB1-without-rnd2 chunk 180/413 (8s this chunk, 102s family)
+  JB1-without-rnd2 chunk 190/413 (9s this chunk, 107s family)
+  JB1-without-rnd2 chunk 200/413 (11s this chunk, 113s family)
+  JB1-without-rnd2 chunk 210/413 (8s this chunk, 117s family)
+  JB1-without-rnd2 chunk 220/413 (8s this chunk, 124s family)
+  JB1-without-rnd2 chunk 230/413 (7s this chunk, 128s family)
+  JB1-without-rnd2 chunk 240/413 (9s this chunk, 135s family)
+  JB1-without-rnd2 chunk 250/413 (10s this chunk, 140s family)
+  JB1-without-rnd2 chunk 260/413 (10s this chunk, 145s family)
+  JB1-without-rnd2 chunk 270/413 (7s this chunk, 150s family)
+  JB1-without-rnd2 chunk 280/413 (8s this chunk, 155s family)
+  JB1-without-rnd2 chunk 290/413 (7s this chunk, 161s family)
+  JB1-without-rnd2 chunk 300/413 (9s this chunk, 166s family)
+  JB1-without-rnd2 chunk 310/413 (7s this chunk, 171s family)
+  JB1-without-rnd2 chunk 320/413 (8s this chunk, 177s family)
+  JB1-without-rnd2 chunk 330/413 (8s this chunk, 182s family)
+  JB1-without-rnd2 chunk 340/413 (9s this chunk, 187s family)
+  JB1-without-rnd2 chunk 350/413 (8s this chunk, 193s family)
+  JB1-without-rnd2 chunk 360/413 (8s this chunk, 199s family)
+  JB1-without-rnd2 chunk 370/413 (10s this chunk, 204s family)
+  JB1-without-rnd2 chunk 380/413 (8s this chunk, 208s family)
+  JB1-without-rnd2 chunk 390/413 (7s this chunk, 213s family)
+  JB1-without-rnd2 chunk 400/413 (10s this chunk, 220s family)
+  JB1-without-rnd2 chunk 410/413 (9s this chunk, 223s family)
+  JB1-without-rnd2 chunk 413/413 (8s this chunk, 225s family)
+JB1-without-rnd2 done: stage 2 on 1617103 of 4129197 (39.2%), 227s
+JB2-with-rnd2: 2927751 functionals; planned: stage-1 signs int8[2927751 x 23] = 67.3 MB; stage-2 signs at most int8[2927751 x 810] = 2371.5 MB
+  JB2-with-rnd2 chunk 10/293 (12s this chunk, 12s family)
+  JB2-with-rnd2 chunk 20/293 (11s this chunk, 22s family)
+  JB2-with-rnd2 chunk 30/293 (12s this chunk, 25s family)
+  JB2-with-rnd2 chunk 40/293 (12s this chunk, 34s family)
+  JB2-with-rnd2 chunk 50/293 (10s this chunk, 42s family)
+  JB2-with-rnd2 chunk 60/293 (13s this chunk, 49s family)
+  JB2-with-rnd2 chunk 70/293 (10s this chunk, 54s family)
+  JB2-with-rnd2 chunk 80/293 (13s this chunk, 63s family)
+  JB2-with-rnd2 chunk 90/293 (11s this chunk, 70s family)
+  JB2-with-rnd2 chunk 100/293 (12s this chunk, 77s family)
+  JB2-with-rnd2 chunk 110/293 (10s this chunk, 84s family)
+  JB2-with-rnd2 chunk 120/293 (11s this chunk, 92s family)
+  JB2-with-rnd2 chunk 130/293 (11s this chunk, 98s family)
+  JB2-with-rnd2 chunk 140/293 (13s this chunk, 105s family)
+  JB2-with-rnd2 chunk 150/293 (11s this chunk, 114s family)
+  JB2-with-rnd2 chunk 160/293 (16s this chunk, 119s family)
+  JB2-with-rnd2 chunk 170/293 (11s this chunk, 129s family)
+  JB2-with-rnd2 chunk 180/293 (9s this chunk, 135s family)
+  JB2-with-rnd2 chunk 190/293 (10s this chunk, 141s family)
+  JB2-with-rnd2 chunk 200/293 (13s this chunk, 149s family)
+  JB2-with-rnd2 chunk 210/293 (13s this chunk, 158s family)
+  JB2-with-rnd2 chunk 220/293 (15s this chunk, 163s family)
+  JB2-with-rnd2 chunk 230/293 (13s this chunk, 173s family)
+  JB2-with-rnd2 chunk 240/293 (11s this chunk, 179s family)
+  JB2-with-rnd2 chunk 250/293 (14s this chunk, 186s family)
+  JB2-with-rnd2 chunk 260/293 (11s this chunk, 195s family)
+  JB2-with-rnd2 chunk 270/293 (13s this chunk, 200s family)
+  JB2-with-rnd2 chunk 280/293 (9s this chunk, 208s family)
+  JB2-with-rnd2 chunk 290/293 (6s this chunk, 213s family)
+  JB2-with-rnd2 chunk 293/293 (8s this chunk, 215s family)
+JB2-with-rnd2 done: stage 2 on 1418448 of 2927751 (48.4%), 217s
+JB2-without-rnd2: 2929556 functionals; planned: stage-1 signs int8[2929556 x 23] = 67.4 MB; stage-2 signs at most int8[2929556 x 810] = 2372.9 MB
+  JB2-without-rnd2 chunk 10/293 (18s this chunk, 18s family)
+  JB2-without-rnd2 chunk 20/293 (13s this chunk, 29s family)
+  JB2-without-rnd2 chunk 30/293 (19s this chunk, 38s family)
+  JB2-without-rnd2 chunk 40/293 (16s this chunk, 51s family)
+  JB2-without-rnd2 chunk 50/293 (14s this chunk, 59s family)
+  JB2-without-rnd2 chunk 60/293 (20s this chunk, 70s family)
+  JB2-without-rnd2 chunk 70/293 (14s this chunk, 82s family)
+  JB2-without-rnd2 chunk 80/293 (16s this chunk, 91s family)
+  JB2-without-rnd2 chunk 90/293 (20s this chunk, 101s family)
+  JB2-without-rnd2 chunk 100/293 (18s this chunk, 110s family)
+  JB2-without-rnd2 chunk 110/293 (20s this chunk, 123s family)
+  JB2-without-rnd2 chunk 120/293 (14s this chunk, 131s family)
+  JB2-without-rnd2 chunk 130/293 (14s this chunk, 142s family)
+  JB2-without-rnd2 chunk 140/293 (15s this chunk, 152s family)
+  JB2-without-rnd2 chunk 150/293 (14s this chunk, 163s family)
+  JB2-without-rnd2 chunk 160/293 (18s this chunk, 172s family)
+  JB2-without-rnd2 chunk 170/293 (14s this chunk, 185s family)
+  JB2-without-rnd2 chunk 180/293 (17s this chunk, 193s family)
+  JB2-without-rnd2 chunk 190/293 (17s this chunk, 204s family)
+  JB2-without-rnd2 chunk 200/293 (16s this chunk, 218s family)
+  JB2-without-rnd2 chunk 210/293 (18s this chunk, 223s family)
+  JB2-without-rnd2 chunk 220/293 (16s this chunk, 236s family)
+  JB2-without-rnd2 chunk 230/293 (15s this chunk, 246s family)
+  JB2-without-rnd2 chunk 240/293 (17s this chunk, 256s family)
+  JB2-without-rnd2 chunk 250/293 (16s this chunk, 268s family)
+  JB2-without-rnd2 chunk 260/293 (19s this chunk, 279s family)
+  JB2-without-rnd2 chunk 270/293 (22s this chunk, 293s family)
+  JB2-without-rnd2 chunk 280/293 (14s this chunk, 299s family)
+  JB2-without-rnd2 chunk 290/293 (13s this chunk, 309s family)
+  JB2-without-rnd2 chunk 293/293 (16s this chunk, 310s family)
+JB2-without-rnd2 done: stage 2 on 1933425 of 2929556 (66.0%), 311s
+JC1-with-rnd2: 3686563 functionals; planned: stage-1 signs int8[3686563 x 23] = 84.8 MB; stage-2 signs at most int8[3686563 x 810] = 2986.1 MB
+  JC1-with-rnd2 chunk 10/369 (42s this chunk, 42s family)
+  JC1-with-rnd2 chunk 20/369 (38s this chunk, 70s family)
+  JC1-with-rnd2 chunk 30/369 (37s this chunk, 81s family)
+  JC1-with-rnd2 chunk 40/369 (34s this chunk, 109s family)
+  JC1-with-rnd2 chunk 50/369 (25s this chunk, 128s family)
+  JC1-with-rnd2 chunk 60/369 (42s this chunk, 151s family)
+  JC1-with-rnd2 chunk 70/369 (38s this chunk, 181s family)
+  JC1-with-rnd2 chunk 80/369 (36s this chunk, 197s family)
+  JC1-with-rnd2 chunk 90/369 (30s this chunk, 217s family)
+  JC1-with-rnd2 chunk 100/369 (43s this chunk, 240s family)
+  JC1-with-rnd2 chunk 110/369 (33s this chunk, 262s family)
+  JC1-with-rnd2 chunk 120/369 (31s this chunk, 283s family)
+  JC1-with-rnd2 chunk 130/369 (32s this chunk, 308s family)
+  JC1-with-rnd2 chunk 140/369 (47s this chunk, 328s family)
+  JC1-with-rnd2 chunk 150/369 (30s this chunk, 346s family)
+  JC1-with-rnd2 chunk 160/369 (42s this chunk, 369s family)
+  JC1-with-rnd2 chunk 170/369 (37s this chunk, 390s family)
+  JC1-with-rnd2 chunk 180/369 (25s this chunk, 410s family)
+  JC1-with-rnd2 chunk 190/369 (21s this chunk, 431s family)
+  JC1-with-rnd2 chunk 200/369 (38s this chunk, 457s family)
+  JC1-with-rnd2 chunk 210/369 (28s this chunk, 473s family)
+  JC1-with-rnd2 chunk 220/369 (35s this chunk, 498s family)
+  JC1-with-rnd2 chunk 230/369 (39s this chunk, 520s family)
+  JC1-with-rnd2 chunk 240/369 (35s this chunk, 541s family)
+  JC1-with-rnd2 chunk 250/369 (36s this chunk, 561s family)
+  JC1-with-rnd2 chunk 260/369 (31s this chunk, 588s family)
+  JC1-with-rnd2 chunk 270/369 (51s this chunk, 605s family)
+  JC1-with-rnd2 chunk 280/369 (45s this chunk, 634s family)
+  JC1-with-rnd2 chunk 290/369 (33s this chunk, 646s family)
+  JC1-with-rnd2 chunk 300/369 (36s this chunk, 678s family)
+  JC1-with-rnd2 chunk 310/369 (37s this chunk, 693s family)
+  JC1-with-rnd2 chunk 320/369 (33s this chunk, 717s family)
+  JC1-with-rnd2 chunk 330/369 (46s this chunk, 740s family)
+  JC1-with-rnd2 chunk 340/369 (27s this chunk, 763s family)
+  JC1-with-rnd2 chunk 350/369 (26s this chunk, 789s family)
+  JC1-with-rnd2 chunk 360/369 (45s this chunk, 801s family)
+  JC1-with-rnd2 chunk 369/369 (24s this chunk, 814s family)
+JC1-with-rnd2 done: stage 2 on 2923059 of 3686563 (79.3%), 815s
+JC1-without-rnd2: 3686671 functionals; planned: stage-1 signs int8[3686671 x 23] = 84.8 MB; stage-2 signs at most int8[3686671 x 810] = 2986.2 MB
+  JC1-without-rnd2 chunk 10/369 (31s this chunk, 32s family)
+  JC1-without-rnd2 chunk 20/369 (27s this chunk, 53s family)
+  JC1-without-rnd2 chunk 30/369 (30s this chunk, 63s family)
+  JC1-without-rnd2 chunk 40/369 (26s this chunk, 83s family)
+  JC1-without-rnd2 chunk 50/369 (27s this chunk, 94s family)
+  JC1-without-rnd2 chunk 60/369 (27s this chunk, 118s family)
+  JC1-without-rnd2 chunk 70/369 (28s this chunk, 132s family)
+  JC1-without-rnd2 chunk 80/369 (26s this chunk, 148s family)
+  JC1-without-rnd2 chunk 90/369 (28s this chunk, 166s family)
+  JC1-without-rnd2 chunk 100/369 (26s this chunk, 182s family)
+  JC1-without-rnd2 chunk 110/369 (29s this chunk, 196s family)
+  JC1-without-rnd2 chunk 120/369 (26s this chunk, 217s family)
+  JC1-without-rnd2 chunk 130/369 (24s this chunk, 228s family)
+  JC1-without-rnd2 chunk 140/369 (26s this chunk, 248s family)
+  JC1-without-rnd2 chunk 150/369 (25s this chunk, 263s family)
+  JC1-without-rnd2 chunk 160/369 (29s this chunk, 282s family)
+  JC1-without-rnd2 chunk 170/369 (23s this chunk, 296s family)
+  JC1-without-rnd2 chunk 180/369 (25s this chunk, 312s family)
+  JC1-without-rnd2 chunk 190/369 (31s this chunk, 329s family)
+  JC1-without-rnd2 chunk 200/369 (25s this chunk, 343s family)
+  JC1-without-rnd2 chunk 210/369 (21s this chunk, 363s family)
+  JC1-without-rnd2 chunk 220/369 (25s this chunk, 378s family)
+  JC1-without-rnd2 chunk 230/369 (27s this chunk, 393s family)
+  JC1-without-rnd2 chunk 240/369 (23s this chunk, 410s family)
+  JC1-without-rnd2 chunk 250/369 (32s this chunk, 429s family)
+  JC1-without-rnd2 chunk 260/369 (37s this chunk, 443s family)
+  JC1-without-rnd2 chunk 270/369 (29s this chunk, 462s family)
+  JC1-without-rnd2 chunk 280/369 (20s this chunk, 474s family)
+  JC1-without-rnd2 chunk 290/369 (26s this chunk, 491s family)
+  JC1-without-rnd2 chunk 300/369 (22s this chunk, 512s family)
+  JC1-without-rnd2 chunk 310/369 (26s this chunk, 529s family)
+  JC1-without-rnd2 chunk 320/369 (24s this chunk, 544s family)
+  JC1-without-rnd2 chunk 330/369 (24s this chunk, 567s family)
+  JC1-without-rnd2 chunk 340/369 (26s this chunk, 577s family)
+  JC1-without-rnd2 chunk 350/369 (27s this chunk, 596s family)
+  JC1-without-rnd2 chunk 360/369 (24s this chunk, 615s family)
+  JC1-without-rnd2 chunk 369/369 (20s this chunk, 621s family)
+JC1-without-rnd2 done: stage 2 on 3174592 of 3686671 (86.1%), 625s
+JC2-with-rnd2: 3685849 functionals; planned: stage-1 signs int8[3685849 x 23] = 84.8 MB; stage-2 signs at most int8[3685849 x 810] = 2985.5 MB
+  JC2-with-rnd2 chunk 10/369 (38s this chunk, 39s family)
+  JC2-with-rnd2 chunk 20/369 (36s this chunk, 72s family)
+  JC2-with-rnd2 chunk 30/369 (38s this chunk, 78s family)
+  JC2-with-rnd2 chunk 40/369 (37s this chunk, 112s family)
+  JC2-with-rnd2 chunk 50/369 (33s this chunk, 131s family)
+  JC2-with-rnd2 chunk 60/369 (37s this chunk, 155s family)
+  JC2-with-rnd2 chunk 70/369 (43s this chunk, 181s family)
+  JC2-with-rnd2 chunk 80/369 (35s this chunk, 198s family)
+  JC2-with-rnd2 chunk 90/369 (42s this chunk, 223s family)
+  JC2-with-rnd2 chunk 100/369 (37s this chunk, 251s family)
+  JC2-with-rnd2 chunk 110/369 (37s this chunk, 268s family)
+  JC2-with-rnd2 chunk 120/369 (34s this chunk, 290s family)
+  JC2-with-rnd2 chunk 130/369 (39s this chunk, 314s family)
+  JC2-with-rnd2 chunk 140/369 (36s this chunk, 340s family)
+  JC2-with-rnd2 chunk 150/369 (39s this chunk, 362s family)
+  JC2-with-rnd2 chunk 160/369 (41s this chunk, 382s family)
+  JC2-with-rnd2 chunk 170/369 (46s this chunk, 408s family)
+  JC2-with-rnd2 chunk 180/369 (36s this chunk, 431s family)
+  JC2-with-rnd2 chunk 190/369 (34s this chunk, 454s family)
+  JC2-with-rnd2 chunk 200/369 (27s this chunk, 476s family)
+  JC2-with-rnd2 chunk 210/369 (32s this chunk, 499s family)
+  JC2-with-rnd2 chunk 220/369 (42s this chunk, 529s family)
+  JC2-with-rnd2 chunk 230/369 (41s this chunk, 546s family)
+  JC2-with-rnd2 chunk 240/369 (33s this chunk, 571s family)
+  JC2-with-rnd2 chunk 250/369 (28s this chunk, 589s family)
+  JC2-with-rnd2 chunk 260/369 (42s this chunk, 615s family)
+  JC2-with-rnd2 chunk 270/369 (27s this chunk, 640s family)
+  JC2-with-rnd2 chunk 280/369 (23s this chunk, 664s family)
+  JC2-with-rnd2 chunk 290/369 (46s this chunk, 688s family)
+  JC2-with-rnd2 chunk 300/369 (33s this chunk, 701s family)
+  JC2-with-rnd2 chunk 310/369 (38s this chunk, 735s family)
+  JC2-with-rnd2 chunk 320/369 (24s this chunk, 749s family)
+  JC2-with-rnd2 chunk 330/369 (48s this chunk, 783s family)
+  JC2-with-rnd2 chunk 340/369 (44s this chunk, 808s family)
+  JC2-with-rnd2 chunk 350/369 (50s this chunk, 835s family)
+  JC2-with-rnd2 chunk 360/369 (53s this chunk, 850s family)
+  JC2-with-rnd2 chunk 369/369 (26s this chunk, 860s family)
+JC2-with-rnd2 done: stage 2 on 3217607 of 3685849 (87.3%), 862s
+JC2-without-rnd2: 3682960 functionals; planned: stage-1 signs int8[3682960 x 23] = 84.7 MB; stage-2 signs at most int8[3682960 x 810] = 2983.2 MB
+  JC2-without-rnd2 chunk 10/369 (22s this chunk, 23s family)
+  JC2-without-rnd2 chunk 20/369 (20s this chunk, 38s family)
+  JC2-without-rnd2 chunk 30/369 (28s this chunk, 54s family)
+  JC2-without-rnd2 chunk 40/369 (18s this chunk, 61s family)
+  JC2-without-rnd2 chunk 50/369 (17s this chunk, 79s family)
+  JC2-without-rnd2 chunk 60/369 (20s this chunk, 89s family)
+  JC2-without-rnd2 chunk 70/369 (17s this chunk, 104s family)
+  JC2-without-rnd2 chunk 80/369 (20s this chunk, 119s family)
+  JC2-without-rnd2 chunk 90/369 (25s this chunk, 130s family)
+  JC2-without-rnd2 chunk 100/369 (24s this chunk, 144s family)
+  JC2-without-rnd2 chunk 110/369 (19s this chunk, 155s family)
+  JC2-without-rnd2 chunk 120/369 (17s this chunk, 167s family)
+  JC2-without-rnd2 chunk 130/369 (23s this chunk, 186s family)
+  JC2-without-rnd2 chunk 140/369 (20s this chunk, 196s family)
+  JC2-without-rnd2 chunk 150/369 (23s this chunk, 210s family)
+  JC2-without-rnd2 chunk 160/369 (18s this chunk, 221s family)
+  JC2-without-rnd2 chunk 170/369 (22s this chunk, 236s family)
+  JC2-without-rnd2 chunk 180/369 (21s this chunk, 248s family)
+  JC2-without-rnd2 chunk 190/369 (22s this chunk, 262s family)
+  JC2-without-rnd2 chunk 200/369 (22s this chunk, 276s family)
+  JC2-without-rnd2 chunk 210/369 (22s this chunk, 286s family)
+  JC2-without-rnd2 chunk 220/369 (20s this chunk, 304s family)
+  JC2-without-rnd2 chunk 230/369 (17s this chunk, 313s family)
+  JC2-without-rnd2 chunk 240/369 (20s this chunk, 326s family)
+  JC2-without-rnd2 chunk 250/369 (21s this chunk, 340s family)
+  JC2-without-rnd2 chunk 260/369 (20s this chunk, 355s family)
+  JC2-without-rnd2 chunk 270/369 (23s this chunk, 367s family)
+  JC2-without-rnd2 chunk 280/369 (22s this chunk, 383s family)
+  JC2-without-rnd2 chunk 290/369 (21s this chunk, 393s family)
+  JC2-without-rnd2 chunk 300/369 (19s this chunk, 409s family)
+  JC2-without-rnd2 chunk 310/369 (20s this chunk, 423s family)
+  JC2-without-rnd2 chunk 320/369 (18s this chunk, 433s family)
+  JC2-without-rnd2 chunk 330/369 (23s this chunk, 449s family)
+  JC2-without-rnd2 chunk 340/369 (23s this chunk, 459s family)
+  JC2-without-rnd2 chunk 350/369 (23s this chunk, 473s family)
+  JC2-without-rnd2 chunk 360/369 (20s this chunk, 486s family)
+  JC2-without-rnd2 chunk 369/369 (16s this chunk, 490s family)
+JC2-without-rnd2 done: stage 2 on 2292392 of 3682960 (62.2%), 490s
+RUN-DONE 4354s
+JA-with-rnd2: F=2069735 stage2=576073 | PZ one=399546 ttrain=11 full=0 rej=[301006, 230560, 240247, 2343, 158142, 134197, 44024, 315593, 27152] | PA one=307 ttrain=0 tweak=0 full=0 rej=[0, 0, 307, 0, 307, 278, 165, 307, 0] held>=23=[0, 0, 1, 0, 0, 0, 0, 0, 0] bestmin=0.375 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=69131 | planted=True shuffle=None
+JA-without-rnd2: F=2069562 stage2=724154 | PZ one=653436 ttrain=0 full=0 rej=[203010, 457013, 2012, 2055, 268994, 201597, 80851, 456578, 151109] | PA one=3502 ttrain=0 tweak=0 full=0 rej=[932, 2208, 0, 0, 2250, 1791, 62, 2684, 978] held>=23=[0, 0, 31, 95, 0, 8, 61, 1, 395] bestmin=0.375 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JB1-with-rnd2: F=4130424 stage2=775873 | PZ one=579249 ttrain=0 full=0 rej=[473503, 16251, 430552, 0, 93130, 65207, 102, 70953, 26337] | PA one=3851 ttrain=0 tweak=0 full=0 rej=[1862, 1086, 0, 0, 1458, 0, 0, 1823, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.292 | FE-tier PA ttrain=0 full=0 | opt PA/all=8151 PA/FE=8248 PZ/all=18738 | planted=True shuffle=None
+JB1-without-rnd2: F=4129197 stage2=1617103 | PZ one=1476451 ttrain=0 full=0 rej=[1029613, 17189, 57230, 469, 187316, 124370, 541, 155330, 61338] | PA one=3715 ttrain=0 tweak=0 full=0 rej=[1943, 1, 0, 0, 6, 0, 0, 1707, 0] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.250 | FE-tier PA ttrain=0 full=0 | opt PA/all=4926 PA/FE=5170 PZ/all=7399 | planted=True shuffle=None
+JB2-with-rnd2: F=2927751 stage2=1418448 | PZ one=1339230 ttrain=0 full=0 rej=[380208, 49750, 984775, 217, 258051, 98542, 0, 764756, 33510] | PA one=708361 ttrain=0 tweak=0 full=0 rej=[56380, 7958, 624843, 54, 119924, 49930, 0, 409489, 16334] held>=23=[0, 0, 59753, 0, 0, 0, 0, 0, 0] bestmin=0.333 | FE-tier PA ttrain=22 full=0 | opt PA/all=0 PA/FE=22 PZ/all=0 | planted=True shuffle=None
+JB2-without-rnd2: F=2929556 stage2=1933425 | PZ one=1880998 ttrain=0 full=0 rej=[521813, 24693, 40646, 309, 182761, 77030, 0, 153722, 22839] | PA one=765650 ttrain=0 tweak=0 full=0 rej=[78095, 534, 153, 21, 62069, 39390, 0, 75026, 9262] held>=23=[0, 0, 0, 0, 0, 0, 0, 715, 0] bestmin=0.292 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JC1-with-rnd2: F=3686563 stage2=2923059 | PZ one=2883045 ttrain=166 full=0 rej=[1518819, 1781495, 2455543, 2802, 1499863, 1148018, 894344, 1807035, 715135] | PA one=143582 ttrain=0 tweak=0 full=0 rej=[5354, 26822, 143582, 0, 67335, 26287, 6424, 107484, 6858] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.083 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=166 | planted=True shuffle=None
+JC1-without-rnd2: F=3686671 stage2=3174592 | PZ one=3147672 ttrain=3 full=0 rej=[1144897, 2189017, 81841, 1553, 1483717, 1330354, 884410, 1969735, 1123494] | PA one=140252 ttrain=0 tweak=0 full=0 rej=[5457, 11835, 0, 4, 45070, 28317, 4754, 132497, 6899] held>=23=[0, 0, 0, 0, 0, 5575, 486, 0, 611] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=3 | planted=True shuffle=None
+JC2-with-rnd2: F=3685849 stage2=3217607 | PZ one=3192690 ttrain=0 full=0 rej=[2155599, 526917, 1465290, 726, 533294, 752269, 897744, 781780, 668042] | PA one=1006270 ttrain=0 tweak=0 full=0 rej=[157383, 198174, 275478, 726, 21327, 93549, 214834, 301547, 285327] held>=23=[0, 0, 0, 0, 0, 0, 0, 0, 0] bestmin=0.042 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+JC2-without-rnd2: F=3682960 stage2=2292392 | PZ one=2219346 ttrain=0 full=0 rej=[466162, 970215, 60083, 0, 116523, 681734, 672872, 1333058, 839873] | PA one=989825 ttrain=0 tweak=0 full=0 rej=[159873, 337355, 0, 0, 47860, 225848, 257593, 589262, 335844] held>=23=[0, 0, 0, 136, 187, 12679, 91645, 8, 26263] bestmin=0.125 | FE-tier PA ttrain=0 full=0 | opt PA/all=0 PA/FE=0 PZ/all=0 | planted=True shuffle=None
+PIPELINE-DONE

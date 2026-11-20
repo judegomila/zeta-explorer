@@ -1,0 +1,5 @@
+nodes 38536 planned MB 12.33152
+phi done
+{'delta': 0.5, 'N': 8, 'T_eq_N_rel_err_spectral_vs_exact': 0.00036455145567926045, 'imag_part_exact_K': 6.095897740894373e-16, 'T1_mass_rel_err': 0.00012943994667169445, 'T1_max_gain': 2.728287814629497, 'T_eq_N_max_gain_over_M_T': 2.709830842809176, 'N_pow_delta': 2.8284271247461903, 'tail_bound': 0.002122065907891938}
+{'delta': 0.1, 'N': 8, 'T_eq_N_rel_err_spectral_vs_exact': 0.007320189445489752, 'imag_part_exact_K': 6.66133814775094e-16, 'T1_mass_rel_err': 0.006213518795140694, 'T1_max_gain': 1.229559585195261, 'T_eq_N_max_gain_over_M_T': 1.2204511557313538, 'N_pow_delta': 1.2311444133449163, 'tail_bound': 0.00042441318157838764}
+{'delta': 0.03, 'N': 8, 'T_eq_N_rel_err_spectral_vs_exact': 0.003396821289464884, 'imag_part_exact_K': 6.661338147750939e-16, 'T1_mass_rel_err': 0.0024870835434663975, 'T1_max_gain': 1.0645993827868114, 'T_eq_N_max_gain_over_M_T': 1.0615796963831334, 'N_pow_delta': 1.0643701824533598, 'tail_bound': 0.00012732395447351627}

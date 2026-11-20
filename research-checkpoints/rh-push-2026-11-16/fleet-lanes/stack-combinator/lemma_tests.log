@@ -1,0 +1,22 @@
+zeta             x0=0.375  L1 stat max Re f'/f / log(t+2) =     0.814 at t=14.1   cap stat max(-Re f'/f)/Re G =   0.8343 at t=17.6  [10,200]
+zeta             x0=0.250  L1 stat max Re f'/f / log(t+2) =     1.272 at t=14.1   cap stat max(-Re f'/f)/Re G =   0.8888 at t=17.6  [10,200]
+zeta             x0=0.100  L1 stat max Re f'/f / log(t+2) =     3.068 at t=14.1   cap stat max(-Re f'/f)/Re G =   0.9553 at t=17.6  [10,200]
+zeta             x0=0.020  L1 stat max Re f'/f / log(t+2) =    11.729 at t=48.0   cap stat max(-Re f'/f)/Re G =   0.9910 at t=17.6  [10,200]
+E_a(0.3)         x0=0.375  L1 stat max Re f'/f / log(t+2) =     4.208 at t=14.1   cap stat max(-Re f'/f)/Re G =   0.8370 at t=17.6  [10,200]
+E_a(0.3)         x0=0.250  L1 stat max Re f'/f / log(t+2) =     0.047 at t=13.8   cap stat max(-Re f'/f)/Re G =  15.3295 at t=14.1  [10,200]
+E_a(0.3)         x0=0.100  L1 stat max Re f'/f / log(t+2) =    -0.174 at t=13.6   cap stat max(-Re f'/f)/Re G =   3.9119 at t=14.1  [10,200]
+E_a(0.3)         x0=0.020  L1 stat max Re f'/f / log(t+2) =    -0.186 at t=10.0   cap stat max(-Re f'/f)/Re G =   1.5268 at t=14.1  [10,200]
+TWIST(eps_2=-1)  x0=0.375  L1 stat max Re f'/f / log(t+2) =     0.656 at t=72.1   cap stat max(-Re f'/f)/Re G =   1.9756 at t=11.9  [10,200]
+TWIST(eps_2=-1)  x0=0.250  L1 stat max Re f'/f / log(t+2) =     1.088 at t=14.1   cap stat max(-Re f'/f)/Re G =   2.1877 at t=12.0  [10,200]
+TWIST(eps_2=-1)  x0=0.100  L1 stat max Re f'/f / log(t+2) =     2.871 at t=14.1   cap stat max(-Re f'/f)/Re G =   2.4558 at t=12.0  [10,200]
+TWIST(eps_2=-1)  x0=0.020  L1 stat max Re f'/f / log(t+2) =    11.600 at t=48.0   cap stat max(-Re f'/f)/Re G =   2.6036 at t=12.0  [10,200]
+DH               x0=0.375  L1 stat max Re f'/f / log(t+2) =     3.287 at t=85.7   cap stat max(-Re f'/f)/Re G =   0.6255 at t=84.3  [80,120]
+DH               x0=0.250  L1 stat max Re f'/f / log(t+2) =     1.962 at t=114.2   cap stat max(-Re f'/f)/Re G =   8.1451 at t=85.7  [80,120]
+DH               x0=0.100  L1 stat max Re f'/f / log(t+2) =     1.795 at t=83.1   cap stat max(-Re f'/f)/Re G =   4.9658 at t=114.2  [80,120]
+DH               x0=0.020  L1 stat max Re f'/f / log(t+2) =    10.305 at t=100.6   cap stat max(-Re f'/f)/Re G =   1.6527 at t=114.2  [80,120]
+L2 zeta       t0=85.699348 u=-2: |I|/Gaussian bound = 0.341787
+L2 zeta       t0=85.699348 u=-4: |I|/Gaussian bound = 0.333893
+L2 zeta       t0=85.699348 u=-6: |I|/Gaussian bound = 0.328121
+L2 E_a(0.3)   t0=85.699348 u=-2: |I|/Gaussian bound = 1.34058
+L2 E_a(0.3)   t0=85.699348 u=-4: |I|/Gaussian bound = 438.868
+L2 E_a(0.3)   t0=85.699348 u=-6: |I|/Gaussian bound = 6.21097e+6

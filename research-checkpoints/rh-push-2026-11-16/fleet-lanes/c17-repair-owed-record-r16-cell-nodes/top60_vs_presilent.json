@@ -1,0 +1,462 @@
+{
+ "common": 45,
+ "commonSameScore": 39,
+ "commonScoreDiff": [
+  [
+   "M1-a2f8b7",
+   3.59,
+   3.6,
+   {
+    "cohesion": [
+     0.84,
+     0.85
+    ]
+   }
+  ],
+  [
+   "M1-de6488",
+   3.87,
+   3.86,
+   {
+    "cohesion": [
+     0.87,
+     0.86
+    ]
+   }
+  ],
+  [
+   "M2-e4a1b9",
+   7.67,
+   7.66,
+   {
+    "cohesion": [
+     0.92,
+     0.91
+    ]
+   }
+  ],
+  [
+   "M4-0f17b0",
+   4.15,
+   4.14,
+   {
+    "cohesion": [
+     0.9,
+     0.89
+    ]
+   }
+  ],
+  [
+   "M4-51af38",
+   2.67,
+   2.68,
+   {
+    "cohesion": [
+     0.67,
+     0.68
+    ]
+   }
+  ],
+  [
+   "M4-58a6a8",
+   2.57,
+   2.56,
+   {
+    "cohesion": [
+     0.82,
+     0.81
+    ]
+   }
+  ]
+ ],
+ "left": [
+  {
+   "key": "M1-f1c4a0",
+   "rankBefore": 4,
+   "scoreBefore": 9.25,
+   "nodes": [
+    "subleading-k-closed-form",
+    "gauss-plancherel-alias-lemma",
+    "tro6-natural"
+   ],
+   "stillScored": false,
+   "scoreNow": null,
+   "partsChanged": null,
+   "cause": "not enumerated or rejected in the new run"
+  },
+  {
+   "key": "M4-79717e",
+   "rankBefore": 5,
+   "scoreBefore": 9.25,
+   "nodes": [
+    "zv-theta-kernel-phi",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "stillScored": false,
+   "scoreNow": null,
+   "partsChanged": null,
+   "cause": "not enumerated or rejected in the new run"
+  },
+  {
+   "key": "M1-899484",
+   "rankBefore": 9,
+   "scoreBefore": 8.75,
+   "nodes": [
+    "mollifier-holomorphy-constraint",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "stillScored": true,
+   "scoreNow": 8.75,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M3-e4014a",
+   "rankBefore": 13,
+   "scoreBefore": 8.25,
+   "nodes": [
+    "tro6-natural",
+    "map-pos-49",
+    "mem-qrh-7-8"
+   ],
+   "stillScored": true,
+   "scoreNow": 8.25,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M4-4c2f00",
+   "rankBefore": 17,
+   "scoreBefore": 7.75,
+   "nodes": [
+    "dbn-native-triangle-binding",
+    "route-m-first-moment-kappa",
+    "tro6-natural"
+   ],
+   "stillScored": true,
+   "scoreNow": 7.75,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M1-ba0bbc",
+   "rankBefore": 23,
+   "scoreBefore": 6.55,
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "ramanujan-cube-satake-point",
+    "qrh-seven-eighths"
+   ],
+   "stillScored": true,
+   "scoreNow": 6.55,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M1-01458c",
+   "rankBefore": 24,
+   "scoreBefore": 6.25,
+   "nodes": [
+    "sawtooth-s-of-t-lemma",
+    "h6-symbol-offline-poisson",
+    "qrh-seven-eighths"
+   ],
+   "stillScored": true,
+   "scoreNow": 6.25,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M1-089e5f",
+   "rankBefore": 25,
+   "scoreBefore": 6.1,
+   "nodes": [
+    "gl2-weil-symbol",
+    "route-m-first-moment-kappa",
+    "map-open-2"
+   ],
+   "stillScored": false,
+   "scoreNow": null,
+   "partsChanged": null,
+   "cause": "not enumerated or rejected in the new run"
+  },
+  {
+   "key": "M1-66e7d0",
+   "rankBefore": 28,
+   "scoreBefore": 5.0,
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "cotangent-second-moment-upper-lemma",
+    "map-open-2"
+   ],
+   "stillScored": true,
+   "scoreNow": 5.0,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M1-db5a1b",
+   "rankBefore": 33,
+   "scoreBefore": 4.31,
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "map-open-4"
+   ],
+   "stillScored": true,
+   "scoreNow": 4.31,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M3-b982fd",
+   "rankBefore": 35,
+   "scoreBefore": 4.0,
+   "nodes": [
+    "mem-sextic-theta-squarefree",
+    "seven-eighths-abscissa-formula",
+    "sextic-theta-mean-square"
+   ],
+   "stillScored": false,
+   "scoreNow": null,
+   "partsChanged": null,
+   "cause": "not enumerated or rejected in the new run"
+  },
+  {
+   "key": "M1-8f7602",
+   "rankBefore": 48,
+   "scoreBefore": 2.75,
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "route-m-lammax-bounded",
+    "map-open-2"
+   ],
+   "stillScored": true,
+   "scoreNow": 2.75,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M3-731692",
+   "rankBefore": 49,
+   "scoreBefore": 2.75,
+   "nodes": [
+    "map-open-2",
+    "rung-toeplitz-euler-detector",
+    "sextic-theta-numerics"
+   ],
+   "stillScored": true,
+   "scoreNow": 2.75,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M4-c7b8af",
+   "rankBefore": 57,
+   "scoreBefore": 2.0,
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "five-shell-p97-identity",
+    "seven-eighths-abscissa-formula"
+   ],
+   "stillScored": true,
+   "scoreNow": 2.0,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  },
+  {
+   "key": "M2-14bc7f",
+   "rankBefore": 59,
+   "scoreBefore": 1.25,
+   "nodes": [
+    "meansquare-pointwise-wall",
+    "seven-eighths-abscissa-formula"
+   ],
+   "stillScored": true,
+   "scoreNow": 1.25,
+   "partsChanged": {},
+   "cause": "scored the same; displaced by the selection caps"
+  }
+ ],
+ "entered": [
+  {
+   "key": "M1-585871",
+   "rankNow": 7,
+   "score": 8.75,
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "route-m-first-moment-kappa",
+    "tro6-natural"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M3-acf0df",
+   "rankNow": 8,
+   "score": 8.75,
+   "nodes": [
+    "tro6-natural",
+    "gauss-plancherel-alias-lemma",
+    "mem-qrh-7-8"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M1-67ad42",
+   "rankNow": 10,
+   "score": 8.48,
+   "nodes": [
+    "curvature-charge-d",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M3-23f5c3",
+   "rankNow": 13,
+   "score": 8.25,
+   "nodes": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "qrh-seven-eighths",
+    "ramanujan-cube-satake-point"
+   ],
+   "cells": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+   ]
+  },
+  {
+   "key": "M1-20c167",
+   "rankNow": 16,
+   "score": 7.75,
+   "nodes": [
+    "subleading-k-closed-form",
+    "mem-chi4-signed-ladder",
+    "tro6-natural"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M4-e445bf",
+   "rankNow": 18,
+   "score": 7.75,
+   "nodes": [
+    "start-substitution-lemma",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M1-f01cb9",
+   "rankNow": 24,
+   "score": 6.55,
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "qrh-seven-eighths"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M1-2251f5",
+   "rankNow": 27,
+   "score": 5.09,
+   "nodes": [
+    "gl2-weil-symbol",
+    "sextic-theta-numerics",
+    "map-open-2"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M4-b526c3",
+   "rankNow": 30,
+   "score": 4.75,
+   "nodes": [
+    "dbn-native-triangle-binding",
+    "route-m-first-moment-kappa",
+    "seven-eighths-abscissa-formula"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M3-63d586",
+   "rankNow": 44,
+   "score": 3.0,
+   "nodes": [
+    "silent-u6e-bost-connes-states-outside-d8",
+    "seven-eighths-abscissa-formula",
+    "mem-semilocal-fourier-fs"
+   ],
+   "cells": [
+    "silent-u6e-bost-connes-states-outside-d8"
+   ]
+  },
+  {
+   "key": "M1-5c963c",
+   "rankNow": 47,
+   "score": 2.75,
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "hasse-weil-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M4-59eaea",
+   "rankNow": 49,
+   "score": 2.75,
+   "nodes": [
+    "tilt-det-majorant",
+    "rung-toeplitz-euler-detector",
+    "map-open-2"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M3-e3f266",
+   "rankNow": 52,
+   "score": 2.5,
+   "nodes": [
+    "map-open-2",
+    "mem-mollifier-proportion-loophole",
+    "ns-rigid-loophole-dirichlet-coefficients"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M3-bfe227",
+   "rankNow": 54,
+   "score": 2.25,
+   "nodes": [
+    "map-open-2",
+    "rm-e0-uniform-remainder",
+    "binet-positive-kernel"
+   ],
+   "cells": []
+  },
+  {
+   "key": "M4-c5a066",
+   "rankNow": 60,
+   "score": 0.29,
+   "nodes": [
+    "zero-ode-ht",
+    "mixed-group-rigid-profile",
+    "map-open-4"
+   ],
+   "cells": []
+  }
+ ],
+ "summary": {
+  "left": 15,
+  "leftNotEnumerated": 4,
+  "leftSameScore": 11,
+  "leftScoreChanged": 0,
+  "entered": 15,
+  "enteredWithCell": 2
+ }
+}

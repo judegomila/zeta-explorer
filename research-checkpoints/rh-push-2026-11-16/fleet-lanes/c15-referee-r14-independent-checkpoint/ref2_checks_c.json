@@ -1,0 +1,32 @@
+{
+ "zeros +-0.35+-3i and +-0.15+-3i (cancelling)": {
+  "grid 200": {
+   "max | |R| - 1 | on the axis": 6.661338147750939e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 0.9980229599636988
+  },
+  "grid 800": {
+   "max | |R| - 1 | on the axis": 8.881784197001252e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 0.9994545079202989
+  }
+ },
+ "zeros +-0.35+-3i only": {
+  "grid 200": {
+   "max | |R| - 1 | on the axis": 6.661338147750939e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 3.7647477894659325
+  },
+  "grid 800": {
+   "max | |R| - 1 | on the axis": 6.661338147750939e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 92.43045398872249
+  }
+ },
+ "zeros +-0.2+-3i only (inside the strip of half-width a)": {
+  "grid 200": {
+   "max | |R| - 1 | on the axis": 4.440892098500626e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 0.9990076963403154
+  },
+  "grid 800": {
+   "max | |R| - 1 | on the axis": 5.551115123125783e-16,
+   "sup |R| on 0 < Re w <= 4, |Im w| <= 8": 0.9997263077033426
+  }
+ }
+}

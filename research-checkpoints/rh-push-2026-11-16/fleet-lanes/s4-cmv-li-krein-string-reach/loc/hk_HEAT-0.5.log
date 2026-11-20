@@ -1,0 +1,3 @@
+HEAT-0.5 M 400 prec 14000 moments 1559.2 s;  s_0 = [0.04573637080096162227943546 +/- 4.13e-27]
+  base: {"n_coeff": 399, "first_negative": 123, "negatives_head": [123, 125, 189, 191, 219, 221, 248, 250, 311, 313, 336, 338], "n_negative": 12}
+DONE HEAT-0.5 1559.9

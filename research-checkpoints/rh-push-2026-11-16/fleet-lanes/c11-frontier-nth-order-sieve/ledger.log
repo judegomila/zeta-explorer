@@ -1,0 +1,90 @@
+1. First lemma (n = 6): (KD)^(2/3) -> K^(5/6) D^(1/3) + K^(1/3) D^(5/6)
+  ok   balanced point K = D: new exponent 7/6, old 4/3 (per unit of log K)
+  ok   new <= old at all 14641 rational grid points (a, b) in [0,3]^2, step 1/40
+  ok   off-diagonal terms exceed max(K, D) exactly for D^(1/2) < K < D^2 (same grid): the window is the old one
+  ok   single term K^(5/6) D^(1/3) exceeds max(K, D) exactly for D^(4/5) < K < D^2 (c10 item 1 stated D^(4/5) < K < D^(5/4): corrected)
+  ok   old term exceeds max(K, D) exactly for D^(1/2) < K < D^2
+     n = 3: balanced exponent 4/3; term A^(1-1/n) B^(2/n) exceeds A + B for B^(1/2) < A < B^2
+     n = 4: balanced exponent 5/4; term A^(1-1/n) B^(2/n) exceeds A + B for B^(2/3) < A < B^2
+     n = 5: balanced exponent 6/5; term A^(1-1/n) B^(2/n) exceeds A + B for B^(3/4) < A < B^2
+     n = 6: balanced exponent 7/6; term A^(1-1/n) B^(2/n) exceeds A + B for B^(4/5) < A < B^2
+  ok   n = 3: the new bound equals Heath-Brown's (KD)^(2/3) (no change for cubic rows)
+  ok   n = 4: balanced exponent 5/4, i.e. (MN)^c with c = 5/8
+2. Row Z12: general-coefficient large sieve as a count option at class (delta, x)
+     critical class delta_c = 0.469344859: old option 0.765328 at Y = 1/2; new option 0.697322 at Y = 1; R_c = 0.590332
+  ok   old: inf = 1 - delta/2 at Y = 1/2 (0.765328, as on file)
+  ok   new: inf = 7/6 - delta at Y = 1 (exact)
+  ok   new option 7/6 - delta_c = 0.697322 > R_c = 0.590332: not selected at the critical class
+  ok   closed form: inf = 1 - delta/2 for delta <= 1/3, 7/6 - delta for 1/3 <= delta <= 5/6 (201 rational classes)
+  ok   new option > R(delta, x, kappa) at all 4 x 171 x 51 classes; least margin 0.025219 at delta = 0.1250, x = 0.00, kappa = 13/18
+  ok   analytic bound: R - (1 - delta) <= (3/5) delta (5/6 - delta) <= 5/48 < 1/6, so 7/6 - delta > R for all delta, x
+  ok   D - P = 1 + x - 2 c x^2 >= 1 on 0 <= x <= 1/2 for c = 1/(3 kappa), kappa in [13/18, 1] (endpoints checked; monotone in c)
+   2b. table (E5) of r2-zf-gm-inverse-witness with the new norm (K = U, D = U^r)
+     r = 0.7605 rho0 = 0.6431 allowed U^0.193 | proved old U^0.531 new U^0.444 | excess new U^0.251 | count (2.1): old 0.8167 new 0.7299
+  ok   r = 0.7605: S2 still exceeds the budget and the (2.1) count stays above 1 - delta r
+     r = 0.8000 rho0 = 0.6245 allowed U^0.151 | proved old U^0.575 new U^0.475 | excess new U^0.325 | count (2.1): old 0.8245 new 0.7245
+  ok   r = 0.8000: S2 still exceeds the budget and the (2.1) count stays above 1 - delta r
+     r = 0.8333 rho0 = 0.6089 allowed U^0.116 | proved old U^0.613 new U^0.502 | excess new U^0.387 | count (2.1): old 0.8311 new 0.7200
+  ok   r = 0.8333: S2 still exceeds the budget and the (2.1) count stays above 1 - delta r
+     r = 0.8700 rho0 = 0.5917 allowed U^0.077 | proved old U^0.655 new U^0.532 | excess new U^0.455 | count (2.1): old 0.8383 new 0.7150
+  ok   r = 0.8700: S2 still exceeds the budget and the (2.1) count stays above 1 - delta r
+     r = 1.0000 rho0 = 0.5307 allowed U^-0.061 | proved old U^0.803 new U^0.636 | excess new U^0.697 | count (2.1): old 0.8640 new 0.6973
+  ok   r = 1.0000: S2 still exceeds the budget and the (2.1) count stays above 1 - delta r
+  ok   mean-value-optimal range of the norm at K = U, D = U^n is n <= 1/2 for the new bound too (threshold unchanged)
+   2c. Ingham/Montgomery two-class scheme (density.py part C) as an exact LP in (x1, y, R)
+     old (KD)^(2/3)   exponent 0.795580 (mollifier 0.4355, Y 0.6533)
+     new n = 6        exponent 0.726202 (mollifier 0.7877, Y 1.0793)
+     perfect K + D    exponent 0.629072 (mollifier 0.7903, Y 1.1855)
+  ok   old value reproduces the file's grid optimum 0.795641
+  ok   perfect sieve reproduces 3(1-s)/(2-s) form = 0.629072
+  ok   new two-class exponent 0.726202 > R_c = 0.590332
+   2d. Corollary 1.5 at n = 6 as a count option (zeros with real part >= (1 + delta)/2, conductor aspect)
+  ok   n = 3: transcribed exponent continuous at both breakpoints (2/3, 2/3) and 0 at sigma = 1
+  ok   n = 4: transcribed exponent continuous at both breakpoints (3/4, 1/2) and 0 at sigma = 1
+  ok   n = 6: transcribed exponent continuous at both breakpoints (5/6, 1/3) and 0 at sigma = 1
+  ok   values 8/11 (n = 6, sigma = 3/4) and 1/2 (n = 4, sigma = 7/8) agree with the c10 table
+     n = 6 at the critical class: 1 - delta_6((1 + delta_c)/2) = 0.750051; R_c = 0.590332; R(delta_c, x = 0) = 0.614784
+  ok   Cor 1.5 exponent >= the product-polynomial infimum of section 2 at every class (it is one such application)
+  ok   Cor 1.5 (n = 6) exponent > R(delta, x, kappa) at all classes; least margin 0.049258 at delta = 0.1250, x = 0.00
+3. Rows Z6 and Z5 (toy geometry of the file: D = Q^(7/5); paper geometry X = s-length, P = X^2/Q)
+  ok   Z6 old: (Q + D + (QD)^(2/3))^(1/2) = Q^(4/5) (as on file)
+  ok   Z6 new: (Q + D + Q^(5/6) D^(1/3) + Q^(1/3) D^(5/6))^(1/2) = Q^(3/4); binding term Q^(1/3) D^(5/6) = Q^(3/2)
+  ok   Z6 floor of any (m | c) operator-norm bound: D^(1/2) = Q^(7/10) > Q^(1/2) (the diagonal term alone misses)
+     Z6: needed Q^(1/2 - eta); shortfall old Q^(3/10 + eta), new Q^(1/4 + eta), floor of the grouping Q^(1/5 + eta)
+  ok   Z5: Gram exponent e = 1/3 (old sieve) -> e = 1/6 (new sieve) for Q^(1/2) <= X <= Q; equals Prop 15.2 and the file's lower bound
+     Z5: loss in T_X is P^(e/2): old P^(1/6), new P^(1/12) = the cap for inequalities valid for all c; needed P^0. eta stays 0.
+4. Row Z14, quartic line: Framework A (zf-quartic-gl2-exponents.py (B2)) with the n-th order shape on the Poisson dual
+  ok   order 4: Framework A with the order-4 bound on the dual: exponent of |A_1|^2 is 2 >= 2 at every lam; theta = 1 (trivial)
+  ok   order 6: Framework A with the order-6 bound on the dual: exponent of |A_1|^2 is 2 >= 2 at every lam; theta = 1 (trivial)
+  ok   order 3: Framework A with the order-3 bound on the dual: exponent of |A_1|^2 is 2 >= 2 at every lam; theta = 1 (trivial)
+  ok   order 5: Framework A with the order-5 bound on the dual: exponent of |A_1|^2 is 2 >= 2 at every lam; theta = 1 (trivial)
+  ok   identity: H * H*^(1-1/n) X^(2/n) / J = D^(2 + lam/n - lam/n) = D^2 for every lam and n (the new term is amplifier-neutral)
+  ok   balanced point: c = 5/8 is the value at which the file's formula 3/8 + c reaches 1
+5. Abscissa of the comparison system (Liu 2610.26835 v2 polynomial, as recorded in c10 item 3)
+     sign at 5/6: +, at 7/8: -
+     roots in [5/6, 7/8]: ['0.8748866470']
+  ok   B_flat = 0.8748866470 is a root in [5/6, 7/8]
+  ok   figure inside the pre-registered interval [5/6, 7/8]
+  ok   figure is not below 0.874886647: no changed part-B number
+6. Ji 2611.16665: exponent replay of Propositions 2.1-2.3 (H = X^(65/144), Y = X^(1/288))
+  ok   Prop 2.1 / (Y H^(1/4)) = X^(575/576) < X^(599/600)
+  ok   Prop 2.3 error X Y^(13/25) H^(1/4) / (Y H^(1/4)) = X^(599/600): this term sets the figure
+  ok   Prop 2.3 error X Y H^(1/8) / (Y H^(1/4)) = X^(1087/1152)
+  ok   E(599/600) = 3/302 (n = 4 exponent of Cor 1.5)
+  ok   top group: E + 6/25 - 1/4 = -1/15100 < 0 (Q-sum converges)
+  ok   Lemma 4.3 on 4001 rational points: max of sigma + (65/144) A(sigma) = 0.998333 at sigma = 0.9983 <= 599/600; sigma = 5/8, E = 1 gives 2285/2304
+   6b. general order r in the same format (MODEL: only the row density H^(1/r) and E_r are changed; Prop 2.1 for r = 6 is not available)
+     r = 4: E_r(sigma) <= 1/r iff sigma >= 0.950000 (zero-count below the row multiplicity H^(1/r))
+     r = 6: E_r(sigma) <= 1/r iff sigma >= 0.967202 (zero-count below the row multiplicity H^(1/r))
+7. Xu-Sang 2610.17675 v2 (read in full text): Theorem 1.2 count R(sigma) = (31 - 32 sigma)/(21 - 12 sigma) and its table
+  ok   identity: Xu-Sang R(sigma) equals the system's count R(delta, x = 0, kappa) (kappa drops out at x = 0): not a new count
+  ok   their comparison table (sieve density 5/6, 8/11, 4/7 against 29/39, 7/12, 13/33) reproduced; Cor 1.5 is the larger exponent in each row
+  ok   direct sieve comparison for the prime second moment: Q^(7/6) x Q = Q^(13/6) (their kappa_6 = (37 - 10 sqrt 6)/6 = 2.08418 is below it)
+8. 7/8 manuscript Prop 9.2 row envelope (9.16)/(9.24) and the Part I central estimate, old and new sieve
+  ok   old sieve: grid max-min reproduces the manuscript's closed form min(1, max(1 - d/2, 4/3 - d)) at 11 classes
+     delta: new envelope with the split u = s w k kept / new envelope direct: 1/50: 1 / 1, 1/6: 1 / 1, 1/4: 15/16 / 11/12, 1/3: 7/8 / 5/6, 5/12: 13/16 / 19/24, 1/2: 3/4 / 3/4, 7/12: 17/24 / 17/24, 2/3: 2/3 / 2/3, 3/4: 5/8 / 5/8, 5/6: 7/12 / 7/12, 1: 1/2 / 1/2
+  ok   direct <= split-kept <= old at all 11 classes
+  ok   for delta >= 2/3 all three envelopes equal 1 - delta/2
+  ok   Part I: E_I(h) at the bin ceiling delta = 5/6 is -1/24 with either envelope (the piece that sets the margin m_c is unchanged)
+  ok   Part I: max over 1/50 <= delta <= 5/6 of E_I(h) is -1/24 with either envelope; 11/12 is set by the low side (5/6 + lx/6 at lx = 1/2)
+ALL CHECKS PASS

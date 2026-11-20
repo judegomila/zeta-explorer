@@ -1,0 +1,18 @@
+[a] X=1e+06 theta=2/9 u=lambda: points 4 (M_j 7500..60000, c 143..741, pairs 163..1753)
+     r2 along path (theta rows): 0.980 0.975 1.044 1.007 | randphase0: 1.005 1.012 0.982 1.024
+     exponent r2: theta -0.0218; seeds mean -0.0032 sd 0.0064 [-0.0132, +0.0035]; diff -0.0186; saving False; excess False
+     exponent L: theta +0.0076; seeds mean +0.0002 sd 0.0072 [-0.0118, +0.0066]; diff +0.0074; saving False; excess False
+     other rows, exponent r2 / L: liouville +0.0007 / -0.0118; thin +0.0031 / +0.0066; cubicrows +0.0233 / -0.2725; nomu -0.0034 / +0.0076; random signs on c (theta rows): mean r2 1.004; x2 theta: 0.97 0.92 1.15 1.02
+     L values theta: 1.008 1.017 1.020 0.990 | liouville: 0.956 0.986 0.973 0.986 | cubicrows: 2.631 3.331 3.975 4.656
+[a] X=1e+06 theta=2/9 u=y0: points 4 (M_j 7500..60000, c 143..741, pairs 163..1753)
+     r2 along path (theta rows): 1.005 1.028 0.973 1.012 | randphase0: 1.006 1.021 1.027 1.007
+     exponent r2: theta +0.0048; seeds mean -0.0052 sd 0.0114 [-0.0280, +0.0073]; diff +0.0100; saving False; excess False
+     exponent L: theta -0.0097; seeds mean -0.0001 sd 0.0095 [-0.0096, +0.0187]; diff -0.0096; saving False; excess False
+     other rows, exponent r2 / L: liouville +0.0137 / +0.0187; thin -0.0036 / -0.0096; cubicrows +0.0233 / -0.3609; nomu -0.0086 / -0.0097; random signs on c (theta rows): mean r2 0.999; x2 theta: 0.83 1.44 1.01 0.99
+     L values theta: 0.974 0.992 1.010 0.990 | liouville: 1.028 1.008 0.986 0.992 | cubicrows: 4.521 5.514 7.428 9.424
+[a] X=1e+06 theta=2/9 u=one: points 4 (M_j 7500..60000, c 143..741, pairs 163..1753)
+     r2 along path (theta rows): 1.012 1.020 1.006 1.023 | randphase0: 0.991 0.993 0.974 1.010
+     exponent r2: theta -0.0025; seeds mean -0.0010 sd 0.0080 [-0.0127, +0.0133]; diff -0.0015; saving False; excess False
+     exponent L: theta -0.0042; seeds mean +0.0005 sd 0.0102 [-0.0089, +0.0211]; diff -0.0047; saving False; excess False
+     other rows, exponent r2 / L: liouville -0.0051 / +0.0211; thin +0.0134 / -0.0089; cubicrows +0.0233 / -0.2296; nomu -0.0027 / -0.0042; random signs on c (theta rows): mean r2 0.997; x2 theta: 1.03 1.11 0.98 1.10
+     L values theta: 0.991 1.004 0.995 1.003 | liouville: 1.048 1.020 1.015 1.000 | cubicrows: 3.374 4.000 4.755 5.414

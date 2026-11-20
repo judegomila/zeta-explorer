@@ -1,0 +1,257 @@
+
+## c2
+| kernel | theta0 | band | N = largest | max pair split / lambda_1 (max over N) | C N^2 at largest N | C/C_pred at N = 800, 3200, largest | ladder residual at largest N | L3/L2, L4/L2, L5/L2, L6/L2 at largest N |
+|---|---|---|---|---|---|---|---|---|
+| zeta | 0.2693 | 53 | 6400 | 6.5e-16 | 270.9585 | 0.98942, 0.99731, 0.99864 | 1.0e-05 | 2.66667, 5.00002, 8.00005, 11.66679 |
+| zeta_repo | 0.3028 | 53 | 6400 | 5.9e-16 | 207.4549 | 0.99083, 0.99768, 0.99884 | 4.0e-06 | 2.66667, 5.00001, 8.00002, 11.66671 |
+| chi-3 | 0.1755 | 64 | 6400 | 6.0e-16 | 648.2054 | 0.98268, 0.99558, 0.99779 | 3.0e-05 | 2.66668, 5.00006, 8.00016, 11.66702 |
+| chi-4 | 0.1543 | 67 | 6400 | 7.1e-16 | 848.6613 | 0.98007, 0.99488, 0.99743 | 4.5e-05 | 2.66669, 5.00008, 8.00023, 11.66719 |
+| chi5 | 0.1500 | 69 | 6400 | 3.5e-16 | 890.2889 | 0.97940, 0.99470, 0.99733 | 4.3e-05 | 2.66668, 5.00008, 8.00022, 11.66717 |
+| chi-7 | 0.1231 | 72 | 6400 | 8.2e-16 | 1354.5665 | 0.97475, 0.99346, 0.99672 | 8.3e-05 | 2.66670, 5.00016, 8.00043, 11.66763 |
+| DH | 0.1405 | 69 | 6400 | 5.6e-16 | 1030.9220 | 0.97798, 0.99430, 0.99713 | 5.8e-05 | 2.66669, 5.00011, 8.00031, 11.66735 |
+| heat+0.05 | 0.2692 | 53 | 6400 | 4.8e-16 | 271.2173 | 0.98943, 0.99733, 0.99866 | 1.0e-05 | 2.66667, 5.00002, 8.00005, 11.66679 |
+| heat-0.05 | 0.2695 | 53 | 6400 | 6.5e-16 | 270.7000 | 0.98944, 0.99732, 0.99866 | 1.0e-05 | 2.66667, 5.00002, 8.00005, 11.66679 |
+| heat-0.2 | 0.2698 | 53 | 6400 | 4.9e-16 | 269.9273 | 0.98946, 0.99733, 0.99866 | 1.0e-05 | 2.66667, 5.00002, 8.00005, 11.66679 |
+| E_b=0.2 | 0.1865 | 87 | 6400 | 8.3e-16 | 556.3767 | 0.98384, 0.99589, 0.99794 | 1.7e-05 | 2.66667, 5.00003, 8.00009, 11.66687 |
+| E_b=0.35 | 0.1866 | 87 | 6400 | 9.7e-16 | 556.1889 | 0.98386, 0.99591, 0.99796 | 1.7e-05 | 2.66667, 5.00003, 8.00009, 11.66687 |
+| T-NR(3,2.2) | 0.0774 | 75 | 6400 | 1.0e-15 | 3797.7914 | 0.96174, 0.98949, 0.99465 | 4.1e-04 | 2.66684, 5.00077, 8.00217, 11.67148 |
+| liouville | 0.3345 | 53 | 6400 | 7.3e-16 | 164.9335 | 0.99195, 0.99798, 0.99899 | 2.3e-07 | 2.66667, 5.00000, 8.00000, 11.66667 |
+exact ratios: 8/3 = 2.66667, 5, 8, 35/3 = 11.66667
+source replay (zeta_repo): -log(lambda_3/lambda_1) at N = 800: 0.0009625430796359405  source 0.0009625430796462755; N = 1600: 0.00024204388715941765
+
+## c3 (W0: weight-free, function of s = aU)
+| s | d=4 | d=8 | d=16 | d=32 | d=64 | d=100 | d=150 | d=200 | full core d=200 |
+| 0.05 | 0.182 | 0.352 | 0.697 | 1.392 | 2.787 | 4.357 | 6.538 | 8.719 | 0.049957 |
+| 0.1 | 0.363 | 0.702 | 1.390 | 2.778 | 5.560 | 8.692 | 13.043 | 17.395 | 0.099664 |
+| 0.3 | 1.071 | 2.063 | 4.079 | 8.137 | 16.271 | 25.427 | 38.146 | 50.866 | 0.291303 |
+| 0.6 | 2.027 | 3.873 | 7.606 | 15.102 | 30.109 | 46.995 | 70.447 | 93.899 | 0.537034 |
+| 1.2 | 3.385 | 6.312 | 12.170 | 23.862 | 47.202 | 73.436 | 109.857 | 146.270 | 0.833642 |
+| 3.0 | 4.617 | 8.237 | 15.363 | 29.445 | 57.409 | 88.775 | 132.286 | 175.772 | 0.995054 |
+| 6.0 | 4.862 | 8.612 | 15.938 | 30.287 | 58.585 | 90.214 | 134.023 | 177.774 | 0.999988 |
+| 12.0 | 4.952 | 8.823 | 16.387 | 31.109 | 59.858 | 91.775 | 135.820 | 179.716 | 1.000000 |
+| 30.0 | 4.990 | 8.954 | 16.789 | 32.129 | 61.947 | 94.741 | 139.629 | 184.113 | 1.000000 |
+| 60.0 | 4.997 | 8.986 | 16.926 | 32.624 | 63.361 | 97.168 | 143.256 | 188.710 | 1.000000 |
+| 120.0 | 4.999 | 8.996 | 16.977 | 32.866 | 64.290 | 99.095 | 146.642 | 193.484 | 1.000000 |
+
+(WA: lag weight A_F) norm with diagonal core, d = 4, 16, 64, 200; then full core d = 200
+| zeta | 0.596 | a=0.05: 0.040, 0.204, 0.941, 3.826; full 0.0395 | a=0.5: 0.402, 2.012, 9.137, 36.455; full 0.3761 | a=2.0: 1.517, 6.881, 26.089, 90.115; full 0.9181 | a=20.0: 4.314, 12.049, 32.876, 103.426; full 1.0000 |
+| zeta_repo | 0.577 | a=0.05: 0.037, 0.195, 0.925, 3.880; full 0.0389 | a=0.5: 0.369, 1.929, 8.979, 37.017; full 0.3708 | a=2.0: 1.401, 6.637, 25.735, 92.277; full 0.9142 | a=20.0: 4.198, 11.821, 32.544, 106.198; full 1.0000 |
+| chi-3 | 0.824 | a=0.05: 0.061, 0.295, 1.301, 4.541; full 0.0519 | a=0.5: 0.601, 2.881, 12.369, 41.928; full 0.4763 | a=2.0: 2.139, 8.785, 30.349, 86.977; full 0.9689 | a=20.0: 4.589, 12.962, 35.259, 95.709; full 1.0000 |
+| chi-4 | 0.893 | a=0.05: 0.068, 0.325, 1.410, 4.703; full 0.0552 | a=0.5: 0.675, 3.162, 13.316, 42.997; full 0.5034 | a=2.0: 2.343, 9.297, 31.360, 85.453; full 0.9763 | a=20.0: 4.658, 13.258, 35.986, 93.404; full 1.0000 |
+| chi5 | 0.933 | a=0.05: 0.071, 0.340, 1.481, 4.880; full 0.0577 | a=0.5: 0.698, 3.301, 13.917, 44.306; full 0.5204 | a=2.0: 2.399, 9.487, 31.842, 85.557; full 0.9802 | a=20.0: 4.671, 13.336, 36.300, 93.229; full 1.0000 |
+| chi-7 | 1.028 | a=0.05: 0.084, 0.387, 1.631, 5.062; full 0.0621 | a=0.5: 0.826, 3.734, 15.193, 45.379; full 0.5528 | a=2.0: 2.721, 10.191, 33.098, 83.649; full 0.9861 | a=20.0: 4.755, 13.787, 37.379, 90.374; full 1.0000 |
+| DH | 0.946 | a=0.05: 0.074, 0.349, 1.497, 4.838; full 0.0580 | a=0.5: 0.734, 3.386, 14.060, 43.893; full 0.5232 | a=2.0: 2.497, 9.668, 32.087, 84.553; full 0.9808 | a=20.0: 4.701, 13.476, 36.544, 91.981; full 1.0000 |
+| heat+0.05 | 0.596 | a=0.05: 0.040, 0.204, 0.942, 3.827; full 0.0394 | a=0.5: 0.402, 2.013, 9.139, 36.462; full 0.3754 | a=2.0: 1.518, 6.883, 26.093, 90.134; full 0.9188 | a=20.0: 4.314, 12.050, 32.879, 103.447; full 1.0000 |
+| heat-0.05 | 0.596 | a=0.05: 0.040, 0.204, 0.941, 3.825; full 0.0394 | a=0.5: 0.402, 2.012, 9.135, 36.447; full 0.3751 | a=2.0: 1.517, 6.879, 26.086, 90.097; full 0.9178 | a=20.0: 4.313, 12.048, 32.873, 103.406; full 1.0000 |
+| heat-0.2 | 0.596 | a=0.05: 0.040, 0.203, 0.941, 3.823; full 0.0395 | a=0.5: 0.401, 2.010, 9.130, 36.423; full 0.3755 | a=2.0: 1.515, 6.874, 26.075, 90.041; full 0.9174 | a=20.0: 4.312, 12.044, 32.864, 103.344; full 1.0000 |
+| E_b=0.2 | 0.930 | a=0.05: 0.059, 0.308, 1.483, 6.664; full 0.0639 | a=0.5: 0.586, 2.996, 13.725, 59.011; full 0.5654 | a=2.0: 2.080, 8.709, 29.104, 104.299; full 0.9880 | a=20.0: 4.501, 12.334, 32.564, 114.191; full 1.0000 |
+| E_b=0.35 | 0.930 | a=0.05: 0.059, 0.308, 1.483, 6.664; full 0.0641 | a=0.5: 0.586, 2.996, 13.725, 59.010; full 0.5651 | a=2.0: 2.080, 8.709, 29.104, 104.299; full 0.9878 | a=20.0: 4.500, 12.334, 32.564, 114.190; full 1.0000 |
+| T-NR(3,2.2) | 1.137 | a=0.05: 0.121, 0.474, 1.805, 5.173; full 0.0665 | a=0.5: 1.182, 4.537, 16.668, 45.896; full 0.5823 | a=2.0: 3.518, 11.611, 34.816, 81.699; full 0.9902 | a=20.0: 4.863, 14.510, 38.976, 86.935; full 1.0000 |
+| liouville | 0.561 | a=0.05: 0.034, 0.189, 0.913, 3.912; full 0.0386 | a=0.5: 0.344, 1.866, 8.866, 37.352; full 0.3664 | a=2.0: 1.312, 6.450, 25.480, 93.644; full 0.9121 | a=20.0: 4.095, 11.638, 32.301, 107.980; full 1.0000 |
+smallest degree with norm > 1 (diagonal core), per kernel at a = 0.05, 0.5, 2, 20:
+  zeta           100 16 4 4
+  zeta_repo      100 16 4 4
+  chi-3          64 8 4 4
+  chi-4          64 8 4 4
+  chi5           64 8 4 4
+  chi-7          64 8 4 4
+  DH             64 8 4 4
+  heat+0.05      100 16 4 4
+  heat-0.05      100 16 4 4
+  heat-0.2       100 16 4 4
+  E_b=0.2        64 8 4 4
+  E_b=0.35       64 8 4 4
+  T-NR(3,2.2)    64 4 4 4
+  liouville      100 16 4 4
+
+## c4_A.json  (float64 screen; a value counts as negative when pmin < -1e-9)
+A zeta a=0.01 d=0.1 T0=0                 n<=2048 top<=204.7  min pmin -2.77e-15  max pmax 0.507935  cond<=5.3e+02  first negative: none
+A zeta a=0.01 d=0.1 T0=100               n<=2048 top<=304.7  min pmin -2.45e-15  max pmax 0.511553  cond<=5.2e+02  first negative: none
+A zeta a=0.01 d=0.1 T0=10000             n<=2048 top<=10204.7  min pmin -2.84e-15  max pmax 0.554619  cond<=5.2e+02  first negative: none
+A zeta a=0.01 d=0.1 T0=1e+06             n<=2048 top<=1000204.7  min pmin -2.99e-15  max pmax 0.691374  cond<=5.2e+02  first negative: none
+A chi-3 a=0.01 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -2.47e-15  max pmax 0.512341  cond<=5.3e+02  first negative: none
+A chi-3 a=0.01 d=0.1 T0=100              n<=2048 top<=304.7  min pmin -2.54e-15  max pmax 0.628152  cond<=5.2e+02  first negative: none
+A chi-3 a=0.01 d=0.1 T0=10000            n<=2048 top<=10204.7  min pmin -3.00e-15  max pmax 0.566014  cond<=5.2e+02  first negative: none
+A chi-3 a=0.01 d=0.1 T0=100000           n<=512 top<=100051.1  min pmin -2.23e-15  max pmax 0.651672  cond<=4.9e+02  first negative: none
+A chi-4 a=0.01 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -2.68e-15  max pmax 0.538020  cond<=5.3e+02  first negative: none
+A DH a=0.01 d=0.1                        n<=1400 top<=139.9  min pmin -2.37e+00  max pmax 0.742903  cond<=5.3e+02  first negative: n=840 top=83.90 pmin=-2.45e-06 (previous prefix top=81.90 pmin=-1.9e-11)
+A E_b=0.35 a=0.01 d=0.1                  n<=300 top<=29.9  min pmin -9.00e-01  max pmax 0.473629  cond<=5.0e+02  first negative: n=100 top=9.90 pmin=-1.25e-08 (previous prefix top=8.90 pmin=-5.0e-10)
+A E_b=0.2 a=0.01 d=0.1                   n<=300 top<=29.9  min pmin -2.08e+00  max pmax 0.667762  cond<=5.0e+02  first negative: n=100 top=9.90 pmin=-1.02e-09 (previous prefix top=8.90 pmin=-8.2e-11)
+A T-NR a=0.01 d=0.05                     n<=240 top<=6.0  min pmin -1.14e+02  max pmax 0.991191  cond<=2.3e+05  first negative: n=16 top=0.38 pmin=-2.98e-09 (previous prefix top=0.18 pmin=-1.9e-11)
+A liouville a=0.01 d=0.1                 n<=200 top<=19.9  min pmin -9.51e-01  max pmax 0.249780  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-7.41e-01 (previous prefix top=0.00 pmin=+0.0e+00)
+A unimod a=0.01 d=0.1                    n<=200 top<=19.9  min pmin -5.13e-01  max pmax 0.477542  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-6.49e-02 (previous prefix top=0.00 pmin=+0.0e+00)
+A DH a=0.05 d=0.1                        n<=1400 top<=139.9  min pmin -2.08e+01  max pmax 0.984040  cond<=5.3e+02  first negative: n=840 top=83.90 pmin=-1.08e-05 (previous prefix top=81.90 pmin=-8.2e-11)
+A E_b=0.35 a=0.05 d=0.1                  n<=300 top<=29.9  min pmin -1.16e+01  max pmax 0.920511  cond<=5.0e+02  first negative: n=90 top=8.90 pmin=-2.36e-09 (previous prefix top=7.90 pmin=-2.4e-10)
+A E_b=0.2 a=0.05 d=0.1                   n<=300 top<=29.9  min pmin -3.98e+01  max pmax 0.971562  cond<=5.0e+02  first negative: n=100 top=9.90 pmin=-4.62e-09 (previous prefix top=8.90 pmin=-3.6e-10)
+A T-NR a=0.05 d=0.05                     n<=240 top<=6.0  min pmin -2.91e+03  max pmax 0.999633  cond<=2.3e+05  first negative: n=16 top=0.38 pmin=-1.46e-08 (previous prefix top=0.18 pmin=-9.1e-11)
+A liouville a=0.05 d=0.1                 n<=200 top<=19.9  min pmin -2.66e+01  max pmax 0.688038  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-1.39e+01 (previous prefix top=0.00 pmin=+0.0e+00)
+A unimod a=0.05 d=0.1                    n<=200 top<=19.9  min pmin -4.99e+00  max pmax 0.962330  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-3.71e-01 (previous prefix top=0.00 pmin=+0.0e+00)
+A DH a=0.1 d=0.1                         n<=1400 top<=139.9  min pmin -5.67e+01  max pmax 1.000000  cond<=5.3e+02  first negative: n=840 top=83.90 pmin=-1.53e-05 (previous prefix top=81.90 pmin=-1.0e-10)
+A E_b=0.35 a=0.1 d=0.1                   n<=300 top<=29.9  min pmin -4.39e+01  max pmax 0.977618  cond<=5.0e+02  first negative: n=90 top=8.90 pmin=-4.28e-09 (previous prefix top=7.90 pmin=-4.3e-10)
+A E_b=0.2 a=0.1 d=0.1                    n<=300 top<=29.9  min pmin -1.22e+02  max pmax 0.992555  cond<=5.0e+02  first negative: n=100 top=9.90 pmin=-6.38e-09 (previous prefix top=8.90 pmin=-4.1e-10)
+A T-NR a=0.1 d=0.05                      n<=240 top<=6.0  min pmin -1.22e+04  max pmax 0.999906  cond<=2.3e+05  first negative: n=16 top=0.38 pmin=-2.73e-08 (previous prefix top=0.18 pmin=-1.7e-10)
+A liouville a=0.1 d=0.1                  n<=200 top<=19.9  min pmin -5.04e+02  max pmax 0.803711  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-1.29e+02 (previous prefix top=0.00 pmin=+0.0e+00)
+A unimod a=0.1 d=0.1                     n<=200 top<=19.9  min pmin -1.63e+01  max pmax 0.997928  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-8.92e-01 (previous prefix top=0.00 pmin=+0.0e+00)
+A DH a=0.25 d=0.1                        n<=1400 top<=139.9  min pmin -4.46e+01  max pmax 0.999008  cond<=5.3e+02  first negative: n=840 top=83.90 pmin=-2.04e-06 (previous prefix top=81.90 pmin=-4.7e-12)
+A E_b=0.35 a=0.25 d=0.1                  n<=300 top<=29.9  min pmin -2.47e+02  max pmax 0.996310  cond<=5.0e+02  first negative: n=90 top=8.90 pmin=-4.02e-09 (previous prefix top=7.90 pmin=-3.4e-10)
+A E_b=0.2 a=0.25 d=0.1                   n<=300 top<=29.9  min pmin -7.13e-15  max pmax 0.998885  cond<=5.0e+02  first negative: none
+A T-NR a=0.25 d=0.05                     n<=240 top<=6.0  min pmin -8.89e+04  max pmax 0.999984  cond<=2.3e+05  first negative: n=16 top=0.38 pmin=-3.78e-08 (previous prefix top=0.18 pmin=-2.4e-10)
+A liouville a=0.25 d=0.1                 n<=200 top<=19.9  min pmin -1.94e+04  max pmax 0.987892  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-1.94e+03 (previous prefix top=0.00 pmin=+0.0e+00)
+A unimod a=0.25 d=0.1                    n<=200 top<=19.9  min pmin -7.82e+01  max pmax 0.998075  cond<=4.8e+02  first negative: n=2 top=0.10 pmin=-4.59e+00 (previous prefix top=0.00 pmin=+0.0e+00)
+A zeta a=0.05 d=0.1 T0=0                 n<=2048 top<=204.7  min pmin -5.70e-15  max pmax 0.975001  cond<=5.3e+02  first negative: none
+A zeta a=0.05 d=0.1 T0=100               n<=2048 top<=304.7  min pmin -7.44e-15  max pmax 0.975031  cond<=5.2e+02  first negative: none
+A zeta a=0.05 d=0.1 T0=10000             n<=2048 top<=10204.7  min pmin -7.28e-15  max pmax 0.983674  cond<=5.2e+02  first negative: none
+A zeta a=0.05 d=0.1 T0=1e+06             n<=2048 top<=1000204.7  min pmin -9.14e-15  max pmax 0.994769  cond<=5.2e+02  first negative: none
+A chi-3 a=0.05 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -6.75e-15  max pmax 0.975384  cond<=5.3e+02  first negative: none
+A chi-3 a=0.05 d=0.1 T0=100              n<=2048 top<=304.7  min pmin -6.97e-15  max pmax 0.992273  cond<=5.2e+02  first negative: none
+A chi-3 a=0.05 d=0.1 T0=10000            n<=2048 top<=10204.7  min pmin -6.87e-15  max pmax 0.986553  cond<=5.2e+02  first negative: none
+A chi-3 a=0.05 d=0.1 T0=100000           n<=512 top<=100051.1  min pmin -7.64e-15  max pmax 0.993480  cond<=4.9e+02  first negative: none
+A chi-4 a=0.05 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -7.94e-15  max pmax 0.978324  cond<=5.3e+02  first negative: none
+A zeta a=0.05 d=0.5 T0=0                 n<=2048 top<=1023.5  min pmin -3.78e-15  max pmax 0.716132  cond<=5.3e+02  first negative: none
+A zeta a=0.05 d=0.5 T0=100               n<=2048 top<=1123.5  min pmin -3.84e-15  max pmax 0.716116  cond<=5.3e+02  first negative: none
+A zeta a=0.05 d=0.5 T0=10000             n<=2048 top<=11023.5  min pmin +3.09e-02  max pmax 0.789031  cond<=5.2e+02  first negative: none
+A zeta a=0.05 d=0.5 T0=1e+06             n<=2048 top<=1001023.5  min pmin +2.46e-01  max pmax 0.875951  cond<=5.2e+02  first negative: none
+A chi-3 a=0.05 d=0.5 T0=0                n<=2048 top<=1023.5  min pmin -2.81e-15  max pmax 0.736116  cond<=5.3e+02  first negative: none
+A chi-3 a=0.05 d=0.5 T0=100              n<=2048 top<=1123.5  min pmin -2.88e-15  max pmax 0.749768  cond<=5.3e+02  first negative: none
+A chi-3 a=0.05 d=0.5 T0=10000            n<=2048 top<=11023.5  min pmin +1.04e-01  max pmax 0.801991  cond<=5.2e+02  first negative: none
+A chi-3 a=0.05 d=0.5 T0=100000           n<=512 top<=100255.5  min pmin +2.29e-01  max pmax 0.845084  cond<=4.9e+02  first negative: none
+A chi-4 a=0.05 d=0.5 T0=0                n<=2048 top<=1023.5  min pmin -3.46e-15  max pmax 0.753388  cond<=5.3e+02  first negative: none
+A zeta a=0.25 d=0.1 T0=0                 n<=2048 top<=204.7  min pmin -1.11e-14  max pmax 0.998171  cond<=5.3e+02  first negative: none
+A zeta a=0.25 d=0.1 T0=100               n<=2048 top<=304.7  min pmin -1.45e-14  max pmax 0.998175  cond<=5.2e+02  first negative: none
+A zeta a=0.25 d=0.1 T0=10000             n<=2048 top<=10204.7  min pmin -1.28e-14  max pmax 0.998239  cond<=5.2e+02  first negative: none
+A zeta a=0.25 d=0.1 T0=1e+06             n<=2048 top<=1000204.7  min pmin -1.61e-14  max pmax 0.998639  cond<=5.2e+02  first negative: none
+A chi-3 a=0.25 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -1.19e-14  max pmax 0.998179  cond<=5.3e+02  first negative: none
+A chi-3 a=0.25 d=0.1 T0=100              n<=2048 top<=304.7  min pmin -1.45e-14  max pmax 0.998297  cond<=5.2e+02  first negative: none
+A chi-3 a=0.25 d=0.1 T0=10000            n<=2048 top<=10204.7  min pmin -1.22e-14  max pmax 0.998295  cond<=5.2e+02  first negative: none
+A chi-3 a=0.25 d=0.1 T0=100000           n<=512 top<=100051.1  min pmin -1.01e-14  max pmax 0.998446  cond<=4.9e+02  first negative: none
+A chi-4 a=0.25 d=0.1 T0=0                n<=2048 top<=204.7  min pmin -1.09e-14  max pmax 0.998201  cond<=5.3e+02  first negative: none
+A zeta a=0.25 d=0.5 T0=0                 n<=2048 top<=1023.5  min pmin -9.46e-15  max pmax 0.997656  cond<=5.3e+02  first negative: none
+A zeta a=0.25 d=0.5 T0=100               n<=2048 top<=1123.5  min pmin -9.10e-15  max pmax 0.997657  cond<=5.3e+02  first negative: none
+A zeta a=0.25 d=0.5 T0=10000             n<=2048 top<=11023.5  min pmin +2.30e-01  max pmax 0.999452  cond<=5.2e+02  first negative: none
+A zeta a=0.25 d=0.5 T0=1e+06             n<=2048 top<=1001023.5  min pmin +8.40e-01  max pmax 0.999957  cond<=5.2e+02  first negative: none
+A chi-3 a=0.25 d=0.5 T0=0                n<=2048 top<=1023.5  min pmin -8.85e-15  max pmax 0.998240  cond<=5.3e+02  first negative: none
+A chi-3 a=0.25 d=0.5 T0=100              n<=2048 top<=1123.5  min pmin -7.37e-15  max pmax 0.998755  cond<=5.3e+02  first negative: none
+A chi-3 a=0.25 d=0.5 T0=10000            n<=2048 top<=11023.5  min pmin +5.35e-01  max pmax 0.999621  cond<=5.2e+02  first negative: none
+A chi-3 a=0.25 d=0.5 T0=100000           n<=512 top<=100255.5  min pmin +8.16e-01  max pmax 0.999868  cond<=4.9e+02  first negative: none
+A chi-4 a=0.25 d=0.5 T0=0                n<=2048 top<=1023.5  min pmin -9.25e-15  max pmax 0.998845  cond<=5.3e+02  first negative: none
+A zeta a=0.5 d=0.1 T0=0                  n<=2048 top<=204.7  min pmin -9.17e-15  max pmax 0.998133  cond<=5.3e+02  first negative: none
+A zeta a=0.5 d=0.1 T0=100                n<=2048 top<=304.7  min pmin -1.61e-14  max pmax 0.998133  cond<=5.2e+02  first negative: none
+A zeta a=0.5 d=0.1 T0=10000              n<=2048 top<=10204.7  min pmin -1.38e-14  max pmax 0.998133  cond<=5.2e+02  first negative: none
+A zeta a=0.5 d=0.1 T0=1e+06              n<=2048 top<=1000204.7  min pmin -1.40e-14  max pmax 0.998136  cond<=5.2e+02  first negative: none
+A chi-3 a=0.5 d=0.1 T0=0                 n<=2048 top<=204.7  min pmin -1.35e-14  max pmax 0.998133  cond<=5.3e+02  first negative: none
+A chi-3 a=0.5 d=0.1 T0=100               n<=2048 top<=304.7  min pmin -1.41e-14  max pmax 0.998133  cond<=5.2e+02  first negative: none
+A chi-3 a=0.5 d=0.1 T0=10000             n<=2048 top<=10204.7  min pmin -1.37e-14  max pmax 0.998133  cond<=5.2e+02  first negative: none
+A chi-3 a=0.5 d=0.1 T0=100000            n<=512 top<=100051.1  min pmin -9.95e-15  max pmax 0.998134  cond<=4.9e+02  first negative: none
+A chi-4 a=0.5 d=0.1 T0=0                 n<=2048 top<=204.7  min pmin -1.31e-14  max pmax 0.998133  cond<=5.3e+02  first negative: none
+A zeta a=0.5 d=0.5 T0=0                  n<=2048 top<=1023.5  min pmin -1.18e-14  max pmax 1.000000  cond<=5.3e+02  first negative: none
+A zeta a=0.5 d=0.5 T0=100                n<=2048 top<=1123.5  min pmin -1.05e-14  max pmax 1.000000  cond<=5.3e+02  first negative: none
+A zeta a=0.5 d=0.5 T0=10000              n<=2048 top<=11023.5  min pmin +5.76e-01  max pmax 1.000000  cond<=5.2e+02  first negative: none
+A zeta a=0.5 d=0.5 T0=1e+06              n<=2048 top<=1001023.5  min pmin +9.88e-01  max pmax 1.000000  cond<=5.2e+02  first negative: none
+A chi-3 a=0.5 d=0.5 T0=0                 n<=2048 top<=1023.5  min pmin -1.32e-14  max pmax 1.000000  cond<=5.3e+02  first negative: none
+A chi-3 a=0.5 d=0.5 T0=100               n<=2048 top<=1123.5  min pmin -9.05e-15  max pmax 1.000000  cond<=5.3e+02  first negative: none
+A chi-3 a=0.5 d=0.5 T0=10000             n<=2048 top<=11023.5  min pmin +8.63e-01  max pmax 1.000000  cond<=5.2e+02  first negative: none
+A chi-3 a=0.5 d=0.5 T0=100000            n<=512 top<=100255.5  min pmin +9.77e-01  max pmax 1.000000  cond<=4.9e+02  first negative: none
+A chi-4 a=0.5 d=0.5 T0=0                 n<=2048 top<=1023.5  min pmin -1.54e-14  max pmax 1.000000  cond<=5.3e+02  first negative: none
+c4_B.json
+
+## c4_B (high precision)
+B DH a=0.05 d=0.1 [60,84] m=8 dps=150 | neg 0 | min/max 0.10793 | smallest |eig|/max 0.10793 | max|R| 0.97614786 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [60,84] m=16 dps=150 | neg 0 | min/max 0.021308 | smallest |eig|/max 0.021308 | max|R| 0.97208938 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [60,84] m=32 dps=150 | neg 2 | min/max -3.609e-8 | smallest |eig|/max 1.2853e-25 | max|R| 0.97840095 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [60,84] m=64 dps=150 | neg 2 | min/max -4.7988e-7 | smallest |eig|/max 6.3348e-93 | max|R| 0.97836164 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=8 dps=150 | neg 0 | min/max 0.066427 | smallest |eig|/max 0.066427 | max|R| 0.9742832 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=16 dps=150 | neg 0 | min/max 0.0011489 | smallest |eig|/max 0.0011489 | max|R| 0.9965407 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=32 dps=150 | neg 0 | min/max 2.6252e-25 | smallest |eig|/max 2.6252e-25 | max|R| 0.99755485 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=64 dps=150 | neg 0 | min/max 8.6934e-121 | smallest |eig|/max 8.6934e-121 | max|R| 0.99778743 | zero 0.8085+85.699i
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=8 dps=150 | neg 4 | min/max -8.7675e-5 | smallest |eig|/max 9.8359e-23 | max|R| 0.99906294 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=16 dps=150 | neg 8 | min/max -0.00032732 | smallest |eig|/max 2.0278e-55 | max|R| 0.9990683 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=32 dps=150 | neg 18 (NOT VALID: smallest eigenvalue at the working precision) | min/max -0.00050391 | smallest |eig|/max 8.0269e-130 | max|R| 0.99907048 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=64 dps=150 | neg 50 (NOT VALID: smallest eigenvalue at the working precision) | min/max -0.00057153 | smallest |eig|/max 2.5161e-152 | max|R| 0.99907144 | zeros 0.5+-0.35+14.135i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=8 dps=150 | neg 5 | min/max -0.08567 | smallest |eig|/max 9.7629e-34 | max|R| 0.99743953 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=16 dps=150 | neg 8 | min/max -0.10353 | smallest |eig|/max 8.3395e-81 | max|R| 1.0045282 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=32 dps=150 | neg 18 (NOT VALID: smallest eigenvalue at the working precision) | min/max -0.10853 | smallest |eig|/max 2.1509e-153 | max|R| 1.0097442 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.1,2.6] m=64 dps=150 | neg 50 (NOT VALID: smallest eigenvalue at the working precision) | min/max -0.1098 | smallest |eig|/max 1.2117e-154 | max|R| 1.0128357 | zeros 0.5+-0.404+2.8596i
+B zeta a=0.05 d=0.1 [60,84] m=8 dps=150 | neg 0 | min/max 0.038182 | smallest |eig|/max 0.038182 | max|R| 0.99021016 | 
+B zeta a=0.05 d=0.1 [60,84] m=16 dps=150 | neg 0 | min/max 1.5376e-10 | smallest |eig|/max 1.5376e-10 | max|R| 0.99089869 | 
+B zeta a=0.05 d=0.1 [60,84] m=32 dps=150 | neg 0 | min/max 3.2047e-41 | smallest |eig|/max 3.2047e-41 | max|R| 0.99252666 | 
+B zeta a=0.05 d=0.1 [60,84] m=64 dps=150 | neg 0 (NOT VALID: smallest eigenvalue at the working precision) | min/max 1.2296e-142 | smallest |eig|/max 1.2296e-142 | max|R| 0.99286197 | 
+B zeta a=0.05 d=0.1 [1,13] m=8 dps=150 | neg 0 | min/max 7.3642e-27 | smallest |eig|/max 7.3642e-27 | max|R| 0.99953105 | 
+B zeta a=0.05 d=0.1 [1,13] m=16 dps=150 | neg 0 | min/max 3.0353e-64 | smallest |eig|/max 3.0353e-64 | max|R| 0.99953375 | 
+B zeta a=0.05 d=0.1 [1,13] m=32 dps=150 | neg 0 (NOT VALID: smallest eigenvalue at the working precision) | min/max 2.5857e-150 | smallest |eig|/max 2.5857e-150 | max|R| 0.99953484 | 
+B zeta a=0.05 d=0.1 [1,13] m=64 dps=150 | neg 24 (NOT VALID: smallest eigenvalue at the working precision) | min/max -3.3744e-150 | smallest |eig|/max 1.1423e-152 | max|R| 0.99953533 | 
+B chi-3 a=0.05 d=0.1 [60,84] m=8 dps=150 | neg 0 | min/max 0.033673 | smallest |eig|/max 0.033673 | max|R| 0.97896804 | 
+B chi-3 a=0.05 d=0.1 [60,84] m=16 dps=150 | neg 0 | min/max 0.00033195 | smallest |eig|/max 0.00033195 | max|R| 0.98446291 | 
+B chi-3 a=0.05 d=0.1 [60,84] m=32 dps=150 | neg 0 | min/max 2.0137e-29 | smallest |eig|/max 2.0137e-29 | max|R| 0.98442773 | 
+B chi-3 a=0.05 d=0.1 [60,84] m=64 dps=150 | neg 0 | min/max 4.3656e-101 | smallest |eig|/max 4.3656e-101 | max|R| 0.98496831 | 
+B liouville a=0.05 d=0.1 [1,6] m=8 dps=150 | neg 16 | min/max 7.2241 | smallest |eig|/max -1.0 | max|R| 1.1036311 | no functional equation
+B liouville a=0.05 d=0.1 [1,6] m=16 dps=150 | neg 32 | min/max 201.26 | smallest |eig|/max -1.0 | max|R| 1.1158594 | no functional equation
+B liouville a=0.05 d=0.1 [1,6] m=32 dps=150 | neg 63 | min/max -54.28 | smallest |eig|/max 0.0031018 | max|R| 1.1239923 | no functional equation
+B liouville a=0.05 d=0.1 [1,6] m=64 dps=150 | neg 124 | min/max -51.043 | smallest |eig|/max 1.1317e-5 | max|R| 1.1287183 | no functional equation
+c4_B400.json
+
+## c4_B (high precision)
+B DH a=0.05 d=0.1 [60,84] m=32 dps=400 | neg 2 | min/max -3.609e-8 | smallest |eig|/max 1.2853e-25 | max|R| 0.97840095 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [60,84] m=64 dps=400 | neg 2 | min/max -4.7988e-7 | smallest |eig|/max 6.3348e-93 | max|R| 0.97836164 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=32 dps=400 | neg 0 | min/max 2.6252e-25 | smallest |eig|/max 2.6252e-25 | max|R| 0.99755485 | zero 0.8085+85.699i
+B DH a=0.05 d=0.1 [1,60] m=64 dps=400 | neg 0 | min/max 8.6934e-121 | smallest |eig|/max 8.6934e-121 | max|R| 0.99778743 | zero 0.8085+85.699i
+B E_b=0.35 a=0.05 d=0.1 [1,13] m=32 dps=400 | neg 18 | min/max -0.00050391 | smallest |eig|/max 8.0269e-130 | max|R| 0.99907048 | zeros 0.5+-0.35+14.135i
+c4_Bscan.json
+
+## c4_B (high precision)
+B DH a=0.05 d=0.1 [60,84] m=16 dps=400 | neg 0 | min/max 0.021308 | smallest |eig|/max 0.021308 | max|R| 0.97208938 | zero 0.8085+85.699i; top of window 1.699 below it
+B DH a=0.05 d=0.1 [60,84] m=32 dps=400 | neg 2 | min/max -3.609e-8 | smallest |eig|/max 1.2853e-25 | max|R| 0.97840095 | zero 0.8085+85.699i; top of window 1.699 below it
+B DH a=0.05 d=0.1 [60,84] m=64 dps=400 | neg 2 | min/max -4.7988e-7 | smallest |eig|/max 6.3348e-93 | max|R| 0.97836164 | zero 0.8085+85.699i; top of window 1.699 below it
+B DH a=0.05 d=0.1 [58,82] m=16 dps=400 | neg 0 | min/max 0.019584 | smallest |eig|/max 0.019584 | max|R| 0.96741004 | zero 0.8085+85.699i; top of window 3.699 below it
+B DH a=0.05 d=0.1 [58,82] m=32 dps=400 | neg 2 | min/max -6.3766e-17 | smallest |eig|/max 6.6142e-26 | max|R| 0.97789597 | zero 0.8085+85.699i; top of window 3.699 below it
+B DH a=0.05 d=0.1 [58,82] m=64 dps=400 | neg 2 | min/max -2.429e-13 | smallest |eig|/max 9.5904e-94 | max|R| 0.97860549 | zero 0.8085+85.699i; top of window 3.699 below it
+B DH a=0.05 d=0.1 [56,80] m=16 dps=400 | neg 0 | min/max 0.024976 | smallest |eig|/max 0.024976 | max|R| 0.97859358 | zero 0.8085+85.699i; top of window 5.699 below it
+B DH a=0.05 d=0.1 [56,80] m=32 dps=400 | neg 0 | min/max 1.3163e-26 | smallest |eig|/max 1.3163e-26 | max|R| 0.97513616 | zero 0.8085+85.699i; top of window 5.699 below it
+B DH a=0.05 d=0.1 [56,80] m=64 dps=400 | neg 2 | min/max -4.061e-20 | smallest |eig|/max 4.9105e-94 | max|R| 0.97797394 | zero 0.8085+85.699i; top of window 5.699 below it
+B DH a=0.05 d=0.1 [53,77] m=16 dps=400 | neg 0 | min/max 0.01931 | smallest |eig|/max 0.01931 | max|R| 0.97859358 | zero 0.8085+85.699i; top of window 8.699 below it
+B DH a=0.05 d=0.1 [53,77] m=32 dps=400 | neg 0 | min/max 1.9435e-26 | smallest |eig|/max 1.9435e-26 | max|R| 0.97513616 | zero 0.8085+85.699i; top of window 8.699 below it
+B DH a=0.05 d=0.1 [53,77] m=64 dps=400 | neg 2 | min/max -1.2903e-31 | smallest |eig|/max 3.2333e-95 | max|R| 0.97797394 | zero 0.8085+85.699i; top of window 8.699 below it
+B DH a=0.05 d=0.1 [50,74] m=16 dps=400 | neg 0 | min/max 0.01281 | smallest |eig|/max 0.01281 | max|R| 0.97859358 | zero 0.8085+85.699i; top of window 11.699 below it
+B DH a=0.05 d=0.1 [50,74] m=32 dps=400 | neg 0 | min/max 9.7832e-27 | smallest |eig|/max 9.7832e-27 | max|R| 0.97839285 | zero 0.8085+85.699i; top of window 11.699 below it
+B DH a=0.05 d=0.1 [50,74] m=64 dps=400 | neg 2 | min/max -4.0135e-44 | smallest |eig|/max 1.4075e-96 | max|R| 0.97892113 | zero 0.8085+85.699i; top of window 11.699 below it
+B DH a=0.05 d=0.1 [46,70] m=16 dps=400 | neg 0 | min/max 0.0058194 | smallest |eig|/max 0.0058194 | max|R| 0.97668023 | zero 0.8085+85.699i; top of window 15.699 below it
+B DH a=0.05 d=0.1 [46,70] m=32 dps=400 | neg 0 | min/max 1.8756e-27 | smallest |eig|/max 1.8756e-27 | max|R| 0.97860641 | zero 0.8085+85.699i; top of window 15.699 below it
+B DH a=0.05 d=0.1 [46,70] m=64 dps=400 | neg 2 | min/max -6.7137e-62 | smallest |eig|/max 3.4647e-100 | max|R| 0.97881771 | zero 0.8085+85.699i; top of window 15.699 below it
+B E_b=0.35 a=0.05 d=0.1 [1,11] m=16 dps=400 | neg 8 | min/max -9.7182e-7 | smallest |eig|/max 9.4144e-60 | max|R| 0.99906907 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,11] m=32 dps=400 | neg 18 | min/max -1.1495e-6 | smallest |eig|/max 5.1846e-139 | max|R| 0.99907081 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,11] m=64 dps=400 | neg 36 | min/max -1.2002e-6 | smallest |eig|/max 1.1744e-322 | max|R| 0.9990716 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,9] m=16 dps=400 | neg 8 | min/max -3.7831e-9 | smallest |eig|/max 5.0918e-65 | max|R| 0.99906979 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,9] m=32 dps=400 | neg 18 | min/max -4.6597e-9 | smallest |eig|/max 6.4964e-150 | max|R| 0.99907113 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,9] m=64 dps=400 | neg 36 (NOT VALID: smallest eigenvalue at the working precision) | min/max -4.9052e-9 | smallest |eig|/max 4.0408e-344 | max|R| 0.99907175 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,7] m=16 dps=400 | neg 8 | min/max -4.3426e-11 | smallest |eig|/max 1.2442e-71 | max|R| 0.99907048 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,7] m=32 dps=400 | neg 18 | min/max -4.7289e-11 | smallest |eig|/max 1.7064e-163 | max|R| 0.99907144 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,7] m=64 dps=400 | neg 36 (NOT VALID: smallest eigenvalue at the working precision) | min/max -4.8302e-11 | smallest |eig|/max 3.97e-371 | max|R| 0.9990719 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,5] m=16 dps=400 | neg 8 | min/max -2.6777e-13 | smallest |eig|/max 1.4545e-80 | max|R| 0.99907113 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,5] m=32 dps=400 | neg 18 | min/max -2.8581e-13 | smallest |eig|/max 8.8524e-182 | max|R| 0.99907175 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,5] m=64 dps=400 | neg 36 (NOT VALID: smallest eigenvalue at the working precision) | min/max -2.9046e-13 | smallest |eig|/max 1.5601e-401 | max|R| 0.99907204 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,3] m=16 dps=400 | neg 8 | min/max -1.9185e-16 | smallest |eig|/max 1.0538e-94 | max|R| 0.99907175 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,3] m=32 dps=400 | neg 18 | min/max -2.0192e-16 | smallest |eig|/max 1.0626e-210 | max|R| 0.99907204 | zeros 0.5+-0.35+14.135i
+B E_b=0.35 a=0.05 d=0.1 [1,3] m=64 dps=400 | neg 39 (NOT VALID: smallest eigenvalue at the working precision) | min/max -2.045e-16 | smallest |eig|/max 3.2715e-403 | max|R| 0.99907219 | zeros 0.5+-0.35+14.135i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,2] m=16 dps=400 | neg 8 | min/max -0.0025071 | smallest |eig|/max 3.6023e-88 | max|R| 0.99689218 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,2] m=32 dps=400 | neg 14 | min/max -0.0025826 | smallest |eig|/max 3.2318e-209 | max|R| 0.99689651 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,2] m=64 dps=400 | neg 26 (NOT VALID: smallest eigenvalue at the working precision) | min/max -0.0026018 | smallest |eig|/max 3.9024e-403 | max|R| 0.99689816 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1.5] m=16 dps=400 | neg 8 | min/max -7.4122e-5 | smallest |eig|/max 1.12e-95 | max|R| 0.99689457 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1.5] m=32 dps=400 | neg 14 | min/max -7.5434e-5 | smallest |eig|/max 1.5978e-224 | max|R| 0.9968974 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1.5] m=64 dps=400 | neg 29 (NOT VALID: smallest eigenvalue at the working precision) | min/max -7.5765e-5 | smallest |eig|/max 1.1391e-403 | max|R| 0.99689852 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1] m=16 dps=400 | neg 8 | min/max -3.7852e-6 | smallest |eig|/max 3.0403e-106 | max|R| 0.9968966 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1] m=32 dps=400 | neg 14 | min/max -3.8304e-6 | smallest |eig|/max 4.8798e-246 | max|R| 0.9968982 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,1] m=64 dps=400 | neg 31 (NOT VALID: smallest eigenvalue at the working precision) | min/max -3.8417e-6 | smallest |eig|/max 5.6956e-403 | max|R| 0.99689887 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,0.5] m=16 dps=400 | neg 8 | min/max -4.6235e-8 | smallest |eig|/max 3.0371e-124 | max|R| 0.99689827 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,0.5] m=32 dps=400 | neg 14 | min/max -4.6635e-8 | smallest |eig|/max 1.0882e-282 | max|R| 0.9968989 | zeros 0.5+-0.404+2.8596i
+B T-NR(3,2.2) a=0.05 d=0.05 [0.05,0.5] m=64 dps=400 | neg 37 (NOT VALID: smallest eigenvalue at the working precision) | min/max -4.6736e-8 | smallest |eig|/max 4.7182e-403 | max|R| 0.99689919 | zeros 0.5+-0.404+2.8596i
+B zeta a=0.05 d=0.1 [60,84] m=16 dps=400 | neg 0 | min/max 1.5376e-10 | smallest |eig|/max 1.5376e-10 | max|R| 0.99089869 | 
+B zeta a=0.05 d=0.1 [60,84] m=32 dps=400 | neg 0 | min/max 3.2047e-41 | smallest |eig|/max 3.2047e-41 | max|R| 0.99252666 | 
+B zeta a=0.05 d=0.1 [60,84] m=64 dps=400 | neg 0 | min/max 1.2296e-142 | smallest |eig|/max 1.2296e-142 | max|R| 0.99286197 | 
+B zeta a=0.05 d=0.1 [1,9] m=16 dps=400 | neg 0 | min/max 8.8391e-74 | smallest |eig|/max 8.8391e-74 | max|R| 0.9995345 | 
+B zeta a=0.05 d=0.1 [1,9] m=32 dps=400 | neg 0 | min/max 2.1973e-170 | smallest |eig|/max 2.1973e-170 | max|R| 0.99953517 | 
+B zeta a=0.05 d=0.1 [1,9] m=64 dps=400 | neg 0 (NOT VALID: smallest eigenvalue at the working precision) | min/max 2.1844e-389 | smallest |eig|/max 2.1844e-389 | max|R| 0.99953548 | 
+B zeta a=0.05 d=0.05 [0.05,1.5] m=16 dps=400 | neg 0 | min/max 2.8726e-123 | smallest |eig|/max 2.8726e-123 | max|R| 0.99976897 | 
+B zeta a=0.05 d=0.05 [0.05,1.5] m=32 dps=400 | neg 0 | min/max 1.0646e-270 | smallest |eig|/max 1.0646e-270 | max|R| 0.99976897 | 
+B zeta a=0.05 d=0.05 [0.05,1.5] m=64 dps=400 | neg 19 (NOT VALID: smallest eigenvalue at the working precision) | min/max -2.2611e-400 | smallest |eig|/max 1.5109e-402 | max|R| 0.99976897 | 
+B chi-3 a=0.05 d=0.1 [1,9] m=16 dps=400 | neg 0 | min/max 9.8353e-62 | smallest |eig|/max 9.8353e-62 | max|R| 0.99883329 | 
+B chi-3 a=0.05 d=0.1 [1,9] m=32 dps=400 | neg 0 | min/max 1.3491e-148 | smallest |eig|/max 1.3491e-148 | max|R| 0.99883981 | 
+B chi-3 a=0.05 d=0.1 [1,9] m=64 dps=400 | neg 0 (NOT VALID: smallest eigenvalue at the working precision) | min/max 5.0639e-350 | smallest |eig|/max 5.0639e-350 | max|R| 0.99884279 | 

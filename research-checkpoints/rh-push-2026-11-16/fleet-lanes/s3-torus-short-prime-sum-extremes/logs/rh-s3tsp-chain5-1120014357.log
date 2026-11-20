@@ -1,0 +1,22 @@
++ python c2.py --logM 26 --ntrue 16 --nhaar 16 --nsgn 0 --nbeu 0 --nchi 16 --seed 99 --rows 0.10:0.14,0.14:0.1352,0.25:0.11375 --out c2_chi.json
+N=690988 primes=55874 M=67108864 nf=134217728 dx=0.1294 window length=8.6839e+06 GPU=True t=1s
+planned: grid 2.00 GiB, FFT output 2.00 GiB, kernel tables 0.12 GiB
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s3-torus-short-prime-sum-extremes/c2.py", line 93, in <module>
+    kmodes = xp.arange(-M // 2, M // 2)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/_creation/ranges.py", line 61, in arange
+    ret = cupy.empty((size,), dtype=dtype)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/_creation/basic.py", line 34, in empty
+    return cupy.ndarray(shape, dtype, order=order)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 176, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 282, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 536,870,912 bytes (allocated so far: 0 bytes, limit set to: 21,474,836,480 bytes).

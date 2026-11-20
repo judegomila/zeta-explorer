@@ -1,0 +1,5 @@
+L=11.33 delta=0.375 gap=2 spacings: hole-model ratio a*/a_density = 0.9164
+L=11.33 delta=0.375 gap=2.5 spacings: hole-model ratio a*/a_density = 0.8709
+L=11.33 delta=0.375 gap=3 spacings: hole-model ratio a*/a_density = 0.8246
+L=11.33 delta=0.375 gap=3.5 spacings: hole-model ratio a*/a_density = 0.7801
+L=11.33 delta=0.375 gap=4 spacings: hole-model ratio a*/a_density = 0.7386

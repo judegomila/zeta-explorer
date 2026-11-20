@@ -1,0 +1,54 @@
+{
+ "slug": "e1-selberg-twist-control",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "selberg-zeta-companion",
+  "pole-coupling-theorem-pc"
+ ],
+ "launchedNodes": [
+  "selberg-control-pair",
+  "selberg-freeze-sandbox",
+  "selberg-zeta-companion",
+  "pole-coupling-theorem-pc",
+  "selberg-phase-gate-vs-zeta"
+ ],
+ "tags": [
+  "selberg",
+  "control",
+  "landau",
+  "pole-coupling"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "MEASURED (not interval-certified): Z_{Gamma(2)}(s, chi_{a,b}) has a real off-line zero at 0.95033 for (0.01,0.02), 0.83990 for (0.03,0.05), 0.72661 for (0.02,0.07); none on [0.505,1] for (0.05,0.12). The object has an Euler product over geodesics and an s <-> 1-s equation with elementary factor; it lacks the integers, order one, finite degree and zeta's sign of the zero side. PROVED: any non-negative-coefficient series c Z'/Z + E with the PSL2(Z) Selberg zeta has sigma* >= 1/2 > beta/2 (Maass pole at 1/2 + 9.5337i plus Landau), so Theorem PC is silent at rho/2; the pole-cancelling difference has disjoint supports; in Z'/Z - 2 zeta'/zeta(2s) the rho/2 poles cancel.",
+ "obstruction": "Selberg zetas do not supply the missing control: the s <-> 1-s equation belongs to the order-2 function, while the degree-one unimodular Ruelle product has poles where Z has zeros, so every Landau-positivity mechanism holds with reversed inequality. Its off-line zeros are real and finitely many, so it tests nothing at height > 0. The Selberg companion for Theorem PC is closed: sigma* >= 1/2.",
+ "obstructionKind": "control-does-not-exist / abscissa",
+ "controlsThatDefeat": [
+  "SEL (twisted Selberg zeta): none of positive-list items 16-23 fails quantitatively against it (16, 17 pass; 20, 21 pass with reversed sign; 18, 19, 22, 23 not formulable, failing at INT)",
+  "under the weak reading of GEOM/SIZE the minimal input sets become {INT,GEOM} and {FE,SIZE,INT}; under the strict reading the map's three sets stand"
+ ],
+ "lesson": "What separates zeta from the Selberg family is the integers (additive structure), order one and the sign of the zero side; filter new attacks on those. Do not re-attempt Selberg companions for Theorem PC.",
+ "refereeHolds": true,
+ "refereeNote": "All PROVED steps re-derived; numerics reproduced on a new character.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.12,
+ "newNodes": [
+  {
+   "id": "ctrl-sel-twisted-selberg",
+   "type": "control",
+   "status": "measured",
+   "statement": "Twisted Selberg zeta of Gamma(2): Euler product over geodesics, s <-> 1-s equation, real exceptional zeros off the line; lacks INT, order one, finite degree, sign of the zero side."
+  },
+  {
+   "id": "selberg-pc-abscissa-half",
+   "type": "obstruction",
+   "status": "proved",
+   "statement": "Any non-negative-coefficient coupling c Z'/Z + E with the PSL2(Z) Selberg zeta has sigma* >= 1/2; Theorem PC is silent at rho/2."
+  }
+ ],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-selberg-twist-control/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-selberg-twist-control/REFEREE.md"
+}

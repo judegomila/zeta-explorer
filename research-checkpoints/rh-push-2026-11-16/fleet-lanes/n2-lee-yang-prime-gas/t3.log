@@ -1,0 +1,36 @@
+== c-family (rank-one, coefficient exp(c log^2 n / L), zeros on Re s = c), exact sums: sup|log|Theta*zeta|| on the compact
+  c=0.0: k=8,12,16,20 -> ['2.8907', '3.4562', '3.8822', '4.2258']
+  c=0.1: k=8,12,16,20 -> ['2.7240', '3.2886', '3.7163', '4.0625']
+  c=0.3: k=8,12,16,20 -> ['2.4849', '3.0387', '3.4619', '3.8070']
+  c=0.5: k=8,12,16,20 -> ['2.2422', '2.8419', '3.2682', '3.6105']
+== Beurling prime sets and random sign twists (Gaussian evaluation): sup|log|Theta||, sup|log|Euler product||, sup|log(Theta/Euler)|, and at s=0.6
+  [alloc: 551x168 complex = 1 MB per s-point]
+   {'x': 1000, 'name': 'primes', 'sup_logTh': 8.729578816524867, 'sup_logEuler': 9.281416744356232, 'ratio': 0.5518379278313645, 'at06': -8.729578816524867, 'cond': 1.0219206453018186}
+  [alloc: 551x168 complex = 1 MB per s-point]
+   {'x': 1000, 'name': 'Beurling p_j(1+0.1 sin j)', 'sup_logTh': 8.630067958348032, 'sup_logEuler': 9.182367971322506, 'ratio': 0.5523000129744737, 'at06': -8.630067958348032, 'cond': 1.0223053701635427}
+  [alloc: 551x168 complex = 1 MB per s-point]
+   {'x': 1000, 'name': 'Beurling b_j=1.5+j^1.2', 'sup_logTh': 11.085691645353734, 'sup_logEuler': 12.120040795720017, 'ratio': 1.0343491503662836, 'at06': -11.085691645353734, 'cond': 1.2609945443156334}
+  [alloc: 551x168 complex = 1 MB per s-point]
+   {'x': 1000, 'name': 'random signs', 'sup_logTh': 3.158661823740023, 'sup_logEuler': 3.169557421133466, 'ratio': 0.01200213341898071, 'at06': -3.158661823740023, 'cond': 1.0096758109456607}
+  [alloc: 551x168 complex = 1 MB per s-point]
+   {'x': 1000, 'name': 'chi4 signs', 'sup_logTh': 2.073867212173897, 'sup_logEuler': 2.0570606176696846, 'ratio': 0.016806594504212402, 'at06': -0.8197213002915253, 'cond': 1.010461044776105}
+  [alloc: 551x1229 complex = 11 MB per s-point]
+   {'x': 10000, 'name': 'primes', 'sup_logTh': 16.149898116053137, 'sup_logEuler': 16.570293770507405, 'ratio': 0.42039565445426774, 'at06': -16.149898116053137, 'cond': 1.0733189719130227}
+  [alloc: 551x1229 complex = 11 MB per s-point]
+   {'x': 10000, 'name': 'Beurling p_j(1+0.1 sin j)', 'sup_logTh': 16.066885684141898, 'sup_logEuler': 16.48840429542597, 'ratio': 0.4215186112840712, 'at06': -16.066885684141898, 'cond': 1.0733359093454022}
+  [alloc: 551x1229 complex = 11 MB per s-point]
+   {'x': 10000, 'name': 'Beurling b_j=1.5+j^1.2', 'sup_logTh': 22.4999015058471, 'sup_logEuler': 23.355590840104043, 'ratio': 0.8556893342569438, 'at06': -22.4999015058471, 'cond': 1.0979424100116406}
+  [alloc: 551x1229 complex = 11 MB per s-point]
+   {'x': 10000, 'name': 'random signs', 'sup_logTh': 2.043525108945989, 'sup_logEuler': 2.04176024822643, 'ratio': 0.0032444823104960108, 'at06': -1.6482777188447202, 'cond': 1.0029135305897912}
+  [alloc: 551x1229 complex = 11 MB per s-point]
+   {'x': 10000, 'name': 'chi4 signs', 'sup_logTh': 2.235146664765133, 'sup_logEuler': 2.232280000123544, 'ratio': 0.002866664641588912, 'at06': -0.8241409456600111, 'cond': 1.0011686985584152}
+  [alloc: 551x9592 complex = 85 MB per s-point]
+   {'x': 100000, 'name': 'primes', 'sup_logTh': 30.582962177487442, 'sup_logEuler': 30.873657639813363, 'ratio': 0.29069546232592103, 'at06': -30.582962177487442, 'cond': 1.0268704974476683}
+  [alloc: 551x9592 complex = 85 MB per s-point]
+   {'x': 100000, 'name': 'Beurling p_j(1+0.1 sin j)', 'sup_logTh': 30.534731254756057, 'sup_logEuler': 30.82644755680291, 'ratio': 0.2917163020468543, 'at06': -30.534731254756057, 'cond': 1.026628812386733}
+  [alloc: 551x9592 complex = 85 MB per s-point]
+   {'x': 100000, 'name': 'Beurling b_j=1.5+j^1.2', 'sup_logTh': 43.175147549206464, 'sup_logEuler': 43.73957228236178, 'ratio': 0.5644247331553132, 'at06': -43.175147549206464, 'cond': 1.0180400356232904}
+  [alloc: 551x9592 complex = 85 MB per s-point]
+   {'x': 100000, 'name': 'random signs', 'sup_logTh': 3.0713520735195132, 'sup_logEuler': 3.071461982181546, 'ratio': 0.00021943267677576594, 'at06': -3.0713520735195132, 'cond': 1.0002136235218435}
+  [alloc: 551x9592 complex = 85 MB per s-point]
+   {'x': 100000, 'name': 'chi4 signs', 'sup_logTh': 2.287087299742062, 'sup_logEuler': 2.2867450416184667, 'ratio': 0.00034225812359522934, 'at06': -0.7928035823063109, 'cond': 1.0001603907054297}

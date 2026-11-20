@@ -1,0 +1,92 @@
+{
+ "slug": "s2-mollifier-jensen-tempered",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "conrey-kappa-theta-table",
+  "dbn-phase-orbit-screen",
+  "dbn-t0-slope-razor",
+  "h6-symbol-offline-poisson",
+  "littlewood-jensen-moment-loss",
+  "mem-mollifier-proportion-loophole",
+  "mollifier-holomorphy-constraint",
+  "mollifier-reshaping-range",
+  "ns-rigid-loophole-dirichlet-coefficients",
+  "route-k-littlewood-jensen-loss"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "mem-mollifier-proportion-loophole",
+    "ns-rigid-loophole-dirichlet-coefficients",
+    "conrey-kappa-theta-table"
+   ],
+   "obstruction": "reads whether the coefficients admit a tempered multiplicative inverse, not zeros: RH-true T-NR (c=0, 1.5) fails, Liouville quotient passes; window mean giving a proportion (MV-CAP)",
+   "controlsThatDefeat": [
+    "T-NR c=0, 1.5 (RH-true, fails)",
+    "Liouville quotient (passes)",
+    "E_a (smallest excess)"
+   ]
+  },
+  {
+   "nodes": [
+    "mollifier-holomorphy-constraint",
+    "h6-symbol-offline-poisson"
+   ],
+   "obstruction": "verified height in another form: N* exceeds the count of on-line zeros between the window centre and the off-line zero",
+   "controlsThatDefeat": [
+    "DH",
+    "planted pair",
+    "T-NR",
+    "E_a"
+   ]
+  },
+  {
+   "nodes": [
+    "dbn-phase-orbit-screen",
+    "mollifier-reshaping-range",
+    "dbn-t0-slope-razor"
+   ],
+   "obstruction": "separation only once the sum is inside the strip where the control has zeros; tempered Euler twists pass with zeta",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "Liouville twist",
+    "DH and T-NR for t>=0.10"
+   ]
+  },
+  {
+   "nodes": [
+    "route-k-littlewood-jensen-loss",
+    "littlewood-jensen-moment-loss"
+   ],
+   "obstruction": "Littlewood's lemma: the off-line Blaschke mass restated; weaker than a zero count; Liouville quotient passes",
+   "controlsThatDefeat": [
+    "Liouville quotient",
+    "HEAT(-0.1)",
+    "DH below T=860"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) reads whether the coefficients admit a tempered multiplicative inverse, not zeros: RH-true T-NR (c=0, 1.5) fails, Liouville quotient passes; window mean giving a proportion (MV-CAP) | (2) verified height in another form: N* exceeds the count of on-line zeros between the window centre and the off-line zero | (3) separation only once the sum is inside the strip where the control has zeros; tempered Euler twists pass with zeta | (4) Littlewood's lemma: the off-line Blaschke mass restated; weaker than a zero count; Liouville quotient passes",
+ "controlsThatDefeat": [
+  "DH",
+  "DH and T-NR for t>=0.10",
+  "DH below T=860",
+  "E_a",
+  "E_a (smallest excess)",
+  "HEAT(-0.1)",
+  "Liouville quotient",
+  "Liouville quotient (passes)",
+  "Liouville twist",
+  "T-NR",
+  "T-NR c=0, 1.5 (RH-true, fails)",
+  "planted pair",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-mollifier-jensen-tempered/RESULT.md"
+}

@@ -1,0 +1,275 @@
+{
+ "test1": {
+  "word (index in chain c1..c5, exponent)": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    -1
+   ],
+   [
+    3,
+    -1
+   ]
+  ],
+  "matrix": [
+   [
+    0,
+    -1,
+    0,
+    0
+   ],
+   [
+    1,
+    2,
+    1,
+    -1
+   ],
+   [
+    0,
+    -1,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    -1,
+    1
+   ]
+  ],
+  "charpoly_coeffs t^4..1": [
+   1,
+   -3,
+   5,
+   -3,
+   1
+  ],
+  "root_moduli": [
+   0.5806918319929524,
+   0.5806918319929524,
+   1.7220838057390422,
+   1.7220838057390422
+  ],
+  "roots_off_unit_circle": 4,
+  "symplectic": true,
+  "det(M-I) = Delta(1)": 1,
+  "casson_bleiler": "irreducible over Z: True; not polynomial in t^k (k>1): True (cubic coefficient -3 != 0); no root of unity root: True (irreducible with a root off the circle)",
+  "first Salem-type example (2 roots off circle)": {
+   "word": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     -1
+    ]
+   ],
+   "charpoly": [
+    1,
+    -3,
+    3,
+    -3,
+    1
+   ],
+   "moduli": [
+    0.464312613208127,
+    0.9999999999999999,
+    0.9999999999999999,
+    2.153721375541768
+   ]
+  },
+  "lefschetz_numbers_1..12": [
+   -1,
+   3,
+   11,
+   19,
+   14,
+   -21,
+   -85,
+   -125,
+   -25,
+   318,
+   791,
+   835
+  ],
+  "zeta_series_matches_det(1-tM)/(1-t)^2_to_order_12": true,
+  "functional_equation_palindromic": true,
+  "jump_points (t, |t|, dim ker(M-t))": [
+   [
+    "(1.1217444141+1.3066224028j)",
+    1.7220838057,
+    1
+   ],
+   [
+    "(0.3782555859-0.440596999j)",
+    0.580691832,
+    1
+   ],
+   [
+    "(1.1217444141-1.3066224028j)",
+    1.7220838057,
+    1
+   ],
+   [
+    "(0.3782555859+0.440596999j)",
+    0.580691832,
+    1
+   ]
+  ],
+  "nullity_at_unitary_samples": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "test2_tate_curve": {
+  "p": 3,
+  "betti_jump": [
+   [
+    0,
+    0,
+    true
+   ],
+   [
+    0,
+    5.719202,
+    true
+   ],
+   [
+    0,
+    11.438403,
+    true
+   ]
+  ],
+  "dolbeault_jump": [
+   [
+    0,
+    0,
+    true
+   ],
+   [
+    0,
+    5.719202,
+    true
+   ],
+   [
+    0,
+    11.438403,
+    true
+   ]
+  ],
+  "agree": true,
+  "scaling_invariant": "jump set has sigma=0 only: invariant under sigma -> lambda sigma"
+ },
+ "gamma_p_complex": {
+  "max_abs_errors": {
+   "d1d0": 8.498827956506644e-15,
+   "homotopy0": 1.5700924586837752e-16,
+   "homotopy1": 4.47545209131181e-16,
+   "homotopy2": 1.1102230246251565e-16,
+   "comm": 4.463041323674983e-15
+  },
+  "meaning": "d_s^2=0; sectors q!=0 are contractible for every s (homotopy X^{-1}); [Y,X+iY]=X"
+ },
+ "gamma_p_jump_locus": {
+  "jump_points": [
+   [
+    0.0,
+    0.0,
+    [
+     true,
+     false
+    ]
+   ],
+   [
+    0.0,
+    5.719202,
+    [
+     true,
+     false
+    ]
+   ],
+   [
+    0.0,
+    -11.438403,
+    [
+     true,
+     false
+    ]
+   ],
+   [
+    1.0,
+    0.0,
+    [
+     false,
+     true
+    ]
+   ],
+   [
+    1.0,
+    5.719202,
+    [
+     false,
+     true
+    ]
+   ],
+   [
+    1.0,
+    -11.438403,
+    [
+     false,
+     true
+    ]
+   ]
+  ],
+  "convention": "differential d + s beta: jump iff p^{s}=1 (pair [True,False], weight 0) or p^{s-1}=1 (pair [False,True], weight 2)",
+  "not_scaling_invariant_about_1/2": "sigma-1/2 in {-1/2,+1/2}; about 0: sigma in {0,1}"
+ },
+ "higgs_test": {
+  "rel_error  d(beta^{1,0}) = -(i/2) omega_hyp": [
+   1.9639910142643653e-10,
+   2.8755643699529543e-11,
+   2.50055620654166e-09
+  ],
+  "harmonic_metric_equation": "d*(sigma beta + d phi) = sigma - Delta phi, Delta = X^2+Y^2-Y; integral of Delta phi against dn(x) dy/y vanishes => sigma = 0"
+ },
+ "frobenius_beltrami": {
+  "(lambda, mu)": [
+   [
+    2.0,
+    -0.3333333333333333
+   ],
+   [
+    3.0,
+    -0.5
+   ],
+   [
+    0.5,
+    0.3333333333333333
+   ],
+   [
+    2.718281828459045,
+    -0.46211715726000974
+   ]
+  ],
+  "holomorphic_iff": "lambda = 1"
+ },
+ "adjoint_Y* = 1 - Y (rel err)": 2.659310725975633e-14
+}

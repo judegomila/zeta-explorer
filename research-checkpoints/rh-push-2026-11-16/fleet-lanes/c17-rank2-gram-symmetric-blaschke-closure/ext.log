@@ -1,0 +1,2 @@
+plan ext tasks 7560 workers 7 planned memory per worker < 200 MB; largest allocation < 2 MB
+DONE 7560 297 {'ctl-dh/ok': 84, 'ctl-fail/neg': 439, 'ctl-fail/ok': 65, 'ctl-mispair/neg': 540, 'ctl-mispair/ok': 468, 'ctl-pass/ok': 84, 'ctl-right/ok': 336, 'ctl-toy/ok': 42, 'ctl-toy/undecided': 42, 'sym/ok': 5208, 'toy-sym/ok': 126, 'toy-sym/undecided': 126}

@@ -1,0 +1,11 @@
+TRACK_DONE
+BOXES_DONE
+planned allocation: 1000001 complex128 samples = 16.0 MB
+zeta done 1000001 samples 48.51084494590759 s
+planned allocation: 200001 complex128 samples = 3.2 MB
+dh done 200001 samples 110.9574933052063 s
+planned allocation: 200001 complex128 samples = 3.2 MB
+chi4 done 200001 samples 61.35532903671265 s
+planned allocation: 400001 complex128 samples = 6.4 MB
+ea done 400001 samples 50.5432870388031 s
+C1_GRID_DONE

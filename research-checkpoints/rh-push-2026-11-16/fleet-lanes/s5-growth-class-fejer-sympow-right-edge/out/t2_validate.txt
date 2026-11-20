@@ -1,0 +1,3 @@
+Euler-Maclaurin evaluator against Arb, worst relative error: {'ZETAH': np.float64(3.8479751985737464e-10), 'L4': np.float64(5.720293649927258e-11), 'DH': np.float64(1.3694844129571018e-11)}
+Riemann-Siegel evaluator against Arb at 1e6, worst relative error: 7.21e-14
+log of truncated Euler product (P = 1e5) minus log zeta at sigma = 1.2, 2.0: [7.17130537e-05 4.80611594e-09]

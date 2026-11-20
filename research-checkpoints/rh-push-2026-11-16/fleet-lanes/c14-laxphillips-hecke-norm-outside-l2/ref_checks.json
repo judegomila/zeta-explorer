@@ -1,0 +1,45 @@
+{
+ "R1_max_ratio_sum_exp_over_2lambda": [
+  0.988829182026464,
+  24
+ ],
+ "R2_monotonicity_violations": [
+  0,
+  300
+ ],
+ "R3_sup_weighted_norm_sigma_0.75": [
+  {
+   "p": 2,
+   "sampled_sup_ratio(lower bound for norm)": 3.4838981578930093,
+   "sampled_min_ratio": 2.0301035302564356,
+   "lambda_{1/4}(p)": 2.0301035302564356,
+   "lambda_{1/2}(p)": 2.1213203435596424
+  },
+  {
+   "p": 3,
+   "sampled_sup_ratio(lower bound for norm)": 4.390886379700967,
+   "sampled_min_ratio": 2.075909698604085,
+   "lambda_{1/4}(p)": 2.075909698604085,
+   "lambda_{1/2}(p)": 2.309401076758503
+  },
+  {
+   "p": 5,
+   "sampled_sup_ratio(lower bound for norm)": 6.327768276685562,
+   "sampled_min_ratio": 2.7481555173164542,
+   "lambda_{1/4}(p)": 2.1640890861976425,
+   "lambda_{1/2}(p)": 2.6832815729997477
+  }
+ ],
+ "R4_zero_mode_small_y": [
+  {
+   "state": "resonance",
+   "abs(a0 - y^w)": 6.637728100813219e-31,
+   "abs(phi(w) y^(1-w))": 5.627669991170316e-31
+  },
+  {
+   "state": "off resonance",
+   "abs(a0 - y^w)": 0.7846147484914822,
+   "abs(phi(w) y^(1-w))": 0.7846147484914822
+  }
+ ]
+}

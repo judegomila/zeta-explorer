@@ -1,0 +1,29 @@
+T 1e+08 M 65536 gpu True longdouble-extended True
+nufft vs direct: max abs err 1.03e-10
+zeta sigma 0.50 a 4: max err F 6.42e-07, F' 8.04e-06 (|F'| up to 107.7)
+zeta sigma 0.50 a 6: max err F 6.42e-07, F' 8.04e-06 (|F'| up to 107.7)
+zeta sigma 0.41 a 4: max err F 2.02e-06, F' 2.77e-05 (|F'| up to 339.7)
+zeta sigma 0.41 a 6: max err F 2.02e-06, F' 2.77e-05 (|F'| up to 339.7)
+zeta sigma 0.75 a 4: max err F 6.88e-08, F' 4.72e-07 (|F'| up to 11.5)
+zeta sigma 0.75 a 6: max err F 6.88e-08, F' 4.72e-07 (|F'| up to 11.5)
+zeta sigma 0.20 a 4: max err F 4.08e-05, F' 6.11e-04 (|F'| up to 6849.3)
+zeta sigma 0.20 a 6: max err F 4.08e-05, F' 6.11e-04 (|F'| up to 6849.3)
+L(chi) sigma 0.50: a=4 vs a=6 max diff F 1.73e-11 F' 1.57e-10
+L(chi) sigma 0.41: a=4 vs a=6 max diff F 3.94e-11 F' 3.58e-10
+T 1e+10 M 1048576 gpu True longdouble-extended True
+nufft vs direct: max abs err 9.67e-11
+zeta sigma 0.50 a 4: max err F 6.09e-05, F' 1.15e-03 (|F'| up to 79.9)
+zeta sigma 0.50 a 6: max err F 6.09e-05, F' 1.15e-03 (|F'| up to 79.9)
+zeta sigma 0.41 a 4: max err F 3.40e-04, F' 6.58e-03 (|F'| up to 445.5)
+zeta sigma 0.41 a 6: max err F 3.40e-04, F' 6.58e-03 (|F'| up to 445.5)
+zeta sigma 0.75 a 4: max err F 3.75e-06, F' 2.41e-05 (|F'| up to 4.9)
+zeta sigma 0.75 a 6: max err F 3.75e-06, F' 2.41e-05 (|F'| up to 4.9)
+zeta sigma 0.20 a 4: max err F 2.14e-02, F' 4.31e-01 (|F'| up to 28105.2)
+zeta sigma 0.20 a 6: max err F 2.14e-02, F' 4.31e-01 (|F'| up to 28105.2)
+L(chi) sigma 0.50: a=4 vs a=6 max diff F 1.70e-09 F' 1.94e-08
+L(chi) sigma 0.41: a=4 vs a=6 max diff F 4.74e-09 F' 5.40e-08
+T 1e+10 windows 3 H 1000000.0 step 10000000.0 y {'1/2': 100000, '4/7': 517947} R 1.30 gpu True extended True
+grid: h <= 0.1192, M = 8388608 samples per window, FFT size 16777216, sources up to 582637
+planned allocation: per-window working set ~40 complex128 arrays of M and 3 of 2M = 6174.0 MB
+window 0 Tw 1e+10  29.5s  ZETA|MU|4/7 kJ 0.4438 knJ 0.7691 gap 0.3253   DH|MURE|4/7 kJ -0.2735 knJ 0.6095 gap 0.8830
+window 1 Tw 1.001e+10  60.2s  ZETA|MU|4/7 kJ 0.4436 knJ 0.7689 gap 0.3254   DH|MURE|4/7 kJ -0.2735 knJ 0.6097 gap 0.8832

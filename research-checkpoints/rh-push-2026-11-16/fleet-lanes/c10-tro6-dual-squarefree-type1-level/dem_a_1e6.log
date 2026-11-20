@@ -1,0 +1,18 @@
+[a, demeaned] X=1e+06 theta=2/9 u=lambda: class-mean share of sum |rho-hat|^2 = 0.1390 (null 0.0159)
+    L raw: 1.008 1.009 1.014 1.015 1.018 0.997 (exp +0.0009) | L demeaned: 0.987 0.986 0.990 0.975 0.999 1.001 (exp -0.0038; seeds [-0.0057, +0.0093])
+    r2 demeaned: 1.016 1.014 0.951 0.979 0.963 1.026 (exp +0.0032; seeds [-0.0229, +0.0197]) | plain-weight r2 raw: 2.15 1.82 1.54 1.32 1.26 1.10 -> demeaned: 0.81 0.75 0.84 0.90 0.77 0.47
+[a, demeaned] X=1e+06 theta=1/3 u=lambda: class-mean share of sum |rho-hat|^2 = 0.1390 (null 0.0159)
+    L raw: 1.135 1.114 1.115 1.102 (exp +0.0126) | L demeaned: 0.962 0.964 0.981 0.952 (exp +0.0018; seeds [-0.0263, +0.0098])
+    r2 demeaned: 0.986 0.992 0.978 1.015 (exp -0.0109; seeds [-0.0101, +0.0074]) | plain-weight r2 raw: 1.53 1.28 1.22 1.10 -> demeaned: 0.91 0.94 0.95 0.96
+[a, demeaned] X=1e+06 theta=2/9 u=y0: class-mean share of sum |rho-hat|^2 = 0.0377 (null 0.0159)
+    L raw: 0.969 0.969 0.977 0.999 1.010 0.982 (exp -0.0087) | L demeaned: 0.994 0.987 0.997 1.004 0.982 0.969 (exp +0.0053; seeds [-0.0123, +0.0121])
+    r2 demeaned: 1.034 0.959 0.997 1.009 0.962 0.988 (exp +0.0085; seeds [-0.0224, +0.0189]) | plain-weight r2 raw: 1.15 1.18 1.19 1.13 1.10 1.01 -> demeaned: 0.84 0.79 0.87 0.86 0.74 0.41
+[a, demeaned] X=1e+06 theta=1/3 u=y0: class-mean share of sum |rho-hat|^2 = 0.0377 (null 0.0159)
+    L raw: 0.987 0.996 1.045 1.103 (exp -0.0547) | L demeaned: 0.967 0.942 0.961 0.956 (exp +0.0022; seeds [-0.0104, +0.0130])
+    r2 demeaned: 0.994 0.965 1.014 1.014 (exp -0.0161; seeds [-0.0171, +0.0033]) | plain-weight r2 raw: 1.14 1.11 1.10 1.06 -> demeaned: 0.97 0.97 0.97 0.98
+[a, demeaned] X=1e+06 theta=2/9 u=one: class-mean share of sum |rho-hat|^2 = 0.1147 (null 0.0159)
+    L raw: 0.957 0.968 0.993 1.001 0.993 1.002 (exp -0.0128) | L demeaned: 1.000 1.002 1.017 1.038 1.003 0.996 (exp -0.0002; seeds [-0.0059, +0.0050])
+    r2 demeaned: 0.989 0.989 0.996 1.015 0.962 0.971 (exp +0.0064; seeds [-0.0180, +0.0160]) | plain-weight r2 raw: 1.74 1.55 1.36 1.20 1.21 1.06 -> demeaned: 0.83 0.78 0.81 0.83 0.76 0.46
+[a, demeaned] X=1e+06 theta=1/3 u=one: class-mean share of sum |rho-hat|^2 = 0.1147 (null 0.0159)
+    L raw: 0.923 0.982 1.009 1.038 (exp -0.0547) | L demeaned: 0.990 1.029 1.015 1.078 (exp -0.0350; seeds [-0.0091, +0.0080])
+    r2 demeaned: 1.020 0.974 1.032 0.998 (exp +0.0014; seeds [-0.0071, -0.0019]) | plain-weight r2 raw: 1.16 1.12 1.14 1.04 -> demeaned: 0.91 0.93 0.95 0.95

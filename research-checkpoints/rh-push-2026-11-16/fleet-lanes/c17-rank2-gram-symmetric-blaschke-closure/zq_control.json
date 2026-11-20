@@ -1,0 +1,379 @@
+{
+ "cells": [
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.05)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.3)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(1,2;eta=0.45)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(3,4;eta=0.2)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.01)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 1,
+   "count": 168,
+   "positive": 168,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 2,
+   "count": 112,
+   "positive": 112,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 5,
+   "count": 84,
+   "positive": 84,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 12,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 20,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 40,
+   "count": 56,
+   "positive": 56,
+   "negative": 0,
+   "undecided": 0
+  },
+  {
+   "inst": "ZQ(6709,6710;eta=0.25)",
+   "n": 64,
+   "count": 28,
+   "positive": 28,
+   "negative": 0,
+   "undecided": 0
+  }
+ ],
+ "bad": [],
+ "totals": {
+  "ZQ(1,2;eta=0.05)": [
+   560,
+   560,
+   0,
+   0
+  ],
+  "ZQ(1,2;eta=0.3)": [
+   560,
+   560,
+   0,
+   0
+  ],
+  "ZQ(1,2;eta=0.45)": [
+   560,
+   560,
+   0,
+   0
+  ],
+  "ZQ(3,4;eta=0.2)": [
+   560,
+   560,
+   0,
+   0
+  ],
+  "ZQ(6709,6710;eta=0.01)": [
+   560,
+   560,
+   0,
+   0
+  ],
+  "ZQ(6709,6710;eta=0.25)": [
+   560,
+   560,
+   0,
+   0
+  ]
+ }
+}

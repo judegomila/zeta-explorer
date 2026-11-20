@@ -1,0 +1,195 @@
+{
+ "obj": "HEAT",
+ "T": 500.0,
+ "dt": 0.05,
+ "points": 10001,
+ "offline_pairs_in_table_below_T": 23,
+ "first_offline": [
+  0.2429565064869738,
+  111.69422767246392
+ ],
+ "laguerre": {
+  "norm_min": -0.9999933583268359,
+  "norm_min_t": 431.75,
+  "rho_min": -32.63910709296176,
+  "rho_min_t": 431.75,
+  "negative_samples": 251,
+  "negative_intervals": 23,
+  "first_negative_intervals": [
+   [
+    111.5,
+    111.9,
+    9
+   ],
+   [
+    150.5,
+    150.85,
+    8
+   ],
+   [
+    169.4,
+    169.85000000000002,
+    10
+   ],
+   [
+    185.20000000000002,
+    185.8,
+    13
+   ],
+   [
+    220.95000000000002,
+    221.5,
+    12
+   ]
+  ],
+  "match": {
+   "n": 251,
+   "inside_half_disk": 251,
+   "outside": 0,
+   "first_negative_t": 111.5,
+   "outside_examples": [],
+   "zeros_located_by_newton": 0
+  },
+  "offline_pairs_seen": 23,
+  "offline_pairs_total": 23
+ },
+ "w": [
+  {
+   "h": 0.01,
+   "a": 0.02,
+   "norm_min": -32.88552449835433,
+   "norm_min_t": 431.75,
+   "negative_samples": 251,
+   "first_negative_intervals": [
+    [
+     111.5,
+     111.9,
+     9
+    ],
+    [
+     150.5,
+     150.85,
+     8
+    ],
+    [
+     169.4,
+     169.85000000000002,
+     10
+    ],
+    [
+     185.20000000000002,
+     185.8,
+     13
+    ],
+    [
+     220.95000000000002,
+     221.5,
+     12
+    ]
+   ],
+   "match": {
+    "n": 251,
+    "inside_half_disk": 251,
+    "outside": 0,
+    "first_negative_t": 111.5,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 23,
+   "offline_pairs_total": 23,
+   "pairs_with_d_gt_h": 23
+  },
+  {
+   "h": 0.05,
+   "a": 0.1,
+   "norm_min": -40.13972218457321,
+   "norm_min_t": 431.75,
+   "negative_samples": 248,
+   "first_negative_intervals": [
+    [
+     111.5,
+     111.9,
+     9
+    ],
+    [
+     150.55,
+     150.85,
+     7
+    ],
+    [
+     169.4,
+     169.85000000000002,
+     10
+    ],
+    [
+     185.20000000000002,
+     185.8,
+     13
+    ],
+    [
+     220.95000000000002,
+     221.5,
+     12
+    ]
+   ],
+   "match": {
+    "n": 248,
+    "inside_half_disk": 248,
+    "outside": 0,
+    "first_negative_t": 111.5,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 23,
+   "offline_pairs_total": 23,
+   "pairs_with_d_gt_h": 23
+  },
+  {
+   "h": 0.125,
+   "a": 0.25,
+   "norm_min": -152.62538518761224,
+   "norm_min_t": 478.55,
+   "negative_samples": 222,
+   "first_negative_intervals": [
+    [
+     111.5,
+     111.85000000000001,
+     8
+    ],
+    [
+     150.55,
+     150.8,
+     6
+    ],
+    [
+     169.4,
+     169.8,
+     9
+    ],
+    [
+     185.25,
+     185.75,
+     11
+    ],
+    [
+     220.95000000000002,
+     221.5,
+     12
+    ]
+   ],
+   "match": {
+    "n": 222,
+    "inside_half_disk": 222,
+    "outside": 0,
+    "first_negative_t": 111.5,
+    "outside_examples": [],
+    "zeros_located_by_newton": 0
+   },
+   "offline_pairs_seen": 22,
+   "offline_pairs_total": 23,
+   "pairs_with_d_gt_h": 22
+  }
+ ],
+ "online_zeros": 223,
+ "close_pairs": 0
+}

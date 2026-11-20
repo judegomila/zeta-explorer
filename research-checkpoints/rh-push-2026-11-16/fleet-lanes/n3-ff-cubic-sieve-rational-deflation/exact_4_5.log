@@ -1,0 +1,5 @@
+q=7 m=4 n=5 N=2058 k0=1; planned dense C 0.553 GB, G 0.068 GB
+(a) prime moduli: 588 rows; max |G - F| off the diagonal = 2.859e-05; diag(G - F) in [16807.00, 16807.00]; q^n + q^(n-m) = 16814.00
+    top eigenvalue: undeflated 41466.41 = 2.4672 q^n; after removing 8 vectors (deg r <= k0): 16807.00 = 1.000000 q^n
+    partial k=0: 2.4672 q^n [1]
+(b) squarefree moduli: undeflated 6.3148 phi; main family [8]: 1.1461 phi; main + 7 divisor-family vectors [15]: 1.1461 phi; flat level max_c #(d coprime to c)/phi = 1.1457

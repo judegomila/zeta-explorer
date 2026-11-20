@@ -1,0 +1,40 @@
+{
+ "slug": "c11-rs1-regular-rep-matrix-bridge",
+ "round": 11,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "RS-1",
+  "bridge-square",
+  "regular-representation",
+  "cone",
+  "stage-A-closed"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, closed for the displayed candidates (K), (E), (Q), (H) only; not a theorem that no inequality on M_q exists. Every bridge object built from M_q with primitive completions is a direct sum over characters (Lemma S). The vector 1 is in the cone and is the chi_0 eigenvector, so every cone-quantified statement restricts at v = 1 to a scalar statement about zeta alone; for copositivity (K) and positive definiteness in chi (E) that statement is H_c^zeta >= 0, which is RH by the refereed square-root lane (Lemma P). The uniform entry bound (Q) at threshold o(1/phi) is a restatement (Lemma Q). Entry positivity is character orthogonality at log level (Lemma 1); it holds for coefficients and kernels and ends in values at s = 1 (measured at q = 5, 7, 8); the functional-equation matrix W has negative entries. Form (E) fails on nodes at q = 5 and q = 8 in the stated normalisations (inertia (6,6) on 12 nodes, (5,3) on 8) and passes after rescaling one eigen-direction. Hurwitz entries have zeros on both sides of the line (measured). E_a and T-NR lifts keep product-level positivity, Euler product, functional equation and periodicity, with off-line zeros on the Perron direction (confirmed). THIN, U, DEL keep positivity and the Euler product; THIN and U leave the Perron eigenvalue unchanged. DH is outside the device (weight ww^T in the middle factor; measured (7,1) against (8,0) on 8 nodes at the off-line zero). R1 = R2 = R3 = R4 = false.",
+ "obstruction": "Stage A, for the displayed candidates (K), (E), (Q), (H) only. Every bridge object built from M_q lies in commutative C[G] and is a direct sum over characters (Lemma S). The vector 1 is in the cone and is the chi_0 eigenvector, so each cone-quantified statement restricts at v = 1 to a scalar statement about zeta; for (K) and (E) that is H_c^zeta >= 0, which is RH (Lemma P). (Q) at threshold o(1/phi) is a restatement. Entry positivity is character orthogonality and ends at s = 1; the functional-equation matrix has negative entries. Not a theorem that no inequality on M_q exists (cone-preservation forms not examined).",
+ "obstructionKind": "commutative-decomposition; controls E_a, T-NR pass inputs",
+ "controlsThatDefeat": [
+  "E_a matrix lift (keeps entry positivity, Euler product, functional equation, periodicity; off-line zeros on the Perron direction)",
+  "T-NR matrix lift (same)",
+  "THIN, U, DEL (keep positivity and the Euler product)",
+  "DH is outside the device (weight not in C[G])"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Lemmas S, P, Q, 1 re-derived and correct; numerics reproduced on different cases (q = 7, 8; different nodes). Six corrections, none changing the verdict or a flag. (1) \"The cone can enter only as copositivity or positive definiteness in chi\" is an enumeration, not a proved classification: RESULT's own (Q) and (H) are cone statements of neither kind, and cone-preservation forms were not examined. What is proved is that 1 is in the cone and is the chi_0 eigenvector, so any cone-quantified statemen - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Periodicity carried by a finite abelian group representation decomposes with the functional equation character by character, so it adds no inequality. The only extra datum is the cone, and the cone contains the Perron (zeta) direction unconstrained. A CROSS-1 candidate needs a non-commutative or non-decomposing carrier, or a step that reads \"every coefficient matrix is a permutation matrix\" together with the functional equation; E_a and T-NR pass everything else.",
+ "followUp": "Independent referee for the device row (REFEREE.md here is a same-agent pass, lanes.jsonl has refereeHolds null), then add the proposed row of RESULT.md section 8 to the map and register the device as closed. No further attack lane on this device.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-rs1-regular-rep-matrix-bridge/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-rs1-regular-rep-matrix-bridge/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

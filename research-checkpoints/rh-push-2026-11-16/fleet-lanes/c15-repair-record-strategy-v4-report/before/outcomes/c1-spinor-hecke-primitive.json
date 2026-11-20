@@ -1,0 +1,39 @@
+{
+ "slug": "c1-spinor-hecke-primitive",
+ "round": 1,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "spinor",
+  "hecke",
+  "weil",
+  "moebius"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No lower bound is obtained; precise obstruction in corrected form. For a finite set S of primes and smooth compactly supported one-sided tests, M_S = prod(1-U_p) maps the class into itself with range of infinite codimension (not onto). Every test is nevertheless a simultaneous L^2 and Q limit of jointly S-primitive tests (referee repair, classical zero-free region). So inf Q/norm^2 over jointly primitive tests equals the infimum over all tests of the class: the primitive restriction neither helps nor costs, for zeta and for controls with zeros in a comparable region. That this bound is \"P10 itself\" is not established, because P10 is proved on a different test class.\n\nThe Gram matrix of dilations does not contain the function's coefficients. It replaces the divergent product by about log P only in mean over height; the sup over all heights is the full product, attained at tau = 0. All-prime Hecke sums Zw lie in the radical of the zero sum (known, P12). Lemma 2 (single-lag collapse on p-primitive tests) and the y_z defect formulas of Lemma 5 are correct identities.\n\nMeasured (float64): the sign of the minimum eigenvalue is unchanged by the primitive restriction for zeta, DH, Liouville twist, random signs, E_a and T-NR. DH is positive to rounding on a band without off-line zeros. Flags: R1 = R2 = R3 = R4 = false.",
+ "obstruction": "For a finite set S of primes, jointly S-primitive tests are dense (L^2 and Q) in the test class, so the infimum of Q/norm^2 over primitive tests equals the infimum over all tests: the restriction neither helps nor costs. The Gram matrix of dilations does not contain the function's coefficients. All-prime Hecke sums lie in the radical of the zero sum. Referee does not hold the result as written (Lemma 3(a) domain: inverse of M_S does not preserve compact support; 'this is P10 itself' not established).",
+ "obstructionKind": "function-independent-congruence",
+ "controlsThatDefeat": [
+  "DH, Liouville twist, random signs, E_a, T-NR: sign of the minimum eigenvalue unchanged by the primitive restriction (float64, measured)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "Hecke/Moebius operators are translation multipliers with no zeros in the open strip, so restricting a translation-invariant form (Weil/Q_L) to primitive tests is a congruence and changes nothing; the orthogonalisation step is function-independent. Any multiplicative mechanism must act where the cutoff fails to commute with Hecke (window defect), and that formula is also kernel-independent. Reusable tool: plib.py computes Q_L from primes alone in an orthonormal basis (Loewner form) for zeta and four controls, validated against zero sums to 1e-12.",
+ "followUp": "None on this route. The only surviving adjacent question is OPEN and of largest-value type: the size of sum over zeros of |zeta_S(1/2+i gamma)|^2 |W(i gamma)|^2 against the norm of Z_S w as S grows (partial Euler products sampled at zeros). The result needs a referee pass on Lemmas 3-5 before the map row is closed.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-spinor-hecke-primitive/RESULT.md",
+ "referee2": {
+  "file": "tmp/research-2026-11-16/push/c1-spinor-hecke-primitive/REFEREE2.md",
+  "scope": "partial (owed steps only); does not raise the referee count",
+  "holds": true,
+  "note": "Second pass (scope: Lemmas 3-5 on the corrected domain): corrected Lemma 3' holds for zeta (density of primitive tests in norm and Q, classical zero-free region); added Lemma 4' (class W(1/2)=0 dense, uses no zero on Re s = 1; one author); Lemma 5 formulas hold; control-blindness of Lemma 3 not established for DH (zeros right of 1) and E_a with a >= 1/8. Negative verdict stands.",
+  "by": "c2-repair-owed-passes"
+ }
+}

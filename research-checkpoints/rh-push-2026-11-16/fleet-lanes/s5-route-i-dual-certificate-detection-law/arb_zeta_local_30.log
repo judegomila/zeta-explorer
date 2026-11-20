@@ -1,0 +1,3 @@
+arbsym: 1 tasks, K = 1000 (sector sizes 1001, 1000), 700 bits; planned memory per worker: 3 ball matrices 1001x1001, about 0.60 GB
+ZETApf     2a=3.0      K=1000 even 6.5758e-89 (ball) odd 3.4429e-85 (ball)  701s [702s]
+done 702s

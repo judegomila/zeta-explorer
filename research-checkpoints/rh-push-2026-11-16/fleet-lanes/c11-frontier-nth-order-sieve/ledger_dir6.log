@@ -1,0 +1,39 @@
+== regression (must equal the files): A1 13/15, B3 dir, B3' dir0
+A1 source system (refl), w = 0                             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+B3 dir only (Lemma 9.1), box 4                             B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=0.0000 h=-0.0000
+B3' dir0 only (hypothetical K + D), box 4                  B=0.8333333 row=dir0  lx=1.0000 ly=1.0000 l=1.0000 w=0.0000 h=1.0000
+== new branch, source geometry (lx, ly >= l), ideal high side
+N1 dir6 only, w = 0, box 4                                 B=1.0000000 row=dir6  lx=4.0000 ly=4.0000 l=3.0000 w=0.0000 h=-0.0000
+N1 dir6 only, w = 0, box 8                                 B=1.0000000 row=dir6  lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+N1 dir6 only, w = 0, box 16                                B=1.0000000 row=dir6  lx=16.0000 ly=16.0000 l=15.0000 w=0.0000 h=-0.0000
+N2 refl | dir6 | empty, w free                             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+N3 refl | dir | dir6 | empty, w = 0                        B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000  exact 13/15: CONFIRMED
+N4 dir6 only, G polar, w = 0, box 8                        B=1.0000000 row=dir6  lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+N4' dir only, G polar, w = 0, box 8 (file: 1)              B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+== w-dependence, refl | dir6 | empty against refl | dir | empty
+C  w = 0: with dir                                         B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+C  w = 0: with dir6                                        B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+C  w = 1/10: with dir                                      B=0.8733333 row=refl  lx=0.3800 ly=0.3800 l=0.1400 w=0.1000 h=0.7600
+C  w = 1/10: with dir6                                     B=0.8733333 row=refl  lx=0.3800 ly=0.3800 l=0.1400 w=0.1000 h=0.7600
+C  w = 2/5: with dir                                       B=0.9000000 row=refl  lx=0.4000 ly=0.2000 l=0.0000 w=0.4000 h=0.6000
+C  w = 2/5: with dir6                                      B=0.9000000 row=refl  lx=0.4000 ly=0.2000 l=0.0000 w=0.4000 h=0.6000
+C  w = 1: with dir                                         B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=1.0000 h=-0.0000
+C  w = 1: with dir6                                        B=1.0000000 row=dir6  lx=4.0000 ly=4.0000 l=3.0000 w=1.0000 h=-0.0000
+C  w = 2: with dir                                         B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=2.0000 h=-0.0000
+C  w = 2: with dir6                                        B=1.0000000 row=dir6  lx=4.0000 ly=4.0000 l=3.0000 w=2.0000 h=-0.0000
+C  w = 4: with dir                                         B=1.0000000 row=dir   lx=4.0000 ly=4.0000 l=3.0000 w=4.0000 h=-0.0000
+C  w = 4: with dir6                                        B=1.0000000 row=dir6  lx=4.0000 ly=4.0000 l=3.0000 w=4.0000 h=-0.0000
+== relaxed geometry
+D1 geo Q, refl | dir6 | empty, G src                       B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D1' geo Q, refl | dir | empty, G src                       B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D3 geo free, refl | dir6 | empty, G src, box 8             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D3' geo free, refl | dir | empty, G src, box 8             B=0.8666667 row=refl  lx=0.4000 ly=0.4000 l=0.2000 w=0.0000 h=0.8000
+D7 geo free, dir6 only, G polar, w = 0, box 8              B=1.0000000 row=dir6  lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+D7' geo free, dir only, G polar, w = 0, box 8              B=1.0000000 row=dir   lx=8.0000 ly=8.0000 l=7.0000 w=0.0000 h=-0.0000
+== lx <= l (h >= 1), no compensation on the high side, G polar, w = 0 (the branch c6 identified as the false input)
+Z1 dir6, anti geometry, box 8                              B=1.0000000 row=dir6  lx=1.0000 ly=1.0000 l=1.0000 w=0.0000 h=1.0000
+Z1' dir, anti geometry, box 8                              B=1.0000000 row=dir   lx=0.0000 ly=2.0000 l=0.0000 w=0.0000 h=1.0000
+Z1 dir6, anti geometry, box 16                             B=1.0000000 row=dir6  lx=1.0000 ly=1.0000 l=1.0000 w=0.0000 h=1.0000
+Z1' dir, anti geometry, box 16                             B=1.0000000 row=dir   lx=0.0000 ly=2.0000 l=0.0000 w=0.0000 h=1.0000
+done
+scripts/memcap.sh 8 python3   107.78s user 0.52s system 100% cpu 1:47.96 total

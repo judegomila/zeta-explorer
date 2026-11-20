@@ -1,0 +1,461 @@
+{
+ "entries": 65,
+ "failed": 0,
+ "items": [
+  {
+   "target": "map row S12b",
+   "file": "push/c15-u5-window-count-threshold-translate-control/RESULT.md",
+   "quote": "Proposed map row (not applied; this lane writes only here): \"S12b. Window functional-equation rigidity with a number of windows growing with T, heights inside one span `[T, T + L]`.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row S12b",
+   "file": "push/c15-u5-window-count-threshold-translate-control/RESULT.md",
+   "quote": "Free-prime U with an off-line model zero on contiguous windows: conditions `24 + 0.36 K`, passes K = 128 at T = 1e6 and reaches 2.0e-6 at K = 256 (MEASURED, float64, no certificate).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row S12b",
+   "file": "push/c15-u5-window-count-threshold-translate-control/REFEREE.md",
+   "quote": "Consequence: `K_tr(T, eta) = max(eta T log(T/2 pi)/pi, sqrt(8 eta T))(1 + o(1))` over all real alpha; the second term matters only when the first is below about 2.7, that is for K at most 2.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row S12b",
+   "file": "push/c15-u5-window-count-threshold-translate-control/REFEREE.md",
+   "quote": "\"Class U5 is therefore closed\" is established for identification-type conclusions; for zero-location conclusions it is MEASURED in a finite model only.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row S12b",
+   "file": "push/c15-u5-window-count-threshold-translate-control/REFEREE.md",
+   "quote": "so `F_+-` does not pass the test of section 1 at tolerance `eta_span` at every point.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row Q30",
+   "file": "push/c15-u7-growing-section-twin-ladder-bridge/RESULT.md",
+   "quote": "Q25 | Sections of the prime chain with P = t^theta on the gamma one-port; J-expansive (sharp) sections (left open by Q22 to Q24; class U7) | Fejer section L_F = sum_rho K_u(s - rho), Re K_u >= 0 on Re w >= 0: J-contractive on Re s > 1/2 + eta_0 for every P iff no zeros there (limit step by Harnack and Vitali; stage inequality = row P45).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row Q30",
+   "file": "push/c15-u7-growing-section-twin-ladder-bridge/REFEREE.md",
+   "quote": "(iii) For the actual control (c > 2) the statement fails through the off-line zeros of m, i.e. at the conclusion, like DH.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row Q30",
+   "file": "push/c15-u7-growing-section-twin-ladder-bridge/REFEREE.md",
+   "quote": "Run here (check C): 4 of 4 random unimodular twists violate at theta = 1 and 1.5, at the same level as the sign chains.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row Q30",
+   "file": "push/c15-u7-growing-section-twin-ladder-bridge/REFEREE.md",
+   "quote": "It should be recorded as CLASSICAL in content with a proof written here, not as a new theorem.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row Q30",
+   "file": "push/c15-u7-growing-section-twin-ladder-bridge/REFEREE.md",
+   "quote": "The label ARGUED is right; the constant should not be copied to the map.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row G41 (DN part)",
+   "file": "push/c15-nonhomogeneous-pair-triple-kernel-search/RESULT.md",
+   "quote": "- Proposed map row: \"sign functionals of a kernel pair or triple that are not homogeneous in each kernel (pointwise quotient and its dilation minors of orders 2 to 3;",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row G41 (DN part)",
+   "file": "push/c15-nonhomogeneous-pair-triple-kernel-search/REFEREE.md",
+   "quote": "3. **Canonical and FE tiers are not closed.** 0 full in the canonical tier is a float64 statement on the 22,508 T-train nodes; 67,138 nodes remain float64-undecided and could in principle reach T-train.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row G41 (DN part)",
+   "file": "push/c15-nonhomogeneous-pair-triple-kernel-search/REFEREE.md",
+   "quote": "Correct split: nine-class tier 752 = 360 identity + 392 in balls (not 280 + 472); six-class tier 2,774 = 360 identity + 2,414 in balls",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "map row G41 (DN part)",
+   "file": "push/c15-nonhomogeneous-pair-triple-kernel-search/REFEREE.md",
+   "quote": "2. **\"Backward heat is exactly blind\" is a statement about one lift.** Proved for equal tau on both members and the kernel without polar terms.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control rows ZQ, SG, NR-q; note",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md",
+   "quote": "- Control row **ZQ** (section 2 of the map, next to NR): \"zeta(s) m(s), m rational in s(1-s), degree 0, two on-line zero pairs exchanged for a quartet at 1/2 +- eta +- i gbar | keeps zeta's functional equation and gamma factor, pole, order, N(T), every prime-power atom of log zeta (EP, GEOM, SIZE on atoms)",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control rows ZQ, SG, NR-q; note",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md",
+   "quote": "Companion **SG** (real-zero twin): m = (t^2 + b^2)/(t^2 - g1^2), zeros of zeta at 1/2 +- i g1 replaced by the real pair 1/2 +- b. D(x) = -2 x^(-1/2)(cosh(b log x) - cos(g1 log x)) <= 0 for all x (PROVED: cosh >= 1 >= cos).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control rows ZQ, SG, NR-q; note",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md",
+   "quote": "Companion **NR-q** (F4): q = 1 + sqrt 2, c = 2.1: FE defect 1.9e-30; zero at 0.857311 + 3.564428i (winding 1);",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control rows ZQ, SG, NR-q; note",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+   "quote": "If GEOM, SIZE and EP are read on the atoms, ZQ is a control for U1 and for the SIZE branch of U2; if they are read on ordinary coefficients, U1 is inside U3 by Hamburger.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control rows ZQ, SG, NR-q; note; Lemma L",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+   "quote": "Lemma L (PROVED given Landau): FE, no pole other than s = 1, and Lambda_G >= Lambda force G = c zeta; without the pole clause it fails (G_+ above has Lambda_G >= Lambda >= 0, zeta's functional equation, exact atoms and off-line zeros, with real poles in (0, 1)).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control note (Lemma D, E3)",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+   "quote": "the input is Selberg's N_0(T) >> T log T (a positive proportion of zeros on the line), which gives consecutive on-line ordinates with gap O(1/log T).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "control note (Lemma D, E4)",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+   "quote": "The lemma covers multipliers of the form 1 + sum c_j (l_j^(s-1/2) + l_j^(1/2-s)) with finite weighted l1 norm.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 1 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "1. Outcome sentence: add \"with the lane-defined lifts; on the grid stage the outcome holds with the canonical lifts T-NR, E_a, HEAT alone (referee recount); the draws were not recounted\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 2 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "2. \"No functional reaches T-train\": add \"in the nine-class reading; 59 do in the FE tier read per class\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 3 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "3. Lifts BLS, theta^w, BEU: label \"lane-defined, not canonical\". theta^w: \"at w = 1 the pair is (zeta, chi^2)\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 4 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "4. BEU: \"not an off-line control (zeros in Re s > 0 are those of zeta and of L(s, chi))\"; its column is not a control column.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 5 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "5. Lemma T, DH row: \"kept iff chi_G^2(q_psi) = 1 (5 of 28 members, real or complex psi); lost otherwise\". FE tier to be read per member (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 6 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "6. Lemma J1: add \"same tau on both members; kernels without polar terms\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 7 -> map row G41 (DJ part); device dictionary-dj-joint-pair-sign-functionals",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "7. Section 5, \"Why no pair functional gains\": ARGUED, and for BLS and T-NR a statement about the lift.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 8 -> map row G38; device joint-pair-ratio-crossgram-twist-transfer",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "8. Lemma A: exponent 3(1 - sigma)/(2 - sigma) \"for 1/2 < sigma_0 <= 4/5\"; above 4/5: 2(1 - sigma)/sigma or 1/2 (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 9 -> map row G38; device joint-pair-ratio-crossgram-twist-transfer",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "9. Lemma A, Lemma B: \"PROVED-rel Montgomery, Theorem 12.1, recalled, not opened (two searches)\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 10 -> map row G38; device joint-pair-ratio-crossgram-twist-transfer",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "10. Identity TW, second display: \"chi even\"; whole identity: \"chi primitive, c supported on (m, q) = 1\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 11 -> map row G38; device joint-pair-ratio-crossgram-twist-transfer",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "11. Lemma C: \"finite set of characters; p0 depends on the set; coefficientwise pair lift\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 12 -> map row G38; device joint-pair-ratio-crossgram-twist-transfer",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "12. Section 2.6: the E_a and DH rows of link 1 are ARGUED / undecided.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 13 -> map row G39; device lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "13. \"One linear condition b(1) = 0, propagated to the whole row by the Hecke relation at squares\": false as written. Replace by \"every A(n^2, s) carries zeta(u) (Lemma 1'); b(1) = 0 gives the odd squares only\" (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 14 -> map row G39; device lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "14. Lemma V: \"times non-zero local functionals\" is wrong at the prime 2 on Re u = 1 (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 15 -> map row G39; device lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "15. Lemma V: definition of f_q repaired (principal twist replaced by F - (1/q) sum_j F(z + j/q)) (A); level and multiplier relative to Shimura 1973, not opened.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 16 -> map row G39; device lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "16. Lemma 3 and Lemma E (iii): PROVED-rel the regularised Rankin-Selberg method, not opened; exponents MEASURED.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 17 -> map row G39; device lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "17. Lemma E: \"closes the LRS-type count in rank one\", not \"every inequality on a rank-one object\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 18 -> map row G37; device laxphillips-hecke-norm-outside-l2",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "18. Corollary L1: \"as an operator norm on X; on the mean-zero subspace the bound is implied by admissibility\" (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 19 -> map row G37; device laxphillips-hecke-norm-outside-l2",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "19. Decisive test (iii) and \"Not covered\": ARGUED statements about classes of constructions.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 20 -> map row G37; device laxphillips-hecke-norm-outside-l2",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "20. Lemma Q: PROVED-rel c4 Lemma 1 and the wave evolution of non-L^2 data.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 21 -> map row G37; device laxphillips-hecke-norm-outside-l2",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "21. H2 figure 4.1e10: a product of local suprema at k <= 60; on one prime the supremum is 1.000 for k <= 30.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 22 -> map row G37; device laxphillips-hecke-norm-outside-l2",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "22. Zagier's criterion, Sarnak's exponent, Kim-Sarnak: recalled, not opened. \"BLS\": the lane's reading.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 23 -> map row G40; device catalogued-x2-inequality-torus-parameter-eigenobject",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "23. Lemma T: \"chi even primitive\"; T1: \"on the line Re w = P - 1\" in place of \"at real w\" (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 24 -> map row G40; device catalogued-x2-inequality-torus-parameter-eigenobject",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "24. T3 / POLE1: \"the position part of POLE1\"; the pole at 1 is double for torus objects (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 25 -> map row G40; device catalogued-x2-inequality-torus-parameter-eigenobject",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "25. List L-c: {E4} only (A). Row E9 / O1: \"simple zero\", not \"double zero\" (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 26 -> map row G40; device catalogued-x2-inequality-torus-parameter-eigenobject",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "26. T4 and \"the non-Borel cell is closed for GL_n\": ARGUED (A).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 27 -> map row G40; device catalogued-x2-inequality-torus-parameter-eigenobject",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "27. Catalogue sources: E12 opened through Duke 1988 pages 73 to 74 (Iwaniec: k >= 5/2, squarefree n; weight 3/2 recalled); E1, E7, E8, E11 confirmed at abstract level; E10 citation only; E9 not searched.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 28 -> map section 2 note Lemma F; section 7; dated note in c14-prefilter RESULT.md",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "28. Verdict item 5, \"for a < 1/2 an off-line zero is a pole and the Schur condition is the zero-free statement itself\": false as written; replace by the corrected sentence of REFEREE2 section 3; remove \"none sits between\"; add the growth hypothesis for a >= 1/2 (A, extended).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 29 -> map section 2 note Lemma F",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "29. Q-B: state B1 to B3 for inner functions with real symmetry (the T-NR instance is an infinite product); the T-NR quotient bound can be labelled PROVED (argument in REFEREE2 section 1). Sweep counts: READ, one reader.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "restriction 30 -> campaign/ROUND_LOG.md (dated notes at round 14 lesson 6 and result line 8); map note ZQ; section 7; CAMPAIGN_REPORT_R15.md 2.4",
+   "file": "push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md",
+   "quote": "30. ROUND_LOG round 14, lesson 6 and result line 8: \"no control on file has zeta's own functional equation\" is false as written; replace by \"... together with an ordinary Dirichlet series (INT)\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "Lemma F note (E1 replacement)",
+   "file": "push/c15-klein-transport-lemma-w-stage-a-and-e1/PROPOSED_E1_REPLACEMENT.md",
+   "quote": "(ii) R_a is Schur on Re w > 0 (analytic with abs(R_a) <= 1) if and only if m(lambda - 2a) >= m(lambda) for every zero lambda with Re lambda > a.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "Lemma F note (E1 replacement)",
+   "file": "push/c15-klein-transport-lemma-w-stage-a-and-e1/REFEREE.md",
+   "quote": "| E1' (i) to (v) | PROVED | Confirmed.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "Lemma F note (growth hypothesis)",
+   "file": "push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-prefilter-sweep-geometric-nodes.md",
+   "quote": "needs a growth hypothesis (bounded type in the half-plane); true for X in the gamma class of xi.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "Lemma F note (T-NR quotient PROVED)",
+   "file": "push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-prefilter-sweep-geometric-nodes.md",
+   "quote": "so it is bounded and Schur by the maximum principle. This is a proof; the lane labels the bound MEASURED.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "CAMPAIGN_REPORT_R15.md 2.4 (E1)",
+   "file": "push/c15-repair-record-strategy-v4-report/REFEREE.md",
+   "quote": "Replace by: \"no control on file that is an ordinary Dirichlet series has zeta's own functional equation (Hamburger); T-NR and HEAT keep the symmetry and lack exact local structure at one prime, respectively a Dirichlet series\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "CAMPAIGN_REPORT_R15.md sections 1, 4 (E2)",
+   "file": "push/c15-repair-record-strategy-v4-report/REFEREE.md",
+   "quote": "With these three not counted the figures are 119 lanes with an independent referee, 107 holding, 89.9% (against 110 of 122, 90.2%).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "CAMPAIGN_REPORT_R15.md section 3; STRATEGY (E3)",
+   "file": "push/c15-repair-record-strategy-v4-report/REFEREE.md",
+   "quote": "As a bound on an abscissa the figure is rounded below the infimum; 0.8748866471, or the infimum itself, is the correct form.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "STRATEGY.md header (E4)",
+   "file": "push/c15-repair-record-strategy-v4-report/REFEREE.md",
+   "quote": "- **E4. `STRATEGY.md` version 4, first paragraph, carries the compute limits of 2026-11-18** (4 cores, 8 GB, 3 hours; one heavy lane) after the BRIEF update of 2026-11-19 (8 cores, 12 GB, 6 hours; numerical first tests on the server).",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "c15 lane 2 RESULT.md, three places (pole clause)",
+   "file": "push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
+   "quote": "The three sentences must carry the clause \"with no pole other than s = 1\", and row F2 must read \"POS can hold (D >= 0) at the price of real poles in (0, 1)\".",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "silent-cell nodes; pending; Statement O v4",
+   "file": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md",
+   "quote": "**U3. Identification classes (stated first because U1 and U2 are cells of it).**",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "silent-cell nodes U4",
+   "file": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md",
+   "quote": "Open: joint functionals of none of these types, for example quotients at different points, a logarithm of one member alone, kernels with polar terms, triples read through the group law at several points.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "silent-cell nodes U6",
+   "file": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md",
+   "quote": "(g) Scattering inequalities that read an exact normalisation, the archimedean factor, or f(z) = f(1 - z); rank above one; the two-variable affine kernel.",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "silent-cell nodes U8",
+   "file": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md",
+   "quote": "**U8. Single-object kernel conditions beyond the searched range (order above 4, more than three parameters, nodes outside [-2.6, 2.6], other normalisations).**",
+   "exists": true,
+   "quoteFound": true
+  },
+  {
+   "target": "silent-cell node U2-POS",
+   "file": "campaign/STRATEGY.md",
+   "quote": "**Exact missing lemma, POS-FE.** Let G be meromorphic in C with a simple pole at s = 1 and no other pole, of finite order, satisfying zeta's functional equation (conductor 1, zeta's gamma factor), and suppose -G'/G(s) = integral over [1, infinity) of x^(-s) d nu(x) in some half-plane with nu a non-negative measure. Then G = c zeta.",
+   "exists": true,
+   "quoteFound": true
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"object": "EA", "N": 200000, "first_negative_n": null, "n_negative": 0, "first_n_not_prime_power_with_Lambda_nonzero": null, "n_not_prime_power": 0, "max_abs_Lambda_over_log_n": 21.194685974039327, "at_n": 199999, "Lambda_2..12": [1.407161, 2.28062, 1.470387, 3.482967, 0.0, 4.361494, 1.577878, 2.537136, 0.0, 5.683637, -0.0]}

@@ -1,0 +1,6 @@
+pool chi-4 29.1 s
+pool delta 100.5 s
+pool chi5 127.1 s
+chi-4 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+delta det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+chi5 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]

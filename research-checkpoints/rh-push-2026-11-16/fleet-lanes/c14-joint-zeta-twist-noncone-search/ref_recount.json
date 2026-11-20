@@ -1,0 +1,82 @@
+{
+ "JA-with": {
+  "pz_one": 62604,
+  "pz_tt": 1,
+  "pa_one": 16,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JA-without": {
+  "pz_one": 130060,
+  "pz_tt": 0,
+  "pa_one": 491,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JB1-with": {
+  "pz_one": 2639,
+  "pz_tt": 0,
+  "pa_one": 106,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JB1-without": {
+  "pz_one": 9756,
+  "pz_tt": 0,
+  "pa_one": 106,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JB2-with": {
+  "pz_one": 80983,
+  "pz_tt": 0,
+  "pa_one": 42180,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 1
+ },
+ "JB2-without": {
+  "pz_one": 112793,
+  "pz_tt": 0,
+  "pa_one": 45856,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 1
+ },
+ "JC1-with": {
+  "pz_one": 12976,
+  "pz_tt": 2,
+  "pa_one": 112,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JC1-without": {
+  "pz_one": 14764,
+  "pz_tt": 0,
+  "pa_one": 108,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ },
+ "JC2-with": {
+  "pz_one": 7321,
+  "pz_tt": 0,
+  "pa_one": 2840,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 4
+ },
+ "JC2-without": {
+  "pz_one": 6620,
+  "pz_tt": 0,
+  "pa_one": 2716,
+  "pa_tt": 0,
+  "pa_full": 0,
+  "pa_heat": 0
+ }
+}

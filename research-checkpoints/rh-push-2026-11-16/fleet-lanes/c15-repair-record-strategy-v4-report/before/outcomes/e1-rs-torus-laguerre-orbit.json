@@ -1,0 +1,43 @@
+{
+ "slug": "e1-rs-torus-laguerre-orbit",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "euler-fe-coupling-at-height",
+  "euler-product-torus-parametrisation",
+  "laguerre-hierarchy"
+ ],
+ "launchedNodes": [
+  "dbn-prime-torus-phase-closure",
+  "euler-fe-coupling-at-height",
+  "euler-product-torus-parametrisation",
+  "bridge-winding-equals-NT",
+  "laguerre-hierarchy"
+ ],
+ "tags": [
+  "prime-torus",
+  "riemann-siegel",
+  "laguerre",
+  "one-point"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "B_1 and B_2 are empty (proved); B_3 is non-empty (explicit point); B_N non-empty with torus measure 0.02 to 0.06 for scanned N <= 300 (measured). Exact identity Lag[2f+R] = 4 Lag[f] + 2(2f'R' - fR'' - Rf'') + Lag[R]; with the true-time Lag[f] (not the frozen torus Lag_N) the remainder beyond -2 R f'' is within N^-3/2 log^2 N at N = 10..300 (measured, not uniform). The zeta main-sum segment enters B_N (first at t = 221.07; 18 of 21 scanned N >= 5); the true Z has Lag > 0 at all 23 points checked, the sign being set by the remainder R. The DH main sum enters B at 85.707, 114.160, 166.479, 176.709, each at an off-line zero.",
+ "obstruction": "The torus exclusion set is entered by the zeta main sum itself; the sign of the Laguerre expression is decided by the Riemann-Siegel remainder of size N^-1/2, so the statement is one-point with no margin (rows S4, Q13) and restates verified height. The coupling theta' = log(main-sum length) is the functional equation alone and holds for DH up to O(t^-2). Order-1 Laguerre detects an off-line pair only if 2/beta^2 > S(gamma).",
+ "obstructionKind": "one-point-no-margin",
+ "controlsThatDefeat": [
+  "DH: satisfies the coupling theta' = log N identically (does not separate)",
+  "backward heat (amplitude tilt only, c < 0): passes the test at the zeta level",
+  "not run: theta^w, T-NR, Beurling, E_a, phase-rotated transfer operator, true heat family"
+ ],
+ "lesson": "On the prime torus the Euler product enters only as the identity of one orbit point. Any torus exclusion set needs tolerance |R| ~ N^-1/2 and has no margin. Diagnostic only: (orbit time fraction in B_N)/(torus measure of B_N) is 0.002..0.1 for zeta, 0.4..0.8 for DH, about 1 for translated orbits.",
+ "refereeHolds": false,
+ "refereeNote": "Verdict stands. One PROVED-labelled identity was false as written with the frozen-speed torus quantity Lag_N (residual up to 9.69 against claimed 0.168 at N = 10); correct with the true-time Lag[f].",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.05,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-rs-torus-laguerre-orbit/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-rs-torus-laguerre-orbit/REFEREE.md"
+}

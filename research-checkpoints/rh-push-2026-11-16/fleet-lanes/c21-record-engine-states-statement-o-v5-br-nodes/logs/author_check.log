@@ -1,0 +1,30 @@
+graph nodes 1762 edges 9263
+br2-sparse-pole-lattice-regime-k open-direction ['device', 'lemma'] open proposed, untested (lead BR of STRATEGY 
+br3-euler-shape-rigidity-regime3 open-direction ['device', 'lemma'] open proposed, untested (lead BR of STRATEGY 
+twin-screen-ts tool [] None 
+device nodes by state {'open': 2, 'floored': 6, 'closed': 71}
+cell nodes by state {'cell': 3, 'tried-not-closed': 1, 'closed': 7}
+types 58 {'closed': 55, 'floored': 1, 'open': 2} cells {'cell': 3, 'tried-not-closed': 1, 'closed': 7}
+top 60 overlap 18 with br 24 br2 12 br3 12 ts 0
+ranks with br [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 25, 26, 28, 29]
+meta 38485 8415 30070 -> 44016 11400 32616
+live CANDIDATES == final copy True
+scoreboard diffs [('C_coverage.nodes', '1759', '1762'), ('generated', '"2026-11-20T10:18Z"', '"2026-11-20T10:38Z"')]
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+692 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+526 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+524 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+224 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+399 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+238 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+266 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+129 chars')
+STRATEGY ('line changed', 'old is a subsequence of new: True', '+8 chars')
+STRATEGY ('insert lines', 2)
+CHECKPOINT_R20_INPUT [('line changed', 'old is a subsequence of new: True', '+69 chars')]
+CHECKPOINT_R20_DECISION_SHEET [('line changed', 'old is a subsequence of new: True', '+68 chars')]
+label bullets equal True 17
+v5 file untouched sha 32530211f7ef campaign copy == lane copy True
+TW thm 5.1 present True True
+Bohr (1.6) True True
+Ingham thm True True
+referee files for U4/U6ab: ['tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/c20-statement-o-line4-heat-zero-enclosures-server/REFEREE2.md', 'tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/c20-euler-shape-rigidity-infinite-modified-primes/REFEREE2.md', 'tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/c20-statement-o-line2-dh-pick-kernel-certified-server/REFEREE2.md', 'tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/nrq-line15/REFEREE2.md', 'tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/c20-u6ab-rank2-metaplectic-eigenobject-verdict/REFEREE2.md']

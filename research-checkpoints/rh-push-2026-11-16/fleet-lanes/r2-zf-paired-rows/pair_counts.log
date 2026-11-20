@@ -1,0 +1,53 @@
+
+conj pair (4,4): chi(u1) chi-bar(u2)
+  H1 = H2       (16384,16384): J=19908 maxfibre=11 [H1^(1/r1)=11.3]  (65536,65536): J=79824 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.501 ; LP value = 1/2 = 0.500 ; J/sqrt(H1H2) = 1.218
+  H2 = H1^3     (25,16384): J=157 maxfibre=2 [H1^(1/r1)=2.2]  (40,65536): J=325 maxfibre=2 [H1^(1/r1)=2.5]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.392 ; LP value = 3/8 = 0.375 ; J/sqrt(H1H2) = 0.201
+  H2 = H1^(1/2) (16384,128): J=541 maxfibre=11 [H1^(1/r1)=11.3]  (65536,256): J=1364 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.445 ; LP value = 5/12 = 0.417 ; J/sqrt(H1H2) = 0.333
+
+same orientation (4,4): chi(u1) chi(u2)
+  H1 = H2       (16384,16384): J=1304 maxfibre=11 [H1^(1/r1)=11.3]  (65536,65536): J=3342 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.339 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.051
+  H2 = H1^3     (25,16384): J=90 maxfibre=2 [H1^(1/r1)=2.2]  (40,65536): J=174 maxfibre=2 [H1^(1/r1)=2.5]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.355 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.107
+  H2 = H1^(1/2) (16384,128): J=202 maxfibre=11 [H1^(1/r1)=11.3]  (65536,256): J=422 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.354 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.103
+
+(4,12): chi12^3(u1) chi12^-1(u2)
+  H1 = H2       (16384,16384): J=157 maxfibre=11 [H1^(1/r1)=11.3]  (65536,65536): J=325 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.262 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.005
+  H2 = H1^3     (25,16384): J=27 maxfibre=2 [H1^(1/r1)=2.2]  (40,65536): J=44 maxfibre=2 [H1^(1/r1)=2.5]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.263 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.027
+  H2 = H1^(1/2) (16384,128): J=43 maxfibre=11 [H1^(1/r1)=11.3]  (65536,256): J=72 maxfibre=16 [H1^(1/r1)=16.0]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.248 ; LP value = 1/4 = 0.250 ; J/sqrt(H1H2) = 0.018
+
+conj pair (6,6)
+  H1 = H2       (16384,16384): J=17008 maxfibre=5 [H1^(1/r1)=5.0]  (65536,65536): J=68040 maxfibre=6 [H1^(1/r1)=6.3]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.500 ; LP value = 1/2 = 0.500 ; J/sqrt(H1H2) = 1.038
+  H2 = H1^3     (25,16384): J=77 maxfibre=1 [H1^(1/r1)=1.7]  (40,65536): J=141 maxfibre=1 [H1^(1/r1)=1.8]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.326 ; LP value = 1/3 = 0.333 ; J/sqrt(H1H2) = 0.087
+  H2 = H1^(1/2) (16384,128): J=288 maxfibre=5 [H1^(1/r1)=5.0]  (65536,256): J=634 maxfibre=6 [H1^(1/r1)=6.3]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.379 ; LP value = 7/18 = 0.389 ; J/sqrt(H1H2) = 0.155
+
+(3,6): chi6^2(u1) chi6^-1(u2)
+  H1 = H2       (16384,16384): J=1095 maxfibre=25 [H1^(1/r1)=25.4]  (65536,65536): J=2852 maxfibre=40 [H1^(1/r1)=40.3]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.345 ; LP value = 1/3 = 0.333 ; J/sqrt(H1H2) = 0.044
+  H2 = H1^3     (25,16384): J=55 maxfibre=2 [H1^(1/r1)=2.9]  (40,65536): J=104 maxfibre=3 [H1^(1/r1)=3.4]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.343 ; LP value = 7/24 = 0.292 ; J/sqrt(H1H2) = 0.064
+  H2 = H1^(1/2) (16384,128): J=177 maxfibre=25 [H1^(1/r1)=25.4]  (65536,256): J=383 maxfibre=40 [H1^(1/r1)=40.3]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.371 ; LP value = 1/3 = 0.333 ; J/sqrt(H1H2) = 0.094
+
+conj pair (12,12)
+  H1 = H2       (16384,16384): J=16392 maxfibre=2 [H1^(1/r1)=2.2]  (65536,65536): J=65568 maxfibre=2 [H1^(1/r1)=2.5]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.500 ; LP value = 1/2 = 0.500 ; J/sqrt(H1H2) = 1.000
+  H2 = H1^3     (25,16384): J=29 maxfibre=1 [H1^(1/r1)=1.3]  (40,65536): J=56 maxfibre=1 [H1^(1/r1)=1.4]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.354 ; LP value = 7/24 = 0.292 ; J/sqrt(H1H2) = 0.035
+  H2 = H1^(1/2) (16384,128): J=132 maxfibre=2 [H1^(1/r1)=2.2]  (65536,256): J=272 maxfibre=2 [H1^(1/r1)=2.5]
+                 measured density exponent log J / log(H1 H2) (last step) = 0.348 ; LP value = 13/36 = 0.361 ; J/sqrt(H1H2) = 0.066
+
+(L1) powerful-product bound, H1 = H2 = H: J(conj 4,4) vs #{u1 u2 powerful} vs H
+   H=256    J=304     powerful pairs=2258     H=256  H log H=1420
+   H=1024   J=1224    powerful pairs=12164    H=1024  H log H=7098
+   H=4096   J=4952    powerful pairs=64096    H=4096  H log H=34070

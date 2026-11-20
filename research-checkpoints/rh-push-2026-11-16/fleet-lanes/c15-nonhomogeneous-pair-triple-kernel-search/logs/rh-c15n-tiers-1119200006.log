@@ -1,0 +1,94 @@
+objects 834 built in 36s; workers 16
+g0: 302601 nodes (2601 grid); planned per worker: 1 families x 4 x float64[1200 x 834] = 32 MB; 16 workers
+  g0 chunk 10/253 (9s chunk, 9s group)
+  g0 chunk 20/253 (6s chunk, 14s group)
+  g0 chunk 30/253 (9s chunk, 20s group)
+  g0 chunk 40/253 (5s chunk, 24s group)
+  g0 chunk 50/253 (9s chunk, 29s group)
+  g0 chunk 60/253 (8s chunk, 36s group)
+  g0 chunk 70/253 (8s chunk, 40s group)
+  g0 chunk 80/253 (10s chunk, 46s group)
+  g0 chunk 90/253 (12s chunk, 51s group)
+  g0 chunk 100/253 (7s chunk, 56s group)
+  g0 chunk 110/253 (7s chunk, 62s group)
+  g0 chunk 120/253 (6s chunk, 68s group)
+  g0 chunk 130/253 (10s chunk, 75s group)
+  g0 chunk 140/253 (6s chunk, 82s group)
+  g0 chunk 150/253 (14s chunk, 89s group)
+  g0 chunk 160/253 (12s chunk, 97s group)
+  g0 chunk 170/253 (15s chunk, 103s group)
+  g0 chunk 180/253 (7s chunk, 110s group)
+  g0 chunk 190/253 (9s chunk, 119s group)
+  g0 chunk 200/253 (12s chunk, 126s group)
+  g0 chunk 210/253 (14s chunk, 133s group)
+  g0 chunk 220/253 (17s chunk, 139s group)
+  g0 chunk 230/253 (11s chunk, 148s group)
+  g0 chunk 240/253 (6s chunk, 156s group)
+  g0 chunk 250/253 (10s chunk, 158s group)
+  g0 chunk 253/253 (8s chunk, 159s group)
+a1-with extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 100310, 172893, 27103, 2295, 0, 0, 0]}
+a1-with: nodes=302601 | PA ttrain=0 und=0 full=0 rej=[111535, 0, 105620, 0, 63601, 16829, 0, 115041, 0] nrej_hist=[0, 86049, 99830, 69063, 18261, 27103, 2295, 0, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=8956 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+g0 done 159s
+g1: 215769 nodes (14380 grid); planned per worker: 9 families x 4 x float64[1200 x 834] = 288 MB; 16 workers
+  g1 chunk 10/180 (22s chunk, 22s group)
+  g1 chunk 20/180 (26s chunk, 48s group)
+  g1 chunk 30/180 (20s chunk, 56s group)
+  g1 chunk 40/180 (24s chunk, 75s group)
+  g1 chunk 50/180 (22s chunk, 88s group)
+  g1 chunk 60/180 (21s chunk, 108s group)
+  g1 chunk 70/180 (48s chunk, 125s group)
+  g1 chunk 80/180 (31s chunk, 142s group)
+  g1 chunk 90/180 (19s chunk, 156s group)
+  g1 chunk 100/180 (21s chunk, 177s group)
+  g1 chunk 110/180 (25s chunk, 196s group)
+  g1 chunk 120/180 (48s chunk, 210s group)
+  g1 chunk 130/180 (43s chunk, 229s group)
+  g1 chunk 140/180 (26s chunk, 244s group)
+  g1 chunk 150/180 (32s chunk, 267s group)
+  g1 chunk 160/180 (22s chunk, 284s group)
+  g1 chunk 170/180 (38s chunk, 305s group)
+  g1 chunk 180/180 (28s chunk, 312s group)
+b1-Aw extra tiers: canon {'ttrain': 0, 'undecided': 19253, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 50639, 113476, 49161, 2493, 0, 0, 0]}
+b1-Aw: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[0, 130549, 36275, 34581, 161403, 18660, 0, 142051, 44615] nrej_hist=[0, 9658, 28004, 63887, 71269, 24215, 18356, 380, 0, 0, 0] best=0 | FE ttrain=0 und=19253 full=0 | PZ ttrain=7279 und=8714 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-Ao extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 2027, 56851, 87995, 58008, 10888, 0, 0]}
+b1-Ao: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[0, 161458, 21910, 213029, 213078, 121219, 103203, 126115, 110436] nrej_hist=[0, 405, 1661, 26499, 81281, 73634, 31827, 462, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b1-B extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 2085, 22995, 23138, 85694, 3409, 78448, 0]}
+b1-B: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[187971, 166828, 157482, 208326, 164641, 91301, 119980, 186809, 82852] nrej_hist=[0, 88, 6272, 20807, 61354, 40430, 5140, 2354, 42998, 36326, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b3-with extra tiers: canon {'ttrain': 0, 'undecided': 18381, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [32563, 1194, 30171, 78096, 21217, 52460, 68, 0]}
+b3-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[180020, 165783, 43200, 0, 112819, 80184, 74843, 138867, 75779] nrej_hist=[32563, 3, 10441, 32056, 50989, 26942, 15857, 32285, 14633, 0, 0] best=0 | FE ttrain=0 und=18381 full=0 | PZ ttrain=57 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0010
+b3-without extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [25620, 28594, 75425, 28773, 24366, 32991, 0, 0]}
+b3-without: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[73339, 119656, 0, 0, 85462, 81244, 69169, 104004, 70763] nrej_hist=[25620, 18951, 35510, 35953, 31466, 11393, 22445, 10958, 23473, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=52 und=261 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0010
+b4m-with extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 27163, 153392, 32186, 2016, 1012, 0, 0]}
+b4m-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[11584, 18282, 2076, 187776, 72786, 0, 33591, 110575, 13394] nrej_hist=[0, 14063, 59790, 84430, 47772, 7168, 2172, 374, 0, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b4p-with extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 39972, 17216, 76135, 7725, 72246, 2475, 0]}
+b4p-with: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[9961, 165862, 145438, 0, 103665, 88922, 86795, 128689, 78698] nrej_hist=[0, 2667, 29235, 61191, 38041, 2696, 3399, 45809, 30335, 2396, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b4p-without extra tiers: canon {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 0, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 4325, 59836, 71532, 35306, 44770, 0, 0]}
+b4p-without: nodes=215769 | PA ttrain=0 und=0 full=0 rej=[10692, 166996, 75120, 208478, 75825, 90191, 113341, 117163, 86048] nrej_hist=[0, 146, 25158, 46076, 63509, 36890, 43606, 383, 1, 0, 0] best=0 | FE ttrain=0 und=0 full=0 | PZ ttrain=0 und=0 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0003
+b6-with extra tiers: canon {'ttrain': 0, 'undecided': 40, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 40, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 46875, 98788, 58212, 11890, 4, 0, 0]}
+b6-with: nodes=215769 | PA ttrain=0 und=40 full=0 rej=[16812, 0, 38, 156447, 130797, 70177, 21508, 37898, 67674] nrej_hist=[0, 20181, 68030, 56125, 9209, 48295, 12462, 1466, 1, 0, 0] best=0 | FE ttrain=0 und=40 full=0 | PZ ttrain=0 und=40 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0001
+g1 done 312s
+g2: 163377 nodes (11110 grid); planned per worker: 4 families x 4 x float64[1200 x 834] = 128 MB; 16 workers
+  g2 chunk 10/137 (23s chunk, 23s group)
+  g2 chunk 20/137 (18s chunk, 40s group)
+  g2 chunk 30/137 (35s chunk, 55s group)
+  g2 chunk 40/137 (25s chunk, 68s group)
+  g2 chunk 50/137 (15s chunk, 81s group)
+  g2 chunk 60/137 (22s chunk, 93s group)
+  g2 chunk 70/137 (15s chunk, 109s group)
+  g2 chunk 80/137 (15s chunk, 121s group)
+  g2 chunk 90/137 (15s chunk, 139s group)
+  g2 chunk 100/137 (14s chunk, 155s group)
+  g2 chunk 110/137 (32s chunk, 167s group)
+  g2 chunk 120/137 (21s chunk, 176s group)
+  g2 chunk 130/137 (14s chunk, 190s group)
+  g2 chunk 137/137 (27s chunk, 194s group)
+b2-with extra tiers: canon {'ttrain': 15784, 'undecided': 14652, 'full': 0, 'best_min_heldout': 12} | six {'ttrain': 0, 'undecided': 80, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 22601, 13935, 45549, 41790, 38093, 1409, 0]}
+b2-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[0, 127952, 85867, 51754, 112726, 89030, 37264, 99323, 82509] nrej_hist=[0, 2031, 26800, 13411, 12021, 33060, 23540, 25450, 27064, 0, 0] best=0 | FE ttrain=7314 und=12085 full=0 | PZ ttrain=0 und=14496 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0000
+b5l-with extra tiers: canon {'ttrain': 6724, 'undecided': 14652, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 2494, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [20491, 26, 1165, 32937, 37048, 59328, 12382, 0]}
+b5l-with: nodes=163377 | PA ttrain=0 und=472 full=0 rej=[135082, 140010, 68655, 51754, 124497, 120197, 97892, 100033, 117381] nrej_hist=[20491, 9, 33, 5187, 15887, 9754, 28587, 46923, 34910, 1596, 0] best=0 | FE ttrain=0 und=12084 full=0 | PZ ttrain=0 und=13125 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0014
+b5m-with extra tiers: canon {'ttrain': 0, 'undecided': 80, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 80, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 45081, 36007, 55278, 23854, 3157, 0, 0]}
+b5m-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[26610, 44836, 8221, 49180, 80994, 64877, 66835, 128555, 86087] nrej_hist=[0, 8267, 44974, 27147, 8700, 14609, 46253, 12351, 1076, 0, 0] best=0 | FE ttrain=0 und=80 full=0 | PZ ttrain=0 und=80 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+b5p-with extra tiers: canon {'ttrain': 0, 'undecided': 80, 'full': 0, 'best_min_heldout': 0} | six {'ttrain': 0, 'undecided': 80, 'full': 0, 'best_min_heldout': 0, 'nrej_hist': [0, 6520, 10435, 67533, 7494, 57430, 13965, 0]}
+b5p-with: nodes=163377 | PA ttrain=0 und=80 full=0 rej=[29015, 148200, 139433, 0, 95281, 86122, 85073, 95502, 82697] nrej_hist=[0, 9, 5890, 41544, 29721, 8414, 5196, 37667, 21766, 13170, 0] best=0 | FE ttrain=0 und=80 full=0 | PZ ttrain=0 und=80 full=0 | shuffle={'n': 200, 'ttrain': 0, 'full': 0} planted=True und_share=0.0004
+g2 done 195s
+RUN-DONE 703s

@@ -1,0 +1,59 @@
+{
+ "slug": "c12-bost-connes-crossed-product-duality",
+ "round": 12,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "bost-connes",
+  "crossed-product",
+  "KMS",
+  "poisson-summation",
+  "hecke-algebra",
+  "CROSS-1",
+  "RS-1",
+  "T-NR",
+  "E_a",
+  "weil-form",
+  "stage-A"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Device closed at stage A; nothing about zeros of zeta. In A = C*(Q/Z) x N^x: (C) every sigma-invariant state factors through C(Z^); for the Galois-invariant KMS_beta state (every beta>0) the measure is a product over primes and values on the algebraic Hecke algebra are entire in beta from finitely many primes; for extremal KMS_beta states (beta>1) values are L(beta,chi)/zeta(beta) and positivity is coefficient positivity right of 1. (V) For vector states sum f(lambda k) e_k the Mellin read set is {L(s,chi)}; the mu_n and Poisson steps are identities and the inequality is a square. (B) Positive-definiteness of zeta(sigma+it)MF holds for sigma>1 and fails on 0<sigma<1; a sign-reversed positivity holds there for monotone F and carries no zero information. (W) Weil's prime side equals phi_{1/2}(H_g), a rewriting. (T) The T-NR series is Tr(D e^{-beta H}) with D>=1 a fixed positive element of C*(Q/Z) (off-line zero inside the strip for 2<c<sqrt(q)+1/sqrt(q)), differing only in exact mu_q covariance; E_a passes every step on A (x) A; DEL with finite S passes every step in A; DH fails at the sign of its density. Closure covers three classes of states only (sigma-invariant, type I dual extension, archimedean vector Mellin families), not all states; classical sources not opened.",
+ "obstruction": "Stage A, for three classes of states (sigma-invariant, type I dual extension, archimedean vector Mellin families). Sigma-invariant states factor through commutative C(Z^); vector states with Poisson summation read {L(s,chi)} and the inequality is a square; positive-definiteness of zeta(sigma+it)MF holds for sigma > 1 and fails on 0 < sigma < 1 (zeta(sigma) < 0); Weil's prime side is phi_{1/2}(H_g), a rewriting. T-NR is Tr(D e^{-beta H}) with D >= 1 a positive element of C*(Q/Z) and passes every step. Not covered: other states (e.g. weights on the type II_infinity dual at beta <= 1); no candidate inequality on file there.",
+ "obstructionKind": "positivity of a state is a square that holds for a control; duality steps are identities; Bochner positivity lost at the pole",
+ "controlsThatDefeat": [
+  "T-NR (positive density D >= 1 inside the algebra; differs only in exact mu_q covariance at one prime)",
+  "E_a (passes every step on A (x) A)",
+  "DEL with finite S (passes every step in A)",
+  "DH fails only at the sign of its density, not at the mu_n step"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, closed at stage A for three classes of states) confirmed; six statements wrong or overstated, none used by the closure. E1: Lemma C second half (product measure, values entire in beta, finitely many primes, \"no zeta\") is true only for the Galois-invariant KMS state; extremal KMS_beta states at beta>1 have non-product measure and values L(beta,chi)/zeta(beta) (checked: e(1/5) at beta=2 gives 0.04+0.6063i vs -0.2 invariant), so (K) for them reads all primes at real be - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Non-commutativity of the carrier is not read by the states that carry positivity: sigma-invariant states see only the commutative algebra C(Z^), and vector states with Poisson summation return the split over Dirichlet characters. T-NR is a bounded inner perturbation of the Bost-Connes dynamics by a positive element of C*(Q/Z), so any device invariant under such perturbations is passed by it. Round 10's reason \"KMS read set is beta > 1\" should read: KMS states exist for every beta > 0 and read finitely many local factors at real beta.",
+ "followUp": "Repair lane: enter the proposed row and the T-NR note from MAP_ROW.md and the entry in engine_device_proposal.json (neither is entered yet), and give the lane an independent referee, since REFEREE.md is an author pass. The open cell is states outside the three classes covered (for example weights on the type II_infinity dual at beta <= 1 other than the dual weight); no candidate inequality is on file for it.",
+ "resultFile": "tmp/research-2026-11-16/push/c12-bost-connes-crossed-product-duality/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c12-bost-connes-crossed-product-duality/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c13-referee-r12-independent",
+  "outcome": "holds in a narrower form",
+  "narrowerForm": "Product measure and 'entire in beta, finitely many primes, no zeta' hold for the Galois-invariant KMS state only; extremal states at beta > 1 give tau(conj chi) L(beta,chi)/zeta(beta); class (i) closed there by coefficient positivity right of 1. 'Inner perturbation of the dynamics' holds per beta; as a function of beta T-NR is zeta(beta) phi_beta(D).",
+  "downgrades": [
+   "Lemma C sentences 2-4, consequences 2(a), 2(d), R1 reason: restrict to Galois-invariant state",
+   "Lemma P last sentence: PROVED/CLASSICAL -> ARGUED",
+   "Lemma L last sentence: false at beta = 1/2 (gamma_p = 1)",
+   "'bounded inner perturbation' principle (section 7, round-12 lesson 2): reword per beta"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c13-referee-r12-independent/REFEREE2_c12-bost-connes-crossed-product-duality.md"
+ }
+}

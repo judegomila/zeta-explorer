@@ -1,0 +1,26 @@
+{
+ "X": 10000000.0,
+ "width_z": 60.0,
+ "g1": 5000000.0,
+ "n1": 10016474,
+ "n2": 10016539,
+ "zeros_in_window": 65,
+ "isolated_contiguous": 65,
+ "complete": true,
+ "first_zero_minus_g1": 0.3928167617764302,
+ "last_zero_minus_g1": 29.95876901685142,
+ "covered_width_z": 59.13190451014998,
+ "max_radius": 4.687461237982667e-13,
+ "increasing": true,
+ "norm_gap_min": 0.18854167204735614,
+ "norm_gap_max": 2.3852605997394085,
+ "wall_gap_left": [
+  11.46155050205698,
+  12.564586903976306
+ ],
+ "wall_gap_right": [
+  11.46155050205698,
+  12.564586903976306
+ ],
+ "seconds": 0.2742118835449219
+}

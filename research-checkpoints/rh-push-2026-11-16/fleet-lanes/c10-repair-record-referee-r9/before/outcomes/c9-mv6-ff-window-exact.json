@@ -1,0 +1,51 @@
+{
+ "slug": "c9-mv6-ff-window-exact",
+ "round": 9,
+ "kind": "compute",
+ "nodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe",
+  "out-c9-mv6-ff-window-exact"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "function-field",
+  "exact-arithmetic",
+  "prime-marks",
+  "mean-square",
+  "window",
+  "completed-rows",
+  "cube-part",
+  "pre-registered"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "F_q[T] model, exact integers, rule fixed before the runs; no statement about zeta. For squarefree marked rows at N=2 (equal to the completed rows by Lemma P, relative to the model definition), in the window N-lam < d < N+lam with rmax > 3N and sharp degree classes: the probe vector of a quadratic target of prime conductor has row energy 1.19 to 20.6 times the diagonal at q=7 (nine active configurations, r*=6..12) and 2.17 to 18.1 at q=13 (three active configurations, r*=6 and 10). The excess rises in steps (two at q=7, one at q=13) and is not monotone between steps. In inactive classes the same vectors are below the diagonal. Random-phase vectors sit at the diagonal and the aligned vector at operator-norm size in all 30 configurations. The pre-registered rule returns FAILS. The N=3 cube-term observation (target vectors at 2.4 to 5.5 times the diagonal at rmax <= 3N) is measured on 4 configurations with a completion formula untested for twisted vectors; its rule returned UNDECIDED. Reflected dual sums not run. Extrapolation in N and to weighted or excluded-set versions is not tested.",
+ "obstruction": "F_q[T], q = 7, 13, N = 2 (completed = squarefree rows, Lemma P), window N - lam < d < N + lam, dual length above 3N: the row energy of the probe vector of a quadratic Weil target is 1.19 to 20.6 times the diagonal (q = 7, nine active configurations) and 2.17 to 18.1 (q = 13, three), rising in steps; the pre-registered rule (excess exponent <= 0) returns FAILS. So the diagonal-level (E-K) bound is false in the model in the window, for targets that satisfy the model RH. Limits: N = 2 only; N = 3 cube-term observation on 4 configurations, rule UNDECIDED; reflected dual sums not run; no extrapolation in N or to weighted / excluded-set versions.",
+ "obstructionKind": "window-statement-fails-in-model-for-weil-targets-above-dual-length-3n",
+ "controlsThatDefeat": [
+  "not a control separation: the Weil targets themselves exceed the diagonal in active classes",
+  "controls behave as required (Liouville-twisted up to 951 and 2452 times; aligned at operator-norm size; random phases at the diagonal, 30 of 30)",
+  "not run: DH-type model weight, THIN, heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No arithmetic error found; the claim holds in a narrowed form. Referee report: tmp/research-2026-11-16/push/c9-mv6-ff-window-exact/REFEREE.md\n\nConfirmed (all local, through scripts/memcap.sh 8):\n- Lemma P (the only PROVED step) re-derived and correct, relative to the model definition.\n- Gauss-sum phase convention checked from the definition with an independent resultant code: 12 of 12.\n- Kernel ffw enw matches an independent brute force on three ca [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A completed row T = L_0 D carries one squared signal per cube step, with cofactor length N - 3j; the shortest cofactor has the least Moebius cancellation and dominated the energy at N = 3. Test the completed object, not its squarefree part. The round-8 coherent law has the wrong inactive classes for the trivial-target vector (12 of the 22 missed predictions).",
+ "followUp": "Round 10 takes the \"fails\" branch (ORDER-2 through (E-K) closes; no F_q[T] proof lane for dual length above 3N). One bounded check first: completed rows at N = 6 (j = 2), run (6, 9, 2) at q = 7, to test the argued threshold r > 2N - 3 for completed rows, and compare the cube term with the manuscript signal of section 7.2.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-mv6-ff-window-exact/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-mv6-ff-window-exact/REFEREE.md",
+ "launchedNodes": [
+  "ek-vector-specific-row-mean-square",
+  "ff-order2-vertex-probe"
+ ],
+ "engineVerdict": "partial"
+}

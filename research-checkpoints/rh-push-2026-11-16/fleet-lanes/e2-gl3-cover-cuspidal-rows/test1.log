@@ -1,0 +1,41 @@
+PLAN: theta counts to NMAX=1000000: per z-slab array <= (2*Bx+1)*(2*By+1) int64; printed below; AFE: sum_d 15|d| terms
+  form (4, 11, 12, 0, 4, 0) box 523 302 302 slab bytes 5067480
+  form (3, 15, 15, -14, -2, -2) box 604 302 302 slab bytes 5851560
+g = sum c(n) q^n, first terms: [(3, 1), (4, -1), (11, -1), (12, -1), (15, 1), (16, 2), (20, 1), (23, -1), (27, -1), (31, -1)]
+plus-space support (c(n)=0 for n=1,2 mod 4): holds to 1000000  time 1.2s
+a_n(11a): [1, -2, -1, 2, 1, 2, -2, 0, -2, -2, 1, -2, 4]  (expect 1,-2,-1,2,1,2,-2,0,-2,-2,1,-2,4)
+AFE PLAN: 5575 fundamental d, |d|<=10000, 11 not | d; total terms 418126185 (float64), chi tables sum|d| = 27875079 python Kronecker calls
+L(E,1) = 0.2538418608559467 (reference 0.2538418608559...)  time 9.6s
+Waldspurger check, d<0, w=+1: n=1264, ratio L sqrt|d|/c^2: min 2.917633233861 max 2.917633233897 ; c(|d|)=0 with L=0 numerically: 123 ; w=-1: c(|d|)=0 in 1401 of 1401
+negative central values: 0 of 5575 (min -2.306e-13)
+family: 139325 discriminants -D, D<=1000000, chi_{-D}(11)=-1; c(D)=0 for 7677; mean c~^2 = 0.4234; mean c~ = -0.00010
+D<=  10000 (n=  1387, 27 columns m): z-scores max|z| / rms : c~ vs mu*chi 2.69/1.13 | c~ vs chi 0.90/0.30 | sign(c) vs mu*chi 1.82/0.86 | L-value vs mu*chi 3.02/1.20 | random signs 2.58/1.33
+     correlation coefficient of c~(D) with mu(D) (m=1): 0.04311 ; 1/sqrt(n) = 0.02685
+D<= 100000 (n= 13930, 27 columns m): z-scores max|z| / rms : c~ vs mu*chi 2.46/1.21 | c~ vs chi 0.49/0.20 | sign(c) vs mu*chi 2.40/1.01 | L-value vs mu*chi 2.31/1.02 | random signs 1.39/0.73
+     correlation coefficient of c~(D) with mu(D) (m=1): -0.01816 ; 1/sqrt(n) = 0.00847
+D<=1000000 (n=139325,  6 columns m): z-scores max|z| / rms : c~ vs mu*chi 1.29/0.81 | c~ vs chi 0.12/0.07 | sign(c) vs mu*chi 1.47/0.72 | L-value vs mu*chi 2.22/1.12 | random signs 1.30/0.81
+     correlation coefficient of c~(D) with mu(D) (m=1): -0.00034 ; 1/sqrt(n) = 0.00268
+D0=  3 c(D0)=  1 primes p (D0 p<=NMAX, -D0 p fundamental):  14286 ; corr of c~(D0 p) with chi_{-D0}(p): -0.0030 ; with 1: -0.0018 ; null 1/sqrt(n) 0.0084 ; nonzero fraction 0.486 (absorption needs -1)
+D0=  4 c(D0)= -1 primes p (D0 p<=NMAX, -D0 p fundamental):  10996 ; corr of c~(D0 p) with chi_{-D0}(p): +0.0067 ; with 1: +0.0067 ; null 1/sqrt(n) 0.0095 ; nonzero fraction 0.486 (absorption needs -1)
+D0= 15 c(D0)=  1 primes p (D0 p<=NMAX, -D0 p fundamental):   3310 ; corr of c~(D0 p) with chi_{-D0}(p): +0.0080 ; with 1: +0.0112 ; null 1/sqrt(n) 0.0174 ; nonzero fraction 0.476 (absorption needs -1)
+D0= 20 c(D0)=  1 primes p (D0 p<=NMAX, -D0 p fundamental):   2548 ; corr of c~(D0 p) with chi_{-D0}(p): +0.0062 ; with 1: -0.0124 ; null 1/sqrt(n) 0.0198 ; nonzero fraction 0.478 (absorption needs -1)
+D0= 23 c(D0)= -1 primes p (D0 p<=NMAX, -D0 p fundamental):   2246 ; corr of c~(D0 p) with chi_{-D0}(p): -0.0104 ; with 1: +0.0045 ; null 1/sqrt(n) 0.0211 ; nonzero fraction 0.480 (absorption needs -1)
+D0= 31 c(D0)= -1 primes p (D0 p<=NMAX, -D0 p fundamental):   1719 ; corr of c~(D0 p) with chi_{-D0}(p): -0.0251 ; with 1: +0.0149 ; null 1/sqrt(n) 0.0241 ; nonzero fraction 0.475 (absorption needs -1)
+D0= 56 c(D0)=  2 primes p (D0 p<=NMAX, -D0 p fundamental):   2044 ; corr of c~(D0 p) with chi_{-D0}(p): +0.0298 ; with 1: -0.0150 ; null 1/sqrt(n) 0.0221 ; nonzero fraction 0.476 (absorption needs -1)
+D0= 59 c(D0)= -1 primes p (D0 p<=NMAX, -D0 p fundamental):    965 ; corr of c~(D0 p) with chi_{-D0}(p): -0.0386 ; with 1: +0.0325 ; null 1/sqrt(n) 0.0322 ; nonzero fraction 0.481 (absorption needs -1)
+D0= 67 c(D0)=  3 primes p (D0 p<=NMAX, -D0 p fundamental):    863 ; corr of c~(D0 p) with chi_{-D0}(p): -0.0016 ; with 1: +0.0066 ; null 1/sqrt(n) 0.0340 ; nonzero fraction 0.475 (absorption needs -1)
+D0= 71 c(D0)=  1 primes p (D0 p<=NMAX, -D0 p fundamental):    823 ; corr of c~(D0 p) with chi_{-D0}(p): +0.0181 ; with 1: +0.0093 ; null 1/sqrt(n) 0.0349 ; nonzero fraction 0.479 (absorption needs -1)
+Gram PLAN: product-index matrix 187 x 744 float64 = 1.1 MB
+  product-index rows c~(dm), (d,m)=1             rows  187 cols  744 sv 1.404 1.383 1.369 1.359  sv1^2/rows 0.0105  off rms/max 0.032/0.278  pairs>0.5 0
+  control: random signs eps_n |c~(n)| at n=dm    rows  187 cols  744 sv 1.471 1.469 1.467 1.452  sv1^2/rows 0.0116  off rms/max 0.037/0.327  pairs>0.5 0
+  control: |c~(dm)| (signs removed)              rows  187 cols  744 sv 4.911 4.902 4.812 4.653  sv1^2/rows 0.1290  off rms/max 0.245/0.736  pairs>0.5 1729
+  c~(dm) times symbol (D_d/m)                    rows  187 cols  744 sv 1.469 1.455 1.442 1.423  sv1^2/rows 0.0115  off rms/max 0.036/0.338  pairs>0.5 0
+  c~(dm) mu(m) (column signs; Gram identical)    rows  187 cols  744 sv 1.404 1.383 1.369 1.359  sv1^2/rows 0.0105  off rms/max 0.032/0.278  pairs>0.5 0
+  random signs                                   rows  187 cols  744 sv 1.484 1.471 1.465 1.455  sv1^2/rows 0.0118  off rms/max 0.037/0.153  pairs>0.5 0
+Gram PLAN: symbol matrix 741 x 2000 float64 = 11.9 MB
+  symbol table chi_d(m)                          rows  741 cols 2000 sv 3.651 2.729 2.545 2.388  sv1^2/rows 0.0180  off rms/max 0.033/0.263  pairs>0.5 0
+  L(1/2,E x chi_d) chi_d(m) (row scaling; same after normalisation) rows  741 cols 2000 sv 3.651 2.729 2.545 2.388  sv1^2/rows 0.0180  off rms/max 0.033/0.263  pairs>0.5 0
+  lambda_E(m) chi_d(m) (coefficients of L(s,E x chi_d)) rows  741 cols 2000 sv 3.198 2.919 2.599 2.513  sv1^2/rows 0.0138  off rms/max 0.048/0.377  pairs>0.5 0
+  control: |lambda_E(m)| chi_d(m)                rows  741 cols 2000 sv 3.198 2.919 2.599 2.513  sv1^2/rows 0.0138  off rms/max 0.048/0.377  pairs>0.5 0
+AFE central values, 2778 fundamental d (both signs, w=+1, |d|<=10000): z-scores of sum_d (L_d - mean) mu(d) chi_d(m), 27 columns: max|z| 2.62 rms 1.17; mean L 1.3532
+done, total time 11.3s

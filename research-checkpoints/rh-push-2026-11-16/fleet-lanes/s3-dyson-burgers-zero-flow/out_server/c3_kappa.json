@@ -1,0 +1,37 @@
+{
+ "random real n=300": {
+  "n": 300,
+  "max_abs_kappa_minus_2_exact_velocity": 2.4670035595129207e-14,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 1.1668298331792017e-05
+ },
+ "random complex n=300": {
+  "n": 300,
+  "max_abs_kappa_minus_2_exact_velocity": 4.7157173599029154e-15,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 2.6445519804863117e-08
+ },
+ "zeta zeros to 2000": {
+  "n": 1517,
+  "max_abs_kappa_minus_2_exact_velocity": 3.2583398928454576e-15,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 1.1951788376889926e-07
+ },
+ "DH full set to 2000": {
+  "n": 2029,
+  "max_abs_kappa_minus_2_exact_velocity": 1.8327098499055555e-14,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 2.443015640186437e-05
+ },
+ "HEAT -0.5 full set": {
+  "n": 1483,
+  "max_abs_kappa_minus_2_exact_velocity": 6.380145871794864e-15,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 2.3745298372468096e-07
+ },
+ "TNR full set": {
+  "n": 2217,
+  "max_abs_kappa_minus_2_exact_velocity": 1.7036217337211387e-15,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 1.1723073053731497e-07
+ },
+ "uniform lattice n=400": {
+  "n": 400,
+  "max_abs_kappa_minus_2_exact_velocity": 1.177982271126152e-13,
+  "max_abs_kappa_minus_2_finite_difference_of_flow": 2.4102239474352013e-06
+ }
+}

@@ -1,0 +1,8 @@
+GPU True
+  planned: band storage 55 x 3200 complex128 = 0.00 GB
+zeta         N=  3200  max split 0.00e+00  C N^2 270.511289  C/Cpred 0.997308  ladder resid 4.15e-05  ratios L3/L2 2.666684 L4/L2 5.000078 (8/3, 5)  4s
+  planned: band storage 55 x 6400 complex128 = 0.01 GB
+zeta         N=  6400  max split 0.00e+00  C N^2 270.958453  C/Cpred 0.998645  ladder resid 1.04e-05  ratios L3/L2 2.666671 L4/L2 5.000020 (8/3, 5)  14s
+  planned: band storage 55 x 20000 complex128 = 0.02 GB
+zeta         N= 20000  max split 0.00e+00  C N^2 271.263661  C/Cpred 0.999557  ladder resid 1.07e-06  ratios L3/L2 2.666667 L4/L2 5.000002 (8/3, 5)  290s
+DONE_BAND

@@ -1,0 +1,39 @@
+{
+ "slug": "c11-repair-del-referee-record",
+ "round": 11,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "control",
+  "thin-deletion",
+  "statement-o",
+  "referee",
+  "map",
+  "engine"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; no attack; nothing about zeros of zeta. The thin prime deletion control DEL_b (greedy deletion with counting function L(x) = int_2^x t^(b-1) dt/log t) has Lambda_F >= 0 and F = zeta(s)(s-b)W(s) on Re s > max(b-eta, b/2) with W zero-free, hence a simple real zero at b for every b in (1/2,1). This holds relative to a short-interval prime theorem (Huxley 1972 asymptotic for theta > 7/12; primary text not opened by anyone), with the orientation remark repaired as in E1. At half density the factor is (s-b)^(1/2), a branch point. The upper bound D <= 0, the tail bound and the Tier 0 bounds are unconditional; the Tier E width is relative to the explicit pi(x) - li(x) bounds. Float64 cases b = 0.6, 0.85 (lane) and b = 0.7 (this referee) agree: not zero, not zeta, exponent 1 at density one and 1/2 at half density. Statement O v3 exists as a separate file with the c9 file unchanged; the map (180 to 182 rows) and engine counts (1,649 nodes, 14,980 scored) match the files.",
+ "obstruction": "Record lane, no attack. DEL_b: Lambda_F >= 0 and a simple real zero at b in (1/2,1), relative to a short-interval prime theorem (Huxley 1972; primary text not opened). Tier E enclosure width depends on the explicit pi - li bound used (4% against a factor 73 to 165). Statement O v3 is a separate file; the c9 file is unchanged pending an independent reader. Map 180 to 182 rows.",
+ "obstructionKind": "record: control confirmed relative to a cited theorem",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED/CONFIRMED step failed. Independent report written to push/c11-repair-del-referee-record/REFEREE.md (the author's own check is kept verbatim in its appendix). E1 (wording error in REFEREE2.md \"Orientation remark\", repairable, result unchanged): placing (x - x^theta_1, x] inside (y, y + y^theta] gives a count of order y^theta_1 in an interval of length y^theta. That is not S(theta) as stated, nor S(theta_1). Repair: - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A control proved relative to a classical theorem can get its second referee file, but its label stays \"relative to\" until the primary text is opened. A numerical enclosure resting on an explicit bound must name the bound: swapping Trudgian's for the Fiori-Kadiri-Swidinsky form widens the DEL Tier E interval from about 4% to a factor 73 to 165.",
+ "followUp": "Independent reader for REFEREE2.md and STATEMENT_O_v3.md before the c9 Statement O file is replaced (the same lane wrote both). Learn step: close the three round-11 explore devices once refereed, write their map rows, and decide the P36 cell for DEL.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-repair-del-referee-record/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-repair-del-referee-record/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

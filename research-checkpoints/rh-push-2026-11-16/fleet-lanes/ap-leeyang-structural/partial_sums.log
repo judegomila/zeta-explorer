@@ -1,0 +1,19 @@
+  planned contour evaluations: 41400
+N=1  zeros in box (winding)=79.0000  max phase step=0.040  sign changes on line=79  off-line zeros=0
+  planned contour evaluations: 41400
+N=2  zeros in box (winding)=81.0000  max phase step=0.017  sign changes on line=79  off-line zeros=2
+  planned contour evaluations: 41400
+N=3  zeros in box (winding)=83.0000  max phase step=0.017  sign changes on line=71  off-line zeros=12
+  planned contour evaluations: 41400
+N=4  zeros in box (winding)=85.0000  max phase step=0.017  sign changes on line=71  off-line zeros=14
+  planned contour evaluations: 41400
+N=5  zeros in box (winding)=87.0000  max phase step=0.021  sign changes on line=67  off-line zeros=20
+  planned contour evaluations: 41400
+N=10  zeros in box (winding)=95.0000  max phase step=0.025  sign changes on line=57  off-line zeros=38
+off-line zeros for N=3 (Re s > 1/2), t < 200:
+ count: 5
+   (0.680125912636 + 3.43740545745j)
+   (1.40317016168 + 31.8003442424j)
+   (0.833384749745 + 48.8821050739j)
+   (0.994259770389 + 140.450518207j)
+   (0.811445852351 + 168.039110713j)

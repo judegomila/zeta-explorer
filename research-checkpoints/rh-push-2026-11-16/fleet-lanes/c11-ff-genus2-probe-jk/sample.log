@@ -1,0 +1,5 @@
+== q=7 deg F=7 genus=3 curves=6000 strata r: 0: 1306 pts / 2296 curves, 1: 902 pts / 2393 curves, 2: 390 pts / 1036 curves, 3: 103 pts / 237 curves, 4: 23 pts / 36 curves, 5: 2 pts / 2 curves
+   r=0: pts=1306 curves=2296 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 2/2, free pts 1304) | linear in t_0..t_N: holds 20 (free pts 1304; off-fit pts min 0 max 0) | S^2 in span t_0..t_2N: holds 0 (free pts 1303) | S in span t_0..t_2N: holds 20
+   inequality where linear: vector-strata=120 curve-cases=120000 S^2<=H: 120000 S^2>H: 0 -D.D<0: 0 rho in [0.000000, 0.666667] rho=1: 0 (all s_m equal: 0) vector-strata with constant S^2/E: 0
+   r=0: pts=1306 curves=2296 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 4/4, free pts 1302) | linear in t_0..t_N: holds 0 (free pts 1303; off-fit pts min 1215 max 1215) | S^2 in span t_0..t_2N: holds 0 (free pts 1301) | S in span t_0..t_2N: holds 0
+   r=0: pts=1306 curves=2296 nonzero vectors=20/20 | poly lemma: holds 20 (mono rank 7/7, free pts 1299) | linear in t_0..t_N: holds 0 (free pts 1302; off-fit pts min 1297 max 1297) | S^2 in span t_0..t_2N: holds 0 (free pts 1299) | S in span t_0..t_2N: holds 0

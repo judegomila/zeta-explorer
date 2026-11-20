@@ -1,0 +1,6 @@
+Kmin=3125 order 6 n=33: none: a=1.157 rms=12.48% | theta: a=0.525 b=0.5765 rms=4.28% | bgl: a=0.901 b=0.0950 rms=5.99% | free: p=0.850 q=0.450 a=0.789 b=0.1280 rms=2.25%
+Kmin=3125 order 3 n=33: none: a=1.745 rms=33.49% | theta: a=-0.642 b=2.3131 rms=22.01% | bgl: a=0.428 b=0.6104 rms=2.58% | free: p=0.675 q=0.700 a=0.584 b=0.4018 rms=2.01%
+Kmin=3125 order 2 n=33: none: a=0.894 rms=13.33% | theta: a=0.600 b=0.2634 rms=11.16% | bgl: a=0.934 b=-0.0131 rms=13.16% | free: p=0.975 q=0.100 a=0.464 b=0.5814 rms=2.12%
+Kmin=12500 order 6 n=23: none: a=1.236 rms=10.32% | theta: a=0.512 b=0.5874 rms=3.98% | bgl: a=0.991 b=0.0761 rms=5.62% | free: p=0.875 q=0.450 a=0.842 b=0.0894 rms=2.11%
+Kmin=12500 order 3 n=23: none: a=2.051 rms=31.87% | theta: a=-1.282 b=2.8196 rms=22.23% | bgl: a=0.481 b=0.5991 rms=1.70% | free: p=0.675 q=0.700 a=0.638 b=0.3918 rms=1.07%
+Kmin=12500 order 2 n=23: none: a=0.927 rms=13.29% | theta: a=0.602 b=0.2607 rms=11.90% | bgl: a=1.053 b=-0.0345 rms=12.12% | free: p=1.000 q=0.100 a=0.467 b=0.4529 rms=1.42%

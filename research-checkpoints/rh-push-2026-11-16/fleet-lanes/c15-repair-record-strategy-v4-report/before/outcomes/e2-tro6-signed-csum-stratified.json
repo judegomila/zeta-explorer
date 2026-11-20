@@ -1,0 +1,66 @@
+{
+ "slug": "e2-tro6-signed-csum-stratified",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism: TRO6-natural keeping the sign of beta_c",
+ "nodes": [
+  "map-open-4",
+  "map-pos-30"
+ ],
+ "launchedNodes": [
+  "map-open-4",
+  "tro6-natural",
+  "map-pos-30",
+  "map-pos-31",
+  "probe-equals-theta-row-form",
+  "sextic-theta-numerics"
+ ],
+ "rowsChecked": [
+  "Z15",
+  "Z16",
+  "N14"
+ ],
+ "tags": [
+  "seven-eighths",
+  "tro6-natural",
+  "squarefull-stratification",
+  "polar-term",
+  "dual-term-correlation"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "No eta > 0 proved or measured; 7/8 unchanged. (1) Lemma S (exact, independently re-verified): chi_c(m) = chi_c(u m1) xi_k(c), xi_k periodic in primary c modulo 4 rad(k*); the long row sum stays sextic. Proposition S2 holds from its hypotheses ((T_tau) measured only). The squarefree stratum holds about 94% of both l2 norms; non-squarefree strata are 4-6% of the Cauchy-Schwarz bound. (2) After polar removal no excess of rho-hat over random-phase rows is resolved in any stratum (sensitivity 0.01-0.04 in the exponent); the optimiser finds the polar term (+0.53), uniform across strata. (3) A reproducible correlation, excess R^2 about 0.25 over the permutation null and flat in Q, between the non-polar remainder times conj gamma_1(c) and theta estimators at index lambda c. Not a Voronoi formula; gives no bound.",
+ "obstruction": "Stratification by squarefull part only twists the conductor weights by a bounded-conductor character and cannot change an exponent (leg (b) closed as a route; inter-stratum cancellation not excluded). The row-sensitive statistic sees only the polar term. Form (a) (signed c-sum with a power saving, i.e. TRO6 natural) stays open: the measured correlation with theta estimators at index lambda*c is not separated from the shared Gauss-sum table (random-coefficient control not run) and is not a Voronoi formula. Function-field control not run.",
+ "obstructionKind": "no-saving-per-stratum",
+ "controlsThatDefeat": [
+  "random-phase rows: equal exponent after polar removal in every stratum",
+  "not run: random-coefficient control for the dual-term correlation; function-field control"
+ ],
+ "lesson": "The squarefree stratum is the whole problem. Scan all 216 S-unit shifts before calling a dual-term null (the term sits at index lambda*c, not -e0*c). Next step if continued: random-coefficient control for the lambda*c correlation.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.25,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "housekeeping": "15 GB left in ~/rh-push/e2-tro6-signed-csum-stratified/out on the server and 1.1 GB locally (gitignored); a local rm was refused by the safety check and not retried. Needs user action or an explicit cleanup assignment.",
+ "newNodes": [
+  {
+   "id": "tro6-dual-term-lambda-c-correlation",
+   "type": "measured-phenomenon",
+   "status": "measured",
+   "statement": "Non-polar remainder times conj gamma_1(c) correlates with theta estimators at index lambda*c: excess R^2 about 0.25 over permutation null, flat in Q (3750..10607). Origin (theta coefficients vs shared Gauss-sum table) not separated."
+  },
+  {
+   "id": "tro6-lemma-s-squarefull-twist",
+   "type": "identity",
+   "status": "proved",
+   "statement": "chi_c(u m1 m2^2 ... t^6) = chi_c(u m1) xi_k(c), xi_k of bounded conductor; row sum stays sextic."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-tro6-signed-csum-stratified/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-tro6-signed-csum-stratified/REFEREE.md"
+}

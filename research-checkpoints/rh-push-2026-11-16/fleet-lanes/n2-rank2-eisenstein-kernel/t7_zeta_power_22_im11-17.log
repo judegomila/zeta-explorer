@@ -1,0 +1,13 @@
+nodes 22, dps 110, Im range (11.0, 17.0); planned matrices 22x22 mpc (< 1 MB)
+zeta                                                 | T=0.0: R1 min 6.6e-79 (#neg 0) R2 min 3.8e-7 (#neg 0) smallest|ev2| 3.8e-7 | T=0.1: R1 min 2.3e-74 (#neg 0) R2 min 5.0e-6 (#neg 0) smallest|ev2| 5.0e-6  [2s]
+zeta * pair 0.3 +- i g1 (not FE-sym)                 | T=0.0: R1 min 3.9e-74 (#neg 0) R2 min -0.005 (#neg 2) smallest|ev2| 4.0e-5 | T=0.1: R1 min 7.9e-70 (#neg 0) R2 min 0.00035 (#neg 0) smallest|ev2| 0.00035  [2s]
+zeta * pair 0.3 +- 2i (not FE-sym)                   | T=0.0: R1 min 4.1e-75 (#neg 0) R2 min 8.9e-5 (#neg 0) smallest|ev2| 8.9e-5 | T=0.1: R1 min 8.0e-71 (#neg 0) R2 min 0.0002 (#neg 0) smallest|ev2| 0.0002  [2s]
+zeta * pair 0.7 +- 2i (not FE-sym, Re>1/2)           | T=0.0: R1 min 4.0e-75 (#neg 0) R2 min 0.00011 (#neg 0) smallest|ev2| 0.00011 | T=0.1: R1 min 7.8e-71 (#neg 0) R2 min 0.00023 (#neg 0) smallest|ev2| 0.00023  [2s]
+zeta * quad(0.3, 2) (FE-sym, off-line)               | T=0.0: R1 min 1.7e-71 (#neg 0) R2 min 0.00013 (#neg 0) smallest|ev2| 0.00013 | T=0.1: R1 min 2.1e-67 (#neg 0) R2 min 0.00025 (#neg 0) smallest|ev2| 0.00025  [2s]
+zeta * quad(0.3, g1) (FE-sym, off-line)              | T=0.0: R1 min 9.9e-70 (#neg 0) R2 min 0.0011 (#neg 0) smallest|ev2| 0.0011 | T=0.1: R1 min 1.3e-65 (#neg 0) R2 min 0.0027 (#neg 0) smallest|ev2| 0.0027  [2s]
+zeta: pair g1 -> quad(0.3, g1) (FE-sym, off-line)    | T=0.0: R1 min 3.2e-74 (#neg 0) R2 min 0.00012 (#neg 0) smallest|ev2| 0.00012 | T=0.1: R1 min 6.6e-70 (#neg 0) R2 min 0.00076 (#neg 0) smallest|ev2| 0.00076  [2s]
+zeta: pair g1 -> quad(0.45, g1)                      | T=0.0: R1 min 3.3e-74 (#neg 0) R2 min 8.5e-5 (#neg 0) smallest|ev2| 8.5e-5 | T=0.1: R1 min 6.8e-70 (#neg 0) R2 min 0.00053 (#neg 0) smallest|ev2| 0.00053  [2s]
+zeta: pairs g1,g2 -> quad(0.3,(g1+g2)/2)             | T=0.0: R1 min 5.9e-79 (#neg 0) R2 min 9.0e-8 (#neg 0) smallest|ev2| 9.0e-8 | T=0.1: R1 min 1.6e-74 (#neg 0) R2 min 2.7e-6 (#neg 0) smallest|ev2| 2.7e-6  [2s]
+zeta: pair g1 -> pair at 16 (on-line)                | T=0.0: R1 min 3.4e-79 (#neg 0) R2 min 9.0e-8 (#neg 0) smallest|ev2| 9.0e-8 | T=0.1: R1 min 9.3e-75 (#neg 0) R2 min 2.2e-6 (#neg 0) smallest|ev2| 2.2e-6  [2s]
+zeta * real pair 0.2, 0.8 (FE-sym)                   | T=0.0: R1 min 3.9e-75 (#neg 0) R2 min 4.6e-5 (#neg 0) smallest|ev2| 4.6e-5 | T=0.1: R1 min 7.6e-71 (#neg 0) R2 min 0.00015 (#neg 0) smallest|ev2| 0.00015  [2s]
+zeta * zero at 1/2 (root number -1)                  | T=0.0: R1 min 3.9e-75 (#neg 0) R2 min 6.7e-5 (#neg 0) smallest|ev2| 6.7e-5 | T=0.1: R1 min 7.7e-71 (#neg 0) R2 min 0.00016 (#neg 0) smallest|ev2| 0.00016  [2s]

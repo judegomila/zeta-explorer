@@ -1,0 +1,41 @@
+15:02:29 mp extrema below 1000: 243, max shift/gap 7.205e-02
+15:02:29 tnr101 cos N=128: zeros 10000040, near-collisions 3864834, heights 24.38 .. 4992398.30, dim 128
+15:02:29   N=128 K=32 T=213.83 rho in [0.321891, 0.321891] feasible passes 0 support 20
+15:02:29   N=128 K=46 T=278.93 rho in [0.291144, 0.291144] feasible passes 1 support 17
+15:02:29   N=128 K=66 T=369.24 rho in [0.284433, 0.284433] feasible passes 2 support 19
+15:02:29   N=128 K=94 T=486.04 rho in [0.235356, 0.235356] feasible passes 2 support 25
+15:02:29   N=128 K=133 T=622.10 rho in [0.169011, 0.169011] feasible passes 3 support 31
+15:02:29   N=128 K=189 T=822.05 rho in [0.134879, 0.134879] feasible passes 2 support 38
+15:02:29   N=128 K=268 T=1071.80 rho in [0.102947, 0.102947] feasible passes 3 support 50
+15:02:29   N=128 K=380 T=1422.32 rho in [0.079914, 0.079914] feasible passes 3 support 62
+15:02:29   N=128 K=538 T=1880.31 rho in [0.065371, 0.065371] feasible passes 3 support 72
+15:02:29   N=128 K=761 T=2484.72 rho in [0.052786, 0.052786] feasible passes 4 support 83
+15:02:29   N=128 K=1077 T=3312.59 rho in [0.042337, 0.042337] feasible passes 6 support 100
+15:02:29   N=128 K=1524 T=4463.89 rho in [0.034805, 0.034805] feasible passes 5 support 104
+15:02:29   N=128 K=2156 T=6014.92 rho in [0.026061, 0.026061] feasible passes 5 support 105
+15:02:29   N=128 K=3050 T=8064.65 rho in [0.017514, 0.017514] feasible passes 5 support 105
+15:02:29   N=128 K=4314 T=10909.58 rho in [0.011320, 0.011320] feasible passes 7 support 121
+15:02:30   N=128 K=6101 T=14779.55 rho in [0.004797, 0.004797] feasible passes 7 support 122
+15:02:30   N=128 K=8629 T=20004.89 rho in [0.000000, 0.000000] infeasible passes 3 support 307
+15:02:30 ONSET tnr101 cos N=128: K0=8617 T0=19975.896  T0/(2 pi N^2/q)=0.1940  rho just before 5.711e-05  certificate support 129
+15:02:30 tnr101 cos N=256: zeros 10000040, near-collisions 3864834, heights 24.38 .. 4992398.30, dim 256
+15:02:30   N=256 K=64 T=357.76 rho in [0.291370, 0.291370] feasible passes 0 support 23
+15:02:30   N=256 K=91 T=478.25 rho in [0.240484, 0.240484] feasible passes 2 support 31
+15:02:30   N=256 K=129 T=614.05 rho in [0.176007, 0.176007] feasible passes 2 support 34
+15:02:30   N=256 K=183 T=805.66 rho in [0.144439, 0.144439] feasible passes 2 support 45
+15:02:30   N=256 K=259 T=1044.65 rho in [0.111940, 0.111940] feasible passes 3 support 57
+15:02:30   N=256 K=367 T=1376.01 rho in [0.091615, 0.091615] feasible passes 3 support 74
+15:02:30   N=256 K=520 T=1828.42 rho in [0.074607, 0.074607] feasible passes 3 support 98
+15:02:30   N=256 K=736 T=2406.61 rho in [0.060258, 0.060258] feasible passes 3 support 116
+15:02:30   N=256 K=1041 T=3227.43 rho in [0.049060, 0.049060] feasible passes 4 support 151
+15:02:30   N=256 K=1473 T=4337.32 rho in [0.041313, 0.041313] feasible passes 4 support 163
+15:02:30   N=256 K=2084 T=5841.99 rho in [0.033940, 0.033940] feasible passes 5 support 176
+15:02:31   N=256 K=2948 T=7832.48 rho in [0.028700, 0.028700] feasible passes 5 support 193
+15:02:31   N=256 K=4170 T=10577.12 rho in [0.022650, 0.022650] feasible passes 5 support 191
+15:02:31   N=256 K=5898 T=14356.13 rho in [0.019119, 0.019119] feasible passes 6 support 229
+15:02:31   N=256 K=8342 T=19436.40 rho in [0.014534, 0.014534] feasible passes 7 support 227
+15:02:32   N=256 K=11798 T=26290.33 rho in [0.010375, 0.010375] feasible passes 8 support 232
+15:02:32   N=256 K=16685 T=35781.13 rho in [0.006707, 0.006707] feasible passes 8 support 237
+15:02:33   N=256 K=23597 T=48560.12 rho in [0.003177, 0.003177] feasible passes 10 support 247
+15:02:33   N=256 K=33372 T=66105.24 rho in [0.000000, 0.000000] infeasible passes 5 support 555
+15:02:38 ONSET tnr101 cos N=256: K0=30533 T0=61043.466  T0/(2 pi N^2/q)=0.1482  rho just before 3.410e-05  certificate support 257

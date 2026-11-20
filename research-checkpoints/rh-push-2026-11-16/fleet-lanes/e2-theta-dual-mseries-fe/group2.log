@@ -1,0 +1,15 @@
+g = Th3 K6m Th3 = [['-5', '0', '-3'], ['2', '1', '1'], ['8', '0', '5']]  g^2 = I: True
+X o g = ['3', '0', '2']  (X + 2T + V: x' = x + (2t + v - 1/2) = 3x + z - 3/2 in high coordinates)
+orders: K6m*K6 (dual chart): 3   Th3*K6m: None   K6*Th3: 2   g*K6: 3   g*AW: None   g*Pm: None
+trace of Th3*K6m = 5 (a rank-2 block with trace 4 > 2: hyperbolic, infinite order)
+W_D = <K6, Th3, g>: new elements by word length 0..12: [1, 3, 5, 7, 9, 12, 16, 21, 28, 37, 49, 65, 86]  total 339
+pieces with a negative coefficient of X: 0 ; smallest inf x over the 339 pieces: (Fraction(3, 2), '')
+number of pieces by inf x (smallest values): [('3/2', 2), ('2', 4), ('3', 6), ('7/2', 2), ('4', 2), ('5', 2), ('11/2', 4), ('15/2', 2)]
+theta =                      1: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 1) -> hull x_min = 1
+theta =                    7/8: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 7/8) -> hull x_min = 7/8
+theta =   874886647/1000000000: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 874886647/1000000000) -> hull x_min = 874886647/1000000000
+theta =                  13/15: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 13/15) -> hull x_min = 13/15
+theta =                    5/6: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 5/6) -> hull x_min = 5/6
+theta =                    1/2: inf x over all pieces (W_D pieces: 3/2; <K6,Pm> absolute pieces: 1; high chart with input: 1/2) -> hull x_min = 1/2
+X o g - X = ['2', '0', '1'] = 2T + V  (high coordinates: 2x + z - 3/2)
+X o K6 o AW = ['1', '0', '0'] ; on Th3(R_+) the coordinate T is < -1/2 and unbounded below

@@ -1,0 +1,243 @@
+{
+ "ZETA": [
+  {
+   "N_online": 100,
+   "N_full": 100,
+   "y_N": 0.25066282746310004,
+   "g_min": 0.7157867153793234,
+   "C_a_full": 0.5276523415950551,
+   "C_a_online_only": 0.5276523415950551,
+   "C_a_pair_formula": 1.9595557353024278,
+   "max_offline_b": 0.0,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  },
+  {
+   "N_online": 300,
+   "N_full": 300,
+   "y_N": 0.14472025091165353,
+   "g_min": 0.4182238710669708,
+   "C_a_full": 0.6536164560965118,
+   "C_a_online_only": 0.6536164560965118,
+   "C_a_pair_formula": 2.518061379759989,
+   "max_offline_b": 0.0,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  },
+  {
+   "N_online": 1000,
+   "N_full": 1000,
+   "y_N": 0.07926654595212022,
+   "g_min": 0.161500788964986,
+   "C_a_full": 0.10323485944403495,
+   "C_a_online_only": 0.10323485944403495,
+   "C_a_pair_formula": 6.84503371655652,
+   "max_offline_b": 0.0,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  },
+  {
+   "N_online": 1517,
+   "N_full": 1517,
+   "y_N": 0.06435720042588557,
+   "g_min": 0.09750250170668551,
+   "C_a_full": 1.3343199134681563,
+   "C_a_online_only": 1.3343199134681563,
+   "C_a_pair_formula": 13.738970304398661,
+   "max_offline_b": 0.0,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  }
+ ],
+ "DH": [
+  {
+   "N_online": 100,
+   "N_full": 106,
+   "y_N": 0.24346526053340725,
+   "g_min": 0.5082566286200461,
+   "C_a_full": 0.21646751583545626,
+   "C_a_online_only": 0.21539314856863273,
+   "C_a_pair_formula": 3.7203122016103,
+   "max_offline_b": 0.3085171824566374,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 300,
+   "N_full": 318,
+   "y_N": 0.14056473370728506,
+   "g_min": 0.3002478466846128,
+   "C_a_full": 0.25387906107466524,
+   "C_a_online_only": 0.25364399151541256,
+   "C_a_pair_formula": 4.676756359137363,
+   "max_offline_b": 0.36953057964064306,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 1000,
+   "N_full": 1068,
+   "y_N": 0.07670157958017061,
+   "g_min": 0.054837350785760464,
+   "C_a_full": 4.916483075741918,
+   "C_a_online_only": 4.916898358503683,
+   "C_a_pair_formula": 56.51236952771668,
+   "max_offline_b": 0.36953057964064306,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 1861,
+   "N_full": 2029,
+   "y_N": 0.05564791675633202,
+   "g_min": 0.010481373197990251,
+   "C_a_full": 8.2156440303013,
+   "C_a_online_only": 8.215845980990197,
+   "C_a_pair_formula": 955.9319641179495,
+   "max_offline_b": 0.36953057964064306,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  }
+ ],
+ "HEAT--0.1": [
+  {
+   "N_online": 100,
+   "N_full": 100,
+   "y_N": 0.25066282746310004,
+   "g_min": 0.5848261259210972,
+   "C_a_full": 0.3377475391522641,
+   "C_a_online_only": 0.3377475391522641,
+   "C_a_pair_formula": 2.935427490015844,
+   "max_offline_b": 0.0,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  },
+  {
+   "N_online": 300,
+   "N_full": 304,
+   "y_N": 0.14376499129129275,
+   "g_min": 0.2474830200723659,
+   "C_a_full": 0.4063779643803666,
+   "C_a_online_only": 0.40645313438227654,
+   "C_a_pair_formula": 7.11998184543634,
+   "max_offline_b": 0.06091524183124322,
+   "sup_over_Im_z_ge_y": "finite",
+   "in_band": false
+  },
+  {
+   "N_online": 1000,
+   "N_full": 1038,
+   "y_N": 0.07780208889109909,
+   "g_min": 0.02159593122064507,
+   "C_a_full": 6.740822490859901,
+   "C_a_online_only": 6.741208133799219,
+   "C_a_pair_formula": 372.2485389324274,
+   "max_offline_b": 0.21660711433836372,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 1435,
+   "N_full": 1517,
+   "y_N": 0.06435720042588557,
+   "g_min": 0.01696777628808377,
+   "C_a_full": 7.441247704676223,
+   "C_a_online_only": 7.441366831618916,
+   "C_a_pair_formula": 453.66559387763573,
+   "max_offline_b": 0.2256105296700814,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  }
+ ],
+ "HEAT--0.5": [
+  {
+   "N_online": 100,
+   "N_full": 112,
+   "y_N": 0.23685410871273366,
+   "g_min": 0.3240698984171786,
+   "C_a_full": 0.9557686437380011,
+   "C_a_online_only": 0.9791835312941968,
+   "C_a_pair_formula": 8.780797976465816,
+   "max_offline_b": 0.3432578707879291,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 300,
+   "N_full": 372,
+   "y_N": 0.1299626218718909,
+   "g_min": 0.08950988070728272,
+   "C_a_full": 3.8651055213701153,
+   "C_a_online_only": 3.8687959702949235,
+   "C_a_pair_formula": 46.781670603860455,
+   "max_offline_b": 0.537677203281555,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 929,
+   "N_full": 1517,
+   "y_N": 0.06435720042588557,
+   "g_min": 0.08950988070728272,
+   "C_a_full": 1.8345227781037958,
+   "C_a_online_only": 1.8358272765630235,
+   "C_a_pair_formula": 16.302107250636382,
+   "max_offline_b": 0.6705559717470773,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  }
+ ],
+ "TNR": [
+  {
+   "N_online": 100,
+   "N_full": 182,
+   "y_N": 0.1858036495693624,
+   "g_min": 0.7157867153793234,
+   "C_a_full": 0.7449895005615187,
+   "C_a_online_only": 0.617306462823661,
+   "C_a_pair_formula": 1.250558693264472,
+   "max_offline_b": 0.4037532248277236,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 300,
+   "N_full": 490,
+   "y_N": 0.11323792278874317,
+   "g_min": 0.4182238710669708,
+   "C_a_full": 0.23719862029659297,
+   "C_a_online_only": 0.774016116036258,
+   "C_a_pair_formula": 1.7428507321153506,
+   "max_offline_b": 0.4037532248277236,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 1000,
+   "N_full": 1496,
+   "y_N": 0.06480733121025722,
+   "g_min": 0.161500788964986,
+   "C_a_full": 0.722654610518363,
+   "C_a_online_only": 0.6948312363447734,
+   "C_a_pair_formula": 5.060307361249545,
+   "max_offline_b": 0.4037532248277236,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  },
+  {
+   "N_online": 1517,
+   "N_full": 2217,
+   "y_N": 0.053236204860738844,
+   "g_min": 0.09750250170668551,
+   "C_a_full": 0.382991829152438,
+   "C_a_online_only": 0.39716878247365583,
+   "C_a_pair_formula": 10.33639507829931,
+   "max_offline_b": 0.4037532248277236,
+   "sup_over_Im_z_ge_y": "infinite: pole of m' at an off-line zero with b >= y_N",
+   "in_band": false
+  }
+ ],
+ "EA-1_4": {
+  "note": "all zeros at gamma +- i/4: no real pair, reading (a) undefined; m' has poles at height 1/4 >= y_N = 0.0455 for N >= 101, so the sup reading is infinite"
+ }
+}

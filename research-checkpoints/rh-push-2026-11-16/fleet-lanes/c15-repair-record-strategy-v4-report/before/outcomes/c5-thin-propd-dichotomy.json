@@ -1,0 +1,40 @@
+{
+ "slug": "c5-thin-propd-dichotomy",
+ "round": 5,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "seven-eighths",
+  "control",
+  "sign-twist",
+  "thin",
+  "sextic-theta",
+  "periodicity",
+  "mean-square",
+  "liouville"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "MEASURED (float64, complete row enumeration, S={2,lambda}, Z<=2^21 compact test and Z<=2^18.5 Gaussian test; reproduced by the referee at Z=1024 and four non-grid scales): (a) weight 1 has row mean square equal to the diagonal within about 1 percent (exponent 1.001); (b) Liouville-weighted rows have an off-diagonal excess growing faster than Z (17% of the diagonal at Z=3000, 77% at 2^21; exponent of E_liou/M_liou^2 between 0.13 and 0.20 by test and window, staircase, compatible with 1/6); (c) for every sign weight tried, multiplicative or not (16 weights), the off-diagonal cross moment with the Liouville rows equals (1.0 to 1.16) x (M_w/M_liou) x E_liou: a common row component with amplitude linear in the weight's Mertens-type sum; (d) for thin weights this component is under 2 percent of the mean square in range and the raw exponent of MS_eps/MS_one (0.0005+-0.0003) cannot discriminate. HEURISTIC: if (b),(c) persist to Z~10^30, Bessel gives MS_eps >> Z^(2b-5/6-o(1)), so the row bound (5.36) would fail for eps with b>11/12. Which half of Proposition D (low estimate or high comparison for the probe I_eps) fails remains OPEN; the probe (6.1) was not computed. No statement about zeta zeros.",
+ "obstruction": "Measurement only; referee does not hold the claim as written. Stops at: (i) the decision 'the low estimate (5.36) fails' rests on a heuristic extrapolation of a common row component (amplitude linear in the weight's Mertens-type sum M_w, energy exponent between 0.13 and 0.20, staircase) from Z <= 2^21 to Z ~ 10^30, where it would first exceed the diagonal for thin weights (under 2 percent of the mean square in range); (ii) the manuscript's probe I_w of (6.1) was not computed, so neither side of Proposition D was measured directly; (iii) the claim that multiplicativity produces the component is refuted: non-multiplicative weights with a large Mertens sum carry the same component.",
+ "obstructionKind": "measured-mertens-component-probe-not-computed",
+ "controlsThatDefeat": [
+  "non-multiplicative weights with large Mertens sum (nm10, nm50: same common component; the signal is not specific to multiplicative weights)",
+  "weight 1 (diagonal only, exponent 1.001), as expected",
+  "not run: DH, heat, E_a, T-NR, Beurling, phase-rotated transfer operator, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED steps exist in the result (all ARGUED/MEASURED/HEURISTIC); numbers reproduce (G Z=1024 identical to the ball values; pooled statistics recomputed from srv/; non-grid rerun test C Z=3000,6000,12000,24000 interpolates the tables). Errors: (1) Control claim refuted: \"non-multiplicative controls show no component / multiplicativity produces the signal\" is false. Referee added two non-multiplicative weights with large Mertens sum (nm10 = liou x biased iid sign; nm50 = liou on a random half,",
+ "lesson": "A total mean-square exponent cannot detect a term that is 1% of the total and grows like Z^0.07; regress the rows on a reference weight with a large Mertens sum (Liouville) and subtract exact cross-diagonals instead. That isolates the component at hundreds of standard errors. The kappa growth is a staircase, so fitted exponents shift by about 0.03 with the window. Also: in zsh, \"$H:rh-push/...\" applies the :r modifier and rsync silently copies to a local path; use tar over ssh or brace the variable.",
+ "followUp": "Compute the manuscript's probe I_w(Z^(1/2), Z^(1/2), Z) of (6.1) itself for w = eps (b=0.95), Liouville and 1 at Z = 2^10..2^18, with ||A|| and ||B||, and compare |I_w| against the Cauchy-Schwarz bound and against the Mertens-sum prediction. This measures both sides of Proposition D directly and replaces the heuristic link (weakest step 1). Rows B come from rows.c; A needs Gauss sums g_{chi_s}(s,-m) and the Xi, R, G corrections.",
+ "resultFile": "tmp/research-2026-11-16/push/c5-thin-propd-dichotomy/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c5-thin-propd-dichotomy/REFEREE.md"
+}

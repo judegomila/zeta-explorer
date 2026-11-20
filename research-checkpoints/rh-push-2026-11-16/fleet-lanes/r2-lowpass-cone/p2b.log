@@ -1,0 +1,22 @@
+margin scan: K roots equally spaced in [tau_max-K*0.5, tau_max]; largest tau_max with membership (T=100)
+ N=3 K=1: tau_max* = 99.512  (T - tau_max* = 0.488 ; bound 0.64K = 0.64)
+ N=9 K=4: tau_max* = 98.218  (T - tau_max* = 1.782 ; bound 0.64K = 2.56)
+ N=21 K=10: tau_max* = 96.118  (T - tau_max* = 3.882 ; bound 0.64K = 6.40)
+ N=40 K=19: tau_max* = 93.604  (T - tau_max* = 6.396 ; bound 0.64K = 12.16)
+(b) first order N at which q(beta+i gamma) leaves the moment cone D_F(S) (so K_F(S) is not inside K_Om(S) when gamma>=T is allowed)
+gamma beta | first N not in D_F | pi*gamma/(4 beta)
+15 0.5 | 17 | 23.6
+15 0.25 | 31 | 47.1
+15 0.1 | 72 | 117.8
+20 0.5 | 21 | 31.4
+20 0.25 | 39 | 62.8
+20 0.1 | 92 | 157.1
+30 0.5 | 29 | 47.1
+30 0.25 | 55 | 94.2
+30 0.1 | 132 | 235.6
+50 0.5 | 46 | 78.5
+50 0.25 | 88 | 157.1
+50 0.1 | ('precision', 212) | 392.7
+100 0.5 | 88 | 157.1
+100 0.25 | 172 | 314.2
+100 0.1 | ('precision', 188) | 785.4

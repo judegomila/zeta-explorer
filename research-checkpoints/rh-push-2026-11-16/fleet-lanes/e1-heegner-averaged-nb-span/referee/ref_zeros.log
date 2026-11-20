@@ -1,0 +1,27 @@
+n_D 62
+listed (0.656138, 21.135778): root 0.656138351+21.135778302i shift 4.6e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.07))  mpmath |B(root)|=8.0e-14, |B(root+0.01)|=1.9e-01
+listed (0.857125, 43.310912): root 0.857125356+43.310911534i shift 5.9e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.067))
+listed (0.925668, 37.759078): root 0.925668343+37.759078236i shift 4.2e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.068))
+listed (1.178472, 25.68232): root 1.178471739+25.682320351i shift 4.4e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.067))  mpmath |B(root)|=2.4e-13, |B(root+0.01)|=6.4e-01
+listed (1.197421, 35.884347): root 1.197420702+35.884347140i shift 3.3e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.067))
+listed (1.793206, 40.600627): root 1.793206273+40.600627114i shift 3.0e-07 winding(r=0.03) (np.float64(1.0), np.float64(0.068))
+genus -15 listed (0.800011, 12.038599) root 0.800010988+12.038598629i winding (np.float64(1.0), np.float64(0.066)) mpmath |g|=1.1e-15
+genus -15 listed (0.927461, 15.496634) root 0.927460881+15.496634068i winding (np.float64(1.0), np.float64(0.067)) mpmath |g|=3.0e-15
+Epstein (1,1,4) at s=3: 2.1243482871306054  vs zeta L(-15)+L(-3)L(5): 2.124348287178005
+sum over Cl(-23) of Epstein at s=3: 2.8206960059502393  vs 2 zeta(3) L(3,chi_-23): 2.820696006025426
+trace |D|<= 30 n_D 10
+trace30 off-line zero 0.70755747+23.98258514i |f|=2.1e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.067))
+trace30 off-line zero 1.19300569+31.51181704i |f|=5.7e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+trace30 off-line zero 1.34377287+26.04796486i |f|=5.4e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+trace30 count off-line: 3
+trace |D|<= 150 n_D 47
+trace150 off-line zero 0.66465574+19.76806434i |f|=1.4e-14 winding(r=0.02) (np.float64(1.0), np.float64(0.068))
+trace150 off-line zero 0.72428102+34.15888908i |f|=2.9e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.067))
+trace150 off-line zero 0.89427525+24.73490880i |f|=7.8e-14 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+trace150 off-line zero 0.96102769+35.87333395i |f|=2.7e-14 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+trace150 off-line zero 1.40914606+37.55232013i |f|=2.9e-14 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+trace150 count off-line: 5
+genus-35 (x^2+xy+9y^2) off-line zero 0.62928906+29.77571985i |f|=1.6e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.067))
+genus-35 (x^2+xy+9y^2) off-line zero 0.74374258+24.71808828i |f|=3.4e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.066))
+genus-35 (x^2+xy+9y^2) off-line zero 0.79530836+21.67544618i |f|=7.2e-15 winding(r=0.02) (np.float64(1.0), np.float64(0.067))
+genus-35 (x^2+xy+9y^2) count off-line: 3

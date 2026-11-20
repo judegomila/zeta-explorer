@@ -1,0 +1,79 @@
+{
+ "slug": "s2-weil-coefficient-rigidity",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "arb-lege-margins-decay",
+  "cramer-null-breaks-weil",
+  "finite-prime-rigidity",
+  "mem-cc-scaling-site-cancellation",
+  "mem-weil-moment-ladder",
+  "multi-rung-weil-symbol",
+  "route-h-arch-p2-cancellation-curve",
+  "scaling-site-arch-p2-cancellation",
+  "suzuki-finite-certificate",
+  "vanishing-moment-subfamily-past-crossing",
+  "weil-gram-margin-conditioning"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "cramer-null-breaks-weil",
+    "multi-rung-weil-symbol",
+    "arb-lege-margins-decay"
+   ],
+   "obstruction": "coefficient pinning is a property of the pair (gamma factor, coefficients) and holds equally for DH around its own non-multiplicative coefficients; failures of FE-less controls are gamma-factor mismatch",
+   "controlsThatDefeat": [
+    "DH (own form positive, same pinning)",
+    "heat (no coefficient vector)"
+   ]
+  },
+  {
+   "nodes": [
+    "mem-cc-scaling-site-cancellation",
+    "route-h-arch-p2-cancellation-curve",
+    "scaling-site-arch-p2-cancellation"
+   ],
+   "obstruction": "same mechanism as (1): cancellation depth tracks conductor and margin, not the Euler product; DH passes the sign test",
+   "controlsThatDefeat": [
+    "DH",
+    "L(chi_5) (depth below one digit)"
+   ]
+  },
+  {
+   "nodes": [
+    "finite-prime-rigidity",
+    "suzuki-finite-certificate"
+   ],
+   "obstruction": "DH fails only where support and mesh resolve its off-line zero at height 85.7; T-NR onset grows like log q (first differing prime)",
+   "controlsThatDefeat": [
+    "DH below support 3.4",
+    "T-NR below log q"
+   ]
+  },
+  {
+   "nodes": [
+    "vanishing-moment-subfamily-past-crossing",
+    "mem-weil-moment-ladder",
+    "weil-gram-margin-conditioning"
+   ],
+   "obstruction": "DH positive on the whole range and fails only at the onset set by its first off-line zero; moment constraints delay, not create, control failure",
+   "controlsThatDefeat": [
+    "DH"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) coefficient pinning is a property of the pair (gamma factor, coefficients) and holds equally for DH around its own non-multiplicative coefficients; failures of FE-less controls are gamma-factor mismatch | (2) same mechanism as (1): cancellation depth tracks conductor and margin, not the Euler product; DH passes the sign test | (3) DH fails only where support and mesh resolve its off-line zero at height 85.7; T-NR onset grows like log q (first differing prime) | (4) DH positive on the whole range and fails only at the onset set by its first off-line zero; moment constraints delay, not create, control failure",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (own form positive, same pinning)",
+  "DH below support 3.4",
+  "L(chi_5) (depth below one digit)",
+  "T-NR below log q",
+  "heat (no coefficient vector)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-weil-coefficient-rigidity/RESULT.md"
+}

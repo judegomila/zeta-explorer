@@ -1,0 +1,72 @@
+# REFEREE (lens: general): c19-dp-zero-census-truncation-identity-server
+
+Adversarial referee report, 2026-11-19. RH is open. Nothing here is a statement about zeros of zeta.
+
+**Referee verdict: holds, with corrections E1 to E7. Every PROVED step was re-derived and confirmed; the identity V0, the tail law, the regularised form, the census counts and the relation at theta' = 1 were each rechecked on a case the lane did not run. No error changes the verdict "partial result, no survivor". Three statements are overstated: the novelty of discrepancy D-A1 (E1), the label "CERTIFIED" for the identity (E2), and the reading "functional equation, not multiplicativity" of Q2 together with the weight given to the ZQ comparison (E5, E6). Flags set by the referee: R1 false, R2 false, R3 false, R4 false.**
+
+Labels: CONFIRMED (re-derived or recomputed here) / ERROR / NOTE.
+
+## 1. Re-derivation of the PROVED steps
+
+| Step | Result |
+|---|---|
+| Lemma of 2.3: D'/D(s) = -u/2 + lim_T sum_{abs(Im beta) < T} 1/(s - beta), for a_1 = 1, a_P != 0 | CONFIRMED. f = D P^(s/2) has f'/f -> +-u/2 at Re s -> +-infinity, uniformly in Im s and exponentially fast. Contour integral of f'/f(w)/(w - s): residues f'/f(s) - sum 1/(s - beta); vertical sides vanish as X -> infinity at fixed T; on the horizontal sides the part (u/2) sgn(x) gives (u/2) int sgn(x) 2iT/((x - s)^2 + T^2) dx = 2iu arctan(Re s/T) -> 0, and the remainder is O(1/T) given a bound for f'/f on the lines Im w = +-T_k. The proof text writes one function g(x) for both horizontal sides; they are g(x - iT) and g(x + iT), and the argument needs the uniform exponential approach to +-u/2 (true) and the classical bound on the lines T_k (recalled, as the lane says). Passing from the sequence T_k to all T costs O(1/T) because the zero density is bounded. The example D = 1 + a 2^(-s) checks (f'/f = (L/2) tanh(L(s - b)/2)). |
+| V0 from the lemma (step (c) of c18, not rewritten in this lane) | CONFIRMED. -D'/D = u/2 - sum 1/(s - beta) is the Laplace transform of (u/2) delta_0 - sum e^(beta xi) on xi >= 0; the left side has no mass at xi = 0; symmetrising gives sum_beta e^((beta - 1/2) abs(xi)) = u delta_0 - (kernel of 2 Re A_P) on abs(xi) < u. Hence -2 Re <h, A_P h> = -u norm(h)^2 + sum <h, kappa_beta h>, with no log abs(a_P). |
+| Tail (u - 2 log abs(a_P))/(pi T) | CONFIRMED: <h, kappa_w h> = -2 norm(h)^2/w + 2 norm(h')^2/w^3 + ..., mean real part of the zeros log abs(a_P)/u, density u/2 pi on each side. |
+| Regularised form and its T^-3 tail | CONFIRMED algebraically (sum_sym 1/(beta - 1/2) = -(D'/D)(1/2) - u/2) and the tail coefficient norm(h')^2 (u - 2 log abs(a_P))/pi from Re w^-3 = -3 Re(w)/gamma^4 (1 + o(1)). Unstated hypothesis: D_P(1/2) != 0 (E3). |
+| Closed forms in `runA.py` (norm, norm of h', <h, C_a h>, <h, kappa_w h>) | CONFIRMED by an independent derivation of the double integral; my closed form agrees with direct double quadrature (mpmath) to 1e-16 at w = -0.37 + 5.3i. |
+| Certification logic of `runA.py` (read line by line) | CONFIRMED, no defect found. Mean-value enclosure D(mid) + D'(box)(box - mid) is valid for analytic D (the average of D' over the segment lies in the rectangular enclosure); a rectangle excluding 0 lies in a half-plane, so the argument change is the principal Arg of the end-point ratio; corners of adjacent segments are the same floats; winding orientation correct; interval Newton with s exact and D'(B) a rectangle gives existence (Brouwer) and uniqueness; arb comparisons are certain comparisons; slab 0 counts both members of a conjugate pair so multiplicity 1 there and 2 above is right. The series certified are those with the double-precision coefficients (stated in the code; immaterial for an identity valid for all coefficients). |
+
+## 2. Reruns on cases not in the result (local, numpy + mpmath, through memcap; scripts kept outside the lane directory)
+
+**Run A, new case.** Series a = (1, 0.5, -1, 0, 2, 1, -3): P = 7, a_P = -3 (negative, abs > 1, one zero coefficient), test vector h = sin^2(pi s/u) e^(2.1 i s) (not the lane's sin^4), left side by quadrature, zeros by float Newton, count checked by a float winding number (247 = 247 on 0.2 < Im < 800).
+
+| T | zeros | T u/pi | R_V0 | R_V0 T pi/(u - 2 log abs a_P) | R_V1 (printed form) | R_reg | R_reg T^3/prediction | mean Re beta (log abs(a_P)/u = 0.5646) |
+|---|---|---|---|---|---|---|---|---|
+| 400 | 247 | 247.8 | -2.01e-4 | 1.007 | -1.09881 | -1.0e-8 | 1.023 | 0.5643 |
+| 800 | 495 | 495.5 | -9.79e-5 | 0.979 | -1.09871 | -1.2e-9 | 0.938 | 0.5660 |
+| 1600 | 991 | 991.0 | -5.02e-5 | 1.005 | -1.09866 | -1.6e-10 | 1.015 | 0.5643 |
+| 3200 | 1983 | 1982.1 | -2.51e-5 | 1.002 | -1.09864 | -1.9e-11 | 1.007 | 0.5644 |
+
+V0 holds; the tail has the predicted coefficient including its sign (negative here, u - 2 log 3 < 0); the printed form is off by log 3 = 1.0986. Items 1 and 2 of the result are confirmed on an independent case with an independent code.
+
+**Run B data audit** (all four `resBC_*.jsonl` read as text): 2340 distinct jobs, no duplicates; all `complete`; wind_ext = n_ext in all; stage 0 in 2319 and stage 1 in 21; 47 jobs with largest argument step above 1; total right zeros 200300; minimum N_R = 10; S from 0.0149 to 0.6515; largest abs(resid) 6.19e-8; largest abs(S - L) 0.00945; L > 0 in all. Every number of item 3 reproduces.
+
+**Run B, one window recomputed from scratch.** zeta, t = 3e5, theta' = 1, w = 3 (P = 47746, a window absent from the lane's section 3.4), direct summation in float64: abs(D_P/D_P') at the 76 listed right zeros at most 9e-11; S recomputed 0.0470311 (listed 0.0470311); float winding number of the sub-rectangle 0 < Re - 1/2 < sigma_R - 0.3, abs(Im - t_w) < 20.13 equals 33, and 33 listed zeros lie in it.
+
+**Item 4 against a closed form.** The weight the lane calls Fresnel-type is, by end-point stationary phase with phase -t log x + 2 pi x (second derivative (2 pi)^2/t at x = t/2 pi),
+
+    F(x) = 1/2 + (e^(-i pi/4)/sqrt(pi)) int_0^(sqrt(pi) x) e^(i y^2) dy,      x = (gamma/2 pi - P)/sqrt(gamma/2 pi).
+
+It gives F(0.055) = 0.539 - 0.039i, F(0.56) = 0.980 - 0.238i (lane: 0.54 - 0.04i, 0.98 - 0.24i). On the new window above (26 zeros, x from 0.403 to 0.474) zeta(beta)/chi(beta) equals F(x) within 0.0020 at every zero (for example 0.8574 - 0.2376i measured, 0.8593 - 0.2380i predicted). Item 4 is confirmed and can be stated with this F; "zeta = chi/2" is the case x = 0. This is the approximate functional equation with the smoothed end-point term (classical), not a new relation; the lane says so.
+
+**Run C recomputed.** Stored Q2 of the 120 zeta jobs reproduces from the zero lists to 1e-15. A rank comparison with no regression on N_R (different from the registered z and from the post-hoc permutation): number of zeta windows with Q2 above the largest of the 24 Haar values at theta' = 1: 0, 2, 1, 6, 8 of 8 at t = 1e4, 3e5, 1e6, 3e7, 1e8 (above the Haar median: 6, 8, 8, 8, 8); at theta' = 0.75: 0, 0, 0, 1, 0. ZQ against its own 12 draws at theta' = 1: 0, 7, 3, 7, 8 of 8. Chains above the Haar maximum: 0, 1, 0, 0, 4 of 24 (4 of 24 has probability 0.055 under exchangeability; not a deviation). Real part of corr(Re beta - 1/2, e^(i phi_2)) at w = 0, theta' = 1: -0.21, -0.12, -0.26, -0.14, -0.23 (lane: -0.17 to -0.24; the two low entries are outside the quoted range, the sign and order are confirmed); chains: median between -0.03 and 0.08. The separation zeta against chains at theta' = 1, its absence at theta' = 0.75, and the agreement of ZQ with zeta are confirmed.
+
+## 3. Errors and corrections
+
+- **E1 (ERROR of attribution; D-A1 is not a finding of this lane).** The spurious term log abs(a_P), the constant c_0 = 0, the tail (u - 2 log abs(a_P))/(pi T), the hand example D = 1 + a 2^(-s) and the remark on P not a multiple of 5 for Davenport-Heilbronn are all in `c18-tz-one-sided-bound-fe-reserve-bridge/REFEREE.md` item E1 (file time 20:55, before this lane's PREREG at 22:34), and the correction is entered in the c18 RESULT. The reading list of section 1 omits that file. What this lane adds is: the same correction confirmed in ball arithmetic on complete zero lists for six series, the proof of the lemma written out, and the regularised form. Section 1 ("decided the point") and the proposed row change should say "confirms referee correction E1 of c18", not name a new discrepancy.
+- **E2 (label).** "Theorem A is certified in a corrected form" is too strong. Certified: the zero lists and the truncated sums at T <= 6400, hence the residuals R_V0(T), R_reg(T) as balls. The identity is the limit; it is PROVED (lemma of 2.3 plus steps (a), (c) of c18, re-derived above, one classical input) and the numerics are a check of it to about 1e-11 through the regularised form. The lane states the gap in section 7 item 1; the verdict line and the proposed map row should carry "PROVED (one classical input); truncations CERTIFIED", not "CERTIFIED".
+- **E3 (missing hypothesis).** The regularised form needs D_P(1/2) != 0. True for the six series; it must be stated.
+- **E4 (statement of item 4).** "zeta(beta)/chi(beta) = 1/2" holds only for abs(x) small; the general statement is zeta(beta) = F(x) chi(beta) (1 + small) with the F above. The lane's table already shows the drift; the claim line should carry F, since P-B4 failed for exactly this reason.
+- **E5 (ERROR of interpretation in items 5, section 4 and flag R1).** "Q2 reads ... a consequence of the functional equation, not multiplicativity" and "Nothing here uses multiplicativity" do not describe the mechanism the lane itself gives. That mechanism has two parts: (i) the approximate functional equation at length t/2 pi ties the depth of a right zero to log abs(zeta(beta)); (ii) log abs(zeta) near the line is correlated with cos(gamma log p) p^(-1/2), which is the Euler product (Selberg's approximation). Sign chains have (ii) for their own function and lack (i); zeta has both. So Q2 at theta' = 1 reads the functional equation and the Euler product together. This does not make R1 true: neither part is proved here, no conclusion follows from the statistic, and it is not shown that multiplicativity is essential (a function with (i) and without (ii) was not run; ZQ is not one, see E6).
+- **E6 (the ZQ comparison is not an independent test).** At w = 0 between 94 and 99 percent of the right zeros of the Laplace-truncated ZQ sum lie within 0.02 of a right zero of zeta's D_P in the same window (38/39, 30/32, 57/61, 50/51, 66/68, 58/59, 94/95, 79/80, 87/91, 87/88 over the theta' = 0.75 and 1 cells): D^ZQ_P is m D_P plus two small residue terms, and m is close to 1 away from the pair. "At equal power ZQ deviates the same way" therefore restates zeta's numbers. The control verdict stands and is stronger than stated: every statistic of the right-zero list is shared by ZQ at eta = 0.1 for a structural reason (the lists nearly coincide), so no statistic of this kind can meet R3. But ZQ gives no evidence for the reading "functional equation only"; that reading rests on item 4 and on the chains.
+- **E7 (minor).** (a) The range "-0.17 to -0.24" for the p = 2 correlation is not the w = 0 range (see section 2). (b) Davenport-Heilbronn at P = t/2 pi is not at the balanced length of its own functional equation (conductor 5), so "DH conforms in Q2" is not a test of the functional-equation reading. (c) The cells t <= 1e6 were run on the Mac in float64; the brief of 2026-11-19 asks for the server; the lane reports the reason (load) and the phase error bound; no result depends on it (my float64 recomputation at 3e5 agrees).
+
+## 4. Checks asked of every referee
+
+- RH assumed anywhere: no. All zeros are zeros of finite sums D_P; zeta enters only through values zeta(beta) at points right of the line (item 4) and the Arb zeros used to define ZQ.
+- Verified height restated as a result: no.
+- Known theorem presented as new: the lemma of 2.3 is the classical partial-fraction expansion of an exponential polynomial (labelled as resting on a classical input); item 4 is the classical end-point term of the approximate functional equation (labelled expected classical); D-A1 is a prior referee finding (E1).
+- Controls run by the referee: non-multiplicative series with a_P = -3 for V0 (holds, as it must for an identity); rank test of Q2 for zeta, chains, ZQ against Haar; overlap of ZQ and zeta zero lists. No zeta-only mechanism is claimed by the lane and none was found.
+- Pre-registration: the failures (P-A2 second clause for N5, P-B3 range, P-B4 at three heights and one cell, P-C3) are reported as failures; the survivor rule is applied as written and is not met.
+
+## 5. Requirement flags (strict)
+
+- R1 false. V0 holds for non-multiplicative series. Q2 at theta' = 1 involves the Euler product in its explanation (E5), but nothing is proved and no step is shown to need multiplicativity.
+- R2 false. Finite samples (five heights, eight windows); the identity is uniform but is an identity for every series.
+- R3 false. V0 holds for all controls; C1 is false for zeta itself; ZQ shares every statistic of the right-zero list (E6). Backward heat, phase-rotated transfer operator, theta^w, Beurling were not run.
+- R4 false. All objects are finite partial sums; item 4 expresses the zeros of D_P at theta' = 1 through values of zeta and gives no bound on them.
+
+## 6. Surviving claim
+
+For every Dirichlet polynomial D_P with a_1 = 1 and a_P != 0: -2 Re <h, A_P h> = -u norm(h)^2 + lim_T sum_{abs(Im beta) < T} <h, kappa_beta h> (PROVED with one classical input; this is correction E1 of the c18 referee, here confirmed by certified truncations to T = 6400 on six series and by the referee on a seventh), with truncation tail (u - 2 log abs(a_P))/(pi T) and, when D_P(1/2) != 0, a regularised form with tail norm(h')^2 (u - 2 log abs(a_P))/(pi T^3). MEASURED (float64, 2340 windows, t = 1e4 to 1e8, theta' = 0.5, 0.75, 1): every class has zeros of D_P right of the line in every window (completion C1 false; Littlewood identity to 6e-8). MEASURED: at P = floor(t/2 pi) the right zeros of zeta's D_P satisfy zeta(beta) = F(x) chi(beta) within 0.002 at t >= 3e5, F the Fresnel end-point weight, F(0) = 1/2 (classical approximate functional equation). The depth-phase covariance Q2 separates zeta from sign chains at theta' = 1 only; the Laplace-truncated ZQ sum has nearly the same right-zero list as zeta, so it shares this and every statistic of that list. No survivor. Proposition Z not tested. No statement about zeros of zeta.

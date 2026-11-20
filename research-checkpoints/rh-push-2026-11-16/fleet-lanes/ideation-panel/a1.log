@@ -1,0 +1,17 @@
+predicted L(e^{-1/x})/sqrt(x) -> sqrt(pi)/(2 zeta(1/2)) = -0.6068573898369164
+x, L/sqrt(x), (L - c sqrt(x)) [predicted -> 1 = -(1/2)/zeta(0)... see RESULT], M(e^{-1/x})
+       10 -0.291456060 +0.997387 -1.170488944  identity gap 2.22e-16
+      100 -0.506860009 +0.999974 -1.887323897  identity gap 2.66e-15
+     1000 -0.575234620 +1.000000 -1.988110866  identity gap 3.20e-14
+    10000 -0.596857392 +1.000000 -1.998801605  identity gap 1.28e-13
+   100000 -0.603695115 +0.999999 -1.999880412  identity gap 0.00e+00
+   300000 -0.605031645 +1.000002 -1.999959261  identity gap 0.00e+00
+sign changes of L(e^{-1/x}) for x in [0.2, 3e5]: [(2.4876463895967826, 2.60882213430234)]
+zero 1: |Gamma(rho) zeta(2rho)/zeta'(rho)| = 1.40263e-9, |Gamma(rho)/zeta'(rho)| = 7.19758e-10
+zero 2: |Gamma(rho) zeta(2rho)/zeta'(rho)| = 8.35575e-15, |Gamma(rho)/zeta'(rho)| = 1.00555e-14
+zero 3: |Gamma(rho) zeta(2rho)/zeta'(rho)| = 8.46058e-18, |Gamma(rho)/zeta'(rho)| = 1.58385e-17
+Moebius series: oscillation 2|Gamma(rho1)/zeta'(rho1)| x^{1/2} exceeds 2 for x > 1.9303e+18
+Liouville: relative margin under RH (first zero pair) = 4.6226e-9
+planted zero beta=0.75, gamma=3e+12: sign of L can flip only for log x > 1.885e+13
+planted zero beta=0.874887, gamma=3e+12: sign of L can flip only for log x > 1.257e+13
+planted zero beta=0.51, gamma=3e+12: sign of L can flip only for log x > 4.7124e+14

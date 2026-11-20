@@ -1,0 +1,12 @@
+idx=10000 H=9878.85 L=7.360 delta=0.5: measured a*=2.4271  density-model a=2.5249  ratio=0.9613  oversampling L/2a=1.46
+idx=10000 H=9878.85 L=7.360 delta=0.375: measured a*=2.7903  density-model a=3.1066  ratio=0.8982  oversampling L/2a=1.18
+idx=100000 H=74922.26 L=9.386 delta=0.5: measured a*=2.3002  density-model a=2.6980  ratio=0.8526  oversampling L/2a=1.74
+idx=100000 H=74922.26 L=9.386 delta=0.375: measured a*=2.6675  density-model a=3.3254  ratio=0.8022  oversampling L/2a=1.41
+idx=300000 H=201091.09 L=10.374 delta=0.5: measured a*=2.5810  density-model a=2.7713  ratio=0.9313  oversampling L/2a=1.87
+idx=300000 H=201091.09 L=10.374 delta=0.375: measured a*=2.9322  density-model a=3.4184  ratio=0.8578  oversampling L/2a=1.52
+idx=500000 H=319388.36 L=10.836 delta=0.5: measured a*=2.5713  density-model a=2.8036  ratio=0.9172  oversampling L/2a=1.93
+idx=500000 H=319388.36 L=10.836 delta=0.375: measured a*=2.9636  density-model a=3.4595  ratio=0.8567  oversampling L/2a=1.57
+idx=700000 H=433659.29 L=11.142 delta=0.5: measured a*=2.6170  density-model a=2.8244  ratio=0.9266  oversampling L/2a=1.97
+idx=700000 H=433659.29 L=11.142 delta=0.375: measured a*=3.1175  density-model a=3.4858  ratio=0.8943  oversampling L/2a=1.60
+idx=900000 H=545250.86 L=11.371 delta=0.5: measured a*=2.3712  density-model a=2.8396  ratio=0.8351  oversampling L/2a=2.00
+idx=900000 H=545250.86 L=11.371 delta=0.375: measured a*=2.6593  density-model a=3.5052  ratio=0.7587  oversampling L/2a=1.62

@@ -1,0 +1,35 @@
+{
+ "slug": "c2-euler-at-zeros-scale",
+ "round": 2,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "mean-value",
+  "explicit-formula",
+  "control"
+ ],
+ "verdict": "dead",
+ "survivingClaim": "MEASURED: for 500- and 2000-zero windows at heights 1e3 to 1e8 (plus referee blocks at 3e5, 3e7) and P = 10 to 1e5, A_S at zeta zeros over N_w*M_P is below 1 and equals 1 - 2c_P/L (c_P = sum_{p<=P} log p/(p-1), L = log(T/2pi); classical Landau-Gonek first-order term) within 0.014 for c_P/L below about 0.28, and is about 0.022 x^-2.87 for x >= 0.6 (fit, heuristic exponent). The bound is not uniform in height at fixed P and not uniform in window length (fails for 25-zero windows), and fails against the one-spacing shifted reference (max 1.17). The Davenport-Heilbronn formal partial product at DH zeros (on-line and off-line; reproduced independently, also against the continuous t-mean) and the Liouville twist at rho/2 (in the mean) show the same one-sided suppression, so the quantity does not discriminate zeta from controls. Lead closed; no statement about zero locations.",
+ "obstruction": "The suppression of the truncated product at zeros is the Landau-Gonek diagonal term 1 - 2 c_P/L, a function of log P / log T: not uniform in height at fixed P, not uniform in window length (fails for 25-zero windows), and above 1 against the one-spacing shifted reference. It uses only the prime-power coefficients of -F'/F.",
+ "obstructionKind": "mean-value-shared-with-controls",
+ "controlsThatDefeat": [
+  "DH formal partial product at DH zeros, on-line and off-line (same one-sided suppression, measured)",
+  "Liouville twist at rho/2 (same suppression in the mean)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict \"dead\" confirmed; no PROVED steps in the result; all CLASSICAL derivations re-derived correctly (Landau-Gonek first-order term 1-2c_P/L, sinc shift average with limit 1/2, Liouville at rho and rho/2, random-twist c_eps, DH reference M^DH_P checked by brute force 2.0923). Errors: (E1) the summary claim attaches the error bound 0.014 to the wrong formula: 0.0137 is for 1-2c_P/L with c_P = sum log p/(p-1); for 1-2x with x=(log P-gamma_E)/L the same six cells give max error 0.055 (referee ne [record truncated in transit; full text in push/c2-euler-at-zeros-scale/REFEREE.md]",
+ "lesson": "Suppression of a truncated Dirichlet series at its own zeros is the Landau-Gonek diagonal term. It needs only the prime-power coefficients of -F'/F, holds for DH at on-line and off-line zeros, and depends on log P / log T, so it cannot discriminate zero location. Shifts within one mean spacing are not an independent reference (they tend to half the mean); use the continuous t-mean.",
+ "followUp": "none for this lead. If the DH tables are reused, the DH zeros (float64, argument-count complete) would need interval certification first.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-euler-at-zeros-scale/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-euler-at-zeros-scale/REFEREE.md"
+}

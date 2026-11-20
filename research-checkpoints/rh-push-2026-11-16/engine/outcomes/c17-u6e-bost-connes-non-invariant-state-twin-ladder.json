@@ -1,0 +1,55 @@
+{
+ "slug": "c17-u6e-bost-connes-non-invariant-state-twin-ladder",
+ "round": 17,
+ "kind": "explore",
+ "nodes": [
+  "connes-twin-ladder-crosswalk",
+  "mem-semilocal-fourier-fs"
+ ],
+ "tags": [
+  "bost-connes",
+  "non-invariant-state",
+  "eigenstate",
+  "kakutani",
+  "T-NR",
+  "DEL",
+  "U6e",
+  "D8"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Cell U6 (e) closes at the first lemma as a precise obstruction: (1) for every state omega on the Bost-Connes algebra A and invertible b, omega(b* . b)/omega(b* b) is a state in the same GNS representation (classical); T-NR in the conjugation form b = D^(1/2), finite DEL and the gauge twins have this form, so positivity of a state does not separate them from zeta. (2) mu*-eigenstates omega(x mu_m*) = m^-s omega(x) exist for every Re s > 0 (on L^2(Z^, nu_beta), with adjoint V_n* g = n^-s g(n.)); on the algebraic Hecke algebra they read n^-conj(s), m^-s and finitely many local factors, or L(beta, chi)/zeta(beta) at real beta > 1; on absolutely summable elements every zeta-argument has real part > 1. (3) Kernels <xi_w, X xi_s> read zeta(conj(w)+s; r) with real part > 1 and are positive semidefinite iff X >= 0. (4) Two eigenstates on Re s = beta/2 are at norm distance 2 sqrt(1 - |zeta(beta+i tau)|^2/zeta(beta)^2) (vector states, beta > 1) and exactly 2 for beta <= 1, also for DEL, THIN, U, the T-NR twin and E_a. DEL (finite S) and E_a pass every step. Open: states cut out by other exact relations, normal states of the type III_1 factor beyond the three families, general elements of the norm closure.",
+ "obstruction": "Stops at the first lemma (stage A not passed). Lemma G (classical): omega -> omega(b* . b)/omega(b* b), b invertible, maps states to states in the same GNS representation; T-NR (b = D^(1/2)), finite DEL and the gauge twins have this form, so positivity of a state cannot separate them from zeta; only an exact relation can. Lemma E: mu*-eigenstates exist for every Re s > 0 and read n^-conj(s), m^-s and finitely many local factors, or L(beta, chi)/zeta(beta) at real beta > 1. Lemma K: kernels <xi_w, X xi_s> read zeta at real part > 1 only. Lemma T: two eigenstates on Re s = beta/2 are at norm distance 2 sqrt(1 - |zeta(beta+i tau)|^2/zeta(beta)^2) for beta > 1 and exactly 2 for beta <= 1, so for beta <= 1 no function of tau remains. No step leaves the region right of 1 (R4), none uses multiplicativity beyond the convergent Euler product. Open: states cut out by other exact relations; normal states of the type III_1 factor beyond the three families; the norm closure. Residual = Weil-form weights (rows P1, G21).",
+ "obstructionKind": "read set right of 1; state positivity invariant under conjugation by invertible elements; product-state overlap is 0 for beta <= 1",
+ "controlsThatDefeat": [
+  "T-NR in conjugation form b = D^(1/2) (state positivity invariant, Lemma G)",
+  "finite DEL (passes every step)",
+  "E_a (passes every step)",
+  "gauge twins, THIN, U (same norm-distance law)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (precise obstruction, no statement about zeros) holds. All PROVED steps (Lemmas G, E, K, T, S(a,c,d), N4) re-derived and confirmed; no RH assumption, no restated verified height. Corrections, none changing a conclusion: E1 (display error, sec 3.3(b)): the adjoint is V_n* g(x) = n^-s g(nx), not n^-conj(s) g(nx), so V_m* 1 = m^-s 1; the final formula Omega_s(mu_n x mu_m*) = n^-conj(s) m^-s nu(x) is correct only with the corrected adjoint (numerically: n^-s form agrees to 3e-32, the printed - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "State positivity is invariant under conjugation by any invertible element, so twins of the form b xi (T-NR, finite DEL) can be rejected only by an exact relation, never by positivity. The overlap of two product-vector states is either the convergent Euler product or 0: for beta <= 1 the states are orthogonal, so no function of tau remains that could read a zero.",
+ "followUp": "Independent referee for Lemmas G, E, T (Lemma T uses irreducibility of the Toeplitz tensor product, stated not opened); then enter sub-row D8 (vi) and mark cell U6 (e) closed for positivity reads, residual = Weil-form weights (rows P1, G21).",
+ "resultFile": "tmp/research-2026-11-16/push/c17-u6e-bost-connes-non-invariant-state-twin-ladder/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-u6e-bost-connes-non-invariant-state-twin-ladder/REFEREE.md",
+ "launchedNodes": [
+  "connes-twin-ladder-crosswalk",
+  "mem-semilocal-fourier-fs"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c18-referee-r17-independent-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report and push/c18-referee-r17-independent-sources/GATE.md (window law: Remark K for the unwindowed device only; E_a row decided on its own configuration; W4 density form, W5 second bullet ARGUED)",
+  "report": "tmp/research-2026-11-16/push/c17-u6e-bost-connes-non-invariant-state-twin-ladder/REFEREE2.md"
+ }
+}

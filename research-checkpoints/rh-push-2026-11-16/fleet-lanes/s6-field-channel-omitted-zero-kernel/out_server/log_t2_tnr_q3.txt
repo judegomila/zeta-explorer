@@ -1,0 +1,9 @@
+13:09:54 tnr_q3 i0 1000 h 1420.42 H 0.25056 t_true/pair 0.93136660 decl pg [0.99913172, 1.08197338] in=False uni in=False honest pg in=None Kon 0.05539 Koff -13.88 near 0.43935643894326754 direct/flow None
+13:09:55 tnr_q3 i0 5180 h 5615.74 H 0.18898 t_true/pair 0.96180387 decl pg [0.99954739, 1.05889614] in=False uni in=False honest pg in=True Kon 0.05072 Koff -14.43 near 0.43682690413007724 direct/flow None
+13:09:55 tnr_q3 i0 26835 h 23351 H 0.12442 t_true/pair 1.01199723 decl pg [0.99959981, 1.05354035] in=True uni in=True honest pg in=True Kon 0.1035 Koff -4.534 near 0.5014057945174388 direct/flow None
+13:09:55 tnr_q3 i0 139018 h 100616 H 0.069684 t_true/pair 1.00601140 decl pg [0.99984016, 1.01139550] in=True uni in=True honest pg in=True Kon 0.1317 Koff 1.187 near 2.4785999227239643 direct/flow None
+13:09:55 tnr_q3 i0 720161 h 445014 H 0.079108 t_true/pair 1.01602001 decl pg [0.99859133, 1.03368772] in=True uni in=True honest pg in=True Kon 0.9021 Koff 2.392 near 1.2686322518740336 direct/flow None
+13:09:56 tnr_q3 i0 3730673 h 2.00781e+06 H 0.065949 t_true/pair 1.01480483 decl pg [0.99960097, 1.03610928] in=True uni in=True honest pg in=True Kon 0.3672 Koff -0.2874 near 0.5576611688785975 direct/flow None
+13:09:56 tnr_q3 i0 19326122 h 9.20132e+06 H 0.066848 t_true/pair 1.01423829 decl pg [0.99922400, 1.02861546] in=True uni in=True honest pg in=True Kon 0.6953 Koff 3.268 near 0.9299208608845587 direct/flow None
+13:09:56 tnr_q3 i0 100115697 h 4.26998e+07 H 0.0318 t_true/pair 1.00203099 decl pg [0.99993376, 1.01067003] in=True uni in=True honest pg in=True Kon 0.262 Koff -22.65 near 0.40793647649495857 direct/flow None
+{"name": "tnr_q3", "kind": "tnr", "windows": 8, "declared_pg": {"inside": 6, "outside": 2, "not_certified": 0}, "declared_uni": {"inside": 6, "outside": 2, "not_certified": 0}, "honest_pg": {"inside": 7, "outside": 0, "not_certified": 1}, "honest_uni": {"inside": 7, "outside": 0, "not_certified": 1}}

@@ -1,0 +1,6 @@
+primes with norm <= 1600000: 121147  (638.0s)
+max ||gamma_1(pi)| - 1| = 1.1102230246251565e-15
+Lemma Q2(b) max error over all primes: 3.28012311267722e-15
+twisted multiplicativity gamma(ab) = gamma(a)gamma(b)chi_a(b)chi_b(a): max error 2.9723956895560175e-13
+squarefree primary n with N(n) <= 1600000: 556014  max||gamma|-1| = 1.78e-15  (701.2s)
+saved q_16e5.npz

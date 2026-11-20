@@ -1,0 +1,49 @@
+{
+ "slug": "c8-eh-nonprincipal-row-cancellation",
+ "round": 8,
+ "kind": "deepen",
+ "nodes": [
+  "eh-nonprincipal-row-cancellation",
+  "out-c8-eh-nonprincipal-row-cancellation"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "linear-program",
+  "poisson",
+  "function-field",
+  "exact-arithmetic",
+  "control",
+  "davenport-heilbronn",
+  "thin",
+  "liouville"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to MS (10.5) and Lemma S: NP = I - I_1 exactly; given the low estimate at l0 <= E and a bound Z^E for the remainder of row 1, a bound Z^E for NP is necessary and sufficient for H_eta/L^S(s, eta) holomorphic on Re s > B_E (unconditional for the manuscript's J - f). This is necessity of the high hypothesis (shared by the manuscript's proved (2.5)), not circularity, and does not exclude proving (E-H) from the rows. Model ledger: norm bound of NP plus K-branch gives B >= 1 - 1/r + lx/r + l(1/2 - 1/r) (identity confirmed; norm floor argued); exact LP: (5-6theta)/(6-6theta) in the three-input system, 13/15 and 31/36 (with E-K) independent of theta in the cap_lp source ledger, min(11/12 - theta/2, 13/12 - theta) on the c5 empty-dual branch. F_q[T]: general-weight dual decomposition reproduces exact |J|^2 (2644/2644 in the lane, 14/14 on new weights by independent brute force); cancellation over rows is present for every weight at r <= 4, with a possible target-type excess (about 0.5 versus 0.28-0.44 in even blocks at q=7) neither resolved nor excluded; the model DH weight is not an off-line control. (E-H) remains an open escape: termwise and norm treatments closed in the model, target-specific treatment undecided. No statement about zeros of zeta.",
+ "obstruction": "Referee does not hold the headline ('not an independent input / circular' is a non sequitur). Standing: NP = I - I_1 exactly (MS (10.5)); given the low estimate and a bound on the remainder of row 1, a bound Z^E on NP is necessary and sufficient for H_eta/L^S(s, eta) holomorphic on Re s > B_E. This is necessity of the high hypothesis, not circularity; it does not exclude proving (E-H) from the rows. Termwise and norm treatments are closed in the model: norm bound of NP plus the K-branch gives B >= 1 - 1/r + lx/r + l(1/2 - 1/r) (identity confirmed, norm floor argued); LP values 13/15 and 31/36 (with E-K). In F_q[T] at r <= 4 cancellation over rows is present for every weight (targets, THIN, Liouville twist, random multiplicative and non-multiplicative), with a possible target-type excess (about 0.5 against 0.28-0.44 in even blocks at q = 7) neither resolved nor excluded. A target-specific treatment is undecided.",
+ "obstructionKind": "nonprincipal-row-bound-is-necessary-and-sufficient-for-conclusion-control-blind-in-model",
+ "controlsThatDefeat": [
+  "random non-multiplicative weights, random multiplicative weights, THIN, Liouville twist (row cancellation present at r <= 4: Poisson duality, not arithmetic)",
+  "model DH weight (not an off-line control: no conclusion drawn)",
+  "not run: heat, U, E_a, T-NR, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Identities and computations confirmed (Lemma 1; Theorem K' identity, exact test incl. r=5,7,10; LP values re-confirmed exactly at new theta 1/5, 2/5, 1/10, 3/7 and c5 empty branch at 1/5, 1/3, 2/5, 1/8; all counts 5620/2644/2644/551/4116/2042/2039 recomputed; independent brute-force |J|^2 from definitions on two new weights, incl. marked and non-unimodular, matches dual.py in 14/14 cases at q=7,13). Headline errors: E1 'not an independent input / conclusion restated / circularity' is a non sequi [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A bound on the sum of all dual rows except the principal one is, by the exact splitting NP = I - I_1, the same statement as the conclusion once the low estimate is in hand. Deleting or weakening the high side in the LP therefore assumes the output. Cancellation over rows is a property of Poisson duality: it appears for random non-multiplicative weights as much as for the target, so it carries no R3. What separates target from control sits in the principal row and the low side.",
+ "followUp": "Independent referee pass is owed: RESULT.md section 9 is a self-check only, and the proposed campaign line sits in lanes_line.json in the lane directory, not appended to campaign/lanes.jsonl. Then enter the proposed map row (RESULT.md section 10; working label Z15d) and remove (E-H) from the ORDER-2 escape list in STRATEGY. The escapes left are (E-K) with vector-specific J- and P-losses, and an A-side vector-specific estimate.",
+ "resultFile": "tmp/research-2026-11-16/push/c8-eh-nonprincipal-row-cancellation/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c8-eh-nonprincipal-row-cancellation/REFEREE.md",
+ "launchedNodes": [
+  "eh-nonprincipal-row-cancellation"
+ ],
+ "engineVerdict": "open"
+}

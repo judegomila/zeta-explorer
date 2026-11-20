@@ -1,0 +1,21 @@
+04:14:28 chi i0 1000 h 1090.34 H 0.19131 t_true/pair 1.01714491 decl pg [0.99952855, 1.03971250] in=True uni in=True honest pg in=True Kon 0.05156 Koff 0 near None direct/flow None
+04:14:28 chi i0 1360 h 1418.47 H 0.12705 t_true/pair 1.00853841 decl pg [0.99850226, 1.02006742] in=True uni in=True honest pg in=True Kon 0.3719 Koff 0 near None direct/flow None
+04:14:28 chi i0 1852 h 1849.03 H 0.073645 t_true/pair 1.00455521 decl pg [0.99988332, 1.00983949] in=True uni in=True honest pg in=True Kon 0.08607 Koff 0 near None direct/flow None
+04:14:28 chi i0 2520 h 2414.33 H 0.11442 t_true/pair 1.01196927 decl pg [0.99980798, 1.02701300] in=True uni in=True honest pg in=True Kon 0.05868 Koff 0 near None direct/flow None
+04:14:29 chi i0 3429 h 3155.46 H 0.19162 t_true/pair 1.02939618 decl pg [0.99878647, 1.07331811] in=True uni in=True honest pg in=True Kon 0.1324 Koff 0 near None direct/flow None
+04:14:29 chi i0 4667 h 4131.35 H 0.12171 t_true/pair 1.01098600 decl pg [0.99975117, 1.02448912] in=True uni in=True honest pg in=True Kon 0.06722 Koff 0 near None direct/flow None
+04:14:29 chi i0 6352 h 5416.78 H 0.21905 t_true/pair 1.04171135 decl pg [0.99875312, 1.10963216] in=True uni in=True honest pg in=True Kon 0.1041 Koff 0 near None direct/flow None
+04:14:29 chi i0 8644 h 7108.84 H 0.094173 t_true/pair 1.00975228 decl pg [0.99968940, 1.02182898] in=True uni in=True honest pg in=True Kon 0.1401 Koff 0 near None direct/flow None
+04:14:30 chi i0 11764 h 9340.53 H 0.11982 t_true/pair 1.01685874 decl pg [0.99970955, 1.03882617] in=True uni in=True honest pg in=True Kon 0.08096 Koff 0 near None direct/flow None
+04:14:30 chi i0 16010 h 12286.1 H 0.1164 t_true/pair 1.01686400 decl pg [0.99954456, 1.03940242] in=True uni in=True honest pg in=True Kon 0.1345 Koff 0 near None direct/flow None
+04:14:30 chi i0 21787 h 16176 H 0.11512 t_true/pair 1.01731605 decl pg [0.99966935, 1.04026264] in=True uni in=True honest pg in=True Kon 0.09985 Koff 0 near None direct/flow None
+04:14:30 chi i0 29650 h 21318.2 H 0.17361 t_true/pair 1.03857491 decl pg [0.99889328, 1.09951079] in=True uni in=True honest pg in=True Kon 0.1471 Koff 0 near None direct/flow None
+04:14:31 chi i0 40351 h 28121.3 H 0.12965 t_true/pair 1.02115803 decl pg [0.99948781, 1.04986683] in=True uni in=True honest pg in=True Kon 0.122 Koff 0 near None direct/flow None
+04:14:31 chi i0 54913 h 37125.6 H 0.054818 t_true/pair 1.00376843 decl pg [0.99991629, 1.00800412] in=True uni in=True honest pg in=True Kon 0.1114 Koff 0 near None direct/flow None
+04:14:31 chi i0 74730 h 49053.2 H 0.081814 t_true/pair 1.01026869 decl pg [0.99980821, 1.02275506] in=True uni in=True honest pg in=True Kon 0.1146 Koff 0 near None direct/flow None
+04:14:32 chi i0 101699 h 64862.3 H 0.11843 t_true/pair 1.01574002 decl pg [0.99916206, 1.03648215] in=True uni in=True honest pg in=True Kon 0.2392 Koff 0 near None direct/flow None
+04:14:32 chi i0 138401 h 85829.9 H 0.074425 t_true/pair 1.01086882 decl pg [0.99980783, 1.02438651] in=True uni in=True honest pg in=True Kon 0.1388 Koff 0 near None direct/flow None
+04:14:32 chi i0 188349 h 113655 H 0.073904 t_true/pair 1.01001253 decl pg [0.99981695, 1.02237320] in=True uni in=True honest pg in=True Kon 0.1341 Koff 0 near None direct/flow None
+04:14:32 chi i0 256321 h 150600 H 0.070705 t_true/pair 1.00882004 decl pg [0.99982643, 1.01943171] in=True uni in=True honest pg in=True Kon 0.1389 Koff 0 near None direct/flow None
+04:14:32 chi i0 348824 h 199683 H 0.076981 t_true/pair 1.01035735 decl pg [0.99978441, 1.02294525] in=True uni in=True honest pg in=True Kon 0.1456 Koff 0 near None direct/flow None
+{"name": "chi", "kind": "plain", "windows": 20, "declared_pg": {"inside": 20, "outside": 0, "not_certified": 0}, "declared_uni": {"inside": 20, "outside": 0, "not_certified": 0}, "honest_pg": {"inside": 20, "outside": 0, "not_certified": 0}, "honest_uni": {"inside": 20, "outside": 0, "not_certified": 0}}

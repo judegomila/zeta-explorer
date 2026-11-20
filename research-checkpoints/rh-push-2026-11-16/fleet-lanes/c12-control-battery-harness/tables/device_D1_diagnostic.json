@@ -1,0 +1,145 @@
+{
+ "window": "DH on-line zeros, 1000 < t < 1020",
+ "rows": [
+  {
+   "record_method_ordinate": "1000.565463382893031304",
+   "battery_ordinate": "1000.565383206641678078",
+   "difference": 8.01762513532262e-05,
+   "q1_at_record_ordinate": 0.6078130179816267,
+   "q1_at_battery_ordinate": 0.6080361142574764,
+   "newton_residual_at_record_ordinate": 8.018098336027047e-05
+  },
+  {
+   "record_method_ordinate": "1001.705202249019684315",
+   "battery_ordinate": "1001.704010956588569173",
+   "difference": 0.0011912924311151417,
+   "q1_at_record_ordinate": -0.3348103021277858,
+   "q1_at_battery_ordinate": -0.33053338578645175,
+   "newton_residual_at_record_ordinate": 0.0012053900347623182
+  },
+  {
+   "record_method_ordinate": "1001.809098611555711268",
+   "battery_ordinate": "1001.810782081703557207",
+   "difference": -0.0016834701478459387,
+   "q1_at_record_ordinate": 0.6714984767274494,
+   "q1_at_battery_ordinate": 0.6762106038738024,
+   "newton_residual_at_record_ordinate": 0.0017091421058020467
+  },
+  {
+   "record_method_ordinate": "1003.140731386845011738",
+   "battery_ordinate": "1003.140638858381197101",
+   "difference": 9.252846381463715e-05,
+   "q1_at_record_ordinate": 0.8610384257780959,
+   "q1_at_battery_ordinate": 0.8611867400898509,
+   "newton_residual_at_record_ordinate": 9.253271717040402e-05
+  },
+  {
+   "record_method_ordinate": "1004.358462647611076402",
+   "battery_ordinate": "1004.358197881439604061",
+   "difference": 0.0002647661714723414,
+   "q1_at_record_ordinate": 0.3590664719715309,
+   "q1_at_battery_ordinate": 0.3598729533289984,
+   "newton_residual_at_record_ordinate": 0.0002648673800461726
+  },
+  {
+   "record_method_ordinate": "1005.177170799301027989",
+   "battery_ordinate": "1005.17700789264349002",
+   "difference": 0.0001629066575379695,
+   "q1_at_record_ordinate": 0.6935571267752373,
+   "q1_at_battery_ordinate": 0.6939557256183281,
+   "newton_residual_at_record_ordinate": 0.00016292649236074617
+  },
+  {
+   "record_method_ordinate": "1006.086734659593203022",
+   "battery_ordinate": "1006.086678262207287588",
+   "difference": 5.639738591543434e-05,
+   "q1_at_record_ordinate": 0.7391859512245502,
+   "q1_at_battery_ordinate": 0.7393140959335383,
+   "newton_residual_at_record_ordinate": 5.639956500860033e-05
+  },
+  {
+   "record_method_ordinate": "1007.102954462525237783",
+   "battery_ordinate": "1007.102733568667416351",
+   "difference": 0.00022089385782143262,
+   "q1_at_record_ordinate": 0.5097750068753953,
+   "q1_at_battery_ordinate": 0.510431298852817,
+   "newton_residual_at_record_ordinate": 0.00022096167383998315
+  },
+  {
+   "record_method_ordinate": "1007.739697807906459575",
+   "battery_ordinate": "1007.739702352437662605",
+   "difference": -4.544531203029552e-06,
+   "q1_at_record_ordinate": 0.9968146097826814,
+   "q1_at_battery_ordinate": 0.9968133987347827,
+   "newton_residual_at_record_ordinate": 4.544540371569821e-06
+  },
+  {
+   "record_method_ordinate": "1009.214262498768362812",
+   "battery_ordinate": "1009.214017393839446316",
+   "difference": 0.00024510492891649576,
+   "q1_at_record_ordinate": -0.026442097562717846,
+   "q1_at_battery_ordinate": -0.025615621723739105,
+   "newton_residual_at_record_ordinate": 0.00024523933905726167
+  },
+  {
+   "record_method_ordinate": "1009.793718247079790305",
+   "battery_ordinate": "1009.793728420788128169",
+   "difference": -1.0173708337864442e-05,
+   "q1_at_record_ordinate": 0.8972928222770873,
+   "q1_at_battery_ordinate": 0.897277265928686,
+   "newton_residual_at_record_ordinate": 1.0173713708024264e-05
+  },
+  {
+   "record_method_ordinate": "1010.897951597415296584",
+   "battery_ordinate": "1010.897754082655911962",
+   "difference": 0.00019751475938462173,
+   "q1_at_record_ordinate": 0.50494074505129,
+   "q1_at_battery_ordinate": 0.5055214189232301,
+   "newton_residual_at_record_ordinate": 0.00019755811243061928
+  },
+  {
+   "record_method_ordinate": "1013.681570387102229434",
+   "battery_ordinate": "1013.681519320331203595",
+   "difference": 5.106677102583889e-05,
+   "q1_at_record_ordinate": 0.5229926790996599,
+   "q1_at_battery_ordinate": 0.5231269904828415,
+   "newton_residual_at_record_ordinate": 5.1069704873353155e-05
+  },
+  {
+   "record_method_ordinate": "1014.834909454289830879",
+   "battery_ordinate": "1014.834360735065415718",
+   "difference": 0.000548719224415161,
+   "q1_at_record_ordinate": -0.06251709032344113,
+   "q1_at_battery_ordinate": -0.06057898682993219,
+   "newton_residual_at_record_ordinate": 0.0005494546817296493
+  },
+  {
+   "record_method_ordinate": "1015.342756420243052378",
+   "battery_ordinate": "1015.342814117771699723",
+   "difference": -5.7697528647344345e-05,
+   "q1_at_record_ordinate": 0.9477366425983772,
+   "q1_at_battery_ordinate": 0.9476700273015265,
+   "newton_residual_at_record_ordinate": 5.76984492876644e-05
+  },
+  {
+   "record_method_ordinate": "1016.203225629376201472",
+   "battery_ordinate": "1016.203233168696530512",
+   "difference": -7.539320329039367e-06,
+   "q1_at_record_ordinate": 0.9869230908093348,
+   "q1_at_battery_ordinate": 0.9869191080403444,
+   "newton_residual_at_record_ordinate": 7.5393276082638086e-06
+  },
+  {
+   "record_method_ordinate": "1017.577666157574313048",
+   "battery_ordinate": "1017.577578183987514954",
+   "difference": 8.797358679809436e-05,
+   "q1_at_record_ordinate": 0.31066955529991036,
+   "q1_at_battery_ordinate": 0.3109348533155677,
+   "newton_residual_at_record_ordinate": 8.798423877318268e-05
+  }
+ ],
+ "min_q1_record_method": -0.3348103021277858,
+ "min_q1_battery": -0.33053338578645175,
+ "recorded_min_q1": -0.3348103021277858,
+ "max_ordinate_error_of_record_method": 0.0016834701478459387
+}

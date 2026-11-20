@@ -1,0 +1,15 @@
+V0 source system on this grid (reference for the gains below)              B=0.8748864 rho=0.5780 lx=0.3751 ly=0.4578 l=0.1671
+V1 lam = 1 (perfect large sieve at every length; expect no change)         B=0.8748864 rho=0.5780 lx=0.3751 ly=0.4578 l=0.1671
+H(lam = 0.9000): E(t*) = 1.1476, count + numerator  [MODEL]                B=0.8748864 rho=0.5780 lx=0.3751 ly=0.4578 l=0.1671
+H(lam = 0.8333): E(t*) = 1.1366, count + numerator  [MODEL]                B=0.8747873 rho=0.5850 lx=0.3602 ly=0.4723 l=0.1675
+H(lam = 0.7500): E(t*) = 1.1230, count + numerator  [MODEL]                B=0.8740912 rho=0.5600 lx=0.3962 ly=0.4335 l=0.1703
+H(lam = 0.6000): E(t*) = 1.0984, count + numerator  [MODEL]                B=0.8725036 rho=0.5400 lx=0.4086 ly=0.4147 l=0.1767
+H(lam = 0.5000): E(t*) = 1.0820, count + numerator  [MODEL]                B=0.8717019 rho=0.5400 lx=0.3979 ly=0.4223 l=0.1799
+H(lam = 0.4693): E(t*) = 1.0769, count + numerator  [MODEL]                B=0.8714638 rho=0.5400 lx=0.3947 ly=0.4245 l=0.1808
+H(lam = 0.2500): E(t*) = 1.0410, count + numerator  [MODEL]                B=0.8691838 rho=0.5200 lx=0.3986 ly=0.4115 l=0.1899
+H(lam = 0.1000): E(t*) = 1.0164, count + numerator  [MODEL]                B=0.8666667 rho=0.5000 lx=0.4000 ly=0.4000 l=0.2000
+H(lam = 0.0000): E(t*) = 1.0000, count + numerator  [MODEL]                B=0.8666667 rho=0.5000 lx=0.4000 ly=0.4000 l=0.2000
+H(lam = 0.00) count only  [MODEL]                                          B=0.8666667 rho=0.5000 lx=0.4000 ly=0.4000 l=0.2000
+H(lam = 0.00) numerator only  [MODEL]                                      B=0.8727235 rho=0.5600 lx=0.3768 ly=0.4474 l=0.1758
+H(lam = 0.50) count only  [MODEL]                                          B=0.8717019 rho=0.5400 lx=0.3979 ly=0.4223 l=0.1799
+H(lam = 0.50) numerator only  [MODEL]                                      B=0.8743114 rho=0.5600 lx=0.3993 ly=0.4313 l=0.1694

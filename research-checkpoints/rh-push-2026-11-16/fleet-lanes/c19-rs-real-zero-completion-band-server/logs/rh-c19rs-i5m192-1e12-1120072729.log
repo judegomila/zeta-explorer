@@ -1,0 +1,25 @@
+item5 1e12 m192 0.6 0 t=4s
+item5 1e12 m192 0.6 5 t=8s
+item5 1e12 m192 0.6 10 t=13s
+item5 1e12 m192 0.6 15 t=17s
+item5 1e12 m192 0.6 20 t=22s
+item5 1e12 m192 0.6 25 t=26s
+item5 1e12 m192 0.6 30 t=31s
+item5 1e12 m192 0.6 35 t=35s
+item5 1e12 m192 0.8 0 t=40s
+item5 1e12 m192 0.8 5 t=46s
+item5 1e12 m192 0.8 10 t=52s
+item5 1e12 m192 0.8 15 t=57s
+item5 1e12 m192 0.8 20 t=63s
+item5 1e12 m192 0.8 25 t=69s
+item5 1e12 m192 0.8 30 t=75s
+item5 1e12 m192 0.8 35 t=81s
+item5 1e12 m192 1.0 0 t=81s
+item5 1e12 m192 1.0 5 t=81s
+item5 1e12 m192 1.0 10 t=81s
+item5 1e12 m192 1.0 15 t=81s
+item5 1e12 m192 1.0 20 t=81s
+item5 1e12 m192 1.0 25 t=81s
+item5 1e12 m192 1.0 30 t=81s
+item5 1e12 m192 1.0 35 t=81s
+OWED5 DONE 1e12 m192

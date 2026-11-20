@@ -1,0 +1,17 @@
+max | |Gamma| - 1 | on the live columns: 0.0
+residue classes modulo 4 on the live columns: 12
+Z=8000 P=20 columns=687079 live=145509 slot primes=5 (norms [25, 31, 31, 37, 37])
+  vector   A/A(ALIGNED)   cross part / cross part(ALIGNED)  slot part / A
+ ALIGNED      1.000e+00                          1.000e+00          0.276
+    LIOU      1.000e+00                          1.000e+00          0.276
+   THETA      1.730e-03                          9.427e-06          0.996
+       U      2.191e-03                         -3.842e-04          1.127
+   RAND1      2.662e-03                          2.124e-04          0.942
+   RAND2      2.343e-03                          4.547e-05          0.986
+   RAND3      2.445e-03                         -6.549e-05          1.019
+   RAND4      2.254e-03                          1.247e-04          0.960
+   RAND5      2.081e-03                          2.701e-06          0.999
+   RAND6      1.949e-03                          2.697e-04          0.900
+   RAND7      2.519e-03                          6.760e-04          0.806
+   RAND8      1.493e-03                         -5.493e-04          1.266
+l2 mass sum_c A0^2/q_c = 1.2820e-07;  6 * l2 / A(ALIGNED) = 2.225e-03  (size of a vector with square-root cancellation)

@@ -1,0 +1,4 @@
+LIOU sigma 1.001 341: min 997.3 at t=188.1 neg 0 first None F4: min 996.2 at t=187.9 neg 0 first None F16: min 994 at t=118.2 neg 0 first None F64: min 992.6 at t=163.7 neg 0 first None
+LIOU sigma 1.01 341: min 97.37 at t=188.1 neg 0 first None F4: min 96.3 at t=187.9 neg 0 first None F16: min 94.21 at t=118.2 neg 0 first None F64: min 92.83 at t=163.7 neg 0 first None
+LIOU sigma 1.1 341: min 5.077 at t=0.1 neg 0 first None F4: min 4.887 at t=0.1 neg 0 first None F16: min 5.321 at t=0.1 neg 0 first None F64: min 2.732 at t=0.1 neg 0 first None
+LIOU sigma 1.3 341: min 0.7622 at t=0.1 neg 0 first None F4: min 1.126 at t=0.1 neg 0 first None F16: min 0.6154 at t=118.2 neg 0 first None F64: min 0.01102 at t=0.1 neg 0 first None

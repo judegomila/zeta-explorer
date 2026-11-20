@@ -1,0 +1,2904 @@
+{
+ "before": {
+  "name": "before (rerun before any edit)",
+  "n": 60,
+  "rank1": {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "score": 10.25,
+   "move": "M1"
+  },
+  "minScore": 0.29,
+  "topWithOpenDevice": 0,
+  "topWithFlooredDeviceOnly": 60,
+  "topWithClosedDevice": 0,
+  "topWithCell": 2,
+  "topWithProposedDevice": null,
+  "topPerProposedNode": null,
+  "deviceNodesLiveOpen": [],
+  "deviceNodesLiveFloored": [
+   "map-open-2",
+   "map-open-4",
+   "map-pos-35",
+   "qrh-seven-eighths",
+   "seven-eighths-abscissa-formula",
+   "tro6-natural"
+  ],
+  "perDeviceNode": {
+   "tro6-natural": 12,
+   "qrh-seven-eighths": 12,
+   "map-open-2": 12,
+   "seven-eighths-abscissa-formula": 12,
+   "map-open-4": 12
+  },
+  "geoTagCounts": {
+   "twin-ladder": 13,
+   "bridge": 11,
+   "shear": 6,
+   "antibridge": 0,
+   "torus": 6,
+   "klein": 2,
+   "spinor": 0,
+   "twistor": 0,
+   "zero-channel": 4,
+   "vortex": 2
+  },
+  "withGeoMember": 31,
+  "geoCandidates": [
+   {
+    "rank": 1,
+    "score": 10.25,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 2,
+    "score": 9.53,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "sympow-conductor-normalised-shift",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 4,
+    "score": 9.0,
+    "nodes": [
+     "theta-density-positivity-p-pos",
+     "alias-width-law-octave-weight",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 5,
+    "score": 8.75,
+    "nodes": [
+     "gl2-weil-symbol",
+     "finite-support-euler-detector",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 7,
+    "score": 8.75,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "route-m-first-moment-kappa",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 9,
+    "score": 8.5,
+    "nodes": [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 11,
+    "score": 8.25,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "prime-delay-domination-15-4",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 12,
+    "score": 8.25,
+    "nodes": [
+     "lean-weil-small-support",
+     "star-min-pointwise-prime-bound",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 13,
+    "score": 8.25,
+    "nodes": [
+     "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+     "qrh-seven-eighths",
+     "ramanujan-cube-satake-point"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 14,
+    "score": 8.0,
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "ramanujan-cube-satake-point",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "klein",
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 15,
+    "score": 7.99,
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "pole-term-schur-complement",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 16,
+    "score": 7.75,
+    "nodes": [
+     "subleading-k-closed-form",
+     "mem-chi4-signed-ladder",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 19,
+    "score": 7.75,
+    "nodes": [
+     "zv-signed-shear-w",
+     "staged-strip-triangular-inequality",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 21,
+    "score": 7.25,
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "restricted-mobius-delay-lift",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 23,
+    "score": 6.75,
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "finite-support-euler-detector",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 24,
+    "score": 6.55,
+    "nodes": [
+     "virtual-rungs-positive-extension",
+     "selberg-geodesic-ground-truth",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 27,
+    "score": 5.09,
+    "nodes": [
+     "gl2-weil-symbol",
+     "sextic-theta-numerics",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 28,
+    "score": 5.0,
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "prime-delay-domination",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 29,
+    "score": 4.81,
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "star-min-pointwise-prime-bound",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "klein",
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 34,
+    "score": 3.86,
+    "nodes": [
+     "bbm-growth-class-implication",
+     "selberg-zeta-freeze-sandbox",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 35,
+    "score": 3.75,
+    "nodes": [
+     "zv-signed-shear-w",
+     "ns-rigid-loophole-dirichlet-coefficients",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 36,
+    "score": 3.6,
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "mv-cap-function-side-gap",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 39,
+    "score": 3.22,
+    "nodes": [
+     "tilt-det-majorant",
+     "route-i-krein-certificate",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 43,
+    "score": 3.0,
+    "nodes": [
+     "exact-witness-quadratic-cosine",
+     "qtl-weil-delay-form",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 44,
+    "score": 2.97,
+    "nodes": [
+     "mem-freeze-flow-interlacing",
+     "route-m-kappa-first-moment",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "vortex",
+     "zero-channel"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 47,
+    "score": 2.75,
+    "nodes": [
+     "collision-ladder-data",
+     "route-m-conductor-tones",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "zero-channel"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 48,
+    "score": 2.75,
+    "nodes": [
+     "tilt-det-majorant",
+     "rung-toeplitz-euler-detector",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 50,
+    "score": 2.56,
+    "nodes": [
+     "zv-taylor-rouche-channel-criterion",
+     "h6-symbol-offline-poisson",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "zero-channel"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 51,
+    "score": 2.5,
+    "nodes": [
+     "map-open-2",
+     "mem-mollifier-proportion-loophole",
+     "ns-rigid-loophole-dirichlet-coefficients"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 57,
+    "score": 2.0,
+    "nodes": [
+     "frozen-rung-winding-identity",
+     "prime-delay-domination",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "bridge",
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 60,
+    "score": 0.29,
+    "nodes": [
+     "zero-ode-ht",
+     "mixed-group-rigid-profile",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "torus",
+     "vortex",
+     "zero-channel"
+    ],
+    "onProposed": []
+   }
+  ]
+ },
+ "after": {
+  "name": "after (final; proposed devices without penalty waivers)",
+  "n": 60,
+  "rank1": {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "score": 11.25,
+   "move": "M1"
+  },
+  "minScore": 2.75,
+  "topWithOpenDevice": 24,
+  "topWithFlooredDeviceOnly": 36,
+  "topWithClosedDevice": 0,
+  "topWithCell": 2,
+  "topWithProposedDevice": 24,
+  "topPerProposedNode": {
+   "exact-relation-rigidity": 12,
+   "tz-one-sided-completion-bound-band": 12
+  },
+  "deviceNodesLiveOpen": [
+   "exact-relation-rigidity",
+   "tz-one-sided-completion-bound-band"
+  ],
+  "deviceNodesLiveFloored": [
+   "map-open-2",
+   "map-open-4",
+   "map-pos-35",
+   "qrh-seven-eighths",
+   "seven-eighths-abscissa-formula",
+   "tro6-natural"
+  ],
+  "perDeviceNode": {
+   "tz-one-sided-completion-bound-band": 12,
+   "tro6-natural": 12,
+   "exact-relation-rigidity": 12,
+   "qrh-seven-eighths": 12,
+   "map-open-2": 7,
+   "map-open-4": 2,
+   "seven-eighths-abscissa-formula": 4
+  },
+  "geoTagCounts": {
+   "twin-ladder": 17,
+   "bridge": 16,
+   "shear": 9,
+   "antibridge": 0,
+   "torus": 6,
+   "klein": 4,
+   "spinor": 0,
+   "twistor": 0,
+   "zero-channel": 5,
+   "vortex": 1
+  },
+  "withGeoMember": 38,
+  "geoCandidates": [
+   {
+    "rank": 1,
+    "score": 11.25,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 2,
+    "score": 10.75,
+    "nodes": [
+     "sep-opt-lattice-extremal",
+     "tro6-natural",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 4,
+    "score": 10.25,
+    "nodes": [
+     "parity-pure-maj-witness-threshold",
+     "alias-sign-determinacy",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 5,
+    "score": 10.25,
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "alias-energy-in-sieve-algebra",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 6,
+    "score": 10.25,
+    "nodes": [
+     "pascal-carry-ballot",
+     "two-tents-joint-zero-completeness",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 7,
+    "score": 10.25,
+    "nodes": [
+     "ramanujan-cube-satake-point",
+     "cmv-truncation-from-taylor-data",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 8,
+    "score": 10.0,
+    "nodes": [
+     "zv-annulus-dtn-operator",
+     "star-min-pointwise-prime-bound",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "bridge",
+     "klein",
+     "torus"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 9,
+    "score": 10.0,
+    "nodes": [
+     "evaluation-christoffel-duality",
+     "gauss-plancherel-alias-lemma",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 10,
+    "score": 10.0,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "cotangent-second-moment-upper-lemma",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 11,
+    "score": 10.0,
+    "nodes": [
+     "tilt-det-majorant",
+     "prime-delay-domination-15-4",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear",
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 12,
+    "score": 9.75,
+    "nodes": [
+     "phi-autocorrelation-weight",
+     "sympow-conductor-normalised-shift",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 14,
+    "score": 9.72,
+    "nodes": [
+     "parity-amgm-gram-sharp",
+     "cotangent-second-moment-upper-lemma",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 15,
+    "score": 9.5,
+    "nodes": [
+     "gl2-weil-symbol",
+     "gauss-plancherel-alias-lemma",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 18,
+    "score": 9.25,
+    "nodes": [
+     "bridge-winding-equals-NT",
+     "route-m-first-moment-kappa",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "bridge",
+     "klein",
+     "zero-channel"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 19,
+    "score": 9.25,
+    "nodes": [
+     "tz-one-sided-completion-bound-band",
+     "arch-native-prime-jordan-product",
+     "restricted-mobius-delay-lift"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 20,
+    "score": 9.0,
+    "nodes": [
+     "zv-annulus-boundary-conditions",
+     "bohr-torus-scan-certification",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "klein",
+     "torus"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 21,
+    "score": 9.0,
+    "nodes": [
+     "theta-density-positivity-p-pos",
+     "alias-width-law-octave-weight",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 22,
+    "score": 9.0,
+    "nodes": [
+     "tilt-det-majorant",
+     "kyp-bounded-real-prime-delay",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "bridge",
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 23,
+    "score": 8.88,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "two-tents-joint-zero-completeness",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 24,
+    "score": 8.75,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "route-m-first-moment-kappa",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 25,
+    "score": 8.75,
+    "nodes": [
+     "gl2-weil-symbol",
+     "route-m-vasyunin-gram",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 26,
+    "score": 8.75,
+    "nodes": [
+     "zv-taylor-rouche-channel-criterion",
+     "prime-tent-rh-equivalence",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "zero-channel"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 27,
+    "score": 8.5,
+    "nodes": [
+     "ka-positivity-residual",
+     "map-pos-18",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 28,
+    "score": 8.5,
+    "nodes": [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 29,
+    "score": 8.25,
+    "nodes": [
+     "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+     "qrh-seven-eighths",
+     "ramanujan-cube-satake-point"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 32,
+    "score": 8.0,
+    "nodes": [
+     "schur-charge-payment",
+     "h6-symbol-offline-poisson",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "zero-channel"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 33,
+    "score": 8.0,
+    "nodes": [
+     "ka-offdiagonal-hankel-g7",
+     "scattering-causality-at-one-line",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 34,
+    "score": 7.75,
+    "nodes": [
+     "subleading-k-closed-form",
+     "mem-chi4-signed-ladder",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 37,
+    "score": 7.75,
+    "nodes": [
+     "zv-signed-shear-w",
+     "staged-strip-triangular-inequality",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 42,
+    "score": 6.55,
+    "nodes": [
+     "virtual-rungs-positive-extension",
+     "selberg-geodesic-ground-truth",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 43,
+    "score": 5.25,
+    "nodes": [
+     "bsy-interior-value-criterion",
+     "prime-tent-rh-equivalence",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "zero-channel"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 44,
+    "score": 5.0,
+    "nodes": [
+     "frozen-rung-winding-identity",
+     "prime-delay-domination",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "bridge",
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 45,
+    "score": 4.81,
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "star-min-pointwise-prime-bound",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "klein",
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 49,
+    "score": 4.16,
+    "nodes": [
+     "zv-theta-kernel-phi",
+     "alias-width-law-octave-weight",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 50,
+    "score": 3.85,
+    "nodes": [
+     "bbm-growth-class-implication",
+     "selberg-zeta-freeze-sandbox",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 52,
+    "score": 3.6,
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "mv-cap-function-side-gap",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 58,
+    "score": 3.0,
+    "nodes": [
+     "exact-witness-quadratic-cosine",
+     "qtl-weil-delay-form",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 59,
+    "score": 2.97,
+    "nodes": [
+     "mem-freeze-flow-interlacing",
+     "route-m-kappa-first-moment",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "vortex",
+     "zero-channel"
+    ],
+    "onProposed": []
+   }
+  ]
+ },
+ "afterWithWaivers": {
+  "name": "after, comparison run with --proposed-waivers",
+  "n": 60,
+  "rank1": {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "score": 11.25,
+   "move": "M1"
+  },
+  "minScore": 2.75,
+  "topWithOpenDevice": 24,
+  "topWithFlooredDeviceOnly": 36,
+  "topWithClosedDevice": 0,
+  "topWithCell": 2,
+  "topWithProposedDevice": 24,
+  "topPerProposedNode": {
+   "exact-relation-rigidity": 12,
+   "tz-one-sided-completion-bound-band": 12
+  },
+  "deviceNodesLiveOpen": [
+   "exact-relation-rigidity",
+   "tz-one-sided-completion-bound-band"
+  ],
+  "deviceNodesLiveFloored": [
+   "map-open-2",
+   "map-open-4",
+   "map-pos-35",
+   "qrh-seven-eighths",
+   "seven-eighths-abscissa-formula",
+   "tro6-natural"
+  ],
+  "perDeviceNode": {
+   "tz-one-sided-completion-bound-band": 12,
+   "tro6-natural": 12,
+   "exact-relation-rigidity": 12,
+   "qrh-seven-eighths": 12,
+   "map-open-2": 8,
+   "map-open-4": 2,
+   "seven-eighths-abscissa-formula": 3
+  },
+  "geoTagCounts": {
+   "twin-ladder": 17,
+   "bridge": 15,
+   "shear": 9,
+   "antibridge": 0,
+   "torus": 5,
+   "klein": 3,
+   "spinor": 0,
+   "twistor": 0,
+   "zero-channel": 5,
+   "vortex": 1
+  },
+  "withGeoMember": 37,
+  "geoCandidates": [
+   {
+    "rank": 1,
+    "score": 11.25,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 2,
+    "score": 10.75,
+    "nodes": [
+     "sep-opt-lattice-extremal",
+     "tro6-natural",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 4,
+    "score": 10.25,
+    "nodes": [
+     "parity-pure-maj-witness-threshold",
+     "alias-sign-determinacy",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 5,
+    "score": 10.25,
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "alias-energy-in-sieve-algebra",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 6,
+    "score": 10.25,
+    "nodes": [
+     "pascal-carry-ballot",
+     "two-tents-joint-zero-completeness",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 7,
+    "score": 10.25,
+    "nodes": [
+     "ramanujan-cube-satake-point",
+     "cmv-truncation-from-taylor-data",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 8,
+    "score": 10.0,
+    "nodes": [
+     "zv-annulus-dtn-operator",
+     "star-min-pointwise-prime-bound",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "bridge",
+     "klein",
+     "torus"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 9,
+    "score": 10.0,
+    "nodes": [
+     "evaluation-christoffel-duality",
+     "gauss-plancherel-alias-lemma",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 10,
+    "score": 10.0,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "cotangent-second-moment-upper-lemma",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 11,
+    "score": 10.0,
+    "nodes": [
+     "tilt-det-majorant",
+     "prime-delay-domination-15-4",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear",
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 12,
+    "score": 9.75,
+    "nodes": [
+     "phi-autocorrelation-weight",
+     "sympow-conductor-normalised-shift",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 14,
+    "score": 9.72,
+    "nodes": [
+     "parity-amgm-gram-sharp",
+     "cotangent-second-moment-upper-lemma",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 15,
+    "score": 9.5,
+    "nodes": [
+     "gl2-weil-symbol",
+     "gauss-plancherel-alias-lemma",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 19,
+    "score": 9.25,
+    "nodes": [
+     "bridge-winding-equals-NT",
+     "route-m-first-moment-kappa",
+     "exact-relation-rigidity"
+    ],
+    "geoTags": [
+     "bridge",
+     "klein",
+     "zero-channel"
+    ],
+    "onProposed": [
+     "exact-relation-rigidity"
+    ]
+   },
+   {
+    "rank": 21,
+    "score": 9.25,
+    "nodes": [
+     "tz-one-sided-completion-bound-band",
+     "arch-native-prime-jordan-product",
+     "restricted-mobius-delay-lift"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 22,
+    "score": 9.0,
+    "nodes": [
+     "theta-density-positivity-p-pos",
+     "alias-width-law-octave-weight",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 23,
+    "score": 8.88,
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "two-tents-joint-zero-completeness",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 24,
+    "score": 8.75,
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "route-m-first-moment-kappa",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 25,
+    "score": 8.75,
+    "nodes": [
+     "gl2-weil-symbol",
+     "route-m-vasyunin-gram",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 26,
+    "score": 8.75,
+    "nodes": [
+     "zv-taylor-rouche-channel-criterion",
+     "prime-tent-rh-equivalence",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "zero-channel"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 27,
+    "score": 8.5,
+    "nodes": [
+     "ka-positivity-residual",
+     "map-pos-18",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 28,
+    "score": 8.5,
+    "nodes": [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "bridge"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 29,
+    "score": 8.25,
+    "nodes": [
+     "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+     "qrh-seven-eighths",
+     "ramanujan-cube-satake-point"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 32,
+    "score": 8.0,
+    "nodes": [
+     "schur-charge-payment",
+     "h6-symbol-offline-poisson",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "zero-channel"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 33,
+    "score": 8.0,
+    "nodes": [
+     "ka-offdiagonal-hankel-g7",
+     "scattering-causality-at-one-line",
+     "tz-one-sided-completion-bound-band"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": [
+     "tz-one-sided-completion-bound-band"
+    ]
+   },
+   {
+    "rank": 34,
+    "score": 7.75,
+    "nodes": [
+     "subleading-k-closed-form",
+     "mem-chi4-signed-ladder",
+     "tro6-natural"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 37,
+    "score": 7.75,
+    "nodes": [
+     "zv-signed-shear-w",
+     "staged-strip-triangular-inequality",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "shear"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 42,
+    "score": 6.55,
+    "nodes": [
+     "virtual-rungs-positive-extension",
+     "selberg-geodesic-ground-truth",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 43,
+    "score": 5.25,
+    "nodes": [
+     "bsy-interior-value-criterion",
+     "prime-tent-rh-equivalence",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "bridge",
+     "zero-channel"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 44,
+    "score": 5.0,
+    "nodes": [
+     "frozen-rung-winding-identity",
+     "prime-delay-domination",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "bridge",
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 45,
+    "score": 4.81,
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "star-min-pointwise-prime-bound",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "klein",
+     "torus"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 47,
+    "score": 4.73,
+    "nodes": [
+     "tilt-det-majorant",
+     "ce17-carrier-contract-open-family",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 50,
+    "score": 4.16,
+    "nodes": [
+     "zv-theta-kernel-phi",
+     "alias-width-law-octave-weight",
+     "qrh-seven-eighths"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 51,
+    "score": 3.85,
+    "nodes": [
+     "bbm-growth-class-implication",
+     "selberg-zeta-freeze-sandbox",
+     "seven-eighths-abscissa-formula"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 52,
+    "score": 3.6,
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "mv-cap-function-side-gap",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 57,
+    "score": 3.0,
+    "nodes": [
+     "exact-witness-quadratic-cosine",
+     "qtl-weil-delay-form",
+     "map-open-4"
+    ],
+    "geoTags": [
+     "twin-ladder"
+    ],
+    "onProposed": []
+   },
+   {
+    "rank": 58,
+    "score": 2.97,
+    "nodes": [
+     "mem-freeze-flow-interlacing",
+     "route-m-kappa-first-moment",
+     "map-open-2"
+    ],
+    "geoTags": [
+     "vortex",
+     "zero-channel"
+    ],
+    "onProposed": []
+   }
+  ]
+ },
+ "keysInCommon": 23,
+ "sameScoreInCommon": 22,
+ "left": [
+  "af-hl-star-hierarchy x mem-concentration-dip-open x seven-eighths-abscissa-formula",
+  "arch-native-prime-jordan-product x map-open-4 x near-muntz-threshold-cones",
+  "autocorrelation-moment-ladder x qrh-seven-eighths x sympow-conductor-normalised-shift",
+  "binet-positive-kernel x map-open-2 x rm-e0-uniform-remainder",
+  "capture-ratio-psd-slope x prime-delay-domination-15-4 x qrh-seven-eighths",
+  "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tro6-natural",
+  "ch-holder-half-sharp x corr23-mixed-prolate-ladder x map-open-4",
+  "collision-ladder-data x route-m-conductor-tones x seven-eighths-abscissa-formula",
+  "confluent-laguerre-floor x map-open-4 x pole-term-schur-complement",
+  "connes-adelic-truncated-trace x map-open-4 x zv-polynomial-heat-coefficients",
+  "corr23-continuity-spectral-criterion x map-open-4 x route-b-limsup-stieltjes",
+  "curvature-charge-d x route-m-vasyunin-gram x tro6-natural",
+  "dbn-native-triangle-binding x route-m-first-moment-kappa x seven-eighths-abscissa-formula",
+  "euler-completed-weil-multiplier x seven-eighths-abscissa-formula x silent-u6e-bost-connes-states-outside-d8",
+  "ff-lambda-of-elliptic-curve x hasse-weil-checks x seven-eighths-abscissa-formula",
+  "ff-lambda-of-elliptic-curve x map-open-4 x spec-z-graph-class-pairing",
+  "finite-support-euler-detector x gl2-weil-symbol x tro6-natural",
+  "finite-support-euler-detector x multi-rung-weil-symbol x qrh-seven-eighths",
+  "frozen-rung-winding-identity x map-open-4 x prime-delay-domination",
+  "gauss-plancherel-alias-lemma x mem-qrh-7-8 x tro6-natural",
+  "gl2-weil-symbol x map-open-2 x sextic-theta-numerics",
+  "h6-symbol-offline-poisson x seven-eighths-abscissa-formula x zv-taylor-rouche-channel-criterion",
+  "katz-sarnak-family-checks x seven-eighths-abscissa-formula x theta-density-positivity",
+  "lean-cg-covering-identity x map-open-4 x weil-small-support-lean",
+  "lean-weil-small-support x map-open-2 x v7-floor-theorem-c",
+  "lean-weil-small-support x qrh-seven-eighths x star-min-pointwise-prime-bound",
+  "map-open-2 x mem-mollifier-proportion-loophole x ns-rigid-loophole-dirichlet-coefficients",
+  "map-open-2 x multi-rung-weil-symbol x prime-delay-domination",
+  "map-open-2 x rung-toeplitz-euler-detector x tilt-det-majorant",
+  "map-open-4 x mixed-group-rigid-profile x zero-ode-ht",
+  "map-open-4 x route-i-krein-certificate x tilt-det-majorant",
+  "mem-sextic-theta-squarefree x qrh-seven-eighths x sun-prop63-plus4-offset",
+  "ns-rigid-loophole-dirichlet-coefficients x seven-eighths-abscissa-formula x zv-signed-shear-w",
+  "pole-term-schur-complement x tro6-natural x zv-boundary-kernel-pa",
+  "qrh-seven-eighths x restricted-mobius-delay-lift x zv-boundary-kernel-pa",
+  "ramanujan-cube-satake-point x tro6-natural x zv-infinity-end-coordinate",
+  "route-m-vasyunin-gram x seven-eighths-abscissa-formula x subleading-k-closed-form"
+ ],
+ "entered": [
+  "alias-energy-in-sieve-algebra x exact-relation-rigidity x ingham-offlattice-riesz-floor",
+  "alias-sign-determinacy x exact-relation-rigidity x parity-pure-maj-witness-threshold",
+  "alias-width-law-octave-weight x qrh-seven-eighths x zv-theta-kernel-phi",
+  "arch-native-prime-jordan-product x restricted-mobius-delay-lift x tz-one-sided-completion-bound-band",
+  "autocorrelation-moment-ladder x cotangent-second-moment-upper-lemma x tz-one-sided-completion-bound-band",
+  "bohr-torus-scan-certification x exact-relation-rigidity x zv-annulus-boundary-conditions",
+  "bridge-winding-equals-NT x exact-relation-rigidity x route-m-first-moment-kappa",
+  "bsy-interior-value-criterion x prime-tent-rh-equivalence x qrh-seven-eighths",
+  "capture-ratio-psd-slope x sympow-conductor-normalised-shift x tz-one-sided-completion-bound-band",
+  "capture-ratio-psd-slope x tro6-natural x two-tents-joint-zero-completeness",
+  "ch-holder-half-sharp x katz-sarnak-family-checks x seven-eighths-abscissa-formula",
+  "clv-single-gaussian-minorant-citation x qrh-seven-eighths x qrh-seven-eighths-input",
+  "cmv-truncation-from-taylor-data x exact-relation-rigidity x ramanujan-cube-satake-point",
+  "cotangent-second-moment-upper-lemma x exact-relation-rigidity x parity-amgm-gram-sharp",
+  "evaluation-christoffel-duality x exact-relation-rigidity x gauss-plancherel-alias-lemma",
+  "exact-relation-rigidity x kyp-bounded-real-prime-delay x tilt-det-majorant",
+  "exact-relation-rigidity x mem-sextic-theta-squarefree x sun-prop63-plus4-offset",
+  "exact-relation-rigidity x route-m-vasyunin-gram x subleading-k-closed-form",
+  "exact-relation-rigidity x sep-opt-lattice-extremal x tro6-natural",
+  "exact-relation-rigidity x star-min-pointwise-prime-bound x zv-annulus-dtn-operator",
+  "frozen-rung-winding-identity x map-open-2 x prime-delay-domination",
+  "gauss-plancherel-alias-lemma x gl2-weil-symbol x tz-one-sided-completion-bound-band",
+  "gl2-weil-symbol x route-m-vasyunin-gram x tro6-natural",
+  "h6-symbol-offline-poisson x schur-charge-payment x tz-one-sided-completion-bound-band",
+  "ka-offdiagonal-hankel-g7 x scattering-causality-at-one-line x tz-one-sided-completion-bound-band",
+  "ka-positivity-residual x map-pos-18 x tz-one-sided-completion-bound-band",
+  "lane-audit-h-desc x qrh-seven-eighths x theta-density-positivity",
+  "lean-weil-small-support x mem-atlas-closing-line x tz-one-sided-completion-bound-band",
+  "map-pos-49 x mem-qrh-7-8 x tro6-natural",
+  "mem-abscissa-formula x silent-u6a-rank2-nonborel-metaplectic-eigenobject x tro6-natural",
+  "mem-sextic-theta-squarefree x qrh-seven-eighths x sextic-theta-mean-square",
+  "pascal-carry-ballot x two-tents-joint-zero-completeness x tz-one-sided-completion-bound-band",
+  "phi-autocorrelation-weight x sympow-conductor-normalised-shift x tro6-natural",
+  "prime-delay-domination-15-4 x tilt-det-majorant x tz-one-sided-completion-bound-band",
+  "prime-tent-rh-equivalence x tz-one-sided-completion-bound-band x zv-taylor-rouche-channel-criterion",
+  "qrh-seven-eighths x speiser-numerical",
+  "ri-sigma2-symbol x route-i-toeplitz-krein x tz-one-sided-completion-bound-band"
+ ],
+ "keysInCommonAfterVsWaivers": 56,
+ "after_top60": [
+  {
+   "rank": 1,
+   "score": 11.25,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 2,
+   "score": 10.75,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "sep-opt-lattice-extremal",
+    "tro6-natural",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ],
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 3,
+   "score": 10.5,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "mem-sextic-theta-squarefree",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 4,
+   "score": 10.25,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "parity-pure-maj-witness-threshold",
+    "alias-sign-determinacy",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 5,
+   "score": 10.25,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "ingham-offlattice-riesz-floor",
+    "alias-energy-in-sieve-algebra",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 6,
+   "score": 10.25,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "pascal-carry-ballot",
+    "two-tents-joint-zero-completeness",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 7,
+   "score": 10.25,
+   "move": "M3",
+   "theme": "geometry",
+   "nodes": [
+    "ramanujan-cube-satake-point",
+    "cmv-truncation-from-taylor-data",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 8,
+   "score": 10.0,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-annulus-dtn-operator",
+    "star-min-pointwise-prime-bound",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 9,
+   "score": 10.0,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "evaluation-christoffel-duality",
+    "gauss-plancherel-alias-lemma",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 10,
+   "score": 10.0,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "cotangent-second-moment-upper-lemma",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 11,
+   "score": 10.0,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "tilt-det-majorant",
+    "prime-delay-domination-15-4",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 12,
+   "score": 9.75,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "phi-autocorrelation-weight",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 13,
+   "score": 9.75,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "lean-weil-small-support",
+    "mem-atlas-closing-line",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 14,
+   "score": 9.72,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "parity-amgm-gram-sharp",
+    "cotangent-second-moment-upper-lemma",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 15,
+   "score": 9.5,
+   "move": "M1",
+   "theme": "positivity",
+   "nodes": [
+    "gl2-weil-symbol",
+    "gauss-plancherel-alias-lemma",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 16,
+   "score": 9.25,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "katz-sarnak-family-checks",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 17,
+   "score": 9.25,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "subleading-k-closed-form",
+    "route-m-vasyunin-gram",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 18,
+   "score": 9.25,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "bridge-winding-equals-NT",
+    "route-m-first-moment-kappa",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 19,
+   "score": 9.25,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "tz-one-sided-completion-bound-band",
+    "arch-native-prime-jordan-product",
+    "restricted-mobius-delay-lift"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 20,
+   "score": 9.0,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-annulus-boundary-conditions",
+    "bohr-torus-scan-certification",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 21,
+   "score": 9.0,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "theta-density-positivity-p-pos",
+    "alias-width-law-octave-weight",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 22,
+   "score": 9.0,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "tilt-det-majorant",
+    "kyp-bounded-real-prime-delay",
+    "exact-relation-rigidity"
+   ],
+   "devices": [
+    [
+     "exact-relation-rigidity",
+     "open",
+     "proposed, untested by a refereed lane; one unrefereed lane (c18-exact-relation-rigidity-klein-spinor) reports the branch closed for the relation multiplicativity"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 23,
+   "score": 8.88,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "two-tents-joint-zero-completeness",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 24,
+   "score": 8.75,
+   "move": "M1",
+   "theme": "zero-free",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "route-m-first-moment-kappa",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 25,
+   "score": 8.75,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "gl2-weil-symbol",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 26,
+   "score": 8.75,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "zv-taylor-rouche-channel-criterion",
+    "prime-tent-rh-equivalence",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 27,
+   "score": 8.5,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "ka-positivity-residual",
+    "map-pos-18",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 28,
+   "score": 8.5,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "theta-density-positivity",
+    "staged-strip-triangular-inequality",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 29,
+   "score": 8.25,
+   "move": "M3",
+   "theme": "geometry",
+   "nodes": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "qrh-seven-eighths",
+    "ramanujan-cube-satake-point"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+   ]
+  },
+  {
+   "rank": 30,
+   "score": 8.25,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "tz-one-sided-completion-bound-band",
+    "ri-sigma2-symbol",
+    "route-i-toeplitz-krein"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 31,
+   "score": 8.25,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "tro6-natural",
+    "map-pos-49",
+    "mem-qrh-7-8"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 32,
+   "score": 8.0,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "schur-charge-payment",
+    "h6-symbol-offline-poisson",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 33,
+   "score": 8.0,
+   "move": "M3",
+   "theme": "positivity",
+   "nodes": [
+    "ka-offdiagonal-hankel-g7",
+    "scattering-causality-at-one-line",
+    "tz-one-sided-completion-bound-band"
+   ],
+   "devices": [
+    [
+     "tz-one-sided-completion-bound-band",
+     "open",
+     "proposed, untested"
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 34,
+   "score": 7.75,
+   "move": "M1",
+   "theme": "prime-chain",
+   "nodes": [
+    "subleading-k-closed-form",
+    "mem-chi4-signed-ladder",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 35,
+   "score": 7.75,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "sun-catalan-preprint-verdict",
+    "mem-qrh-7-8",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 36,
+   "score": 7.75,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "start-substitution-lemma",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 37,
+   "score": 7.75,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-signed-shear-w",
+    "staged-strip-triangular-inequality",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 38,
+   "score": 7.66,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "phi-truncation-leftmost-zero",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 39,
+   "score": 7.5,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "mem-abscissa-formula",
+    "tro6-natural"
+   ],
+   "devices": [
+    [
+     "tro6-natural",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+   ]
+  },
+  {
+   "rank": 40,
+   "score": 7.25,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "sextic-theta-numerics",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 41,
+   "score": 7.25,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "mem-sextic-theta-squarefree",
+    "qrh-seven-eighths",
+    "sextic-theta-mean-square"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 42,
+   "score": 6.55,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 43,
+   "score": 5.25,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "bsy-interior-value-criterion",
+    "prime-tent-rh-equivalence",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 44,
+   "score": 5.0,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "prime-delay-domination",
+    "map-open-2"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 45,
+   "score": 4.81,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "star-min-pointwise-prime-bound",
+    "map-open-4"
+   ],
+   "devices": [
+    [
+     "map-open-4",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 46,
+   "score": 4.75,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "theta-density-positivity",
+    "lane-audit-h-desc",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 47,
+   "score": 4.5,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "map-open-2",
+    "frobenius-gcd-factorisation",
+    "lane-audit-h-desc"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 48,
+   "score": 4.25,
+   "move": "M3",
+   "theme": "zero-free",
+   "nodes": [
+    "clv-single-gaussian-minorant-citation",
+    "qrh-seven-eighths-input",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 49,
+   "score": 4.16,
+   "move": "M4",
+   "theme": "zero-free",
+   "nodes": [
+    "zv-theta-kernel-phi",
+    "alias-width-law-octave-weight",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 50,
+   "score": 3.85,
+   "move": "M1",
+   "theme": "geometry",
+   "nodes": [
+    "bbm-growth-class-implication",
+    "selberg-zeta-freeze-sandbox",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    [
+     "seven-eighths-abscissa-formula",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 51,
+   "score": 3.75,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "speiser-numerical",
+    "qrh-seven-eighths"
+   ],
+   "devices": [
+    [
+     "qrh-seven-eighths",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 52,
+   "score": 3.6,
+   "move": "M1",
+   "theme": "statistics",
+   "nodes": [
+    "ingham-offlattice-riesz-floor",
+    "mv-cap-function-side-gap",
+    "map-open-2"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 53,
+   "score": 3.25,
+   "move": "M2",
+   "theme": "zero-free",
+   "nodes": [
+    "pr14-boundary-certificate",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    [
+     "seven-eighths-abscissa-formula",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 54,
+   "score": 3.25,
+   "move": "M3",
+   "theme": "nyman",
+   "nodes": [
+    "map-open-2",
+    "rm-kappa-arith-exact",
+    "rm-kappa-total-measured"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 55,
+   "score": 3.14,
+   "move": "M4",
+   "theme": "flow",
+   "nodes": [
+    "ch-holder-half-sharp",
+    "katz-sarnak-family-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    [
+     "seven-eighths-abscissa-formula",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 56,
+   "score": 3.0,
+   "move": "M3",
+   "theme": "nyman",
+   "nodes": [
+    "map-open-2",
+    "rm-parity-sign-law",
+    "rm-sign-law-t-negative"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 57,
+   "score": 3.0,
+   "move": "M3",
+   "theme": "prime-chain",
+   "nodes": [
+    "map-open-22",
+    "cm-eta-heights-lambda1",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": [
+    [
+     "seven-eighths-abscissa-formula",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 58,
+   "score": 3.0,
+   "move": "M4",
+   "theme": "positivity",
+   "nodes": [
+    "exact-witness-quadratic-cosine",
+    "qtl-weil-delay-form",
+    "map-open-4"
+   ],
+   "devices": [
+    [
+     "map-open-4",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 59,
+   "score": 2.97,
+   "move": "M1",
+   "theme": "flow",
+   "nodes": [
+    "mem-freeze-flow-interlacing",
+    "route-m-kappa-first-moment",
+    "map-open-2"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  },
+  {
+   "rank": 60,
+   "score": 2.75,
+   "move": "M1",
+   "theme": "flow",
+   "nodes": [
+    "debruijn-landing-rate-thm13",
+    "mem-landau-siegel-uniform",
+    "map-open-2"
+   ],
+   "devices": [
+    [
+     "map-open-2",
+     "floored",
+     ""
+    ]
+   ],
+   "cells": []
+  }
+ ]
+}

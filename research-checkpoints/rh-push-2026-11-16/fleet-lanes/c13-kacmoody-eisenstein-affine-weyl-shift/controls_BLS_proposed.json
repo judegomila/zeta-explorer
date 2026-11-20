@@ -1,0 +1,10 @@
+{
+ "code": "BLS",
+ "name": "scattering-level Blaschke control",
+ "definition": "M_B(z) = [xi(z)/xi(z+1)] * prod_j (z - a_j)(z - conj a_j)/((z + a_j)(z + conj a_j)), Re a_j > 0, Im a_j != 0. Equivalently f(z)/f(z+1) with f = xi(z) prod_j Gamma(z + a_j)Gamma(z + conj a_j)/(Gamma(z - a_j)Gamma(z - conj a_j)).",
+ "has": ["every p-adic local factor of zeta", "M(z)M(-z) = 1", "unimodular on Re z = 0", "holomorphic in Re z > 0 off z = 1", "Maass-Selberg positivity for every T >= 1 (proved, Theorem C of the lane)", "a zero at each prescribed a_j, anywhere in the open right half-plane"],
+ "lacks": ["a vector at the archimedean place of a group representation", "the relation f(z) = f(1 - z) for f itself"],
+ "use": "kills any argument on an Eisenstein/scattering carrier that uses only the cocycle relation, unitarity, holomorphy in the positive chamber and positivity of truncated norms",
+ "status": "proved in rank one; author referee pass only",
+ "source": "push/c13-kacmoody-eisenstein-affine-weyl-shift/RESULT.md section 3.3"
+}

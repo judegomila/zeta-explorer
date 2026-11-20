@@ -1,0 +1,269 @@
+THETA BRIDGE: A SINGLE-PULSE CRITERION, WEIGHTED DOMAINS, AND OPERATOR AUDITS
+Research session: November 7, 2026 (America/Los_Angeles)
+
+STATUS
+======
+This note records deductions and checks from the current research session.
+It does not prove RH. The new sufficient/equivalent pulse estimate below is
+unproved. The weighted-resolvent theorem and the exclusions are proved for
+the explicitly stated operators. No novelty claim relative to the full
+literature is made.
+
+1. DEFINITIONS
+==============
+F(z)=xi(1/2+z), with xi(s)=s(s-1) pi^(-s/2) Gamma(s/2) zeta(s)/2.
+theta(t)=sum_(n in Z) exp(-pi n^2 t).
+H(u)=exp(u/4) theta(exp(u)); kappa(u)=H''(u)-H(u)/16.
+F(z)=integral_R kappa(u) exp(zu/2) du.
+
+Fix alpha>0. Set D=F+alpha F', N=F-alpha F', S=N/D.
+F is even and real on the real axis, so N(z)=D(-z).
+Our Fourier convention is f_hat(t)=integral f(u) exp(itu/2) du.
+The inverse convention has factor 1/(4*pi).
+Put h_+(u)=(1+alpha*u/2)kappa(u), h_-(u)=(1-alpha*u/2)kappa(u).
+Their bilateral Laplace transforms are D and N.
+
+On the imaginary axis |S(it)|=1 almost everywhere. Common boundary zeros
+are removable and have no effect on the L2 multiplier. Thus C0, defined by
+(C0 f)_hat(t)=S(it) f_hat(t), is an unconditional unitary on L2(R).
+
+The desired pointwise inequality is
+1-|S(x+it)|^2 = 4 alpha Re(F'(x+it) conjugate(F(x+it)))/|D(x+it)|^2 >=0.
+For this F, global contractivity in Re z>0 is equivalent to RH.
+It is unconditionally known on Re z>=1/2, since Re(xi'/xi)(s)>0 for Re s>=1.
+
+2. ONE FIXED PULSE AND ONE EXPONENTIAL MOMENT SUFFICE
+==================================================
+Let f0=1_[0,1], and let g0=C0 f0 be the ACTUAL boundary multiplier output.
+Then, for every fixed X>=1/2,
+
+  RH  <=>  integral_R exp(Xu)|g0(u)|^2 du < infinity.
+
+Under RH the stronger statements hold:
+  support(g0) is contained in (-infinity,1];
+  integral exp(Xu)|g0|^2 <= (exp(X)-1)/X.
+
+In particular, the endpoint target is
+  integral exp(u/2)|C0 1_[0,1](u)|^2 du <= 2(exp(1/2)-1).
+Even FINITENESS, without the numerical bound, suffices for RH.
+
+Proof of necessity of RH from the moment:
+The pulse transform V(z)=2(exp(z/2)-1)/z has no zeros in Re z>0.
+If g0 is in both L2 and L2(exp(Xu)du), its bilateral Laplace transform Y is
+analytic and in the Hardy space of 0<Re z<X. Cauchy-Schwarz gives absolute
+convergence at intermediate real parts; interpolation bounds the L2 norms.
+D and N are bounded on this strip, using the exponential moments of kappa.
+The boundary multiplier identity gives D(it)Y(it)=N(it)V(it). Hardy uniqueness
+then yields DY=NV throughout the strip.
+Since V never vanishes there, S=N/D has no genuine poles in the strip.
+All possible right-half-plane poles are in 0<Re z<1/2, because D is nonzero
+on Re z>=1/2. The case X=1/2 therefore covers every possible pole as well.
+The canonical-product argument in Section 3 shows that pole-free S is inner
+for this particular xi family. An F-zero in Re z>0 would force S=-1 there,
+after removable cancellation, contradicting strict interior modulus <1.
+Evenness of F then gives RH.
+
+Conversely, under RH, S is an inner right-half-plane function. With our Fourier
+sign, its convolution kernel is supported in u<=0. Consequently C0 cannot
+move support toward larger u, and support(g0) lies below 1.
+For P_a=1_(-infinity,a], Q_a=I-P_a, causality and unitarity give
+  ||Q_a C0 f|| <= ||Q_a f||.
+Integrate this inequality squared against X exp(Xa) da. Tonelli gives
+  ||exp(Xu/2)C0 f||^2 <= ||exp(Xu/2)f||^2.
+For f0, the right side is (exp(X)-1)/X.
+
+This reduces the target; it does not establish the moment. An exact,
+unconditional physical-space equation for the required response is
+  h_+ * g0 = h_- * 1_[0,1],
+with g0 in ordinary L2 and ||g0||=1. The required exponential integrability
+of this solution has not been proved.
+
+3. WHY POLE-FREE S IS INNER HERE
+===============================
+This uses xi growth, not a generic maximum-modulus argument.
+For sufficiently large Re z, Re(F'/F)(z)>1/alpha uniformly in Im z, by the
+gamma asymptotic and the Euler product. Thus D(-z)=F(z)-alpha F'(z) is nonzero
+there. The zeros of D lie in a bounded vertical strip. D has order one.
+
+Cancel all common canonical factors of D(z) and N(z)=D(-z). Common factors
+can be chosen even. If S has no genuine poles in Re z>0, the remaining
+denominator zeros lie in a bounded LEFT vertical strip, with boundary common
+zeros also removed. They obey sum |d_n|^(-2)<infinity. Bounded real parts
+give the Blaschke sum and absolute convergence of sum |Re(1/d_n)|.
+
+Grouping conjugate factors in the Hadamard product gives
+  S(z)=exp(c*z) B(z), c real,
+where B is a right-half-plane Blaschke product. No bounded-type assumption on
+D is needed for this direct factorization. Bounded real parts of its zeros
+and the Blaschke sum give log|B(x)|/x ->0 as x->+infinity.
+But F'(x)/F(x)->+infinity and S(x)->-1. Hence c=0 and S=B is inner.
+It is nonconstant. If F had a right-half-plane zero of multiplicity m, the
+cancelled quotient would satisfy S(z0+h)=-1+2h/(alpha*m)+O(h^2), impossible
+for a nonconstant inner function at an interior point. This handles multiple
+zeros without assuming simplicity.
+
+4. THE PRECISE DOMAIN OBSTRUCTION
+================================
+Let D0 be the span of all translates h_+(u+2b). Each such vector is mapped
+by C0 to h_-(u+2b). This span is dense in ordinary L2 and separately in each
+L2(exp(Xu)du). Those separate statements do not prove simultaneous density.
+
+The correct common norm is H_X=L2((1+exp(Xu))du).
+If D(p)=0 and 0<sigma=Re p<X, then
+  ell_p(f)=integral f(u) exp(pu/2) du
+is a bounded functional on H_X with
+  ||ell_p||^2 = pi/[X sin(pi*sigma/X)].
+It annihilates every feature translate, since
+  ell_p(h_+(u+2b))=exp(-pb)D(p)=0.
+But ell_p(f0)=V(p) is nonzero. Thus
+  dist_H_X(f0, closure(D0))
+  >= |V(p)| sqrt[X sin(pi*sigma/X)/pi] >0.
+A zero of multiplicity m supplies m derivative-evaluation annihilators.
+No assertion that these exhaust all possible core defects is required here.
+
+For X>=1/2, closing the feature operator on a single vertical line legitimately
+gives the bounded contractive Fourier multiplier S(X+it). For arbitrary X the
+same argument gives the maximal closed multiplier, which can be unbounded.
+Its graph norm on Fourier core
+vectors D(X+it)p(t) is L2 of (|D|^2+|N|^2)dt; finite exponential sums are
+dense for that finite measure. But identifying that closure with the literal
+product exp(Xu/2) C0 exp(-Xu/2) on arbitrary compact tests requires convergence
+in the simultaneous norm. This is exactly where the preceding functional
+can obstruct the argument.
+
+Simple model: S(z)=(z+p)/(z-p), p>0. The unitary boundary multiplier has
+kernel delta(u)-p exp(-pu/2)1_(u>0). Above the support of compact f, its output
+is -p exp(-pu/2)ell_p(f). Weight X>p makes this output nonintegrable whenever
+ell_p(f) is nonzero. Yet the continued vertical symbol S(X+it) is bounded;
+its kernel is delta(u)+p exp((X-p)u/2)1_(u<0). To compare in the same
+coordinates, put v(u)=exp(Xu/2)f(u). The continued multiplier applied to v
+agrees with exp(Xu/2)C0 f precisely on the original-input cancellation core
+ell_p(f)=0, equivalently ell_(p-X)(v)=0. Generic compact original inputs do
+not satisfy that condition. The kernels are not being compared on an identical
+unweighted input with the conjugations omitted.
+This model illustrates the domain issue; it is not a claim that xi has poles
+of this kind or a claim that the toy outer multiplier is contractive.
+
+5. A GENUINE WEIGHTED CONTRACTION, AND ITS FAILED MATCH
+====================================================
+The companion file weighted_theta_resolvent_20261108.txt gives the proof.
+Let c=1/4, q=sqrt(kappa/H), and
+  B_a(u,v)=q(u)q(v)exp(a(u-v)-c|u-v|)/(2c).
+For |a|<=c, B_a is compact and accretive, and T_a=(I+B_a)^(-1) is contractive.
+Its Hermitian part is the sum of two positive exponential kernels with rates
+c-a and c+a. An explicit positive Gram factorization of I-T_a^*T_a follows.
+Thus weighted contractivity itself can be proved throughout the critical
+strip tilt a=x/2, including its endpoints.
+
+However T_a is I+compact and cannot map ALL required translated h^+ features
+to h^- features. Translates tend weakly to zero, so the compact correction
+vanishes, leaving the exact nonzero residual limit
+  lim_|b|->infinity ||T_a h^+_(x,b)-h^-_(x,b)||
+  = sqrt[(alpha/2)integral u^2 exp(xu)kappa(u)^2 du] >0.
+Every lambda*I+compact candidate has the same structural problem. This does
+not exclude arbitrary noncompact scattering or canonical-system constructions.
+
+The companion also computes explicit nonzero source terms when the fixed
+theta state H at energy -1/16 is replaced by a Mellin-tilted trial state at
+another energy. A spectral energy identity cannot omit those terms.
+
+6. CERTIFIED EXCLUSION OF A CONFINING SPECTRAL CANDIDATE
+=====================================================
+Take psi=kappa^2 on u>=0 and L=-d^2/du^2+psi''/psi with Neumann boundary at 0.
+Ground-state factorization makes L nonnegative, with ground state psi and
+eigenvalue 0. Its confining tail has the attractive Riemann zero-count leading
+terms for frequencies 2*sqrt(lambda_n). This does not fix its individual modes.
+
+Use the trial vector psi(u)*(u^2-m2/m0), orthogonal to the ground state, where
+  m_j=integral_0^infinity u^j kappa(u)^4 du.
+Ground-state transformation gives the exact Rayleigh quotient
+  R=4*m2/(m4-m2^2/m0), hence lambda_1<=R.
+
+The accompanying mpmath interval script directly encloses the three moments
+on 2000 rational cells covering [0,3], using theta terms n=1,...,4. It uses no
+floating-point quadrature error estimate. For n>=5 and u>=0, t=exp(u)>=1:
+  sum omitted kappa terms
+  <=2*pi^2*625*exp(-25*pi)/(1-exp(4/5-10*pi)) < 1e-30.
+This follows from n=5+j, n^4<=625 exp(4j/5), n^2>=25+10j and monotonicity
+of t^(9/4)exp(-25*pi*t) for t>=1.
+
+For u>=0, kappa(u)<=3*pi^2 exp(9u/4-pi exp(u)). For n>=2 use
+  sum n^4 exp(-pi(n^2-1)t)
+  <=16 exp(-3*pi*t)/(1-exp(2-4*pi*t)) <1/2.
+For u=3+v and j=0,2,4, use exp(v)>=1+v and (3+v)^j<=3^j exp(jv/3).
+The moment tail is at most
+  81*pi^8*3^j*exp(27-4*pi*exp(3))/(4*pi*exp(3)-9-j/3) <1e-90.
+
+The interval result is
+  R in [36.1949358864,46.5141964830],
+  2*sqrt(lambda_1) <= 13.640264 <14.
+The first positive xi ordinate exceeds14 (approximately14.13472514). Thus
+the specific candidate, with only its zero ground state removed and the stated
+frequency normalization, cannot have exactly the xi spectrum.
+
+Independent noncertified finite-difference values at spacing0.0005, domain
+endpoints3 and4, gave 12.76447152,18.64503901,23.45170810 for the first three
+positive frequencies. These numbers illustrate the exclusion; the interval
+Rayleigh inequality is the certificate. No general spectral route is excluded.
+
+7. OTHER ROUTES AUDITED
+======================
+For fixed x>0, the exact integrated kernel has asymptotic
+  M_x(b) ~ 2*pi^3*x exp(3|b|-2*pi*exp(|b|)).
+Laplace's method uses a=O(exp(-|b|/2)) in its defining a-integral.
+This tail proves M_x/M_x(0) cannot be an infinitely divisible characteristic
+function or a positive Gaussian scale mixture: either would have a Gaussian
+lower bound, contradicted by this double-exponential decay. Schoenberg's
+classification also excludes M_x itself as a PF_infinity density, since its
+bilateral Laplace transform is entire and would force the Gaussian case.
+Ordinary one-dimensional positive definiteness remains the possible target.
+
+Suvrit Sra's November2,2026 preprint studies DIFFERENT, reciprocal-transform
+densities. It obtains a positive decreasing heat-trace kernel for B(s)=
+log[xi(1/2+sqrt(s))/xi(1/2)], using finite verified zero data. Hence B is
+Bernstein. Our impedance is F'/F(z)=2z B'(z^2). A positive Stieltjes
+representation for B', equivalently complete monotonicity of that heat trace,
+would give the required positive-real impedance. This stronger property is
+RH-equivalent for xi; the preprint recognizes this distinction. Its much longer
+huge-finite-PF certificate was not independently audited in this session.
+
+An elementary obstruction to the shortcut is
+  h0(s)=(1+s)(1+s/(100+i))(1+s/(100-i)).
+Its logarithmic derivative has positive decreasing Laplace kernel
+  exp(-t)+2 exp(-100t)cos(t).
+Thus log h0 is Bernstein and h0^(-alpha) gives self-decomposable laws, but
+h0(z^2) has off-axis zeros. A positive reciprocal law alone is insufficient.
+
+8. SOURCES AND ATTRIBUTION
+=========================
+Our algebraic reductions and operator audits are presented with proofs above;
+they are not claimed to be previously unpublished results.
+
+Sondow and Dumitrescu, A monotonicity property of Riemann's xi function and a
+reformulation of the Riemann Hypothesis (2010):
+https://arxiv.org/abs/1005.1104
+
+Suzuki, Chains of reproducing kernel Hilbert spaces generated by unimodular
+functions (arXiv2012.11121; Ann. Inst. Fourier75,2025):
+https://arxiv.org/abs/2012.11121
+The Hermite-Biehler/inner criterion for E_xi is established prior art.
+
+Sra, On some positivity properties of the Riemann Xi function, preprint
+arXiv2611.02944v1, November2,2026:
+https://arxiv.org/abs/2611.02944
+https://suvrit.github.io/papers/riem-xi/
+
+Grochenig, Schoenberg's Theory of Totally Positive Functions and the Riemann
+Zeta Function:
+https://arxiv.org/abs/2007.12889
+
+LMFDB zeta-zero data:
+https://www.lmfdb.org/zeros/zeta/
+
+NEXT MATHEMATICAL OBLIGATION
+===========================
+Prove finite exp(u/2)-weighted energy for the ACTUAL boundary response g0 to
+the fixed pulse, or derive its support from the exact theta convolution equation.
+Neither the outer-line multiplier bound nor the positive weighted resolvent
+establishes that statement. The current work isolates and checks the target;
+it does not close the RH proof.

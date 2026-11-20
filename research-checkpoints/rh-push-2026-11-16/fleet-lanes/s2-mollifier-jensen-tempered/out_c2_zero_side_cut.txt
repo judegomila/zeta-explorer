@@ -1,0 +1,118 @@
+case PLANT T 10000 nearest off-line ordinate at distance 10.000, Delta 3.333, zeros used 221 (on-line 219), on-line zeros nearer than the off-line one: 23
+case PLANT T 10000 nearest off-line ordinate at distance 30.000, Delta 9.999, zeros used 659 (on-line 657), on-line zeros nearer than the off-line one: 70
+case PLANT T 10000 nearest off-line ordinate at distance 3.000, Delta 1.000, zeros used 101 (on-line 99), on-line zeros nearer than the off-line one: 7
+case PLANT T 10000 nearest off-line ordinate at distance 5.000, Delta 1.666, zeros used 111 (on-line 109), on-line zeros nearer than the off-line one: 12
+case PLANT T 10000 nearest off-line ordinate at distance 20.000, Delta 6.666, zeros used 440 (on-line 438), on-line zeros nearer than the off-line one: 46
+case PLANT T 10000 nearest off-line ordinate at distance 3.000, Delta 1.000, zeros used 68 (on-line 66), on-line zeros nearer than the off-line one: 7
+{"CUT": 42.0, "case": "PLANT", "T": 10000.0, "d": 3.0, "Delta": 0.9999, "zeros": 101, "online": 99, "K_d": 7, "NMAX": 2000, "delta": "0.3", "Nstar": 12, "pivot": "[-1.6149251e-14 +/- 4.77e-22]", "prev_pivot": "[1.4697472e-12 +/- 4.94e-20]", "status": "negative pivot", "tail_weight_bound": 0.0, "prec": 256, "seconds": 0.008991003036499023}
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 3.0, "Delta": 0.9999, "zeros": 68, "online": 66, "K_d": 7, "NMAX": 2000, "delta": "0.3", "Nstar": 12, "pivot": "[-1.6149251e-14 +/- 4.77e-22]", "prev_pivot": "[1.4697472e-12 +/- 4.94e-20]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.006810188293457031}
+  pivot 25 undecided at 256 bits -> 512 bits
+  pivot 30 undecided at 256 bits -> 512 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 5.0, "Delta": 1.6664999999999999, "zeros": 111, "online": 109, "K_d": 12, "NMAX": 2000, "delta": "0.3", "Nstar": 29, "pivot": "[-8.1463682e-34 +/- 3.71e-42]", "prev_pivot": "[1.7399501e-31 +/- 6.91e-40]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 512, "seconds": 0.11971807479858398}
+  pivot 38 undecided at 256 bits -> 512 bits
+  pivot 49 undecided at 512 bits -> 1024 bits
+  pivot 45 undecided at 256 bits -> 512 bits
+  pivot 59 undecided at 512 bits -> 1024 bits
+case PLANT T 10000 nearest off-line ordinate at distance 5.000, Delta 1.666, zeros used 167 (on-line 165), on-line zeros nearer than the off-line one: 12
+case PLANT T 10000 nearest off-line ordinate at distance 10.000, Delta 3.333, zeros used 330 (on-line 328), on-line zeros nearer than the off-line one: 23
+case PLANT T 10000 nearest off-line ordinate at distance 3.000, Delta 1.000, zeros used 68 (on-line 66), on-line zeros nearer than the off-line one: 7
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 3.0, "Delta": 0.9999, "zeros": 68, "online": 66, "K_d": 7, "NMAX": 2000, "delta": "0.05", "Nstar": 19, "pivot": "[-9.4939524e-27 +/- 2.47e-35]", "prev_pivot": "[1.7565652e-24 +/- 2.35e-33]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.007607936859130859}
+  pivot 25 undecided at 256 bits -> 512 bits
+  pivot 30 undecided at 256 bits -> 512 bits
+  pivot 80 undecided at 1024 bits -> 2048 bits
+{"CUT": 42.0, "case": "PLANT", "T": 10000.0, "d": 5.0, "Delta": 1.6664999999999999, "zeros": 167, "online": 165, "K_d": 12, "NMAX": 2000, "delta": "0.3", "Nstar": 29, "pivot": "[-8.1463682e-34 +/- 3.71e-42]", "prev_pivot": "[1.7399501e-31 +/- 6.91e-40]", "status": "negative pivot", "tail_weight_bound": 0.0, "prec": 512, "seconds": 0.2563638687133789}
+  pivot 68 undecided at 512 bits -> 1024 bits
+  pivot 49 undecided at 512 bits -> 1024 bits
+case PLANT T 10000 nearest off-line ordinate at distance 5.000, Delta 1.666, zeros used 111 (on-line 109), on-line zeros nearer than the off-line one: 12
+case PLANT T 10000 nearest off-line ordinate at distance 10.000, Delta 3.333, zeros used 221 (on-line 219), on-line zeros nearer than the off-line one: 23
+  pivot 25 undecided at 256 bits -> 512 bits
+  pivot 30 undecided at 256 bits -> 512 bits
+  pivot 42 undecided at 512 bits -> 1024 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 5.0, "Delta": 1.6664999999999999, "zeros": 111, "online": 109, "K_d": 12, "NMAX": 2000, "delta": "0.05", "Nstar": 50, "pivot": "[-1.1925146e-69 +/- 1.27e-77]", "prev_pivot": "[7.7786846e-67 +/- 4.68e-75]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 1024, "seconds": 0.6131861209869385}
+  pivot 49 undecided at 512 bits -> 1024 bits
+  pivot 80 undecided at 1024 bits -> 2048 bits
+case PLANT T 100000 nearest off-line ordinate at distance 3.000, Delta 1.000, zeros used 88 (on-line 86), on-line zeros nearer than the off-line one: 9
+{"CUT": 28.0, "case": "PLANT", "T": 100000.0, "d": 3.0, "Delta": 0.9999, "zeros": 88, "online": 86, "K_d": 9, "NMAX": 2000, "delta": "0.3", "Nstar": 18, "pivot": "[-2.0272129e-22 +/- 3.18e-30]", "prev_pivot": "[2.0732674e-23 +/- 2.95e-31]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.010816812515258789}
+  pivot 80 undecided at 1024 bits -> 2048 bits
+case PLANT T 100000 nearest off-line ordinate at distance 5.000, Delta 1.666, zeros used 145 (on-line 143), on-line zeros nearer than the off-line one: 15
+  pivot 25 undecided at 256 bits -> 512 bits
+{"CUT": 28.0, "case": "PLANT", "T": 100000.0, "d": 5.0, "Delta": 1.6664999999999999, "zeros": 145, "online": 143, "K_d": 15, "NMAX": 2000, "delta": "0.3", "Nstar": 35, "pivot": "[-1.0905236e-40 +/- 5.63e-49]", "prev_pivot": "[1.4540162e-41 +/- 1.71e-49]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 512, "seconds": 0.2674679756164551}
+  pivot 95 undecided at 1024 bits -> 2048 bits
+case PLANT T 100000 nearest off-line ordinate at distance 10.000, Delta 3.333, zeros used 289 (on-line 287), on-line zeros nearer than the off-line one: 31
+  pivot 30 undecided at 256 bits -> 512 bits
+  pivot 48 undecided at 512 bits -> 1024 bits
+  pivot 80 undecided at 1024 bits -> 2048 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 10.0, "Delta": 3.3329999999999997, "zeros": 221, "online": 219, "K_d": 23, "NMAX": 2000, "delta": "0.3", "Nstar": 115, "pivot": "[-1.5471908e-129 +/- 3.10e-137]", "prev_pivot": "[6.8262411e-128 +/- 2.70e-136]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 2048, "seconds": 14.703356981277466}
+case PLANT T 100000 nearest off-line ordinate at distance 20.000, Delta 6.666, zeros used 577 (on-line 575), on-line zeros nearer than the off-line one: 61
+  pivot 38 undecided at 256 bits -> 512 bits
+  pivot 59 undecided at 512 bits -> 1024 bits
+  pivot 136 undecided at 2048 bits -> 4096 bits
+  pivot 106 undecided at 1024 bits -> 2048 bits
+{"CUT": 42.0, "case": "PLANT", "T": 10000.0, "d": 10.0, "Delta": 3.3329999999999997, "zeros": 330, "online": 328, "K_d": 23, "NMAX": 2000, "delta": "0.3", "Nstar": 115, "pivot": "[-1.5471908e-129 +/- 3.10e-137]", "prev_pivot": "[6.8262411e-128 +/- 2.70e-136]", "status": "negative pivot", "tail_weight_bound": 0.0, "prec": 2048, "seconds": 25.779966831207275}
+case DH T 75.7 nearest off-line ordinate at distance 9.999, Delta 3.333, zeros used 110 (on-line 104), on-line zeros nearer than the off-line one: 12
+{"CUT": 28.0, "case": "DH", "T": 75.7, "d": 9.999348485377595, "Delta": 3.3329999999999997, "zeros": 110, "online": 104, "K_d": 12, "NMAX": 600, "delta": "-", "Nstar": 28, "pivot": "[-9.5636773e-18 +/- 3.26e-26]", "prev_pivot": "[3.5758167e-17 +/- 4.25e-25]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.06804823875427246}
+case DH T 280.6 nearest off-line ordinate at distance 40.195, Delta 13.332, zeros used 596 (on-line 560), on-line zeros nearer than the off-line one: 67
+  pivot 51 undecided at 256 bits -> 512 bits
+  pivot 95 undecided at 1024 bits -> 2048 bits
+  pivot 76 undecided at 512 bits -> 1024 bits
+  pivot 135 undecided at 2048 bits -> 4096 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 10.0, "Delta": 3.3329999999999997, "zeros": 221, "online": 219, "K_d": 23, "NMAX": 2000, "delta": "0.05", "Nstar": 150, "pivot": "[-7.5010133e-186 +/- 3.69e-194]", "prev_pivot": "[1.8173272e-183 +/- 3.15e-191]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 4096, "seconds": 43.329965114593506}
+case DH T 25.7 nearest off-line ordinate at distance 59.999, Delta 19.998, zeros used 910 (on-line 858), on-line zeros nearer than the off-line one: 56
+  pivot 64 undecided at 256 bits -> 512 bits
+  pivot 117 undecided at 1024 bits -> 2048 bits
+  pivot 172 undecided at 2048 bits -> 4096 bits
+  pivot 156 undecided at 2048 bits -> 4096 bits
+  pivot 92 undecided at 512 bits -> 1024 bits
+  pivot 156 undecided at 2048 bits -> 4096 bits
+  pivot 137 undecided at 1024 bits -> 2048 bits
+{"CUT": 28.0, "case": "PLANT", "T": 100000.0, "d": 10.0, "Delta": 3.3329999999999997, "zeros": 289, "online": 287, "K_d": 31, "NMAX": 2000, "delta": "0.3", "Nstar": 147, "pivot": "[-6.1149974e-179 +/- 5.26e-188]", "prev_pivot": "[1.2215293e-178 +/- 3.23e-186]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 4096, "seconds": 66.99541401863098}
+case DH T 300.9 nearest off-line ordinate at distance 19.976, Delta 6.666, zeros used 320 (on-line 304), on-line zeros nearer than the off-line one: 34
+  pivot 39 undecided at 256 bits -> 512 bits
+  pivot 60 undecided at 512 bits -> 1024 bits
+  pivot 95 undecided at 1024 bits -> 2048 bits
+  pivot 186 undecided at 2048 bits -> 4096 bits
+{"CUT": 28.0, "case": "DH", "T": 25.7, "d": 59.999348485377595, "Delta": 19.997999999999998, "zeros": 910, "online": 858, "K_d": 56, "NMAX": 900, "delta": "-", "Nstar": 161, "pivot": "[-6.4018428e-35 +/- 3.83e-43]", "prev_pivot": "[6.0723576e-33 +/- 8.33e-42]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 2048, "seconds": 54.53243112564087}
+case PLANT T 10000 nearest off-line ordinate at distance 3.000, Delta 3.000, zeros used 198 (on-line 196), on-line zeros nearer than the off-line one: 7
+  pivot 29 undecided at 256 bits -> 512 bits
+  pivot 47 undecided at 512 bits -> 1024 bits
+{"CUT": 28.0, "case": "DH", "T": 300.9, "d": 19.97648966877489, "Delta": 6.6659999999999995, "zeros": 320, "online": 304, "K_d": 34, "NMAX": 600, "delta": "-", "Nstar": 144, "pivot": "[-7.2372109e-101 +/- 1.30e-110]", "prev_pivot": "[1.2446131e-101 +/- 3.79e-109]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 2048, "seconds": 26.10012412071228}
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 3.0, "Delta": 3.0, "zeros": 198, "online": 196, "K_d": 7, "NMAX": 2000, "delta": "0.3", "Nstar": 66, "pivot": "[-3.8272430e-65 +/- 2.47e-73]", "prev_pivot": "[1.7500834e-64 +/- 1.79e-72]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 1024, "seconds": 1.8221380710601807}
+case PLANT T 10000 nearest off-line ordinate at distance 5.000, Delta 5.000, zeros used 330 (on-line 328), on-line zeros nearer than the off-line one: 12
+case PLANT T 10000 nearest off-line ordinate at distance 3.000, Delta 0.500, zeros used 35 (on-line 33), on-line zeros nearer than the off-line one: 7
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 3.0, "Delta": 0.5001, "zeros": 35, "online": 33, "K_d": 7, "NMAX": 2000, "delta": "0.3", "Nstar": 9, "pivot": "[-2.1776907e-15 +/- 4.39e-23]", "prev_pivot": "[7.0774731e-15 +/- 2.18e-23]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.003582000732421875}
+  pivot 34 undecided at 256 bits -> 512 bits
+  pivot 54 undecided at 512 bits -> 1024 bits
+case PLANT T 10000 nearest off-line ordinate at distance 5.000, Delta 0.833, zeros used 57 (on-line 55), on-line zeros nearer than the off-line one: 12
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 5.0, "Delta": 0.8334999999999999, "zeros": 57, "online": 55, "K_d": 12, "NMAX": 2000, "delta": "0.3", "Nstar": 14, "pivot": "[-4.7448328e-21 +/- 4.40e-29]", "prev_pivot": "[3.3311569e-19 +/- 4.99e-28]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 256, "seconds": 0.007845163345336914}
+case PLANT T 10000 nearest off-line ordinate at distance 10.000, Delta 1.667, zeros used 111 (on-line 109), on-line zeros nearer than the off-line one: 23
+  pivot 88 undecided at 1024 bits -> 2048 bits
+  pivot 25 undecided at 256 bits -> 512 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 10.0, "Delta": 1.6669999999999998, "zeros": 111, "online": 109, "K_d": 23, "NMAX": 2000, "delta": "0.3", "Nstar": 39, "pivot": "[-2.4042121e-49 +/- 2.81e-57]", "prev_pivot": "[6.1412205e-47 +/- 7.68e-56]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 512, "seconds": 0.07901787757873535}
+case PLANT T 10000 nearest off-line ordinate at distance 20.000, Delta 3.334, zeros used 222 (on-line 220), on-line zeros nearer than the off-line one: 46
+  pivot 30 undecided at 256 bits -> 512 bits
+  pivot 49 undecided at 512 bits -> 1024 bits
+  pivot 80 undecided at 1024 bits -> 2048 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 20.0, "Delta": 3.3339999999999996, "zeros": 222, "online": 220, "K_d": 46, "NMAX": 2000, "delta": "0.3", "Nstar": 135, "pivot": "[+/- 3.69e-160]", "prev_pivot": "[3.43451e-159 +/- 7.47e-165]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 2048, "seconds": 12.32743501663208}
+case PLANT T 10000 nearest off-line ordinate at distance 30.000, Delta 5.001, zeros used 330 (on-line 328), on-line zeros nearer than the off-line one: 70
+  pivot 34 undecided at 256 bits -> 512 bits
+  pivot 54 undecided at 512 bits -> 1024 bits
+  pivot 88 undecided at 1024 bits -> 2048 bits
+  pivot 146 undecided at 2048 bits -> 4096 bits
+  pivot 147 undecided at 2048 bits -> 4096 bits
+  pivot 262 undecided at 4096 bits -> 8192 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 5.0, "Delta": 5.0, "zeros": 330, "online": 328, "K_d": 12, "NMAX": 2000, "delta": "0.3", "Nstar": 155, "pivot": "[-3.7378725e-144 +/- 1.53e-152]", "prev_pivot": "[5.1852429e-143 +/- 3.36e-151]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 4096, "seconds": 67.77565908432007}
+case PLANT T 10000 nearest off-line ordinate at distance 50.000, Delta 8.335, zeros used 549 (on-line 547), on-line zeros nearer than the off-line one: 117
+  pivot 42 undecided at 256 bits -> 512 bits
+  pivot 64 undecided at 512 bits -> 1024 bits
+  pivot 101 undecided at 1024 bits -> 2048 bits
+  pivot 164 undecided at 2048 bits -> 4096 bits
+  pivot 262 undecided at 4096 bits -> 8192 bits
+{"CUT": 28.0, "case": "DH", "T": 280.6, "d": 40.19532764855933, "Delta": 13.331999999999999, "zeros": 596, "online": 560, "K_d": 67, "NMAX": 900, "delta": "-", "Nstar": 252, "pivot": "[-6.7784417e-116 +/- 3.27e-125]", "prev_pivot": "[3.0158482e-115 +/- 5.75e-124]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 4096, "seconds": 265.63076090812683}
+  pivot 249 undecided at 4096 bits -> 8192 bits
+  pivot 285 undecided at 4096 bits -> 8192 bits
+  pivot 274 undecided at 4096 bits -> 8192 bits
+{"CUT": 28.0, "case": "PLANT", "T": 10000.0, "d": 30.0, "Delta": 5.0009999999999994, "zeros": 330, "online": 328, "K_d": 70, "NMAX": 2000, "delta": "0.3", "Nstar": 250, "pivot": "[-1.2842722e-278 +/- 1.91e-286]", "prev_pivot": "[1.9726972e-277 +/- 2.19e-285]", "status": "negative pivot", "tail_weight_bound": 5.709040105864101e-171, "prec": 8192, "seconds": 1067.7268059253693}
+./c2_one.sh: line 4: 82541 Terminated: 15          S2_CUT=$cut RH_WORKERS=1 ../../../../scripts/memcap.sh 6 ../../../../.venv-arb/bin/python c2_zero_side.py "$@"
+./c2_one.sh: line 4: 64570 Terminated: 15          S2_CUT=$cut RH_WORKERS=1 ../../../../scripts/memcap.sh 6 ../../../../.venv-arb/bin/python c2_zero_side.py "$@"
+./c2_one.sh: line 4: 62528 Terminated: 15          S2_CUT=$cut RH_WORKERS=1 ../../../../scripts/memcap.sh 6 ../../../../.venv-arb/bin/python c2_zero_side.py "$@"
+./c2_one.sh: line 4: 62530 Terminated: 15          S2_CUT=$cut RH_WORKERS=1 ../../../../scripts/memcap.sh 6 ../../../../.venv-arb/bin/python c2_zero_side.py "$@"

@@ -1,0 +1,73 @@
+generated 38485, scored 8426, rejected 30059
+  rejected  14397  no open or floored crossing device (curated/devices.json)
+  rejected   3822  contains a combination closed in outcomes.json
+  rejected   1420  closed family: fam-legendre-dual-limits
+  rejected    776  contains a closed device: monotone-flow-functional
+  rejected    666  closed family: fam-euler-anchor-heat
+  rejected    663  closed family: fam-order2-theta-rows
+  rejected    631  closed family: fam-selberg-control-companion
+  rejected    586  all members flow-stable and none arithmetic (backward heat passes)
+  rejected    577  closed family: fam-primitive-test-restriction
+  rejected    564  shares two nodes with a closed lane (nodes or launchedNodes)
+  rejected    531  contains a closed device: positive-kernel-transport
+  rejected    437  contains a closed device: residue-explicit-formula
+  rejected    416  contains a closed device: mean-value-convexity
+  rejected    396  contains a closed device: finite-support-positivity
+  rejected    376  covariant under shift and reciprocal (RZ_b passes every step)
+  rejected    368  contains a closed device: euler-fe-phase-at-height
+  rejected    361  closed family: fam-nb-gram-lammin
+  rejected    327  contains a closed device: vector-specific-row-mean-square
+  rejected    295  closed family: fam-arithmetic-nb-span
+  rejected    288  closed family: fam-heat-monotone-hankel
+  rejected    287  closed family: fam-projection-domination-gonek
+  rejected    283  closed family: fam-vaughan-split-landau
+  rejected    226  closed family: fam-one-zero-forces-many
+  rejected    151  closed family: fam-laxphillips-hecke-compression
+  rejected    147  closed family: fam-torus-exclusion-sign-test
+  rejected    147  contains a closed device: geometric-positivity
+  rejected    113  closed family: fam-stage-limit-semicontinuity
+  rejected    103  contains a closed device: maximum-principle
+  rejected     93  contains a closed cell: silent-cell-u6f
+  rejected     91  contains a closed device: twisted-discrepancy
+  rejected     86  contains a closed cell: silent-cell-u6e
+  rejected     58  closed family: fam-hecke-shear-commutator
+  rejected     49  contains a closed cell: silent-cell-u2-pos
+  rejected     46  closed family: fam-multidelay-section
+  rejected     45  contains a closed cell: silent-cell-u3
+  rejected     42  contains a closed device: recurrence-ergodicity
+  rejected     34  contains a closed device: strip-dtn-identity
+  rejected     34  contains a closed device: dual-measure-compactness
+  rejected     32  closed family: fam-linear-zero-measure-lmi
+  rejected     23  contains a closed device: exact-uniqueness
+  rejected     16  closed family: fam-reflected-euler-stage-canonical
+  rejected     16  no member uses multiplicativity (DH passes)
+  rejected     13  closed family: fam-helson-discrepancy-zerofree
+  rejected     13  all members attached to one closed row
+  rejected      5  closed family: fam-pd-log-strip
+  rejected      5  only arithmetic step is target-blind algebra (same for every control)
+  rejected      4  all members from one module
+families (move/theme: count, best score):
+  M1/flow               483  4.73
+  M1/geometry            94  8.0
+  M1/nyman               12  2.73
+  M1/positivity        1468  10.03
+  M1/prime-chain       1187  8.75
+  M1/statistics          51  5.0
+  M1/zero-free         3786  10.25
+  M2/zero-free           10  7.66
+  M3/flow                16  2.75
+  M3/geometry             2  8.25
+  M3/nyman               21  3.25
+  M3/positivity          20  4.75
+  M3/prime-chain         18  6.0
+  M3/statistics          20  1.75
+  M3/zero-free          273  8.75
+  M4/flow               496  6.75
+  M4/positivity          69  7.71
+  M4/prime-chain         33  8.75
+  M4/statistics           4  2.0
+  M4/zero-free          362  9.25
+  P2/flow                 1  1.25
+
+top 0:
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

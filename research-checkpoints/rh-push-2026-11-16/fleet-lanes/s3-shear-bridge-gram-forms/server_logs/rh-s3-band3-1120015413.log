@@ -1,0 +1,8 @@
+GPU True
+  planned: band storage 71 x 20000 complex128 = 0.02 GB
+DH           N= 20000  max split 0.00e+00  C N^2 1033.145949  C/Cpred 0.999068  ladder resid 6.00e-06  ratios L3/L2 2.666669 L4/L2 5.000011 (8/3, 5)  752s
+  planned: band storage 66 x 20000 complex128 = 0.02 GB
+chi-3        N= 20000  max split 0.00e+00  C N^2 649.325565  C/Cpred 0.999298  ladder resid 3.09e-06  ratios L3/L2 2.666668 L4/L2 5.000006 (8/3, 5)  433s
+  planned: band storage 69 x 20000 complex128 = 0.02 GB
+chi-4        N= 20000  max split 0.00e+00  C N^2 850.329290  C/Cpred 0.999179  ladder resid 4.58e-06  ratios L3/L2 2.666669 L4/L2 5.000009 (8/3, 5)  628s
+DONE_BAND

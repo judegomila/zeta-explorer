@@ -1,0 +1,6 @@
+planned rows: 3204 (small lists only)
+0.55 done 202.3
+0.65 done 382.5
+0.8 done 544.8
+0.95 done 708.6
+$M 8 $P scan.py 0.55,0.65,0.8,0.95 10 50 0.05 scan_main.json  704.96s user 4.80s system 100% cpu 11:49.63 total

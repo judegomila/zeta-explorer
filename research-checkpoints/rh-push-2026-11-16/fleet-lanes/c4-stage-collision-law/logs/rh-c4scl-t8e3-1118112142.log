@@ -1,0 +1,18 @@
+8e3 T0 8000 window 8000.086767551567 9733.303859799544 spacing 0.8788494557880032 n0 7831 primes 24 counts [22, 0, 1, 4, 24]
+planned memory: line grids 126216 x 5 cols x 3 arrays = 20.2 MB; 2D grid 48 x 31554 x 5 complex = 121.2 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31554
+selftest stage rel err 4.545101332827404e-11
+rouche line c=0.5 done, sec 6
+rouche line c=1 done, sec 12
+rouche line c=2 done, sec 18
+rouche line c=4 done, sec 26
+rouche line c=8 done, sec 33
+zeta line grid sec 0
+zeta line stats sec 5
+zeta 2D grid sec 9
+U line grid sec 0
+U line stats sec 4
+U 2D grid sec 8
+L line grid sec 0
+L line stats sec 4
+L 2D grid sec 7
+done 8e3 sec 74.61879086494446

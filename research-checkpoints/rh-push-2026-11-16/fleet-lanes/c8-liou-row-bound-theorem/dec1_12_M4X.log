@@ -1,0 +1,10 @@
+X 2^12 M 16384  primes 1022  c 1728  classes 430  same-class ordered pairs (c != c') 5912
+rows 699973  brute done 92s
+dual frequencies 131238 (q_h <= 36180), table 0.27 GB
+pairs 7640 (off-diagonal with d != 1: 0)  max |r_d * phase - phi(d)| on principal h: 0.00e+00   99s
+D = 3424.894184
+liou   N 3523.640186  N-D +98.746002  P(2.1) +161.275169  P(closed) +161.275169  Rem -62.529168  N-D-P-Rem +7.60e-13  Rem/P -0.388
+one    N 3427.883488  N-D +2.989304  P(2.1) +5.604888  P(closed) +5.604888  Rem -2.615584  N-D-P-Rem -1.14e-12  Rem/P -0.467
+rmult  N 3426.800395  N-D +1.906211  P(2.1) +0.963744  P(closed) +0.963744  Rem +0.942467  N-D-P-Rem -4.45e-13  Rem/P +0.978
+nm     N 3453.162866  N-D +28.268682  P(2.1) +45.871654  P(closed) +45.871654  Rem -17.602972  N-D-P-Rem -2.38e-13  Rem/P -0.384
+nmph   N 3469.881410  N-D +44.987226  P(2.1) +73.183304  P(closed) +73.183304  Rem -28.196078  N-D-P-Rem -4.87e-13  Rem/P -0.385

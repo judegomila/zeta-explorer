@@ -1,0 +1,438 @@
+{
+ "devices": {
+  "closed": 31,
+  "floored": 1,
+  "open": 2
+ },
+ "outcomes": 92,
+ "outcomesClosed": 63,
+ "closedFamilies": 34,
+ "nodes": 1626,
+ "edges": 8814,
+ "graphMeta": {
+  "nodeFiles": [
+   "nodes-1.json",
+   "nodes-2.json",
+   "nodes-3.json",
+   "nodes-4.json",
+   "nodes-5.json",
+   "nodes-6.json",
+   "nodes-7.json",
+   "nodes-8.json",
+   "nodes-9.json",
+   "nodes-10.json",
+   "nodes-11.json",
+   "nodes-12.json",
+   "nodes-13.json",
+   "nodes-14.json",
+   "nodes-15.json",
+   "nodes-16.json",
+   "nodes-17.json",
+   "nodes-18.json",
+   "nodes-19.json"
+  ],
+  "rawRecords": 1275,
+  "mergedPairs": 12,
+  "counts": {
+   "nodes": 1626,
+   "edges": 8814,
+   "byType": {
+    "obstruction": 604,
+    "mechanism": 80,
+    "identity": 395,
+    "conjecture": 14,
+    "tool": 57,
+    "measured-phenomenon": 217,
+    "open-lemma": 118,
+    "control": 51,
+    "object": 61,
+    "open-direction": 28,
+    "target": 1
+   },
+   "byOrigin": {
+    "corpus": 1239,
+    "map": 290,
+    "outcome": 97
+   },
+   "edgesByType": {
+    "composes-with": 7436,
+    "control-defeats": 713,
+    "obstructs": 256,
+    "restates": 179,
+    "separates-from": 4,
+    "special-case-of": 132,
+    "uses": 94
+   },
+   "live": 960,
+   "rows": 202,
+   "controls": 16,
+   "underused": 20,
+   "devices": {
+    "closed": 64,
+    "open": 2,
+    "floored": 6
+   },
+   "devicesLive": {
+    "closed": 56,
+    "open": 2,
+    "floored": 6
+   },
+   "crossingKeyword": 282
+  },
+  "thresholds": {
+   "merge": 0.69,
+   "restates": 0.5,
+   "composePerNode": 10
+  },
+  "tagIdf": {
+   "annulus": 6.175,
+   "antibridge": 3.649,
+   "automorphic": 4.565,
+   "bessel": 6.175,
+   "bifurcation": 6.175,
+   "binet": 5.769,
+   "bridge": 1.963,
+   "burgers": 5.769,
+   "cancellation": 6.175,
+   "certificate": 3.777,
+   "collision": 4.922,
+   "commutator": 6.175,
+   "continued-fraction": 6.175,
+   "control": 5.076,
+   "coprime-sum": 5.076,
+   "cotangent-sum": 4.095,
+   "de-branges": 2.449,
+   "density": 2.843,
+   "digamma": 6.175,
+   "divisor-function": 5.769,
+   "eichler-shimura": 6.175,
+   "estermann": 5.769,
+   "euler-product": 1.812,
+   "explicit-formula": 1.985,
+   "farey": 6.175,
+   "finite-stage": 5.482,
+   "flow-blindness": 5.482,
+   "function-field": 4.095,
+   "glaisher": 5.482,
+   "gram": 4.671,
+   "gronwall": 6.175,
+   "hankel": 4.095,
+   "heat-flow": 1.392,
+   "hecke": 2.564,
+   "heegner": 5.482,
+   "hidden-square": 5.076,
+   "hodge": 4.922,
+   "information": 5.076,
+   "jensen": 4.16,
+   "klein": 3.978,
+   "kloosterman": 5.769,
+   "lambda": 1.355,
+   "landau": 3.501,
+   "large-sieve": 2.55,
+   "lattice-model": 6.175,
+   "lean": 3.084,
+   "lee-yang": 4.035,
+   "legendre-lp": 5.482,
+   "li": 5.482,
+   "mean-value": 2.537,
+   "metaplectic": 3.823,
+   "moebius": 3.732,
+   "mollifier": 2.663,
+   "n-uniform": 6.175,
+   "nyman-beurling": 3.313,
+   "pair-correlation": 1.955,
+   "palm": 6.175,
+   "passive": 4.095,
+   "period-function": 5.769,
+   "pick": 2.149,
+   "prime-oscillation": 6.175,
+   "primorial": 5.769,
+   "prolate": 5.482,
+   "proportion": 5.482,
+   "quantum-modular": 6.175,
+   "residue-device": 6.175,
+   "resonance": 5.769,
+   "rigidity": 6.175,
+   "route-i": 4.47,
+   "route-m": 3.536,
+   "scaling-symmetry": 5.482,
+   "schwarzian": 6.175,
+   "shear": 2.861,
+   "shock": 6.175,
+   "short-intervals": 6.175,
+   "sieve-parity": 5.076,
+   "smooth-numbers": 6.175,
+   "spinor": 4.035,
+   "stirling": 5.769,
+   "suzuki-screw": 4.095,
+   "target-blind": 6.175,
+   "theta": 1.831,
+   "toeplitz": 3.572,
+   "torus": 2.976,
+   "total-positivity": 5.482,
+   "trace-formula": 2.648,
+   "transfer-operator": 5.769,
+   "twin-ladder": 1.768,
+   "twistor": 4.47,
+   "uncertainty": 5.482,
+   "verified-height": 3.204,
+   "visualization": 3.61,
+   "volterra": 5.259,
+   "vortex": 2.879,
+   "weil": 1.898,
+   "zero-channel": 2.357,
+   "zero-counting": 6.175,
+   "zero-free": 2.224
+  },
+  "edgeTypes": [
+   "uses",
+   "restates",
+   "special-case-of",
+   "obstructs",
+   "control-defeats",
+   "separates-from",
+   "composes-with"
+  ],
+  "note": "Roles and tags are derived from reader labels and keyword rules; they are heuristics, not verdicts."
+ },
+ "candMeta": {
+  "graph": "IDEA_GRAPH.json",
+  "graphCounts": {
+   "nodes": 1626,
+   "edges": 8814,
+   "byType": {
+    "obstruction": 604,
+    "mechanism": 80,
+    "identity": 395,
+    "conjecture": 14,
+    "tool": 57,
+    "measured-phenomenon": 217,
+    "open-lemma": 118,
+    "control": 51,
+    "object": 61,
+    "open-direction": 28,
+    "target": 1
+   },
+   "byOrigin": {
+    "corpus": 1239,
+    "map": 290,
+    "outcome": 97
+   },
+   "edgesByType": {
+    "composes-with": 7436,
+    "control-defeats": 713,
+    "obstructs": 256,
+    "restates": 179,
+    "separates-from": 4,
+    "special-case-of": 132,
+    "uses": 94
+   },
+   "live": 960,
+   "rows": 202,
+   "controls": 16,
+   "underused": 20,
+   "devices": {
+    "closed": 64,
+    "open": 2,
+    "floored": 6
+   },
+   "devicesLive": {
+    "closed": 56,
+    "open": 2,
+    "floored": 6
+   },
+   "crossingKeyword": 282
+  },
+  "moves": {
+   "M1": "rigid structure x arithmetic input x crossing mechanism",
+   "M2": "measured phenomenon x explaining mechanism x control it must fail on",
+   "M3": "open lemma x proved tool x arithmetic or crossing partner",
+   "M4": "flow functional x prime-side input x crossing mechanism or DH-separator",
+   "P2": "under-used node x arithmetic partner"
+  },
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 8,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 150,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "generated": 39138,
+  "scored": 9333,
+  "families": {
+   "M1/flow": {
+    "count": 495,
+    "best": 9.46
+   },
+   "M1/geometry": {
+    "count": 124,
+    "best": 10.5
+   },
+   "M1/nyman": {
+    "count": 12,
+    "best": 4.47
+   },
+   "M1/positivity": {
+    "count": 1541,
+    "best": 12.04
+   },
+   "M1/prime-chain": {
+    "count": 1262,
+    "best": 11.71
+   },
+   "M1/statistics": {
+    "count": 49,
+    "best": 6.27
+   },
+   "M1/zero-free": {
+    "count": 4373,
+    "best": 12.21
+   },
+   "M2/zero-free": {
+    "count": 10,
+    "best": 10.0
+   },
+   "M3/flow": {
+    "count": 16,
+    "best": 5.15
+   },
+   "M3/geometry": {
+    "count": 7,
+    "best": 11.0
+   },
+   "M3/nyman": {
+    "count": 20,
+    "best": 6.0
+   },
+   "M3/positivity": {
+    "count": 21,
+    "best": 12.05
+   },
+   "M3/prime-chain": {
+    "count": 19,
+    "best": 9.5
+   },
+   "M3/statistics": {
+    "count": 20,
+    "best": 4.09
+   },
+   "M3/zero-free": {
+    "count": 271,
+    "best": 11.5
+   },
+   "M4/flow": {
+    "count": 555,
+    "best": 9.17
+   },
+   "M4/geometry": {
+    "count": 1,
+    "best": 10.01
+   },
+   "M4/positivity": {
+    "count": 92,
+    "best": 9.71
+   },
+   "M4/prime-chain": {
+    "count": 36,
+    "best": 10.78
+   },
+   "M4/statistics": {
+    "count": 4,
+    "best": 3.75
+   },
+   "M4/zero-free": {
+    "count": 403,
+    "best": 12.84
+   },
+   "P2/flow": {
+    "count": 1,
+    "best": 3.79
+   },
+   "P2/zero-free": {
+    "count": 1,
+    "best": 5.11
+   }
+  },
+  "scoring": "weights of 2026-11-18 (STRATEGY v2): multiplicativity 0-2; heightUniform 0-1; controls 0-4; crossing 0-3 (3 = open device, 1 = floored device of curated/devices.json); underused 0-2; cheapTest 0-2; cohesion 0-2; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; sharedObject 0-1; penalties <= 0",
+  "filters": {
+   "top": 60,
+   "node": null,
+   "move": null,
+   "theme": null,
+   "per_node": 2,
+   "per_family": 6,
+   "per_device": 12,
+   "dump_all": null,
+   "dump_rejected": null,
+   "no_r4_rules": false
+  },
+  "note": "Heuristic ranking. Read each candidate against OBSTRUCTION_MAP.md section 2 (Q1-Q3) before work."
+ },
+ "top": [
+  "M4-79717e",
+  "M1-e8e505",
+  "M3-29d9a0",
+  "M1-372916",
+  "M1-a7928e",
+  "M1-f1c4a0",
+  "M1-8b7c57",
+  "M1-d1aca3",
+  "M1-998929",
+  "M1-43d13c",
+  "M4-2313a2",
+  "M1-939abc",
+  "M3-b5d916",
+  "M3-e4014a",
+  "M4-fd5530",
+  "M1-77fc6d",
+  "M1-97ffe3",
+  "M3-3dc00f",
+  "M1-67ad42",
+  "M1-d821ad",
+  "M1-c8fdf9",
+  "M1-ab6cee",
+  "M4-4c2f00",
+  "M2-54a06d",
+  "M1-c7cd72",
+  "M3-52dc7d",
+  "M4-e89261",
+  "M1-a4ceef",
+  "M2-e4a1b9",
+  "M3-a65e0c",
+  "M1-571ad4",
+  "M1-8c12d7",
+  "M4-722fc0",
+  "M1-49daa4",
+  "M1-1fa91b",
+  "M3-e50a69",
+  "M1-34539e",
+  "M4-1628d5",
+  "M1-33b557",
+  "M1-f01cb9",
+  "M4-5931ca",
+  "M4-609c49",
+  "M3-f064f7",
+  "M4-13d51a",
+  "M1-e76658",
+  "M4-1416d1",
+  "M1-adf635",
+  "M3-c45101",
+  "M3-f03932",
+  "M4-3c5257",
+  "M4-aa534f",
+  "M1-66e7d0",
+  "M4-59eaea",
+  "M1-e19a9d",
+  "M2-8d917a",
+  "M3-1b5f83",
+  "M4-3fb322",
+  "M1-ee81bc",
+  "M4-256f43",
+  "M1-a2f8b7"
+ ]
+}

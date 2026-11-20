@@ -1,0 +1,4 @@
+moduli tested: 87
+L1 max err 6.239e-14
+L2 max err 2.051e-12
+L3 max |gt_1(p,c)| over moduli = 3.145e-13 (expected 0: both sides of L2 vanish at non-coprime index)

@@ -1,0 +1,28 @@
+{
+ "code": "LIOU",
+ "a": "20",
+ "N": 500,
+ "prec": 11000,
+ "moments_s": 32.5,
+ "levinson_s": 0.0,
+ "c0": "[45.31903360190180703024388 +/- 1.54e-25]",
+ "first_nonpositive_index": 2,
+ "first_indefinite_size": 3,
+ "last_index": 2,
+ "last_log2E": 7.386136251311101,
+ "last_k": "[4.61376600283 +/- 2.35e-12]",
+ "log2E_profile": {
+  "0": 5.5,
+  "1": 3.04
+ },
+ "k_head": [
+  "[-0.904460811299 +/- 8.16e-14]",
+  "[4.61376600283 +/- 2.35e-12]"
+ ],
+ "min_one_minus_abs_k": [
+  -3.613766002832341,
+  2
+ ],
+ "planted": [],
+ "eigen_angles": {}
+}

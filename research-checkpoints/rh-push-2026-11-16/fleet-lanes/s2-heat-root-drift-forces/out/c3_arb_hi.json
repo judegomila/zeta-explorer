@@ -1,0 +1,32 @@
+[
+{
+"code": "ZETA",
+"a": 3.0,
+"K": 77,
+"prec": 1600,
+"nterms": 98,
+"lam_min": "-5.19296353924e-169",
+"lam_2": "-4.8140605148e-170",
+"lam_max": "7.846004",
+"n_neg_eig": 8,
+"ldl_decided": 155,
+"ldl_negatives": 8,
+"first_neg_pivot_index": 140,
+"max_entry_rad": 0.0
+},
+{
+"code": "LCHI5",
+"a": 4.0,
+"K": 102,
+"prec": 1600,
+"nterms": 465,
+"lam_min": "-1.83033431548e-168",
+"lam_2": "-1.52478373121e-169",
+"lam_max": "11.088126",
+"n_neg_eig": 10,
+"ldl_decided": 187,
+"ldl_negatives": 3,
+"first_neg_pivot_index": 180,
+"max_entry_rad": 0.0
+}
+]

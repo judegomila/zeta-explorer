@@ -1,0 +1,3 @@
+LCHI3 M 500 prec 12000 moments 89.4 s;  s_0 = [0.1134021568527585716581145 +/- 2.62e-26]
+  base: {"n_coeff": 499, "first_negative": null, "negatives_head": [], "n_negative": 0}
+DONE LCHI3 90.9

@@ -1,0 +1,44 @@
+{
+ "slug": "c4-fe-stage-rouche-crossing",
+ "round": 4,
+ "kind": "combine",
+ "nodes": [
+  "euler-fe-coupling-at-height",
+  "dbn-prime-torus-phase-closure"
+ ],
+ "tags": [
+  "euler-product",
+  "finite-stage",
+  "functional-equation",
+  "rouche",
+  "hurwitz",
+  "explicit-formula",
+  "weil",
+  "control"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction stands in narrowed form. Gonek's stage P_X + chi conj(P_X) has all zeros on the line for any non-vanishing P_X, so the on-line property carries no arithmetic (every unimodular twist passes; DH and T-NR fail only at non-vanishing). The degree (Rouche) inequality zeta/G_X not in (-inf,0] on a box boundary implies the box is zero-free, so no statement strictly weaker than zero-freeness of the boxes implies it; at fixed X it fails at arbitrarily large heights for sigma_0<1 (Montgomery, recalled). The boundary quantity is log zeta - log P_X - log(1+Theta). For the Fejer weight, F_Y'(t) = 2 log Y sum_rho Re kappa((rho-s) log Y) - 2 Re[Y^(1-s)/((1-s)^2 log Y)] + O(1/t) (classical explicit formula, numerically confirmed at several heights), giving F_Y' >= -small under RH for Y up to a power of t. Two boxes near T=1e6 certified in ball arithmetic, below verified height. Not established: non-locality in \"any height / half-plane\" form, the shifted Thm 5.1 sandwich and threshold, any general no-go for the approximate functional equation. No statement about zeros of zeta beyond verified height.",
+ "obstruction": "Gonek's stage P_X + chi conj(P_X) has all zeros on the line for any non-vanishing P_X: the on-line property contains no arithmetic. The Rouche (degree) inequality zeta/G_X not in (-inf,0] on a box boundary implies the box is zero-free and is implied (Gonek Thm 5.1) only by zero-freeness at sigma_0 - C loglog t/log X; nothing strictly weaker implies it, and at fixed X it fails at arbitrarily large height (Montgomery, recalled). The boundary quantity log zeta - log P_X - log(1+Theta) is a sum over all zeros; the approximate functional equation re-expresses it. With Fejer weights the k = 0 comb term is the Weil functional on Fejer tests (rows P10/eq48). Not established: non-locality in half-plane form (step 4), any general no-go for the approximate functional equation.",
+ "obstructionKind": "rouche-inequality-equals-box-zero-freeness",
+ "controlsThatDefeat": [
+  "unimodular twist U (passes the stage on-line theorem; fails only at the step that is the conclusion)",
+  "every non-vanishing P_X (on-line property)",
+  "DH and T-NR fail only at non-vanishing of the stage factor",
+  "not run: heat, Beurling, E_a, theta^w, phase-rotated transfer operator"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps re-derived and confirmed (Lemma 1(b), 1(c), 2(a)-(d), decisive step 1); Gonek Thm 3.1/5.1/6.1/6.2 checked against the opened source. Reruns with different cases agree: Fejer explicit formula with pole and trivial-zero terms at t=50/33.3/77.7/120.5 to 1e-7..8e-6; kappa identity at T=2.5e5, Y=30/3000/3e5 to 6e-5; ball certificate on a different box (X=100, d=0.75/L, t in [1000031,1000033]) certified; DH stage zeros at X=300, 3000 confirmed. Corrections: E1 step 4 has F_2 ~ e^(-2z)",
+ "lesson": "A stage whose zeros are on the line by construction (functional equation as input) carries no information in that property: it holds for any non-vanishing P, including U. All content sits in the comparison zeta/stage, which at fixed distance from the line is the Hurwitz comparison zeta/P_X (c1 Thm. D), and whose prime-side form is a two-sided bound on the prime tail beyond X at abscissa below 1 (Landau target, twisted local form). The FE term has modulus (t/2pi)^(-d); in the layer d <= 1/L it helps short products (X=2: 0 vs 76 crossings in 2000 units) and lowers the measured margin for X >= 100. Lead 13 is not answered: U fails only at the step that is the conclusion.",
+ "followUp": "Referee the non-locality step (step 4: for large X the one-box inequality needs the whole half-plane zero-free; argued from F_2 asymptotics for a single zero) and add map entries: Gonek stage on-line theorem is P-independent; Fejer-stage F' = Weil functional on Fejer tests (P10/eq48). The k != 0 comb terms are left to c4-stage-collision-law. Not read in full: c3-multiwindow-converse-defect.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-fe-stage-rouche-crossing/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-fe-stage-rouche-crossing/REFEREE.md"
+}

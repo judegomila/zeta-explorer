@@ -1,0 +1,50 @@
+{
+ "slug": "c14-x2-step-catalogue-zero-indexed-objects",
+ "round": 14,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "x2-step",
+  "catalogue",
+  "eisenstein-at-zero",
+  "weight-half",
+  "lax-phillips",
+  "torus-parameter",
+  "control-EIS-w",
+  "control-E_a",
+  "control-BLS",
+  "rs-1",
+  "rs-2"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Paper lane; nothing new about zeros of zeta. Of twelve catalogued literature inequalities that consume a Hecke eigen-relation or exact local factor, none has all hypotheses met by O1, O2 or O3 at a zero in the open strip. Lemma T (proved, confirmed): for a torus parameter every L(s,Pi,r x chi) is a product of shifted Dirichlet L-functions and the rightmost pole minus the rightmost local/gamma pole abscissa equals 1 for every parameter and r, so the pole-position hypothesis \"rightmost pole on Re s=1\" is equivalent to the exponent-0 conclusion (the simplicity part of POLE1 never holds for n>=2). Proposition E (classical argument, confirmed): the Eisenstein-series proof of zeta(1+it)!=0 is the one entry met in full with a zero-specific hypothesis, at Re rho=1; in the strip the missing hypothesis is xi(2-rho)=0, false by the Euler product. For O2 only E4 has its hypotheses met iff beta=1/2; the other entries also fail L2/CUSP at every beta; theta-orthogonality is a hypothesis of none of the twelve. For O3 the eigen-relation fails (relative to row G26). The isobaric (non-torus) case T4 is argued, not proved. Catalogue completeness and attributions are recalled, not source-checked.",
+ "obstruction": "Paper lane. None of the twelve catalogued inequalities has all hypotheses met by O1, O2 or O3 at a zero in the open strip. Lemma T (PROVED): for a torus parameter every L(s, Pi, r x chi) is a product of shifted Dirichlet L-functions and rightmost pole minus rightmost local/gamma pole equals 1 for every parameter and r, so the hypothesis 'rightmost pole on Re s = 1' is equivalent to the exponent-0 conclusion. Proposition E: the Eisenstein-series proof of zeta(1+it) != 0 is the one entry met in full with a zero-specific hypothesis, at Re rho = 1; in the strip the missing hypothesis is xi(2 - rho) = 0, false by the Euler product. For O2 only E4 is met, iff beta = 1/2; for O3 the eigen-relation fails (relative to G26). Every catalogued bound below 1/2 needs L2, pole at 1, spectral membership or unitarity. The isobaric non-torus case T4 is ARGUED; catalogue completeness and 7 of 12 attributions are recalled, not source-checked.",
+ "obstructionKind": "every catalogued inequality with exponent below 1/2 needs L2, pole at 1, spectral membership or unitarity; for torus-parameter objects these are false at every parameter or equivalent to the target; zero-specific properties (single exponent, theta-orthogonality) are not what fails",
+ "controlsThatDefeat": [
+  "generic torus parameter (E_a, EIS-w): pole and local pole move together for every r (Lemma T)",
+  "not run: T-NR and DH (no Hecke eigen-object; not formulable)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED items (Lemma T (i)-(iv), Proposition E (a)-(c), Hermitian count, dictionary, E5/O2 residue) were re-derived and confirmed; numerics rerun on different cases (second zero for check A; zeros 5 and 10; Lemma T with chi mod 5, p=11, four r, beta 0.6 and 0.85) agree. Five bookkeeping errors/overstatements, none changing the verdict: (1) POLE1 is defined as \"rightmost pole at 1, simple\" but used as \"iff beta=1/2\" for O2 (T3, rows E2/E3/E5/E6, list L-c); for a torus object with n>=2 the pole - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A zero in the strip removes the constant-term coefficient whose argument is in the strip, never the one right of 1. The template \"zero supplies cuspidality, a theorem contradicts it\" is the classical proof on Re s = 1 and stops there. Inequalities that read an object through L(s,Pi,r x chi) cannot bound a torus parameter: pole and local pole move together for every r. Every catalogued bound below 1/2 needs L2, pole at 1, spectral membership or unitarity.",
+ "followUp": "Independent referee owed (REFEREE.md is the author's pass; step attributions for 7 of 12 entries are recalled, not opened). No explore device for round 15 from this catalogue: register the cell \"catalogued X2 inequality on a torus-parameter eigen-object\" as closed (MAP_ROW.md). A device would need a proved inequality with a zero-specific hypothesis and none of L2 / pole-at-1 / spectral membership / unitarity; on file only Maass-Selberg (G31), Lax-Phillips contraction (G26) and the edge theorem qualify, each reaching Re rho <= 1.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-x2-step-catalogue-zero-indexed-objects/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-x2-step-catalogue-zero-indexed-objects/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c15-referee-r14-independent-checkpoint",
+  "outcome": "holds with a scope line; no assigned PROVED lemma broken",
+  "narrowerForm": "see report and push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md (30 restrictions listed, not applied)",
+  "report": "tmp/research-2026-11-16/push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-x2-step-catalogue-zero-indexed-objects.md"
+ }
+}

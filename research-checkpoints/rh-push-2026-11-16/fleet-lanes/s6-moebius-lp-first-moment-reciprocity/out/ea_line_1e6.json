@@ -1,0 +1,34 @@
+{
+ "a": 0.02,
+ "T0": 1000000.0,
+ "windows": 20000,
+ "points": 3400000,
+ "max_err_zeta_offline": 2.096866010830873e-05,
+ "min_absF": 1.3921790167502714e-05,
+ "rms_absF": 52.201590128118696,
+ "mean_absF": 13.368712777073567,
+ "max_absF": 1939.5474587769402,
+ "sign_changes": 0,
+ "local_minima": 337531,
+ "local_minima_per_spacing": 0.9927382352941176,
+ "median_minimum_over_mean": 0.0032564808721322427,
+ "min_minimum_over_mean": 1.0413710279854046e-06,
+ "moll": [
+  {
+   "theta": 0.25,
+   "y": 32,
+   "mean_absFM2": 50.47245839906091,
+   "frac_ReFM_pos": 0.5007864705882353,
+   "longest_run_ReFM_pos_spacings": 1.4
+  },
+  {
+   "theta": 0.5,
+   "y": 1000,
+   "mean_absFM2": 14.144557048520777,
+   "frac_ReFM_pos": 0.5210238235294118,
+   "longest_run_ReFM_pos_spacings": 1.9
+  }
+ ],
+ "win7_max_over_rms_median": 0.8162432825583178,
+ "win7_max_over_rms_max": 37.154949763344305
+}

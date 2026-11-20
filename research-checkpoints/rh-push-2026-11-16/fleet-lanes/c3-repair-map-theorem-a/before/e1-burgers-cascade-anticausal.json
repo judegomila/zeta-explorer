@@ -1,0 +1,43 @@
+{
+ "slug": "e1-burgers-cascade-anticausal",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "resolvent-burgers-identity",
+  "map-pos-16"
+ ],
+ "launchedNodes": [
+  "resolvent-burgers-identity",
+  "cole-hopf-viscous-burgers",
+  "discriminant-gradient-flow",
+  "map-pos-16",
+  "map-pos-11",
+  "map-pos-12"
+ ],
+ "tags": [
+  "heat-flow",
+  "burgers",
+  "hankel",
+  "flow-blindness"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For polynomial heat solutions with zero set symmetric under rho -> -conj rho: (i) no unitarily invariant norm of Gamma_-(t) is monotone in t (proved through the one-pair collision; between collisions by 50-digit witnesses, not interval-certified); (ii) the sum of Re p over right-half-plane zeros of D_t = F_t + alpha F_t' is continuous and strictly decreasing while positive for every alpha > 0 (proved; classical Dyson-law mechanism); (iii) a non-negative functional vanishing on axis configurations that is monotone along the flow is non-increasing, so it bounds t = 0 only by backward-heat values (proved); (iv) its derivative is the contour flux -(1/4)(1/2 pi i) oint M^2 (classical; verified to 3.6e-30).",
+ "obstruction": "A functional that vanishes on the critical configuration and is monotone along the heat flow must decrease forward, so it only transports information from t < 0 (where the conclusion is false) to t = 0. Differentiating the Hankel data in t does not change row Q4: the prime side is causal for every twist (argued) and the difference is the residue sum over zeros.",
+ "obstructionKind": "flow-blindness / wrong direction of monotonicity",
+ "controlsThatDefeat": [
+  "backward heat: the functional is bounded only by values at t < 0 where the conclusion is false",
+  "DH-type and E_a-type configurations: no proved step fails for them",
+  "sign twists: prime-side flux zero for every twist (argued from Q4, not computed)"
+ ],
+ "lesson": "Reject combinations whose engine is a heat-monotone functional of the anticausal Hankel block or of zero configurations.",
+ "refereeHolds": true,
+ "refereeNote": "All PROVED steps re-derived; (ii) is over zeros of D_t counted with multiplicity, not poles of S_t.",
+ "referees": 1,
+ "aboutZeros": true,
+ "strength": 0.05,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-burgers-cascade-anticausal/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-burgers-cascade-anticausal/REFEREE.md"
+}

@@ -1,0 +1,8 @@
+{"q": 13, "g": 2, "D": 60, "tested": 10546, "members": 5474, "rh": 513, "fakes": 4961, "borderline": 34,
+ "fakes_pass_T_gplus1": 506, "fakes_ndet_2g": 506, "fakes_pass_serre_d_le_g": 1010, "fakes_pass_serre_and_T_gplus1": 506, "bisections": 2090,
+ "ndet_hist": {"2": 427, "3": 4028, "4": 506},
+ "nu_hist": {"1": 1767, "2": 3194},
+ "min_pos_Lam": 0.000495622515852422,
+ "minimisers": [{"c": [-5, 10], "Lam": 0.000495622515852422, "ndet": 4, "nu": 1, "serre": 1}, {"c": [5, 10], "Lam": 0.000495622515852422, "ndet": 4, "nu": 1, "serre": 1}, {"c": [-1, -19], "Lam": 0.00132001205517974, "ndet": 4, "nu": 1, "serre": 1}, {"c": [1, -19], "Lam": 0.00132001205517974, "ndet": 4, "nu": 1, "serre": 1}, {"c": [-10, 46], "Lam": 0.00207831446067654, "ndet": 4, "nu": 1, "serre": 1}, {"c": [10, 46], "Lam": 0.00207831446067654, "ndet": 4, "nu": 1, "serre": 1}, {"c": [-6, 17], "Lam": 0.00263383736138722, "ndet": 4, "nu": 1, "serre": 1}, {"c": [6, 17], "Lam": 0.00263383736138722, "ndet": 4, "nu": 1, "serre": 1}],
+ "fallback_min_abs_negative_eig": 0.438, "fallback_max_abs_zero_eig": 1.35e-18,
+ "wall": 0.1}

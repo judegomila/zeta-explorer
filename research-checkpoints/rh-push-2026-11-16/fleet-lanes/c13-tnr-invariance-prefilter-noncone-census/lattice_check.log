@@ -1,0 +1,8 @@
+TNR q=2 c=2.0506 {3: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 4: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 5: {'sign_of_zeta': 1, 'agree': 150, 'disagree': 0}}
+TNR q=3 c=2.0785 {3: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 4: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 5: {'sign_of_zeta': 1, 'agree': 150, 'disagree': 0}}
+twin q=2 c=2 (double zeros on the line) {3: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 4: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 5: {'sign_of_zeta': 1, 'agree': 150, 'disagree': 0}}
+tempered twin q=2 c=1.4142 {3: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 4: {'sign_of_zeta': -1, 'agree': 150, 'disagree': 0}, 5: {'sign_of_zeta': 1, 'agree': 15, 'disagree': 135}}
+tempered twin q=2 c=0.5 {3: {'sign_of_zeta': -1, 'agree': 139, 'disagree': 11}, 4: {'sign_of_zeta': -1, 'agree': 64, 'disagree': 86}, 5: {'sign_of_zeta': 1, 'agree': 150, 'disagree': 0}}
+tempered twin q=3 c=0 {3: {'sign_of_zeta': -1, 'agree': 118, 'disagree': 32}, 4: {'sign_of_zeta': -1, 'agree': 64, 'disagree': 86}, 5: {'sign_of_zeta': 1, 'agree': 150, 'disagree': 0}}
+{'0.1': {'y_star': 7.250983293577865, 'E_at_1': -2.033443055713629, 'E_at_2ystar': 2.698683047583382}, '0.2': {'y_star': 7.941205441755182, 'E_at_1': -2.3309938134148154, 'E_at_2ystar': 3.034852275408292}, '0.3': {'y_star': 9.624633724960734, 'E_at_1': -3.0749273586194312, 'E_at_2ystar': 3.860778948685455}, '0.4': {'y_star': 14.885485556069092, 'E_at_1': -5.505322668821283, 'E_at_2ystar': 6.479354329332691}}
+scripts/memcap.sh 8 .venv-arb/bin/python -u $S/lattice_check.py   5.51s user 0.05s system 90% cpu 6.113 total

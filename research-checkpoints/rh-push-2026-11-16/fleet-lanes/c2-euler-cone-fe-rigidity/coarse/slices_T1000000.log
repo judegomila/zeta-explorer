@@ -1,0 +1,35 @@
+planned: T=1000000 H=2 K=6 N=1277; constraint matrix 84 x 2554 float64 = 1.72 MB; tangent LP 168 x 12978 = 17.4 MB
+T=1000000 H=2 EPS=1e-05 N=1277 primes=206 big=195 |zeta(s0)|=1.199 trunc=2.1e-09 sec=144.0
+  relaxed: rank=18/2552 re=[-11.6074, 11.948] im=[-24.6539, 22.7922] zero=True
+  tangent(all primes, 1st order): rank=22/12978 re=[-2.886, 4.4114] im=[-6.4553, None] moved=None
+  k=+0 alpha=+0.0000 resid=2.09e-09 dev=0.000 slice_feasible=True re=[-1.1617, 1.0939] im=[-3.8404, 3.0935] zero=True maxdev=3.8701099752776007
+  k=+1 alpha=+0.5246 resid=1.96e-06 dev=0.523 slice_feasible=True re=[-0.8926, 1.6686] im=[-3.31, 5.0965] zero=False maxdev=5.110230705058045
+  k=-1 alpha=-0.5246 resid=2.00e-06 dev=0.817 slice_feasible=True re=[-0.6972, 1.2736] im=[-3.5214, 2.2641] zero=False maxdev=3.6083060176445665
+  k=+2 alpha=+1.0492 resid=3.88e-06 dev=2.123 slice_feasible=True re=[0.5943, 3.596] im=[-4.1926, 4.9713] zero=False maxdev=5.283867285716095
+  k=-2 alpha=-1.0492 resid=4.05e-06 dev=0.049 slice_feasible=True re=[-0.7157, 0.9434] im=[-2.5684, 2.3437] zero=False maxdev=2.623160811188459
+  k=+5 alpha=+2.6229 resid=9.41e-06 dev=1.892 slice_feasible=True re=[-1.5426, 1.3252] im=[-4.7526, 0.8532] zero=True maxdev=4.879480686731848
+  k=-5 alpha=-2.6229 resid=1.05e-05 dev=1.053 slice_feasible=True re=[-1.0104, 0.2413] im=[-2.2903, 0.5008] zero=True maxdev=2.2922717915813973
+  k=+20 alpha=+10.4915 resid=4.57e-05 dev=2.852 slice_feasible=True re=[0.1637, 2.6877] im=[-5.5767, 1.2605] zero=False maxdev=6.025091943650603
+  k=-20 alpha=-10.4915 resid=4.78e-05 dev=0.439 slice_feasible=True re=[-1.2987, 0.4854] im=[-2.6793, 2.2553] zero=True maxdev=2.679313368163483
+planned: T=1000000 H=2 K=6 N=1277; constraint matrix 84 x 2554 float64 = 1.72 MB; tangent LP 168 x 12978 = 17.4 MB
+T=1000000 H=2 EPS=0.001 N=1277 primes=206 big=195 |zeta(s0)|=1.199 trunc=2.1e-09 sec=76.1
+  relaxed: rank=14/2552 re=[-11.6082, 11.9488] im=[-24.6566, 22.795] zero=True
+  tangent(all primes, 1st order): rank=16/12978 re=[-2.917, 4.4443] im=[-6.618, 5.5984] moved=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173]
+  k=+0 alpha=+0.0000 resid=2.09e-09 dev=0.000 slice_feasible=True re=[-1.1679, 1.0987] im=[-3.8608, 3.1319] zero=True maxdev=3.891239043667181
+  k=+1 alpha=+0.5246 resid=1.96e-06 dev=0.523 slice_feasible=True re=[-0.8988, 1.6821] im=[-3.3413, 5.1095] zero=False maxdev=5.124451227508044
+  k=-1 alpha=-0.5246 resid=2.00e-06 dev=0.817 slice_feasible=True re=[-0.7029, 1.2762] im=[-3.5446, 2.2806] zero=False maxdev=3.6312402708778677
+  k=+2 alpha=+1.0492 resid=3.88e-06 dev=2.123 slice_feasible=True re=[0.5803, 3.6021] im=[-4.1948, 4.9844] zero=False maxdev=5.287894234325493
+  k=-2 alpha=-1.0492 resid=4.05e-06 dev=0.049 slice_feasible=True re=[-0.7189, 0.9494] im=[-2.5856, 2.3576] zero=False maxdev=2.6420928262128123
+  k=+5 alpha=+2.6229 resid=9.41e-06 dev=1.892 slice_feasible=True re=[-1.5506, 1.3308] im=[-4.775, 0.9053] zero=True maxdev=4.9014166493964515
+  k=-5 alpha=-2.6229 resid=1.05e-05 dev=1.053 slice_feasible=True re=[-1.0153, 0.2437] im=[-2.3008, 0.5163] zero=True maxdev=2.302656446850278
+  k=+20 alpha=+10.4915 resid=4.57e-05 dev=2.852 slice_feasible=True re=[0.1592, 2.6898] im=[-5.5782, 1.2687] zero=False maxdev=6.026999788252019
+  k=-20 alpha=-10.4915 resid=4.78e-05 dev=0.439 slice_feasible=True re=[-1.3072, 0.4892] im=[-2.7037, 2.2887] zero=True maxdev=2.70367760755974
+planned: T=1000000 H=20 K=51 N=1277; constraint matrix 624 x 2554 float64 = 12.75 MB; tangent LP 1248 x 12978 = 129.6 MB
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c2-euler-cone-fe-rigidity/slices.py", line 109, in <module>
+    t0 = time.time(); rec = run(cfg["T"], H, EPS, cfg.get("ratio", 3.2), cfg.get("ks", [0, 1, -1, 2, -2, 5, -5]))
+                            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tmp/research-2026-11-16/push/c2-euler-cone-fe-rigidity/slices.py", line 76, in run
+    t["re_range"] = [w[1] + o0.real - oz.real, w[0] + o0.real - oz.real]; t["im_range"] = [w[3] + o0.imag - oz.imag, w[2] + o0.imag - oz.imag]
+                     ~~~~~^~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'

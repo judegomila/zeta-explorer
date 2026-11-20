@@ -1,0 +1,4 @@
+tmp/research-2026-11-16/push/s3-heat-escape-winding-cells/escape.py:48: RuntimeWarning: overflow encountered in exp
+  f = lambda s: np.sum(a[2:M+1]*g[2:M+1]*np.exp(-s*l[2:M+1])) - 1
+planned allocation: grid 29 x 200000 complex128 = 0.09 GB
+{"kind": "ea", "tau": 16.0, "method": "contour", "T": 19973.5, "nzeros": 2203, "sigma_max_by_T": {"500": [-1.6413748118386133, 294.5941734198469], "5000": [-1.6413748118386133, 294.5941734198469], "10000": [-1.6412099629005383, 5842.20532469974]}, "bounds": {"sigma_abs": -1.604658161241592, "sigma_2": -1.7691257579919775, "sigma_3": -1.6237300404825057, "sigma_5": -1.6049357798064874, "tail_upper_half": 1.0600520056388784e-218, "a2": 2.0048064540731003, "a3": 2.0120816338746668, "a4": 3.0192489182931594}, "offset_2sigma_minus_1": -4.2821377868356265, "max_phase_step": 3.141219549826137, "count_within_0.5_of_top": 2203, "seconds": 2.149404287338257}

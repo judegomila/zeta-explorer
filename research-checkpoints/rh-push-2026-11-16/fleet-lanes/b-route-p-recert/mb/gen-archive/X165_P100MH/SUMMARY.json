@@ -1,0 +1,17 @@
+{
+ "tag": "X165_P100MH",
+ "X": 9900000003031,
+ "N0": 887590,
+ "plan": "s145-1-g1/data/PLAN.json",
+ "cells": 608,
+ "usable_cells": 608,
+ "failed_cells": [],
+ "n_failed": 0,
+ "gain_cells": 608,
+ "seconds": {
+  "producers": 642.5,
+  "records": 2.7,
+  "pairs": 143.1,
+  "gains": 499.4
+ }
+}

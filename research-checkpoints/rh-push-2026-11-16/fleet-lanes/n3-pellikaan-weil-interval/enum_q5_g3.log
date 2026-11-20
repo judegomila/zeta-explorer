@@ -1,0 +1,5 @@
+q=5 g=3 deg=7 lead=1: 78125 polys; chunk alloc <= 20 MB
+q=5 g=3 deg=7 lead=2: 78125 polys; chunk alloc <= 20 MB
+q=5 g=3 deg=8 lead=1: 390625 polys; chunk alloc <= 20 MB
+q=5 g=3 deg=8 lead=2: 390625 polys; chunk alloc <= 20 MB
+curves (models): 750000 distinct tuples: 1723

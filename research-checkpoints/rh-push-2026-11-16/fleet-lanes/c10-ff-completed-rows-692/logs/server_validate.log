@@ -1,0 +1,21 @@
+Thu Nov 19 06:27:42 AM UTC 2026
+OK stored (N,lam,d)=(2,7,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=2 lam=7 weights=6 threads=4 sieve block q^6=117649 blocks=7 small primes=140 planned memory 0.0005 GB
+# enw primes=117648 (equals the necklace count); self-checks on 4 primes passed
+OK stored (N,lam,d)=(3,6,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=3 lam=6 weights=6 threads=4 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0003 GB
+# enw primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK stored (N,lam,d)=(3,6,1): 48 lines identical (ENW + every ROW); # enw q=7 d=1 N=3 lam=6 weights=6 threads=4 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0002 GB
+# enw primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK stored (N,lam,d)=(0,6,2): 150 lines identical (ENW + every ROW); # enw q=7 d=2 N=0 lam=6 weights=3 threads=4 sieve block q^5=16807 blocks=7 small primes=140 planned memory 0.0001 GB
+# enw primes=19544 (equals the necklace count); self-checks on 4 primes passed
+OK ffx en (N,lam,d)=(4,5,2): 5 vectors identical (np, sumnorm, diag, sW2); # enw q=7 d=2 N=4 lam=5 weights=5 threads=4 sieve block q^4=2401 blocks=7 small primes=28 planned memory 0.0060 GB
+# enw primes=3360 (equals the necklace count); self-checks on 4 primes passed
+OK ffx en (N,lam,d)=(4,5,1): 5 vectors identical (np, sumnorm, diag, sW2); # enw q=7 d=1 N=4 lam=5 weights=5 threads=4 sieve block q^4=2401 blocks=7 small primes=28 planned memory 0.0059 GB
+# enw primes=3360 (equals the necklace count); self-checks on 4 primes passed
+OK stored (N,lam,d)=(0,9,2): 150 lines identical (ENW + every ROW); # enw q=7 d=2 N=0 lam=9 weights=3 threads=4 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0005 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 70 primes passed
+OK stored (N,lam,d)=(2,9,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=2 lam=9 weights=6 threads=4 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0006 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 71 primes passed
+OK stored (N,lam,d)=(3,9,2): 300 lines identical (ENW + every ROW); # enw q=7 d=2 N=3 lam=9 weights=6 threads=4 sieve block q^6=117649 blocks=343 small primes=728 planned memory 0.0007 GB
+# enw primes=4483696 (equals the necklace count); self-checks on 70 primes passed
+Thu Nov 19 06:28:18 AM UTC 2026
+VALIDATE_DONE

@@ -1,0 +1,64 @@
+zeta 0 S>0,M>0,lam>0 all 6 0 0 0
+zeta 1 S>0,M>0,lam>0 all 6 0 0 0
+zeta 2 S<0,M>0,lam>0 thr [5.4421766e-6 +/- 1.82e-15] 13 0 0 10
+zeta 3 S>0,M>0,lam>0 all 6 0 0 0
+zeta 4 S<0,M>0,lam>0 thr [4.4112624 +/- 3.55e-8] 13 0 0 6
+zeta 5 S>0,M>0,lam>0 all 6 0 0 0
+zeta 6 S<0,M>0,lam>0 thr [2.6298487e-6 +/- 4.63e-14] 13 0 0 10
+zeta 7 S>0,M>0,lam>0 all 6 0 0 0
+zeta 8 S<0,M>0,lam>0 thr [60.669337 +/- 4.67e-7] 13 0 0 5
+zeta 9 S>0,M>0,lam>0 all 6 0 0 0
+zeta 10 S<0,M>0,lam>0 thr [8.0442429e-7 +/- 4.09e-15] 13 0 0 10
+zeta 11 S<0,M>0,lam>0 thr [80.376380 +/- 1.13e-8] 13 0 0 5
+zeta 12 S<0,M>0,lam>0 thr [11.791061 +/- 5.91e-8] 13 0 0 6
+zeta 13 S<0,M>0,lam>0 thr [9.6272909 +/- 1.07e-8] 13 0 0 6
+zeta 14 S<0,M>0,lam>0 thr [1.3065490e-6 +/- 1.27e-14] 13 0 0 10
+zeta 15 S<0,M>0,lam>0 thr [20.801152 +/- 3.12e-7] 13 0 0 5
+zeta 16 S<0,M>0,lam>0 thr [1.4949112 +/- 3.70e-9] 13 0 0 7
+zeta 17 S<0,M>0,lam>0 thr [0.57493699 +/- 1.74e-9] 13 0 0 7
+zeta 18 S<0,M>0,lam>0 thr [8.0775440e-7 +/- 2.74e-15] 13 0 0 10
+zeta 19 S>0,M>0,lam>0 all 6 0 0 0
+zeta {'cases': {'S>0,M>0,lam>0': 7, 'S<0,M>0,lam>0': 13}, 'points': 20, 'agree': 211, 'disagree': 0, 'undecided': 0, 'certified_failures': 97, 'seconds': 0.027942895889282227}
+chi7 0 S<0,M>0,lam>0 thr [6.3477903 +/- 4.23e-8] 13 0 0 6
+chi7 1 S<0,M>0,lam>0 thr [0.49894087 +/- 5.90e-10] 13 0 0 7
+chi7 2 S>0,M>0,lam>0 all 6 0 0 0
+chi7 3 S<0,M>0,lam>0 thr [916.29073 +/- 1.88e-6] 13 0 0 4
+chi7 4 S>0,M>0,lam>0 all 6 0 0 0
+chi7 5 S>0,M>0,lam>0 all 6 0 0 0
+chi7 6 S<0,M>0,lam>0 thr [7.3006019e-7 +/- 3.90e-15] 13 0 0 10
+chi7 7 S<0,M<0,lam=0 all 6 0 0 0
+chi7 8 S<0,M>0,lam>0 thr [7.6358777 +/- 4.22e-8] 13 0 0 6
+chi7 9 S<0,M>0,lam>0 thr [44.647161 +/- 3.89e-7] 13 0 0 5
+chi7 10 S<0,M>0,lam>0 thr [5.5478499e-6 +/- 3.39e-14] 13 0 0 10
+chi7 11 S<0,M>0,lam>0 thr [13.732345 +/- 1.77e-7] 13 0 0 6
+chi7 12 S>0,M>0,lam>0 all 6 0 0 0
+chi7 13 S<0,M<0,lam<0 all 6 0 0 0
+chi7 14 S<0,M>0,lam>0 thr [1.8717828e-6 +/- 1.94e-14] 13 0 0 10
+chi7 15 S<0,M<0,lam=0 all 6 0 0 0
+chi7 16 S<0,M<0,lam>0 all 6 0 0 0
+chi7 17 S<0,M<0,lam<0 all 6 0 0 0
+chi7 18 S<0,M>0,lam>0 thr [7.7609620e-7 +/- 2.42e-15] 13 0 0 10
+chi7 19 S<0,M<0,lam=0 all 6 0 0 0
+chi7 {'cases': {'S<0,M>0,lam>0': 10, 'S>0,M>0,lam>0': 4, 'S<0,M<0,lam=0': 3, 'S<0,M<0,lam<0': 2, 'S<0,M<0,lam>0': 1}, 'points': 20, 'agree': 190, 'disagree': 0, 'undecided': 0, 'certified_failures': 74, 'seconds': 0.023417949676513672}
+chi7 0 S>0,M>0,lam>0 all 6 0 0 0
+chi7 1 S>0,M>0,lam>0 all 6 0 0 0
+chi7 2 S<0,M>0,lam>0 thr [1.3249420e-6 +/- 3.17e-14] 13 0 0 10
+chi7 3 S>0,M>0,lam>0 all 6 0 0 0
+chi7 4 S<0,M>0,lam>0 thr [12.472284 +/- 4.94e-8] 13 0 0 6
+chi7 5 S<0,M>0,lam>0 thr [2.1466257 +/- 2.88e-8] 13 0 0 6
+chi7 6 S>0,M>0,lam>0 all 6 0 0 0
+chi7 7 S>0,M<0,lam=0 all 6 0 0 0
+chi7 8 S>0,M>0,lam>0 all 6 0 0 0
+chi7 9 S>0,M>0,lam>0 all 6 0 0 0
+chi7 10 S>0,M>0,lam>0 all 6 0 0 0
+chi7 11 S>0,M>0,lam>0 all 6 0 0 0
+chi7 12 S<0,M>0,lam>0 thr [1.2494280 +/- 1.98e-8] 13 0 0 7
+chi7 13 S>0,M<0,lam<0 thr [1.3307296 +/- 5.34e-9] 13 0 0 7
+chi7 14 S>0,M>0,lam>0 all 6 0 0 0
+chi7 15 S>0,M<0,lam=0 all 6 0 0 0
+chi7 16 S>0,M<0,lam>0 all 6 0 0 0
+chi7 17 S>0,M<0,lam<0 thr [0.69510484 +/- 3.07e-9] 13 0 0 7
+chi7 18 S>0,M>0,lam>0 all 6 0 0 0
+chi7 19 S>0,M<0,lam=0 all 6 0 0 0
+chi7flip {'cases': {'S>0,M>0,lam>0': 10, 'S<0,M>0,lam>0': 4, 'S>0,M<0,lam=0': 3, 'S>0,M<0,lam<0': 2, 'S>0,M<0,lam>0': 1}, 'points': 20, 'agree': 162, 'disagree': 0, 'undecided': 0, 'certified_failures': 43, 'seconds': 0.019876718521118164}
+exit 0

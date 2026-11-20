@@ -1,0 +1,41 @@
+{
+ "slug": "c13-repair-map-engine-battery-records",
+ "round": 13,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "repair",
+  "control-battery",
+  "davenport-heilbronn",
+  "backward-heat",
+  "control",
+  "map",
+  "engine",
+  "universality"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane, nothing about zeros of zeta. The corrected c11-rs3 screen record (31 of 54 minima and 2 of 54 fail counts changed; gamma-only fake has 0 failures at h = 2 with q_2 about 4.5/t > 0; no verdict changes) is reproduced by a third independent code. D1 gives 20 of 20 against the corrected record and 19 of 20 against the original with the same script (a reproduction of one changed number, not a blind test); D2-D5 are c12's, not rerun. HEAT tau = -0.5: the 17 added pairs are zeros of the function to print precision and the list of 294 pairs balances every box checked (lane: 399 boxes; this pass: 3 formerly deficient boxes plus the two uncovered strips), MEASURED and not certified. Map 186 -> 191 rows and engine counts (UNIV control, 39/1/0 device types, generated/scored unchanged) are as stated. Corrected files are in the lane only; c11/c12 copies are unchanged. Independent pass appended to tmp/research-2026-11-16/push/c13-repair-map-engine-battery-records/REFEREE.md.",
+ "obstruction": "Record lane, no attack. c11-rs3 screen recomputed in 320-bit balls: 31 of 54 minima and 2 of 54 fail counts change, no verdict changes. D1 20 of 20 against the corrected record (a reproduction of one changed number, not a blind test); D2-D5 not rerun. HEAT tau = -0.5 list 294 pairs, box counts balance; measured, not certified. Corrected files sit in the lane only.",
+ "obstructionKind": "record: corrected numeric records, map rows, engine entries",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error that changes a number or verdict. The lane has no PROVED step, no statement about zeros of zeta, no use of RH, no restated verified height, no known theorem presented as new. Reruns with independent code (mpmath 50 digits with own bisection zero finder; own flint shifted-trapezoid quadrature; own box contours) reproduced: DH 1000-1020 and gamma-only 1000-1040 / 10000-10030 minima and fail counts for all six shifts (agreement <= 5.1e-17, ordinates <= 5e-36); D1 20/20 on corrected and 19/ - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A root finder that stops on absolute size is unconverged wherever a completed L-function is small (above height about 80). A zero list built from Newton starts is only shown complete by a box count; Gaussian convolution of xi gave that count for the heat family in minutes locally.",
+ "followUp": "Battery owner copies records_corrected/screen.corrected.json and zeros_HEAT--0.5.corrected.json into c12-control-battery-harness (local and server) and regenerates the manifest; reword rows D8, Z35, G33, P54, Q29 if c13-referee-r12-independent requires it. REFEREE.md here is the author's own pass, so an independent referee is still owed.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-repair-map-engine-battery-records/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-repair-map-engine-battery-records/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

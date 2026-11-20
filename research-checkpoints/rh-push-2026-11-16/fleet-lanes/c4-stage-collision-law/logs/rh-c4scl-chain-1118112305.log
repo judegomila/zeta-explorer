@@ -1,0 +1,84 @@
+dh T0 8328 window 8328.939696665022 9899.688781095336 spacing 0.7140752325499568 n0 None primes 46 counts [30, 0, 1, 6, 46]
+planned memory: line grids 140780 x 5 cols x 3 arrays = 22.5 MB; 2D grid 48 x 35195 x 5 complex = 135.1 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 35195
+selftest DH FE rel err 1.693303557263811e-11
+rouche line c=0.5 done, sec 264
+rouche line c=1 done, sec 508
+rouche line c=2 done, sec 774
+rouche line c=4 done, sec 1006
+rouche line c=8 done, sec 1239
+DH line grid sec 1
+DH line stats sec 10
+DH 2D grid sec 14
+done dh sec 1262.467827796936
+1e5 T0 100000 window 100000.7437234872 101298.62638280187 spacing 0.6494210900521141 n0 138070 primes 65 counts [32, 0, 2, 7, 65]
+planned memory: line grids 127904 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31976 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31976
+selftest stage rel err 5.602817741705244e-13
+rouche line c=0.5 done, sec 25
+rouche line c=1 done, sec 49
+rouche line c=2 done, sec 72
+rouche line c=4 done, sec 96
+rouche line c=8 done, sec 119
+zeta line grid sec 0
+zeta line stats sec 7
+zeta 2D grid sec 10
+U line grid sec 0
+U line stats sec 7
+U 2D grid sec 11
+L line grid sec 0
+L line stats sec 5
+L 2D grid sec 7
+done 1e5 sec 182.11993956565857
+1e6 T0 1000000 window 1000000.5840976964 1001049.5913414842 spacing 0.5245764954492754 n0 1747147 primes 168 counts [42, 0, 2, 11, 168]
+planned memory: line grids 127980 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31995 x 5 complex = 122.9 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31995
+selftest stage rel err 1.1424281988854699e-11
+rouche line c=0.5 done, sec 14
+rouche line c=1 done, sec 29
+rouche line c=2 done, sec 42
+rouche line c=4 done, sec 55
+rouche line c=8 done, sec 67
+zeta line grid sec 1
+zeta line stats sec 11
+zeta 2D grid sec 18
+U line grid sec 1
+U line stats sec 12
+U 2D grid sec 16
+L line grid sec 1
+L line stats sec 12
+L 2D grid sec 16
+done 1e6 sec 162.04441261291504
+1e7 T0 10000000 window 10000000.240023555 10000880.020867841 spacing 0.43999223537215787 n0 21136126 primes 446 counts [55, 1, 3, 16, 446]
+planned memory: line grids 127968 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31992 x 5 complex = 122.8 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31992
+selftest stage rel err 2.0906044130993536e-11
+rouche line c=0.5 done, sec 25
+rouche line c=1 done, sec 50
+rouche line c=2 done, sec 76
+rouche line c=4 done, sec 102
+rouche line c=8 done, sec 128
+zeta line grid sec 2
+zeta line stats sec 27
+zeta 2D grid sec 46
+U line grid sec 2
+U line stats sec 30
+U 2D grid sec 52
+L line grid sec 2
+L line stats sec 37
+L 2D grid sec 50
+done 1e7 sec 379.9865725040436
+1e8 T0 100000000 window 100000000.64292563 100000758.3932847 spacing 0.378897647642808 n0 248008026 primes 1229 counts [68, 1, 3, 25, 1229]
+planned memory: line grids 127992 x 5 cols x 3 arrays = 20.5 MB; 2D grid 48 x 31998 x 5 complex = 122.9 MB per family; PD chunk <= 2e6 complex x ~8 arrays = 256 MB per worker; arb rows 5 x 31998
+selftest stage rel err 3.7273147816865603e-10
+rouche line c=0.5 done, sec 53
+rouche line c=1 done, sec 100
+rouche line c=2 done, sec 138
+rouche line c=4 done, sec 176
+rouche line c=8 done, sec 215
+zeta line grid sec 4
+zeta line stats sec 73
+zeta 2D grid sec 142
+U line grid sec 5
+U line stats sec 77
+U 2D grid sec 140
+L line grid sec 5
+L line stats sec 110
+L 2D grid sec 131
+done 1e8 sec 909.3269100189209

@@ -1,0 +1,144 @@
+critical class, kappa_flat; R=R_kappa=0.590332354; L=1.0000; m_x=0.418254; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.692749265 dual=0.692749265 [EXACT primal=dual] formula N(theta)=0.692749265 (formula-primal=0.00e+00) HiGHS=0.692749265
+    theta=0.026083: primal=0.679707966 dual=0.679707966 [EXACT primal=dual] formula N(theta)=0.679707966 (formula-primal=0.00e+00) HiGHS=0.679707966
+    theta=0.052165: primal=0.666666667 dual=0.666666667 [EXACT primal=dual] formula N(theta)=0.666666667 (formula-primal=0.00e+00) HiGHS=0.666666667
+    theta=0.143419: primal=0.628354694 dual=0.628354694 [EXACT primal=dual] formula N(theta)=0.628499510 (formula-primal=1.45e-04) HiGHS=0.628354694
+    theta=0.234672: primal=0.590332354 dual=0.590332354 [EXACT primal=dual] formula N(theta)=0.590332354 (formula-primal=0.00e+00) HiGHS=0.590332354
+critical class, kappa_flat; R=R_kappa=0.590332354; L=0.2105; m_x=0.418254; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.692749265 dual=0.692749265 [EXACT primal=dual] formula N(theta)=0.692749265 (formula-primal=0.00e+00) HiGHS=0.692749265
+    theta=0.026083: primal=0.679707966 dual=0.679707966 [EXACT primal=dual] formula N(theta)=0.679707966 (formula-primal=0.00e+00) HiGHS=0.679707966
+    theta=0.052165: primal=0.666666667 dual=0.666666667 [EXACT primal=dual] formula N(theta)=0.666666667 (formula-primal=0.00e+00) HiGHS=0.666666667
+    theta=0.143419: primal=0.628354694 dual=0.628354694 [EXACT primal=dual] formula N(theta)=0.628499510 (formula-primal=1.45e-04) HiGHS=0.628354694
+    theta=0.234672: primal=0.590332354 dual=0.590332354 [EXACT primal=dual] formula N(theta)=0.590332354 (formula-primal=0.00e+00) HiGHS=0.590332354
+critical class, kappa_flat; R=(R_kappa+1-delta)/2=0.560493747; L=1.0000; m_x=0.459127; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.670370311 dual=0.670370311 [EXACT primal=dual] formula N(theta)=0.670370311 (formula-primal=0.00e+00) HiGHS=0.670370311
+    theta=0.026083: primal=0.657329011 dual=0.657329011 [EXACT primal=dual] formula N(theta)=0.657329011 (formula-primal=0.00e+00) HiGHS=0.657329011
+    theta=0.052165: primal=0.644287712 dual=0.644287712 [EXACT primal=dual] formula N(theta)=0.644287712 (formula-primal=0.00e+00) HiGHS=0.644287712
+    theta=0.143419: primal=0.602318322 dual=0.602318322 [EXACT primal=dual] formula N(theta)=0.602390730 (formula-primal=7.24e-05) HiGHS=0.602318322
+    theta=0.234672: primal=0.560493747 dual=0.560493747 [EXACT primal=dual] formula N(theta)=0.560493747 (formula-primal=0.00e+00) HiGHS=0.560493747
+critical class, kappa_flat; R=(R_kappa+1-delta)/2=0.560493747; L=0.2105; m_x=0.459127; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.670370311 dual=0.670370311 [EXACT primal=dual] formula N(theta)=0.670370311 (formula-primal=0.00e+00) HiGHS=0.670370311
+    theta=0.026083: primal=0.657329011 dual=0.657329011 [EXACT primal=dual] formula N(theta)=0.657329011 (formula-primal=0.00e+00) HiGHS=0.657329011
+    theta=0.052165: primal=0.644287712 dual=0.644287712 [EXACT primal=dual] formula N(theta)=0.644287712 (formula-primal=0.00e+00) HiGHS=0.644287712
+    theta=0.143419: primal=0.602318322 dual=0.602318322 [EXACT primal=dual] formula N(theta)=0.602390730 (formula-primal=7.24e-05) HiGHS=0.602318322
+    theta=0.234672: primal=0.560493747 dual=0.560493747 [EXACT primal=dual] formula N(theta)=0.560493747 (formula-primal=0.00e+00) HiGHS=0.560493747
+critical class, kappa=3/4; R=R_kappa=0.590333196; L=1.0000; m_x=0.418260; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.692749897 dual=0.692749897 [EXACT primal=dual] formula N(theta)=0.692749897 (formula-primal=0.00e+00) HiGHS=0.692749897
+    theta=0.026075: primal=0.679712540 dual=0.679712540 [EXACT primal=dual] formula N(theta)=0.679712540 (formula-primal=0.00e+00) HiGHS=0.679712540
+    theta=0.052149: primal=0.666675183 dual=0.666675183 [EXACT primal=dual] formula N(theta)=0.666675183 (formula-primal=0.00e+00) HiGHS=0.666675183
+    theta=0.143411: primal=0.628358822 dual=0.628358822 [EXACT primal=dual] formula N(theta)=0.628504190 (formula-primal=1.45e-04) HiGHS=0.628358822
+    theta=0.234672: primal=0.590333196 dual=0.590333196 [EXACT primal=dual] formula N(theta)=0.590333196 (formula-primal=0.00e+00) HiGHS=0.590333196
+critical class, kappa=3/4; R=R_kappa=0.590333196; L=0.2105; m_x=0.418260; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.692749897 dual=0.692749897 [EXACT primal=dual] formula N(theta)=0.692749897 (formula-primal=0.00e+00) HiGHS=0.692749897
+    theta=0.026075: primal=0.679712540 dual=0.679712540 [EXACT primal=dual] formula N(theta)=0.679712540 (formula-primal=0.00e+00) HiGHS=0.679712540
+    theta=0.052149: primal=0.666675183 dual=0.666675183 [EXACT primal=dual] formula N(theta)=0.666675183 (formula-primal=0.00e+00) HiGHS=0.666675183
+    theta=0.143411: primal=0.628358822 dual=0.628358822 [EXACT primal=dual] formula N(theta)=0.628504190 (formula-primal=1.45e-04) HiGHS=0.628358822
+    theta=0.234672: primal=0.590333196 dual=0.590333196 [EXACT primal=dual] formula N(theta)=0.590333196 (formula-primal=0.00e+00) HiGHS=0.590333196
+critical class, kappa=3/4; R=(R_kappa+1-delta)/2=0.560494169; L=1.0000; m_x=0.459130; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.670370627 dual=0.670370627 [EXACT primal=dual] formula N(theta)=0.670370627 (formula-primal=0.00e+00) HiGHS=0.670370627
+    theta=0.026075: primal=0.657333269 dual=0.657333269 [EXACT primal=dual] formula N(theta)=0.657333269 (formula-primal=0.00e+00) HiGHS=0.657333269
+    theta=0.052149: primal=0.644295912 dual=0.644295912 [EXACT primal=dual] formula N(theta)=0.644295912 (formula-primal=0.00e+00) HiGHS=0.644295912
+    theta=0.143411: primal=0.602322357 dual=0.602322357 [EXACT primal=dual] formula N(theta)=0.602395041 (formula-primal=7.27e-05) HiGHS=0.602322357
+    theta=0.234672: primal=0.560494169 dual=0.560494169 [EXACT primal=dual] formula N(theta)=0.560494169 (formula-primal=0.00e+00) HiGHS=0.560494169
+critical class, kappa=3/4; R=(R_kappa+1-delta)/2=0.560494169; L=0.2105; m_x=0.459130; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.670370627 dual=0.670370627 [EXACT primal=dual] formula N(theta)=0.670370627 (formula-primal=0.00e+00) HiGHS=0.670370627
+    theta=0.026075: primal=0.657333269 dual=0.657333269 [EXACT primal=dual] formula N(theta)=0.657333269 (formula-primal=0.00e+00) HiGHS=0.657333269
+    theta=0.052149: primal=0.644295912 dual=0.644295912 [EXACT primal=dual] formula N(theta)=0.644295912 (formula-primal=0.00e+00) HiGHS=0.644295912
+    theta=0.143411: primal=0.602322357 dual=0.602322357 [EXACT primal=dual] formula N(theta)=0.602395041 (formula-primal=7.27e-05) HiGHS=0.602322357
+    theta=0.234672: primal=0.560494169 dual=0.560494169 [EXACT primal=dual] formula N(theta)=0.560494169 (formula-primal=0.00e+00) HiGHS=0.560494169
+delta=1/4, x=1/4; R=R_kappa=0.803776717; L=1.0000; m_x=0.378998; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.852832538 dual=0.852832538 [EXACT primal=dual] formula N(theta)=0.852832538 (formula-primal=0.00e+00) HiGHS=0.852832538
+    theta=0.006947: primal=0.849359266 dual=0.849359266 [EXACT primal=dual] formula N(theta)=0.849359266 (formula-primal=0.00e+00) HiGHS=0.849359266
+    theta=0.013893: primal=0.845885993 dual=0.845885993 [EXACT primal=dual] formula N(theta)=0.845885993 (formula-primal=0.00e+00) HiGHS=0.845885993
+    theta=0.069447: primal=0.824609263 dual=0.824609263 [EXACT primal=dual] formula N(theta)=0.824831355 (formula-primal=2.22e-04) HiGHS=0.824609263
+    theta=0.125000: primal=0.803776717 dual=0.803776717 [EXACT primal=dual] formula N(theta)=0.803776717 (formula-primal=0.00e+00) HiGHS=0.803776717
+delta=1/4, x=1/4; R=R_kappa=0.803776717; L=0.2105; m_x=0.378998; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.852832538 dual=0.852832538 [EXACT primal=dual] formula N(theta)=0.852832538 (formula-primal=0.00e+00) HiGHS=0.852832538
+    theta=0.006947: primal=0.849359266 dual=0.849359266 [EXACT primal=dual] formula N(theta)=0.849359266 (formula-primal=0.00e+00) HiGHS=0.849359266
+    theta=0.013893: primal=0.845885993 dual=0.845885993 [EXACT primal=dual] formula N(theta)=0.845885993 (formula-primal=0.00e+00) HiGHS=0.845885993
+    theta=0.069447: primal=0.824609263 dual=0.824609263 [EXACT primal=dual] formula N(theta)=0.824831355 (formula-primal=2.22e-04) HiGHS=0.824609263
+    theta=0.125000: primal=0.803776717 dual=0.803776717 [EXACT primal=dual] formula N(theta)=0.803776717 (formula-primal=0.00e+00) HiGHS=0.803776717
+delta=1/4, x=1/4; R=(R_kappa+1-delta)/2=0.776888358; L=1.0000; m_x=0.439499; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.832666269 dual=0.832666269 [EXACT primal=dual] formula N(theta)=0.832666269 (formula-primal=0.00e+00) HiGHS=0.832666269
+    theta=0.006947: primal=0.829192997 dual=0.829192997 [EXACT primal=dual] formula N(theta)=0.829192997 (formula-primal=0.00e+00) HiGHS=0.829192997
+    theta=0.013893: primal=0.825719725 dual=0.825719725 [EXACT primal=dual] formula N(theta)=0.825719725 (formula-primal=0.00e+00) HiGHS=0.825719725
+    theta=0.069447: primal=0.801183615 dual=0.801183615 [EXACT primal=dual] formula N(theta)=0.801304042 (formula-primal=1.20e-04) HiGHS=0.801183615
+    theta=0.125000: primal=0.776888358 dual=0.776888358 [EXACT primal=dual] formula N(theta)=0.776888358 (formula-primal=0.00e+00) HiGHS=0.776888358
+delta=1/4, x=1/4; R=(R_kappa+1-delta)/2=0.776888358; L=0.2105; m_x=0.439499; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.832666269 dual=0.832666269 [EXACT primal=dual] formula N(theta)=0.832666269 (formula-primal=0.00e+00) HiGHS=0.832666269
+    theta=0.006947: primal=0.829192997 dual=0.829192997 [EXACT primal=dual] formula N(theta)=0.829192997 (formula-primal=0.00e+00) HiGHS=0.829192997
+    theta=0.013893: primal=0.825719725 dual=0.825719725 [EXACT primal=dual] formula N(theta)=0.825719725 (formula-primal=0.00e+00) HiGHS=0.825719725
+    theta=0.069447: primal=0.801183615 dual=0.801183615 [EXACT primal=dual] formula N(theta)=0.801304042 (formula-primal=1.20e-04) HiGHS=0.801183615
+    theta=0.125000: primal=0.776888358 dual=0.776888358 [EXACT primal=dual] formula N(theta)=0.776888358 (formula-primal=0.00e+00) HiGHS=0.776888358
+delta=2/3, x=1/2; R=R_kappa=0.383512125; L=1.0000; m_x=0.451609; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.537634094 dual=0.537634094 [EXACT primal=dual] formula N(theta)=0.537634094 (formula-primal=0.00e+00) HiGHS=0.537634094
+    theta=0.037048: primal=0.519109976 dual=0.519109976 [EXACT primal=dual] formula N(theta)=0.519109976 (formula-primal=0.00e+00) HiGHS=0.519109976
+    theta=0.074096: primal=0.500585858 dual=0.500585858 [EXACT primal=dual] formula N(theta)=0.500585858 (formula-primal=0.00e+00) HiGHS=0.500585858
+    theta=0.203715: primal=0.441840419 dual=0.441840419 [EXACT primal=dual] formula N(theta)=0.442048992 (formula-primal=2.09e-04) HiGHS=0.441840419
+    theta=0.333333: primal=0.383512125 dual=0.383512125 [EXACT primal=dual] formula N(theta)=0.383512125 (formula-primal=0.00e+00) HiGHS=0.383512125
+delta=2/3, x=1/2; R=R_kappa=0.383512125; L=0.2105; m_x=0.451609; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.537634094 dual=0.537634094 [EXACT primal=dual] formula N(theta)=0.537634094 (formula-primal=0.00e+00) HiGHS=0.537634094
+    theta=0.037048: primal=0.519109976 dual=0.519109976 [EXACT primal=dual] formula N(theta)=0.519109976 (formula-primal=0.00e+00) HiGHS=0.519109976
+    theta=0.074096: primal=0.500585858 dual=0.500585858 [EXACT primal=dual] formula N(theta)=0.500585858 (formula-primal=0.00e+00) HiGHS=0.500585858
+    theta=0.203715: primal=0.441840419 dual=0.441840419 [EXACT primal=dual] formula N(theta)=0.442048992 (formula-primal=2.09e-04) HiGHS=0.441840419
+    theta=0.333333: primal=0.383512125 dual=0.383512125 [EXACT primal=dual] formula N(theta)=0.383512125 (formula-primal=0.00e+00) HiGHS=0.383512125
+delta=2/3, x=1/2; R=(R_kappa+1-delta)/2=0.358422729; L=1.0000; m_x=0.475805; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.518817047 dual=0.518817047 [EXACT primal=dual] formula N(theta)=0.518817047 (formula-primal=0.00e+00) HiGHS=0.518817047
+    theta=0.037048: primal=0.500292929 dual=0.500292929 [EXACT primal=dual] formula N(theta)=0.500292929 (formula-primal=0.00e+00) HiGHS=0.500292929
+    theta=0.074096: primal=0.481768811 dual=0.481768811 [EXACT primal=dual] formula N(theta)=0.481768811 (formula-primal=0.00e+00) HiGHS=0.481768811
+    theta=0.203715: primal=0.419991484 dual=0.419991484 [EXACT primal=dual] formula N(theta)=0.420095770 (formula-primal=1.04e-04) HiGHS=0.419991484
+    theta=0.333333: primal=0.358422729 dual=0.358422729 [EXACT primal=dual] formula N(theta)=0.358422729 (formula-primal=0.00e+00) HiGHS=0.358422729
+delta=2/3, x=1/2; R=(R_kappa+1-delta)/2=0.358422729; L=0.2105; m_x=0.475805; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.518817047 dual=0.518817047 [EXACT primal=dual] formula N(theta)=0.518817047 (formula-primal=0.00e+00) HiGHS=0.518817047
+    theta=0.037048: primal=0.500292929 dual=0.500292929 [EXACT primal=dual] formula N(theta)=0.500292929 (formula-primal=0.00e+00) HiGHS=0.500292929
+    theta=0.074096: primal=0.481768811 dual=0.481768811 [EXACT primal=dual] formula N(theta)=0.481768811 (formula-primal=0.00e+00) HiGHS=0.481768811
+    theta=0.203715: primal=0.419991484 dual=0.419991484 [EXACT primal=dual] formula N(theta)=0.420095770 (formula-primal=1.04e-04) HiGHS=0.419991484
+    theta=0.333333: primal=0.358422729 dual=0.358422729 [EXACT primal=dual] formula N(theta)=0.358422729 (formula-primal=0.00e+00) HiGHS=0.358422729
+delta=1/8, x=1/2; R=R_kappa=0.897112383; L=1.0000; m_x=0.385016; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.922834287 dual=0.922834287 [EXACT primal=dual] formula N(theta)=0.922834287 (formula-primal=0.00e+00) HiGHS=0.922834287
+    theta=0.007212: primal=0.919228518 dual=0.919228518 [EXACT primal=dual] formula N(theta)=0.919228518 (formula-primal=0.00e+00) HiGHS=0.919228518
+    theta=0.014423: primal=0.915622749 dual=0.915622749 [EXACT primal=dual] formula N(theta)=0.915622749 (formula-primal=0.00e+00) HiGHS=0.915622749
+    theta=0.038462: primal=0.906327127 dual=0.906327127 [EXACT primal=dual] formula N(theta)=0.906367566 (formula-primal=4.04e-05) HiGHS=0.906327127
+    theta=0.062500: primal=0.897112383 dual=0.897112383 [EXACT primal=dual] formula N(theta)=0.897112383 (formula-primal=0.00e+00) HiGHS=0.897112383
+delta=1/8, x=1/2; R=R_kappa=0.897112383; L=0.2105; m_x=0.385016; primal slack max=0.00e+00; gate(14.15)=False relaxed gate=True
+    theta=0.000000: primal=0.922834287 dual=0.922834287 [EXACT primal=dual] formula N(theta)=0.922834287 (formula-primal=0.00e+00) HiGHS=0.922834287
+    theta=0.007212: primal=0.919228518 dual=0.919228518 [EXACT primal=dual] formula N(theta)=0.919228518 (formula-primal=0.00e+00) HiGHS=0.919228518
+    theta=0.014423: primal=0.915622749 dual=0.915622749 [EXACT primal=dual] formula N(theta)=0.915622749 (formula-primal=0.00e+00) HiGHS=0.915622749
+    theta=0.038462: primal=0.906327127 dual=0.906327127 [EXACT primal=dual] formula N(theta)=0.906367566 (formula-primal=4.04e-05) HiGHS=0.906327127
+    theta=0.062500: primal=0.897112383 dual=0.897112383 [EXACT primal=dual] formula N(theta)=0.897112383 (formula-primal=0.00e+00) HiGHS=0.897112383
+delta=1/8, x=1/2; R=(R_kappa+1-delta)/2=0.886056191; L=1.0000; m_x=0.442508; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.914542144 dual=0.914542144 [EXACT primal=dual] formula N(theta)=0.914542144 (formula-primal=0.00e+00) HiGHS=0.914542144
+    theta=0.007212: primal=0.910936374 dual=0.910936374 [EXACT primal=dual] formula N(theta)=0.910936374 (formula-primal=0.00e+00) HiGHS=0.910936374
+    theta=0.014423: primal=0.907330605 dual=0.907330605 [EXACT primal=dual] formula N(theta)=0.907330605 (formula-primal=0.00e+00) HiGHS=0.907330605
+    theta=0.038462: primal=0.896673179 dual=0.896673179 [EXACT primal=dual] formula N(theta)=0.896693398 (formula-primal=2.02e-05) HiGHS=0.896673179
+    theta=0.062500: primal=0.886056191 dual=0.886056191 [EXACT primal=dual] formula N(theta)=0.886056191 (formula-primal=0.00e+00) HiGHS=0.886056191
+delta=1/8, x=1/2; R=(R_kappa+1-delta)/2=0.886056191; L=0.2105; m_x=0.442508; primal slack max=0.00e+00; gate(14.15)=False relaxed gate=True
+    theta=0.000000: primal=0.914542144 dual=0.914542144 [EXACT primal=dual] formula N(theta)=0.914542144 (formula-primal=0.00e+00) HiGHS=0.914542144
+    theta=0.007212: primal=0.910936374 dual=0.910936374 [EXACT primal=dual] formula N(theta)=0.910936374 (formula-primal=0.00e+00) HiGHS=0.910936374
+    theta=0.014423: primal=0.907330605 dual=0.907330605 [EXACT primal=dual] formula N(theta)=0.907330605 (formula-primal=0.00e+00) HiGHS=0.907330605
+    theta=0.038462: primal=0.896673179 dual=0.896673179 [EXACT primal=dual] formula N(theta)=0.896693398 (formula-primal=2.02e-05) HiGHS=0.896673179
+    theta=0.062500: primal=0.886056191 dual=0.886056191 [EXACT primal=dual] formula N(theta)=0.886056191 (formula-primal=0.00e+00) HiGHS=0.886056191
+delta=3/5, x=1/10; R=R_kappa=0.471432295; L=1.0000; m_x=0.438420; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.603574221 dual=0.603574221 [EXACT primal=dual] formula N(theta)=0.603574221 (formula-primal=0.00e+00) HiGHS=0.603574221
+    theta=0.005000: primal=0.601074221 dual=0.601074221 [EXACT primal=dual] formula N(theta)=0.601074221 (formula-primal=0.00e+00) HiGHS=0.601074221
+    theta=0.010000: primal=0.598574221 dual=0.598574221 [EXACT primal=dual] formula N(theta)=0.598574221 (formula-primal=0.00e+00) HiGHS=0.598574221
+    theta=0.155000: primal=0.534532555 dual=0.534532555 [EXACT primal=dual] formula N(theta)=0.535003258 (formula-primal=4.71e-04) HiGHS=0.534532555
+    theta=0.300000: primal=0.471432295 dual=0.471432295 [EXACT primal=dual] formula N(theta)=0.471432295 (formula-primal=0.00e+00) HiGHS=0.471432295
+delta=3/5, x=1/10; R=R_kappa=0.471432295; L=0.2105; m_x=0.438420; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.603574221 dual=0.603574221 [EXACT primal=dual] formula N(theta)=0.603574221 (formula-primal=0.00e+00) HiGHS=0.603574221
+    theta=0.005000: primal=0.601074221 dual=0.601074221 [EXACT primal=dual] formula N(theta)=0.601074221 (formula-primal=0.00e+00) HiGHS=0.601074221
+    theta=0.010000: primal=0.598574221 dual=0.598574221 [EXACT primal=dual] formula N(theta)=0.598574221 (formula-primal=0.00e+00) HiGHS=0.598574221
+    theta=0.155000: primal=0.534532555 dual=0.534532555 [EXACT primal=dual] formula N(theta)=0.535003258 (formula-primal=4.71e-04) HiGHS=0.534532555
+    theta=0.300000: primal=0.471432295 dual=0.471432295 [EXACT primal=dual] formula N(theta)=0.471432295 (formula-primal=0.00e+00) HiGHS=0.471432295
+delta=3/5, x=1/10; R=(R_kappa+1-delta)/2=0.435716148; L=1.0000; m_x=0.469210; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.576787111 dual=0.576787111 [EXACT primal=dual] formula N(theta)=0.576787111 (formula-primal=0.00e+00) HiGHS=0.576787111
+    theta=0.005000: primal=0.574287111 dual=0.574287111 [EXACT primal=dual] formula N(theta)=0.574287111 (formula-primal=0.00e+00) HiGHS=0.574287111
+    theta=0.010000: primal=0.571787111 dual=0.571787111 [EXACT primal=dual] formula N(theta)=0.571787111 (formula-primal=0.00e+00) HiGHS=0.571787111
+    theta=0.155000: primal=0.503382814 dual=0.503382814 [EXACT primal=dual] formula N(theta)=0.503751629 (formula-primal=3.69e-04) HiGHS=0.503382814
+    theta=0.300000: primal=0.435716148 dual=0.435716148 [EXACT primal=dual] formula N(theta)=0.435716148 (formula-primal=0.00e+00) HiGHS=0.435716148
+delta=3/5, x=1/10; R=(R_kappa+1-delta)/2=0.435716148; L=0.2105; m_x=0.469210; primal slack max=0.00e+00; gate(14.15)=True relaxed gate=True
+    theta=0.000000: primal=0.576787111 dual=0.576787111 [EXACT primal=dual] formula N(theta)=0.576787111 (formula-primal=0.00e+00) HiGHS=0.576787111
+    theta=0.005000: primal=0.574287111 dual=0.574287111 [EXACT primal=dual] formula N(theta)=0.574287111 (formula-primal=0.00e+00) HiGHS=0.574287111
+    theta=0.010000: primal=0.571787111 dual=0.571787111 [EXACT primal=dual] formula N(theta)=0.571787111 (formula-primal=0.00e+00) HiGHS=0.571787111
+    theta=0.155000: primal=0.503382814 dual=0.503382814 [EXACT primal=dual] formula N(theta)=0.503751629 (formula-primal=3.69e-04) HiGHS=0.503382814
+    theta=0.300000: primal=0.435716148 dual=0.435716148 [EXACT primal=dual] formula N(theta)=0.435716148 (formula-primal=0.00e+00) HiGHS=0.435716148

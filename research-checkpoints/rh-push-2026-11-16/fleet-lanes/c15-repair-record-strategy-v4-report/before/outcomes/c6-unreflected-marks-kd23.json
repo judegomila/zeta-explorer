@@ -1,0 +1,47 @@
+{
+ "slug": "c6-unreflected-marks-kd23",
+ "round": 6,
+ "kind": "deepen",
+ "nodes": [
+  "map-open-1",
+  "out-c6-unreflected-marks-kd23"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "prime-marks",
+  "sextic-theta",
+  "large-sieve",
+  "hasse-davenport",
+  "mean-square",
+  "grh-conditional"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "MEASURED (reproduced at independent sizes, aspects and seed): for the reduced theta rows (n = 1, nu trivial), unmarked and marked at D^(1/4) or D^(1/2), with or without the angular factor, the mean square over sampled rows K = D^e, 1 <= e <= 2, D <= 1e7, divided by the coefficient norm stays in 0.84-1.01 with exponent in D within 0.025 of zero, while cubic and sextic Gauss-sum controls grow with exponents 0.340 and 0.153 at e = 1 (predicted 1/3, 1/6). PROVED/CHECKED: the dual kernel factorises with a sign depending on classes mod 4, and gamma_1 gamma_2 = mu alpha times a unimodular factor (conj(chi_c(4)) gamma_3 in the code conventions). ARGUED (outline only): row energy = K N + (K/D) times a sum of products of reciprocal Hecke L-sums; a zero-free half-plane Re s > theta for the family F gives K + D^(2 theta), so K + D under GRH for F. CONDITIONAL (GRH for F and the row family, Theorem B of c5, transcribed model): the uncompensated branch of the reduced model is not valid for h > 3. Not established: the necessity statement Lemma D(b); any statement about model vertices with 1 < h <= 3; the alternative without GRH unless it includes the sieve hypothesis. No statement about zeros of zeta.",
+ "obstruction": "Referee does not hold the claim as stated ('no consistent model vertex with h > 1' not shown; necessity statement Lemma D(b) not established; a hypothesis dropped in the no-GRH form). Standing: MEASURED, reduced theta rows (marked or not) show no (KD)^(2/3) term for D <= 1e7, K = D^e, 1 <= e <= 2, while cubic and sextic pole controls grow with exponents 0.340, 0.153; random rows pass the same measurement. PROVED/CHECKED: dual kernel factorisation and gamma_1 gamma_2 = mu alpha times a unimodular factor. ARGUED: row energy = K N + (K/D) times a sum of products of reciprocal Hecke L-sums, so K + D is a zero-free statement for the target family (K + D^(2 theta); 11/12 at K = D), not an independent norm input. Conditional on GRH for the family and c5 Theorem B: the uncompensated branch of the reduced model is not valid for h > 3; vertices with 1 < h <= 3 are underived.",
+ "obstructionKind": "row-norm-is-zero-free-statement-for-target",
+ "controlsThatDefeat": [
+  "random rows (same flat mean square: the measurement does not use arithmetic)",
+  "cubic and sextic Gauss-sum pole controls (grow as predicted; they confirm the test detects a pole term)",
+  "not run: THIN, DH, sign twists"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c6-unreflected-marks-kd23/REFEREE.md\n\nConfirmed: Step 1 kernel factorisation (re-derived by CRT; rerun on 1140 new triples, max deviation 5.2e-13, non-coprime frequencies vanish, eps = +-1 and depends only on classes mod 4); gamma_2^3 = mu alpha; table Gauss sums and symbol code against brute force (0 mismatches of 360); the measurement at new sizes D = 2e4, 2e5, new aspects e = 1.1, 1.4, new seed (theta rows 0. [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The (KD)^(2/3) term of a power-residue sieve is the principal dual-frequency term; for theta rows Hasse-Davenport turns the dual coefficients into Moebius times a Hecke character, so the row norm in the unreflected range is a zero-free statement about the target (11/12 at K = D), not an independent norm input. Random rows pass the same measurement, so flatness alone does not use arithmetic. Every h > 1 vertex rests on the uncompensated branch, which was never derived.",
+ "followUp": "Derive the uncompensated high side from manuscript (12.5)/(16.1) (scalar prime term kept) to locate whether (S) or H0' fails; one referee for Lemma D Step 3 (Poisson step, common factors, cube completion) and for Proposition E's use of c5 Theorem B. STRATEGY 4.0 item 3 has its obstruction; candidate for removal from the list.",
+ "resultFile": "tmp/research-2026-11-16/push/c6-unreflected-marks-kd23/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-unreflected-marks-kd23/REFEREE.md",
+ "launchedNodes": [
+  "map-open-1"
+ ],
+ "engineVerdict": "open"
+}

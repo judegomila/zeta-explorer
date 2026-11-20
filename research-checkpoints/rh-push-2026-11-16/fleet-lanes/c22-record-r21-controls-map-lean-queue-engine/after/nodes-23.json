@@ -1,0 +1,70 @@
+{
+ "about": "Nodes for the lead BR (BR-2, BR-3) and the twin screen TS; curated; entered by push/c21-record-engine-states-statement-o-v5-br-nodes (round 21). BR-2 and BR-3 are proposed, untested device types of curated/devices.json; TS is a filter (type tool).",
+ "nodes": [
+  {
+   "id": "br3-euler-shape-rigidity-regime3",
+   "type": "open-direction",
+   "name": "Proposed, untested: BR-3, Euler-shape rigidity in regime 3 (relative abscissa above 1/2)",
+   "statement": "Proposed, untested device type; an identification question. Let abs(alpha_p) <= 1 for every prime p and G(s) = prod over p of (1 - alpha_p p^-s)^-1 for Re s > 1. Suppose G extends to a meromorphic function on C of finite order with (s - 1) G(s) analytic near Re s >= 1/2 apart from finitely many poles, and G satisfies the functional equation of zeta. Suppose sum over p of abs(1 - alpha_p) p^-sigma diverges for some sigma > 1/2 (regime 3: the relative product zeta/G has abscissa of absolute convergence sigma_rel > 1/2). Question: is G = zeta, or is there an explicit G != zeta with these properties. On file (one referee): regime 1 (the sum converges at 1/2) gives G = zeta (Theorem A; the proof uses reflection and Liouville's theorem, no multiplicativity, and holds with any base in place of zeta); the proof has no input in 1/2 < Re s <= sigma_rel; THIN and DEL show that without the functional equation the continued relative product can vanish there. BR-0 (paper, first): whether Hamburger-type theorems with finitely many poles (rows P56, P57, X1) already decide the question. An identification scores 0 and enters class U3; a twin with an off-line zero would be a control with an Euler product and zeta's functional equation. Not a statement about zeros of zeta; no route from it to one is registered.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "campaign/STRATEGY.md section 4.0 (version 6) and section 1; campaign/ROUND_LOG.md round 20 (lessons) and round 21 allocation; push/c20-euler-shape-rigidity-infinite-modified-primes (RESULT.md, REFEREE.md, one referee); entered by push/c21-record-engine-states-statement-o-v5-br-nodes",
+   "tags": [
+    "euler-product",
+    "functional-equation",
+    "rigidity",
+    "identification",
+    "local-euler-shape",
+    "hamburger",
+    "pole-clause",
+    "twin-ladder"
+   ]
+  },
+  {
+   "id": "br2-sparse-pole-lattice-regime-k",
+   "type": "open-direction",
+   "name": "Proposed, decided on the sparse side: BR-2, dense remainder of regime (K): natural boundary on the critical line or a twin",
+   "statement": "Proposed device type; an identification question. Relative Euler product with abs(alpha_q) = q^(1/2) (phases free) on a set S of primes and alpha_p = 1 off S. Set condition: sum over p of abs(1 - alpha_p) p^-sigma finite for every sigma > 1/2 and infinite at 1/2 (regime (K) of the source lane); with abs(alpha_p) = p^(1/2) on S and alpha_p = 1 off S this is: S infinite and sum over S of q^-eps finite for every eps > 0. The local factor at q in S has poles on the lattice 1/2 + i(theta_q + 2 pi k)/log q (the reading of the prime torus and of the zero channels in the geometric program). Decided on the sparse side in round 21 (base-blind natural-boundary rows, no multiplicativity beyond the independence of the log q): Theorem W of push/c21-br2-sparse-pole-lattice-natural-boundary-or-twin (one independent referee, holds after erratum E1; second referee owed by c22-referee-r21-theorem-w-p0-p1-theorem1prime-ts-line11): if sum over S of (log q)^(-gamma) is finite for some gamma < 1, with any phases of alpha_q, then G has no meromorphic continuation across any point of Re s = 1/2, so there is no twin; Lemma P0 of push/c21-br2-relative-product-pole-lattice-census-server (one independent referee, holds): for alpha_q = +q^(1/2) on any infinite S of regime (K) the relative product decays faster than every power of delta at s = 1/2 + delta, so G is not meromorphic at 1/2; Lemma P1 (same lane): lacunary ratio of log q above 2 gives a natural boundary. Control CYC (norms Q^(2^k), alpha = -q^(1/2)) is meromorphic with dense local pole lattices: pole density is not the obstruction, multiplicative independence of the norms is. Open remainder (the device as it now stands): S not covered by Theorem W, that is sum over S of (log q)^(-gamma) infinite for every gamma < 1 (in particular every S with sum over S of 1/log q infinite), with phases not all equal to +1; and the wider regime (K) with abs(alpha_p) < p^(1/2). Question: natural boundary on Re s = 1/2, or a twin (G != zeta with zeta's functional equation). On file for the remainder (two referee files): Theorem C: a twin in regime (K) has no zero off the line beyond zeta's, and a twin of finite order has a zero of G/zeta on the line. A natural-boundary proof is an identification-type row (score 0); a twin is an on-line control. Not a statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "campaign/STRATEGY.md section 4.0 (version 6) and section 1; campaign/ROUND_LOG.md round 20 (lessons) and round 21 allocation; push/c20-euler-shape-rigidity-infinite-modified-primes (RESULT.md, REFEREE.md, one referee); entered by push/c21-record-engine-states-statement-o-v5-br-nodes; text narrowed to the dense remainder and set condition repaired (E3) by push/c22-record-r21-controls-map-lean-queue-engine on push/c21-br2-sparse-pole-lattice-natural-boundary-or-twin and push/c21-br2-relative-product-pole-lattice-census-server (one independent referee each)",
+   "tags": [
+    "euler-product",
+    "functional-equation",
+    "rigidity",
+    "identification",
+    "local-euler-shape",
+    "prime-torus",
+    "torus",
+    "zero-channel",
+    "pole-clause",
+    "natural-boundary",
+    "beurling"
+   ]
+  },
+  {
+   "id": "twin-screen-ts",
+   "type": "tool",
+   "name": "Twin screen TS: three structural reasons applied to a device, statistic or combination before a lane is launched",
+   "statement": "A filter, not a device and not a lead; a tool applied to a device, statistic or combination before a lane is launched. File: push/c21-twin-screen-ts/TWIN_SCREEN.md (92 typed rows; one independent referee, holds with corrections J1 to J7). What the status 'proved' covers: (a) Lemma TS-1 (i), elementary: for N = zeta/G = sum c(n) n^-s with c(1) = 1, a_G(n) = 1 for all n < P if and only if c(n) = 0 for 2 <= n < P; for an Euler product this is c(p^k) = 0 for p^k < P; neither the functional equation nor the Euler product is needed (one independent referee). (b) The three reasons as statements with their own referee files. Reason 1, window scalar (Lemma S of c20-u4-second-order-archimedean-mixed-form, two referee files): on window vectors at height t the archimedean side is a scalar up to 8 log t / t, so a form pairing the prime side below P with the gamma side is the first-order band form times a scalar. Reason 2, twin invisibility at a stage (K3-M, two referee files, with Theorem A of the euler-shape lane, two referee files): every form reading Lambda(n), n < P, with the gamma side takes the same value for zeta and for twins modified at a prime q >= P (HQ1, HQ3, HQ4 at q >= P; HQ2 at q^2 >= P). Reason 3, stage-level tests are not arithmetic (Lemma E, one referee; Theorem C of the line-2 lane, two referee files): zero-free finite stages exist for Davenport-Heilbronn, and a non-Euler series with off-line zeros passes Pick positivity to any order on bounded node ranges. What it does not cover: the typing of the 92 rows is a reading of the record, not a theorem; the three reasons cover 7 device types in full and 5 in part of 56 typed rows (referee J1 to J3), so the screen is not a sufficient launch filter alone, and each row carries the kind of its closing row (fixed control, identity, restatement). Lemma TS-1 (ii) to (iv) are relative to Theorems A and C of the euler-shape lane. Rule (STRATEGY version 6, section 2): from round 22 no lane is launched before its row of TS exists; a row to which one of the three reasons applies is not launched; a row marked 'none of the three' is a candidate of the inverse-explore slot. Not a statement about zeros of zeta.",
+   "status": "proved",
+   "usesMultiplicativity": "no",
+   "heightUniform": "no",
+   "source": "push/c21-twin-screen-ts (TWIN_SCREEN.md, RESULT.md, REFEREE.md with the independent pass I-1 to I-3); campaign/STRATEGY.md section 2 (twin screen rule); entered by push/c21-record-engine-states-statement-o-v5-br-nodes; status and statement set by push/c22-record-r21-controls-map-lean-queue-engine (round 22) so that build_graph.py assigns the role 'rigid' (type tool, status proved) and generate.py can pool the node as the tool of move M3",
+   "tags": [
+    "prefilter",
+    "filter",
+    "screen",
+    "control",
+    "twin-ladder",
+    "finite-stage",
+    "bridge",
+    "antibridge",
+    "pick",
+    "euler-product"
+   ]
+  }
+ ]
+}

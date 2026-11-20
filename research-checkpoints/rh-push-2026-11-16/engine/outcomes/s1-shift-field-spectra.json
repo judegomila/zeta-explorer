@@ -1,0 +1,88 @@
+{
+ "slug": "s1-shift-field-spectra",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "bridge-winding-equals-NT",
+  "jensen-loss-in-levinson",
+  "levinson-in-ladder-language",
+  "meansquare-pointwise-wall",
+  "mv-cap-sensitivities",
+  "selberg-phase-gate-vs-zeta",
+  "zv-bloch-spinor-state",
+  "zv-finite-bridge-balance",
+  "zv-hessian-log-modulus",
+  "zv-shifted-field-interference",
+  "zv-signed-shear-w"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "zv-bloch-spinor-state",
+    "levinson-in-ladder-language",
+    "jensen-loss-in-levinson"
+   ],
+   "obstruction": "mean-value statistic (MV-CAP); DH separation only via zeros right of 1",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "heat",
+    "unimodular twist"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-finite-bridge-balance",
+    "meansquare-pointwise-wall"
+   ],
+   "obstruction": "separation only in bands containing off-line zeros or on Re s = 1",
+   "controlsThatDefeat": [
+    "sign twist (passes)",
+    "T-NR (passes)",
+    "heat",
+    "E_a",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-signed-shear-w",
+    "zv-hessian-log-modulus",
+    "selberg-phase-gate-vs-zeta"
+   ],
+   "obstruction": "pointwise sign test = local zero detector (verified height in another form)",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-shifted-field-interference",
+    "bridge-winding-equals-NT",
+    "mv-cap-sensitivities"
+   ],
+   "obstruction": "reduces to the W<0 test; verified height in another form",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR (passes)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) mean-value statistic (MV-CAP); DH separation only via zeros right of 1 | (2) separation only in bands containing off-line zeros or on Re s = 1 | (3) pointwise sign test = local zero detector (verified height in another form) | (4) reduces to the W<0 test; verified height in another form",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "T-NR",
+  "T-NR (passes)",
+  "heat",
+  "sign twist (passes)",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-shift-field-spectra/RESULT.md"
+}

@@ -1,0 +1,20 @@
+[
+{
+"k": 1,
+"X": 30000,
+"Dstar": 248,
+"sqrtX": 173,
+"ratio": 1.4318286675902718,
+"primepowers_le_sqrtX": 54,
+"pred": 227
+},
+{
+"k": 1,
+"X": 100000,
+"Dstar": 451,
+"sqrtX": 316,
+"ratio": 1.426187224735939,
+"primepowers_le_sqrtX": 82,
+"pred": 398
+}
+]

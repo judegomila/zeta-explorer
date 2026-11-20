@@ -1,0 +1,44 @@
+{
+ "interval": [
+  "0.01",
+  "0.5"
+ ],
+ "Nmax": 20,
+ "dps": 240,
+ "delta": "0.3",
+ "rows": [
+  {
+   "case": "zeta",
+   "P": null,
+   "P_lastpiv": "3.3933e-119",
+   "Ke": null,
+   "Ke_lastpiv": "2.1685e-238",
+   "Ko": null,
+   "Ko_lastpiv": "9.5263e-232"
+  },
+  {
+   "case": "move",
+   "n": 1,
+   "gamma": "14.13472514",
+   "P": 7,
+   "Ke": 4,
+   "Ko": 4
+  },
+  {
+   "case": "move",
+   "n": 2,
+   "gamma": "21.02203964",
+   "P": 12,
+   "Ke": 6,
+   "Ko": 7
+  },
+  {
+   "case": "move",
+   "n": 3,
+   "gamma": "25.01085758",
+   "P": 15,
+   "Ke": 8,
+   "Ko": 8
+  }
+ ]
+}

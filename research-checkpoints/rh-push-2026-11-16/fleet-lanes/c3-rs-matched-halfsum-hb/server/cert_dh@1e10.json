@@ -1,0 +1,1 @@
+{"label": "dh@1e+10", "kind": "dh", "T0": 10000000000, "segs": [{"N": 89206, "ua": 0.0, "ub": 2000, "screen_right": 1262, "attempted": 1262, "certified": 1262, "failed": [], "min_ds_certified": 7.366962843165409e-05, "max_abs_F_upper": 4.181814177246038e-12}], "certified_total": 1262, "attempted_total": 1262, "screen_right_total": 1262, "seconds": 18.462709426879883, "prec": 128}

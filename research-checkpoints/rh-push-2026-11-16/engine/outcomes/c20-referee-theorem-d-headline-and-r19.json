@@ -1,0 +1,42 @@
+{
+ "slug": "c20-referee-theorem-d-headline-and-r19",
+ "round": 20,
+ "kind": "repair",
+ "nodes": [
+  "out-c1-leeyang-krein-limit"
+ ],
+ "tags": [
+  "referee",
+  "repair",
+  "theorem-d",
+  "headline",
+  "r1-flag",
+  "controls",
+  "round-19"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Referee lane, nothing about zeros of zeta. Theorem D of c1-leeyang-krein-limit holds (chain (a)=>(c)=>(b)=>(a) re-derived; corrections C1-C3 correct); it is an equivalence with its target, hence a restatement under METRIC A. Lemma E holds (exponential stages of any Dirichlet series with a_1 = 1, |a_n| <= 1 are entire, zero-free and converge on Re s >= 2), so zero-free stages are not a multiplicative property; rerun by a different route at new points: b_6 = 1 + kappa^2 = 1.0807009, DH stage relative error 1.5e-11 at 2.5+30i, 1.4e-6 at 1.5+60i (N = 6e4). Euler stages of T-NR, HQ2, G_q have a local zero in Re s > theta (closed forms confirmed; new cases q=3,c=3 and HQ2 q=5). D10: X(d) and NL(d) fail for symmetric sets with a simple zero at 1/2 (confirmed at four further exact sets: d=3 N (1,2), N+ (6,1); d=5 N (6,4), N+ (15,1)); statements need \"d even\". Lemma N one-line proof and Lemma P' with its domain confirmed (rho(0) = -0.85501, negative mass 2.2479). Flags all false.",
+ "obstruction": "Referee lane, no attack. Theorem D holds with four wording corrections and is an equivalence with its target (restatement under METRIC A). Its R1 flag is not confirmed: Lemma E, exponential stages of any Dirichlet series with a_1 = 1, |a_n| <= 1 are entire, zero-free and converge on Re s >= 2, so zero-free stages exist for DH; Euler stages of the multiplicative controls T-NR, HQ2, G_q have a local zero in Re s > theta. Every control fails only at local boundedness, the open step. Six round-19 second referees: five hold with corrections, one holds. X(d) and NL(d) of the D10 lane need 'd even' (exact counterexamples at d = 3, 5).",
+ "obstructionKind": "referee lane",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No PROVED step broken; six corrections of wording and scope (written to tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE.md). E1: the T-NR local zero (1.5 + 4.532i) is right of Re s = 1, not \"inside the strip\"; only HQ2 and G_q zeros are in the strip. E2: \"the equivalence holds for every control run\" contradicts the lane's own T-NR row (\"the equivalence itself breaks at S1\"); for Euler stages (b) for T-NR is equivalent to - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Zero-free finite stages are not an arithmetic property: the exponential of a truncated log series is zero-free for any Dirichlet series with a_1 = 1. A flag 'multiplicativity essential' needs a non-multiplicative control that fails the named step and no multiplicative control that fails it. Referee checks need exact arithmetic and complete zero lists: two faults in my own first script (float coefficients, 56 of 768 zeros missed) produced false failures before correction.",
+ "followUp": "Learn step: merge lanes_records.jsonl (7 records, referees = 2); decide the R1 disagreement between the two referees on c1-leeyang-krein-limit and restate the headline (1 of 4 via c4-helson-discrepancy-zerofree, or 0 of 4 if its restricted R1 is not counted); add 'd even' to X(d) and NL(d) in the D10 lane; replace Lemma P by Lemma P' and delete 'Liouville passes' in the two lane texts that still carry them.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

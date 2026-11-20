@@ -1,0 +1,93 @@
+{
+ "slug": "s4-bridge-shift-ratio-prime-echo",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "blaschke-ghost-negative-square",
+  "darlington-losslessness-s7",
+  "fe-plus-reality-rigidity",
+  "ghost-zero-witness",
+  "l2-detection-modulus",
+  "lac-sens-displacement-bound",
+  "phase-retrieval-zeta",
+  "prime-delay-domination",
+  "prime-delay-domination-15-4",
+  "shift-ratio-threshold",
+  "zero-packet-identity",
+  "zv-bridge-understates-log-derivative"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "prime-delay-domination-15-4",
+    "prime-delay-domination",
+    "darlington-losslessness-s7"
+   ],
+   "obstruction": "one Weil test function: twists separate only for P >= t^0.6; DH separation is right of 1; lead ~ P^((delta-x)/2)/sqrt(L D)",
+   "controlsThatDefeat": [
+    "T-NR(q = 1000003)",
+    "sign twist (P < t^0.55)",
+    "unimodular twist",
+    "Liouville",
+    "heat (no train)"
+   ]
+  },
+  {
+   "nodes": [
+    "zero-packet-identity",
+    "shift-ratio-threshold",
+    "zv-bridge-understates-log-derivative"
+   ],
+   "obstruction": "negativity outside the disks around off-line zeros is impossible (proved): local zero detector with lead 0",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "heat",
+    "planted pair"
+   ]
+  },
+  {
+   "nodes": [
+    "blaschke-ghost-negative-square",
+    "ghost-zero-witness",
+    "l2-detection-modulus"
+   ],
+   "obstruction": "control lead does not exceed the planted-on-zeta lead; node count = zero count to 1.5 gamma, bits ~ distance",
+   "controlsThatDefeat": [
+    "planted pair in zeta",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "fe-plus-reality-rigidity",
+    "phase-retrieval-zeta",
+    "lac-sens-displacement-bound"
+   ],
+   "obstruction": "names the configuration of an existing quadruple given exact modulus on the line; does not detect existence; separation lives right of 1",
+   "controlsThatDefeat": [
+    "DH",
+    "planted swap"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) one Weil test function: twists separate only for P >= t^0.6; DH separation is right of 1; lead ~ P^((delta-x)/2)/sqrt(L D) | (2) negativity outside the disks around off-line zeros is impossible (proved): local zero detector with lead 0 | (3) control lead does not exceed the planted-on-zeta lead; node count = zero count to 1.5 gamma, bits ~ distance | (4) names the configuration of an existing quadruple given exact modulus on the line; does not detect existence; separation lives right of 1",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "Liouville",
+  "T-NR",
+  "T-NR(q = 1000003)",
+  "heat",
+  "heat (no train)",
+  "planted pair",
+  "planted pair in zeta",
+  "planted swap",
+  "sign twist (P < t^0.55)",
+  "unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-bridge-shift-ratio-prime-echo/RESULT.md"
+}

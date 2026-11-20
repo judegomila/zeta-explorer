@@ -1,0 +1,11 @@
+HUR zeros Re>1/2: []
+entry 1 defect 2.6205332651453763e-31
+entry 2 defect 5.512333152706879e-32
+entry 3 defect 2.582757507277108e-32
+entry 4 defect 1.232595164407831e-32
+T-NR lift chi0 zero at (1.88848382726 + 4.53236014183j) |factor| = 9.073054636338032e-31
+T-NR lift chi(2)=i zero at (1.88848382726 + 6.79854021274j) |factor| = 7.435261247567152e-31
+T-NR lift chi5 zero at (1.88848382726 + 9.06472028365j) |factor| = 1.7821703849237048e-30
+E_a lift Perron eigenvalue at 1/2+a+i gamma_1: 1.6824420176838682e-31
+min coefficient n<=30: 1.0
+sum_c t(c) - T_chi0: 0.0

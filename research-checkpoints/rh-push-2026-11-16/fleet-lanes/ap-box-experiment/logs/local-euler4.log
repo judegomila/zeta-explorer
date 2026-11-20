@@ -1,0 +1,19 @@
+[sweep] tier=local tasks=60 done=52 todo=8 workers=1 task_cap=6.0 GB task_limit=240 s out=results/local.jsonl
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[done] OK             FAIL            9.8s      57 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":23}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[done] OK             PASS            2.8s      43 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[done] OK             FAIL           18.8s      75 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":29}
+[plan] 170 MB planned  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[done] OK             FAIL            6.8s      56 MB  {"T":30.0,"input":"zeta","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[done] OK             FAIL            6.8s      56 MB  {"T":30.0,"input":"tw2m","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[done] OK             FAIL            6.4s      54 MB  {"T":30.0,"input":"tw2h","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[done] OK             FAIL            4.3s      46 MB  {"T":30.0,"input":"liou","scheme":"euler","size":47}
+[plan] 170 MB planned  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[done] OK             FAIL           28.5s      85 MB  {"T":30.0,"input":"ea:0.25","scheme":"euler","size":47}
+[sweep] finished
+EXIT 0

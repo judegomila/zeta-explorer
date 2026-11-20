@@ -1,0 +1,41 @@
+== r = 6, ideal high side (density-hypothesis counts, Lindelof numerator), source geometry lx,ly >= l
+T1  source low side (G src, k src)                                 B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000  exact 13/15: CONFIRMED
+T1' source low, GRH counts (floor class only)                      B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000  exact 13/15: CONFIRMED
+T2a G = 0 for every b (no Gram excess), k src                         B=0.8333333 lx=0.0000 ly=1.0000 l=0.0000
+T2b k: K-loss removed                                              B=0.8611111 lx=0.5000 ly=0.5000 l=0.3333
+T2c k: J-loss removed                                              B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+T2d k: P-loss (3l-1)/2 removed                                     B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+T2e k = max(0, J)                                                  B=0.8333333 lx=1.0000 ly=1.0000 l=1.0000
+T2f k = max(0, K)                                                  B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+T2g k = max(0, P)                                                  B=0.8518519 lx=0.4444 ly=0.4444 l=0.3333
+T3  k = 0, G src                                                   B=0.8333333 lx=0.5000 ly=0.5000 l=0.5000  exact 5/6: CONFIRMED
+T3' k = 0, G polar                                                 B=0.8333333 lx=0.5000 ly=0.5000 l=0.5000  exact 5/6: CONFIRMED
+T4  k = 0, G = 0                                                   B=0.8333333 lx=0.5000 ly=0.5000 l=0.5000  exact 5/6: CONFIRMED
+T4' k = 0, G = 0, no high side at all                              B=0.8333333 lx=4.0000 ly=4.0000 l=4.0000  exact 5/6: CONFIRMED
+== r = 6, geometry relaxed to M >= 2l
+Q1  k = 0, G polar                                                 B=0.8333333 lx=0.5000 ly=0.5000 l=0.5000  exact 5/6: CONFIRMED
+Q2  k = 0, G = 0                                                   B=0.5000000 lx=0.0000 ly=4.0000 l=2.0000
+Q3  k src, G = 0                                                   B=0.8333333 lx=0.0000 ly=1.0000 l=0.0000
+== r = 6, geometry free (lx, ly, l >= 0 only), box <= 4 and <= 8
+F1  k = 0, G polar, box 4                                          B=0.4526863 lx=1.7161 ly=1.7161 l=4.0000
+F2  k = 0, G = 0,   box 4                                          B=0.3333333 lx=1.0000 ly=4.0000 l=4.0000
+F1  k = 0, G polar, box 8                                          B=0.2500000 lx=2.7000 ly=2.7000 l=6.2000
+F2  k = 0, G = 0,   box 8                                          B=0.2500000 lx=4.5000 ly=0.0000 l=8.0000
+F1  k = 0, G polar, box 16                                         B=0.2500000 lx=2.7000 ly=2.7000 l=6.2000
+F2  k = 0, G = 0,   box 16                                         B=0.2500000 lx=4.5000 ly=0.0000 l=8.0000
+F3  k src, G polar, free                                           B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+F4  k = max(0,P), G polar, free                                    B=0.8518519 lx=0.4444 ly=0.4444 l=0.3333
+F5  k = max(0,K), G polar, free                                    B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+F6  k = max(0,J), G polar, free                                    B=0.5416667 lx=6.2500 ly=6.2500 l=8.0000
+== other orders r (transplant 6 -> r), source geometry, k = 0, G polar, ideal high
+r=3: expect 1 - 1/r = 0.666667                                     B=0.6666667 lx=0.5000 ly=0.5000 l=0.5000  exact 2/3: CONFIRMED
+r=4: expect 1 - 1/r = 0.750000                                     B=0.7500000 lx=0.5000 ly=0.5000 l=0.5000  exact 3/4: CONFIRMED
+r=5: expect 1 - 1/r = 0.800000                                     B=0.8000000 lx=0.5000 ly=0.5000 l=0.5000  exact 4/5: CONFIRMED
+r=6: expect 1 - 1/r = 0.833333                                     B=0.8333333 lx=0.5000 ly=0.5000 l=0.5000  exact 5/6: CONFIRMED
+r=8: expect 1 - 1/r = 0.875000                                     B=0.8750000 lx=0.5000 ly=0.5000 l=0.5000  exact 7/8: CONFIRMED
+r=12: expect 1 - 1/r = 0.916667                                    B=0.9166667 lx=0.5000 ly=0.5000 l=0.5000  exact 11/12: CONFIRMED
+r=3: source k (expect 1 - 4/(5r) = 0.733333?)                      B=0.7333333 lx=0.4000 ly=0.4000 l=0.2000
+r=4: source k (expect 1 - 4/(5r) = 0.800000?)                      B=0.8000000 lx=0.4000 ly=0.4000 l=0.2000
+r=5: source k (expect 1 - 4/(5r) = 0.840000?)                      B=0.8400000 lx=0.4000 ly=0.4000 l=0.2000
+r=6: source k (expect 1 - 4/(5r) = 0.866667?)                      B=0.8666667 lx=0.4000 ly=0.4000 l=0.2000
+r=8: source k (expect 1 - 4/(5r) = 0.900000?)                      B=0.9000000 lx=0.4000 ly=0.4000 l=0.2000

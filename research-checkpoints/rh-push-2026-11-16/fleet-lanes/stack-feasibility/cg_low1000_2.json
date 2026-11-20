@@ -1,0 +1,50 @@
+{
+ "mode": "low1000",
+ "L": 2.0,
+ "t0": "1000.0",
+ "tqs": {
+  "pair": 2.8360568339224983,
+  "gap": 0.5705270975978465
+ },
+ "rows": [
+  {
+   "model": "M1",
+   "base_s": 0.0,
+   "pair": null,
+   "pair_feasible_mass_by_sigma": null,
+   "gap": null,
+   "gap_feasible_mass_by_sigma": null
+  },
+  {
+   "model": "M2_3/8",
+   "base_s": 0.0,
+   "pair": null,
+   "pair_feasible_mass_by_sigma": null,
+   "gap": null,
+   "gap_feasible_mass_by_sigma": null
+  },
+  {
+   "model": "M2_1/2",
+   "base_s": 0.0,
+   "pair": null,
+   "pair_feasible_mass_by_sigma": null,
+   "gap": null,
+   "gap_feasible_mass_by_sigma": null
+  }
+ ],
+ "tj": [
+  -5.0,
+  -4.214601836602552,
+  -3.4292036732051034,
+  -2.643805509807655,
+  -1.8584073464102069,
+  -1.0730091830127586,
+  -0.2876110196153103,
+  0.49778714378213795,
+  1.2831853071795862,
+  2.0685834705770345,
+  2.853981633974483,
+  3.63937979737193,
+  4.424777960769379
+ ]
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-08",
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "command": "python theta_interpolation_checks_20261108.py",
+  "exit_code": 0,
+  "local_links": "passed",
+  "symbolic_checks": "passed",
+  "auxiliary_certificate": "First three LDL pivots positive; fourth negative. This is not the actual theta kernel.",
+  "actual_xi_numerics": "Ten independent high-precision normalizations; not interval certificates.",
+  "independent_reviews": [
+    "theta covariance and all-two-node theorem",
+    "passive inverse-map and compactness proof",
+    "arithmetic-to-Pick transform",
+    "exact rational auxiliary interval certificate"
+  ],
+  "unproved": [
+    "positivity of every later actual-xi pivot",
+    "all-orders Schur residual bound",
+    "RH"
+  ],
+  "ci_scope": "Repository compatibility only; see PR for result."
+}

@@ -141,7 +141,7 @@ export default function SignSwitchingPage() {
   const benchmark = XI_DATA.cases.find(c => c.id === caseId) || XI_DATA.cases[0];
   const estimate = benchmark.estimates[shiftIndex];
   return <div className="ed-root ss-root">
-    <EditorialHeader ticker={<span>geometry · modes · bridge energy</span>} />
+    <EditorialHeader />
     <main className="ss-main">
       <header className="ss-page-head">
         <div className="ed-lbl">/sign-switching · linked research views</div>
@@ -194,7 +194,7 @@ export default function SignSwitchingPage() {
         <p>Proving this inequality for the exact Riemann theta density would exclude the negative shear created just below any hypothetical off-axis zero. Positivity of the boundary kernel alone is insufficient: its off-diagonal correlations may be negative. The model above demonstrates that failure explicitly.</p>
         <details><summary>Definitions and exact probability weight</summary><BlockMath tex={String.raw`P_a(z,w)=\frac{\Xi(z+ia)\Xi(\bar w-ia)-\Xi(z-ia)\Xi(\bar w+ia)}{2ia(\bar w-z)}`} /><BlockMath tex={String.raw`\Phi_\pm(t,r)=\frac{\Phi_a(t+r)\pm\Phi_a(t-r)}2,\quad P_a(x,y)=\langle\Phi_a(x),\Phi_a(y)\rangle`} /><BlockMath tex={String.raw`\omega_{a,h}(r)=\frac{\pi r\sin(\pi h/a)\sinh(\pi r/a)}{ah[\cosh(\pi r/a)+\cos(\pi h/a)]^2},\quad r\ge0,\quad0<h<a`} /><BlockMath tex={String.raw`\int_0^\infty\omega_{a,h}(r)\,dr=1,\qquad\int_0^\infty r^2\omega_{a,h}(r)\,dr=a^2-h^2`} /><p>The h = 0 limit uses the logistic-derived density. The h = a endpoint is a point mass at r = 0. Neither endpoint is obtained by substituting into a singular formula.</p></details>
         <details><summary>How to use the linked views in the proof program</summary><ol><li>Use the local model to identify the mode exposed at a collision and the transverse shear sign it represents.</li><li>Use the boundary calculation to inspect even/odd contributions and their cancellation at a chosen height and shift.</li><li>Seek a bound on the odd energy from the exact theta arithmetic, preserving the full tail. A positive sample or a finite Gram block does not discharge the all-height requirement.</li><li>Use the full Schur complement when testing coupled modes; a single real-axis modal inequality can miss off-axis zeros.</li></ol></details>
-        <p className="ss-source">Derivation and reproduction: <a href="https://github.com/judegomila/mathexplorer/blob/codex/sign-switching-energy-2026-11-07/formalization/paper/sign_switching_energy_2026-11-07.md" target="_blank" rel="noreferrer">research note</a> · <a href="https://arxiv.org/abs/1005.1104" target="_blank" rel="noreferrer">modulus monotonicity criterion</a> · <a href="https://arxiv.org/abs/1904.12438" target="_blank" rel="noreferrer">heat-flow collision context</a></p>
+        <p className="ss-source">Derivation and reproduction: <a href="https://github.com/judegomila/zeta-explorer/blob/main/formalization/paper/sign_switching_energy_2026-11-07.md" target="_blank" rel="noreferrer">research note</a> · <a href="https://arxiv.org/abs/1005.1104" target="_blank" rel="noreferrer">modulus monotonicity criterion</a> · <a href="https://arxiv.org/abs/1904.12438" target="_blank" rel="noreferrer">heat-flow collision context</a></p>
       </section>
       <footer className="ss-footer"><Link to="/vortex-field">Vortex Field</Link><Link to="/shift-bridge-positivity">Shift-Bridge Positivity</Link><Link to="/hidden-square-program">Complete Kernel</Link><Link to="/visualizations">All Visualizations</Link></footer>
     </main>

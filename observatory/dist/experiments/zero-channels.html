@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Follow actual theta zeros and an exact polynomial calibration through moving channels, a coupling network, and continuous Newton guidance.">
+<title>Zero channels · Zeta Observatory</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1520'/%3E%3Ctext x='19' y='47' font-size='48' fill='%23cff4a1' font-family='serif'%3Eζ%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./zero-channels.css">
+<script type="module" src="./zero-channels.js"></script>
+</head>
+<body data-zero-channels-standalone>
+<a class="skip-link" href="#workbench">Skip to the experiment</a>
+<header class="site-header"><a class="brand" href="../"><span aria-hidden="true">ζ</span><span>Zeta Observatory<small>Zero channels laboratory</small></span></a><div class="header-actions"><a href="./zero-confinement.html">Read the comparison ↗</a><a href="../?view=heatZeros">Open zero motion ↗</a><button id="copy-link" type="button">Copy view link <span aria-hidden="true">↗</span></button></div></header>
+<main>
+<section class="intro"><div><div class="eyebrow">EXPERIMENT 02 / COUPLING &amp; CONFINEMENT</div><h1>One zero.<br><em>One channel.</em></h1></div><div class="intro-copy"><p>Follow the roots, inspect the walls, and see which connections preserve an assignment.</p><div class="scope-key"><span><i class="certified-dot"></i> Rigorous interval certificate</span><span><i class="sampled-dot"></i> Numerical diagnostic</span><span><i class="failed-dot"></i> Isolation unresolved</span></div></div></section>
+<nav class="view-tabs" aria-label="Zero channel views"><button type="button" data-view="channels" aria-pressed="true"><span>01</span> Moving channels</button><button type="button" data-view="coupling" aria-pressed="false"><span>02</span> Coupling network</button><button type="button" data-view="newton" aria-pressed="false"><span>03</span> Newton guidance</button></nav>
+<div class="lab-layout" id="workbench">
+<aside class="controls" aria-label="Experiment controls">
+ <div class="control-head"><span class="eyebrow">EXPERIMENT SETUP</span><h2>Choose the path.</h2></div>
+ <div class="control-row"><label for="model">Zero family</label><select id="model"><option value="theta">Actual theta heat family</option><option value="quartic">Exact quartet calibration</option></select></div>
+ <div class="control-row" id="end-row"><label for="end">Theta continuation</label><select id="end"><option value="-0.2">τ = 0 → −0.2</option><option value="0.2">τ = 0 → +0.2</option></select></div>
+ <div class="control-row"><label for="branch">Selected zero</label><select id="branch"><option value="0">Root 1</option><option value="1">Root 2</option><option value="2">Root 3</option></select></div>
+ <div class="control-row" id="direction-row"><label for="direction">Heat direction</label><select id="direction"><option value="decrease">Decreasing τ</option><option value="increase">Increasing τ</option></select><small id="direction-note">Direction changes playback, not the computed zero paths.</small></div>
+ <div class="control-row" id="radius-row"><div class="range-label"><label for="radius-scale">Channel radius scale</label><output id="radius-output" for="radius-scale">1×</output></div><input id="radius-scale" type="range" min="-1" max="1" step="0.05" value="0"><small id="radius-note">Logarithmic control · 0.1× to 10×. A changed radius is checked separately.</small></div>
+ <div id="newton-controls" hidden><div class="control-row"><div class="range-label"><label for="spread">Probe spread</label><output id="spread-output" for="spread">0.25</output></div><input id="spread" type="range" min="0.05" max="1" step="0.05" value="0.25"><small>Distance in the complex s-plane around the selected root.</small></div><div class="control-row"><label for="seed">Probe pattern seed</label><input id="seed" type="number" min="1" max="9999" step="1" value="1"></div></div>
+ <div class="control-row" id="perturbation-row" hidden><label for="perturbation-time">Frozen-network duration</label><select id="perturbation-time"><option value="0.25">0.25</option><option value="0.5">0.5</option><option value="1">1</option><option value="2">2</option></select><small>This evolves a linearized perturbation at the current frozen frame.</small></div>
+ <div class="control-divider"></div>
+ <div class="control-row"><div class="range-label"><label for="heat-frame">Heat frame</label><output id="heat-output" for="heat-frame">τ = 0</output></div><input id="heat-frame" type="range" min="0" max="240" step="1" value="0"><small id="heat-note">241 saved frames. The field is frozen while guidance probes move.</small></div>
+ <div class="transport"><button id="play" type="button" aria-label="Play heat evolution">▶ Play</button><button id="reset" type="button">↺ Reset</button></div>
+ <div class="control-row" id="travel-row" hidden><div class="range-label"><label for="travel">Probe travel</label><output id="travel-output" for="travel">100%</output></div><input id="travel" type="range" min="0" max="1" step="0.01" value="1"></div>
+ <div class="checkpoint-buttons" id="quartet-checkpoints" hidden><span class="eyebrow">EXACT CHECKPOINTS</span><button type="button" id="certificate-end">τ = −0.13 · certified channels</button><button type="button" id="collision">Exact collision</button><button type="button" id="after-collision">τ = −0.15 · off-line pair</button></div>
+ <div class="checkpoint-buttons" id="theta-checkpoints" hidden><span class="eyebrow">CERTIFIED THETA WINDOW</span><button type="button" id="theta-certificate-start">τ = −0.05 · first-root disk</button><button type="button" id="theta-certificate-end">τ = +0.05 · first-root disk</button></div>
+ <p class="control-footnote">Your selections follow the URL. Shared views open paused.</p>
+</aside>
+<section class="experiment" aria-labelledby="experiment-title">
+ <header class="experiment-heading"><div><span class="eyebrow" id="view-eyebrow">MOVING CHANNELS</span><h2 id="experiment-title">Follow a zero, keep its boundary.</h2><p id="experiment-description">Each proposed channel has its own center, radius and one-zero test.</p></div><span id="scope-badge" class="scope-badge" data-state="sampled">Loading</span></header>
+ <div id="loading" class="loading" role="status"><span class="loading-mark" aria-hidden="true"></span><strong>Loading the experiment.</strong><p>Preparing the saved theta tracks and channel bounds.</p></div>
+ <div id="experiment-content" hidden>
+  <div class="status-line"><span id="frame-context"></span><span id="compute-status" role="status">READY</span></div>
+  <figure class="plot-card primary-plot"><div class="plot-heading"><h3 id="primary-title">Zero trajectories</h3><span id="primary-unit"></span></div><div id="primary-plot" class="svg-mount"></div><div id="primary-legend" class="legend"></div><figcaption id="primary-caption"></figcaption></figure>
+  <div id="metric-strip" class="metric-strip"></div>
+  <div class="finding" id="finding" data-state="sampled"><span id="finding-label">WHAT THIS FRAME SHOWS</span><p id="finding-text"></p></div>
+  <div class="detail-grid"><figure class="plot-card secondary-plot"><div class="plot-heading"><h3 id="secondary-title">The selected channel</h3><span id="secondary-unit"></span></div><div id="secondary-plot" class="svg-mount"></div><figcaption id="secondary-caption"></figcaption></figure><aside class="reading"><div class="eyebrow" id="reading-eyebrow">THE CERTIFICATE</div><h3 id="reading-title">A small residual is only the start.</h3><div class="equation" id="equation">E + ½Br² &lt; Ar</div><p id="reading-text"></p><dl id="reading-metrics"></dl><a id="live-link" class="button-link" href="../?view=heatZeros">Open this frame in the renderer ↗</a></aside></div>
+  <div class="table-heading"><h3 id="table-title">One row per tracked zero</h3><span id="table-scope"></span></div><div class="table-scroll" role="region" aria-label="Numerical measurements" tabindex="0"><table><thead id="measurement-head"></thead><tbody id="measurement-body"></tbody></table></div>
+  <details class="method-panel"><summary>Definitions, scope &amp; reproduction</summary><div><h3>Three related constructions</h3><p><strong>Moving channels</strong> use a zero-count condition. A reflection-symmetric disk containing exactly one zero forces that zero onto the critical line. The quartet certificate covers a finite interval using rational bounds. When available, the first theta-root certificate uses a fixed reference disk and a uniform perturbation bound on its stated time window. Other theta results remain numerical unless explicitly certified.</p><p><strong>Coupling</strong> uses inverse squared gaps in a local linearization. The theta graph contains only the three tracked roots and omits the infinite remainder. Its displayed frozen perturbation is not the full theta evolution.</p><p><strong>Newton guidance</strong> moves probes through a fixed field by ds/dℓ = −F/F′. It leads locally to existing zeros, including off-line zeros, and does not move the zeros themselves.</p><div class="method-links"><a href="./zero-channel-bounds.json" download>Channel bounds &amp; status · JSON ↓</a><a href="./zero-confinement-theta.json" download>Theta trajectories · JSON ↓</a><a href="./zero-confinement.html">Exact collision comparison ↗</a><a href="https://github.com/judegomila/zeta-view" target="_blank" rel="noopener noreferrer">Renderer source ↗</a><a href="https://github.com/judegomila/mathexplorer" target="_blank" rel="noopener noreferrer">Zeta Explorer research ↗</a></div></div></details>
+ </div>
+</section>
+</div>
+<footer><span>ZETA OBSERVATORY / ZERO CHANNELS</span><p>Local enclosures and finite diagnostics. Global zero coverage remains a separate mathematical requirement.</p><a href="../methods.html#no-escape">Methods &amp; no-escape diagnostics ↗</a></footer>
+</main>
+<div id="toast" class="toast" role="status" hidden></div>
+<noscript><p class="noscript">This interactive laboratory requires JavaScript. The saved comparison and downloadable data remain available through the links above.</p></noscript>
+</body>
+</html>

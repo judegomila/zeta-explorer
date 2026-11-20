@@ -1,0 +1,63 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {FieldCache,fieldKey} from '../dist/field-cache.js';
+import {sequenceKey} from '../dist/playback.js';
+import {sampleField} from '../dist/sampler.js';
+import {encodeField,decodeField} from '../dist/cache-codec.js';
+
+const base={geometry:'sphere',projective:true,function:'xi',tau:0,resolution:'draft',extent:'extended',
+  sigmaMin:-2,sigmaMax:3,tMin:8,tMax:38,chartScale:24,torusR:2,bridgeA:.25,
+  colorMode:'phase',vortices:false,ladder:false,packets:false,projectiveChannel:'domain',derivativeScale:1};
+
+test('projective fields and clips are isolated while shipped ordinary cache keys stay unchanged',()=>{
+  const manifest=JSON.parse(readFileSync(new URL('../dist/precache/manifest.json',import.meta.url),'utf8'));
+  let ordinaryEntries=0;
+  for(const [key,entry]of Object.entries(manifest.entries)){
+    if(entry.state.projective){
+      assert.equal(fieldKey(entry.state),key,'generated projective starter frame remains addressable');
+      assert.notEqual(fieldKey({...entry.state,projective:false}),key,'projective starter cannot alias ordinary geometry');
+    }else{
+      ordinaryEntries++;
+      assert.equal(fieldKey({...entry.state,projective:false}),key,'ordinary starter frame remains addressable');
+    }
+  }
+  assert.ok(ordinaryEntries>0,'ordinary starter compatibility is exercised');
+  for(const geometry of ['sphere','torus']){
+    const state={...base,geometry};
+    assert.notEqual(fieldKey(state),fieldKey({...state,projective:false}));
+    assert.notEqual(sequenceKey(state),sequenceKey({...state,projective:false}));
+    assert.notEqual(fieldKey(state),fieldKey({...state,torusR:1.7}),'branch geometry participates in identity');
+    assert.equal(fieldKey(state),fieldKey({...state,projectiveChannel:'derivative',derivativeScale:12}));
+    assert.equal(sequenceKey(state),sequenceKey({...state,projectiveChannel:'bridge',derivativeScale:.1}));
+    for(const fiberMode of ['off','spinor','twistor']){
+      const inspected={...state,fiberMode,spinorPhase:1.1,spinorRotation:7.3,spinorAxis:'x',
+        twistorSheet:-1,twistorFiberTheta:.7,twistorFiberPhi:2.1,twistorProjection:'south'};
+      assert.equal(fieldKey(state),fieldKey(inspected),'fiber transforms reuse the sampled field');
+      assert.equal(sequenceKey(state),sequenceKey(inspected),'fiber transforms reuse the buffered clip');
+    }
+  }
+  assert.equal(fieldKey({...base,geometry:'plane'}),fieldKey({...base,geometry:'plane',projective:false}));
+});
+
+test('projective frames retain computed guides and chart landmarks through cache and binary transport',async()=>{
+  const cache=new FieldCache({memoryBudgetBytes:64*1024*1024,storageBudgetBytes:0,persistentStore:null});
+  for(const geometry of ['sphere','torus']){
+    const state={...base,geometry},data=sampleField(state),ordinary={...state,projective:false};
+    assert.ok(data.projectiveGuides.length>0);
+    assert.equal(data.landmarkValues.filter(p=>p.kind==='chart').length,2);
+    for(const p of data.landmarkValues.filter(p=>p.kind==='puncture')){
+      assert.equal(p.computed,false);assert.equal(p.polar,null);
+    }
+    const decoded=decodeField(encodeField(data));
+    assert.deepEqual(decoded.projectiveGuides,data.projectiveGuides);
+    assert.deepEqual(decoded.landmarkValues,data.landmarkValues);
+    await cache.set(state,decoded);
+    assert.equal(await cache.get(ordinary),null,'ordinary view cannot consume projective chart data');
+    const hit=await cache.get({...state,projectiveChannel:'derivative',derivativeScale:3});
+    assert.equal(hit.source,'memory');
+    assert.deepEqual(hit.data.coords,data.coords);
+    assert.deepEqual(hit.data.projectiveGuides,data.projectiveGuides);
+    assert.deepEqual(hit.data.landmarkValues,data.landmarkValues);
+  }
+});

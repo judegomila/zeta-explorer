@@ -1,0 +1,1 @@
+{"name":"zeta-observatory","version":"1.0.0","private":true,"type":"module","description":"A mathematical geometry workbench for the Riemann zeta function","dependencies":{"three":"0.180.0"},"scripts":{"test":"node --test tests/*.test.mjs"}}

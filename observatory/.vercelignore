@@ -1,0 +1,10 @@
+# The app is self-contained in dist; original Sites metadata is not deployed.
+.openai/
+.vercel/
+node_modules/
+.env
+.env.*
+*.tar
+*.tar.gz
+__pycache__/
+.DS_Store

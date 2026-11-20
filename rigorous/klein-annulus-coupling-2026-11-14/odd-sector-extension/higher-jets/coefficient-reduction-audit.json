@@ -1,0 +1,67 @@
+{
+  "sympy_version": "1.14.0",
+  "scope": "Exact algebraic controls for Taylor coefficients; actual-theta positivity is certified separately",
+  "controls": {
+    "gaussian": {
+      "matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "rank": 0,
+      "direct_and_reduced_entries_agree": true
+    },
+    "negative_control": {
+      "matrix": [
+        [
+          "121/30000",
+          "-37/10000",
+          "101/60000",
+          "-91/180000"
+        ],
+        [
+          "-37/10000",
+          "61/18000",
+          "-277/180000",
+          "83/180000"
+        ],
+        [
+          "101/60000",
+          "-277/180000",
+          "251/360000",
+          "-1/4800"
+        ],
+        [
+          "-91/180000",
+          "83/180000",
+          "-1/4800",
+          "67/1080000"
+        ]
+      ],
+      "rank": 2,
+      "direct_and_reduced_entries_agree": true
+    }
+  },
+  "status": "PASS: all direct integral and reduced coefficients agree exactly; Gaussian zero and negative-control rank/sign match"
+}

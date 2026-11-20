@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "Zeta Explorer"
+type: software
+authors:
+  - family-names: Gomila
+    given-names: Jude
+repository-code: "https://github.com/judegomila/zeta-explorer"  # placeholder until the repository exists
+url: "https://github.com/judegomila/zeta-explorer"
+date-released: 2026-11-20
+license:
+  - MIT
+  - CC-BY-4.0
+preferred-citation:
+  type: software
+  title: "Zeta Explorer: interactive experiments in zeta-zero geometry and the de Bruijn-Newman constant"
+  authors:
+    - family-names: Gomila
+      given-names: Jude
+  year: 2026
+  url: "https://github.com/judegomila/zeta-explorer"
+  notes: "Research repository. Results are unrefereed unless a file states otherwise."

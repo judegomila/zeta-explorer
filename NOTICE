@@ -1,0 +1,23 @@
+Zeta Explorer
+Copyright (c) 2026 Jude Gomila
+
+This repository is dual-licensed by content type (see LICENSES.md):
+  - code: MIT (LICENSE)
+  - written and visual research content: CC BY 4.0 (LICENSE-CC-BY-4.0)
+
+How to attribute
+
+  Code (MIT): keep the copyright notice and the permission notice from
+  LICENSE in every copy or substantial portion of the code.
+
+  Research content (CC BY 4.0): give credit in this form, or an equivalent
+  one that carries the same information:
+
+    Jude Gomila, "Zeta Explorer" (2026),
+    https://github.com/judegomila/zeta-explorer, licensed under CC BY 4.0.
+    [State the file or page used, the commit, and whether you changed it.]
+
+  For academic use, cite as given in CITATION.cff.
+
+Third-party material in this repository is listed in LICENSES.md and remains
+under its own licence.

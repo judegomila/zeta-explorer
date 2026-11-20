@@ -50,3 +50,41 @@ scripts/.fleet-status-publish.log
 .venv-arb/
 .lake/
 **/.lake/
+
+# --- public-repository hygiene (see CONTRIBUTING.md) ---
+# scratch work lives in the private companion repository
+tmp/
+# agent and session state
+.claude/
+.claude-memory/
+.superpowers/
+.aider*
+thinking/
+-Users-*/
+*.jsonl.gz
+# machine state: every dot file under scripts/ except the env example
+scripts/.*
+!scripts/.env.example
+public/fleet-status.json
+logs/
+out/
+test-results/
+*.pid
+seed_err.txt
+# credentials
+.env
+.env.*
+!.env.example
+!scripts/.env.example
+*.pem
+*.key
+# OS, caches, build outputs
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.pyc
+.lake/
+**/.lake/
+*.bundle.mjs
+# renderer field packs are generated at build time
+observatory/dist/precache/projective-*.bin.gz

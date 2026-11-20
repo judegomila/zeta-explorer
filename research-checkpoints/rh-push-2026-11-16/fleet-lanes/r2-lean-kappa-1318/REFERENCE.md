@@ -1,0 +1,3 @@
+# Reference: OpenAI Lean project
+
+The OpenAI Lean project is not vendored here. Source: the public release openai/math. The workspace used in this lane was a copy of the `lean/` directory of that release at commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a` (commit string as recorded in `../mb-lean-replay/RESULT.md` and `../zf-audit-inputs/RESULT.md`; this lane's own RESULT.md names the workspace, not the commit). Two directories of this lane are therefore absent from the repository: `lean/` (the workspace copy) and `OAI-1318-src/` (the source snapshot after this lane's 42-file change; the changed files are listed in `changed-files.txt` and described in RESULT.md). See RESULT.md for the build and replay record.

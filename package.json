@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/judegomila/mathexplorer"
+    "url": "https://github.com/judegomila/zeta-explorer"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "(MIT AND CC-BY-4.0)",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.97.1",
     "@react-three/drei": "^10.7.7",

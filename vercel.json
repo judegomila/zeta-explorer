@@ -6,8 +6,7 @@
   "installCommand": "npm ci",
   "git": {
     "deploymentEnabled": {
-      "main": false,
-      "editorial-redesign": false
+      "main": false
     }
   },
   "build": {

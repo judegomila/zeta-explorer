@@ -1,0 +1,17 @@
+# gitleaks configuration. Extends the default rule set.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Known non-secrets"
+paths = [
+  # numeric tables and content hashes that trip the generic entropy rule
+  '''src/data/.*\.(js|json)$''',
+  '''src/pages/Imp[0-9A-Za-z]+Viz\.jsx$''',
+  '''research-checkpoints/.*\.(json|txt|log|out)$''',
+  '''package-lock\.json$''',
+]
+regexes = [
+  # documented placeholder in scripts/.env.example
+  '''sk-ant-api03-[A-Z_-]+$''',
+]

@@ -15,7 +15,8 @@ import { QRH_LAMBDA_LEAN as QL } from '../data/qrh-lambda-lean-2026-10-09.js';
    those modules. Computer-assisted upper bound depending on two unrefereed results;
    not peer reviewed; PT Λ ≤ 0.2 stands. Route: /lambda-0116091. */
 
-const REPO = 'https://github.com/judegomila/mathexplorer/blob/editorial-redesign';
+const REPO = 'https://github.com/judegomila/zeta-explorer/blob/main';
+const PAPER_URL = `${REPO}/papers/lambda-qrh-0.116091/README.md`;
 const NOTE_URL = `${REPO}/formalization/paper/lambda-qrh-note-draft.md`;
 const LEAN_VERIFY_URL = `${REPO}/formalization/external/openai-math-qrh-verification.md`;
 const RAYMOND_CORE_URL = `${REPO}/formalization/lean/raymond-core/README.md`;
@@ -222,7 +223,7 @@ export default function LambdaQrhConditionalPage() {
       dek={<>A zero-free half-plane Re s &gt; 7/8 lowers the time-zero start of Raymond&rsquo;s decreasing-barrier chain from (Im z)² ≤ 1 to (Im z)² ≤ 9/16. Run at Platt–Trudgian height, the chain then ends at 0.118506, and the re-tuned route-P stack at 0.116091. The 7/8 half-plane is the claim of openai/math family 003; its Lean proof re-builds here. Not yet peer reviewed; the accepted bound remains Λ ≤ 0.2.</>}
       byline={['Barrier program · zetaexplorer', 'computer-assisted · not peer reviewed']}
       ticker={<span>candidate · Λ ≤ <b>&nbsp;0.116091</b></span>}
-      footer={<>Draft note: <a href={NOTE_URL} target="_blank" rel="noreferrer">lambda-qrh-note-draft.md</a> (internal, not submitted) · Related: <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/lambda-01758354-candidate">Λ ≤ 0.1758354 candidate</Link> · <Link to="/routes-roadmap">routes roadmap</Link><br /><br />← <Link to="/">the atlas</Link></>}
+      footer={<>Work in progress. Draft, not peer reviewed. The bound depends on two unrefereed results. Draft paper: <a href={PAPER_URL} target="_blank" rel="noreferrer">papers/lambda-qrh-0.116091</a> · Draft note: <a href={NOTE_URL} target="_blank" rel="noreferrer">lambda-qrh-note-draft.md</a> (not submitted) · Related: <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/lambda-01758354-candidate">Λ ≤ 0.1758354 candidate</Link> · <Link to="/routes-roadmap">routes roadmap</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
       <p className="lead">The <ConceptTerm slug="de-bruijn-newman-constant">de Bruijn–Newman constant</ConceptTerm> Λ is the least t at which every zero of the heat-flowed function <ConceptTerm slug="heat-flow-ht">H<sub>t</sub></ConceptTerm> is real; <ConceptTerm slug="riemann-hypothesis">RH</ConceptTerm> ⇔ Λ = 0, <ConceptTerm slug="newman-conjecture">Rodgers–Tao</ConceptTerm> proved Λ ≥ 0, and <ConceptTerm slug="platt-trudgian-verified-height">Platt–Trudgian</ConceptTerm> give the accepted bound Λ ≤ 0.2. This page records the upper bound <InlineMath tex="\Lambda \le 0.116091488672439" /> obtained by starting Raymond&rsquo;s barrier chain from a zero-free half-plane.</p>
 

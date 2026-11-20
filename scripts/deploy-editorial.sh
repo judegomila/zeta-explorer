@@ -1,10 +1,10 @@
 #!/bin/bash
-# scripts/deploy-editorial.sh — publish origin/editorial-redesign to zetaexplorer.vercel.app.
+# scripts/deploy-editorial.sh — publish origin/main to zetaexplorer.vercel.app.
 #
-# Per-push Vercel builds are OFF for editorial-redesign (vercel.json
+# Per-push Vercel builds are OFF for main (vercel.json
 # git.deploymentEnabled) to keep build cost bounded while engines push. This
 # script is the only publish path:
-#   1. fetch origin/editorial-redesign; skip if that SHA is already live
+#   1. fetch origin/main; skip if that SHA is already live
 #      (unless --force)
 #   2. browser health gate on that SHA (scripts/deploy-health-gate.sh);
 #      skip with --no-gate
@@ -33,8 +33,8 @@ log() { echo "[$(date '+%F %T')] $*" | tee -a "$LOG"; }
 vc() { local t=$1; shift; vercel --scope "$SCOPE" "$@" > /tmp/deploy-editorial-vc.$$ 2>&1 & local p=$!; local i=0; while kill -0 $p 2>/dev/null && [ $i -lt "$t" ]; do sleep 1; i=$((i+1)); done; kill $p 2>/dev/null; cat /tmp/deploy-editorial-vc.$$; rm -f /tmp/deploy-editorial-vc.$$; }
 
 [ -s "$HOOK_FILE" ] || { log "FAIL: missing $HOOK_FILE"; exit 2; }
-git fetch -q origin editorial-redesign || { log "FAIL: git fetch"; exit 2; }
-SHA=$(git rev-parse origin/editorial-redesign)
+git fetch -q origin main || { log "FAIL: git fetch"; exit 2; }
+SHA=$(git rev-parse origin/main)
 if [ "$FORCE" = 0 ] && [ -f "$STATE" ] && [ "$(cat "$STATE")" = "$SHA" ]; then log "SKIP: $SHA already published"; exit 0; fi
 log "target $SHA"
 

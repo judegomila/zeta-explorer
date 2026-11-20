@@ -1,5 +1,7 @@
 # An upper bound for the de Bruijn–Newman constant from a zero-free half-plane
 
+> **Work in progress. Draft, not peer reviewed. The bound depends on two unrefereed results.**
+
 > **Status.** A computer-assisted upper bound. It depends on two recent results that have not
 > been refereed: the zero-free half-plane `Re s > 7/8` (openai/math family 003, whose
 > Lean proof was rebuilt here with standard axioms only) and D. J. Raymond's

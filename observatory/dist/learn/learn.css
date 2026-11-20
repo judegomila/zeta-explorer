@@ -7,12 +7,7 @@ a:hover{color:#fff}
 a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 .top{display:flex;align-items:center;gap:16px;min-height:56px;padding:8px 22px;border-bottom:1px solid var(--line);background:#0e1520}
-.brand{flex:0 0 auto;font:600 19px var(--serif);color:var(--text);text-decoration:none;white-space:nowrap}
-.brand i{color:var(--accent)}
-.mode{display:flex;flex:0 0 auto;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font:11px var(--mono);letter-spacing:.04em}
-.mode a{padding:6px 13px;border-radius:999px;color:var(--muted);text-decoration:none;white-space:nowrap}
-.mode a:hover{color:var(--accent)}
-.top-links{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;font:12px var(--mono)}
+.top-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;font:12px var(--mono)}
 .top-links [aria-current]{color:var(--accent)}
 .top-links a{text-decoration:none;color:var(--muted)}
 .top-links a:hover{color:var(--accent)}

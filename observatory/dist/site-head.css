@@ -1,0 +1,9 @@
+/* Site brand and the Observatory | Research switch, shared by the
+   Observatory's static pages. Needs tokens.css. */
+.site-brand{flex:0 0 auto;font:600 19px var(--serif);letter-spacing:0;text-transform:none;color:var(--text);text-decoration:none;white-space:nowrap}
+.site-brand i{color:var(--accent)}
+.site-brand:hover{color:var(--text)}
+.site-mode{display:flex;flex:0 0 auto;margin-right:auto;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font:11px var(--mono);letter-spacing:.04em;text-transform:none}
+.site-mode a{padding:6px 13px;border-radius:999px;color:var(--muted);text-decoration:none;white-space:nowrap;font-size:11px}
+.site-mode a:hover{color:var(--accent)}
+@media(max-width:520px){.site-brand{display:none}.site-mode a{padding:5px 9px}}

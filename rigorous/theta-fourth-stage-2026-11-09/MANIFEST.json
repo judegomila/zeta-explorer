@@ -1,0 +1,78 @@
+{
+  "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
+  "checkpoint": "theta-fourth-stage-2026-11-09",
+  "files": [
+    {
+      "bytes": 7684,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/AUDIT.md",
+      "sha256": "f193721141c07cff904cdc4025bfe356705d2ca78a4436d6e91419926754f82f"
+    },
+    {
+      "bytes": 8931,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/README.md",
+      "sha256": "6305bb459d90347f34a9ea12989d2fabce8ef8e9d4d900ff0a225d53002ef543"
+    },
+    {
+      "bytes": 4189,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/SOURCES.md",
+      "sha256": "84c54bbd10589eb0af900537009217adfffec310beae9a59b700595ceafe7e06"
+    },
+    {
+      "bytes": 7064,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/checks_replay.json",
+      "sha256": "d44a9d0b8888fe526416fa7d68416bc427cc75dad651ab24e7c8734638faf55e"
+    },
+    {
+      "bytes": 14,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/requirements.txt",
+      "sha256": "25f9f1fb1988b230147a1d3092d34e09c069eb7a6c6d6df46b3973b9f2d36efc"
+    },
+    {
+      "bytes": 918,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/run_checks.py",
+      "sha256": "d9a428c09a837b566d6a6509e0cc13c68dba688b33448043c40f3fc71b7a2681"
+    },
+    {
+      "bytes": 14949,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_fourth_checks_20261109.py",
+      "sha256": "004d7323c816403d4eac685f97719e64ab766bb1924cb8d91a91b9c90021a86b"
+    },
+    {
+      "bytes": 14770,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_fourth_pick_schwarzian_20261109.md",
+      "sha256": "9c6e3e22d9967dfdef65a1ec5b21a36f922da3424c7f50c7d7a31b5271e7f30f"
+    },
+    {
+      "bytes": 10729,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_fourth_stage_proof_20261109.md",
+      "sha256": "22daf563a799977e269362c17c9e9d0c0c42eee28b3c5bd2616d591e0082387c"
+    },
+    {
+      "bytes": 4041,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_pair_checks_20261109.py",
+      "sha256": "546a0450be00b6a97ff06228df78e082e5c80be5fec481e8c07439bcfe5b4789"
+    },
+    {
+      "bytes": 14895,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_rational_residual_20261109.md",
+      "sha256": "344a592246d24ad28977f7c2b2a3c0da628a0447668609d5c4589cf11e787c90"
+    },
+    {
+      "bytes": 3208,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_rational_residual_checks_20261109.py",
+      "sha256": "99299798747cf6e20150c8e1fa47085ae7635439b93e24f8ea5b405c18656a6a"
+    },
+    {
+      "bytes": 16086,
+      "path": "rigorous/theta-fourth-stage-2026-11-09/theta_second_kernel_structure_20261109.md",
+      "sha256": "4978c83921c98528fa30b8b11ecb5c839c1869fe93ca43e8c2b09f7dbfbf1750"
+    },
+    {
+      "bytes": 3717,
+      "path": "thinking/decisions/2026-11-09-theta-fourth-stage.md",
+      "sha256": "0b133a5bd3a1d29f193257b181669373e0728138bdc4aa65e3cdcbd2250b75ae"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Every delivered file except this manifest; paths are repository relative."
+}

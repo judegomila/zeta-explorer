@@ -1,6 +1,6 @@
 # zeta-view — Zeta Observatory
 
-A dedicated mathematical geometry workbench for the Riemann zeta function, with source at [judegomila/zeta-view](https://github.com/judegomila/zeta-view).
+A dedicated mathematical geometry workbench for the Riemann zeta function, with source in the `observatory/` folder of [judegomila/zeta-explorer](https://github.com/judegomila/zeta-explorer).
 
 The app is self-contained and runs on any static HTTP(S) host. Vercel serves `dist/` using `vercel.json` and prepares the projective numerical pack during deployment. Local serving requires no build, ChatGPT runtime, API key, or database. The application keeps the Zeta Observatory name.
 
@@ -35,7 +35,7 @@ Choose **Channels** beside the main geometry buttons. The native workspace uses 
 
 The main app owns the address bar and saved sessions. Changes to the model, view, heat frame, selected branch, direction, disk radius, or probe settings update the current URL. **Copy view link**, **Save view**, and **Export session** retain the selected state; restored views open paused. The controls and plots are scoped inside the app rather than opening a separate page. The standalone laboratory remains available at `experiments/zero-channels.html`.
 
-The existing certificates retain their exact scope: four disjoint quartet channels on `-0.13 <= tau <= 0`, and one fixed first-root theta disk of radius `0.35` on `-0.05 <= tau <= 0.05`. Other theta trajectories are numerical. Resized disks, collisions, and off-line departures retain their explicit status. See [the mathematical derivations and verifier](docs/ZERO-CHANNELS-MATH.md) and [the Zeta Explorer research log](https://github.com/judegomila/mathexplorer/pull/57).
+The existing certificates retain their exact scope: four disjoint quartet channels on `-0.13 <= tau <= 0`, and one fixed first-root theta disk of radius `0.35` on `-0.05 <= tau <= 0.05`. Other theta trajectories are numerical. Resized disks, collisions, and off-line departures retain their explicit status. See [the mathematical derivations and verifier](docs/ZERO-CHANNELS-MATH.md) and [the Zeta Explorer research log](https://github.com/judegomila/zeta-explorer/tree/0b2f94bece35d6502c20defa61cc26a225fd4c15).
 
 ## Use the projective views
 
@@ -192,8 +192,8 @@ npm test
 ## Continue development and deploy
 
 ```sh
-git clone https://github.com/judegomila/zeta-view.git
-cd zeta-view
+git clone https://github.com/judegomila/zeta-explorer.git
+cd zeta-explorer/observatory
 python3 -m http.server 8080 --directory dist
 ```
 

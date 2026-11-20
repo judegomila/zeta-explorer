@@ -13,13 +13,13 @@ dependencies. A renderer draws the prepared snapshot and never evaluates ξ.
 ## Provenance and what was transferred
 
 The Math Explorer source was inspected at commit
-[`942ba1760c4ef54a519750ab91c37a661c31e0ce`](https://github.com/judegomila/mathexplorer/tree/942ba1760c4ef54a519750ab91c37a661c31e0ce).
+[`942ba1760c4ef54a519750ab91c37a661c31e0ce`](https://github.com/judegomila/zeta-explorer/tree/bc017d516b4575594793da711abe5a63c67db5e5).
 The relevant primary implementation files are:
 
-- [`DeBruijnDepartureViz.jsx`](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/components/DeBruijnDepartureViz.jsx): finite coefficient heat, the four real-root presets, and the range `−1.6 ≤ τ ≤ 0.8`.
-- [`VortexFieldPage.jsx`](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/pages/VortexFieldPage.jsx): a finite product over a window of known zero heights and finite Dyson evolution. Its continuation after a small-gap threshold imposes an off-axis square-root split and freezes spectators. This heuristic continuation is **not** used here; the exact cubic provides an explicitly solvable collision instead. The source's streamline calculation sums the gradient of log modulus, despite its phase-flow prose.
-- [`imp-857-phase-locked-dyson.mjs`](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/math/imp-857-phase-locked-dyson.mjs): reverse-time finite Dyson drift with a traveling cosine force. Its forcing choices `0, 0.01, 0.05` are retained. The original experiment concerns interval-width growth; this display does not reproduce or certify those interval calculations.
-- [`imp-857-phased-forcing-memo.js`](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/math/imp-857-phased-forcing-memo.js): motivation and outstanding conditions for that forced prototype.
+- [`DeBruijnDepartureViz.jsx`](https://github.com/judegomila/zeta-explorer/blob/bc017d516b4575594793da711abe5a63c67db5e5/src/components/DeBruijnDepartureViz.jsx): finite coefficient heat, the four real-root presets, and the range `−1.6 ≤ τ ≤ 0.8`.
+- [`VortexFieldPage.jsx`](https://github.com/judegomila/zeta-explorer/blob/bc017d516b4575594793da711abe5a63c67db5e5/src/pages/VortexFieldPage.jsx): a finite product over a window of known zero heights and finite Dyson evolution. Its continuation after a small-gap threshold imposes an off-axis square-root split and freezes spectators. This heuristic continuation is **not** used here; the exact cubic provides an explicitly solvable collision instead. The source's streamline calculation sums the gradient of log modulus, despite its phase-flow prose.
+- [`imp-857-phase-locked-dyson.mjs`](https://github.com/judegomila/zeta-explorer/blob/bc017d516b4575594793da711abe5a63c67db5e5/src/math/imp-857-phase-locked-dyson.mjs): reverse-time finite Dyson drift with a traveling cosine force. Its forcing choices `0, 0.01, 0.05` are retained. The original experiment concerns interval-width growth; this display does not reproduce or certify those interval calculations.
+- [`imp-857-phased-forcing-memo.js`](https://github.com/judegomila/zeta-explorer/blob/bc017d516b4575594793da711abe5a63c67db5e5/src/math/imp-857-phased-forcing-memo.js): motivation and outstanding conditions for that forced prototype.
 
 The repository search did not locate a matching implementation of the requested
 spatial random-walk, bounded spatial heat, or conformal transverse-trap controls.

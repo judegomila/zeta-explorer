@@ -12,7 +12,7 @@
  * an identity of zeta. The R^3 torus embedding is a display embedding.
  *
  * Source, immutable research checkpoint:
- * https://github.com/judegomila/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/geometry_and_twistors.md
+ * https://github.com/judegomila/zeta-explorer/blob/b7f045a34a194d852b645868ea0b8996d64ec2dd/rigorous/theta-bridge-2026-11-08/geometry_and_twistors.md
  * Jacobi theta quotient sn=(theta3(0)/theta2(0))*theta1(phi)/theta4(phi),
  * phi=pi*z/(2K). Ordinary IEEE-754 arithmetic, not interval arithmetic.
  */

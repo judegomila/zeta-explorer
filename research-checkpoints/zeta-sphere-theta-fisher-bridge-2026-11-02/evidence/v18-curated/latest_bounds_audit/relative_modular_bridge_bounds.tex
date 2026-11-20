@@ -1,0 +1,584 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=0.9in,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=teal!55!black,urlcolor=teal!55!black,citecolor=teal!55!black]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Relative bounds for the complete modular bridge}
+\fancyhead[R]{\small Research continuation}
+\fancyfoot[C]{\thepage}
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{1em}
+\setlist{itemsep=3pt,topsep=4pt}
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\Repart}{\operatorname{Re}}
+\newcommand{\Impart}{\operatorname{Im}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\RH}{\mathrm{RH}}
+\hypersetup{pdftitle={Relative Bounds for the Complete Modular Bridge},pdfauthor={Jude Gomila; research assistance by ChatGPT},pdfsubject={Restricted Gram positivity, coalescing pairs, modular renormalization, and the remaining all-order criterion}}
+\title{\textbf{Relative Bounds for the Complete Modular Bridge}\\[0.45em]
+\large Separated tests, coalescing pairs, and a controlled modular approximation}
+\author{Jude Gomila\\\small Research continuation prepared with mathematical and editorial AI assistance}
+\date{2 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We continue the modular bridge-shear program by deriving explicit relative bounds for the complete theta interaction kernel. An elementary estimate gives $(\log\psi)''<-17$ on the real line. It implies coercivity, uniform in matrix size and every positive bridge shift, for Gram tests whose nodes are at least $1/4$ apart: $G_a\succeq C_a(0)I/4$. Every coordinate Schur complement satisfies the same lower bound, including for countably infinite configurations. A derivative estimate extends positivity to arbitrarily close pairs with centers at least $5/2$ apart, uniformly through their first-derivative limits. We also prove strict positivity of the three-channel confluent matrix, with a normalized determinant reserve of $1334$. On the arithmetic side, full finite rectangular lattice groups have exact positive parent factorizations but strictly negative derivative spectrum at frequency zero. Midpoint continuum subtraction repairs the pole residues and reflection symmetry and yields explicit weighted error bounds. Finally, exponential spectral decay makes positivity of every confluent derivative matrix equivalent to the full positive-definiteness target. The restricted results do not prove that all-order condition or RH. No claim of historical novelty is made.
+\end{abstract}
+
+\section{The target and the scope of the results}
+Set
+\begin{equation}
+\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\qquad \Xi(z)=\xi(\tfrac12+iz).
+\end{equation}
+Use the complete even theta profile
+\begin{align}
+\psi(u)&=4\sum_{n\ge1}
+\left(2\pi^2n^4\ee^{9u/2}-3\pi n^2\ee^{5u/2}\right)
+\ee^{-\pi n^2\ee^{2u}},\label{eq:psi}\\
+\Xi(z)&=\int_0^\infty\psi(u)\cos(zu)\dd u.
+\end{align}
+The full sum is smooth, even, strictly positive and rapidly decreasing, together with every derivative. Its evenness comes from theta modularity. Finite direct truncations do not inherit all these properties. The use of theta kernels, log-concavity and associated positive-definite kernels belongs to the established analytic literature; see Csordas \cite{csordas}. The explicit estimates below are derived here, with their hypotheses stated in full.
+
+The shift $a$ measures distance from the critical line in the completed-function coordinates. Define
+\begin{align}
+E_a(t)&=\Xi(t+ia),\\
+W_a(t)&=\tfrac12\partial_a|E_a(t)|^2
+=-\Impart\bigl(\overline{E_a(t)}E_a'(t)\bigr),\label{eq:W}\\
+C_a(v)&=\int_0^\infty h\sinh(2ah)
+\psi(h-v)\psi(h+v)\dd h.\label{eq:C}
+\end{align}
+With the convention $\widehat f(k)=\int_{\R}f(v)\ee^{-ikv}\dd v$, the exact identity is
+\begin{equation}\label{eq:Fourier}
+\boxed{\widehat C_a(2t)=W_a(t).}
+\end{equation}
+For example, this follows by defining
+\[
+R_a(v)=\int_{\R}\ee^{2ah}\psi(h-v)\psi(h+v)\dd h.
+\]
+Then $\widehat R_a(2t)=2|\Xi(t+ia)|^2$ and $C_a=\tfrac14\partial_aR_a$.
+
+The unrestricted target is
+\begin{equation}\label{eq:RHtarget}
+\sum_{j,k=1}^m\overline{b_j}b_k C_a(v_j-v_k)\ge0
+\quad\text{for every }m,\ b_j\in\C,\ v_j\in\R,
+\quad 0<a<\tfrac12.
+\end{equation}
+For these integrable kernels, this means $C_a$ is positive definite, equivalently $W_a(t)\ge0$ for all real $t$. Nonnegativity for all positive shifts in the critical strip is equivalent to RH. To see the difficult implication directly, if $\Xi(t_0+ia_0)=0$ with $0<a_0<1/2$, then nondecreasing $|\Xi(t_0+ia)|^2$ on $0<a<a_0$ would force that entire interval to vanish, contradicting analyticity and $\Xi\not\equiv0$. Conversely, real zeros give nonnegative transverse logarithmic derivative by the canonical product. This is consistent with the established logarithmic-derivative criteria \cite{lagarias,lagariasCorrection}.
+
+\paragraph{The configuration variable is not a zero height.}
+The nodes $v_j$ in \eqref{eq:RHtarget} are test locations in the kernel's lag coordinate. A lower bound on their separation is a restriction on tests, not a statement about the spacing of zeta zeros. Increasing the number of separated nodes does not remove that restriction.
+
+For estimates through $a=0$, use
+\begin{equation}\label{eq:kappa}
+\kappa_a=C_a/a\quad(a>0),\qquad
+\kappa_0(v)=2\int_0^\infty h^2\psi(h-v)\psi(h+v)\dd h,
+\qquad c_a(v)=\frac{\kappa_a(v)}{\kappa_a(0)}.
+\end{equation}
+For positive $a$, $c_a=C_a/C_a(0)$. The normalized family extends continuously to zero shift.
+
+\section{Uniform curvature of the complete theta profile}
+\begin{theorem}\label{thm:curvature}
+The full profile \eqref{eq:psi} satisfies
+\begin{equation}\label{eq:curvature}
+\boxed{(\log\psi)''(u)<-17\qquad(u\in\R).}
+\end{equation}
+\end{theorem}
+\begin{proof}
+For $u\ge0$, put $z=\pi\ee^{2u}>3$ and write $\psi=\sum_{n\ge1}f_n$, where
+\[
+f_n(u)=4\pi n^2\ee^{5u/2}(2zn^2-3)\ee^{-zn^2}>0.
+\]
+The logarithmic slopes are
+\begin{align}
+\ell_n&=(\log f_n)'=\frac92+\frac6{2zn^2-3}-2zn^2,\\
+\ell_n'&=-4zn^2-\frac{24zn^2}{(2zn^2-3)^2}.
+\end{align}
+With weights $w_n=f_n/\psi$, termwise differentiation gives
+\begin{equation}\label{eq:mixture}
+(\log\psi)''=\sum_n w_n\ell_n'+\Var_w(\ell_n).
+\end{equation}
+All differentiations are justified by local uniform convergence of the exponentially decreasing theta series.
+
+For $x\ge3$ and $t=x-3\ge0$, the exact identity
+\begin{equation}
+\left(4x+\frac{24x}{(2x-3)^2}-19\right)(2x-3)^2
+=16t^3+20(t-\tfrac35)^2+\frac95>0
+\end{equation}
+proves $\ell_n'<-19$.
+
+Centering the variance at $\ell_1$ and using $w_n\le f_n/f_1$,
+\[
+\Var_w(\ell_n)\le\sum_{n\ge2}\frac{f_n}{f_1}(\ell_n-\ell_1)^2.
+\]
+The estimates
+\[
+\frac{f_n}{f_1}
+=n^2\frac{2zn^2-3}{2z-3}\ee^{-z(n^2-1)}
+\le2n^4\ee^{-z(n^2-1)},\qquad
+|\ell_n-\ell_1|\le2z(n^2-1)+2
+\]
+give
+\begin{align}
+\Var_w(\ell_n)
+&\le8\sum_{n\ge2}n^4[z(n^2-1)+1]^2\ee^{-z(n^2-1)}\\
+&\le8\sum_{n\ge2}n^4(3n^2-2)^2\ee^{-3(n^2-1)}.\label{eq:varianceTail}
+\end{align}
+Here $(x+1)^2\ee^{-x}$ decreases for $x>1$. The first term of the last sum is $12800\ee^{-9}<8/5$, since $\ee^3>20$. For $n\ge2$, successive terms have ratio at most
+\[
+\left(\frac32\right)^4\left(\frac52\right)^2\ee^{-3(2n+1)}
+<32\ee^{-15}<10^{-5}.
+\]
+Thus the complete infinite variance is smaller than
+\[
+\frac{8/5}{1-10^{-5}}=\frac{160000}{99999}<2.
+\]
+Combining this with \eqref{eq:mixture} gives \eqref{eq:curvature} for $u\ge0$. Smooth evenness extends it to the negative half-line.
+\end{proof}
+
+\begin{corollary}[Relative Gaussian envelope]\label{cor:envelope}
+For every $a>0$ and $v\in\R$,
+\begin{equation}\label{eq:envelope}
+\boxed{0<C_a(v)\le C_a(0)\ee^{-17v^2}.}
+\end{equation}
+The same normalized estimate $0<c_a(v)\le\ee^{-17v^2}$ holds at $a=0$.
+\end{corollary}
+\begin{proof}
+The function $\log\psi(u)+(17/2)u^2$ is concave. Its midpoint inequality gives
+\[
+\psi(h-v)\psi(h+v)\le\ee^{-17v^2}\psi(h)^2.
+\]
+Integrate against the nonnegative bridge weight in \eqref{eq:C}, or against $2h^2$ at zero shift.
+\end{proof}
+
+\begin{remark}
+The same reasoning applies to every nonnegative weight $w(h)$ for which
+$K_w(v)=\int_0^\infty w(h)\psi(h-v)\psi(h+v)\dd h$ is finite and nonzero at zero. In particular it applies simultaneously to the associated kernels with weights $h^{2r}$. This is an upper envelope, not a positive Gaussian-mixture representation and not full positive definiteness.
+\end{remark}
+
+\section{Separated tests at every size and their complete coupling cost}
+\begin{theorem}[Quarter spacing and quarter reserve]\label{thm:separated}
+Let $(v_j)$ be any finite or countable real configuration with minimum separation at least $1/4$. For every $a>0$, define
+\[
+G_a=[C_a(v_j-v_k)]_{j,k},\quad D_a=C_a(0)I,\quad E_a=G_a-D_a.
+\]
+Then
+\begin{equation}\label{eq:relativeSeparated}
+\boxed{\|D_a^{-1/2}E_aD_a^{-1/2}\|
+\le\frac{5600}{7657}<\frac34,\qquad
+G_a\succeq\frac14C_a(0)I.}
+\end{equation}
+For countable configurations the matrix defines a bounded self-adjoint operator on $\ell^2$. The result extends through $a=0$ after replacing $C_a$ by $\kappa_a$.
+\end{theorem}
+\begin{proof}
+From any node, the $n$th node on either side, if present, is at least $n/4$ away. Corollary~\ref{cor:envelope} therefore bounds each normalized off-diagonal row sum by
+\[
+2\sum_{n\ge1}\ee^{-17n^2/16}.
+\]
+Put $q=\ee^{-17/16}$. The rational Taylor bound
+\[
+\ee^{17/16}>\sum_{j=0}^4\frac{(17/16)^j}{j!}
+=\frac{1509931}{524288}>\frac{20}{7}
+\]
+gives $q<7/20$. Since $n^2\ge3n-2$ for positive integers $n$,
+\begin{equation}
+2\sum_{n\ge1}q^{n^2}\le\frac{2q}{1-q^3}
+<\frac{5600}{7657}<\frac34.
+\end{equation}
+The row-and-column Schur bound gives \eqref{eq:relativeSeparated}, also for the infinite matrix acting first on finitely supported sequences and then by bounded extension. The sharper reserve is $2057/7657$; $1/4$ is a simpler uniform statement. The upper bound $G_a\preceq(7/4)C_a(0)I$ follows by the same argument.
+\end{proof}
+
+\begin{corollary}[All coordinate Schur complements]\label{cor:schur}
+For any coordinate partition of the operator in Theorem~\ref{thm:separated}, write
+\[
+G_a=\begin{pmatrix}D_1&B\\B^*&E_1\end{pmatrix}.
+\]
+Then $D_1$ is boundedly invertible on its coordinate subspace and
+\begin{equation}\label{eq:schur}
+\boxed{E_1-B^*D_1^{-1}B\succeq\frac14C_a(0)I.}
+\end{equation}
+\end{corollary}
+\begin{proof}
+For every retained vector $y$, completion of the square gives
+\[
+\langle(E_1-B^*D_1^{-1}B)y,y\rangle
+=\inf_x\langle G_a(x,y),(x,y)\rangle
+\ge\frac14C_a(0)\|y\|^2.
+\]
+The same formula applies in the bounded infinite-dimensional setting.
+\end{proof}
+
+Equation \eqref{eq:schur} controls the full cost of coupling two chosen groups of tests within the separated class. The diagonal $D_a$ is the actual discrete Gram diagonal. No mass is assigned to a measure-zero diagonal of a continuum integral. This theorem concerns the stated bridge Gram operator, not an asserted coercivity theorem for an unrestricted Weil operator.
+
+\section{Arbitrarily close pairs and first-derivative limits}
+The separated theorem leaves close nodes untreated. A change to average and divided-difference channels controls a class of close pairs without losing a bound as their widths shrink.
+
+\subsection{Derivative envelopes with explicit constants}
+\begin{lemma}\label{lem:derivatives}
+For $r=0,1,2$ and real $u$,
+\begin{equation}\label{eq:psiderivatives}
+|\psi^{(r)}(u)|\le2\cdot10^6\ee^{-5u^2}.
+\end{equation}
+For $0\le a\le1/2$ and real $v$,
+\begin{equation}\label{eq:cderivatives}
+|c_a^{(r)}(v)|\le M_*\ee^{-10v^2},\qquad M_*=2\cdot10^{19}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $u\ge0$, put $y=\ee^{2u}\ge1$ and $t=n^2y\ge1$. The inequality $5u^2\le\ee^{2u}=y$ follows from $\max_{u\ge0}u^2\ee^{-2u}=\ee^{-2}<1/5$.
+The two terms of $f_n$ are
+\[
+8\pi^2n^4y^{9/4}\ee^{-\pi n^2y}
+-12\pi n^2y^{5/4}\ee^{-\pi n^2y}.
+\]
+Under $D_u=2yD_y$, a term $y^\alpha\ee^{-\pi n^2y}$ acquires multipliers $2\alpha-2\pi t$ and $(2\alpha-2\pi t)^2-4\pi t$ in its first and second derivatives. Using $3<\pi<4$, multiplication by $\ee^{5u^2}$ bounds the absolute derivatives by $n^{-1/2}P_r(t)\ee^{-2t}$, with
+\begin{align}
+P_0(t)&=128t^3+48t^2,\\
+P_1(t)&=1024t^4+960t^3+120t^2,\\
+P_2(t)&=8192t^5+14336t^4+5280t^3+300t^2.
+\end{align}
+Now $t^m\ee^{-t}\le m!$ and
+$\sum_{n\ge1}n^{-1/2}\ee^{-n^2}\le1/(\ee-1)<1$. Summing gives constants $864$, $30576$ and $1359384$, all less than $2\cdot10^6$. Evenness gives \eqref{eq:psiderivatives} on the full real line.
+
+For $0\le a\le1/2$, with the continuous interpretation at zero,
+\[
+h\frac{\sinh(2ah)}a\le2h^2\cosh h.
+\]
+The product rule and \eqref{eq:psiderivatives} yield
+\[
+|\kappa_a^{(r)}(v)|\le2^r(2\cdot10^6)^2 I\ee^{-10v^2},\qquad
+I=2\int_0^\infty h^2\cosh h\ee^{-10h^2}\dd h<\frac1{10}.
+\]
+For example, $\cosh h\le\ee^h\le\ee^{h^2+1/4}$ gives $I\le\ee^{1/4}\sqrt\pi/54<1/10$.
+
+On $0\le h\le1/4$, the first theta summand gives $\psi(h)>36\ee^{-8}$. Therefore
+\[
+\kappa_a(0)\ge\kappa_0(0)>2\int_0^{1/4}h^2(36\ee^{-8})^2\dd h
+=\frac{27}{2}\ee^{-16}>10^{-7},
+\]
+where even $\ee<3$ suffices for the last inequality. Divide the derivative bounds by this normalization to obtain \eqref{eq:cderivatives}.
+\end{proof}
+
+\subsection{The pair theorem}
+\begin{theorem}\label{thm:pairs}
+Let the centers $x_j$ have minimum separation $5/2$, and let $0<h_j\le1/10$. Form pairs of nodes $x_j-h_j,x_j+h_j$ and the two channels
+\begin{equation}\label{eq:channels}
+A_j=\frac{\delta_{x_j+h_j}+\delta_{x_j-h_j}}2,
+\qquad Q_j=\frac{\delta_{x_j+h_j}-\delta_{x_j-h_j}}{2h_j\sqrt{20}}.
+\end{equation}
+For the normalized kernel $c_a$, let $\mathbb G_a$ be the Gram matrix of all these channels, and let $\mathbb D_a$ contain its exact within-pair blocks. For every $0\le a\le1/2$,
+\begin{equation}\label{eq:pairs}
+\boxed{\|\mathbb D_a^{-1/2}(\mathbb G_a-\mathbb D_a)\mathbb D_a^{-1/2}\|<\frac1{50},
+\qquad
+\mathbb G_a\succeq\frac{49}{50}\mathbb D_a\succeq\frac{49}{100}I.}
+\end{equation}
+The result holds for any finite or countable number of pairs, and for the limits $h_j\downarrow0$.
+\end{theorem}
+\begin{proof}
+Evenness makes each exact within-pair block diagonal:
+\begin{equation}\label{eq:pairblock}
+\mathbb D_{a,j}=\diag\left(
+\frac{1+c_a(2h_j)}2,
+\frac{1-c_a(2h_j)}{40h_j^2}\right).
+\end{equation}
+The first entry is at least $1/2$. Using the weaker consequence $c_a(v)\le\ee^{-10v^2}$ of Corollary~\ref{cor:envelope}, the second is at least
+\[
+\frac{1-\ee^{-40h_j^2}}{40h_j^2}\ge\ee^{-40h_j^2}
+\ge\ee^{-2/5}>\frac12.
+\]
+Thus $\mathbb D_a\succeq I/2$, with no lower restriction on $h_j$.
+
+If two centers are distance $d$ apart, their cross-block entries are averages, first divided differences or a mixed second divided difference. The mean-value integral formulas bound them respectively by
+\[
+\sup|c_a|,\qquad \frac1{\sqrt{20}}\sup|c_a'|,
+\qquad \frac1{20}\sup|c_a''|
+\]
+over arguments of absolute value at least $d-1/5$. Thus the block norm is at most $2M_*\ee^{-10(d-1/5)^2}$. No factor diverges as a pair width shrinks.
+
+From a fixed center the $n$th center on either side is at least $5n/2$ away, and $5n/2-1/5\ge23n/10$. The off-diagonal block-row sum is bounded by
+\[
+4M_*\sum_{n\ge1}\ee^{-(529/10)n^2}.
+\]
+Since $529/10>51$, $\ee^3>20$ and $q_*=20^{-17}<10^{-22}$, this is smaller than
+\[
+4M_*\frac{q_*}{1-q_*^3}
+<\frac{8\cdot10^{-3}}{1-10^{-66}}<\frac1{100}.
+\]
+The block Schur test gives $\|\mathbb G_a-\mathbb D_a\|<1/100$. Conjugating by $\mathbb D_a^{-1/2}$ costs at most a factor of two and proves \eqref{eq:pairs}.
+
+For the infinite version, the average diagonal is at most one. Since $c_a'(0)=0$, Taylor's theorem gives the second entry of \eqref{eq:pairblock} at most $\sup|c_a''|/20\le M_*/20$. The diagonal and off-diagonal parts therefore define bounded operators. Finite-block limits as $h_j\to0$, together with the same summable off-block bounds, give the confluent version. Operator-norm convergence of nonuniform coordinatewise limits is not needed.
+\end{proof}
+
+In the confluent limit, the channels are value evaluation and first-derivative evaluation divided by $\sqrt{20}$; the local block becomes $\diag(1,-c_a''(0)/20)$. In the original point basis positivity follows by congruence, but a fixed coercivity margin in that basis cannot persist when two point channels become identical. Every coordinate Schur complement in the normalized channel basis is at least $49I/100$. The large constants in Lemma~\ref{lem:derivatives} are deliberately conservative, so the center separation $5/2$ is not asserted to be optimal.
+
+\section{Exact arithmetic grouping: what works and what fails}
+The next calculation addresses arithmetic grouping before differentiating. Put $p=1/2+a$ and
+\begin{equation}
+Z_N(p,v)=\sum_{n,m=1}^N(n^2\ee^{-2v}+m^2\ee^{2v})^{-p}.
+\end{equation}
+For $p>0$ this is smooth, even and integrable. The beta integral \cite{dlmfBeta} gives the exact factorization
+\begin{equation}\label{eq:rectfactor}
+\boxed{\widehat Z_N(p,k)=
+\frac{|\Gamma(p/2+ik/4)|^2}{4\Gamma(p)}
+\left|\sum_{n=1}^N n^{-p+ik/2}\right|^2.}
+\end{equation}
+Indeed, write the quadratic form as $2nm\cosh(2v+\log(m/n))$, transform a power of the hyperbolic secant, and retain all $n,m$ cross terms. The phase shifts combine into the Dirichlet square.
+
+Define
+\begin{align}
+L_a&=[D_v^2-(2a-1)^2][D_v^2-(2a+1)^2],\\
+P_a(k)&=[k^2+(2a-1)^2][k^2+(2a+1)^2],\\
+R^{\rm raw}_{a,N}&=\frac{\pi^{-p}\Gamma(p)}8 L_aZ_N,
+\qquad C^{\rm raw}_{a,N}=\tfrac14\partial_aR^{\rm raw}_{a,N}.
+\end{align}
+Thus $R^{\rm raw}_{a,N}$ is positive definite, with spectrum
+\begin{equation}
+\widehat R^{\rm raw}_{a,N}(k)=\frac{P_a(k)}{32}\pi^{-p}
+|\Gamma(p/2+ik/4)|^2\left|\sum_{n\le N}n^{-p+ik/2}\right|^2.
+\end{equation}
+
+\begin{proposition}[Obstruction for every finite rectangle]\label{prop:rawfail}
+For every $N\ge1$ and every $0<a<1/2$,
+\begin{equation}\label{eq:rawfail}
+\boxed{\widehat C^{\rm raw}_{a,N}(0)<0.}
+\end{equation}
+\end{proposition}
+\begin{proof}
+At frequency zero,
+\[
+\widehat R^{\rm raw}_{a,N}(0)=
+\frac{(4a^2-1)^2}{32}\pi^{-p}\Gamma(p/2)^2
+\left(\sum_{n\le N}n^{-p}\right)^2.
+\]
+Every positive factor is nonincreasing as $a$ increases on $(0,1/2)$, and the first, the power of $\pi$, and the gamma factor decrease strictly. Here $p/2\in(1/4,1/2)$, where $\Gamma$ decreases, and the derivative of the Dirichlet sum is $-\sum_{n\le N}(\log n)n^{-p}\le0$. Hence the derivative of the product is negative.
+\end{proof}
+
+The obstruction persists after every finite arithmetic cross term has been restored. In this strip the raw infinite lattice sum diverges; the completed Epstein representation requires renormalization or analytic continuation. The positivity of a parent and smooth even reflection do not preserve positivity under its parameter derivative.
+
+\section{Midpoint subtraction preserves the poles and controls the tail}
+\subsection{A smooth positive primitive with the correct normalization}
+Write $\vartheta(x)=\sum_{n\in\mathbb Z}\ee^{-\pi n^2x}$ and
+\begin{equation}\label{eq:primitive}
+k(u)=2\cosh(u/2)-\ee^{u/2}\vartheta(\ee^{2u}),
+\qquad \psi=(1/4-D_u^2)k.
+\end{equation}
+The primitive $k$ is positive, even and smooth, with $k(u)\sim\ee^{-|u|/2}$. For $0<\Repart s<1$,
+\begin{equation}
+\int_{\R}\ee^{(s-1/2)u}k(u)\dd u=-\Lambda(s),
+\qquad \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\end{equation}
+
+Set $M=N+1/2$, and define
+\begin{align}
+q_N(u)&=2\ee^{u/2}\left[
+\int_0^M\ee^{-\pi x^2\ee^{2u}}\dd x
+-\sum_{n=1}^N\ee^{-\pi n^2\ee^{2u}}\right],\label{eq:qmid}\\
+k_N(u)&=\tfrac12[q_N(u)+q_N(-u)],\qquad
+\psi_N=(1/4-D_u^2)k_N.\label{eq:kmid}
+\end{align}
+The Gaussian decreases in $x$, so the bracket with upper limit $N$ is positive; increasing its upper limit to $M$ proves $q_N>0$. Direct expansion at either end gives
+\[
+q_N(u)\sim\ee^{-u/2}\quad(u\to+\infty),\qquad
+q_N(u)\sim\ee^{u/2}\quad(u\to-\infty).
+\]
+The second asymptotic uses $M-N=1/2$. Consequently $k_N$ is positive, smooth and exactly even, and has the full tail $\ee^{-|u|/2}$.
+
+For comparison, choosing upper limit $N$ would give an even primitive with half the correct tail and the endpoint value $\xi_N(1)=1/4$. Thus the half-unit correction is required by the normalization, not just by quadrature accuracy.
+
+Put
+\begin{align}
+D_N(s)&=\sum_{n=1}^N n^{-s},\\
+\Lambda_N(s)&=\pi^{-s/2}\Gamma(s/2)
+\left[D_N(s)+\frac{M^{1-s}}{s-1}\right],\\
+\widetilde\Lambda_N(s)&=\tfrac12[\Lambda_N(s)+\Lambda_N(1-s)],\\
+\xi_N(s)&=\tfrac12s(s-1)\widetilde\Lambda_N(s),
+\qquad \Xi_N(z)=\xi_N(\tfrac12+iz).
+\end{align}
+Mellin integration of \eqref{eq:qmid} proves these are precisely the transforms of \eqref{eq:kmid}. The residues of $\widetilde\Lambda_N$ at $0,1$ are $-1,+1$, respectively, and
+\begin{equation}\label{eq:endpoints}
+\xi_N(s)=\xi_N(1-s),\quad \xi_N(0)=\xi_N(1)=\tfrac12,
+\quad \Xi_N(z)=\int_0^\infty\psi_N(u)\cos(zu)\dd u.
+\end{equation}
+The finite approximants are analytic for $|\Impart z|<5/2$; they are not asserted to be entire globally. Applying $(1/4-D^2)$ cancels the leading primitive tails and leaves exponential tails of order $\ee^{-5|u|/2}$.
+
+For $0<a<1/2$, their complete parent factors are
+\begin{align}
+F_{a,N}(v)&=2\int_{\R}\ee^{2ah}k_N(h-v)k_N(h+v)\dd h,\\
+\widehat F_{a,N}(k)&=|\widetilde\Lambda_N(\tfrac12+a+ik/2)|^2,\\
+R_{a,N}&=\tfrac1{32}L_aF_{a,N},\qquad
+\widehat R_{a,N}(k)=2|\Xi_N(k/2+ia)|^2.\label{eq:midfactors}
+\end{align}
+These factorizations retain all cross terms. Both parents are positive definite; the sign of their parameter derivative remains a separate issue.
+
+\begin{proposition}[Endpoint sign is repaired for every cutoff]\label{prop:endpoint}
+For every $N\ge1$,
+\begin{equation}\label{eq:endpointslope}
+4\xi_N'(1)=b_N
+=1+H_N+2N\log(N+\tfrac12)-2N-2\log N!-\log2>0,
+\end{equation}
+where $H_N=\sum_{n=1}^N1/n$.
+\end{proposition}
+\begin{proof}
+The formula follows by Laurent expansion of the preceding gamma and Dirichlet expressions. For the sign, $b_N$ decreases strictly to $4\xi'(1)>0$. To prove the decrease, put $y=1/[2(N+1)]$. Then
+\[
+b_{N+1}-b_N
+=2y-2+\frac1y\log\frac{1+y}{1-y}+2\log(1-y).
+\]
+The constant and linear terms cancel. The coefficient of $y^{2m}$ is $-1/[m(2m+1)]$ and every remaining odd coefficient is negative. Stirling's formula and the harmonic-number limit give
+\[
+\lim b_N=2+\gamma-\log(4\pi)=4\xi'(1)>0.
+\]
+Positivity of this last quantity also follows without decimals from
+$\xi'(1)=\int_0^\infty u\psi(u)\sinh(u/2)\dd u>0$.
+\end{proof}
+
+\subsection{Weighted errors, including the boundary shifts}
+The unsymmetrized error is
+\[
+r_N(u)=k(u)-q_N(u)
+=2\ee^{u/2}\left[\int_M^\infty f_u(x)\dd x-\sum_{n>N}f_u(n)\right],
+\quad f_u(x)=\ee^{-\pi x^2\ee^{2u}}.
+\]
+This is exactly the midpoint quadrature error on the cells $[n-1/2,n+1/2]$. Its nonnegative Peano kernel is
+$K_n(x)=\tfrac12(1/2-|x-n|)^2\le1/8$. Hence
+\begin{equation}\label{eq:peano}
+\left|\int_M^\infty f(x)\dd x-\sum_{n>N}f(n)\right|
+\le\frac18\int_M^\infty|f''(x)|\dd x.
+\end{equation}
+For $p=1/2+a\ge0$, substitution $w=\pi x^2\ee^{2u}$ in \eqref{eq:peano} gives
+\begin{equation}\label{eq:primitiveError}
+\int_{\R}\ee^{au}|r_N(u)|\dd u\le
+E_{p,N}:=\frac{\pi^{-p/2}\Gamma(p/2+1)(p+3)}{4(p+1)}M^{-p-1}.
+\end{equation}
+To verify the constant, use $x^2f_u''(x)=(4w^2-2w)\ee^{-w}$, bound its absolute value by $(4w^2+2w)\ee^{-w}$, and integrate the gamma moments. For $0\le p\le1$, equivalently $|a|\le1/2$, symmetrization yields
+\[
+\int_{\R}\ee^{au}|k(u)-k_N(u)|\dd u
+\le\tfrac12(E_{p,N}+E_{1-p,N}).
+\]
+The absolute even error has a weighted norm increasing with $|a|$. At $p=0,1$, $E_{0,N}=3/(4M)$ and $E_{1,N}=1/(4M^2)$. Consequently
+\begin{equation}\label{eq:uniformPrimitive}
+\boxed{\sup_{|a|\le1/2}\int_{\R}\ee^{au}|k(u)-k_N(u)|\dd u
+\le\frac{3}{8M}+\frac1{8M^2}.}
+\end{equation}
+
+For the differentiated profile, applying $(1/4-D_u^2)$ inside the quadrature error replaces the Gaussian by $B(w)=(6w-4w^2)\ee^{-w}$. Since
+\[
+x^2\partial_x^2B(w)
+=\ee^{-w}(12w-108w^2+96w^3-16w^4),
+\]
+putting $(d_1,d_2,d_3,d_4)=(12,108,96,16)$ gives
+\begin{equation}\label{eq:profileError}
+E^\psi_{p,N}=
+\frac{\pi^{-p/2}M^{-p-1}}{8(p+1)}\sum_{j=1}^4d_j\Gamma(p/2+j),
+\qquad
+\int_{\R}\ee^{au}|\psi-\psi_N|\dd u
+\le\tfrac12(E^\psi_{p,N}+E^\psi_{1-p,N}).
+\end{equation}
+In particular the uniform zeroth error moment can be taken to be
+\begin{equation}\label{eq:epsilon0}
+\epsilon_0=\frac{51}{2M}+\frac{93}{8M^2}.
+\end{equation}
+
+For an explicit first-moment constant, set $r=p/2$ and
+\[
+S_p=\sum_{j=1}^4d_j\Gamma(r+j),\qquad
+T_p=\sum_{j=1}^4d_j[\Gamma(r+j+\tfrac12)+\Gamma(r+j-\tfrac12)].
+\]
+Then
+\begin{equation}\label{eq:firstMoment}
+B_{p,N}=\frac{\pi^{-r}M^{-p-1}}{8(p+1)}
+\left[S_p\left(\log M+\tfrac12\log\pi+\frac1{p+1}\right)+T_p\right]
+\end{equation}
+bounds the unsymmetrized weighted first moment of the profile error. This follows from
+$|u|\le\tfrac12|\log w|+\tfrac12\log\pi+\log x$ and
+$|\log w|\le2(w^{1/2}+w^{-1/2})$. Thus
+$\epsilon_1=\tfrac12(B_{0,N}+B_{1,N})$ is uniform on $|a|\le1/2$.
+
+More generally, for $j=0,1,2$, define the finite explicit majorant
+\begin{align}\label{eq:logMoments}
+E^{\psi,(j)}_{p,N}
+={}&\frac{\pi^{-p/2}}8\int_M^\infty x^{-p-2}\dd x
+\int_0^\infty y^{p/2-1}\ee^{-y}
+(12y+108y^2+96y^3+16y^4)\notag\\[-1mm]
+&\hspace{35mm}\cdot\left|\tfrac12\log(y/\pi)-\log x\right|^j\dd y.
+\end{align}
+Half the sum at $p$ and $1-p$ bounds the weighted $|u|^j$ moment of $\psi-\psi_N$. These integrals converge at $p=0$ because the polynomial starts with $y$. Uniformly on $p\in[0,1]$, the bounds are $O((1+\log N)^j/N)$. At the two endpoint weights their half-sum supplies a uniform choice of $\epsilon_j$.
+
+\subsection{What the approximation can certify about shear}
+Let
+\[
+M_j=\int_{\R}|u|^j\ee^{u/2}\psi(u)\dd u,
+\qquad j=0,1,2,
+\]
+so that $M_0=1$. Positivity and evenness of $\psi$ show these bound the corresponding moments for all $|a|\le1/2$. If $E_{a,N}(t)=\Xi_N(t+ia)$, then
+\[
+|E_a^{(j)}(t)|\le M_j/2,
+\qquad |E_a^{(j)}(t)-E_{a,N}^{(j)}(t)|\le\epsilon_j/2.
+\]
+Define $W_{a,N}=-\Impart(\overline{E_{a,N}}E'_{a,N})$. A product-difference estimate gives, for every real $t$ and $0\le a\le1/2$,
+\begin{equation}\label{eq:absoluteShear}
+|W_a(t)-W_{a,N}(t)|
+\le\frac14\left[M_0\epsilon_1+(M_1+\epsilon_1)\epsilon_0\right].
+\end{equation}
+For the normalized version at zero shift, use
+$\partial_aW_a=|E_a'|^2-\Repart(E_a''\overline{E_a})$
+and $W_0=W_{0,N}=0$. Integration in $a$ proves
+\begin{equation}\label{eq:normalizedShear}
+\boxed{\left|\frac{W_a(t)-W_{a,N}(t)}a\right|
+\le\frac14\left[(2M_1+\epsilon_1)\epsilon_1
++M_0\epsilon_2+(M_2+\epsilon_2)\epsilon_0\right].}
+\end{equation}
+The expression at $a=0$ means its continuous limit. The rate is $O((1+\log N)^2/N)$ uniformly in $t$ and in the closed shift interval.
+
+These are absolute error bounds. If a finite approximation has a rigorously certified positive margin exceeding the right side on a chosen region, the bound transfers that sign to the complete shear. No such margin on all heights follows from these estimates: the true shear decays at large height. Moreover $\psi_N$ is not guaranteed positive and $C_{a,N}$ is not proved positive definite. Preserving the residues, evenness and the parent square does not settle derivative positivity.
+
+\input{relative_modular_bridge_hierarchy.tex}
+
+\section{What is established and what would finish the argument}
+The results separate three different tasks. Theorems~\ref{thm:separated} and \ref{thm:pairs} provide relative operator bounds for explicit classes of tests of the \emph{complete} kernel. Proposition~\ref{prop:rawfail} rules out positivity of the shear of each unrenormalized finite rectangular group. Equations \eqref{eq:uniformPrimitive}--\eqref{eq:normalizedShear} construct a normalized modular approximation and control its absolute error.
+
+The remaining unrestricted assertion is \eqref{eq:RHtarget}. Theorem~\ref{thm:three} establishes $H_2$; \eqref{eq:nextDet} is the next unproved local condition in this calculation. It would be enough to establish all orders in Theorem~\ref{thm:hierarchy} for every $0<a<1/2$. Alternatively, one could find a modular decomposition whose positive local blocks dominate every off-block coupling in the relative operator norm, uniformly as configurations become dense. Either route requires a new sign argument; a positive parent factorization alone is insufficient.
+
+\paragraph{Priority for the next calculation.}
+The divided-difference basis is the appropriate way to organize close nodes. Low-order confluent determinants expose the exact cancellations that an all-order factorization must preserve. The midpoint approximation can supply controlled inputs for that calculation, but its absolute tail estimate must not be substituted for a missing relative bound near small eigenvalues or small spectral margins.
+
+\paragraph{Status of validation.}
+The curvature, pair, three-channel and modular-approximation estimates have been independently checked within this investigation. The accompanying standard-library Python script passes 71 exact rational checks of finite identities and inequalities used in the Gram results. It does not automatically verify the analytic derivations, establish unrestricted positivity or replace external mathematical review. Numerical eigenvalue samples were used only as illustrations and are not required for any theorem here. No historical novelty claim is made.
+
+\begin{thebibliography}{9}
+\bibitem{csordas}
+G. Csordas, \emph{Fourier Transforms of Positive Definite Kernels and the Riemann $\xi$-Function}, arXiv:1309.0055, revised 2014.
+\url{https://arxiv.org/abs/1309.0055}.
+
+\bibitem{lagarias}
+J. C. Lagarias, \emph{On a positivity property of the Riemann $\xi$-function}, Acta Arithmetica 89 (1999), 217--234.
+\url{https://websites.umich.edu/~lagarias/doc/positivity.pdf}.
+
+\bibitem{lagariasCorrection}
+J. C. Lagarias, \emph{Correction to ``On a positivity property of the Riemann $\xi$-function''}, Acta Arithmetica 116 (2005), 293--294.
+\url{https://doi.org/10.4064/aa116-3-5}.
+
+\bibitem{dlmfBeta}
+NIST Digital Library of Mathematical Functions, \S5.12, Euler's beta integral.
+\url{https://dlmf.nist.gov/5.12}.
+
+\bibitem{dlmfZeta}
+NIST Digital Library of Mathematical Functions, \S25.2, Riemann zeta function: definition, Laurent expansion, and Euler--Maclaurin representations.
+\url{https://dlmf.nist.gov/25.2}.
+\end{thebibliography}
+\end{document}

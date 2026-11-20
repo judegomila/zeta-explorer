@@ -1,0 +1,2 @@
+{"dps": 100, "event": "m0_numeric_run_complete", "h_cutoff": "3.0", "label": "primary", "nodes": 1025, "step_denominator": 128, "t_extent": "4.0", "theta_orbits": 12}
+{"dps": 160, "event": "m0_numeric_run_complete", "h_cutoff": "4.0", "label": "replay", "nodes": 2561, "step_denominator": 256, "t_extent": "5.0", "theta_orbits": 16}

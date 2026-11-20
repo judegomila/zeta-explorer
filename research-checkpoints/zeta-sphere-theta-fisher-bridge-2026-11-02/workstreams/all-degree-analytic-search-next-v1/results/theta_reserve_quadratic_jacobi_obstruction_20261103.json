@@ -1,0 +1,77 @@
+{
+  "analytic_theorems_proved_in_note_not_machine_certified": [
+    "complete theta strip decay and absolute exponential frequency moments",
+    "uniform sqrt(n)*Q_n and sqrt(n)*Q_n'/(1+log(n)) coefficient bounds",
+    "compact two-singularity Darboux expansion with derivative",
+    "weighted weak convergence for Xi^2 and the signed f",
+    "strict positivity and strip-shift expression of c_C",
+    "R_tilde/(n^2*(log(n)+1))->0 and leading root-deletion cancellation"
+  ],
+  "checked": {
+    "C": "4",
+    "asymptotic_ratio_arithmetic": [
+      {
+        "n": 2,
+        "reserve_prefactor_before_1_plus_o1": "24"
+      },
+      {
+        "n": 3,
+        "reserve_prefactor_before_1_plus_o1": "48"
+      },
+      {
+        "n": 7,
+        "reserve_prefactor_before_1_plus_o1": "224"
+      },
+      {
+        "n": 101,
+        "reserve_prefactor_before_1_plus_o1": "41208"
+      }
+    ],
+    "fourier_source_parent_ratio_factor": "1",
+    "gaussian_factor_audit_c_infinity": "1/20",
+    "independent_generating_series": "PASS",
+    "leibniz_jacobi_characteristic_determinants": "PASS at dimensions 1..7",
+    "monic_parity_recurrence_degrees": "0..16 (finite algebra replay, not asymptotic evidence)",
+    "root_deletion": {
+      "coefficient_check": "PASS",
+      "identity": "p'^2-p*p''=sum_j(p/(t-r_j))^2",
+      "rational_simple_roots": [
+        "-7",
+        "-2",
+        "0",
+        "3",
+        "5"
+      ]
+    },
+    "root_deletion_log_squared_coefficient": "1/8",
+    "spatial_log_squared_coefficient": "1/16",
+    "strip_exponent_gap_over_pi": "1/8"
+  },
+  "external_formula_identification": [
+    "https://dlmf.nist.gov/18.23.E7",
+    "https://dlmf.nist.gov/18.22.E8"
+  ],
+  "frozen_sources": {
+    "evidence/v18-curated/hierarchy/large_order_v4/L1_GAUSSIAN_THEOREM.md": "16f69ea1af286f384d15ae0576bc72eedcdf5020dab3030aba4a976dedce6414",
+    "evidence/v20-v26-continuation/theta_parent_growth_v1/GROWTH.md": "749b4e3109a308706d31c07f38817d08f8d061d10aadad8d4fd314d402d57a9f",
+    "evidence/v31-continuation/theta_correlated_local_v1/THETA_CURVATURE_PAYMENT.md": "a508698183302e3827769a3b9cd135023d79ffb557e2fe5f700ffb00cd98d97d",
+    "workstreams/all-degree-analytic-search-next-v1/EWALD_CORRELATED_PAIRING_NEXT.md": "801de61f7aa6c54401c14ef612e151f7b33f5228694323a2ec227eef51495402",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md": "5076a00c5e5b2b20fddd7470d92f61f907a2e954c23dc0bb66278271e0d96970",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md": "1ecb468d0537c6f60e64afc94939bdb415d8522d7b6cc112be4057abc8fc85cb",
+    "workstreams/all-degree-analytic-search-next-v1/THETA_ORBIT_CORRELATED_NEXT.md": "de46d21f14822d74e73639c47d1b51a2b8bfc1bdaca47c81f7a6304e9e647e5a"
+  },
+  "not_proved": [
+    "a lower reserve for the actual inverse-selected theta residual",
+    "exact theta signed stationarity of the alternate ladder (it fails)",
+    "all-degree positive theta Gram blocks",
+    "all-degree modular payment, the endpoint sign, or RH"
+  ],
+  "proof_note": {
+    "path": "workstreams/all-degree-analytic-search-next-v1/THETA_RESERVE_QUADRATIC_JACOBI_OBSTRUCTION_20261103.md",
+    "sha256": "d0ab00f1caa07bd70e094e7657602e0c928738d93d048fe84fc4638d4d1e5f61"
+  },
+  "schema": "zsv.theta_reserve_quadratic_jacobi_obstruction.20261103.v1",
+  "scope": "Unchanged complete-theta profile, alternate coherent quadratic Jacobi trial ladder; not the actual signed-orthogonal endpoint residuals.",
+  "status": "PASS_EXACT_ALGEBRA_AND_SOURCE_BINDING",
+  "verifier_sha256": "3e5de5147fd9ca422fd8faf6cd268af776f64d80f91a17852b0a0c66cea94589"
+}

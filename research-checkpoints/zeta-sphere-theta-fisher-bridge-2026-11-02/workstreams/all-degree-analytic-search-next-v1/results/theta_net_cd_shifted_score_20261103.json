@@ -1,0 +1,95 @@
+{
+  "actual_theta_pointwise_obstruction": {
+    "integrand_without_positive_h_factor_center_limit": "-psi(0)^2<0",
+    "n": 0,
+    "reason": "evenness psi'(0)=0 and psi(0)>0; no quadrature"
+  },
+  "diagonal_cd_exact_jet_audits": [
+    {
+      "exact": true,
+      "independent_jet_coefficients": 1,
+      "n": 0
+    },
+    {
+      "exact": true,
+      "independent_jet_coefficients": 2,
+      "n": 1
+    },
+    {
+      "exact": true,
+      "independent_jet_coefficients": 4,
+      "n": 2
+    },
+    {
+      "exact": true,
+      "independent_jet_coefficients": 20,
+      "n": 7
+    }
+  ],
+  "identities": {
+    "K_prime": "2 F_n F_(n+1)/sigma_n",
+    "net_correlation": "4/sigma_n * int_0^infinity h(F_(n+1)-F_n) T_(n+1)(D)(h psi) dh",
+    "net_ewald_source": "J_n(x)=4/sigma_n * int_0^infinity h(F_(n+1)-F_n) T_(n+1)(D)(h sigma_x) dh",
+    "net_square_difference": "(||2hF_(n+1)+G-|h|F_n||^2-||G+|h|F_n||^2)/(2 sigma_n)",
+    "shifted_projection_sufficient": "y^T K^(-1)y >= ||G+|h|F_n||^2"
+  },
+  "known_generic_barrier_replayed": {
+    "c": 20,
+    "n": 15,
+    "net_target": "160-(66495/1024)*sqrt(20/pi)<0",
+    "rational_squared_gap": "1423195015/29360128"
+  },
+  "next_pivot_sign_caveat": "W_n>=0 implies the next pivot nonnegative only on the branch C_n<=0",
+  "remaining_blocker": "Source-specific signed complete-theta lower bound for the shifted projection, joint orbit correlation, or net Ewald curvature placement; no such bound proved",
+  "schema_version": "zsv.theta_net_cd_shifted_score.20261103.v1",
+  "scope": "Exact all-degree identity reduction and algebra audits; no actual-theta payment sign, theta degree sweep, or RH claim",
+  "shifted_score_exact_gaussian_audits": [
+    {
+      "aggregate_A_n": "0",
+      "coefficient_t0_sqrt_pi": "1/2",
+      "coefficient_t1_rational": "0",
+      "coefficient_t2": "0",
+      "hermite_absolute_moment_e_n": "1",
+      "n": 0,
+      "normalization": "sigma_n*W_n=c^(n-1/2)*(coefficient_t0+coefficient_t1/sqrt(c))"
+    },
+    {
+      "aggregate_A_n": "-1",
+      "coefficient_t0_sqrt_pi": "1/2",
+      "coefficient_t1_rational": "-1",
+      "coefficient_t2": "0",
+      "hermite_absolute_moment_e_n": "2",
+      "n": 1,
+      "normalization": "sigma_n*W_n=c^(n-1/2)*(coefficient_t0+coefficient_t1/sqrt(c))"
+    },
+    {
+      "aggregate_A_n": "-7/2",
+      "coefficient_t0_sqrt_pi": "3/2",
+      "coefficient_t1_rational": "-21/4",
+      "coefficient_t2": "0",
+      "hermite_absolute_moment_e_n": "3",
+      "n": 3,
+      "normalization": "sigma_n*W_n=c^(n-1/2)*(coefficient_t0+coefficient_t1/sqrt(c))"
+    },
+    {
+      "aggregate_A_n": "-66495/2048",
+      "coefficient_t0_sqrt_pi": "638512875/2",
+      "coefficient_t1_rational": "-42457913623125/16384",
+      "coefficient_t2": "0",
+      "hermite_absolute_moment_e_n": "6435/1024",
+      "n": 15,
+      "normalization": "sigma_n*W_n=c^(n-1/2)*(coefficient_t0+coefficient_t1/sqrt(c))"
+    }
+  ],
+  "source_sha256": {
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/MODULAR_REFLECTION.md": "f835812a94fea49975530614dafe600449596d8e579fe2cacfef53a052cdd4e3",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/NORMALIZED_LIMIT.md": "d0f4b2c61364270c71515caaa421a10a29683ddaedbc779ecd36db485cac08af",
+    "workstreams/all-degree-analytic-search-next-v1/ENLARGED_SCORE_PROJECTION_NEXT.md": "2576e464c25c547d0a1a202e4d62e64bd80a96aef444e4562799d3450a96dd43",
+    "workstreams/all-degree-analytic-search-next-v1/EWALD_CORRELATED_PAIRING_NEXT.md": "801de61f7aa6c54401c14ef612e151f7b33f5228694323a2ec227eef51495402",
+    "workstreams/all-degree-analytic-search-next-v1/JOINT_ORBIT_SCORE_NEXT.md": "ea20400dca0c99f4d3617a1f9f8d513322c1d683763fa4b35d9973ebb4acf819",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_EWALD_GROUPING_NEXT.md": "7cbcc0dd83f1417b08a54922a646be01f8eeaba58568855ff4ee26a994296b70",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_FULL_CONSERVATION_GAUSSIAN_BARRIER_20261103.md": "425b2c7347090b7af3497614f17ed4364c7bffd0b35bce7b30171c463f96e14c",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_THETA_HIGH_DEGREE_CRITERION_20261103.md": "1ecb468d0537c6f60e64afc94939bdb415d8522d7b6cc112be4057abc8fc85cb"
+  },
+  "status": "PASS"
+}

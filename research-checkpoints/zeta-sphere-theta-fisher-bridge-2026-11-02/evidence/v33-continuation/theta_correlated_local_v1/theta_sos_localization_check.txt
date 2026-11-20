@@ -1,0 +1,4 @@
+Exact quadratic flux: PASS
+Localized square decomposition: PASS
+Rational constants and exp(3)>20 Taylor bound: PASS
+No general-degree sign inferred.

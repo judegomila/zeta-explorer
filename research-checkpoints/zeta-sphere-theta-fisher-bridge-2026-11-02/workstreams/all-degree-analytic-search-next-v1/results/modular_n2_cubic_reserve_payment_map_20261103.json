@@ -1,0 +1,40 @@
+{
+  "checks": [
+    "frozen source hashes",
+    "T1 reflection",
+    "T2 reflection",
+    "T3 reflection",
+    "centered reflection square with all cross terms",
+    "R^T r=r component 1",
+    "R^T r=r component 0",
+    "negative block Schur square completion",
+    "endpoint stationarity witness I=N0/2",
+    "opposite-monotonicity covariance symmetrization",
+    "exact half-Gaussian h^2 and h^3 moment ratios",
+    "17^3=4913",
+    "endpoint cost floor exceeds cubic floor via pi>3",
+    "reflection bracket is unbounded under lower bounds alone"
+  ],
+  "conclusion": "The cubic floor cannot by itself pay the N=2 modular cost uniformly on 0<a<=1/4: the reverse strict comparison holds for all sufficiently small positive a. This does not decide whether the true larger s3 pays.",
+  "exact_formulas": {
+    "covariance_identity": "2*Cov_q(f,R)=E_q[(f(X)-f(Y))*(R(X)-R(Y))]<=0",
+    "cubic_route_required": "kappa2*Q2_minus <= (4913/4)*s0",
+    "endpoint_cost_over_sigma0_lower": "sqrt(pi)*17^(5/2)",
+    "endpoint_cubic_floor": "17^3/4",
+    "half_gaussian_h2_ratio": "1/34",
+    "half_gaussian_h3_ratio": "1/(sqrt(pi)*17^(3/2))",
+    "kappa2": "a*(8+36*a^2/b2+(4*a^2-2*b1+b2)^2/(b1*b2))",
+    "likelihood_ratio": "R(h)=psi(h)^2*exp(17*h^2) is decreasing",
+    "payment": "s3 >= kappa2*Q2_minus",
+    "strict_constant_reduction": "16*pi>17; certified here from pi>3"
+  },
+  "schema_version": "zsv.modular_n2_cubic_reserve_payment_map.20261103.v1",
+  "scope": "Exact N=2 reflection/payment algebra and analytic endpoint constant comparison; no quadrature, degree sweep, all-degree theorem, or RH claim",
+  "source_sha256": {
+    "evidence/v18-curated/latest_bounds_audit/H3_AUDIT.md": "ff860428451d4fa01108ab611ebd954d9ab3d4b98c6f284ff377ee18a04a6179",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/MODULAR_REFLECTION.md": "f835812a94fea49975530614dafe600449596d8e579fe2cacfef53a052cdd4e3",
+    "evidence/v20-v26-continuation/modular_cd_flux_v1/PAID_HALF_LINE.md": "808cdf94c2196e8dbe819418534d9a95853ff8aa61d2ff3d09412a57a95b4fb0",
+    "workstreams/all-degree-analytic-search-next-v1/MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md": "5076a00c5e5b2b20fddd7470d92f61f907a2e954c23dc0bb66278271e0d96970"
+  },
+  "status": "PASS"
+}

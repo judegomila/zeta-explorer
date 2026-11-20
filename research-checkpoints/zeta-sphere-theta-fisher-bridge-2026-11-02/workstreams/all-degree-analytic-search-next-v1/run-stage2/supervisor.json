@@ -1,0 +1,8 @@
+{
+  "pid": 55772,
+  "python": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+  "root": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02",
+  "started": 1793704350.8719711,
+  "tasks": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/tasks-stage2.json",
+  "worker": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/src/paid_twin_border_falsifier.py"
+}

@@ -1,0 +1,239 @@
+{
+  "version": 19,
+  "baseline_version": 18,
+  "purpose": "Authored reviewed delta plus explicitly labeled diagnostics; not third-party source captures",
+  "files": [
+    {
+      "path": "V19_INDEX.md",
+      "sha256": "18578f61226805c9d1e93db6a9de4f690938eb03e00b0011e99a3b5c298c117b"
+    },
+    {
+      "path": "fisher_bridge_v3/ENDPOINT_AND_ACTION.md",
+      "sha256": "855f4a79d8814b2bef6d33f29b3baff00c27d3dacac608eb43129ee26c5a0a87"
+    },
+    {
+      "path": "fisher_bridge_v3/FROZEN_SHA256.txt",
+      "sha256": "add5c1c205745cd2436c3bc5f94d5d7eac704b0634812ad0b3e4bbbf8426d6d0"
+    },
+    {
+      "path": "fisher_bridge_v3/INTERVAL_METHOD.md",
+      "sha256": "06fddb7f7daec089352a2350ce1d114a534656e707896b925d78f9586e390cdb"
+    },
+    {
+      "path": "fisher_bridge_v3/action_128_12.json",
+      "sha256": "186712460674e3866d505c889abd8285f6abff4557cb08920973e4e6dad5c2db"
+    },
+    {
+      "path": "fisher_bridge_v3/action_128_12.txt",
+      "sha256": "293c0d5129c6dd2aec955d67706b7a4a8016cfc742fdd680594dfbbcb7ce71a4"
+    },
+    {
+      "path": "fisher_bridge_v3/action_probe.py",
+      "sha256": "d8eec17a09e6b7aad0e6495ffbb28ed68d488bb47911f99b424fb7896e07d962"
+    },
+    {
+      "path": "fisher_bridge_v3/certify_endpoint.py",
+      "sha256": "72552ee371c0b840f94b7123a5b2ddac68cd8933b18efd8a2444e1cd10f40cda"
+    },
+    {
+      "path": "fisher_bridge_v3/certify_parent20.py",
+      "sha256": "4d43d73a8f844c49ad787ff9d57704bed0edc40d92639730898f19d084531b14"
+    },
+    {
+      "path": "fisher_bridge_v3/endpoint_certificate_1000.json",
+      "sha256": "6042e7989864e2e64f89989bb82329d2bf3af91fe848bed722496ae364335509"
+    },
+    {
+      "path": "fisher_bridge_v3/endpoint_certificate_1000.txt",
+      "sha256": "4483e974c9ac27bc8fa0e9f138bd2d6533d947a8003b24cacbde64dc2c208e5b"
+    },
+    {
+      "path": "fisher_bridge_v3/metric_64.json",
+      "sha256": "71724d452f6c64fc1c41722d0df6740f1bf53d0f42b4d7060b2417fc44e63ce8"
+    },
+    {
+      "path": "fisher_bridge_v3/metric_probe.py",
+      "sha256": "5bc874aaecd4f9c75e410fa4a2eb1cab3645605f6284b3c853d2c668e04b97f8"
+    },
+    {
+      "path": "fisher_bridge_v3/parent_interval20_1000.txt",
+      "sha256": "e8b04239eb134e275d5613384a2ce4da12ce18ae27ada6a01d84d59c0bcacfa8"
+    },
+    {
+      "path": "fisher_bridge_v3/parent_interval_1000.json",
+      "sha256": "7e62d06a0ba7eec5fd7a80e4e5f63a35cf87875d92d73b04314259ae596ef928"
+    },
+    {
+      "path": "fisher_bridge_v3/probe.py",
+      "sha256": "068750102443173a7dfeb20fae3867605af5a2f4623461da6340b13b292a1a30"
+    },
+    {
+      "path": "fisher_bridge_v3/probe_128.json",
+      "sha256": "92017e9d087d2bf94c363feed8f4ac529c3bcfd4768e16624d8cc982fa2ff773"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/AUDIT.md",
+      "sha256": "10060774a6fbaf6a312b48feab075dc273b555ec2d1783d3602269b5f2b64a15"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/endpoint_certificate_1000.json",
+      "sha256": "6042e7989864e2e64f89989bb82329d2bf3af91fe848bed722496ae364335509"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/endpoint_run.txt",
+      "sha256": "4483e974c9ac27bc8fa0e9f138bd2d6533d947a8003b24cacbde64dc2c208e5b"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/parent_interval_1000.json",
+      "sha256": "7e62d06a0ba7eec5fd7a80e4e5f63a35cf87875d92d73b04314259ae596ef928"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/parent_run.txt",
+      "sha256": "e8b04239eb134e275d5613384a2ce4da12ce18ae27ada6a01d84d59c0bcacfa8"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/replay_endpoint.py",
+      "sha256": "dbba6cc71d4d150519ebdfce6313085426d3903f86c5e995dfaf5187bc0b5cb1"
+    },
+    {
+      "path": "fisher_bridge_v3_audit/replay_parent.py",
+      "sha256": "f2d1a17d7a11ce0ea599f00cdb701a308b060e4afbb023d8dd172feaef157574"
+    },
+    {
+      "path": "orthogonality_forcing_audit/AUDIT.md",
+      "sha256": "f2984802112a7826dc9f70c8610684fb08b1414f12ccc0efffb21c2f81e8f294"
+    },
+    {
+      "path": "orthogonality_forcing_audit/check_identity.out",
+      "sha256": "5e90c9a8aade48662685f0fb8f983fdbf4850fdfd0c2aa8372d5d9806b02ae23"
+    },
+    {
+      "path": "orthogonality_forcing_v1/FROZEN_SHA256.txt",
+      "sha256": "444c6ad5df3bbf8316d604ae5590df671fa2a687bb6eef91ab920fc976c1ef8b"
+    },
+    {
+      "path": "orthogonality_forcing_v1/REDUCTION.md",
+      "sha256": "7b55c19f122f4675295c26b0ed70fd16cf0b65d8c9020480622f1cafcc5bfd1f"
+    },
+    {
+      "path": "orthogonality_forcing_v1/check_identity.out",
+      "sha256": "5e90c9a8aade48662685f0fb8f983fdbf4850fdfd0c2aa8372d5d9806b02ae23"
+    },
+    {
+      "path": "orthogonality_forcing_v1/check_identity.py",
+      "sha256": "fc5383e4bbd909637ca97e84e546ae518e226b4d19f7a451e15136c8540dd8ea"
+    },
+    {
+      "path": "paid_relaxation_audit/AUDIT.md",
+      "sha256": "583bc7a1f9b31d9a5d169079a22ee727e4cc26f329746351c3bc477bfccc43a3"
+    },
+    {
+      "path": "paid_relaxation_audit/certificate.json",
+      "sha256": "f8bfbcd6be8b6781c37258dda69541bb30ea130632f0b01e2a23072b76e1bbf4"
+    },
+    {
+      "path": "paid_relaxation_audit/endpoint_bounds.json",
+      "sha256": "6db00b76f46fd49fdc5da9e14f426aebddf8368ba93bd9d1f23caac1d55296e7"
+    },
+    {
+      "path": "paid_relaxation_audit/replay_endpoint.py",
+      "sha256": "ecbc2da2e0f2948c5cea6905760cc5f84971a189fab107b13f388e0f5d5bb395"
+    },
+    {
+      "path": "paid_relaxation_audit/run.txt",
+      "sha256": "b609efd2c3451c10dbff1c2c629b12e34424d964f6748fc5beeb563ef669655e"
+    },
+    {
+      "path": "paid_relaxation_audit/tail_constants.txt",
+      "sha256": "a4f508cc0e028604e9f81893235c499daa33fabbc66e880e81b911d688992a42"
+    },
+    {
+      "path": "paid_relaxation_v2/CERTIFICATE.md",
+      "sha256": "5dddc2afe993bfc4c553685644b7a5c97a83d51660ea59ad53b85d4db90b7dd3"
+    },
+    {
+      "path": "paid_relaxation_v2/FROZEN_SHA256.txt",
+      "sha256": "eaa900a3f001f1c4746d973f7a57ae70e8ef308b10612a228380aa4123d7078a"
+    },
+    {
+      "path": "paid_relaxation_v2/PAID_CANCELLATION.md",
+      "sha256": "05bbba01614204c4a05d79a114d6356507ef0e86ab2d7fc53987ac67735dd32c"
+    },
+    {
+      "path": "paid_relaxation_v2/certify_n2.py",
+      "sha256": "5aae3a594ce4ac7ce3342c491b94871321e97da43397a9ab79af4275f2c77751"
+    },
+    {
+      "path": "paid_relaxation_v2/certify_n2_final.json",
+      "sha256": "f8bfbcd6be8b6781c37258dda69541bb30ea130632f0b01e2a23072b76e1bbf4"
+    },
+    {
+      "path": "paid_relaxation_v2/certify_n2_final.log",
+      "sha256": "b609efd2c3451c10dbff1c2c629b12e34424d964f6748fc5beeb563ef669655e"
+    },
+    {
+      "path": "paid_relaxation_v2/check_tail_constants.out",
+      "sha256": "a4f508cc0e028604e9f81893235c499daa33fabbc66e880e81b911d688992a42"
+    },
+    {
+      "path": "paid_relaxation_v2/check_tail_constants.py",
+      "sha256": "3df089f8f6acf927bab7a9d6a9ded475b4675fb44a4529c693dbac936effc478"
+    },
+    {
+      "path": "paid_relaxation_v2/endpoint_summary.json",
+      "sha256": "2f417adf324185cd40c2289f2af3f149cdbd0f06d36f9ea864aae29c93f6e37c"
+    },
+    {
+      "path": "paid_relaxation_v2/endpoint_summary.py",
+      "sha256": "8ec752820bc80a930ca8f103586dac14fce268808ff0a1d33633c66cbe6a90eb"
+    },
+    {
+      "path": "paid_relaxation_v2/gaussian_budget.json",
+      "sha256": "59869c5b4c6e8188b09a7a55772a7e0c9e8949c4179b78b987a54d5723c376f0"
+    },
+    {
+      "path": "paid_relaxation_v2/gaussian_budget.py",
+      "sha256": "abe0167ddcde8d3057def8c56a5cc36951025525f06fdff73afec28325f43770"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_degrees.json",
+      "sha256": "7c8838de287d8f49578b0c3fff51089cec71ee654748a32d9decd3e2b10f04b2"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_degrees.py",
+      "sha256": "43bada0022047226e11a960ba5bb6ba82a73fd9ab396b2baf81898e88a9cc2fb"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_n2.json",
+      "sha256": "e88cdf87016ad302e10bfa981efc5cd4c82098df8f08677d0197c99497fa544e"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_n2.py",
+      "sha256": "0a9a801b3924143453cba3fc84d0189641413472b4a790fbb416cd2bf812d882"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_reduced.json",
+      "sha256": "cb98d4d244aeccb1925f6c58c63264e64040d8c65250834e1f90661eac862680"
+    },
+    {
+      "path": "paid_relaxation_v2/theta_budget_reduced.py",
+      "sha256": "8608f195a814b353bc91efc410c32620a5be2479b05f8f46e093969a9dc84015"
+    },
+    {
+      "path": "source_2354_audit/H6_AUDIT.md",
+      "sha256": "0edc70dcc7540c9be8facfff1d207540e9e54ad7c93198ed90a0b8c6aac10337"
+    },
+    {
+      "path": "source_2354_audit/h6_replay.json",
+      "sha256": "f6db53bd1ed5eeb5727e31c7b9da5aafab3f033b3597daddc7b5d034128735f6"
+    },
+    {
+      "path": "source_2354_audit/h6_run.txt",
+      "sha256": "9230d6cdf257db58b94bfe5424436a7fe495a6a92095620aa3cac00373272ded"
+    },
+    {
+      "path": "source_2354_audit/replay_h6.py",
+      "sha256": "87b99dec27d3cb9af5e51dad60c3d85fba13ade7df5fa163fdfbf943e2795702"
+    }
+  ]
+}

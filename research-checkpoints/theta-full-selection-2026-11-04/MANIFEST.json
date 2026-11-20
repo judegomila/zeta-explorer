@@ -1,0 +1,75 @@
+{
+  "publication_kind": "append-only frozen research checkpoint",
+  "scope": "Full arithmetic differentiation bounds and fixed-band coercivity obstructions; a solved integer-label GCD selection comparison model; actual-theta lower spectral counting. The actual full-selected upper bound and RH remain unproved. The GCD selector is not the actual theta polynomial selector. No selected sign or coherence result is claimed.",
+  "source_folder_name": "theta_full_selection_20261104",
+  "payload_count": 9,
+  "payload_bytes": 103703,
+  "original_final_payload_files": [
+    "ARITHMETIC_FREQUENCY_SEPARATION.md",
+    "AUDIT.md",
+    "EXACT_GCD_ENDPOINT_SELECTION.md",
+    "EXACT_GCD_ENDPOINT_SELECTION_AUDIT.md",
+    "FIXED_BAND_ARITHMETIC_INDEPENDENT_AUDIT.md",
+    "FULL_GRAM_DETERMINANT_INVESTIGATION.md",
+    "QUANTITATIVE_PERIOD_SPECTRAL_COUNT.md",
+    "README.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/README.md",
+      "bytes": 4165,
+      "sha256": "cc930c7714b6e91c7c634550d1e0d31e63c7bb94a547242ce2d3e51e15761590",
+      "source_identical": true
+    },
+    {
+      "path": "src/ARITHMETIC_FREQUENCY_SEPARATION.md",
+      "bytes": 25859,
+      "sha256": "f99d5f03951239c5438c613316bb7b6908aa56458d31146b0545fbb174140d43",
+      "source_identical": true
+    },
+    {
+      "path": "src/FIXED_BAND_ARITHMETIC_INDEPENDENT_AUDIT.md",
+      "bytes": 23742,
+      "sha256": "4234e2b08a6eebd7d36c6ff5a72d649fe13033b9826fc1b161cd6bf0823a4da2",
+      "source_identical": true
+    },
+    {
+      "path": "src/EXACT_GCD_ENDPOINT_SELECTION.md",
+      "bytes": 7234,
+      "sha256": "53fdae7905f4d4387f171632a0b100d1557329617b176c691b4e93890e550398",
+      "source_identical": true
+    },
+    {
+      "path": "src/EXACT_GCD_ENDPOINT_SELECTION_AUDIT.md",
+      "bytes": 6899,
+      "sha256": "91af905dc391e3a4dd92d13db3701747c836ba4d80b7297a54d7302c70059bc7",
+      "source_identical": true
+    },
+    {
+      "path": "src/FULL_GRAM_DETERMINANT_INVESTIGATION.md",
+      "bytes": 16194,
+      "sha256": "49c19f6d0c292eea8ff241302ef04fdebf8bbebece1fd310c4bb3c09f0739fd8",
+      "source_identical": true
+    },
+    {
+      "path": "src/QUANTITATIVE_PERIOD_SPECTRAL_COUNT.md",
+      "bytes": 13607,
+      "sha256": "569eb4bf71b5f73f46e78c562ef623c0a9e4377da1d176b8057adf37f6246154",
+      "source_identical": true
+    },
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 5231,
+      "sha256": "2c5468d2a2393c25c2235c2890e9608421478101545fe21c3596fa159fb94996",
+      "source_identical": true
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 772,
+      "sha256": "0fd51e5c592fb04e0f213b4371296bc29ccc1f5549d30c5bd13dfe68e49c18ec",
+      "source_identical": true
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. Supplied analytical audits are AI-assisted, not external peer review or machine formalization. Inherited dependencies are not reproved."
+}

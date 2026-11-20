@@ -1,0 +1,8 @@
+{
+  "pid": 20930,
+  "python": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+  "root": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02",
+  "started": 1793702243.941306,
+  "tasks": "workstreams/all-degree-analytic-search-next-v1/tasks-stage0.json",
+  "worker": "workstreams/all-degree-analytic-search-next-v1/src/egf_identity.py"
+}

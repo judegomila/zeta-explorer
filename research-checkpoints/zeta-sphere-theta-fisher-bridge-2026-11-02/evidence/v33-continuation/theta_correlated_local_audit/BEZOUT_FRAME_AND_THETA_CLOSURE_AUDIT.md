@@ -1,0 +1,15 @@
+# Independent audit: actual deletion frame and rational closure obstruction
+
+Analytic PASS with the final scope wording correction requested, 2026-11-03. No acquired code execution or numerical ladder.
+
+Positive definiteness through degree n-1, together with real moments through 2n-1, defines the finite symmetric Jacobi compression. Its off-diagonals are strictly positive from the old norms; its final diagonal uses only the available cross moment. Its characteristic polynomial is the actual monic p_n and its roots are real and simple without assuming the next norm. For distinct roots, q_j q_k=p_n times a polynomial of degree n-2, so actual orthogonality gives zero. Each d_j>0 and evaluation at the roots proves independence. The deletion cost is precisely sum d_j B_jj in the stated actual-prefix frame, with the parent Gram retained separately.
+
+Gauss weights d_j/p_n'(r_j)^2 are positive. Polynomial division by p_n proves quadrature exactness through 2n-1: the quotient then lies in the known orthogonality range, and the remainder is interpolated at the nodes. Degree 2n is not included. In particular the quadrature value zero for p_n^2 cannot determine its unknown actual norm. No circular next-norm normalization occurs.
+
+For q=e^(2u), the theta identity psi=4e^(u/2)[q^2 Theta''+(3/2)q Theta'] has the correct factor. The imaginary period 2i follows termwise from integer n^2. Poisson inversion gives Theta(x)=x^-1/2 plus exponentially small corrections; differentiated corrections remain exponentially small relative to the displayed powers. At q_k=2ik, periodicity transfers this expansion. The leading q^2 Theta'' term is 3e^(u_k/2)q_k^2 x^-5/2, nonzero; the q Theta' term is lower order. The approach u=(1/2)Log(q_k+x) stays in the analytic strip and reaches infinitely many distinct boundary points u_k. Each is a genuine singularity.
+
+Any polynomial-coefficient linear ODE holding on the real axis holds on the connected strip by analyticity. At a boundary point where its leading coefficient is nonzero, ordinary-point ODE continuation from a neighboring point in the strip yields a holomorphic extension to that point, contradicting the divergence. A nonzero polynomial leading coefficient cannot vanish at infinitely many u_k. Clearing rational denominators proves the rational-coefficient version. Rational-coefficient finite differential operators applied to a Gaussian yield a meromorphic function with only finitely many poles, so that separate representation is also excluded.
+
+Primary modular inversion reference independently opened: https://dlmf.nist.gov/20.7#E32 . The imaginary period is proved directly from the defining series, not assumed from a zero theorem.
+
+Accepted scope is fixed finite rational LINEAR derivative closure in the coordinate u. It does not exclude nonlinear differential relations, nonrational or infinite-dimensional closures, integral operators, or finite arithmetic inequalities that do not imply the excluded ODE. Requested replacement of the final overly broad implication with this narrower statement. No signed payment, new pivot, or all-shift conclusion follows.

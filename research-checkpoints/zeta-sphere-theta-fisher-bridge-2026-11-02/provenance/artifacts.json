@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-02",
+  "artifacts": [
+    {
+      "role": "campaign-baseline",
+      "name": "zeta_sphere_campaign_v18_20261102T2347Z.zip",
+      "library_file_id": "libfile_93281585a66c81918ba351446f9d7615",
+      "file_id": "file_0000000098a081f586d9319e2b1648be",
+      "version": 0,
+      "bytes": 4369533,
+      "sha256": "3a47ccddd9a529c719e4a2ca0a6b262290610cbc1d651f3dec20e8ffd8f5c9ef",
+      "integrity": "unzip-test-pass; internal MANIFEST.sha256 585/585 pass",
+      "repository_copy": "curated-extraction",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "campaign-v19-publication-delta",
+      "name": "zeta_sphere_campaign_v19_20261103T0020Z.zip",
+      "bytes": 4843375,
+      "sha256": "8fe5bb4162a0650d297c3ec841b81111ef25c06ce19a1133725e87d4b7e90aa0",
+      "integrity": "unzip-test-pass; internal manifest 672/672 pass; all 585 v18 payloads preserved byte-for-byte",
+      "repository_copy": "58-file publication allowlist with two recorded privacy redactions; source archive, conversation capture, and acquired source excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
+    },
+    {
+      "role": "campaign-v20-v26-publication-continuation",
+      "name": "zeta_sphere_campaign_v26_20261103T0229Z.zip",
+      "bytes": 5658383,
+      "sha256": "945a1f0b5bc0a3fbb0852bd3af2512e5f9797022aad48ded4afc9bc9dba1d71e",
+      "integrity": "unzip-test-pass; internal manifest 839/839 pass; all 825 v25, 672 v19, and 585 v18 payloads preserved byte-for-byte",
+      "repository_copy": "146-file deduplicated publication allowlist with seven recorded Library-identifier redactions; seven publication manifests retained; source archive and 14 duplicate private provenance manifests excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded public smoke checks are recorded separately"
+    },
+    {
+      "role": "campaign-v27-v30-publication-continuation",
+      "name": "zeta_sphere_campaign_v30_20261103T0421Z.zip",
+      "bytes": 7056540,
+      "sha256": "f17d58c60d7dabaab7018ad38aa57c628748c7dc9ed2081c616332a95ace5cd6",
+      "integrity": "unzip-test-pass; internal manifest 968/968 pass; all 940 v29, 905 v28, 857 v27, and 839 v26 payloads preserved byte-for-byte",
+      "repository_copy": "84-file deduplicated publication allowlist with six recorded privacy redactions; four publication manifests retained; source archive, 33 private/acquired paths, and eight duplicate prior manifests excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately"
+    },
+    {
+      "role": "campaign-v31-publication-continuation",
+      "name": "zeta_sphere_campaign_v31_20261103T0543Z.zip",
+      "bytes": 7430485,
+      "sha256": "841e3ea3e332334fb022b5a1859fcbce0c8b3f3012a3659e2e83e13e2f2391ef",
+      "integrity": "unzip-test-pass; internal manifest 1133/1133 pass; all 968 v30 payloads preserved byte-for-byte",
+      "repository_copy": "162 explicitly classified owned payloads with one recorded identifier-only redaction; exact publication manifest retained; source archive, master manifests, two duplicate v30 provenance manifests, and all unallowlisted private/acquired material excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately"
+    },
+    {
+      "role": "campaign-v32-publication-continuation",
+      "name": "zeta_sphere_campaign_v32_20261103T0754Z.zip",
+      "bytes": 8156868,
+      "sha256": "ba4504126d2ee711ca5b4bf3f8ece7b83ee6023230afcb4d98c415d15f65a5cf",
+      "integrity": "unzip-test-pass; internal manifest 1541/1541 pass; all 1133 v31 payloads preserved byte-for-byte",
+      "repository_copy": "405 explicitly classified owned payloads with one recorded identifier-only redaction; exact publication manifest retained; source archive, master manifests, two duplicate v31 provenance manifests, and all unallowlisted private/acquired material excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately; no acquired program executed"
+    },
+    {
+      "role": "campaign-v33-publication-continuation",
+      "name": "zeta_sphere_campaign_v33_20261103T1331Z.zip",
+      "bytes": 8672645,
+      "sha256": "7fa9c3f26154506f107cba1ac45e58545ef51b9115496d4965a00b45a8d75007",
+      "integrity": "unzip-test-pass; internal manifest 1778/1778 pass; all 1541 v32 payloads preserved byte-for-byte",
+      "repository_copy": "234 explicitly classified owned payloads retained byte-for-byte; exact publication manifest retained; source archive, master manifests, two duplicate v32 provenance manifests, and all unallowlisted private/acquired material excluded",
+      "private_locator": "retained outside the public repository",
+      "rerun_status": "supplied-and-hash-verified; bounded and scientific replay scopes are recorded separately; published Platt-Trudgian zero verification and acquired programs were not rerun"
+    },
+    {
+      "role": "preserved-v17-baseline-identity",
+      "name": "zeta_sphere_campaign_v17_20261102T2328Z.zip",
+      "library_file_id": "libfile_3c3aff317d308191bde03515a0a4dd47",
+      "file_id": "file_000000004c8c81f58265ef0c29aa92be",
+      "bytes": 4253983,
+      "sha256": "91fcf656def48a7be236aab622cfe2dd426cdf2e0794ea032859bcf6764ea486",
+      "integrity": "unzip-test-pass",
+      "repository_copy": "the original v18 artifact preserves all 537 v17 payloads byte-for-byte; the repository derivative applies the separately recorded exclusions and public redactions",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "post-v17-delta",
+      "name": "MathExplorer_RH_CP62_joint_anchor_and_heated_tail_v1.zip",
+      "library_file_id": "libfile_19a836c8b8a8819198a91a5abe44c640",
+      "file_id": "file_00000000aba081fd83d4aa4bf45da77b",
+      "bytes": 79980,
+      "sha256": "75db9056b1863e904afecbbf2a99de1ff108a48fd3b0ea2242c988e899aa7ccb",
+      "integrity": "unzip-test-pass",
+      "repository_copy": "complete-extraction",
+      "rerun_status": "supplied-and-hash-verified"
+    },
+    {
+      "role": "historical-fisher-provenance-not-published",
+      "name": "RH_Grid_Fisher_Review_Packet_2026-10-24.zip",
+      "library_file_id": "libfile_126800906ab88191a52d3b901a0327d0",
+      "bytes": 575080,
+      "sha256": "b175bf5d2b397aa89eb30a16ce6df2b90034fd38cfef3d5f80b9c987cc388099",
+      "integrity": "unzip-test-pass; internal checksums pass",
+      "repository_copy": "none",
+      "rerun_status": "provenance-only; does not contain the v18 Fisher bridge theorems"
+    }
+  ]
+}
+

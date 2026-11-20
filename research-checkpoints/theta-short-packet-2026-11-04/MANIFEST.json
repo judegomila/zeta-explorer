@@ -1,0 +1,54 @@
+{
+  "baseline_commit_observed_during_preparation": "9a2a503820e6783f4fef2d6e54df0034eb66be04",
+  "publication_kind": "append-only actual-theta short-packet estimates",
+  "scope": "Explicit mesoscopic packets are not the fully X-selected endpoints. Absolute derivative floors do not bound weighted low-frequency mass. The selected-polynomial bridge, constant-width low-pass mass estimate and selected o(Delta) bound remain open. No signed pivot or RH conclusion.",
+  "source_folder_name": "theta_short_packet_20261104",
+  "payload_count": 6,
+  "payload_bytes": 62438,
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 4100,
+      "sha256": "f2c8ad5195ca88b353fa10f3cdb0f99abc5d0714ac9ab6b928203db36f4c62b4",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    },
+    {
+      "path": "src/BANDLIMITED_TOP_MODE_LOWER_BOUND.md",
+      "bytes": 12285,
+      "sha256": "349de229b7f6fa5774140698bd92ab160b7ec5e1e97af3f66946452239dbf36a",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    },
+    {
+      "path": "src/MESOSCOPIC_FEJER_HARDY_Z_ASYMPTOTIC.md",
+      "bytes": 20305,
+      "sha256": "b84c7df0828aec439548536f4fd499eda27bf969cc619b3016bea5cdf245cf5c",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4639,
+      "sha256": "259448cecb70785253efe2fff7352e399395808c603de9cb69089a51397812f6",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 456,
+      "sha256": "8196c489fb34cffda32e34673212d8b992d6c2219645dd5c86d95a57343139ff",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    },
+    {
+      "path": "src/SHORT_PACKET_FREQUENCY_AUDIT.md",
+      "bytes": 20653,
+      "sha256": "786415f1340e0b9b5d4c16e8b7081b1425aae1bea161d805f4dd88405a81af77",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retains fixed-parameter hypotheses and cited classical arithmetic dependencies"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Source analytic audit and cited classical dependencies retained. This preservation step verifies exact bytes and audit snapshot hashes, not mathematical proofs."
+}

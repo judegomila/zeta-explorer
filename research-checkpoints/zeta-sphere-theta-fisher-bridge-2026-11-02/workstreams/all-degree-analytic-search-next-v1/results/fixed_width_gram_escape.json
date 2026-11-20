@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "bounded_scalar_band_escape": 1000,
+    "finite_dictionary_scalar_span_escape": 1000,
+    "full_a_b_s_operator_recurrence": 3000,
+    "product_rule": 1000,
+    "skipped_finite_symbol_roots": 0
+  },
+  "sample_band_escape": {
+    "alpha": -18,
+    "band_R": 12,
+    "beta": 14,
+    "current_degree": 55,
+    "new_top_feature_degree": 82,
+    "old_band_max_degree": 80
+  },
+  "scope": "Exact polynomial algebra only; no finite-degree theta, all-degree pivot, Xi--Laguerre, or RH claim.",
+  "seed": 20261103,
+  "source": "/Users/USER/Documents/Codex/2026-11-02/task-4/mathexplorer-swarm/research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/workstreams/all-degree-analytic-search-next-v1/src/verify_fixed_width_gram_escape.py",
+  "source_sha256": "cab62c57471fb2fe378d55fc8ea6ccc7957f6f1b6b496c1f2c91da5a2241071f",
+  "status": "PASS",
+  "trials_requested_per_family": 1000
+}

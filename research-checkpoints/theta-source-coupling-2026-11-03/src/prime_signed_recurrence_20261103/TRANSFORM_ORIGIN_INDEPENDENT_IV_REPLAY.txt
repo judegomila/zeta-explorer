@@ -1,0 +1,3 @@
+Independent mpmath.iv PASS at 50 decimal digits.
+Doubled first-orbit integral enclosure: [0.9920592300946047463780525938817614520911235899524588184, 0.9957400732737016982454938546995360201660647382623980576]
+Exact rational comparison: lower endpoint > 99/100.

@@ -1,0 +1,67 @@
+{
+  "bindings": {
+    "analysis_source_sha256": "0d5d7fd65d0e78f2f038a9936e4edadba8f35cf847727865431e851542d886f5",
+    "receipts": {
+      "border_endpoint_p120": {
+        "output": "workstreams/all-degree-analytic-search-next-v1/results/border_endpoint_p120.json",
+        "sha256": "55323582b7740b6b8e354c6c2ea2a6cdce030078d0b881332148df9c2c8e9b94"
+      },
+      "border_endpoint_replay_p180": {
+        "output": "workstreams/all-degree-analytic-search-next-v1/results/border_endpoint_replay_p180.json",
+        "sha256": "58dcd4599e0f6c811c507930374b79c5d45d79760f5377e1f90a73bb3a96d699"
+      }
+    },
+    "tasks_sha256": "b263c30d6671dc2865011285579f5c6c5300461d5ff9df9de45fbbf5c90bb9ae",
+    "worker_sha256": "fc328b839d38d9ded8fba51b2a903851fdf165b81b7d08d8f8519cfee429138b"
+  },
+  "checks": {
+    "all_checks_passed": true,
+    "all_worker_hard_gates_pass": true,
+    "both_receipts_hash_match": true,
+    "no_signal_or_load_failure_events": true,
+    "primary_replay_stable": true,
+    "protected_job_preserved": true,
+    "queue_and_inputs_hash_bound": true
+  },
+  "degree19": {
+    "gain": "0.000252203721524327352015141790392039890011125531258547824433513936285489746234830825239168746831236294585912788130650883996565031407289797572731401056662235062910412564",
+    "inverse_cost": "0.0000918765622810192213421901714116057812635108365595582579222607427495742803311413855664385211521717887589299102044300054926856980704117688025016035467044607322137550593",
+    "largest_cost_fraction": "0.7990261913404963171947459460",
+    "largest_cost_term": "0.0000734117796328606911200368721700211113607045463536367953107926456302905675155965291138502645642584720544354459803784023360315076477734724574426647751883474155712082299",
+    "largest_cost_term_old_degree": 17,
+    "old_target_last_degree17_pivot": "0.000459690480178696002815059072681459388399423931685507273431872720504019745023553539601564305515989437225816769172128937525778435374268428450753556188585144511813177999",
+    "surplus_new_degree19_pivot": "0.000160327159243308130672951618980434108747614694698989566511253193535915465903689439672730225679064505826982877926220878503879333336878028770229797509957774330696657504"
+  },
+  "run_audit": {
+    "completed_tasks": [
+      "border_endpoint_p120",
+      "border_endpoint_replay_p180"
+    ],
+    "event_sequence": [
+      "supervisor_started",
+      "worker_started",
+      "worker_started",
+      "worker_completed",
+      "worker_completed",
+      "queue_complete"
+    ],
+    "failed_tasks": 0,
+    "forbidden_events_observed": [],
+    "hard_worker_cap": 5,
+    "host_busy_percent_at_last_heartbeat": 8.0,
+    "lock_state_at_last_heartbeat": "locked",
+    "protected_job_detail": "protected command and cwd matched"
+  },
+  "schema_version": "zsv.paid_twin_border_analysis.v1",
+  "scope": "Deterministic analysis of a SHA-bound midpoint diagnostic for the already certified odd endpoint rungs 3..19. The archived intervals, not these midpoint eta coordinates, carry the finite certificate. This is not an all-degree result or an RH proof.",
+  "stability": {
+    "max_absolute_difference": "4.90806944703392593033705095612148028305905703512088105495269E-105",
+    "max_difference_location": "degree=15:parent_regression_alpha[4]",
+    "max_scaled_difference": "3.6931851186545134085236245892340494666592825438581080369788079892149618050408504700489118491070047067158822928792490348794728965123139674150487731746143274573919945903589878931341803279437725752107662967136422370146229170181972401913889171435097416182119714935E-105",
+    "passed": true,
+    "primary_dps": 120,
+    "replay_dps": 180,
+    "threshold": "1E-100"
+  },
+  "status": "finite_endpoint_border_analysis"
+}

@@ -1,0 +1,5 @@
+{
+  "output": "$CHECKPOINT/workstreams/actual-hardy-kappa1-gate-20261104/results/actual_hardy_kappa1_gate.json",
+  "payload_sha256": "2b5ce755776ffdf6d0a145181aa77a6fb388a138563bc20c88407fc620ca746d",
+  "status": "PASS_CERTIFIED_ACTUAL_KAPPA1_J2"
+}

@@ -1,0 +1,163 @@
+{
+  "dependencies_sha256": {
+    "workstreams/all-degree-analytic-search-next-v1/COMPLETE_ORBIT_HARDY_NEXT.md": "ccebe64d3a1e5b864dbe3db0d5fd2a322ed462311d6ad3f03c459960fda80589",
+    "workstreams/all-degree-analytic-search-next-v1/EWALD_KAPPA1_AGGREGATE_INDEPENDENT_AUDIT.md": "dc2af8a0aa3e00dee451f6e6ce9f1abd45a7f5f1ddc7232b1a3386454af3d841",
+    "workstreams/all-degree-analytic-search-next-v1/results/enlarged_score_projection_actual_rungs.json": "f48debd201f0a234900b9217e9a2f7693a8803a5b4ded601df8ec15a82905bf0",
+    "workstreams/all-degree-analytic-search-next-v1/results/ewald_kappa1_aggregate_certificate.json": "57b9f9c63e4c3ac5f2292c25b90c99881d7bf1e3c3f3d5163b5b4ceb4fec4345",
+    "workstreams/all-degree-analytic-search-next-v1/src/certify_modular_vprime_tilt.py": "31cd42b5a31157b9ff885c9fd1a3117522a2f014b7bd829b14c6f6d87063794e",
+    "workstreams/direct-head-hardy-tail-wave31-20261104/DIRECT_HEAD_HARDY_TAIL_GATE_20261104.md": "6350bf2db5ed71e78e1e6b87885248eadcacb09298b4388e6454ffc9ad734673"
+  },
+  "dependency_field_usage": {
+    "ewald_receipt": "cells 3..6 and the k>6 total-variation bound form the gate tail; cells 1..2 are used only for an independent crosscheck",
+    "positive_moment_receipt": "only complete_positive_moments[0].complete_halfline_norm_square is read; signed higher fields in that frozen file are unused"
+  },
+  "exact_algebra_self_checks": {
+    "ewald_cells_have_half_direct_source_normalization": true,
+    "gate_reconstructs_direct_head": true,
+    "q_equals_t_has_single_root_cost": true,
+    "sigma0_cancels_from_corrected_tail_ratio": true
+  },
+  "grade": "outward Arb intervals with complete theta-orbit and Ewald-index tails",
+  "nonclaims": [
+    "One actual finite rung only; no all-degree inference.",
+    "No logarithmic root-variance V1 bound is claimed.",
+    "No Riemann-hypothesis conclusion is claimed."
+  ],
+  "normalization": {
+    "B1": "4*pi*||psi||^2_{h>=0}=||W||_2^2",
+    "E": "2*pi*H1=||(tW)'||_2^2",
+    "H1": "integral_R h^2*psi'(h)^2 dh",
+    "R": "4*pi*T_q2/E=2*pi*sigma_0*T_dir_0_2/E",
+    "W": "2*Xi=Fourier(psi)",
+    "ewald_tail": "T_q2=sum_{k>2} e_k=(sigma_0/2)*T_dir_0_2",
+    "gate": "Delta-R>0 iff e1+e2>0"
+  },
+  "parameters": {
+    "direct_ewald_cutoff_J": 2,
+    "exact_theta_orbits": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "first_omitted_theta_orbit": 9,
+    "precision_bits": 192,
+    "spatial_cells": 4096,
+    "spatial_interval": [
+      0,
+      2
+    ]
+  },
+  "payload_sha256_before_self_hash": "63fb48beadd1335f8e01b994bb65e2a330a2fe770205813580998865b4854a25",
+  "quantities": {
+    "Delta_minus_R": {
+      "arb": "[0.4 +/- 0.0484]",
+      "lower": "0.351602524955524131655693054199218750000000000000000000000000",
+      "upper": "0.394205406337277963757514953613281250000000000000000000000000"
+    },
+    "ewald_scalar_head_J2": {
+      "arb": "[0.18821296 +/- 7.81e-9]",
+      "lower": "[0.188212952199999965247769750931183807551860809326171874999950 +/- 7.61e-62]",
+      "upper": "[0.188212967800000034752230249068816192448139190673828124999950 +/- 7.61e-62]"
+    },
+    "ewald_scalar_tail_J2": {
+      "arb": "[0.181 +/- 7.06e-4]",
+      "lower": "[0.180414361151893297210335731506347656249999999999999999999936 +/- 1.10e-61]",
+      "upper": "[0.181705838848106702789664268493652343749999999999999999999936 +/- 1.10e-61]"
+    },
+    "full_line_weighted_derivative_H1": {
+      "arb": "[1.0 +/- 0.0212]",
+      "lower": "[0.996373117565346517702128878098155783090370619123312614522934 +/- 1.89e-61]",
+      "upper": "[1.02119907982571200384714840934815578309037061912331261452293 +/- 4.19e-60]"
+    },
+    "gamma1": {
+      "arb": "[0.8 +/- 0.0210]",
+      "lower": "0.779020694084465503692626953125000000000000000000000000000000",
+      "upper": "0.798431039787828922271728515625000000000000000000000000000000"
+    },
+    "halfline_psi_norm_square_n0": {
+      "arb": "[0.639503623923242570239766796133596637245880255 +/- 2.06e-46]",
+      "lower": "[0.639503623923242570239766796133596637245880254794999999267473 +/- 1.44e-61]",
+      "upper": "[0.639503623923242570239766796133596637245880255205000000732394 +/- 2.93e-61]"
+    },
+    "hardy_energy_E": {
+      "arb": "[6e+0 +/- 0.417]",
+      "lower": "[6.26039693225009692858793688019105291279251447035484270571264 +/- 3.47e-60]",
+      "upper": "[6.41638305457143439005949449737855291279251447035484270571264 +/- 3.47e-60]"
+    },
+    "hardy_slack_Delta": {
+      "arb": "[0.7 +/- 0.0476]",
+      "lower": "0.716337053105235099792480468750000000000000000000000000000000",
+      "upper": "0.747543681412935256958007812500000000000000000000000000000000"
+    },
+    "head_crosscheck_difference": {
+      "arb": "[+/- 0.0134]",
+      "lower": "[-0.0133137308167890086770057678222656249999999999999999999999499 +/- 2.40e-62]",
+      "upper": "[0.0130681476274374499917030334472656250000000000000000000000501 +/- 2.40e-62]"
+    },
+    "head_reconstructed_from_gate": {
+      "arb": "[0.2 +/- 0.0252]",
+      "lower": "0.174899236997589468955993652343750000000000000000000000000000",
+      "upper": "0.201281099813058972358703613281250000000000000000000000000000"
+    },
+    "inverse_gamma1": {
+      "arb": "[1.3 +/- 0.0476]",
+      "lower": "1.25245631858706474304199218750000000000000000000000000000000",
+      "upper": "1.28366294689476490020751953125000000000000000000000000000000"
+    },
+    "root_cost_B1": {
+      "arb": "[8.03623954744523523185749373727664911784044990 +/- 2.69e-45]",
+      "lower": "[8.03623954744523523185749373727664911784044989753581713537004 +/- 2.65e-60]",
+      "upper": "[8.03623954744523523185749373727664911784044990268802913302372 +/- 3.93e-60]"
+    },
+    "tail_ratio_R": {
+      "arb": "[0.36 +/- 6.67e-3]",
+      "lower": "0.353338275104761123657226562500000000000000000000000000000000",
+      "upper": "0.364734528120607137680053710937500000000000000000000000000000"
+    }
+  },
+  "runtime": {
+    "cpu_seconds": 0.106665,
+    "intended_cpu_threads": 1,
+    "max_cpu_seconds": 120,
+    "max_rss_mib": 512,
+    "network_used": false,
+    "peak_rss_mib": 37.375,
+    "processes": 1,
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python",
+    "python_flint": "0.9.0",
+    "signed_next_pivot_used_to_compute_E": false
+  },
+  "schema_version": "zsv.actual_hardy_kappa1_gate.v1",
+  "scope": "actual complete theta; q=t; m=1; n=0; direct left cutoff J=2",
+  "source_sha256": "f80bec8588f0293c9480a6fa81193a095db1422ee63f58f6cad79df08507783c",
+  "status": "PASS_CERTIFIED_ACTUAL_KAPPA1_J2",
+  "strict_checks": {
+    "b1_positive": true,
+    "direct_head_positive": true,
+    "direct_tail_positive": true,
+    "energy_positive": true,
+    "gamma_positive": true,
+    "hardy_slack_positive": true,
+    "head_crosscheck_overlaps": true,
+    "tail_augmented_gate_positive": true,
+    "tail_ratio_positive": true
+  },
+  "tail_enclosures": {
+    "ewald_index_k_gt_6": {
+      "arb": "[+/- 6.46e-4]",
+      "lower": "-0.000645722348053823225200176239013671875000000000000000000000000",
+      "upper": "0.000645722348053823225200176239013671875000000000000000000000000"
+    },
+    "physical_h_ge_2_for_H1": {
+      "arb": "[+/- 4.47e-128]",
+      "lower": "[-4.46243015432110479819124087345225797393804609914876033339692e-128 +/- 4.31e-188]",
+      "upper": "[4.46243015432110479819124087345225797393804609914876033339692e-128 +/- 4.31e-188]"
+    }
+  }
+}

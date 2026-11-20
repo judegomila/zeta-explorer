@@ -1,0 +1,249 @@
+# A Gaussian barrier to generic full-conservation payment
+
+## Result and scope
+
+The complete modular commutator retains more compensation than the strong
+one-square payment.  At the normalized endpoint it has the exact form
+
+\[
+ \mathcal C_N^{(0)}=\mathcal P_N^{(0)}
+                    -\kappa_{N,0}\mathsf H_{NN},
+ \qquad \mathcal P_N^{(0)}\geq0.                         \tag{1}
+\]
+
+Consequently
+
+\[
+ \mathcal W_N^{(0)}:=
+ {\sigma_{N+1}\over\sigma_N}+\mathcal C_N^{(0)}
+ =\mathcal P_N^{(0)}+
+ \left({\sigma_{N+1}\over\sigma_N}
+       -\kappa_{N,0}\mathsf H_{NN}\right)              \tag{2}
+\]
+
+is a strictly weaker payment target than the strong scalar comparison.  On
+the branch `mathcal C_N^(0)<=0`, proving `mathcal W_N^(0)>=0` would already
+imply the next pivot is nonnegative, while allowing the positive commutator
+square to pay part of the negative direction.
+
+This extra compensation is real, but it is still not a consequence of
+positive pivots and uniform local curvature.  For the auxiliary Gaussian
+
+\[
+ \psi_c(h)=e^{-ch^2/2},\qquad c=20,                     \tag{3}
+\]
+
+all normalized endpoint pivots are positive and the audited local `H3`
+hypotheses hold, yet
+
+\[
+ \boxed{\mathcal C_{15}^{(0)}<0,
+        \qquad \mathcal W_{15}^{(0)}<0.}                \tag{4}
+\]
+
+Both strict inequalities and the finite positive prefix persist for all
+sufficiently small positive tilts.  Thus even the net full-conservation
+payment requires source-specific information.  This Gaussian is not the
+complete theta profile; (4) does not refute an actual-theta conservation
+argument, an actual theta pivot, or RH.
+
+## 1. Endpoint form of the complete commutator
+
+Use the notation of the audited modular reflection packet.  The complete
+finite-`a` scalar, including the derivative-of-weight and next-feature terms,
+is
+
+\[
+ \mathcal C_N(a)=4a\operatorname {tr}H(a)
+                 -2\eta(a)^TH(a)e_N.                   \tag{5}
+\]
+
+Under the positive normalized-prefix hypothesis,
+
+\[
+ s_j(a)=a\sigma_j+O(a^3),\qquad
+ \eta(a)=2a d+O(a^2),\qquad
+ H(a)=a^{-1}\mathsf H+O(1),                            \tag{6}
+\]
+
+where
+
+\[
+ \mathsf H_{ij}=\int_0^\infty h\,
+ {F_i^0(-h)F_j^0(-h)\over\sqrt{\sigma_i\sigma_j}}\,dh,
+\]
+
+and `d` is the normalized expansion vector of `T_(N+1)'`.  Hence
+
+\[
+ \boxed{\mathcal C_N^{(0)}
+ =4\{\operatorname {tr}\mathsf H-d^T\mathsf H e_N\}.} \tag{7}
+\]
+
+This limit contains the signed `w'` contribution and the eliminated
+next-feature cross term; it is not the boundary term alone.
+
+The normalized reflection completion is
+
+\[
+ 4\left\|z_\perp-{z_Nd_\perp\over2}\right\|^2
+ -\{4N+\|d_\perp\|^2\}z_N^2.                           \tag{8}
+\]
+
+Integrating (8) against the endpoint negative-half-line Gram gives (1), with
+
+\[
+ \kappa_{N,0}=4N+\|d_\perp\|^2.                        \tag{9}
+\]
+
+Thus (2) keeps every term of the complete commutator.  It does not silently
+replace the target metric, discard `w'`, or assume the next pivot positive.
+
+## 2. Gaussian endpoint ladder
+
+Let `P_n=2^(-n)H_n` be the monic physicists' Hermite polynomial.  The exact
+Gaussian endpoint formulas are
+
+\[
+ F_n^0(h)=(-1)^nc^{n/2}P_n(\sqrt c\,h)\psi_c(h),
+ \qquad
+ \sigma_n={\sqrt\pi\,n!\,c^{n-3/2}\over2^n},           \tag{10}
+\]
+
+\[
+ {\sigma_{n+1}\over\sigma_n}={(n+1)c\over2},
+ \qquad T_{n+1}'=(n+1)T_n.                             \tag{11}
+\]
+
+Therefore `d=(n+1)e_n`, `d_perp=0`, and every endpoint pivot is positive.
+If
+
+\[
+ I_n=\int_{\mathbb R}P_n(x)^2e^{-x^2}dx
+     =2^{-n}n!\sqrt\pi,
+\]
+
+and `E_n` denotes expectation for the probability density
+`I_n^(-1)P_n(x)^2e^(-x^2)`, then
+
+\[
+ \mathsf H_{jj}={\sqrt c\over2}\,\mathbb E_j|X|.       \tag{12}
+\]
+
+Substitution in (7) gives the exact all-degree formula
+
+\[
+ \boxed{\mathcal C_N^{(0)}
+ =2\sqrt c\left\{
+   \sum_{j=0}^N\mathbb E_j|X|-(N+1)\mathbb E_N|X|
+ \right\}.}                                            \tag{13}
+
+The Hermite half-line moments are rational multiples of `1/sqrt(pi)`.  Put
+
+\[
+ e_j=\sqrt\pi\,\mathbb E_j|X|.
+\]
+
+Exact recurrence and integration give
+
+\[
+ e_{2m+1}=2{(2m+1)!!\over(2m)!!},
+ \qquad
+ e_{2m}={4m+1\over4m}\,e_{2m-1}\quad(m\geq1),
+ \qquad e_0=1.                                         \tag{14}
+\]
+
+For completeness, put
+`A_n=integral_0^infinity P_n P_(n-1)e^(-x^2)dx` and
+`J_n=integral_0^infinity xP_n^2e^(-x^2)dx`.  Integration by parts and
+`xP_(n-1)=P_n+(n-1)P_(n-2)/2` give
+
+\[
+ J_n={P_n(0)^2\over2}+nA_n,
+ \qquad A_n=J_{n-1}-{n-1\over2}A_{n-1}.                 \tag{14a}
+\]
+
+Together with
+`P_(2m)(0)=(-1)^m(2m-1)!!/2^m`, `P_(2m+1)(0)=0`, and
+`J_0=1/2`, these two recurrences prove (14) by induction.  Thus the
+monotonicity used below is an all-degree identity, not an inference from the
+finite check through degree 15.
+
+In particular `e_j` is strictly increasing.  Hence (13) is strictly negative
+for every `N>=1`; this is a sign of the *complete* commutator, not merely of
+its negative square.
+
+## 3. Exact failure of the net target at `N=15`
+
+The exact values generated by (14) satisfy
+
+\[
+ e_{15}={6435\over1024},
+ \qquad
+ A_{15}:=\sum_{j=0}^{15}e_j-16e_{15}
+        =-{66495\over2048}.                             \tag{15}
+\]
+
+For `c=20`, equations (11), (13), and (15) give
+
+\[
+ \mathcal W_{15}^{(0)}
+ =160-{66495\over1024}\sqrt{20\over\pi}.              \tag{16}
+\]
+
+The classical rational bound `pi<22/7` proves the second term in (16) is
+strictly larger than `160`.  After squaring positive quantities, the exact
+comparison is
+
+\[
+ A_{15}^2-{7040\over7}
+ ={1423195015\over29360128}>0.                          \tag{17}
+\]
+
+Thus (4) follows without floating arithmetic.
+
+The same Gaussian has
+
+\[
+ X=c=20>17,
+ \qquad P=24c^4>8X^4,                                 \tag{18}
+\]
+
+so the local curvature and cubic hypotheses used by the successful low-rung
+theta transport are all satisfied.  For fixed degree, the divided pivots,
+reflection data, half-line Grams, and (5) are continuous at `a=0`.  The
+strict positivity of `sigma_0,...,sigma_16` and the strict negativity in (4)
+therefore persist on some interval `0<a<epsilon`.
+
+## Consequence for the theta route
+
+The complete commutator is a genuine relaxation of the strong square
+payment, but the Gaussian shows exactly what it cannot supply generically.
+A viable all-degree theta argument must prove a source-specific correlated
+inequality for
+
+\[
+ {\sigma_{N+1}\over\sigma_N}
+ +4\{\operatorname {tr}\mathsf H-d^T\mathsf H e_N\},   \tag{19}
+\]
+
+and must also use the sign of the commutator appropriately if (19) is meant
+to imply the next-pivot sign.  The required information is absent from
+positive-prefix geometry, `X>17`, and the local `H3` determinant bound.
+Complete-theta orbit/Ewald correlation remains a possible additional input.
+
+No sign for (19) is asserted for the actual theta profile, and no finite
+Gaussian computation is extrapolated to theta or RH.
+
+## Reproduction
+
+The companion standard-library verifier checks the monic Hermite recurrence,
+the exact half-line moments through degree 15, (15), the rational comparison
+(17), the local curvature constants, and frozen hashes of the modular source
+identities.  Run
+
+    python3 workstreams/all-degree-analytic-search-next-v1/src/verify_modular_full_conservation_gaussian_barrier_20261103.py \
+      --root . \
+      --output /tmp/modular_full_conservation_gaussian_barrier_20261103.json
+
+It is an exact route audit, not a proof-assistant formalization.

@@ -1,0 +1,47 @@
+{
+  "baseline_commit": "c08d89459d348c17113f1bf0b11c269583fe8f51",
+  "publication_kind": "append-only derivative-coherence asymptotic continuation",
+  "scope": "Primitive-domain no-go applies only to the specified imported operator. The actual selected U_n/Delta_n limit, o(Delta_n) relative stability error and both theta mismatch inequalities remain open. No Schur-sign or RH conclusion.",
+  "source_folder_name": "theta_coherence_asymptotics_20261104",
+  "payload_count": 5,
+  "payload_bytes": 21854,
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2806,
+      "sha256": "4df444a224827459c203b9a1c125ee598eb13fcd66c031cc87eff718659fce4b",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retain stated hypotheses and cited external dependencies"
+    },
+    {
+      "path": "src/PARAMETER_STABILITY_AND_TRACE.md",
+      "bytes": 11049,
+      "sha256": "effe7ca09ceb098205ed2831f90fb5d3372f95eecae64ebc5becfc1d18ae9ccb",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retain stated hypotheses and cited external dependencies"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 2056,
+      "sha256": "56ae074d3eb74530990cc589b8a3d89169ba479696b0e0924742f309977d145e",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retain stated hypotheses and cited external dependencies"
+    },
+    {
+      "path": "src/SELECTED_PRIMITIVE_DOMAIN_COLLAPSE.md",
+      "bytes": 5589,
+      "sha256": "19d463b5f249564abb76c96b98985bd6cb936695adfa2d6c28581b40ee31c8d7",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retain stated hypotheses and cited external dependencies"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 354,
+      "sha256": "439b7f5b16fd11bb79231d491f523081f76a18acb2e833d4bf25632507c6d9e9",
+      "source_identical": true,
+      "evidence_grade": "frozen analytic research note, AI-assisted audit or checksum; retain stated hypotheses and cited external dependencies"
+    }
+  ],
+  "redactions": [],
+  "scientific_replay_this_publication": "No numerical scan. Source audit qualifications and cited external arithmetic dependencies preserved; no machine formalization claimed."
+}

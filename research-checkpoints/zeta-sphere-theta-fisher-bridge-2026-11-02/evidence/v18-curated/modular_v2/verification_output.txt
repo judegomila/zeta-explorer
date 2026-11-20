@@ -1,0 +1,6 @@
+Serialized interval target checks: PASS
+Normalized shear lower bound: 19551771/50000000000000 = 3.9103542e-07
+Height center: 7237/512 ; half-width: 1/16 ; shifts: 0<a<= 1/8
+Unique simple real zero interval: 115791/8192 7237/512
+Positive lower bound for Xi at left zero-bracket endpoint: 11478359/167772160000000
+This verifies the exact deduction, not a replacement for the integration proof.

@@ -1,0 +1,37 @@
+{
+  "egf_manifest": "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+  "egf_manifest_sha256": null,
+  "purpose": "Exact arbitrary-degree EGF identity gate. A passing manifest is required before any signed h-pair diagnostic is generated.",
+  "schema_version": 1,
+  "stage": "stage0",
+  "tasks": [
+    {
+      "argv": [
+        "--full-polynomial-degree",
+        "64",
+        "--scalar-degree",
+        "128",
+        "--structural-result",
+        "workstreams/all-degree-analytic-search/results/structure_j128.json",
+        "--sample-z",
+        "0",
+        "--sample-z",
+        "1",
+        "--sample-z",
+        "2",
+        "--sample-z",
+        "3",
+        "--max-output-bytes",
+        "1048576"
+      ],
+      "expected_parameters": {
+        "full_polynomial_degree": 64,
+        "scalar_degree": 128
+      },
+      "expected_status": "exact_egf_identity",
+      "id": "egf_identity_j128",
+      "output": "workstreams/all-degree-analytic-search-next-v1/results/egf_identity_j128.json",
+      "worker": "workstreams/all-degree-analytic-search-next-v1/src/egf_identity.py"
+    }
+  ]
+}

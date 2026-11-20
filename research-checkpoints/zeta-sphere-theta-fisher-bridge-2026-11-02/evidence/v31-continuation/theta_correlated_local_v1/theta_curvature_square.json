@@ -1,0 +1,11 @@
+{
+  "N": 4000,
+  "bits": 160,
+  "compact_interval": [
+    0,
+    1
+  ],
+  "minimum_directed_lower": "[1254.9716824027789925615668131149032859221463219 +/- 3.75e-44]",
+  "tail_log_derivative_error_upper": "[2.8206695514695871957135888579203710052956318817e-13 +/- 2.05e-60]",
+  "claim": "4*((log psi) second derivative)^2+(log psi) fourth derivative>0; compact cells plus separate analytic tail z>=20."
+}

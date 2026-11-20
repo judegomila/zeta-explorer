@@ -1,0 +1,60 @@
+{
+  "publication_kind": "append-only actual-theta all-degree polynomial comparison",
+  "scope": "All-degree polynomial source/reference comparison for the exact actual theta transform, with improved conditioning and selected-overlap lower bounds. Actual-theta capacity tails, selected source escape, selected negative cancellation, selected coherence, relative Schur excess, and RH remain unproved.",
+  "source_folder_name": "theta_polynomial_comparison_20261104",
+  "payload_count": 6,
+  "payload_bytes": 30411,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "GENERAL_REFERENCE_AND_NATURAL_COROLLARIES.md",
+    "README.md",
+    "REAL_POLYNOMIAL_WEIGHTED_SHIFT_DOMINANCE.md",
+    "WEIGHTED_SHIFT_REFINEMENT_AUDIT.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 3500,
+      "sha256": "c45219cb79dd6a29a0c76d8a2af3f67813eff63c2e56c421cf210a28f3fc6c1b",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    },
+    {
+      "path": "src/GENERAL_REFERENCE_AND_NATURAL_COROLLARIES.md",
+      "bytes": 9344,
+      "sha256": "42d9c22ebe82420f3871cad7b307348e80c3b8e7bb2b7cd5ecb058122203c2e4",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4870,
+      "sha256": "0b0ff56c6af466413736558a8f3a3504de7a06183dc03a454e4a4124c5bb1b56",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/REAL_POLYNOMIAL_WEIGHTED_SHIFT_DOMINANCE.md",
+      "bytes": 2084,
+      "sha256": "bbcc9d240cc109a1624633a1a8aaff4494effc78bf875906e093d674d2706dec",
+      "source_identical": true,
+      "role": "final analytic research"
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 473,
+      "sha256": "9d448e821abe7cfd63fdbfe134c4a275074cb1a9dddb9638b2105fee8eae99a8",
+      "source_identical": true,
+      "role": "original final-payload checksum manifest"
+    },
+    {
+      "path": "src/WEIGHTED_SHIFT_REFINEMENT_AUDIT.md",
+      "bytes": 10140,
+      "sha256": "8505923f2d093ac7e5cbf90e8b002407a8f2dc6e3150fa04a788980241c3887d",
+      "source_identical": true,
+      "role": "independent AI-assisted audit"
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. The supplied analytical audit is AI-assisted, not peer review or machine formalization. Inherited theta/source-closure inputs are not reproved."
+}

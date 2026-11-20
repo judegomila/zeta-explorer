@@ -1,0 +1,50 @@
+{
+  "version": 26,
+  "baseline_version": 25,
+  "files": [
+    {
+      "path": "V26_INDEX.md",
+      "sha256": "064637ee50ce49cb6ae723f5919ffd549118803d3dce6e43a0482b4c8a1e31d8"
+    },
+    {
+      "path": "closed_design_feedback_audit/AUDIT.md",
+      "sha256": "c4b587f71f02cf7aa7398a0b127a2879632fb328e3f1c8e653f58746271d4a5c"
+    },
+    {
+      "path": "closed_design_feedback_v1/CANONICAL_SOURCE.md",
+      "sha256": "27e6b567316f23a8bbcff2bf801816e599e067d88609f0912b0953869b95a2b7"
+    },
+    {
+      "path": "closed_design_feedback_v1/COMMON_METRIC.md",
+      "sha256": "778a2aec16ce4c8dfbbf28ee3e040fa35f446f1ed5e51fb285a093a94789332a"
+    },
+    {
+      "path": "closed_design_feedback_v1/FLOATING_DIAGNOSTIC_SHA256.txt",
+      "sha256": "2148c85be61c4359e66796da084d9e1087caac1b37e633299f7dd8dd2941fe1a"
+    },
+    {
+      "path": "closed_design_feedback_v1/FROZEN_SHA256.txt",
+      "sha256": "5060a12fcbec0ac20ef0262e3fb1c788dec2b529c55ceabca24579d31d6426a9"
+    },
+    {
+      "path": "closed_design_feedback_v1/NO_UNIFORM_MIXED_GAP.md",
+      "sha256": "cb62f6f36231e4b36b3e9a2b8a3be0c4d13d63f18b7fc4128d8ab067ebe76705"
+    },
+    {
+      "path": "closed_design_feedback_v1/probe_canonical.json",
+      "sha256": "8f2d075c580979e5f92f933c22d3659a9a8084932bc3783f0088547fdc5fd480"
+    },
+    {
+      "path": "closed_design_feedback_v1/probe_canonical.py",
+      "sha256": "66a8ea88062842d9fe706d761bb9452943e5c23889251e9b5bb795e00b994d7a"
+    },
+    {
+      "path": "closed_design_feedback_v1/probe_common.json",
+      "sha256": "57acb85b099b5d37e83b090371e9fa065b4f82dc78791e5c2a290a57278557c9"
+    },
+    {
+      "path": "closed_design_feedback_v1/probe_common.py",
+      "sha256": "b7fa54d60f70e33ccdb8484098808222c2acc182e8d86136b7ffb90ebe6af8ce"
+    }
+  ]
+}

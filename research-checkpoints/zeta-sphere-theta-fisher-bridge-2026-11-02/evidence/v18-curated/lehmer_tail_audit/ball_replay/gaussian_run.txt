@@ -1,0 +1,6 @@
+{
+  "gaussian_value": "[2.2555305645616178721433724e-6 +/- 4.97e-32]",
+  "exact": "[2.25553056456161787214337241e-6 +/- 6.82e-33]",
+  "absolute_difference": "[+/- 4.44e-32]",
+  "role": "DFT sign/normalization/origin sanity check; full theorem uses independent analytic error bounds"
+}

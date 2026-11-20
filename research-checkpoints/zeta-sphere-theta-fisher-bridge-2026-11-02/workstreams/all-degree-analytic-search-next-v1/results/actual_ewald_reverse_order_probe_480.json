@@ -1,0 +1,308 @@
+{
+  "assembly": "complete Xi and one actual residual are assembled before each scalar cell is split by sign",
+  "exact_rational_identity_checks": 36,
+  "limitations": [
+    "No interval quadrature or analytic Ewald-index tail is supplied.",
+    "The W values use the first nmax cells and their truncated variation M.",
+    "Finite Abel samples do not prove an interval inequality or an all-degree theorem."
+  ],
+  "parameters": {
+    "a4": -68.87377111641113,
+    "a5": -115.13439045101454,
+    "b4": 401.1956641260478,
+    "b5": 2007.268091634419,
+    "c2": 11.746029959069169,
+    "c3": 34.71791883916725,
+    "certificate": "evidence/v18-curated/core_inertia_v2/actual_total_certificate.json",
+    "mpmath_dps": 35,
+    "nmax": 10,
+    "nodes": 480,
+    "source_sha256": "34286b65cd1ae998e239fe15a3a1049efc51e3796c6f7510b42ad4976a7804fa",
+    "tmax": 36.0
+  },
+  "profiles": {
+    "kappa1_t": {
+      "cells": [
+        0.6136809681400665,
+        -0.4254680068681699,
+        0.17127125844781646,
+        0.009629238002291292,
+        0.00015813170771403697,
+        1.465556193313391e-06,
+        9.727630265731145e-09,
+        5.186271578260164e-11,
+        2.3371337902334687e-13,
+        -2.574089191766072e-15
+      ],
+      "coefficients_of_q_squared": [
+        0.0,
+        1.0
+      ],
+      "endpoint_discrepancy": 3.608224830031759e-15,
+      "exact_endpoint_from_archived_moments_midpoints": 0.3692730647656322,
+      "samples": [
+        {
+          "D_truncated": -0.060461770421612895,
+          "S_prime_truncated": 0.32153071612656053,
+          "W_half_truncated": 0.7094255890955343,
+          "z": 0.5
+        },
+        {
+          "D_truncated": -0.08390593127473127,
+          "S_prime_truncated": 0.2965151369609963,
+          "W_half_truncated": 0.7105275555990614,
+          "z": 0.6
+        },
+        {
+          "D_truncated": -0.12183229651152055,
+          "S_prime_truncated": 0.2810008137754706,
+          "W_half_truncated": 0.7579842090759515,
+          "z": 0.75
+        },
+        {
+          "D_truncated": -0.15873515103344088,
+          "S_prime_truncated": 0.2926305516520241,
+          "W_half_truncated": 0.8530759857261457,
+          "z": 0.9
+        },
+        {
+          "D_truncated": -0.17983295703724628,
+          "S_prime_truncated": 0.31587520214246245,
+          "W_half_truncated": 0.9378165980663142,
+          "z": 1.0
+        }
+      ],
+      "signs": "+-+++++++-",
+      "truncated_endpoint": 0.3692730647656358
+    },
+    "kappa2_t2_minus_c": {
+      "cells": [
+        0.5036347571944013,
+        15.175674177147064,
+        -5.524025729506734,
+        -1.6120435058054623,
+        -0.05936063303165108,
+        -0.0009691996893304142,
+        -9.979413848075867e-06,
+        -7.620362715612627e-08,
+        -4.716407575907148e-10,
+        -2.5441896802021955e-12
+      ],
+      "coefficients_of_q_squared": [
+        137.96921979935047,
+        -23.492059918138338,
+        1.0
+      ],
+      "endpoint_discrepancy": 7.265299473147024e-12,
+      "exact_endpoint_from_archived_moments_midpoints": 8.482899810209362,
+      "samples": [
+        {
+          "D_truncated": -7.662631653498623,
+          "S_prime_truncated": 10.711534865266795,
+          "W_half_truncated": 382.87634063390976,
+          "z": 0.5
+        },
+        {
+          "D_truncated": -16.32377568564742,
+          "S_prime_truncated": 11.316769236542129,
+          "W_half_truncated": 420.9663849530889,
+          "z": 0.6
+        },
+        {
+          "D_truncated": -41.771142377795854,
+          "S_prime_truncated": 11.129726323422037,
+          "W_half_truncated": 465.4430069193316,
+          "z": 0.75
+        },
+        {
+          "D_truncated": -91.08364574150889,
+          "S_prime_truncated": 9.497543099712889,
+          "W_half_truncated": 508.061968778764,
+          "z": 0.9
+        },
+        {
+          "D_truncated": -143.642500231818,
+          "S_prime_truncated": 7.532043066656076,
+          "W_half_truncated": 545.7363408592115,
+          "z": 1.0
+        }
+      ],
+      "signs": "++--------",
+      "truncated_endpoint": 8.482899810216628
+    },
+    "kappa3_t_times_t2_minus_c": {
+      "cells": [
+        511.0346116936462,
+        -249.82786037598203,
+        -169.6228570743562,
+        179.98074848565574,
+        17.625785859747673,
+        0.5411808899279525,
+        0.008962143068356763,
+        0.00010031644358979319,
+        8.556382630250523e-07,
+        5.928241531598408e-09
+      ],
+      "coefficients_of_q_squared": [
+        0.0,
+        1205.3338885230041,
+        -69.4358376783345,
+        1.0
+      ],
+      "endpoint_discrepancy": -4.5349679567152634e-10,
+      "exact_endpoint_from_archived_moments_midpoints": 289.7406728001713,
+      "samples": [
+        {
+          "D_truncated": -50042.70116150372,
+          "S_prime_truncated": 229.59049878713017,
+          "W_half_truncated": 488773.6590116445,
+          "z": 0.5
+        },
+        {
+          "D_truncated": -74187.6403171204,
+          "S_prime_truncated": 195.2288124468074,
+          "W_half_truncated": 478890.46817995544,
+          "z": 0.6
+        },
+        {
+          "D_truncated": -114929.10113256215,
+          "S_prime_truncated": 182.4381288768284,
+          "W_half_truncated": 538719.2337158141,
+          "z": 0.75
+        },
+        {
+          "D_truncated": -150206.277107351,
+          "S_prime_truncated": 233.7572719835863,
+          "W_half_truncated": 696155.0044274757,
+          "z": 0.9
+        },
+        {
+          "D_truncated": -160556.30487509107,
+          "S_prime_truncated": 313.87287359259653,
+          "W_half_truncated": 852487.8221524735,
+          "z": 1.0
+        }
+      ],
+      "signs": "+--+++++++",
+      "truncated_endpoint": 289.7406727997178
+    },
+    "kappa4_actual": {
+      "cells": [
+        627.690809037922,
+        5683.083935580173,
+        20727.3680952647,
+        -9518.931684704463,
+        -3861.6622353478238,
+        -246.9376566605162,
+        -6.910083865131381,
+        -0.11679666343102421,
+        -0.0013997918741408203,
+        -1.3115291253045918e-05
+      ],
+      "coefficients_of_q_squared": [
+        160957.96091354056,
+        -55263.716687827946,
+        5545.987676047884,
+        -137.74754223282227,
+        1.0
+      ],
+      "endpoint_discrepancy": -4.2633109842427075e-07,
+      "exact_endpoint_from_archived_moments_midpoints": 13403.582970160593,
+      "samples": [
+        {
+          "D_truncated": -10284639.196904872,
+          "S_prime_truncated": 15843.001574862545,
+          "W_half_truncated": 987135818.0272233,
+          "z": 0.5
+        },
+        {
+          "D_truncated": -28709708.118914425,
+          "S_prime_truncated": 18988.740589934263,
+          "W_half_truncated": 1215904517.5162807,
+          "z": 0.6
+        },
+        {
+          "D_truncated": -104341015.6544778,
+          "S_prime_truncated": 21596.95112114101,
+          "W_half_truncated": 1526291589.8988247,
+          "z": 0.75
+        },
+        {
+          "D_truncated": -307816295.45592797,
+          "S_prime_truncated": 19898.314812726065,
+          "W_half_truncated": 1829609955.1247854,
+          "z": 0.9
+        },
+        {
+          "D_truncated": -581595078.4414389,
+          "S_prime_truncated": 15260.98142082915,
+          "W_half_truncated": 2094248197.471921,
+          "z": 1.0
+        }
+      ],
+      "signs": "+++-------",
+      "truncated_endpoint": 13403.582969734261
+    },
+    "kappa5_actual": {
+      "cells": [
+        1178060.7469862662,
+        131984.5773898363,
+        -853037.4663382825,
+        -286528.31176844053,
+        550132.6257275697,
+        88022.8071698457,
+        4466.179579143638,
+        118.48157912810936,
+        2.0457987604186725,
+        0.025896802022804737
+      ],
+      "coefficients_of_q_squared": [
+        0.0,
+        4029125.1916936827,
+        -462211.1764042001,
+        17270.464047795507,
+        -230.26878090202908,
+        1.0
+      ],
+      "endpoint_discrepancy": -0.00093521096277982,
+      "exact_endpoint_from_archived_moments_midpoints": 813221.71295584,
+      "samples": [
+        {
+          "D_truncated": -314962195813.70605,
+          "S_prime_truncated": 715919.756540956,
+          "W_half_truncated": 3950739590026.5654,
+          "z": 0.5
+        },
+        {
+          "D_truncated": -552447367680.4246,
+          "S_prime_truncated": 566640.641417871,
+          "W_half_truncated": 3733274294465.0586,
+          "z": 0.6
+        },
+        {
+          "D_truncated": -1053089904029.354,
+          "S_prime_truncated": 454369.2904313705,
+          "W_half_truncated": 4213785348434.6777,
+          "z": 0.75
+        },
+        {
+          "D_truncated": -1607370590996.024,
+          "S_prime_truncated": 640880.9468439468,
+          "W_half_truncated": 6187486617774.79,
+          "z": 0.9
+        },
+        {
+          "D_truncated": -1819094166478.704,
+          "S_prime_truncated": 1047834.0081781466,
+          "W_half_truncated": 8498597712592.163,
+          "z": 1.0
+        }
+      ],
+      "signs": "++--++++++",
+      "truncated_endpoint": 813221.7120206291
+    }
+  },
+  "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "rigor": "non-rigorous floating Gauss-Legendre convergence probe; not a sign certificate",
+  "status": "PASS_DIAGNOSTIC_ONLY"
+}

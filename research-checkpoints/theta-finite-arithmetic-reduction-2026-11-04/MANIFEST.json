@@ -1,0 +1,40 @@
+{
+  "publication_kind": "append-only frozen research checkpoint",
+  "scope": "Uniform source-relative finite-model approximation and reselection, retaining all arithmetic cross terms. Finite model approximation does not prove signed cancellation. No selected decay, defect positivity, relative Schur-defect accuracy, or RH is established.",
+  "source_folder_name": "theta_finite_arithmetic_reduction_20261104",
+  "payload_count": 4,
+  "payload_bytes": 17431,
+  "original_final_payload_files": [
+    "AUDIT.md",
+    "README.md",
+    "UNIFORM_FINITE_ARITHMETIC_AUDIT.md"
+  ],
+  "payload_files": [
+    {
+      "path": "src/AUDIT.md",
+      "bytes": 2761,
+      "sha256": "3f9b12b91e65d9ec8ef81a383caf3ab77f895d91f7b14aca022fbe8578175fd7",
+      "source_identical": true
+    },
+    {
+      "path": "src/README.md",
+      "bytes": 4014,
+      "sha256": "b6743f1a11268676c1d7adf31cebebe38873cde7f1a4eaa4f4bc8832608b7a7a",
+      "source_identical": true
+    },
+    {
+      "path": "src/SHA256SUMS",
+      "bytes": 252,
+      "sha256": "52ce9542141f609b2105ab74b94af483c34268926099b2c96326c16398c6017c",
+      "source_identical": true
+    },
+    {
+      "path": "src/UNIFORM_FINITE_ARITHMETIC_AUDIT.md",
+      "bytes": 10404,
+      "sha256": "0b8d93613d998c56292c27c38e4d8a20fd58ae024eb3001c820dcc19da3b5adb",
+      "source_identical": true
+    }
+  ],
+  "redactions": [],
+  "scientific_verification_scope": "Preservation integrity and scope only. Supplied analytical audits are AI-assisted, not external peer review or machine formalization. Inherited dependencies are not reproved."
+}

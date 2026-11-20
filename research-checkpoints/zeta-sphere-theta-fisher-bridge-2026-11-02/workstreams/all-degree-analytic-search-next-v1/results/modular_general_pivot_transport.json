@@ -1,0 +1,42 @@
+{
+  "checks": [
+    "frozen H3, H5, cross-parity, and integrated-square input hashes",
+    "complete-theta M0 > 3/100 from the frozen directed receipt",
+    "w^T M5 w < -1493000000 by directed interval arithmetic",
+    "physical/Bell diagonal congruence",
+    "real-simple-root quintic discriminant",
+    "cubic ratio 17^3/4=4913/4",
+    "cubic raw lower (4913/4)*(3/50)=14739/200"
+  ],
+  "frozen_inputs": {
+    "evidence/v18-curated/h4_attack_v1/pointwise_h5_obstruction.json": "019c6fae03ddc4b5458cc808bb9589ecff69b4d17fecabb7d273fecbdaef7d67",
+    "evidence/v18-curated/latest_bounds_audit/H3_AUDIT.md": "ff860428451d4fa01108ab611ebd954d9ab3d4b98c6f284ff377ee18a04a6179",
+    "evidence/v18-curated/post_v7_audit/POINTWISE_H5_AUDIT.md": "9352ff83e35b9f2bc873f8b7319343f3611731b07611f32c63a406c0260f6704",
+    "evidence/v20-v26-continuation/modular_cd_flux_audit/CROSS_PARITY_AUDIT.md": "1874339a9907495a0983c7b5cd76a1e59b34ad25b83f9e965063a5cc23931740",
+    "evidence/v31-continuation/theta_correlated_local_v1/INTEGRATED_SQUARE_PAYMENT_FROZEN_SHA256.txt": "8a3cc29068a1b55512ff1eec17f7a05e4e3a4167ce6184416b4bef807a4871ae",
+    "evidence/v31-continuation/theta_correlated_local_v1/integrated_square_payment_64000.json": "bd25296a2bd9d739fdc6463167198738dd60785ca6fa3ebbec941ba6c423d17e"
+  },
+  "h5_obstruction": {
+    "bell_vector": [
+      10847,
+      -263,
+      1
+    ],
+    "physical_polynomial": "16*t^5 - 1052*t^3 + 10847*t",
+    "quadratic_interval_lower": "-1493697375.0935993209537934607602943347790235675007416606837516364224",
+    "quadratic_interval_upper": "-1493697375.0935993209537934607602943347789307287126390364195684682546",
+    "y_discriminant": 412496
+  },
+  "proof_note": {
+    "binding": "recorded, not self-frozen by this replay",
+    "path": "workstreams/all-degree-analytic-search-next-v1/MODULAR_GENERAL_PIVOT_TRANSPORT_NEXT.md",
+    "sha256": "5076a00c5e5b2b20fddd7470d92f61f907a2e954c23dc0bb66278271e0d96970"
+  },
+  "rational_bounds": {
+    "s3_over_a_lower": "14739/200",
+    "s3_over_s0_lower": "4913/4"
+  },
+  "scope": "Exact constants and frozen-input checks for general coefficient cancellation, cubic transport, and a pointwise real-rooted H5 route obstruction; no integrated degree-five failure, all-degree, or RH claim.",
+  "source_sha256": "df2e27099a09aa37b8eb18a1ada0c95d1359c9ea95b0eea9b23cd64442fb7bc5",
+  "status": "PASS"
+}

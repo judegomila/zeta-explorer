@@ -1,0 +1,3411 @@
+{
+  "purpose": "Discover or falsify arbitrary-degree theta factorizations; finite sections are diagnostics, never RH evidence.",
+  "schema_version": 1,
+  "tasks": [
+    {
+      "argv": [
+        "--degree",
+        "16"
+      ],
+      "expected_parameters": {
+        "degree": 16
+      },
+      "expected_status": "exact_structural_identity",
+      "id": "structure_j016",
+      "output": "workstreams/all-degree-analytic-search/results/structure_j016.json",
+      "worker": "workstreams/all-degree-analytic-search/src/structural_generator.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "32"
+      ],
+      "expected_parameters": {
+        "degree": 32
+      },
+      "expected_status": "exact_structural_identity",
+      "id": "structure_j032",
+      "output": "workstreams/all-degree-analytic-search/results/structure_j032.json",
+      "worker": "workstreams/all-degree-analytic-search/src/structural_generator.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "64"
+      ],
+      "expected_parameters": {
+        "degree": 64
+      },
+      "expected_status": "exact_structural_identity",
+      "id": "structure_j064",
+      "output": "workstreams/all-degree-analytic-search/results/structure_j064.json",
+      "worker": "workstreams/all-degree-analytic-search/src/structural_generator.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "96"
+      ],
+      "expected_parameters": {
+        "degree": 96
+      },
+      "expected_status": "exact_structural_identity",
+      "id": "structure_j096",
+      "output": "workstreams/all-degree-analytic-search/results/structure_j096.json",
+      "worker": "workstreams/all-degree-analytic-search/src/structural_generator.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "128"
+      ],
+      "expected_parameters": {
+        "degree": 128
+      },
+      "expected_status": "exact_structural_identity",
+      "id": "structure_j128",
+      "output": "workstreams/all-degree-analytic-search/results/structure_j128.json",
+      "worker": "workstreams/all-degree-analytic-search/src/structural_generator.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "6",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 6,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j06_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j06_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "8",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 8,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j08_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j08_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "10",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 10,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j10_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j10_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "12",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 12,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j12_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j12_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "14",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 14,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j14_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j14_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 512,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 1024,
+        "shift": "0"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 512,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p0625_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p0625_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.0625",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 1024,
+        "shift": "0.0625"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p0625_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p0625_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 512,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p125_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p125_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.125",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 1024,
+        "shift": "0.125"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p125_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p125_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 512,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p25_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p25_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.25",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 1024,
+        "shift": "0.25"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p25_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p25_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "512"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 512,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p5_q512",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p5_q512.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--degree",
+        "16",
+        "--shift",
+        "0.5",
+        "--nodes",
+        "1024"
+      ],
+      "expected_parameters": {
+        "degree": 16,
+        "nodes": 1024,
+        "shift": "0.5"
+      },
+      "expected_status": "analytic_structure_experiment",
+      "id": "operator_j16_a0p5_q1024",
+      "output": "workstreams/all-degree-analytic-search/results/operator_j16_a0p5_q1024.json",
+      "worker": "workstreams/all-degree-analytic-search/src/operator_mining.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0",
+        "n": 2,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_even_h0_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_even_h0_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0.25",
+        "n": 2,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_even_h0p25_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_even_h0p25_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0.5",
+        "n": 2,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_even_h0p5_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_even_h0p5_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0",
+        "n": 2,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_odd_h0_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_odd_h0_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0.25",
+        "n": 2,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_odd_h0p25_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_odd_h0p25_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "2",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "228"
+      ],
+      "expected_parameters": {
+        "dps": 228,
+        "h": "0.5",
+        "n": 2,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n02_odd_h0p5_p228",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n02_odd_h0p5_p228.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0",
+        "n": 4,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_even_h0_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_even_h0_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0.25",
+        "n": 4,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_even_h0p25_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_even_h0p25_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0.5",
+        "n": 4,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_even_h0p5_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_even_h0p5_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0",
+        "n": 4,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_odd_h0_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_odd_h0_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0.25",
+        "n": 4,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_odd_h0p25_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_odd_h0p25_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "4",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "276"
+      ],
+      "expected_parameters": {
+        "dps": 276,
+        "h": "0.5",
+        "n": 4,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n04_odd_h0p5_p276",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n04_odd_h0p5_p276.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0",
+        "n": 6,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_even_h0_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_even_h0_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0.25",
+        "n": 6,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_even_h0p25_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_even_h0p25_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0.5",
+        "n": 6,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_even_h0p5_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_even_h0p5_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0",
+        "n": 6,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_odd_h0_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_odd_h0_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0.25",
+        "n": 6,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_odd_h0p25_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_odd_h0p25_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "6",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "324"
+      ],
+      "expected_parameters": {
+        "dps": 324,
+        "h": "0.5",
+        "n": 6,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n06_odd_h0p5_p324",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n06_odd_h0p5_p324.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0",
+        "n": 8,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_even_h0_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_even_h0_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "532"
+      ],
+      "expected_parameters": {
+        "dps": 532,
+        "h": "0",
+        "n": 8,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_even_h0_replay_p532",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_even_h0_replay_p532.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0.25",
+        "n": 8,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_even_h0p25_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_even_h0p25_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0.5",
+        "n": 8,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_even_h0p5_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_even_h0p5_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0",
+        "n": 8,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_odd_h0_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_odd_h0_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "532"
+      ],
+      "expected_parameters": {
+        "dps": 532,
+        "h": "0",
+        "n": 8,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_odd_h0_replay_p532",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_odd_h0_replay_p532.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0.25",
+        "n": 8,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_odd_h0p25_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_odd_h0p25_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "8",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "372"
+      ],
+      "expected_parameters": {
+        "dps": 372,
+        "h": "0.5",
+        "n": 8,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n08_odd_h0p5_p372",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n08_odd_h0p5_p372.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0",
+        "n": 10,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_even_h0_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_even_h0_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0.25",
+        "n": 10,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_even_h0p25_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_even_h0p25_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0.5",
+        "n": 10,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_even_h0p5_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_even_h0p5_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0",
+        "n": 10,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_odd_h0_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_odd_h0_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0.25",
+        "n": 10,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_odd_h0p25_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_odd_h0p25_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "10",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "420"
+      ],
+      "expected_parameters": {
+        "dps": 420,
+        "h": "0.5",
+        "n": 10,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n10_odd_h0p5_p420",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n10_odd_h0p5_p420.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0",
+        "n": 12,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_even_h0_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_even_h0_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0.25",
+        "n": 12,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_even_h0p25_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_even_h0p25_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0.5",
+        "n": 12,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_even_h0p5_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_even_h0p5_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0",
+        "n": 12,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_odd_h0_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_odd_h0_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0.25",
+        "n": 12,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_odd_h0p25_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_odd_h0p25_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "12",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "468"
+      ],
+      "expected_parameters": {
+        "dps": 468,
+        "h": "0.5",
+        "n": 12,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n12_odd_h0p5_p468",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n12_odd_h0p5_p468.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0",
+        "n": 14,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_even_h0_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_even_h0_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0.25",
+        "n": 14,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_even_h0p25_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_even_h0p25_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0.5",
+        "n": 14,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_even_h0p5_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_even_h0p5_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0",
+        "n": 14,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_odd_h0_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_odd_h0_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0.25",
+        "n": 14,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_odd_h0p25_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_odd_h0p25_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "14",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "516"
+      ],
+      "expected_parameters": {
+        "dps": 516,
+        "h": "0.5",
+        "n": 14,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n14_odd_h0p5_p516",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n14_odd_h0p5_p516.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0",
+        "n": 16,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_even_h0_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_even_h0_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "724"
+      ],
+      "expected_parameters": {
+        "dps": 724,
+        "h": "0",
+        "n": 16,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_even_h0_replay_p724",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_even_h0_replay_p724.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0.25",
+        "n": 16,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_even_h0p25_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_even_h0p25_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0.5",
+        "n": 16,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_even_h0p5_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_even_h0p5_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0",
+        "n": 16,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_odd_h0_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_odd_h0_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "724"
+      ],
+      "expected_parameters": {
+        "dps": 724,
+        "h": "0",
+        "n": 16,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_odd_h0_replay_p724",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_odd_h0_replay_p724.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0.25",
+        "n": 16,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_odd_h0p25_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_odd_h0p25_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "16",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "564"
+      ],
+      "expected_parameters": {
+        "dps": 564,
+        "h": "0.5",
+        "n": 16,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n16_odd_h0p5_p564",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n16_odd_h0p5_p564.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0",
+        "n": 18,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_even_h0_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_even_h0_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0.25",
+        "n": 18,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_even_h0p25_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_even_h0p25_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0.5",
+        "n": 18,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_even_h0p5_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_even_h0p5_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0",
+        "n": 18,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_odd_h0_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_odd_h0_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0.25",
+        "n": 18,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_odd_h0p25_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_odd_h0p25_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "18",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "612"
+      ],
+      "expected_parameters": {
+        "dps": 612,
+        "h": "0.5",
+        "n": 18,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n18_odd_h0p5_p612",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n18_odd_h0p5_p612.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0",
+        "n": 20,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_even_h0_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_even_h0_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0.25",
+        "n": 20,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_even_h0p25_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_even_h0p25_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0.5",
+        "n": 20,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_even_h0p5_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_even_h0p5_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0",
+        "n": 20,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_odd_h0_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_odd_h0_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0.25",
+        "n": 20,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_odd_h0p25_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_odd_h0p25_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "20",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "660"
+      ],
+      "expected_parameters": {
+        "dps": 660,
+        "h": "0.5",
+        "n": 20,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n20_odd_h0p5_p660",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n20_odd_h0p5_p660.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0",
+        "n": 24,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_even_h0_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_even_h0_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "916"
+      ],
+      "expected_parameters": {
+        "dps": 916,
+        "h": "0",
+        "n": 24,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_even_h0_replay_p916",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_even_h0_replay_p916.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0.25",
+        "n": 24,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_even_h0p25_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_even_h0p25_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0.5",
+        "n": 24,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_even_h0p5_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_even_h0p5_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0",
+        "n": 24,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_odd_h0_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_odd_h0_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "916"
+      ],
+      "expected_parameters": {
+        "dps": 916,
+        "h": "0",
+        "n": 24,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_odd_h0_replay_p916",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_odd_h0_replay_p916.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0.25",
+        "n": 24,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_odd_h0p25_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_odd_h0p25_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "24",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "756"
+      ],
+      "expected_parameters": {
+        "dps": 756,
+        "h": "0.5",
+        "n": 24,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n24_odd_h0p5_p756",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n24_odd_h0p5_p756.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0",
+        "n": 28,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_even_h0_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_even_h0_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0.25",
+        "n": 28,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_even_h0p25_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_even_h0p25_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0.5",
+        "n": 28,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_even_h0p5_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_even_h0p5_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0",
+        "n": 28,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_odd_h0_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_odd_h0_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0.25",
+        "n": 28,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_odd_h0p25_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_odd_h0p25_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "28",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "852"
+      ],
+      "expected_parameters": {
+        "dps": 852,
+        "h": "0.5",
+        "n": 28,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n28_odd_h0p5_p852",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n28_odd_h0p5_p852.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0",
+        "n": 32,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_even_h0_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_even_h0_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "1108"
+      ],
+      "expected_parameters": {
+        "dps": 1108,
+        "h": "0",
+        "n": 32,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_even_h0_replay_p1108",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_even_h0_replay_p1108.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0.25",
+        "n": 32,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_even_h0p25_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_even_h0p25_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0.5",
+        "n": 32,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_even_h0p5_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_even_h0p5_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0",
+        "n": 32,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_odd_h0_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_odd_h0_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "1108"
+      ],
+      "expected_parameters": {
+        "dps": 1108,
+        "h": "0",
+        "n": 32,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_odd_h0_replay_p1108",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_odd_h0_replay_p1108.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0.25",
+        "n": 32,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_odd_h0p25_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_odd_h0p25_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "32",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "948"
+      ],
+      "expected_parameters": {
+        "dps": 948,
+        "h": "0.5",
+        "n": 32,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n32_odd_h0p5_p948",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n32_odd_h0p5_p948.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0",
+        "n": 36,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_even_h0_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_even_h0_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0.25",
+        "n": 36,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_even_h0p25_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_even_h0p25_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0.5",
+        "n": 36,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_even_h0p5_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_even_h0p5_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0",
+        "n": 36,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_odd_h0_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_odd_h0_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0.25",
+        "n": 36,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_odd_h0p25_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_odd_h0p25_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "36",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "1044"
+      ],
+      "expected_parameters": {
+        "dps": 1044,
+        "h": "0.5",
+        "n": 36,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n36_odd_h0p5_p1044",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n36_odd_h0p5_p1044.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0",
+        "n": 40,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_even_h0_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_even_h0_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "even",
+        "--h",
+        "0",
+        "--dps",
+        "1300"
+      ],
+      "expected_parameters": {
+        "dps": 1300,
+        "h": "0",
+        "n": 40,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_even_h0_replay_p1300",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_even_h0_replay_p1300.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "even",
+        "--h",
+        "0.25",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0.25",
+        "n": 40,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_even_h0p25_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_even_h0p25_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "even",
+        "--h",
+        "0.5",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0.5",
+        "n": 40,
+        "parity": "even"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_even_h0p5_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_even_h0p5_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0",
+        "n": 40,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_odd_h0_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_odd_h0_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "odd",
+        "--h",
+        "0",
+        "--dps",
+        "1300"
+      ],
+      "expected_parameters": {
+        "dps": 1300,
+        "h": "0",
+        "n": 40,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_odd_h0_replay_p1300",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_odd_h0_replay_p1300.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "odd",
+        "--h",
+        "0.25",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0.25",
+        "n": 40,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_odd_h0p25_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_odd_h0p25_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    },
+    {
+      "argv": [
+        "--n",
+        "40",
+        "--parity",
+        "odd",
+        "--h",
+        "0.5",
+        "--dps",
+        "1140"
+      ],
+      "expected_parameters": {
+        "dps": 1140,
+        "h": "0.5",
+        "n": 40,
+        "parity": "odd"
+      },
+      "expected_status": "analytic_pattern_experiment",
+      "id": "residue_n40_odd_h0p5_p1140",
+      "output": "workstreams/all-degree-analytic-search/results/residue_n40_odd_h0p5_p1140.json",
+      "worker": "workstreams/all-degree-analytic-search/src/parity_residue.py"
+    }
+  ]
+}

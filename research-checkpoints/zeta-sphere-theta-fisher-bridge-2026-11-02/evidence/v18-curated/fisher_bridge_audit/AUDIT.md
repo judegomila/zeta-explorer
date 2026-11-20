@@ -1,0 +1,14 @@
+# Independent actual-theta Fisher bridge audit
+2026-11-02 23:37 UTC. Exact identities and bounds PASS; endpoint/strictness wording refinements requested and tracked below.
+
+For the positive half-line bridge probability, score r=2h*coth(2ah) centered is correct. Differentiating gives0<r'<2 and U''=1/h²+4a²csch²(2ah)-2ell''>34. Brascamp–Lieb therefore yields I_a<=4/34=2/17; combining Poincare/Cauchy gives Cov(V,r)²<=E|V'|²/289. The h0 density behaves as h²; convex interval truncations and passage by finite moments justify the natural-boundary inequality without an omitted boundary term. The scalar/vector covariance inequalities retain explicit feature drift and are not relative high-jet bounds. Primary variance/semigroup context checked at https://arxiv.org/abs/1106.0709 and https://arxiv.org/abs/1009.3421 .
+
+The centered score expansion cancels1/a. In lambda=a², endpoint score is(2/3)(h²-Eh²) and endpoint Fisher is(4/9)Var(h²). The added bound is correct: integrating(h³psi²)' yields E[h ell']=-3/2; ell'<=-17h implies Eh²<=3/34. BL gives Var(h²)<=4Eh²/34<=3/289, hence I_lambda(0)<=4/867.
+
+Checked Hellinger parent K=(1/2)whole-line autocorrelation, K/K0 equal to overlap at shifts +/-v, and local curvature1-Jv²/2. B_j=(-2)^j(D+a)^jpsi/psi gives Gamma=(Z/2)E BB^T and partial_a B_j=-2jB_(j-1). Target is(1/2)partial_a Gamma. Same-parity drift integrals vanish because the total g-derivative order is odd; hence H=(Z/2)E[u BB^T] exactly on each parity block. The signed u weight remains, despite positive parent measure. Full-line tilt Fisher4Var(u)<=2/17 does not imply this signed Gram is positive.
+
+Schur residual S=(Z/2)E[uR²] follows from the complete previous target block A>0. It is not a conditional variance or Fisher Schur complement. Score decomposition and Cauchy sufficient bound are correct; requested/author-fixed distinction: nonstrict inequality only yields S>=0, while PD induction needs strictness. Also requested explicit a0 wording because unnormalized H vanishes at0: beta=A^-1b is defined for a>0, or via normalized H/a and a justified coefficient limit. Reflection makes every finite-coefficient same-parity residual square even at0, but does not invert the zero unnormalized block.
+
+The reversible semigroup covariance integral has correct sign and no factor2 for generator f''+(logmu)'f'. Positive Stein kernel gives Cov(u,R²)=2E[tau R R']; thus the exact signed residual is m E R²+2E[tau R R']. Strong curvature controls relaxation/magnitude, not the favorable sign. The orbit derivative-score identity likewise retains exact drift/covariance cancellation. No entropy/Fisher positivity has been promoted to parameter-derivative Gram positivity or an RH proof.
+
+Author incorporated both strictness and normalized-a0 inverse clarifications. Final status PASS, including endpoint Fisher constant4/867.

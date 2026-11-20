@@ -1,0 +1,109 @@
+{
+  "analytic_inputs_not_replaced_by_replay": [
+    "spectral extreme-point proof for all dimensions",
+    "Pollaczek asymptotics at remote commit fc148eaa",
+    "actual selected-column obstruction at remote commit 3263f5a7",
+    "relative selected-column obstruction at remote commit 859300d1",
+    "membership in the relevant positive old prefix"
+  ],
+  "checks": [
+    "Q-Galerkin residual coordinates",
+    "X/H/Q form identities",
+    "selected-column pivot value and first/second derivatives",
+    "sharp gap-relative bound on rational PSD examples",
+    "rank-one sharp obstruction family",
+    "wave-31 tail-threshold algebra"
+  ],
+  "general_examples": [
+    {
+      "H_over_X": "52/229",
+      "h": "1/5",
+      "pivot_second_at_1": "-32/675",
+      "rho": "3/4",
+      "s1": "1/75",
+      "s2": "4/225",
+      "sharp_bound": "16/49"
+    },
+    {
+      "H_over_X": "28697/105365",
+      "h": "1/4",
+      "pivot_second_at_1": "-6335/124416",
+      "rho": "3/5",
+      "s1": "91/8640",
+      "s2": "337/20736",
+      "sharp_bound": "25/46"
+    },
+    {
+      "H_over_X": "223/1215",
+      "h": "1/6",
+      "pivot_second_at_1": "-19/400",
+      "rho": "1/2",
+      "s1": "1/150",
+      "s2": "1/80",
+      "sharp_bound": "1/2"
+    }
+  ],
+  "grade": "exact rational algebra replay; analytic spectral proof in note",
+  "nonclaims": [
+    "The countermodel is generic, not actual complete theta.",
+    "No actual-theta pivot failure is asserted.",
+    "No all-degree theorem or RH conclusion is asserted."
+  ],
+  "payload_sha256_before_self_hash": "e42e839283b32cb56c707501133b5dde828d44dac36ae0c06b0291d768c91a51",
+  "schema_version": "zsv.signed_projection_gap.20261104.v1",
+  "sharp_family": [
+    {
+      "Hq_over_Xq": "100/109",
+      "N": "10",
+      "Qq_over_A": "9/10",
+      "det_H": "0",
+      "det_Q": "9/1000",
+      "h": "1/1000",
+      "perfect_trial_epsilon": "0",
+      "rho": "1/100",
+      "trial_D": "991/990"
+    },
+    {
+      "Hq_over_Xq": "10000/10099",
+      "N": "100",
+      "Qq_over_A": "99/100",
+      "det_H": "0",
+      "det_Q": "99/1000000",
+      "h": "1/1000000",
+      "perfect_trial_epsilon": "0",
+      "rho": "1/10000",
+      "trial_D": "999901/999900"
+    },
+    {
+      "Hq_over_Xq": "1000000/1000999",
+      "N": "1000",
+      "Qq_over_A": "999/1000",
+      "det_H": "0",
+      "det_Q": "999/1000000000",
+      "h": "1/1000000000",
+      "perfect_trial_epsilon": "0",
+      "rho": "1/1000000",
+      "trial_D": "999999001/999999000"
+    },
+    {
+      "Hq_over_Xq": "100000000/100009999",
+      "N": "10000",
+      "Qq_over_A": "9999/10000",
+      "det_H": "0",
+      "det_Q": "9999/1000000000000",
+      "h": "1/1000000000000",
+      "perfect_trial_epsilon": "0",
+      "rho": "1/100000000",
+      "trial_D": "999999990001/999999990000"
+    }
+  ],
+  "status": "PASS",
+  "tail_threshold_replay": {
+    "h_threshold": "18/245",
+    "residual_ratio_bound": "45/223",
+    "rho": "2/5",
+    "strict_test_h": "9/245",
+    "tail_ratio": "1/2",
+    "tau": "3/5"
+  }
+}

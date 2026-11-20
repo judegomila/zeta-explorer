@@ -1,0 +1,403 @@
+{
+  "floating_constants": {
+    "zeta_three_decimal": 1.2020569031595942,
+    "zeta_three_use": "nonrigorous diagnostic payment only"
+  },
+  "grade": "nonrigorous_floating_structure_diagnostic",
+  "nonclaims": [
+    "The quadratures and theta-orbit truncations are floating diagnostics.",
+    "The replay changes resolution but is not an independent implementation.",
+    "Only degrees 3 and 5 are evaluated.",
+    "No finite agreement proves an all-degree angle bound, next pivot, Xi-Laguerre inequality, or RH."
+  ],
+  "parameters": {
+    "degrees": [
+      3,
+      5
+    ],
+    "label": "primary",
+    "maximum_orbit": 64,
+    "mode": "probe",
+    "precision_bits": 256,
+    "representation_rtol": 2e-07,
+    "u_nodes": 224,
+    "u_upper": 1.8,
+    "x_nodes_per_cell": 24,
+    "x_upper": 12
+  },
+  "provenance": {
+    "actual_angle_source": "workstreams/actual-theta-angle-wave27-20261103/src/certify_actual_theta_angle.py",
+    "actual_angle_source_sha256": "159bcc5b32afe6e55045e4d9ed009ef0efa481d4758eafa9a8b6c557263055e4",
+    "operator_source": "workstreams/all-degree-analytic-search/src/operator_mining.py",
+    "operator_source_sha256": "122a6ee179f6b7878ff1abd5ed47593d778a90df6ac633303f791733336f75b9",
+    "source": "workstreams/signed-arithmetic-variation-wave29-20261104/src/probe_signed_arithmetic_variation.py",
+    "source_sha256": "4fa8acb72a860d54675c3fb576b3cf68a2e08a3185211b4c8b29997e7540ee0d",
+    "target_archive_sha256": "06b56542d907b50d397263a88da4a39da75ac94463cd48d54da8a5e43198b536"
+  },
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "f00de6267994d706d8d4a24a8ac91ed66e05ecb57b2bdc9f468b1b591fe0ebcd"
+  },
+  "results": [
+    {
+      "absolute_variation_over_x": 55.38925302277917,
+      "angle": -0.08727799981254868,
+      "crude_absolute_variation_payment": -561.7873649425111,
+      "cumulative_maximum": 0.0,
+      "cumulative_minimum": -4.031217838307645,
+      "current_coefficients": {
+        "1": 34.71791883916725,
+        "3": 1.0
+      },
+      "degree": 3,
+      "last_cell_absolute_magnitude": 3.1187444596418133e-160,
+      "last_two_cell_absolute_ratio": 2.952285744234809e-29,
+      "monotonicity_candidate_survives": false,
+      "orbit_reports": {
+        "direct_shift_zero": {
+          "geometric_tail_max_abs_estimate": 2.292026092343558e-148,
+          "geometric_tail_ratio_estimate": 3.4313570333665737e-26,
+          "last_orbit_max_abs": 6.679649101086998e-123,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        },
+        "shifted_shift_two": {
+          "geometric_tail_max_abs_estimate": 2.9708337523903565e-151,
+          "geometric_tail_ratio_estimate": 2.774604792279049e-26,
+          "last_orbit_max_abs": 1.0707232109803019e-125,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        }
+      },
+      "physical_norm": 289.74067280017135,
+      "relative_representation_errors": {
+        "abel": 0.0,
+        "common_scale_stieltjes": 4.634310527642078e-15,
+        "laplace": 5.296354888733803e-15
+      },
+      "representations": {
+        "abel": -4.024708034226739,
+        "common_scale_stieltjes": -4.0247080342267205,
+        "direct": -4.024708034226739,
+        "laplace": -4.024708034226718
+      },
+      "residual_coefficients": {
+        "1": -1.1241331238466765
+      },
+      "unit_cells": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "cumulative": -4.031217838307645,
+          "maximum_z_prime": 319.38571521118484,
+          "minimum_z_prime": -9.177798920423074,
+          "signed_abel_contribution": -4.031217838307645
+        },
+        {
+          "cell": [
+            2,
+            3
+          ],
+          "cumulative": -4.024708038171509,
+          "maximum_z_prime": -5.531735091980544e-07,
+          "minimum_z_prime": -0.5043889934748305,
+          "signed_abel_contribution": 0.0065098001361361055
+        },
+        {
+          "cell": [
+            3,
+            4
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -5.192554610125042e-16,
+          "minimum_z_prime": -5.086468042413585e-07,
+          "signed_abel_contribution": 3.944770404774177e-09
+        },
+        {
+          "cell": [
+            4,
+            5
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -6.823772185512849e-28,
+          "minimum_z_prime": -4.623510529801755e-16,
+          "signed_abel_contribution": 2.7397319824697276e-18
+        },
+        {
+          "cell": [
+            5,
+            6
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -1.4134854158115854e-42,
+          "minimum_z_prime": -5.888985593019368e-28,
+          "signed_abel_contribution": 2.783937682169457e-30
+        },
+        {
+          "cell": [
+            6,
+            7
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -4.876577421699956e-60,
+          "minimum_z_prime": -1.1827413300874762e-42,
+          "signed_abel_contribution": 4.8031280699271456e-45
+        },
+        {
+          "cell": [
+            7,
+            8
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -2.891484537299525e-80,
+          "minimum_z_prime": -3.9571256300843733e-60,
+          "signed_abel_contribution": 1.3775507121981987e-62
+        },
+        {
+          "cell": [
+            8,
+            9
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -3.0055809592532703e-103,
+          "minimum_z_prime": -2.275636190144968e-80,
+          "signed_abel_contribution": 7.094995115184766e-83
+        },
+        {
+          "cell": [
+            9,
+            10
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -5.5509980908510475e-129,
+          "minimum_z_prime": -2.294358099266819e-103,
+          "signed_abel_contribution": 6.439101529805271e-106
+        },
+        {
+          "cell": [
+            10,
+            11
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -1.8390387120698165e-157,
+          "minimum_z_prime": -4.1103426435956047e-129,
+          "signed_abel_contribution": 1.0563829960335184e-131
+        },
+        {
+          "cell": [
+            11,
+            12
+          ],
+          "cumulative": -4.024708034226738,
+          "maximum_z_prime": -1.1006236837101519e-188,
+          "minimum_z_prime": -1.320957777130124e-157,
+          "signed_abel_contribution": 3.1187444596418133e-160
+        }
+      ],
+      "upper_boundary": {
+        "gamma": 3.529267560233431e-191,
+        "p_gamma": -2.7545161996195112e-191,
+        "p_right": -0.7804781452833016,
+        "x": 12,
+        "z": 1.222574145565791e-190
+      },
+      "upward_variation_on_sampled_range": 59.70187304852112,
+      "weighted_total_variation_term_on_sampled_range": 27.430512813591044,
+      "z_one_over_six_zeta_three": -7.894834714719423,
+      "z_prime_negative_nodes": 253,
+      "z_prime_positive_nodes": 11
+    },
+    {
+      "absolute_variation_over_x": 1032784.663685442,
+      "angle": 0.72053126037165,
+      "crude_absolute_variation_payment": -10172213.882634852,
+      "cumulative_maximum": 94083.92004213737,
+      "cumulative_minimum": 0.0,
+      "current_coefficients": {
+        "1": 2007.2680916344186,
+        "3": 115.13439045101453,
+        "5": 1.0
+      },
+      "degree": 5,
+      "last_cell_absolute_magnitude": 7.835122524338137e-152,
+      "last_two_cell_absolute_ratio": 4.331878578200106e-29,
+      "monotonicity_candidate_survives": false,
+      "orbit_reports": {
+        "direct_shift_zero": {
+          "geometric_tail_max_abs_estimate": 1.340920789997288e-142,
+          "geometric_tail_ratio_estimate": 5.276808425029334e-26,
+          "last_orbit_max_abs": 2.5411587497414856e-117,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        },
+        "shifted_shift_two": {
+          "geometric_tail_max_abs_estimate": 1.7380866781403193e-145,
+          "geometric_tail_ratio_estimate": 4.266731632089448e-26,
+          "last_orbit_max_abs": 4.073578626479412e-120,
+          "minimum_tail_check_orbit": 8,
+          "orbit_cutoff": 10,
+          "relative_tolerance": 3e-15,
+          "rigorous_tail_bound": false
+        }
+      },
+      "physical_norm": 813221.7129558398,
+      "relative_representation_errors": {
+        "abel": 7.802041131646022e-16,
+        "common_scale_stieltjes": 1.2483265810633635e-15,
+        "laplace": 4.057061388455931e-15
+      },
+      "representations": {
+        "abel": 93257.10402462848,
+        "common_scale_stieltjes": 93257.1040246283,
+        "direct": 93257.10402462841,
+        "laplace": 93257.10402462803
+      },
+      "residual_coefficients": {
+        "1": 328.34165472909297,
+        "3": 12.419077938776443
+      },
+      "unit_cells": [
+        {
+          "cell": [
+            1,
+            2
+          ],
+          "cumulative": 94083.92004213737,
+          "maximum_z_prime": 91582.64858211167,
+          "minimum_z_prime": -4871831.697089563,
+          "signed_abel_contribution": 94083.92004213737
+        },
+        {
+          "cell": [
+            2,
+            3
+          ],
+          "cumulative": 93257.10843841564,
+          "maximum_z_prime": 44223.49174064708,
+          "minimum_z_prime": 0.5617429578996433,
+          "signed_abel_contribution": -826.8116037217289
+        },
+        {
+          "cell": [
+            3,
+            4
+          ],
+          "cumulative": 93257.1040246285,
+          "maximum_z_prime": 0.5206186991126466,
+          "minimum_z_prime": 1.983791230091078e-09,
+          "signed_abel_contribution": -0.004413787151483946
+        },
+        {
+          "cell": [
+            4,
+            5
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 1.775712794982837e-09,
+          "minimum_z_prime": 6.775503561502165e-21,
+          "signed_abel_contribution": -1.0978094214487263e-11
+        },
+        {
+          "cell": [
+            5,
+            6
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 5.8710220153778266e-21,
+          "minimum_z_prime": 2.9975373392425557e-35,
+          "signed_abel_contribution": -2.8467034151619086e-23
+        },
+        {
+          "cell": [
+            6,
+            7
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 2.51651950286841e-35,
+          "minimum_z_prime": 1.9475949609337324e-52,
+          "signed_abel_contribution": -1.039330930946888e-37
+        },
+        {
+          "cell": [
+            7,
+            8
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 1.5848332567226295e-52,
+          "minimum_z_prime": 1.9900375118357746e-72,
+          "signed_abel_contribution": -5.5838168774353036e-55
+        },
+        {
+          "cell": [
+            8,
+            9
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 1.5700188749989994e-72,
+          "minimum_z_prime": 3.3356984066269466e-95,
+          "signed_abel_contribution": -4.939104112886583e-75
+        },
+        {
+          "cell": [
+            9,
+            10
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 2.5518773738018758e-95,
+          "minimum_z_prime": 9.433901437460891e-121,
+          "signed_abel_contribution": -7.211595246583406e-98
+        },
+        {
+          "cell": [
+            10,
+            11
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 6.999103255374842e-121,
+          "minimum_z_prime": 4.59156662925806e-149,
+          "signed_abel_contribution": -1.8087124056911187e-123
+        },
+        {
+          "cell": [
+            11,
+            12
+          ],
+          "cumulative": 93257.10402462848,
+          "maximum_z_prime": 3.30388533640127e-149,
+          "minimum_z_prime": 3.901889900756168e-180,
+          "signed_abel_contribution": -7.835122524338137e-152
+        }
+      ],
+      "upper_boundary": {
+        "gamma": -1.257796172991522e-182,
+        "p_gamma": 9.816824242408578e-183,
+        "p_right": -0.7804781452833016,
+        "x": 12,
+        "z": -4.3571337543740176e-182
+      },
+      "upward_variation_on_sampled_range": 33322.97720840819,
+      "weighted_total_variation_term_on_sampled_range": 510105.999980009,
+      "z_one_over_six_zeta_three": 155632.75421956778,
+      "z_prime_negative_nodes": 14,
+      "z_prime_positive_nodes": 250
+    }
+  ],
+  "runtime": {
+    "network_used": false,
+    "numpy": "2.5.3",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_executable": "/Users/USER/Documents/GitHub/mathexplorer/.venv-arb/bin/python"
+  },
+  "schema_version": "zsv.signed_arithmetic_variation.v1",
+  "status": "bounded_floating_mechanism_probe",
+  "verdict": "PASS"
+}

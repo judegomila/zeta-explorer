@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "arb_balls_reclassify_to_recorded_signs": true,
+    "common_signs": {
+      "1": "zero",
+      "11": "positive",
+      "13": "positive",
+      "15": "positive",
+      "17": "indeterminate",
+      "19": "indeterminate",
+      "3": "negative",
+      "5": "positive",
+      "7": "positive",
+      "9": "positive"
+    },
+    "primary_replay_signs_identical": true,
+    "receipt_integrity_valid": true,
+    "source_and_archive_bindings_identical": true,
+    "strict_conclusions_identical": true
+  },
+  "inputs": {
+    "workstreams/actual-theta-angle-wave27-20261103/results/actual_theta_angle_p384.json": "ebd863cd67d3e518a3f9910159a643e85d25b27b84ab78fecff543a62ff54115",
+    "workstreams/actual-theta-angle-wave27-20261103/results/actual_theta_angle_replay_p640.json": "8682df0163748549b60f666cb5d89dec3f7ceb2eb3fc1c511626eac1deeb13e9"
+  },
+  "nonclaims": [
+    "Indeterminate degrees 17 and 19 are not certified negative or zero.",
+    "Finite signs do not prove an all-degree angle bound, next pivot, or RH."
+  ],
+  "provenance": {
+    "auditor": "workstreams/actual-theta-angle-wave27-20261103/src/audit_actual_theta_angle_receipts.py",
+    "auditor_sha256": "352a7e1d4d26406573345a38f01d97a5cb746d2b7015acf67a6bb63a3eed900f"
+  },
+  "qualification": "Independent receipt parser and classifier; the primary and replay use the same interval implementation and this does not recompute archived theta quadrature.",
+  "receipt_integrity": {
+    "definition": "sha256 of compact sorted JSON with receipt_integrity omitted",
+    "payload_sha256": "b46a6ddbf18b59397009b1f786e76a8e8b0e98579e2d231c93ea3a020985ab4c"
+  },
+  "runtime": {
+    "network_used": false,
+    "python": "3.14.10 (main, Oct 25 2026, 17:12:00) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "python_flint": "0.9.0",
+    "theta_quadrature_recomputed": false
+  },
+  "schema_version": "zsv.actual_theta_angle.receipt_audit.v1",
+  "scope": "Independent receipt integrity, binding, Arb sign, and precision-replay audit",
+  "status": "PASS"
+}

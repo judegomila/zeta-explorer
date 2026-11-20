@@ -550,7 +550,7 @@ export default function OddZetaPage() {
             itself is a short description. Ordinary Kolmogorov complexity does not charge for runtime or
             for the number of prime factors evaluated.
           </p>
-          <div style={{ padding: 12, background: 'rgba(194,58,28,0.08)', borderRadius: 6, border: '1px solid rgba(194,58,28,0.30)' }}>
+          <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', borderRadius: 6, border: '1px solid color-mix(in srgb, var(--series-2) 30%, transparent)' }}>
             <strong style={{ color: 'var(--terra-dk)', fontSize: 12 }}>Audit status: {oddZetaAudit.status}</strong>
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '6px 0 0' }}>
               The statement “rational iff prefix complexity is <InlineMath tex={"O(\\log N)"} />” is false:
@@ -580,7 +580,7 @@ export default function OddZetaPage() {
             architecture expressed as analytic cancellation bits minus denominator bits.
           </p>
           <div className="two-col" style={{ gap: 16 }}>
-            <div style={{ padding: 12, background: 'rgba(181,138,46,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--brass-deco) 8%, transparent)', borderRadius: 8 }}>
               <h3 style={{ color: 'var(--brass-dk)', fontSize: 13, marginBottom: 6 }}>Why naive truncation loses</h3>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
                 With <InlineMath tex={"d_M=\\operatorname{lcm}(1,\\ldots,M)"} />, clearing the denominators
@@ -590,7 +590,7 @@ export default function OddZetaPage() {
                 the same exponential-denominator versus polynomial-tail barrier.
               </p>
             </div>
-            <div style={{ padding: 12, background: 'rgba(63,107,134,0.08)', borderRadius: 8 }}>
+            <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-1) 8%, transparent)', borderRadius: 8 }}>
               <h3 style={{ color: 'var(--blue)', fontSize: 13, marginBottom: 6 }}>Digit-complexity salvage</h3>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
                 Proving that the base-<InlineMath tex={"b"} /> expansion is not eventually periodic—via
@@ -607,7 +607,7 @@ export default function OddZetaPage() {
               </p>
             </div>
           </div>
-          <div style={{ marginTop: 12, padding: 12, background: 'rgba(63,107,134,0.06)', borderRadius: 8 }}>
+          <div style={{ marginTop: 12, padding: 12, background: 'color-mix(in srgb, var(--series-1) 6%, transparent)', borderRadius: 8 }}>
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
               <strong style={{ color: 'var(--blue)' }}>One unconditional ensemble theorem:</strong>{' '}
               Zudilin's result that at least one of{' '}

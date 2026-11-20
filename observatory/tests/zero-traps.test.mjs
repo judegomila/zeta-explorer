@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { trapDiscs, trapWinding, computeTraps, lineCertificateFor, CERTIFIED_WITNESS } from '../dist/zero-traps.js';
 import { LINE_CERTIFICATE } from '../dist/zero-line-certificate.js';
@@ -45,11 +46,22 @@ test('the shipped certificate is internally consistent with the discs the app dr
   discs.forEach((disc,i)=>{assert.equal(c.discs[i].t,disc.t);assert.equal(c.discs[i].radius,disc.radius);assert.equal(c.discs[i].winding,1);});
   const {T,sigmaMin,sigmaMax,winding,zerosInside}=c.rectangle;
   // One simple pole at s = 1 inside the rectangle: zeros = winding + 1.
-  assert.equal(zerosInside,winding+1);assert.equal(c.complete,zerosInside===2*discs.length);assert.equal(c.complete,true);
-  assert.equal(c.completeHeight,T);
+  assert.equal(zerosInside,winding+1);assert.equal(c.complete,zerosInside===2*c.zeroCount);assert.equal(c.complete,true);
+  assert.equal(c.completeHeight,T);assert.equal(c.appDiscCount,discs.length);assert.ok(c.zeroCount>=discs.length);
   for(const disc of discs){assert.ok(disc.t-disc.radius>0&&disc.t+disc.radius<T);assert.ok(.5-disc.radius>sigmaMin&&.5+disc.radius<sigmaMax);}
   // Independent floating-point count agrees with the certified one.
-  const count=completeZeroCount(T);assert.equal(count.strip,discs.length);assert.equal(count.line,discs.length);
+  const count=completeZeroCount(T);assert.equal(count.strip,c.zeroCount);assert.equal(count.line,c.zeroCount);
+});
+
+test('the full certificate record lists one disjoint winding-one disc per zero below its height',()=>{
+  const full=JSON.parse(readFileSync(new URL('../dist/experiments/zero-line-certificate.json',import.meta.url),'utf8'));
+  assert.equal(full.certificateId,LINE_CERTIFICATE.certificateId);assert.equal(full.discs.length,full.zeroCount);
+  assert.deepEqual(full.discs.slice(0,full.appDiscCount),LINE_CERTIFICATE.discs);
+  full.discs.forEach((disc,i)=>{
+    assert.equal(disc.winding,1);assert.ok(disc.radius>0&&disc.radius<=.6);
+    assert.ok(disc.t-disc.radius>0&&disc.t+disc.radius<full.rectangle.T);
+    if(i)assert.ok(full.discs[i-1].t+full.discs[i-1].radius<disc.t-disc.radius,`discs ${i} and ${i+1} are disjoint`);
+  });
 });
 
 test('a disc holding two zeros is unresolved, never reported as a trap',()=>{

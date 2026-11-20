@@ -1,0 +1,207 @@
+{
+  "claim": "S_U>0 for every positive t; K_U has exactly one simple negative-to-positive zero in (1/2,9/16).",
+  "core": {
+    "KU_negative_upper_bound": "-33354673152.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "Taylor_order": 16,
+    "cell_widths": {
+      "1/1024": 710,
+      "1/128": 90,
+      "1/2048": 600,
+      "1/256": 178,
+      "1/512": 355,
+      "1/64": 47
+    },
+    "cells": 1980,
+    "claim": "SU>0 throughout; KU<0 up to1/2, KU/t15 strictly increasing on[1/2,9/16], KU>0 from9/16 onward.",
+    "crossing_endpoint_values": {
+      "1/2": "[-26462819943886945.1455041216284952015513917796300886487779938308696891310433516432751992134216946440224624932837384743442872005467575595347297355 +/- 5.53e-128]",
+      "9/16": "[37615392989524513.7409206428666456465453622245415844758855049055127324647737875156152262540271562306429482294182757585804439195745377358469542811 +/- 6.93e-128]"
+    },
+    "domain": "3/16<=t<=4",
+    "precision_bits": 512,
+    "region_cell_counts": {
+      "crossing_derivative": 4,
+      "negative_KU": 20,
+      "positive_KU": 1956
+    },
+    "status": "passed",
+    "strict_lower_bounds": {
+      "KU_positive": "36725552282861568.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "SU": "34053302.3750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "normalized_KU_derivative": "10387599969063624769536.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "theta_terms": 16
+  },
+  "exact": {
+    "checks": [
+      "even_column_0_jet_0",
+      "even_column_0_jet_1",
+      "even_column_0_jet_2",
+      "even_column_0_jet_3",
+      "even_column_0_jet_4",
+      "even_column_0_jet_5",
+      "even_column_1_jet_0",
+      "even_column_1_jet_1",
+      "even_column_1_jet_2",
+      "even_column_1_jet_3",
+      "even_column_1_jet_4",
+      "even_column_1_jet_5",
+      "even_column_2_jet_0",
+      "even_column_2_jet_1",
+      "even_column_2_jet_2",
+      "even_column_2_jet_3",
+      "even_column_2_jet_4",
+      "even_column_2_jet_5",
+      "even_column_3_jet_0",
+      "even_column_3_jet_1",
+      "even_column_3_jet_2",
+      "even_column_3_jet_3",
+      "even_column_3_jet_4",
+      "even_column_3_jet_5",
+      "even_column_4_jet_0",
+      "even_column_4_jet_1",
+      "even_column_4_jet_2",
+      "even_column_4_jet_3",
+      "even_column_4_jet_4",
+      "even_column_4_jet_5",
+      "even_column_5_jet_0",
+      "even_column_5_jet_1",
+      "even_column_5_jet_2",
+      "even_column_5_jet_3",
+      "even_column_5_jet_4",
+      "even_column_5_jet_5",
+      "K_U_six_column_elimination",
+      "S_U_five_column_elimination",
+      "six_column_Wronskian_derivative",
+      "t15_normalized_derivative",
+      "memoized_determinant_order_5",
+      "memoized_determinant_order_6",
+      "even_Wronskian_factor_order_4",
+      "even_Wronskian_factor_order_5"
+    ],
+    "exact_checks": 44,
+    "status": "passed"
+  },
+  "origin": {
+    "KU_over_t15_origin": "[-5.849491616392133070e+21 +/- 6.93e+2]",
+    "KU_over_t15_upper": "-5108735695702875701248.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "K_derivative_remainders": [
+      "[1.28068344856376998558988550670994371794889945638386521146832815858244265909797081880435686452707391194759223417014155942436028774224613409209410152677471e-44 +/- 3.36e-197]",
+      "[2.08239292611510402570541178641901430744980872324517620155730512818155026969798269849145534855002349506083736891194150018134754298122457775240667522981850e-41 +/- 3.41e-194]",
+      "[3.32694116994520329247738919105016715108061068681776034331699556473279292037311854529040205770757208724109759724589748503785591889791752479672903142332659e-38 +/- 7.83e-192]",
+      "[5.22099752150973754045324459719164746787665182370195513504085682825430389607497555944040807388955969997776779006024973263231866181058796349836483412393595e-35 +/- 1.84e-188]",
+      "[8.04539353309452069359206204231674471532212867681523598084554024063115509142601619173992174151035215954240566891686525849115825232373916661793580999643105e-32 +/- 3.25e-185]",
+      "[1.21697299188185773653594872604095610253971048556206553507227006475597969104525057871961025099129026394592835209826988824267675288718370258933375967480035e-28 +/- 2.65e-181]",
+      "[1.80635640637841473853685785519751600549523807311873088363070337475938519720940051346421639607019055938237850818345598499713790181189935414620740144431461e-25 +/- 2.85e-178]",
+      "[2.63001438779118824454809769479300668915495778100021753533960533783471204715490410545581032855215649187174277399807923826546646875238654027753002817993617e-22 +/- 3.79e-175]",
+      "[3.75476093339174556060970099514835769764794745755511441440606720071996260770092964100472699309764252291802645881942048064297145358060602879122544207738547e-19 +/- 5.20e-172]",
+      "[5.25420352677379311520111166531694989835647403743715750568064980657171058693546080764304441823065457668420404448789408878375500214700819721599011148664093e-16 +/- 5.20e-169]",
+      "[7.20370873799369393223450677401140613845646540936932199215716998640405118700601654826779973756007332672607966564614846726385823676131528261001194439263336e-13 +/- 2.72e-168]"
+    ],
+    "SU_over_t10_lower": "748372153597952.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "SU_over_t10_origin": "[857194061747997.85727674 +/- 4.05e-9]",
+    "cells": 256,
+    "degree": 56,
+    "domain": "0<t<=3/16, with t10/t15 normalized limits",
+    "precision_bits": 512,
+    "status": "passed",
+    "theta_disk_tail_bound": "[2.16959673103388153161723991012830905067467368385881442825927692373959465149781863783452249360033407796790379958705884797563714830521412291746339417474990e-181 +/- 2.88e-334]",
+    "theta_terms": 16
+  },
+  "status": "passed",
+  "tail": {
+    "checks": [
+      "KU_first_mode_margin_numerator",
+      "KU_first_mode_margin_denominator",
+      "SU_first_mode_margin_numerator",
+      "SU_first_mode_margin_denominator",
+      "KU_perturbation_below_half",
+      "KU_perturbation_decreases",
+      "SU_perturbation_below_half",
+      "SU_perturbation_decreases",
+      "theta_frequency_at_t4",
+      "exponential_lower_bound",
+      "first_mode_log_jet_remainder_0",
+      "first_mode_log_jet_remainder_1",
+      "first_mode_log_jet_remainder_2",
+      "first_mode_log_jet_remainder_3",
+      "first_mode_log_jet_remainder_4",
+      "first_mode_log_jet_remainder_5",
+      "first_mode_log_jet_remainder_6",
+      "first_mode_log_jet_remainder_7",
+      "first_mode_log_jet_remainder_8",
+      "first_mode_log_jet_remainder_9",
+      "first_mode_log_jet_remainder_10",
+      "coarse_tenth_derivative_bound",
+      "Touchard_bound",
+      "omitted_mode_geometric_ratio",
+      "theta_derivative_constant",
+      "logarithm_derivative_constant",
+      "theta_error_below_one",
+      "logarithm_error_below_one"
+    ],
+    "conclusion": "SU>1/2 and KU>1/2 throughout the full theta spatial tail",
+    "domain": "t>=4, z=pi exp(t)>160",
+    "exact_checks": 28,
+    "scope": "Exact first-mode shifted polynomial signs and explicit errors for every omitted theta mode and required logarithmic derivative.",
+    "sources": {
+      "KU": {
+        "full_theta_error_at_160_upper": "2301462655965003357784710824489593505859375/102844034832575377634685573909834406561420991602098741459288064",
+        "polynomial_column_degrees": [
+          2,
+          2,
+          4,
+          4,
+          6
+        ],
+        "polynomial_column_norms": [
+          "6",
+          "132",
+          "4356",
+          "43312",
+          "971376"
+        ],
+        "polynomial_degree_bound": 18,
+        "polynomial_norm_bound": "17417663911081082880",
+        "shifted_positive_coefficient_counts": [
+          {
+            "degree": 24,
+            "terms": 88
+          },
+          {
+            "degree": 6,
+            "terms": 7
+          }
+        ]
+      },
+      "SU": {
+        "full_theta_error_at_160_upper": "105377806279797255992889404296875/1725436586697640946858688965569256363112777243042596638790631055949824",
+        "polynomial_column_degrees": [
+          2,
+          2,
+          4,
+          6
+        ],
+        "polynomial_column_norms": [
+          "5",
+          "68",
+          "1556",
+          "255520"
+        ],
+        "polynomial_degree_bound": 14,
+        "polynomial_norm_bound": "3244327219200",
+        "shifted_positive_coefficient_counts": [
+          {
+            "degree": 19,
+            "terms": 68
+          },
+          {
+            "degree": 5,
+            "terms": 6
+          }
+        ]
+      }
+    },
+    "status": "passed"
+  }
+}

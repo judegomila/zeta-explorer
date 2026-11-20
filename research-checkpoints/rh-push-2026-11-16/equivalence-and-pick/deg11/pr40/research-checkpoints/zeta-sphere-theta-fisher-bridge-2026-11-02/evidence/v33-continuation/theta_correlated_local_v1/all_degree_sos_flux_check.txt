@@ -1,0 +1,7 @@
+degree 1 polynomial divisions and exact flux: PASS
+degree 2 polynomial divisions and exact flux: PASS
+degree 3 polynomial divisions and exact flux: PASS
+degree 4 polynomial divisions and exact flux: PASS
+degree 5 polynomial divisions and exact flux: PASS
+degree 6 polynomial divisions and exact flux: PASS
+No remainder positivity or selected-pivot sign tested.

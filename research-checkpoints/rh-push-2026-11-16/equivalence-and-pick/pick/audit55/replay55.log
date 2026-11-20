@@ -1,0 +1,39 @@
+{"gate": "oriented_source_identities", "status": "passed", "seconds": 0.129}
+{"gate": "anchor_tail_identities", "status": "passed", "seconds": 0.382}
+{"gate": "spatial_tail_identities", "status": "passed", "seconds": 0.124}
+{"gate": "H_fifth_source_exact", "status": "passed", "seconds": 0.749}
+{"gate": "H_fifth_source_origin", "status": "passed", "seconds": 0.055}
+{"progress": "H_fixed_source_core", "cells": 512, "right": "15/4"}
+{"progress": "H_fixed_source_core", "cells": 1024, "right": "843/256"}
+{"progress": "H_fixed_source_core", "cells": 1536, "right": "1317/512"}
+{"gate": "H_fifth_source_core", "status": "passed", "seconds": 6.451}
+{"gate": "H_fifth_source_tail", "status": "passed", "seconds": 0.631}
+{"gate": "U_source_and_crossing_exact", "status": "passed", "seconds": 1.642}
+{"gate": "U_source_and_crossing_origin", "status": "passed", "seconds": 0.054}
+{"progress": "U_source_core", "cells": 512, "right": "15/4"}
+{"progress": "U_source_core", "cells": 1024, "right": "843/256"}
+{"progress": "U_source_core", "cells": 1536, "right": "1317/512"}
+{"gate": "U_source_and_crossing_core", "status": "passed", "seconds": 8.402}
+{"progress": "U_source_tail", "phase": "first_mode_determinants"}
+{"gate": "U_source_and_crossing_tail", "status": "passed", "seconds": 0.503}
+{
+  "status": "passed",
+  "python": "3.15.2",
+  "packages": {
+    "sympy": "1.14.0",
+    "python-flint": "0.9.0",
+    "mpmath": "1.3.0"
+  },
+  "precision_bits": 512,
+  "seconds": 19.132,
+  "primary_gate_count": 11,
+  "new_exact_symbolic_checks": 137,
+  "new_tail_exact_rational_checks": 70,
+  "primary_interval_cell_evaluations": 4472,
+  "distinct_spatial_partition_cells": 2236,
+  "counting_note": "H and the joint U/crossing certificate each use 256 origin and 1980 compact cells on the same spatial domain. The standalone U-source corroborating replay is excluded.",
+  "scope": "Fresh certificates for K_H<0, S_U>0 and the single ordered K_U crossing; exact identities supporting the accompanying analytic propagation and boundary theorems. Together with the fixed PR53/PR54 inputs these give both global mixed signs, third full preservation and six-node real Pick positivity. Arbitrary-depth preservation and RH remain open.",
+  "prior_proof_dependencies_rerun": false,
+  "saved_replays_used_as_inputs": false
+}
+../../venv/bin/python -I run_checks.py  19.23s user 0.09s system 99% cpu 19.363 total

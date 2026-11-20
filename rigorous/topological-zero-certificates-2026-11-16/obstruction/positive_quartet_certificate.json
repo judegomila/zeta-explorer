@@ -1,0 +1,116 @@
+{
+  "status": "EXACT_RATIONAL_IDENTITIES_VERIFIED",
+  "interpretation": "Auxiliary positive-kernel countermodel; not the Riemann xi function",
+  "source_repository": "judegomila/mathexplorer",
+  "source_ref_pr56": "29d8f6f88250d976d4a45f6e0df0b6698bf46a16",
+  "sympy_version": "1.14.0",
+  "P0": "2*v**2 - 3*v",
+  "P2": "2*v**4 - 14*v**3 + 165*v**2/8 - 75*v/16",
+  "P4": "2*v**6 - 33*v**5 + 647*v**4/4 - 266*v**3 + 15465*v**2/128 - 1875*v/256",
+  "R2_shift_at_3": "2*x**3 + 4*x**2 + 53*x/8 + 147/16",
+  "R4_bernstein": [
+    {
+      "interval": [
+        3,
+        4
+      ],
+      "degree": 5,
+      "coefficients": [
+        "232803/256",
+        "1330433/1280",
+        "1490163/1280",
+        "1636261/1280",
+        "352203/256",
+        "371701/256"
+      ],
+      "minimum": "232803/256"
+    },
+    {
+      "interval": [
+        4,
+        5
+      ],
+      "degree": 5,
+      "coefficients": [
+        "371701/256",
+        "391199/256",
+        "2026221/1280",
+        "2063263/1280",
+        "2062993/1280",
+        "405127/256"
+      ],
+      "minimum": "371701/256"
+    },
+    {
+      "interval": [
+        5,
+        6
+      ],
+      "degree": 5,
+      "coefficients": [
+        "405127/256",
+        "1988277/1280",
+        "1913831/1280",
+        "1802521/1280",
+        "1658923/1280",
+        "298905/256"
+      ],
+      "minimum": "298905/256"
+    },
+    {
+      "interval": [
+        6,
+        7
+      ],
+      "degree": 5,
+      "coefficients": [
+        "298905/256",
+        "1330127/1280",
+        "1144929/1280",
+        "950419/1280",
+        "764997/1280",
+        "123307/256"
+      ],
+      "minimum": "123307/256"
+    },
+    {
+      "interval": [
+        7,
+        8
+      ],
+      "degree": 5,
+      "coefficients": [
+        "123307/256",
+        "468073/1280",
+        "356571/1280",
+        "309901/1280",
+        "365407/1280",
+        "114493/256"
+      ],
+      "minimum": "309901/1280"
+    }
+  ],
+  "R4_shift_at_8": "2*x**5 + 47*x**4 + 1543*x**3/4 + 1184*x**2 + 103529*x/128 + 114493/256",
+  "kernel_derivative_bounds": [
+    "kappa_second >= -8*kappa",
+    "kappa_fourth >= -256*kappa"
+  ],
+  "parameter_range": "T >= 16; 0 < eta < 1/2",
+  "deformation_coefficients": {
+    "a": "(8*T**2 - 8*eta**2)/(T**2 + eta**2)**2",
+    "b": "16/(T**2 + eta**2)**2"
+  },
+  "uniform_kernel_lower_factor": "11/16",
+  "transform_multiplier": "(T**2 - 2*T*t + eta**2 + t**2)*(T**2 + 2*T*t + eta**2 + t**2)/(T**2 + eta**2)**2",
+  "added_zeros": [
+    "T+i*eta",
+    "T-i*eta",
+    "-T+i*eta",
+    "-T-i*eta"
+  ],
+  "odd_diagonal_correction": "-8*T**2*(2*T - eta)*(2*T + eta)/(eta**2*(4*T**2 + eta**2)**2)",
+  "odd_diagonal_correction_upper_bound": "-2/eta^2+3/(2*T^2)",
+  "direct_negative_witness_condition": "f(T)!=0 and eta^2 < 2/(max(A(T),0)+3/(2*T^2)+1), where A=-logabs(f)second+logabs(f)first/T",
+  "global_rh_claim": false,
+  "requires_numerical_root_finder": false
+}

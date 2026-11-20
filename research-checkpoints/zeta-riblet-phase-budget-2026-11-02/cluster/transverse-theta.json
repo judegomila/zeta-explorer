@@ -1,0 +1,64 @@
+{
+  "order": 14,
+  "integer_xi_argument": 22,
+  "height_subcells_per_window": 1024,
+  "horizontal_taylor_degree": 96,
+  "windows": [
+    {
+      "heights": [
+        32,
+        36
+      ],
+      "transverse_derivative_lower": 4.263606793916339e-19
+    },
+    {
+      "heights": [
+        36,
+        40
+      ],
+      "transverse_derivative_lower": 6.250189505827965e-22
+    },
+    {
+      "heights": [
+        40,
+        44
+      ],
+      "transverse_derivative_lower": 3.205479126926234e-24
+    },
+    {
+      "heights": [
+        44,
+        48
+      ],
+      "transverse_derivative_lower": 3.7166473940937394e-27
+    },
+    {
+      "heights": [
+        48,
+        52
+      ],
+      "transverse_derivative_lower": 1.9260621491478183e-29
+    },
+    {
+      "heights": [
+        52,
+        56
+      ],
+      "transverse_derivative_lower": 5.850482103647801e-32
+    },
+    {
+      "heights": [
+        56,
+        60
+      ],
+      "transverse_derivative_lower": 2.987040940895198e-35
+    },
+    {
+      "heights": [
+        60,
+        64
+      ],
+      "transverse_derivative_lower": 5.48956040065948e-37
+    }
+  ]
+}

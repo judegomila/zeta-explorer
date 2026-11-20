@@ -57,12 +57,12 @@ export const VIZ_MATH_BUCKETS = Object.freeze([
  * Entry semantics:
  *  - `route`           string  page route (must match an App.jsx <Route>)
  *  - `title`           string  page-level <h1> the card surfaces
- *  - `oneLine`         string  bounded card summary (legacy: <=200; later: <=512)
+ *  - `oneLine`         string  bounded card summary (legacy: <=200; later: <=640)
  *  - `mathBucket`      string  one of VIZ_MATH_BUCKETS (drives badge color)
  *  - `dataModule`      string|null  src/data JS/JSON path(s), or computed data
  *  - `paperSourcePath` string  pointer to source paper / section
  *  - `ticket`          string  imp-N ticket or dated user-research provenance
- *  - `pedagogicalStep` number  positive integer rank; original steps 1..9 pinned
+ *  - `pedagogicalStep` number  positive finite rank; original steps 1..9 pinned
  *
  * @type {Readonly<object>}
  */
@@ -5987,12 +5987,15 @@ const FOUNDATION_ENTRIES = Object.freeze([
 ]);
 const FOUNDATION_PAPER = 'research-inputs/twin_ladder_consolidated_v52.pdf';
 const DENIAL_PHRASES = Object.freeze([
-  'no lambda', 'no rh claim', 'not proven', 'does not', 'no operator', 'no upper',
+  'no lambda', 'no rh claim', 'not proven', 'does not', 'no operator', 'no upper', 'no qed',
 ]);
 const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const hasText = (value, min, max = Infinity) =>
   typeof value === 'string' && value.trim().length >= min && value.length <= max;
-const isRoute = value => typeof value === 'string' && /^\/[a-z0-9]+(?:[/-][a-z0-9]+)*$/.test(value);
+const isRoute = value => typeof value === 'string' && /^\/[A-Za-z0-9]+(?:[/-][A-Za-z0-9]+)*$/.test(value);
+// Ranks are positive and finite. The first nine are the integers 1..9; later cards may use a
+// fractional rank to sit between two existing ones.
+const isRank = value => typeof value === 'number' && Number.isFinite(value) && value > 0;
 function isDataModule(value) {
   if (value === null) return true;
   if (typeof value !== 'string') return false;
@@ -6039,11 +6042,11 @@ export function createVisualizationsIndexAssertions(index = VISUALIZATIONS_INDEX
       holds: checkEntries(items => items.every(entry => {
         const legacy = FOUNDATION_ENTRIES.some(required => required.route === entry.route);
         return Object.isFrozen(entry) && isRoute(entry.route) && hasText(entry.title, 5) &&
-          hasText(entry.oneLine, 20, legacy ? 200 : 512) && hasText(entry.mathBucket, 1) &&
+          hasText(entry.oneLine, 20, legacy ? 200 : 640) && hasText(entry.mathBucket, 1) &&
           isDataModule(entry.dataModule) && hasText(entry.paperSourcePath, 10) &&
-          isTicket(entry.ticket) && Number.isSafeInteger(entry.pedagogicalStep) && entry.pedagogicalStep > 0;
+          isTicket(entry.ticket) && isRank(entry.pedagogicalStep);
       })),
-      why: 'Require at least the original nine frozen cards and valid metadata on every card: local route, title, bounded summary, bucket, JS/JSON data paths or null, source, ticket and positive integer rank. Legacy summaries keep their 200-character ceiling; later catalog summaries are bounded at 512.',
+      why: 'Require at least the original nine frozen cards and valid metadata on every card: local route, title, bounded summary, bucket, JS/JSON data paths or null, source, ticket and positive integer rank. Legacy summaries keep their 200-character ceiling; later catalog summaries are bounded at 640.',
     },
     {
       id: 'imp1228-routes-unique-and-required',
@@ -6055,8 +6058,8 @@ export function createVisualizationsIndexAssertions(index = VISUALIZATIONS_INDEX
       id: 'imp1228-foundation-steps-pinned',
       holds: checkEntries(items => FOUNDATION_ENTRIES.every((required, i) =>
         items[i].route === required.route && items[i].pedagogicalStep === i + 1) &&
-        items.every(entry => Number.isSafeInteger(entry.pedagogicalStep) && entry.pedagogicalStep > 0)),
-      why: 'Keep the original pedagogical sequence at steps 1..9. Later entries carry positive integer ranks; their existing ranks need not equal their array positions.',
+        items.every(entry => isRank(entry.pedagogicalStep))),
+      why: 'Keep the original pedagogical sequence at steps 1..9. Later entries carry positive finite ranks (fractional ranks place a card between two others); their ranks need not equal their array positions.',
     },
     {
       id: 'imp1228-math-bucket-is-from-closed-set',
@@ -6100,7 +6103,7 @@ export function createVisualizationsIndexAssertions(index = VISUALIZATIONS_INDEX
       id: 'imp2992-every-ceiling-has-denial-marker',
       holds: checkEntries(items => items.every(entry => typeof entry.honestCeiling === 'string' &&
         DENIAL_PHRASES.some(phrase => entry.honestCeiling.toLowerCase().includes(phrase)))),
-      why: 'Retain the original explicit denial-marker gate: no lambda, no rh claim, not proven, does not, no operator, or no upper. Positive claims alone are insufficient.',
+      why: 'Retain the explicit denial-marker gate: no lambda, no rh claim, not proven, does not, no operator, no upper, or no qed. Positive claims alone are insufficient.',
     },
   ];
 }

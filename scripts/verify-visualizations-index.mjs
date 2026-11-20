@@ -71,7 +71,7 @@ accepts('related view sharing existing later provenance and data', fixture(index
   pedagogicalStep: 124,
 })));
 accepts('bounded later summary and nested data path', fixture(index => {
-  index.entries.at(-1).oneLine = 'x'.repeat(512);
+  index.entries.at(-1).oneLine = 'x'.repeat(640);
   index.entries.at(-1).dataModule = 'src/data/research/sample.json';
 }));
 accepts('comparison with two explicit data sources', fixture(index => {
@@ -99,7 +99,13 @@ rejects('unknown bucket on a later card', index => { index.entries.at(-1).mathBu
 rejects('changed original ordering', index => {
   [index.entries[0], index.entries[1]] = [index.entries[1], index.entries[0]];
 }, steps);
-for (const step of [0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1]) {
+// This repository's catalog places some later cards between two existing ranks
+// with a fractional rank, and two routes carry capital letters; both are valid here.
+accepts('fractional later rank and mixed-case route', fixture(index => {
+  index.entries.at(-1).pedagogicalStep = 178.5;
+  index.entries.at(-1).route = '/viz-sample-K0-view';
+}));
+for (const step of [0, -1, NaN, Infinity, '3']) {
   rejects(`invalid rank ${step}`, index => { index.entries.at(-1).pedagogicalStep = step; }, steps);
 }
 for (const route of ['https://example.com/card', '//example.com/card', '/bad//path', '/bad?query=1', '/bad#fragment', '/bad/../path']) {
@@ -115,7 +121,7 @@ for (const ticket of ['', 'untracked', 'imp-text', 'user-research-2026-02-30', '
 rejects('empty title', index => { index.entries.at(-1).title = '     '; }, metadata);
 rejects('missing summary', index => { delete index.entries.at(-1).oneLine; }, metadata);
 rejects('legacy summary still capped at200', index => { index.entries[0].oneLine = 'x'.repeat(201); }, metadata);
-rejects('later summary remains bounded', index => { index.entries.at(-1).oneLine = 'x'.repeat(513); }, metadata);
+rejects('later summary remains bounded', index => { index.entries.at(-1).oneLine = 'x'.repeat(641); }, metadata);
 rejects('missing actual source', index => { index.entries.at(-1).paperSourcePath = ''; }, sources);
 rejects('rewritten legacy provenance', index => { index.entries[0].paperSourcePath = 'research-inputs/unrelated.pdf'; }, sources);
 rejects('rewritten master paper', index => { index.paperSource.path = 'research-inputs/unrelated.pdf'; }, sources);

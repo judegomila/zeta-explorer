@@ -76,3 +76,15 @@ python -m venv .venv && .venv/bin/pip install python-flint
 ```
 
 It takes about three minutes.
+
+## Write-up and geometry check
+
+`paper/zero-traps.tex` (PDF alongside) is a short note giving the full
+argument: the trap lemma, how a winding number is certified, the three
+computed facts and what must be trusted.
+
+`scripts/experiments/check-certificate-geometry.py` verifies, in exact
+rational arithmetic and with the standard library only, that the recorded
+discs are pairwise disjoint and lie inside the upper half of the rectangle,
+and that the recorded windings are consistent (1 per disc, 3033 for the
+rectangle).

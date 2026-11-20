@@ -40,6 +40,11 @@ CIRCUIT_BREAKER_WINDOW_SEC=1800   # 30 min
 
 mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 
+# Public-repository safety: the watchdog restarts nothing unless this clone
+# passes the start-up check (hooks installed, engine branch, expected remote).
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+
 # Ordered list of engines this watchdog supervises. The single auto-improve-api.sh
 # was replaced by the parallel pool (auto-improve-api-pool.sh): N workers claim
 # distinct tickets via claim-next-api-ticket.mjs, so they no longer collide.
@@ -199,6 +204,13 @@ case "${1:-status}" in
   --daemon-loop)
     echo "[$(iso_utc)] engine-watchdog started (PID $$, interval base ${INTERVAL_BASE}s ± ${JITTER_PCT}%)" >> "$LOG_FILE"
     while true; do
+      if ! engine_preflight 2>>"$LOG_FILE"; then
+        # Not an exit: under launchd KeepAlive an exit would respawn every few
+        # seconds. Stay up, restart nothing, check again next cycle.
+        echo "[$(iso_utc)] PREFLIGHT REFUSED: no engine is (re)started this cycle" >> "$LOG_FILE"
+        sleep "$(jittered_sleep_seconds "$INTERVAL_BASE")"
+        continue
+      fi
       for script in "${ENGINES[@]}"; do
         if is_engine_running "$script"; then
           if is_engine_stalled "$script"; then

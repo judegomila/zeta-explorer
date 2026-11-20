@@ -26,15 +26,23 @@ set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LOGDIR="$ROOT/scripts/logs/local-lane"
 LOG="$LOGDIR/frontier-scout.log"
-PIDFILE="/tmp/mathexplorer-frontier-scout.pid"
+# Per-clone pid file (was a machine-wide /tmp path, which made a scout in one
+# clone look "already running" to every other clone on the machine).
+PIDFILE="$ROOT/scripts/.frontier-scout.pid"
 FLAG="$ROOT/scripts/.starvation-flag"
 mkdir -p "$LOGDIR"
+
+# Public-repository safety: start-up check (hooks installed, engine branch,
+# expected remote). The scout edits the ticket ledger only through
+# scripts/seed-ticket.mjs, which sanitises every text field.
+# shellcheck disable=SC1091
+. "$ROOT/scripts/engine-preflight.sh"
 
 if [ -f "$ROOT/scripts/.env" ]; then
   set -a; . "$ROOT/scripts/.env"; set +a
 fi
 
-SCOUT_PROMPT='You are the FRONTIER SCOUT of the mathexplorer Lambda/RH research engine. The deterministic ticket sources are exhausted: every named openSubGap, openResidual, and closesIf in src/data has been worked. Your job: mint the NEXT wave of research tickets so the engine pool never idles.
+SCOUT_PROMPT='You are the FRONTIER SCOUT of the zeta-explorer Lambda/RH research engine. The deterministic ticket sources are exhausted: every named openSubGap, openResidual, and closesIf in src/data has been worked. Your job: mint the NEXT wave of research tickets so the engine pool never idles.
 
 MANDATORY PROCESS:
 1. Read scripts/queue-index.json (small) for queue state.
@@ -63,6 +71,7 @@ run_pass() {
 
 case "${1:-}" in
   once)
+    engine_preflight || { echo "frontier-scout NOT run: start-up check refused (see above)."; exit 1; }
     echo $$ > "$PIDFILE"; trap 'rm -f "$PIDFILE"' EXIT
     run_pass
     ;;
@@ -70,6 +79,7 @@ case "${1:-}" in
     if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
       echo "frontier-scout already running (pid $(cat "$PIDFILE"))"; exit 0
     fi
+    engine_preflight || { echo "frontier-scout NOT started: start-up check refused (see above)."; exit 1; }
     echo $$ > "$PIDFILE"; trap 'rm -f "$PIDFILE"' EXIT
     REFILL_THRESHOLD=${REFILL_THRESHOLD:-40}
     echo "[$(date -u +%FT%TZ)] frontier-scout daemon started (poll 120s, refill when pending<$REFILL_THRESHOLD)" >> "$LOG"
@@ -77,6 +87,7 @@ case "${1:-}" in
       # Proactive, high-throughput auto-refill: run a pass when the queue is low
       # (the fleet drains ~240/day, far faster than the legacy 6h-flag cadence) OR
       # when the producer raised the explicit starvation flag.
+      engine_preflight 2>>"$LOG" || { echo "[$(date -u +%FT%TZ)] PREFLIGHT REFUSED: no pass this cycle" >> "$LOG"; sleep 120; continue; }
       node "$ROOT/scripts/build-queue-index.mjs" >/dev/null 2>&1 || true
       pending=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('$ROOT/scripts/queue-index.json','utf8')).totalPending||0)}catch(e){console.log(999)}" 2>/dev/null)
       if [ -f "$FLAG" ] || [ "${pending:-999}" -lt "$REFILL_THRESHOLD" ] 2>/dev/null; then

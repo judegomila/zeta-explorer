@@ -1,0 +1,65 @@
+name: public-content-guard
+
+# Checks every pull request into main for content that must not be public:
+# paths on the deny list, home and machine paths, key-shaped strings, account
+# identifiers, session transcripts. For the engine branch (engine/work) the
+# engine allow-list of paths is applied as well. Local git hooks run the same
+# checks, but a hook can be skipped on a machine; this job cannot.
+#
+# Cost: no npm install and no build; one small job per pull request update.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-content-guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The merge ref: HEAD^1 is the tip of main, HEAD^2 the tip of the branch.
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install gitleaks
+        run: |
+          curl -sSL -o /tmp/gitleaks.tar.gz https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          sudo install /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Guard as it is on main (a pull request cannot relax its own check)
+        run: |
+          mkdir -p /tmp/base-guard
+          if git archive HEAD^1 scripts/engine-guard.mjs scripts/lib/public-sanitize.mjs scripts/engine-allowlist.txt 2>/dev/null | tar -x -C /tmp/base-guard; then
+            echo "GUARD=/tmp/base-guard/scripts/engine-guard.mjs" >> "$GITHUB_ENV"
+          else
+            echo "main has no guard yet; using the pull request's copy"
+            echo "GUARD=scripts/engine-guard.mjs" >> "$GITHUB_ENV"
+          fi
+
+      - name: Net change of the pull request
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          mode=human
+          case "$HEAD_REF" in engine/work) mode=engine ;; esac
+          echo "mode: $mode"
+          node "$GUARD" tree HEAD^1 HEAD --mode "$mode"
+
+      - name: gitleaks on the net change
+        # the merge commit against its first parent = exactly what the merge adds to main
+        run: gitleaks git --redact --no-banner -c .gitleaks.toml --log-opts="--first-parent -m -1 HEAD" .
+
+      - name: Guard self-test (bad inputs are rejected)
+        run: bash scripts/tests/test-engine-safety.sh

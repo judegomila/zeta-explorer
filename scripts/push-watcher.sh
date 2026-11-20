@@ -1,6 +1,8 @@
 #!/bin/bash
 # Defensive push-watcher — polls every 60s for unpushed commits and pushes
-# them. Independent of all engines so a stalled engine (heartbeat dead,
+# them to the ENGINE branch (ENGINE_BRANCH, default engine/work) through
+# scripts/engine-push.sh. It never pushes to main: main deploys to production
+# and is advanced only by a reviewed pull request (scripts/promote-engine-work.sh). Independent of all engines so a stalled engine (heartbeat dead,
 # stuck on a heavy ticket, etc.) cannot strand commits locally.
 #
 # Pairs with the in-engine PUSH_EVERY=5 auto-push (auto-improve*.sh) as
@@ -56,6 +58,10 @@ JITTER_PCT=10                   # ±10% jitter on each sleep interval
 
 mkdir -p "$SCRIPT_DIR/logs"
 
+# Public-repository safety: start-up check, engine branch, push helper.
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+
 # Compute jittered sleep for a given base interval (in seconds).
 # Echoes the jittered integer to stdout.
 jittered_sleep_seconds() {
@@ -92,8 +98,15 @@ case "${1:-status}" in
     GUARD_DEFER_ALERT=10   # loud alert after this many consecutive guard-deferred cycles
     while true; do
       cd "$PROJECT_DIR" || exit 1
-      git fetch origin --quiet 2>/dev/null || true
-      unpushed=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+      # Refuse to push from a clone that is not set up for it (hooks missing,
+      # wrong branch or remote). Re-checked every cycle; nothing is pushed while it fails.
+      if ! engine_preflight 2>>"$LOG_FILE"; then
+        echo "[$(date -u +%FT%TZ)] push SKIPPED — start-up check refused (see lines above)" >> "$LOG_FILE"
+        sleep "$(jittered_sleep_seconds "${BACKOFF_LEVELS[$BACKOFF_MAX_LEVEL]}")"
+        continue
+      fi
+      git fetch "$ENGINE_REMOTE" --quiet 2>/dev/null || true
+      unpushed=$(engine_unpushed_count)
       if [ "${unpushed:-0}" -gt 0 ]; then
         ts=$(date -u +%FT%TZ)
         # Pre-push tracked-imports guard (the "guard the push path" deploy fix).
@@ -118,7 +131,11 @@ case "${1:-status}" in
         guard_defers=0
         echo "[$ts] $unpushed unpushed commit(s) — pushing... (backoff_level=$backoff_level)" >> "$LOG_FILE"
         # Capture push output so we can scan for rate-limit signatures.
-        push_output=$(git push origin main 2>&1)
+        # engine-push.sh: range check (allow-list, sanitiser rules, commit
+        # messages), then `git push origin HEAD:refs/heads/$ENGINE_BRANCH`.
+        # Exit 3 = a commit in the range was rejected; it is NOT pushed and
+        # needs a person (see the runbook).
+        push_output=$("$SCRIPT_DIR/engine-push.sh" 2>&1)
         push_status=$?
         echo "$push_output" >> "$LOG_FILE"
         if [ "$push_status" -eq 0 ]; then
@@ -138,6 +155,8 @@ case "${1:-status}" in
               echo "[$ts] ALERT: push-watcher rate-limited $consecutive_rate_limited consecutive times; backoff capped at ${BACKOFF_LEVELS[$BACKOFF_MAX_LEVEL]}s. Daemon continues running." >> "$LOG_FILE"
               alert_emitted=1
             fi
+          elif [ "$push_status" -eq 3 ] || [ "$push_status" -eq 4 ]; then
+            echo "[$ts] ALERT: push REFUSED by the public-repository checks (exit $push_status). Commits stay local until a person resolves it." | tee -a "$LOG_FILE" >&2
           else
             # Non-rate-limit failure: don't widen backoff, just log and retry at current cadence.
             echo "[$ts] push failed (non-rate-limit; backoff_level unchanged at $backoff_level)" >> "$LOG_FILE"
@@ -154,6 +173,7 @@ case "${1:-status}" in
       echo "push-watcher already running (PID $(cat "$PID_FILE"))"
       exit 0
     fi
+    engine_preflight || { echo "push-watcher NOT started: start-up check refused (see above)."; exit 1; }
     nohup bash "$0" --daemon-loop >> "$LOG_FILE" 2>&1 &
     echo $! > "$PID_FILE"
     echo "push-watcher started (PID $!, log: $LOG_FILE)"

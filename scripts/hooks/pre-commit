@@ -1,0 +1,41 @@
+#!/bin/bash
+# Commit check for the public repository. Installed into .git/hooks by
+# scripts/install-engine-hooks.sh (a one-line shim that execs this file).
+#
+# Runs, on the content about to be committed:
+#   1. scripts/check-commit-hygiene.sh   paths and strings that must not be public
+#   2. scripts/engine-guard.mjs staged   deny list, shared sanitiser rules, and in
+#                                        engine mode the allow-list of paths
+#   3. gitleaks on the staged diff
+# Any failure, including a missing tool, rejects the commit.
+#
+# Unlike the pre-commit framework this hook never stashes or checks out files,
+# so it is safe in a working tree that several engines write to at once.
+set -u
+export GIT_TRACE2_EVENT=0
+root="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "pre-commit: not in a git work tree"; exit 1; }
+cd "$root" || exit 1
+fail=0
+
+bash scripts/check-commit-hygiene.sh || fail=1
+
+if command -v node >/dev/null 2>&1; then
+  node scripts/engine-guard.mjs staged || fail=1
+else
+  echo "pre-commit: node not found; cannot run scripts/engine-guard.mjs"; fail=1
+fi
+
+if command -v gitleaks >/dev/null 2>&1; then
+  if gitleaks git --help 2>/dev/null | grep -q -- '--pre-commit'; then
+    gitleaks git --pre-commit --staged --redact --no-banner --log-level error -c .gitleaks.toml . || fail=1
+  else
+    gitleaks protect --staged --redact --no-banner -c .gitleaks.toml || fail=1
+  fi
+else
+  echo "pre-commit: gitleaks not found (brew install gitleaks); refusing to commit without the secret scan"; fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo "pre-commit: commit rejected. Fix the items above; do not bypass with --no-verify."
+fi
+exit "$fail"

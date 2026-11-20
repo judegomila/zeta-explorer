@@ -1,0 +1,64 @@
+# Paths an automated engine may commit. Read by scripts/engine-guard.mjs.
+#
+#   allow <glob>   the path may be committed by an engine
+#   deny  <glob>   the path may not be committed by an engine (wins over allow)
+#
+# Globs: "*" matches within one path segment, "**" matches across segments,
+# a trailing "/" means "everything under this directory".
+# A path that matches no "allow" line is rejected. This file is itself on the
+# deny list: changing what engines may commit is a reviewed change.
+#
+# A second, built-in list in scripts/engine-guard.mjs (HARD_DENY) applies to
+# every commit, engine or not, and cannot be relaxed from here.
+
+# --- research record and site content -------------------------------------
+allow src/
+allow formalization/
+allow native/
+allow rust/
+allow rigorous/
+allow lean/
+allow research/
+allow research-checkpoints/
+allow research-inputs/
+allow papers/
+allow paper/
+allow docs/
+allow public/
+allow observatory/
+allow scripts/
+allow IMPROVEMENTS.md
+allow README.md
+allow SESSIONS.md
+allow RESCUE_QUEUE.md
+
+# --- control plane: engines do not edit what constrains or launches them ---
+deny scripts/auto-improve*.sh
+deny scripts/engine-*
+deny scripts/lib/public-sanitize.mjs
+deny scripts/hooks/
+deny scripts/tests/
+deny scripts/launchd/
+deny scripts/install-engine-hooks.sh
+deny scripts/check-commit-hygiene.sh
+deny scripts/commit-lint.sh
+deny scripts/prepush-tracked-imports-guard.mjs
+deny scripts/push-watcher.sh
+deny scripts/promote-engine-work.sh
+deny scripts/publish-fleet-status.sh
+deny scripts/fleet-status-writer.mjs
+deny scripts/deploy-*.sh
+deny scripts/daily-health-check.sh
+deny scripts/frontier-scout.sh
+deny scripts/setup-new-machine.sh
+deny scripts/.env.example
+
+# --- third-party material: record the citation, URL and checksum instead ---
+deny **/vendor/**
+deny **/dl/**
+deny **/sources_dl/**
+deny **/src_gonek/**
+deny **/src-xs/**
+deny **/hecke-src/**
+deny **/OAI/**
+deny **/OAI-*/**

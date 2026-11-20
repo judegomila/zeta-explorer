@@ -17,7 +17,8 @@
 # is invisible to the other 4 subscription engines too. Stale claims (worker
 # died mid-turn) self-heal: every claim reaps pool claims older than 30 min.
 #
-# Workers do NOT push -- push-watcher.sh is the single pusher. On clean stop we
+# Workers do NOT push -- push-watcher.sh is the single pusher (to the branch
+# engine/work, through scripts/engine-push.sh; never to main). On clean stop we
 # --reap-all so no ticket is left stranded in in-progress-subagent.
 #
 # Requires ANTHROPIC_API_KEY in env (or scripts/.env). Absent -> refuse start.
@@ -85,7 +86,7 @@ You are a worker in the parallel API pool improving the ZPO Explorer / RH-attack
 
 8. If after reading you determine {TICKET} cannot be meaningfully advanced at all (already done, or fundamentally blocked), state "POOL: {TICKET} -- no-op" and STOP without editing. Do NOT flip it to completed and do NOT invent work. (The harness will release it back to pending.)
 
-9. Create a git commit mentioning {TICKET}. Do NOT push -- the push-watcher daemon handles pushing.
+9. Commit with scripts/engine-commit.sh, naming every file you changed (see COMMIT PROTOCOL below), mentioning {TICKET} in the message. Do NOT push -- the push-watcher daemon handles pushing.
 
 SYNTAX GOTCHAS (mandatory):
 - DO NOT write the comment-close sequence inside a JSDoc comment. Use "dg_{k*}/dt" form in comments.
@@ -104,6 +105,16 @@ if [ -f "$SCRIPT_DIR/.env" ]; then
   . "$SCRIPT_DIR/.env"
   set +a
 fi
+
+# Public-repository safety: start-up check and commit protocol
+# (see CONTRIBUTING.md, "Automated engines and agents").
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-preflight.sh"
+POOL_PROMPT_TEMPLATE="$POOL_PROMPT_TEMPLATE
+
+$PROMPT_COMMIT_PROTOCOL"
 
 mkdir -p "$LOG_DIR"
 
@@ -165,6 +176,13 @@ worker_loop() {
 
     # Refresh the index so nextImprovementId / pending counts are fresh for the turn.
     node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
+
+    # Public-repository safety: re-check before every claim; a worker stops if
+    # the clone is no longer safe to commit from.
+    if ! engine_preflight >> "$log_file" 2>&1; then
+      echo "w${wid}: PREFLIGHT REFUSED -- worker exiting (see $log_file)" >> "$log_file"
+      break
+    fi
 
     # Atomically claim a distinct ticket. Prints imp-NNN or NONE.
     local ticket
@@ -364,7 +382,7 @@ do_status() {
 }
 
 case "${1:-}" in
-  start)  do_start ;;
+  start)  engine_preflight || { echo "Pool NOT started: start-up check refused (see above)."; exit 1; }; do_start ;;
   stop)   do_stop ;;
   status) do_status ;;
   *)

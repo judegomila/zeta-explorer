@@ -1,4 +1,6 @@
 # Install once per clone: pre-commit install
+# A clone that runs automated engines uses scripts/install-engine-hooks.sh
+# instead (same checks, plus a pre-push check; it never stashes the work tree).
 repos:
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.1
@@ -10,5 +12,11 @@ repos:
         name: commit hygiene (paths, home directories, transcripts)
         entry: scripts/check-commit-hygiene.sh
         language: script
+        pass_filenames: false
+        always_run: true
+      - id: engine-guard
+        name: public-content guard (deny list, sanitiser rules, engine allow-list)
+        entry: node scripts/engine-guard.mjs staged
+        language: system
         pass_filenames: false
         always_run: true

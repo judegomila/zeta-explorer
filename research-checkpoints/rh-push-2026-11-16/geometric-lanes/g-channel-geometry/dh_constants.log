@@ -1,0 +1,5 @@
+delta=8 R=8: eta_R=1.669e-04 E=1.061e-02 ell_delta=3.538e-02 margin=2.477e-02
+delta=4 R=20: eta_R=9.021e-10 E=6.301e-03 ell_delta=1.532e-02 margin=9.014e-03
+delta=2 R=100: eta_R=0.000e+00 E=6.676e-04 ell_delta=1.326e-03 margin=6.585e-04
+delta=1 R=2000: eta_R=0.000e+00 E=3.812e-06 ell_delta=4.953e-06 margin=1.141e-06
+delta=0.5 R=1200000: eta_R=0.000e+00 E=2.259e-11 ell_delta=3.455e-11 margin=1.196e-11

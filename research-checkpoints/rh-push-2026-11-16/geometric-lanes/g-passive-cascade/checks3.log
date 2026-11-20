@@ -1,0 +1,10 @@
+== J-criterion: fraction of heights t in [100.3,130.3] with J_Q(sigma,t)>0 for all sigma in (1/2,3]
+ Q=   3: fraction passing=0.915; failing heights span (102.82, 127.04) count=127
+ Q=   7: fraction passing=0.837; failing heights span (101.46, 129.22) count=245
+ Q=  30: fraction passing=0.689; failing heights span (100.3, 130.26) count=467
+ Q= 300: fraction passing=0.482; failing heights span (100.3, 130.28) count=777
+== Fejer-smoothed truncation on the boundary: Re L^F_Q(1/2+it), weights (1-log n/log Q)
+ Q=    10: min=-0.1130 frac negative=0.061
+ Q=   100: min=-0.0529 frac negative=0.061
+ Q=  1000: min=-0.0362 frac negative=0.062
+ Q= 10000: min=-0.0274 frac negative=0.061

@@ -1,0 +1,62 @@
+{
+ "kernel": "zeta",
+ "h": "0.05",
+ "n": 80,
+ "prec_bits": 1200,
+ "nodes_per_panel": 100,
+ "R": 5.5,
+ "orders": {
+  "1": {
+   "total": 6400,
+   "pos": 6400,
+   "neg": 0,
+   "undetermined": 0,
+   "first_negative": null
+  },
+  "2": {
+   "total": 6241,
+   "pos": 6241,
+   "neg": 0,
+   "undetermined": 0,
+   "first_negative": null
+  },
+  "3": {
+   "total": 6084,
+   "pos": 6084,
+   "neg": 0,
+   "undetermined": 0,
+   "first_negative": null
+  },
+  "4": {
+   "total": 5929,
+   "pos": 5929,
+   "neg": 0,
+   "undetermined": 0,
+   "first_negative": null
+  },
+  "5": {
+   "total": 5776,
+   "pos": 5606,
+   "neg": 170,
+   "undetermined": 0,
+   "first_negative": [
+    1,
+    57,
+    "[-3.7791270e-165 +/- 2.41e-173]"
+   ]
+  },
+  "6": {
+   "total": 5625,
+   "pos": 5625,
+   "neg": 0,
+   "undetermined": 0,
+   "first_negative": null
+  }
+ },
+ "diag_sample": {
+  "1": "[5.36288685942852676258895632483e-5 +/- 1.63e-35]",
+  "20": "[4.33464512267066343475488833952e-5 +/- 4.23e-35]",
+  "40": "[9.81872749392077160073668114914e-16 +/- 2.45e-46]",
+  "80": "[4.62151366872076866475911145883e-141 +/- 1.82e-171]"
+ }
+}

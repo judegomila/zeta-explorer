@@ -1,0 +1,34 @@
+zeta PF kappa(x-y), x,y in [0,4] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+zeta PF kappa(x-y), x,y in [0,4] order 2 {'+': 1600, '-': 0, '?': 0} expected + OK
+zeta PF kappa(x-y), x,y in [0,4] order 3 {'+': 1521, '-': 0, '?': 0} expected + OK
+zeta PF kappa(x-y), x,y in [0,4] order 4 {'+': 1444, '-': 0, '?': 0} expected + OK
+zeta PF kappa(x-y), x,y in [0,4] order 5 {'+': 1260, '-': 109, '?': 0} expected + FAIL first={'-': (0, 0), '+': (0, 2)}
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 2 {'+': 0, '-': 1600, '?': 0} expected - OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 3 {'+': 0, '-': 1521, '?': 0} expected - OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 4 {'+': 1444, '-': 0, '?': 0} expected + OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 5 {'+': 1369, '-': 0, '?': 0} expected + OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 6 {'+': 0, '-': 1296, '?': 0} expected - OK
+zeta Hankel g(s+t), s,t in [0.05,4.05] order 7 {'+': 9, '-': 1216, '?': 0} expected - FAIL first={'-': (0, 0), '+': (0, 1)}
+dh PF kappa(x-y), x,y in [0,4] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+dh PF kappa(x-y), x,y in [0,4] order 2 {'+': 1600, '-': 0, '?': 0} expected + OK
+dh PF kappa(x-y), x,y in [0,4] order 3 {'+': 1260, '-': 261, '?': 0} expected + FAIL first={'-': (0, 0), '+': (0, 4)}
+dh Hankel g(s+t), s,t in [0.05,4.05] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+dh Hankel g(s+t), s,t in [0.05,4.05] order 2 {'+': 0, '-': 1600, '?': 0} expected - OK
+dh Hankel g(s+t), s,t in [0.05,4.05] order 3 {'+': 0, '-': 1521, '?': 0} expected - OK
+dh Hankel g(s+t), s,t in [0.05,4.05] order 4 {'+': 1339, '-': 105, '?': 0} expected + FAIL first={'-': (0, 0), '+': (0, 14)}
+L(chi_-4) PF kappa(x-y), x,y in [0,4] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+L(chi_-4) PF kappa(x-y), x,y in [0,4] order 2 {'+': 1600, '-': 0, '?': 0} expected + OK
+L(chi_-4) PF kappa(x-y), x,y in [0,4] order 3 {'+': 1332, '-': 189, '?': 0} expected + FAIL first={'-': (0, 0), '+': (0, 3)}
+L(chi_-4) Hankel g(s+t), s,t in [0.05,4.05] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+L(chi_-4) Hankel g(s+t), s,t in [0.05,4.05] order 2 {'+': 0, '-': 1600, '?': 0} expected - OK
+L(chi_-4) Hankel g(s+t), s,t in [0.05,4.05] order 3 {'+': 6, '-': 1515, '?': 0} expected - FAIL first={'+': (0, 0), '-': (0, 3)}
+L(chi_-3) PF kappa(x-y), x,y in [0,4] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+L(chi_-3) PF kappa(x-y), x,y in [0,4] order 2 {'+': 1600, '-': 0, '?': 0} expected + OK
+L(chi_-3) PF kappa(x-y), x,y in [0,4] order 3 {'+': 1521, '-': 0, '?': 0} expected + OK
+L(chi_-3) PF kappa(x-y), x,y in [0,4] order 4 {'+': 1310, '-': 134, '?': 0} expected + FAIL first={'+': (0, 0), '-': (0, 4)}
+L(chi_-3) Hankel g(s+t), s,t in [0.05,4.05] order 1 {'+': 1681, '-': 0, '?': 0} expected + OK
+L(chi_-3) Hankel g(s+t), s,t in [0.05,4.05] order 2 {'+': 0, '-': 1600, '?': 0} expected - OK
+L(chi_-3) Hankel g(s+t), s,t in [0.05,4.05] order 3 {'+': 0, '-': 1521, '?': 0} expected - OK
+L(chi_-3) Hankel g(s+t), s,t in [0.05,4.05] order 4 {'+': 1444, '-': 0, '?': 0} expected + OK
+L(chi_-3) Hankel g(s+t), s,t in [0.05,4.05] order 5 {'+': 1334, '-': 35, '?': 0} expected + FAIL first={'+': (0, 0), '-': (0, 4)}

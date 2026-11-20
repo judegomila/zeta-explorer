@@ -1,0 +1,17 @@
+xi evenness defect (u<=2) 8.2876e-17 min kappa on [0,8] 3.0155e-3978 min normalised convexity indicator 0.000127235 at u 0.02
+dh evenness defect (u<=2) 7.323e-51 min kappa on [0,8] 1.4983e-795 min normalised convexity indicator 0.00020630072 at u 0.02
+xi order 1 {'minors': 55, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '0.55047088', 'at': [(0,), (9,)]}
+xi order 2 {'minors': 1035, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '0.0019784351', 'at': [(0, 1), (8, 9)]}
+xi order 3 {'minors': 7260, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '3.9457322e-7', 'at': [(0, 1, 2), (7, 8, 9)]}
+xi order 4 {'minors': 22155, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '1.3831151e-11', 'at': [(0, 1, 2, 3), (6, 7, 8, 9)]}
+xi order 5 {'minors': 31878, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '2.1180044e-16', 'at': [(0, 1, 2, 3, 4), (5, 6, 7, 8, 9)]}
+dh order 1 {'minors': 55, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '0.55089472', 'at': [(0,), (9,)]}
+dh order 2 {'minors': 1035, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '0.0020703338', 'at': [(0, 1), (8, 9)]}
+dh order 3 {'minors': 7260, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '4.9393773e-7', 'at': [(0, 1, 2), (7, 8, 9)]}
+dh order 4 {'minors': 22155, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '7.6002689e-12', 'at': [(0, 1, 2, 3), (6, 7, 8, 9)]}
+dh order 5 {'minors': 31878, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '5.2100601e-17', 'at': [(0, 1, 2, 3, 4), (0, 1, 2, 3, 4)]}
+cx order 1 {'minors': 55, 'nonpositive': 0, 'nonpositive_principal': 0, 'min_normalised': '1.0', 'at': [(0,), (0,)]}
+cx order 2 {'minors': 1035, 'nonpositive': 1035, 'nonpositive_principal': 45, 'min_normalised': '-0.022255821', 'at': [(0, 9), (0, 9)]}
+cx order 3 {'minors': 7260, 'nonpositive': 4282, 'nonpositive_principal': 58, 'min_normalised': '-1.5169413e-48', 'at': [(0, 1, 9), (0, 7, 9)]}
+cx order 4 {'minors': 22155, 'nonpositive': 13258, 'nonpositive_principal': 56, 'min_normalised': '-1.0883476e-94', 'at': [(0, 1, 7, 8), (1, 2, 7, 9)]}
+cx order 5 {'minors': 31878, 'nonpositive': 20448, 'nonpositive_principal': 198, 'min_normalised': '-2.9407319e-141', 'at': [(0, 1, 5, 7, 8), (1, 2, 3, 7, 9)]}

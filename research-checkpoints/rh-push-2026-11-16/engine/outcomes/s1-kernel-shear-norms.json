@@ -1,0 +1,82 @@
+{
+ "slug": "s1-kernel-shear-norms",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "capture-ratio-psd-slope",
+  "euler-detection-depth-law",
+  "mem-saddle-ratio-moments",
+  "moment-ratio-saddle-anomaly",
+  "phi-autocorrelation-weight",
+  "theta-reverse-regularity-order4",
+  "thin-hankel-certificate",
+  "thin-hankel-schur-equivalence",
+  "volterra-hs-bound",
+  "volterra-selberg-class-extension"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "volterra-selberg-class-extension",
+    "volterra-hs-bound",
+    "euler-detection-depth-law"
+   ],
+   "obstruction": "kernel-blind (depends on Phi^2) and flow-stable",
+   "controlsThatDefeat": [
+    "sign-flipped kernel",
+    "heat",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "thin-hankel-certificate",
+    "thin-hankel-schur-equivalence"
+   ],
+   "obstruction": "verified height in another form: onset at the coefficient count that resolves the first off-line zero; zeros within a of the line invisible",
+   "controlsThatDefeat": [
+    "T-NR c=2.05 (passes)",
+    "E_a b=0.2 (passes)",
+    "heat tau=-0.05 (passes to L=90)"
+   ]
+  },
+  {
+   "nodes": [
+    "moment-ratio-saddle-anomaly",
+    "phi-autocorrelation-weight",
+    "mem-saddle-ratio-moments"
+   ],
+   "obstruction": "kernel-blind and flow-stable; source landmark is a coding artifact",
+   "controlsThatDefeat": [
+    "heat",
+    "DH n=1 theta term"
+   ]
+  },
+  {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "theta-reverse-regularity-order4"
+   ],
+   "obstruction": "not a class property (Dirichlet L-functions fail) and flow-blind (proved)",
+   "controlsThatDefeat": [
+    "heat",
+    "Dirichlet L (positive comparison fails)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) kernel-blind (depends on Phi^2) and flow-stable | (2) verified height in another form: onset at the coefficient count that resolves the first off-line zero; zeros within a of the line invisible | (3) kernel-blind and flow-stable; source landmark is a coding artifact | (4) not a class property (Dirichlet L-functions fail) and flow-blind (proved)",
+ "controlsThatDefeat": [
+  "DH",
+  "DH n=1 theta term",
+  "Dirichlet L (positive comparison fails)",
+  "E_a b=0.2 (passes)",
+  "T-NR c=2.05 (passes)",
+  "heat",
+  "heat tau=-0.05 (passes to L=90)",
+  "sign-flipped kernel"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-kernel-shear-norms/RESULT.md"
+}

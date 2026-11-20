@@ -33,7 +33,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "All PROVED steps re-derived and confirmed (Lemma A, closed form of m, D, sup bound, integral bound, density E of 1/ZQ, Lemma L, Lemma D, forced exponent). Rerun on a different case (zeros 298, 299, eta = 0.07; SG with zero 5, b = 0.45; NR-q at the golden ratio; DH5e rectangles) agrees. Corrections required: E1 (material): the pole clause of Lemma L is dropped in three places (table row F2 'POS fails'; section 3 consequence (a); section 6 U2 POS branch 'no member with exact atoms keeps POS'). Fal - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "With zeta's functional equation fixed, the family is zeta times a symmetric multiplier. Small-defect controls are absolutely continuous (rational multipliers); discrete ones sit at distance >= 1. A U1/U2 device must name the step that reads absence of coefficient mass off log N, or the sign of Lambda against a density of size O(eta^2+d^2); otherwise ZQ passes it. T-NR in symmetric normalisation already had zeta's FE (map row NR), so \"no control on file has it\" was imprecise. Process note: the first run of checks.py wrote checks.json to the repo root, where an untracked checks.json already existed; that root file is now absent and its earlier content may have been overwritten. The lane copy was rebuilt from checks.log and the script now writes next to itself.",
@@ -41,5 +41,11 @@
  "resultFile": "tmp/research-2026-11-16/push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md",
  "refereeFile": "tmp/research-2026-11-16/push/c15-control-with-zeta-fe-classes-u1-u2/REFEREE.md",
  "launchedNodes": [],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-control-with-zeta-fe-classes-u1-u2.md"
+ }
 }

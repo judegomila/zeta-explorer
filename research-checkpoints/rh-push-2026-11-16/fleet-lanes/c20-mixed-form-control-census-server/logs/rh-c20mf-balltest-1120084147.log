@@ -1,0 +1,22 @@
+['zeta'] 128 T2n ball 0.136065577970137 rad 2.61e-32 float-ball 3.05e-16 | T1n float-ball 1.67e-16 pos sec 0.0
+['zeta'] 256 T2n ball 0.136065577970137 rad 7.56e-71 float-ball 3.05e-16 | T1n float-ball 1.67e-16 pos sec 0.0
+['EA'] 128 T2n ball 0.322912700472373 rad 1.02e-31 float-ball 4.44e-16 | T1n float-ball 1.11e-16 pos sec 0.0
+['EA'] 256 T2n ball 0.322912700472373 rad 2.94e-70 float-ball 4.44e-16 | T1n float-ball 1.11e-16 pos sec 0.0
+['DEL'] 128 T2n ball 0.233783177095844 rad 1.68e-32 float-ball 2.78e-17 | T1n float-ball -1.11e-16 pos sec 0.0
+['DEL'] 256 T2n ball 0.233783177095844 rad 4.86e-71 float-ball 2.78e-17 | T1n float-ball -1.11e-16 pos sec 0.0
+['HQ2'] 128 T2n ball 0.124286858118636 rad 6.32e-32 float-ball -9.99e-16 | T1n float-ball 4.44e-16 pos sec 0.0
+['HQ2'] 256 T2n ball 0.124286858118636 rad 1.53e-70 float-ball -9.99e-16 | T1n float-ball 4.44e-16 pos sec 0.0
+['HQ3'] 128 T2n ball 0.123579245974841 rad 2.99e-32 float-ball 2.08e-16 | T1n float-ball -5.55e-17 pos sec 0.0
+['HQ3'] 256 T2n ball 0.123579245974841 rad 8.21e-71 float-ball 2.08e-16 | T1n float-ball -5.55e-17 pos sec 0.0
+['HQ4'] 128 T2n ball -0.203756030459501 rad 5.53e-32 float-ball 1.83e-15 | T1n float-ball -1.08e-15 neg sec 0.0
+['HQ4'] 256 T2n ball -0.203756030459501 rad 1.34e-70 float-ball 1.83e-15 | T1n float-ball -1.08e-15 neg sec 0.0
+['LIOU'] 128 T2n ball 0.126282492633022 rad 2.58e-32 float-ball -1.11e-16 | T1n float-ball -5.55e-17 pos sec 0.0
+['LIOU'] 256 T2n ball 0.126282492633022 rad 7.48e-71 float-ball -1.11e-16 | T1n float-ball -5.55e-17 pos sec 0.0
+['TNR'] 128 T2n ball -0.0884481220679391 rad 5.09e-32 float-ball 4.83e-15 | T1n float-ball 3.05e-15 neg sec 0.0
+['TNR'] 256 T2n ball -0.0884481220679391 rad 1.48e-70 float-ball 4.83e-15 | T1n float-ball 3.05e-15 neg sec 0.0
+['DH'] 128 T2n ball 0.439477582223763 rad 5.36e-32 float-ball -8.88e-16 | T1n float-ball -4.44e-16 pos sec 0.0
+['DH'] 256 T2n ball 0.439477582223763 rad 1.56e-70 float-ball -8.88e-16 | T1n float-ball -4.44e-16 pos sec 0.0
+['chain', 3] 128 T2n ball 0.116896719034891 rad 2.68e-32 float-ball 2.50e-16 | T1n float-ball 3.89e-16 pos sec 0.0
+['chain', 3] 256 T2n ball 0.116896719034891 rad 7.75e-71 float-ball 2.50e-16 | T1n float-ball 3.89e-16 pos sec 0.0
+['haar', 2] 128 T2n ball 0.116308526482719 rad 3.39e-32 float-ball 3.19e-16 | T1n float-ball 3.33e-16 pos sec 0.0
+['haar', 2] 256 T2n ball 0.116308526482719 rad 9.80e-71 float-ball 3.19e-16 | T1n float-ball 3.33e-16 pos sec 0.0

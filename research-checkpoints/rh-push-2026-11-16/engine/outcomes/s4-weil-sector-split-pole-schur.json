@@ -1,0 +1,87 @@
+{
+ "slug": "s4-weil-sector-split-pole-schur",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "dyadic-near-frequency-target",
+  "gamma-bulk-identity",
+  "mem-concentration-dip-open",
+  "nonlocal-pole-term-bridge",
+  "odd-sector-pole-term",
+  "pole-term-schur-complement",
+  "ri-confined-well",
+  "scalar-comparison-target",
+  "schur-charge-payment",
+  "signed-complement-bound",
+  "weil-sector-split",
+  "whole-even-coercivity"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "odd-sector-pole-term",
+    "weil-sector-split",
+    "whole-even-coercivity"
+   ],
+   "obstruction": "exact identity: an odd-sector onset below the full onset is impossible; DH onset is its zero-resolved onset",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR(q) for large q",
+    "heat (not formulable)"
+   ]
+  },
+  {
+   "nodes": [
+    "gamma-bulk-identity",
+    "scalar-comparison-target",
+    "dyadic-near-frequency-target"
+   ],
+   "obstruction": "weaker than Weil positivity by a constant: no control can exceed before its Weil onset",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR(q)"
+   ]
+  },
+  {
+   "nodes": [
+    "pole-term-schur-complement",
+    "schur-charge-payment",
+    "signed-complement-bound"
+   ],
+   "obstruction": "restates the full-form onset; empty for objects without a pole",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR(q >= 7)",
+    "flips at 3, 5, 7"
+   ]
+  },
+  {
+   "nodes": [
+    "nonlocal-pole-term-bridge",
+    "mem-concentration-dip-open",
+    "ri-confined-well"
+   ],
+   "obstruction": "exact margin = pole-free onset; the crude margin fails zeta first and orders objects by symbol depth near t = 0",
+   "controlsThatDefeat": [
+    "DH (passes longer than zeta)",
+    "zeta itself (crude margin)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) exact identity: an odd-sector onset below the full onset is impossible; DH onset is its zero-resolved onset | (2) weaker than Weil positivity by a constant: no control can exceed before its Weil onset | (3) restates the full-form onset; empty for objects without a pole | (4) exact margin = pole-free onset; the crude margin fails zeta first and orders objects by symbol depth near t = 0",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (passes longer than zeta)",
+  "E_a",
+  "T-NR(q >= 7)",
+  "T-NR(q)",
+  "T-NR(q) for large q",
+  "flips at 3, 5, 7",
+  "heat (not formulable)",
+  "zeta itself (crude margin)"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-weil-sector-split-pole-schur/RESULT.md"
+}

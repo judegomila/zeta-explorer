@@ -1,0 +1,47 @@
+{
+ "slug": "c14-joint-pair-design-ratio-vortex-cross-bridge",
+ "round": 14,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "joint-pair",
+  "ratio",
+  "cross-bridge",
+  "twist-transfer",
+  "RS-1",
+  "stage-A"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Precise obstruction at stage A for all three joint-pair candidates. J1: winding and Littlewood quantities of Q_chi = L(chi)/zeta are signed differences of the member counts; a multiplier common to both members cancels, so T-NR at p0 = 1 mod q has identical ratios for any finite character set (Lemma C, proved). Lemma A (relative to the conductor-aspect density theorem, recalled not opened; exponent 3(1-sigma)/(2-sigma) on [1/2, 4/5], theta = 1/2 beyond by monotonicity): N_zeta(sigma_0; W) <= N_chi(sigma_0; W') for at least q^theta' characters mod q, theta' > theta(sigma_0), infinitely many q, implies no zeta zero with real part >= sigma_0 in W; the hypothesis is equivalent to the target and on all but q^(theta+eps) characters is the scalar statement (Lemma B). J2: the cross Gram of anticausal Hankel blocks has rank min(m, n) for finite simple pole sets; every step is an identity for any pair of unitary symbols, so BLS passes. J3: for bumps narrower than log(1+1/M) at log m, P_chi(g_c) = P_zeta(g_(c chi)) exactly (identity TW, proved, chi even for the stated archimedean difference); the identity uses multiplicativity of chi only and holds for DH (q = +-1 mod 5), T-NR and E_a. Measured (float64, not certified): no enhancement of off-line zeros of DH twists at the DH zeros (7/141 vs 12/141 in the lane; 18/192 vs 19/192 in the referee rerun on new moduli and a second zero). The general principle \"any pair functional consuming the twist relation cancels the prime side\" is argued, not proved.",
+ "obstruction": "Stage A, all three candidates. J1: winding and Littlewood quantities of L(chi)/zeta are signed differences of member zero counts; a multiplier common to both members cancels (Lemma C, PROVED: T-NR at p0 = 1 mod q has identical ratios for any finite character set). The step that would give a statement (Lemma A, relative to the conductor-aspect density theorem, recalled not opened) needs N_zeta(sigma_0; W) <= N_chi(sigma_0; W') for q^theta' characters and infinitely many q, which is equivalent to the target and on all but q^(theta+eps) characters is the scalar zeta statement (Lemma B). J2: the cross Gram of anticausal Hankel blocks has rank min(m, n) and every step is an identity for any pair of unitary symbols. J3: for narrow bumps P_chi(g_c) = P_zeta(g_(c chi)) exactly (identity TW, PROVED); the prime sides cancel and the difference is archimedean; the identity uses multiplicativity of chi only. The general principle (any pair functional consuming the twist relation cancels the prime side) is ARGUED, not proved.",
+ "obstructionKind": "control-passes; restatement (Lemma A hypothesis equivalent to target)",
+ "controlsThatDefeat": [
+  "T-NR at p0 = 1 mod q (J1: identical ratios, Lemma C; J3: passes identity TW)",
+  "BLS (J2: every step is an identity for any pair of unitary symbols)",
+  "DH for q = +-1 mod 5 (J3: passes identity TW)",
+  "E_a (J3: passes identity TW)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step broken; five corrections (appended as an independent section to tmp/research-2026-11-16/push/c14-joint-pair-design-ratio-vortex-cross-bridge/REFEREE.md; the author's own pass is kept above it and is not an independent referee). E1: Lemma A and the proposed map row use the exponent 3(1-sigma)/(2-sigma) for every sigma_0 > 1/2, but that recalled bound is for [1/2, 4/5] only; repair by the second range of the density theorem or monotoni - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The twist relation is a property of the character and holds for every pair lift, so a pair functional that consumes it exactly cancels the prime side and leaves an archimedean form. Functionals of the ratio are blind to common multipliers (T-NR at split primes). Sign (comparison in every window) and size (density in q) compose formally in Lemma A, but the comparison link is equivalent to the target and on all but q^(theta+eps) twists is the scalar zeta statement.",
+ "followUp": "Independent referee for Lemma A, Lemma C and identity TW (open the density theorem source); pass Lemma C to c14-joint-zeta-twist-noncone-search so its T-NR pair class includes primes with chi(p0) = 1 for every character in the dictionary.",
+ "resultFile": "tmp/research-2026-11-16/push/c14-joint-pair-design-ratio-vortex-cross-bridge/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c14-joint-pair-design-ratio-vortex-cross-bridge/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c15-referee-r14-independent-checkpoint",
+  "outcome": "holds with a scope line; no assigned PROVED lemma broken",
+  "narrowerForm": "see report and push/c15-referee-r14-independent-checkpoint/LABEL_RESTRICTIONS.md (30 restrictions listed, not applied)",
+  "report": "tmp/research-2026-11-16/push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-joint-pair-design-ratio-vortex-cross-bridge.md"
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "slug": "s2-control-census-onsets",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "catalan-signed-ladder",
+  "dh-partial-euler-factorisation",
+  "finite-support-euler-detector",
+  "gl2-ramanujan-box-vertex",
+  "gl2-weil-symbol",
+  "katz-sarnak-family-checks",
+  "mem-chi4-signed-ladder",
+  "mem-epstein-radii",
+  "virtual-rungs-positive-extension",
+  "weil-onset-zero-side-law"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "mem-epstein-radii",
+    "weil-onset-zero-side-law"
+   ],
+   "obstruction": "early onset occurs only where the form has a zero far from the line (Re>1 or real in (1/2,1)); not every non-Euler form fails",
+   "controlsThatDefeat": [
+    "196 Epstein forms with h>1",
+    "60 twins",
+    "78 principal forms"
+   ]
+  },
+  {
+   "nodes": [
+    "dh-partial-euler-factorisation",
+    "finite-support-euler-detector"
+   ],
+   "obstruction": "onset is the first prime where the coefficients differ from zeta's (coefficient identification); no fixed support separates T-NR(q) or a flip at P; flags an RH-true object",
+   "controlsThatDefeat": [
+    "T-NR(q) for large q",
+    "single sign flip at large P",
+    "heat (not formulable)"
+   ]
+  },
+  {
+   "nodes": [
+    "katz-sarnak-family-checks",
+    "mem-chi4-signed-ladder",
+    "catalan-signed-ladder"
+   ],
+   "obstruction": "for zeta it is a low-height GRH check of each L(s,chi_d) (verified height in the conductor aspect) and constrains no zero of zeta; not formulable for heat and sign twists",
+   "controlsThatDefeat": [
+    "heat (not formulable)",
+    "sign twist (not formulable)"
+   ]
+  },
+  {
+   "nodes": [
+    "gl2-weil-symbol",
+    "gl2-ramanujan-box-vertex",
+    "virtual-rungs-positive-extension"
+   ],
+   "obstruction": "box membership and positivity at bounded support are independent; the sign is set by c0(k,N) and distance from the amplitudes of an actual form",
+   "controlsThatDefeat": [
+    "63 non-Ramanujan vectors (never negative)",
+    "160 in-box vectors (negative)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) early onset occurs only where the form has a zero far from the line (Re>1 or real in (1/2,1)); not every non-Euler form fails | (2) onset is the first prime where the coefficients differ from zeta's (coefficient identification); no fixed support separates T-NR(q) or a flip at P; flags an RH-true object | (3) for zeta it is a low-height GRH check of each L(s,chi_d) (verified height in the conductor aspect) and constrains no zero of zeta; not formulable for heat and sign twists | (4) box membership and positivity at bounded support are independent; the sign is set by c0(k,N) and distance from the amplitudes of an actual form",
+ "controlsThatDefeat": [
+  "160 in-box vectors (negative)",
+  "196 Epstein forms with h>1",
+  "60 twins",
+  "63 non-Ramanujan vectors (never negative)",
+  "78 principal forms",
+  "T-NR(q) for large q",
+  "heat (not formulable)",
+  "sign twist (not formulable)",
+  "single sign flip at large P"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-control-census-onsets/RESULT.md"
+}

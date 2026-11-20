@@ -1,0 +1,34 @@
+{
+ "TM5": {
+  "n": 300,
+  "no_sign_change_up_to_81p9": 300,
+  "with_root": 0,
+  "min_tau_star": null,
+  "quartiles": null,
+  "below_0p005": 0
+ },
+ "TM6": {
+  "n": 300,
+  "no_sign_change_up_to_81p9": 300,
+  "with_root": 0,
+  "min_tau_star": null,
+  "quartiles": null,
+  "below_0p005": 0
+ },
+ "DM5": {
+  "n": 300,
+  "no_sign_change_up_to_81p9": 300,
+  "with_root": 0,
+  "min_tau_star": null,
+  "quartiles": null,
+  "below_0p005": 0
+ },
+ "DM6": {
+  "n": 300,
+  "no_sign_change_up_to_81p9": 300,
+  "with_root": 0,
+  "min_tau_star": null,
+  "quartiles": null,
+  "below_0p005": 0
+ }
+}

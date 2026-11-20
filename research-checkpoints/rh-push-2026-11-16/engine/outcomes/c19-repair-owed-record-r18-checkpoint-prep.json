@@ -1,0 +1,39 @@
+{
+ "slug": "c19-repair-owed-record-r18-checkpoint-prep",
+ "round": 19,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "repair",
+  "record",
+  "map-rows",
+  "device-states",
+  "checkpoint-input",
+  "corrections"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; no statement about zeros of zeta; headline unchanged at 1 of 4. Owed list of round 18 entered: device table 55 closed / 1 floored / 0 open (exact-relation-rigidity closed on one refereed obstruction pending a second referee; tz-one-sided-completion-bound-band on two refereed lanes); map 215 rows (X1, P58, G44, Z37) plus control HQ2, which was confirmed numerically on two new cases; corrections of display (A), Proposition D (c) and the D10 parity clause entered as notes and mathematically right; STRATEGY record items 48 to 58 with no rule change; top 60 had 0 entries on a proposed node before and after, 56 of 60 keys in common; scoreboard nodes 1,742 -> 1,746; CHECKPOINT_R20_INPUT.md lists the 12 MEASURED/ARGUED Statement O lines. mk_devices.py now refuses any open device type. Score 0.",
+ "obstruction": "Record lane, no attack. Both proposed device types closed (device table 55 closed / 1 floored / 0 open); map 215 rows (X1, P58, G44, Z37) plus control HQ2; corrections of display (A), Proposition D (c), D10 parity clause; STRATEGY 3.1 items 48-58; top 60 had 0 entries on a proposed node before and after; CHECKPOINT_R20_INPUT.md lists 12 Statement O lines still MEASURED or ARGUED.",
+ "obstructionKind": "record lane",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c19-repair-owed-record-r18-checkpoint-prep/REFEREE.md. Holds with corrections E1 to E5; none changes the verdict. Every count in the claim line was recomputed from the files and agrees (devices 53/1/2 -> 55/1/0; map 211 -> 215 labels plus HQ2, no duplicate; top 60 with 56 common keys at equal scores, 0 entries on a proposed node in as-found, before, after and live lists; three c18 outcome records name the  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The round-18 learn step wrote outcome records naming the proposed device nodes, so the generator had already dropped them (0 scored candidates contained one); the owed device-state edit changed the device table and the rejection reason, not the top 60. Second-referee files exist for Statement O lines 13 to 17 but the statement still counts them ARGUED. Each round-18 closure rests on one referee per lane.",
+ "followUp": "At the round-20 checkpoint: decide the relabels of Statement O lines 13-17 against the existing second-referee files and write version 5; run two default-size certified jobs (DH kernel/Pick certificate for line 2, one backward-heat zero enclosure for line 4; estimated 8-16 core-hours); get a second referee on Theorem D of c1-leeyang-krein-limit (line 12 and the headline). Reverse a device state if c19-referee-r18 breaks a closure; add an engine control code for HQ2.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-repair-owed-record-r18-checkpoint-prep/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-repair-owed-record-r18-checkpoint-prep/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

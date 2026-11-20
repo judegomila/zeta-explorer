@@ -27,12 +27,22 @@ Rules changed by lane c8-repair-engine-map-r7 (campaign round 8):
   reuse      the 3-point penalty 'reuses a node of closed lane' is not taken when the shared node is an open device;
              the lanes are listed in one note.
 
+Rule changed by lane c17-repair-owed-record-r16-cell-nodes (campaign round 17; planner decision in ROUND_LOG.md,
+'Round 17 allocation'; previous file scratch/generate.pre-c17-repair.py):
+  cell       the eleven silent-* nodes are read classes, not crossing devices. They come from the key 'cells' of
+             curated/devices.json through build_graph.py (node field 'cell', role 'cell', states cell /
+             tried-not-closed / closed). A cell node is scored as any tagged node: it is not in the device pool, it
+             carries no device weight, it does not satisfy the R4-device rule, and none of the open-device
+             exemptions (family match by device text, reuse penalty, flow-side and mean-value majority penalties,
+             per-device cap) applies to it. A candidate with a closed cell node is rejected. A candidate with a cell
+             node lists it under 'cells' with a note; meta.r4Rules reports topWithCell.
+
 Run:  python3 generate.py --top 40
       python3 generate.py --top 40 --node discriminant-gradient-flow
       python3 generate.py --top 20 --move M2 --theme flow
 Standard library only.
 """
-import argparse
+import argparse  # rule note for proposed device types: see PROPOSED_NOTE below
 import hashlib
 import json
 import os
@@ -68,6 +78,14 @@ NONLIN_RE = re.compile(r'rankin|sym\^|symmetric (square|power)|convolution squar
                        r'L\(s, ?f x f\)|bilinear in Lambda|quadratic in Lambda|3-4-1|tensor', re.I)
 # ---- rules of lane c4-repair-map-engine-r3 ---------------------------------------------------
 DEVICE_TAG = 'crossing-device'
+# Rule added by lane c18-repair-owed-record-r17-open-device-nodes (campaign round 18):
+#   proposed   a device of curated/devices.json with state 'open' and status 'proposed, untested' is an open device for
+#              the R4-device rule and for the weight deviceOpen, and keeps the rejection exemption 'closed family matched
+#              by the device text alone'. The three penalty waivers of an open device (reuse of a node of a closed lane,
+#              flow-side majority, mean-value majority) are NOT applied to it unless --proposed-waivers is given.
+#              meta.r4Rules reports topWithProposedDevice and the count per proposed node.
+PROPOSED_NOTE = ('a proposed, untested device type: a question with entry conditions (curated/devices.json), not a lead; '
+                 'no penalty is waived for it')
 # a 'crossing' member on this side is not a device for R4: flow-stable statements hold for backward heat,
 # Lambda-bound machinery restates verified height (map section 5, item 1; ROADMAP device table: 'monotone
 # flow functional: forward-only')
@@ -131,9 +149,20 @@ MOVES = {
 #                  candidates still pass the hard filter and are listed; they are part-B work).
 #   cohesion       cap was 2: in rounds 9 and 10 every partner placed by tag overlap (shared tag 'theta',
 #                  'function-field') was discarded by the planner as kernel-only or unrelated. Cap now 1.
+# Changed again by the strategy review after campaign round 20 (STRATEGY.md v6, 2026-11-20); previous file:
+# scratch/generate.before-strategy-v6.py.
+#   underused      was explicit 1, auto 0.5, cap 2: in rounds 16 to 20 the same triple (capture-ratio-psd-slope x
+#                  sympow-conductor-normalised-shift x tro6-natural) stood at rank 1 or at the top of the device-bearing
+#                  part of the list in every run and was declined by the planner in all five rounds (no named new
+#                  input); 2 of its 10.25 points are the under-used bonus, which has no outcome behind it in twenty
+#                  rounds. Now explicit 0.5, auto 0.25, cap 1.
+#   integers       keyword part was 1 (batch-1 lesson: the additive integers separate zeta from the Selberg family).
+#                  Rounds 16 to 20: every lane that read the integers as an additive set returned an identification
+#                  proved without multiplicativity (Theorem P of c16-pos-fe; Lemma L; Theorem A of
+#                  c20-euler-shape-rigidity; rows P56, P57, X1), requirement R1 false in each. Now 0.5.
 WEIGHTS = {
     'uniformLabel': 0, 'uniformArith': 1,
-    'underExplicit': 1, 'underAuto': 0.5, 'underCap': 2,
+    'underExplicit': 0.5, 'underAuto': 0.25, 'underCap': 1,
     'deviceOpen': 2, 'deviceFloored': 0,
     # STRATEGY v5 (2026-11-19, review after round 15): separator 3 -> 1.5; the cheap-test part is split into
     # cheapMeasured (was 1, now 0.25) and cheapNamed (1, unchanged). Reason: the screening arm (push/s1-*, 40
@@ -144,7 +173,7 @@ WEIGHTS = {
     # count. Previous file: scratch/generate.before-strategy-v5.py.
     'separator': 1.5, 'controlNamed': 1,
     'cheapMeasured': 0.25, 'cheapNamed': 1,
-    'sizeKeyword': 0.5, 'nonlinKeyword': 0.5, 'integersKeyword': 1,
+    'sizeKeyword': 0.5, 'nonlinKeyword': 0.5, 'integersKeyword': 0.5,
     'cohesionCap': 1.0,
 }
 PER_ANCHOR = 14     # partners kept per anchor node
@@ -170,6 +199,8 @@ def main():
                     help='max appearances of one curated device node in the output (the list has few open devices)')
     ap.add_argument('--dump-all', help='also write every scored candidate to this file')
     ap.add_argument('--dump-rejected', help='write up to 25 sample candidates per rejection reason to this file')
+    ap.add_argument('--proposed-waivers', action='store_true',
+                    help='apply the penalty waivers of an open device also to proposed, untested device types (comparison run)')
     ap.add_argument('--no-r4-rules', action='store_true',
                     help='switch off the c4 rules (R4-device, target-blind, shift-reciprocal, shared-object penalty)')
     args = ap.parse_args()
@@ -228,6 +259,21 @@ def main():
     def device_kind(i):
         """'open', 'floored', 'closed' or None: state of the curated device (curated/devices.json)."""
         d = node[i].get('device')
+        return d['state'] if d else None
+
+    def is_proposed(i):
+        """True for a device node whose type is marked 'proposed, untested' (c18-repair)."""
+        d = node[i].get('device')
+        return bool(d and str(d.get('status', '')).startswith('proposed'))
+
+    def waiver_open(i):
+        """open device that carries the penalty waivers of the open-device rule"""
+        return device_kind(i) == 'open' and (args.proposed_waivers or not is_proposed(i))
+
+    def cell_state(i):
+        """'cell', 'tried-not-closed', 'closed' or None: state of the curated read class (key 'cells' of
+        curated/devices.json). A cell is not a device: device_kind() is None for it."""
+        d = node[i].get('cell')
         return d['state'] if d else None
 
     def is_target_blind(i):
@@ -410,6 +456,12 @@ def main():
                 independent['closed device'] += 1
                 rej('contains a closed device: ' + node[closed_dev[0]]['device']['type'], c)
                 continue
+            # (a00) c17-repair: a member is a read class closed by a refereed lane (key 'cells' of curated/devices.json)
+            closed_cell = [i for i in mid if cell_state(i) == 'closed']
+            if closed_cell:
+                independent['closed cell'] += 1
+                rej('contains a closed cell: ' + node[closed_cell[0]]['cell']['type'], c)
+                continue
             # (a) requirement R4: at least one member is an open or floored device of the curated list
             if not dev:
                 rej('no open or floored crossing device (curated/devices.json)', c)
@@ -459,6 +511,14 @@ def main():
         parts['nonlinearPositivity'] = WEIGHTS['nonlinKeyword'] if NONLIN_RE.search(joint) else 0
         parts['integers'] = WEIGHTS['integersKeyword'] if INT_RE.search(joint) else 0
 
+        # c17-repair: cell members are listed, with their state; they change no score part
+        for i in mid:
+            if is_proposed(i):
+                notes.append('member ' + i + ' is ' + PROPOSED_NOTE)
+        cell_m = [(i, cell_state(i)) for i in mid if cell_state(i)]
+        for i, st in cell_m:
+            notes.append('member ' + i + ' is a read class (cell, state ' + st + '), not a crossing device: it '
+                         'names where the record is silent and carries no evidence')
         # penalties
         pen = 0
         # (b) c4-repair: no two members share an object (a declared, non-generic tag, or a graph edge)
@@ -472,12 +532,12 @@ def main():
             elif len(objs) >= min(2, len(pairs)):
                 parts['sharedObject'] = 1
         lam_members = [i for i in mid if DECL[i] & LAMBDA_SIDE]
-        if r4_rules and 2 * len(lam_members) > len(mid) and not any(k == 'open' for _, k in dev):
+        if r4_rules and 2 * len(lam_members) > len(mid) and not any(waiver_open(i) for i, _ in dev):
             pen -= 3
             notes.append('majority of members on the flow / Lambda side: bound-improvement machinery, not a route to '
                          'the critical line (HEAT; verified height)')
         mv_members = [i for i in mid if DECL[i] & MV_SIDE]
-        if r4_rules and 2 * len(mv_members) > len(mid) and not any(k == 'open' for _, k in dev):
+        if r4_rules and 2 * len(mv_members) > len(mid) and not any(waiver_open(i) for i, _ in dev):
             pen -= 3
             notes.append('majority of members are mean-value objects: MV-CAP applies to an every-window conclusion')
         attached = sorted({r for m in members for r in m['rows']})
@@ -512,7 +572,7 @@ def main():
                 # c8-repair: an open device node is shared by every lane that narrowed it (map-open-1: 8 closed
                 # lanes, 24 points), which placed all of its candidates below the listed ones. For an open device
                 # the lanes are listed in one note and no points are taken; the state is kept in curated/devices.json.
-                if (on & set(mid)) <= set(open_dev_ids):
+                if (on & set(mid)) <= set(i for i in open_dev_ids if waiver_open(i)):
                     open_dev_lanes.append(o['slug'])
                     continue
                 pen -= 3
@@ -598,7 +658,8 @@ def main():
                         status=node[i].get('status'), source=node[i].get('source', '')[:160]) for i in mid],
             control=control, requirements=req, underused=ue + ua, reason=reason, firstTest=test,
             rowsChecked=checked,
-            r4Devices=[dict(id=i, kind=k, type=node[i]['device']['type']) for i, k in dev],
+            r4Devices=[dict(id=i, kind=k, type=node[i]['device']['type'], **({'status': node[i]['device']['status']} if is_proposed(i) else {})) for i, k in dev],
+            cells=[dict(id=i, state=st, type=node[i]['cell']['type']) for i, st in cell_m],
             sharedObjects=[dict(a=x, b=y, object=o) for x, y, o in objs]))
 
     scored.sort(key=lambda s: (-s['score'], s['key']))
@@ -657,9 +718,9 @@ def main():
                   generated=len(raw), scored=len(scored), rejected=dict(reject),
                   families={k: v for k, v in sorted(fam_stats.items())},
                   closedRowsByTheme=closed_by_theme,
-                  scoring=('weights of 2026-11-19 (STRATEGY v5): multiplicativity 0-2; heightUniform 0-1; controls 0-2.5; '
-                           'crossing 0-2 (2 = open device, 0 = floored device of curated/devices.json); underused 0-2; '
-                           'cheapTest 0-1.25; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-1; '
+                  scoring=('weights of 2026-11-20 (STRATEGY v6): multiplicativity 0-2; heightUniform 0-1; controls 0-2.5; '
+                           'crossing 0-2 (2 = open device, 0 = floored device of curated/devices.json); underused 0-1; '
+                           'cheapTest 0-1.25; cohesion 0-1; breadth 0-1; size / nonlinear keywords 0-0.5 each; integers 0-0.5; '
                            'sharedObject 0-1; penalties <= 0'),
                   r4Rules=dict(active=r4_rules, firedIndependentlyOfOrder=dict(independent),
                                targetBlindArithNodes=sorted(i for i in DECL if 'arith' in R_[i] and is_target_blind(i)),
@@ -669,6 +730,14 @@ def main():
                                topWithFlooredDeviceOnly=sum(1 for s in top if s['r4Devices'] and not any(d['kind'] == 'open' for d in s['r4Devices'])),
                                topWithClosedDevice=sum(1 for s in top if any(device_kind(n['id']) == 'closed' for n in s['nodes'])),
                                topWithDevice=sum(1 for s in top if s['r4Devices']),
+                               cellNodesLive={st: sorted(i for i in DECL if cell_state(i) == st)
+                                              for st in ('cell', 'tried-not-closed', 'closed')},
+                               topWithCell=sum(1 for s in top if s['cells']),
+                               proposedDeviceNodes=sorted(i for i in DECL if is_proposed(i)),
+                               proposedWaivers=bool(args.proposed_waivers),
+                               topWithProposedDevice=sum(1 for s in top if any(d.get('status') for d in s['r4Devices'])),
+                               topPerProposedNode={i: sum(1 for s in top if any(d['id'] == i for d in s['r4Devices']))
+                                                   for i in sorted(DECL) if is_proposed(i)},
                                topWithSharedObject=sum(1 for s in top if s['sharedObjects'])),
                   filters=vars(args),
                   note='Heuristic ranking. Read each candidate against OBSTRUCTION_MAP.md section 2 (Q1-Q3) before work.'),

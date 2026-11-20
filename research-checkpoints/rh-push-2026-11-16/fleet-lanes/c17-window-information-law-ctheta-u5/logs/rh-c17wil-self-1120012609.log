@@ -1,0 +1,32 @@
+one pair c=2: threshold 2.838446380 closed form 2.838446380
+one pair c=1: threshold 2.177318985 closed form 2.177318985
+one pair c=0.1: threshold 0.763400798 closed form 0.763400798
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=6 Lg=9 M=0 pairs=[(0.13, 0.2)] removed=0: criterion pass, direct min eig 6.4241e-01 (background alone 9.3876e-01)
+u=6 Lg=9 M=0 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -8.0399e+00 (background alone 9.3876e-01)
+u=6 Lg=9 M=0 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 1.3059e+00 (background alone 9.3876e-01)
+u=6 Lg=9 M=0 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion pass, direct min eig 1.9979e+00 (background alone 9.3876e-01)
+u=6 Lg=9 M=0 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 1.3385e+00 (background alone 9.3876e-01)
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion pass, direct min eig 2.1517e+00 (background alone 2.5521e+00)
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -8.2989e+00 (background alone 2.5521e+00)
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 2.5373e+00 (background alone 2.5521e+00)
+u=6 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion pass, direct min eig 2.8977e+00 (background alone 2.5521e+00)
+u=6 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 2.5498e+00 (background alone 2.5521e+00)
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion fail, direct min eig -6.6048e+00 (background alone 1.0000e+00)
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -2.2689e+02 (background alone 1.0000e+00)
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 9.9094e-01 (background alone 1.0000e+00)
+u=11 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion fail, direct min eig -9.3769e+00 (background alone 1.0000e+00)
+u=11 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 9.9944e-01 (background alone 1.0000e+00)
+planned: on-line block 16 x 16 arb entries at 512 bits (about 0.00 GB)
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.2)] removed=0: criterion fail, direct min eig -1.0706e+02 (background alone 1.0000e+00)
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.5)] removed=0: criterion fail, direct min eig -2.1997e+04 (background alone 1.0000e+00)
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.05)] removed=0: criterion pass, direct min eig 7.1804e-01 (background alone 1.0000e+00)
+u=20 Lg=9 M=0.5 pairs=[(0.1, 0.3), (0.5, 0.25), (-0.4, 0.1)] removed=1: criterion fail, direct min eig -8.3269e+02 (background alone 1.0000e+00)
+u=20 Lg=9 M=0.5 pairs=[(0.13, 0.02)] removed=0: criterion pass, direct min eig 9.9949e-01 (background alone 1.0000e+00)
+n=1: eigenvalues of JG: 1 negative, max |imag| 0.0e+00
+n=2: eigenvalues of JG: 2 negative, max |imag| 2.9e-61
+n=3: eigenvalues of JG: 3 negative, max |imag| 3.8e-61
+n=5: eigenvalues of JG: 5 negative, max |imag| 4.5e-61
+fast vs direct evaluation of R: max abs difference (upper bound) 5.24e-150

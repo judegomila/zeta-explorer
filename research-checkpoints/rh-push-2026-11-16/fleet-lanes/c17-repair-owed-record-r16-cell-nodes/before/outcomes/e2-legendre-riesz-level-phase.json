@@ -1,0 +1,69 @@
+{
+ "slug": "e2-legendre-riesz-level-phase",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "integers + positivity: restricted-level Legendre certificates, Riesz order x level",
+ "nodes": [
+  "legendre-lcm-identity",
+  "landau-one-sided-d-bound",
+  "one-sided-excess-target"
+ ],
+ "launchedNodes": [
+  "legendre-lcm-identity",
+  "legendre-dual-restriction-rule",
+  "landau-one-sided-d-bound",
+  "one-sided-excess-target",
+  "zero-complete-rational-tents",
+  "vaughan-forcing-is-gauge"
+ ],
+ "rowsChecked": [
+  "T2",
+  "P10",
+  "P13",
+  "fam-legendre-dual-limits",
+  "fam-vaughan-split-landau"
+ ],
+ "tags": [
+  "legendre-lp",
+  "riesz-order",
+  "restricted-level",
+  "landau-floor",
+  "reformulation"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction; no proof of RH, no zero information, no bound changed. PROVED (referee-confirmed): for every Riesz order k the Legendre certificate value is >= psi_k(X)/X^k, so its one-sided excess exponent is >= Theta >= 1/2 (classical Landau); Theorem U and the sandwich Theta <= min_theta nu^R_k <= Theta + (1-Theta)^2/(k+2-Theta), a reformulation of RH as an O(X^(1/2+eps)) bound for a prime-free LP as k -> infinity, with the upper half taking M(y) << y^(Theta+eps) as input. MEASURED (reproduced independently at X=2700): the exact LP equals psi_k(X)/X^k from D about 2.2 sqrt X for k=0,1,2 (hyperbola identity); robust LP gap about 0.02-0.03 sqrt X (k=1) and 0.0016 sqrt X (k=2) at theta>=0.7.",
+ "obstruction": "Every certificate value is >= psi_k(X)/X^k, whose excess is Omega_+(X^(Theta-eps)) (Landau), so the certified exponent is never below Theta. From level D about 2 sqrt X the exact LP is Dirichlet's hyperbola identity and returns the truth for every Riesz order; Riesz order and level restriction remove only method losses (forced Moebius head, sawtooth triangle inequality). The residue is a one-sided bound for a Moebius-weighted spline sum over the Type-II range (source Step 7 / (DR)); the upper half of the sandwich is proved from M(y) << y^(Theta+eps). Positivity of Lambda is already spent; uniformity in height is not obtained.",
+ "obstructionKind": "reformulation-pinned-to-truth",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a): passes every step (pinned at a=0.15, 0.3) and returns Theta + a",
+  "Beurling: argued only, not run",
+  "DH, Liouville sign twist, chi_4: fail only at Lambda_w >= 0 (LP unbounded); the method separates by the sign of Lambda_w, not by zero location"
+ ],
+ "lesson": "Restricted-level Legendre LPs are pinned to the truth from D ~ 2 sqrt X for every Riesz order, so the exact LP carries no information. Do not re-run level x Riesz-order variations. The open residue is the Type-II one-sided Moebius spline bound, at RH strength; E_a is not separated.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.12,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "legendre-riesz-sandwich-theorem-u",
+   "type": "identity",
+   "status": "proved",
+   "statement": "Theta <= min_theta nu^R_k <= Theta + (1-Theta)^2/(k+2-Theta) for the robust (prime-free) Legendre-Riesz LP exponent; upper half uses M(y) << y^(Theta+eps). Refereed once."
+  },
+  {
+   "id": "legendre-lp-hyperbola-pinning",
+   "type": "measured-phenomenon",
+   "status": "measured",
+   "statement": "For D >= about 2.2 sqrt X the exact Legendre-Riesz LP equals psi_k(X)/X^k for k=0,1,2 (X up to 1e6 for k=0,1; reproduced at X=2700)."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-legendre-riesz-level-phase/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-legendre-riesz-level-phase/REFEREE.md"
+}

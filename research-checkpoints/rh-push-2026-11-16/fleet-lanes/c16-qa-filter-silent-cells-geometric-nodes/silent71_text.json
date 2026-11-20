@@ -1,0 +1,1346 @@
+[
+ {
+  "idx": 0,
+  "id": "adjacent-gap-reserve",
+  "c14class": "t",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "vortex"
+  ],
+  "twice": false,
+  "name": "Adjacent squared-gap ODE and integrating-factor certificate",
+  "statement": "Before first loss of simple real zeros, y=(b-a)^2 obeys y'=8-4Sy, S=sum_{r!=a,b}1/((b-r)(a-r))>=0. If S>=L(t)>=0 along the continuation then y(T)>8 int_{t0}^T exp(-4 int_v^T L)dv excludes that pair's collision down to t0. Triple cluster slope is 6.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5; [pr:16] ADJACENT_GAP_CERTIFICATE.md",
+  "extra": {
+   "closedBy": "P31"
+  }
+ },
+ {
+  "idx": 1,
+  "id": "af-rank-trace-inertia",
+  "c14class": "L",
+  "steps": [
+   "S2f",
+   "X1"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Alpoge-Furman mechanism: rank-trace inequality and Sylvester inertia",
+  "statement": "Proportion >= 2/3 comes from Montgomery's pair-correlation second moment, a rank-trace inequality (Lemma 3.2) and Sylvester inertia applied to a Gabor compression G of Weil's Hermitian form (phi(u) e^{i alpha_k u}, support L = log(T/2 pi)). Measured: tr G = N(T,2T) +- 1 for T = 1e3 to 2.9e5.",
+  "status": "measured",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "route:route-16-alpoge-furman-twin-ladder-2026-10-10",
+  "extra": {
+   "obstructionRow": "P27"
+  }
+ },
+ {
+  "idx": 9,
+  "id": "antihermitian-strip-bound",
+  "c14class": "t",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder",
+   "twistor"
+  ],
+  "twice": false,
+  "name": "Anti-Hermitian part bounds the strip: |Im x| <= eta, Lambda <= t + eta^2/2",
+  "statement": "If a zero x is represented as a kernel vector v of an operator pencil with anti-Hermitian part K, then Im x * |v|^2 = Re<v, K v>, so |Im x| <= sup ||K||. With global representation (G) and de Bruijn strip contraction (S) as hypotheses, Lambda <= t + eta^2/2.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "unknown",
+  "source": "form:lean-aristotle/permutation-calculus/README.md; lean:.../antihermitian_strip/ abs_im_le_of_represented",
+  "extra": {}
+ },
+ {
+  "idx": 13,
+  "id": "backward-flow-displacement-residual",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Displacement residual of the eps' certificate",
+  "statement": "Bound, from t=0 table data, the instantaneous complex distances |x_l(t)-y(t)| between window zeros and omitted zeros over the whole backward-flow horizon (spectator real zeros may pair into complex). Realness and kernel structure are closed; this distance quantification is open.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "extra": {}
+ },
+ {
+  "idx": 14,
+  "id": "bagchi-strong-recurrence",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "torus"
+  ],
+  "twice": true,
+  "name": "Bagchi strong-recurrence criterion",
+  "statement": "RH is equivalent to zeta being strongly recurrent in 1/2 < Re s < 1: zeta approximates its own vertical translates in the sense of Voronin universality.",
+  "status": "proved",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "dag:rh-landscape-dag#bagchi-universality",
+  "extra": {}
+ },
+ {
+  "idx": 28,
+  "id": "canonical-system-indivisible-chain",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Twin-ladder kernel as resolvent of a canonical system; explicit Hamiltonian for finite surrogate",
+  "statement": "Under RH the Weyl m-function is Nevanlinna, so a unique trace-normed H(x) exists (de Branges). For the finite point-measure surrogate: Jacobi system with a_k=0 (Lanczos), equivalently a chain of 11 indivisible rank-one intervals (tr H=1, det H=0), reproducing m to 1e-15. Off-line finite-kappa structure open.",
+  "status": "measured",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[impr:2439] [impr:2447] src/data/imp-2430-canonical-system-realizability-2026-06.js",
+  "extra": {}
+ },
+ {
+  "idx": 30,
+  "id": "cascade-s21-zeta2s-over-zeta",
+  "c14class": null,
+  "steps": [
+   "S1",
+   "S3",
+   "X2"
+  ],
+  "tags": [
+   "bridge",
+   "zero-channel"
+  ],
+  "twice": true,
+  "name": "Prime LC cascade transmission S21 = zeta(2s)/zeta(s)",
+  "statement": "For sections T_p=[[1,a],[a,1]], a=p^{-s}: S11=0 identically, S21=S12=2/Sigma_+ with prod_p(1+p^{-s})=zeta(s)/zeta(2s) for Re s>1; by continuation S21 is proportional to zeta(2s)/zeta(s). Zeta zeros are poles of S21, not zeros of any S-parameter; det S vanishes where zeta(2s)=0.",
+  "status": "proved",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "[impr:864] [impr:890] [impr:898] src/data/zero-identification.js, s11-analysis.js",
+  "extra": {}
+ },
+ {
+  "idx": 34,
+  "id": "cdb-exist",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "CDB-Exist: Phi-built de Branges canonical system",
+  "statement": "For every a > 0 there is a de Branges canonical system built from Phi whose Cayley transform is Theta_a = E_a^#/E_a. Unifies Conjectures 16.4, 16.6, 18.1. RH-equivalent.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "yes",
+  "source": "dag:project-attempts-dag#twin-cdb-exist; src/data/imp-1241-unified-existence-conjecture.js",
+  "extra": {}
+ },
+ {
+  "idx": 35,
+  "id": "cdb-exist-noncircularity",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "shear",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "CDB-Exist: Phi-built canonical system",
+  "statement": "For every a > 0 construct from Phi alone (not from the zeros of X) a Hamiltonian dm_a on R_+ whose Krein-Weyl Cayley transform is Theta_a = E_a^#/E_a, E_a = A_a - i B_a, A_a = int Phi cosh(au) cos(zu) du, B_a = int Phi sinh(au) sin(zu) du. Direct construction reduces to Hermite-Biehler positivity (RH-equivalent).",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[imp:imp-1241-unified-existence-conjecture] [imp:imp-1340-CDB-Exist-direct-construction] [imp:imp-1245-cdb-exist-stress-test]",
+  "extra": {}
+ },
+ {
+  "idx": 41,
+  "id": "collective-lambda-certificate",
+  "c14class": "t",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "torus",
+   "vortex"
+  ],
+  "twice": false,
+  "name": "Collective-zero slab certificate for Lambda",
+  "statement": "For the highest zero z=x+iy, U=y^2: U'<=-2-4yA(z), A=-Im sum_j S_j(z). If zeros lie in |Im z|<=Delta at tau_0 and A>=kappa y on eta<=y<=Delta, then Lambda<=tau_0+(1/4kappa)log((1+2kappa Delta^2)/(1+2kappa eta^2))+eta^2/2. Count-and-box: kappa=sum_j m_j/D_j.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:49] rigorous/torus-heat-antibridge-2026-11-09/collective_certificate.md sec 5, 6",
+  "extra": {
+   "closedBy": "F5 (floor-only cap 0.0962), F3 (no converse to zeros)"
+  }
+ },
+ {
+  "idx": 48,
+  "id": "conformal-schur-window",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "Verified height gives a conformal Schur window",
+  "statement": "With Y=H-1/2=3000175332799.5, c=pi/(2Y): |X(w-a)/X(w+a)|<1 on Re w>0, |Im w|<Y; the Pick kernel with sinh(cw) denominators is PSD on the strip. The original linear-denominator kernel is not established (negative real 2x2 minor).",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[page:OpenFrontierPage]",
+  "extra": {}
+ },
+ {
+  "idx": 55,
+  "id": "darlington-losslessness-s7",
+  "c14class": "Z",
+  "steps": [
+   "X1",
+   "X2",
+   "S3"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "S7: Darlington losslessness of the infinite twin ladder",
+  "statement": "Prove the infinite twin ladder satisfies Darlington losslessness; H_p(s) = 1/(1 - p^{-s}) is a lossless LC resonator per prime. Related obstruction map row G10 (passive cascade valid only for Re s > 1).",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "dag:insight-dag#gap-s7; dag:insight-dag#single-oscillator; dag:insight-dag#KYP-bounded-real",
+  "extra": {}
+ },
+ {
+  "idx": 56,
+  "id": "dbn-closed-barrier-883-prisms",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Closed barrier certificate by argument principle",
+  "statement": "H_t(z) != 0 for z in [X,X+1] + i[1809/10000, 1], 0 <= t <= 129/800, X = 6000000185827: 883 consecutive closed time prisms with byte-identical seams, boundary mesh with derivative majorants D_z, D_t, aggregate winding interval [-8.95, 8.95]e-13. Uses Polymath Thm 1.3 with error e_A + e_B + e_{C,0}.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/BARRIER_CERTIFICATE.md]",
+  "extra": {}
+ },
+ {
+  "idx": 57,
+  "id": "dbn-max-gap-collapse-time",
+  "c14class": "t",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Collapse time under a real-zero maximum-gap hypothesis",
+  "statement": "If every relevant real x has a real zero of H_tau within distance R, then P >= Y/(R^2+Y^2), u' <= -2 - 4u/(R^2+u), and collapse time S_R = u_0/6 + (R^2/9) log(1 + 3u_0/R^2) < u_0/2, giving Lambda <= T + S_R conditionally. Compare the floor-only bound in map row F5.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Maximum-gap corollary",
+  "extra": {}
+ },
+ {
+  "idx": 58,
+  "id": "dbn-moving-real-rung-lemma",
+  "c14class": "t",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Conditional real-rung velocity lemma",
+  "statement": "If zeros of H_tau lie in |Im z| <= Y(tau), the boundary zero is simple, the zero-dynamics tail is justified, and real zeros satisfy P_tau(x,Y) = sum_r m_r Y/((x-r)^2+Y^2) >= p(tau,Y): then Y' <= -1/Y - 2p, and d/dtau (tau + Y^2/2) <= -2 Y p. A positive uniform rung contribution strictly improves the de Bruijn law.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md]",
+  "extra": {}
+ },
+ {
+  "idx": 60,
+  "id": "dbn-uniform-poisson-floor",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Uniform Poisson floor from real zeros along the flow",
+  "statement": "Needed for the moving-rung improvement: a real-zero mesh or Poisson lower bound uniform in every real x and over the whole collapse-time interval, proof the selected zeros stay real, certified trajectory tubes, treatment of collisions and the central gap, and an infinite-height tail bound. Average Riemann-von Mangoldt density is insufficient.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Missing certificate",
+  "extra": {}
+ },
+ {
+  "idx": 61,
+  "id": "de-branges-positivity-family",
+  "c14class": "K",
+  "steps": [
+   "X5",
+   "X3"
+  ],
+  "tags": [],
+  "twice": false,
+  "name": "de Branges positivity condition for Euler products with the gamma factor, in a family (RS-3)",
+  "statement": "Device under test in lane c11-rs3-debranges-positivity-family (campaign round 11). Lane report of 2026-11-19, author check only: stage A stops; each variant examined is a restatement of a closed row or is false for zeta at a named step (phase balance at every zero; measured). Not yet refereed; node status unchanged until the learn step. Read set RS-3 of STRATEGY v3 section 4.0: positivity that uses the gamma side of zeta together with the Euler product in one step. The device is the positivity condition of de Branges for Euler products with the gamma factor, reported to fail for zeta (Conrey-Li 2000; relative to that source, not on file), and the variants not covered by that failure (a twin-ladder shift, a conductor family). It is an inequality and not the Weil form. First controls: Davenport-Heilbronn, E_a with real a, backward heat. Stage A as for the other round-11 explore lanes. No statement about zeros of zeta.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "unknown",
+  "source": "campaign/ROUND_LOG.md, round 11 allocation, lane 3; campaign/STRATEGY.md section 4.0 (RS-3)",
+  "extra": {}
+ },
+ {
+  "idx": 73,
+  "id": "en-bridge-inequality",
+  "c14class": "t",
+  "steps": [
+   "S2f",
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Step-4 bridge |Lambda - (-t_c(N))| <= E(N)",
+  "statement": "E(N) = E_coll + E_trunc + E_flow bounds the gap between Lambda and the N-particle backward-flow first-collision time; Lambda <= -t_c + E(N), so the bridge needs a lower bound on t_c. Open at the Holder-1/2 shock modulus C_H; E(N) -> 0 is not supplied.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "src/data/imp-theta-trap-sign-audit.js; imp-97839-sigma-decay-rate-vs-step4-en-vanishing-handle.js; imp-124865",
+  "extra": {}
+ },
+ {
+  "idx": 82,
+  "id": "eps-offline-quarantine-bound",
+  "c14class": "c",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Contribution bound for hypothetical off-line zeros above verified height",
+  "statement": "With T_ver=3.0001753328e12 (Platt-Trudgian), zeros off the line lie at horizontal distance > 2.9994e12 from any window gap and contribute epsOffline <= 2(log(T_ver/2pi)+1)/(pi T_ver)=5.9185e-12 to every eps'(l); 4.1e6 times below the smallest realised record-pair eps 2.43e-5.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "extra": {}
+ },
+ {
+  "idx": 84,
+  "id": "euler-anchor-heat-certificate",
+  "c14class": "Z",
+  "steps": [
+   "S1",
+   "X1"
+  ],
+  "tags": [
+   "vortex"
+  ],
+  "twice": false,
+  "name": "Euler-anchored heat-time certificate",
+  "statement": "Proposal: an anchor with height-independent precision exponent x^{-c} so Prop L certifies depth 2 pi^2 c / L against required T* about C/L. The Euler product enters the anchor (|zeta(s)| >= zeta(2 sigma)/zeta(sigma) allows kappa toward 2; Epstein zeros force kappa >~ 6.3). Test 2 pi^2 c > C not run.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "unknown",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md \u00a74 item 5",
+  "extra": {}
+ },
+ {
+  "idx": 94,
+  "id": "exhaustive-winding-certificate",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "vortex",
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Exhaustive zero-winding box certificates",
+  "statement": "Construct zero-winding relative-error boundary certificates on an exhaustive family of boxes, with a simple all-real anchor, complex-zero confinement on each positive-time slab, and convergence to time zero. No uniform margin needed, but all boxes are needed.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5",
+  "extra": {
+   "closedBy": "G7 (restates verified height)"
+  }
+ },
+ {
+  "idx": 104,
+  "id": "finite-support-euler-detector",
+  "c14class": "Z",
+  "steps": [
+   "X1"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "Route 30: finite-support rung Euler detector",
+  "statement": "A ladder-native quantity separating zeta from Davenport-Heilbronn at support below 3.44, with sharp onsets and certified witnesses; it detects the Euler product only as a multiplicativity test. Route 44: the Weil form's own detection depth follows the twin's root-number phase and first off-line zero (fitted, heuristic).",
+  "status": "proved",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1",
+  "extra": {}
+ },
+ {
+  "idx": 110,
+  "id": "freezing-inertia-tool",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Freezing as inertia-preserving reduction (section 23)",
+  "statement": "Freezing a finite window of the ladder preserves inertia and gives finite-window certificates; it is not a proof step. The actual target is passive frozen-bridge closure (Conj 23.5) surviving U -> inf, W -> C_+, a -> 0.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "no",
+  "source": "[imp:imp-1288-section23-freezing-bridge]",
+  "extra": {}
+ },
+ {
+  "idx": 120,
+  "id": "genuine-theta-box",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "vortex"
+  ],
+  "twice": true,
+  "name": "Genuine field nonvanishing box through time zero",
+  "statement": "G(t,x)=H_t(x)+iH_x(t,x) is nonzero on [0,1/2]x[200,220] with exact zero boundary winding (194 derivatives, 24 boundary segments, 90 interior cells, 384/512-bit). Excludes simultaneous H,H_x zeros there only.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 6; [pr:18] research-checkpoints/genuine-theta-endpoint-2026-10-24/PROOF.md",
+  "extra": {
+   "closedBy": "G7"
+  }
+ },
+ {
+  "idx": 134,
+  "id": "hidden-square-conj-16-4",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "spinor"
+  ],
+  "twice": true,
+  "name": "Hidden-square kernel factorization (Conj 16.4)",
+  "statement": "Find a Gram factorization of K_a built from the completed kernel Phi rather than from the zeros. Pointwise sine-cosine identities leave sign-indefinite cross terms, so any factorization must be non-local; none has been constructed. RH-equivalent.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "yes",
+  "source": "dag:project-attempts-dag#twin-route-c-hidden-square; src/data/hidden-square-program-section.js",
+  "extra": {}
+ },
+ {
+  "idx": 140,
+  "id": "ka-offdiagonal-hankel-g7",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "shear"
+  ],
+  "twice": false,
+  "name": "G7: off-diagonal endpoint-Hankel positivity of R",
+  "statement": "The scalar mu-pass cover pins every diagonal of R = G_pass^{-1/2} G_shear G_pass^{-1/2} strictly below 1 (residual deficit 0); G_shear is an off-diagonal endpoint-Hankel form, and ||R|| <= 1 (K_a >= 0) is the untouched RH-equivalent operator step.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "yes",
+  "source": "dag:lambda-roadmap#G7; dag:project-attempts-dag#twin-mupass-rh",
+  "extra": {}
+ },
+ {
+  "idx": 141,
+  "id": "ka-positivity-residual",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "shear"
+  ],
+  "twice": false,
+  "name": "K_a >= 0 residual (roadmap gap G7)",
+  "statement": "Show ||Gpass^{-1/2} Gsym Gpass^{-1/2}|| <= 1 for the symmetric single-lag endpoint-Hankel Gram Gsym of section 26; needs a dominating passive core bounding the off-diagonal cross-terms. On the degree-4 representative truncation at (a,U)=(0.5,6): ||R||=4.617, off-diagonal Frobenius 4.082.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "unknown",
+  "source": "imp-33685-scalar-cover-offdiagonal-reachability; imp-33705-rank2-antisymmetry-offdiagonal-inertness",
+  "extra": {}
+ },
+ {
+  "idx": 142,
+  "id": "klein-phase-transport-certificate",
+  "c14class": "K",
+  "steps": [
+   "S1",
+   "X5"
+  ],
+  "tags": [
+   "bridge",
+   "klein",
+   "shear",
+   "torus"
+  ],
+  "twice": false,
+  "name": "Klein phase transport: positive core minus negative tail",
+  "statement": "If 0<mu<=theta_a'<=M on [t-R,t+R], R<=pi/(4M): W_h(t)/h>=(2mu/(pi a))int_0^R omega A_a(t-r)A_a(t+r)dr-int_R^inf omega A_a A_a/(2ar)dr, omega_{a,h}(r)=(2pi r sin beta/(ah))q(1-q^2)/(1+2q cos beta+q^2)^2, beta=pi h/a, q=e^{-pi r/a}.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:56] rigorous/klein-annulus-coupling-2026-11-14/klein_phase_transport.md sec 6",
+  "extra": {
+   "closedBy": "G13, G17"
+  }
+ },
+ {
+  "idx": 147,
+  "id": "kyp-bounded-real-prime-delay",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "KYP / bounded-real lift of the bridge (Apps M-O)",
+  "statement": "Bridge ratio Theta_a as transfer function of a parallel prime-delay system. Passive lift iff KYP LMI feasible (P>0). L2-dissipative iff a Lyapunov-Krasovskii functional V>=0 with dV/dt<=-||y||^2 exists, iff ||Theta_a||_inf<=1. App N records a signed-Mobius barrier for the delay lift.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "[page:KypBoundedRealPage] src/data/kyp-bounded-real-section.js",
+  "extra": {}
+ },
+ {
+  "idx": 157,
+  "id": "lemma-w-wide-support",
+  "c14class": "L",
+  "steps": [
+   "X3",
+   "X1"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Lemma W (wide-support diagonal pair correlation)",
+  "statement": "Exist A>1, C, T0: sum_{0<gamma<=T} T^{2A|beta-1/2|} <= C T log T for T>=T0. Equivalent to zero density N(sigma,T)<=C T^{1-2A(sigma-1/2)} log^{O(1)} T with slope 2A>2. Implies a fixed strip |beta-1/2|<=delta*=(1+kappa)/(2A), kappa about 0.20, then Lambda<=2 delta*^2.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "yes",
+  "source": "[page:SubHalfStripPccCriterionPage] src/data/subhalf-strip-pcc-criterion-2026-07-31.js",
+  "extra": {}
+ },
+ {
+  "idx": 158,
+  "id": "levinson-in-ladder-language",
+  "c14class": "L",
+  "steps": [
+   "X1",
+   "S2f"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Levinson method as direct/dual weight balance",
+  "statement": "Z = 2 Re[e^{i theta}(zeta + zeta'/(2 theta'))]; Q(x) + Q(1-x) = const is the direct/dual weight balance. Primorial Euler-product mollifiers score below the length-truncated Mobius reference in a fixed-Q main-term proxy (theta = 1/2, T = 1e6: 0.262 vs 0.453).",
+  "status": "measured",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "dag:project-attempts-dag#dag3-levinson-bridge",
+  "extra": {}
+ },
+ {
+  "idx": 195,
+  "id": "mem-lacunary-loophole",
+  "c14class": "L",
+  "steps": [
+   "X1"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "Lacunary/Blaschke node-family loophole inside the native span",
+  "statement": "Geometric (Blaschke) node lattices fail the identity-theorem step, so their PSD family is not equivalent to RH; reaching RH needs sum 1/s = infinity (Muntz-complete), where trace-class structure is unavailable. Route 13: lacunary {4^k} Pick >= 3.6346e-4 certified, no zero information. Row P18.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "mem:project_flow_blindness_and_T3_strip.md; mem:project_fifty_routes_campaign.md",
+  "extra": {}
+ },
+ {
+  "idx": 196,
+  "id": "mem-local-window-substitution",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "One local RH window replaces contiguous verification",
+  "statement": "Route 6 / Lemma B: a FLINT-isolated local window (21,665 zeros near 7.8e12, re-certified via Riemann-Siegel signs + Trudgian Thm 2.2) substitutes for about 1.7e12 units of contiguous verification inside the band-barrier framework.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "mem:project_fifty_routes_campaign.md; mem:project_goal_sub0145_and_ref_check.md",
+  "extra": {}
+ },
+ {
+  "idx": 197,
+  "id": "mem-mollifier-proportion-loophole",
+  "c14class": "L",
+  "steps": [
+   "X1",
+   "S2f"
+  ],
+  "tags": [],
+  "twice": false,
+  "name": "Dirichlet-coefficient/mollifier inputs as the non-circular class",
+  "statement": "Levinson-Conrey (>= 41.7% on-line) and Selberg-type inputs are flow-critical, not RH-equivalent, and locate zeros beyond soft methods, but deliver proportions (mean values), not every zero. No in-repo twin-ladder object hosts them. Rows P26, P27, Q9 give the measured limits.",
+  "status": "proved",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "mem:project_flow_blindness_and_T3_strip.md",
+  "extra": {}
+ },
+ {
+  "idx": 205,
+  "id": "mem-weil-moment-ladder",
+  "c14class": "L",
+  "steps": [
+   "X1"
+  ],
+  "tags": [],
+  "twice": false,
+  "name": "Moment ladder of the pole-free Weil margin at (ln 3)/2",
+  "statement": "Minimum of the Weil form at a=(ln 3)/2 under successive constraints: 9.5e-4 (pole-free) -> 0.0334 (hhat(0)=0) -> 0.414 (hhat'(0)=0) -> 0.799 -> 0.814 (saturates). Negativity of the unconstrained minimiser sits in the dip band [7.4,10.8): -0.263 vs well -0.009.",
+  "status": "measured",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "mem:project_route_i_sonine_excess_port.md",
+  "extra": {}
+ },
+ {
+  "idx": 212,
+  "id": "mirror-descent-b1",
+  "c14class": "c",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Conditional flow-descent theorem B1 (mirror descent), residuals (a),(b)",
+  "statement": "Proved modulo residuals. Lower edge transfers: the P15 barrier is a rectangle winding count constant in t. Hard half: localisation keeping topmost nonreal zeros at x>=X+1, i.e. a uniform-in-t, all-x lower bound M>=p_req=4.37426 on the mirror pull at y0=0.165 for t in (0,0.1314].",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[impr:33321] [impr:33401] src/data/rh-bridge-mirror-descent-2026-09-25.js",
+  "extra": {}
+ },
+ {
+  "idx": 213,
+  "id": "mirror-euler-rate-t0",
+  "c14class": "Z",
+  "steps": [
+   "S1",
+   "X1"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": true,
+  "name": "t = 0 Euler-product descent rate for a topmost zero",
+  "statement": "For a globally topmost zero dy/dt is bounded by a wide-Poisson term (eta >= sqrt(5) y); at t = 0 the Euler product gives a descent rate for a hypothetical topmost zero at one instant only. Extending to t > 0 needs pointwise input at sigma < 1 (NS-RIGID wall).",
+  "status": "proved",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "dag:project-attempts-dag#twin-mirror-poisson-domination; dag:project-attempts-dag#twin-imp97053",
+  "extra": {}
+ },
+ {
+  "idx": 247,
+  "id": "pascal-carry-ballot",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Annular cofactor as adjacent Pascal/carry mean comparison",
+  "statement": "RH iff C_N<=S_N eventually, with log(S_N/C_N)=2760N(mean_{345N<=u<529N} log K_u - mean_{225N<=u<345N} log K_u), K_u=(u+1)^u/(u! rad(u!)). K_u rises at composites, falls at primes. v_3(S_{3^L}/C_{3^L})=-4923*3^L+15, so divisibility, pairwise and per-block proofs fail; cross-factor cancellation is open.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "extra": {}
+ },
+ {
+  "idx": 261,
+  "id": "positive-real-ladder-step",
+  "c14class": "t",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Positive-real ladder step and Montel closure",
+  "statement": "T_{a,p}[R](z)=p(zR+a)/(z+aR) maps positive-real R to positive-real, with Re T=p[(|z|^2+a^2)Re R+a(1+|R|^2)Re z]/|z+aR|^2. With L_0=F'/F, p_j=L_{j-1}(a_j), nodes dense in [1,2]: all pivots positive implies L positive-real on Re z>0, hence RH.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[pr:47] rigorous/theta-interpolation-2026-11-08/README.md",
+  "extra": {
+   "closedBy": "P3, P7"
+  }
+ },
+ {
+  "idx": 262,
+  "id": "prime-delay-domination",
+  "c14class": "t",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Conjecture 15.4: Re xi'/xi(sigma+it) > 0 for sigma > 1/2",
+  "statement": "Pointwise domination of the prime-delay echo train (log p) p^{-m/2} e^{-iTm log p} by the gamma/kernel drift. Equivalent to RH (every paired Hadamard term u/(u^2 + (v -+ gamma)^2) is positive); numerical audit only confirms the triviality under verified height. Compare map rows G8, P8.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "[imp:imp-1202-conjecture-15-4-numerical-audit] [imp:imp-1203-conjecture-18-2-pilot]",
+  "extra": {}
+ },
+ {
+  "idx": 263,
+  "id": "prime-delay-domination-15-4",
+  "c14class": "t",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "shear"
+  ],
+  "twice": false,
+  "name": "Conj 15.4: Re xi'/xi > 0 on sigma > 1/2",
+  "statement": "Infinitesimal shift contractivity: the completed rightward drift of xi dominates the prime-delay echo train right of the line. Re xi'/xi(s) > 0 on Re s > 1/2 is RH-equivalent (Lagarias 1999). Obstruction map P8 / G8.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "dag:project-attempts-dag#twin-conj-15-4",
+  "extra": {}
+ },
+ {
+  "idx": 270,
+  "id": "pulse-leakage-zero-target",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Zero leakage of the actual pulse",
+  "statement": "|Q_1 g_0|^2=lim_{eps->0}[<a_eps,Delta_1 a_eps>-|B_1 a_eps|^2] with a_eps=(A*A+eps)^{-1}A*f_0. Show the limit is zero. Leakage is an orthogonal Hardy model-space projection; genuine poles give Cauchy-Gram lower bounds. All derivative orders at one point are equivalent to the global kernel sign.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[pr:44] rigorous/theta-propagation-2026-11-08/README.md",
+  "extra": {
+   "closedBy": "P21, P22"
+  }
+ },
+ {
+  "idx": 271,
+  "id": "qrh-conditional-lambda",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Conditional Lambda <= 0.116091488672439 from Re s>7/8",
+  "statement": "Given zeta(s)!=0 for Re s>7/8 (Lean proof rebuilt locally, standard axioms only), an unrefereed analytic chain G0, PT verification to 3.0001753e12 and the route-P ledger: Lambda<=116091488672439/10^15. Earlier chain values 0.118505710922701 and 0.117708313410954.",
+  "status": "certified",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "[page:LambdaQrhConditionalPage] src/data/qrh-path-push-2026-10-08.js",
+  "extra": {}
+ },
+ {
+  "idx": 273,
+  "id": "ramanujan-cube-satake-point",
+  "c14class": "t",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "torus"
+  ],
+  "twice": false,
+  "name": "RH as Eisenstein Satake points in the Ramanujan cube",
+  "statement": "In the Hecke picture RH reduces to: every Eisenstein Satake point Kron(gamma_rho) = (cos(gamma_rho log p))_p lies in the Ramanujan cube, via Lemma 4.11(iii), which is only argued; Prop 4.15(ii) is unproved.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md \u00a71.4",
+  "extra": {}
+ },
+ {
+  "idx": 286,
+  "id": "route-i-krein-certificate",
+  "c14class": "L",
+  "steps": [
+   "X1"
+  ],
+  "tags": [],
+  "twice": true,
+  "name": "Route I: Toeplitz-Krein sigma_2 certificate ladder",
+  "statement": "lambda_min(T_a[sigma_2])>0 on the theorem range 2a<=0.96 and at (ln 3)/2, crossing zero between 2a=1.12 and 1.1316. Interval certificates at 2a=0.90,0.94,0.96 have margin eps=200(1-2a) and tail l1 norm log10 ~ 73.25(2a)-64.24. RK floor -(a/pi)18301.61 is linear in a.",
+  "status": "certified",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "[page:Imp96621Sigma2LamminMarginLadderViz] [page:Imp96646KreinCertificateMarginViz] [page:Imp97452RkFloorLinearLadderViz]",
+  "extra": {}
+ },
+ {
+  "idx": 292,
+  "id": "rung-toeplitz-euler-detector",
+  "c14class": "Z",
+  "steps": [
+   "X1"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "Rung Toeplitz (Herglotz) test detects DH at ln 2 / ln 4 / ln 6",
+  "statement": "Rung moments m_k(p) = c(p^k)/log p; for unitary local degree 1 the Toeplitz T_p^(K) = [m_|i-j|] is PSD. DH fails: lambda_min(T_2^(2)) = -1.15558, Szego limit -1.79360. Onsets sharp against formal local Euler products: ln 2 (unitary, full), ln 4 (even data), ln 6 (Euler only). No zero-location content.",
+  "status": "certified",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "route:route-30-finite-support-euler-detector-2026-10-12",
+  "extra": {
+   "obstructionRow": "L1"
+  }
+ },
+ {
+  "idx": 303,
+  "id": "schur-ratio-max-principle-gap",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Route A: |R_a(w)|<1 on Re w>0 by maximum principle",
+  "statement": "R_a(w)=X(w-a)/X(w+a), X(w)=xi(1/2+w). |R_a(it)|=1 exactly (X even, real on R). Phragmen-Lindelof would give |R_a|<=1 inside if R_a were analytic there, i.e. if X(w+a) had no zeros in Re w>0: the single circular gap.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[impr:2431] src/data/closure-routes-section.js ; OBSTRUCTION_MAP G2,G20",
+  "extra": {}
+ },
+ {
+  "idx": 323,
+  "id": "shift-bridge-ka-psd",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "Conjecture 15.2/15.3: shift-bridge positivity K_a>=0",
+  "statement": "|X(w-a)|<|X(w+a)| for Re w>0, X(w)=xi(1/2+w); equivalently E_a(z)=xi(1/2+a-iz) is Hermite-Biehler and the shifted de Branges kernel K_a is positive definite for every a>0. Equivalent to RH (de Branges 1968, Lagarias 2007).",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[impr:2270] [impr:2273] src/data/paper-audit-dashboard.js ; OBSTRUCTION_MAP G20,G2",
+  "extra": {}
+ },
+ {
+  "idx": 333,
+  "id": "slab-44-nonvanishing-target",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "0.1399 row: slab non-vanishing and directed final-time tail",
+  "statement": "Theorem 4.5 of the permutation paper needs H_tau != 0 on the box [X, X+1] x [y*, 1] x [0, t*] and a semi-infinite slice H_{t*} != 0 for x >= X+1, y* <= v <= sqrt(1 - 2 t*). Characterised as standalone conditional targets; certification campaign designed, not run.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "no",
+  "source": "imp:imp-95046-slab-44-conditional-target; imp-95047; imp-95201",
+  "extra": {}
+ },
+ {
+  "idx": 341,
+  "id": "staged-strip-triangular-inequality",
+  "c14class": "t",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Staged strip [1/8,7/8] as one triangular prime inequality",
+  "statement": "sum_{p<=x}(x-p)log p <= (x^2-1)/2 + C x^{15/8} is equivalent to the closed zero strip [1/8,7/8]; the Riesz factor makes the zero sum absolute (no log loss). Equivalent heat-trace form: sum_{m,p}(log p)e^{-pi m^2 p u} <= zeta(2)/(pi u)+C u^{-7/8}.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "extra": {}
+ },
+ {
+  "idx": 342,
+  "id": "star-min-pointwise-prime-bound",
+  "c14class": "L",
+  "steps": [
+   "X1"
+  ],
+  "tags": [
+   "torus"
+  ],
+  "twice": false,
+  "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+  "statement": "Needed: at every height H >= 3e12, sum_{n <= (c log H)^kappa} Lambda(n) n^{-1/2} w(log n) cos(H log n) < beta(H) + s. Torus bound gap at gamma_0 = 3e12 is 3.03 (delta_0 = 3/8) to 2966 (delta_0 = 0.1). Davenport-Heilbronn violates the analogue (W/(2m^2) = -0.76 to -0.99).",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', \u00a77",
+  "extra": {}
+ },
+ {
+  "idx": 344,
+  "id": "straddle-exclusion-window-completeness",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Straddle exclusion from an argument-principle-complete zero list",
+  "statement": "If the first N zeros are a complete verified listing (N(x_N)=N, all real), every unlisted zero has Re y > x_N or Re y < 0, so none straddles a window gap; the only bad case for projection domination (bound 4 g_l/tau^2) cannot occur at t=0.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "imp-34427-spectator-realness-channel-closure",
+  "extra": {}
+ },
+ {
+  "idx": 348,
+  "id": "sympow-conductor-normalised-shift",
+  "c14class": "Z",
+  "steps": [
+   "X1",
+   "X3"
+  ],
+  "tags": [
+   "shear"
+  ],
+  "twice": false,
+  "name": "Sym^m functoriality of the contraction needs uniform Rankin-Selberg residue bound",
+  "statement": "Res_{s=1} L(s, sym^m f x sym^m f) = prod_{j=1}^m L(1, sym^{2j} f) (exact). Contraction survives under a_m ~ a_0/log Q_m iff log c_m = O(log Q_m). Margin h_m = 1 - log c_m/log Q_m is bounded under GRH but unconditionally behaves like 1 - 0.778 m/log m, negative from sym^4.",
+  "status": "conjectural",
+  "usesMult": "yes",
+  "heightUniform": "unknown",
+  "source": "[imp:imp-2437-sympow-rs-second-moment-2026-06] [imp:imp-2459-sympow-rs-uniform-margin-2026-06] [imp:imp-2436-sympow-volterra-functoriality-2026-06]",
+  "extra": {}
+ },
+ {
+  "idx": 350,
+  "id": "t3-residual-inequality",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "shear",
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "T3: exact Twin Ladder residual inequality",
+  "statement": "K_a=K_{a,0}+D_{a,R}+K_a^(S) with K_{a,0}>=0 the positive core. Prove D_{a,R}+K_a^(S)>=-K_{a,0} as Hermitian forms for every a>0 and every finite test set in C_+. D_{a,R} cancels to second order through cos(ps)-1; absolute values spend the whole core. RH-equivalent.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "yes",
+  "source": "[page:OpenFrontierPage]",
+  "extra": {}
+ },
+ {
+  "idx": 355,
+  "id": "theta-kernel-sqrt-concavity",
+  "c14class": "K",
+  "steps": [
+   "X5"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": true,
+  "name": "Csordas concavity of log kappa(sqrt t)",
+  "statement": "t -> log kappa(sqrt t) is strictly concave for t>0 (Csordas Thm 4.2(b), kappa(u)=Phi(u/4)). The property persists for kappa_tau(u)=e^{tau u^2/16}kappa(u) at every real tau, since the heat factor adds an affine term -tau t/16.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[pr:43] rigorous/theta-bridge-2026-11-08/theta_boundary_energy.md sec 3; [pr:56] rigorous/klein-annulus-coupling-2026-11-14/README.md sec 3",
+  "extra": {
+   "closedBy": "G5 (inputs F,G,H persist under HEAT)"
+  }
+ },
+ {
+  "idx": 357,
+  "id": "thin-hankel-certificate",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "bridge",
+   "twistor"
+  ],
+  "twice": false,
+  "name": "Signed thin Hankel norm certificates",
+  "statement": "(H_{a,L}f)(x)=int_0^L h_a(xy)f(y)dy. ||H_{1/4,L}||<=49999/50000 for 1<L<=3/2 and <=1999999/2000000 for 1<L<=8/5. The absolute-kernel norm exceeds one at the first window and diverges; unconditional bound min(L,M sqrt L) is unbounded.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 8",
+  "extra": {
+   "closedBy": "Q15"
+  }
+ },
+ {
+  "idx": 363,
+  "id": "twin-ladder-jacobi-reconstruction",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": true,
+  "name": "Explicit de Branges / Jacobi chain for the twin-ladder m-function",
+  "statement": "Under RH m(z) = sum_n 1/(t_n - z) is Nevanlinna N_0 and is realised numerically as a trace-normed canonical system dy/dx = z J H(x) y built from indivisible intervals. Off-line zeros are admissible only in a Pontryagin space Pi_kappa. A Phi-built (not zero-built) H is not known.",
+  "status": "measured",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[imp:imp-2438-debranges-hamiltonian-reconstruction-2026-06] [imp:imp-2442-offline-finite-kappa-pontryagin-2026-06] [imp:imp-2430-canonical-system-realizability-2026-06]",
+  "extra": {}
+ },
+ {
+  "idx": 372,
+  "id": "two-point-cutoff-positivity",
+  "c14class": "K",
+  "steps": [
+   "X5"
+  ],
+  "tags": [
+   "bridge"
+  ],
+  "twice": false,
+  "name": "Two-feature and far-translated positivity of H_c",
+  "statement": "H_c(u,v)^2<H_c(u,u)H_c(v,v) for u!=v, from convexity of -log kappa(sqrt t). Every fixed finite configuration translated far into either end is positive, with limiting Gram kernel sech((u-v)/2); separated sech Gram matrices have an explicit lower bound.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:43] theta_boundary_energy.md sec 3, theta_boundary_two_point.md sec 6; [pr:44] theta_separated_tail.md",
+  "extra": {
+   "closedBy": "G5, P22"
+  }
+ },
+ {
+  "idx": 374,
+  "id": "virtual-rungs-positive-extension",
+  "c14class": "L",
+  "steps": [
+   "S1",
+   "X1"
+  ],
+  "tags": [
+   "torus"
+  ],
+  "twice": false,
+  "name": "Virtual rungs: positive-extension freedom outside |u| < 2a",
+  "statement": "Adding cosines with frequencies |u_j| >= 2a (u = ln r, r rational, r >= K+1 or r <= 1/(K+1)) leaves W unchanged on support 2a; with the floor lemma w_K + f >= 2 theta'(T) - F for F >= sup_torus(P - f). Best floor is lambda_max of the rung operator (Krein extension).",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "route:route-11-multi-prime-toeplitz-krein-2026-10-09",
+  "extra": {}
+ },
+ {
+  "idx": 377,
+  "id": "volterra-hs-bound",
+  "c14class": "K",
+  "steps": [
+   "X5"
+  ],
+  "tags": [
+   "shear"
+  ],
+  "twice": true,
+  "name": "Hilbert-Schmidt closed-form bound sqrt(I_0 J_a)",
+  "statement": "||V_{a,Phi}||_op <= ||V||_HS <= sqrt(I_0 J_a), monotone in a (d/da sinh^2(au) >= 0), rigorously < 1 on a in (0, 34.98]; at a <= 0.5 the bound is 2.94e-4. Interval-certified (Krawczyk) on a 30-cell (U,a) grid, max 1.900e-4.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "yes",
+  "source": "[imp:imp-1267-volterra-hs-bound] [imp:imp-2338-volterra-krawczyk] [imp:imp-2654-volterra-rigorous-bound-status]",
+  "extra": {}
+ },
+ {
+  "idx": 381,
+  "id": "walled-cell-lemmas-b2-b3",
+  "c14class": "c",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "vortex",
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Lemma B.2/B.3: walled local RH window under the heat flow",
+  "statement": "B.3: if H_t has no zero on the boundary of a walled cell [a,b] x strip for t in [t_0,t_1], real zeros in the cell stay real. B.2: local strip contraction (Im z)^2 decreasing at rate 2 inside a walled or half-infinite cell. Gives a two-band comparison.",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "form:paper/lemma-B-two-band.md \u00a74-5",
+  "extra": {}
+ },
+ {
+  "idx": 387,
+  "id": "winding-barrier-above-tpt",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Certified argument-principle winding barrier on R=[T_PT,T_PT+Delta]x[-h,h]",
+  "statement": "Reading the off-line contribution above T_PT=3e12 as exactly zero needs a finite winding count of H_t on a rectangle, a lower bound on inf|H_t'| on long edges and directed-rounding sums; mesh cost and working digits tabulated. Equivalent to more verified height.",
+  "status": "conjectural",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[impr:30717] [impr:30770] [impr:30832] [impr:30845] src/data/imp-35676-*.js",
+  "extra": {}
+ },
+ {
+  "idx": 395,
+  "id": "zero-channel-certificates",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Zero-channel disk certificates under heat flow",
+  "statement": "Exactly one simple zero in the disk centre 1/2+14.134725141734693i, radius 0.35, for every -0.05<=tau<=0.05 (|xi(c)|<=2e-18, |xi'(c)|>=0.0013827, sup|xi''|<=0.0021). Exact quartet control P_u(z)=z^4+(12u-5)z^2+12u^2-10u+4, u=-tau: four channels for -0.13<=tau<=0.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[pr:57] research/rh/zero-channels/ZERO-CHANNELS-MATH.md",
+  "extra": {
+   "closedBy": "G7"
+  }
+ },
+ {
+  "idx": 403,
+  "id": "zr-zero-repulsion",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "twin-ladder"
+  ],
+  "twice": false,
+  "name": "(ZR) zero-repulsion hypothesis",
+  "statement": "Single named hypothesis in the kernel-verified L2 detection-modulus theorem (Aristotle wave 5, no nonstandard axioms). Discharging it promotes frozen-rung <=> Platt-Trudgian to a full theorem; it promotes a theorem, not a Lambda value.",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "unknown",
+  "source": "dag:frontier-dag#zr-hypothesis; formalization/lean-aristotle/frozen-rung/",
+  "extra": {}
+ },
+ {
+  "idx": 411,
+  "id": "zv-bridge-vs-reference-form-comparison",
+  "c14class": "t",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "antibridge",
+   "bridge",
+   "klein"
+  ],
+  "twice": false,
+  "name": "Comparison of the theta bridge operator with a positive reference form",
+  "statement": "Missing step named in the renderer notes: an exact identity or comparison connecting the full theta bridge operator to a positive reference form (e.g. the annulus DtN operator), with a global bound on the remaining signed coupling B and all infinity/tail terms. Any such bound over all tests is RH-strength (map rows G1, G2).",
+  "status": "conjectural",
+  "usesMult": "unknown",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 7",
+  "extra": {}
+ },
+ {
+  "idx": 420,
+  "id": "zv-first-zero-theta-channel",
+  "c14class": "c",
+  "steps": [
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "Arb certificate: first xi zero stays on the line for |tau| <= 0.05",
+  "statement": "Disk centre 1/2 + 14.134725141734693 i, radius 7/20. Arb: |xi(c)| <= 2e-18, |xi'(c)| >= 0.0013827, sup|xi''| <= 0.0021, floor m = 0.00035532; perturbation P <= 0.00029 for |tau| <= 1/20; margin m - P = 6.532e-5. Exactly one simple zero, on the line, for every such tau. Map row G7.",
+  "status": "certified",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 4",
+  "extra": {}
+ },
+ {
+  "idx": 437,
+  "id": "zv-symmetric-disk-confinement",
+  "c14class": "c",
+  "steps": [
+   "S1",
+   "X3"
+  ],
+  "tags": [
+   "zero-channel"
+  ],
+  "twice": false,
+  "name": "One-zero reflection-symmetric disk forces the zero onto the line",
+  "statement": "If a disk invariant under s -> 1 - conj s contains exactly one zero (with multiplicity) of a family with that symmetry, the zero is on Re s = 1/2. Count preserved while sup_boundary |F_tau - F_0| < inf_boundary |F_0| (Rouche). Local; at scale it restates verified height (map row G7).",
+  "status": "proved",
+  "usesMult": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 4; [zv:docs/ZERO-CONFINEMENT-COMPARISON.md] Main conclusion",
+  "extra": {}
+ }
+]

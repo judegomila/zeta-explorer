@@ -1,0 +1,91 @@
+{
+ "slug": "s3-heat-zero-velocity-channels",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "conjugate-pair-field-lorentzian",
+  "mirror-euler-rate-t0",
+  "mirror-pair-lemma",
+  "zv-first-zero-theta-channel",
+  "zv-heat-zero-velocity",
+  "zv-one-zero-lost-before-collision",
+  "zv-phi-positivity-heat-perturbation-bound",
+  "zv-polynomial-heat-coefficients",
+  "zv-quartet-channel-certificate",
+  "zv-symmetric-disk-confinement",
+  "zv-taylor-rouche-channel-criterion",
+  "zv-transverse-distance-identity"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "mirror-euler-rate-t0",
+    "mirror-pair-lemma",
+    "conjugate-pair-field-lorentzian"
+   ],
+   "obstruction": "rate is satisfied by DH (no Euler product) and by T-NR (Euler product, off-line zeros): the only arithmetic input is the size of sum |Lambda_F(n)| n^-sigma to the right of 1",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "E_a",
+    "heat tau<0"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-first-zero-theta-channel",
+    "zv-phi-positivity-heat-perturbation-bound",
+    "zv-taylor-rouche-channel-criterion"
+   ],
+   "obstruction": "termwise positivity discards cos(2u gamma): the stability radius collapses at the same exponential rate for zeta and every control; sign pattern of the summands plays no role",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "DH",
+    "L(chi_-3)",
+    "L(chi_-4)"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-transverse-distance-identity",
+    "zv-heat-zero-velocity",
+    "zv-symmetric-disk-confinement"
+   ],
+   "obstruction": "local Hadamard sum: separates only at the size that resolves an individual off-line pair; zeta's pass is implied by verified height; no primes",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "heat tau<0"
+   ]
+  },
+  {
+   "nodes": [
+    "zv-one-zero-lost-before-collision",
+    "zv-quartet-channel-certificate",
+    "zv-polynomial-heat-coefficients"
+   ],
+   "obstruction": "local statement (16 neighbours each side) plus archimedean drift; no separation below off-line height; heat shifts by a constant",
+   "controlsThatDefeat": [
+    "DH below 85.7",
+    "heat tau<0",
+    "T-NR away from its pairs"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) rate is satisfied by DH (no Euler product) and by T-NR (Euler product, off-line zeros): the only arithmetic input is the size of sum |Lambda_F(n)| n^-sigma to the right of 1 | (2) termwise positivity discards cos(2u gamma): the stability radius collapses at the same exponential rate for zeta and every control; sign pattern of the summands plays no role | (3) local Hadamard sum: separates only at the size that resolves an individual off-line pair; zeta's pass is implied by verified height; no primes | (4) local statement (16 neighbours each side) plus archimedean drift; no separation below off-line height; heat shifts by a constant",
+ "controlsThatDefeat": [
+  "DH",
+  "DH below 85.7",
+  "E_a",
+  "L(chi_-3)",
+  "L(chi_-4)",
+  "T-NR",
+  "T-NR away from its pairs",
+  "heat tau<0",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-heat-zero-velocity-channels/RESULT.md"
+}

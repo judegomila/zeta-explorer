@@ -1,0 +1,93 @@
+{
+ "slug": "s3-dyson-burgers-zero-flow",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "cm-flow-theta-trap",
+  "collision-ladder-data",
+  "complex-burgers-fold",
+  "cren-finite-band",
+  "h2-flux-kappa-two",
+  "koksma-hlawka-collision-limit",
+  "mesoscopic-density-floor-cotangent",
+  "phased-forcing-degrades",
+  "privalov-sokhotski-constant",
+  "route-b-limsup-stieltjes",
+  "theta-trap-theorems",
+  "zv-dyson-trap-model"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "collision-ladder-data",
+    "cm-flow-theta-trap",
+    "theta-trap-theorems"
+   ],
+   "obstruction": "pass criterion false for zeta itself; trap ratio is a closest-pair statistic whose failing window size follows sample size, not the object; no primes enter",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "L(chi)",
+    "DH on-line",
+    "heat tau<0",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "complex-burgers-fold",
+    "cren-finite-band",
+    "privalov-sokhotski-constant"
+   ],
+   "obstruction": "source band holds only for a model density; on zero lists the statistic is the closest pair at the reading strip, not a density statement; zeta leaves the band",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "L(chi)",
+    "DH on-line",
+    "heat tau<0"
+   ]
+  },
+  {
+   "nodes": [
+    "h2-flux-kappa-two",
+    "zv-dyson-trap-model",
+    "phased-forcing-degrades"
+   ],
+   "obstruction": "flux identity holds for every configuration; forced response is Landau's formula, which separates a control only once its off-line pairs are missing from the list (lead 0); collision-time shift is local to the minimal pair",
+   "controlsThatDefeat": [
+    "DH on-line below 85.7",
+    "L(chi)",
+    "every finite configuration (kappa)"
+   ]
+  },
+  {
+   "nodes": [
+    "koksma-hlawka-collision-limit",
+    "route-b-limsup-stieltjes",
+    "mesoscopic-density-floor-cotangent"
+   ],
+   "obstruction": "discrepancy at the reading strip is bounded for every list; controls fail only by Turing's count or by poles at their own off-line zeros (verified height)",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "E_a",
+    "heat tau<0"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) pass criterion false for zeta itself; trap ratio is a closest-pair statistic whose failing window size follows sample size, not the object; no primes enter | (2) source band holds only for a model density; on zero lists the statistic is the closest pair at the reading strip, not a density statement; zeta leaves the band | (3) flux identity holds for every configuration; forced response is Landau's formula, which separates a control only once its off-line pairs are missing from the list (lead 0); collision-time shift is local to the minimal pair | (4) discrepancy at the reading strip is bounded for every list; controls fail only by Turing's count or by poles at their own off-line zeros (verified height)",
+ "controlsThatDefeat": [
+  "DH",
+  "DH on-line",
+  "DH on-line below 85.7",
+  "E_a",
+  "L(chi)",
+  "T-NR",
+  "every finite configuration (kappa)",
+  "heat tau<0",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-dyson-burgers-zero-flow/RESULT.md"
+}

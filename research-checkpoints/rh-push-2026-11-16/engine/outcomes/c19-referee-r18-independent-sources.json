@@ -1,0 +1,35 @@
+{
+ "slug": "c19-referee-r18-independent-sources",
+ "round": 19,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "referee",
+  "repair"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Referee lane; no attack; no statement about zeros of zeta. The five round-18 lanes each have a second referee file that holds with corrections (the count is of files: Theorem Q of D10 was confirmed through its conclusion and factorisation at fresh points, the tz bridge lane through Theorem A only, the tz server lane on 30 zeta cells only). U4: no displayed inequality uses a cross-prime relation; the group-law step is positive definiteness of k -> Re Lambda_k(n) atom by atom; Lemma GL (b) as printed is false in the \"only if\" direction. tz bridge: D_P'/D_P(s) = -(log P)/2 + lim of the symmetric zero sum, for every a_1 = 1, a_P != 0, with no log|a_P| term (ball runs at P = 12, 20; independently confirmed here at P = 7 with complex non-multiplicative coefficients); tail (u - 2 log|a_P|)/(pi T). tz server: the lane's 96-mode eigenvalues are reproduced on 30 cells; Form C is negative at 48, 96, 192 modes in all 30; zeta's Form D margin at 192 modes is 0.28 to 1.0 (median 0.75) of the 96-mode value, so margins are mode-count dependent. D10: Bezoutian identity and Theorem Q (d = 4) confirmed exactly at fresh configurations (three seeds in total). HQ2 (multiplicative, zeta's functional equation, coefficients >= 1, order-4 pole at 1/2, off-line zeros), Lemma Q, Proposition F hold. Turan's second main theorem with factor 2 and constant 8e is Theorem K.3 of the Montgomery-Vaughan MNT III draft (text verified); Ten Lectures not opened. W5c holds with three wording conditions (1 referee before this one). All requirement flags false.",
+ "obstruction": "Referee lane, no attack. Five round-18 lanes hold with corrections (REFEREE2-*.md; 2 referees each; partial scope: D10 through Theorem Q's conclusion at fresh points, tz bridge through Theorem A only, tz server on 30 zeta cells). Truncation identity: constant -u, no log|a_P| term. Form C negative at 48, 96, 192 modes; zeta's Form D margin at 192 modes is 0.28 to 1.0 of the 96-mode value. Turan's second main theorem with factor 2 and 8e: Theorem K.3 of the Montgomery-Vaughan MNT III draft; Ten Lectures not opened.",
+ "obstructionKind": "referee lane",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No PROVED step failed re-derivation; five minor corrections (REFEREE.md at tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE.md). E1 (process): \"No file outside this directory was edited\" is not exact: importing the D10 lane's quartet_lib wrote two .pyc files into c18-d10-inertia-law-theorem-t-lemma-d/__pycache__ (time 22:40:26 = the d10_check run); in addition RESULT.md of three refereed lanes (tz bridge, D10, exact relation - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Sign statements from a window measurement survived a change of mode count (Form C negative at 48, 96, 192 modes); margins did not (zeta's Form D margin fell by up to a factor 3.6 from 96 to 192 modes). An identity checked only at a_P = 1 hid a wrong constant; one case off the normalisation exposes it. A boundary integer that is prime (31622777) broke a stated error estimate for Form C, with no sign change.",
+ "followUp": "Learn step: merge tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/lanes_records.jsonl (referees = 2 on the five lanes; campaign/lanes.jsonl was not edited) and apply the 23 corrected sentences of RESULT.md section 3, including row Q31 with Theorem K.3 as the Turan source. Not rerun here: the control classes of the tz server lane at other mode counts, and the D10 exact grid.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

@@ -1,0 +1,85 @@
+{
+ "slug": "s4-floor-exponent-moebius-cubic-rows",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "cofinal-mobius-sum-equals-x-m",
+  "euler-completed-weil-multiplier",
+  "m1plus-cubic-gauss-prime-sum-uniform",
+  "mem-v7-floor-reduction",
+  "mem-xu-sang-ceiling",
+  "mobius-deaveraging-price",
+  "riesz-criterion",
+  "saddle-pair-count-saving-equivalence",
+  "tro6-dual-term-lambda-c-correlation",
+  "tro6-lemma-s-squarefull-twist",
+  "v7-floor-theorem-c",
+  "z0-charge-is-lemma-14-2-term-l"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "v7-floor-theorem-c",
+    "mem-v7-floor-reduction",
+    "euler-completed-weil-multiplier"
+   ],
+   "obstruction": "onset when support times modes resolves the lowest off-line pair (lane s2 zero-side law); exponent has logarithmic uncertainty 0.15",
+   "controlsThatDefeat": [
+    "DH",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "mobius-deaveraging-price",
+    "cofinal-mobius-sum-equals-x-m",
+    "riesz-criterion"
+   ],
+   "obstruction": "twists pass; DH fails only inside the explicit-formula envelope of its known off-line pairs; Riesz weights suppress zeros exponentially",
+   "controlsThatDefeat": [
+    "unimodular twist",
+    "random sign twist",
+    "DH (Riesz)"
+   ]
+  },
+  {
+   "nodes": [
+    "saddle-pair-count-saving-equivalence",
+    "z0-charge-is-lemma-14-2-term-l",
+    "mem-xu-sang-ceiling"
+   ],
+   "obstruction": "the count reads multiplicativity of the columns, not the primes; no stable positive omega",
+   "controlsThatDefeat": [
+    "hash sign twist",
+    "Liouville",
+    "THIN(0.9)"
+   ]
+  },
+  {
+   "nodes": [
+    "tro6-dual-term-lambda-c-correlation",
+    "tro6-lemma-s-squarefull-twist",
+    "m1plus-cubic-gauss-prime-sum-uniform"
+   ],
+   "obstruction": "not an RH separator: no control of the zeta battery is formulable; a pass is what GRH for the cubic Hecke family predicts",
+   "controlsThatDefeat": [
+    "(none formulable)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) onset when support times modes resolves the lowest off-line pair (lane s2 zero-side law); exponent has logarithmic uncertainty 0.15 | (2) twists pass; DH fails only inside the explicit-formula envelope of its known off-line pairs; Riesz weights suppress zeros exponentially | (3) the count reads multiplicativity of the columns, not the primes; no stable positive omega | (4) not an RH separator: no control of the zeta battery is formulable; a pass is what GRH for the cubic Hecke family predicts",
+ "controlsThatDefeat": [
+  "(none formulable)",
+  "DH",
+  "DH (Riesz)",
+  "Liouville",
+  "THIN(0.9)",
+  "hash sign twist",
+  "heat",
+  "random sign twist",
+  "unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-floor-exponent-moebius-cubic-rows/RESULT.md"
+}

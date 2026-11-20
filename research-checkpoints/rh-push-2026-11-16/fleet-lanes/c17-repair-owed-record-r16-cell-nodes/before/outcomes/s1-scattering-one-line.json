@@ -1,0 +1,81 @@
+{
+ "slug": "s1-scattering-one-line",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "bridge-scattering-factorisation",
+  "cascade-s21-zeta2s-over-zeta",
+  "jensen-loss-in-levinson",
+  "levinson-in-ladder-language",
+  "modular-scattering-factorisation",
+  "scattering-causality-at-one-line",
+  "scattering-winding-split",
+  "twin-ladder-network",
+  "xp-models-residual-s"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "scattering-winding-split",
+    "bridge-scattering-factorisation"
+   ],
+   "obstruction": "statistic on the 1-line is a function of coefficients only (Bohr torus law)",
+   "controlsThatDefeat": [
+    "all controls match own model"
+   ]
+  },
+  {
+   "nodes": [
+    "scattering-causality-at-one-line",
+    "cascade-s21-zeta2s-over-zeta"
+   ],
+   "obstruction": "exponent is -x for zeta and random twists alike; a different exponent needs a singularity the primes to P must resolve",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "modular-scattering-factorisation",
+    "xp-models-residual-s"
+   ],
+   "obstruction": "argument principle: verified height in another form",
+   "controlsThatDefeat": [
+    "T-NR (passes)",
+    "DH",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "twin-ladder-network",
+    "levinson-in-ladder-language",
+    "jensen-loss-in-levinson"
+   ],
+   "obstruction": "Littlewood lemma zero count; Jensen-gap excess is a mean value (MV-CAP) and absent for E_a, T-NR",
+   "controlsThatDefeat": [
+    "E_a",
+    "T-NR",
+    "MV-CAP"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) statistic on the 1-line is a function of coefficients only (Bohr torus law) | (2) exponent is -x for zeta and random twists alike; a different exponent needs a singularity the primes to P must resolve | (3) argument principle: verified height in another form | (4) Littlewood lemma zero count; Jensen-gap excess is a mean value (MV-CAP) and absent for E_a, T-NR",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "MV-CAP",
+  "T-NR",
+  "T-NR (passes)",
+  "all controls match own model",
+  "heat",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-scattering-one-line/RESULT.md"
+}

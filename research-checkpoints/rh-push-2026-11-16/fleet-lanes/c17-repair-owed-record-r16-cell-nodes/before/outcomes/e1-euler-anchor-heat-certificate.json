@@ -1,0 +1,41 @@
+{
+ "slug": "e1-euler-anchor-heat-certificate",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "euler-anchor-heat-certificate",
+  "heat-evolved-von-mangoldt-positivity"
+ ],
+ "launchedNodes": [
+  "euler-anchor-heat-certificate",
+  "landau-transport-lemma-l",
+  "offline-zero-visibility-law",
+  "heat-evolved-von-mangoldt-positivity"
+ ],
+ "tags": [
+  "heat-flow",
+  "euler-anchor",
+  "collision",
+  "returns-input"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "PROVED: with constant S a pair with deficit 1 - q <= e^{-cL} is certified to depth 2 pi^2 c/L, so reaching t = 0 from an anchor at kappa = C needs c >= C/(2 pi^2) (0.1013 at C = 2, 0.0760 at C = 3/2); exact identity 1 - q = (d/4)(v(b) - v(a)), v = H''/H'. MEASURED: on the actual H_t the deficit is of order 1/L^2 with both signs for L = 6..18; the certificate condition fails for 1 to 4 of 246 pairs at L = 14. ARGUED: no height-independent exponent c > 0 (c_eff of order log L / L); reach >= input half-plane, f(theta) = theta.",
+ "obstruction": "The decisive test 2 pi^2 c > C fails for every fixed c > 0: the Euler product modulates the compression ratio q of adjacent zero pairs at the anchor by order 1/L^2 with both signs, above the trace x^{-C/(2 pi^2)} a past collision leaves. The anchor step returns its input half-plane (f(theta) = theta); the certificate needs S transport below the anchor, i.e. zero positions at the vortex height. Nothing below 0.874886647.",
+ "obstructionKind": "returns-its-input (region right of 1 does not pass to the line)",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a): passes the anchor step; constant-S certificate certifies 4 of 12 collided pairs at a = 0.1, L = 6 (unsound without the transport claim)",
+  "lower bound on the deficit does not depend on positivity of the coefficients, so sign twists are not separated"
+ ],
+ "lesson": "Any heat-time certificate must supply S transport below the anchor; the anchor alone separates no control. Graph repair: 'Prop L' in the proposal is the theta-collision Proposition L, not Lemma L of the contradiction file; the edge to landau-transport-lemma-l is a naming collision and that node is left out of the closed set.",
+ "refereeHolds": true,
+ "refereeNote": "Lemmas 1, 2 confirmed; Lemma 3 midpoint formula is not the leading order (deficit follows the variation of the log-derivative of the truncated Dirichlet polynomial across the pair, correlation 0.93 to 0.996).",
+ "referees": 1,
+ "aboutZeros": false,
+ "aboutZerosNote": "aboutZeros set to false 2026-11-18 (c3-repair-map-theorem-a): RESULT.md line 3 and line 144 state \"no zero-free statement results\"; the proved items are a conditional certificate depth and an identity for the compression deficit, the rest is MEASURED on H_t. lanes.jsonl already had false.",
+ "strength": 0.07,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-euler-anchor-heat-certificate/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-euler-anchor-heat-certificate/REFEREE.md"
+}

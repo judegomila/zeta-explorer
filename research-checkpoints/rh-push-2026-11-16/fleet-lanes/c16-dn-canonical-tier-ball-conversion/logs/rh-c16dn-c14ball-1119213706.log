@@ -1,0 +1,51 @@
+objects 833: names equal to the stored c14 objects
+JA-with: 0 rows to read
+JA-without: 0 rows to read
+JB1-with: 138 rows (not processed 0); planned memory: 138 sign rows x 833 int8 = 0.115 MB
+JB1-with: {'rows': 138, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 138, 'full': 0, 'full_open': 0, 'nball': 648, 'seconds': 0.6488125324249268}
+JB1-without: 95 rows (not processed 0); planned memory: 95 sign rows x 833 int8 = 0.079 MB
+JB1-without: {'rows': 95, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 95, 'full': 0, 'full_open': 0, 'nball': 2721, 'seconds': 2.525432825088501}
+JB2-with: 0 rows to read
+JB2-without: 0 rows to read
+JC1-with: 0 rows to read
+JC1-without: 0 rows to read
+JC2-with: 0 rows to read
+JC2-without: 0 rows to read
+JA-with-rnd: 0 rows to read
+JA-without-rnd: 0 rows to read
+JB1-with-rnd: 836 rows (not processed 0); planned memory: 836 sign rows x 833 int8 = 0.696 MB
+JB1-with-rnd: {'rows': 836, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 836, 'full': 0, 'full_open': 0, 'nball': 4561, 'seconds': 2.349266767501831}
+JB1-without-rnd: 549 rows (not processed 0); planned memory: 549 sign rows x 833 int8 = 0.457 MB
+JB1-without-rnd: {'rows': 549, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 549, 'full': 0, 'full_open': 0, 'nball': 16285, 'seconds': 6.799871206283569}
+JB2-with-rnd: 0 rows to read
+JB2-without-rnd: 0 rows to read
+JC1-with-rnd: 0 rows to read
+JC1-without-rnd: 0 rows to read
+JC2-with-rnd: 0 rows to read
+JC2-without-rnd: 0 rows to read
+JA-with-adp: 0 rows to read
+JA-without-adp: 0 rows to read
+JB1-with-adp: 10 rows (not processed 0); planned memory: 10 sign rows x 833 int8 = 0.008 MB
+JB1-with-adp: {'rows': 10, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 10, 'full': 0, 'full_open': 0, 'nball': 147, 'seconds': 0.06133317947387695}
+JB1-without-adp: 1 rows (not processed 0); planned memory: 1 sign rows x 833 int8 = 0.001 MB
+JB1-without-adp: {'rows': 1, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 1, 'full': 0, 'full_open': 0, 'nball': 1, 'seconds': 0.012253761291503906}
+JB2-with-adp: 0 rows to read
+JB2-without-adp: 0 rows to read
+JC1-with-adp: 0 rows to read
+JC1-without-adp: 0 rows to read
+JC2-with-adp: 0 rows to read
+JC2-without-adp: 0 rows to read
+JA-with-rnd2: 0 rows to read
+JA-without-rnd2: 0 rows to read
+JB1-with-rnd2: 8248 rows (not processed 0); planned memory: 8248 sign rows x 833 int8 = 6.871 MB
+JB1-with-rnd2: {'rows': 8248, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 8248, 'full': 0, 'full_open': 0, 'nball': 47363, 'seconds': 15.185442447662354}
+JB1-without-rnd2: 5474 rows (not processed 0); planned memory: 5474 sign rows x 833 int8 = 4.560 MB
+JB1-without-rnd2: {'rows': 5474, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 5474, 'full': 0, 'full_open': 0, 'nball': 153339, 'seconds': 56.98960256576538}
+JB2-with-rnd2: 0 rows to read
+JB2-without-rnd2: 0 rows to read
+JC1-with-rnd2: 0 rows to read
+JC1-without-rnd2: 0 rows to read
+JC2-with-rnd2: 0 rows to read
+JC2-without-rnd2: 0 rows to read
+BALL-TOTAL {'rows': 15351, 'not_processed': 0, 'ttrain': 0, 'undecided': 0, 'excluded': 15351, 'full': 0, 'full_open': 0, 'nball': 225065}
+C14BALL-DONE

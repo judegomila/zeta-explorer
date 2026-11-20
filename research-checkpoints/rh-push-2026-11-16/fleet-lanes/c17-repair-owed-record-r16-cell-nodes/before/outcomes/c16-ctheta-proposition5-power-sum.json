@@ -1,0 +1,53 @@
+{
+ "slug": "c16-ctheta-proposition5-power-sum",
+ "round": 16,
+ "kind": "deepen",
+ "nodes": [
+  "ctheta-zero-side-correspondence",
+  "lattice-row-invisibility",
+  "turan-isolated-cluster-bound",
+  "fejer-section-band-limit"
+ ],
+ "tags": [
+  "deepen",
+  "u7",
+  "ctheta",
+  "proposition-5",
+  "turan",
+  "poisson",
+  "control-zq",
+  "control-tnr",
+  "r4"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Lemma A, Theorem B, Lemma T (given Turan's second main theorem as recalled, for a point set whose entire off-line part is one cluster) and Lemma R are correct. Proposition 5 of c15 is not a two-sided correspondence for arbitrary point sets: (i) PROVED in window form: for each T a lattice row of spacing 2pi/(theta log 2T) contributes the constant 2pi/d for every u <= theta log 2T and every offset, so C(theta) on that window cannot see it (within the Riemann-von Mangoldt density only for theta < 1/2); (ii) PROVED given Turan: an isolated cluster of n pairs has b_max <= (c n + O(log log gamma) + logs of M and r)/(theta log gamma), c between 5.85/(1-kappa) and 15.1; (iii) MEASURED on grids in ball arithmetic: linear growth in n is attained for cos^2 rows of spacing pi/u with n >= about 2.2 u b_max (author to e^160; referee at A=12 and 30 including far field and small u), and clusters of 3 to 40 quadruples added to zeta's ordinates at 1e6-1e9 pass outside the region for theta=1 and at the strip edge for theta=1/2; (iv) PROVED: the region gives C(theta') with M of order log^2 t, and that order is attained in the synthetic class. The all-heights form of the first failure is measured, not proved.",
+ "obstruction": "C(theta) is not a zero-free region. A positivity statement at P = t^theta reads only the band-limited part (frequencies <= theta log t) of the zero measure. PROVED in window form: a lattice row of spacing 2pi/(theta log 2T) contributes the constant 2pi/d for every u <= theta log 2T and every offset b (within the Riemann-von Mangoldt density only for theta < 1/2). PROVED given Turan's second main theorem (recalled, not opened): an isolated cluster of n pairs has b_max <= (c n + O(log log gamma))/(theta log gamma), c between 5.85/(1-kappa) and 15.1. MEASURED in balls: the linear growth in n is attained (cos^2 rows, n >= about 2.2 u b_max); clusters of 3 to 40 quadruples on zeta's ordinates at 1e6-1e9 pass outside the region for theta = 1 and at the strip edge for theta = 1/2. The region gives C(theta') only with M of order log^2 t. No step uses multiplicativity. The all-heights form of the row failure is measured, not proved.",
+ "obstructionKind": "statement-too-weak: C(theta) reads off-line zeros only through their local Fourier transform at frequencies <= theta log t; rows of spacing below 2 pi/(theta log t) are invisible, isolated clusters are bounded only by c n/(theta log gamma)",
+ "controlsThatDefeat": [
+  "lattice rows of off-line pairs (T-NR at variable q; invisible on the window, proved)",
+  "tapered cos^2 rows and clusters of 3 to 40 quadruples (pass outside the region; measured in balls)",
+  "ZQ (passes in the window with 3 or more quadruples)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict \"precise-obstruction\" stands with scope corrections; no PROVED step failed. Referee file: tmp/research-2026-11-16/push/c16-ctheta-proposition5-power-sum/REFEREE.md (independent pass first, author's self-pass kept below it).\n\nE1 (main): Theorem B is exact only at a fixed u. A row with fixed spacing d and fixed b>0 does not satisfy C(theta) at all heights (the k=1 harmonic appears once theta log t > 2pi/d). What is proved is the window form:  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A positivity statement at P = t^theta reads only the band-limited part (frequencies <= theta log t) of the zero measure. Its zero-side reach grows linearly with the local number of off-line pairs and is not a zero-free region; one-pair heuristics overstate what such devices exclude. Passing rows are fine-tuned to about 100 P^(-b) in the ordinates. No step uses multiplicativity; ZQ passes in the window with 3 or more quadruples.",
+ "followUp": "Not a lead for R4. Owed: an independent referee (REFEREE.md is a same-session second pass, no agent tool here); open the source for Turan's theorem; add the Q25/P45 addendum (RESULT section 0 item 8). Unfinished cells: n=16, most n=40, count-preserving rows at 1e9 for theta >= 1/2. Open: proof of the finite tapered-row statement; whether C(theta), theta >= 1/2, confines sets with the exact Riemann-von Mangoldt count (only rows decided). Cores were at 9-10 for about 12 minutes; all units stopped.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-ctheta-proposition5-power-sum/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-ctheta-proposition5-power-sum/REFEREE.md",
+ "launchedNodes": [
+  "ctheta-zero-side-correspondence",
+  "lattice-row-invisibility",
+  "turan-isolated-cluster-bound",
+  "fejer-section-band-limit"
+ ],
+ "engineVerdict": "closed"
+}

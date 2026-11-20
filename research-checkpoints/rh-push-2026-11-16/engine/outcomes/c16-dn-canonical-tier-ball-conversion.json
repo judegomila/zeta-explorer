@@ -1,0 +1,59 @@
+{
+ "slug": "c16-dn-canonical-tier-ball-conversion",
+ "round": 16,
+ "kind": "compute",
+ "nodes": [
+  "noncone-kernel-separator",
+  "joint-zeta-twist-pair"
+ ],
+ "tags": [
+  "compute",
+  "prereg",
+  "certified-conversion",
+  "ball-arithmetic",
+  "kernel-sign-functional",
+  "log-difference",
+  "canonical-tier",
+  "control-heat",
+  "control-tnr",
+  "control-ea",
+  "dictionary-DN",
+  "dictionary-DJ",
+  "family-34"
+ ],
+ "verdict": "dead",
+ "survivingClaim": "MEASURED, no statement about zeros of zeta. On the registered c15 node set of dictionary DN, canonical tier {T-NR, E_a, HEAT}, the 67,138 float64-undecided family-nodes are decided with ball arithmetic at the entries that matter (360 reflection-identity; 37,634 excluded with HEAT not rejectable; 29,144 T-train; 0 undecided) and none holds out under the c15 rule or the threshold-scanned read. The 22,508 float64 T-train nodes keep their float64 status (not ball-confirmed), 0 hold out under the c15 rule; 86 b2-with nodes pass the threshold-scanned hold-out and are refuted on the positive side (75 to 93 of 350 primitive characters of conductor up to 60 on the controls' side; reproduced independently for Legendre characters mod 43, 47, 59). DJ canonical lifts: 59 T-train, 0 full, 15,351 open rows excluded in balls (stored outputs consistent, not re-run). The c15 \"not decided at 1024 bits\" was an acceptance-floor artefact (confirmed in code). Verdict dead; outcome \"none\".",
+ "obstruction": "Registered outcome 'none' (MEASURED). On the registered c15 node set of dictionary DN, canonical tier {T-NR, E_a, HEAT}: 67,138 float64-undecided family-nodes decided in balls (360 reflection-identity; 37,634 excluded with HEAT not rejectable; 29,144 T-train; 0 undecided); 0 hold out under the c15 rule or the threshold-scanned read. The 22,508 float64 T-train nodes keep float64 status (not ball-confirmed; referee correction 1); 86 b2-with nodes pass the threshold-scanned hold-out and are refuted on the positive side (75 to 93 of 350 primitive characters of conductor up to 60 on the controls' side). DJ canonical lifts: 59 T-train, 0 full, 15,351 open rows excluded. Not re-read in balls: FE tier of DN, quotient minors, product families.",
+ "obstructionKind": "finite-search-none, ball-certified at the formerly undecided nodes; far-tail log differences of zeta and of backward heat with polar terms are doubly exponentially small and ordered so that HEAT is never rejectable in second differences; where the three training classes are rejected (third differences) held-out T-NR members at larger split primes stay on the positives' side; threshold-optimised survivors of a one-kernel family fail on characters of conductor 31 to 60",
+ "controlsThatDefeat": [
+  "HEAT (never rejectable in second differences with polar terms)",
+  "held-out T-NR at larger split primes (stays on the positives' side where the training classes are rejected)",
+  "primitive characters of conductor up to 60 (75 to 93 of 350 on the controls' side for the 86 threshold-scanned nodes)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Outcome \"none\" confirmed; no count in the RESULT table changes. Errors and overstatements found: (1) A1 \"status in balls: 22,508 of 22,508\" is not what the code does: cball.resolve exits at round 0 when the float64 status is already T-train, before any ball entry; all 6,724 b5l-with rows of feas.json have nb=0/maxprec=0, and the 192,610 b2-with ball entries come from hold-out reads only. The 22,508 nodes keep their c15 float64 status; ball confirmation of a float64 T-train status exists only for - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Use a relative acceptance test for balls: an absolute floor made 256-bit balls containing 0 count as decided. A hold-out read at one fixed threshold hides nodes that pass at another, and held-out positives repeating the zeta kernel do not test one-signedness; A-only families need a full character set.",
+ "followUp": "None as a lead. Record map row G41 (DN final, canonical tier closed as MEASURED) and the c15 correction; an independent referee is owed; FE tier of DN, quotient minors and product families were not re-read in balls.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-dn-canonical-tier-ball-conversion/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-dn-canonical-tier-ball-conversion/REFEREE.md",
+ "launchedNodes": [
+  "noncone-kernel-separator",
+  "joint-zeta-twist-pair"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c17-referee-r16-lemma-h-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; nine sentence corrections listed in push/c17-referee-r16-lemma-h-sources/RESULT.md section 2.3 (not applied in lane files)",
+  "report": "tmp/research-2026-11-16/push/c16-dn-canonical-tier-ball-conversion/REFEREE2.md"
+ }
+}

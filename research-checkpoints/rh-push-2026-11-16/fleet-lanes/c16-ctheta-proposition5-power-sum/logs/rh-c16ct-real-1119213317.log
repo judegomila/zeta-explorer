@@ -1,0 +1,4 @@
+tasks 120 workers 4
+real 10000000.0 0.25 40 max False b_max_pass 0.49 region 1.0875 min 5.663 secs 680
+real 1000000.0 0.25 40 max False b_max_pass 0.49 region 1.2687 min 4.7073 secs 722
+real 1000000.0 1.0 40 max False b_max_pass 0.49 region 0.2168 min 1.0568 secs 963

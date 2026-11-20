@@ -1,0 +1,40 @@
+{
+ "slug": "c17-u6f-isogenous-points-norm-jensen-gap",
+ "round": 17,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For odd p, the three non-linear reads of the p^2+p-2 complex isogenous points of theta under T_{p^2} on the arc reduce as follows: the norm equals theta(x)^(p^2+p)/(theta(x/p^2) theta(p^2 x)), a dilation-module identity with Mellin multiplier p^2+p-p^(2u)-p^(-2u) on M[log theta] = pi^(-u) Gamma(u) zeta(u) zeta(u+1)(2-2^(-u))(1-2^(1-u)); the Jensen gap is negative on the whole arc with limit log(p/(p+2)) at the cusp, as a consequence of the sum identity, the norm identity and monotonicity; the discriminant sign is the parity (-1)^((p+2)(p-1)/2) for every function with real coefficients (classical rule). The Epstein control theta(x)theta(nx), n = 5, 6, passes all three at inert primes (proved; reconfirmed numerically at p = 17), and the T-NR twins fail the norm identity and fail J<0 at p = 3 and 11. Zeta enters M[J_p] only additively, 1e-10.5 to 1e-15 of M[J_p] at t = 200 (measured, reproduced independently, error not enclosed). Cell U6 (f) is closed for these three reads; nothing about zeros of zeta.",
+ "obstruction": "Cell U6 (f) closed for three non-linear reads. Norm = theta(x)^(p^2+p)/(theta(x/p^2) theta(p^2 x)) (PROVED): a dilation-module identity with Mellin multiplier p^2+p-p^(2u)-p^(-2u) on zeta(u)zeta(u+1), so the read is a pointwise function of dilates. Jensen gap < 0 on the whole arc, limit log(p/(p+2)) (PROVED from the sum identity, the norm identity and monotonicity). Discriminant sign = parity (-1)^((p+2)(p-1)/2) for every real function (CLASSICAL). The Epstein control theta(x)theta(nx), n = 5, 6, passes all three at inert primes (PROVED), so R3 fails; zeta enters M[J_p] only additively at relative size 1e-10.5 to 1e-15 at t = 200 (MEASURED, not enclosed). Left open: symmetric functions of degree >= 3 of the point values, no candidate inequality.",
+ "obstructionKind": "module identity (N); corollary of two identities and monotonicity, passed by Epstein at inert primes (J); parity count (D)",
+ "controlsThatDefeat": [
+  "Epstein theta(x)theta(nx), n = 5, 6, at inert primes (passes all three reads; proved)",
+  "every function with real coefficients (discriminant sign)",
+  "T-NR twins fail the norm identity and J<0 at p = 3, 11 (rejected, but through an identity, not a zero read)",
+  "not run: several controls not run or not formulable"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed. Minor corrections only (none changes the verdict): (1) Lemma D is the classical discriminant sign rule (-1)^(number of non-real conjugate pairs) and should be labelled CLASSICAL, not presented as proved-new. (2) Section 4 row E_a: real point values make the paired values coincide, so D = 0 identically, not \"D >= 0 differing from the parity value\". (3) Section 4 \"identifies f up to the finite list of such eta quotients\" is asserted without proof or citation (unused; should  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "For a Hecke eigenform with a product formula, both the sum and the product of the values at the isogenous points are dilation-module quantities on the arc, so any read built from the mean and the norm is a pointwise function of dilates. Epstein forms pass such reads prime by prime at inert primes; the discriminant sign is a parity count.",
+ "followUp": "One independent referee of Lemmas N, J, D and the Epstein-at-inert-primes corollary (REFEREE_REQUEST.md in the lane directory), then record the proposed wording in map row G33. No further attack on this cell; the only reads left open are symmetric functions of degree 3 or more of the point values, with no candidate inequality.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-u6f-isogenous-points-norm-jensen-gap/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-u6f-isogenous-points-norm-jensen-gap/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c18-referee-r17-independent-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report and push/c18-referee-r17-independent-sources/GATE.md (window law: Remark K for the unwindowed device only; E_a row decided on its own configuration; W4 density form, W5 second bullet ARGUED)",
+  "report": "tmp/research-2026-11-16/push/c17-u6f-isogenous-points-norm-jensen-gap/REFEREE2.md"
+ }
+}

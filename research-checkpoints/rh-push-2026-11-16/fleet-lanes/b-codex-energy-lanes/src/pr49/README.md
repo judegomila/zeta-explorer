@@ -132,9 +132,9 @@ agreed with the earlier higher-precision run.
 ## Provenance and conventions
 
 This is a self-contained lane based on `main`, related to the separate draft
-[PR #43](https://github.com/judegomila/mathexplorer/pull/43). Its prior theta and
+[PR #43](https://github.com/[user]/mathexplorer/pull/43). Its prior theta and
 torus definitions are pinned to commit
-[`69d4049f`](https://github.com/judegomila/mathexplorer/tree/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08).
+[`69d4049f`](https://github.com/[user]/mathexplorer/tree/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08).
 It does not depend on importing code from that unmerged branch.
 
 All bounds here use standard Newman time $\tau$, with

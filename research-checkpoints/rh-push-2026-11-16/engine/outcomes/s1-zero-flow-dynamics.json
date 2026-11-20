@@ -1,0 +1,78 @@
+{
+ "slug": "s1-zero-flow-dynamics",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "beta-gmin-span-three-factor-invariant",
+  "beta-n-uniformity-fails-real-ordinates",
+  "bk-arithmetic-correction-amplitude",
+  "collective-interaction-rj",
+  "dyson-ladder-collision-scaling",
+  "dyson-loop-identity-defect",
+  "exact-flow-collision-meter",
+  "lehmer-pair-bounds",
+  "small-gap-exponent"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "dyson-loop-identity-defect",
+    "bk-arithmetic-correction-amplitude"
+   ],
+   "obstruction": "ordinate-list statistic: T-NR identical to zeta; DH deviation = explicit formula over its off-line pairs",
+   "controlsThatDefeat": [
+    "T-NR",
+    "DH",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "collective-interaction-rj",
+    "lehmer-pair-bounds"
+   ],
+   "obstruction": "premise false for zeta; small-gap law is a proportion statement",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "T-NR",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "beta-gmin-span-three-factor-invariant",
+    "beta-n-uniformity-fails-real-ordinates"
+   ],
+   "obstruction": "identity valid for any point set; reduces to smallest-gap law",
+   "controlsThatDefeat": [
+    "T-NR",
+    "DH below N=500"
+   ]
+  },
+  {
+   "nodes": [
+    "exact-flow-collision-meter",
+    "dyson-ladder-collision-scaling",
+    "small-gap-exponent"
+   ],
+   "obstruction": "collision time = g_min^2/8; heat differs only by its own flow time (flow-blind)",
+   "controlsThatDefeat": [
+    "heat",
+    "T-NR",
+    "DH"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) ordinate-list statistic: T-NR identical to zeta; DH deviation = explicit formula over its off-line pairs | (2) premise false for zeta; small-gap law is a proportion statement | (3) identity valid for any point set; reduces to smallest-gap law | (4) collision time = g_min^2/8; heat differs only by its own flow time (flow-blind)",
+ "controlsThatDefeat": [
+  "DH",
+  "DH below N=500",
+  "T-NR",
+  "heat",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-zero-flow-dynamics/RESULT.md"
+}

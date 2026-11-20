@@ -1,7 +1,7 @@
 # Theta propagation: the exact positive system and the required endpoint
 
 Research continuation, **8 November 2026**, following
-[PR #45](https://github.com/judegomila/mathexplorer/pull/45).
+[PR #45](https://github.com/[user]/mathexplorer/pull/45).
 
 ## Overall strategy for closing the RH argument
 

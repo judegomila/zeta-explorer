@@ -4827,5 +4827,915 @@
   "lesson": "Rerun the engine and scoreboard before editing: the scoreboard on file lagged the graph, and a no-edit baseline moved part C (families 79,003 -> 89,253) before any change of this lane. A control code added to the builder's regex creates an edge from any cell that prints it (passes, fails or not run); NR-vec had to precede NR to avoid being read as T-NR. Another process appended a \"Directive from the user\" section to STRATEGY.md mid-lane; it was kept byte-identical and not acted on.",
   "verdict": "partial",
   "note": "round 15, score 0, referee holds: Record lane, no attack; R4 not addressed. Map 198 -> 202 rows (G37 to G40), control NR-vec, sentence E1 of c14 lane 5 marked NOT HOLDING, 13 label restrictions applied; engine 50 closed / 1 floored / 0 open device types, pending RS-1..3 replaced by U3, U6 (e)-(g), U8; STRATEGY version 4; CAMPAIGN_RE"
+ },
+ {
+  "slug": "c16-u6g-scattering-fe-rank2-bridge-stage-a",
+  "path": "push/c16-u6g-scattering-fe-rank2-bridge-stage-a",
+  "nodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-bls-right",
+   "lemma-r-reflection"
+  ],
+  "launchedNodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-bls-right",
+   "lemma-r-reflection"
+  ],
+  "tags": [
+   "explore",
+   "u6g",
+   "rank2",
+   "eisenstein",
+   "gram-positivity",
+   "control-bls",
+   "stage-a"
+  ],
+  "title": "Cell U6 (g): Gram positivity of truncated rank-2 (SL3 minimal parabolic) Eisenstein data read off the zero set",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Rank 2 adds one condition to rank one: left-half zeros of the scattering coefficient must be reflected, which is the functional equation of the zero set. Reading f(z) = f(1-z) or the exact normalisation does not leave the Blaschke control: its symmetric form is zeta times a symmetric polynomial and stays positive on a larger set of T than zeta. The BLS control row's \"lacks f(z) = f(1-z)\" is wrong for symmetric zero sets.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: Stops at stage A. Relative to the recalled rank-2 Langlands inner product formula (checked for M = 1 against the direct integral; source not opened), Gram positivity adds one condition to rank one: a zero of M with 0 < Re a < 1/2 forces a zero at 1 - a (Lemma R, PROVED), which is the functional equa"
+ },
+ {
+  "slug": "c16-pos-fe-u2-positivity-rigidity",
+  "path": "push/c16-pos-fe-u2-positivity-rigidity",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "identification",
+   "functional-equation",
+   "positivity",
+   "poisson-summation",
+   "linear-programming-bound",
+   "U2",
+   "U3",
+   "POS-FE",
+   "control-zq",
+   "control-gplus"
+  ],
+  "title": "Lemma POS-FE: zeta's functional equation, pole at 1 only, finite order and non-negative coefficients on [1, inf) force G = r zeta (Theorem P)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "With zeta's functional equation, positivity of Lambda acts only through non-negative coefficients of G, and that plus \"no coefficient mass below frequency 1\" is Poisson-summation rigidity (triangle / sinc^2 test function, the 1-dimensional LP-bound equality case). The {FE, POS} class identifies zeta without the Euler product and says nothing about zeros. Fully fractional LP relaxations are uninformative: their minimum falls like 1/K from non-integer multiplicities.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: An identification, not a statement about zeros. Theorem P (PROVED; three independent referees hold): G = int_[1,inf) x^-s dN, N >= 0, (s-1)G entire of finite order, zeta's functional equation => G = r zeta, by Poisson-summation rigidity (triangle / sinc^2 test function; the one-dimensional LP-bound "
+ },
+ {
+  "slug": "c16-ctheta-proposition5-power-sum",
+  "path": "push/c16-ctheta-proposition5-power-sum",
+  "nodes": [
+   "ctheta-zero-side-correspondence",
+   "lattice-row-invisibility",
+   "turan-isolated-cluster-bound",
+   "fejer-section-band-limit"
+  ],
+  "launchedNodes": [
+   "ctheta-zero-side-correspondence",
+   "lattice-row-invisibility",
+   "turan-isolated-cluster-bound",
+   "fejer-section-band-limit"
+  ],
+  "tags": [
+   "deepen",
+   "u7",
+   "ctheta",
+   "proposition-5",
+   "turan",
+   "poisson",
+   "control-zq",
+   "control-tnr",
+   "r4"
+  ],
+  "title": "Proposition 5 of c15 (C(theta) against a zero-free region) decided for arbitrary configurations by Poisson rows and Turan power sums",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A positivity statement at P = t^theta reads only the band-limited part (frequencies <= theta log t) of the zero measure. Its zero-side reach grows linearly with the local number of off-line pairs and is not a zero-free region; one-pair heuristics overstate what such devices exclude. Passing rows are fine-tuned to about 100 P^(-b) in the ordinates. No step uses multiplicativity; ZQ passes in the window with 3 or more quadruples.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: C(theta) is not a zero-free region. A positivity statement at P = t^theta reads only the band-limited part (frequencies <= theta log t) of the zero measure. PROVED in window form: a lattice row of spacing 2pi/(theta log 2T) contributes the constant 2pi/d for every u <= theta log 2T and every offset "
+ },
+ {
+  "slug": "c16-qa-filter-silent-cells-geometric-nodes",
+  "path": "push/c16-qa-filter-silent-cells-geometric-nodes",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "prefilter",
+   "control-zq",
+   "control-nrq",
+   "Q-A",
+   "U3",
+   "U4",
+   "U6",
+   "U8",
+   "geometric-program",
+   "finite-certificate",
+   "flow-blindness"
+  ],
+  "title": "Filter Q-P / Q-B / Q-S / Q-A / HEAT over the silent cells U3, U4, U6, U8 and 71 geometric-program nodes",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Every silent geometric-program node is target-level or passed by a control; ZQ passes finite certificates and atom-only steps inside zeta's own functional-equation class. The five cell rows with no passing control (U3 as an inequality, U4 residual, U6 c, e, f) all read the integers as an additive set (a reading, one reader). A critical-line step must be discontinuous in the coefficient measure at zeta: the margin is zero, f(eps) >= 0.48 sqrt(eps). Sign searches on compact parameter sets (U8, DN canonical tier) sit inside the flow-blindness wall: a survivor there is not a device with R3.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: Lemma QA (PROVED): a step reading only the functional equation, poles, order, zero count up to O(1) and prime-power atoms is passed by ZQ; twist families by NR-q at every lift value. ZQ passes strict compact certificates and heat-box certificates (t >= 0) once the removed pair is high; M_ZQ is Schur"
+ },
+ {
+  "slug": "c16-dn-canonical-tier-ball-conversion",
+  "path": "push/c16-dn-canonical-tier-ball-conversion",
+  "nodes": [
+   "noncone-kernel-separator",
+   "joint-zeta-twist-pair"
+  ],
+  "launchedNodes": [
+   "noncone-kernel-separator",
+   "joint-zeta-twist-pair"
+  ],
+  "tags": [
+   "compute",
+   "prereg",
+   "certified-conversion",
+   "ball-arithmetic",
+   "kernel-sign-functional",
+   "log-difference",
+   "canonical-tier",
+   "control-heat",
+   "control-tnr",
+   "control-ea",
+   "dictionary-DN",
+   "dictionary-DJ",
+   "family-34"
+  ],
+  "title": "Ball-arithmetic conversion of the 67,138 float64-undecided canonical-tier nodes of dictionary DN and draw-stage recount of DJ",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Use a relative acceptance test for balls: an absolute floor made 256-bit balls containing 0 count as decided. A hold-out read at one fixed threshold hides nodes that pass at another, and held-out positives repeating the zeta kernel do not test one-signedness; A-only families need a full character set.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: Registered outcome 'none' (MEASURED). On the registered c15 node set of dictionary DN, canonical tier {T-NR, E_a, HEAT}: 67,138 float64-undecided family-nodes decided in balls (360 reflection-identity; 37,634 excluded with HEAT not rejectable; 29,144 T-train; 0 undecided); 0 hold out under the c15 r"
+ },
+ {
+  "slug": "c16-amplifier-below-truncation-eisw-compute",
+  "path": "push/c16-amplifier-below-truncation-eisw-compute",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "compute",
+   "family-31",
+   "eisenstein-edge",
+   "hecke-amplifier",
+   "maass-selberg",
+   "eis-w",
+   "prereg"
+  ],
+  "title": "Hecke amplifiers with T < N on the truncated Eisenstein series: closed Gram formula and gain against N^delta, with EIS-w",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Below the truncation height Hecke operators stop acting by dilation and coset terms cross the truncation line, but the effect is a bounded constant: under 1 per cent on the gain, and on the lower side at most the mass fraction the unamplified inequality drops below y = 1. EIS-w shares both. A pre-registered decision clause needs the control comparison written into it.",
+  "verdict": "closed",
+  "note": "round 16, score 0, referee holds: Family 31 item 'T < N': measured obstruction on the stated range, not a proved closure. PROVED: T_m Lambda^T f = lambda(m) f minus pseudo-Eisenstein series cut at heights Td/a; coset c enters the pairing of cuts h_i, h_j iff c^2 h_i h_j < 1; closed Gram formula (G) for all T >= 1, N; R2 = 1 for T >="
+ },
+ {
+  "slug": "c16-referee-r15-j1prime-u8-screening",
+  "path": "push/c16-referee-r15-j1prime-u8-screening",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "referee",
+   "repair",
+   "control-ZQ",
+   "lemma-L",
+   "lemma-J1prime",
+   "U8",
+   "backward-heat",
+   "monomial-inequality",
+   "screening-arm",
+   "T-NR",
+   "davenport-heilbronn"
+  ],
+  "title": "Second referee of round-15 lanes 1 to 6, Lemma J1', the U8 heat-inheritance exclusion (Lemma H), control ZQ, and a screening sample",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "For kernels without polar terms the backward-heat member is a pointwise Gaussian multiple, so the HEAT column of any polynomial functional is fixed by zeta's own values: F_tau = sum a_j exp(tau S_j/4) M_j. A finite-node inequality with positive margin passes all small |tau|; only a threshold tuned inside zeta's margin rejects a registered HEAT class. Screening summaries must list \"coefficients alone\" as a kind of separation. All six round-15 lanes already had one independent referee; for lanes 2, 4, 5 my pass was not blind to it.",
+  "verdict": "partial",
+  "note": "round 16, score 0, referee holds: Referee lane, no attack. Round-15 lanes 1 to 6 hold with corrections; no PROVED statement broken. Lemma J1' holds. Lemma H (two derivations): for a real kernel without polar terms a monomial bound M <= lam is inherited by every tau < 0 iff lam*S >= 0 or M*lam <= 0, otherwise exactly for |tau| <= 4|l"
+ },
+ {
+  "slug": "c16-repair-owed-record-r15",
+  "path": "push/c16-repair-owed-record-r15",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "repair",
+   "record"
+  ],
+  "title": "Record repair: map 202 -> 205 rows, control rows ZQ / SG / NR-q, 30 label restrictions, engine device states, Statement O version 4",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Entering read classes as open device nodes is not a neutral record edit. The generator keeps a fixed number of device partners per anchor and weights open devices above the floored one, so eleven new nodes replaced 58 of the top 60 and dropped 13 former candidates from enumeration. Staging the reruns (rows and controls, then nodes, then lane lines) gave each change one cause. Node text that says \"map row X\" makes the builder attach that row and its controls to the node.",
+  "verdict": "partial",
+  "note": "round 16, score 0, referee holds: Record lane, no attack. Map 202 -> 205 rows (S12b, Q30, G41) plus control rows ZQ, SG, NR-q; 30 label restrictions and dated notes entered; engine devices 53 closed / 1 floored / 11 open, controls 23, pending 7; Statement O version 4 written. Referee correction E1: the eleven silent cells were enter"
+ },
+ {
+  "slug": "c17-u6e-bost-connes-non-invariant-state-twin-ladder",
+  "path": "push/c17-u6e-bost-connes-non-invariant-state-twin-ladder",
+  "nodes": [
+   "connes-twin-ladder-crosswalk",
+   "mem-semilocal-fourier-fs"
+  ],
+  "launchedNodes": [
+   "connes-twin-ladder-crosswalk",
+   "mem-semilocal-fourier-fs"
+  ],
+  "tags": [
+   "bost-connes",
+   "non-invariant-state",
+   "eigenstate",
+   "kakutani",
+   "T-NR",
+   "DEL",
+   "U6e",
+   "D8"
+  ],
+  "title": "Cell U6 (e): positivity of non-invariant states on the Bost-Connes algebra against the twin ladder",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "State positivity is invariant under conjugation by any invertible element, so twins of the form b xi (T-NR, finite DEL) can be rejected only by an exact relation, never by positivity. The overlap of two product-vector states is either the convergent Euler product or 0: for beta <= 1 the states are orthogonal, so no function of tau remains that could read a zero.",
+  "verdict": "closed",
+  "note": "round 17, score 0, referee holds: Stops at the first lemma (stage A not passed). Lemma G (classical): omega -> omega(b* . b)/omega(b* b), b invertible, maps states to states in the same GNS representation; T-NR (b = D^(1/2)), finite DEL and the gauge twins have this form, so positivity of a state cannot separate them from zeta; only"
+ },
+ {
+  "slug": "c17-u6f-isogenous-points-norm-jensen-gap",
+  "path": "push/c17-u6f-isogenous-points-norm-jensen-gap",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Cell U6 (f): norm, Jensen gap and discriminant of the p^2+p-2 complex isogenous points of theta",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "For a Hecke eigenform with a product formula, both the sum and the product of the values at the isogenous points are dilation-module quantities on the arc, so any read built from the mean and the norm is a pointwise function of dilates. Epstein forms pass such reads prime by prime at inert primes; the discriminant sign is a parity count.",
+  "verdict": "closed",
+  "note": "round 17, score 0, referee holds: Cell U6 (f) closed for three non-linear reads. Norm = theta(x)^(p^2+p)/(theta(x/p^2) theta(p^2 x)) (PROVED): a dilation-module identity with Mellin multiplier p^2+p-p^(2u)-p^(-2u) on zeta(u)zeta(u+1), so the read is a pointwise function of dilates. Jensen gap < 0 on the whole arc, limit log(p/(p+2))"
+ },
+ {
+  "slug": "c17-u3-inequality-discontinuity-functional",
+  "path": "push/c17-u3-inequality-discontinuity-functional",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "U3 as an inequality: the discontinuity functional from Theorem P, Proposition M and ZQ in three relaxation directions",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A quantitative identification (\"defect delta implies zeros within f(delta)\") on any class containing zeta at defect 0 is the target itself. What can be proved without the target is stability, which reads the functional equation and integrality, not multiplicativity. The sqrt(eps) reach is the discriminant of a function real on the line, not an arithmetic discontinuity. For a finite coefficient vector with a defective functional equation \"a zero\" is not defined by the data; the symmetrised functional used here builds the square-root law in and hides the linear shift mechanism (n^alpha: zeros at distance alpha, defect 1.14 alpha at X = 4000). A real-ray theta defect delta controls G only for |t| <= (4/pi) log(1/delta), so complex rays are needed. NR-q cannot be excluded through multiplicativity by any functional.",
+  "verdict": "closed",
+  "note": "round 17, score 0, referee holds: Target-level in all three relaxation directions; multiplicativity enters no proved step. PROVED: (1) the functional-equation defect enters Theorem P at Step 6 as int sinc^2 against the off-integer part of N, Lipschitz with constant 0.0485883; (2) Proposition W: zeta(s)(q^(s-1/2)+c+q^(1/2-s))/(2+c), "
+ },
+ {
+  "slug": "c17-rank2-gram-symmetric-blaschke-closure",
+  "path": "push/c17-rank2-gram-symmetric-blaschke-closure",
+  "nodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat",
+   "lemma-m-apex-reduction",
+   "theorem-t-rational-model",
+   "inertia-law-reflection-defect"
+  ],
+  "launchedNodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat",
+   "lemma-m-apex-reduction",
+   "theorem-t-rational-model",
+   "inertia-law-reflection-defect"
+  ],
+  "tags": [
+   "compute",
+   "u6g",
+   "rank2",
+   "eisenstein",
+   "gram-positivity",
+   "control-bls",
+   "control-zq",
+   "ball-arithmetic",
+   "inertia",
+   "tried-not-closed"
+  ],
+  "title": "Closure of the rank-2 Eisenstein Gram form (row D10) under symmetric Blaschke insertions: Lemma M, Theorem T and a certified search",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The rank-2 form on T >= 0 is rank-one Maass-Selberg plus one apex kernel at T = 0. That kernel reads only the reflection symmetry a -> 1 - a of the left zeros (a pairing defect of 1e-17 shows at order 40, 1e-30 at order 64), not the critical line. Symmetric controls, including ZQ in rational form (the c16 table row saying it fails is wrong), sit on a rank-drop wall and pass. Symmetric zero sets must be built exactly: float pairing produced false failures.",
+  "verdict": "partial",
+  "note": "round 17, score 0, referee holds: Tried, not closed: closure neither proved nor refuted. PROVED: Lemma M (T-derivatives of K_T are rank-one Maass-Selberg Gram kernels; chamber positivity reduces to the apex T = 0 under rank-one positivity for t >= 0); Theorem T / Corollary T1 (rational model M_0 = (u+1)/(u-1) times two zeros: apex k"
+ },
+ {
+  "slug": "c17-window-information-law-ctheta-u5",
+  "path": "push/c17-window-information-law-ctheta-u5",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Window information law: every band-u positivity device as the quadratic form of one operator T_Z (replaces rows S12b, Q30, P45 addendum)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The reach of a band-limited positivity device is a density condition, not a zero-free region: off-line pairs hide only at local density of order u/2pi, and two bands are structural (P = sqrt(t/2pi) for count-preserving configurations, P = t/2pi for exactness). Multiplicativity is present exactly at every band (truncated Euler product in the truncated-shift algebra) for every multiplicative chain, so the missing input is a one-sided operator bound tied to the functional-equation reserve, not the factorisation. Above the Nyquist band only M = 0 has full power, and that is the target itself in a window.",
+  "verdict": "closed",
+  "note": "round 17, score 0, referee holds: A band-limited positivity device has a density reach, not a zero-free region. PROVED (one referee): the complete band-u device is the quadratic form of T_Z on L^2 of an interval of length u (classical Weil/Yoshida frame; C(theta) tests modulated indicators only); n off-line pairs give exactly n nega"
+ },
+ {
+  "slug": "c17-u8-restricted-search-lemma-h-gated",
+  "path": "push/c17-u8-restricted-search-lemma-h-gated",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Restricted U8 search on dictionary DU (three or more monomials of distinct heat exponents), gated on Lemma H",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A scanned-threshold hold-out read can be passed by an identification (threshold within 2e-52 relative of zeta's own value) when all held-out members of a class move the functional in one direction; register a minimum relative margin. The search code rounded breakpoints to 128 bits (conservative; 96 false \"undecided\", fixed by a post-pass). The copied ballk.BEA returns E_a balls of relative radius above 1 in a range of the Bessel argument; ballk.gauss_series drops tails whose float bound underflows. Server gave about 0.9 core for an 8-core unit; deadlines in the first driver were soft.",
+  "verdict": "closed",
+  "note": "round 17, score 0, referee holds: Registered outcome 'none' (MEASURED, finite): 0 hold-out survivors on dictionary DU (minors of orders 5 and 6, sign and thresholded; three-term Turan forms on 5 and 6 nodes; K3 on [-4,4], Kpol on [-3,3]; lifts T-NR, E_a, HEAT with |tau| <= 0.005; thresholds scanned). Lane prefix 1,966,200 family-nod"
+ },
+ {
+  "slug": "c17-referee-r16-lemma-h-sources",
+  "path": "push/c17-referee-r16-lemma-h-sources",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Second referee of Lemma H (gate for the U8 search), second referees of round-16 lanes 1, 3, 4, 5, 6, and two source checks",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The float64 feasible interval sat inside the ball interval at 500 of 500 sampled DN nodes, so statuses survive but threshold scans should use ball intervals. Check the sign of a residue before applying Lemma R at a second pole. The Lemma H ball test checks the case analysis, not the identification of the heat lift (checked at one point for zeta only).",
+  "verdict": "partial",
+  "note": "round 17, score 0, referee holds: Referee lane, no attack. Lemma H holds (third derivation; 732 + 3,836 ball decisions, 0 disagree). Round-16 lanes 1, 3, 4, 5, 6 hold with corrections; no PROVED statement broken. Corrected: u6g E_a row (residue at 1-a negative; E_a fails at the pole 1+a through the zero rho-a and at the pole 1-a thr"
+ },
+ {
+  "slug": "c17-repair-owed-record-r16-cell-nodes",
+  "path": "push/c17-repair-owed-record-r16-cell-nodes",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "repair",
+   "record",
+   "cell-node-type",
+   "generator",
+   "map-rows"
+  ],
+  "title": "Record repair: eleven silent-* nodes as cells, map 205 -> 208 rows (D10, P56, G42), STRATEGY 0b / 3.1 / 4.0, S2 disposition",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "With the cells out of the device pool the generator has no open device node: all 60 top entries stand on the one floored 7/8 device type, so it cannot name the next explore slot. A record lane limited to engine/, campaign/ and the map cannot correct sentences in lane files. Other lanes wrote lanes.jsonl and outcomes/ during the run, so scoreboard changes needed an attribution run on the pre-lane inputs.",
+  "verdict": "partial",
+  "note": "round 17, score 0, referee holds: Record lane, no attack. The eleven silent-* nodes are cells (U2-POS closed, U6 (g) tried-not-closed, nine cells) with no device weight in generate.py; top 60 with an open device 57 -> 0, floored only 3 -> 60, so the generator cannot name the next explore slot. Map 205 -> 208 rows. Not done: nine of "
+ },
+ {
+  "slug": "c18-u4-group-law-left-of-one-torus-orbit",
+  "path": "push/c18-u4-group-law-left-of-one-torus-orbit",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "U4",
+   "3-4-1",
+   "group-law",
+   "POS",
+   "Theorem P",
+   "pole-dominance",
+   "torus-orbit"
+  ],
+  "title": "Cell U4 residual (iv): multi-point group-law (3-4-1 type) inequality with every term finite left of abscissa 1",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A 3-4-1 inequality left of 1 is either a convergent test of the sign of Lambda (read set inside the P56 identification class; pole term dominates beyond log2/length of the line Re s=1) or a pointwise bound equal to the target. The group-law step reads each prime separately, so it carries no R1. T-NR is not a passer of log-level devices; with long tests it still satisfies the inequality at 0 of 1e5 random points negative (pole dominance), which shows truth of the inequality does not separate it. Incident: `$S:rh-push` expands as a zsh modifier; use `${H}:path`. A stray local directory from this (also holding a duplicate of another lane's fe_lp.py, original intact) was removed.",
+  "verdict": "closed",
+  "note": "round 18, score 0, referee holds: Stops at stage A (controls pass). Cell U4 (iv) closed for the read 'positivity-derived inequality on shifts s+ikt or powers of a character'. Lemma GL (corrected by the referee): the inequalities hold iff at each atom the evenly extended sequence k -> Re Lambda_k(n) is positive definite, so the group"
+ },
+ {
+  "slug": "c18-tz-one-sided-bound-fe-reserve-bridge",
+  "path": "push/c18-tz-one-sided-bound-fe-reserve-bridge",
+  "nodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "launchedNodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "tags": [],
+  "title": "One-sided bound N(theta) on the band operator T_Z with the reflected half of the approximate functional equation as completion",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Truncation of the prime data is exact at the level of logarithmic coefficients for any series with a_1 = 1, so N(theta) is a statement about the zeros of the partial sum D_P and uses neither multiplicativity nor the reflected half, which lies entirely outside the band. For theta' < 1 the conclusion holds for ZQ, so no argument for it can meet R3. The passage to target level happens exactly at theta' = 1, where the reflected half is exhausted.",
+  "verdict": "closed",
+  "note": "round 18, score 0, referee holds: Stops at the first lemma. Exact identity (PROVED, classical in content; referee removed a spurious log|a_P| term): for a_1 = 1, a_P != 0, u = log P, h in H^1_0[0,u]: -2 Re<h, A_P h> = -u||h||^2 + sum over zeros beta of the partial sum D_P of the convolution forms e^((beta-1/2)|xi|). N(theta) is ther"
+ },
+ {
+  "slug": "c18-tz-band-completion-controls-server",
+  "path": "push/c18-tz-band-completion-controls-server",
+  "nodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "launchedNodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "tags": [],
+  "title": "Server run: certified sign of the completed band form and of N(theta), 1/2 < theta <= 1, zeta and control classes at heights 1e6 to 1e12",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "N(theta) with tolerance of order 1 does not separate zeta from multiplicative sign chains near theta = 1/2. Separation appears only toward the Nyquist band, where zeta's own margin goes to 0. The linearised reflected completion is not a positive extension of zeta's data. The server shares CPU per unit, so work has to be split into single-thread units.",
+  "verdict": "closed",
+  "note": "round 18, score 0, referee holds: Registered outcomes (c) and (b) (MEASURED; signs certified relative to a hand-derived radius; 96 Fourier modes; 40 windows; 44,600 cells). (c) The registered reflected completion (atoms n -> t/(2 pi n)) is not a positive extension of zeta's data: zeta fails in 600 of 600 cells, and for every global "
+ },
+ {
+  "slug": "c18-d10-inertia-law-theorem-t-lemma-d",
+  "path": "push/c18-d10-inertia-law-theorem-t-lemma-d",
+  "nodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat"
+  ],
+  "launchedNodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat"
+  ],
+  "tags": [
+   "deepen",
+   "u6g",
+   "rank2",
+   "eisenstein",
+   "gram-positivity",
+   "inertia-law",
+   "rational-model",
+   "bezoutian",
+   "row-D10"
+  ],
+  "title": "Inertia law of the rank-2 apex kernel (row D10): symmetric quartet in the rational model, Bezoutian identity, transfer to zeta",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Zeta enters the rank-2 apex kernel only as the base (u+1)/(u-1) times the Blaschke insertion of its own symmetric zero set. Without the pole the form is an antisymmetrised product of Bezoutians and is positive for every insertion. With the pole, the whole reflection law sits in the cross terms from the single negative square of the Bezoutian. The c17 parity clause does not hold in the model in its stated form.",
+  "verdict": "partial",
+  "note": "round 18, score 0, referee holds: Tried, not closed: row D10 not proved. PROVED (one referee, computer-assisted exact): in the rational model with base (u+1)/(u-1) a symmetric quartet 1/2 +- eta +- i g gives a positive semidefinite apex kernel of rank 6 for all 0 < eta < 1/2, g > 0; 6N is the antisymmetrised product of two Bezoutian"
+ },
+ {
+  "slug": "c18-u6c-gl3-cover-whittaker-constants-method",
+  "path": "push/c18-u6c-gl3-cover-whittaker-constants-method",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Cell U6 (c): Whittaker constants on covers of GL(3): cubic theta (Gauss-sum array) and the double cover (local dimension 4)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Where the Whittaker model is unique (cubic cover of GL(3)) the global constants are forced to be Gauss sums and add no object beyond rows Z14/Z15. Where it is not unique (double cover, local dimension 4) the squarefree-class constants are global period-type data that no Hecke relation reaches. Neither half gives an inequality: the cubic reads are identities shared by multiplicative twists, and the zeta controls have no lift to the cover.",
+  "verdict": "closed",
+  "note": "round 18, score 0, referee holds: Cell U6 (c) splits; cubic half decided. Cubic theta on GL(3) (unique Whittaker model): tau(p^l1,p^l2) != 0 iff (l1,l2) = (0,0) or (1,1) mod 3 (recalled Kazhdan-Patterson criterion; l2 = 0 opened in Friedberg-Ginzburg 1403.3929; consistent with smoothed A_2 double sums at X = 1e5, 2e5 on 57 indices);"
+ },
+ {
+  "slug": "c18-exact-relation-rigidity-klein-spinor",
+  "path": "push/c18-exact-relation-rigidity-klein-spinor",
+  "nodes": [
+   "exact-relation-rigidity"
+  ],
+  "launchedNodes": [
+   "exact-relation-rigidity"
+  ],
+  "tags": [
+   "exact-relation",
+   "rigidity",
+   "Hamburger",
+   "Theorem P",
+   "multiplicativity",
+   "pole-clause",
+   "HQ",
+   "TN1",
+   "klein-seam",
+   "spinor-square-root"
+  ],
+  "title": "Exact-relation rigidity: which exact relations stay admissible once multiplicativity is the relation (Hamburger, Theorem P, Klein seam, spinor square root)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Rigidity on file is linear algebra in the coefficient measure (FE, integrality and the pole clause intersect in a line); multiplicativity is linear in a different coordinate (log G) and is never needed. The one clause that completes the identification, analyticity on the critical line, is the only one not stated right of 1. In the coefficient topology zeros are discontinuous even inside {FE, INT, MULT, N>=0}. Do not look for a control that fails through multiplicativity inside an exact relation.",
+  "verdict": "closed",
+  "note": "round 18, score 0, referee holds: Closes at the decisive test. Multiplicativity replaces no clause of Hamburger / Theorem P. FE clause deleted: TN1 = zeta(s)(1+q^(3/4-s)) is integer-frequency, multiplicative, non-negative, single pole at 1, zeros on Re s = 3/4. Pole clause deleted: HQ2 = zeta(s)(1+eps u^2/(1-u)^4), u = q^(1/2-s), ha"
+ },
+ {
+  "slug": "c18-referee-r17-independent-sources",
+  "path": "push/c18-referee-r17-independent-sources",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [],
+  "title": "Second referees of round-17 lanes 1, 2, 3, 5 with independent sources; gate for N(theta); E_a row on its own configuration",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A control must be run on its own zero configuration: zeta(s+a)zeta(s-a) is a lattice row only in the lattice model; on zeta's ordinates its form has kernel 2cosh(a(s-s'))k(s-s') and passes for small a, failing through coefficient size, with the threshold dropping near the Nyquist band. Krein extension applies to the unwindowed device, not to a height-windowed N(theta).",
+  "verdict": "partial",
+  "note": "round 18, score 0, referee holds: Referee lane, no attack. Round-17 lanes u6e, u6f, u3, window law hold with corrections (REFEREE2.md in each; 2 referees each). GATE.md: Theorem 1 holds on form domain C_c^infinity; Remark K (Krein extension) holds for the unwindowed device only, so 'N(theta) iff positive completion' is ARGUED. E_a d"
+ },
+ {
+  "slug": "c18-repair-owed-record-r17-open-device-nodes",
+  "path": "push/c18-repair-owed-record-r17-open-device-nodes",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "repair",
+   "record",
+   "map-rows",
+   "proposed-device",
+   "generator",
+   "corrections"
+  ],
+  "title": "Record repair: owed list of round 17 (map 208 -> 211 rows), two proposed open device nodes, top-60 before/after",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A proposed device node gives the generator an open slot again, but the resulting list is fixed by the tags one reader gave the node and by the per-device cap (12 / 12 / 36); only 5 of the 24 proposed-node triples are judged usable and rank 1 is not. A proposed type can be reported closed by a sibling lane of the same round before the record lane finishes, so its state must change on a referee file, not on entry.",
+  "verdict": "partial",
+  "note": "round 18, score 0, referee holds: Record lane, no attack. Map 208 -> 211 rows (P57, G43, Q31); D8 (vi), G33, D10, G42 edited; nine sentence corrections and the c16 ZQ entry entered; cells U3-inequality, U6 (e), U6 (f) closed, U6 (g) tried-not-closed. Two proposed, untested device nodes entered (tz-one-sided-completion-bound-band, ex"
+ },
+ {
+  "slug": "c19-u4-joint-prime-phase-quadratic-dp-zeros",
+  "path": "push/c19-u4-joint-prime-phase-quadratic-dp-zeros",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "U4",
+   "joint-prime-phase",
+   "quadratic-log-derivative",
+   "D_P-zeros",
+   "second-order-explicit-formula",
+   "Bohr-equivalence"
+  ],
+  "title": "Cell U4 residual: inequalities quadratic in the log-derivative or reading phases at several primes jointly, on zeros of D_P",
+  "refereeHolds": false,
+  "aboutZeros": false,
+  "lesson": "Sign relations between atoms at different primes do make T-NR and sign chains fail at a cross-prime step, but the read set is \"all atoms in phase\", which E_a, DEL and Liouville satisfy. Zeros of D_P at P = t^theta are blind to primes above P (K3), so any conclusion needs the functional equation at height t; with INT that is Hamburger's identification, and at theta >= 1/2 it is the target in a window (this last dichotomy is argued, not proved).",
+  "verdict": "closed",
+  "note": "round 19, score 0, referee does not hold as written: Stops at stage A (controls pass); the referee does not hold the lane as written (E1: the Liouville twist fails candidate (J) at p q^2 for P > 12; the lane's check at P = 10 saw only the atom 6); the obstruction stands after that correction. Candidate (J), cross-prime positivity of the pair form from"
+ },
+ {
+  "slug": "c19-rs-real-zero-completion-band-server",
+  "path": "push/c19-rs-real-zero-completion-band-server",
+  "nodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "launchedNodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "tags": [
+   "band-device",
+   "N(theta)",
+   "Riemann-Siegel",
+   "positive-completion",
+   "ZQ",
+   "server",
+   "mode-count"
+  ],
+  "title": "Server run: band device N(theta) completed by the sign-change measure of the Riemann-Siegel main sum; defect against the prime-side data, zeta and controls at 1e6 to 1e12",
+  "refereeHolds": false,
+  "aboutZeros": false,
+  "lesson": "A completion that is positive by construction moves all content into its defect against the data, and the positivity lemma reads only the defect's smallest eigenvalue. An off-line quartet enters that through a pair form that vanishes with eta, so the device can prove only N(theta) with tolerance, which ZQ satisfies (forced on paper before the runs, then confirmed). The two-sided defect does exclude every pair, but it is the target in the window. Mode count: completion verdicts do not change with m; data-form chain pass rates fall with m (0 of 192 at M = 0, theta >= 0.80, m = 384).",
+  "verdict": "closed",
+  "note": "round 19, score 0, referee does not hold as written: Registered outcome (b): the device is closed by ZQ. The referee does not hold the lane as written (E1: 'sigma >= 0 for every point set' and 'T_sigma >= 0 on every band' are false as stated; repaired form: on m = 96, 192, 384 modes centred at t_w, T_sigma >= -3e-11 Lg); no number changes and the obst"
+ },
+ {
+  "slug": "c19-hq2-screen-fe-int-mult-pos-devices",
+  "path": "push/c19-hq2-screen-fe-int-mult-pos-devices",
+  "nodes": [
+   "exact-relation-rigidity"
+  ],
+  "launchedNodes": [
+   "exact-relation-rigidity"
+  ],
+  "tags": [
+   "control",
+   "HQ2",
+   "HQ3",
+   "HQ4",
+   "pole-clause",
+   "local-euler-shape",
+   "identification",
+   "band-device",
+   "screen"
+  ],
+  "title": "HQ2 as a screen over 20 device rows that read functional equation + integrality + multiplicativity + positivity",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A one-prime twin with zeta's functional equation carries its off-line zeros and extra poles inside one local Euler factor, in Re s >= 1/2. Coefficient-level reads (FE, integer frequencies, prime-power support, N >= 0) meet only the pole clause; any read of local factor shape rejects the twin at that prime with no clause inside the strip; local positivity conditions do not (siblings HQ3, HQ4 with real poles right of the zeros pass them). Band devices order controls by distance of off-line zeros and by the pole lattice, not by multiplicativity. Compute note: repeated ball multiplication by a unit complex ball inflates radii about 1.4x per step; the first server unit was stopped and discarded for this.",
+  "verdict": "closed",
+  "note": "round 19, score 0, referee holds: Screen complete, no device type. Coefficient-level reads (FE, integer frequencies, prime-power support, N >= 0) reject HQ2 only by the pole clause. Three reads reject HQ2 by another step: (a) sign of the log-derivative coefficients at powers of q, removed by the new siblings HQ3, HQ4 (nu >= Lambda, "
+ },
+ {
+  "slug": "c19-dp-zero-census-truncation-identity-server",
+  "path": "push/c19-dp-zero-census-truncation-identity-server",
+  "nodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "launchedNodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "tags": [
+   "D_P-zeros",
+   "truncation-identity",
+   "Theorem A",
+   "ball-arithmetic",
+   "census",
+   "depth-phase-covariance",
+   "approximate-functional-equation",
+   "server"
+  ],
+  "title": "Server run: certified zero census of partial sums D_P, Theorem A in ball arithmetic, joint prime-phase statistics for zeta and control classes",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "At P = t/2pi the zero set of D_P is a function of zeta near the line through the functional equation (zeta = F*chi, Fresnel weight F = 1/2 at the stationary point), so any phase statistic over those zeros is shared by ZQ. Below that length, zeta's census and both statistics sit inside the Haar ensemble. Two method points: a survivor rule must give every control the same number of windows as zeta (the registered rule did not, and ZQ only showed the effect at 8 windows); and z-scores regressed on zero count extrapolate when zeta has fewer zeros than every Haar draw, so bias-correct by permutation inside each window.",
+  "verdict": "partial",
+  "note": "round 19, score 0, referee holds: No survivor statistic. Theorem A holds with constant -u for every a_1 = 1, a_P != 0 (certified truncations to T = 6400, six series; tail (u - 2 log|a_P|)/(pi T); the limit T -> infinity is extrapolated, not enclosed). MEASURED (float64, 2340 windows, 1e4..1e8): every class has zeros of D_P right of "
+ },
+ {
+  "slug": "c19-u6c-double-cover-k3-run",
+  "path": "push/c19-u6c-double-cover-k3-run",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "U6c",
+   "GL(3)",
+   "double-cover",
+   "K3",
+   "genus-sums",
+   "Siegel",
+   "Maass",
+   "7/8-adjacent"
+  ],
+  "title": "Cell U6 (c), double-cover half: (K3) as a 2 x 2 product test on genus-sum arrays of <1,1,d>",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A \"pure tensor\" test on period arrays needs scale-invariant inputs and quadruples matched by local similarity class, not isometry class. Fixed-n theta coefficient arrays are Siegel products yet fail the 2 x 2 identity, so \"class numbers are not multiplicative\" was the wrong reason for the Eisenstein row. The cusp computation was reachable without downloads: Hejhal data to primes below 3000 plus an invariance-validated GL(3) expansion; the largest m2 used was 167.",
+  "verdict": "closed",
+  "note": "round 19, score 0, referee holds: Registered outcome (i): cell U6 (c) closed as global period data without a Hecke relation. For primes p = q = 1 mod 8 with (p/q) = 1 the genera of <1,1,d>, d in {1,p,q,pq}, interchange local similarity classes at every place (proved), so a product-form array has K(G_1)K(G_pq) = K(G_p)K(G_q). The ide"
+ },
+ {
+  "slug": "c19-d10-xd-determinant-pole-term-lemma-q",
+  "path": "push/c19-d10-xd-determinant-pole-term-lemma-q",
+  "nodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat"
+  ],
+  "launchedNodes": [
+   "u6g-rank2-eisenstein-gram",
+   "ctrl-bls-symmetric",
+   "ctrl-zq-rational",
+   "ctrl-dh",
+   "ctrl-backward-heat"
+  ],
+  "tags": [
+   "deepen",
+   "u6g",
+   "rank2",
+   "row-D10",
+   "X(d)",
+   "NL(d)",
+   "bezoutian",
+   "inertia",
+   "rational-model"
+  ],
+  "title": "Row D10: X(d) for general even d through the pole term (Bezoutian product Q = L (x) L, sign-free kernel N+)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The rank-one or rank-two update the assignment asked for does not exist: the pole is rank one on the Bezoutian L but rank 2d on L(x)L, and the crossing points that carry the negative squares in general position degenerate exactly on the symmetric locus. Passing to the orthogonal sign-free kernel N+ turns positivity of a rank d(d-1)/2 form into counting d negative squares of a one-variable three-term kernel. Practical: the server ran about three times slower than the Mac under load; six local d = 16 workers exceed the 8 GB cap.",
+  "verdict": "partial",
+  "note": "round 19, score 0, referee holds: Tried, not closed. Failing step: in general position neg(N) is read on 2d+1 crossing points of the pole lines, and 2d of those points are null exactly at symmetric sets. The pole is rank one on the Bezoutian L but rank 2d on L (x) L, so no rank-one or rank-two update exists. PROVED (one referee): c1"
+ },
+ {
+  "slug": "c19-referee-r18-independent-sources",
+  "path": "push/c19-referee-r18-independent-sources",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "referee",
+   "repair"
+  ],
+  "title": "Second referees of round-18 lanes 1, 2, 3, 4, 6 with independent sources; source for Turan's theorem; referee for W5c",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Sign statements from a window measurement survived a change of mode count (Form C negative at 48, 96, 192 modes); margins did not (zeta's Form D margin fell by up to a factor 3.6 from 96 to 192 modes). An identity checked only at a_P = 1 hid a wrong constant; one case off the normalisation exposes it. A boundary integer that is prime (31622777) broke a stated error estimate for Form C, with no sign change.",
+  "verdict": "partial",
+  "note": "round 19, score 0, referee holds: Referee lane, no attack. Five round-18 lanes hold with corrections (REFEREE2-*.md; 2 referees each; partial scope: D10 through Theorem Q's conclusion at fresh points, tz bridge through Theorem A only, tz server on 30 zeta cells). Truncation identity: constant -u, no log|a_P| term. Form C negative at"
+ },
+ {
+  "slug": "c19-repair-owed-record-r18-checkpoint-prep",
+  "path": "push/c19-repair-owed-record-r18-checkpoint-prep",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "repair",
+   "record",
+   "map-rows",
+   "device-states",
+   "checkpoint-input",
+   "corrections"
+  ],
+  "title": "Record repair: owed list of round 18 (device table 55/1/0, map 211 -> 215 rows + HQ2), input for the round-20 checkpoint",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The round-18 learn step wrote outcome records naming the proposed device nodes, so the generator had already dropped them (0 scored candidates contained one); the owed device-state edit changed the device table and the rejection reason, not the top 60. Second-referee files exist for Statement O lines 13 to 17 but the statement still counts them ARGUED. Each round-18 closure rests on one referee per lane.",
+  "verdict": "partial",
+  "note": "round 19, score 0, referee holds: Record lane, no attack. Both proposed device types closed (device table 55 closed / 1 floored / 0 open); map 215 rows (X1, P58, G44, Z37) plus control HQ2; corrections of display (A), Proposition D (c), D10 parity clause; STRATEGY 3.1 items 48-58; top 60 had 0 entries on a proposed node before and a"
+ },
+ {
+  "slug": "c20-u4-second-order-archimedean-mixed-form",
+  "path": "push/c20-u4-second-order-archimedean-mixed-form",
+  "nodes": [
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  "launchedNodes": [
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  "tags": [
+   "U4",
+   "second-order",
+   "archimedean",
+   "mixed-form",
+   "bridge-antibridge",
+   "K3-M",
+   "stage-A"
+  ],
+  "title": "Cell U4, last read: second-order form pairing the archimedean operator with the prime operator A_P on window vectors",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "In a window at height t the archimedean operator is a scalar up to log t/t, so pairing it with the prime operator at any polynomial order gives only the first-order band form times Lg. Cross-prime products enter with height-independent coefficients. Any form reading only Lambda(n), n < P, and the gamma side is identical for twins modified at q >= P, so no stage-level inequality locates zeros near height t.",
+  "verdict": "closed",
+  "note": "round 20, score 0, referee holds: Stops at the first lemma (stage A). Lemma S: on window vectors at height t the gamma side is the scalar Lg/2 + i pi/4 up to 8 (log t/t) norm(h_0'), so candidate (M) norm(A_P h) <= norm((Arch - A_P) h) is Lg times the first-order band form N(theta') up to O(t^(theta'/2-1) log t) (Proposition M); at d"
+ },
+ {
+  "slug": "c20-mixed-form-control-census-server",
+  "path": "push/c20-mixed-form-control-census-server",
+  "nodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "launchedNodes": [
+   "tz-one-sided-completion-bound-band"
+  ],
+  "tags": [
+   "mixed-form",
+   "T2",
+   "census",
+   "ball-arithmetic",
+   "Theorem A",
+   "tail-bound",
+   "second-order-identity",
+   "server"
+  ],
+  "title": "Server run: completed second-order form T2 = 2Re<h,(B^2+[X,A])h> for zeta and 59 objects; enclosed tail for Theorem A",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "The completed second-order form is about T1^2/2 plus a small correlated correction, so its sign is a first-order margin statement: it penalises the size of the prime sum, a deletion product passes more easily than zeta, and zeta's own partial sums fail at theta' = 0.95. My registered decisive prediction (zeta fails in the 24-window sample) was wrong, and a first-draft reading of the sector identity was wrong; a brute-force rerun caught the second. REFEREE.md is the author's own pass (zero independent referees).",
+  "verdict": "closed",
+  "note": "round 20, score 0, referee holds: Registered outcome (a), then a post-registration failure of zeta itself: T2 >= 0 is false for zeta's partial sums at theta' = 0.95 on 5 of 1200 windows (ball-certified; three reproduced independently, two at t = 1e8), and true at the same points for the deletion control. T2 = (T1^2 - K^2)/(2 c0) + b"
+ },
+ {
+  "slug": "c20-u6ab-rank2-metaplectic-eigenobject-verdict",
+  "path": "push/c20-u6ab-rank2-metaplectic-eigenobject-verdict",
+  "nodes": [
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  "launchedNodes": [
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  "tags": [
+   "U6a",
+   "U6b",
+   "GL(3)",
+   "GL(4)",
+   "maximal-parabolic",
+   "Eisenstein",
+   "Maass-Selberg",
+   "BLS",
+   "Lemma K"
+  ],
+  "title": "Cells U6 (a), (b): maximal-parabolic Eisenstein objects on GL(3), GL(4) and Hecke-invariant subspaces",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "In rank >= 2 non-Borel objects a zero of zeta only removes one constant-term exponent; the off-resonance series (EIS-w) passes every other step. The first linear non-Borel object that reads zeta in the strip (GL(4), datum f x f) is itself a BLS member, so its positivity carries no zero-location information. Conditions of the form \"unitary iff beta = 1/2\" are identities in the parameter.",
+  "verdict": "closed",
+  "note": "round 20, score 0, referee holds: No candidate device. On O2 (ternary Epstein; PROVED) and O1, O3 (PROVED relative to recalled Langlands-Shahidi formulas and D9 Theorems B, C): zeta at real part in (1/2,1) is read only as a numerator zero of an intertwining ratio or through the pole at 1; no zero-indexed object is square-integrable;"
+ },
+ {
+  "slug": "c20-euler-shape-rigidity-infinite-modified-primes",
+  "path": "push/c20-euler-shape-rigidity-infinite-modified-primes",
+  "nodes": [
+   "exact-relation-rigidity"
+  ],
+  "launchedNodes": [
+   "exact-relation-rigidity"
+  ],
+  "tags": [
+   "identification",
+   "U3",
+   "local-euler-shape",
+   "pole-clause",
+   "pre-filter",
+   "functional-equation",
+   "bohr-spectrum",
+   "Q-inf"
+  ],
+  "title": "Pre-filter: Euler-shape rigidity with infinitely many modified primes (Theorem A: FE + relative product convergent up to the line => zeta)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "In the functional-equation class, local Euler shape at infinitely many primes acts only through boundedness of zeta/G (or G/zeta) on Re s >= 1/2. Where the relative Euler product converges up to the line, G = zeta by reflection and Liouville (equivalently one-sided Bohr spectrum), without multiplicativity and over any base including DH. Bohr's inequality (recalled, not opened) shows the method covers exactly the summable class. A twin with local Euler shape and an off-line zero of its own must have sum |1-a(p)| p^-sigma divergent for some sigma > 1/2: R4 in relative form. REFEREE.md is the author's adversarial pass, not an independent referee; server not used (the first test was on paper).",
+  "verdict": "partial",
+  "note": "round 20, score 0, referee holds: Identification only (class U3), no statement about zeros. Theorem A: an Euler product G with zeta's functional equation and zeta/G converging uniformly on Re s >= 1/2 (degree-one geometric factors: sum |1-alpha_p| p^(-1/2) finite) is zeta, by reflection and Liouville; the proof uses no multiplicativ"
+ },
+ {
+  "slug": "c20-statement-o-line2-dh-pick-kernel-certified-server",
+  "path": "push/c20-statement-o-line2-dh-pick-kernel-certified-server",
+  "nodes": [
+   "finite-pick-stages"
+  ],
+  "launchedNodes": [
+   "finite-pick-stages"
+  ],
+  "tags": [
+   "certified-conversion",
+   "statement-o-line-2",
+   "davenport-heilbronn",
+   "pick",
+   "control"
+  ],
+  "title": "Server run: DH kernel certificate rerun, DH Pick-order certificate to 256, Theorem C (products of DH with on-line Dirichlet polynomials pass any finite order on bounded node ranges)",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Pick kernels add under products, so multiplying a control by Dirichlet polynomials with on-line zeros only delays its failure (149 to 210 with one factor, none to 256 with four distinct q). Powers of one factor barely help (221 at the 4096th power): new zero ordinates matter, not multiplicity. \"DH passes orders 2 to 148\" is certified only on the configurations run, not over all node sets; every configuration run here gave the same negative pivots. REFEREE.md is a same-agent second pass and counts as 0 referees.",
+  "verdict": "partial",
+  "note": "round 20, score 0, referee holds: Control statement, not an attack. Certified: DH theta kernel positive, strictly log-concave, u L'' - L' < 0 (0 uncertified subintervals); DH Pick forms positive definite to order 148 and indefinite at 149 on the configurations run (negative pivots to 256: 149, 150, 218, 219), per configuration, not "
+ },
+ {
+  "slug": "c20-statement-o-line4-heat-zero-enclosures-server",
+  "path": "push/c20-statement-o-line4-heat-zero-enclosures-server",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "compute",
+   "certified-conversion",
+   "statement-o",
+   "line-4",
+   "line-12",
+   "line-14",
+   "line-15",
+   "controls"
+  ],
+  "title": "Server run: Arb enclosures of off-axis zeros of the backward-heat family, SG and NR-q zeros, and exact stage pole counts",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "A rigorous enclosure of the Gaussian-convolved xi at heights 1e3 to 1e11 runs in seconds to minutes once the kernel integral is a trapezoid sum with shared zeta samples on a line Re s > 1 and the tail bound keeps the gamma factor's decay e^{-pi t/8}. Adaptive ball quadrature with a constant bound for xi did not finish one evaluation. Mean-value segment enclosures removed the cost of cancellation in the sum.",
+  "verdict": "partial",
+  "note": "round 20, score 0, referee holds: Certified conversion of control records, not an attack. Six off-axis zeros of H_{-tau} (tau = 1, 0.25 twice, 0.2, 0.15, 0.1) enclosed with winding number 1 (zeta's H_0 gives 0 on the same squares); SG real zero at 1/2 + b (b = 0.3, 0.4); NR-q zero at c = 2.1, 2.05; exact pole counts for zeta phases "
+ },
+ {
+  "slug": "c20-referee-theorem-d-headline-and-r19",
+  "path": "push/c20-referee-theorem-d-headline-and-r19",
+  "nodes": [
+   "out-c1-leeyang-krein-limit"
+  ],
+  "launchedNodes": [],
+  "tags": [
+   "referee",
+   "repair",
+   "theorem-d",
+   "headline",
+   "r1-flag",
+   "controls",
+   "round-19"
+  ],
+  "title": "Second referee of Theorem D of c1-leeyang-krein-limit (headline lane) and of six round-19 lanes",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Zero-free finite stages are not an arithmetic property: the exponential of a truncated log series is zero-free for any Dirichlet series with a_1 = 1. A flag 'multiplicativity essential' needs a non-multiplicative control that fails the named step and no multiplicative control that fails it. Referee checks need exact arithmetic and complete zero lists: two faults in my own first script (float coefficients, 56 of 768 zeros missed) produced false failures before correction.",
+  "verdict": "partial",
+  "note": "round 20, score 0, referee holds: Referee lane, no attack. Theorem D holds with four wording corrections and is an equivalence with its target (restatement under METRIC A). Its R1 flag is not confirmed: Lemma E, exponential stages of any Dirichlet series with a_1 = 1, |a_n| <= 1 are entire, zero-free and converge on Re s >= 2, so ze"
+ },
+ {
+  "slug": "c20-repair-owed-record-r19-statement-o-v5",
+  "path": "push/c20-repair-owed-record-r19-statement-o-v5",
+  "nodes": [],
+  "launchedNodes": [],
+  "tags": [
+   "repair",
+   "record",
+   "map-rows",
+   "control-codes",
+   "statement-o",
+   "checkpoint-decision-sheet",
+   "corrections"
+  ],
+  "title": "Record repair: owed list of round 19 (map 215 -> 217 rows, control codes HQ2/HQ3/HQ4), Statement O version 5, checkpoint decision sheet",
+  "refereeHolds": true,
+  "aboutZeros": false,
+  "lesson": "Checking each second referee file against the closing step of its Statement O line gave four relabels, not the five expected from file names: NR-q is not covered, and the reflection-translate clause of line 17 holds only in a form its own referee had corrected. New control codes reach the generator only through the \"Defeated by\" cells of map rows (581 scored candidates now name HQ2/HQ3/HQ4 in a row verdict); no score or ranking changed. The round log's \"four refereed lanes\" for the band device is not supported by the files named (three).",
+  "verdict": "partial",
+  "note": "round 20, score 0, referee holds: Record lane, no attack. Map 217 rows (X2, G45) plus control rows HQ3, HQ4; no device or cell state changed (55/1/0; 6/1/4); Statement O v5 relabels lines 13, 14, 16, 17 PROVED in restricted forms, line 15 (NR-q) stays ARGUED because its second referee file does not cover the construction; the decisi"
  }
 ]

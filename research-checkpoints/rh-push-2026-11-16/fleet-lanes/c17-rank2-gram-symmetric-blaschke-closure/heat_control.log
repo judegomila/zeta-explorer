@@ -1,0 +1,7 @@
+t 0 off-line zeros found (Re > 1/2, 0 < Im < 70): []
+t -1 off-line zeros found (Re > 1/2, 0 < Im < 70): []
+t -5 off-line zeros found (Re > 1/2, 0 < Im < 70): [['1.24465044955', '33.4776736987'], ['1.22470461589', '43.6966719394'], ['1.96403308716', '51.00077564']]
+t -10 off-line zeros found (Re > 1/2, 0 < Im < 70): []
+tasks 2880 workers 6
+totals [count, negative] per t: {'-10': [720, 30], '-5': [720, 130], '-1': [720, 0], '0': [720, 0]}
+DONE

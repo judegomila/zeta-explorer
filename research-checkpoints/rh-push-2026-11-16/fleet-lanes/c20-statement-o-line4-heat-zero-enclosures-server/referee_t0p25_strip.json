@@ -1,0 +1,18 @@
+{
+ "file": "out_t0p25_strip_A_p128.json",
+ "nodes": 401,
+ "dps": 30,
+ "centre_value_mpmath": [
+  "-1.137136022441533159026064e-11",
+  "-4.776488675689813885248597e-12"
+ ],
+ "centre_value_ball_mid": [
+  "-1.137136022440474101e-11",
+  "-4.776488675685367389e-12"
+ ],
+ "centre_rel_diff": "9.3127e-13",
+ "winding_16_samples": "1.0",
+ "max_phase_step": "0.515348",
+ "abs_F_at_newton_root": "2.5555e-27",
+ "abs_F_at_centre": "1.2334e-11"
+}

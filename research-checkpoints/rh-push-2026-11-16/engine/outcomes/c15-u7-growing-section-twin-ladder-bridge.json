@@ -39,7 +39,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "All PROVED steps re-derived and confirmed (Lemma 1 Fejer and sharp by residues; Lemma 2; Theorem 1 (a),(b); Lemma 3; Proposition 4 with unspecified constant; unconditional range; Gaussian variance u^2/24). No step assumes RH; conditional statements carry their hypothesis. Corrections, none changing the verdict or a flag: E1 T-NR is misdescribed: the map's T-NR has abs(c) > 2 and multiplicative coefficients; the result uses 0 < c <= 2 and says \"no Euler product\", so its R1 argument via T-NR does  - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "A tapered section makes the limit step sound (the positive-real class is closed and Harnack gives compactness), which moves the whole target into the stage inequality at unbounded P. Tying P to t^theta only weakens the target to (argued) a neighbourhood of the line of width c/(theta log t). Band-by-band square-root bounds do not separate zeta from random sign chains; the one-sided sum over all bands does, and that is the Weil form.",
@@ -52,5 +52,11 @@
   "bridge-scattering-factorisation",
   "fejer-tapered-section"
  ],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-u7-growing-section-twin-ladder-bridge.md"
+ }
 }

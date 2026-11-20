@@ -1,0 +1,39 @@
+{
+ "slug": "c15-repair-record-strategy-v4-report",
+ "round": 15,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "repair",
+  "obstruction-map",
+  "engine",
+  "strategy",
+  "checkpoint",
+  "report"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; no attack, nothing about zeros of zeta, R4 not addressed; RH open. The following were confirmed with separate code.\n\n- **Map:** 198 -> 202 labelled rows (G37 to G40 added, none removed, no duplicate label). Running apply_map.py on the before/ copy reproduces the live map byte for byte. 11 old lines changed, and every insertion is one of the 13 restrictions of c14-referee-r13-independent, a second-referee note or the G26 pointer. All 13 restrictions are present in the stated rows and notes.\n- **Notes:** NR-vec is correct as written (coefficient indicator re-derived). Sentence E1 is correctly marked NOT HOLDING (counter-example at a = 1/4 re-derived by hand).\n- **Engine:** CONTROL_CODE_RE differs in one line. The graph gains 5 nodes (ctl-NR-vec, row-G37 to row-G40) and 18 control-defeats edges (17 into the new rows, 1 ctl-BLS -> row-D9); no edge is removed. Devices are 50 closed / 1 floored; pending is 8, with RS-1 to RS-3 replaced by U3, U6 (e)-(g), U8.\n- **Outcomes:** outcomes.json, the 132 outcome files and closed_families.json are sha256-identical to the before/ copies.\n- **Scoreboard:** parts A, B and D are equal field by field before and after the edits (headline 1 of 4, hold rate 110 of 122 = 90.2%). Part C moves as attributed. The live file differs only by the lane's own line.\n- **STRATEGY v4:** the section 0a table is reproduced from lanes.jsonl; the v3 copy and the directive section are intact.\n- **Copied mathematics spot-checked:**\n  - abs(zeta(1 + i pi/ln 2)) = 0.729512; new cases k = 3 and k = 5 give 0.4587 and 1.0788.\n  - Lemma Q ratio is 0.9998979 at n = 9973, theta = 0.499; new case n = 104729 gives 0.9999902.\n  - The pole difference equals 1 for every beta.\n  - The Montgomery exponents match at sigma = 4/5.\n  - The constant term of E*(z, rho/2) and the T-NR threshold c = 2 agree with the rows.\n\nNo RH assumption, no restated verified height, no known theorem presented as new. Wording corrections E1 to E4 are owed in the report and STRATEGY.",
+ "obstruction": "Record lane, no attack; R4 not addressed. Map 198 -> 202 rows (G37 to G40), control NR-vec, sentence E1 of c14 lane 5 marked NOT HOLDING, 13 label restrictions applied; engine 50 closed / 1 floored / 0 open device types, pending RS-1..3 replaced by U3, U6 (e)-(g), U8; STRATEGY version 4; CAMPAIGN_REPORT_R15.md (obstruction record plus part-B figure 0.8748866470 relative to unrefereed manuscripts; headline 1 of 4; RH open). Owed: wording corrections E1 to E4 in the report and STRATEGY (E1: 'no control on file has zeta's own functional equation' is false as written), independent referee of rows G37 to G40, map row for dictionary DJ.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "The lane holds as a record lane; four wording corrections are owed in files it wrote, and none changes a count, a row label or the decisive check.\n\nE1. CAMPAIGN_REPORT_R15.md section 2.4 says \"no control on file has zeta's own functional equation, so requirement R3 cannot be tested there with the control table\". This is false as written. Map section 2 row NR lists for T-NR \"zeta's gamma factor and field-level functional equation\": xi(s)(2cosh((s-1/2)log q)+c) is symmetric under s <-> 1-s. HEAT k - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Rerun the engine and scoreboard before editing: the scoreboard on file lagged the graph, and a no-edit baseline moved part C (families 79,003 -> 89,253) before any change of this lane. A control code added to the builder's regex creates an edge from any cell that prints it (passes, fails or not run); NR-vec had to precede NR to avoid being read as T-NR. Another process appended a \"Directive from the user\" section to STRATEGY.md mid-lane; it was kept byte-identical and not acted on.",
+ "followUp": "Independent referee of rows G37-G40 and of the restriction wording (the lane's own referee is same-agent); then update STRATEGY 4.0 and pending entries U3/U6/U8 from the checkpoint referee's ruling. Also owed: map row for dictionary DJ (c14 lane 1), E1 repair, and planner reconciliation of v4 lane counts with the appended directive section.",
+ "resultFile": "tmp/research-2026-11-16/push/c15-repair-record-strategy-v4-report/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c15-repair-record-strategy-v4-report/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

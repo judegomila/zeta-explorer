@@ -1,0 +1,6 @@
+planned per case: 686 x 686 acb at 512 bits, about 0.1 GB; cases 4
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "a": 0.24, "H": 30.0, "n_zeta_pairs": 115, "n_lattice_pairs_removed": 115, "N": 460, "pos": 231, "neg": 229, "posK": 230, "negT": 1, "verdict": "fail", "max_imag_sample": 0.0, "sec": 70.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "a": 0.2, "H": 30.0, "n_zeta_pairs": 115, "n_lattice_pairs_removed": 115, "N": 460, "pos": 230, "neg": 230, "posK": 230, "negT": 0, "verdict": "pass", "max_imag_sample": 0.0, "sec": 72.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "a": 0.3, "H": 30.0, "n_zeta_pairs": 115, "n_lattice_pairs_removed": 115, "N": 460, "pos": 236, "neg": 224, "posK": 230, "negT": 6, "verdict": "fail", "max_imag_sample": 0.0, "sec": 81.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "a": 0.22, "H": 30.0, "n_zeta_pairs": 115, "n_lattice_pairs_removed": 115, "N": 460, "pos": 230, "neg": 230, "posK": 230, "negT": 0, "verdict": "pass", "max_imag_sample": 6.328611968917799e-154, "sec": 83.9}
+done

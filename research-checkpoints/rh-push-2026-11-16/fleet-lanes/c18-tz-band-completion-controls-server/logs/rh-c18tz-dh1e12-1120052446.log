@@ -1,0 +1,5 @@
+boundaries: 2 3981072 63095734
+planned: moments 6037120 doubles = 0.048 GB; cells 9433; objects 1; windows 40
+planned: DH coefficient array 0.800 GB
+DH check: sum c(n) n^-3 (n <= 100000000) = -0.00141876726662426 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 198.9 s; sabs[0]=151731

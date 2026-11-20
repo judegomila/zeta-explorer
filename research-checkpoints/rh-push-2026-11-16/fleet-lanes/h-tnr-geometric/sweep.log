@@ -6,42 +6,42 @@
 {"label": "NR:3.0", "N": 48, "dps": 700, "fam": "lin", "first_negative_order": 3, "pivots": ["0.521839", "0.0024198", "-6.35924e-5", "-6.23514e-6", "7.43813e-7", "5.63936e-9", "7.53794e-11", "5.98052e-13", "-3.25232e-15", "-3.41168e-16", "1.69943e-16", "4.27489e-19", "4.68852e-21", "4.02902e-23", "1.01355e-25", "-1.94846e-26", "-2.25914e-27", "1.62795e-29", "1.74336e-31", "3.57925e-33", "1.55319e-34", "6.60119e-36", "1.3195e-37", "7.27556e-40", "-8.1211e-41", "-9.19593e-42", "1.68265e-43", "1.68767e-45", "2.56366e-47", "6.50945e-49", "2.79546e-50", "8.97992e-52", "1.2319e-53", "-6.93116e-56", "-7.85825e-57", "6.2062e-57", "1.43659e-59", "2.81173e-61", "1.17956e-62", "5.55214e-64", "1.58206e-65", "3.03338e-67", "6.44177e-69", "2.0716e-70", "8.08179e-72", "2.19927e-73", "4.09831e-75", "7.26908e-77"], "secs": 19.28420877456665}
 {"label": "NR:-1.0", "N": 48, "dps": 700, "fam": "lin", "first_negative_order": null, "pivots": ["1.83357", "0.061033", "0.0016057", "1.90835e-5", "2.89137e-7", "3.65371e-9", "7.33081e-11", "1.74731e-12", "3.91115e-14", "6.16215e-16", "9.89521e-18", "1.67176e-19", "3.2299e-21", "6.08168e-23", "1.26239e-24", "2.77267e-26", "6.44892e-28", "1.48081e-29", "3.83937e-31", "1.01393e-32", "2.4804e-34", "5.65722e-36", "1.49455e-37", "4.27411e-39", "1.15803e-40", "2.81696e-42", "6.8758e-44", "1.5934e-45", "3.52911e-47", "7.87919e-49", "2.02873e-50", "5.8487e-52", "1.80981e-53", "5.47751e-55", "1.56034e-56", "4.21096e-58", "1.25151e-59", "4.06526e-61", "1.28941e-62", "3.88528e-64", "1.26759e-65", "4.17326e-67", "1.22598e-68", "3.21144e-70", "8.39485e-72", "2.20086e-73", "6.02491e-75", "1.80371e-76"], "secs": 19.606141090393066}
 Traceback (most recent call last):
-  File "/home/USER/rh-push/h-tnr-geometric/pivots.py", line 11, in <module>
+  File "~/rh-push/h-tnr-geometric/pivots.py", line 11, in <module>
     Ls = [mp.re(L(x)) for x in xs]
                 ^^^^
-  File "/home/USER/rh-push/h-tnr-geometric/common.py", line 27, in <lambda>
+  File "~/rh-push/h-tnr-geometric/common.py", line 27, in <lambda>
     return (lambda z: xi(half()+z+a)*xi(half()+z-a)), (lambda z: Lxi(half()+z+a)+Lxi(half()+z-a))
                                                                                  ^^^^^^^^^^^^^^^
-  File "/home/USER/rh-push/h-tnr-geometric/common.py", line 7, in Lxi
+  File "~/rh-push/h-tnr-geometric/common.py", line 7, in Lxi
     return 1/s + 1/(s-1) - mp.log(mp.pi)/2 + mp.digamma(s/2)/2 + mp.zeta(s, derivative=1)/mp.zeta(s)
                  ~^^~~~~
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 308, in __rtruediv__
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 308, in __rtruediv__
     return other / self
            ~~~~~~^~~~~~
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 286, in __truediv__
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 286, in __truediv__
     val = mpf_div(sval, oval, prec, rounding)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/libmp/libmpf.py", line 844, in mpf_div
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/libmp/libmpf.py", line 844, in mpf_div
     raise ZeroDivisionError
 ZeroDivisionError
 {"label": "NR:2.001", "N": 48, "dps": 700, "fam": "lin", "first_negative_order": 6, "pivots": ["0.628585", "0.00594603", "6.43035e-5", "3.88604e-7", "2.57866e-9", "-1.08335e-10", "-1.1957e-11", "1.54854e-12", "1.12566e-14", "9.72743e-17", "8.06292e-19", "4.41139e-21", "-1.11115e-22", "-1.23401e-23", "8.8907e-25", "5.21165e-27", "5.58097e-29", "8.90562e-31", "2.84708e-32", "1.03413e-33", "2.31374e-35", "3.52084e-37", "5.95379e-39", "1.30339e-40", "2.91206e-42", "1.82075e-44", "-7.29998e-45", "-8.57697e-46", "1.95351e-47", "2.24083e-49", "3.53202e-51", "7.43208e-53", "1.92104e-54", "3.56026e-56", "-7.18745e-58", "-7.51576e-59", "6.00134e-59", "2.89301e-61", "5.74448e-63", "1.38675e-64", "3.55997e-66", "8.11289e-68", "1.597e-69", "3.0793e-71", "7.4137e-73", "1.94558e-74", "1.24862e-76", "-1.05765e-76"], "secs": 20.446075916290283}
 Traceback (most recent call last):
-  File "/home/USER/rh-push/h-tnr-geometric/pivots.py", line 11, in <module>
+  File "~/rh-push/h-tnr-geometric/pivots.py", line 11, in <module>
     Ls = [mp.re(L(x)) for x in xs]
                 ^^^^
-  File "/home/USER/rh-push/h-tnr-geometric/common.py", line 27, in <lambda>
+  File "~/rh-push/h-tnr-geometric/common.py", line 27, in <lambda>
     return (lambda z: xi(half()+z+a)*xi(half()+z-a)), (lambda z: Lxi(half()+z+a)+Lxi(half()+z-a))
                                                                                  ^^^^^^^^^^^^^^^
-  File "/home/USER/rh-push/h-tnr-geometric/common.py", line 7, in Lxi
+  File "~/rh-push/h-tnr-geometric/common.py", line 7, in Lxi
     return 1/s + 1/(s-1) - mp.log(mp.pi)/2 + mp.digamma(s/2)/2 + mp.zeta(s, derivative=1)/mp.zeta(s)
                  ~^^~~~~
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 308, in __rtruediv__
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 308, in __rtruediv__
     return other / self
            ~~~~~~^~~~~~
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 286, in __truediv__
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/ctx_mp_python.py", line 286, in __truediv__
     val = mpf_div(sval, oval, prec, rounding)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/mpmath/libmp/libmpf.py", line 844, in mpf_div
+  File "~/rh-push/venv/lib/python3.12/site-packages/mpmath/libmp/libmpf.py", line 844, in mpf_div
     raise ZeroDivisionError
 ZeroDivisionError
 {"label": "NR:2.2:11", "N": 48, "dps": 700, "fam": "lin", "first_negative_order": 4, "pivots": ["2.43602", "0.0623414", "0.00135839", "-8.48437e-6", "1.55146e-5", "-3.79572e-7", "4.24286e-8", "7.11528e-10", "1.71605e-11", "3.13994e-13", "-5.13335e-15", "1.12077e-15", "-3.95766e-16", "5.85694e-18", "1.31379e-19", "3.181e-21", "5.22155e-23", "-3.20326e-24", "-1.22303e-25", "1.49287e-25", "9.73267e-28", "2.38521e-29", "6.11982e-31", "7.75579e-33", "-1.33488e-33", "-7.3249e-35", "1.51251e-35", "1.9252e-37", "4.71745e-39", "1.05627e-40", "5.11316e-43", "-9.14717e-43", "-3.43122e-44", "1.89882e-45", "3.49434e-47", "8.67746e-49", "2.23756e-50", "6.08839e-52", "2.05168e-53", "1.12162e-54", "8.60465e-56", "5.07965e-57", "-1.08518e-59", "2.23459e-58", "-4.62069e-60", "1.13651e-61", "2.2628e-63", "5.08607e-65"], "secs": 18.130117893218994}

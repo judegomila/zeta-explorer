@@ -1,0 +1,8 @@
+n 4 formula == direct True rank 6 inertia Gram (2, 4) inertia H (2, 4)
+n 4 formula == direct True rank 6 inertia Gram (6, 0) inertia H (6, 0)
+n 4 formula == direct True rank 6 inertia Gram (2, 4) inertia H (2, 4)
+n 5 formula == direct True rank 10 inertia Gram (6, 4) inertia H (6, 4)
+n 5 formula == direct True rank 10 inertia Gram (7, 3) inertia H (7, 3)
+n 5 formula == direct True rank 10 inertia Gram (10, 0) inertia H (10, 0)
+n 5 formula == direct True rank 10 inertia Gram (9, 1) inertia H (9, 1)
+cases 28 formula mismatches 0 inertia mismatches 0

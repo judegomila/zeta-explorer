@@ -1,0 +1,1913 @@
+{
+ "zeros": {
+  "0": [],
+  "-1": [],
+  "-5": [
+   [
+    "1.24465044955",
+    "33.4776736987"
+   ],
+   [
+    "1.22470461589",
+    "43.6966719394"
+   ],
+   [
+    "1.96403308716",
+    "51.00077564"
+   ]
+  ],
+  "-10": []
+ },
+ "cells": [
+  {
+   "t": -10,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 5,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 5,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.8301000937873115
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 4,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.3527021621022639
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.017705288369339024
+  },
+  {
+   "t": -10,
+   "family": "high",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "low",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.16663484861193556
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.40869342934973785
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 3,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.5462831864545423
+  },
+  {
+   "t": -10,
+   "family": "special",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -1.441064006111479
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 2,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.671693329197347
+  },
+  {
+   "t": -5,
+   "family": "high",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 1,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.7165373269813416
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "low",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 9,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 9,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 18,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 14,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 7,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 12,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": -0.13985589843528445
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 11,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 9,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 9,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 8,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 8,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -5,
+   "family": "special",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 8,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": 0.0
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "high",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "low",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": -1,
+   "family": "special",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "high",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "low",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0,
+    0
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 1,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 1,
+   "T": [
+    1,
+    1
+   ],
+   "count": 40,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0,
+    0
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 2,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 2,
+   "T": [
+    1,
+    1
+   ],
+   "count": 20,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0,
+    0
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 4,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 4,
+   "T": [
+    1,
+    1
+   ],
+   "count": 12,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0,
+    0
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 8,
+   "T": [
+    0.3,
+    0.3
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  },
+  {
+   "t": 0,
+   "family": "special",
+   "n": 8,
+   "T": [
+    1,
+    1
+   ],
+   "count": 8,
+   "negative": 0,
+   "undecided": 0,
+   "largest_log10_negpiv_rel": null
+  }
+ ],
+ "totals": {
+  "-10": [
+   720,
+   30
+  ],
+  "-5": [
+   720,
+   130
+  ],
+  "-1": [
+   720,
+   0
+  ],
+  "0": [
+   720,
+   0
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "zeta": {
+  "lhs": 0.0625,
+  "rhs": 0.0625
+ },
+ "ZQ": {
+  "r=m(1)": 1.0818256621364768,
+  "lhs_atoms": 0.0625,
+  "lhs_density": 0.005114103883529962,
+  "rhs": 0.0676141038835298,
+  "partial_fraction_check": 5.551115123125783e-17,
+  "defect": 1.6653345369377348e-16
+ },
+ "G_plus": {
+  "r=m(1)": 2168668.8435907336,
+  "lhs_atoms": 0.0625,
+  "lhs_density": 5.366012103904669,
+  "rhs": 135541.80272442085,
+  "defect": -135536.37421231694,
+  "partial_fraction_check": 4.729372449219227e-11,
+  "note": "lhs >= 0 termwise (N >= 0); defect != 0 = residue terms of the poles at 1/2 +- b in the theta relation"
+ },
+ "TNR_q3": {
+  "lhs_with_mass_below_1": 0.7287658773659146,
+  "rhs": 0.7287658773652741,
+  "defect": 6.404876629062528e-13,
+  "mass_term_below_1": 0.10825317547651925,
+  "sum_fhat_dN": 0.31509074277046123,
+  "r_var_over_2": 0.20683756729740643,
+  "note": "identity (T) fails by exactly the mass term below 1: support clause"
+ }
+}

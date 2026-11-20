@@ -1,12 +1,12 @@
 # Campaign scoreboard
 
-Generated 2026-11-19T21:04Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
+Generated 2026-11-20T09:58Z by scoreboard.py. Definitions: METRIC.md. Four parts, reported separately; there is no combined number.
 
 ## A. Requirement score (referee-confirmed R1..R4)
 
-Headline (best mechanism that is not the 7/8 architecture): **1 of 4** (`c1-leeyang-krein-limit`); missing: R2, R3, R4.
+Headline (best mechanism that is not the 7/8 architecture): **1 of 4** (`c4-helson-discrepancy-zerofree`); missing: R2, R3, R4.
 Lanes with R4 confirmed: none.
-Lanes by score 0/1/2/3/4: 128 / 2 / 0 / 0 / 0.
+Lanes by score 0/1/2/3/4: 179 / 1 / 0 / 0 / 0.
 
 Calibration:
 
@@ -27,35 +27,40 @@ Calibration:
 ## C. Search coverage
 
 - Graph source: IDEA_GRAPH.json
-- Nodes: 1701 (marked closed in graph: 576); tags: 462
-- Combination families (tag pairs): 106491; closed: 3618; tried, not closed: 610; open and untried: 102263
-- Outcome records read: 140 (files unparsed: 0)
-- Open lemmas decided this campaign: 107
+- Nodes: 1756 (marked closed in graph: 611); tags: 528
+- Combination families (tag pairs): 139128; closed: 4157; tried, not closed: 1351; open and untried: 133620
+- Outcome records read: 220 (files unparsed: 0)
+- Open lemmas decided this campaign: 155
 
 ## D. Reliability
 
-- Lanes run: 130 (refereed: 130; unparsed lines: 0)
-- Referee hold rate: 90.8%
-- PROVED claims broken by referees: 11
-- Statements with three-referee confirmation: 1 (about zeros of zeta: 0)
+- Lanes run: 180 (refereed: 170; unparsed lines: 0)
+- Referee hold rate: 91.8%
+- PROVED claims broken by referees: 16
+- Statements with three-referee confirmation: 2 (about zeros of zeta: 0)
 - Claims about zeros not yet counted (fewer than three referees hold): none
 
 ## History by round (cumulative)
 
 | round | lanes (round) | lanes (cum) | best score | best lane | missing | hold rate | PROVED broken | 3-referee | lemmas decided |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | 18 | 18 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 83% | 3 | 0 | 2 |
-| 2 | 8 | 26 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 85% | 3 | 0 | 2 |
-| 3 | 8 | 34 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 4 | 0 | 4 |
-| 4 | 8 | 42 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 90% | 4 | 0 | 5 |
-| 5 | 8 | 50 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 5 | 0 | 9 |
-| 6 | 8 | 58 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 86% | 7 | 0 | 16 |
-| 7 | 8 | 66 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 7 | 0 | 23 |
-| 8 | 8 | 74 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 86% | 8 | 1 | 30 |
-| 9 | 8 | 82 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 9 | 1 | 37 |
-| 10 | 8 | 90 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 88% | 10 | 1 | 43 |
-| 11 | 8 | 98 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 89% | 10 | 1 | 53 |
-| 12 | 8 | 106 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 90% | 10 | 1 | 61 |
-| 13 | 8 | 114 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 90% | 10 | 1 | 75 |
-| 14 | 8 | 122 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 90% | 11 | 1 | 92 |
-| 15 | 8 | 130 | 1 | c1-leeyang-krein-limit | R2,R3,R4 | 91% | 11 | 1 | 107 |
+| 1 | 18 | 18 | 0 | - | R1,R2,R3,R4 | 83% | 3 | 0 | 2 |
+| 2 | 8 | 26 | 0 | - | R1,R2,R3,R4 | 85% | 3 | 0 | 2 |
+| 3 | 8 | 34 | 0 | - | R1,R2,R3,R4 | 88% | 4 | 0 | 4 |
+| 4 | 8 | 42 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 90% | 4 | 0 | 5 |
+| 5 | 8 | 50 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 88% | 5 | 0 | 9 |
+| 6 | 8 | 58 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 86% | 7 | 0 | 16 |
+| 7 | 8 | 66 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 88% | 7 | 0 | 23 |
+| 8 | 8 | 74 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 86% | 8 | 1 | 30 |
+| 9 | 8 | 82 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 88% | 9 | 1 | 37 |
+| 10 | 8 | 90 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 88% | 10 | 1 | 43 |
+| 11 | 8 | 98 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 89% | 10 | 1 | 53 |
+| 12 | 8 | 106 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 90% | 10 | 1 | 61 |
+| 13 | 8 | 114 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 90% | 10 | 1 | 75 |
+| 14 | 8 | 122 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 90% | 11 | 1 | 92 |
+| 15 | 18 | 140 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 91% | 11 | 1 | 107 |
+| 16 | 8 | 148 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 91% | 11 | 2 | 125 |
+| 17 | 8 | 156 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 92% | 11 | 2 | 132 |
+| 18 | 8 | 164 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 92% | 14 | 2 | 136 |
+| 19 | 8 | 172 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 91% | 16 | 2 | 140 |
+| 20 | 8 | 180 | 1 | c4-helson-discrepancy-zerofree | R2,R3,R4 | 92% | 16 | 2 | 155 |

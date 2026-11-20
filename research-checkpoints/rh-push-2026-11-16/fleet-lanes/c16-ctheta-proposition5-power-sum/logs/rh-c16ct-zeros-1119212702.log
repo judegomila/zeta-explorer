@@ -1,0 +1,8 @@
+planned grid points 45002 terms 398
+planned grid points 45002 terms 1261
+planned grid points 45002 terms 3989
+planned grid points 45002 terms 12615
+T 1000000.0 count 342 expected 343.13 spot diff 3.621680662035942e-07
+T 10000000.0 count 410 expected 409.1 spot diff 1.862645149230957e-08
+T 100000000.0 count 476 expected 475.06 spot diff 1.4901161193847656e-08
+T 1000000000.0 count 541 expected 541.03 spot diff 1.1920928955078125e-07

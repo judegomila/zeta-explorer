@@ -1,6 +1,6 @@
 {
   "checkpoint": "theta-propagation-2026-11-08",
-  "repository": "judegomila/mathexplorer",
+  "repository": "[user]/mathexplorer",
   "base_commit": "942ba1760c4ef54a519750ab91c37a661c31e0ce",
   "previous_checkpoint_commit": "69d4049f289217812051188378a0a9f3f061a169",
   "previous_pull_request": 43,

@@ -37,7 +37,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "Six corrections, none changing the verdict. E1: the E_a0 control is worded as \"all 2N(T) zeros at distance a0\", which presupposes RH; the unconditional bound sum >= 2N(T) T^(2A a0) follows by AM-GM on the offsets e+a0, e-a0, so the failure stands. E2: \"the section-6 inequality uses no property of F beyond analyticity\" / \"theorem for any analytic F\" is false; identity K0 needs the reflection symmetry F(1-conj s)=conj F(s) (referee run: non-symmetric quadratic gives lhs 0.868 vs rhs 1.12; symmetri - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "A zero sum weighted by T^(c d) with c > 1 is a pointwise statement above abscissa 1/c: let T go to infinity to read off the strip before typing it as a density statement. A window certificate requiring R <= pi/(4M) cannot be sign-definite at height when M >= c log t. Scripts must write output next to themselves: my first run used a relative path and overwrote an untracked repo-root checks.json left by another lane (not recoverable; recorded in RESULT section 9).",
@@ -50,5 +50,11 @@
   "wiener-hopf-phase-condition",
   "thin-hankel-schur-equivalence"
  ],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-klein-transport-lemma-w-stage-a-and-e1.md"
+ }
 }

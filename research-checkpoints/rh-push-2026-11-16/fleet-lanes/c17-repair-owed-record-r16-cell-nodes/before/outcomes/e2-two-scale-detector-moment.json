@@ -1,0 +1,58 @@
+{
+ "slug": "e2-two-scale-detector-moment",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "7/8 mechanism: joint detector scales and a class-restricted fourth moment",
+ "nodes": [
+  "map-open-13",
+  "target-0874-restricted-moment",
+  "mobius-packet-energy-target"
+ ],
+ "launchedNodes": [
+  "map-open-13",
+  "target-0874-restricted-moment",
+  "map-pos-34",
+  "mobius-packet-energy-target"
+ ],
+ "rowsChecked": [
+  "Z10",
+  "Z12",
+  "Z17"
+ ],
+ "tags": [
+  "seven-eighths",
+  "restricted-fourth-moment",
+  "two-scale-detector",
+  "saddle-pair",
+  "not-family-specific"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Relative to the unrefereed sources; no abscissa moved. For the estimate system C1-C3: a restricted-moment saving that excludes block m* = 0.4183 lowers the critical-class exponent by at most 1.13e-4. (H) at block m* implies a count saving U^-omega on rows whose plain witness is that block (one direction). A detector factor attached by Chebyshev to the central fourth moment needs more than 53% of the distance from large-sieve level to Lindelof-on-average; the two-scale bilinear form 48-49%; the one-scale mixed moment exactly 1/6. PROVED-rel: with the detector at t = 1, all but U^(R_c - d) rows of a class carry a plain witness of length in [0.2543 - 4.26d, 0.4183 + 1.37d]. MEASURED on 19,308 independent prime-conductor sextic rows at U = 2^19: source-threshold class empty; rank-defined class omega 0.35-0.38 against 0.41 random class and 0.33-0.37 random multiplicative rows.",
+ "obstruction": "The restricted fourth moment (H) and the two-scale detector are not independent inputs: both reduce to a count saving at the saddle pair (r*, m*), whose cheapest open form is the one-scale below-level mixed moment (N < 1.1366) or (M1+). The binding numerator block is m* = 0.4183, not m = 1/2, so a central-only saving is worth at most 1.13e-4. Lemma 18.1 admits no Moebius-coefficient factor at central length. Finite-U numerics cannot test (H): no zero-carrying rows exist in the sample and true rows match random multiplicative rows. (H), (TS) and the one-scale mixed moment remain open.",
+ "obstructionKind": "reduces-to-sibling-open-item",
+ "controlsThatDefeat": [
+  "random multiplicative rows: same restricted-moment omega (0.33-0.37 against 0.35-0.38)",
+  "random class: omega 0.41 (the statistic is not family-specific)"
+ ],
+ "lesson": "Do not combine (H) with detector scales again; the three items map-open-2, map-open-13 and target-0874-restricted-moment are one item (count saving at (r*, m*)). True rows are exact conjugate duplicates in the sample (halve reported counts).",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.12,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "newNodes": [
+  {
+   "id": "saddle-pair-count-saving-equivalence",
+   "type": "identity",
+   "status": "proved-relative",
+   "statement": "In the estimate system C1-C3 of the 7/8 method, a restricted fourth-moment saving U^-omega at block m* = 0.4183 implies a count saving U^-omega on plain-witness rows; detector-beside-fourth-moment needs > 53%, two-scale 48-49%, one-scale mixed moment 1/6 of the large-sieve-to-Lindelof gap."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-two-scale-detector-moment/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-two-scale-detector-moment/REFEREE.md"
+}

@@ -1,0 +1,4 @@
+boundaries: 0
+planned: moments 865280 doubles = 0.007 GB; cells 52; objects 26; windows 40
+segments 630, base primes 11341
+done in 273.4 s; sabs[0]=11218.4

@@ -1,0 +1,31 @@
+{
+ "slug": "c17-referee-r16-lemma-h-sources",
+ "round": 17,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [],
+ "verdict": "partial-result",
+ "survivingClaim": "Referee lane; no attack; nothing about zeros of zeta. Lemma H holds (two derivations on file plus this re-derivation): under M <= lam, M_tau <= lam for all tau<0 iff lam S >= 0 or M lam <= 0; otherwise exactly for |tau| <= 4|log(lam/M)|/|S|, with S and tau in one variable. Lane ball test 732 decisions, 0 disagree (five sub-cases with S != 0); my independent test on three other kernels (two sign-changing, mixed, non-integer exponents): 3,836 decisions, 0 disagree; lift = Gaussian average confirmed at two further (tau, z) to 20 digits. Stored counts, DN sample figures (585 of 585 T-train, 0 primary, 86 secondary; sampling bound 0.6 per cent), amplifier 1.0e-14 on four T<N cells, constants 0.4805 and 0.2927, ctheta coefficients 2/(1-kappa) and 4/(1-kappa) (arithmetic from the lane's (T)) confirmed. u6g correction, corrected form: residue at 1-a is negative; E_a fails at the pole 1+a through the zero rho-a and at the pole 1-a through the zero rho+a (not through rho-a). Turan 8e form at secondary-source level only. No flag changes; all four flags false.",
+ "obstruction": "Referee lane, no attack. Lemma H holds (third derivation; 732 + 3,836 ball decisions, 0 disagree). Round-16 lanes 1, 3, 4, 5, 6 hold with corrections; no PROVED statement broken. Corrected: u6g E_a row (residue at 1-a negative; E_a fails at the pole 1+a through the zero rho-a and at the pole 1-a through the zero rho+a); ctheta log log coefficients 2/(1-kappa) and 4/(1-kappa); DN 'status in balls 22,508' is float64 status (500 of 500 sampled nodes agree in balls). Not done: Turan's second theorem (8e form) confirmed at secondary-source level only; the Lemma H ball test checks the case analysis, not the identification of the heat lift; nine sentence corrections not applied in lane files.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails; Lemma H re-derived and confirmed. Report: tmp/research-2026-11-16/push/c17-referee-r16-lemma-h-sources/REFEREE.md. Errors found: (E1) The new u6g correction \"E_a row holds through the pole 1+a only\" is false as summarised. The lane tested the pole 1-a only at the zero rho-a. At the other zero family rho+a (A = 1/2+a, 2A > p) the same Lemma R formula with r < 0 gives a negative limit for every T (r<0 mirror of consequence (a)). - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The float64 feasible interval sat inside the ball interval at 500 of 500 sampled DN nodes, so statuses survive but threshold scans should use ball intervals. Check the sign of a residue before applying Lemma R at a second pole. The Lemma H ball test checks the case analysis, not the identification of the heat lift (checked at one point for zeta only).",
+ "followUp": "Lane c17-u8-restricted-search-lemma-h-gated may proceed: tmp/research-2026-11-16/push/c17-referee-r16-lemma-h-sources/REFEREE2-lemma-H.md has first line HOLDS; quote Lemma H with its four hypotheses (real defined monomial, equal tau, no polar terms, M <= lam at tau = 0). Apply the nine sentence corrections listed in RESULT.md section 2.3. Open Montgomery's Ten Lectures chapter 5 to confirm the range of nu in Turan's second theorem.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-referee-r16-lemma-h-sources/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-referee-r16-lemma-h-sources/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

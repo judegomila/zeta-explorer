@@ -1,0 +1,85 @@
+{
+ "slug": "s2-semilocal-local-factor-swap",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "cusp-out-fraction-law",
+  "ds-le-ls-pencil",
+  "mem-retained-trace-pointwise-ratio",
+  "mem-semilocal-prolate-spectrum",
+  "mixed-group-rigid-profile",
+  "mixed-ladder-cubic-tail",
+  "no-modulus-1-rigid-profile",
+  "route-i-cusp-allocation",
+  "route-i-kato-temple",
+  "semilocal-prolate-second-near-unit-eigenvalue",
+  "semilocal-trace-side-positivity"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "semilocal-trace-side-positivity",
+    "mem-semilocal-prolate-spectrum",
+    "semilocal-prolate-second-near-unit-eigenvalue"
+   ],
+   "obstruction": "closed at every size: unitarity of the swapped local multiplier gives the property for every control",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR (identical operator)",
+    "E_a",
+    "DH 2-part"
+   ]
+  },
+  {
+   "nodes": [
+    "route-i-cusp-allocation",
+    "cusp-out-fraction-law"
+   ],
+   "obstruction": "the law is |alpha_p|=1 at each prime separately (temperedness per prime), not an all-primes statement; DH not distinguished from an L-function",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "mixed-group-rigid-profile",
+    "no-modulus-1-rigid-profile",
+    "mixed-ladder-cubic-tail"
+   ],
+   "obstruction": "the no-modulus-1 property holds for every finite S and every local factor; no control can fail",
+   "controlsThatDefeat": [
+    "all controls"
+   ]
+  },
+  {
+   "nodes": [
+    "ds-le-ls-pencil",
+    "mem-retained-trace-pointwise-ratio",
+    "route-i-kato-temple"
+   ],
+   "obstruction": "verified height in another form: admissible box has non-empty interior at every finite support, width = smallest eigenvalue of zeta's form; DH passes to ln 5",
+   "controlsThatDefeat": [
+    "DH"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) closed at every size: unitarity of the swapped local multiplier gives the property for every control | (2) the law is |alpha_p|=1 at each prime separately (temperedness per prime), not an all-primes statement; DH not distinguished from an L-function | (3) the no-modulus-1 property holds for every finite S and every local factor; no control can fail | (4) verified height in another form: admissible box has non-empty interior at every finite support, width = smallest eigenvalue of zeta's form; DH passes to ln 5",
+ "controlsThatDefeat": [
+  "DH",
+  "DH 2-part",
+  "E_a",
+  "T-NR",
+  "T-NR (identical operator)",
+  "all controls",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-semilocal-local-factor-swap/RESULT.md"
+}

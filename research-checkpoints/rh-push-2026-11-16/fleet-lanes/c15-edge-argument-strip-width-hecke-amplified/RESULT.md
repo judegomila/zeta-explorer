@@ -153,7 +153,7 @@ Steps of the device, in order:
 Output: `l <= C (X/gamma)^delta (gamma/2 pi)^delta abs(zeta(1 + delta + i gamma))^2 / delta <= C' gamma^(O(delta)) delta sup abs(zeta')^2`.
 
 S4 in detail (ARGUED). Hecke relations alone do not give a flat lower bound better than `X^(-1/2)`: for the
-completely multiplicative parameters `alpha_p = i p^(-delta/2)` one has `tau(p) = 0`, the coefficient is supported
+completely multiplicative parameters `alpha_p = i p^(-delta/2)` one has `tau(p) = 0`, [Correction entered 2026-11-19 by lane c18-repair-owed-record-r17-open-device-nodes (register campaign/CORRECTIONS_R16.md row 4; second referee push/c16-referee-r15-j1prime-u8-screening): the preceding statement is false as written. Corrected: "for the unimodular parameters alpha_p = i one has tau(p) = 0; for alpha_p = i p^(-delta/2) it is -i (p^(delta/2) - p^(-delta/2))." The verdict line "closed for T >= N; T < N open" now reads: T < N is a measured obstruction on T <= 4, N <= 128 (map row G42), not a proved closure.] the coefficient is supported
 on squares and the flat mean is of order `X^(-1/2)`; the recursion from `abs(tau(p))^2 + abs(tau(p^2))^2 >= 1/2`
 reproduces the same exponent. A bound of size `1/log X` needs the archimedean form of the parameter:
 `abs(tau_nu(p))^2 >= p^(-delta) (2 + 2 cos(gamma log p)) - O(delta log p)`, and the primes `p <= X = gamma^2`

@@ -1,0 +1,2 @@
+configs 220 identity ok 220 Np_line == (1,d) 220 N_line == (d-1,0) 220 E pos <= 1 220 time 2
+configs with fewer than d negative squares of N^+ on the line: 0 []

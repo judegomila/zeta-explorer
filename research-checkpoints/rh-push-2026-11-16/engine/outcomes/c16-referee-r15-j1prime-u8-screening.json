@@ -1,0 +1,43 @@
+{
+ "slug": "c16-referee-r15-j1prime-u8-screening",
+ "round": 16,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "referee",
+  "repair",
+  "control-ZQ",
+  "lemma-L",
+  "lemma-J1prime",
+  "U8",
+  "backward-heat",
+  "monomial-inequality",
+  "screening-arm",
+  "T-NR",
+  "davenport-heilbronn"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Referee lane, no attack, nothing about zeros of zeta, score 0. Lemma J1' holds as stated. The U8 heat-inheritance exclusion holds and is one case of Lemma H, which now has two derivations: for a real kernel without polar terms a monomial bound M<=lam is inherited by every tau<0 iff lam*S>=0 or M*lam<=0, otherwise exactly for |tau|<=4|log(lam/M)|/|S|; corollaries (C1)-(C4) hold. A restricted U8 search (three or more terms with distinct S_j, tau* column recorded) is a recommendation, not a theorem. Control ZQ: functional equation, atoms plus absolutely continuous density D, bound 8e^-2(eta^2+d^2)/(1/2-eta)^2 (and 8), and Lemma L with the pole clause hold, confirmed on a third new zero pair. The round-15 rulings I re-derived stand, except that the corrected sentence for the translate lane must read: the reflected translate has defect (L+2|delta|)^2/(8T), |delta|<=pi/(2 log(T/2 pi)) depending on T, with L^2/(8T) a lower bound and the crossover at 8 pi/log(T/2 pi) only an upper limit. Screening: the exact Haar variance is 1.5905 (not 1.63); the T-NR claim holds for functionals of the on-line list alone; the DH numbers to T=1e4 reproduce.",
+ "obstruction": "Referee lane, no attack. Round-15 lanes 1 to 6 hold with corrections; no PROVED statement broken. Lemma J1' holds. Lemma H (two derivations): for a real kernel without polar terms a monomial bound M <= lam is inherited by every tau < 0 iff lam*S >= 0 or M*lam <= 0, otherwise exactly for |tau| <= 4|log(lam/M)|/|S|; so the HEAT column of a polynomial functional is fixed by zeta's own values and a finite-node inequality with positive margin passes all small |tau|. A U8 search is admissible only restricted (three or more terms with distinct S_j, tau* column). Control ZQ confirmed on a third zero pair. Screening sample: Haar variance 1.5905 (not 1.63); 'four kinds of separation' false as worded; eleven false sentences listed, not applied. DH recomputed to T = 1e4 only.",
+ "obstructionKind": "none (referee lane)",
+ "controlsThatDefeat": [
+  "not applicable (referee lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED statement broken. Re-derived by hand: Lemma J1', J1'', Lemma H (H1-H4) with (C1)-(C5), ZQ functional equation, density D, defect bound, Lemma L with the pole clause, the Klein row 1.6 inequality and W1 numbers, edge row 1.1, u7 closed form / Lemma 2 / Lemma 3, u5 Lemma 4, the counts, T-NR closed forms, Haar variance formula. Own numerics on new cases all agree: Lemma H at kernel level on 1,500 random monomials (0 mismatches), ZQ on zeros 150/151 with eta=0.2, DH off-line zero and 302 o - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "For kernels without polar terms the backward-heat member is a pointwise Gaussian multiple, so the HEAT column of any polynomial functional is fixed by zeta's own values: F_tau = sum a_j exp(tau S_j/4) M_j. A finite-node inequality with positive margin passes all small |tau|; only a threshold tuned inside zeta's margin rejects a registered HEAT class. Screening summaries must list \"coefficients alone\" as a kind of separation. All six round-15 lanes already had one independent referee; for lanes 2, 4, 5 my pass was not blind to it.",
+ "followUp": "Get a second referee for Lemma H, then register the restricted U8 compute item (monomial, two-term and equal-S functionals removed; tau* column; tau ladder below 0.02; ball margins) before any run; apply the eleven corrected sentences, two of them in STRATEGY section 0b.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

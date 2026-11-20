@@ -1,0 +1,609 @@
+{
+ "Ea": {
+  "rows": [
+   {
+    "point": 0,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.23,
+     0.27,
+     0.56
+    ],
+    "e": [
+     -1,
+     -0.5,
+     -1
+    ],
+    "S": -0.40295,
+    "M0": "[31107433.6581 +/- 4.65e-5]",
+    "lam": "[32662805.3410 +/- 4.38e-5]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[0.484329710082462 +/- 9.95e-17]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 1,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.33,
+     -0.37,
+     -0.44,
+     -0.51
+    ],
+    "e": [
+     3,
+     -0.5,
+     0.5,
+     -2
+    ],
+    "S": -0.16515,
+    "M0": "[2.75935860241 +/- 4.75e-12]",
+    "lam": "[11.0374344097 +/- 4.11e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[33.5766118345720 +/- 2.02e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 5
+   },
+   {
+    "point": 2,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.47,
+     0.27
+    ],
+    "e": [
+     -2,
+     0.5
+    ],
+    "S": -0.40535,
+    "M0": "[1188573.72500 +/- 4.41e-6]",
+    "lam": "[1188573.84386 +/- 1.78e-6]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[9.86801480778459e-7 +/- 4.32e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 3,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.5,
+     0.51
+    ],
+    "e": [
+     0.5,
+     2
+    ],
+    "S": 0.6452,
+    "M0": "[1.27699046862e-10 +/- 3.18e-22]",
+    "lam": "[3.19247617156e-10 +/- 2.07e-22]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 4,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.05,
+     -0.43,
+     0.41,
+     0.52
+    ],
+    "e": [
+     0.5,
+     1,
+     -0.5,
+     2
+    ],
+    "S": 0.6429,
+    "M0": "[2.68269596508e-11 +/- 4.79e-23]",
+    "lam": "[1.07307838603e-10 +/- 3.92e-22]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 5,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.06,
+     0.25,
+     -0.14,
+     0.53
+    ],
+    "e": [
+     1.5,
+     1,
+     -1.5,
+     1
+    ],
+    "S": 0.3194,
+    "M0": "[1.08851304449e-6 +/- 8.79e-19]",
+    "lam": "[4.35405217796e-6 +/- 3.52e-18]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 6,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.03,
+     0.1,
+     0.18,
+     0.35
+    ],
+    "e": [
+     -1,
+     2,
+     2,
+     3
+    ],
+    "S": 0.4514,
+    "M0": "[2.66829365496e-13 +/- 1.58e-25]",
+    "lam": "[2.66829392179e-13 +/- 2.21e-25]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 7,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.23,
+     -0.35
+    ],
+    "e": [
+     -1,
+     3
+    ],
+    "S": 0.3146,
+    "M0": "[1.77266285435e-6 +/- 1.91e-18]",
+    "lam": "[4.43165713588e-6 +/- 2.33e-19]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 8,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.28,
+     -0.13,
+     -0.02
+    ],
+    "e": [
+     0.5,
+     0.5,
+     1.5
+    ],
+    "S": 0.04825,
+    "M0": "[0.000116433414580 +/- 4.45e-16]",
+    "lam": "[0.000122255085309 +/- 4.67e-16]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 9,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.02,
+     0.1,
+     -0.3,
+     0.12
+    ],
+    "e": [
+     -0.5,
+     -0.5,
+     1,
+     -1
+    ],
+    "S": 0.0704,
+    "M0": "[5.52725723126 +/- 9.45e-13]",
+    "lam": "[6.07998295438 +/- 4.97e-12]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 10,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.23,
+     0.2,
+     -0.01
+    ],
+    "e": [
+     1.5,
+     -2,
+     1.5
+    ],
+    "S": -0.0005,
+    "M0": "[0.0400973194789 +/- 3.12e-14]",
+    "lam": "[0.0400973234886 +/- 8.31e-16]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[0.000799999960467096 +/- 3.62e-19]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 11,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.32,
+     -0.42
+    ],
+    "e": [
+     2,
+     2
+    ],
+    "S": 0.5576,
+    "M0": "[1.36273787132e-11 +/- 2.62e-23]",
+    "lam": "[3.40684467831e-11 +/- 3.47e-23]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 12,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.28,
+     -0.4,
+     0.33,
+     -0.08
+    ],
+    "e": [
+     0.5,
+     1,
+     -0.5,
+     1
+    ],
+    "S": 0.15115,
+    "M0": "[5.94225487606e-5 +/- 2.52e-17]",
+    "lam": "[0.000237690195042 +/- 3.00e-16]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 13,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.24,
+     -0.43,
+     0.55,
+     0.3
+    ],
+    "e": [
+     -0.5,
+     2,
+     -0.5,
+     -2
+    ],
+    "S": 0.00975,
+    "M0": "[19.6971011905 +/- 1.83e-12]",
+    "lam": "[21.6668113096 +/- 4.80e-11]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 14,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.14,
+     0.33,
+     0.12
+    ],
+    "e": [
+     1,
+     -1,
+     0.5
+    ],
+    "S": -0.0821,
+    "M0": "[1.18585358849 +/- 3.88e-12]",
+    "lam": "[1.18585370707 +/- 1.49e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[4.8721069455974e-6 +/- 2.95e-20]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 15,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.39,
+     0.4
+    ],
+    "e": [
+     3,
+     -1.5
+    ],
+    "S": 0.2163,
+    "M0": "[7.29130233280e-5 +/- 4.1e-19]",
+    "lam": "[0.000182282558320 +/- 9.8e-19]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 16,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.39,
+     -0.52
+    ],
+    "e": [
+     1.5,
+     3
+    ],
+    "S": 1.03935,
+    "M0": "[2.88950616574e-17 +/- 4.30e-29]",
+    "lam": "[1.15580246629e-16 +/- 4.29e-28]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 17,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.56,
+     -0.04,
+     0.45,
+     -0.17
+    ],
+    "e": [
+     -1.5,
+     3,
+     -2,
+     -1
+    ],
+    "S": -0.8995,
+    "M0": "[1.03168706392e+11 +/- 0.245]",
+    "lam": "[4.12674825569e+11 +/- 0.0221]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[6.16473312337917 +/- 1.05e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 18,
+    "names": [
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     -0.08,
+     -0.22
+    ],
+    "e": [
+     0.5,
+     -1.5
+    ],
+    "S": -0.0694,
+    "M0": "[106.239216605 +/- 1.02e-10]",
+    "lam": "[106.239227229 +/- 2.36e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[5.76368847598773e-6 +/- 4.06e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 19,
+    "names": [
+     "Ea",
+     "Ea",
+     "Ea"
+    ],
+    "u": [
+     0.06,
+     -0.14,
+     0.49
+    ],
+    "e": [
+     -2,
+     -2,
+     1
+    ],
+    "S": 0.1937,
+    "M0": "[175.206467857 +/- 3.62e-10]",
+    "lam": "[438.016169642 +/- 4.03e-10]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   }
+  ],
+  "cases": {
+   "S<0,M>0,lam>0": 7,
+   "S>0,M>0,lam>0": 13
+  },
+  "points": 20,
+  "agree": 169,
+  "disagree": 0,
+  "undecided": 0,
+  "certified_failures": 58,
+  "seconds": 0.6115169525146484
+ },
+ "definition_check": {
+  "tau": -0.3,
+  "z": 3.7,
+  "kernel_side": "[0.11472066061466460209 +/- 8.94e-21]",
+  "gaussian_average_of_Xi": "[0.1147206606146646021 +/- 2.02e-20]",
+  "diff": "[1.4250e-20 +/- 3.62e-25]",
+  "Xi0_integral": "[0.12428019454707852748 +/- 4.02e-21]",
+  "Xi0_formula": "[0.1242801945470785274781934 +/- 3.50e-26]",
+  "note": "tails beyond |u|>3 (below 1e-10000) and |y|>12 (below Xi(0) erfc(12/sqrt 0.3) < 1e-200) not inside the balls"
+ }
+}

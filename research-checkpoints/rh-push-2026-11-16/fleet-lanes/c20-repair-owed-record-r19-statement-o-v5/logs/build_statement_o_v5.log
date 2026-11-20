@@ -1,0 +1,14 @@
+replace v4[1:1] -> v5[1:33] | v4: # Statement O, version 4: record of obstructions
+replace v4[636:636] -> v5[668:683] | v4:   (1, 2), (6709, 6710) and, by the referee, (298, 299). One 
+replace v4[652:653] -> v5[699:711] | v4: - **Label.** PROVED in the lane, re-derived by the referee;  /   the label rule.
+replace v4[696:696] -> v5[754:765] | v4: - **Label.** ARGUED under the label rule (one file, one deri
+replace v4[720:721] -> v5[789:804] | v4: - **Label.** PROVED to leading order in the lane, re-derived /   label rule.
+v4 lines 1054 v5 lines 1137 non-equal blocks 5
+v4 lines removed or replaced:
+  # Statement O, version 4: record of obstructions
+    (1, 2), (6709, 6710) and, by the referee, (298, 299). One referee file: ARGUED under the label rule.
+  - **Label.** PROVED in the lane, re-derived by the referee; MEASURED at b = 0.3. One referee file: ARGUED under
+    the label rule.
+  - **Label.** ARGUED under the label rule (one file, one derivation).
+  - **Label.** PROVED to leading order in the lane, re-derived by the referee. One referee file: ARGUED under the
+    label rule.

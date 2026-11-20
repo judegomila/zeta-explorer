@@ -1,6 +1,6 @@
-# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10; after round 10 in section 11, 2026-11-19; after round 14 in section 12; after round 15 in section 13)
+# Roadmap: attack paths generated from the idea graph (batches 1 and 2, 2026-11-17; campaign state after round 5 in section 10; after round 10 in section 11, 2026-11-19; after round 14 in section 12; after round 15 in section 13; after round 20 in section 14, 2026-11-20)
 
-**Current state: section 13** (with the counts of sections 11.1 to 11.3 and section 12 where section 13 does not replace them). It overrides sections 1 to 12 where they differ.
+**Current state: section 14** (with section 13.2 and the device table of section 11.1 where section 14 does not replace them). It overrides sections 1 to 13 where they differ.
 
 Status of every statement below: RH is open. Nothing here is a result about zeros. The roadmap orders work; it does not rank likelihood of success. Row ids (P1, Q10, N25, ...) refer to `../push/OBSTRUCTION_MAP.md` and the syntheses in `../push/`; node ids refer to `IDEA_GRAPH.json`.
 
@@ -379,3 +379,57 @@ There is no lead with a referee-confirmed score of 2 or more. Least blocked item
 
 Weights changed in `generate.py` (`WEIGHTS`): separator 3 -> 1.5; cheap-test part split into `cheapMeasured` 0.25 (was 1) and `cheapNamed` 1. Reason: 40 screened combinations (33 with a measured, certified or tool member, among them the separator node of the former rank 1) gave no survivor; a measured member does not predict a structural control failure. Effect on the top 60: 44 keys in common, 16 new; rank 1 is now `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural` (10.25); all 60 still stand on the floored 7/8 device. The generator cannot propose a device in a silent cell, because the cells have no node; giving the cells of section 13.2 nodes (pending proposals in `curated/mk_devices.py`) is owed to the repair slot. Log: `scratch/rerun-strategy-v5.log`. Previous files: `scratch/generate.before-strategy-v5.py`, `scratch/CANDIDATES.before-strategy-v5.json`.
 
+
+### 13.6 Record note of 2026-11-20 (`c17-repair-owed-record-r16-cell-nodes`; no change of order of attack)
+
+The eleven `silent-*` nodes are read classes of node type `cell` (`curated/devices.json`, key `cells`), not crossing devices (planner decision of round 17). States: U2-POS closed (identification, Theorem P; map row P56), U6 (g) tried-not-closed (map row D10), nine cells. Device types: 53 closed, 1 floored, 0 open. The top 60 has 0 candidates with an open device and 60 with a floored device only. Detail: `ENGINE_LOG.md`, entry of 2026-11-20; `curated/CHANGELOG_c16-repair.md` describes the state this note supersedes.
+
+## 14. State after campaign round 20 (2026-11-20; checkpoint applied; matches `../campaign/STRATEGY.md` version 6)
+
+Written by the strategy review after round 20. Sections 13.3 to 13.5 are superseded; section 13.2 stands with the cell states of 14.2.
+
+### 14.1 Counts
+
+- 180 lines in `../campaign/lanes.jsonl` (170 lanes, 10 screening lanes); 170 refereed, hold rate 91.8%; headline 1 of 4, now through `c4-helson-discrepancy-zerofree` alone (the second referee of Theorem D rejected the R1 flag of `c1-leeyang-krein-limit`); no lane with R2, R3 or R4; 155 lemmas decided; 16 PROVED sub-steps broken by referees; 2 statements with three referee files, none about zeros. RH is open and no lane states anything about zeros of zeta.
+- Graph: 1,756 nodes, 528 tags; tag-pair families 139,128 (closed 4,157; tried, not closed 1,351; untried 133,620). Device table: 56 types, 55 closed, 1 floored (the 7/8 type), 0 open. Screening arm: 160 combinations, 0 survivors.
+- By kind, rounds 16 to 20 (lanes / lemmas decided): combine 6 / 13; explore 5 / 9 (0 past stage A); deepen 9 / 9; compute 10 / 8 (certified conversions used by the record; four searches without a survivor); repair 10 / 9.
+
+### 14.2 The DAG after round 20
+
+The wall of section 1 is unchanged: every route stops at R4 (finite stage, or the region right of 1, to the critical line). Rounds 16 to 20 added three reasons that account for each stage-A stop of that period, and one relative form of the wall:
+
+- Window scalar: in a window at height t the archimedean side is a scalar up to log t / t, so a prime-side form paired with it is a first-order band form (Lemma S of `c20-u4-second-order-archimedean-mixed-form`).
+- Twin invisibility at a stage: forms reading Lambda(n), n < P, take the same value for zeta and for twins modified at q >= P (K3-M; controls HQ1 to HQ4).
+- Stage-level tests are not arithmetic: zero-free stages exist for Davenport-Heilbronn (Lemma E), and a non-Euler series with off-line zeros passes Pick positivity to any order on bounded node ranges (Theorem C of the line-2 lane).
+- Relative form of R4: for an Euler product G with zeta's functional equation, the passage from the half-plane of convergence of zeta/G to the line (regimes 2 and 3 of `c20-euler-shape-rigidity-infinite-modified-primes`).
+
+Cells (read classes of section 13.2). Closed: U1, U2-SIZE, U2-POS, U3 as identifications, U4 at every read tried, U5 within a span and the band device family beyond it, U6 (a) linear, (b), (c), (e), (f), U7, U8 on dictionary DU (MEASURED). Tried, not closed: U6 (g) (model-level; cannot score). No candidate object: U6 (d), U8 beyond DU. Engine states of U4, U6 (a), (b), (c) are still `cell` in `curated/devices.json`; the change is owed to the record lane after the second referee files.
+
+### 14.3 Current lead and missing lemma
+
+There is no lead with a referee-confirmed score of 2 or more. Current best lead: **BR**, the boundary regimes of Euler-shape rigidity.
+
+**BR-3 (exact missing lemma).** abs(alpha_p) <= 1 for every p; G(s) = prod over p of (1 - alpha_p p^-s)^-1 on Re s > 1; G meromorphic on C of finite order with finitely many poles in Re s >= 1/2 and with zeta's functional equation; sum over p of abs(1 - alpha_p) p^-sigma divergent for some sigma > 1/2. Claim to decide: G = zeta, or a displayed G that is not zeta.
+
+**BR-2.** abs(alpha_p) = p^(1/2) on a set S with sum over S of p^-sigma finite for sigma > 1/2 and infinite at 1/2: natural boundary on Re s = 1/2, or a twin (whose extra zeros are on the line by Theorem C).
+
+**BR-0 (first, paper).** Whether rows P56, P57, X1 (Hamburger-type theorems with finitely many poles; control HQ2) already decide BR-3.
+
+Proved on file (one referee; second owed): regime 1 (sum abs(1 - alpha_p) p^(-1/2) finite implies G = zeta; no multiplicativity used). An identification scores 0. The lead is a statement about which functions share zeta's functional equation and local shape; no route from it to zeros of zeta is registered.
+
+### 14.4 Order of attack for round 21 (allocation 0 explore / 3 deepen / 1 combine / 2 compute / 2 referee-repair-record)
+
+1. Deepen: BR-0, then BR-3 in the form left open by BR-0.
+2. Deepen: BR-2 (natural boundary or twin), with a server test.
+3. Deepen: test of the restricted R1 flag of `c4-helson-discrepancy-zerofree` against Lemma E, HQ2 to HQ4 and a Beurling member.
+4. Combine: the twin screen TS (K3-M with Theorem A; Theorem C with Lemma E; Lemma S), one row per device type read by the screening arm and per pending item of `curated/devices.json`.
+5. Compute (server): the BR-2 partial products in ball arithmetic with DEL, THIN, HQ1 rows.
+6. Compute: the per-control table of Statement O line 11 at 40 digits; the six controls on dictionary DU if the slice allows.
+7. Referee: second referees for Theorems A and C of the euler-shape lane, the U4 stage-A stop, the U6 (a), (b) verdict, Theorem C of the line-2 lane, the NR-q construction, the escape law F1.
+8. Record: engine states, Statement O version 5 (accept or reject), source items for lines 1 and 5, the owed text repairs.
+
+From round 23: the lead while its stopping rule allows; the obstruction record; 0 or 1 inverse-explore lane (an object with no finite stage below the height, not a window pairing with the gamma side, and failing for Davenport-Heilbronn stages and the Theorem C product), closed after 6 lanes without a stage-A pass. Checkpoint after round 26.
+
+### 14.5 Generator after the review
+
+Weights changed in `generate.py` (`WEIGHTS`): under-used bonus explicit 1 -> 0.5, auto 0.5 -> 0.25, cap 2 -> 1; integers keyword 1 -> 0.5. Reason: in rounds 16 to 20 the same triple stood at rank 1 in four of five runs and was declined each time (no named new input), with 2 of its 10.25 points from the under-used bonus; the one candidate used (rank 13 of round 20, as a cell pointer) returned an obstruction; the cell nodes that headed the list in round 17 are closed with score 0; every additive-integer read of the period returned an identification proved without multiplicativity. Effect on the top 60 (`generate.py --top 60` through `scripts/memcap.sh 8`): 52 keys in common; rank 1 unchanged (`capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural`, 9.25); 8,415 scored (was 8,426); all 60 on the floored 7/8 device type. The generator cannot propose BR or an inverse-explore object, because neither has a node; nodes for BR-2, BR-3 and the twin screen are owed to the record lane. The ranking has not predicted an outcome in twenty rounds and is part-B reading only. Log: `scratch/rerun-strategy-v6.log`. Previous files: `scratch/generate.before-strategy-v6.py`, `scratch/CANDIDATES.before-strategy-v6.json`, `scratch/ROADMAP.before-strategy-v6.md`.

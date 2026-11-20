@@ -1,0 +1,131 @@
+[
+ {
+  "id": "map-open-11",
+  "type": "open-direction",
+  "name": "Sheared Hecke commutator at tau -> 0 and loading on X_0(4)(R) with Fricke w_4: closed (`c1-shear-hecke-fricke`, refereed once)",
+  "statement": "[V_n, G_tau] = G_tau (exp(tau l (u + l)/4) - 1) V_n, l = log n (windowed L^2 norms; whole-line only for kappa-type kernels). The eigen-defect of 1 - lambda V_p has tau-order exactly 1 iff c(pm) = lambda c(m) for all m; zeta, zeta(s + a), completely multiplicative sign twists and unimodular twists all have order 1, so the statement is the identity \"multiplicative at p\", not an inequality. w_4 on the arc is u -> -u (evenness only). For tau < 0 the termwise prime expansion converges for a sign-twisted control as well; that it cannot be carried to tau = 0 is heuristic (Rodgers-Tao), not a theorem (row G22).",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "OBSTRUCTION_MAP.md section 6",
+  "tags": [
+   "euler-product",
+   "hecke",
+   "shear"
+  ],
+  "tagsInferred": [],
+  "provenance": [],
+  "sourceKinds": [
+   "map"
+  ],
+  "origin": "map",
+  "device": {
+   "type": "test-restriction-commutator",
+   "state": "closed",
+   "evidence": "rows P35, G22, G25, S11, P29"
+  },
+  "rows": [],
+  "roles": [
+   "device",
+   "lemma"
+  ]
+ },
+ {
+  "id": "map-open-20",
+  "type": "open-direction",
+  "name": "Window defect: commutator of the cutoff Q_c with Hecke operators",
+  "statement": "(`c1-spinor-hecke-primitive` Lemma 5). For: it is the one place where a multiplicative mechanism acts on H_c non-trivially. Against: the formula is kernel-independent (holds for every control), so the function must enter through the test vector. Closed in round 2 (row G25, `c2-cutoff-hecke-defect`, refereed once): the form is the Weil form on a window; DH passes on every node set tried, the Liouville twist fails.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "OBSTRUCTION_MAP.md section 6",
+  "tags": [
+   "euler-product",
+   "hecke",
+   "spinor",
+   "weil"
+  ],
+  "tagsInferred": [],
+  "provenance": [],
+  "sourceKinds": [
+   "map"
+  ],
+  "origin": "map",
+  "device": {
+   "type": "test-restriction-commutator",
+   "state": "closed",
+   "evidence": "rows P35, G22, G25, S11, P29"
+  },
+  "rows": [],
+  "roles": [
+   "device",
+   "lemma",
+   "separator"
+  ]
+ },
+ {
+  "id": "map-pos-19",
+  "type": "identity",
+  "name": "Theorem R (zero tolerance of all-order Pick positivity in each prime weight). Deps: Pick-Nevanlinna, exact FE, Bohr almost-periodicity. Refereed in the form \"et",
+  "statement": "Theorem R (zero tolerance of all-order Pick positivity in each prime weight). Deps: Pick-Nevanlinna, exact FE, Bohr almost-periodicity. Refereed in the form \"eta supported on n >= 2\". `pick-induction`, `r2-pick-euler-entry`.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "OBSTRUCTION_MAP.md section 4 (Prime-side structure)",
+  "tags": [
+   "pick",
+   "torus"
+  ],
+  "tagsInferred": [],
+  "provenance": [],
+  "sourceKinds": [
+   "map"
+  ],
+  "origin": "map",
+  "holdsForDH": false,
+  "lanes": [
+   "pick-induction",
+   "r2-pick-euler-entry"
+  ],
+  "rows": [],
+  "roles": [
+   "arith",
+   "rigid",
+   "explainer"
+  ]
+ },
+ {
+  "id": "map-pos-26",
+  "type": "identity",
+  "name": "Zero-free Re s > theta implies Lambda_F <= (2 theta - 1)^2/2 on the extended Selberg class. Deps: Dobner 2021, de Bruijn Thm 13. Unrefereed (the zeta case refer",
+  "statement": "Zero-free Re s > theta implies Lambda_F <= (2 theta - 1)^2/2 on the extended Selberg class. Deps: Dobner 2021, de Bruijn Thm 13. Unrefereed (the zeta case refereed as W4). `lit-dedekind-qrh`, `h-seven-eighths-in-bridge`.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "OBSTRUCTION_MAP.md section 4 (Flow and Lambda)",
+  "tags": [
+   "bridge",
+   "heat-flow",
+   "theta",
+   "trace-formula",
+   "zero-free"
+  ],
+  "tagsInferred": [],
+  "provenance": [],
+  "sourceKinds": [
+   "map"
+  ],
+  "origin": "map",
+  "holdsForDH": false,
+  "lanes": [
+   "h-seven-eighths-in-bridge",
+   "lit-dedekind-qrh"
+  ],
+  "rows": [],
+  "roles": [
+   "rigid",
+   "explainer",
+   "flow-stable"
+  ]
+ }
+]

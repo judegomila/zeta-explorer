@@ -1,0 +1,48 @@
+{
+ "slug": "c19-u6c-double-cover-k3-run",
+ "round": 19,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [
+  "U6c",
+  "GL(3)",
+  "double-cover",
+  "K3",
+  "genus-sums",
+  "Siegel",
+  "Maass",
+  "7/8-adjacent"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Registered outcome (i), nothing about zeros of zeta. For primes p = q = 1 mod 8 with (p/q) = 1, the genera of <1,1,d>, d in {1,p,q,pq}, interchange local similarity classes at every place (proved; re-derived). So any genus-sum array that is a product of local functions of the similarity class has K(G_1)K(G_pq) = K(G_p)K(G_q). I added the argument that this is what a pure-tensor period at the spherical vector implies.\n\n- Eisenstein input (genus sums of Epstein zeta, Siegel's closed form): Delta != 0 for all sufficiently large real s (R_1 rational and != 1, no explicit threshold) and at 12 values of s (8 real, 4 complex) in 11 quadruples by ball arithmetic. The balls are conditional on class-list completeness, which is supported by the Eichler mass identity and the Siegel check.\n- Cusp input (one self-dual form: sym^2 of the first odd SL_2(Z) Maass form): Delta != 0 in 14 of 14 quadruples as a float64 measurement, by at least 2596 error bars. The evaluator is now also checked as a T_2 and T_3 eigenfunction to about 1e-8.\n- Both rows also give Delta != 0 on the new quadruple (17,257).\n- phi = 1 gives exactly 0.\n- Delta and rho take both signs for both inputs on the tested family; Eisenstein and cusp are not separated; no inequality and no device type were found.\n- The reading for Whittaker functionals on the double cover of GL(3) remains RECALLED (Jacquet's correspondence) and is not established.\n\nScore 0; all four requirement flags are false.",
+ "obstruction": "Registered outcome (i): cell U6 (c) closed as global period data without a Hecke relation. For primes p = q = 1 mod 8 with (p/q) = 1 the genera of <1,1,d>, d in {1,p,q,pq}, interchange local similarity classes at every place (proved), so a product-form array has K(G_1)K(G_pq) = K(G_p)K(G_q). The identity fails for the Eisenstein input (ball arithmetic, 132 of 132 cells, conditional on class-list completeness) and for the cusp input (float64, 14 of 14 quadruples, at least 2596 error bars); Delta takes both signs for both inputs, Eisenstein and cusp are not separated: no inequality, no device type. The reading for Whittaker functionals on the cover rests on Jacquet's correspondence (RECALLED, not established).",
+ "obstructionKind": "no-new-object: no product structure, no sign, Eisenstein and cusp rows not separated; zeta controls do not lift",
+ "controlsThatDefeat": [
+  "Eisenstein input (same failure of the product identity as the cusp input; both signs)",
+  "not run: zeta controls have no lift to the cover; second cusp form (first even Maass form)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error changes the verdict. Referee report: tmp/research-2026-11-16/push/c19-u6c-double-cover-k3-run/REFEREE.md\n\nCorrections to RESULT.md:\n1. \"Five complex s\" is wrong: the 12 decided values are 8 real and 4 complex; the fifth complex point (0.75+40i) is the undecided one. 132 = 11 x 12 is right.\n2. \"Radii of rho below 2e-4 at 0.75+25i\" is too small: the printed balls reach 5.1e-4 at (137,193). Exclusion of 0 is unaffected.\n3. CERTIFIED covers on - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A \"pure tensor\" test on period arrays needs scale-invariant inputs and quadruples matched by local similarity class, not isometry class. Fixed-n theta coefficient arrays are Siegel products yet fail the 2 x 2 identity, so \"class numbers are not multiplicative\" was the wrong reason for the Eisenstein row. The cusp computation was reachable without downloads: Hejhal data to primes below 3000 plus an invariance-validated GL(3) expansion; the largest m2 used was 167.",
+ "followUp": "Referee pass: re-derive the interchange lemma and rerun the cusp sum with a second form (first even Maass form, R = 13.7797). Enter MAP_ROW.md into row Z37 and mark cell U6 (c) closed. No further attack slot on this cell unless a formula relating K_F(G_d) to twisted central values is proposed.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-u6c-double-cover-k3-run/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-u6c-double-cover-k3-run/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Holds. Interchange Lemma Q derived place by place; consistent on the mass (48*192 = 96^2). Wording: 'locally similar everywhere' is for quadratic spaces, not lattices. Lemmas T, E and the runs not re-examined.",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-u6c-double-cover-k3-run.md"
+ }
+}

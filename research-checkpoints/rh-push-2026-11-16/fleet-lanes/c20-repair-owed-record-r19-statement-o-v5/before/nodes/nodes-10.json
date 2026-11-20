@@ -1,0 +1,1854 @@
+[
+ {
+  "id": "poly-de-bruijn-heatop-lean",
+  "type": "tool",
+  "name": "Polynomial de Bruijn / Polya-Schur theorem (Lean)",
+  "statement": "For a real polynomial p with only real roots and t >= 0, heatOp t p = sum_k (-t)^k p^(2k)/k! has only real roots. Proof: Hermite-Poulain shift plus the limit (1 - (t/n) D^2)^n -> e^{-t D^2} with root continuity. Sorry-free, standard axioms only.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:POLYNOMIAL_DE_BRUIJN.md; lean:mathlib-pr/RealRootedPreservation.heat_preserves_LP",
+  "tags": [
+   "heat-flow",
+   "lean",
+   "real-rooted",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "hermite-poulain-shift",
+  "type": "mechanism",
+  "name": "Hermite-Poulain shift and (1 - c D^2) factor",
+  "statement": "If p has only real roots then p + c p' has only real roots for real c (root interlacing with end roots at +-infinity); hence 1 - c D^2 = (1 - sqrt(c) D)(1 + sqrt(c) D), c >= 0, preserves real-rootedness and so do its iterates.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:mathlib-pr/RealRootedPreservation.hermitePoulain_shift, oneMinusCD2_iterate_realRooted",
+  "tags": [
+   "heat-flow",
+   "lean",
+   "real-rooted"
+  ]
+ },
+ {
+  "id": "entire-lp-heat-majorized-refuted",
+  "type": "obstruction",
+  "name": "Full Laguerre-Polya heat-majorized approximation is false",
+  "statement": "For every t > 0 the statement 'every Laguerre-Polya function has real-rooted polynomial approximants whose heat series is uniformly majorized' is false: for the scaled Gaussian the terms of the heat series at 0 have norm >= 1 and are not summable. Kernel-verified; the Lean probe target was retired as false.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:lean-aristotle/lp_heat_transfer/VACUITY_CAVEAT.md; lean:lean-aristotle/lp_refutation/ not_forall_exists_LP_approx_heatMajorized",
+  "tags": [
+   "heat-flow",
+   "lean",
+   "real-rooted"
+  ]
+ },
+ {
+  "id": "burgers-heat-identity-lean",
+  "type": "identity",
+  "name": "Burgers identity for M = -P'/P under polynomial heat flow",
+  "statement": "For a polynomial heat flow P(s, z) (global in s), M = -P'/P satisfies a viscous Burgers-type equation; with a Taylor representation P_s = heatOp(-s) P_0. Kernel-verified; the Lean hypothesis demands the heat equation for all s.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:lean-aristotle/burgers_heat_identity/ burgers_identity",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lean",
+   "zero-dynamics"
+  ]
+ },
+ {
+  "id": "heat-discriminant-ode",
+  "type": "identity",
+  "name": "Discriminant law for zeros under the heat flow",
+  "statement": "For simple real zeros x_i(t) moving by dx_k/dt = 2 sum_{j != k} 1/(x_k - x_j) (or the reversed sign convention), d/dt log Disc = -8 sum_{i<j} 1/(x_i - x_j)^2 in the collision direction, so the discriminant is strictly monotone; exact two-particle solution.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:lean-aristotle/heat_discriminant_ode/ hasDerivAt_log_disc_flow_S, strictAntiOn_disc",
+  "tags": [
+   "heat-flow",
+   "zero-dynamics",
+   "lean",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "theta-trap-invariant",
+  "type": "mechanism",
+  "name": "Theta trap: sharp invariant Theta <= 1/4 for Calogero-Moser-type zero flow",
+  "statement": "For an ordered CM flow with minimal gap pair and environment energy, the ratio Theta obeys ThetaDot <= rate(Theta) and the band Theta <= 1/4 is flow-invariant (theoremA); collision time t_c <= g^2/6; sharpness by a symmetric triplet. No claim Theta* < 1 for zeta.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "lean:lean-aristotle/theta_trap/ theoremA, corollaryA1; lean:lean-aristotle/trap_threshold/ theoremB",
+  "tags": [
+   "heat-flow",
+   "zero-dynamics",
+   "lean",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "flow-blindness-sl2",
+  "type": "obstruction",
+  "name": "Flow-blindness SL2 (obstruction row F1)",
+  "statement": "Phi_eps = e^{-eps u^2} Phi is even, positive, log-concavity-preserving and doubly exponentially decaying, yet by Rodgers-Tao its transform has non-real zeros for every eps > 0. Any hypothesis class on Phi stable under this family cannot prove RH. Abstract no-go in Lean (softClass_noGo).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/debranges_T3_structural_verdict.md §3; lean:lean-aristotle/flow_blindness/ softClass_noGo; OBSTRUCTION_MAP F1",
+  "tags": [
+   "heat-flow",
+   "flow-blindness",
+   "control",
+   "lean",
+   "lambda"
+  ]
+ },
+ {
+  "id": "flow-criticality-kappa",
+  "type": "object",
+  "name": "Flow-criticality degree kappa(P) = sup Lambda(F) over F in P",
+  "statement": "For a property P in the de Bruijn class, kappa(P) is the largest de Bruijn-Newman constant compatible with P. Theorem G1 (Lean, abstract): if F and F_{-tau} are in P then Lambda(F) + tau <= kappa(P). kappa = 0 means P implies RH class-uniformly; soft classes have kappa = infinity.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/flow-criticality-grading.md §0-2; lean:lean/Route43/FlowCriticality.graded_flow_blindness",
+  "tags": [
+   "heat-flow",
+   "flow-blindness",
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "strip-ladder-kappa",
+  "type": "identity",
+  "name": "Strip ladder kappa(Strip_Y) = Y^2/2 with exact witness",
+  "statement": "kappa(zeros in |Im z| <= Y) = Y^2/2. Upper bound: de Bruijn 1950 Thm 13. Lower bound witness: Lambda((z^2 + Y^2) cos(cz)) = (sqrt(1 + 4c^2Y^2) - 1)/(4c^2) -> Y^2/2 as c -> 0. Hence kappa(critical strip) = 1/2, kappa(QRH 7/8) = 9/32, kappa(QRH 11/12) = 25/72.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/flow-criticality-grading.md §3",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "tail-blind-inputs-g3",
+  "type": "obstruction",
+  "name": "Theorem G3: proportion and density inputs add nothing to a strip",
+  "statement": "In the de Bruijn class, proportion statements (Levinson, Conrey, PRZZ, Alpoge-Furman 2/3), zero-density bounds N(sigma,T) <= T^{A(1-sigma)+o(1)} and 'all but finitely many zeros real' have kappa(P and Strip_Y) = Y^2/2: zero yield beyond the strip they are combined with.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/flow-criticality-grading.md §4; OBSTRUCTION_MAP P27, Z17",
+  "tags": [
+   "flow-blindness",
+   "mollifier",
+   "density",
+   "proportion",
+   "lambda"
+  ]
+ },
+ {
+  "id": "weil-support-kappa-ladder",
+  "type": "measured-phenomenon",
+  "name": "Weil positivity at fixed support: lower-bound ladder for kappa",
+  "statement": "kappa(W_T >= 0 and critical strip) >= kappa_low(T): 0.4142 (T = 0.5), 0.3090 (1), 0.0926 (1.941, the RES-T support at 3e12), 0.0140 (5), 0.00349 (10), with T^2 kappa_low(T) -> 0.349. Upper bound and continuity in T are open; all T gives kappa = 0 (Weil).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/flow-criticality-grading.md §5 (Theorem G4)",
+  "tags": [
+   "weil",
+   "lambda",
+   "heat-flow",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "backward-flow-escape-law",
+  "type": "conjecture",
+  "name": "Escape law for zeros of H_{-tau}",
+  "statement": "Measured: H_{-1} has 7 zeros with 1.42 <= y <= 2.39 for x in [5000,5050]; H_{-4} has 7 with 1.81 <= y <= 3.55 for x <= 200.5. Heuristic law: zeros of H_{-tau} at height x reach |Im z| about tau log(x/4 pi)/2 - 1. If true for all tau > 0, height-uniform strip statements are flow-critical at xi.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/flow-criticality-grading.md §0 item 7, §7",
+  "tags": [
+   "heat-flow",
+   "flow-blindness",
+   "control",
+   "lambda"
+  ]
+ },
+ {
+  "id": "native-span-no-intermediate-grade",
+  "type": "measured-phenomenon",
+  "name": "Finite native-span Pick statements survive backward flow to eps = 1e5",
+  "statement": "lambda_min of the Caratheodory-Pick matrix of xi'/xi at real node sets {1,2}, {1,2,4}, {1,2,4,8}, {0.55,1,3,10} stays positive for Phi e^{-eps u^2} up to eps = 1e5 (e.g. 8.75e-4 -> 4.57e-17). Mechanism: sign of the fourth cumulant kappa_4 < 0 (gamma_4 = -95.343). The all-node family has kappa = 0.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/flow-criticality-grading.md §6; OBSTRUCTION_MAP P3, P5",
+  "tags": [
+   "pick",
+   "heat-flow",
+   "flow-blindness",
+   "control"
+  ]
+ },
+ {
+  "id": "qrh-symmetric-strip-lean",
+  "type": "tool",
+  "name": "QRH strip 1/8 <= Re rho <= 7/8 and Lambda <= 9/32 in Lean",
+  "statement": "From the openai/math statement zeta(s) != 0 for Re s > 7/8 and Mathlib's functional equation: every nontrivial zero has 1/8 <= Re rho <= 7/8; every zero of H_0 has |Im z| <= 3/4; de Bruijn then gives Lambda <= 9/32 (conditional on the unrefereed 7/8 manuscript).",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "lean:lean/Route43/FlowCriticality.qrh_symmetric_strip; lean:lean/raymond-core/RaymondCoreOAI/Instance78.Lambda_le_nine_thirtyseconds",
+  "tags": [
+   "zero-free",
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "window-replacement-zeta-w",
+  "type": "control",
+  "name": "Window replacement counter-model zeta_W",
+  "statement": "For a finite zero multiset W of xi closed under rho -> 1 - conj(rho) and W' of equal size, xi_W = kappa xi Q_{W'}/Q_W is entire of order 1 with the functional equation, reality, xi_W(1) = 1/2; zeta_W has the pole, residue and trivial zeros of zeta and zeros (Z(xi) minus W) union W'. No Euler product.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/mv-cap-theorem.md §2 Lemma 1; form:rh-attempts/2026-11-01-window-100.md Theorem C",
+  "tags": [
+   "control",
+   "mv-cap",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "mv-cap-theorem",
+  "type": "obstruction",
+  "name": "MV-CAP theorem: zero-side mean-value premises cannot certify every-window statements",
+  "statement": "For every centre c in [3.1e12, 7.5e16] some zeta_W differing from zeta only in ordinates (c-50, c+50] violates H_desc(p) for all p > 3.0119 (lane needs 4.3743). Any premise set satisfied by zeta_W cannot derive the lane hypothesis. Proved for zero-side and O-form premises only.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/mv-cap-theorem.md §0 Theorems A, B; OBSTRUCTION_MAP P29",
+  "tags": [
+   "mv-cap",
+   "control",
+   "pair-correlation",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "mv-cap-sensitivities",
+  "type": "measured-phenomenon",
+  "name": "Window sensitivities of mean-value premises",
+  "statement": "Under one window replacement: critical-zero and simple-zero counts change by <= 2 outside the window and <= 19.3 inside; density counts N(sigma,T) by <= 1; N(T) by <= 17.3; normalised pair-correlation sums by <= 9.3e-9 at T = 3.1e12. A certifying premise needs slack below about 20 zeros out of 1.3e13.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/mv-cap-theorem.md §0 Theorem C",
+  "tags": [
+   "mv-cap",
+   "pair-correlation",
+   "density",
+   "proportion"
+  ]
+ },
+ {
+  "id": "mv-cap-function-side-open",
+  "type": "open-lemma",
+  "name": "Function-side MV-CAP with explicit constants is not established",
+  "statement": "For explicit-constant second-moment premises the obstruction depends on the hole size: a minimal one-pair modification changes the local integral of |zeta|^2 by -2.4 against error RMS 104, but holes of 7-17 mean spacings raise |zeta| on the line by factors 38 to 8e7. Whether explicit function-side moments can certify a window is open.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "form:paper/mv-cap-theorem.md §0 Proposition E; form:routes/fifty-routes-synthesis-2026-10-15.md (route 42 open)",
+  "tags": [
+   "mv-cap",
+   "mollifier",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "euler-product-resolves-window",
+  "type": "mechanism",
+  "name": "Direct Euler-product evaluation distinguishes zeta from zeta_W",
+  "statement": "Premises that resolve a single window exclude zeta_W: RH to the window height has slack 0, and Euler-product evaluation at s = 3 + ic gives |log(zeta_W/zeta)| = 0.33 to 3.6 (measured). The only input class not excluded by the kappa = 1 counter-model is the Euler product evaluated pointwise at the window height.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:paper/mv-cap-theorem.md §0 item 5; form:rh-attempts/2026-11-01-window-100.md §0",
+  "tags": [
+   "euler-product",
+   "mv-cap",
+   "control"
+  ]
+ },
+ {
+  "id": "t3-dagger-identity",
+  "type": "identity",
+  "name": "E_a(z) = A_a(z) - i B_a(z) = Xi(z + i a)",
+  "statement": "With A_a(z) = 8 int Phi(u) cosh(2au) cos(2zu) du, B_a(z) = 8 int Phi(u) sinh(2au) sin(2zu) du, Xi(l) = 8 int Phi(u) cos(2 l u) du: E_a = Xi(. + ia) exactly (checked to 1e-30). Channel data built with cosh(a t) correspond to shift a/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/SL0_dictionary_audit.md",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "shear",
+   "bridge"
+  ]
+ },
+ {
+  "id": "t3-equals-zero-free-strip",
+  "type": "obstruction",
+  "name": "T3 residual route = zero-free strip ladder (rows P19, G20)",
+  "statement": "T3 at shift a iff E_a = Xi(. + ia) is Hermite-Biehler iff zeta has no zero with Re s > 1/2 + a. The controlled quantity is quantized (1 or +infinity, never 1 - delta); a -> 0 uniformity is margin-forbidden by Lambda >= 0. The wall is zero location, not pair correlation.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/debranges_T3_structural_verdict.md; OBSTRUCTION_MAP P19, G20",
+  "tags": [
+   "twin-ladder",
+   "de-branges",
+   "zero-free",
+   "shear"
+  ]
+ },
+ {
+  "id": "sl3-fixed-a-blindness",
+  "type": "control",
+  "name": "SL3: fixed-shift blindness controls",
+  "statement": "For each a_0 in (0, 1/2) there are even, positive, super-exponentially decaying two-bump kernels whose E_{a_0} fails Hermite-Biehler; separately Davenport-Heilbronn has a degree-1 functional equation with zeros off any strip. Positivity plus decay, and the functional equation, are each insufficient at a fixed rung.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/debranges_T3_structural_verdict.md §3",
+  "tags": [
+   "control",
+   "de-branges",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "shear-norm-plateau",
+  "type": "measured-phenomenon",
+  "name": "Shear norm plateau ||R|| from 0.75 to 1.33",
+  "statement": "The antisymmetric rank-2 shear norm obeys ||R||^2 = |p|^2|q|^2 - <p,q>^2 for core-normalized cosh/sinh vectors and creeps from 0.75 to 1.33 with degree; lambda_d decreases to 0 with sign >= 0 through d = 16 (Arb). Both are consistent with verified zeros and carry no forward information.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/debranges_T3_structural_verdict.md §6; lean:lean-aristotle/shear_gram/ shear_volterra_hs_eq_opNorm",
+  "tags": [
+   "shear",
+   "twin-ladder",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "shear-gram-hs-identity",
+  "type": "identity",
+  "name": "Rank-2 shear Gram: Hilbert-Schmidt norm = sqrt 2 times operator norm = mu",
+  "statement": "For the antisymmetric Gram matrix of two vectors p, q: sum of squared entries = 2 mu^2 with mu^2 = |p|^2|q|^2 - <p,q>^2, operator norm = mu, and the Volterra shear has HS norm equal to mu. Kernel-verified.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:lean-aristotle/shear_gram/ sum_sq_gramMatrix_eq_two_mul_mu_sq, opNorm_gramMatrix",
+  "tags": [
+   "shear",
+   "lean",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "frozen-rung-winding-identity",
+  "type": "identity",
+  "name": "Frozen-rung winding count identity and inertia gate",
+  "statement": "Counting identity relating numerator, denominator, central, ghost and band counts (winding_count_identity); critical-line iff no uncancelled ghosts; negative index of a shifted-bridge Gram matrix bounds the number of negative squares (gram_gate_sound); Blaschke/Schur-kernel leakage bounds. Frozen rung is equivalent to the Platt-Trudgian verified height.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:lean-aristotle/README.md; lean:lean-aristotle/frozen-rung/ Winding, Inertia, Leakage",
+  "tags": [
+   "twin-ladder",
+   "pick",
+   "lean",
+   "verified-height",
+   "bridge"
+  ]
+ },
+ {
+  "id": "l2-detection-modulus",
+  "type": "tool",
+  "name": "L2 detection: modulus > 1 forces a negative square",
+  "statement": "If a Schur-type quotient has modulus > 1 at a node (ghost within a detection radius of a mesh-lattice point), the Pick Gram matrix has negative index >= 1 (one_le_negIndex_gram_of_modulus_gt_one, l2_conditional_negIndex); explicit robust detection radius from derivative bounds.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "lean:lean-aristotle/l2_detection_modulus/RequestProject/FrozenRung/",
+  "tags": [
+   "pick",
+   "lean",
+   "twin-ladder",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "antihermitian-strip-bound",
+  "type": "mechanism",
+  "name": "Anti-Hermitian part bounds the strip: |Im x| <= eta, Lambda <= t + eta^2/2",
+  "statement": "If a zero x is represented as a kernel vector v of an operator pencil with anti-Hermitian part K, then Im x * |v|^2 = Re<v, K v>, so |Im x| <= sup ||K||. With global representation (G) and de Bruijn strip contraction (S) as hypotheses, Lambda <= t + eta^2/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "form:lean-aristotle/permutation-calculus/README.md; lean:.../antihermitian_strip/ abs_im_le_of_represented",
+  "tags": [
+   "twistor",
+   "lambda",
+   "lean",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "permutation-defect-bound",
+  "type": "identity",
+  "name": "Permutation defect: reordered operator product within sum of commutators",
+  "statement": "For contractions T_1..T_m and a permutation pi, ||prod_pi T - prod T|| <= sum over inversions (i,j) of ||T_i T_j - T_j T_i||; a bubble chain hits each inversion exactly once. Weighted form for non-contractions.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:lean-aristotle/permutation-calculus/permutation_defect/ norm_permProd_sub_one_le_sum",
+  "tags": [
+   "twin-ladder",
+   "lean",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "five-shell-identity",
+  "type": "identity",
+  "name": "Five-shell identity for E_97 over the 25 primes <= 97",
+  "statement": "Unconditionally, E_97(N, A, c) = (1 - A) L_N(Y_4) - A sum_{g=1..4} L_N(Z_g), with primes <= 97 in decreasing order cut at (0,5,10,17,25) and shells of disjoint Fourier support (Z_g orthogonal to each other and to Y_4).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "lean:lean-aristotle/permutation-calculus/five_shell_identity/ five_shell_identity",
+  "tags": [
+   "twin-ladder",
+   "euler-product",
+   "lean"
+  ]
+ },
+ {
+  "id": "twistor-heat-compat",
+  "type": "identity",
+  "name": "Twistor heat compatibility on range F_+",
+  "statement": "From R A_+ = A_- R, I_K F_+ = F_- R and hat-A_pm F_pm = F_pm A_pm it follows that I_K hat-A_+ = hat-A_- I_K on range F_+ (Lemma 6.1 of the twistor framework paper), over any commutative ring.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "lean:lean-aristotle/permutation-calculus/twistor_heat_compat/ heat_compat_on_range; OBSTRUCTION_MAP G19",
+  "tags": [
+   "twistor",
+   "heat-flow",
+   "lean"
+  ]
+ },
+ {
+  "id": "ff-twin-ladder-intersection-identity",
+  "type": "identity",
+  "name": "Function-field twin-ladder Weil form = minus intersection form",
+  "statement": "For C/F_q of genus g, Gamma_j the graph of Frobenius^j on C x C and P_j = Gamma_j - H - q^j V: G_jk := q^j + q^k - Gamma_j.Gamma_k = -P_j.P_k = q^{(j+k)/2} S_{k-j}. Q_TL >= 0 is the Hodge index theorem; B(c) = sum c_j q^{-j/2} P_j gives Q_TL[h] = ||Bh||^2.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/function-field-twin-ladder.md §0 item 2",
+  "tags": [
+   "function-field",
+   "twin-ladder",
+   "hodge",
+   "weil",
+   "bridge"
+  ]
+ },
+ {
+  "id": "ff-three-approaches-one-statement",
+  "type": "identity",
+  "name": "Passivity, prime-delay domination and Weil index coincide over F_q",
+  "statement": "For curves, R_a is a finite Blaschke product of degree 2g; the Pick kernel K_a has inertia (2g - nu_a, nu_a) with nu_a = #{zeros with Re lambda > a}; Q_TL is a Toeplitz form of rank 2g. All three approaches are the Caratheodory-Toeplitz theorem for S_n = q^{-n/2} sum alpha_i^n.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/function-field-twin-ladder.md §0 item 1",
+  "tags": [
+   "function-field",
+   "twin-ladder",
+   "pick",
+   "de-branges",
+   "weil"
+  ]
+ },
+ {
+  "id": "ff-fake-weil-polynomials",
+  "type": "control",
+  "name": "Function-field fakes: Euler product with a_d >= 0 and functional equation but off-line zeros",
+  "statement": "Integer Weil-type polynomials violating RH with exact Euler product, non-negative integral closed-point counts (checked d <= 60), functional equation, lossless bridge and rationality: 17 for q = 3, g = 2; 198 for q = 5, g = 2 (e.g. P = 1 + 11T^2 + 25T^4, zero at Re s = 0.6378). Excluded only by geometric realizability.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/function-field-twin-ladder.md §0 item 3; form:rh-attempts/2026-11-01-r2-synthesis.md §1.1",
+  "tags": [
+   "function-field",
+   "control",
+   "euler-product",
+   "hodge"
+  ]
+ },
+ {
+  "id": "ff-lift-obstructions-o1-o4",
+  "type": "obstruction",
+  "name": "Obstructions O1-O4 to lifting Weil's proof (row T3)",
+  "statement": "Absent for Q: (O1) finite genus (S_0 = infinity); (O2) a lattice of delays (log p are Q-independent: no single Frobenius, no constant-field tower); (O3) a surface Spec Z x Spec Z with a Hodge index theorem; (O4) a characteristic-0 Stepanov derivative trick.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/function-field-twin-ladder.md §0 item 4, §8; OBSTRUCTION_MAP T2, T3",
+  "tags": [
+   "function-field",
+   "hodge",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "ff-ghost-second-order",
+  "type": "measured-phenomenon",
+  "name": "A ghost at distance eps enters the Weil form at second order",
+  "statement": "Over F_q, lambda_min(T_{2g}) is about -C eps^2 for a zero at distance eps from the line; Weil positivity on delays shorter than about (2g - 1) log q (log conductor) is satisfied by RH-violating Euler products. Lambda_C < 0 generically; Lambda_E = 4 log(|a|/2 sqrt q)/(log q)^2.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/function-field-twin-ladder.md §0 item 5",
+  "tags": [
+   "function-field",
+   "weil",
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "landau-one-sided-target",
+  "type": "open-lemma",
+  "name": "One-sided Landau / Chebyshev target at square-root precision",
+  "statement": "RH iff there are C, m with sum_{n<=X} Lambda(n) n^{-1/2} <= 2 sqrt X + C (log X)^m for all large X (Landau's lemma with Lambda >= 0). Terminal object of 9 of 15 direct attempts; equals the V7 floor at p = 0 and the Suzuki signed credit prefix.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-synthesis.md §2; form:rh-attempts/2026-11-01-r2-stepanov.md; form:rh-attempts/2026-11-01-operator.md Theorem E",
+  "tags": [
+   "landau",
+   "explicit-formula",
+   "euler-product",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "v7-floor-theorem-c",
+  "type": "identity",
+  "name": "V7 floor: operator floor exponent p gives half-plane (1+p)/2",
+  "statement": "If the lowest eigenvalue of the compressed Weil operator satisfies eps_0(lambda) >= -C (1 + log lambda)^m lambda^p for all large lambda (0 <= p < 1), then zeta(s) != 0 for Re s > (1+p)/2; p = 0 is RH. Proof via the box vector and Landau. Converse direction: floor exponent equals 2 Theta - 1.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-operator.md Theorem C; form:paper/zf-campaign-v7-floor.md",
+  "tags": [
+   "weil",
+   "landau",
+   "zero-free",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "euler-completed-weil-multiplier",
+  "type": "object",
+  "name": "Euler-completed Weil multiplier M_X with symbol sigma_X",
+  "statement": "For lambda^2 = X, q_lambda[f] = (1/2 pi) int sigma_X(t) |f^(t)|^2 dt: the Weil operator H_lambda is the compression of the Fourier multiplier M_X. sigma_X(t) = Z_X(t) - T_X(t) + tau_X(t), Z_X = 2 Re sum_rho X^{rho - 1/2 - it}/(rho - 1/2 - it), |tau_X| <= X^{-5/2}. Checked on 2,001,052 zeros to 5.2e-5.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-operator.md Theorems A, B",
+  "tags": [
+   "weil",
+   "euler-product",
+   "explicit-formula",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "operator-split-4a-4b-false",
+  "type": "obstruction",
+  "name": "Pointwise bound on the large-prime symbol is false",
+  "statement": "The step bounding the large-prime part of sigma_X pointwise for |t| <= e^{O(sqrt X)} cannot hold: by the moment method the large-prime polynomial has excursions of order X^{c/2}(log X)^{1/2} at heights e^{X^c}, with or without RH (argued; Gaussian premise checked at X = 1e4 to 3.2%). A proof must keep t coupled to all primes.",
+  "status": "refuted",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-synthesis.md §1.5",
+  "tags": [
+   "weil",
+   "euler-product",
+   "mv-cap"
+  ]
+ },
+ {
+  "id": "offline-zero-visibility-law",
+  "type": "identity",
+  "name": "Visibility law for one off-line pair (Lemma 2)",
+  "statement": "Over f in L^2[-a,a], Q(f) = Omega ||f||^2 + g^(H - i delta) + g^(H + i delta) takes a negative value iff sinh(2 a delta)/delta - 2a > Omega; the minimising direction is e^{-iHu} sinh(delta u). Gives visibility length N_vis about (2 delta log gamma)^{1/delta}.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-contradiction.md Lemma 2",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "landau-transport-lemma-l",
+  "type": "identity",
+  "name": "Lemma L: one-height Landau transport along the sinh direction",
+  "statement": "For theta in [0, 1/2): the prime-side value U(W) of the matched direction e^{-iHu} sinh(delta u) satisfies U(W) >= -C (1+W)^m e^{(delta+theta)W} for all large W iff zeta(s) != 0 for Re s > 1/2 + theta. A single-height all-support statement is already a half-plane.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-contradiction.md Lemma L",
+  "tags": [
+   "landau",
+   "weil",
+   "zero-free",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "star-min-pointwise-prime-bound",
+  "type": "open-lemma",
+  "name": "(star_min): pointwise von Mangoldt polynomial bound at one height",
+  "statement": "Needed: at every height H >= 3e12, sum_{n <= (c log H)^kappa} Lambda(n) n^{-1/2} w(log n) cos(H log n) < beta(H) + s. Torus bound gap at gamma_0 = 3e12 is 3.03 (delta_0 = 3/8) to 2966 (delta_0 = 0.1). Davenport-Heilbronn violates the analogue (W/(2m^2) = -0.76 to -0.99).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-contradiction.md 'The line where it fails', §7",
+  "tags": [
+   "euler-product",
+   "weil",
+   "mv-cap",
+   "torus"
+  ]
+ },
+ {
+  "id": "af-inertia-lossless-lemma",
+  "type": "tool",
+  "name": "Lossless Alpoge-Furman inertia criterion (Lemma 1)",
+  "statement": "If G = sum_S v v^T + sum_M m_j u u^T + sum_O mu_l 2 Re(w w^T) + E with ||E|| <= theta and the number of eigenvalues above theta is >= |S| + sum m_j + 2 sum mu_l, then M = O = empty: every zero in the window is simple and on the line.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-window-100.md Lemma 1, Corollary 1",
+  "tags": [
+   "mollifier",
+   "proportion",
+   "pick",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "window-certificates-certify-rh-and-szc",
+  "type": "obstruction",
+  "name": "Proposition R: open zero-side-sound window certificates certify RH and simplicity together",
+  "statement": "Any open, zero-side-sound window certificate certifies RH and the simple-zeros conjecture, never RH alone. Over F_q the inertia statement fails when Frobenius eigenvalues repeat (Proposition S): Hodge index gives positivity, not inertia.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-window-100.md Propositions R, S",
+  "tags": [
+   "mollifier",
+   "proportion",
+   "function-field",
+   "hodge"
+  ]
+ },
+ {
+  "id": "window-edge-depth-requirement",
+  "type": "open-lemma",
+  "name": "Depth control next to every window",
+  "statement": "Exact window certification needs |beta - 1/2| <= delta_allowed(T) = O(log log T/log T) for zeros adjacent to the window: 0.26 at T = 3e12, 0.042 at T = 1e100 (B = 2). Half-plane inputs give 3/8; adversarial edge term exceeds lambda_N by factors 44-306 at T = 2e4 to 5e5.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-window-100.md §0; form:rh-attempts/2026-11-01-synthesis.md §1.1",
+  "tags": [
+   "mollifier",
+   "proportion",
+   "mv-cap",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "flat-window-diagonal-v7",
+  "type": "identity",
+  "name": "Flat-window diagonal = height-modulated V7 discrepancy (Lemma 4')",
+  "statement": "With D_alpha(L) = sum_{n<e^L} Lambda(n) n^{-1/2}(L - log n) cos(alpha log n) - int_0^L e^{r/2} cos(alpha r)(L - r) dr and Z_alpha(L) = sum_rho m_rho (2 sin((gamma_rho - alpha)L/2)/(gamma_rho - alpha))^2, the window Gram diagonal is expressed through D_alpha; alpha = 0 is the atlas discrepancy. Measured to 1.3e-6.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-window-100.md Lemma 4'",
+  "tags": [
+   "explicit-formula",
+   "mollifier",
+   "landau"
+  ]
+ },
+ {
+  "id": "rh-szc-vortex-slab",
+  "type": "identity",
+  "name": "RH and simple zeros iff G = H_t + i H_t' has no zero on the closed slab",
+  "statement": "RH iff G(t,x) := H_t(x) + i H_t'(x) != 0 on (0, 1/2] x R (vortex Theorem A, internal); G(0,x) = 0 exactly at real multiple zeros of H_0, so RH and SZC iff G != 0 on [0, 1/2] x R. Equivalently D_t(x) = H'^2 - H H'' > 0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-window-100.md §0 (E2); form:rh-attempts/2026-11-01-r3-theta-collision.md Theorem A",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "zero-channel",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "spec-z-graph-class-pairing",
+  "type": "object",
+  "name": "Graph-class pairing on S_Q representing the Weil form",
+  "statement": "For test functions F, G: D_F.D_G = d(F) d'(G) + d'(F) d(G) - W(F * G-check), i.e. P(D_F).P(D_G) = -W(F * G-check); distributionally -P(Gamma_u).P(Gamma_v) = sum_rho e^{i gamma_rho (u - v)}, the analogue of -P_j.P_k = q^{(j+k)/2} S_{k-j}. Confirmed to 2.6e-13.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-arith-surface.md Theorem 2.1",
+  "tags": [
+   "hodge",
+   "weil",
+   "function-field",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "no-riemann-roch-on-s-q",
+  "type": "obstruction",
+  "name": "Theorem 6.2: no Riemann-Roch datum exists on S_Q",
+  "statement": "On the graph-class space S_Q, |N.A| = {N.A} and |K - N.A| is empty for large N, so no function h satisfies the Riemann-Roch axioms: h(N.A) + h(K - N.A) <= 1 while the Riemann-Roch quantity grows like N^2. Holds whether or not RH is true.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-arith-surface.md Theorem 6.2; OBSTRUCTION_MAP T3",
+  "tags": [
+   "hodge",
+   "function-field",
+   "weil"
+  ]
+ },
+ {
+  "id": "box-defect-psi-w",
+  "type": "identity",
+  "name": "Box vector: Psi(W) = -1/2 P(B_W)^2 with defect exponent Theta - 1/2",
+  "statement": "For the box class B_W (B_W.H = B_W.V = 4 sinh(W/4)), Psi(W) = -1/2 P(B_W)^2 = aW + T - D(W), where D(W) is the V7 discrepancy; the box defect grows with exponent Theta - 1/2. Suzuki's criterion is D(W) <= C(1+W)^m.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-arith-surface.md Proposition 9.2",
+  "tags": [
+   "hodge",
+   "weil",
+   "landau",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "sign-only-certificate-reach",
+  "type": "measured-phenomenon",
+  "name": "Sign-only (Lambda >= 0) certificates reach lambda about 1.43",
+  "statement": "The norm test dies at lambda = sqrt 2; a weighted Schur/Zariski test reaches lambda about 1.43 (Ritz +1.17e-3 even at 1.42; -0.058 odd at 1.45); the archimedean form A_lambda is indefinite at about 1.5 (odd) and 1.55 (even).",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-synthesis.md §1.3",
+  "tags": [
+   "weil",
+   "hodge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "bootstrap-theorem-s",
+  "type": "obstruction",
+  "name": "Theorem S: capacity-form bootstrap stops at its self-consistent point (row Z16)",
+  "statement": "A bootstrap ZF(theta) => ZF(theta - delta(theta)) whose input enters through one monotone scalar stops at its fixed point. Xu-Sang system: stopping point in (0.874886646840, 0.874886649040), contraction 0.00302 per step; binding rows have zeros at real part 0.69-0.76, which no half-plane input reaches.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-bootstrap-qrh.md; form:rh-attempts/2026-11-01-synthesis.md §1.2; OBSTRUCTION_MAP Z16",
+  "tags": [
+   "zero-free",
+   "large-sieve",
+   "hecke",
+   "theta"
+  ]
+ },
+ {
+  "id": "zero-blind-floor-13-15",
+  "type": "obstruction",
+  "name": "Zero-blind low-side floor 13/15 and oracle floor 5/6",
+  "statement": "In the 7/8 architecture sigma_low = max(5/6 + M/12 - l/6, 23/24 - M/6 + 5l/24) >= 13/15 on M + l <= 1 (vertex (2/5, 0, 1/5)) for every density profile, GRH rows included. With oracle removal of both zero-blind obstructions a uniform saving s gives B = 13/15 - 4s/(5(5 - 6s)), floor 5/6.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-density-profile.md Theorems P, Q; form:paper/beat78-synthesis.md O6; OBSTRUCTION_MAP Z15",
+  "tags": [
+   "zero-free",
+   "large-sieve",
+   "theta",
+   "density"
+  ]
+ },
+ {
+  "id": "harmonic-strip-transport",
+  "type": "mechanism",
+  "name": "Harmonic strip transport with positive kernels (Theorem H2)",
+  "statement": "For zero-free completions g of the finite Euler product: H_g(1/2 + eta_1 + it) = int Q_{eta_1,eta_2}(t - u) H_g(1/2 + eta_2 + iu) du and sigma_g(t) = int k_eta(t - u) H_g(1/2 + eta + iu) du with Q, k > 0. The compressed form is a positive-kernel average of a harmonic potential.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-harmonic-floor.md Theorem H2",
+  "tags": [
+   "weil",
+   "euler-product",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "harmonic-floor-anchor-false",
+  "type": "obstruction",
+  "name": "Fixed-distance anchor line for the harmonic floor is false",
+  "statement": "Unconditionally at t = 0: H_g(1/2 + c) <= -(1/|c + i gamma_1| - o(1)) X^c/log X for infinitely many X, for every completion g (Landau-Ingham); sieve to 1e7 measures about -0.7 X^c/log X per decade. Minimum principle and Harnack only move a floor between lines.",
+  "status": "refuted",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §1.1",
+  "tags": [
+   "weil",
+   "euler-product",
+   "landau"
+  ]
+ },
+ {
+  "id": "h5-euler-products-bounded",
+  "type": "identity",
+  "name": "H5: RH iff corrected Euler products bounded above on compacts in sigma > 1/2",
+  "statement": "Equivalent: (a) RH; (b) for every compact K in {sigma > 1/2}, sup_{Y>=2} sup_{s in K} u_Y(s) < infinity; (c) for every real sigma in (1/2, 1), sup_Y [sum_{p<=Y} p^{-sigma} - int_2^Y u^{-sigma} du/log u] < infinity. One-sided real prime sums suffice.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-harmonic-floor.md Theorem H5",
+  "tags": [
+   "euler-product",
+   "landau",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "h6-symbol-offline-poisson",
+  "type": "identity",
+  "name": "H6: symbol = natural part + 4 pi sum of Poisson kernels of off-line zeros",
+  "statement": "sigma_X(t) = S^nat_X(t) + 4 pi sum_{beta > 1/2} P(t; rho), with S^nat_X = P_X - 8/(1 + 4t^2) + 2 N[w_b]; on-line zeros give the singular part -pi sum delta_gamma. The compressions satisfy q >= q^nat with equality iff RH. Author-checked only.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-harmonic-floor.md Proposition H6",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "dh-exp-completion-control",
+  "type": "control",
+  "name": "Davenport-Heilbronn with zero-free exp-completion",
+  "statement": "Every Dirichlet series has a zero-free completion exp(sum_{n<X} ...); for DH the operator identities hold to 3.7e-13 and Rayleigh quotients fall from -3.09 to -52.95 for 2a = 6 to 12, matching the off-line pair term -2(sinh(2 delta a)/(2 delta) - a)^2. Steps before the anchor carry no RH content.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §1.1",
+  "tags": [
+   "control",
+   "weil",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "legendre-lcm-identity",
+  "type": "identity",
+  "name": "Legendre substitution: lcm(1..x) = prod_k floor(x/k)!^{mu(k)}",
+  "statement": "sum_{k<=x} mu(k) floor(j/k) = 1 for 1 <= j <= x. For valid c (f_c(j) = sum_k c_k floor(j/k) >= 1 on J_x), log M_c = psi(x) + sum_j L_j (f_c(j) - 1) >= psi(x). The LP min{log M_c} has value psi(x); every dual point y >= 0 has sum y_j = psi(x).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-stepanov.md Theorem 3.4",
+  "tags": [
+   "sieve-parity",
+   "lp-duality",
+   "landau",
+   "function-field"
+  ]
+ },
+ {
+  "id": "legendre-lp-nu1",
+  "type": "measured-phenomenon",
+  "name": "Legendre certificate l^1 mass nu_1(x)",
+  "statement": "nu_1(x) = max over dual-feasible b >= 0 of (psi_b(x) - a x)/D_x(b). Claim nu_1(x) <= C sqrt x (log x)^A implies RH. Measured: nu_1/sqrt x = 1.01 for x <= 1e6, then lower bounds 1.036 (1e6), 1.046 (3e6), 1.088 (1e7); fluctuations track (psi(x) - x)/sqrt x. Sign-free floor at 1e7 is 5.70 sqrt x.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §1.2; form:rh-attempts/2026-11-01-r3-synthesis.md §1.1",
+  "tags": [
+   "lp-duality",
+   "landau",
+   "sieve-parity"
+  ]
+ },
+ {
+  "id": "selberg-parity-theorem-p",
+  "type": "obstruction",
+  "name": "Theorem P: Type-I majorants lose a factor 2 at square-root scale",
+  "statement": "Every Type-I majorant W of level <= X^{1-eps} with coefficient sums <= (log X)^A has B(W) >= (4 - o(1)) sqrt X, so the bound for sum Lambda(n) n^{-1/2} has error >= (2 - o(1)) sqrt X. Under ZF(7/8) this extends to coefficient sums up to X^{eta/8 - eps}.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-stepanov.md Theorems P, P'; OBSTRUCTION_MAP T2",
+  "tags": [
+   "sieve-parity",
+   "landau",
+   "function-field"
+  ]
+ },
+ {
+  "id": "eisenstein-confinement",
+  "type": "obstruction",
+  "name": "Theorem 4.5: zeta is confined to H^0 + H^2 of every X_0(N)",
+  "statement": "On NS(X_0(N)^2), P(x).P(y) = -Tr(gamma_x gamma_y^dagger | H^1) and H^1 is cuspidal; the Eisenstein character (Dirichlet series zeta(s) zeta(s-1)) enters intersection numbers only through degrees d_1, d_2, a form of rank <= 2, which Hodge index does not constrain. Checked with Brandt matrices for 52 primes.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-modular-tower.md Theorem 4.5",
+  "tags": [
+   "hodge",
+   "hecke",
+   "function-field",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "exact-equivariance-sees-only-tate",
+  "type": "obstruction",
+  "name": "Theorem 4.13: exactly Hecke-equivariant dictionaries see only pole functionals",
+  "statement": "A continuous linear map Theta from test functions to a finite-dimensional space, exactly equivariant for three distinct primes through operators with algebraic eigenvalues, factors through finitely many Tate moments int F x^k e^{lambda x} (Schwartz spectral synthesis + six exponentials). In the modular tower only d(F), d'(F) survive.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-modular-tower.md Theorem 4.13, Corollary 4.14; OBSTRUCTION_MAP G15",
+  "tags": [
+   "hecke",
+   "hodge",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "rep-hypothesis-equals-rh",
+  "type": "obstruction",
+  "name": "(Rep): asymptotic isometric representability of Weil classes iff RH",
+  "statement": "lim_N c_N^{-1} P(L_N D_F)^2 = -W(F * F-check) for every real F is equivalent to RH; the tower uses Hodge index only to say the target form is definite. Along the heat flow (Rep_t) iff RH_t; all steps before (Rep) hold for the DH Weil form.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-modular-tower.md Theorem 3.1, Proposition 3.2",
+  "tags": [
+   "hodge",
+   "weil",
+   "hecke"
+  ]
+ },
+ {
+  "id": "ramanujan-cube-satake-point",
+  "type": "conjecture",
+  "name": "RH as Eisenstein Satake points in the Ramanujan cube",
+  "statement": "In the Hecke picture RH reduces to: every Eisenstein Satake point Kron(gamma_rho) = (cos(gamma_rho log p))_p lies in the Ramanujan cube, via Lemma 4.11(iii), which is only argued; Prop 4.15(ii) is unproved.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §1.4",
+  "tags": [
+   "hecke",
+   "torus",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "euler-product-torus-parametrisation",
+  "type": "identity",
+  "name": "Lemma E: the Euler product at one height is a torus parametrisation",
+  "statement": "With Phi_N(H) = (H log p mod 2 pi)_{p<=N}, n^{-iH} = e^{-i<v(n), Phi_N(H)>}; every Dirichlet polynomial D(H) equals D~(Phi_N(H)); D(kH) = D~(k Phi_N(H)); D(H + tau) = D~(Phi_N(H) + tau (log p)_p). Any consequence of the Euler product at one height alone is torus-valid.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-phase-alignment.md Lemma E",
+  "tags": [
+   "torus",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "multiplicative-twin-mt",
+  "type": "control",
+  "name": "Theorem MT: completely multiplicative unimodular twin with a planted zero",
+  "statement": "For 1/2 < beta_0 <= 7/8 almost every realisation f: N -> S^1 completely multiplicative has F_1 = sum f(n) n^{-s} holomorphic in Re s > 1/2 with exactly one simple zero at beta_0, all harmonics F_k (|k| >= 2) zero-free there, and the all-scale prime alignment. No functional equation.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r2-phase-alignment.md Theorem MT",
+  "tags": [
+   "control",
+   "euler-product",
+   "torus"
+  ]
+ },
+ {
+  "id": "short-length-freedom-sf",
+  "type": "obstruction",
+  "name": "Corollary SF: the Euler product alone does not constrain short-length phases",
+  "statement": "Arbitrary phase changes on any finite set of primes keep the MT twin's planted zero and properties (in |Im s| < gamma_0, 2a <~ 4 log gamma_0). Measured at gamma_0 = 3e12, delta_0 = 3/8: margin >= 90.5, and >= 80.7 with every prime <= 6420 set adversarially.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r2-phase-alignment.md Corollary SF; form:rh-attempts/2026-11-01-r2-synthesis.md §1.5",
+  "tags": [
+   "torus",
+   "euler-product",
+   "control"
+  ]
+ },
+ {
+  "id": "no-free-transfer-nft",
+  "type": "obstruction",
+  "name": "Theorem NFT: torus phase vectors attain the off-line alignment",
+  "statement": "For every delta_0 <= 3/8, gamma_0 > 3e12 and support, some torus phase vector reaches the alignment an off-line zero would force: with phases in {0, pi}, L~_a = 39.06 vs target 13.45 at 2a = 8.767 (ratio 2.90) and 466.8 vs 119.9 at 2a = 13.69.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r2-phase-alignment.md Theorem NFT",
+  "tags": [
+   "torus",
+   "euler-product",
+   "weil"
+  ]
+ },
+ {
+  "id": "three-four-one-reach-pd",
+  "type": "obstruction",
+  "name": "Proposition PD: reach of multi-height 3-4-1 positivity (row P25)",
+  "statement": "The multi-height positivity class (non-negative cosine polynomials over heights k gamma_0) excludes an off-line zero at depth 3/8 only for log10 gamma_0 < 6.667; mollifier zero detection (T4) misses by a factor 45-829.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r2-phase-alignment.md Proposition PD; OBSTRUCTION_MAP P25, P26",
+  "tags": [
+   "zero-free",
+   "euler-product",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "plant-suppressed-by-zeta-rho0",
+  "type": "identity",
+  "name": "Theorem PZ: a planted off-line zero enters the Legendre dual with factor zeta(rho_0)",
+  "statement": "If zeta(rho_0) != 0, a single-cutoff plant (sqrt x <= T_0 <= x^{1-eta}) enters the sawtooth data with factor zeta(rho_0) and moves the LP objective by only O(kappa/|zeta(rho_0)| + kappa). Fake-zero gains stay O(1); valid from x about 1e28.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-legendre-dual-lp.md Lemma 2.1, Theorem PZ",
+  "tags": [
+   "lp-duality",
+   "landau",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "rig-continuum-sawtooth",
+  "type": "identity",
+  "name": "Theorem RIG: a measure with small sawtooth discrepancy carries only zeta's zeros",
+  "statement": "For a locally finite measure b >= 0 on [1, infinity) with O(Y^eps) integer-sawtooth discrepancy at every real Y, the Dirichlet transform is B* = s[...]/zeta: its singularities are zeta's zeros. Needs one measure on [1, infinity); finite-x dual points are unrelated Dirichlet polynomials.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-legendre-dual-lp.md Theorem RIG",
+  "tags": [
+   "lp-duality",
+   "landau",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "cofinal-legendre-dual",
+  "type": "open-lemma",
+  "name": "Cofinal Legendre dual b* feasible at every x",
+  "statement": "Proposal: build one b* >= 0 on [1, infinity) feasible at every x as a limit of rescaled optimal duals so RIG applies, then use Landau positivity with the pole subtracted. Decisive first test not run: convergence of rescaled optima (v log x / x drifted from 4.08 to 2.86 over 1e4-1e7).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §4 item 1",
+  "tags": [
+   "lp-duality",
+   "landau",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "sign-blind-stronger-than-rh",
+  "type": "obstruction",
+  "name": "Sign-blind Mobius tiling bound is strictly stronger than RH",
+  "statement": "A sign-blind proof of the Legendre tail needs sum_{M<=sqrt x} |M(x/M) - M(x/(M+1))| << sqrt x polylog, which implies M(x) << sqrt x polylog; this is not known under RH and needs J_{-1}(T) << T. HiGHS LP confirms equality at 1e4 (347) and 3e4 (548).",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §1.1 (Theorem E)",
+  "tags": [
+   "lp-duality",
+   "sieve-parity",
+   "landau"
+  ]
+ },
+ {
+  "id": "pole-coupling-theorem-pc",
+  "type": "identity",
+  "name": "Theorem PC: pole-coupled Landau positivity conserves zero mass",
+  "statement": "For completely multiplicative g with |g| <= 1 and G pole-coupled at 1: r_G(w) + conj r_G(conj w) = 2 ord_w zeta for Re w > sigma*(g); N_g(x) = sum_{n<=x} Lambda(n)(1 - Re g(n)) is non-decreasing and O(x^{sigma* + eps}).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-pole-pretentious.md Theorem PC",
+  "tags": [
+   "landau",
+   "euler-product",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "pcr-class-collapse",
+  "type": "obstruction",
+  "name": "Theorem PCR: a zero-free pole-coupled model at rho_0 exists iff zeta(rho_0) != 0",
+  "statement": "Because g = 1 (G = zeta) lies in the class, Lemma Z(rho_0) is equivalent to zeta(rho_0) != 0. Any argument built from Euler product, pole, domination and Landau positivity alone reproduces zeta's zeros. DH has 461 negative Landau coefficients for n <= 3000.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-pole-pretentious.md Theorem PCR; form:rh-attempts/2026-11-01-r3-synthesis.md §1.2",
+  "tags": [
+   "landau",
+   "euler-product",
+   "control"
+  ]
+ },
+ {
+  "id": "b-world-euler-twin",
+  "type": "control",
+  "name": "Euler-product twin B with pole at 1 and off-line zeros",
+  "statement": "A genuine Euler product B with pole at 1, 0 <= b <= 1 and off-line zeros at 0.85 + 8i and 0.75 + 10i (N = 1e8). Phase rotation moves the zero (r_H(w_0) = 0.055, r_H(conj w_0) = 2.06); modulus debiasing removes it but creates a real double zero at beta = Re w_0.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §1.2",
+  "tags": [
+   "control",
+   "euler-product",
+   "landau"
+  ]
+ },
+ {
+  "id": "selberg-zeta-companion",
+  "type": "open-lemma",
+  "name": "Pole-coupled companion from the Selberg zeta of PSL_2(Z)",
+  "statement": "Proposal: apply Theorem PC to a companion with independently fixed zeros: Selberg zeta of PSL_2(Z) (prime-geodesic coefficients >= 0, pole at 1, spectral zeros on Re s = 1/2, scattering zeros at rho/2). Decisive test not run: sigma* of the coupled companion vs beta_0/2 < 1/2.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §4 item 2",
+  "tags": [
+   "trace-formula",
+   "landau",
+   "hecke"
+  ]
+ },
+ {
+  "id": "heegner-height-upper-bound-h4prime",
+  "type": "identity",
+  "name": "H4': Neron-Tate positivity bounds zeta-weighted Green energies from above",
+  "statement": "The Gross-Zagier kernel is -4 pi times the positive resolvent (multiplier -4 pi/(s(s-1) + 1/4 + t^2), matched to 1.2e-16), so 2 pi int rho_zeta |P^ B_x|^2 kappa_N d mu = U(x_P) - h^(x_P) <= U(x_P), with rho_zeta = |zeta(1/2+it)|^2/|zeta(1+2it)|^2. Nyman-Beurling direction; slack = central derivatives.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-heegner-heights.md; form:rh-attempts/2026-11-01-r3-synthesis.md §1.3",
+  "tags": [
+   "heegner",
+   "hecke",
+   "nyman-beurling",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "cm-eta-heights-lambda1",
+  "type": "identity",
+  "name": "Theorem B: CM eta-heights equal A - lambda_1(zeta_K)/2",
+  "statement": "CM eta-heights equal A - (1/2) lambda_1(zeta_K) with A = gamma/2 - (log 2)/2 + (1 - log 2 pi)/2 = -0.4769042910 = lambda_1(zeta) - 1/2, lambda_1(zeta) = 0.0230957090 (first Li coefficient). Checked to 3.4e-21.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r3-heegner-heights.md Theorem B",
+  "tags": [
+   "heegner",
+   "hecke",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "heegner-nb-ratio",
+  "type": "open-lemma",
+  "name": "Nyman-Beurling ratio over Heegner amplitudes",
+  "statement": "RH would follow if inf_x e^{a_x} E_mu|A_x|^2/|A_x(1)|^2 = 1 over Heegner amplitudes. Unproved and not known under RH: DH-type brackets have off-line zeros (bracket zero pair 1.92574583 +- 7.35195194i forces floor 1.1066; measured ratio >= 2.0e3 for x = tau_{-7} - tau_{-8}).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §1.3; OBSTRUCTION_MAP P14",
+  "tags": [
+   "heegner",
+   "nyman-beurling",
+   "hecke"
+  ]
+ },
+ {
+  "id": "vaughan-sqrt-type1-exact",
+  "type": "identity",
+  "name": "Square-root Type-I lemma and renewal identity",
+  "statement": "In Vaughan's identity with U = V = floor(X^{1/4}) the Type-I pieces are exact up to |E_1| + |E_2| <= X^{-1/4}(2 + log X) + 1.04 (measured <= 0.022 for 1e6 <= X <= 1e10). R(X) = S(X) - 2 sqrt X satisfies R = Xi + K_X[R] + O(1).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-type2-parity.md Proposition 2.2",
+  "tags": [
+   "sieve-parity",
+   "landau",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "vaughan-forcing-law",
+  "type": "measured-phenomenon",
+  "name": "Vaughan forcing law: Xi(X) is of size X^{1/4}",
+  "statement": "Xi(U^4) evaluated for all U <= 1e8 (X to 1e32): max |Xi| = 3.07e7; decade maxima of |Xi|/X^{1/4} are 0.34-0.41; log-mean of Xi/X^{1/4} is 0.058-0.062 per decade. Conditional on RH, simple zeros and J_{-1}(T) << T: log-mean = 4 sum_{gamma>0} Re(1/zeta'(rho))/|rho - 1|^2 = 0.0596.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §1.4",
+  "tags": [
+   "sieve-parity",
+   "landau",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "theorem-os-one-sided-type2",
+  "type": "obstruction",
+  "name": "Theorem OS: one-sided Type-II bound at exponent alpha iff ZF(1/2 + alpha)",
+  "statement": "With U = V = X^{1/4}: T(X) - MT_II(X) <= C X^alpha (log X)^m for all large X implies ZF(1/2 + alpha); conversely ZF(1/2 + alpha) gives |T - MT_II| << X^{alpha + eps}. Cauchy-Schwarz is capped at X^{3/8} (psi error X^{7/8}). The contraction claim (K) is false.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-type2-parity.md Theorem OS, CS0; form:rh-attempts/2026-11-01-r3-synthesis.md §1.4",
+  "tags": [
+   "sieve-parity",
+   "landau",
+   "zero-free",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "pair-kernel-q-t",
+  "type": "identity",
+  "name": "Pair kernel: D_t(x) = int Q_t(v) cos(2xv) dv",
+  "statement": "With K_t(u) = e^{tu^2} Phi(u), D_t = H'^2 - H H'' has D_t(x) = int Q_t(v) cos(2xv) dv, Q_t(v) = int u^2 K_t(v+u) K_t(v-u) du. D_t >= 0 for all x is positive-definiteness of Q_t, a u^2-weighted self-convolution; positivity of K_t does not give it.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-theta-collision.md Lemma 1.1",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lee-yang",
+   "theta"
+  ]
+ },
+ {
+  "id": "laguerre-hierarchy",
+  "type": "identity",
+  "name": "Laguerre hierarchy for |H_t(x + iy)|^2",
+  "statement": "|H_t(x+iy)|^2 = sum_n L_n(t,x) y^{2n}, L_0 = H^2, L_1 = D, with d_t L_n = (n+1)(2n+1) L_{n+1} - (1/2) d_x^2 L_n. In the Laguerre-Polya class every L_n >= 0: positivity is created forward in t and not protected backward.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-theta-collision.md Lemma 1.2",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "lee-yang"
+  ]
+ },
+ {
+  "id": "gap-ode-reserve",
+  "type": "identity",
+  "name": "Gap ODE y' = 8 - 4 S y and exact reserve",
+  "statement": "For adjacent real zeros a < b under the flow, y = (b-a)^2 satisfies y' = 8 - 4 S y, S = sum_{r != a,b} 1/((b-r)(a-r)) >= 0; the lattice s Z is the equilibrium (S = 2/s^2). Reserve R(a0,T) = e^{-4 int S} y(a0) is the whole margin of a no-collision certificate.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r3-theta-collision.md Lemmas 1.3, 1.4",
+  "tags": [
+   "heat-flow",
+   "zero-dynamics",
+   "vortex",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "gaussian-subordination",
+  "type": "identity",
+  "name": "Gaussian subordination H_t(z) = E[H_s(z + i sqrt(2(t-s)) G)]",
+  "statement": "For 0 <= s <= t and G standard normal, H_t(z) = E[H_s(z + i sqrt(2(t - s)) G)] (order-1 functions), with Euler tilts of each Dirichlet term.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-theta-collision.md Lemma 1.5",
+  "tags": [
+   "heat-flow",
+   "euler-product",
+   "twistor"
+  ]
+ },
+ {
+  "id": "epstein-theta-collision",
+  "type": "control",
+  "name": "Theorem E: positive modular theta kernel with a positive-time collision",
+  "statement": "The Epstein theta kernel of 2m^2 + 2mn + 3n^2 has a real positive-time collision at (t, x) = (0.00592457504282, 191.95462253944); its zeros with beta = 2.0794, 1.0152, 1.6246 give Lambda_E > 1/2. Theta structure without an Euler product admits collisions (floating point).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-theta-collision.md Theorem E",
+  "tags": [
+   "control",
+   "theta",
+   "heat-flow",
+   "vortex"
+  ]
+ },
+ {
+  "id": "claim-m-false",
+  "type": "obstruction",
+  "name": "Claim M (monotone transport of the exterior field S) is false",
+  "statement": "With the actual H_t on [0.21, 0.30] (all zeros real), pair 6703-6704 has S rising from 0.5521 to 0.5624 and 15 of 70 inner pairs rise. A fixed relative loss eta certifies only depth (1/4S) log(q/eta); the certificate needs zero positions to relative precision exp(-4 int S) at every height.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §1.5; OBSTRUCTION_MAP P31",
+  "tags": [
+   "heat-flow",
+   "zero-dynamics",
+   "verified-height",
+   "vortex"
+  ]
+ },
+ {
+  "id": "euler-anchor-heat-certificate",
+  "type": "open-lemma",
+  "name": "Euler-anchored heat-time certificate",
+  "statement": "Proposal: an anchor with height-independent precision exponent x^{-c} so Prop L certifies depth 2 pi^2 c / L against required T* about C/L. The Euler product enters the anchor (|zeta(s)| >= zeta(2 sigma)/zeta(sigma) allows kappa toward 2; Epstein zeros force kappa >~ 6.3). Test 2 pi^2 c > C not run.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §4 item 5",
+  "tags": [
+   "heat-flow",
+   "euler-product",
+   "vortex",
+   "lambda"
+  ]
+ },
+ {
+  "id": "zeta-relative-inputs-reproduce-zeros",
+  "type": "obstruction",
+  "name": "Inputs defined relative to zeta reproduce zeta's zeros",
+  "statement": "Theorem PCR (class collapses through g = 1), RIG (the dual carries only zeta's zeros) and Theorem C (symbol 1 - zeta M_U equals 1 at every zero) state one fact: an input defined relative to zeta holds wherever its zeros are; every step before the failing one holds with an off-line zero.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-r3-synthesis.md §2 item 2",
+  "tags": [
+   "landau",
+   "euler-product",
+   "control"
+  ]
+ },
+ {
+  "id": "qrh-seven-eighths-input",
+  "type": "tool",
+  "name": "Zero-free half-plane Re s > 7/8 (openai/math family 003)",
+  "statement": "zeta(s) != 0 for Re s > 7/8, proved for all finite-order Hecke L-functions over Q(sqrt -3) by a zero detector on a probe with two exact representations (Poisson in the row variable, Gauss sums, cubic theta, quadratic large sieve). Lean-built locally (v4.34.1); not peer-reviewed.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:external/openai-math-qrh-verification.md",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "theta",
+   "metaplectic",
+   "large-sieve",
+   "lean"
+  ]
+ },
+ {
+  "id": "seven-eighths-abscissa-formula",
+  "type": "identity",
+  "name": "sigma_0 = 1 - h/6 + b/12 = 5/6 + M/12 - l/6",
+  "statement": "In the 7/8 manuscript sigma_0 = 5/6 + (M - 2l)/12 with h = 1 - l_x + l, M = l_x + l_y; on M + l = 1 this is 11/12 - l/4: 11/12 at l = 0, 7/8 at l = 1/6 (geometry l_x = 17/48, l_y = 23/48, b = 1/8).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/beat78-synthesis.md R1; form:paper/qrh-improvement-attempt-a.md",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "binding-row-bin",
+  "type": "measured-phenomenon",
+  "name": "Binding high-side row bin of the 7/8 system",
+  "statement": "min(-E*) = 35 sqrt(16354)/12696 - 1491/4232 = 2.2815e-4, attained at x = 1/2, delta* = 0.3866376: row zeros of sextic Hecke L-functions at Re s about 0.6933. Re-optimised paper system gives 0.874957; certified re-tuned boundary 7/8 - 1/25000 (endgame only).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/beat78-synthesis.md R8, R9",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "density",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "height-restriction-vacuous",
+  "type": "obstruction",
+  "name": "Proposition H: a height-restricted zero-free region is the global one",
+  "statement": "Given Platt-Trudgian (RH for gamma <= 3000175332800), 'beta <= theta for all gamma >= T_0' with T_0 below the PT height is equivalent to QRH(theta). The Raymond chain reads only q* = sup (2 beta - 1)^2 over gamma > 3000000092914; the 7/8 proof has no height parameter.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/beat78-project.md Proposition H; form:paper/beat78-synthesis.md R2, R3",
+  "tags": [
+   "zero-free",
+   "verified-height",
+   "lambda"
+  ]
+ },
+ {
+  "id": "zeta-only-not-easier",
+  "type": "obstruction",
+  "name": "Proposition D: a zeta-only version of the 7/8 argument is not easier (row Z13)",
+  "statement": "Within the 7/8 architecture theta_zeta >= theta_family: the target enters only through its signal exponent. Zeta nonvanishing is derived only through the all-Hecke-character statement; no zeta-specific project input (fixed-support Weil positivity, density, proportion) can enter.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/beat78-project.md Proposition D; OBSTRUCTION_MAP Z13",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "weil"
+  ]
+ },
+ {
+  "id": "amplifier-density-one-sixth",
+  "type": "obstruction",
+  "name": "Amplifier density 1/6 and residue degree k = 6 (rows Z14, Z15)",
+  "statement": "The amplifier is the trivializing rows mu_6 (K^x)^6 of density 1/6; 11/12 = 1 - (1/2)(1/6) is exact. Galois parity gives k in {2,3,6}; p^6 amplification is optimal among arguments using only the mean square and invariance A_{u m^6} = A_u. Structural, not a theorem for all methods.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/beat78-amplifier.md; form:paper/beat78-synthesis.md R6, R7; OBSTRUCTION_MAP Z14, Z15",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "large-sieve",
+   "metaplectic"
+  ]
+ },
+ {
+  "id": "tro6-natural",
+  "type": "conjecture",
+  "name": "Conjecture TRO6-natural(eta): theta-row orthogonality for complete sextic theta coefficients",
+  "statement": "Power saving Z^{-eta b/12} over Cauchy-Schwarz for sum_m rho^nat_sigma(-e_0 m) B^J_{m,sigma}(Z), rho^nat the complete sextic Kubota theta coefficient. Open for every eta > 0. With (H_sigma0) it gives Re s > max(7/8 - eta/96, 7/8 - 2.2815e-4).",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-synthesis.md §3; form:paper/sextic-theta-proof.md; OBSTRUCTION_MAP Z1-Z8",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "zero-free",
+   "hecke",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "probe-equals-theta-row-form",
+  "type": "identity",
+  "name": "Theorem D: the 7/8 probe equals the aggregated theta-row form",
+  "statement": "I_mod(Z) = Theta(Z) + O(Z^{17/96 + eps}): nothing unproved stands on the low side between the probe and the complete sextic theta coefficients. The P_a^{1/6} loss is exactly the Cauchy-Schwarz norm of the theta-row form; removing a power of it is the improved zero-free half-plane.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-proof.md Theorem D; form:paper/sextic-theta-synthesis.md §5",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "zero-free",
+   "hecke"
+  ]
+ },
+ {
+  "id": "sextic-theta-mean-square",
+  "type": "identity",
+  "name": "Theorem A: mean square of complete sextic theta coefficients",
+  "statement": "M^nat_sigma(Q) << Q^{5/6 + eps}, and sum |A - A^theta|^2 << (Q/Y') Z^eps for rho^nat with no exceptional term; Prop 15.2 holds without its P_a^2/Y' term. Proved relative to Broker-Hoffstein 2016 and the manuscript.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-proof.md Theorem A",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "large-sieve",
+   "hecke"
+  ]
+ },
+ {
+  "id": "sextic-theta-numerics",
+  "type": "measured-phenomenon",
+  "name": "Sextic theta coefficients over Z[omega], norm <= 1e7",
+  "statement": "Cubic calibration reproduces Patterson (rms 0.5%, first-moment exponent 0.8330 vs 5/6). Sextic first moments: exponent 0.683 [0.669, 0.697], consistent with 2/3; no Gauss-sum law at prime indices (alignment 0.50 vs 99% null 0.37); no twisted multiplicativity; mean-square slope 0.868, odd part 85.7%.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-computation.md; form:paper/sextic-theta-synthesis.md §2",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "hecke"
+  ]
+ },
+ {
+  "id": "sextic-coset-duality",
+  "type": "obstruction",
+  "name": "Duality: exceptional coset exists exactly when the signal does",
+  "statement": "For every sextic probe the exceptional coset e_0 t^6 a^6 exists exactly when xi^6 = 1, the same condition as for the high-side signal; the coherent block is scaled by one constant, so it can be evaluated but not filtered. Evaluation needs sextic theta coefficients at squarefree indices, unknown (no Whittaker uniqueness for GL_2^(6)).",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/zf-campaign-synthesis.md §2 item 1; form:paper/beat78-prop152-subtract.md §7; OBSTRUCTION_MAP Z9",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "zero-free",
+   "hecke"
+  ]
+ },
+ {
+  "id": "cubic-r2-conductor-a4",
+  "type": "identity",
+  "name": "Cubic lever: R2 reflection conductor exponent a = 4",
+  "statement": "The Poisson dual B_y(D) = sum_n mu(n) nu(n) gamma_2(n) conj(chi_n(y))^2 W(Nn/D) of the cubic Mobius family is the stripped alpha-twisted 6-fold Kubota series at index class y^4. Two derivations and a referee give a = 4, which closes the cubic lever in both frameworks.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/cubic-r2-conductor-verdict.md",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "hecke",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "separating-probe",
+  "type": "open-lemma",
+  "name": "A probe in which the exceptional coset and principal signal separate",
+  "statement": "Remaining lever after closing Prop 15.2 evaluation/subtraction/filter: a probe family where the exceptional coset and the signal separate. Not excluded: non-Poisson summation formulas and residue families of unbounded order; metaplectic Eisenstein series, higher-rank covers and multi-variable families.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-synthesis.md §5; form:paper/zf-campaign-synthesis.md §2 item 2; form:paper/beat78-synthesis.md O4",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "zero-free",
+   "hecke",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "lambda-slope-per-theta",
+  "type": "measured-phenomenon",
+  "name": "Conditional Lambda as a function of the half-plane abscissa",
+  "statement": "Raymond chain at PT height with q_0 = (2 theta - 1)^2 + 2e-6: theta = 7/8 gives 0.118505710922701; slope 0.28-0.29 of Lambda per unit theta; full removal of the exceptional term (model, theta = 0.864094) gives 0.115369. Route P at 7/8: 0.116091488672439. All conditional on unrefereed inputs.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/sextic-theta-synthesis.md §4; form:paper/lambda-qrh-note-draft.md §3; OBSTRUCTION_MAP F4",
+  "tags": [
+   "lambda",
+   "zero-free",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "start-substitution-lemma",
+  "type": "mechanism",
+  "name": "Half-plane start substitution in a decreasing-barrier chain",
+  "statement": "If zeta(s) != 0 for Re s > theta then zeros of H_t satisfy (Im z)^2 <= max((2 theta - 1)^2 - 2t, 0); in a decreasing-barrier chain q_0 > 1 may be replaced by q_0 > (2 theta - 1)^2 with strict-entry check q_0 - (2 + c_0 q_0) 1e-8 > (2 theta - 1)^2. Lean-checked.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:paper/lambda-qrh-note-draft.md §2; lean:lean/raymond-core/RaymondCore/Substitution.substitution; lean:lean/qrh-lambda/QrhLambda/Main",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-free",
+   "lean"
+  ]
+ },
+ {
+  "id": "lemma-cg-covering-identity",
+  "type": "identity",
+  "name": "Lemma CG: covering identity for finite Euler multiplier coefficients",
+  "statement": "With b_t(x) = exp(t log^2 x / 4), E_t(s) = prod_{p in {2,3,5}} (1 - b_t(p) p^{-s}): C_g(u,t) = b_t(w) beta_g(t) sum over covers (T,E) of P(g) of prod_{p in T} pi_p prod_{{p,q} in E} r_pq. Hence head coefficients c_n(t) are nonnegative and nondecreasing in t. Lean-checked.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/cg-monotonicity.md; lean:lean/raymond-core/RaymondCore/CG.covering_identity",
+  "tags": [
+   "euler-product",
+   "heat-flow",
+   "lambda",
+   "mollifier",
+   "lean"
+  ]
+ },
+ {
+  "id": "twisted-log-positivity-b-n",
+  "type": "identity",
+  "name": "wol-pd L2: log-positivity of b_n under completely multiplicative twisting",
+  "statement": "For completely multiplicative chi, f -> chi f is a ring automorphism of arithmetic functions commuting with the log-derivation D; the coefficients b_n defined by b * G = D G are nonnegative and monotone in t, with b at t = 0 equal to von Mangoldt. Lean-checked.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:paper/wol-pd-lemmas.md §2; lean:lean/Route40/WolPdL2.b_nonneg_and_mono, b_zero_eq_vonMangoldt",
+  "tags": [
+   "euler-product",
+   "heat-flow",
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "walled-cell-lemmas-b2-b3",
+  "type": "mechanism",
+  "name": "Lemma B.2/B.3: walled local RH window under the heat flow",
+  "statement": "B.3: if H_t has no zero on the boundary of a walled cell [a,b] x strip for t in [t_0,t_1], real zeros in the cell stay real. B.2: local strip contraction (Im z)^2 decreasing at rate 2 inside a walled or half-infinite cell. Gives a two-band comparison.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "form:paper/lemma-B-two-band.md §4-5",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel",
+   "vortex"
+  ]
+ },
+ {
+  "id": "weil-small-support-lean",
+  "type": "tool",
+  "name": "Weil positivity at small support in Lean (Yoshida range)",
+  "statement": "The prime side vanishes for test functions supported in |x| <= b < log 2 (sharp at log 2); for even Schwartz f supported in |x| <= 13/150 with the archimedean symbol >= 26/25 outside |xi| <= 57/20 and deficit integral <= 6, the zero side of f * f-tilde is >= 0.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "lean:lean/Route39/WeilSmallSupport.zeroSide_nonneg_small_support, primeSide_support_threshold_sharp",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "lean"
+  ]
+ },
+ {
+  "id": "lacunary-cone-weil-positivity",
+  "type": "measured-phenomenon",
+  "name": "Route 13: certified Weil positivity on lacunary / Muntz-incomplete cones",
+  "statement": "Certified lacunary-cone Weil positivity via indeterminate Caratheodory interpolation of xi'/xi: the one loophole NS-RIGID leaves inside the native span. Recorded as blind above a finite horizon; near-threshold cones left open.",
+  "status": "certified",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "no",
+  "source": "form:routes/fifty-routes-2026-10-06.md route 13; form:routes/fifty-routes-synthesis-2026-10-15.md; OBSTRUCTION_MAP P18",
+  "tags": [
+   "weil",
+   "pick",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "finite-support-euler-detector",
+  "type": "tool",
+  "name": "Route 30: finite-support rung Euler detector",
+  "statement": "A ladder-native quantity separating zeta from Davenport-Heilbronn at support below 3.44, with sharp onsets and certified witnesses; it detects the Euler product only as a multiplicativity test. Route 44: the Weil form's own detection depth follows the twin's root-number phase and first off-line zero (fitted, heuristic).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:routes/fifty-routes-synthesis-2026-10-15.md routes 30, 44; OBSTRUCTION_MAP L1",
+  "tags": [
+   "twin-ladder",
+   "euler-product",
+   "control",
+   "weil"
+  ]
+ },
+ {
+  "id": "semilocal-trace-s-inf-2-3",
+  "type": "identity",
+  "name": "Route 12: semilocal trace identity for S = {infinity, 2, 3}",
+  "statement": "Exact semilocal trace identity for S = {infinity, 2, 3} in the Connes-Consani framework (conditional). For S = {infinity, 2}: Tr(theta(f) P P^_S P) = W_infinity + W_2 + D_S with remainder D_S 96.7-99.7% of the trace on the pole-free minimizer.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:routes/fifty-routes-synthesis-2026-10-15.md route 12; form:paper/function-field-twin-ladder.md §8",
+  "tags": [
+   "trace-formula",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "two-line-zero-detector",
+  "type": "identity",
+  "name": "Route 48: two-line zero detector and one-line ambiguity group",
+  "statement": "|zeta| on one vertical line determines zeta only up to independent flips rho <-> 1 - conj(rho) (the Hilbert-transform wall stated exactly); a two-line detector D(w) removes the ambiguity. Classical-standard, internal.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "form:routes/fifty-routes-synthesis-2026-10-15.md route 48",
+  "tags": [
+   "explicit-formula",
+   "mv-cap",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "mollified-weil-reduction",
+  "type": "obstruction",
+  "name": "Route 19: mollified Weil forms reduce to plain Weil forms",
+  "statement": "Combining a Levinson mollifier with Weil test functions in one quadratic form reduces to the plain Weil form (elementary lemma); the result is Euler-blind or (G)RH-equivalent at full support.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:routes/fifty-routes-synthesis-2026-10-15.md route 19; OBSTRUCTION_MAP P26",
+  "tags": [
+   "mollifier",
+   "weil"
+  ]
+ },
+ {
+  "id": "selberg-zeta-freeze-sandbox",
+  "type": "open-lemma",
+  "name": "Route 28: freeze calculus on the Selberg zeta function",
+  "statement": "Run the twin-ladder freeze calculus on the Selberg zeta function, where the RH analogue holds by self-adjointness, to find which ladder statements become provable. Listed as open in the fifty-route synthesis.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:routes/fifty-routes-2026-10-06.md route 28; form:routes/fifty-routes-synthesis-2026-10-15.md",
+  "tags": [
+   "twin-ladder",
+   "trace-formula",
+   "hecke"
+  ]
+ },
+ {
+  "id": "common-terminal-objects",
+  "type": "obstruction",
+  "name": "Terminal objects of the 15 direct attempts",
+  "statement": "Each lands on: (1) the one-sided Landau bound at square-root precision (V7 at p = 0); (2) a pointwise Euler-product bound at a single height (MV-CAP wall, RES-T); (3) verified height; (4) RH as Weil positivity or an object absent over Q. No identity couples the Euler product to the functional equation at the height of a zero.",
+  "status": "closed",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "form:rh-attempts/2026-11-01-synthesis.md §2; form:rh-attempts/2026-11-01-r2-synthesis.md §2; form:rh-attempts/2026-11-01-r3-synthesis.md §2",
+  "tags": [
+   "landau",
+   "mv-cap",
+   "weil",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "euler-fe-coupling-at-height",
+  "type": "open-lemma",
+  "name": "An identity coupling the Euler product to the functional equation at the height of a zero",
+  "statement": "Stated need: exactly symmetric structure (Hecke-equivariant dictionaries, torus-valid phase arguments) sees only poles; DH (functional equation, no Euler product) and the MT twin (Euler product, no functional equation) each pass. A valid step must use both at height gamma_0, pointwise.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "form:rh-attempts/2026-11-01-r2-synthesis.md §2 item 4; form:rh-attempts/2026-11-01-synthesis.md §2 item 2",
+  "tags": [
+   "euler-product",
+   "explicit-formula",
+   "torus",
+   "hecke"
+  ]
+ }
+]

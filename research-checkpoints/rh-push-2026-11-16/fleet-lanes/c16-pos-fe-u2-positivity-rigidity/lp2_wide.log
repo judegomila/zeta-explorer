@@ -1,0 +1,19 @@
+[K=2000 eta=0.1] pair 1496,1497 g*=1977.2227 d=0.0488 cols=2169 fine rows=27807 LP matrix <= 0.052 GB
+[K=2000 eta=0.1] LP round 0 rows 800 delta 7.22836e-04 bound 7.22836e-04 worst 5.75e+00 t 30s
+[K=2000 eta=0.1] LP round 1 rows 1200 delta 3.16738e-03 bound 3.16738e-03 worst 8.63e-01 t 94s
+[K=2000 eta=0.1] LP round 2 rows 1600 delta 1.17886e-02 bound 1.17886e-02 worst 1.02e+00 t 201s
+[K=2000 eta=0.1] LP round 3 rows 2000 delta 2.69595e-02 bound 2.69595e-02 worst 6.81e-01 t 307s
+[K=2000 eta=0.1] LP round 4 rows 2400 delta 3.66888e-02 bound 3.66888e-02 worst 1.72e-01 t 430s
+[K=2000 eta=0.1] LP round 5 rows 2800 delta 4.09166e-02 bound 4.09166e-02 worst 8.43e-02 t 583s
+[K=2000 eta=0.1] LP round 6 rows 3200 delta 4.32446e-02 bound 4.32446e-02 worst 3.87e-02 t 820s
+[K=2000 eta=0.1] MILP round 0 rows 3600 delta 4.00000e+00 bound 0.00000e+00 worst 0.00e+00 t 2348s
+RESULT {"K": 2000, "eta": 0.1, "pair": [1496, 1497], "gstar": 1977.2226949488931, "d": 0.048751250853342754, "zq_envelope_sup": 0.05415371606887024, "zq_true_sup_neg": 0.054151965624037346, "zq_proved_bound": 0.08375010484462769, "cols": 2169, "lp_delta_lower_bound": 0.043244623509376, "lp_hist_last": [7, 3600, null, null, "1"], "lp_true_sup_neg_fine4": 0.08336552496285066, "lp_sum_a": 3.7186381908237713, "lp_sum_b": 1.6907890730542725, "lp_sum_c_extra": 0.024735714762092954, "int_true_sup_neg_fine4": 4.0, "int_dual_bound_last_round": 0.0, "int_removed": [1977.17394369804], "int_added_online": [1989.9931338899237], "int_extra_quartets": [], "int_hist": [[0, 3600, 4.0, 0.0, 0.0, 2348.2]], "int_is_ZQ": false, "seconds": 2352.5}
+[K=400 eta=0.1] pair 363,364 g*=630.6398 d=0.1659 cols=1413 fine rows=8969 LP matrix <= 0.034 GB
+[K=400 eta=0.1] LP round 0 rows 800 delta 3.87398e-02 bound 3.87398e-02 worst 8.21e+00 t 12s
+[K=400 eta=0.1] LP round 1 rows 1200 delta 9.16320e-02 bound 9.16320e-02 worst 9.86e-01 t 35s
+[K=400 eta=0.1] LP round 2 rows 1600 delta 1.23416e-01 bound 1.23416e-01 worst 1.20e-01 t 71s
+[K=400 eta=0.1] LP round 3 rows 1846 delta 1.27362e-01 bound 1.27362e-01 worst 2.84e-02 t 116s
+[K=400 eta=0.1] LP round 4 rows 1888 delta 1.27517e-01 bound 1.27517e-01 worst 3.60e-03 t 172s
+[K=400 eta=0.1] LP round 5 rows 1898 delta 1.27544e-01 bound 1.27544e-01 worst 1.60e-03 t 226s
+[K=400 eta=0.1] LP round 6 rows 1899 delta 1.27546e-01 bound 1.27546e-01 worst 2.71e-04 t 289s
+[K=400 eta=0.1] LP round 7 rows 1900 delta 1.27546e-01 bound 1.27546e-01 worst 6.42e-14 t 330s

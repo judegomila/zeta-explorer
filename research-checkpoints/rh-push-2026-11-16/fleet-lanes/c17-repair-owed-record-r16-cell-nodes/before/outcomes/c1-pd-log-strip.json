@@ -1,0 +1,34 @@
+{
+ "slug": "c1-pd-log-strip",
+ "round": 1,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "euler-product",
+  "explicit-formula",
+  "zero-free"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "For 1/2 < sigma < 1 the Fourier transform of the horizontal-branch u -> log zeta(sigma+iu) is the prime atoms A_sigma minus the density (e^{(1-sigma)x}-1)/x plus one term m e^{i gamma x}(e^{(beta-sigma)x}-1)/x per zero right of sigma (explicit formula in integrated form; contour-shift sketch, re-derived and confirmed numerically to about 5e-7 on new cases including E_a with zero terms). Raw positive-definiteness fails on every such line by the Omega-theorem argument, although small Gram matrices near sigma = 1 can be positive-definite. Positivity of the compensated transform CP(sigma) is equivalent to no zeros with Re s > sigma, and the direction CP => zero-free uses only the half-line x < 0 with no primes. Three named sigma-transport mechanisms fail at the pole; a general no-transport theorem is not proved. The lane is a restatement with score 0; no statement about zeros of zeta is made; R1-R4 are all false.",
+ "obstruction": "The compensated positivity CP(sigma) is equivalent to 'no zeros with Re s > sigma'; the direction CP => zero-free uses only the prime-free half-line x < 0. Raw positive-definiteness fails for every sigma < 1. The PD kernel ends at the pole on the diagonal, so there is no transport in sigma (three named mechanisms fail; no general no-transport theorem).",
+ "obstructionKind": "restatement-of-rh",
+ "controlsThatDefeat": [
+  "sign-positive twists (pass)",
+  "Beurling (pass)",
+  "E_a = zeta(s+a)zeta(s-a) (passes for sigma > 1/2+a, measured)",
+  "six controls assessed structurally, not run"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "lesson": "Left of the pole, positivity of the compensated transform splits into a support (causality) condition on the prime-free half-line, which is the zero-free statement itself, and a sign condition on the atoms, which is automatic. Sign-positive twists, Beurling and E_a (sigma > 1/2+a, measured) pass, so the property separates zeta from them only through their zeros. Fixed-order minors hold under zero-freeness but do not exclude a single zero (reasoning only).",
+ "followUp": "None on this route. Bookkeeping: close OBSTRUCTION_MAP section 6 item 8 as a restatement and extend row P29. If a referee pass is wanted, check Theorem 1 (contour shift details) and Theorem 3 (cutoff limit); six controls were assessed structurally, not run. Server not used.",
+ "resultFile": "tmp/research-2026-11-16/push/c1-pd-log-strip/RESULT.md"
+}

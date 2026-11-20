@@ -1,0 +1,1619 @@
+[
+ {
+  "id": "xi-centered-x",
+  "type": "object",
+  "name": "Centered xi function X(w)",
+  "statement": "xi(s)=(1/2)s(s-1)pi^{-s/2}Gamma(s/2)zeta(s), X(w)=xi(1/2+w)=F(w); even entire, order one maximal type; F(z)=int kappa(u)e^{zu/2}du with kappa(u)=(d_u^2-1/16)[e^{u/4}theta(e^u)], theta(t)=sum_n e^{-pi n^2 t}.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 1; [pr:44] rigorous/theta-propagation-2026-11-08/README.md",
+  "tags": [
+   "theta",
+   "bridge"
+  ]
+ },
+ {
+  "id": "heat-family-h-tau",
+  "type": "object",
+  "name": "Rodgers-Tao heat family H_tau",
+  "statement": "H_tau(z)=int_0^inf e^{tau u^2}Phi(u)cos(zu)du, Phi(u)=sum_n(2pi^2n^4e^{9u}-3pi n^2e^{5u})e^{-pi n^2e^{4u}}; H_0(z)=xi(1/2+iz/2)/8; d_tau H=-H_zz. Newman Lambda = threshold for all zeros real; RH iff Lambda<=0; Rodgers-Tao Lambda>=0; Platt-Trudgian Lambda<=0.2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5, 12",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "theta"
+  ]
+ },
+ {
+  "id": "theta-kernel-sqrt-concavity",
+  "type": "object",
+  "name": "Csordas concavity of log kappa(sqrt t)",
+  "statement": "t -> log kappa(sqrt t) is strictly concave for t>0 (Csordas Thm 4.2(b), kappa(u)=Phi(u/4)). The property persists for kappa_tau(u)=e^{tau u^2/16}kappa(u) at every real tau, since the heat factor adds an affine term -tau t/16.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:43] rigorous/theta-bridge-2026-11-08/theta_boundary_energy.md sec 3; [pr:56] rigorous/klein-annulus-coupling-2026-11-14/README.md sec 3",
+  "tags": [
+   "theta",
+   "heat-flow",
+   "bridge"
+  ],
+  "closedBy": "G5 (inputs F,G,H persist under HEAT)"
+ },
+ {
+  "id": "bridge-multiplier-c0",
+  "type": "object",
+  "name": "Unitary bridge multiplier C_0 = N/D",
+  "statement": "D=F+alpha F', N=F-alpha F', (C_0 f)^(t)=[N(it)/D(it)]f^(t); C_0 is unconditionally unitary, common boundary zeros removable. With h_pm(u)=(1 pm alpha u/2)kappa(u), A=h_+*, A*=h_-*: A g=A* f for g=C_0 f.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:43] rigorous/theta-bridge-2026-11-08/README.md; [pr:44] rigorous/theta-propagation-2026-11-08/README.md",
+  "tags": [
+   "bridge",
+   "antibridge",
+   "theta",
+   "spinor"
+  ],
+  "closedBy": "G6 (H_c>=0 iff S causal iff RH)"
+ },
+ {
+  "id": "suzuki-screw-response-psi",
+  "type": "object",
+  "name": "Suzuki scalar response Psi and box test",
+  "statement": "Psi(W)=(W/2)q_W[W^{-1/2}1_{I_W}]. Between prime-power events Psi(r)=C(r)-S_n r+J_n, S_n=sum_{j<=n}w_j, J_n=sum w_j r_j, with convex archimedean C on r>=log 2. RH corresponds to Psi>=0 type screw positivity (Suzuki 2206.03682).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "suzuki-screw"
+  ],
+  "closedBy": "P9"
+ },
+ {
+  "id": "curvature-charge-d",
+  "type": "object",
+  "name": "Arithmetic charge D(r) and measure nu",
+  "statement": "d nu=sum_{n>=2}Lambda(n)n^{-1/2}delta_{log n}-e^{r/2}dr; D(r)=sum Lambda(n)n^{-1/2}(r-log n)_+ -4(e^{r/2}-1-r/2), D''=nu. q_W[f]=(1/2pi)int a(t)|f^|^2-2Re int_[0,W) R_f d nu, a(t)=Re psi(5/4+it/2)-log pi.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "shift-ratio-threshold",
+  "type": "identity",
+  "name": "Strict shift comparison threshold",
+  "statement": "With Delta=sup|Re rho| over zeros of X: |X(w-a)|<|X(w+a)| for all Re w>0 iff a>=Delta (endpoint included). Positivity for every a>0 is RH-equivalent. Equivalent object: E_a(z)=xi(1/2+a-iz) and its de Branges kernel.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 2",
+  "tags": [
+   "bridge",
+   "shear",
+   "twin-ladder",
+   "de-branges"
+  ],
+  "closedBy": "G20, P19 (restatement)"
+ },
+ {
+  "id": "zero-packet-identity",
+  "type": "identity",
+  "name": "Zero-packet shift identity",
+  "statement": "For Q(w)=(w-i gamma)^2-delta^2: |Q(w+a)|^2-|Q(w-a)|^2=8a Re(w)((Re w)^2+(Im w-gamma)^2+a^2-delta^2). Negative only inside the disk of radius sqrt(delta^2-a^2) about i gamma; explains the strict threshold a>=delta.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 2",
+  "tags": [
+   "bridge",
+   "shear",
+   "twin-ladder"
+  ],
+  "closedBy": "G8, P8"
+ },
+ {
+  "id": "ghost-pole-cancellation",
+  "type": "obstruction",
+  "name": "Common-zero cancellation at one fixed shift",
+  "statement": "At a fixed shift a, R_a=X(w-a)/X(w+a) has pole order [m(rho)-m(rho-2a)]_+ at rho: common zeros cancel. Critical-line unimodularity holds without RH; a zero row is compatible with PSD. One fixed width is not RH-equivalent without the multiplicity condition.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 2, 8",
+  "tags": [
+   "bridge",
+   "twin-ladder",
+   "pick"
+  ]
+ },
+ {
+  "id": "hidden-square-measure-zero",
+  "type": "obstruction",
+  "name": "Hidden-square proposal: diagonal has measure zero",
+  "statement": "The set u=v has two-dimensional Lebesgue measure zero, so the positive one-dimensional comparison integral is not a channel of the original double integral. Repaired paired-coordinate and theta divisor-block identities give no global positivity.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 2; [pr:33] src/data/hidden-square-program-section.js",
+  "tags": [
+   "shear",
+   "bridge",
+   "theta"
+  ]
+ },
+ {
+  "id": "entropy-rate-balance",
+  "type": "identity",
+  "name": "Sharp entropy rate of the split damping model",
+  "statement": "For dY=(J-D_sigma)Y dt+sqrt(2D_sigma)dB, D_sigma=diag(sigma I,(1-sigma)I): KL(nu_t|mu)<=e^{-Rt}KL(nu_0|mu), R=2min(sigma,1-sigma), prefactor one, sharp. Balance sigma=1/2 optimizes the rate (Arnold-Erb specialization). No zero-location content.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 3; [pr:15] INFORMATION_OPTIMALITY.md",
+  "tags": [
+   "information",
+   "twin-ladder"
+  ]
+ },
+ {
+  "id": "xi-exponential-family",
+  "type": "identity",
+  "name": "Xi exponential family and KL identities",
+  "statement": "d mu_a=e^{ax-K(a)}d mu_0, K(a)=log X(a)/X(0), K''(a)=Var_{mu_a}(x)>0; KL(mu_a|mu_0)=aK'(a)-K(a), d/da KL=aK''(a). Central member minimizes KL. Real-axis statement only; no control of complex cancellation (Nakamura family).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 3",
+  "tags": [
+   "information",
+   "theta"
+  ]
+ },
+ {
+  "id": "complex-covariance-bound",
+  "type": "identity",
+  "name": "Fisher bound on Re F'/F via the tilted characteristic function",
+  "statement": "F(x+iy)=F(x)phi_x(y), phi_x(y)=E_x e^{iyU}; |d_x phi_x|^2<=I_x(1-|phi_x|^2), hence Re Z(x+iy)>=mu_x-sqrt(I_x)sqrt(1-|phi_x|^2)/|phi_x|. Ineffective where |phi_x| is small; positive Fisher information does not fix the sign of the complex covariance.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:41] research/vortex-bridge-reserve/REPORT.md sec 2",
+  "tags": [
+   "information",
+   "shear",
+   "theta"
+  ]
+ },
+ {
+  "id": "prime-gibbs-not-lee-yang",
+  "type": "obstruction",
+  "name": "Finite prime Gibbs models miss the theta law and can fail Lee-Yang",
+  "statement": "Z_X(beta)=prod_{p<=X}(1-p^{-beta})^{-1}: midpoint minimizes log Z_X(sigma)+log Z_X(1-sigma); normalized energy difference tends to a Gaussian. Theta kurtosis in [2.79110285146369,2.79110286487817] vs pure quartic 2.18843961522647. At X=2,J=0,g=1e-4 fourth cumulant>2.9: not Lee-Yang.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 3",
+  "tags": [
+   "lee-yang",
+   "euler-product",
+   "information"
+  ]
+ },
+ {
+  "id": "gibbs-shift-invariance",
+  "type": "obstruction",
+  "name": "Normalized Gibbs data cannot fix an absolute spectral floor",
+  "statement": "Normalized Gibbs data are invariant under H -> H-cI, while an absolute spectral floor shifts by -c. Positive covariance or critical susceptibility therefore cannot determine the absolute Weil lower bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 3",
+  "tags": [
+   "lee-yang",
+   "weil",
+   "information"
+  ]
+ },
+ {
+  "id": "twin-sync-dissipation",
+  "type": "mechanism",
+  "name": "Twin prime-ladder synchronization model",
+  "statement": "On l^2 prime-power rungs with Omega_{p,k}=k log p: for d=(u-v)/sqrt2, dE_d/dt=-2<d,Kd>; K>=kappa I gives E_d(t)<=e^{-4kappa t}E_d(0); K=0 conserves E_d. sum_p sum_k p^{-k}=sum_p 1/(p-1)=inf: the raw critical-line amplitude vector is not finite-energy. No zeta realization of the dissipative generator.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 4",
+  "tags": [
+   "twin-ladder",
+   "bridge",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "shift-compression-control",
+  "type": "control",
+  "name": "Finite compressions of -I+2S",
+  "statement": "Every finite compression of A=-I+2S (S the unilateral shift) has eigenvalue -1, yet +1 lies in the infinite approximate spectrum. Stable finite eigenvalue data do not determine the infinite limit; it is a control against finite-stage extrapolation.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 4",
+  "tags": [
+   "control",
+   "finite-stage"
+  ]
+ },
+ {
+  "id": "gain-ratio-target",
+  "type": "open-lemma",
+  "name": "Signed network gain G_L(eps)<=1",
+  "statement": "Exact decomposition Q_L=B_L-C_L with B_L,C_L>=0: G_L(eps)=sup_f C_L[f]/(B_L[f]+eps|f|^2), and G_L(eps)<=1 iff Q_L>=-eps I. Required for all supports and arbitrarily small eps>0.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 4; [pr:15] NETWORK_TRANSFORM.md",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ],
+  "closedBy": "P10 (bound with slack is the target)"
+ },
+ {
+  "id": "cauchy-phase-ou-covariance",
+  "type": "identity",
+  "name": "OU realization of the Cauchy-phase covariance",
+  "statement": "K_T(l,m)=(1/2)cos(T(l-m))[e^{-x|l-m|}-e^{-x(l+m)}] is realized by a zero-start two-quadrature Ornstein-Uhlenbeck process (mean and covariance only, not the law). Gives a linear-time variance recurrence and triangular/sinc-squared filtering correspondence.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:13] research-checkpoints/twin-ladder-physics-2026-10-19/poisson/POISSON_OU_AND_PRIME_BEAT_CORRESPONDENCE_v2.md",
+  "tags": [
+   "twin-ladder",
+   "mean-value"
+  ]
+ },
+ {
+  "id": "heat-determinant-wrong-sign",
+  "type": "obstruction",
+  "name": "Determinant D=H_x^2-HH_xx has wrong-sign backward source",
+  "statement": "(d_tau+d_x^2)D=2(H_xx^2-H_xH_xxx). Reversed time gives a negative source, not a forward maximum principle. Countermodel H=x^2-2(tau-c): real roots after c, collision at c, nonreal before. Strict log-concavity or positive kernels plus compact zero tails also fail.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5; [pr:16] DETERMINANT_OBSTRUCTION.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "lambda"
+  ],
+  "closedBy": "P31, F1"
+ },
+ {
+  "id": "adjacent-gap-reserve",
+  "type": "mechanism",
+  "name": "Adjacent squared-gap ODE and integrating-factor certificate",
+  "statement": "Before first loss of simple real zeros, y=(b-a)^2 obeys y'=8-4Sy, S=sum_{r!=a,b}1/((b-r)(a-r))>=0. If S>=L(t)>=0 along the continuation then y(T)>8 int_{t0}^T exp(-4 int_v^T L)dv excludes that pair's collision down to t0. Triple cluster slope is 6.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5; [pr:16] ADJACENT_GAP_CERTIFICATE.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "pair-correlation",
+   "lambda"
+  ],
+  "closedBy": "P31"
+ },
+ {
+  "id": "collective-interaction-rj",
+  "type": "measured-phenomenon",
+  "name": "Collective gap interaction R_j at the first zeros",
+  "statement": "R_j=g_j^2 S_j/2 with (g_j^2)'=8(1-R_j). Actual theta heat family, z=2 gamma: at t=0 pair 1 gap 13.7746 has R_eff=1.6039 (closing), pair 2 gap 7.9776 has R_eff=0.6626 (opening); at t=0.02: 1.6030 and 0.663.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:30] research/collective-gap-audit/README.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "pair-correlation"
+  ],
+  "closedBy": "P31"
+ },
+ {
+  "id": "collision-local-index",
+  "type": "identity",
+  "name": "Local collision index for backward heat solutions",
+  "statement": "For real analytic h with h_t=-h_xx and a spatial zero of exact multiplicity m>=2, the zero of (h,h_x) is isolated with Brouwer degree -floor(m/2). Boundary winding on a Jordan region equals the sum of indices; zero winding excludes collisions. Nonvanishing alone is not zero winding.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5; [pr:19] LOCAL_COLLISION_INDEX.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "vortex-blocker-equals-rh",
+  "type": "obstruction",
+  "name": "Vortex-trapping blocker reduces to RH / Newman bounds",
+  "statement": "For G=H_t+i d_x H_t: RH iff G has no zero on (0,1/2]xR iff every Jordan box with G!=0 on its boundary has winding 0. For 0<t1<=1/2: G!=0 on [t1,1/2]xR iff Lambda<t1 (Csordas-Smith-Varga).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:38] research-checkpoints/vortex-blocker-reduction-2026-11-01/README.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "lambda"
+  ],
+  "closedBy": "F3, G7"
+ },
+ {
+  "id": "exhaustive-winding-certificate",
+  "type": "open-lemma",
+  "name": "Exhaustive zero-winding box certificates",
+  "statement": "Construct zero-winding relative-error boundary certificates on an exhaustive family of boxes, with a simple all-real anchor, complex-zero confinement on each positive-time slab, and convergence to time zero. No uniform margin needed, but all boxes are needed.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 5",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "zero-channel"
+  ],
+  "closedBy": "G7 (restates verified height)"
+ },
+ {
+  "id": "theta-central-positivity",
+  "type": "measured-phenomenon",
+  "name": "Certified central positivity of H_tau",
+  "statement": "M_k(tau)=int u^k e^{tau u^2}Phi du; d/dtau(M_2/M_0)=Var_tau(u^2)>=0; H_tau(x)>=M_0(1-x^2M_2/(2M_0)). Arb: M_2(1/2)/M_0(1/2)<2/169, so H_tau(x)>0 for real |x|<=13, 0<=tau<=1/2 (only |Im s|<=6.5 at time zero).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 6; [pr:17] research-checkpoints/theta-central-2026-10-22/README.md",
+  "tags": [
+   "theta",
+   "heat-flow",
+   "certificate"
+  ]
+ },
+ {
+  "id": "genuine-theta-box",
+  "type": "measured-phenomenon",
+  "name": "Genuine field nonvanishing box through time zero",
+  "statement": "G(t,x)=H_t(x)+iH_x(t,x) is nonzero on [0,1/2]x[200,220] with exact zero boundary winding (194 derivatives, 24 boundary segments, 90 interior cells, 384/512-bit). Excludes simultaneous H,H_x zeros there only.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 6; [pr:18] research-checkpoints/genuine-theta-endpoint-2026-10-24/PROOF.md",
+  "tags": [
+   "vortex",
+   "heat-flow",
+   "certificate"
+  ],
+  "closedBy": "G7"
+ },
+ {
+  "id": "suzuki-toeplitz-compression",
+  "type": "identity",
+  "name": "Toeplitz compression of the Suzuki/Weil form on interval cells",
+  "statement": "H_{h,m}=(q_{|i-j|}), q_0=2Psi(h)/h, q_d=[Psi((d+1)h)-2Psi(dh)+Psi((d-1)h)]/h. Mesh refinement is exact: U*H_{h/2,2m}U=H_{h,m}. With positive definite interior, the two-boundary Schur complement is positive iff e>=|b|.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 7",
+  "tags": [
+   "weil",
+   "suzuki-screw",
+   "toeplitz"
+  ],
+  "closedBy": "P9"
+ },
+ {
+  "id": "finite-prime-rigidity",
+  "type": "measured-phenomenon",
+  "name": "Rigidity of prime weights under positivity",
+  "statement": "Psi_eps(r)=Psi(r)-sum_j eps_j(|r|-l_j)_+ at finitely many positive delays: unless all eps_j vanish some dyadic-cell matrix has a negative direction. Prime-2 increase at k=4,m=256, support 16 log 2: 0.000010685379<eps_*<0.000010685380. Zero-delay compensation is excluded from the hypotheses.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 7",
+  "tags": [
+   "weil",
+   "suzuki-screw",
+   "euler-product",
+   "rigidity"
+  ],
+  "closedBy": "P9 (w_2 window), P6 (Theorem R)"
+ },
+ {
+  "id": "split-twistor-wide-bridge",
+  "type": "obstruction",
+  "name": "Split-twistor wide bridge leaves the scalar ratio",
+  "statement": "On L^2_even(S^3) the angular multiplier is b_m(w)=prod_{j<=m}(w-2j)/(w+2j); T(w)=R_{3/2}(w)A(w) is a right-half-plane contraction, T(2)=(15/(2pi^2))P_0. The constant mode has multiplier one, so the scalar arithmetic ratio is the full norm obstruction.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 8; [pr:10] research/twistor-bridge-2026-10-03/README.md",
+  "tags": [
+   "twistor",
+   "bridge",
+   "torus"
+  ],
+  "closedBy": "G19"
+ },
+ {
+  "id": "thin-hankel-certificate",
+  "type": "measured-phenomenon",
+  "name": "Signed thin Hankel norm certificates",
+  "statement": "(H_{a,L}f)(x)=int_0^L h_a(xy)f(y)dy. ||H_{1/4,L}||<=49999/50000 for 1<L<=3/2 and <=1999999/2000000 for 1<L<=8/5. The absolute-kernel norm exceeds one at the first window and diverges; unconditional bound min(L,M sqrt L) is unbounded.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 8",
+  "tags": [
+   "twistor",
+   "bridge",
+   "hankel",
+   "certificate"
+  ],
+  "closedBy": "Q15"
+ },
+ {
+  "id": "thin-hankel-schur-equivalence",
+  "type": "identity",
+  "name": "All-window Hankel boundedness = Schur property with cancellation",
+  "statement": "For the xi quotient at fixed a, all-window boundedness is equivalent to cancellation-aware holomorphy and the Schur property. At a=1/4 each zero sigma+i gamma, sigma>3/4, needs a same-ordinate zero 3/2-sigma+i gamma of at least its multiplicity. Widths tending to zero give RH.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 8",
+  "tags": [
+   "bridge",
+   "hankel",
+   "twin-ladder"
+  ],
+  "closedBy": "G20"
+ },
+ {
+  "id": "heat-fiber-completion-theorem",
+  "type": "identity",
+  "name": "Minimal completion theorem (holomorphic ratio continuation)",
+  "statement": "X entire even, a_n>a0 distinct, a_n->a0. If for every n a holomorphic r_n on all of Re w>0 equals X(w-a_n)/X(w+a_n) on some open set, then all zeros of X lie in |Re w|<=a0; converse holds. No norm bound, common set or uniformity in n is needed.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:10] research/heat-fiber-freeze-2026-10-03/heat_twistor_completion/INDEPENDENT_AUDIT.md sec 2",
+  "tags": [
+   "bridge",
+   "twistor",
+   "twin-ladder",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "fixed-support-weil-symbol",
+  "type": "identity",
+  "name": "Fixed-support completed Weil symbol V_L",
+  "statement": "V_L(t)=Re psi(1/4+it/2)-log pi-2 sum_{n<=e^{2L}}Lambda(n)n^{-1/2}cos(t log n)+[2 sinh L cos(2Lt)+4t cosh L sin(2Lt)]/(t^2+1/4); Q_L[f]=int V_L|f^|^2 for f supported in [-L,L]. Pole completion appears once.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 9; [pr:15] FIXED_SUPPORT.md",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "q65-coercivity",
+  "type": "measured-phenomenon",
+  "name": "Recorded full-domain certificate Q_{6/5}>=1e-55",
+  "statement": "Q_{6/5}>=10^{-55}I on the full domain (160 Legendre modes plus analytic high complement; prime powers 2,3,4,5,7,8,9,11). At L=5/4 the sufficient comparisons failed at 160 and 180 modes (value <=-0.002602851065047418, not a negative Weil vector). The 1.1 GB bundle is unavailable.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 9",
+  "tags": [
+   "weil",
+   "certificate"
+  ],
+  "closedBy": "P19"
+ },
+ {
+  "id": "null-symbol-duality",
+  "type": "identity",
+  "name": "Null-symbol dual for fixed-support Weil positivity",
+  "statement": "Every W(t)=sum_j c_j cos(a_j t) with a_j>2L has zero expectation against |f^|^2 for f supported in [-L,L]. Exact dual: inf_{|f|=1}Q_L[f]=sup_{finite W}inf_t(V_L+W). At L=11/20 a single lattice of period 64pi has strictly negative optimum; off-lattice correction does not close 128pi.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 9; [pr:15] NULL_SYMBOL_DUALS.md",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "toeplitz",
+   "dual-certificate"
+  ]
+ },
+ {
+  "id": "mobius-packet-energy-target",
+  "type": "open-lemma",
+  "name": "Mobius packet block-energy target",
+  "statement": "S(L)=sum_d mu(d)d^{-1/2}F(L-log d)=sum_n Lambda(n)n^{-1/2}k(log n-L), F(y)=sum_{m>=2}(log m)m^{-1/2}k(log m-y). int_j^{j+1}|S|^2<=Ce^{0.7496j} for large j gives boundary B=0.8748. Open part: signed pairs with small common divisor and large separation.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 10; [pr:14] rigorous/mobius_bridge_reduction/README.md",
+  "tags": [
+   "zero-free",
+   "mollifier",
+   "moebius",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "pr14-boundary-certificate",
+  "type": "measured-phenomenon",
+  "name": "Exact parameter certificate B=0.87488665",
+  "statement": "Exact rational admissibility for B=17497733/20000000 improves the Xu-Sang displayed parameter by 5e-8; zero-free conclusion conditional on imported analytic estimates. Inside that system B<=0.8748 is excluded.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:14] rigorous/mobius_bridge_reduction/README.md",
+  "tags": [
+   "zero-free",
+   "theta",
+   "hecke",
+   "certificate"
+  ],
+  "closedBy": "Z9, Z10"
+ },
+ {
+  "id": "target-0874-restricted-moment",
+  "type": "open-lemma",
+  "name": "Restricted fourth moment (H) for B=0.874",
+  "statement": "B=437/500 needs a restricted numerator fourth-moment bound of order U^{39/40+eps} on the detected class. With only #B<=U^R and global fourth moment U, Holder is sharp: first moment U^{(3R+1)/4}. Needs joint detector/numerator control losing 1/40.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:14] rigorous/mobius_bridge_reduction/TARGET_0874.md",
+  "tags": [
+   "zero-free",
+   "large-sieve",
+   "theta"
+  ],
+  "closedBy": "Z10 (K=(3R+1)/4-theta/2 is the LP optimum), not-covered item 2"
+ },
+ {
+  "id": "sixth-phase-filter",
+  "type": "obstruction",
+  "name": "Signed sixth-character filter keeps eigenvalue one",
+  "statement": "Filter with value 1 at the principal phase and -1/5 at the other five. Complete-period Gram orthogonality is exact, but the simultaneous local sixth-power residue subspace retains eigenvalue one; matching numerator and denominator Euler lines erases the principal detector. Small mean energy is not worst-case contraction.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:14] rigorous/mobius_bridge_reduction/SIGNED_PHASE_FILTER.md",
+  "tags": [
+   "zero-free",
+   "hecke",
+   "theta",
+   "metaplectic"
+  ],
+  "closedBy": "Z12, Z14"
+ },
+ {
+  "id": "discrepancy-floor-implication",
+  "type": "identity",
+  "name": "Floor exponent p gives half-plane (1+p)/2",
+  "statement": "If eps_0(lambda)>=-C(1+log lambda)^m lambda^p with p<1 then zeta has no zeros in Re s>(1+p)/2; p=3/4 gives 7/8, p=0 gives RH. Improved global floors are unproved.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 10 (V7 03-landau.tex)",
+  "tags": [
+   "weil",
+   "zero-free"
+  ],
+  "closedBy": "P10"
+ },
+ {
+  "id": "landau-one-sided-d-bound",
+  "type": "identity",
+  "name": "One-sided growth of D(W) gives a zero-free half-plane",
+  "statement": "Fix 0<=alpha<1/2. If D(W)<=C(1+W)^m e^{alpha W} for all W>=W_0 then zeta has no zero in Re s>1/2+alpha (Landau lemma for nonnegative P-D); alpha=0 gives RH. Only an upper one-sided bound is required.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:23] research/rh/modules/arithmetic-foundation.md sec 2",
+  "tags": [
+   "explicit-formula",
+   "zero-free",
+   "weil"
+  ],
+  "closedBy": "T2 (psi-criterion reformulation)"
+ },
+ {
+  "id": "curvature-cylinder",
+  "type": "obstruction",
+  "name": "Curvature cylinder encodes nu but gives no bound",
+  "statement": "Metric g=e^{-2D(r)}(dr^2+d theta^2) has K_g dA_g=d nu d theta distributionally. On a lifted triangle total curvature equals D(W), cancelled by boundary curvature: Gauss-Bonnet gives no upper bound. Periodic model D_b has zero total curvature and unbounded weighted charge.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "torus",
+   "weil",
+   "geometry"
+  ]
+ },
+ {
+  "id": "gamma-bulk-identity",
+  "type": "identity",
+  "name": "Positive bulk realization of the gamma symbol",
+  "statement": "With a_0=a(0), b_m=2m+5/2: G[f]=A[f]-a_0|f|^2=inf_{(u_m)}sum_m (2/b_m)(|f-u_m|^2+b_m^{-2}|u_m'|^2), u_m=b_m^2(b_m^2-d_x^2)^{-1}f. Realizes the gamma part exactly; the signed arithmetic boundary defect remains. Off-diagonal prime deltas obstruct a local scalar Dirichlet-to-Neumann model.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "weil",
+   "explicit-formula",
+   "passive"
+  ]
+ },
+ {
+  "id": "scalar-comparison-target",
+  "type": "open-lemma",
+  "name": "Cofinal gamma-relative bound on the prime form",
+  "statement": "With V_W[f]=2Re int R_f d nu: (G_W+mu I)^{-1/2}V_W(G_W+mu I)^{-1/2}<=I for one fixed mu>0 cofinally in support would give a uniform floor. Direct absolute-transport comparison costs at least c_mu lambda/sqrt(log lambda).",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "weil",
+   "explicit-formula"
+  ],
+  "closedBy": "P2, P10"
+ },
+ {
+  "id": "suzuki-reserve-update",
+  "type": "identity",
+  "name": "Convex-conjugate reserve and its update",
+  "statement": "M_n=J_n-C*(S_n); M_{n+1}-M_n=int_{S_n}^{S_n+w_{n+1}}[r_{n+1}-u(s)]ds, u the derivative of the one-sided conjugate. Convexity does not fix the sign. Under RH the almost-periodic zero expansion has arbitrarily small returns, so a uniform positive margin is the wrong target.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:27:atlas] research/rh/modules/historical-routes.md sec 11",
+  "tags": [
+   "suzuki-screw",
+   "weil",
+   "explicit-formula"
+  ],
+  "closedBy": "P9, P2"
+ },
+ {
+  "id": "suzuki-finite-certificate",
+  "type": "measured-phenomenon",
+  "name": "Finite Suzuki scalar certificates",
+  "statement": "Psi(0)=0, Psi(r)>=r/(100 log(5/4)) on [0,a_0], Psi(r)>1/100 on [a_0,log 10^7]; Psi(r)>11/400 on [log 2,log 10^4] (1,280 events, 192/256-bit Arb); window mean int_t^{t+1}Psi>0.0431381 for 0<=t<=log(10^6)-1. Reserves are not monotone (q=4 to q=5 decreases).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:21] research/rh/modules/finite-suzuki-certificate.md; research/rh/suzuki/notes/closed-reserve-and-debt.md; [pr:41] WINDOWED_PRIME_AUDIT.md",
+  "tags": [
+   "suzuki-screw",
+   "certificate",
+   "weil"
+  ],
+  "closedBy": "P9"
+ },
+ {
+  "id": "closed-reserve-credit-debt",
+  "type": "identity",
+  "name": "Closed reserve: signed credits minus summable debts",
+  "statement": "R_{n+1}-R_n=c_q-d_q, c_q=Lambda(q)q^{-1/2}log(q/(H(q-)/2)^2), H(q-)=sum_{p^k<q}(log p)p^{-k/2}-b, -3<b<-2; d_q>=0 with sum d_q<inf unconditionally. Hence boundedness below of the accumulated signed credits G_N is an exact RH-equivalent target.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:21] research/rh/suzuki/notes/closed-reserve-and-debt.md; [pr:23] proper-power-memory.md",
+  "tags": [
+   "suzuki-screw",
+   "explicit-formula",
+   "weil"
+  ]
+ },
+ {
+  "id": "proper-power-memory",
+  "type": "identity",
+  "name": "Proper powers: summable credits, logarithmic memory",
+  "statement": "B(r)=sum_{p^k<=e^r,k>=2}(log p)p^{-k/2}=r/2+kappa+O(r^2e^{-0.59 sqrt r}), kappa=-gamma+sum_p log p/(sqrt p(p-1)); sum_p sum_{k>=2}|c_{p^k}|<inf. With H~_p=sum_{l<p}log l/sqrt l+(1/2)log p+kappa-b: R(X)-sum_{2<p<=X}c~_p converges.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:21] research/rh/modules/prime-memory.md; research/rh/suzuki/notes/proper-power-memory.md",
+  "tags": [
+   "suzuki-screw",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "credit-variation-block-freeze",
+  "type": "identity",
+  "name": "Credit variation bound and block freezing",
+  "statement": "For renormalized prime credits c_n and X=e^L, L>=512: sum_{p_n>=X}|c_{n+1}-c_n|<=(23L+34)/sqrt X. Credits can be frozen on prime-index blocks of up to sqrt p/(log p)^3 events at finite total error (tail <=6/L^2+17/(2L)). Both Jordan sums of credits still diverge.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:23] research/rh/suzuki/notes/weighted-credit-variation.md",
+  "tags": [
+   "suzuki-screw",
+   "explicit-formula",
+   "short-intervals"
+  ]
+ },
+ {
+  "id": "generic-recovery-control",
+  "type": "control",
+  "name": "Impulse systems with balanced charge but drifting displacement",
+  "statement": "Constant curvature with one unit downward slope jump per block at relative time r: D_j(1)=0 but E_j(1)=1/2-r (drift -1/4 at r=1/4, +1/4 at r=3/4). A refinement with a(t)=e^{t/2} and ceil(e^{2j}) jumps keeps finite diagonal loss. Equal charge does not determine displacement.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:41] research/vortex-bridge-reserve/PRIORITY_AUDIT.md sec 4",
+  "tags": [
+   "control",
+   "suzuki-screw"
+  ]
+ },
+ {
+  "id": "mobius-interval-sign-reversal",
+  "type": "measured-phenomenon",
+  "name": "Centered Mobius sum: cutoff sign reversals",
+  "statement": "At x=65536, U=V=64 the corrected jointly centered sum is J=-0.0504355617852 (50 digits), while uncorrected partial sums J_K are 0.00797 (K=2048), -0.45106 (4096), 0.48086 (8192). Tail omission is refuted; raising K cannot improve the corrected value (cutoff-transfer identity).",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[pr:41] research/vortex-bridge-reserve/MOBIUS_INTERVAL.md",
+  "tags": [
+   "moebius",
+   "mollifier",
+   "certificate"
+  ]
+ },
+ {
+  "id": "one-sided-excess-target",
+  "type": "open-lemma",
+  "name": "One-sided excess Q(x)-4 sqrt x with exponent below 3/8",
+  "statement": "Bound the one-sided excess Q(x)-4 sqrt(x) directly, preserving sign, with exponent beta<3/8 uniformly in x; the input must distinguish primes from the comparison set S. An absolute PNT envelope loses the saving.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "[pr:41] research/vortex-bridge-reserve/PRIME_ARITHMETIC.md sec 6",
+  "tags": [
+   "suzuki-screw",
+   "zero-free",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "bandlimited-packets-refute-4m",
+  "type": "obstruction",
+  "name": "Bandlimited zeta packets refute the strong 4M tail gate",
+  "statement": "The strong 4M cap and the aggregate target E_lambda=O(l) at T_0=pi X/l are false along X=2N for supported high-frequency packets built from r_n=n^{-1/2}. The local-negative-mass gate s<(1-delta_0)mu is not refuted. A signed route must keep the near-null head sector.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:23] research/rh/signed-complement/.../BANDLIMITED_ZETA_PACKETS_REFUTE_FOUR_M_GATE.md",
+  "tags": [
+   "weil",
+   "prolate",
+   "resonator"
+  ]
+ },
+ {
+  "id": "signed-complement-bound",
+  "type": "open-lemma",
+  "name": "Signed bound on physical-complement directions",
+  "statement": "A signed bound on arbitrary physical-complement directions of the supported Weil form, including broad lobes and long prime-shift networks. Whole-space positive clipping norms discard the needed cancellation and head geometry. Proved pieces: packet obstruction, physical-head projection, narrow-lobe safe sector.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:23] research/rh/modules/signed-complement.md",
+  "tags": [
+   "weil",
+   "prolate",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "whole-even-coercivity",
+  "type": "measured-phenomenon",
+  "name": "Even-sector supported Weil coercivity to sqrt(33/2)",
+  "statement": "q_lambda[f]>=c_*|f|^2 for every even f supported in [-log lambda,log lambda] with finite log Fourier moment, 1<lambda<=sqrt(33/2) (earlier sqrt(16.001), sqrt(16.1)); infinite tail included; c_* existential. No odd-sector, cofinal or RH statement.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:28] research/rh/modules/prime-retained-tail-certificate.md; [pr:25] spectral-denominator-repair.md",
+  "tags": [
+   "weil",
+   "certificate",
+   "prolate"
+  ],
+  "closedBy": "P19"
+ },
+ {
+  "id": "x165-inverse-comparison-obstruction",
+  "type": "obstruction",
+  "name": "X=16.5 inverse-comparison deficit",
+  "statement": "At support X=16.5 the sufficient inverse comparison fails by 0.04361 (previous 7th-to-8th power gain at 16.1 was 0.014520). Break-even needs a certified reduction above 5.117333% of the near band 2049..4096 directional charge 7.69897369184e-76.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:28] research/rh/prime-retained-inverse/.../support_endpoint_X165/DIAGNOSTIC_RESULT_AND_NEXT_TARGET.md",
+  "tags": [
+   "weil",
+   "certificate",
+   "prolate"
+  ],
+  "closedBy": "P19"
+ },
+ {
+  "id": "spectral-head-mobius-poisson",
+  "type": "identity",
+  "name": "Mean-zero head lemma via finite Mobius inverse",
+  "statement": "||E_even g||>=||g||/(40 sqrt2 lambda) for mean-zero sources in the threshold head chi_n>=1/2, eventually. Mechanism: 2L_even g=P_v(I+C_lambda)g+T_even g-g(0)r_even, r(y)=M_1(lambda/y)/(2y), M_1(R)=sum_{d<=R}mu(d)/d. Injectivity only; no complement lower bound.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:26] research/rh/modules/spectral-head-theory.md sec 3, 8",
+  "tags": [
+   "prolate",
+   "weil",
+   "moebius"
+  ]
+ },
+ {
+  "id": "prolate-p0-invalidated",
+  "type": "obstruction",
+  "name": "Xi prolate-Weil bridge checkpoint: P0 invalidated",
+  "statement": "PR 6 isolates an exact sufficient theorem and replays Connes-Consani-Moscovici finite matrices, with Fourier projection on N=C ceil(lambda^2) and Mellin projection on O((log lambda)^2); its proof item is recorded as P0_INVALIDATED. No signed Weil or sector floor transfers.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:6] research-checkpoints/xi-prolate-bridge/README.md; [pr:27:atlas] research/rh/modules/historical-routes.md ledger",
+  "tags": [
+   "prolate",
+   "weil",
+   "trace-formula"
+  ]
+ },
+ {
+  "id": "coherent-sparse-span",
+  "type": "obstruction",
+  "name": "Coherent sparse-span theorem for separated carriers",
+  "statement": "For t,s in [T,2T]: |<N_t u,S_h N_s v>|<=C_K[(1+|t-s|)^{-K}+T^{-K}]|u||v|; for an L=e^b separated set, (1/4)S<=|Psi_b|^2<=S and H_l[J_b Psi_b]>=(1/16)log T S. Nearby, exceptional and low-frequency directions are not covered.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:29] research/rh/modules/channel-geometry.md sec 4, 8",
+  "tags": [
+   "zero-channel",
+   "weil",
+   "visualization"
+  ],
+  "closedBy": "G11"
+ },
+ {
+  "id": "schur-charge-payment",
+  "type": "open-lemma",
+  "name": "Signed estimate paying E - B*D^{-1}B",
+  "statement": "An actual signed arithmetic estimate strong enough to pay the Schur charge E-B*D^{-1}B of the complementary block, with physical normalization, domains and tails intact; equivalently an all-scale estimate of the true signed Schur residual.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "yes",
+  "source": "[pr:29] research/rh/modules/channel-geometry.md sec 8; [pr:27:atlas] research/rh/modules/historical-routes.md sec 7",
+  "tags": [
+   "weil",
+   "zero-channel"
+  ],
+  "closedBy": "G11, P10"
+ },
+ {
+  "id": "t3-is-zero-free-strip",
+  "type": "obstruction",
+  "name": "Lemma SL1: T3 at level a = zero-free strip",
+  "statement": "Equivalent for a>0 outside a countable set: T3 kernel PSD on finite sets in C_+; K^{E_a} PSD; E_a=Xi(.+ia) Hermite-Biehler; every zero has |Im lambda|<=a; zeta!=0 for Re s>1/2+a. Grade: wall is zero-free strip plus flow rigidity, not pair correlation.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:9] tmp/debranges_verdict.md sec 1, 7",
+  "tags": [
+   "de-branges",
+   "twin-ladder",
+   "zero-free",
+   "pick"
+  ],
+  "closedBy": "G20, P19, F1"
+ },
+ {
+  "id": "one-sided-euler-harmonic",
+  "type": "obstruction",
+  "name": "One-sided Euler harmonic criterion: cutoff exponent above 26/63",
+  "statement": "A clipped harmonic average of a one-sided fixed-coefficient prime sum on a finite rectangle suffices, but with m=533/31500 the interpolation needs log Q/log T above 10309/24948 (b=7/8, r=100), limit 26/63. Polylogarithmic cutoffs cannot close it; cancellation cannot remove the clipping penalty.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[pr:12] research-checkpoints/twin-curve-2026-10-18/one-sided-euler-harmonic-criterion.md sec 4",
+  "tags": [
+   "euler-product",
+   "zero-free",
+   "twin-ladder"
+  ],
+  "closedBy": "Q13, S4"
+ },
+ {
+  "id": "poisson-prime-tail-energy",
+  "type": "mechanism",
+  "name": "Poisson domination of the left edge by prime tail energy",
+  "statement": "Poisson domination removes the sum-frequency covariance and writes the variance as an integrated squared tail of the fixed prime coefficients; smooth density contributes at most (K^2/2)T^{-917/500} for Q<=sqrt T. Unique factorization gives moments up to order 12 outside an exceptional set.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[pr:12] research-checkpoints/twin-curve-2026-10-18/README.md; poisson-prime-tail-energy.md",
+  "tags": [
+   "euler-product",
+   "mean-value",
+   "zero-free"
+  ],
+  "closedBy": "MV-CAP (P29)"
+ },
+ {
+  "id": "prime-square-remainder-c3",
+  "type": "identity",
+  "name": "Uniform j>=3 remainder after separating prime squares",
+  "statement": "After separating prime-square modes the j>=3 logarithmic remainder satisfies |R_3(t)|<=C_3(s_0), C_3(s)=[2^{-3s}+2^{1-3s}/(3s-1)]/[3(1-2^{-s})], uniformly in cutoff and height for every s_0>=1/2.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:12] research-checkpoints/twin-curve-2026-10-18/prime-square-refinement/PRIME_SQUARE_JOINT_POISSON_REVIEW_v1.md",
+  "tags": [
+   "euler-product",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "dyadic-near-frequency-target",
+  "type": "open-lemma",
+  "name": "Signed near-frequency pair sum",
+  "statement": "Far-frequency interactions are paid by positive block energies; the remaining variance target is one explicit triangular signed near-frequency pair sum plus a signed mean, uniform in height.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[pr:12] research-checkpoints/twin-curve-2026-10-18/near-frequency-2026-10-19/DYADIC_NEAR_FREQUENCY_REDUCTION_v2.md",
+  "tags": [
+   "euler-product",
+   "pair-correlation",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "passive-delay-realization",
+  "type": "obstruction",
+  "name": "Passive delay realization of the finite inverse Euler ratio",
+  "statement": "An ideal passive scattering network with prime-indexed delays realizes the attenuated inverse finite Euler ratio; the bridge h is a pole-zero damping separation, not a Hermitian coupling. The forward response W_Q is not passive; no infinite-cutoff transfer.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[pr:13] research-checkpoints/twin-ladder-physics-2026-10-19/delay/PASSIVE_DELAY_REALIZATION_v2.md",
+  "tags": [
+   "twin-ladder",
+   "euler-product",
+   "passive",
+   "bridge"
+  ],
+  "closedBy": "G10, Q10"
+ },
+ {
+  "id": "odd-power-pick-signature",
+  "type": "identity",
+  "name": "Pick signature of odd powers; pole does not bound index",
+  "statement": "For m(z)=z^{2k+1} the Pick kernel has signature (k+1,k): at most k negative eigenvalues on any finite set. A single unpaired pole 1/(8+2i-z) added to positive masses has unbounded negative index (diagonals Im m(z_j)/eps tend to -inf).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:34] docs/weil-pick-numerical-safety.md",
+  "tags": [
+   "pick",
+   "de-branges"
+  ],
+  "closedBy": "Q6"
+ },
+ {
+  "id": "zero-pair-shear-formula",
+  "type": "identity",
+  "name": "Reflected-pair contribution to Re F'/F",
+  "statement": "A(x,t)=Re F'/F=sum m(x-b)/((x-b)^2+(t-gamma)^2) without extra constant. A reflected pair b,-b at ordinate gamma contributes P=2mx(q-b^2)/((q+b^2)^2-4x^2b^2), q=x^2+(t-gamma)^2: negative only inside q<b^2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/README.md",
+  "tags": [
+   "shear",
+   "bridge",
+   "visualization"
+  ],
+  "closedBy": "G8"
+ },
+ {
+  "id": "small-value-shear-energy",
+  "type": "identity",
+  "name": "Regularized negative-shear energy counts zeros",
+  "statement": "W=Re(F' conj F), Q=(-W)_+, K_eta=Q/(|F|^2+eta^2). For a rectangle D=(0,X)x(T0,T1) with no zeros on top, bottom, right edges: int_D K_eta^2=(pi/2)M_D log(1/eta)+O_D(1), M_D = zeros strictly inside. So no off-line zeros in D iff energy is o(log 1/eta).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/energy/SMALL_VALUE_ENERGY.md",
+  "tags": [
+   "shear",
+   "bridge",
+   "mean-value",
+   "visualization"
+  ]
+ },
+ {
+  "id": "universality-kills-fixed-degree-filter",
+  "type": "obstruction",
+  "name": "Fixed-degree arithmetic filter fails by discrete universality",
+  "statement": "For d=1/4, any offset c_*, degree m, eps>0: a positive lower density of k has R_m(1/4,c_*+k/8)<eps while zeta is zero-free on the translated disk |w|<=1/4 (Reich discrete universality with a target equal to one at nodes and e^{-A} at the centre).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/ARITHMETIC_GAIN_BRIDGE.md",
+  "tags": [
+   "mollifier",
+   "nyman-beurling",
+   "universality"
+  ],
+  "closedBy": "G9"
+ },
+ {
+  "id": "first-reduced-kernels",
+  "type": "identity",
+  "name": "First reduced theta kernels n_a, b_a",
+  "statement": "n_a+a b_a=J, a n_a+4b_a''=p(a)kappa, J(t)=(1/4)int_{|t|}^inf v kappa(v)dv, p(a)=F'(a)/F(a). p>0, p'(a)=Var_a(v/2)>0, p(a)/a strictly decreasing. For t>=3 with x=pi e^t, u=-kappa'/kappa: x-3<u<x, Q=u/t>19, Q'>0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/THETA_FINITE_ANCHOR_TAIL.md",
+  "tags": [
+   "theta",
+   "pick",
+   "bridge"
+  ],
+  "closedBy": "P4"
+ },
+ {
+  "id": "zeta-half-line-bound-6",
+  "type": "tool",
+  "name": "Explicit bound |zeta(1/2+it)|<=6 sqrt(1+|t|)",
+  "statement": "|zeta(1/2+it)|<=6 sqrt(1+|t|) for all real t (Euler summation). Gives tail bound int_{|t-c|>V}K_d(t-c)|zeta D-1|^2<=[72B^2(1+|c|)+2]J_0+72B^2J_1, B=sum|a_n|n^{-1/2}, J_0=32d^5/(5pi V^5), J_1=8d^5/(pi V^4).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:39] research-checkpoints/zeta-riblet-phase-budget-2026-11-02/cluster/GROWING_ARITHMETIC_FILTER.md",
+  "tags": [
+   "nyman-beurling",
+   "mollifier",
+   "tool"
+  ]
+ },
+ {
+  "id": "theta-fisher-degree9",
+  "type": "measured-phenomenon",
+  "name": "Theta-Fisher parity blocks positive through degree 9",
+  "statement": "Both actual 5x5 parity blocks are positive on 0<=a<=1/2, 0<=H_cut<=1/8 (Schur bounds >658509314218 even degree 8, >82637820677424 odd degree 9); at H_cut=0, degree<=9 positivity for every a>0. N=1 modular payment: (s_2-kappa_1 Q_-)/a>44929/57800 for 0<a<=1/4.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:40] research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/STATUS.md",
+  "tags": [
+   "theta",
+   "information",
+   "certificate",
+   "finite-stage"
+  ],
+  "closedBy": "P3/P4 type (finite stage, no induction)"
+ },
+ {
+  "id": "orbit-pair-kernel",
+  "type": "open-lemma",
+  "name": "Orbit-pair kernel strict inequality uniform in degree",
+  "statement": "A_N=sum_{n,m}int_0^inf(qp)'phi_n phi_m; antisymmetric score-gap covariances vanish, so strict orbit MLR cannot pay. Galerkin density kernel kappa_{n,m}=-((sigma_n-sigma_m)^2+sigma_n'+sigma_m')/2, positive on the diagonal, negative off it. Open: strict inequality with all cross-orbit terms, uniformly in degree.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:40] research-checkpoints/zeta-sphere-theta-fisher-bridge-2026-11-02/STATUS.md (sixteenth wave)",
+  "tags": [
+   "theta",
+   "information"
+  ]
+ },
+ {
+  "id": "pollaczek-synthesis-obstruction",
+  "type": "obstruction",
+  "name": "Off-diagonal correlations defeat componentwise Pollaczek bounds",
+  "statement": "Tp=Fp'+2F'p, X[p]=|Tp|^2, H[p]=|Fp'|^2, X-H=int V p^2, V=2(F'^2-FF''). Pollaczek Q_j^*=P_j^{(9/4)}(t/2;pi/2) have H/X<=C/log(j+2), yet R_n=sum a_k Q_{n-2k}^*, a_k=(-1)^k(7/4)_k/k!, has H/X->1.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:40] research-checkpoints/theta-pollaczek-transfer-2026-11-04/src/ACTUAL_SIGNED_SYNTHESIS_OBSTRUCTION.md",
+  "tags": [
+   "theta",
+   "jensen",
+   "laguerre"
+  ]
+ },
+ {
+  "id": "quadratic-jacobi-ladder-control",
+  "type": "control",
+  "name": "Positive quadratic Jacobi ladder without log n reserve",
+  "statement": "p_{n+1}=t p_n-Cn^2p_{n-1} (C>1) keeps the theta profile, positive quadratic recurrence coefficients, real simple interlacing roots and log localization but has no conditioning reserve of order log n. Exact signed stationarity must distinguish the actual ladder.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:40] .../THETA_RESERVE_QUADRATIC_JACOBI_OBSTRUCTION_20261103.md",
+  "tags": [
+   "control",
+   "theta",
+   "jensen"
+  ]
+ },
+ {
+  "id": "sign-switching-energy-target",
+  "type": "obstruction",
+  "name": "Even/odd boundary energies: E_-<=E_+ is RH",
+  "statement": "Inward normalized shear of the completed function is E_+ - E_- from an unconditionally positive boundary kernel P_a. Near an off-line zero gamma+ib of multiplicity m: W_h(gamma)=m|c|^2(h-b)^{2m-1}+O((h-b)^{2m}). E_-(t,h)<=E_+(t,h) for all t and 0<h<1/2 is equivalent to RH.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:42] formalization/paper/sign_switching_energy_2026-11-07.md",
+  "tags": [
+   "shear",
+   "bridge",
+   "antibridge",
+   "visualization"
+  ],
+  "closedBy": "G1, G8"
+ },
+ {
+  "id": "cutoff-energy-kernel-hc",
+  "type": "identity",
+  "name": "Exact cutoff energy identity and kernel H_c",
+  "statement": "|Q_c A*a|^2-|Q_c A a|^2=-<a,H_c a>, H_c(u,v)=2alpha int_{|c-(u+v)/2|}^inf t kappa(t-(u-v)/2)kappa(t+(u-v)/2)dt, pointwise positive. H_c=B_c*B_c-Delta_c with (B_c a)(s)=sqrt(alpha)int kappa(sqrt(s+(u-c)^2))a(u)du.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:43] rigorous/theta-bridge-2026-11-08/README.md; [pr:44] README.md",
+  "tags": [
+   "bridge",
+   "antibridge",
+   "theta",
+   "torus"
+  ],
+  "closedBy": "P21, G6"
+ },
+ {
+  "id": "two-point-cutoff-positivity",
+  "type": "measured-phenomenon",
+  "name": "Two-feature and far-translated positivity of H_c",
+  "statement": "H_c(u,v)^2<H_c(u,u)H_c(v,v) for u!=v, from convexity of -log kappa(sqrt t). Every fixed finite configuration translated far into either end is positive, with limiting Gram kernel sech((u-v)/2); separated sech Gram matrices have an explicit lower bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:43] theta_boundary_energy.md sec 3, theta_boundary_two_point.md sec 6; [pr:44] theta_separated_tail.md",
+  "tags": [
+   "bridge",
+   "theta",
+   "finite-stage"
+  ],
+  "closedBy": "G5, P22"
+ },
+ {
+  "id": "pulse-leakage-bound",
+  "type": "measured-phenomenon",
+  "name": "Box-pulse leakage below 1/8 and divergent preimages",
+  "statement": "For f_0=1_[0,1], g_0=C_0 f_0 (alpha=1): leakage |Q_1 g_0|^2<=0.124030166<1/8 by a rational three-feature witness. Regularized preimages a_eps have L^1 and L^2 norms tending to infinity while int a_eps -> 1/F(0). A single inverse-Blaschke toy shows no universal leakage gap.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:44] thinking/decisions/2026-11-08-theta-propagation-continuation.md; theta_pulse_hardy_defect_20261108.md",
+  "tags": [
+   "bridge",
+   "theta",
+   "hardy-space"
+  ],
+  "closedBy": "P22, Q16"
+ },
+ {
+  "id": "pulse-leakage-zero-target",
+  "type": "open-lemma",
+  "name": "Zero leakage of the actual pulse",
+  "statement": "|Q_1 g_0|^2=lim_{eps->0}[<a_eps,Delta_1 a_eps>-|B_1 a_eps|^2] with a_eps=(A*A+eps)^{-1}A*f_0. Show the limit is zero. Leakage is an orthogonal Hardy model-space projection; genuine poles give Cauchy-Gram lower bounds. All derivative orders at one point are equivalent to the global kernel sign.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:44] rigorous/theta-propagation-2026-11-08/README.md",
+  "tags": [
+   "bridge",
+   "theta",
+   "hardy-space"
+  ],
+  "closedBy": "P21, P22"
+ },
+ {
+  "id": "auxiliary-concave-kernel-controls",
+  "type": "control",
+  "name": "Auxiliary kernels with theta-like concavity that fail Pick",
+  "statement": "e^{-u^2}(2+cosh u) has the initial concavity and positive Green properties but fails a three-node Pick test; e^{-u^2}(3/2+cosh u) has ordinary and squared-variable log-concavity yet fails the next odd jet block and a four-node test. Generic scalar-concavity induction cannot suffice.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:48] rigorous/theta-schur-kernels-2026-11-09/README.md sec 5; [pr:45] theta_jet_commutator_20261108.md sec 5; [pr:47] README.md",
+  "tags": [
+   "control",
+   "theta",
+   "pick"
+  ],
+  "closedBy": "G5, P4"
+ },
+ {
+  "id": "jet-boundary-trace-unbounded",
+  "type": "obstruction",
+  "name": "All-order jets: boundary trace unbounded",
+  "statement": "The all-order derivative hierarchy has a rank-two displacement structure, but the vector representing boundary data is unbounded in the putative positive jet norm. If D(it_0)=0 a Gaussian has no L^2 preimage under A; common boundary zeros differ from multiplier poles.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:45] rigorous/theta-all-order-2026-11-08/theta_all_order_jet_structure_20261108.md sec 7; theta_gaussian_probe_obstruction_20261108.md",
+  "tags": [
+   "bridge",
+   "theta",
+   "finite-stage"
+  ],
+  "closedBy": "P21"
+ },
+ {
+  "id": "theta-modular-ode-system",
+  "type": "identity",
+  "name": "Closed polynomial system for the theta kernel on the modular axis",
+  "statement": "With t=e^u, H=e^{u/4}theta_3(it), X=theta_2^4, Y=theta_4^4, E=E_2(it): a=H'/H, c=pi t(Y-X), v=pi^2t^2XY satisfy a'=2a^2+(v-1)/8, c'=4ac+2v, v'=v(8a-c), and kappa/H=3a^2+v/8-3/16; a(0)=c(0)=0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:46] rigorous/theta-endpoint-2026-11-08/theta_modular_system_20261108.md sec 1",
+  "tags": [
+   "theta",
+   "metaplectic",
+   "modular",
+   "torus"
+  ]
+ },
+ {
+  "id": "friedrichs-route-obstruction",
+  "type": "obstruction",
+  "name": "Theta derivative-energy operator: no symmetry, no sectorial bound",
+  "statement": "The natural unbounded operator behind the theta derivative energy fails symmetry and every finite-angle sectorial estimate unconditionally; hypothetical off-axis zeros give explicit graph defects in the adjoint domain. Heat smoothing changes each pole's Gaussian multiplier but removes no pole at finite time.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:46] rigorous/theta-endpoint-2026-11-08/theta_unbounded_operator_domains_20261108.md; theta_direct_gaussian_contours_20261108.md sec 7",
+  "tags": [
+   "bridge",
+   "theta",
+   "heat-flow",
+   "de-branges"
+  ],
+  "closedBy": "F1, F2"
+ },
+ {
+  "id": "positive-real-ladder-step",
+  "type": "mechanism",
+  "name": "Positive-real ladder step and Montel closure",
+  "statement": "T_{a,p}[R](z)=p(zR+a)/(z+aR) maps positive-real R to positive-real, with Re T=p[(|z|^2+a^2)Re R+a(1+|R|^2)Re z]/|z+aR|^2. With L_0=F'/F, p_j=L_{j-1}(a_j), nodes dense in [1,2]: all pivots positive implies L positive-real on Re z>0, hence RH.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:47] rigorous/theta-interpolation-2026-11-08/README.md",
+  "tags": [
+   "pick",
+   "passive",
+   "bridge",
+   "theta"
+  ],
+  "closedBy": "P3, P7"
+ },
+ {
+  "id": "arithmetic-remainder-not-passive",
+  "type": "obstruction",
+  "name": "Arithmetic remainder cancels all boundary dissipation",
+  "statement": "Re L(it)=0 at regular points, while the gamma part has Re A(it)=sum_n t^2/(lambda_n(lambda_n^2+t^2))>0. Hence Re R(it)=-d_A(t)<0 for R=L-A: R is not positive-real and no bound Re R>=-eta Re A with eta<1 holds. Uses neither RH nor simplicity.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:47] rigorous/theta-interpolation-2026-11-08/theta_archimedean_passivity_20261108.md sec 4",
+  "tags": [
+   "passive",
+   "explicit-formula",
+   "bridge"
+  ],
+  "closedBy": "P2, Q12"
+ },
+ {
+  "id": "schur-defect-screw-form",
+  "type": "identity",
+  "name": "Pick Schur defect equals the Suzuki screw form on exponentials",
+  "statement": "P_L(x,y)=(L(x)+L(y))/(x+y). Next-node defect Delta_N(x)=d(x)-v*P_N^{-1}v=b(r_x,r_x), r_x=f_x-sum c_i f_i, f_x(t)=xe^{-xt}; generally Q_L(v)=sum b_i conj(b_j)P_L(x_i,x_j)=b(r,r) for v=sum b_j e^{-x_j t}, x_j>1/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:47] theta_exact_pick_bridge_20261108.md sec 4; [pr:48] theta_schur_residual_energy_20261109.md sec 1",
+  "tags": [
+   "pick",
+   "weil",
+   "suzuki-screw",
+   "explicit-formula"
+  ],
+  "closedBy": "P1"
+ },
+ {
+  "id": "finite-pick-stages",
+  "type": "obstruction",
+  "name": "Real Pick positivity at three to six nodes",
+  "statement": "[P_L(x_i,x_j)] is positive definite for distinct positive nodes at sizes 3 (PR 48), 4 (PR 50), 5 (PR 53), 6 (PR 55). Bounded-range parts use zero verification to 3e12; x>=100 uses digamma and prime-series bounds. No inductive step; arbitrary order open.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:48],[pr:50],[pr:53],[pr:55] rigorous/theta-*/README.md, AUDIT.md",
+  "tags": [
+   "pick",
+   "theta",
+   "finite-stage",
+   "certificate"
+  ],
+  "closedBy": "P3, P5"
+ },
+ {
+  "id": "fourth-stage-schwarzian",
+  "type": "identity",
+  "name": "Fourth Pick stage as two Schwarzian signs",
+  "statement": "With h(u)=L(sqrt u)/sqrt u and j(u)=u h(u): under strict three-node hypotheses, four-node positivity for all node positions is equivalent to 2h'h'''-3(h'')^2>=0 and 2j'j'''-3(j'')^2>=0 on u>0. Both hold strictly for xi. Kernel recurrence alternates R=zU/V and R=U/(zV).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:50] rigorous/theta-fourth-stage-2026-11-09/README.md sec 1; thinking/decisions/2026-11-09-theta-fourth-stage.md",
+  "tags": [
+   "pick",
+   "theta",
+   "schwarzian"
+  ],
+  "closedBy": "P3"
+ },
+ {
+  "id": "theta-ratio-convexity",
+  "type": "tool",
+  "name": "Anchor-free covariance comparison for canceled Green inverses",
+  "statement": "V=-log kappa, f=tV', W=4kappa''/kappa, h=C/kappa. Given f'>0, h'<0, the certified signs W'>0, W''f'-W'f''>0, h''f'-h'f''>0 give both ratio signs for every anchor: the Green inverse is a covariance with (Y-y)_+, Y=tanh(as/2).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:51] rigorous/theta-ratio-convexity-2026-11-10/README.md sec 2",
+  "tags": [
+   "theta",
+   "pick",
+   "total-positivity"
+  ],
+  "closedBy": "P4"
+ },
+ {
+  "id": "preservation-ladder-no-induction",
+  "type": "obstruction",
+  "name": "Theta preservation ladder: class not preserved in general",
+  "statement": "For the first reduced pair: H_1=b_a/n_a, B_1=4b_a''/n_a, J_1=4n_a''/n_a satisfy H_1'<0, B_1'>0, J_1'>0, d^2H_1/dB_1^2>0, d^2J_1/dB_1^2>0. A certified control at a=10 leaves the class (Delta_0<-0.0000178) with all hypotheses strict: no universal preservation induction.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:52] rigorous/theta-preservation-2026-11-10/README.md; theta_preservation_counterexample_20261110.md",
+  "tags": [
+   "theta",
+   "pick",
+   "finite-stage"
+  ],
+  "closedBy": "P4"
+ },
+ {
+  "id": "single-crossing-compensation",
+  "type": "mechanism",
+  "name": "Single-crossing compensation with a totally nonnegative kernel",
+  "statement": "Next source determinants are negative on 0<t<=1/16 and each changes sign exactly once, negative to positive. A positive-kernel comparison with totally nonnegative R_s controls the one crossing, giving first-reduced higher source signs for every anchor and second canonical preservation.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:53] rigorous/theta-second-preservation-2026-11-11/README.md; theta_transfer_compensation_20261111.md",
+  "tags": [
+   "theta",
+   "total-positivity",
+   "pick"
+  ],
+  "closedBy": "P4"
+ },
+ {
+  "id": "signed-source-span-obstruction",
+  "type": "obstruction",
+  "name": "No constant basis change makes the signed sources positive",
+  "statement": "At t=1/16,1/8,1 the value vectors of (rho_H,rho_Q) have a strictly positive weighted sum equal to zero, so every nonzero constant combination takes both signs. Total nonnegativity at each fixed anchor does not compare different anchors.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:54] rigorous/theta-third-gate-2026-11-11/theta_third_gate_synthesis_20261111.md sec 6",
+  "tags": [
+   "theta",
+   "total-positivity",
+   "pick"
+  ],
+  "closedBy": "P4"
+ },
+ {
+  "id": "theta-reverse-regularity-order4",
+  "type": "measured-phenomenon",
+  "name": "Reverse regularity of the theta Hankel kernel stops at order four",
+  "statement": "Sra (10 Oct 2026 preprint, Thm 1.1, not replayed): Hankel kernel s(x+y), s(t)=Phi(sqrt t), has strict reverse regularity through order four; the fifth condition fails at t=1e-2. It concerns a different kernel from P_L; no implication to Pick positivity is proved.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:48] rigorous/theta-schur-kernels-2026-11-09/theta_three_node_curvature_20261109.md sec 6",
+  "tags": [
+   "theta",
+   "total-positivity",
+   "jensen"
+  ],
+  "closedBy": "G4"
+ },
+ {
+  "id": "suzuki-spectral-convergence",
+  "type": "tool",
+  "name": "Suzuki localized Weil operators and spectral convergence",
+  "statement": "Suzuki 2606.09096 builds localized self-adjoint operators for Weil's form via the screw function unconditionally (positive after a negative scalar shift). Suzuki 2610.32704 Thms 1.1-1.2 assume RH: monotone eigenvalue convergence to the product over distinct zero ordinates.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:47] rigorous/theta-interpolation-2026-11-08/theta_prime_accelerant_20261108.md sec 6",
+  "tags": [
+   "suzuki-screw",
+   "weil",
+   "tool"
+  ],
+  "closedBy": "P9, Q14"
+ },
+ {
+  "id": "collective-lambda-certificate",
+  "type": "mechanism",
+  "name": "Collective-zero slab certificate for Lambda",
+  "statement": "For the highest zero z=x+iy, U=y^2: U'<=-2-4yA(z), A=-Im sum_j S_j(z). If zeros lie in |Im z|<=Delta at tau_0 and A>=kappa y on eta<=y<=Delta, then Lambda<=tau_0+(1/4kappa)log((1+2kappa Delta^2)/(1+2kappa eta^2))+eta^2/2. Count-and-box: kappa=sum_j m_j/D_j.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:49] rigorous/torus-heat-antibridge-2026-11-09/collective_certificate.md sec 5, 6",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "vortex",
+   "torus"
+  ],
+  "closedBy": "F5 (floor-only cap 0.0962), F3 (no converse to zeros)"
+ },
+ {
+  "id": "odd-sector-target",
+  "type": "obstruction",
+  "name": "Odd-sector cutoff inequality Delta_{c,-}<=0",
+  "statement": "H_c commutes with reflection about c: H_pm(x,y)=H_0(x,y) pm H_0(x,-y). The majorant G_c vanishes on odd tests, so H_{c,-}=-Delta_{c,-}. Proved: H_0(x,y)>H_0(x,-y), giving the inequality on odd preimages with p>=0. Survives every real heat time.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[pr:56] rigorous/klein-annulus-coupling-2026-11-14/README.md sec 3; odd-sector-followup/factorization.md",
+  "tags": [
+   "bridge",
+   "antibridge",
+   "klein",
+   "torus",
+   "theta"
+  ],
+  "closedBy": "P21, G5, G4"
+ },
+ {
+  "id": "klein-phase-transport-certificate",
+  "type": "mechanism",
+  "name": "Klein phase transport: positive core minus negative tail",
+  "statement": "If 0<mu<=theta_a'<=M on [t-R,t+R], R<=pi/(4M): W_h(t)/h>=(2mu/(pi a))int_0^R omega A_a(t-r)A_a(t+r)dr-int_R^inf omega A_a A_a/(2ar)dr, omega_{a,h}(r)=(2pi r sin beta/(ah))q(1-q^2)/(1+2q cos beta+q^2)^2, beta=pi h/a, q=e^{-pi r/a}.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:56] rigorous/klein-annulus-coupling-2026-11-14/klein_phase_transport.md sec 6",
+  "tags": [
+   "klein",
+   "shear",
+   "bridge",
+   "torus"
+  ],
+  "closedBy": "G13, G17"
+ },
+ {
+  "id": "zero-channel-certificates",
+  "type": "measured-phenomenon",
+  "name": "Zero-channel disk certificates under heat flow",
+  "statement": "Exactly one simple zero in the disk centre 1/2+14.134725141734693i, radius 0.35, for every -0.05<=tau<=0.05 (|xi(c)|<=2e-18, |xi'(c)|>=0.0013827, sup|xi''|<=0.0021). Exact quartet control P_u(z)=z^4+(12u-5)z^2+12u^2-10u+4, u=-tau: four channels for -0.13<=tau<=0.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:57] research/rh/zero-channels/ZERO-CHANNELS-MATH.md",
+  "tags": [
+   "zero-channel",
+   "heat-flow",
+   "visualization",
+   "certificate"
+  ],
+  "closedBy": "G7"
+ },
+ {
+  "id": "quartet-heat-control",
+  "type": "control",
+  "name": "Exact quartic heat model with an off-line quartet",
+  "statement": "P_u(z)=z^4+(12u-5)z^2+12u^2-10u+4 with u=-tau, z=-2i(s-1/2): an exact polynomial heat solution carrying an off-line quartet, used to calibrate channel and coupling diagnostics over -0.13<=tau<=0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:57] research/rh/zero-channels/ZERO-CHANNELS-MATH.md sec 3",
+  "tags": [
+   "control",
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "lambda-014-fail-closed",
+  "type": "measured-phenomenon",
+  "name": "Fail-closed Lambda 0.14 checkpoint",
+  "statement": "Remaining certificate at lambda_h=23514296330019/5e14, t(lambda)=(26399999+lambda)/2e8; late family covers lambda_h<=lambda<=1, R<=x<=R+17/20. P97 prefix: Re P_100>0.26842844879751026 for 690988<=N<=14999999. Positive support of the bottom aggregate does not lift (two-atom counterexample).",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[pr:7] research-inputs/lambda-014-2026-08-27/README.md, EXECUTION_LEDGER.md, SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "certificate"
+  ],
+  "closedBy": "F3, F6"
+ }
+]

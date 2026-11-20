@@ -1,0 +1,2 @@
+node pairs 28 grid points checked 3648988 failures 0
+RH_WORKERS=7 ../../../../scripts/memcap.sh 8 ../../../../.venv-arb/bin/python  96.77s user 0.54s system 587% cpu 16.559 total

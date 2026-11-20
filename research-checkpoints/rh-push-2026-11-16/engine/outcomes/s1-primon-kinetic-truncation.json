@@ -1,0 +1,82 @@
+{
+ "slug": "s1-primon-kinetic-truncation",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "kyp-bounded-real-prime-delay",
+  "prime-delay-domination-18-2",
+  "restricted-mobius-delay-lift",
+  "route-a-primon-reflection-gram",
+  "truncated-kinetic-mertens-law",
+  "twin-sync-dissipation",
+  "zpo-divergence-law-at-half",
+  "zpo-kinetic-equals-logzeta-dd"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "truncated-kinetic-mertens-law",
+    "zpo-divergence-law-at-half"
+   ],
+   "obstruction": "rate exponent does not separate twists; pole-at-1 law fails the positive comparison",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR",
+    "L(chi_4) fails blind law"
+   ]
+  },
+  {
+   "nodes": [
+    "route-a-primon-reflection-gram",
+    "zpo-kinetic-equals-logzeta-dd"
+   ],
+   "obstruction": "exponent is the pole at 1; pole-removed quantity is noise for all families",
+   "controlsThatDefeat": [
+    "T-NR",
+    "THIN",
+    "DEL",
+    "E_a"
+   ]
+  },
+  {
+   "nodes": [
+    "twin-sync-dissipation",
+    "prime-delay-domination-18-2"
+   ],
+   "obstruction": "zero resolution for E_a/T-NR/DH; twist failure is pole mismatch only",
+   "controlsThatDefeat": [
+    "E_a",
+    "T-NR",
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "kyp-bounded-real-prime-delay",
+    "restricted-mobius-delay-lift"
+   ],
+   "obstruction": "premise false for zeta; no threshold in a",
+   "controlsThatDefeat": [
+    "zeta itself",
+    "T-NR"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) rate exponent does not separate twists; pole-at-1 law fails the positive comparison | (2) exponent is the pole at 1; pole-removed quantity is noise for all families | (3) zero resolution for E_a/T-NR/DH; twist failure is pole mismatch only | (4) premise false for zeta; no threshold in a",
+ "controlsThatDefeat": [
+  "DEL",
+  "DH",
+  "E_a",
+  "L(chi_4) fails blind law",
+  "T-NR",
+  "THIN",
+  "sign twist",
+  "unimodular twist",
+  "zeta itself"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-primon-kinetic-truncation/RESULT.md"
+}

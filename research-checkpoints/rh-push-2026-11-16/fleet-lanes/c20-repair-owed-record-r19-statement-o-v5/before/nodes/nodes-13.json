@@ -1,0 +1,1295 @@
+[
+ {
+  "id": "zv-finite-bridge-balance",
+  "type": "identity",
+  "name": "Finite bridge balance B_a",
+  "statement": "B_a(s) = (|F(s+a)|^2 - |F(s-a)|^2)/(|F(s+a)|^2 + |F(s-a)|^2) = tanh(log|F(s+a)| - log|F(s-a)|). Away from zeros B_a/(2a) -> Re(F'/F) as a -> 0. A common zero of both shifts has no bridge value.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 1",
+  "tags": [
+   "bridge",
+   "shear",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-signed-shear-w",
+  "type": "identity",
+  "name": "Signed shear W and modulus monotonicity",
+  "statement": "W(s) = Re(F'(s) conj F(s)) = (1/2) d/dsigma |F|^2 and W/|F|^2 = Re(F'/F). For completed xi at heat time zero, W > 0 throughout Re s > 1/2 (horizontal modulus monotonicity) is a reformulation of RH (Sondow-Dumitrescu).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 1; [zv:docs/ROADMAP.md] sec 3",
+  "tags": [
+   "bridge",
+   "shear"
+  ]
+ },
+ {
+  "id": "zv-shear-reflection-parity",
+  "type": "identity",
+  "name": "Parity of W under the critical reflection",
+  "statement": "W(1 - conj s) = -W(s); W/(sigma - 1/2) is invariant under s -> 1 - conj s away from the axis; the boundary kernel satisfies P_{-a} = P_a. Bridge forms keep their values under the Klein/annulus fold; they are not halved.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 7",
+  "tags": [
+   "bridge",
+   "shear",
+   "klein"
+  ]
+ },
+ {
+  "id": "zv-axis-limit-laguerre",
+  "type": "identity",
+  "name": "Axis limit of W/x",
+  "statement": "With h(t) = F(1/2+it) real on the line, lim_{x->0} W(1/2+x+it)/x = h'(t)^2 - h(t) h''(t). Contains the square V_x^2 and the signed curvature term U U_xx. Obstruction map G8: an explicit symmetric control with an off-line quartet keeps the axis witness L_1 >= 0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 7",
+  "tags": [
+   "bridge",
+   "shear",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "zv-modal-collision-quadratic",
+  "type": "control",
+  "name": "Exact quadratic modal collision F_eps(w) = w^2 + 2 eps",
+  "statement": "W = 2x(x^2+y^2+2 eps), L_1(y) = 4y^2 + 8 eps. For eps < 0 the negative right-shear region is the open half-disk x>0, x^2+y^2 < -2 eps. At a=1: E_+ - E_- = 2(y^2+h^2+2 eps); boundary PSD only when 1+2 eps >= 0. Zero count stays two through the collision. Map row G8.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 2",
+  "tags": [
+   "bridge",
+   "shear",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-boundary-kernel-pa",
+  "type": "object",
+  "name": "Strip boundary kernel P_a",
+  "statement": "U_a(t) = F(1/2+a+it); P_a(r1,r2) = Im(conj U_a(r1) U_a(r2)) / (a (r2 - r1)), diagonal P_a(t,t) = Re(F' conj F)(1/2+a+it)/a. Source: Math Explorer PR 43 strip-Poisson reconstruction.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 3",
+  "tags": [
+   "bridge",
+   "theta",
+   "pick"
+  ]
+ },
+ {
+  "id": "zv-even-odd-boundary-energy",
+  "type": "identity",
+  "name": "Even/odd boundary energy decomposition",
+  "statement": "omega_{a,h}(r) = pi r sin(pi h/a) sinh(pi r/a) / (a h [cosh(pi r/a) + cos(pi h/a)]^2) is a probability density on r >= 0. With D_+- = P_a(t+-r,t+-r), C = P_a(t-r,t+r), e_+- = (D_- + D_+ +- 2C)/4, E_+- = integral omega e_+-: E_+ - E_- = W(1/2+h+it)/h. At h=a the measure is delta_0 and E_- = 0.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 3",
+  "tags": [
+   "bridge",
+   "shear",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "zv-bridge-pick-congruence",
+  "type": "identity",
+  "name": "Bridge Gram kernel and ratio-Pick kernel share inertia",
+  "statement": "With U = F(1/2+u+a), V = F(1/2+u-a), R = V/U: K^b_ij = (U_i conj U_j - V_i conj V_j)/(2 pi (u_i + conj u_j)) and K^P_ij = (1 - R_i conj R_j)/(u_i + conj u_j) are diagonally congruent when U_i != 0. Finite orders are Euler-blind (map rows P3, P5).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 4",
+  "tags": [
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "zv-log-pick-real-node",
+  "type": "obstruction",
+  "name": "Real-node logarithmic-derivative Pick kernel",
+  "statement": "X(z) = xi(1/2+z), L = X'/X, K_ij = (L(x_i)+L(x_j))/(x_i+x_j) for distinct positive real nodes. PR 55 reports six-node positivity; all-order positivity is RH-equivalent and each finite order follows from verified height (map rows P1, P3). Weakest mode shown as h(u) = sum b_i e^{-x_i u}, V(z) = sum b_i/(z+x_i).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 4; [zv:docs/ROADMAP.md] sec 5",
+  "tags": [
+   "pick",
+   "bridge"
+  ]
+ },
+ {
+  "id": "zv-schur-frozen-block-inertia",
+  "type": "tool",
+  "name": "Frozen-block Schur complement and negative-index additivity",
+  "statement": "For Hermitian Q = [[A,B],[B*,C]] with C invertible: Q_eff = A - B C^{-1} B*, ind_-(Q) = ind_-(C) + ind_-(Q_eff). A symmetry reduction may set the coupling B to zero only after proving the actual kernel and domain respect the symmetry.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 4; [zv:docs/KLEIN-ANNULUS.md] sec 7",
+  "tags": [
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "zv-divisor-cosine-euler-product",
+  "type": "identity",
+  "name": "Divisor cosine sum factorises over prime powers",
+  "statement": "D_N(xi) = sum_{d|N} cos((xi/2) log(d/sqrt N)) = prod_{p^k || N} sum_{j=0..k} cos((xi log p / 2)(j - k/2)). Exact finite identity used as the arithmetic block in the theta-layer diagnostic.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5",
+  "tags": [
+   "euler-product",
+   "theta",
+   "bridge"
+  ]
+ },
+ {
+  "id": "zv-theta-kernel-phi",
+  "type": "object",
+  "name": "Theta kernel Phi and its cosine transform",
+  "statement": "Phi(u) = sum_{n>=1} (2 pi^2 n^4 e^{9u} - 3 pi n^2 e^{5u}) exp(-pi n^2 e^{4u}), u >= 0; integral_0^inf Phi(u) cos(xi u) du = xi(1/2 + i xi/2)/8. Every summand is positive on u >= 0 since 2 pi n^2 e^{4u} > 3. Evenness of the full kernel comes from the modular identity.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5; [zv:docs/ZERO-CHANNELS-MATH.md] sec 1",
+  "tags": [
+   "theta",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-theta-layer-cancellation",
+  "type": "measured-phenomenon",
+  "name": "Negative theta layer with positive integrated direction",
+  "statement": "kappa(v) = Phi(v/4), b_j = 0.15 j, c = (-2,9,-19,24,-19,9,-2), Q(a) = sum c_j c_k kappa(a+b_j-b_k) kappa(a-b_j+b_k). Floating point: Q(1/20) = -0.000908036036923, while integral_0^4 2a sinh(xa) Q(a) da at x = 0.25 is +0.001619366968247. PR 43 has an interval certificate for the full-kernel layer.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 5",
+  "tags": [
+   "theta",
+   "bridge",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "zv-shifted-ratio-ra",
+  "type": "object",
+  "name": "Shifted ratio R_a and its zero/pole bookkeeping",
+  "statement": "R_a(s) = F(s-a)/F(s+a). A zero of F at lambda gives a zero of R_a at lambda+a and a pole at lambda-a of order [m(lambda) - m(lambda-2a)]_+. Schur property of R_a on the right half-plane restates a zero-free strip (map rows G2, G20).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 6",
+  "tags": [
+   "bridge",
+   "pick"
+  ]
+ },
+ {
+  "id": "zv-ghost-quartet-control",
+  "type": "control",
+  "name": "Synthetic symmetric quartet multiplier",
+  "statement": "Multiply F by [(w - i gamma)^2 - delta^2][(w + i gamma)^2 - delta^2], w = s - 1/2. Inserts a chosen off-line quartet while keeping F(1-s) = F(s) and reality; used to test which displayed features detect zero location.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/BRIDGE-RESEARCH.md] sec 6",
+  "tags": [
+   "bridge",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-pulse-cayley-multiplier",
+  "type": "obstruction",
+  "name": "Pulse multiplier S = (F - alpha F')/(F + alpha F') on the critical line",
+  "statement": "S(omega) = (F - alpha F')/(F + alpha F') at 1/2 + i omega is unimodular on the line by symmetry. Causality of S (bounded analytic in the right half-plane) is RH-equivalent and holds as an identity for any even order-one F (map row G6). The renderer shows a finite periodic right-tail fraction only.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 6",
+  "tags": [
+   "bridge",
+   "spinor",
+   "de-branges"
+  ]
+ },
+ {
+  "id": "zv-prime-mode-mixer",
+  "type": "object",
+  "name": "Signed prime-power oscillator rows",
+  "statement": "A_{p,m}(gamma) = log(p) p^{-m/2} cos(gamma m log p); carrier rows A_{p,m}(gamma) cos(gamma u - m log(p) T), u = log x. Signed coefficients, not energies; no convergence of the Euler-product logarithmic derivative on the critical line is assumed.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 6",
+  "tags": [
+   "explicit-formula",
+   "euler-product",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-cr-gradient-fields",
+  "type": "identity",
+  "name": "Modulus and phase gradients of an analytic field",
+  "statement": "For U = log|F|, q = F'/F = a + ib: grad U = (a,-b), grad arg F = (b,a) = J grad U. A pure phase tracer conserves U and stays on modulus level sets; near a zero of order m its tangential speed is beta m/r. Tracer motion is not zero motion.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 1; [zv:docs/DYNAMICS.md]",
+  "tags": [
+   "vortex",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-hessian-log-modulus",
+  "type": "identity",
+  "name": "Hessian of log modulus",
+  "statement": "With q = G'/G and q' = G''/G - q^2, the Hessian of log|G| has eigenvalues +|q'| and -|q'| away from zeros and poles.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/ROADMAP.md] sec 3",
+  "tags": [
+   "shear",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-shifted-field-interference",
+  "type": "object",
+  "name": "Additive shifted-field pencil G = xi(s+a) - c e^{i phi} xi(s-a)",
+  "statement": "G(s,u) = xi(s+a) - c exp(i(phi + omega u)) xi(s-a). Its zeros move with the phase; at c = 1 they are the level set R_a(s) = e^{-i phi}. They are zeros of G, not of xi. Related pencil route: map row P32.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/DYNAMICS.md] Active shifted-field interference",
+  "tags": [
+   "bridge",
+   "vortex"
+  ]
+ },
+ {
+  "id": "zv-heat-zero-velocity",
+  "type": "identity",
+  "name": "Zero velocity under the theta heat family",
+  "statement": "F_tau(s) = 8 H_tau(-2i(s-1/2)) = 8 integral_0^inf e^{tau u^2} Phi(u) cosh(2u(s-1/2)) du; d_tau F = (1/4) F_ss; F_tau(1 - conj s) = conj F_tau(s). At a simple zero rho' = -F_ss/(4 F_s); for polynomials rho_i' = -(1/2) sum_{j != i} 1/(rho_i - rho_j). The infinite sum needs Polymath Prop. 3.1 symmetric pairing.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 1; [zv:docs/NO-ESCAPE.md] sec 2",
+  "tags": [
+   "heat-flow",
+   "lambda",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-transverse-distance-identity",
+  "type": "identity",
+  "name": "Transverse distance derivative D' = -M/2",
+  "statement": "At a simple zero with x = Re rho - 1/2, D = x^2, M = x Re(F_ss/F_s): D'_tau = -M/2. A moving tube |x| <= d(tau) is inward-invariant if M >= -4 d d' on its boundary. No sign theorem for M; D' = 0 on the line does not exclude a later collision.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 2",
+  "tags": [
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-quartic-collision-calibration",
+  "type": "control",
+  "name": "Exact quartic heat collision",
+  "statement": "P_u(z) = e^{u d_z^2}[(z^2-1)(z^2-4)] = z^4 + (12u-5) z^2 + 12u^2 - 10u + 4. First collision u* = (10 - sqrt 46)/24 = 0.134069584; at u = 1/4 roots are +-sqrt5/2 +- i/2. F_tau(s) = P_{-tau}(-2i(s-1/2)) has both symmetries and F_tau(1/2) >= 23/12 > 0, yet zeros leave the line.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 3; [zv:docs/ZERO-CONFINEMENT-COMPARISON.md] sec 1",
+  "tags": [
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-cubic-collision-control",
+  "type": "control",
+  "name": "Exact cubic through a multiple zero",
+  "statement": "P_tau(z) = z(z^2 + b^2 - 6 tau), zeros 0 and +-sqrt(6 tau - b^2), tau_c = b^2/6. Crosses a triple zero without dividing by a singular zero velocity.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/DYNAMICS.md] Exact finite polynomial heat",
+  "tags": [
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-polynomial-heat-coefficients",
+  "type": "tool",
+  "name": "Exact coefficient formula for polynomial heat",
+  "statement": "P_tau = exp(-tau d_z^2) P_0 has coefficients c_k(tau) = sum_{j>=0} ((-tau)^j / j!) ((k+2j)!/k!) a_{k+2j}; the sum is finite. Presets: six real, Lehmer-like (-3,-1.2,-0.18,0.18,1.2,3), eight real, quartet.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/DYNAMICS.md] Exact finite polynomial heat",
+  "tags": [
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-symmetric-disk-confinement",
+  "type": "mechanism",
+  "name": "One-zero reflection-symmetric disk forces the zero onto the line",
+  "statement": "If a disk invariant under s -> 1 - conj s contains exactly one zero (with multiplicity) of a family with that symmetry, the zero is on Re s = 1/2. Count preserved while sup_boundary |F_tau - F_0| < inf_boundary |F_0| (Rouche). Local; at scale it restates verified height (map row G7).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/NO-ESCAPE.md] sec 4; [zv:docs/ZERO-CONFINEMENT-COMPARISON.md] Main conclusion",
+  "tags": [
+   "zero-channel",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-taylor-rouche-channel-criterion",
+  "type": "tool",
+  "name": "Taylor-Rouche one-zero disk criterion",
+  "statement": "For a disk centre c, radius r with |F(c)| <= E, |F_s(c)| >= A > 0, sup_disk |F_ss| <= B: E + (1/2) B r^2 < A r implies exactly one (simple) zero in the disk and boundary floor A r - E - B r^2/2. The centre need not be an exact root.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 2",
+  "tags": [
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-quartet-channel-certificate",
+  "type": "measured-phenomenon",
+  "name": "Exact rational certificate: four moving quartet channels",
+  "statement": "For the quartic calibration, four moving disks of radius 0.01 in the s-plane each contain exactly one zero for every -0.13 <= tau <= 0; 130 time cells, affine centres, Bernstein-coefficient enclosures in exact rational arithmetic.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 3",
+  "tags": [
+   "zero-channel",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-first-zero-theta-channel",
+  "type": "measured-phenomenon",
+  "name": "Arb certificate: first xi zero stays on the line for |tau| <= 0.05",
+  "statement": "Disk centre 1/2 + 14.134725141734693 i, radius 7/20. Arb: |xi(c)| <= 2e-18, |xi'(c)| >= 0.0013827, sup|xi''| <= 0.0021, floor m = 0.00035532; perturbation P <= 0.00029 for |tau| <= 1/20; margin m - P = 6.532e-5. Exactly one simple zero, on the line, for every such tau. Map row G7.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 4",
+  "tags": [
+   "zero-channel",
+   "heat-flow",
+   "theta"
+  ]
+ },
+ {
+  "id": "zv-phi-positivity-heat-perturbation-bound",
+  "type": "tool",
+  "name": "Positive-kernel bounds on heat perturbation and derivatives",
+  "statement": "Because each Phi summand is positive: for |tau| <= delta and |Re s - 1/2| <= r, |F_tau - F_0| <= 8 integral Phi(u)(e^{delta u^2} - 1) cosh(2ru) du; |xi^{(k)}(s)| <= 2^{k+3} integral u^k Phi(u) cosh(2ru) du (L_3 = 0.0077419528 at r = 0.35). Explicit tails: Phi_n(u) <= 2 pi^2 n^4 exp(9u - pi n^2 e^{4u}).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 4; [zv:docs/ZERO-CONFINEMENT-COMPARISON.md] sec 2",
+  "tags": [
+   "theta",
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-one-zero-lost-before-collision",
+  "type": "measured-phenomenon",
+  "name": "Event order in the quartic: count changes before the collision",
+  "statement": "Fixed circle centre 1/2 + i/2, radius 7/20: second zero reaches the contour at tau = -0.0817542508; the two zeros collide at tau = -0.1340695840; departure off the line follows. min|P_0| = 2.0979, max|P_u - P_0| = (617/25)u + 12u^2 on the circle. A disk can hold a two-zero cluster without forcing either zero onto the line.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CONFINEMENT-COMPARISON.md] sec 1",
+  "tags": [
+   "zero-channel",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "zv-theta-root-drift",
+  "type": "measured-phenomenon",
+  "name": "Drift of the first three zeros under the theta heat flow",
+  "statement": "60-digit quadrature: first root 14.134725 (tau=0), 14.163718 (-0.1), 14.192732 (-0.2), 14.076806 (+0.2); second 21.022040, 21.097691 (-0.2), 20.946690 (+0.2); third 25.010858, 25.069370 (-0.2), 24.952205 (+0.2). Mean d gamma/d tau about -0.290, -0.378, -0.293. Minimum conditioning |F_s|/(|F_s|+|F_ss|) = 0.39744.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CONFINEMENT-COMPARISON.md] sec 2",
+  "tags": [
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-bridge-understates-log-derivative",
+  "type": "measured-phenomenon",
+  "name": "Finite bridge versus logarithmic derivative near a zero",
+  "statement": "Simple-zero model: Re(F_s/F) = 1/x, B_a/(2a) = x/(x^2+a^2). At tau = -0.2, x = 0.05: Re(F_s/F) = 20.003375; B_.02/.04 = 17.243 (13.8% low), B_.25/.50 = 0.772 (96.1% low). The bridge shift must be small relative to the distance from the zero.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/ZERO-CONFINEMENT-COMPARISON.md] sec 3",
+  "tags": [
+   "bridge",
+   "shear"
+  ]
+ },
+ {
+  "id": "zv-newton-flow",
+  "type": "mechanism",
+  "name": "Continuous Newton flow preserves phase",
+  "statement": "ds/dl = -F(s)/F_s(s) gives F(s(l)) = e^{-l} F(s(0)): curves keep arg F and lead probes to existing simple zeros, off-line zeros included. Multiplying by a non-vanishing analytic factor reshapes the phase field without moving zeros; covers and projective coordinates add no zero-location constraint.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/ZERO-CHANNELS-MATH.md] sec 6",
+  "tags": [
+   "vortex",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "zv-dyson-trap-model",
+  "type": "object",
+  "name": "Finite interacting-zero trap model in reverse heat time",
+  "statement": "ds_j/du = (1/2) sum_{k != j} 1/(s_j - s_k) - kappa(t_j)(sigma_j - 1/2) + (i eps/2) cos(k_0 g_j - omega u), g_j = 2(t_j - t_0), six unfolded initial zeros. The confinement term kappa is imposed; this is a display model, not the xi zero evolution.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[zv:docs/DYNAMICS.md] Finite trapping",
+  "tags": [
+   "heat-flow",
+   "vortex",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "zv-elliptic-double-cover",
+  "type": "object",
+  "name": "Elliptic double cover E_r with spectral lens L",
+  "statement": "E_r: eta^2 = (w^2 + r^2)(w^2 + r^{-2}), r > 1; s = 1/2 + L(1/(1-w) - 1/2), L > 0 a display lens. w -> 1/conj w corresponds to s -> 1 - conj s; |w| < 1 is Re s > 1/2. Spectral punctures p_+- = (1, +-(r + 1/r)); anti-bridge points q_+- = (-1, +-(r + 1/r)).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 1; [zv:docs/ROADMAP.md] sec 1",
+  "tags": [
+   "torus",
+   "antibridge",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-jacobi-uniformization-involutions",
+  "type": "identity",
+  "name": "Jacobi chart and the three involutions in (u,v)",
+  "statement": "m = r^{-4}, z = 4Ku + 2iK'(v - 1/2), w = (i/r) sn(z|m), eta = cn dn. Modulo 1: R(u,v) = (u, 1/2 - v), D(u,v) = (1/2 - u, 1 - v), A = DR: (u,v) -> (1/2 - u, 1/2 + v). Fundamental annulus 1/4 <= v <= 3/4, interior = Re s > 1/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 3",
+  "tags": [
+   "torus",
+   "klein"
+  ]
+ },
+ {
+  "id": "zv-klein-quotient",
+  "type": "obstruction",
+  "name": "Klein bottle quotient K = E_r/A",
+  "statement": "A(w,eta) = (1/conj w, -conj eta/conj w^2) is a free antiholomorphic involution; in P^3, A[X0:X1:X2:X3] = [conj X2 : conj X1 : conj X0 : -conj X3]. K is a Klein bottle; the critical loop does not separate it. Seam topology has two invariants and is blind to off-line pairs (map row G13).",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 2",
+  "tags": [
+   "klein",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-annulus-boundary-conditions",
+  "type": "identity",
+  "name": "Field symmetries and boundary conditions on the reflection annulus",
+  "statement": "For F with F(1-s) = F(s), F(conj s) = conj F(s) and pullback f = U + iV: f o D = f, f o R = f o A = conj f. On regular annulus boundaries V = 0 and d_n U = 0. Raw zeta without its functional-equation multiplier does not satisfy these.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 4",
+  "tags": [
+   "klein",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-dirichlet-energy-fold",
+  "type": "identity",
+  "name": "Dirichlet energy under the folds, and its divergence at the puncture",
+  "statement": "On matched truncations E_{E_r}(f) = 2 E_K(f) = 2 E_annulus(f) in the flat metric |dz|^2 = (4K)^2 du^2 + (2K')^2 dv^2. For Laurent f = sum a_n q^n the annulus energy is 2 pi sum n^2 |a_n|^2 integral r^{2n-1} dr, divergent at the puncture for every negative-power coefficient.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 5; [zv:docs/INFINITY-ENDS-DUAL.md] sec 3",
+  "tags": [
+   "klein",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-annulus-dtn-operator",
+  "type": "object",
+  "name": "Dirichlet-to-Neumann reference operator on the annulus",
+  "statement": "Flat strip of length l = 4K, width b = K'. At frequency kappa = 2 pi |n|/l the DtN matrix on the two boundary traces is kappa [[coth(kappa b), -csch(kappa b)],[-csch(kappa b), coth(kappa b)]], eigenvalues kappa tanh(kappa b/2), kappa coth(kappa b/2); zero mode eigenvalues 0, 2/b. Positive semidefinite.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 6",
+  "tags": [
+   "klein",
+   "torus",
+   "bridge"
+  ]
+ },
+ {
+  "id": "zv-bridge-vs-reference-form-comparison",
+  "type": "open-lemma",
+  "name": "Comparison of the theta bridge operator with a positive reference form",
+  "statement": "Missing step named in the renderer notes: an exact identity or comparison connecting the full theta bridge operator to a positive reference form (e.g. the annulus DtN operator), with a global bound on the remaining signed coupling B and all infinity/tail terms. Any such bound over all tests is RH-strength (map rows G1, G2).",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 7",
+  "tags": [
+   "bridge",
+   "klein",
+   "antibridge"
+  ]
+ },
+ {
+  "id": "zv-cosh-quartet-control",
+  "type": "control",
+  "name": "Symmetric entire control Q_{a,T} with an off-line quartet",
+  "statement": "Q_{a,T}(s) = cosh(u)[u^2 - (a+iT)^2][u^2 - (a-iT)^2], u = s - 1/2, 0 < a < 1/2. Satisfies Q(1-s) = Q(s), reality, is positive on the real axis, has an essential singularity at infinity and the same Klein/annulus rules as xi, with zeros 1/2 +- a +- iT off the line plus 1/2 + i pi(n+1/2).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/KLEIN-ANNULUS.md] sec 8",
+  "tags": [
+   "klein",
+   "torus",
+   "bridge"
+  ]
+ },
+ {
+  "id": "zv-infinity-end-coordinate",
+  "type": "identity",
+  "name": "Local coordinate at spectral infinity and the exact Klein seam",
+  "statement": "q = 1 - w = L/(u_s + L/2), u_s = s - 1/2 = L(1/q - 1/2). Klein involution: q_A = -conj q/(1 - conj q), u_s(Ap) = -conj u_s(p). The seam is the angular reflection theta -> pi - theta only asymptotically. The point w = infinity is the finite spectral point s = 1/2 - L/2.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/INFINITY-ENDS-DUAL.md] sec 1",
+  "tags": [
+   "klein",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-essential-singularity-at-puncture",
+  "type": "obstruction",
+  "name": "xi has an essential singularity at the spectral puncture",
+  "statement": "f(q) = xi(L/q + (1-L)/2) has infinitely many negative Laurent powers at q = 0 (xi is entire, non-polynomial). No coordinate change, dual, or smooth Klein drawing removes it; the unweighted Dirichlet energy near the puncture is infinite. Compact-surface arguments must carry the rim data.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/INFINITY-ENDS-DUAL.md] sec 3",
+  "tags": [
+   "klein",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-gaussian-damped-extension",
+  "type": "tool",
+  "name": "Gaussian-weighted xi extends smoothly and flat across the punctures",
+  "statement": "h_S(s) = exp(-|s - 1/2|^2/S^2). log^+|xi(s)| = O(R log(R+2)) on |s| <= R (theta integral, unconditional), so h_S xi and all derivatives tend to zero at q = 0. Zeros, orders and phase are unchanged; d-bar(h_S F) = -((s - 1/2)/S^2) h_S F, so the weighted field is not holomorphic.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/INFINITY-ENDS-DUAL.md] sec 4",
+  "tags": [
+   "klein",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-strip-end-charts",
+  "type": "object",
+  "name": "Fixed-strip end charts retaining the transverse offset",
+  "statement": "Charts rho = log|t| and y = 1/t with x = sigma - 1/2 kept as an independent coordinate; s = 1/2 + x + i eps e^rho. Klein reflection sends (x, rho, eps) to (-x, rho, eps) and does not exchange the two ends. A direction in the q-plane alone cannot separate fixed values of x.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/INFINITY-ENDS-DUAL.md] sec 2",
+  "tags": [
+   "klein",
+   "visualization"
+  ]
+ },
+ {
+  "id": "zv-dual-conormal-family",
+  "type": "object",
+  "name": "Dual conormal CP^1 of the elliptic curve in CP^3",
+  "statement": "Curve: Q1 = X1^2 - X0 X2 = 0, Q2 = X3^2 - X0^2 - c X1^2 - X2^2 = 0, c = r^2 + r^{-2}. N1 = (-Z2, 2Z1, -Z0, 0), N2 = (-2Z0, -2cZ1, -2Z2, 2Z3). Tangent hyperplanes [W] = [lambda N1 + mu N2] satisfy W.Z = 0, W.T = 0. Regular at the spectral punctures.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/INFINITY-ENDS-DUAL.md] sec 5",
+  "tags": [
+   "twistor",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-bloch-spinor-state",
+  "type": "object",
+  "name": "Two-channel spinor and Bloch vector of the shifted pair",
+  "statement": "psi = (U,V)/sqrt(|U|^2+|V|^2), U = G(s+a), V = G(s-a); n = (2 Re(conj U V), 2 Im(conj U V), |U|^2 - |V|^2). n_3 is the bridge balance; (n_3, n_2)/(2a) -> (Re G'/G, -Im G'/G). SU(2) rotation gives sign change at 2 pi. The pair (xi(s), xi(1-s)) is degenerate.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/SPINORS-TWISTORS.md] sec 1; [zv:docs/ROADMAP.md] sec 2",
+  "tags": [
+   "spinor",
+   "bridge"
+  ]
+ },
+ {
+  "id": "zv-twistor-map-s4",
+  "type": "object",
+  "name": "Chosen Euclidean twistor map CP^3 -> S^4 on the elliptic quartet",
+  "statement": "Z = [1:w:w^2:eta], (q1,q2) = (Z0 + j Z1, Z2 + j Z3); x = (2 q1 conj q2, |q1|^2 - |q2|^2) in S^4. J Z = (-conj Z1, conj Z0, -conj Z3, conj Z2), J^2 = -I; fibre [alpha Z + beta JZ]. The real structure is a choice; no positivity follows (map row G19).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[zv:docs/SPINORS-TWISTORS.md] sec 2-4",
+  "tags": [
+   "twistor",
+   "spinor",
+   "torus"
+  ]
+ },
+ {
+  "id": "zv-spinor-arithmetic-coupling-missing",
+  "type": "open-lemma",
+  "name": "Arithmetic coupling for intrinsic spinor/Dirac/twistor structures",
+  "statement": "Renderer roadmap: intrinsic surface spinors, Dirac operators and full twistors on the elliptic model require additional specified geometry and an arithmetic coupling; the present constructions transform a displayed channel state and impose no constraint on zeros. No candidate coupling is specified.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "[zv:docs/ROADMAP.md] sec 2; [zv:docs/SPINORS-TWISTORS.md]",
+  "tags": [
+   "spinor",
+   "twistor",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "dbn-debruijn-contraction-law",
+  "type": "identity",
+  "name": "de Bruijn contraction law for the zero strip",
+  "statement": "If all zeros of H_T lie in |Im z| <= y_0 then Lambda <= T + y_0^2/2; along the flow u = Y^2 obeys u' <= -2, so tau + u/2 is non-increasing. The law carries information from a zero-free strip to Lambda with no converse (map row F3).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Purpose",
+  "tags": [
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-polymath-barrier-criterion",
+  "type": "mechanism",
+  "name": "Polymath Theorem 1.2 barrier criterion",
+  "statement": "Lambda <= t_0 + y_0^2/2 follows from: (i) verified zeta height X/2; (ii) H_{t_0}(x+iy) != 0 for x >= X + sqrt(1-y_0^2), y_0 <= y <= sqrt(1-2t_0) (finite windows plus tail); (iii) H_t != 0 on the barrier [X,X+1] x [y_0,1], 0 <= t <= t_0. Output is bounded by verified height.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/PROOF_NOTE.md] sec 2-6",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "dbn-lambda-01787854",
+  "type": "measured-phenomenon",
+  "name": "Computer-assisted Lambda <= 0.1787854 (not peer reviewed)",
+  "statement": "Row X = 6000000185827, t_0 = 129/800, y_0^2 = 87677/2500000 gives Lambda <= 893927/5000000 = 0.1787854. Uses Platt-Trudgian T = 3000175332800. Internal referee: hypotheses (ii), (iii) established modulo cited theorems; heavy lanes rebuilt from source. Companion weaker row 0.1858207.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/README.md]; [sib:dbn-lambda-01787854-candidate-audit/EXTERNAL_REFEREE_REPORT_2026-07-28.md]",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "dbn-finite-lane-margins",
+  "type": "measured-phenomenon",
+  "name": "Finite final-time lane: row count and binding margin",
+  "statement": "3,149,013 Riemann-Siegel windows N = 690988..3840000 at t_0 = 129/800: T_min = 0.000000791366 (at N = 690988), E_max <= 0.000000233494905, margin >= 5.5787e-7. Families by N-range: P11 (2,3,5,7,11) first, then P7 and smaller prime sets.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/README.md] Decisive certified margins; [sib:dbn-lambda-01787854-candidate-audit/CANDIDATE_PARAMETERS.md]",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-native-triangle-binding",
+  "type": "identity",
+  "name": "Euler-mollified triangle floor bounds |f_t| from below",
+  "statement": "f_t = A + gamma C_kappa with A = sum_{m<=N} b_t(m) m^{-s*}, C_kappa = sum m^y b_t(m) m^{-conj s* - kappa}. For the real Euler mollifier E(s*) = prod_{p in P}(1 - b_t(p) p^{-s*}) = sum_{d|D} lambda_d d^{-s*}, exact Dirichlet convolution makes each positive stored triangle value a lower bound for |E f_t| / normaliser.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/NATIVE_BINDING.md]",
+  "tags": [
+   "mollifier",
+   "euler-product",
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-closed-barrier-883-prisms",
+  "type": "measured-phenomenon",
+  "name": "Closed barrier certificate by argument principle",
+  "statement": "H_t(z) != 0 for z in [X,X+1] + i[1809/10000, 1], 0 <= t <= 129/800, X = 6000000185827: 883 consecutive closed time prisms with byte-identical seams, boundary mesh with derivative majorants D_z, D_t, aggregate winding interval [-8.95, 8.95]e-13. Uses Polymath Thm 1.3 with error e_A + e_B + e_{C,0}.",
+  "status": "certified",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/BARRIER_CERTIFICATE.md]",
+  "tags": [
+   "lambda",
+   "heat-flow",
+   "zero-channel"
+  ]
+ },
+ {
+  "id": "dbn-tail-contraction-lemma",
+  "type": "measured-phenomenon",
+  "name": "All-N tail by exact convolution and contraction",
+  "statement": "For N >= N* = 3840000, t in [129/800, 0.161250001]: fixed P1113 mollifier, 153,814 exact convolution coefficients, reduction of all N to one cutoff by monotonicity in log N; Arb at 256 and 512 bits gives D < 0.999721 < 1 and post-error margin > 0.0001735209. Lower-time row: N* = 4,050,000, D = 0.9962636, margin 0.0023233.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/TAIL_LEMMA.md]; [sib:dbn-lambda-orphan-wt/TAIL_LEMMA_01782354.md]",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-window-freeze-theorem",
+  "type": "tool",
+  "name": "Riemann-Siegel window freeze",
+  "statement": "x_N = 4 pi (N^2 - t_0/16), W_N = [x_N, x_{N+1}). On the target domain the majorants are monotone (d_x G = -(y/2x) G < 0, d_x K < 0), so bounds at window endpoints cover the window; x_690988 < X + sqrt(1 - y_0^2) < x_690989 by exact rational enclosures.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/WINDOW_FREEZE_THEOREM.md]",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-adversarial-review-protocol",
+  "type": "tool",
+  "name": "Fail-closed review protocol with mutation tests",
+  "statement": "Dependency blueprint with obligation IDs, clean-room transcription of cited theorems by two reviewers, boundary/quantifier attack matrix, independent recomputation, required mutations that must make verifiers reject (e.g. removed conjugation, missing time cell, forged margin), parameter perturbation and calibration against configurations that must fail.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "[sib:dbn-lambda-01787854-candidate-audit/ADVERSARIAL_REVIEW_PROTOCOL.md]",
+  "tags": [
+   "lambda",
+   "lean"
+  ]
+ },
+ {
+  "id": "dbn-lower-time-01782354",
+  "type": "measured-phenomenon",
+  "name": "Lower-time candidate Lambda <= 0.1782354",
+  "statement": "t_0 = 1607/10000, same X and y_0^2: Lambda <= 891177/5000000. 3,359,013 rows; P13 (2,3,5,7,11,13) on 690988..728999 with minimum 0.000670513304; five-leg Dini height transfer, worst ratio 0.9999999980092249 < 1; barrier inherited as a subset of the 883-prism slab. Local assembly pass, unreviewed.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/CANDIDATE_PARAMETERS_01782354.md]",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-t0-slope-razor",
+  "type": "measured-phenomenon",
+  "name": "Finite-lane floor is linear in t_0 with slope about 19",
+  "statement": "At N = 691008 the certified triangle floor is linear in t with dT/dt_0 = 19.05 +- 0.02 and reaches zero 4.8e-7 below t_0 = 129/800; every lower t tried is UNCERT. dE_max/dt_0 is about -1.1e-5. The absolute-value certificate at fixed mollifier cannot lower t_0 materially.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/dynamic_boundary/RESULTS_t0_sensitivity.md]",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-reanchor-691008",
+  "type": "measured-phenomenon",
+  "name": "Unused verified-height budget and the re-anchor reserve",
+  "statement": "Platt-Trudgian allows X' <= 6,000,350,665,600; the anchor in use is 6,000,000,185,827. Re-anchoring at window N = 691008 (X* = 6,000,342,141,913) gives floor 0.000008478389, 14.78 times the present margin, worth Delta Lambda about 4e-7. Theoretical steering frontier N = 691439 (site near 6.00783e12) is tail-limited.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/dynamic_boundary/README.md]",
+  "tags": [
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-moving-collar-cost",
+  "type": "obstruction",
+  "name": "Cost of a moving barrier collar",
+  "statement": "Collar Phi(t,r,s) = a(t) + W r s + i sqrt(y_0^2 + 2(t_0 - t) + W^2 r^2), Phi_t = a'(t) - i/y. A moving-prism gate pays about D_z(|a'| + 1/y_min) Delta t; a lateral wall also needs Re(H_t''/H_t') > a'(t) at boundary zeros. Skipping the first weak window needs average speed above 7.4e7.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/dynamic_boundary/README.md]",
+  "tags": [
+   "lambda",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "dbn-moving-real-rung-lemma",
+  "type": "mechanism",
+  "name": "Conditional real-rung velocity lemma",
+  "statement": "If zeros of H_tau lie in |Im z| <= Y(tau), the boundary zero is simple, the zero-dynamics tail is justified, and real zeros satisfy P_tau(x,Y) = sum_r m_r Y/((x-r)^2+Y^2) >= p(tau,Y): then Y' <= -1/Y - 2p, and d/dtau (tau + Y^2/2) <= -2 Y p. A positive uniform rung contribution strictly improves the de Bruijn law.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md]",
+  "tags": [
+   "twin-ladder",
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-max-gap-collapse-time",
+  "type": "identity",
+  "name": "Collapse time under a real-zero maximum-gap hypothesis",
+  "statement": "If every relevant real x has a real zero of H_tau within distance R, then P >= Y/(R^2+Y^2), u' <= -2 - 4u/(R^2+u), and collapse time S_R = u_0/6 + (R^2/9) log(1 + 3u_0/R^2) < u_0/2, giving Lambda <= T + S_R conditionally. Compare the floor-only bound in map row F5.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Maximum-gap corollary",
+  "tags": [
+   "twin-ladder",
+   "heat-flow",
+   "lambda"
+  ]
+ },
+ {
+  "id": "dbn-uniform-poisson-floor",
+  "type": "open-lemma",
+  "name": "Uniform Poisson floor from real zeros along the flow",
+  "statement": "Needed for the moving-rung improvement: a real-zero mesh or Poisson lower bound uniform in every real x and over the whole collapse-time interval, proof the selected zeros stay real, certified trajectory tubes, treatment of collisions and the central gap, and an infinite-height tail bound. Average Riemann-von Mangoldt density is insufficient.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Missing certificate",
+  "tags": [
+   "twin-ladder",
+   "heat-flow",
+   "lambda",
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "dbn-literal-freezing-invalid",
+  "type": "obstruction",
+  "name": "Freezing part of the heat solution breaks the equation",
+  "statement": "If H_tau = A_tau + B_tau then (d_tau + d_z^2)(A_{tau*} + B_tau) = d_z^2 A_{tau*}, non-zero unless A is affine. A fixed zero factor likewise stops dividing the evolved function. Frozen rungs are valid only as a Rouche/Duhamel comparator with an explicit residual bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:dbn-lambda-orphan-wt/MOVING_REAL_RUNG_BARRIER.md] Why literal freezing is invalid",
+  "tags": [
+   "twin-ladder",
+   "heat-flow"
+  ]
+ },
+ {
+  "id": "dbn-prime-torus-phase-closure",
+  "type": "mechanism",
+  "name": "Dirichlet phases as a Laurent system on the prime torus",
+  "statement": "e^{iq log n} = prod_p (e^{iq log p})^{v_p(n)}: the Riemann-Siegel sum is the restriction of a Laurent polynomial in prime-phase coordinates to the one-parameter orbit q -> (q log p)_p. Minimising over the full torus is a conservative closure of the physical orbit; the absolute-value (triangle) majorant discards this structure.",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/README.md] Phase interpretation",
+  "tags": [
+   "euler-product",
+   "twistor",
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-phase-orbit-screen",
+  "type": "measured-phenomenon",
+  "name": "Mollified approximant stays near 1 below the triangle wall",
+  "statement": "Float64 samples of the P13 Euler-mollified f_t at t = 0.130, 0.125, 0.120 (objectives 0.1475354, 0.1425354, 0.1375354), windows N = 690988..4050000: minimum modulus 0.91523, 0.91534, 0.91466, real part within 1e-4 of it. The UNCERT wall below t_0 = 0.1607 is a failure of the triangle majorant, not a collapse of the complex sum.",
+  "status": "measured",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/twistor_phase_freeze/RESULTS_PRELIMINARY.md]",
+  "tags": [
+   "lambda",
+   "mollifier",
+   "euler-product"
+  ]
+ },
+ {
+  "id": "dbn-projective-macrocell-014",
+  "type": "measured-phenomenon",
+  "name": "Projective second-jet macrocell at the Lambda = 0.14 row",
+  "statement": "t_0 = 24727519/200000000, y_0 = 1809/10000 (t_0 + y_0^2/2 = 7/50). W = M_lambda f_t, rho = |W-1|^2 differentiated before absolute values: A <= 0.16600, B <= 3.66188, C <= 2381.19, h = 1/50 give |M H/B - 1| <= 0.845861 < 1 on [X+1, X+1+1/50] x [0.1809, 0.1909]; 69 rows reach the canopy. Direct slab bound exceeds 1.",
+  "status": "certified",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/projective_macrocell_014/PROJECTIVE_MACROCELL_THEOREM.md]; STATUS.md",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "dbn-global-014-coverage",
+  "type": "open-lemma",
+  "name": "Remaining coverage for Lambda <= 0.14",
+  "statement": "Not certified: the rest of the first Riemann-Siegel window in x beyond one 1/50-wide column, every later window and seam, an infinite terminal-tail phase estimate, and the theorem assembly. Second-derivative bound C about 2381 fixes the cell width; a phase-aware interval propagation or sharp two-channel functional is needed.",
+  "status": "conjectural",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "no",
+  "source": "[sib:dbn-lambda-below-015-research/research/projective_macrocell_014/STATUS.md]",
+  "tags": [
+   "lambda",
+   "mollifier"
+  ]
+ },
+ {
+  "id": "m23-conjugation-closed-ordinates",
+  "type": "identity",
+  "name": "Complex ordinates are conjugation-closed in every window",
+  "statement": "For rho = 1/2 + beta + i gamma put gamma_rho = (rho - 1/2)/i = gamma - i beta. The functional equation pairs rho with 1 - conj rho (same gamma, conjugate gamma_rho), so the multiset {gamma_rho : Im rho in I} is closed under complex conjugation for every height window I.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/01-certificate.md] Objects",
+  "tags": [
+   "pair-correlation",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "m23-gabor-fingerprint-matrix",
+  "type": "object",
+  "name": "Gabor fingerprint matrix W = P + Q",
+  "statement": "Window phi >= 0 on [-1/2,1/2], w = phi^2, Phi = w-hat; tests f_k = phi e^{-i tau_k u} at critical spacing; v_rho(k) = phi-hat(gamma_rho - tau_k); W = sum m_rho v_rho v_rho^T. On-line points give rank-one PSD blocks; each off-line pair gives a signature (1,1) plane at any depth. Entries come from primes <= T without zero locations.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/01-certificate.md] Objects",
+  "tags": [
+   "pair-correlation",
+   "explicit-formula",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "m23-poisson-reproducing-identity",
+  "type": "identity",
+  "name": "Reproducing identity at critical density",
+  "statement": "sum_k phi-hat(z - tau_k) phi-hat(z' - tau_k) = Phi(z - z') for complex z, z' (Poisson summation at critical spacing).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/01-certificate.md] Objects",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-three-prime-side-numbers",
+  "type": "identity",
+  "name": "Unconditional trace data of W",
+  "statement": "tr W = N; ||W||_F^2 = C(w) N (1 + o(1)) with C(w) = (integral w^2 + double integral |s - s'| w(s) w(s') ds ds')/(integral w)^2; n_+(Q) <= number of off-line pairs. ||W||_F^2 is the pair sum with kernel Phi^2; off-diagonal prime terms vanish by the Montgomery-Vaughan Hilbert inequality only because all primes are <= T.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/01-certificate.md] The three numbers",
+  "tags": [
+   "pair-correlation",
+   "large-sieve",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "m23-rank-trace-lemma",
+  "type": "identity",
+  "name": "Rank-trace lemma with indefinite off-line blocks",
+  "statement": "rank P >= 2 tr P + 4 tr Q - 4 n_+(Q) - ||P + Q||_F^2. Proof: von Neumann trace inequality, then x^2 >= 2x - 1 per on-line direction and q^2 >= 4q - 4 on the positive directions of Q. Equality iff P, Q are multiples of orthogonal projections.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/01-certificate.md] The linear algebra",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-proportion-6725",
+  "type": "measured-phenomenon",
+  "name": "Proportion 0.67250 of zeros on the line (August 2026, Lean-verified per source)",
+  "statement": "N_0(T,2T) >= (2 - C*) N with C* = 1/2 + 2^{-1/2} cot(2^{-1/2}) = 1.3274993 at w* = cos(sqrt2 s): proportion 0.6725007; distinct zeros (3 - C*)/2 = 0.83625. Box window gives 2/3. Uses no zero-density, zero-free region, mollifier or Lambda input. Map row P27.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/README.md]; [sib:morethan2-3rd/docs/01-certificate.md] Assembly",
+  "tags": [
+   "pair-correlation",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "m23-bandwidth-one-wall",
+  "type": "obstruction",
+  "name": "Bandwidth-1 wall for pair-correlation certificates",
+  "statement": "Past bandwidth 1 the off-diagonal prime terms are individually of size T^lambda and cancel to o(T log^2 T) only via asymptotics for sum Lambda(n) Lambda(n+h) (Hardy-Littlewood, F(alpha) for alpha > 1); sieve upper bounds cannot capture the cancellation. Map row P27.",
+  "status": "closed",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 3",
+  "tags": [
+   "pair-correlation",
+   "large-sieve"
+  ]
+ },
+ {
+  "id": "m23-shallow-pair-adversary",
+  "type": "control",
+  "name": "Shallow-pair adversary",
+  "statement": "2N/3 simple on-line zeros with orthogonal fingerprints plus N/3 zeros in off-line pairs of depth beta -> 0: each pair block tends to 2vv^T, spectrally a double on-line zero; tr = N, ||W||_F^2 = 4N/3. Any certificate continuous in the configuration cannot separate a shallow pair from a double zero.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 1",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-discontinuous-input-requirement",
+  "type": "open-lemma",
+  "name": "An input discontinuous at beta = 0",
+  "statement": "To break the shallow-pair degeneracy an input must quantify something discontinuous at depth beta = 0 or exclude shallow pairs by arithmetic. Zero-density bounds say nothing at |beta| << 1/log T; simple-zero counts do not help since shallow pairs are simple. No such unconditional input is known.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 1",
+  "tags": [
+   "pair-correlation",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "m23-gue-moment-match",
+  "type": "identity",
+  "name": "GUE spectrum of W matches the adversary through the third moment",
+  "statement": "GUE prediction for W: eigenvalues fill about [0,2], variance 1/3, m_3 = 2, m_4 = 13/4. The adversary (2/3 at 1, 1/6 at 2) has the same first three moments. The fourth moment separates them and needs prime-pair correlations at bandwidth > 1/2; under a fourth-moment hypothesis the proportion would be 13/18.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 1, 3; docs/01 sec 7.5(e)",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-ceiling-68185",
+  "type": "conjecture",
+  "name": "Asserted ceiling 0.68185 for bandwidth-one certificates",
+  "statement": "Source paper Remark 1.1 asserts an extremal law capping configuration-by-configuration bandwidth-one certificates at 0.68185 (0.70/0.80/0.90 needing bandwidth 1.04/1.26/1.70); the workspace found no statement or proof in the sources. Proved ceilings: dimension cap <= lambda N, sharpness of the rank-trace lemma, optimality of Montgomery-Taylor for one non-negative window. Map row P27 records 0.6818287.",
+  "status": "conjectural",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 2",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-unconditional-window-positivity",
+  "type": "identity",
+  "name": "Positivity of zero pair sums for any non-negative h",
+  "statement": "For h >= 0 of any support and any window I: sum_{rho,rho'} m m' h-hat(gamma_rho - gamma_rho') = integral h(u) |S_I(u)|^2 du >= 0, S_I(u) = sum m_rho e^{i u gamma_rho}. Uses only conjugation closure, not RH; deep pairs contribute e^{+-2 beta u} growth inside a modulus squared.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 4",
+  "tags": [
+   "pair-correlation",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "m23-cgdl-class-optimum",
+  "type": "measured-phenomenon",
+  "name": "LP optimum of the positivity class",
+  "statement": "For kernels r >= 0, r(0) = 1, r-hat <= 0 outside [-1,1]: (1/N) sum m m' r(gamma - gamma') <= C_in(r) = integral_{-1}^{1} r-hat(alpha)(delta(alpha) + |alpha|) d alpha. LP with Richardson extrapolation: C about 1.3212, proportion 0.6788 (published RH-conditional value 0.6792), against Montgomery-Taylor 1.3275.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/03-lanes.md] First results; docs/02 sec 4",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-edge-lemma",
+  "type": "identity",
+  "name": "Edge lemma: even signed weights reduce to the Montgomery-Taylor class",
+  "statement": "For real s supported in [-E,E], R_s(alpha) = integral s(u) s(u+alpha) du ~ s(-E) s(E)(2E - alpha) as alpha -> 2E. If s is even this is >= 0, so R_s <= 0 on |alpha| > 1 forces E <= 1/2. Three solvers confirm C_in >= 1.3275014 on the grid (proof sketch plus numerics).",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "[sib:morethan2-3rd/docs/04-lane1-postmortem.md] Result 1",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-deep-pair-obstruction",
+  "type": "obstruction",
+  "name": "Deep off-line pairs break signed-kernel certificates",
+  "statement": "An off-line pair at depth beta pays 2m^2[r(0) + r(2i beta)], with r(2i beta) -> -infinity like -e^{8 pi beta E} when r-hat <= 0 at the edge. Under/over-payment ratio 2.8, 12.4, 59, 257 at beta = 0.8, 1.0, 1.25, 1.5 (E = 0.75). Neutralising needs N(sigma,T) << T^{1 - 4E(sigma - 1/2)}, beyond the density hypothesis.",
+  "status": "measured",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/04-lane1-postmortem.md] Result 2",
+  "tags": [
+   "pair-correlation",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "m23-j-inequality-false",
+  "type": "obstruction",
+  "name": "Indefinite-metric version of the rank-trace lemma is false",
+  "statement": "With J = I_A + (-I_B) on two Gabor families and signed weight, a pair at depth beta pays 2m^2[Psi(0)^2 + Psi(2i beta)^2] with Psi(2i beta) = integral w(u) cosh(4 pi beta u) du, which can vanish: the pair pays 2 instead of >= 4 and the certificate counts phantom on-line zeros. Violation measured at beta = 0.2 to 0.45.",
+  "status": "refuted",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 4; docs/03",
+  "tags": [
+   "pair-correlation"
+  ]
+ },
+ {
+  "id": "m23-real-u-positivity-certificate",
+  "type": "open-lemma",
+  "name": "A certificate acting on |S_I(u)|^2 for real u",
+  "statement": "Open: use the unconditional positivity integral h |S_I|^2 >= 0 without evaluating kernels at complex arguments, i.e. act on |S_I(u)|^2 directly for real u, where deep pairs contribute e^{4 pi beta |u|}-growing but positive terms. No candidate construction is recorded.",
+  "status": "conjectural",
+  "usesMultiplicativity": "unknown",
+  "heightUniform": "unknown",
+  "source": "[sib:morethan2-3rd/docs/04-lane1-postmortem.md] What would reopen it",
+  "tags": [
+   "pair-correlation",
+   "weil",
+   "explicit-formula"
+  ]
+ },
+ {
+  "id": "m23-zeta-prime-rolle",
+  "type": "mechanism",
+  "name": "Off-line pairs force zeta-prime zeros near the line",
+  "statement": "A pair at +-beta forces a zero of zeta' within O(beta^2 log T) of the line, and zeta'(1/2+it) = 0 implies zeta(1/2+it) = 0. Converting this to a count needs few zeta' zeros within eps/log T of the line, equivalent to fine-scale small-gap statistics of zeros.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 3",
+  "tags": [
+   "pair-correlation",
+   "zero-free"
+  ]
+ },
+ {
+  "id": "m23-dimension-cap",
+  "type": "identity",
+  "name": "Dimension cap for bandwidth-lambda families",
+  "statement": "A bandwidth-lambda test family certifies at most lambda N on-line points (source Prop. 7.4). Unconditional higher moments tr W^k exist only for k lambda < 2, where the cap 2 - 1/lambda makes them useless; odd moments do not enter the two-sided Chebyshev-Markov bound.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "no",
+  "source": "[sib:morethan2-3rd/docs/02-adversary-and-ceiling.md] sec 2; docs/01",
+  "tags": [
+   "pair-correlation"
+  ]
+ }
+]

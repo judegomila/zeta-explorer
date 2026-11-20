@@ -1,0 +1,25 @@
+item5 1e12 m384 0.6 0 t=16s
+item5 1e12 m384 0.6 5 t=33s
+item5 1e12 m384 0.6 10 t=52s
+item5 1e12 m384 0.6 15 t=70s
+item5 1e12 m384 0.6 20 t=88s
+item5 1e12 m384 0.6 25 t=106s
+item5 1e12 m384 0.6 30 t=125s
+item5 1e12 m384 0.6 35 t=143s
+item5 1e12 m384 0.8 0 t=161s
+item5 1e12 m384 0.8 5 t=179s
+item5 1e12 m384 0.8 10 t=198s
+item5 1e12 m384 0.8 15 t=216s
+item5 1e12 m384 0.8 20 t=236s
+item5 1e12 m384 0.8 25 t=256s
+item5 1e12 m384 0.8 30 t=274s
+item5 1e12 m384 0.8 35 t=293s
+item5 1e12 m384 1.0 0 t=293s
+item5 1e12 m384 1.0 5 t=293s
+item5 1e12 m384 1.0 10 t=293s
+item5 1e12 m384 1.0 15 t=293s
+item5 1e12 m384 1.0 20 t=293s
+item5 1e12 m384 1.0 25 t=293s
+item5 1e12 m384 1.0 30 t=293s
+item5 1e12 m384 1.0 35 t=293s
+OWED5 DONE 1e12 m384

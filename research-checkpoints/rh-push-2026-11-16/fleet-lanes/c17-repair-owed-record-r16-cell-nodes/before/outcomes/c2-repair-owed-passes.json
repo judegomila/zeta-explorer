@@ -1,0 +1,31 @@
+{
+ "slug": "c2-repair-owed-passes",
+ "round": 2,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane, no attack, no statement about zeros of zeta. Bookkeeping recomputed and agrees: 10 e1 outcome records match their RESULT/REFEREE files (8 hold, 2 do not hold as written with obstruction standing); 10 e1 lines in lanes.jsonl; generate.py has exactly two inserted c2-repair rules; in the current top 60 no candidate is a superset of a closed set, contains a node of a closed minimal set, or shares two nodes with a closed lane (12 contain one launched-only or partial-lane node). Second passes re-derived: Theorem A step (iii) holds for every T with error O(T^(1/2+c) log T) (rerun on two new cases incl. H(0) = 13/7, agreement at rate about T^(-1/2)); Lemma 3' (density of jointly S-primitive tests in norm and in Q; equal infimum and negative index) and added Lemma 4' hold for zeta; Lemmas 4, 5 hold; step 2.1(c) holds by two routes (closed form rechecked on 3 new parameter sets to 1e-22 or better); GHS reduction to u_3 <= 0 with site-dependent non-negative fields correct, brute force rerun with a new seed max u_3 = 4.4e-16, Q_44 certificate reproduced with independent exact code (+0.037910; new m = 60: +0.431684); Selberg moment constant and Bohr-Jessen form agree with the classical statements. For DH and E_a the primitive-equals-all equality is not established (not refuted). No negative verdict changes. All requirement flags false.",
+ "obstruction": "Repair lane, no attack. 8 owed steps checked and hold (Lemma 3 only in corrected form 3'); for DH and E_a with a >= 1/8 the primitive-equals-all equality is not established (not refuted). No negative verdict changes. Owed: apply MAP_PENDING.md to OBSTRUCTION_MAP.md; sources for GHS, Selberg CLT, Bohr-Jessen not opened.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED/CONFIRMED step failed re-derivation. Corrections (none changes a verdict): (E1) summary table counts wrong: MAP_PENDING.md has 7 section-6 edits (not 8) and 14 new rows (not 13). (E2) \"Lemma 3(d) fails for DH and E_a\" overstates: only the repaired proof's approximating sequence fails (1 - t_N(J rho) unbounded for Re < -1/2); the conclusion is NOT ESTABLISHED for those controls, not shown false. (E3) the threshold \"E_a with a >= 1/8\" depends on the Lean-checked 2026 zero-free half-plane [record truncated in transit; full text in push/c2-repair-owed-passes/REFEREE.md]",
+ "lesson": "The generator rejected only supersets of closed node sets, so swapping one partner of a closed pair passed with penalty 0; closure must be tested on shared pairs and launched sets. On compactly supported tests, \"primitive tests equal all tests\" is a density statement that needs the classical zero-free region (finite S) or non-vanishing on Re s = 1 (all primes); it is not algebra and is not proved for DH (zeros right of 1) or E_a with a >= 1/8. Sources not opened for Selberg, Bohr-Jessen, GHS.",
+ "followUp": "Apply campaign/MAP_PENDING.md to push/OBSTRUCTION_MAP.md in one editing pass; have one referee read Lemma 4' and the DH/E_a scope statement in push/c1-spinor-hecke-primitive/REFEREE2.md, and open Griffiths-Hurst-Sherman 1970 or Lebowitz 1974 to confirm the site-dependent-field form. Engine: reconcile aboutZeros (records say true, lane lines false) for e1-burgers-cascade-anticausal and e1-euler-anchor-heat-certificate.",
+ "resultFile": "tmp/research-2026-11-16/push/c2-repair-owed-passes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c2-repair-owed-passes/REFEREE.md"
+}

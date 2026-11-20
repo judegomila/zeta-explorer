@@ -1,0 +1,90 @@
+{
+ "slug": "s4-twin-ladder-alias-shell-packets",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "airy-envelope-sign-condition",
+  "alias-denominator-separation-curvature-floor",
+  "alias-sign-determinacy",
+  "alias-width-law-octave-weight",
+  "alpha-kh-pcc-gated-region",
+  "cauchy-phase-ou-covariance",
+  "evaluation-christoffel-duality",
+  "five-shell-identity",
+  "fresnel-airy-envelope-port-gap",
+  "parity-amgm-gram-sharp",
+  "parity-pure-maj-witness-threshold",
+  "permutation-defect-bound"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "five-shell-identity",
+    "permutation-defect-bound",
+    "alpha-kh-pcc-gated-region"
+   ],
+   "obstruction": "sign at fixed A is a density (pole at 1): L-functions fail with the controls, E_a passes, zeta fails at the natural A",
+   "controlsThatDefeat": [
+    "L(chi)",
+    "E_a",
+    "T-NR"
+   ]
+  },
+  {
+   "nodes": [
+    "alias-sign-determinacy",
+    "alias-denominator-separation-curvature-floor",
+    "alias-width-law-octave-weight"
+   ],
+   "obstruction": "the statistic does not depend on the object; twisted patterns fire more often than the arithmetic one",
+   "controlsThatDefeat": [
+    "every object (same number)",
+    "random signs"
+   ]
+  },
+  {
+   "nodes": [
+    "parity-amgm-gram-sharp",
+    "parity-pure-maj-witness-threshold",
+    "evaluation-christoffel-duality"
+   ],
+   "obstruction": "no control fails: the cap holds for every non-negative packet system",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "hash signs",
+    "E_a",
+    "heat"
+   ]
+  },
+  {
+   "nodes": [
+    "airy-envelope-sign-condition",
+    "cauchy-phase-ou-covariance",
+    "fresnel-airy-envelope-port-gap"
+   ],
+   "obstruction": "the sign follows the pole at 1 with Lambda >= 0; the Airy condition is neither necessary nor sufficient; covariance is frequency-blind",
+   "controlsThatDefeat": [
+    "E_a",
+    "L(chi) (fail)",
+    "random reals (covariance)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) sign at fixed A is a density (pole at 1): L-functions fail with the controls, E_a passes, zeta fails at the natural A | (2) the statistic does not depend on the object; twisted patterns fire more often than the arithmetic one | (3) no control fails: the cap holds for every non-negative packet system | (4) the sign follows the pole at 1 with Lambda >= 0; the Airy condition is neither necessary nor sufficient; covariance is frequency-blind",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "L(chi)",
+  "L(chi) (fail)",
+  "T-NR",
+  "every object (same number)",
+  "hash signs",
+  "heat",
+  "random reals (covariance)",
+  "random signs"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-twin-ladder-alias-shell-packets/RESULT.md"
+}

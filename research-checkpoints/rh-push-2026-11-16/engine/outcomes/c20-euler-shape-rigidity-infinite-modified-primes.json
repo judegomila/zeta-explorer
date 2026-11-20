@@ -1,0 +1,47 @@
+{
+ "slug": "c20-euler-shape-rigidity-infinite-modified-primes",
+ "round": 20,
+ "kind": "combine",
+ "nodes": [
+  "exact-relation-rigidity"
+ ],
+ "tags": [
+  "identification",
+  "U3",
+  "local-euler-shape",
+  "pole-clause",
+  "pre-filter",
+  "functional-equation",
+  "bohr-spectrum",
+  "Q-inf"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Identification only (class U3); no statement about zeros of zeta. Theorem A holds: if G is an Euler product with zeta's functional equation and N = zeta/G is a product converging uniformly on Re s >= 1/2 (hypothesis (H); for degree-one geometric factors exactly sum |1-alpha_p| p^(-1/2) finite), then G = zeta. This covers sparse S with bounded parameters of bounded degree and Lemma C of c19. Corollary A2 holds: sup_t |N(1/2+it) - N(1/2-it)| >= |c(n)| n^(-1/2) for every n >= 2. Theorem C holds in the form: in regime (K) a twin has no off-line zero other than zeros of zeta, and a twin of finite order has a zero of G/zeta on the critical line; existence of such a twin is open. The case of relative abscissa above 1/2 is open. The proof uses no multiplicativity and is base-blind (it holds over Davenport-Heilbronn and Beurling bases). The technique is elementary and standard (reflection plus Liouville), new only against the campaign record. R1 = R2 = R3 = R4 = false.",
+ "obstruction": "Identification only (class U3), no statement about zeros. Theorem A: an Euler product G with zeta's functional equation and zeta/G converging uniformly on Re s >= 1/2 (degree-one geometric factors: sum |1-alpha_p| p^(-1/2) finite) is zeta, by reflection and Liouville; the proof uses no multiplicativity and holds over DH and Beurling bases. It stops at the boundary regime: if the relative product converges only in the open half-plane, a twin has no off-line zero other than zeros of zeta (Theorem C) and its existence is open; relative abscissa above 1/2 is open. A twin with local Euler shape and an off-line zero of its own needs sum |1-a(p)| p^-sigma divergent for some sigma > 1/2 (R4 in relative form).",
+ "obstructionKind": "identification: base-blind, multiplicativity not used; covers exactly the summable class (Bohr's inequality recalled, not opened)",
+ "controlsThatDefeat": [
+  "DH and Beurling bases (the proof holds over them: base-blind)",
+  "sparse THIN / DEL miss the functional equation by sup 2.23 / 1.02 (measured): no twin in the summable class",
+  "not run: boundary regime (natural boundary or a twin with |alpha_p| = p^(1/2) on a super-sparse set); server not used"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No PROVED step failed re-derivation (Theorem A in both forms, Corollaries A1 and A2, Lemma A0, Theorem B's use of Bohr's inequality, Theorem C (a) to (c)). Four defects, none in a proof. E1: verdict statement 8, the section 6 \"Regime 2\" column and section 6 reading (2) say \"no twin/control with an off-line zero exists\" in regime (K); Theorem C (a) proves only \"no off-line zero that is not a zero of zeta\", so the literal wording is that statement plus RH. Statement 6 (a) and MAP_ROW.md have the c - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In the functional-equation class, local Euler shape at infinitely many primes acts only through boundedness of zeta/G (or G/zeta) on Re s >= 1/2. Where the relative Euler product converges up to the line, G = zeta by reflection and Liouville (equivalently one-sided Bohr spectrum), without multiplicativity and over any base including DH. Bohr's inequality (recalled, not opened) shows the method covers exactly the summable class. A twin with local Euler shape and an off-line zero of its own must have sum |1-a(p)| p^-sigma divergent for some sigma > 1/2: R4 in relative form. REFEREE.md is the author's adversarial pass, not an independent referee; server not used (the first test was on paper).",
+ "followUp": "Independent referee of Theorems A and C (none has read them). Then settle the boundary regime (relative product convergent only for Re s > 1/2): prove a natural boundary or build a twin for |alpha_p| = p^(1/2) on a super-sparse set; any such twin has its extra zeros on the line, so it cannot serve as an off-line control.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-euler-shape-rigidity-infinite-modified-primes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-euler-shape-rigidity-infinite-modified-primes/REFEREE.md",
+ "launchedNodes": [
+  "exact-relation-rigidity"
+ ],
+ "engineVerdict": "partial"
+}

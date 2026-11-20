@@ -1,0 +1,46 @@
+{
+ "slug": "c18-tz-band-completion-controls-server",
+ "round": 18,
+ "kind": "compute",
+ "nodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "MEASURED, signs certified relative to a hand-derived radius; 96 Fourier modes; heights 1e6 to 1e12; 40 windows. No statement about zeros of zeta; no bound moves. (c) The registered reflected completion (atoms n -> t/(2 pi n), weights Lambda(n)(Lg - log n)/(sqrt(n) log n)) is not a positive extension of zeta's data: zeta fails it in 600 of 600 cells with an atom, and (referee, float, 3e6) for every global phase of the reflected part. (b) N(theta) on 96 modes: zeta is positive in 640 of 640 cells at theta <= 0.85 and zero within the radius at theta >= 0.95. ZQ eta = 0.05 passes at M = 1 to theta = 0.75; E_0.1 and DH pass at low theta; E_0.3 and T-NR fail everywhere. Sign chains pass at theta = 0.55 in a typical 96-mode window with zeta's 96-mode margin and fail in 94-98% of cells at theta >= 0.95. The chain passes and zeta's margins depend on the number of modes (referee: at theta 0.65 with 1536 modes chains pass M = 1 in 57% and M = 0 in 1% of cells while zeta stays positive), so nothing follows about separation of chains by N(theta) on wider windows or in an every-window sense.",
+ "obstruction": "Registered outcomes (c) and (b) (MEASURED; signs certified relative to a hand-derived radius; 96 Fourier modes; 40 windows; 44,600 cells). (c) The registered reflected completion (atoms n -> t/(2 pi n)) is not a positive extension of zeta's data: zeta fails in 600 of 600 cells, and for every global phase of the reflected part (referee, float, 3e6). (b) N(theta) on 96 modes: zeta positive in 640 of 640 cells at theta <= 0.85, zero within the radius at theta >= 0.95; multiplicative sign chains pass at theta = 0.55 with zeta's margin and fail in 94-98% of cells at theta >= 0.95, where zeta's margin goes to 0. Chain passes and zeta's margins depend on the number of modes (referee: 1536 modes at theta 0.65, chains pass M = 1 in 57% of cells), so nothing follows about every-window separation. Not run: backward heat; theta 0.95 and 1.0 at 1e12.",
+ "obstructionKind": "control-passes: multiplicative sign chains, ZQ (eta 0.05, to theta 0.75), E_0.1 and DH at low theta pass N(theta); the completed form fails for zeta itself",
+ "controlsThatDefeat": [
+  "24 multiplicative sign chains (pass at theta = 0.55 in 98% of cells at M = 0 with zeta's margin)",
+  "ZQ eta = 0.05 (passes at M = 1 to theta = 0.75)",
+  "E_0.1 and DH (pass at low theta)",
+  "zeta itself fails the reflected completion (600 of 600 cells)",
+  "not run: backward heat"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Report written to tmp/research-2026-11-16/push/c18-tz-band-completion-controls-server/REFEREE.md. The precise-obstruction verdict holds after two corrections. Both PROVED steps (Lemma L, Arch compression) were re-derived and confirmed, and the certification logic and the section 5 nilpotency argument are correct. Not re-run by me: any cell at 1e8, 1e10 or 1e12, T-NR, K1.\n\nE1 (substantive, overstated): verdict item 4 and section 4.2 reading 1 say no - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "N(theta) with tolerance of order 1 does not separate zeta from multiplicative sign chains near theta = 1/2. Separation appears only toward the Nyquist band, where zeta's own margin goes to 0. The linearised reflected completion is not a positive extension of zeta's data. The server shares CPU per unit, so work has to be split into single-thread units.",
+ "followUp": "If c18-tz-one-sided-bound-fe-reserve-bridge continues, replace the additive reflected atoms by a measure positive by construction (real zeros of the Riemann-Siegel main sum) and bound its defect against the data, in 0.75 <= theta <= 0.85 where every chain fails in some window. Form C here is one formalisation only; confirm the sibling's definition first.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-tz-band-completion-controls-server/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-tz-band-completion-controls-server/REFEREE.md",
+ "launchedNodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c19-referee-r18-independent-sources",
+  "outcome": "holds with corrections",
+  "note": "Holds with corrections. 30-cell sample rerun with independent code on the server at m = 48, 96, 192: Form C negative in 30/30 at each m; lane values reproduced at m = 96; zeta's Form D margin at 192 modes is 0.28-1.0 (median 0.75) of the 96-mode value. Deviation (iii) wrong for Form C at (1e10, 0.75): boundary prime 31622777, effect 6e-5 relative, no sign change.",
+  "report": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE2-c18-tz-band-completion-controls-server.md"
+ },
+ "brokenProved": 0
+}

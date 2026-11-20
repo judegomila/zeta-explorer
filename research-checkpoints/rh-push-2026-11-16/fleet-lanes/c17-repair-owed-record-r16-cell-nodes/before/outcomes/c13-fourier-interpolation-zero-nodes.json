@@ -1,0 +1,57 @@
+{
+ "slug": "c13-fourier-interpolation-zero-nodes",
+ "round": 13,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "fourier-interpolation",
+  "theta-group",
+  "modular-integral",
+  "dirichlet-series-kernel",
+  "bochner-converse",
+  "explicit-formula",
+  "t-nr",
+  "x0-4",
+  "davenport-heilbronn",
+  "theta-power"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction; device closed at stage A; nothing about zeros of zeta. Confirmed by re-derivation: the BRS kernel is (F*(s)/F*(w)) x A_k(w,s) with A_k target-independent (relative to arXiv:2005.02996; sections 3 and 6 not re-derived); kernels of one gamma class and sign are related by symmetric multipliers G(s)/G(w) (Lemma M, an identity); the T-NR kernel coefficients, basis functions and biorthogonality follow from zeta's (Lemma T, re-derived by hand and checked on four new (q,c) pairs: kernel-coefficient error 1e-14 to 1e-8, transfer deviation 0); T-NR satisfies (I-1) with the same exponent 1/2 (sum |g_j| q^-(j+1)/2 finite for a < 1/2); DH is self-dual with factor 5^(s/2) Gamma_R(s+1) and 1/F converges absolutely at Re w = 2 (Neumann bound), while it has zeros up to Re = 1.1204 (reproduced by Bohr's method) so (I-1) fails for it without stopping the construction; E_a fails (I-1) in size and is open at the gamma-class step; the Weil-functional pivot is the explicit formula in coordinates, with positivity failing only at q for T-NR. Partial-sum exponent kappa for all s implies no zero with Re rho > 2 kappa (proved-rel); the converse is argued. All four requirement flags are false.",
+ "obstruction": "Stage A. The BRS kernel is (F*(s)/F*(w)) x A_k(w,s) with A_k independent of the target (relative to arXiv:2005.02996); bases of one gamma class form one orbit under symmetric multipliers G(s)/G(w) (Lemma M, identity). The construction uses a Dirichlet series and a functional equation; the Euler product enters only through |mu| <= 1, which stops at Re w = 1. Off-line nodes move the partial-sum exponent from 1/4 to beta/2 < 1/2, compatible with the one non-identity inequality (exponent 1/2). 'Partial-sum exponent kappa implies no zero with Re rho > 2 kappa' is proved-rel in that direction only.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "T-NR (passes every step; Lemma T; truncation-height step argued)",
+  "window translate (passes)",
+  "DH and theta^w (pass in a smaller function class; (I-1) fails for DH without stopping the construction)",
+  "E_a open at the gamma-class step (no kernel constructed for Gamma_R(s+a)Gamma_R(s-a))"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed; nothing assumes RH, restates verified height, or presents a known theorem as new. Nine corrections or weaker labels, none changing the verdict or a flag (full list in tmp/research-2026-11-16/push/c13-fourier-interpolation-zero-nodes/REFEREE.md; the lane's own earlier pass is kept unchanged below the new report).\nC1: \"exponent 1/4+eps is equivalent to RH\" (verdict, device row, lanes.jsonl) is proved-rel in one direction only ( - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "An interpolation basis with zero nodes is a universal object of the gamma class divided by the target. The target enters linearly through the coefficients of 1/F, so the device is covariant under every symmetric multiplier with zeros in the open strip and T-NR passes. The only Euler-product reading is the size bound |mu|<=1, which stops at Re w = 1. Hecke covariance of theta sits in the target-independent kernel factor, as in c12-x04.",
+ "followUp": "Independent referee for the lane (REFEREE.md is the lane agent's own separate pass), including the T-NR truncation-height step. Optional: construct or exclude a kernel for the gamma factor Gamma_R(s+a)Gamma_R(s-a), the open E_a cell. Lane line is in the lane's lanes.jsonl, not appended to campaign/lanes.jsonl; engine_device_proposal.json is in the lane directory for the repair slot.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-fourier-interpolation-zero-nodes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-fourier-interpolation-zero-nodes/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds in a narrower form",
+  "narrowerForm": "Exact for the kernel H_- of BRS (4.6). For H_+ the source subtracts alpha^+_(1,1/2)(s/2) (not identically zero: value -2 at s = 0), so H_+ = (zeta*(s)/zeta*(w)) x [A^+ - alpha^+_1(s/2) zeta*(w)]/2: the second factor contains the target additively. Lemma M (i)-(iv) holds for both kernels as a statement about H G(s)/G(w); 'the kernel of F = zeta G is the orbit point' holds for H_- only. Lemma T holds for the H_- family; in the H_+ family the coefficient at the lowest frequency m = q^2 is 0. 'The target enters by division' (the filter) stands.",
+  "downgrades": [
+   "section 2 display of BRS (4.6): add the subtracted term in H_+ and h^+_1 := 0",
+   "verdict item 2, map row, engine_device_proposal.json: 'kernel = (F*(s)/F*(w)) x A_k' and 'one orbit' -> restrict to H_-",
+   "Lemma T: frequency set has one sign at m = q^2 in the H_+ family"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-fourier-interpolation-zero-nodes.md"
+ }
+}

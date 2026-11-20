@@ -1,7 +1,7 @@
 # Theta energy at arbitrary derivative order
 
 Research continuation, **8 November 2026**, following
-[PR #44](https://github.com/judegomila/mathexplorer/pull/44).
+[PR #44](https://github.com/[user]/mathexplorer/pull/44).
 This checkpoint gives exact formulas for the entire derivative hierarchy,
 an analytic energy inequality for an actual theta derivative pulse, and
 rigorous obstructions to three proposed shortcuts.
@@ -50,7 +50,7 @@ H_c(u,v)=\alpha\int_c^\infty
 
 The outstanding task is positivity of the full kernel, or a sufficiently
 strong estimate on the actual signed pulse preimages. The previous
-[analytic-localization proof](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md)
+[analytic-localization proof](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md)
 shows why every derivative order at one point is already the global task.
 
 ## Results in this checkpoint

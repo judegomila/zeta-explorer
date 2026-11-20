@@ -53,23 +53,23 @@ present checkpoint is based on main and adds only a new research directory
 and decision record. The fixed references preserve its mathematical
 dependencies without duplicating or changing those branches.
 
-- [PR #43](https://github.com/judegomila/mathexplorer/pull/43), commit
+- [PR #43](https://github.com/[user]/mathexplorer/pull/43), commit
   `69d4049f289217812051188378a0a9f3f061a169`: actual theta convolution,
   cutoff identity, weighted criterion, and geometric limitations.
-- [PR #44](https://github.com/judegomila/mathexplorer/pull/44), commit
+- [PR #44](https://github.com/[user]/mathexplorer/pull/44), commit
   `a89222f2d069f24690b2f62904d5049e9ff676ed`:
-  [analytic localization](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md)
+  [analytic localization](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md)
   supplies analytic feature density and the all-jet/global-kernel
   equivalence;
-  [Hardy defect](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md)
+  [Hardy defect](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md)
   supplies the coprime Blaschke quotient for S and the causal/weighted
   criteria used by the new Gaussian contour note.
-- [PR #45](https://github.com/judegomila/mathexplorer/pull/45), commit
+- [PR #45](https://github.com/[user]/mathexplorer/pull/45), commit
   `6afedec7fae03174b3c99ace99c2ae1453043cb2`:
-  [all-order research index](https://github.com/judegomila/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/README.md),
-  [commutator and derivative energy](https://github.com/judegomila/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_jet_commutator_20261108.md),
-  [boundary-trace obstruction](https://github.com/judegomila/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_all_order_jet_structure_20261108.md), and
-  [Gaussian preimage obstruction](https://github.com/judegomila/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_gaussian_probe_obstruction_20261108.md).
+  [all-order research index](https://github.com/[user]/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/README.md),
+  [commutator and derivative energy](https://github.com/[user]/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_jet_commutator_20261108.md),
+  [boundary-trace obstruction](https://github.com/[user]/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_all_order_jet_structure_20261108.md), and
+  [Gaussian preimage obstruction](https://github.com/[user]/mathexplorer/blob/6afedec7fae03174b3c99ace99c2ae1453043cb2/rigorous/theta-all-order-2026-11-08/theta_gaussian_probe_obstruction_20261108.md).
   The last note and its interval certificate establish `D(-1)>0` for
   alpha=1; this is used only in the optional one-point mismatch of the
   endpoint note. The high-frequency mismatch does not depend on that

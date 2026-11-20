@@ -38,7 +38,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "Verdict (precise obstruction, outcome (a), no zeta-zero statement) holds; all PROVED steps re-derived (translate identity, Lemma 1 (a) and (b) under its stated hypothesis |alpha| <= a/2, Lemma 2 existence constant 0.976 eta, Lemma 4 Poisson bound, section 5 identity). Reruns: span law at 4 new (a,L) ratio 0.99995-1.00000; 3 combination zeros re-solved, winding 1; contig.py at T=1e5 with new seed 7 gives identical rank law and largest K passed = 32 (8.3e-6 at 64); zeta 2e-10, DH 0.81-1.24. Errors - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "The number of windows is not the controlling variable. Against translates only the relative spread of heights counts (L/T >= eta log(T/2pi)/pi), and adjacent windows cost about 0.36 real conditions each, not 30. STRATEGY 4.0 (b) should speak of conditions at heights whose ratios differ from 1 by more than eta log T/pi, not of sqrt(T)/log T windows.",
@@ -50,5 +50,11 @@
   "window-translate-control",
   "u5-growing-window-count"
  ],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-u5-window-count-threshold-translate-control.md"
+ }
 }

@@ -1,0 +1,83 @@
+{
+ "slug": "s2-alias-sieve-sign-image",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "alias-energy-in-sieve-algebra",
+  "alpha-kh-pcc-gating-rigid",
+  "ce17-carrier-contract-open-family",
+  "five-shell-p97-identity",
+  "inertia-pcc-q-measurement",
+  "localized-barrier-sum-akh",
+  "residue-averaged-sign-image",
+  "small-prime-weld-over-budget",
+  "vonmangoldt-weighted-sign-image",
+  "weld-commutator-alias-l2-collapse"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "vonmangoldt-weighted-sign-image",
+    "residue-averaged-sign-image"
+   ],
+   "obstruction": "separates positive coefficients plus pole from signed coefficients (convexity from Lambda>=0), not zeros: comparison L-functions fail, shifted product passes",
+   "controlsThatDefeat": [
+    "E_a = zeta(s+a)zeta(s-a) (passes)",
+    "Dirichlet L (fails, should pass)"
+   ]
+  },
+  {
+   "nodes": [
+    "inertia-pcc-q-measurement",
+    "alpha-kh-pcc-gating-rigid"
+   ],
+   "obstruction": "the statistic cannot exceed 1 for any object (projection bound); nothing can fail",
+   "controlsThatDefeat": [
+    "all controls (statistic bounded for every vector)"
+   ]
+  },
+  {
+   "nodes": [
+    "localized-barrier-sum-akh",
+    "small-prime-weld-over-budget",
+    "ce17-carrier-contract-open-family"
+   ],
+   "obstruction": "mean-value statement only (pair-correlation level ordered by conductor); E_a passes identically; fixed budget is violated by no control",
+   "controlsThatDefeat": [
+    "E_a",
+    "DH (fixed budget)",
+    "sign twist (fixed budget)",
+    "unimodular twist (fixed budget)"
+   ]
+  },
+  {
+   "nodes": [
+    "alias-energy-in-sieve-algebra",
+    "five-shell-p97-identity",
+    "weld-commutator-alias-l2-collapse"
+   ],
+   "obstruction": "detects the pole at s=1 and its sign; decay rate N^(2 Theta-2) is the low zeros of L(s, chi mod q) (verified height); comparison L-functions fail and E_a passes",
+   "controlsThatDefeat": [
+    "E_a (passes)",
+    "Liouville (passes)",
+    "Dirichlet L (fails, should pass)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) separates positive coefficients plus pole from signed coefficients (convexity from Lambda>=0), not zeros: comparison L-functions fail, shifted product passes | (2) the statistic cannot exceed 1 for any object (projection bound); nothing can fail | (3) mean-value statement only (pair-correlation level ordered by conductor); E_a passes identically; fixed budget is violated by no control | (4) detects the pole at s=1 and its sign; decay rate N^(2 Theta-2) is the low zeros of L(s, chi mod q) (verified height); comparison L-functions fail and E_a passes",
+ "controlsThatDefeat": [
+  "DH (fixed budget)",
+  "Dirichlet L (fails, should pass)",
+  "E_a",
+  "E_a (passes)",
+  "E_a = zeta(s+a)zeta(s-a) (passes)",
+  "Liouville (passes)",
+  "all controls (statistic bounded for every vector)",
+  "sign twist (fixed budget)",
+  "unimodular twist (fixed budget)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-alias-sieve-sign-image/RESULT.md"
+}

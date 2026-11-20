@@ -1,0 +1,4 @@
+planned: matrices up to 96 x 96 balls (about 0 MB each); moments memory-mapped; zero lists below 1 MB
+m 96 full-band completions done t=5s
+w 0 m 96 theta 0.75 done t=24s
+COMP DONE 1e6 [0]

@@ -1,0 +1,1381 @@
+{
+ "TM5_k3": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 813,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 4986,
+   "prec_128": 35685,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_512": 1301,
+   "prec_2048": 133,
+   "prec_256": 2316,
+   "prec_1024": 561,
+   "why_C": 14,
+   "onesigned": 14,
+   "loco_pos": 14,
+   "why_HEATcol": 35000,
+   "prec_4096": 4
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    813
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TM5_pol": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 911,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 40000,
+   "prec_128": 35623,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_256": 2952,
+   "prec_512": 1156,
+   "prec_1024": 259,
+   "prec_2048": 10
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    911
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TM6_k3": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 1087,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 4999,
+   "prec_128": 35268,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_256": 2496,
+   "prec_512": 1434,
+   "prec_1024": 643,
+   "prec_2048": 150,
+   "prec_4096": 9,
+   "why_C": 1,
+   "onesigned": 1,
+   "loco_pos": 1,
+   "why_HEATcol": 35000
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    1087
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TM6_pol": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 1118,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 40000,
+   "prec_128": 34456,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_256": 3807,
+   "prec_512": 1433,
+   "prec_1024": 294,
+   "prec_2048": 10
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    1118
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DM5_k3": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 902,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 5000,
+   "prec_128": 30337,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_1024": 1957,
+   "prec_2048": 1003,
+   "prec_512": 2928,
+   "prec_256": 3491,
+   "prec_4096": 265,
+   "prec_8192": 19,
+   "why_HEATcol": 35000
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    902
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DM5_pol": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 835,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 39999,
+   "prec_128": 35928,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_256": 2748,
+   "prec_512": 1087,
+   "prec_1024": 233,
+   "prec_2048": 4,
+   "why_C": 1,
+   "onesigned": 1
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    835
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DM6_k3": {
+  "planned": 40000,
+  "done": 40000,
+  "cut": false,
+  "sec": 1032,
+  "cnt": {
+   "n": 40000,
+   "s_excl": 40000,
+   "why_P": 5000,
+   "prec_128": 28988,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_1024": 2184,
+   "prec_512": 3309,
+   "prec_256": 4007,
+   "prec_2048": 1178,
+   "prec_4096": 321,
+   "prec_8192": 13,
+   "why_HEATcol": 35000
+  },
+  "pieces": [
+   [
+    0,
+    40000,
+    false,
+    1032
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 40000,
+  "excluded": 40000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DM6_pol": {
+  "planned": 40000,
+  "done": 38500,
+  "cut": true,
+  "sec": 1005,
+  "cnt": {
+   "n": 38500,
+   "s_excl": 38500,
+   "why_P": 38500,
+   "prec_1024": 240,
+   "loco_n": 5000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "prec_128": 33835,
+   "prec_256": 3209,
+   "prec_512": 1213,
+   "prec_2048": 3
+  },
+  "pieces": [
+   [
+    0,
+    38500,
+    true,
+    1005
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 38500,
+  "excluded": 38500,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TMt5_k3": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 1361,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_C": 237,
+   "prec_128": 9982,
+   "posfeas": 3013,
+   "loco_n": 1000,
+   "loco_pos": 285,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 50,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_P": 6987,
+   "why_None": 508,
+   "prec_256": 18,
+   "why_lazy:HT": 2146,
+   "lazy": 2268,
+   "why_lazy:H": 122
+  },
+  "pieces": [
+   [
+    0,
+    3000,
+    true,
+    731
+   ],
+   [
+    3000,
+    7000,
+    false,
+    630
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 508,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 21.0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TMt5_pol": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 1690,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_P": 6372,
+   "prec_128": 10000,
+   "loco_n": 1000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_C": 369,
+   "posfeas": 3628,
+   "loco_pos": 369,
+   "why_lazy:T": 3259,
+   "lazy": 3259
+  },
+  "pieces": [
+   [
+    0,
+    700,
+    true,
+    1142
+   ],
+   [
+    700,
+    9300,
+    false,
+    548
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TMt6_k3": {
+  "planned": 10000,
+  "done": 9900,
+  "cut": true,
+  "sec": 1597,
+  "cnt": {
+   "n": 9900,
+   "s_excl": 9900,
+   "why_P": 7431,
+   "prec_128": 9883,
+   "loco_n": 1000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 51,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_None": 580,
+   "prec_1024": 1,
+   "posfeas": 2469,
+   "loco_pos": 269,
+   "why_C": 223,
+   "why_lazy:HT": 1551,
+   "lazy": 1666,
+   "prec_256": 16,
+   "why_lazy:H": 115
+  },
+  "pieces": [
+   [
+    0,
+    1600,
+    true,
+    512
+   ],
+   [
+    1600,
+    8300,
+    true,
+    1085
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 9900,
+  "excluded": 9900,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 2,
+   "TH": 580,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 3,
+   "TH": 24.0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "TMt6_pol": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 1635,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_P": 7268,
+   "prec_128": 10000,
+   "loco_n": 1000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_C": 271,
+   "posfeas": 2732,
+   "loco_pos": 271,
+   "why_lazy:T": 2456,
+   "lazy": 2461,
+   "why_lazy:TE": 5
+  },
+  "pieces": [
+   [
+    0,
+    800,
+    true,
+    1132
+   ],
+   [
+    800,
+    9200,
+    false,
+    503
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DMt5_k3": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 372,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_C": 415,
+   "prec_128": 9814,
+   "posfeas": 4021,
+   "loco_n": 1000,
+   "loco_pos": 395,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_P": 5979,
+   "prec_256": 167,
+   "prec_512": 19,
+   "why_lazy:HT": 3599,
+   "lazy": 3605,
+   "why_lazy:H": 6,
+   "why_None": 1
+  },
+  "pieces": [
+   [
+    0,
+    10000,
+    false,
+    372
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 1,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 21.0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DMt5_pol": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 1915,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_P": 5810,
+   "prec_128": 10000,
+   "loco_n": 1000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_C": 432,
+   "posfeas": 4190,
+   "loco_pos": 432,
+   "why_lazy:T": 3758,
+   "lazy": 3758
+  },
+  "pieces": [
+   [
+    0,
+    500,
+    true,
+    1109
+   ],
+   [
+    500,
+    9500,
+    false,
+    807
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DMt6_k3": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 451,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_P": 7312,
+   "prec_128": 9753,
+   "loco_n": 1000,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_C": 283,
+   "posfeas": 2688,
+   "loco_pos": 274,
+   "prec_256": 225,
+   "prec_512": 22,
+   "why_lazy:HT": 2399,
+   "lazy": 2405,
+   "why_lazy:H": 6
+  },
+  "pieces": [
+   [
+    0,
+    10000,
+    false,
+    451
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "DMt6_pol": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 1472,
+  "cnt": {
+   "n": 10000,
+   "s_excl": 10000,
+   "why_C": 213,
+   "prec_128": 10000,
+   "posfeas": 2347,
+   "loco_n": 1000,
+   "loco_pos": 213,
+   "lt_full": 0,
+   "lh_full": 0,
+   "lt_TE": 0,
+   "lh_TE": 0,
+   "lt_TH": 0,
+   "lh_TH": 0,
+   "lt_EH": 0,
+   "lh_EH": 0,
+   "why_P": 7653,
+   "why_lazy:T": 2134,
+   "lazy": 2134
+  },
+  "pieces": [
+   [
+    0,
+    10000,
+    false,
+    1472
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 10000,
+  "excluded": 10000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "T3_k3": {
+  "planned": 100000,
+  "done": 35940,
+  "cut": true,
+  "sec": 1081,
+  "cnt": {
+   "n": 646920,
+   "posfeas": 329448,
+   "ball": 1636,
+   "b_excl": 1580,
+   "b_ttrain": 0,
+   "b_undecided": 56,
+   "ft_full": 0,
+   "fu_full": 1636,
+   "fh_full": 0,
+   "fhu_full": 28,
+   "bt_full": 0,
+   "bh_full": 0,
+   "bu_full": 56,
+   "ft_TE": 84014,
+   "fu_TE": 6721,
+   "fh_TE": 0,
+   "fhu_TE": 28,
+   "bt_TE": 0,
+   "bh_TE": 0,
+   "bu_TE": 28,
+   "ft_TH": 418,
+   "fu_TH": 20806,
+   "fh_TH": 0,
+   "fhu_TH": 56,
+   "bt_TH": 0,
+   "bh_TH": 0,
+   "bu_TH": 56,
+   "ft_EH": 0,
+   "fu_EH": 1636,
+   "fh_EH": 0,
+   "fhu_EH": 786,
+   "bt_EH": 0,
+   "bh_EH": 0,
+   "bu_EH": 28,
+   "prec_16384": 56,
+   "prec_128": 1580,
+   "b_lazy": 258
+  },
+  "pieces": [
+   [
+    0,
+    35940,
+    true,
+    1081
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 56,
+  "hold": 0,
+  "nodes": 646920,
+  "excluded": 646920,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "T3_pol": {
+  "planned": 10000,
+  "done": 10000,
+  "cut": false,
+  "sec": 284,
+  "cnt": {
+   "n": 180000,
+   "posfeas": 68407,
+   "ball": 0,
+   "b_excl": 0,
+   "b_ttrain": 0,
+   "b_undecided": 0,
+   "ft_full": 0,
+   "fu_full": 0,
+   "fh_full": 0,
+   "fhu_full": 0,
+   "bt_full": 0,
+   "bh_full": 0,
+   "bu_full": 0,
+   "ft_TE": 0,
+   "fu_TE": 0,
+   "fh_TE": 0,
+   "fhu_TE": 0,
+   "bt_TE": 0,
+   "bh_TE": 0,
+   "bu_TE": 0,
+   "ft_TH": 0,
+   "fu_TH": 0,
+   "fh_TH": 0,
+   "fhu_TH": 0,
+   "bt_TH": 0,
+   "bh_TH": 0,
+   "bu_TH": 0,
+   "ft_EH": 48,
+   "fu_EH": 283,
+   "fh_EH": 0,
+   "fhu_EH": 0,
+   "bt_EH": 0,
+   "bh_EH": 0,
+   "bu_EH": 0
+  },
+  "pieces": [
+   [
+    0,
+    10000,
+    false,
+    284
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 180000,
+  "excluded": 180000,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "T6_k3": {
+  "planned": 100000,
+  "done": 35720,
+  "cut": true,
+  "sec": 1501,
+  "cnt": {
+   "n": 642960,
+   "posfeas": 328950,
+   "ball": 1536,
+   "b_excl": 1496,
+   "b_ttrain": 0,
+   "b_undecided": 40,
+   "ft_full": 0,
+   "fu_full": 1536,
+   "fh_full": 0,
+   "fhu_full": 21,
+   "bt_full": 0,
+   "bh_full": 0,
+   "bu_full": 40,
+   "ft_TE": 98719,
+   "fu_TE": 7495,
+   "fh_TE": 0,
+   "fhu_TE": 21,
+   "bt_TE": 0,
+   "bh_TE": 0,
+   "bu_TE": 21,
+   "ft_TH": 565,
+   "fu_TH": 20004,
+   "fh_TH": 0,
+   "fhu_TH": 40,
+   "bt_TH": 0,
+   "bh_TH": 0,
+   "bu_TH": 40,
+   "ft_EH": 0,
+   "fu_EH": 1536,
+   "fh_EH": 0,
+   "fhu_EH": 752,
+   "bt_EH": 0,
+   "bh_EH": 0,
+   "bu_EH": 21,
+   "prec_128": 1496,
+   "prec_16384": 40,
+   "b_lazy": 227
+  },
+  "pieces": [
+   [
+    0,
+    35720,
+    true,
+    1501
+   ]
+  ],
+  "ttrain": 0,
+  "undecided": 0,
+  "undecided_in_search_runs": 40,
+  "hold": 0,
+  "nodes": 642960,
+  "excluded": 642960,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "best": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ },
+ "T6_pol": {
+  "planned": 10000,
+  "done": 5440,
+  "cut": true,
+  "sec": 3301,
+  "cnt": {
+   "n": 97920,
+   "posfeas": 41780,
+   "ball": 1570,
+   "b_excl": 512,
+   "b_ttrain": 1058,
+   "b_undecided": 0,
+   "ft_full": 398,
+   "fu_full": 1172,
+   "fh_full": 0,
+   "fhu_full": 0,
+   "bt_full": 1058,
+   "bh_full": 0,
+   "bu_full": 0,
+   "ft_TE": 1079,
+   "fu_TE": 512,
+   "fh_TE": 0,
+   "fhu_TE": 0,
+   "bt_TE": 1058,
+   "bh_TE": 0,
+   "bu_TE": 0,
+   "ft_TH": 398,
+   "fu_TH": 1382,
+   "fh_TH": 0,
+   "fhu_TH": 98,
+   "bt_TH": 1058,
+   "bh_TH": 0,
+   "bu_TH": 0,
+   "ft_EH": 543,
+   "fu_EH": 1708,
+   "fh_EH": 0,
+   "fhu_EH": 0,
+   "bt_EH": 1058,
+   "bh_EH": 0,
+   "bu_EH": 0,
+   "prec_128": 1570,
+   "b_lazy": 414
+  },
+  "pieces": [
+   [
+    0,
+    1140,
+    true,
+    1134
+   ],
+   [
+    1140,
+    1780,
+    true,
+    1082
+   ],
+   [
+    2920,
+    2520,
+    true,
+    1084
+   ]
+  ],
+  "ttrain": 1058,
+  "undecided": 0,
+  "undecided_in_search_runs": 0,
+  "hold": 0,
+  "nodes": 97920,
+  "excluded": 96862,
+  "hold_nodes": [],
+  "und_nodes": [],
+  "loco_hold": {
+   "full": 0,
+   "TE": 0,
+   "TH": 0,
+   "EH": 0
+  },
+  "loco_ttrain_rec": {
+   "full": 1058,
+   "TE": 1058,
+   "TH": 1058,
+   "EH": 1058
+  },
+  "best": {
+   "full": 15.0,
+   "TE": 15.0,
+   "TH": 17,
+   "EH": 15.0
+  },
+  "tau_star": [],
+  "in_heat_window": 0
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "slug": "c16-amplifier-below-truncation-eisw-compute",
+ "round": 16,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "compute",
+  "family-31",
+  "eisenstein-edge",
+  "hecke-amplifier",
+  "maass-selberg",
+  "eis-w",
+  "prereg"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. PROVED: on the truncated Eisenstein series, T_m Lambda^T f = lambda(m) f minus pseudo-Eisenstein series cut at heights Td/a; coset c enters the pairing of cuts h_i, h_j iff c^2 h_i h_j < 1; closed Gram formula (G) for all T >= 1, N, sigma != 1 (agrees with quadrature to 7e-14 and satisfies the Hecke relations to 1e-82); R2 = 1 for T >= N; R2 <= M/L (a validity statement, not a structural limit). MEASURED (arb balls): G_opt < N^delta at on-line zeros in every computed row with T <= 4, N <= 128, gamma <= 541, and in 463 formal rows with delta >= 0.01 at t <= 56.5; crossing factor within [0.987, 1.0094]. MEASURED (float64): sup R2 between 1.04 and 1.46 for T < N, N <= 8, also at EIS-w points. OPEN: G_opt <= N^delta for all N with T < N; the large-height small-delta regime; boundedness of M/L. Family 31 item \"T < N\": no gain beyond N^delta found in the stated range; a measured obstruction on that range, not a proved closure. The registered stage-A clause fired and its disposition needs a decision outside the lane.",
+ "obstruction": "Family 31 item 'T < N': measured obstruction on the stated range, not a proved closure. PROVED: T_m Lambda^T f = lambda(m) f minus pseudo-Eisenstein series cut at heights Td/a; coset c enters the pairing of cuts h_i, h_j iff c^2 h_i h_j < 1; closed Gram formula (G) for all T >= 1, N; R2 = 1 for T >= N; R2 <= M/L. MEASURED (arb balls): G_opt < N^delta at on-line zeros for T <= 4, N <= 128, gamma <= 541 and in 463 formal rows; crossing factor within [0.987, 1.0094]. Registered prediction R2 <= 1 FAILED for T < N (sup 1.04 to 1.46, float64), also at EIS-w points, so no structural separation. OPEN: G_opt <= N^delta for all N with T < N; large-height small-delta regime; boundedness of M/L. The registered stage-A clause fired literally and was set aside by the lane; disposition is a planner decision.",
+ "obstructionKind": "identity up to a bounded constant: amplified norm exact; gain bounded by N^delta at zeros; lower-side improvement capped by M/L",
+ "controlsThatDefeat": [
+  "EIS-w (exceeds N^delta in 394 of 528 rows; shows the same R2 excess; obeys the same comparator)",
+  "not run: BLS, T-NR, DH on the T < N amplified norm"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step fails. Lemma U (a)-(d), formula (U2)/(G), Proposition T, Proposition CAP and the T >= N comparator were re-derived by hand and confirmed. Referee numerics (local, memcap 8 GB): (i) new test: formula (G) satisfies the Hecke relations P[m,n] = sum_{d|(m,n)} P[mn/d^2,1] to 1.5e-82 at 4 points x T in {1, 3/2, 2, 7/3}, N = 24; (ii) (U2) against the defining (x,y) double integral in 32 new cases, 2.1e-14; (iii) new cells (3,12), (3/2,9), (1,16), (1,64): G_opt/N^delta between 0.923 and 0 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Below the truncation height Hecke operators stop acting by dilation and coset terms cross the truncation line, but the effect is a bounded constant: under 1 per cent on the gain, and on the lower side at most the mass fraction the unamplified inequality drops below y = 1. EIS-w shares both. A pre-registered decision clause needs the control comparison written into it.",
+ "followUp": "Independent referee for Lemma U, Proposition CAP and the decision to set aside the registered S2 clause (REFEREE.md is a same-agent second pass); lane line is in lane_line.json in the slug directory, not appended to campaign/lanes.jsonl. Optional: prove or refute G_opt <= N^delta for T < N (margin at zero 1 shrinks with N).",
+ "resultFile": "tmp/research-2026-11-16/push/c16-amplifier-below-truncation-eisw-compute/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-amplifier-below-truncation-eisw-compute/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c17-referee-r16-lemma-h-sources",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; nine sentence corrections listed in push/c17-referee-r16-lemma-h-sources/RESULT.md section 2.3 (not applied in lane files)",
+  "report": "tmp/research-2026-11-16/push/c16-amplifier-below-truncation-eisw-compute/REFEREE2.md"
+ }
+}

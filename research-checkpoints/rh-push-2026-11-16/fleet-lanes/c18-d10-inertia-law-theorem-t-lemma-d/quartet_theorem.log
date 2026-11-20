@@ -1,0 +1,11 @@
+grid 43 x 85 rank histogram {0: 1, 6: 3604, 2: 2, 3: 45, 5: 3} time 17
+e6: degree in E 22 degree in c 28 terms 381
+interpolant against the remaining grid values: mismatches 0
+constant 8388608/4782969
+factor^1: 64*E^2 - 144*E*c - 9*E + 81*c^2
+factor^1: 64*E^2 + 16*E*c - 49*E + c^2 + 4*c + 4
+factor^1: 10783*E^2 + 5154*E*c^2 - 13360*E*c + 187*E + 1831*c^4 - 4408*c^3 + 4459*c^2 - 102*c + 51
+factor^1: 133714*E^4 - 37020*E^3*c^2 - 248918*E^3*c - 7198*E^3 + 1421140*E^2*c^4 - 1365610*E^2*c^3 + 749137*E^2*c^2 - 99726*E^2*c + 62008*E^2 - 599100*E*c^6 - 522490*E*c^5 + 1168208*E*c^4 - 778576*E*c^3 + 226276*E*c^2 - 94564*E*c - 8874*E + 69874*c^8 + 159802*c^7 - 62947*c^6 - 162434*c^5 + 225264*c^4 - 129516*c^3 + 41406*c^2 + 6052*c + 1037
+factor^4: E - c
+factor^4: E - c^2
+factor^4: 4*E - 1

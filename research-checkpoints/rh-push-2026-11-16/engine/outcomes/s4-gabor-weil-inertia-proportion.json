@@ -1,0 +1,92 @@
+{
+ "slug": "s4-gabor-weil-inertia-proportion",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "af-closed-form-constants",
+  "af-inertia-lossless-lemma",
+  "alpoge-furman-inertia-mechanism",
+  "gue-two-interval-rigidity-drift",
+  "m23-cgdl-class-optimum",
+  "m23-conjugation-closed-ordinates",
+  "m23-dimension-cap",
+  "m23-edge-lemma",
+  "m23-gue-moment-match",
+  "m23-proportion-6725",
+  "number-variance-max-anchor-sample",
+  "pointwise-number-variance-suppression",
+  "sine-kernel-vif-bound"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "af-inertia-lossless-lemma",
+    "alpoge-furman-inertia-mechanism",
+    "m23-dimension-cap"
+   ],
+   "obstruction": "inertia = count of resolved off-line pairs in the window; twists fail by a reflection of zeta's spectrum (functional equation); shallow pairs invisible",
+   "controlsThatDefeat": [
+    "E_a(0.02)",
+    "DH away from its zeros",
+    "twists at bandwidth 0.5",
+    "heat (no prime side)"
+   ]
+  },
+  {
+   "nodes": [
+    "m23-proportion-6725",
+    "m23-cgdl-class-optimum",
+    "af-closed-form-constants"
+   ],
+   "obstruction": "depends on abs(c(n))^2 only: twists not separated; excess is a mean, not a pair count",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "translate"
+   ]
+  },
+  {
+   "nodes": [
+    "m23-gue-moment-match",
+    "m23-edge-lemma",
+    "m23-conjugation-closed-ordinates"
+   ],
+   "obstruction": "moments m2..m4 invariant under the sign-twist reflection; DH/E_a/T-NR depart only through missing or deep zeros",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR",
+    "heat (continuous in tau)"
+   ]
+  },
+  {
+   "nodes": [
+    "pointwise-number-variance-suppression",
+    "number-variance-max-anchor-sample",
+    "gue-two-interval-rigidity-drift",
+    "sine-kernel-vif-bound"
+   ],
+   "obstruction": "round-3 pattern 18 (primes enter through abs(c(p))^2): counting statistic of the on-line list",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "T-NR"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) inertia = count of resolved off-line pairs in the window; twists fail by a reflection of zeta's spectrum (functional equation); shallow pairs invisible | (2) depends on abs(c(n))^2 only: twists not separated; excess is a mean, not a pair count | (3) moments m2..m4 invariant under the sign-twist reflection; DH/E_a/T-NR depart only through missing or deep zeros | (4) round-3 pattern 18 (primes enter through abs(c(p))^2): counting statistic of the on-line list",
+ "controlsThatDefeat": [
+  "DH away from its zeros",
+  "E_a(0.02)",
+  "T-NR",
+  "heat (continuous in tau)",
+  "heat (no prime side)",
+  "sign twist",
+  "translate",
+  "twists at bandwidth 0.5",
+  "unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-gabor-weil-inertia-proportion/RESULT.md"
+}

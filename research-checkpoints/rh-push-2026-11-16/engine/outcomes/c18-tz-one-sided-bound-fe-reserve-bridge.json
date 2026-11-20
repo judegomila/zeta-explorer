@@ -1,0 +1,44 @@
+{
+ "slug": "c18-tz-one-sided-bound-fe-reserve-bridge",
+ "round": 18,
+ "kind": "combine",
+ "nodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Exact identity (PROVED; classical in content; float64 checks at P = 3 to 8 with argument-principle-complete zero lists, plus four general-coefficient series including non-multiplicative ones): for a_1 = 1, a_P != 0, u = log P, h in H^1_0[0,u]: -2 Re<h, A_P h> = -u ||h||^2 + sum over zeros beta of D_P of the convolution forms e^((beta-1/2)|xi|), with no log|a_P| term and truncation tail (u - 2 log|a_P|)/(pi T); left zeros give positive forms, right zeros indefinite; no multiplicativity and no approximate-functional-equation error; pole term at most 2uP^(1/2)|1/2+it|^(-2k)||h_0^(k)||^2. In the lattice model only: ZQ passes the band-u device for theta' < 1 at M = 0 whenever u(sinh(u eta)/(u eta) - 1) <= Lg(1 - theta' - sin(pi theta')/pi) (sufficient bound, not the threshold), with no margin at theta' = 1. Verdict precise-obstruction stands; other control rows remain ARGUED and not run.",
+ "obstruction": "Stops at the first lemma. Exact identity (PROVED, classical in content; referee removed a spurious log|a_P| term): for a_1 = 1, a_P != 0, u = log P, h in H^1_0[0,u]: -2 Re<h, A_P h> = -u||h||^2 + sum over zeros beta of the partial sum D_P of the convolution forms e^((beta-1/2)|xi|). N(theta) is therefore a statement about zeros of D_P; it uses neither multiplicativity nor the reflected half, whose frequencies are >= u and lie outside the band. Explicit completions are the zero measure (assumes real zeros in the window) or Hermite-Biehler phase symbols (false for D_P). In the lattice model ZQ passes for theta' < 1 at M = 0 with margin Lg(1 - theta' - sin(pi theta')/pi), zero at theta' = 1: below the Nyquist band the conclusion holds for ZQ (no R3), at theta' = 1 it is the target. Other control rows ARGUED, not run; FOR_NUMERICS_LANE.md runs not done.",
+ "obstructionKind": "control-passes: ZQ passes N(theta) for theta' < 1 (lattice model, proved); the identity holds for every Dirichlet series with a_1 = 1, so no step reads multiplicativity; target-level at theta' = 1",
+ "controlsThatDefeat": [
+  "ZQ (passes for theta' < 1 at M = 0 in the lattice model; proved)",
+  "every Dirichlet series with a_1 = 1, including non-multiplicative ones (same exact identity)",
+  "not run: DH, E_a, T-NR, sign chains on paper are ARGUED only (see the server lane for measured rows)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "E1 (real error, body only): display (A) and proof step (b) carry a spurious term log|a_P|. Correct constant is -u for every a_P != 0 (D_P'/D_P = -u/2 + lim sum 1/(s-beta), no c_0). Hand check on 1 + a 2^(-s) and numerics on four series with a_P != 1 show the printed formula is off by exactly log|a_P| (1.0986, 1.3863, 0.6931, 0.6931) while the -u form holds to the truncation tail. Zeta (a_P = 1), the verdict wording, the claim and the proposed map row are unaffected. \"Holds verbatim for DH\" needs - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Truncation of the prime data is exact at the level of logarithmic coefficients for any series with a_1 = 1, so N(theta) is a statement about the zeros of the partial sum D_P and uses neither multiplicativity nor the reflected half, which lies entirely outside the band. For theta' < 1 the conclusion holds for ZQ, so no argument for it can meet R3. The passage to target level happens exactly at theta' = 1, where the reflected half is exhausted.",
+ "followUp": "The numerics lane directory did not exist, so none of the five runs in tmp/research-2026-11-16/push/c18-tz-one-sided-bound-fe-reserve-bridge/FOR_NUMERICS_LANE.md was done. Most valuable first: ZQ exchange form on zeta's ordinates at theta' = 0.6, 0.8, 0.95 (decides Proposition Z outside the lattice model), then Theorem A in ball arithmetic with complete zero lists at P = 12 to 30 (the local check failed to find all zeros there). Enter the proposed map row from RESULT.md section 9.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-tz-one-sided-bound-fe-reserve-bridge/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-tz-one-sided-bound-fe-reserve-bridge/REFEREE.md",
+ "launchedNodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c19-referee-r18-independent-sources",
+  "outcome": "holds with corrections",
+  "note": "Holds with corrections. Truncation identity holds with constant -u and no log|a_P| term: ball arithmetic at P = 12, 20, five series, certified complete zero lists; residual equals (u - 2 log|a_P|)/(pi T) to 1e-7..1e-6 at T = 2400. Right-zero share 31-33% (P = 12), 37-41% (P = 20).",
+  "report": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE2-c18-tz-one-sided-bound-fe-reserve-bridge.md"
+ },
+ "brokenProved": 1
+}

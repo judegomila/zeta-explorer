@@ -1,0 +1,82 @@
+{
+ "lemmaT_max_ratio_absH0_over_M": 0.660521061801773,
+ "P2_max_ratio": 1.0,
+ "M_decreasing_from_7": true,
+ "trapezoid_step_halving_rel_diff_line_y0_-1.3": 3.71330041362909e-19,
+ "BC": [
+  {
+   "control": "SG",
+   "b": "0.3",
+   "abs_at_zero": 5.472959722743818e-34,
+   "winding": 1.0,
+   "zeta_winding": -3.7272986516868004e-32
+  },
+  {
+   "control": "SG",
+   "b": "0.4",
+   "abs_at_zero": 0.0,
+   "winding": 1.0,
+   "zeta_winding": -2.869039093732603e-32
+  },
+  {
+   "control": "NR-q",
+   "c": "2.1",
+   "zero": [
+    "0.857311316383780999",
+    "3.56442795638273822"
+   ],
+   "abs_at_zero": 3.7848834909206057e-32,
+   "winding": 1.0,
+   "zeta_winding": -6.207055731633035e-34
+  },
+  {
+   "control": "NR-q",
+   "c": "2.05",
+   "zero": [
+    "0.753177034801772328",
+    "3.56442795638273822"
+   ],
+   "abs_at_zero": 6.596054542491298e-32,
+   "winding": 1.0,
+   "zeta_winding": -1.8621167194899106e-33
+  }
+ ],
+ "D": [
+  {
+   "kind": "zeta",
+   "P": 13,
+   "float_winding": 32.00000000000001,
+   "max_phase_step": 0.010386077016895154
+  },
+  {
+   "kind": "zeta",
+   "P": 19,
+   "float_winding": 51.0,
+   "max_phase_step": 0.013398547867982053
+  },
+  {
+   "kind": "zeta",
+   "P": 29,
+   "float_winding": 71.0,
+   "max_phase_step": 0.019023500819962864
+  },
+  {
+   "kind": "U_s0",
+   "P": 13,
+   "float_winding": 34.0,
+   "max_phase_step": 0.009520391129042039
+  },
+  {
+   "kind": "U_s0",
+   "P": 19,
+   "float_winding": 51.99999999999999,
+   "max_phase_step": 0.012724406247217778
+  },
+  {
+   "kind": "U_s0",
+   "P": 29,
+   "float_winding": 73.0,
+   "max_phase_step": 0.03605852108363952
+  }
+ ]
+}

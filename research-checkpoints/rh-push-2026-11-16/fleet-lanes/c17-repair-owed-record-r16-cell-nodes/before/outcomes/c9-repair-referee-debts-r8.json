@@ -1,0 +1,39 @@
+{
+ "slug": "c9-repair-referee-debts-r8",
+ "round": 9,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "control",
+  "filter",
+  "referee",
+  "hilbert-schmidt",
+  "manuscript-check",
+  "eis-w",
+  "signature"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Repair lane; no attack and no statement about zeros. The (E-K) sixth-power class kernel (reciprocity factor times unit sum) is exactly 6 times a sum of six rank-one squares on the 108 classes mod 36, so the sixth-power term is non-negative at leading order only, and the lane's \"signature (2,2)\" line is wrong (that is the signature of R alone). Lemma 1 holds (re-derived in full by this referee). Theorem 2 is a conditional outline under family GRH. Liouville Theorem A: Step 5 holds with the exact inner product; the twist insertion rests on one reading of arXiv:1112.1650v1, journal text unopened. Hecke lane: the weight-0 object is zero for odd characters (DH not run), Lemma 3 with the pair count is false high in the cusp (ratio linear in height), Lemma 5 has factor e^(-(2 sigma - 1) s); control EIS-w passes the device. Proposition B and B' hold; B'' holds only under lower flatness of A. Monomial Lemma 2 holds for Cesaro means; the Abel error is O(delta^(-3/4)), with an extra logarithm if Titchmarsh 4.13 is the source. Non-monomial Lemma 2, the THIN primary source and outline debts 10, 2, 4 remain open. Engine counts as stated (1,623 nodes; 12,165 scored; top 60: 33 open, 27 floored, 0 closed); the Hecke outcome record is still unreconciled with the closed device.",
+ "obstruction": "Repair lane, no attack. Decided: the (E-K) sixth-power class kernel is 6 times a sum of six rank-one squares (positive semidefinite, rank 6); 'signature (2,2)' was wrong. Hecke lane Lemma 3 with the pair count is false high in the cusp; device closed on the corrected statement with control EIS-w. Still open: non-monomial Lemma 2 (sub-step S1), THIN primary source (Coleman 1990, not openable), journal text of Blomer-Goldmakher-Louvel, outline debts 10, 2, 4.",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed re-derivation. Two text errors and three narrowings (full list in tmp/research-2026-11-16/push/c9-repair-referee-debts-r8/REFEREE.md). E1: RESULT section 4 and the monomial REFEREE2 state differences \"0.0005 to 0.0027 at all three cut-offs\"; ref3_monomial.log shows 0.0063 (q=2/3, T=1000) and 0.0032 (T=2000); the correct range is 0.0005 to 0.0063, still within the stated error size. E2: the remainder O(t^(-1/4)) is attributed t [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A referee's requested correction can be load-bearing: Lemma 3 with the lane's multiplicity is false, not just loosely worded, and the signature claim came from dropping one character factor and the unit sum. Summing a dual frequency over its unit orbit first shows the sign structure exactly. Closed-access sources (BGL journal version, Coleman 1990) cannot be discharged by a lane; record them as relative.",
+ "followUp": "Learn step: reconcile outcomes/c8-hecke-entropy-resonance-rigidity.json with the second referee (device is closed on the corrected statement, record still says refereeHolds false) and correct the \"indefinite (2,2)\" wording in the (E-K) lane line and device evidence. Then write sub-step (S1) of non-monomial Lemma 2 line by line.",
+ "resultFile": "tmp/research-2026-11-16/push/c9-repair-referee-debts-r8/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c9-repair-referee-debts-r8/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

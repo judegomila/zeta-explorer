@@ -1,0 +1,53 @@
+{
+ "slug": "c13-lrs-twist-amplification-zero-representation",
+ "round": 13,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "luo-rudnick-sarnak",
+  "rankin-selberg",
+  "eisenstein-at-zero",
+  "conductor-aspect-twists",
+  "rs-1",
+  "rs-2",
+  "stage-a",
+  "control-EIS-w",
+  "control-E_a"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Stage A only; nothing about zeros of zeta. For E*(z, rho/2) on PSL_2(Z) the completed Rankin-Selberg function is G(w) = xi(w+beta-1) xi(w+1-beta) xi(w+i gamma) xi(w-i gamma); at xi(rho) = 0 it has exactly one simple pole pair, at w = 2-beta and beta-1 (the other six residues carry xi(rho)). The gamma pole of the even twists is at 1-beta, where the twisted product vanishes because L(0, chi) = 0 for even chi, for every parameter, zero or not. The LRS-type inequality (exponent count ARGUED, reconstructed, not checked against the paper) reduces to beta <= 7/4, which is vacuous. The Eisenstein series at a generic parameter passes every step with the same output (confirmed by me at beta = 0.7 and 0.15). For Borel Eisenstein data of any rank at regular parameters, and for any Hecke eigen-object with the same Satake parameters, pole position minus gamma-pole position equals 1. Device closed as a precise obstruction; DH and T-NR not formulated.",
+ "obstruction": "Stage A. At xi(rho) = 0 the completed Rankin-Selberg function has one simple pole pair, but at P = 2 - beta; the gamma pole read by the mechanism is at 1 - beta, so pole minus parameter is 1 for every beta. The vanishing forced there is the trivial zero L(0,chi) = 0 of even chi, an identity for every parameter. The inequality reduces to beta <= 7/4 (vacuous; exponent count reconstructed, paper not opened). Same for Borel Eisenstein data of any rank at regular parameters. Open cell without a candidate: non-Borel Hecke eigen-object with parameter rho, entire twists and pole strictly left of 2 - beta.",
+ "obstructionKind": "pole position tied to parameter (no square-integrability); forced vanishing is a trivial zero; generic-parameter Eisenstein passes",
+ "controlsThatDefeat": [
+  "Eisenstein series at a generic parameter (E_a, EIS-w): passes every step with the same output",
+  "window translate: passes",
+  "not run: T-NR and DH (no Hecke eigen-object; not formulable)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "No error that changes the verdict. All PROVED steps (Lemmas 0-4, the algebra of (3.1), the reduction to beta <= 7/4, the principal-character constant) were re-derived by hand and confirmed. Numerics were rerun with my own code at cases the lane did not use (zeros 3 and 5; generic beta = 0.7 and 0.15; even characters mod 13 and mod 8, odd mod 7; primes 11, 13, 1009; principal sum at zero 2), all consistent. Five wording defects: (1) section 8 item 2 and MAP_ROW.md say \"every Eisenstein object in  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Cuspidality enters LRS three times: entire twists, a single Rankin-Selberg pole, and that pole's position P=1 (square-integrability). A zero supplies the single pole but not its position: for Eisenstein data the pole sits at 1 plus the parameter in every rank, and the forced vanishing at the gamma pole is a trivial zero.",
+ "followUp": "Independent referee owed (REFEREE.md is a second pass by the same agent; lanes.jsonl line has refereeHolds null). Add the row in MAP_ROW.md to the map and register the device as closed. Open cell: a Hecke eigen-object with parameter rho, entire twists and Rankin-Selberg pole strictly left of 2-beta (non-Borel data); none on file.",
+ "resultFile": "tmp/research-2026-11-16/push/c13-lrs-twist-amplification-zero-representation/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c13-lrs-twist-amplification-zero-representation/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c14-referee-r13-independent",
+  "outcome": "holds; the inequality sentence in a narrower form",
+  "narrowerForm": "'The device yields 1 - beta <= w*(2 - beta)' is relative to the lane's reconstruction (3.1) of the Luo-Rudnick-Sarnak exponent count (paper not opened). The algebra (equivalence with beta <= 7/4) and the independent route (L(0, chi) = 0 for even chi, so the twisted values vanish at w = 1 - beta for every parameter) are proved. Numerically a zero is available only at beta = 1/2; the beta-dependence of the pole is tested on the generic-parameter control.",
+  "downgrades": [
+   "opening summary 'the one displayed inequality the device yields': add 'relative to (3.1)'"
+  ],
+  "upgrades": [],
+  "report": "tmp/research-2026-11-16/push/c14-referee-r13-independent/REFEREE_c13-lrs-twist-amplification-zero-representation.md"
+ }
+}

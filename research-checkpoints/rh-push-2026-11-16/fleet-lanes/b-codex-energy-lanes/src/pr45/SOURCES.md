@@ -24,17 +24,17 @@
 
 ## Prior project checkpoints
 
-- [PR #43](https://github.com/judegomila/mathexplorer/pull/43), commit
+- [PR #43](https://github.com/[user]/mathexplorer/pull/43), commit
   `69d4049f289217812051188378a0a9f3f061a169`: actual theta convolution,
   cutoff energy, two-point positivity, weighted criterion, and geometric
   scope. The exact cut-and-glue geometry did not remove the analytic
   boundary terms.
-- [PR #44](https://github.com/judegomila/mathexplorer/pull/44), commit
+- [PR #44](https://github.com/[user]/mathexplorer/pull/44), commit
   `a89222f2d069f24690b2f62904d5049e9ff676ed`:
-  [research index](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/README.md),
-  [analytic localization](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md),
-  [actual pulse and Hardy defect](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md), and
-  [theta envelope](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_separated_tail.md).
+  [research index](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/README.md),
+  [analytic localization](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_flux_analytic_localization_20261108.md),
+  [actual pulse and Hardy defect](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md), and
+  [theta envelope](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_separated_tail.md).
   These establish the feature-span continuation, the prior weighted
   criterion, and full-theta bounds used or reproved in this checkpoint.
 

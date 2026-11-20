@@ -1,0 +1,114 @@
+{
+ "J1' non-vanishing: min Phi on [-2.6,2.6] (attained at abs u = 2.6; positive)": "1.1269e-241",
+ "J1' non-vanishing: min abs K_chi, min abs K_chi^2 on [-2.6,2.6] relative to max": [
+  "3.5669e-34",
+  "3.046e-35"
+ ],
+ "J1' non-vanishing on [-1,1]: min abs K_chi / max, min abs K_chi^2 / max": [
+  "0.25217",
+  "0.10666"
+ ],
+ "J1' HEAT member = pointwise Gaussian multiplier: function-side operator series vs transform of g*Phi (tau=-0.3, z=3.7)": [
+  "0.18024967963657680911",
+  "0.18024967963657680911",
+  "1.59e-41"
+ ],
+ "J1' max relative change, HEAT pair vs positive pair (60 draws)": {
+  "quot": 1.1805922596518567e-30,
+  "cross": 1.476651127318561e-30,
+  "triple": 1.196833905836403e-30,
+  "two-point quotient (non-instance)": 0.22942463012881242,
+  "log of one member (non-instance)": 0.26529763824020647,
+  "unequal tau quotient (non-instance)": 0.14184893239888366
+ },
+ "U8 four-case rule on Phi, 4000 random monomials, tau in {-0.02..-40}": {
+  "upper bound, lam*S>=0: violations": 0,
+  "upper bound, lam*S<0: violated for some tau": 1573,
+  "upper lam*S<0 total": 1830,
+  "upper lam*S>=0 total": 1852,
+  "lower bound, lam*S<=0: violations": 0,
+  "lower bound, lam*S>0: violated for some tau": 1562,
+  "lower lam*S>0 total": 1827,
+  "lower lam*S<=0 total": 1870
+ },
+ "U8 Turan ratio at u=0.3,h=0.4: zeta, HEAT tau=-0.5 (factor exp(tau h^2/2))": [
+  "0.0143884210044",
+  "0.0138242429471",
+  "0.0138242429471"
+ ],
+ "U8 threshold: reverse Turan bound 1/T <= lam, lam = (1+m)/T0 rejects HEAT(tau) iff abs(tau) h^2/2 > log(1+m); tau=-0.02,h=0.4 needs m <": 0.0016012806829398209,
+ "lane1 Prop A (claims: 2.7098 at N=8, 5.4586 at N=32 for delta=0.5; 1.10846 vs 1.10957 is zero 5)": {
+  "delta=0.5 N=8": {
+   "max gain (two index conventions)": [
+    2.709830842809175,
+    2.709830842809175
+   ],
+   "N^delta": 2.8284271247461903,
+   "min eig K": 0.06558169099315335,
+   "hermitian defect": 2.5849394142282115e-26
+  },
+  "delta=0.5 N=32": {
+   "max gain (two index conventions)": [
+    5.458595844034413,
+    5.458595844034413
+   ],
+   "N^delta": 5.656854249492381,
+   "min eig K": 0.009810121207861768,
+   "hermitian defect": 3.877409121342317e-26
+  },
+  "delta=0.03 N=32": {
+   "max gain (two index conventions)": [
+    1.1071551985454162,
+    1.1071551985454162
+   ],
+   "N^delta": 1.109569472067845,
+   "min eig K": 0.0005909683258016098,
+   "hermitian defect": 6.462348535570529e-26
+  }
+ },
+ "lane1 Lemma 1 at zero 1: M (claim 1.77754), n=1 term of L (claim 1.20858), M - term > 0": [
+  "1.7775417",
+  "1.2085751"
+ ],
+ "lane3 K_tr largest span (claims 3 / 38 / 533 / 30; formula)": {
+  "T=1e+06 eta=1e-06": [
+   3,
+   3.812599153448009
+  ],
+  "T=1e+06 eta=1e-05": [
+   38,
+   38.125991534480086
+  ],
+  "T=1e+08 eta=1e-06": [
+   527,
+   527.8470351206864
+  ],
+  "T=100000 eta=0.0001": [
+   30,
+   30.79663554568581
+  ]
+ },
+ "lane3 combination (zeta(s)-zeta(s+i alpha))/2 zero near 0.8947+10084.778i: root, abs F, abs zeta(s) there (non-vanishing of the parts)": [
+  "(0.894706598618937 + 10084.7783526514j)",
+  "1.31e-28",
+  "0.45593474"
+ ],
+ "lane3 translate identity defect at t=10050": "2.33e-28",
+ "lane4 Re L_F on [2000,2100], P=t^1=2000: zeta min, frac<0; Liouville min, frac<0; zeta at P=44.7 min": [
+  0.1531506665595595,
+  0.0,
+  -1.1790449635043738,
+  0.0182,
+  0.7920784262356161
+ ],
+ "lane4 Lemma 2: min Re K_u(w) on a grid of Re w >= 0": 5.738839793683889e-14,
+ "lane6 E1' (iv): sup abs R_a on Re w > 0, a=1/4: companion present (Schur predicted) / companion moved to 0.10 (not Schur)": [
+  0.9999903863714937,
+  38.91371307697309
+ ],
+ "lane6 W1 delta(T) at 3e12, 1e30 (claims 0.4499, 0.4109)": [
+  0.4498896857586727,
+  0.410909508736326
+ ],
+ "lane6 T-NR b for q=2, c=2.0506 (claim 0.3238)": 0.3238458809063313
+}

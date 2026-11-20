@@ -1,0 +1,43 @@
+PASS sources quoted verbatim: sources: 65 entries, 15 files, 0 failed
+PASS map rebuild from before/ is byte-identical to the live map
+PASS map line diff: lines 622 -> 638; inserted 6, replaced 10, deleted 0
+PASS replaced map lines: old sentences not kept verbatim: 7: ['Sentence E1 of that lane (verdict item 5 and section 2.2 row Q-B (a): "for a < 1/2 an off-line zero is a pole of the bri', "The sweep of 443 geometric-program nodes (about 133 predicted PASS, 71 silent, 239 not formulable) is one reader's typin", 'Not covered: functionals not homogeneous in each kernel and triples with the group law (lane `c15-nonhomogeneous-pair-tr', 'Rigidity needs a window count of Riemann-Siegel size, about sqrt(T)/log T.', 'Row count (2026-11-19, `c15-repair-record-strategy-v4-report`): P 55, G 40, Q 29, S 12, Z 39, F 8, T 3, L 6, D 9, O 1 = ', 'Correct statement: the cancellation-aware condition of graph nodes 386 and 358.', 'Open until lane `c15-klein-transport-lemma-w-stage-a-and-e1` reports the repair (section 2 note Lemma F) |']
+PASS map row labels: 205 rows, {'P': 55, 'G': 41, 'Q': 30, 'S': 13, 'Z': 39, 'F': 8, 'T': 3, 'L': 6, 'D': 9, 'O': 1}
+PASS row S12b has 6 cells
+PASS row Q30 has 6 cells
+PASS row G41 has 6 cells
+PASS row ZQ has 5 cells
+PASS row SG has 5 cells
+PASS row NR-q has 5 cells
+PASS row S12b: cited lanes exist: cited 1; absent directories (running round-16 lanes): []
+PASS row Q30: cited lanes exist: cited 2; absent directories (running round-16 lanes): []
+PASS row G41: cited lanes exist: cited 4; absent directories (running round-16 lanes): []
+PASS row G37: cited lanes exist: cited 3; absent directories (running round-16 lanes): []
+PASS row G38: cited lanes exist: cited 3; absent directories (running round-16 lanes): []
+PASS row G39: cited lanes exist: cited 2; absent directories (running round-16 lanes): []
+PASS row G40: cited lanes exist: cited 2; absent directories (running round-16 lanes): []
+PASS 30 label restrictions present in the map: missing: []
+PASS key phrase of each restriction present at its place: missing: []
+PASS canonical tier marked not closed in row G41
+PASS pole clause: three marked places and one note in c15 lane 2 RESULT
+PASS c15 lane 2 RESULT minus the marked insertions equals the filed text
+PASS c14 pre-filter RESULT: insertions only (dated note): 15 lines added, 0 removed
+PASS report: E1, E2 (two places), E3 corrected and listed
+PASS STRATEGY: version unchanged; E3, E4 present; line diff: 4 lines removed, 6 added
+PASS ROUND_LOG: two lines extended, none shortened (first 1083 lines): lines [971, 980]; file now 1083 lines (before 1083)
+PASS one line per screening lane, referees 0, not counted as refereed: 10 lines; s1-allocator (no lane) excluded; without RESULT.md: ['s1-klein-annulus-energy']
+PASS first 130 lines of lanes.jsonl unchanged
+PASS outcomes/, outcomes.json, closed_families.json byte-identical: 142 hashes
+PASS engine/build_graph.py unchanged
+PASS devices 53 closed / 1 floored / 11 open; pending 7
+PASS each open device type stands on one graph node of type open-direction
+PASS control nodes ctl-ZQ, ctl-SG, ctl-NR-q and rows S12b, Q30, G41 in the graph
+PASS no obstructs / control-defeats edge touches a silent-cell node: 0
+PASS stage 1 (rows, controls, closed devices, restrictions): top 60 identical in keys, order, scores: rowsChecked changed in 10 candidates
+PASS stage 1: scoreboard differs only in part C nodes: {'/C_coverage/nodes': [1701, 1707], '/C_coverage/nodesMarkedClosed': [576, 579]}
+PASS stage 2 (silent-cell nodes): scoreboard differs only in node count: {'/C_coverage/nodes': [1707, 1718]}
+PASS stage 3 (screening lines): graph and top 60 identical; scoreboard: lanes run, score-0 count, history: {'/A_requirements/scoreHistogram/0': [128, 138], '/D_reliability/lanesRun': [130, 140]}
+PASS headline 1 of 4, c1-leeyang-krein-limit; hold rate 0.908: {'lanesRun': 141, 'lanesRefereed': 130, 'refereeHoldRate': 0.908, 'provedClaimsBroken': 11, 'threeRefereeStatements': 1, 'threeRefereeStatementsAboutZeros': 0, 'aboutZerosClaimsNotYetCounted': [], 'laneLinesUnparsed': 0}
+PASS Statement O v4 = v3 plus insertions (only the title line replaced): 240 lines added, 1 removed
+PASS Statement O v4: five new lines, section F, no joint clause wording
+42 checks, 0 failed

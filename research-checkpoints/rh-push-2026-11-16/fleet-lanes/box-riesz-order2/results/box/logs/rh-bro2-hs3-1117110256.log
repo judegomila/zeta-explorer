@@ -1,38 +1,38 @@
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
 done (1129, 0.12) 54
 done (1050, 0.12) 74
@@ -41,25 +41,25 @@ done (1050, 0.1) 81
 done (1050, 0.09) 81
 done (1129, 0.09) 81
 done (1050, 0.08) 81
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
 done (1250, 0.12) 16
 done (1129, 0.08) 81
@@ -68,17 +68,17 @@ done (1050, 0.07) 81
 done (1250, 0.1) 81
 done (1129, 0.07) 81
 done (1250, 0.08) 81
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
 done (1400, 0.12) 2
 done (1250, 0.07) 81
@@ -104,17 +104,17 @@ done (1841, 0.1) 1
 done (1841, 0.09) 28
 done (1700, 0.07) 81
 done (1841, 0.08) 81
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: invalid value encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: invalid value encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
-/home/USER/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:62: RuntimeWarning: divide by zero encountered in scalar divide
   f = ee.sum(); fp = -(ee * ln).sum(); s -= f / fp
-/home/USER/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
+~/rh-push/box-riesz-order2/hsearch.py:63: RuntimeWarning: divide by zero encountered in scalar divide
   if abs(f / fp) < 1e-14: ok = True; break
 done (1841, 0.07) 81
 done (2000, 0.12) 1
@@ -133,9 +133,9 @@ done (2167, 0.07) 81
 done (2550, 0.1) 1
 done (2550, 0.12) 1
 done (2550, 0.09) 1
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: overflow encountered in exp
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
-/home/USER/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
+~/rh-push/box-riesz-order2/hsearch.py:61: RuntimeWarning: invalid value encountered in multiply
   ee = w * np.exp(-s * ln) * np.exp(1j * (V @ thT))
 done (2550, 0.07) 34
 done (2000, 0.06) 81

@@ -1,0 +1,94 @@
+{
+ "slug": "s3-theta-kernel-shape-conditions",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "complex-covariance-bound",
+  "first-reduced-kernels",
+  "fourth-stage-schwarzian",
+  "pair-kernel-q-t",
+  "phi-truncation-leftmost-zero",
+  "single-crossing-compensation",
+  "theta-central-positivity",
+  "theta-kernel-sqrt-concavity",
+  "theta-modular-ode-system",
+  "theta-ratio-convexity",
+  "xi-exponential-family",
+  "zv-theta-kernel-phi"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "pair-kernel-q-t",
+    "theta-kernel-sqrt-concavity",
+    "theta-central-positivity"
+   ],
+   "obstruction": "kernel-shape properties are flow-invariant and not class properties; the Gram form fails only once its Nyquist abscissa passes the first off-line zero (verified height)",
+   "controlsThatDefeat": [
+    "DH",
+    "heat tau<0",
+    "E_a",
+    "L(chi_-7) (fails as comparison)"
+   ]
+  },
+  {
+   "nodes": [
+    "first-reduced-kernels",
+    "xi-exponential-family",
+    "complex-covariance-bound"
+   ],
+   "obstruction": "conditions of a positive density, blind to zeros (proved term by term for zero quadruples above height 1.21); signed-kernel L-functions fail",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "E_a",
+    "T-NR",
+    "L(chi_-163), L(chi_-43) (fail as comparison)"
+   ]
+  },
+  {
+   "nodes": [
+    "single-crossing-compensation",
+    "theta-ratio-convexity",
+    "fourth-stage-schwarzian"
+   ],
+   "obstruction": "sign ladders are a flow-stable kernel fingerprint that comparison L-functions fail; Pick order needed is proportional to the off-line height (verified height)",
+   "controlsThatDefeat": [
+    "heat tau<0",
+    "DH (Pick to order 40)",
+    "L(chi) (fail the sign ladder)"
+   ]
+  },
+  {
+   "nodes": [
+    "phi-truncation-leftmost-zero",
+    "zv-theta-kernel-phi",
+    "theta-modular-ode-system"
+   ],
+   "obstruction": "reads first coefficients against conductor; differential-algebraic degree separates theta_3 from everything else equally; not a statement on zeros",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "T-NR",
+    "L(chi_5), L(chi_-7)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) kernel-shape properties are flow-invariant and not class properties; the Gram form fails only once its Nyquist abscissa passes the first off-line zero (verified height) | (2) conditions of a positive density, blind to zeros (proved term by term for zero quadruples above height 1.21); signed-kernel L-functions fail | (3) sign ladders are a flow-stable kernel fingerprint that comparison L-functions fail; Pick order needed is proportional to the off-line height (verified height) | (4) reads first coefficients against conductor; differential-algebraic degree separates theta_3 from everything else equally; not a statement on zeros",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (Pick to order 40)",
+  "E_a",
+  "L(chi) (fail the sign ladder)",
+  "L(chi_-163), L(chi_-43) (fail as comparison)",
+  "L(chi_-7) (fails as comparison)",
+  "L(chi_5), L(chi_-7)",
+  "T-NR",
+  "heat",
+  "heat tau<0"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-theta-kernel-shape-conditions/RESULT.md"
+}

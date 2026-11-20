@@ -1,0 +1,40 @@
+{
+ "slug": "e1-heegner-averaged-nb-span",
+ "round": 1,
+ "batch": 1,
+ "kind": "attack",
+ "nodes": [
+  "heegner-nb-ratio",
+  "nyman-beurling-dx"
+ ],
+ "launchedNodes": [
+  "heegner-nb-ratio",
+  "heegner-height-upper-bound-h4prime",
+  "cm-eta-heights-lambda1",
+  "nyman-beurling-dx"
+ ],
+ "tags": [
+  "nyman-beurling",
+  "heegner",
+  "finite-stage",
+  "dh-type"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "PROVED (routine): for real combinations of two or more class traces of fundamental negative discriminants, sum_D c_D (sqrt|D|/2)^s L(s,chi_D) is a factor zero-free in Re s > -1 times sum_D c_D |D|^-1/2 Lambda(s,chi_D), with pairwise distinct generalised Dirichlet frequencies 2n/sqrt|D|, so no weighting gives an Euler or Eisenstein factor. R(x) - 1 = int_1^inf |f_x - 1|^2 dy/y^2 with f_x the weighted signed count of the divisor in the horoball Im z >= sqrt(Dmax)/(2y) (standard NB dictionary). MEASURED: off-line zeros for all fixed weightings tried; R about 28.3, 9.38, 6.75, 5.26, 4.76, 3.08 at |D| <= 20..1000; a block-permuted non-multiplicative control gives smaller values (1.4 to 2.1).",
+ "obstruction": "Averaging over discriminants cancels nothing: every Heegner bracket is of Davenport-Heilbronn type with off-line zeros. The NB ratio is 1 + distance^2 to the constant in L^2(dy/y^2): non-increasing by definition, smaller for a non-multiplicative control, and blind to a Blaschke floor (< 1e-24 above verified height) at values near 3. inf R = 1 would imply RH; no step bounds the distance; nothing passes from finite spans to the limit.",
+ "obstructionKind": "finite-stage-to-limit / control-blind",
+ "controlsThatDefeat": [
+  "block-permuted non-multiplicative control: smaller ratio (1.4 to 2.1) than the Heegner family",
+  "every averaged bracket is itself DH-type (off-line zeros measured, float64 winding, not certified)"
+ ],
+ "lesson": "Reject Nyman-Beurling span combinations whose only arithmetic is the choice of spanning family. Open and not attacked: density of the family under RH/GRH; non-fundamental discriminants.",
+ "refereeHolds": true,
+ "refereeNote": "Lemmas A, B, C correct in substance; horoball formula in the claim was inverted; the H4' cuspidal-energy statement is cited, not verified.",
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.1,
+ "newNodes": [],
+ "followUp": "",
+ "resultFile": "tmp/research-2026-11-16/push/e1-heegner-averaged-nb-span/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e1-heegner-averaged-nb-span/REFEREE.md"
+}

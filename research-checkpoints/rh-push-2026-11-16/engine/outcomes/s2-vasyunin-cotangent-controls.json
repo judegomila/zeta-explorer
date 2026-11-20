@@ -1,0 +1,85 @@
+{
+ "slug": "s2-vasyunin-cotangent-controls",
+ "round": 2,
+ "kind": "screen",
+ "nodes": [
+  "arith-first-moment-residual-sign-law",
+  "burnol-ratio-conductor-band",
+  "burnol-ratio-plateau",
+  "rm-bc-reciprocity-wobble",
+  "rm-conditioning-ceiling",
+  "rm-cot-cancellation-ratio",
+  "rm-cot-leaf-limit-minus-quarter-pi",
+  "rm-kappa-total-measured",
+  "rm-residual-smallest-prime",
+  "route-m-conductor-tones",
+  "route-m-lammax-bounded",
+  "vasyunin-top-eigenpair-logistic"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "arith-first-moment-residual-sign-law",
+    "rm-kappa-total-measured",
+    "rm-residual-smallest-prime"
+   ],
+   "obstruction": "constant shift only: the statistic depends on |F| on the critical line and has no dependence on zeros",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "E_a",
+    "Dirichlet L (same law)"
+   ]
+  },
+  {
+   "nodes": [
+    "rm-bc-reciprocity-wobble",
+    "rm-cot-leaf-limit-minus-quarter-pi",
+    "rm-cot-cancellation-ratio"
+   ],
+   "obstruction": "every control passes: the three numbers are Farey averages of a function continuous for every F",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "Dirichlet L (same)"
+   ]
+  },
+  {
+   "nodes": [
+    "burnol-ratio-plateau",
+    "burnol-ratio-conductor-band",
+    "route-m-conductor-tones"
+   ],
+   "obstruction": "separation = Blaschke floor, a function of the off-line zeros only (resolved zeros); DH needs log N about 53",
+   "controlsThatDefeat": [
+    "DH"
+   ]
+  },
+  {
+   "nodes": [
+    "route-m-lammax-bounded",
+    "rm-conditioning-ceiling",
+    "vasyunin-top-eigenpair-logistic"
+   ],
+   "obstruction": "the Gram matrix depends on |F(1/2+it)| only; F(s)(s-rho)(s-conj rho)/((s-1+conj rho)(s-1+rho)) has the same Gram matrix with an off-line zero, so no Gram-only statistic can separate",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "planted Blaschke pair"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) constant shift only: the statistic depends on |F| on the critical line and has no dependence on zeros | (2) every control passes: the three numbers are Farey averages of a function continuous for every F | (3) separation = Blaschke floor, a function of the off-line zeros only (resolved zeros); DH needs log N about 53 | (4) the Gram matrix depends on |F(1/2+it)| only; F(s)(s-rho)(s-conj rho)/((s-1+conj rho)(s-1+rho)) has the same Gram matrix with an off-line zero, so no Gram-only statistic can separate",
+ "controlsThatDefeat": [
+  "DH",
+  "Dirichlet L (same law)",
+  "Dirichlet L (same)",
+  "E_a",
+  "T-NR",
+  "planted Blaschke pair"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s2-vasyunin-cotangent-controls/RESULT.md"
+}

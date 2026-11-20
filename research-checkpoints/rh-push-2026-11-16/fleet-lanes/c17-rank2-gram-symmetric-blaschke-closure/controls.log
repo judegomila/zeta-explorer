@@ -1,0 +1,3 @@
+plan controls tasks 30576 workers 8 planned memory per worker < 200 MB; largest allocation < 2 MB
+20000 30576 61 {'ctl-dh/ok': 725, 'ctl-fail/neg': 1632, 'ctl-fail/ok': 2632, 'ctl-mispair/neg': 247, 'ctl-mispair/ok': 8322, 'ctl-pass/ok': 733, 'ctl-right/ok': 2874, 'ctl-toy/ok': 369, 'ctl-toy/undecided': 350, 'toy-sym/ok': 1764, 'toy-sym/undecided': 352}
+DONE 30576 91 {'ctl-dh/ok': 1092, 'ctl-fail/neg': 2466, 'ctl-fail/ok': 4086, 'ctl-mispair/neg': 373, 'ctl-mispair/ok': 12731, 'ctl-pass/ok': 1092, 'ctl-right/ok': 4368, 'ctl-toy/ok': 546, 'ctl-toy/undecided': 546, 'toy-sym/ok': 2709, 'toy-sym/undecided': 567}

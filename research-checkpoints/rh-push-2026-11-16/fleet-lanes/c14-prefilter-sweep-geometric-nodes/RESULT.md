@@ -39,6 +39,21 @@ Precise obstruction, with the pre-filter stated as one lemma (three questions) a
    (Q-B does not apply; class t). The user's bridge, shear, antibridge and spinor square-root nodes fall on one
    side or the other of this line; none sits between.
 
+   **Correction note (2026-11-19, `c16-repair-owed-record-r15`; the text above is left as filed).** The sentence "For a < 1/2 an off-line zero
+   is a pole and the Schur condition is the zero-free statement itself" does not hold as written (this lane's
+   REFEREE.md, E1; second referee `push/c15-referee-r14-independent-checkpoint/REFEREE2_c14-prefilter-sweep-geometric-nodes.md`,
+   section 3). Replacement, from `push/c15-klein-transport-lemma-w-stage-a-and-e1/PROPOSED_E1_REPLACEMENT.md`
+   (Theorem E1', PROVED there and confirmed by that lane's independent referee): "For a >= 1/2 the bridge ratio R_a is
+   Schur unconditionally and Blaschke-closed. For a < 1/2, R_a is Schur iff every zero with Re lambda > a has a
+   same-ordinate zero at lambda - 2a of at least its multiplicity (nodes 386, 358). The strip abs(Re lambda) <= a
+   implies it; it does not imply the strip at a single a; along a sequence a_n -> 0+ it is RH." The words "none
+   sits between" are withdrawn. Hypotheses of Theorem E1': X entire, even, real on the real axis, of order one, zeros
+   in a vertical strip; the sentence for a >= 1/2 "for any X with zeros in the strip" needs a growth hypothesis
+   (bounded type in the half-plane), true for X in the gamma class of xi (second referee). The same replacement
+   applies to section 2.2, row Q-B (a): "the inequality is the cancellation-aware condition of node 386, which the
+   zero-free strip abs(Re lambda) <= a implies and which is RH along a -> 0+; the node stays typed X3". Typing
+   consequence for the sweep: none (stated in the replacement file).
+
 ## 1. Plan; what is new against the record
 
 - Round-13 lesson (combinable 1): three lanes each found one invariance that passes a control (Lemma P; Theorem C

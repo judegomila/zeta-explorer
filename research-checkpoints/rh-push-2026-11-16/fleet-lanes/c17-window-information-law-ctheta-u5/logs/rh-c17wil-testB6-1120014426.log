@@ -1,0 +1,394 @@
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "info": "device", "n_online": 172, "sec": 13.4, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -7, "x": -3.5102791268145666, "b": 0.08771142578124999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -7, "x": -3.286569808726199, "b": 0.16751347656249999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -7, "x": -3.5102791268145666, "b": 0.08771142578124999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -6, "x": -3.0628604906378314, "b": 0.09698505859375, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "info": "device", "n_online": 172, "sec": 25.3, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -6, "x": -2.7748580700717866, "b": 0.1758109375, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 1, "b": 0.08893164062499999, "note": "", "sec": 4.7}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -6, "x": -3.0628604906378314, "b": 0.09698505859375, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 2, "b": 0.070384375, "note": "", "sec": 9.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -5, "x": -2.486855649505742, "b": 0.09942548828125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -5, "x": -2.259277656208724, "b": 0.170930078125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 3, "b": 0.065503515625, "note": "", "sec": 8.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -5, "x": -2.486855649505742, "b": 0.0991814453125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -4, "x": -2.0316996629117057, "b": 0.09893740234375001, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -4, "x": -1.746448993741069, "b": 0.17361455078125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 4, "b": 0.06159882812499999, "note": "", "sec": 15.3}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -4, "x": -2.0316996629117057, "b": 0.09893740234375001, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -3, "x": -1.4611983245704323, "b": 0.09625292968749999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 6, "b": 0.06257499999999999, "note": "", "sec": 14.1}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -3, "x": -1.4099772875779308, "b": 0.08551503906249999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -3, "x": -1.4611983245704323, "b": 0.09503271484375, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -2, "x": -1.3587562505854294, "b": 0.08990781249999999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 8, "b": 0.05769414062499999, "note": "", "sec": 13.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -2, "x": -0.9931756557780318, "b": 0.14725791015625003, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -2, "x": -1.3587562505854294, "b": 0.08819951171874998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": -1, "x": -0.6275950609706342, "b": 0.09356845703125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": -1, "x": -0.4170889182132669, "b": 0.16385283203124998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": -1, "x": -0.6275950609706342, "b": 0.0933244140625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 0, "x": -0.20658277545589954, "b": 0.08966376953124999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 0, "x": 0.1887573947897181, "b": 0.15677558593750002, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 0, "x": -0.20658277545589954, "b": 0.0894197265625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 12, "b": 0.049884765624999994, "note": "", "sec": 22.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 1, "x": 0.5840975650353357, "b": 0.11284785156249999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 1, "x": 0.7062205951078795, "b": 0.127978515625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 1, "x": 0.5840975650353357, "b": 0.11113955078124998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 2, "x": 0.8283436251804233, "b": 0.11235976562499998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 2, "x": 1.1318044164218009, "b": 0.170930078125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 2, "x": 0.8283436251804233, "b": 0.11065146484374999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 3, "x": 1.4352652076631784, "b": 0.09186015624999999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 3, "x": 1.670456824474968, "b": 0.16824560546874998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 3, "x": 1.4352652076631784, "b": 0.09186015624999999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 4, "x": 1.9056484412867576, "b": 0.08697929687499999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 4, "x": 2.391633070190437, "b": 0.10625869140625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 16, "b": 0.04695624999999999, "note": "", "sec": 32.1}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 4, "x": 1.9056484412867576, "b": 0.08697929687499999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 5, "x": 2.8776176990941167, "b": 0.08795546874999999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 5, "x": 3.105159105034545, "b": 0.16775751953124998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 5, "x": 2.8776176990941167, "b": 0.08771142578124999, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 6, "x": 3.3327005109749734, "b": 0.0972291015625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 6, "x": 3.5852065169019625, "b": 0.17703115234374997, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 6, "x": 3.3327005109749734, "b": 0.0972291015625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "ordinate", "k": 7, "x": 3.8377125228289515, "b": 0.09039589843749998, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "midpoint", "k": 7, "x": 4.138727382523939, "b": 0.17751923828125, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "one", "where": "replace", "k": 7, "x": 3.8377125228289515, "b": 0.09039589843749998, "note": ""}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "info": "device", "n_online": 172, "sec": 16.5, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 1, "b": 0.08893164062499999, "note": "", "sec": 3.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 2, "b": 0.070384375, "note": "", "sec": 3.8}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 3, "b": 0.08405078124999998, "note": "", "sec": 6.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 24, "b": 0.04402773437499999, "note": "", "sec": 66.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 4, "b": 0.069408203125, "note": "", "sec": 8.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 12.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 6, "b": 0.069408203125, "note": "", "sec": 18.8}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 13.6}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 15.0}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 8, "b": 0.067455859375, "note": "", "sec": 36.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "info": "device", "n_online": 172, "sec": 20.7, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 1, "b": 0.07233671875, "note": "", "sec": 14.6}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 12, "b": 0.06452734375, "note": "", "sec": 30.9}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 2, "b": 0.0664796875, "note": "", "sec": 20.8}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 3, "b": 0.06159882812499999, "note": "", "sec": 20.7}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 16, "b": 0.06159882812499999, "note": "", "sec": 47.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 4, "b": 0.051837109374999996, "note": "", "sec": 33.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 6, "b": 0.050860937499999995, "note": "", "sec": 27.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 24, "b": 0.056717968749999986, "note": "", "sec": 77.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 9.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 7.7}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 8, "b": 0.049884765624999994, "note": "", "sec": 58.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "add-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 10.7}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "info": "device", "n_online": 172, "sec": 15.6, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 1, "b": 0.07233671875, "note": "", "sec": 7.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 2, "b": 0.0664796875, "note": "", "sec": 20.7}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 3, "b": 0.069408203125, "note": "", "sec": 33.3}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 12, "b": 0.04890859374999999, "note": "", "sec": 98.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 4, "b": 0.05769414062499999, "note": "", "sec": 26.9}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 6, "b": 0.055741796874999985, "note": "", "sec": 38.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 8, "b": 0.053789453125, "note": "", "sec": 38.6}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 16, "b": 0.04793242187499999, "note": "", "sec": 89.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 24, "b": null, "note": "lo:undecided", "sec": 15.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 19.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 29.7}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 12, "b": 0.052813281249999997, "note": "", "sec": 80.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 55.4}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 16, "b": 0.051837109374999996, "note": "", "sec": 45.8}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "info": "device", "n_online": 172, "sec": 11.4, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 1, "b": 0.12700234375, "note": "", "sec": 4.3}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 24, "b": null, "note": "lo:undecided", "sec": 11.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 2, "b": 0.20314375, "note": "", "sec": 3.9}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 3, "b": 0.237309765625, "note": "", "sec": 8.5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 16.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 4, "b": 0.30368945312500006, "note": "", "sec": 14.1}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 6, "b": 0.35347421874999996, "note": "", "sec": 12.3}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 23.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 8, "b": 0.416925390625, "note": "", "sec": 22.9}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 12, "b": 0.4999, "note": "cap", "sec": 4.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 16, "b": 0.4999, "note": "cap", "sec": 5.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 24, "b": 0.4999, "note": "cap", "sec": 6.8}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 32, "b": null, "note": "lo:undecided", "sec": 8.9}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "rep2-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 47.6}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 40, "b": null, "note": "lo:undecided", "sec": 8.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "info": "device", "n_online": 172, "sec": 11.6, "terms": 5}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 1, "b": 0.12700234375, "note": "", "sec": 2.4}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 2, "b": 0.14359726562500003, "note": "", "sec": 5.2}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-2.0", "n": 60, "b": null, "note": "lo:undecided", "sec": 18.3}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 3, "b": 0.19728671875, "note": "", "sec": 7.1}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 4, "b": 0.18459648437499998, "note": "", "sec": 6.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "info": "device", "n_online": 172, "sec": 15.8, "terms": 1}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 6, "b": 0.242190625, "note": "", "sec": 11.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -7, "x": -3.5102791268145666, "b": 0.3520099609375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -7, "x": -3.286569808726199, "b": 0.34395654296875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -7, "x": -3.5102791268145666, "b": 0.3510337890625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -6, "x": -3.0628604906378314, "b": 0.3734857421875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -6, "x": -2.7748580700717866, "b": 0.39911025390625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -6, "x": -3.0628604906378314, "b": 0.3734857421875, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 8, "b": 0.2617140625, "note": "", "sec": 18.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -5, "x": -2.486855649505742, "b": 0.37617021484375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -5, "x": -2.259277656208724, "b": 0.3793427734375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -5, "x": -2.486855649505742, "b": 0.37617021484375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -4, "x": -2.0316996629117057, "b": 0.40740771484375005, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -4, "x": -1.746448993741069, "b": 0.39764599609375006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -4, "x": -2.0316996629117057, "b": 0.407163671875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -3, "x": -1.4611983245704323, "b": 0.35323017578124993, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -3, "x": -1.4099772875779308, "b": 0.35298613281249996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -3, "x": -1.4611983245704323, "b": 0.35323017578124993, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 12, "b": 0.307594140625, "note": "", "sec": 26.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -2, "x": -1.3587562505854294, "b": 0.3559146484375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -2, "x": -0.9931756557780318, "b": 0.424734765625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -2, "x": -1.3587562505854294, "b": 0.3554265625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": -1, "x": -0.6275950609706342, "b": 0.37006914062499996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": -1, "x": -0.4170889182132669, "b": 0.32760566406249997, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": -1, "x": -0.6275950609706342, "b": 0.37006914062499996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 0, "x": -0.20658277545589954, "b": 0.34566484374999995, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 0, "x": 0.1887573947897181, "b": 0.43010371093750005, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 0, "x": -0.20658277545589954, "b": 0.34517675781249996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 1, "x": 0.5840975650353357, "b": 0.33565908203124994, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 1, "x": 0.7062205951078795, "b": 0.32077246093749995, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 1, "x": 0.5840975650353357, "b": 0.334926953125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 2, "x": 0.8283436251804233, "b": 0.33004609374999994, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 2, "x": 1.1318044164218009, "b": 0.41033623046875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 2, "x": 0.8283436251804233, "b": 0.33004609374999994, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 3, "x": 1.4352652076631784, "b": 0.37568212890624997, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 3, "x": 1.670456824474968, "b": 0.31174287109375, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 16, "b": 0.36909296875, "note": "", "sec": 57.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 3, "x": 1.4352652076631784, "b": 0.37568212890624997, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 4, "x": 1.9056484412867576, "b": 0.31906416015624994, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 4, "x": 2.391633070190437, "b": 0.40374707031250007, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 4, "x": 1.9056484412867576, "b": 0.31711181640624997, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 5, "x": 2.8776176990941167, "b": 0.3307782226562499, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 24, "b": null, "note": "lo:undecided", "sec": 26.1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 5, "x": 3.105159105034545, "b": 0.32809374999999996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 5, "x": 2.8776176990941167, "b": 0.32809374999999996, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 32, "b": null, "note": "lo:undecided", "sec": 11.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 6, "x": 3.3327005109749734, "b": 0.360307421875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 6, "x": 3.5852065169019625, "b": 0.3851998046875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 6, "x": 3.3327005109749734, "b": 0.360307421875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "ordinate", "k": 7, "x": 3.8377125228289515, "b": 0.3861759765625, "note": ""}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 40, "b": null, "note": "lo:undecided", "sec": 16.3}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "midpoint", "k": 7, "x": 4.138727382523939, "b": 0.39178896484375003, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "one", "where": "replace", "k": 7, "x": 3.8377125228289515, "b": 0.3861759765625, "note": ""}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "info": "device", "n_online": 172, "sec": 10.6, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 1, "b": 0.34566484374999995, "note": "", "sec": 2.0}
+{"T": 1000000.0, "theta": 1.0, "M": 1.0, "mode": "row-taper-1.25", "n": 60, "b": null, "note": "lo:undecided", "sec": 22.4}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 2, "b": 0.42083007812500006, "note": "", "sec": 3.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 3, "b": 0.334926953125, "note": "", "sec": 4.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "info": "device", "n_online": 172, "sec": 11.6, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 1, "b": 0.34566484374999995, "note": "", "sec": 2.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 4, "b": 0.30368945312500006, "note": "", "sec": 8.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 2, "b": 0.42083007812500006, "note": "", "sec": 5.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 3, "b": 0.4335203125, "note": "", "sec": 12.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 6, "b": 0.25488085937500005, "note": "", "sec": 22.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 4, "b": 0.44523437499999996, "note": "", "sec": 15.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 8, "b": 0.291975390625, "note": "", "sec": 19.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 6, "b": 0.39642578125000005, "note": "", "sec": 15.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 8, "b": 0.38861640625000005, "note": "", "sec": 31.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 12, "b": 0.27538046875, "note": "", "sec": 51.3}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 12, "b": 0.358355078125, "note": "", "sec": 36.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 16, "b": 0.28318984375, "note": "", "sec": 62.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 24, "b": null, "note": "lo:undecided", "sec": 8.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 7.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 16, "b": 0.3437125, "note": "", "sec": 60.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 13.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 24, "b": null, "note": "lo:undecided", "sec": 17.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 4.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 18.6}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 9.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "add-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 14.4}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "info": "device", "n_online": 172, "sec": 17.4, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "info": "device", "n_online": 172, "sec": 10.7, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 1, "b": 0.284166015625, "note": "", "sec": 9.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 1, "b": 0.284166015625, "note": "", "sec": 5.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 2, "b": 0.18850117187499998, "note": "", "sec": 12.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 2, "b": 0.18850117187499998, "note": "", "sec": 14.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 3, "b": 0.25292851562499996, "note": "", "sec": 16.3}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 3, "b": 0.190453515625, "note": "", "sec": 24.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 4, "b": 0.179715625, "note": "", "sec": 22.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 4, "b": 0.15238281250000002, "note": "", "sec": 33.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 6, "b": 0.13188320312500001, "note": "", "sec": 15.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 8, "b": 0.069408203125, "note": "", "sec": 29.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 6, "b": 0.08795546874999999, "note": "", "sec": 43.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 12, "b": 0.03426601562499999, "note": "", "sec": 53.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 8, "b": 0.043051562499999994, "note": "", "sec": 47.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 16, "b": null, "note": "lo:undecided", "sec": 7.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 24, "b": null, "note": "lo:undecided", "sec": 13.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 15.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 13.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 12, "b": 0.02548046875, "note": "", "sec": 57.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 16, "b": null, "note": "lo:undecided", "sec": 7.5}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 24, "b": null, "note": "lo:undecided", "sec": 6.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 37.3}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 16.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "info": "device", "n_online": 172, "sec": 7.4, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 1, "b": 0.4032589843750001, "note": "", "sec": 3.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 2, "b": 0.4999, "note": "cap", "sec": 0.4}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 3, "b": 0.4999, "note": "cap", "sec": 0.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 4, "b": 0.4999, "note": "cap", "sec": 1.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 6, "b": 0.4999, "note": "cap", "sec": 1.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 8, "b": 0.4999, "note": "cap", "sec": 2.9}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 12, "b": 0.4999, "note": "cap", "sec": 3.6}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 16, "b": 0.4999, "note": "cap", "sec": 5.3}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 27.0}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 24, "b": null, "note": "lo:undecided", "sec": 12.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 32, "b": null, "note": "lo:undecided", "sec": 4.2}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 40, "b": null, "note": "lo:undecided", "sec": 8.1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "rep2-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 32.7}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-2.0", "n": 60, "b": null, "note": "lo:undecided", "sec": 16.2}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "info": "device", "n_online": 172, "sec": 8.1, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "info": "device", "n_online": 172, "sec": 10.3, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -7, "x": -3.5102791268145666, "b": 0.38080703125000004, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 1, "b": 0.4032589843750001, "note": "", "sec": 2.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -7, "x": -3.286569808726199, "b": 0.37495, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 2, "b": 0.37299765625000003, "note": "", "sec": 3.7}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 3, "b": 0.4999, "note": "cap", "sec": 0.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -7, "x": -3.5102791268145666, "b": 0.3800749023437501, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -6, "x": -3.0628604906378314, "b": 0.40033046875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 4, "b": 0.47159101562499994, "note": "", "sec": 8.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -6, "x": -2.7748580700717866, "b": 0.4210741210937501, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 6, "b": 0.4999, "note": "cap", "sec": 0.8}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 8, "b": 0.4999, "note": "cap", "sec": 1.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -6, "x": -3.0628604906378314, "b": 0.40033046875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 12, "b": 0.4999, "note": "cap", "sec": 2.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -5, "x": -2.486855649505742, "b": 0.40203876953125006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 16, "b": 0.4999, "note": "cap", "sec": 2.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -5, "x": -2.259277656208724, "b": 0.40594345703125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 24, "b": 0.4999, "note": "cap", "sec": 4.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -5, "x": -2.486855649505742, "b": 0.40203876953125006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -4, "x": -2.0316996629117057, "b": 0.4298596679687501, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 32, "b": null, "note": "lo:undecided", "sec": 5.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -4, "x": -1.746448993741069, "b": 0.42034199218750007, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -4, "x": -2.0316996629117057, "b": 0.42961562500000006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 40, "b": null, "note": "lo:undecided", "sec": 4.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -3, "x": -1.4611983245704323, "b": 0.38251533203125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -3, "x": -1.4099772875779308, "b": 0.3822712890625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 0.0, "mode": "row-taper-1.25", "n": 60, "b": null, "note": "lo:undecided", "sec": 10.1}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -3, "x": -1.4611983245704323, "b": 0.38251533203125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -2, "x": -1.3587562505854294, "b": 0.38471171875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "info": "device", "n_online": 172, "sec": 7.5, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 1, "b": 0.375926171875, "note": "", "sec": 1.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 2, "b": 0.44523437499999996, "note": "", "sec": 2.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -2, "x": -0.9931756557780318, "b": 0.444258203125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 3, "b": 0.358355078125, "note": "", "sec": 6.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -2, "x": -1.3587562505854294, "b": 0.38446767578124996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 4, "b": 0.32614140625, "note": "", "sec": 9.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": -1, "x": -0.6275950609706342, "b": 0.39862216796875005, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": -1, "x": -0.4170889182132669, "b": 0.36103955078124994, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": -1, "x": -0.6275950609706342, "b": 0.39862216796875005, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 0, "x": -0.20658277545589954, "b": 0.3764142578125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 6, "b": 0.27245195312500003, "note": "", "sec": 17.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 0, "x": 0.1887573947897181, "b": 0.44889501953125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 0, "x": -0.20658277545589954, "b": 0.37617021484375, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 1, "x": 0.5840975650353357, "b": 0.36787275390624996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 1, "x": 0.7062205951078795, "b": 0.35518251953125, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 1, "x": 0.5840975650353357, "b": 0.36738466796875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 8, "b": 0.312475, "note": "", "sec": 27.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 2, "x": 0.8283436251804233, "b": 0.36347998046874996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 2, "x": 1.1318044164218009, "b": 0.43156796875000003, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 2, "x": 0.8283436251804233, "b": 0.36347998046874996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 3, "x": 1.4352652076631784, "b": 0.40496728515625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 3, "x": 1.670456824474968, "b": 0.34981357421875003, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 3, "x": 1.4352652076631784, "b": 0.40496728515625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 4, "x": 1.9056484412867576, "b": 0.35323017578124993, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 4, "x": 2.391633070190437, "b": 0.4254668945312501, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 4, "x": 1.9056484412867576, "b": 0.35225400390624995, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 12, "b": 0.29099921875, "note": "", "sec": 38.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 5, "x": 2.8776176990941167, "b": 0.36396806640625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 5, "x": 3.105159105034545, "b": 0.36347998046874996, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 5, "x": 2.8776176990941167, "b": 0.36225976562499995, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 6, "x": 3.3327005109749734, "b": 0.38983662109375006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 6, "x": 3.5852065169019625, "b": 0.409116015625, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 6, "x": 3.3327005109749734, "b": 0.38983662109375006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "ordinate", "k": 7, "x": 3.8377125228289515, "b": 0.41082431640625006, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "midpoint", "k": 7, "x": 4.138727382523939, "b": 0.4164373046875, "note": ""}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "one", "where": "replace", "k": 7, "x": 3.8377125228289515, "b": 0.41082431640625006, "note": ""}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 16, "b": 0.29685625000000004, "note": "", "sec": 55.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "info": "device", "n_online": 172, "sec": 13.0, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 1, "b": 0.375926171875, "note": "", "sec": 2.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 2, "b": 0.44523437499999996, "note": "", "sec": 3.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 24, "b": null, "note": "lo:undecided", "sec": 21.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 3, "b": 0.45890078125, "note": "", "sec": 5.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 4, "b": 0.46963867187499997, "note": "", "sec": 5.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 12.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 6, "b": 0.42083007812500006, "note": "", "sec": 14.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 11.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 11.6}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "info": "device", "n_online": 172, "sec": 8.3, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 8, "b": 0.41009218750000004, "note": "", "sec": 25.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 1, "b": 0.33395078125, "note": "", "sec": 5.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 2, "b": 0.23047656249999998, "note": "", "sec": 11.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 3, "b": 0.229500390625, "note": "", "sec": 11.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 4, "b": 0.19728671875, "note": "", "sec": 20.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 12, "b": 0.375926171875, "note": "", "sec": 52.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 6, "b": 0.15238281250000002, "note": "", "sec": 39.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 16, "b": 0.358355078125, "note": "", "sec": 57.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 24, "b": null, "note": "lo:undecided", "sec": 11.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 8, "b": 0.127978515625, "note": "", "sec": 39.3}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 5.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 5.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "add-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 14.8}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "info": "device", "n_online": 172, "sec": 10.8, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 1, "b": 0.33395078125, "note": "", "sec": 6.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 2, "b": 0.23047656249999998, "note": "", "sec": 7.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 3, "b": 0.30076093750000005, "note": "", "sec": 13.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 4, "b": 0.22852421874999998, "note": "", "sec": 14.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 12, "b": 0.12016914062499999, "note": "", "sec": 78.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 16, "b": null, "note": "lo:undecided", "sec": 5.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 24, "b": null, "note": "lo:undecided", "sec": 8.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 6, "b": 0.20900078125000002, "note": "", "sec": 24.2}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 32, "b": null, "note": "lo:undecided", "sec": 12.3}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 40, "b": null, "note": "lo:undecided", "sec": 23.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 8, "b": 0.18166796875, "note": "", "sec": 34.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-flat", "n": 60, "b": null, "note": "lo:undecided", "sec": 44.9}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "info": "device", "n_online": 172, "sec": 6.0, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 1, "b": 0.42571093750000005, "note": "", "sec": 2.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 2, "b": 0.4999, "note": "cap", "sec": 0.3}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 3, "b": 0.4999, "note": "cap", "sec": 0.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 4, "b": 0.4999, "note": "cap", "sec": 0.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 12, "b": 0.153358984375, "note": "", "sec": 47.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 6, "b": 0.4999, "note": "cap", "sec": 1.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 8, "b": 0.4999, "note": "cap", "sec": 1.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 12, "b": 0.4999, "note": "cap", "sec": 2.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 16, "b": null, "note": "lo:undecided", "sec": 4.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 16, "b": 0.4999, "note": "cap", "sec": 3.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 24, "b": null, "note": "lo:undecided", "sec": 8.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 24, "b": null, "note": "lo:undecided", "sec": 10.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 32, "b": null, "note": "lo:undecided", "sec": 5.1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 32, "b": null, "note": "lo:undecided", "sec": 13.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 40, "b": null, "note": "lo:undecided", "sec": 8.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 40, "b": null, "note": "lo:undecided", "sec": 17.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-2.0", "n": 60, "b": null, "note": "lo:undecided", "sec": 12.0}
+planned: on-line block 343 x 343 arb entries at 512 bits (about 0.03 GB)
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "info": "device", "n_online": 172, "sec": 7.1, "terms": 1}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 1, "b": 0.42571093750000005, "note": "", "sec": 2.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 2, "b": 0.40033046875, "note": "", "sec": 6.0}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 3, "b": 0.4999, "note": "cap", "sec": 0.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "rep2-taper", "n": 60, "b": null, "note": "lo:undecided", "sec": 29.4}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 4, "b": 0.49013828125000003, "note": "", "sec": 12.5}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 6, "b": 0.4999, "note": "cap", "sec": 0.7}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 8, "b": 0.4999, "note": "cap", "sec": 0.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 12, "b": 0.4999, "note": "cap", "sec": 1.3}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 16, "b": 0.4999, "note": "cap", "sec": 1.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 24, "b": 0.4999, "note": "cap", "sec": 2.9}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 32, "b": null, "note": "lo:undecided", "sec": 2.8}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 40, "b": null, "note": "lo:undecided", "sec": 3.6}
+{"T": 1000000.0, "theta": 0.5, "M": 1.0, "mode": "row-taper-1.25", "n": 60, "b": null, "note": "lo:undecided", "sec": 6.6}
+done

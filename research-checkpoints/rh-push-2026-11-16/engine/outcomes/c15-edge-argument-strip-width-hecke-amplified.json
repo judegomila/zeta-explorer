@@ -30,7 +30,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "Report written to tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/REFEREE.md (independent report on top; the earlier same-agent pass kept as an appendix). All PROVED steps were re-derived and confirmed: Lemma 1 (1), (2), (I); Lemma 2 (3); Proposition A (a)-(d); the formula in (e); Proposition C under its hypothesis l <= C_0. No RH assumption, no restated verified height, no known theorem presented as new. Four corrections - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "An amplifier isolates one term of a spectral sum; it cannot improve an inequality whose two sides are one explicit vector with exactly known norm. Here the loss sits in two inputs outside the norm: a sieve lower bound for the divisor-type mean and sup|zeta'|. On truncated Eisenstein data Hecke operators act only by dilating the truncation height (same structure as rows G26, D9), so EIS-w and BLS pass the amplified part verbatim. The device is not in class U1: FE and local data are joined by an identity. Also: a spectral formula derived at a zero is not a check at a hypothetical delta (one reporting error corrected).",
@@ -38,5 +38,11 @@
  "resultFile": "tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/RESULT.md",
  "refereeFile": "tmp/research-2026-11-16/push/c15-edge-argument-strip-width-hecke-amplified/REFEREE.md",
  "launchedNodes": [],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-edge-argument-strip-width-hecke-amplified.md"
+ }
 }

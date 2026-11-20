@@ -1,20 +1,20 @@
 {
- "generated": "2026-11-19T21:04Z",
+ "generated": "2026-11-20T09:58Z",
  "A_requirements": {
   "headline": {
    "bestScore": 1,
-   "slug": "c1-leeyang-krein-limit",
+   "slug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
     "R4"
    ],
-   "file": "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md"
+   "file": "tmp/research-2026-11-16/push/c4-helson-discrepancy-zerofree/RESULT.md"
   },
   "lanesWithR4Confirmed": [],
   "scoreHistogram": {
-   "0": 128,
-   "1": 2,
+   "0": 179,
+   "1": 1,
    "2": 0,
    "3": 0,
    "4": 0
@@ -68,23 +68,23 @@
  },
  "C_coverage": {
   "graphSource": "IDEA_GRAPH.json",
-  "nodes": 1701,
-  "nodesMarkedClosed": 576,
-  "tags": 462,
-  "families": 106491,
-  "familiesClosed": 3618,
-  "familiesTriedNotClosed": 610,
-  "familiesOpenUntried": 102263,
-  "outcomeRecords": 140,
+  "nodes": 1756,
+  "nodesMarkedClosed": 611,
+  "tags": 528,
+  "families": 139128,
+  "familiesClosed": 4157,
+  "familiesTriedNotClosed": 1351,
+  "familiesOpenUntried": 133620,
+  "outcomeRecords": 220,
   "outcomeFilesUnparsed": 0,
-  "openLemmasDecided": 107
+  "openLemmasDecided": 155
  },
  "D_reliability": {
-  "lanesRun": 130,
-  "lanesRefereed": 130,
-  "refereeHoldRate": 0.908,
-  "provedClaimsBroken": 11,
-  "threeRefereeStatements": 1,
+  "lanesRun": 180,
+  "lanesRefereed": 170,
+  "refereeHoldRate": 0.918,
+  "provedClaimsBroken": 16,
+  "threeRefereeStatements": 2,
   "threeRefereeStatementsAboutZeros": 0,
   "aboutZerosClaimsNotYetCounted": [],
   "laneLinesUnparsed": 0
@@ -94,9 +94,10 @@
    "round": 1,
    "lanesThisRound": 18,
    "lanesCumulative": 18,
-   "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestScore": 0,
+   "bestSlug": null,
    "missing": [
+    "R1",
     "R2",
     "R3",
     "R4"
@@ -110,9 +111,10 @@
    "round": 2,
    "lanesThisRound": 8,
    "lanesCumulative": 26,
-   "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestScore": 0,
+   "bestSlug": null,
    "missing": [
+    "R1",
     "R2",
     "R3",
     "R4"
@@ -126,9 +128,10 @@
    "round": 3,
    "lanesThisRound": 8,
    "lanesCumulative": 34,
-   "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestScore": 0,
+   "bestSlug": null,
    "missing": [
+    "R1",
     "R2",
     "R3",
     "R4"
@@ -143,7 +146,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 42,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -159,7 +162,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 50,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -175,7 +178,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 58,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -191,7 +194,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 66,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -207,7 +210,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 74,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -223,7 +226,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 82,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -239,7 +242,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 90,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -255,7 +258,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 98,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -271,7 +274,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 106,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -287,7 +290,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 114,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -303,7 +306,7 @@
    "lanesThisRound": 8,
    "lanesCumulative": 122,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -316,10 +319,10 @@
   },
   {
    "round": 15,
-   "lanesThisRound": 8,
-   "lanesCumulative": 130,
+   "lanesThisRound": 18,
+   "lanesCumulative": 140,
    "bestScore": 1,
-   "bestSlug": "c1-leeyang-krein-limit",
+   "bestSlug": "c4-helson-discrepancy-zerofree",
    "missing": [
     "R2",
     "R3",
@@ -329,6 +332,86 @@
    "provedBroken": 11,
    "threeReferee": 1,
    "lemmasDecided": 107
+  },
+  {
+   "round": 16,
+   "lanesThisRound": 8,
+   "lanesCumulative": 148,
+   "bestScore": 1,
+   "bestSlug": "c4-helson-discrepancy-zerofree",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.913,
+   "provedBroken": 11,
+   "threeReferee": 2,
+   "lemmasDecided": 125
+  },
+  {
+   "round": 17,
+   "lanesThisRound": 8,
+   "lanesCumulative": 156,
+   "bestScore": 1,
+   "bestSlug": "c4-helson-discrepancy-zerofree",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.918,
+   "provedBroken": 11,
+   "threeReferee": 2,
+   "lemmasDecided": 132
+  },
+  {
+   "round": 18,
+   "lanesThisRound": 8,
+   "lanesCumulative": 164,
+   "bestScore": 1,
+   "bestSlug": "c4-helson-discrepancy-zerofree",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.922,
+   "provedBroken": 14,
+   "threeReferee": 2,
+   "lemmasDecided": 136
+  },
+  {
+   "round": 19,
+   "lanesThisRound": 8,
+   "lanesCumulative": 172,
+   "bestScore": 1,
+   "bestSlug": "c4-helson-discrepancy-zerofree",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.914,
+   "provedBroken": 16,
+   "threeReferee": 2,
+   "lemmasDecided": 140
+  },
+  {
+   "round": 20,
+   "lanesThisRound": 8,
+   "lanesCumulative": 180,
+   "bestScore": 1,
+   "bestSlug": "c4-helson-discrepancy-zerofree",
+   "missing": [
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "holdRate": 0.918,
+   "provedBroken": 16,
+   "threeReferee": 2,
+   "lemmasDecided": 155
   }
  ]
 }

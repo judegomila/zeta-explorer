@@ -1,0 +1,114 @@
+[
+ {
+  "case": "symmetric quartet eta = 1/4, g = 1",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "symmetric quartet eta = 1/10, g = 3",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "symmetric quartet eta = 9/20, g = 1/2",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "symmetric quartet eta = 1/4, g = 30",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "symmetric quartet eta = 1/100, g = 1/5",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "symmetric quartet eta = 2/5, g = 14",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "mis-paired quartet (1/4, 1; right shifted by 1/1000)",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 8,
+  "neg": 2,
+  "predicted_neg": 2
+ },
+ {
+  "case": "mis-paired quartet (1/4, 1; right at other height 2)",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 8,
+  "neg": 2,
+  "predicted_neg": 2
+ },
+ {
+  "case": "two left pairs",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 4,
+  "predicted_neg": 4
+ },
+ {
+  "case": "two right pairs",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 10,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "left pair doubled",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 4,
+  "predicted_neg": 4
+ },
+ {
+  "case": "pair on the line doubled",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "two different pairs on the line",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ },
+ {
+  "case": "real symmetric pair {1/4,3/4} and pair on the line",
+  "fit_failures": 0,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 0,
+  "predicted_neg": 0
+ }
+]

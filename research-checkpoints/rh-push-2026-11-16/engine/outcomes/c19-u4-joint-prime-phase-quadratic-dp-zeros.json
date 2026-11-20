@@ -1,0 +1,52 @@
+{
+ "slug": "c19-u4-joint-prime-phase-quadratic-dp-zeros",
+ "round": 19,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "U4",
+  "joint-prime-phase",
+  "quadratic-log-derivative",
+  "D_P-zeros",
+  "second-order-explicit-formula",
+  "Bohr-equivalence"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta; verdict precise-obstruction stands after correction E1. Lemma Q2 (second-order explicit formula of the partial sum D_P; classical in content; any series with a_1 = 1, a_P != 0, simple zeros, sum taken as a limit over heights; float64 check to 1e-9 at P <= 14 on 14 cases over two passes) and Lemma N (non-negative coefficients of F^(k)/F force a(n) >= 0, so with the functional equation and pole clause the set is inside Theorem P) are correct. Candidate (J), cross-prime positivity of the pair form: non-trivial sign chains fail at p q, Liouville fails at p q^2 (P > 12), T-NR fails at q^2 p (c > 2) or q p (c < -2); E_a and DEL pass every step carried out, HQ2 passes at each P, 1/zeta passes the sign step; stage A stop is justified by E_a and DEL. K1 (Bohr equivalence at fixed P: height-uniform limit-stable zero statements on D_P hold for every unimodular chain), K2 (at most 1 + 2T log P/(pi(1-4 delta)) sign patterns emulated below T) and K3 (zeta(s)(1+q^(b-s)), q > P, has zeta's D_P) are correct. No server run.",
+ "obstruction": "Stops at stage A (controls pass); the referee does not hold the lane as written (E1: the Liouville twist fails candidate (J) at p q^2 for P > 12; the lane's check at P = 10 saw only the atom 6); the obstruction stands after that correction. Candidate (J), cross-prime positivity of the pair form from the second-order explicit formula of D_P (Lemma Q2): the read set is 'all atoms in phase', which E_a and DEL satisfy at every step carried out and HQ2 at each P. Lemma N: non-negative coefficients of F^(k)/F force a(n) >= 0, so with the functional equation and pole clause the set is inside Theorem P. Joint phases: K1 (Bohr equivalence at fixed P: every height-uniform limit-stable zero statement on D_P holds for every unimodular chain), K2 (at most 1 + 2T log P/(pi(1-4 delta)) sign patterns emulated below T), K3 (zeta(s)(1+q^(b-s)), q > P, has zeta's D_P: zeros of D_P are blind to primes above P). Any conclusion then needs the functional equation at height t; with INT that is Hamburger's identification and at theta >= 1/2 the target in a window (ARGUED).",
+ "obstructionKind": "control-passes: E_a and DEL pass every step of the cross-prime positivity candidate, HQ2 at each P; K1 and K3 make fixed-P statements on D_P shared by every unimodular chain and by zeta(s)(1+q^(b-s))",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a) (passes every step carried out)",
+  "DEL (passes every step carried out)",
+  "HQ2 (passes at each P)",
+  "1/zeta (passes the sign step)",
+  "every unimodular chain (K1: shares height-uniform limit-stable zero statements on D_P at fixed P)",
+  "zeta(s)(1+q^(b-s)), q > P (K3: same D_P)",
+  "fail at a cross-prime step, as intended: non-trivial sign chains at p q, Liouville at p q^2 (P > 12), T-NR at q^2 p or q p",
+  "not run: ZQ, DH, HEAT rows are ARGUED only"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 1,
+ "refereeNote": "E1 (false claim, appears in summary, step M, stage A table, section 5, map row, lanes.jsonl): the Liouville twist does NOT pass step (2) of candidate (J). Lambda_lambda(p^k) = (-1)^k log p, so cross products are negative when j+k is odd; first failing atom n = 12 (mu_cross = -2 log2 log3 = -1.523), also 18, 20, 28 (recomputed). The lane's check used P = 10 where only the atom 6 exists. Liouville passes only for P <= 12; among sign chains only eps = +1 passes at all P. The correct opposite-sign m - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Sign relations between atoms at different primes do make T-NR and sign chains fail at a cross-prime step, but the read set is \"all atoms in phase\", which E_a, DEL and Liouville satisfy. Zeros of D_P at P = t^theta are blind to primes above P (K3), so any conclusion needs the functional equation at height t; with INT that is Hamburger's identification, and at theta >= 1/2 it is the target in a window (this last dichotomy is argued, not proved).",
+ "followUp": "One uncovered read remains: a second-order form mixing A_P with the archimedean operator (Cauchy-Schwarz or commutator using the reserve Lg - u), with step F of the second-order explicit formula written out. Run E_a and DEL against it on paper first. Also owed: a referee pass on Lemma Q2, K1-K3, and the ZQ/DH/HEAT rows, which are argued only.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-u4-joint-prime-phase-quadratic-dp-zeros/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-u4-joint-prime-phase-quadratic-dp-zeros/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Named statements hold with corrections: Lemma Q2 (domain: simple zeros, sum as a limit over heights), K1, K2, K3 re-derived. Liouville row as corrected is right: fails the cross-sign step at p q^2, first atom n = 12 (-1.5230), passes only for P <= 12. RESULT.md text still says 'Liouville passes' (refereeHolds stays false for the printed text).",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-u4-joint-prime-phase-quadratic-dp-zeros.md"
+ }
+}

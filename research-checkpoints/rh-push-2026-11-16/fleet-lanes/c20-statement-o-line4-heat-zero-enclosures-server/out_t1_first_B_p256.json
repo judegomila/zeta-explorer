@@ -1,0 +1,114 @@
+{
+ "config": {
+  "tau": "1",
+  "XC": "5002",
+  "dx": "-0.3531521508892439",
+  "eta": "1.6351480752967824",
+  "y0": "-1.8",
+  "a": "0.6",
+  "U": "32",
+  "JL": 400,
+  "rects": [
+   [
+    "0.05",
+    9
+   ],
+   [
+    "0.000001",
+    12
+   ]
+  ],
+  "nside": 16
+ },
+ "prec": 256,
+ "REF": "[-1949.86100000 +/- 3e-13]",
+ "REF0": "[-1949.96900000 +/- 2e-13]",
+ "sigma0": "[1.400000000 +/- 3e-14]",
+ "n_nodes": 2935,
+ "h": "[0.021813224267211997273 +/- 3.47e-22]",
+ "t_samples_s": 1.958570957183838,
+ "max_abs_sample": "[232264.38 +/- 4.11e-4]",
+ "newton_root_nonrigorous": {
+  "dx": "[-0.353152150889245575869788145024 +/- 2.14e-31]",
+  "y": "[-1.63514807529678237951626674814 +/- 2.71e-30]",
+  "absF": "[+/- 1.06e-72]",
+  "absdF": "[0.14664010 +/- 1.79e-9]"
+ },
+ "rects": [
+  {
+   "centre_dx": "-0.353152151",
+   "centre_y": "-1.635148075",
+   "half_width": "0.05",
+   "x_centre_abs": "[5001.64684784900000000000000000 +/- 3e-31]",
+   "prec": 256,
+   "eps_trap": "[2.15439e-72 +/- 3.96e-78]",
+   "eps_tail": "[1.46646e-103 +/- 3.00e-109]",
+   "M_a": "[1230.41 +/- 1.59e-3]",
+   "F": {
+    "n_segments": 64,
+    "refinement_rounds": 0,
+    "n_evaluations": 128,
+    "winding_enclosure": "[1.00000000000000000000000000000 +/- 3e-35]",
+    "winding_radius": 1.2332220321833596e-68,
+    "winding_integer": 1,
+    "min_abs_vertices_lower": 0.005816018228775117,
+    "min_abs_segment_enclosures_lower": 0.005643258112897913,
+    "max_vertex_radius": 4.155091869606195e-72
+   },
+   "zeta_control_H0": {
+    "n_segments": 64,
+    "refinement_rounds": 0,
+    "n_evaluations": 128,
+    "winding_enclosure": "[+/- 1.97e-71]",
+    "winding_radius": 1.9699176614140853e-71,
+    "winding_integer": 0,
+    "min_abs_vertices_lower": 0.9021002042031993,
+    "min_abs_segment_enclosures_lower": 0.8860288791336823,
+    "max_vertex_radius": 9.567443740011435e-73
+   },
+   "centre_value_scaled": [
+    "[-6.84334945761193785970567537867e-12 +/- 4.10e-43]",
+    "[4.59450499163309860439056042200e-11 +/- 8.53e-42]"
+   ],
+   "wall_s": 2.3121354579925537
+  },
+  {
+   "centre_dx": "-0.353152150889",
+   "centre_y": "-1.635148075297",
+   "half_width": "0.000001",
+   "x_centre_abs": "[5001.64684784911100000000000000 +/- 3e-31]",
+   "prec": 256,
+   "eps_trap": "[2.09695e-72 +/- 4.60e-78]",
+   "eps_tail": "[6.61362e-104 +/- 4.34e-111]",
+   "M_a": "[1197.60 +/- 1.37e-3]",
+   "F": {
+    "n_segments": 64,
+    "refinement_rounds": 0,
+    "n_evaluations": 128,
+    "winding_enclosure": "[1.00000000000000000000000000000 +/- 3e-35]",
+    "winding_radius": 6.045347100451925e-64,
+    "winding_integer": 1,
+    "min_abs_vertices_lower": 1.24394911183564e-07,
+    "min_abs_segment_enclosures_lower": 1.2058601244685645e-07,
+    "max_vertex_radius": 4.0232656186743695e-72
+   },
+   "zeta_control_H0": {
+    "n_segments": 64,
+    "refinement_rounds": 0,
+    "n_evaluations": 128,
+    "winding_enclosure": "[+/- 1.96e-71]",
+    "winding_radius": 1.950594585116409e-71,
+    "winding_integer": 0,
+    "min_abs_vertices_lower": 1.0065637962634173,
+    "min_abs_segment_enclosures_lower": 1.006563470157978,
+    "max_vertex_radius": 8.996334229728977e-73
+   },
+   "centre_value_scaled": [
+    "[2.85941771790039501832885248607e-14 +/- 4.65e-44]",
+    "[-3.86982344995548659448230227963e-14 +/- 1.67e-44]"
+   ],
+   "wall_s": 2.3995168209075928
+  }
+ ],
+ "wall_s": 6.862858533859253
+}

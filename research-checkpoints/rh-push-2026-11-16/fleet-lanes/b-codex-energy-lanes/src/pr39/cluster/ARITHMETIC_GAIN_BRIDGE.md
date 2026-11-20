@@ -178,7 +178,7 @@ The general fractional-part approximation route is classical and is already expl
 
 Likewise [Bettin–Conrey–Farmer, Theorem 1](https://arxiv.org/pdf/1211.5191), obtains the optimal asymptotic for a smoothed Möbius choice under RH and an additional inverse-zeta-derivative moment hypothesis. That theorem cannot be used as an unconditional input here.
 
-The existing [Nyman–Beurling module](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/math/nyman-beurling-completeness.js) contains numerical approximation experiments. For the present proof use the precise basis, pole constraint, norm, and tail in (1)–(9); those experiments are not a certificate for (6).
+The existing [Nyman–Beurling module](https://github.com/[user]/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/math/nyman-beurling-completeness.js) contains numerical approximation experiments. For the present proof use the precise basis, pole constraint, norm, and tail in (1)–(9); those experiments are not a certificate for (6).
 
 ## Exact connection to the main signed bridge
 
@@ -242,7 +242,7 @@ $$
 $$
 This makes a strict finite diagonal calculation transferable to the actual source. A small unsigned source error, by itself, supplies no positive margin.
 
-The kernel convention agrees with the pinned [shift-bridge formulation](https://github.com/judegomila/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/data/shift-bridge-positivity-section.js). It is distinct from identifying the local positive Gram matrix with the main signed kernel.
+The kernel convention agrees with the pinned [shift-bridge formulation](https://github.com/[user]/mathexplorer/blob/942ba1760c4ef54a519750ab91c37a661c31e0ce/src/data/shift-bridge-positivity-section.js). It is distinct from identifying the local positive Gram matrix with the main signed kernel.
 
 ## The fixed-degree obstruction holds on the exact grid
 

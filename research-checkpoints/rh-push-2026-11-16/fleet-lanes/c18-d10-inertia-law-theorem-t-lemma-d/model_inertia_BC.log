@@ -1,0 +1,39 @@
+B unpaired #4                                                                  deg b  9  basis  61  rank  32  (pos  30, neg  2)  OK  2.7s
+B unpaired #5                                                                  deg b  9  basis  61  rank  32  (pos  30, neg  2)  OK  2.7s
+B unpaired #7                                                                  deg b  9  basis  61  rank  36  (pos  30, neg  6)  OK  2.7s
+B unpaired #8                                                                  deg b  5  basis  19  rank  10  (pos   8, neg  2)  OK  0.0s
+B unpaired #10                                                                 deg b  7  basis  37  rank  21  (pos  17, neg  4)  OK  0.3s
+B unpaired #13                                                                 deg b  9  basis  61  rank  36  (pos  32, neg  4)  OK  2.0s
+B unpaired #14                                                                 deg b  7  basis  37  rank  17  (pos  15, neg  2)  OK  0.3s
+B unpaired #15                                                                 deg b  7  basis  37  rank  17  (pos  15, neg  2)  OK  0.3s
+B unpaired #18                                                                 deg b  7  basis  37  rank  17  (pos  15, neg  2)  OK  0.3s
+B unpaired #24                                                                 deg b  7  basis  37  rank  21  (pos  17, neg  4)  OK  0.3s
+B unpaired #25                                                                 deg b  7  basis  37  rank  17  (pos  15, neg  2)  OK  0.3s
+B unpaired #26                                                                 deg b  7  basis  37  rank  17  (pos  15, neg  2)  OK  0.3s
+B unpaired #28                                                                 deg b  7  basis  37  rank  19  (pos  18, neg  1)  MISMATCH  0.3s
+B unpaired #29                                                                 deg b  9  basis  61  rank  36  (pos  32, neg  4)  OK  1.9s
+C single real zero 3/4, pole base                                              deg b  2  basis   3  rank   1  (pos   0, neg  1)  OK  0.0s
+C single real zero 1/4, pole base                                              deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C one left one right real, not partners                                        deg b  3  basis   7  rank   3  (pos   2, neg  1)  OK  0.0s
+C symmetric quartet outside the strip eta=3/4 g=2, pole base                   deg b  5  basis  19  rank   6  (pos   4, neg  2)  0.0s
+C symmetric quartet outside the strip eta=5/4 g=1/2, pole base                 deg b  5  basis  19  rank   6  (pos   4, neg  2)  0.0s
+C symmetric quartet outside the strip eta=9/16 g=5, pole base                  deg b  5  basis  19  rank   6  (pos   4, neg  2)  0.0s
+C base minus, symmetric quartet (1/4, 2)                                       deg b  4  basis  12  rank   6  (pos   6, neg  0)  0.0s
+C base minus, left pair 1/5 +- 3i                                              deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base minus, right pair 4/5 +- 3i                                             deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base minus, two left pairs                                                   deg b  4  basis  12  rank   6  (pos   6, neg  0)  0.0s
+C base minus, single real zero 1/4                                             deg b  1  basis   1  rank   0  (pos   0, neg  0)  0.0s
+C base minus, single real zero 3/4                                             deg b  1  basis   1  rank   0  (pos   0, neg  0)  0.0s
+C base minus, real left pair {1/5, 1/3}                                        deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base minus, symmetric quartet outside the strip (eta = 5/4, g = 1/2)         deg b  4  basis  12  rank   6  (pos   2, neg  4)  0.0s
+C base minus, pair right of 1: 3/2 +- 2i                                       deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base plus, symmetric quartet (1/4, 2)                                        deg b  5  basis  19  rank  10  (pos  10, neg  0)  0.0s
+C base plus, left pair 1/5 +- 3i                                               deg b  3  basis   7  rank   3  (pos   3, neg  0)  0.0s
+C base plus, right pair 4/5 +- 3i                                              deg b  3  basis   7  rank   3  (pos   3, neg  0)  0.0s
+C base plus, two left pairs                                                    deg b  5  basis  19  rank  10  (pos  10, neg  0)  0.0s
+C base plus, single real zero 1/4                                              deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base plus, single real zero 3/4                                              deg b  2  basis   3  rank   1  (pos   1, neg  0)  0.0s
+C base plus, real left pair {1/5, 1/3}                                         deg b  3  basis   7  rank   3  (pos   3, neg  0)  0.0s
+C base plus, symmetric quartet outside the strip (eta = 5/4, g = 1/2)          deg b  5  basis  19  rank  10  (pos   6, neg  4)  0.0s
+C base plus, pair right of 1: 3/2 +- 2i                                        deg b  3  basis   7  rank   3  (pos   3, neg  0)  0.0s
+C pole base, pair right of 1: 3/2 +- 2i                                        deg b  3  basis   7  rank   3  (pos   3, neg  0)  0.0s

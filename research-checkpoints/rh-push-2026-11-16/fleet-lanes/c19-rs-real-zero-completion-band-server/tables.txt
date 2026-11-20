@@ -1,0 +1,677 @@
+records 13104 not-run 0
+
+== band-u records: per (height, theta, m, class): n; s_D min/med/max; s_D certified > 0 count; e_min min/med/max; cert(e_min >= -0.05); cert(e_min < -0.25); e_max med; widest enclosure of e_min
+1e6 0.75 96 zeta n=8 sD 0.0265 0.0504 0.1059 sD>0:8 sD<0:0 e_min -0.08779 -0.05830 -0.03634 hold:3 fail:0 und:0 e_max med 0.05883 max 0.08960 width 9.3e-11 t_min min 2.61e-02
+1e6 0.75 96 zeta-rs1 n=8 e_min -0.00008 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00003 max 0.00011 width 9.2e-11
+1e6 0.75 96 chains(24) n=192 sD -0.6041 -0.0641 0.1854 sD>0:60 sD<0:132 e_min -1.55177 -1.09896 -0.78696 hold:0 fail:192 und:0 e_max med 1.91246 max 2.27568 width 1.1e-10
+1e6 0.75 96 liouville n=8 sD -0.1754 -0.0162 0.0005 sD>0:1 sD<0:7 e_min -1.31443 -1.03596 -0.85563 hold:0 fail:8 und:0 e_max med 1.87076 max 1.95806 width 1.1e-10
+1e6 0.75 96 ZQ eta=0.25 n=8 sD -1.1901 -1.0714 -0.5264 sD>0:0 sD<0:8 e_min -1.34595 -1.33284 -1.32692 hold:0 fail:8 und:0 e_max med 3.07035 max 3.10556 width 1.2e-10 pair_min med -1.33374 mu 1.34883 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 96 ZQ eta=0.05 n=8 sD 0.0059 0.0315 0.0620 sD>0:8 sD<0:0 e_min -0.08780 -0.05825 -0.04188 hold:3 fail:0 und:0 e_max med 1.76826 max 1.79829 width 1.1e-10 pair_min med -0.03885 mu 0.03921 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 96 ZQ eta=0.01 n=8 sD 0.0265 0.0447 0.0620 sD>0:8 sD<0:0 e_min -0.08770 -0.05823 -0.03632 hold:3 fail:0 und:0 e_max med 1.73066 max 1.76063 width 1.1e-10 pair_min med -0.00153 mu 0.00155 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 96 E_a=0.1 n=8 sD -0.3293 -0.2147 -0.0802 sD>0:0 sD<0:8
+1e6 0.75 96 E_a=0.3 n=8 sD -7.5316 -7.0990 -6.2661 sD>0:0 sD<0:8
+1e6 0.75 96 DH n=8 sD -1.9604 -1.0278 -0.2237 sD>0:0 sD<0:8 e_min -2.65703 -1.52527 -0.69448 hold:0 fail:8 und:0 e_max med 3.23076 max 4.37269 width 3.4e-07
+1e6 0.75 96 T-NR n=8 sD -6.7526 -6.6572 -6.5454 sD>0:0 sD<0:8 e_min -7.56204 -7.53984 -7.52175 hold:0 fail:8 und:0 e_max med 9.37430 max 9.39640 width 1.9e-10
+1e6 0.75 96 HQ2 n=8 sD -6.2770 -6.0653 -5.8344 sD>0:0 sD<0:8 e_min -6.60469 -6.60181 -6.59864 hold:0 fail:8 und:0 e_max med 6.50527 max 6.50742 width 1.6e-10
+1e6 0.75 192 zeta n=8 sD 0.0259 0.0431 0.0599 sD>0:8 sD<0:0 e_min -0.09825 -0.06298 -0.04706 hold:2 fail:0 und:0 e_max med 0.06234 max 1.71084 width 1.6e-10 t_min min 9.96e-04
+1e6 0.75 192 zeta-rs1 n=8 e_min -0.00017 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00006 max 0.00022 width 1.4e-10
+1e6 0.75 192 chains(24) n=192 sD -0.6230 -0.1324 0.0652 sD>0:14 sD<0:178 e_min -1.56573 -1.18021 -0.90672 hold:0 fail:192 und:0 e_max med 1.96862 max 2.28569 width 1.6e-10
+1e6 0.75 192 liouville n=8 sD -0.3625 -0.1176 -0.0254 sD>0:0 sD<0:8 e_min -1.32219 -1.16943 -0.95976 hold:0 fail:8 und:0 e_max med 1.92029 max 2.05109 width 1.6e-10
+1e6 0.75 192 ZQ eta=0.25 n=8 sD -1.2013 -1.0761 -0.5351 sD>0:0 sD<0:8 e_min -1.34812 -1.33988 -1.33316 hold:0 fail:8 und:0 e_max med 3.07524 max 3.10640 width 1.7e-10 pair_min med -1.34131 mu 1.34883 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 192 ZQ eta=0.05 n=8 sD 0.0046 0.0298 0.0599 sD>0:8 sD<0:0 e_min -0.09822 -0.06298 -0.04709 hold:2 fail:0 und:0 e_max med 1.76860 max 1.79957 width 1.6e-10 pair_min med -0.03903 mu 0.03921 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 192 ZQ eta=0.01 n=8 sD 0.0259 0.0425 0.0599 sD>0:8 sD<0:0 e_min -0.09822 -0.06298 -0.04706 hold:2 fail:0 und:0 e_max med 1.73099 max 1.76259 width 1.6e-10 pair_min med -0.00154 mu 0.00155 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 192 E_a=0.1 n=8 sD -0.4452 -0.2612 -0.1244 sD>0:0 sD<0:8
+1e6 0.75 192 E_a=0.3 n=8 sD -9.0539 -7.5613 -6.9018 sD>0:0 sD<0:8
+1e6 0.75 192 DH n=8 sD -4.9575 -1.5994 -1.1170 sD>0:0 sD<0:8 e_min -6.16209 -2.13618 -1.46310 hold:0 fail:8 und:0 e_max med 3.93295 max 7.94034 width 4.9e-07
+1e6 0.75 192 T-NR n=8 sD -6.7882 -6.7043 -6.5844 sD>0:0 sD<0:8 e_min -7.56879 -7.54605 -7.53748 hold:0 fail:8 und:0 e_max med 9.38150 max 9.40252 width 2.3e-10
+1e6 0.75 192 HQ2 n=8 sD -6.2959 -6.1180 -6.0009 sD>0:0 sD<0:8 e_min -6.61070 -6.60568 -6.60073 hold:0 fail:8 und:0 e_max med 6.50874 max 6.51844 width 2.1e-10
+1e6 0.75 384 zeta n=8 sD 0.0196 0.0310 0.0525 sD>0:8 sD<0:0 e_min -0.09861 -0.06729 -0.04772 hold:2 fail:0 und:0 e_max med 0.08398 max 1.72504 width 4.2e-09 t_min min 6.23e-04
+1e6 0.75 384 zeta-rs1 n=8 e_min -0.00035 -0.00002 -0.00000 hold:8 fail:0 und:0 e_max med 0.00013 max 0.00044 width 4.2e-09
+1e6 0.75 384 chains(24) n=192 sD -0.6272 -0.2191 0.0154 sD>0:2 sD<0:190 e_min -1.56670 -1.25390 -1.00108 hold:0 fail:192 und:0 e_max med 2.03616 max 2.38968 width 4.2e-09
+1e6 0.75 384 liouville n=8 sD -0.3746 -0.1482 -0.0638 sD>0:0 sD<0:8 e_min -1.33222 -1.25305 -1.14782 hold:0 fail:8 und:0 e_max med 1.94052 max 2.05276 width 4.2e-09
+1e6 0.75 384 ZQ eta=0.25 n=8 sD -1.2068 -1.0787 -0.5391 sD>0:0 sD<0:8 e_min -1.35289 -1.34334 -1.33599 hold:0 fail:8 und:0 e_max med 3.07731 max 3.10674 width 4.2e-09 pair_min med -1.34509 mu 1.34883 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 384 ZQ eta=0.05 n=8 sD 0.0040 0.0267 0.0525 sD>0:8 sD<0:0 e_min -0.09858 -0.06731 -0.04775 hold:2 fail:0 und:0 e_max med 1.76891 max 1.79960 width 4.2e-09 pair_min med -0.03912 mu 0.03921 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 384 ZQ eta=0.01 n=8 sD 0.0196 0.0309 0.0525 sD>0:8 sD<0:0 e_min -0.09858 -0.06728 -0.04772 hold:2 fail:0 und:0 e_max med 1.73143 max 1.76261 width 4.2e-09 pair_min med -0.00154 mu 0.00155 max(e_zeta - e_ZQ - mu): see below
+1e6 0.75 384 E_a=0.1 n=8 sD -0.4484 -0.3104 -0.2327 sD>0:0 sD<0:8
+1e6 0.75 384 E_a=0.3 n=8 sD -9.8997 -8.7572 -7.8555 sD>0:0 sD<0:8
+1e6 0.75 384 DH n=8 sD -4.9961 -2.0479 -1.2380 sD>0:0 sD<0:8 e_min -6.20246 -2.59644 -1.63728 hold:0 fail:8 und:0 e_max med 4.31989 max 7.95665 width 7.1e-07
+1e6 0.75 384 T-NR n=8 sD -6.8027 -6.7975 -6.6881 sD>0:0 sD<0:8 e_min -7.57129 -7.55116 -7.54050 hold:0 fail:8 und:0 e_max med 9.38824 max 9.40681 width 4.3e-09
+1e6 0.75 384 HQ2 n=8 sD -6.3077 -6.1880 -6.0721 sD>0:0 sD<0:8 e_min -6.61398 -6.60766 -6.60374 hold:0 fail:8 und:0 e_max med 6.51287 max 6.55197 width 4.2e-09
+1e6 0.8 96 zeta n=8 sD 0.0117 0.0333 0.0507 sD>0:8 sD<0:0 e_min -0.10854 -0.06754 -0.04095 hold:2 fail:0 und:0 e_max med 0.06784 max 0.10810 width 1.9e-10 t_min min 1.17e-02
+1e6 0.8 96 zeta-rs1 n=8 e_min -0.00008 -0.00002 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00005 width 1.8e-10
+1e6 0.8 96 chains(24) n=192 sD -0.7471 -0.1389 0.1273 sD>0:21 sD<0:171 e_min -1.62783 -1.20303 -0.85352 hold:0 fail:192 und:0 e_max med 1.98644 max 2.38743 width 2.1e-10
+1e6 0.8 96 liouville n=8 sD -0.2110 -0.1150 -0.0373 sD>0:0 sD<0:8 e_min -1.45839 -1.13886 -0.98772 hold:0 fail:8 und:0 e_max med 1.91886 max 2.00898 width 2.0e-10
+1e6 0.8 96 ZQ eta=0.25 n=8 sD -1.5695 -1.4817 -1.0480 sD>0:0 sD<0:8 e_min -1.70849 -1.69024 -1.68417 hold:0 fail:8 und:0 e_max med 3.54085 max 3.57837 width 2.2e-10 pair_min med -1.69679 mu 1.71281 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 96 ZQ eta=0.05 n=8 sD -0.0295 -0.0099 0.0362 sD>0:3 sD<0:5 e_min -0.10847 -0.06759 -0.04774 hold:1 fail:0 und:0 e_max med 1.89104 max 1.92100 width 2.0e-10 pair_min med -0.04732 mu 0.04768 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 96 ZQ eta=0.01 n=8 sD 0.0073 0.0172 0.0367 sD>0:8 sD<0:0 e_min -0.10847 -0.06749 -0.04085 hold:2 fail:0 und:0 e_max med 1.84537 max 1.87537 width 2.0e-10 pair_min med -0.00187 mu 0.00188 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 96 E_a=0.1 n=8 sD -0.5182 -0.3588 -0.2782 sD>0:0 sD<0:8
+1e6 0.8 96 E_a=0.3 n=8 sD -12.4604 -9.6415 -8.3396 sD>0:0 sD<0:8
+1e6 0.8 96 DH n=8 sD -2.9129 -1.3356 -0.4307 sD>0:0 sD<0:8 e_min -3.49242 -1.90227 -0.89617 hold:0 fail:8 und:0 e_max med 3.81913 max 5.28147 width 3.4e-07
+1e6 0.8 96 T-NR n=8 sD -9.5009 -9.0766 -8.0560 sD>0:0 sD<0:8 e_min -10.49885 -10.09299 -9.16246 hold:0 fail:8 und:0 e_max med 10.21655 max 10.85866 width 2.9e-10
+1e6 0.8 96 HQ2 n=8 sD -8.3760 -8.1275 -7.9121 sD>0:0 sD<0:8 e_min -8.74621 -8.74167 -8.73727 hold:0 fail:8 und:0 e_max med 8.60218 max 8.60621 width 2.7e-10
+1e6 0.8 192 zeta n=8 sD 0.0113 0.0232 0.0326 sD>0:8 sD<0:0 e_min -0.11580 -0.07286 -0.05006 hold:0 fail:0 und:0 e_max med 0.07317 max 1.82441 width 2.9e-10 t_min min 1.06e-04
+1e6 0.8 192 zeta-rs1 n=8 e_min -0.00015 -0.00003 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00011 width 2.7e-10
+1e6 0.8 192 chains(24) n=192 sD -0.7583 -0.2041 0.0236 sD>0:1 sD<0:191 e_min -1.66500 -1.29851 -1.05065 hold:0 fail:192 und:0 e_max med 2.04606 max 2.40179 width 2.9e-10
+1e6 0.8 192 liouville n=8 sD -0.4115 -0.1855 -0.1253 sD>0:0 sD<0:8 e_min -1.48674 -1.30508 -1.03124 hold:0 fail:8 und:0 e_max med 1.99460 max 2.09396 width 2.9e-10
+1e6 0.8 192 ZQ eta=0.25 n=8 sD -1.5700 -1.4904 -1.0546 sD>0:0 sD<0:8 e_min -1.70890 -1.70134 -1.69273 hold:0 fail:8 und:0 e_max med 3.54940 max 3.58066 width 3.1e-10 pair_min med -1.70484 mu 1.71281 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 192 ZQ eta=0.05 n=8 sD -0.0300 -0.0112 0.0257 sD>0:3 sD<0:5 e_min -0.11579 -0.07290 -0.05201 hold:0 fail:0 und:0 e_max med 1.89182 max 1.92262 width 2.9e-10 pair_min med -0.04750 mu 0.04768 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 192 ZQ eta=0.01 n=8 sD 0.0070 0.0131 0.0257 sD>0:8 sD<0:0 e_min -0.11578 -0.07286 -0.05006 hold:0 fail:0 und:0 e_max med 1.84609 max 1.87775 width 2.9e-10 pair_min med -0.00187 mu 0.00188 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 192 E_a=0.1 n=8 sD -0.6037 -0.4215 -0.3278 sD>0:0 sD<0:8
+1e6 0.8 192 E_a=0.3 n=8 sD -12.6026 -9.9642 -8.7445 sD>0:0 sD<0:8
+1e6 0.8 192 DH n=8 sD -7.1252 -2.1544 -1.5777 sD>0:0 sD<0:8 e_min -8.44183 -2.63308 -1.83886 hold:0 fail:8 und:0 e_max med 4.52279 max 10.24367 width 4.8e-07
+1e6 0.8 192 T-NR n=8 sD -10.3565 -10.2555 -10.0976 sD>0:0 sD<0:8 e_min -11.33573 -11.28068 -11.22261 hold:0 fail:8 und:0 e_max med 12.98438 max 13.26308 width 4.0e-10
+1e6 0.8 192 HQ2 n=8 sD -8.4062 -8.2417 -8.1120 sD>0:0 sD<0:8 e_min -8.75046 -8.74347 -8.74049 hold:0 fail:8 und:0 e_max med 8.60409 max 8.61413 width 3.6e-10
+1e6 0.8 384 zeta n=8 sD 0.0112 0.0165 0.0235 sD>0:8 sD<0:0 e_min -0.11629 -0.07970 -0.05602 hold:0 fail:0 und:0 e_max med 0.09704 max 1.83818 width 3.7e-09 t_min min 1.00e-04
+1e6 0.8 384 zeta-rs1 n=8 e_min -0.00031 -0.00006 -0.00000 hold:8 fail:0 und:0 e_max med 0.00002 max 0.00021 width 3.7e-09
+1e6 0.8 384 chains(24) n=192 sD -0.7655 -0.2919 -0.0809 sD>0:0 sD<0:192 e_min -1.67070 -1.36850 -1.11545 hold:0 fail:192 und:0 e_max med 2.12202 max 2.56059 width 3.7e-09
+1e6 0.8 384 liouville n=8 sD -0.4727 -0.2362 -0.1530 sD>0:0 sD<0:8 e_min -1.49002 -1.34672 -1.27822 hold:0 fail:8 und:0 e_max med 1.99701 max 2.09465 width 3.7e-09
+1e6 0.8 384 ZQ eta=0.25 n=8 sD -1.5703 -1.4947 -1.0581 sD>0:0 sD<0:8 e_min -1.70910 -1.70743 -1.69653 hold:0 fail:8 und:0 e_max med 3.55367 max 3.58168 width 3.7e-09 pair_min med -1.70885 mu 1.71281 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 384 ZQ eta=0.05 n=8 sD -0.0303 -0.0117 0.0235 sD>0:3 sD<0:5 e_min -0.11628 -0.07971 -0.05602 hold:0 fail:0 und:0 e_max med 1.89223 max 1.92279 width 3.7e-09 pair_min med -0.04759 mu 0.04768 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 384 ZQ eta=0.01 n=8 sD 0.0067 0.0117 0.0235 sD>0:8 sD<0:0 e_min -0.11627 -0.07970 -0.05602 hold:0 fail:0 und:0 e_max med 1.84654 max 1.87784 width 3.7e-09 pair_min med -0.00188 mu 0.00188 max(e_zeta - e_ZQ - mu): see below
+1e6 0.8 384 E_a=0.1 n=8 sD -0.6098 -0.5555 -0.4274 sD>0:0 sD<0:8
+1e6 0.8 384 E_a=0.3 n=8 sD -12.6919 -11.2614 -9.8807 sD>0:0 sD<0:8
+1e6 0.8 384 DH n=8 sD -7.1515 -2.9170 -1.7145 sD>0:0 sD<0:8 e_min -8.47050 -3.38817 -2.07857 hold:0 fail:8 und:0 e_max med 5.19601 max 10.30684 width 7.0e-07
+1e6 0.8 384 T-NR n=8 sD -11.1498 -11.0859 -10.9581 sD>0:0 sD<0:8 e_min -12.11007 -12.08710 -12.08084 hold:0 fail:8 und:0 e_max med 14.10871 max 14.12448 width 3.8e-09
+1e6 0.8 384 HQ2 n=8 sD -8.4683 -8.3390 -8.2652 sD>0:0 sD<0:8 e_min -8.75169 -8.74739 -8.74240 hold:0 fail:8 und:0 e_max med 8.60848 max 8.63153 width 3.8e-09
+1e6 0.85 96 zeta n=8 sD 0.0066 0.0146 0.0276 sD>0:8 sD<0:0 e_min -0.12545 -0.07618 -0.04733 hold:1 fail:0 und:0 e_max med 0.07625 max 0.12393 width 4.1e-10 t_min min 6.48e-03
+1e6 0.85 96 zeta-rs1 n=8 e_min -0.00008 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00012 width 4.1e-10
+1e6 0.85 96 chains(24) n=192 sD -0.8500 -0.1995 0.0880 sD>0:7 sD<0:185 e_min -1.80993 -1.31258 -1.03671 hold:0 fail:192 und:0 e_max med 2.06477 max 2.48174 width 4.4e-10
+1e6 0.85 96 liouville n=8 sD -0.3678 -0.1962 -0.0904 sD>0:0 sD<0:8 e_min -1.51479 -1.22815 -1.07866 hold:0 fail:8 und:0 e_max med 1.97873 max 2.05850 width 4.3e-10
+1e6 0.85 96 ZQ eta=0.25 n=8 sD -2.0139 -1.8930 -1.4998 sD>0:0 sD<0:8 e_min -2.15468 -2.12981 -2.12196 hold:0 fail:8 und:0 e_max med 4.08735 max 4.12887 width 4.5e-10 pair_min med -2.13982 mu 2.15558 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 96 ZQ eta=0.05 n=8 sD -0.0430 -0.0328 0.0069 sD>0:1 sD<0:7 e_min -0.12554 -0.07632 -0.06048 hold:0 fail:0 und:0 e_max med 2.01361 max 2.04481 width 4.3e-10 pair_min med -0.05697 mu 0.05730 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 96 ZQ eta=0.01 n=8 sD 0.0005 0.0037 0.0137 sD>0:8 sD<0:0 e_min -0.12540 -0.07618 -0.04729 hold:1 fail:0 und:0 e_max med 1.95913 max 1.99012 width 4.3e-10 pair_min med -0.00224 mu 0.00225 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 96 E_a=0.1 n=8 sD -0.8486 -0.5358 -0.3768 sD>0:0 sD<0:8
+1e6 0.85 96 E_a=0.3 n=8 sD -16.9015 -11.8263 -10.2975 sD>0:0 sD<0:8
+1e6 0.85 96 DH n=8 sD -3.9817 -1.3888 -0.6412 sD>0:0 sD<0:8 e_min -4.44186 -2.04489 -1.13882 hold:0 fail:8 und:0 e_max med 3.96028 max 6.50684 width 3.4e-07
+1e6 0.85 96 T-NR n=8 sD -11.5561 -11.2633 -11.1891 sD>0:0 sD<0:8 e_min -12.21494 -12.17314 -12.14560 hold:0 fail:8 und:0 e_max med 14.19179 max 14.23484 width 5.6e-10
+1e6 0.85 96 HQ2 n=8 sD -10.8224 -10.6235 -10.4344 sD>0:0 sD<0:8 e_min -11.22647 -11.22259 -11.21404 hold:0 fail:8 und:0 e_max med 11.02675 max 11.02962 width 5.3e-10
+1e6 0.85 192 zeta n=8 sD 0.0047 0.0084 0.0132 sD>0:8 sD<0:0 e_min -0.13712 -0.08440 -0.05848 hold:0 fail:0 und:0 e_max med 0.08427 max 1.93881 width 6.1e-10 t_min min 3.17e-06
+1e6 0.85 192 zeta-rs1 n=8 e_min -0.00017 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00025 width 5.9e-10
+1e6 0.85 192 chains(24) n=192 sD -0.8924 -0.2868 -0.0554 sD>0:0 sD<0:192 e_min -1.85540 -1.41004 -1.15922 hold:0 fail:192 und:0 e_max med 2.12019 max 2.53301 width 6.2e-10
+1e6 0.85 192 liouville n=8 sD -0.4949 -0.2313 -0.1824 sD>0:0 sD<0:8 e_min -1.60132 -1.39577 -1.17837 hold:0 fail:8 und:0 e_max med 2.03978 max 2.12456 width 6.1e-10
+1e6 0.85 192 ZQ eta=0.25 n=8 sD -2.0236 -1.9039 -1.5148 sD>0:0 sD<0:8 e_min -2.15527 -2.14056 -2.13354 hold:0 fail:8 und:0 e_max med 4.10096 max 4.13332 width 6.3e-10 pair_min med -2.14775 mu 2.15558 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 192 ZQ eta=0.05 n=8 sD -0.0432 -0.0338 0.0042 sD>0:1 sD<0:7 e_min -0.13714 -0.08442 -0.06080 hold:0 fail:0 und:0 e_max med 2.01641 max 2.04582 width 6.1e-10 pair_min med -0.05714 mu 0.05730 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 192 ZQ eta=0.01 n=8 sD 0.0004 0.0027 0.0104 sD>0:8 sD<0:0 e_min -0.13712 -0.08440 -0.05847 hold:0 fail:0 und:0 e_max med 1.96153 max 1.99107 width 6.1e-10 pair_min med -0.00225 mu 0.00225 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 192 E_a=0.1 n=8 sD -0.8571 -0.6269 -0.5014 sD>0:0 sD<0:8
+1e6 0.85 192 E_a=0.3 n=8 sD -16.9950 -13.7936 -11.7497 sD>0:0 sD<0:8
+1e6 0.85 192 DH n=8 sD -9.9935 -2.7109 -1.2155 sD>0:0 sD<0:8 e_min -11.37835 -3.36970 -1.64649 hold:0 fail:8 und:0 e_max med 5.39387 max 13.40597 width 4.8e-07
+1e6 0.85 192 T-NR n=8 sD -11.5846 -11.3982 -11.2134 sD>0:0 sD<0:8 e_min -12.22339 -12.17919 -12.16770 hold:0 fail:8 und:0 e_max med 14.19835 max 14.25005 width 7.4e-10
+1e6 0.85 192 HQ2 n=8 sD -10.8701 -10.7427 -10.5875 sD>0:0 sD<0:8 e_min -11.23600 -11.22463 -11.22063 hold:0 fail:8 und:0 e_max med 11.02824 max 11.06748 width 7.0e-10
+1e6 0.85 384 zeta n=8 sD 0.0045 0.0065 0.0079 sD>0:8 sD<0:0 e_min -0.13733 -0.09310 -0.06478 hold:0 fail:0 und:0 e_max med 0.11594 max 1.94974 width 3.7e-09 t_min min 2.43e-06
+1e6 0.85 384 zeta-rs1 n=8 e_min -0.00033 -0.00003 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00050 width 3.7e-09
+1e6 0.85 384 chains(24) n=192 sD -0.8962 -0.3506 -0.1313 sD>0:0 sD<0:192 e_min -1.85719 -1.48495 -1.21775 hold:0 fail:192 und:0 e_max med 2.21159 max 2.67996 width 3.7e-09
+1e6 0.85 384 liouville n=8 sD -0.5554 -0.3354 -0.1856 sD>0:0 sD<0:8 e_min -1.60667 -1.43700 -1.33751 hold:0 fail:8 und:0 e_max med 2.04093 max 2.13447 width 3.7e-09
+1e6 0.85 384 ZQ eta=0.25 n=8 sD -2.0280 -1.9097 -1.5225 sD>0:0 sD<0:8 e_min -2.15557 -2.14876 -2.13718 hold:0 fail:8 und:0 e_max med 4.10775 max 4.13556 width 3.7e-09 pair_min med -2.15170 mu 2.15558 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 384 ZQ eta=0.05 n=8 sD -0.0434 -0.0344 0.0031 sD>0:1 sD<0:7 e_min -0.13734 -0.09310 -0.06480 hold:0 fail:0 und:0 e_max med 2.01715 max 2.04633 width 3.7e-09 pair_min med -0.05722 mu 0.05730 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 384 ZQ eta=0.01 n=8 sD 0.0003 0.0024 0.0077 sD>0:8 sD<0:0 e_min -0.13733 -0.09310 -0.06478 hold:0 fail:0 und:0 e_max med 1.96218 max 1.99156 width 3.7e-09 pair_min med -0.00225 mu 0.00225 max(e_zeta - e_ZQ - mu): see below
+1e6 0.85 384 E_a=0.1 n=8 sD -0.8613 -0.6848 -0.5721 sD>0:0 sD<0:8
+1e6 0.85 384 E_a=0.3 n=8 sD -17.0374 -14.7843 -12.5379 sD>0:0 sD<0:8
+1e6 0.85 384 DH n=8 sD -10.0830 -4.0016 -2.2889 sD>0:0 sD<0:8 e_min -11.46550 -4.37938 -2.61976 hold:0 fail:8 und:0 e_max med 6.19488 max 13.45551 width 6.9e-07
+1e6 0.85 384 T-NR n=8 sD -11.6215 -11.5349 -11.3903 sD>0:0 sD<0:8 e_min -12.22662 -12.19218 -12.17566 hold:0 fail:8 und:0 e_max med 14.21611 max 14.29897 width 3.8e-09
+1e6 0.85 384 HQ2 n=8 sD -10.9491 -10.8184 -10.7341 sD>0:0 sD<0:8 e_min -11.23812 -11.22563 -11.22105 hold:0 fail:8 und:0 e_max med 11.03114 max 11.07393 width 3.8e-09
+1e9 0.75 96 zeta n=8 sD 0.0307 0.0772 0.0994 sD>0:8 sD<0:0 e_min -0.01133 -0.00992 -0.00844 hold:8 fail:0 und:0 e_max med 0.00983 max 0.01131 width 5.8e-08 t_min min 3.09e-02
+1e9 0.75 96 zeta-rs1 n=8 e_min -0.00008 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00004 width 5.8e-08
+1e9 0.75 96 chains(24) n=192 sD -0.4887 -0.0079 0.1935 sD>0:91 sD<0:101 e_min -1.40962 -1.01806 -0.76738 hold:0 fail:192 und:0 e_max med 1.90011 max 2.46072 width 5.8e-08
+1e9 0.75 96 liouville n=8 sD -0.2403 0.0312 0.1830 sD>0:5 sD<0:3 e_min -1.32932 -1.00922 -0.80531 hold:0 fail:8 und:0 e_max med 1.82027 max 1.86951 width 5.8e-08
+1e9 0.75 96 ZQ eta=0.25 n=8 sD -4.0299 -3.9392 -3.4118 sD>0:0 sD<0:8 e_min -4.33030 -4.30464 -4.28959 hold:0 fail:8 und:0 e_max med 5.92092 max 5.93627 width 5.8e-08 pair_min med -4.30342 mu 4.33192 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 96 ZQ eta=0.05 n=8 sD -0.0304 0.0153 0.0989 sD>0:4 sD<0:4 e_min -0.08681 -0.08620 -0.08377 hold:0 fail:0 und:0 e_max med 1.72601 max 1.72741 width 5.8e-08 pair_min med -0.08499 mu 0.08537 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 96 ZQ eta=0.01 n=8 sD 0.0108 0.0597 0.0992 sD>0:8 sD<0:0 e_min -0.01133 -0.00987 -0.00842 hold:8 fail:0 und:0 e_max med 1.64461 max 1.64581 width 5.8e-08 pair_min med -0.00330 mu 0.00332 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 96 E_a=0.1 n=8 sD -0.8419 -0.7469 -0.6081 sD>0:0 sD<0:8
+1e9 0.75 96 E_a=0.3 n=8 sD -33.9364 -31.8677 -25.9165 sD>0:0 sD<0:8
+1e9 0.75 96 DH n=8 sD -7.9077 -2.4466 -0.4289 sD>0:0 sD<0:8 e_min -8.84170 -3.15536 -1.20259 hold:0 fail:8 und:0 e_max med 5.05309 max 10.35191 width 8.2e-06
+1e9 0.75 96 T-NR n=8 sD -43.6133 -42.2147 -38.3233 sD>0:0 sD<0:8 e_min -44.56145 -43.36598 -39.33256 hold:0 fail:8 und:0 e_max med 45.34998 max 46.16743 width 5.9e-08
+1e9 0.75 96 HQ2 n=8 sD -15.5150 -15.2902 -14.9504 sD>0:0 sD<0:8 e_min -16.17866 -16.16063 -16.15776 hold:0 fail:8 und:0 e_max med 15.47233 max 15.48220 width 5.8e-08
+1e9 0.75 192 zeta n=8 sD 0.0141 0.0358 0.0669 sD>0:8 sD<0:0 e_min -0.01272 -0.01119 -0.00979 hold:8 fail:0 und:0 e_max med 0.01123 max 0.01263 width 8.2e-08 t_min min 1.40e-02
+1e9 0.75 192 zeta-rs1 n=8 e_min -0.00017 -0.00002 -0.00000 hold:8 fail:0 und:0 e_max med 0.00002 max 0.00009 width 8.2e-08
+1e9 0.75 192 chains(24) n=192 sD -0.5382 -0.0914 0.1541 sD>0:43 sD<0:149 e_min -1.43270 -1.12319 -0.84628 hold:0 fail:192 und:0 e_max med 1.95342 max 2.47523 width 8.2e-08
+1e9 0.75 192 liouville n=8 sD -0.2670 -0.1362 0.0829 sD>0:1 sD<0:7 e_min -1.33085 -1.07361 -0.88864 hold:0 fail:8 und:0 e_max med 1.86373 max 2.00525 width 8.2e-08
+1e9 0.75 192 ZQ eta=0.25 n=8 sD -4.0418 -3.9481 -3.4267 sD>0:0 sD<0:8 e_min -4.33153 -4.31893 -4.31048 hold:0 fail:8 und:0 e_max med 5.94972 max 5.95745 width 8.2e-08 pair_min med -4.31771 mu 4.33192 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 192 ZQ eta=0.05 n=8 sD -0.0310 0.0051 0.0539 sD>0:4 sD<0:4 e_min -0.08710 -0.08640 -0.08408 hold:0 fail:0 und:0 e_max med 1.72862 max 1.72934 width 8.2e-08 pair_min med -0.08518 mu 0.08537 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 192 ZQ eta=0.01 n=8 sD 0.0106 0.0315 0.0539 sD>0:8 sD<0:0 e_min -0.01272 -0.01119 -0.00979 hold:8 fail:0 und:0 e_max med 1.64684 max 1.64750 width 8.2e-08 pair_min med -0.00331 mu 0.00332 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 192 E_a=0.1 n=8 sD -0.9971 -0.8415 -0.6981 sD>0:0 sD<0:8
+1e9 0.75 192 E_a=0.3 n=8 sD -35.6114 -34.5640 -29.5507 sD>0:0 sD<0:8
+1e9 0.75 192 DH n=8 sD -31.3315 -4.8385 -1.7959 sD>0:0 sD<0:8 e_min -32.16968 -5.49560 -2.28286 hold:0 fail:8 und:0 e_max med 7.39834 max 34.39945 width 1.2e-05
+1e9 0.75 192 T-NR n=8 sD -46.9626 -46.7516 -46.6213 sD>0:0 sD<0:8 e_min -47.97007 -47.86309 -47.73198 hold:0 fail:8 und:0 e_max med 49.60148 max 49.71374 width 8.3e-08
+1e9 0.75 192 HQ2 n=8 sD -15.7691 -15.5877 -15.1999 sD>0:0 sD<0:8 e_min -16.21023 -16.20999 -16.20924 hold:0 fail:8 und:0 e_max med 15.51387 max 15.51418 width 8.3e-08
+1e9 0.75 384 zeta n=8 sD 0.0111 0.0278 0.0425 sD>0:8 sD<0:0 e_min -0.01404 -0.01209 -0.01125 hold:8 fail:0 und:0 e_max med 0.01202 max 0.01402 width 1.2e-07 t_min min 1.10e-02
+1e9 0.75 384 zeta-rs1 n=8 e_min -0.00033 -0.00004 -0.00000 hold:8 fail:0 und:0 e_max med 0.00003 max 0.00018 width 1.2e-07
+1e9 0.75 384 chains(24) n=192 sD -0.5406 -0.1395 0.0284 sD>0:4 sD<0:188 e_min -1.67530 -1.18917 -0.96680 hold:0 fail:192 und:0 e_max med 2.00792 max 2.47803 width 1.2e-07
+1e9 0.75 384 liouville n=8 sD -0.2675 -0.1562 -0.0095 sD>0:0 sD<0:8 e_min -1.33133 -1.16601 -1.01041 hold:0 fail:8 und:0 e_max med 1.90356 max 2.00594 width 1.2e-07
+1e9 0.75 384 ZQ eta=0.25 n=8 sD -4.0478 -3.9523 -3.4339 sD>0:0 sD<0:8 e_min -4.33214 -4.32605 -4.32089 hold:0 fail:8 und:0 e_max med 5.96409 max 5.96801 width 1.2e-07 pair_min med -4.32482 mu 4.33192 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 384 ZQ eta=0.05 n=8 sD -0.0313 0.0049 0.0425 sD>0:4 sD<0:4 e_min -0.08724 -0.08650 -0.08424 hold:0 fail:0 und:0 e_max med 1.72981 max 1.73045 width 1.2e-07 pair_min med -0.08528 mu 0.08537 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 384 ZQ eta=0.01 n=8 sD 0.0105 0.0217 0.0425 sD>0:8 sD<0:0 e_min -0.01404 -0.01209 -0.01125 hold:8 fail:0 und:0 e_max med 1.64797 max 1.64852 width 1.2e-07 pair_min med -0.00331 mu 0.00332 max(e_zeta - e_ZQ - mu): see below
+1e9 0.75 384 E_a=0.1 n=8 sD -1.1051 -0.9396 -0.8252 sD>0:0 sD<0:8
+1e9 0.75 384 E_a=0.3 n=8 sD -40.9185 -36.3513 -32.2209 sD>0:0 sD<0:8
+1e9 0.75 384 DH n=8 sD -31.6800 -9.1810 -4.9591 sD>0:0 sD<0:8 e_min -32.51830 -10.26716 -5.56528 hold:0 fail:8 und:0 e_max med 11.75339 max 34.40531 width 1.6e-05
+1e9 0.75 384 T-NR n=8 sD -47.4100 -47.3160 -47.1577 sD>0:0 sD<0:8 e_min -48.34950 -48.34875 -48.34773 hold:0 fail:8 und:0 e_max med 50.09388 max 50.09500 width 1.2e-07
+1e9 0.75 384 HQ2 n=8 sD -15.7843 -15.6530 -15.5265 sD>0:0 sD<0:8 e_min -16.21091 -16.21066 -16.21025 hold:0 fail:8 und:0 e_max med 15.51455 max 15.51481 width 1.2e-07
+1e9 0.8 96 zeta n=8 sD 0.0171 0.0442 0.0664 sD>0:8 sD<0:0 e_min -0.01297 -0.01133 -0.00968 hold:8 fail:0 und:0 e_max med 0.01133 max 0.01293 width 2.7e-07 t_min min 1.74e-02
+1e9 0.8 96 zeta-rs1 n=8 e_min -0.00004 -0.00002 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00005 width 2.7e-07
+1e9 0.8 96 chains(24) n=192 sD -0.5494 -0.0739 0.1582 sD>0:49 sD<0:143 e_min -1.60589 -1.12608 -0.85157 hold:0 fail:192 und:0 e_max med 1.96086 max 2.63090 width 2.7e-07
+1e9 0.8 96 liouville n=8 sD -0.2939 -0.0133 0.0894 sD>0:4 sD<0:4 e_min -1.40363 -1.13009 -0.89753 hold:0 fail:8 und:0 e_max med 1.87512 max 1.91568 width 2.7e-07
+1e9 0.8 96 ZQ eta=0.25 n=8 sD -5.4817 -5.4506 -4.9330 sD>0:0 sD<0:8 e_min -5.79886 -5.76763 -5.73880 hold:0 fail:8 und:0 e_max med 7.47457 max 7.50748 width 2.7e-07 pair_min med -5.76738 mu 5.80243 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 96 ZQ eta=0.05 n=8 sD -0.0514 -0.0305 0.0646 sD>0:3 sD<0:5 e_min -0.10545 -0.10458 -0.10306 hold:0 fail:0 und:0 e_max med 1.85373 max 1.85614 width 2.7e-07 pair_min med -0.10363 mu 0.10404 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 96 ZQ eta=0.01 n=8 sD 0.0046 0.0243 0.0667 sD>0:8 sD<0:0 e_min -0.01297 -0.01160 -0.00968 hold:8 fail:0 und:0 e_max med 1.75459 max 1.75662 width 2.7e-07 pair_min med -0.00401 mu 0.00403 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 96 E_a=0.1 n=8 sD -1.2766 -1.0645 -0.8255 sD>0:0 sD<0:8
+1e9 0.8 96 E_a=0.3 n=8 sD -55.8191 -43.9798 -40.1066 sD>0:0 sD<0:8
+1e9 0.8 96 DH n=8 sD -11.0146 -3.0312 -0.8861 sD>0:0 sD<0:8 e_min -12.12667 -3.53471 -1.36226 hold:0 fail:8 und:0 e_max med 6.13419 max 14.13538 width 8.2e-06
+1e9 0.8 96 T-NR n=8 sD -63.6862 -55.5449 -50.2682 sD>0:0 sD<0:8 e_min -64.65477 -56.56386 -51.39188 hold:0 fail:8 und:0 e_max med 60.14138 max 66.71451 width 2.7e-07
+1e9 0.8 96 HQ2 n=8 sD -16.1093 -15.8134 -15.4647 sD>0:0 sD<0:8 e_min -16.55276 -16.55217 -16.55129 hold:0 fail:8 und:0 e_max med 15.73788 max 15.73847 width 2.7e-07
+1e9 0.8 192 zeta n=8 sD 0.0102 0.0215 0.0399 sD>0:8 sD<0:0 e_min -0.01533 -0.01267 -0.01126 hold:8 fail:0 und:0 e_max med 0.01260 max 0.01554 width 3.9e-07 t_min min 1.01e-02
+1e9 0.8 192 zeta-rs1 n=8 e_min -0.00008 -0.00003 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00011 width 3.9e-07
+1e9 0.8 192 chains(24) n=192 sD -0.6857 -0.1681 0.0538 sD>0:6 sD<0:186 e_min -1.60766 -1.22771 -0.94199 hold:0 fail:192 und:0 e_max med 2.03485 max 2.63523 width 3.9e-07
+1e9 0.8 192 liouville n=8 sD -0.3654 -0.1777 0.0137 sD>0:1 sD<0:7 e_min -1.40618 -1.18257 -0.91075 hold:0 fail:8 und:0 e_max med 1.92238 max 2.03768 width 3.9e-07
+1e9 0.8 192 ZQ eta=0.25 n=8 sD -5.4873 -5.4626 -4.9578 sD>0:0 sD<0:8 e_min -5.80082 -5.78521 -5.77156 hold:0 fail:8 und:0 e_max med 7.51649 max 7.53325 width 3.9e-07 pair_min med -5.78496 mu 5.80243 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 192 ZQ eta=0.05 n=8 sD -0.0520 -0.0319 0.0286 sD>0:3 sD<0:5 e_min -0.10583 -0.10479 -0.10310 hold:0 fail:0 und:0 e_max med 1.85675 max 1.85800 width 3.9e-07 pair_min med -0.10384 mu 0.10404 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 192 ZQ eta=0.01 n=8 sD 0.0043 0.0119 0.0290 sD>0:8 sD<0:0 e_min -0.01533 -0.01267 -0.01126 hold:8 fail:0 und:0 e_max med 1.75716 max 1.75821 width 3.9e-07 pair_min med -0.00402 mu 0.00403 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 192 E_a=0.1 n=8 sD -1.4012 -1.1517 -1.0933 sD>0:0 sD<0:8
+1e9 0.8 192 E_a=0.3 n=8 sD -57.8432 -50.8362 -44.9530 sD>0:0 sD<0:8
+1e9 0.8 192 DH n=8 sD -48.7236 -7.0138 -2.6537 sD>0:0 sD<0:8 e_min -49.55714 -7.63066 -3.03467 hold:0 fail:8 und:0 e_max med 9.52337 max 51.16216 width 1.2e-05
+1e9 0.8 192 T-NR n=8 sD -69.9219 -69.4758 -65.9886 sD>0:0 sD<0:8 e_min -70.92910 -70.47301 -67.06998 hold:0 fail:8 und:0 e_max med 72.31365 max 72.86910 width 3.9e-07
+1e9 0.8 192 HQ2 n=8 sD -16.2835 -16.2215 -15.7055 sD>0:0 sD<0:8 e_min -16.55373 -16.55316 -16.55222 hold:0 fail:8 und:0 e_max med 15.73896 max 15.73954 width 3.9e-07
+1e9 0.8 384 zeta n=8 sD 0.0047 0.0166 0.0269 sD>0:8 sD<0:0 e_min -0.01565 -0.01428 -0.01355 hold:8 fail:0 und:0 e_max med 0.01424 max 0.01570 width 5.5e-07 t_min min 4.61e-03
+1e9 0.8 384 zeta-rs1 n=8 e_min -0.00017 -0.00006 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00022 width 5.5e-07
+1e9 0.8 384 chains(24) n=192 sD -0.6941 -0.2153 -0.0090 sD>0:0 sD<0:192 e_min -1.78279 -1.30111 -1.08243 hold:0 fail:192 und:0 e_max med 2.09392 max 2.63593 width 5.5e-07
+1e9 0.8 384 liouville n=8 sD -0.3668 -0.2057 -0.1023 sD>0:0 sD<0:8 e_min -1.40745 -1.24751 -1.16980 hold:0 fail:8 und:0 e_max med 1.94511 max 2.03886 width 5.5e-07
+1e9 0.8 384 ZQ eta=0.25 n=8 sD -5.4977 -5.4671 -4.9706 sD>0:0 sD<0:8 e_min -5.80179 -5.79404 -5.78789 hold:0 fail:8 und:0 e_max med 7.53742 max 7.54608 width 5.5e-07 pair_min med -5.79371 mu 5.80243 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 384 ZQ eta=0.05 n=8 sD -0.0522 -0.0324 0.0269 sD>0:3 sD<0:5 e_min -0.10601 -0.10489 -0.10311 hold:0 fail:0 und:0 e_max med 1.85826 max 1.85893 width 5.5e-07 pair_min med -0.10394 mu 0.10404 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 384 ZQ eta=0.01 n=8 sD 0.0042 0.0104 0.0269 sD>0:8 sD<0:0 e_min -0.01565 -0.01428 -0.01355 hold:8 fail:0 und:0 e_max med 1.75841 max 1.75899 width 5.5e-07 pair_min med -0.00402 mu 0.00403 max(e_zeta - e_ZQ - mu): see below
+1e9 0.8 384 E_a=0.1 n=8 sD -1.4186 -1.3812 -1.1438 sD>0:0 sD<0:8
+1e9 0.8 384 E_a=0.3 n=8 sD -59.8488 -53.7990 -46.2152 sD>0:0 sD<0:8
+1e9 0.8 384 DH n=8 sD -48.9966 -9.3601 -2.6554 sD>0:0 sD<0:8 e_min -49.82756 -10.17563 -3.03520 hold:0 fail:8 und:0 e_max med 12.07158 max 51.52832 width 1.6e-05
+1e9 0.8 384 T-NR n=8 sD -74.4971 -74.3752 -74.2012 sD>0:0 sD<0:8 e_min -75.46336 -75.42573 -75.37558 hold:0 fail:8 und:0 e_max med 77.28276 max 77.32284 width 5.5e-07
+1e9 0.8 384 HQ2 n=8 sD -16.3112 -16.2412 -15.9973 sD>0:0 sD<0:8 e_min -16.55478 -16.55381 -16.55343 hold:0 fail:8 und:0 e_max med 15.73960 max 15.74059 width 5.5e-07
+1e9 0.85 96 zeta n=8 sD 0.0075 0.0288 0.0459 sD>0:8 sD<0:0 e_min -0.01404 -0.01251 -0.01131 hold:8 fail:0 und:0 e_max med 0.01276 max 0.01398 width 1.3e-06 t_min min 7.72e-03
+1e9 0.85 96 zeta-rs1 n=8 e_min -0.00005 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00006 width 1.3e-06
+1e9 0.85 96 chains(24) n=192 sD -0.6179 -0.1395 0.1024 sD>0:16 sD<0:176 e_min -1.69674 -1.21326 -0.93311 hold:0 fail:192 und:0 e_max med 2.03608 max 2.72971 width 1.3e-06
+1e9 0.85 96 liouville n=8 sD -0.3650 -0.0677 0.0273 sD>0:2 sD<0:6 e_min -1.54063 -1.22524 -0.99837 hold:0 fail:8 und:0 e_max med 1.93302 max 1.97462 width 1.3e-06
+1e9 0.85 96 ZQ eta=0.25 n=8 sD -7.4192 -7.3348 -6.9133 sD>0:0 sD<0:8 e_min -7.72326 -7.68392 -7.62644 hold:0 fail:8 und:0 e_max med 9.46818 max 9.52835 width 1.3e-06 pair_min med -7.68247 mu 7.72371 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 96 ZQ eta=0.05 n=8 sD -0.0779 -0.0625 0.0324 sD>0:2 sD<0:6 e_min -0.12675 -0.12569 -0.12483 hold:0 fail:0 und:0 e_max med 1.98398 max 1.98753 width 1.3e-06 pair_min med -0.12492 mu 0.12535 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 96 ZQ eta=0.01 n=8 sD -0.0004 0.0061 0.0407 sD>0:7 sD<0:1 e_min -0.01405 -0.01251 -0.01132 hold:8 fail:0 und:0 e_max med 1.86458 max 1.86754 width 1.3e-06 pair_min med -0.00481 mu 0.00483 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 96 E_a=0.1 n=8 sD -1.6514 -1.4677 -1.2162 sD>0:0 sD<0:8
+1e9 0.85 96 E_a=0.3 n=8 sD -76.2882 -63.8283 -55.7116 sD>0:0 sD<0:8
+1e9 0.85 96 DH n=8 sD -15.6968 -4.1318 -1.3334 sD>0:0 sD<0:8 e_min -16.93928 -4.63113 -1.70759 hold:0 fail:8 und:0 e_max med 7.20318 max 18.98815 width 8.2e-06
+1e9 0.85 96 T-NR n=8 sD -84.1127 -75.0768 -74.8245 sD>0:0 sD<0:8 e_min -85.19352 -76.09698 -75.77231 hold:0 fail:8 und:0 e_max med 78.73586 max 86.73194 width 1.3e-06
+1e9 0.85 96 HQ2 n=8 sD -23.4028 -23.1949 -22.9857 sD>0:0 sD<0:8 e_min -24.33821 -23.98641 -23.80123 hold:0 fail:8 und:0 e_max med 25.59276 max 25.93768 width 1.3e-06
+1e9 0.85 192 zeta n=8 sD 0.0039 0.0120 0.0172 sD>0:8 sD<0:0 e_min -0.01988 -0.01368 -0.01267 hold:8 fail:0 und:0 e_max med 0.01381 max 0.02020 width 1.8e-06 t_min min 4.00e-03
+1e9 0.85 192 zeta-rs1 n=8 e_min -0.00010 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00012 width 1.8e-06
+1e9 0.85 192 chains(24) n=192 sD -0.8348 -0.2397 -0.0240 sD>0:0 sD<0:192 e_min -1.72953 -1.32624 -1.00256 hold:0 fail:192 und:0 e_max med 2.10839 max 2.75497 width 1.8e-06
+1e9 0.85 192 liouville n=8 sD -0.4546 -0.2632 -0.0383 sD>0:0 sD<0:8 e_min -1.54631 -1.29314 -1.00436 hold:0 fail:8 und:0 e_max med 1.97093 max 2.06528 width 1.8e-06
+1e9 0.85 192 ZQ eta=0.25 n=8 sD -7.4196 -7.3586 -6.9546 sD>0:0 sD<0:8 e_min -7.72330 -7.70462 -7.67603 hold:0 fail:8 und:0 e_max med 9.52938 max 9.55923 width 1.8e-06 pair_min med -7.70317 mu 7.72371 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 192 ZQ eta=0.05 n=8 sD -0.0784 -0.0631 0.0107 sD>0:2 sD<0:6 e_min -0.12708 -0.12577 -0.12483 hold:0 fail:0 und:0 e_max med 1.98751 max 1.98929 width 1.8e-06 pair_min med -0.12514 mu 0.12535 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 192 ZQ eta=0.01 n=8 sD -0.0004 0.0047 0.0108 sD>0:7 sD<0:1 e_min -0.01988 -0.01389 -0.01267 hold:8 fail:0 und:0 e_max med 1.86753 max 1.86901 width 1.8e-06 pair_min med -0.00482 mu 0.00483 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 192 E_a=0.1 n=8 sD -1.7449 -1.6065 -1.3489 sD>0:0 sD<0:8
+1e9 0.85 192 E_a=0.3 n=8 sD -80.9071 -70.1861 -63.1573 sD>0:0 sD<0:8
+1e9 0.85 192 DH n=8 sD -75.4055 -9.7165 -3.5511 sD>0:0 sD<0:8 e_min -76.12284 -10.29517 -3.96521 hold:0 fail:8 und:0 e_max med 12.44887 max 76.29877 width 1.2e-05
+1e9 0.85 192 T-NR n=8 sD -95.0933 -80.2203 -75.8282 sD>0:0 sD<0:8 e_min -96.10334 -81.40864 -76.76041 hold:0 fail:8 und:0 e_max med 85.45954 max 97.44098 width 1.8e-06
+1e9 0.85 192 HQ2 n=8 sD -24.0378 -23.9241 -23.7218 sD>0:0 sD<0:8 e_min -24.79744 -24.79241 -24.79010 hold:0 fail:8 und:0 e_max med 26.39922 max 26.40431 width 1.8e-06
+1e9 0.85 384 zeta n=8 sD 0.0024 0.0079 0.0111 sD>0:8 sD<0:0 e_min -0.02013 -0.01637 -0.01564 hold:8 fail:0 und:0 e_max med 0.01628 max 0.02021 width 2.6e-06 t_min min 2.35e-03
+1e9 0.85 384 zeta-rs1 n=8 e_min -0.00021 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00024 width 2.6e-06
+1e9 0.85 384 chains(24) n=192 sD -0.9231 -0.3054 -0.0836 sD>0:0 sD<0:192 e_min -1.88204 -1.41664 -1.11545 hold:0 fail:192 und:0 e_max med 2.17514 max 2.75752 width 2.6e-06
+1e9 0.85 384 liouville n=8 sD -0.4572 -0.2795 -0.1691 sD>0:0 sD<0:8 e_min -1.54884 -1.36949 -1.24214 hold:0 fail:8 und:0 e_max med 1.97900 max 2.06622 width 2.6e-06
+1e9 0.85 384 ZQ eta=0.25 n=8 sD -7.4197 -7.3701 -6.9745 sD>0:0 sD<0:8 e_min -7.72332 -7.71492 -7.70076 hold:0 fail:8 und:0 e_max med 9.55994 max 9.57461 width 2.6e-06 pair_min med -7.71346 mu 7.72371 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 384 ZQ eta=0.05 n=8 sD -0.0788 -0.0634 0.0101 sD>0:2 sD<0:6 e_min -0.12733 -0.12584 -0.12483 hold:0 fail:0 und:0 e_max med 1.98926 max 1.99018 width 2.6e-06 pair_min med -0.12524 mu 0.12535 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 384 ZQ eta=0.01 n=8 sD -0.0004 0.0043 0.0102 sD>0:7 sD<0:1 e_min -0.02013 -0.01637 -0.01564 hold:8 fail:0 und:0 e_max med 1.86895 max 1.86975 width 2.6e-06 pair_min med -0.00483 mu 0.00483 max(e_zeta - e_ZQ - mu): see below
+1e9 0.85 384 E_a=0.1 n=8 sD -1.8423 -1.6845 -1.5013 sD>0:0 sD<0:8
+1e9 0.85 384 E_a=0.3 n=8 sD -87.1051 -72.7173 -63.9312 sD>0:0 sD<0:8
+1e9 0.85 384 DH n=8 sD -75.4068 -13.0927 -3.7641 sD>0:0 sD<0:8 e_min -76.12402 -14.00698 -4.03434 hold:0 fail:8 und:0 e_max med 16.05328 max 77.38140 width 1.6e-05
+1e9 0.85 384 T-NR n=8 sD -105.7134 -98.8927 -88.7492 sD>0:0 sD<0:8 e_min -106.75013 -99.97817 -89.70053 hold:0 fail:8 und:0 e_max med 104.13337 max 108.56403 width 2.6e-06
+1e9 0.85 384 HQ2 n=8 sD -24.0832 -23.9609 -23.9120 sD>0:0 sD<0:8 e_min -24.80474 -24.80444 -24.80355 hold:0 fail:8 und:0 e_max med 26.41179 max 26.41209 width 2.6e-06
+1e12 0.75 96 zeta n=8 sD 0.0169 0.0735 0.0948 sD>0:8 sD<0:0 e_min -0.00260 -0.00200 -0.00164 hold:8 fail:0 und:0 e_max med 0.00190 max 0.00264 width 6.7e-06 t_min min 1.69e-02
+1e12 0.75 96 zeta-rs1 n=8 e_min -0.00003 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00002 max 0.00003 width 6.7e-06
+1e12 0.75 96 chains(24) n=192 sD -0.4434 0.0013 0.2022 sD>0:100 sD<0:92 e_min -1.35796 -0.97694 -0.72362 hold:0 fail:192 und:0 e_max med 1.87593 max 2.40012 width 6.7e-06
+1e12 0.75 96 liouville n=8 sD -0.3194 0.0862 0.1584 sD>0:6 sD<0:2 e_min -1.24923 -1.02626 -0.95832 hold:0 fail:8 und:0 e_max med 1.89054 max 1.95848 width 6.7e-06
+1e12 0.75 96 ZQ eta=0.25 n=8 sD -12.6481 -12.2616 -11.6911 sD>0:0 sD<0:8 e_min -12.97964 -12.83393 -12.73857 hold:0 fail:8 und:0 e_max med 14.43960 max 14.53848 width 6.7e-06 pair_min med -12.83386 mu 12.98490 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 96 ZQ eta=0.05 n=8 sD -0.0868 0.0350 0.0890 sD>0:5 sD<0:3 e_min -0.15201 -0.15084 -0.15026 hold:0 fail:0 und:0 e_max med 1.75418 max 1.75777 width 6.7e-06 pair_min med -0.15068 mu 0.15168 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 96 ZQ eta=0.01 n=8 sD 0.0176 0.0617 0.0941 sD>0:8 sD<0:0 e_min -0.00615 -0.00588 -0.00577 hold:8 fail:0 und:0 e_max med 1.60921 max 1.61219 width 6.7e-06 pair_min med -0.00573 mu 0.00576 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 96 E_a=0.1 n=8 sD -2.0977 -1.8105 -1.3126 sD>0:0 sD<0:8
+1e12 0.75 96 E_a=0.3 n=8 sD -145.4562 -130.9795 -105.9978 sD>0:0 sD<0:8
+1e12 0.75 96 T-NR n=8 sD -210.9556 -210.7685 -210.5091 sD>0:0 sD<0:8 e_min -211.68373 -211.68280 -211.68132 hold:0 fail:8 und:0 e_max med 213.30124 max 213.30206 width 6.7e-06
+1e12 0.75 96 HQ2 n=8 sD -79.2168 -79.0945 -79.0468 sD>0:0 sD<0:8 e_min -80.02781 -80.00442 -79.99703 hold:0 fail:8 und:0 e_max med 81.04583 max 81.06757 width 6.7e-06
+1e12 0.75 192 zeta n=8 sD 0.0166 0.0588 0.0847 sD>0:8 sD<0:0 e_min -0.00335 -0.00249 -0.00226 hold:8 fail:0 und:0 e_max med 0.00249 max 0.00331 width 9.5e-06 t_min min 1.66e-02
+1e12 0.75 192 zeta-rs1 n=8 e_min -0.00007 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00003 max 0.00005 width 9.5e-06
+1e12 0.75 192 chains(24) n=192 sD -0.5496 -0.0600 0.1202 sD>0:48 sD<0:144 e_min -1.48611 -1.06066 -0.79388 hold:0 fail:192 und:0 e_max med 1.94708 max 2.40231 width 9.5e-06
+1e12 0.75 192 liouville n=8 sD -0.3207 -0.0649 0.1288 sD>0:2 sD<0:6 e_min -1.26445 -1.04252 -0.96279 hold:0 fail:8 und:0 e_max med 1.89775 max 1.95882 width 9.5e-06
+1e12 0.75 192 ZQ eta=0.25 n=8 sD -12.6515 -12.3312 -11.8159 sD>0:0 sD<0:8 e_min -12.98243 -12.90966 -12.86192 hold:0 fail:8 und:0 e_max med 14.51588 max 14.56551 width 9.5e-06 pair_min med -12.90960 mu 12.98490 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 192 ZQ eta=0.05 n=8 sD -0.0880 0.0344 0.0815 sD>0:5 sD<0:3 e_min -0.15203 -0.15134 -0.15103 hold:0 fail:0 und:0 e_max med 1.75635 max 1.75854 width 9.5e-06 pair_min med -0.15118 mu 0.15168 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 192 ZQ eta=0.01 n=8 sD 0.0174 0.0572 0.0842 sD>0:8 sD<0:0 e_min -0.00615 -0.00590 -0.00577 hold:8 fail:0 und:0 e_max med 1.61089 max 1.61279 width 9.5e-06 pair_min med -0.00574 mu 0.00576 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 192 E_a=0.1 n=8 sD -2.2519 -1.9679 -1.8175 sD>0:0 sD<0:8
+1e12 0.75 192 E_a=0.3 n=8 sD -171.4774 -136.2710 -109.0401 sD>0:0 sD<0:8
+1e12 0.75 192 T-NR n=8 sD -211.0159 -210.9085 -210.8262 sD>0:0 sD<0:8 e_min -211.68504 -211.68482 -211.68449 hold:0 fail:8 und:0 e_max med 213.30338 max 213.30359 width 9.5e-06
+1e12 0.75 192 HQ2 n=8 sD -79.4181 -79.2319 -79.1381 sD>0:0 sD<0:8 e_min -80.05709 -80.05697 -80.05689 hold:0 fail:8 und:0 e_max med 81.09766 max 81.09778 width 9.5e-06
+1e12 0.75 384 zeta n=8 sD 0.0165 0.0328 0.0560 sD>0:8 sD<0:0 e_min -0.00363 -0.00288 -0.00256 hold:8 fail:0 und:0 e_max med 0.00288 max 0.00360 width 1.3e-05 t_min min 1.65e-02
+1e12 0.75 384 zeta-rs1 n=8 e_min -0.00013 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00007 max 0.00011 width 1.3e-05
+1e12 0.75 384 chains(24) n=192 sD -0.5504 -0.1375 0.0440 sD>0:12 sD<0:180 e_min -1.56756 -1.14562 -0.94178 hold:0 fail:192 und:0 e_max med 2.00655 max 2.43032 width 1.3e-05
+1e12 0.75 384 liouville n=8 sD -0.3209 -0.1604 -0.0450 sD>0:0 sD<0:8 e_min -1.31143 -1.17423 -1.03459 hold:0 fail:8 und:0 e_max med 1.91427 max 1.95897 width 1.3e-05
+1e12 0.75 384 ZQ eta=0.25 n=8 sD -12.6531 -12.3506 -11.8785 sD>0:0 sD<0:8 e_min -12.98381 -12.94736 -12.92353 hold:0 fail:8 und:0 e_max med 14.55387 max 14.57892 width 1.3e-05 pair_min med -12.94730 mu 12.98490 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 384 ZQ eta=0.05 n=8 sD -0.0887 0.0199 0.0559 sD>0:5 sD<0:3 e_min -0.15204 -0.15159 -0.15140 hold:0 fail:0 und:0 e_max med 1.75741 max 1.75893 width 1.3e-05 pair_min med -0.15143 mu 0.15168 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 384 ZQ eta=0.01 n=8 sD 0.0172 0.0319 0.0560 sD>0:8 sD<0:0 e_min -0.00615 -0.00591 -0.00577 hold:8 fail:0 und:0 e_max med 1.61172 max 1.61309 width 1.3e-05 pair_min med -0.00575 mu 0.00576 max(e_zeta - e_ZQ - mu): see below
+1e12 0.75 384 E_a=0.1 n=8 sD -2.5004 -2.2226 -1.9355 sD>0:0 sD<0:8
+1e12 0.75 384 E_a=0.3 n=8 sD -175.2967 -151.1732 -139.9998 sD>0:0 sD<0:8
+1e12 0.75 384 T-NR n=8 sD -211.0942 -210.9910 -210.9048 sD>0:0 sD<0:8 e_min -211.68576 -211.68511 -211.68484 hold:0 fail:8 und:0 e_max med 213.30366 max 213.30427 width 1.3e-05
+1e12 0.75 384 HQ2 n=8 sD -79.4767 -79.3936 -79.3155 sD>0:0 sD<0:8 e_min -80.05717 -80.05709 -80.05696 hold:0 fail:8 und:0 e_max med 81.09778 max 81.09785 width 1.3e-05
+1e12 0.8 96 zeta n=8 sD 0.0074 0.0505 0.0714 sD>0:8 sD<0:0 e_min -0.00325 -0.00205 -0.00178 hold:8 fail:0 und:0 e_max med 0.00210 max 0.00327 width 1.3e-05 t_min min 7.36e-03
+1e12 0.8 96 zeta-rs1 n=8 e_min -0.00003 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00004 width 1.3e-05
+1e12 0.8 96 chains(24) n=192 sD -0.5380 -0.0544 0.1505 sD>0:58 sD<0:134 e_min -1.49910 -1.08849 -0.82505 hold:0 fail:192 und:0 e_max med 1.94721 max 2.53077 width 1.3e-05
+1e12 0.8 96 liouville n=8 sD -0.3914 0.0327 0.0710 sD>0:5 sD<0:3 e_min -1.38893 -1.16816 -0.97869 hold:0 fail:8 und:0 e_max med 1.92629 max 1.98920 width 1.3e-05
+1e12 0.8 96 ZQ eta=0.25 n=8 sD -18.3068 -17.8868 -17.2393 sD>0:0 sD<0:8 e_min -18.61221 -18.41676 -18.22304 hold:0 fail:8 und:0 e_max med 20.07984 max 20.27803 width 1.3e-05 pair_min med -18.41669 mu 18.61985 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 96 ZQ eta=0.05 n=8 sD -0.1315 0.0017 0.0419 sD>0:4 sD<0:4 e_min -0.18564 -0.18449 -0.18333 hold:0 fail:0 und:0 e_max med 1.89410 max 1.89900 width 1.3e-05 pair_min med -0.18435 mu 0.18545 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 96 ZQ eta=0.01 n=8 sD 0.0031 0.0406 0.0565 sD>0:8 sD<0:0 e_min -0.00727 -0.00706 -0.00677 hold:8 fail:0 und:0 e_max med 1.71695 max 1.72085 width 1.3e-05 pair_min med -0.00696 mu 0.00700 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 96 E_a=0.1 n=8 sD -3.0842 -2.6012 -2.1857 sD>0:0 sD<0:8
+1e12 0.8 96 E_a=0.3 n=8 sD -276.4647 -211.5241 -170.8201 sD>0:0 sD<0:8
+1e12 0.8 96 T-NR n=8 sD -447.6579 -432.5143 -356.0578 sD>0:0 sD<0:8 e_min -448.58210 -433.50171 -357.10192 hold:0 fail:8 und:0 e_max med 371.38894 max 423.32276 width 1.3e-05
+1e12 0.8 96 HQ2 n=8 sD -132.3740 -132.2924 -132.0383 sD>0:0 sD<0:8 e_min -133.23069 -133.17541 -133.07855 hold:0 fail:8 und:0 e_max med 134.10222 max 134.16436 width 1.3e-05
+1e12 0.8 192 zeta n=8 sD 0.0072 0.0412 0.0565 sD>0:8 sD<0:0 e_min -0.00407 -0.00304 -0.00270 hold:8 fail:0 und:0 e_max med 0.00303 max 0.00405 width 1.8e-05 t_min min 7.22e-03
+1e12 0.8 192 zeta-rs1 n=8 e_min -0.00007 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00001 max 0.00007 width 1.8e-05
+1e12 0.8 192 chains(24) n=192 sD -0.6486 -0.1434 0.0777 sD>0:10 sD<0:182 e_min -1.51197 -1.17004 -0.93102 hold:0 fail:192 und:0 e_max med 2.01788 max 2.53244 width 1.8e-05
+1e12 0.8 192 liouville n=8 sD -0.4003 -0.0634 0.0208 sD>0:2 sD<0:6 e_min -1.39968 -1.17041 -1.06711 hold:0 fail:8 und:0 e_max med 1.95747 max 1.98938 width 1.8e-05
+1e12 0.8 192 ZQ eta=0.25 n=8 sD -18.3110 -17.9902 -17.4422 sD>0:0 sD<0:8 e_min -18.61610 -18.51869 -18.42149 hold:0 fail:8 und:0 e_max med 20.20712 max 20.30623 width 1.8e-05 pair_min med -18.51862 mu 18.61985 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 192 ZQ eta=0.05 n=8 sD -0.1328 0.0003 0.0378 sD>0:4 sD<0:4 e_min -0.18566 -0.18494 -0.18440 hold:0 fail:0 und:0 e_max med 1.89678 max 1.89959 width 1.8e-05 pair_min med -0.18490 mu 0.18545 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 192 ZQ eta=0.01 n=8 sD 0.0028 0.0385 0.0545 sD>0:8 sD<0:0 e_min -0.00727 -0.00709 -0.00678 hold:8 fail:0 und:0 e_max med 1.71897 max 1.72129 width 1.8e-05 pair_min med -0.00698 mu 0.00700 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 192 E_a=0.1 n=8 sD -3.1218 -2.9180 -2.4141 sD>0:0 sD<0:8
+1e12 0.8 192 E_a=0.3 n=8 sD -279.1718 -239.7566 -205.1804 sD>0:0 sD<0:8
+1e12 0.8 192 T-NR n=8 sD -480.2363 -479.0052 -471.6671 sD>0:0 sD<0:8 e_min -481.24798 -479.97988 -472.65016 hold:0 fail:8 und:0 e_max med 472.12760 max 485.56078 width 1.8e-05
+1e12 0.8 192 HQ2 n=8 sD -132.6446 -132.4622 -132.3271 sD>0:0 sD<0:8 e_min -133.30184 -133.30156 -133.30149 hold:0 fail:8 und:0 e_max med 134.22402 max 134.22435 width 1.8e-05
+1e12 0.8 384 zeta n=8 sD 0.0072 0.0195 0.0254 sD>0:8 sD<0:0 e_min -0.00445 -0.00329 -0.00284 hold:8 fail:0 und:0 e_max med 0.00330 max 0.00446 width 2.5e-05 t_min min 7.17e-03
+1e12 0.8 384 zeta-rs1 n=8 e_min -0.00014 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00002 max 0.00014 width 2.5e-05
+1e12 0.8 384 chains(24) n=192 sD -0.6514 -0.2049 -0.0021 sD>0:0 sD<0:192 e_min -1.62818 -1.26355 -0.95802 hold:0 fail:192 und:0 e_max med 2.09762 max 2.61348 width 2.5e-05
+1e12 0.8 384 liouville n=8 sD -0.4019 -0.2226 -0.1307 sD>0:0 sD<0:8 e_min -1.46146 -1.30001 -1.17157 hold:0 fail:8 und:0 e_max med 1.96248 max 1.98974 width 2.5e-05
+1e12 0.8 384 ZQ eta=0.25 n=8 sD -18.3130 -18.0150 -17.5430 sD>0:0 sD<0:8 e_min -18.61800 -18.56938 -18.52065 hold:0 fail:8 und:0 e_max med 20.27057 max 20.32020 width 2.5e-05 pair_min med -18.56932 mu 18.61985 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 384 ZQ eta=0.05 n=8 sD -0.1335 -0.0003 0.0253 sD>0:4 sD<0:4 e_min -0.18568 -0.18518 -0.18493 hold:0 fail:0 und:0 e_max med 1.89809 max 1.89988 width 2.5e-05 pair_min med -0.18518 mu 0.18545 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 384 ZQ eta=0.01 n=8 sD 0.0027 0.0151 0.0254 sD>0:8 sD<0:0 e_min -0.00727 -0.00710 -0.00678 hold:8 fail:0 und:0 e_max med 1.71994 max 1.72151 width 2.5e-05 pair_min med -0.00699 mu 0.00700 max(e_zeta - e_ZQ - mu): see below
+1e12 0.8 384 E_a=0.1 n=8 sD -3.1628 -3.0086 -2.7371 sD>0:0 sD<0:8
+1e12 0.8 384 E_a=0.3 n=8 sD -282.8729 -245.8384 -215.8727 sD>0:0 sD<0:8
+1e12 0.8 384 T-NR n=8 sD -511.9191 -511.5382 -511.3571 sD>0:0 sD<0:8 e_min -512.87877 -512.54874 -512.38419 hold:0 fail:8 und:0 e_max med 514.65567 max 514.92568 width 2.5e-05
+1e12 0.8 384 HQ2 n=8 sD -132.7021 -132.5924 -132.4737 sD>0:0 sD<0:8 e_min -133.30197 -133.30172 -133.30165 hold:0 fail:8 und:0 e_max med 134.22421 max 134.22445 width 2.5e-05
+1e12 0.85 96 zeta n=8 sD 0.0053 0.0243 0.0441 sD>0:8 sD<0:0 e_min -0.00399 -0.00239 -0.00203 hold:8 fail:0 und:0 e_max med 0.00240 max 0.00394 width 2.4e-05 t_min min 5.28e-03
+1e12 0.85 96 zeta-rs1 n=8 e_min -0.00004 -0.00000 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00002 width 2.4e-05
+1e12 0.85 96 chains(24) n=192 sD -0.6324 -0.1205 0.1296 sD>0:16 sD<0:176 e_min -1.67225 -1.19108 -0.88920 hold:0 fail:192 und:0 e_max med 2.00082 max 2.65763 width 2.4e-05
+1e12 0.85 96 liouville n=8 sD -0.4737 -0.0639 0.0041 sD>0:1 sD<0:7 e_min -1.51157 -1.27687 -1.09195 hold:0 fail:8 und:0 e_max med 1.93566 max 2.01418 width 2.4e-05
+1e12 0.85 96 ZQ eta=0.25 n=8 sD -26.2471 -25.8663 -25.1090 sD>0:0 sD<0:8 e_min -26.59897 -26.38761 -25.97410 hold:0 fail:8 und:0 e_max med 27.94961 max 28.36977 width 2.4e-05 pair_min med -26.38763 mu 26.60144 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 96 ZQ eta=0.05 n=8 sD -0.1694 -0.0750 0.0050 sD>0:1 sD<0:7 e_min -0.22426 -0.22311 -0.22130 hold:0 fail:0 und:0 e_max med 2.03798 max 2.04520 width 2.4e-05 pair_min med -0.22326 mu 0.22420 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 96 ZQ eta=0.01 n=8 sD -0.0043 0.0172 0.0252 sD>0:6 sD<0:2 e_min -0.00861 -0.00843 -0.00804 hold:8 fail:0 und:0 e_max med 1.82415 max 1.82965 width 2.4e-05 pair_min med -0.00836 mu 0.00839 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 96 E_a=0.1 n=8 sD -4.1226 -3.3279 -2.9030 sD>0:0 sD<0:8
+1e12 0.85 96 E_a=0.3 n=8 sD -382.4890 -319.4383 -268.2886 sD>0:0 sD<0:8
+1e12 0.85 96 T-NR n=8 sD -784.2461 -782.3876 -780.7494 sD>0:0 sD<0:8 e_min -785.13299 -783.34775 -781.83099 hold:0 fail:8 und:0 e_max med 792.90191 max 797.74581 width 2.4e-05
+1e12 0.85 96 HQ2 n=8 sD -191.0420 -190.8550 -190.4703 sD>0:0 sD<0:8 e_min -191.90123 -191.78955 -191.59880 hold:0 fail:8 und:0 e_max med 192.58097 max 192.69286 width 2.4e-05
+1e12 0.85 192 zeta n=8 sD 0.0052 0.0205 0.0291 sD>0:8 sD<0:0 e_min -0.00474 -0.00332 -0.00229 hold:8 fail:0 und:0 e_max med 0.00330 max 0.00476 width 3.3e-05 t_min min 5.21e-03
+1e12 0.85 192 zeta-rs1 n=8 e_min -0.00007 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00003 width 3.3e-05
+1e12 0.85 192 chains(24) n=192 sD -0.7329 -0.2143 -0.0028 sD>0:0 sD<0:192 e_min -1.67361 -1.26775 -1.03457 hold:0 fail:192 und:0 e_max med 2.09120 max 2.65861 width 3.3e-05
+1e12 0.85 192 liouville n=8 sD -0.4870 -0.1231 -0.0643 sD>0:0 sD<0:8 e_min -1.51545 -1.30092 -1.21768 hold:0 fail:8 und:0 e_max med 1.99231 max 2.01858 width 3.3e-05
+1e12 0.85 192 ZQ eta=0.25 n=8 sD -26.2483 -25.9706 -25.4244 sD>0:0 sD<0:8 e_min -26.60022 -26.49502 -26.28768 hold:0 fail:8 und:0 e_max med 28.18641 max 28.39638 width 3.3e-05 pair_min med -26.49503 mu 26.60144 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 192 ZQ eta=0.05 n=8 sD -0.1699 -0.0768 0.0050 sD>0:1 sD<0:7 e_min -0.22429 -0.22353 -0.22266 hold:0 fail:0 und:0 e_max med 2.04165 max 2.04561 width 3.3e-05 pair_min med -0.22373 mu 0.22420 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 192 ZQ eta=0.01 n=8 sD -0.0044 0.0165 0.0241 sD>0:6 sD<0:2 e_min -0.00862 -0.00845 -0.00805 hold:8 fail:0 und:0 e_max med 1.82683 max 1.82994 width 3.3e-05 pair_min med -0.00838 mu 0.00839 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 192 E_a=0.1 n=8 sD -4.1461 -3.6685 -3.0612 sD>0:0 sD<0:8
+1e12 0.85 192 E_a=0.3 n=8 sD -397.8494 -359.3673 -306.8466 sD>0:0 sD<0:8
+1e12 0.85 192 T-NR n=8 sD -802.0206 -801.9521 -801.7918 sD>0:0 sD<0:8 e_min -802.94017 -802.92340 -802.84573 hold:0 fail:8 und:0 e_max med 804.81380 max 804.86246 width 3.3e-05
+1e12 0.85 192 HQ2 n=8 sD -191.2946 -191.1619 -191.0065 sD>0:0 sD<0:8 e_min -191.98740 -191.98712 -191.98702 hold:0 fail:8 und:0 e_max med 192.77228 max 192.77267 width 3.3e-05
+1e12 0.85 384 zeta n=8 sD 0.0045 0.0097 0.0208 sD>0:8 sD<0:0 e_min -0.00521 -0.00388 -0.00313 hold:8 fail:0 und:0 e_max med 0.00387 max 0.00525 width 4.7e-05 t_min min 4.48e-03
+1e12 0.85 384 zeta-rs1 n=8 e_min -0.00015 -0.00001 -0.00000 hold:8 fail:0 und:0 e_max med 0.00000 max 0.00007 width 4.7e-05
+1e12 0.85 384 chains(24) n=192 sD -0.7334 -0.2756 -0.0075 sD>0:0 sD<0:192 e_min -1.80453 -1.36063 -1.07586 hold:0 fail:192 und:0 e_max med 2.17789 max 2.75186 width 4.7e-05
+1e12 0.85 384 liouville n=8 sD -0.4884 -0.2817 -0.1744 sD>0:0 sD<0:8 e_min -1.66010 -1.41599 -1.23485 hold:0 fail:8 und:0 e_max med 2.00338 max 2.02603 width 4.7e-05
+1e12 0.85 384 ZQ eta=0.25 n=8 sD -26.2489 -26.0445 -25.5829 sD>0:0 sD<0:8 e_min -26.60082 -26.54833 -26.44443 hold:0 fail:8 und:0 e_max med 28.30456 max 28.40953 width 4.7e-05 pair_min med -26.54835 mu 26.60144 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 384 ZQ eta=0.05 n=8 sD -0.1701 -0.0775 0.0049 sD>0:1 sD<0:7 e_min -0.22431 -0.22383 -0.22334 hold:0 fail:0 und:0 e_max med 2.04348 max 2.04581 width 4.7e-05 pair_min med -0.22396 mu 0.22420 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 384 ZQ eta=0.01 n=8 sD -0.0045 0.0066 0.0164 sD>0:6 sD<0:2 e_min -0.00862 -0.00846 -0.00805 hold:8 fail:0 und:0 e_max med 1.82817 max 1.83009 width 4.7e-05 pair_min med -0.00839 mu 0.00839 max(e_zeta - e_ZQ - mu): see below
+1e12 0.85 384 E_a=0.1 n=8 sD -4.1635 -3.7546 -3.4679 sD>0:0 sD<0:8
+1e12 0.85 384 E_a=0.3 n=8 sD -411.4941 -375.1036 -343.6611 sD>0:0 sD<0:8
+1e12 0.85 384 T-NR n=8 sD -802.2814 -802.1654 -802.0562 sD>0:0 sD<0:8 e_min -803.07791 -803.07763 -803.07726 hold:0 fail:8 und:0 e_max med 804.95172 max 804.95201 width 4.7e-05
+1e12 0.85 384 HQ2 n=8 sD -191.3891 -191.3014 -191.1108 sD>0:0 sD<0:8 e_min -191.98771 -191.98739 -191.98733 hold:0 fail:8 und:0 e_max med 192.77256 max 192.77286 width 4.7e-05
+
+== ZQ: e_min(ZQ) - e_min(zeta) + abs(pair_min) per (height, theta, m, eta): min, median (>= -0.05 means explained by the pair form)
+1e6 0.75 96 eta 0.25 n=8 min 0.03862 med 0.06539 e_min(ZQ) med -1.33284 zeta med -0.05830 sD(ZQ) med -1.07140 sD>0:0 e_max med 3.070
+1e6 0.75 96 eta 0.05 n=8 min 0.03366 med 0.03878 e_min(ZQ) med -0.05825 zeta med -0.05830 sD(ZQ) med 0.03148 sD>0:8 e_max med 1.768
+1e6 0.75 96 eta 0.01 n=8 min 0.00154 med 0.00157 e_min(ZQ) med -0.05823 zeta med -0.05830 sD(ZQ) med 0.04467 sD>0:8 e_max med 1.731
+1e6 0.75 192 eta 0.25 n=8 min 0.04907 med 0.06845 e_min(ZQ) med -1.33988 zeta med -0.06298 sD(ZQ) med -1.07612 sD>0:0 e_max med 3.075
+1e6 0.75 192 eta 0.05 n=8 min 0.03878 med 0.03904 e_min(ZQ) med -0.06298 zeta med -0.06298 sD(ZQ) med 0.02984 sD>0:8 e_max med 1.769
+1e6 0.75 192 eta 0.01 n=8 min 0.00154 med 0.00155 e_min(ZQ) med -0.06298 zeta med -0.06298 sD(ZQ) med 0.04246 sD>0:8 e_max med 1.731
+1e6 0.75 384 eta 0.25 n=8 min 0.05002 med 0.07188 e_min(ZQ) med -1.34334 zeta med -0.06729 sD(ZQ) med -1.07869 sD>0:0 e_max med 3.077
+1e6 0.75 384 eta 0.05 n=8 min 0.03904 med 0.03914 e_min(ZQ) med -0.06731 zeta med -0.06729 sD(ZQ) med 0.02674 sD>0:8 e_max med 1.769
+1e6 0.75 384 eta 0.01 n=8 min 0.00154 med 0.00155 e_min(ZQ) med -0.06728 zeta med -0.06729 sD(ZQ) med 0.03095 sD>0:8 e_max med 1.731
+1e6 0.8 96 eta 0.25 n=8 min 0.04439 med 0.07353 e_min(ZQ) med -1.69024 zeta med -0.06754 sD(ZQ) med -1.48173 sD>0:0 e_max med 3.541
+1e6 0.8 96 eta 0.05 n=8 min 0.04087 med 0.04711 e_min(ZQ) med -0.06759 zeta med -0.06754 sD(ZQ) med -0.00987 sD>0:3 e_max med 1.891
+1e6 0.8 96 eta 0.01 n=8 min 0.00186 med 0.00191 e_min(ZQ) med -0.06749 zeta med -0.06754 sD(ZQ) med 0.01718 sD>0:8 e_max med 1.845
+1e6 0.8 192 eta 0.25 n=8 min 0.04944 med 0.07865 e_min(ZQ) med -1.70134 zeta med -0.07286 sD(ZQ) med -1.49037 sD>0:0 e_max med 3.549
+1e6 0.8 192 eta 0.05 n=8 min 0.04553 med 0.04748 e_min(ZQ) med -0.07290 zeta med -0.07286 sD(ZQ) med -0.01116 sD>0:3 e_max med 1.892
+1e6 0.8 192 eta 0.01 n=8 min 0.00187 med 0.00188 e_min(ZQ) med -0.07286 zeta med -0.07286 sD(ZQ) med 0.01313 sD>0:8 e_max med 1.846
+1e6 0.8 384 eta 0.25 n=8 min 0.05524 med 0.08401 e_min(ZQ) med -1.70743 zeta med -0.07970 sD(ZQ) med -1.49473 sD>0:0 e_max med 3.554
+1e6 0.8 384 eta 0.05 n=8 min 0.04734 med 0.04759 e_min(ZQ) med -0.07971 zeta med -0.07970 sD(ZQ) med -0.01170 sD>0:3 e_max med 1.892
+1e6 0.8 384 eta 0.01 n=8 min 0.00187 med 0.00188 e_min(ZQ) med -0.07970 zeta med -0.07970 sD(ZQ) med 0.01166 sD>0:8 e_max med 1.847
+1e6 0.85 96 eta 0.25 n=8 min 0.04696 med 0.08073 e_min(ZQ) med -2.12981 zeta med -0.07618 sD(ZQ) med -1.89298 sD>0:0 e_max med 4.087
+1e6 0.85 96 eta 0.05 n=8 min 0.04248 med 0.05652 e_min(ZQ) med -0.07632 zeta med -0.07618 sD(ZQ) med -0.03280 sD>0:1 e_max med 2.014
+1e6 0.85 96 eta 0.01 n=8 min 0.00223 med 0.00225 e_min(ZQ) med -0.07618 zeta med -0.07618 sD(ZQ) med 0.00369 sD>0:8 e_max med 1.959
+1e6 0.85 192 eta 0.25 n=8 min 0.05916 med 0.08950 e_min(ZQ) med -2.14056 zeta med -0.08440 sD(ZQ) med -1.90391 sD>0:0 e_max med 4.101
+1e6 0.85 192 eta 0.05 n=8 min 0.05479 med 0.05703 e_min(ZQ) med -0.08442 zeta med -0.08440 sD(ZQ) med -0.03382 sD>0:1 e_max med 2.016
+1e6 0.85 192 eta 0.01 n=8 min 0.00224 med 0.00225 e_min(ZQ) med -0.08440 zeta med -0.08440 sD(ZQ) med 0.00268 sD>0:8 e_max med 1.962
+1e6 0.85 384 eta 0.25 n=8 min 0.06444 med 0.10120 e_min(ZQ) med -2.14876 zeta med -0.09310 sD(ZQ) med -1.90971 sD>0:0 e_max med 4.108
+1e6 0.85 384 eta 0.05 n=8 min 0.05669 med 0.05718 e_min(ZQ) med -0.09310 zeta med -0.09310 sD(ZQ) med -0.03438 sD>0:1 e_max med 2.017
+1e6 0.85 384 eta 0.01 n=8 min 0.00225 med 0.00225 e_min(ZQ) med -0.09310 zeta med -0.09310 sD(ZQ) med 0.00235 sD>0:8 e_max med 1.962
+1e9 0.75 96 eta 0.25 n=8 min 0.00763 med 0.00957 e_min(ZQ) med -4.30464 zeta med -0.00992 sD(ZQ) med -3.93925 sD>0:0 e_max med 5.921
+1e9 0.75 96 eta 0.05 n=8 min 0.00749 med 0.00935 e_min(ZQ) med -0.08620 zeta med -0.00992 sD(ZQ) med 0.01525 sD>0:4 e_max med 1.726
+1e9 0.75 96 eta 0.01 n=8 min 0.00329 med 0.00330 e_min(ZQ) med -0.00987 zeta med -0.00992 sD(ZQ) med 0.05973 sD>0:8 e_max med 1.645
+1e9 0.75 192 eta 0.25 n=8 min 0.00840 med 0.01027 e_min(ZQ) med -4.31893 zeta med -0.01119 sD(ZQ) med -3.94809 sD>0:0 e_max med 5.950
+1e9 0.75 192 eta 0.05 n=8 min 0.00848 med 0.00997 e_min(ZQ) med -0.08640 zeta med -0.01119 sD(ZQ) med 0.00512 sD>0:4 e_max med 1.729
+1e9 0.75 192 eta 0.01 n=8 min 0.00330 med 0.00331 e_min(ZQ) med -0.01119 zeta med -0.01119 sD(ZQ) med 0.03151 sD>0:8 e_max med 1.647
+1e9 0.75 384 eta 0.25 n=8 min 0.00986 med 0.01210 e_min(ZQ) med -4.32605 zeta med -0.01209 sD(ZQ) med -3.95231 sD>0:0 e_max med 5.964
+1e9 0.75 384 eta 0.05 n=8 min 0.00988 med 0.01191 e_min(ZQ) med -0.08650 zeta med -0.01209 sD(ZQ) med 0.00486 sD>0:4 e_max med 1.730
+1e9 0.75 384 eta 0.01 n=8 min 0.00331 med 0.00331 e_min(ZQ) med -0.01209 zeta med -0.01209 sD(ZQ) med 0.02174 sD>0:8 e_max med 1.648
+1e9 0.8 96 eta 0.25 n=8 min 0.00853 med 0.01074 e_min(ZQ) med -5.76763 zeta med -0.01133 sD(ZQ) med -5.45056 sD>0:0 e_max med 7.475
+1e9 0.8 96 eta 0.05 n=8 min 0.00854 med 0.01072 e_min(ZQ) med -0.10458 zeta med -0.01133 sD(ZQ) med -0.03047 sD>0:3 e_max med 1.854
+1e9 0.8 96 eta 0.01 n=8 min 0.00349 med 0.00400 e_min(ZQ) med -0.01160 zeta med -0.01133 sD(ZQ) med 0.02428 sD>0:8 e_max med 1.755
+1e9 0.8 192 eta 0.25 n=8 min 0.00941 med 0.01196 e_min(ZQ) med -5.78521 zeta med -0.01267 sD(ZQ) med -5.46262 sD>0:0 e_max med 7.516
+1e9 0.8 192 eta 0.05 n=8 min 0.00941 med 0.01158 e_min(ZQ) med -0.10479 zeta med -0.01267 sD(ZQ) med -0.03185 sD>0:3 e_max med 1.857
+1e9 0.8 192 eta 0.01 n=8 min 0.00400 med 0.00402 e_min(ZQ) med -0.01267 zeta med -0.01267 sD(ZQ) med 0.01190 sD>0:8 e_max med 1.757
+1e9 0.8 384 eta 0.25 n=8 min 0.01177 med 0.01399 e_min(ZQ) med -5.79404 zeta med -0.01428 sD(ZQ) med -5.46709 sD>0:0 e_max med 7.537
+1e9 0.8 384 eta 0.05 n=8 min 0.01158 med 0.01359 e_min(ZQ) med -0.10489 zeta med -0.01428 sD(ZQ) med -0.03235 sD>0:3 e_max med 1.858
+1e9 0.8 384 eta 0.01 n=8 min 0.00402 med 0.00402 e_min(ZQ) med -0.01428 zeta med -0.01428 sD(ZQ) med 0.01043 sD>0:8 e_max med 1.758
+1e9 0.85 96 eta 0.25 n=8 min 0.01017 med 0.01202 e_min(ZQ) med -7.68392 zeta med -0.01251 sD(ZQ) med -7.33484 sD>0:0 e_max med 9.468
+1e9 0.85 96 eta 0.05 n=8 min 0.01039 med 0.01181 e_min(ZQ) med -0.12569 zeta med -0.01251 sD(ZQ) med -0.06253 sD>0:2 e_max med 1.984
+1e9 0.85 96 eta 0.01 n=8 min 0.00378 med 0.00481 e_min(ZQ) med -0.01251 zeta med -0.01251 sD(ZQ) med 0.00609 sD>0:7 e_max med 1.865
+1e9 0.85 192 eta 0.25 n=8 min 0.01085 med 0.01321 e_min(ZQ) med -7.70462 zeta med -0.01368 sD(ZQ) med -7.35862 sD>0:0 e_max med 9.529
+1e9 0.85 192 eta 0.05 n=8 min 0.01154 med 0.01245 e_min(ZQ) med -0.12577 zeta med -0.01368 sD(ZQ) med -0.06314 sD>0:2 e_max med 1.988
+1e9 0.85 192 eta 0.01 n=8 min 0.00439 med 0.00482 e_min(ZQ) med -0.01389 zeta med -0.01368 sD(ZQ) med 0.00470 sD>0:7 e_max med 1.868
+1e9 0.85 384 eta 0.25 n=8 min 0.01375 med 0.01619 e_min(ZQ) med -7.71492 zeta med -0.01637 sD(ZQ) med -7.37013 sD>0:0 e_max med 9.560
+1e9 0.85 384 eta 0.05 n=8 min 0.01340 med 0.01543 e_min(ZQ) med -0.12584 zeta med -0.01637 sD(ZQ) med -0.06340 sD>0:2 e_max med 1.989
+1e9 0.85 384 eta 0.01 n=8 min 0.00482 med 0.00483 e_min(ZQ) med -0.01637 zeta med -0.01637 sD(ZQ) med 0.00433 sD>0:7 e_max med 1.869
+1e12 0.75 96 eta 0.25 n=8 min 0.00136 med 0.00199 e_min(ZQ) med -12.83393 zeta med -0.00200 sD(ZQ) med -12.26161 sD>0:0 e_max med 14.440
+1e12 0.75 96 eta 0.05 n=8 min 0.00128 med 0.00196 e_min(ZQ) med -0.15084 zeta med -0.00200 sD(ZQ) med 0.03502 sD>0:5 e_max med 1.754
+1e12 0.75 96 eta 0.01 n=8 min 0.00126 med 0.00191 e_min(ZQ) med -0.00588 zeta med -0.00200 sD(ZQ) med 0.06170 sD>0:8 e_max med 1.609
+1e12 0.75 192 eta 0.25 n=8 min 0.00222 med 0.00244 e_min(ZQ) med -12.90966 zeta med -0.00249 sD(ZQ) med -12.33121 sD>0:0 e_max med 14.516
+1e12 0.75 192 eta 0.05 n=8 min 0.00222 med 0.00241 e_min(ZQ) med -0.15134 zeta med -0.00249 sD(ZQ) med 0.03437 sD>0:5 e_max med 1.756
+1e12 0.75 192 eta 0.01 n=8 min 0.00216 med 0.00235 e_min(ZQ) med -0.00590 zeta med -0.00249 sD(ZQ) med 0.05720 sD>0:8 e_max med 1.611
+1e12 0.75 384 eta 0.25 n=8 min 0.00251 med 0.00272 e_min(ZQ) med -12.94736 zeta med -0.00288 sD(ZQ) med -12.35061 sD>0:0 e_max med 14.554
+1e12 0.75 384 eta 0.05 n=8 min 0.00244 med 0.00267 e_min(ZQ) med -0.15159 zeta med -0.00288 sD(ZQ) med 0.01990 sD>0:5 e_max med 1.757
+1e12 0.75 384 eta 0.01 n=8 min 0.00240 med 0.00262 e_min(ZQ) med -0.00591 zeta med -0.00288 sD(ZQ) med 0.03193 sD>0:8 e_max med 1.612
+1e12 0.8 96 eta 0.25 n=8 min 0.00172 med 0.00199 e_min(ZQ) med -18.41676 zeta med -0.00205 sD(ZQ) med -17.88682 sD>0:0 e_max med 20.080
+1e12 0.8 96 eta 0.05 n=8 min 0.00154 med 0.00197 e_min(ZQ) med -0.18449 zeta med -0.00205 sD(ZQ) med 0.00170 sD>0:4 e_max med 1.894
+1e12 0.8 96 eta 0.01 n=8 min 0.00150 med 0.00194 e_min(ZQ) med -0.00706 zeta med -0.00205 sD(ZQ) med 0.04055 sD>0:8 e_max med 1.717
+1e12 0.8 192 eta 0.25 n=8 min 0.00268 med 0.00315 e_min(ZQ) med -18.51869 zeta med -0.00304 sD(ZQ) med -17.99016 sD>0:0 e_max med 20.207
+1e12 0.8 192 eta 0.05 n=8 min 0.00266 med 0.00303 e_min(ZQ) med -0.18494 zeta med -0.00304 sD(ZQ) med 0.00035 sD>0:4 e_max med 1.897
+1e12 0.8 192 eta 0.01 n=8 min 0.00263 med 0.00298 e_min(ZQ) med -0.00709 zeta med -0.00304 sD(ZQ) med 0.03848 sD>0:8 e_max med 1.719
+1e12 0.8 384 eta 0.25 n=8 min 0.00270 med 0.00326 e_min(ZQ) med -18.56938 zeta med -0.00329 sD(ZQ) med -18.01504 sD>0:0 e_max med 20.271
+1e12 0.8 384 eta 0.05 n=8 min 0.00267 med 0.00317 e_min(ZQ) med -0.18518 zeta med -0.00329 sD(ZQ) med -0.00029 sD>0:4 e_max med 1.898
+1e12 0.8 384 eta 0.01 n=8 min 0.00263 med 0.00314 e_min(ZQ) med -0.00710 zeta med -0.00329 sD(ZQ) med 0.01505 sD>0:8 e_max med 1.720
+1e12 0.85 96 eta 0.25 n=8 min 0.00209 med 0.00238 e_min(ZQ) med -26.38761 zeta med -0.00239 sD(ZQ) med -25.86635 sD>0:0 e_max med 27.950
+1e12 0.85 96 eta 0.05 n=8 min 0.00190 med 0.00233 e_min(ZQ) med -0.22311 zeta med -0.00239 sD(ZQ) med -0.07497 sD>0:1 e_max med 2.038
+1e12 0.85 96 eta 0.01 n=8 min 0.00185 med 0.00230 e_min(ZQ) med -0.00843 zeta med -0.00239 sD(ZQ) med 0.01719 sD>0:6 e_max med 1.824
+1e12 0.85 192 eta 0.25 n=8 min 0.00236 med 0.00357 e_min(ZQ) med -26.49502 zeta med -0.00332 sD(ZQ) med -25.97058 sD>0:0 e_max med 28.186
+1e12 0.85 192 eta 0.05 n=8 min 0.00215 med 0.00347 e_min(ZQ) med -0.22353 zeta med -0.00332 sD(ZQ) med -0.07675 sD>0:1 e_max med 2.042
+1e12 0.85 192 eta 0.01 n=8 min 0.00210 med 0.00344 e_min(ZQ) med -0.00845 zeta med -0.00332 sD(ZQ) med 0.01650 sD>0:6 e_max med 1.827
+1e12 0.85 384 eta 0.25 n=8 min 0.00297 med 0.00393 e_min(ZQ) med -26.54833 zeta med -0.00388 sD(ZQ) med -26.04450 sD>0:0 e_max med 28.305
+1e12 0.85 384 eta 0.05 n=8 min 0.00293 med 0.00383 e_min(ZQ) med -0.22383 zeta med -0.00388 sD(ZQ) med -0.07752 sD>0:1 e_max med 2.043
+1e12 0.85 384 eta 0.01 n=8 min 0.00290 med 0.00381 e_min(ZQ) med -0.00846 zeta med -0.00388 sD(ZQ) med 0.00663 sD>0:6 e_max med 1.828
+
+== hybrid (U = Lg): per (height, theta, m, class): n; s_C min/med/max; s_C>=-0.05 cert; f_min med; f_max med; t_min min/max
+1e6 0.75 96 zeta n=8 sC 0.00081 0.01270 0.02676 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.07381 f_max med 0.07399 t_min 5.15e-03 2.67e-02 t_min_lo min 0.005150835229446218
+1e6 0.75 96 chains(24) n=192 sC -0.90812 -0.21638 0.04415 sC>=-0.05:12 sC>0:6 sC<-0.25:76 f_min med -1.28288 f_max med 2.07628 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1393258361925857e-08
+1e6 0.75 96 liouville n=8 sC -0.35731 -0.18436 -0.07027 sC>=-0.05:0 sC>0:0 sC<-0.25:3 f_min med -1.22788 f_max med 2.00668 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1401825938741994e-08
+1e6 0.75 192 zeta n=8 sC -0.04479 0.00343 0.01247 sC>=-0.05:8 sC>0:6 sC<-0.25:0 f_min med -0.07886 f_max med 0.07889 t_min 9.67e-08 9.27e-03 t_min_lo min 9.66505026518315e-08
+1e6 0.75 192 chains(24) n=192 sC -0.95386 -0.29649 -0.06053 sC>=-0.05:0 sC>0:0 sC<-0.25:129 f_min med -1.37404 f_max med 2.15000 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1319467011624654e-08
+1e6 0.75 192 liouville n=8 sC -0.58038 -0.27081 -0.19680 sC>=-0.05:0 sC>0:0 sC<-0.25:6 f_min med -1.38111 f_max med 2.11041 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1320639100259105e-08
+1e6 0.75 384 zeta n=8 sC -0.04537 0.00184 0.00657 sC>=-0.05:8 sC>0:5 sC<-0.25:0 f_min med -0.10419 f_max med 0.10428 t_min 2.33e-08 8.62e-03 t_min_lo min 2.3293495806910533e-08
+1e6 0.75 384 chains(24) n=192 sC -0.95706 -0.38839 -0.12490 sC>=-0.05:0 sC>0:0 sC<-0.25:174 f_min med -1.45699 f_max med 2.22851 t_min 2.10e-08 2.13e-08 t_min_lo min 2.101190686875317e-08
+1e6 0.75 384 liouville n=8 sC -0.59391 -0.37288 -0.19727 sC>=-0.05:0 sC>0:0 sC<-0.25:6 f_min med -1.42969 f_max med 2.11184 t_min 2.11e-08 2.13e-08 t_min_lo min 2.103645018367284e-08
+1e6 0.8 96 zeta n=8 sC 0.00501 0.01157 0.02282 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.07698 f_max med 0.07719 t_min 5.15e-03 2.67e-02 t_min_lo min 0.005150835229446218
+1e6 0.8 96 chains(24) n=192 sC -0.91378 -0.21283 0.05673 sC>=-0.05:10 sC>0:3 sC<-0.25:79 f_min med -1.33143 f_max med 2.07922 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1393258361925857e-08
+1e6 0.8 96 liouville n=8 sC -0.36487 -0.21896 -0.09436 sC>=-0.05:0 sC>0:0 sC<-0.25:2 f_min med -1.26707 f_max med 1.99504 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1401825938741994e-08
+1e6 0.8 192 zeta n=8 sC 0.00163 0.00559 0.01030 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.08498 f_max med 0.08490 t_min 9.67e-08 9.27e-03 t_min_lo min 9.66505026518315e-08
+1e6 0.8 192 chains(24) n=192 sC -0.93361 -0.30162 -0.06429 sC>=-0.05:0 sC>0:0 sC<-0.25:137 f_min med -1.43271 f_max med 2.13967 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1319467011624654e-08
+1e6 0.8 192 liouville n=8 sC -0.51651 -0.27378 -0.19881 sC>=-0.05:0 sC>0:0 sC<-0.25:5 f_min med -1.41433 f_max med 2.08839 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1320639100259105e-08
+1e6 0.8 384 zeta n=8 sC 0.00138 0.00386 0.00547 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.09740 f_max med 0.11556 t_min 2.33e-08 8.62e-03 t_min_lo min 2.3293495806910533e-08
+1e6 0.8 384 chains(24) n=192 sC -0.93682 -0.38902 -0.16215 sC>=-0.05:0 sC>0:0 sC<-0.25:178 f_min med -1.50174 f_max med 2.23388 t_min 2.10e-08 2.13e-08 t_min_lo min 2.101190686875317e-08
+1e6 0.8 384 liouville n=8 sC -0.60036 -0.33584 -0.19993 sC>=-0.05:0 sC>0:0 sC<-0.25:7 f_min med -1.44495 f_max med 2.08990 t_min 2.11e-08 2.13e-08 t_min_lo min 2.103645018367284e-08
+1e6 0.85 96 zeta n=8 sC 0.00523 0.01087 0.02200 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.07960 f_max med 0.07853 t_min 5.15e-03 2.67e-02 t_min_lo min 0.005150835229446218
+1e6 0.85 96 chains(24) n=192 sC -0.88830 -0.22731 0.05965 sC>=-0.05:10 sC>0:4 sC<-0.25:84 f_min med -1.35266 f_max med 2.08536 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1393258361925857e-08
+1e6 0.85 96 liouville n=8 sC -0.39964 -0.22487 -0.10129 sC>=-0.05:0 sC>0:0 sC<-0.25:1 f_min med -1.28894 f_max med 1.97113 t_min 2.14e-08 2.16e-08 t_min_lo min 2.1401825938741994e-08
+1e6 0.85 192 zeta n=8 sC 0.00366 0.00667 0.00965 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.08814 f_max med 0.08814 t_min 9.67e-08 9.27e-03 t_min_lo min 9.66505026518315e-08
+1e6 0.85 192 chains(24) n=192 sC -0.94006 -0.31326 -0.07649 sC>=-0.05:0 sC>0:0 sC<-0.25:138 f_min med -1.44748 f_max med 2.14717 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1319467011624654e-08
+1e6 0.85 192 liouville n=8 sC -0.52169 -0.24552 -0.19555 sC>=-0.05:0 sC>0:0 sC<-0.25:3 f_min med -1.42622 f_max med 2.05842 t_min 2.13e-08 2.16e-08 t_min_lo min 2.1320639100259105e-08
+1e6 0.85 384 zeta n=8 sC 0.00353 0.00447 0.00714 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.09798 f_max med 0.12250 t_min 2.33e-08 8.62e-03 t_min_lo min 2.3293495806910533e-08
+1e6 0.85 384 chains(24) n=192 sC -0.94407 -0.38920 -0.15313 sC>=-0.05:0 sC>0:0 sC<-0.25:181 f_min med -1.51440 f_max med 2.24508 t_min 2.10e-08 2.13e-08 t_min_lo min 2.101190686875317e-08
+1e6 0.85 384 liouville n=8 sC -0.58737 -0.35883 -0.19626 sC>=-0.05:0 sC>0:0 sC<-0.25:6 f_min med -1.48137 f_max med 2.05954 t_min 2.11e-08 2.13e-08 t_min_lo min 2.103645018367284e-08
+1e9 0.75 96 zeta n=8 sC 0.00280 0.00781 0.01439 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01230 f_max med 0.01227 t_min 3.07e-03 1.25e-02 t_min_lo min 0.0030704697798247713
+1e9 0.75 96 chains(24) n=192 sC -0.72257 -0.19941 0.06880 sC>=-0.05:19 sC>0:6 sC<-0.25:74 f_min med -1.24644 f_max med 2.10187 t_min 1.26e-14 1.65e-14 t_min_lo min -2.5243094259914082e-11
+1e9 0.75 96 liouville n=8 sC -0.50097 -0.15559 -0.06139 sC>=-0.05:0 sC>0:0 sC<-0.25:2 f_min med -1.20910 f_max med 2.02767 t_min 1.27e-14 1.35e-14 t_min_lo min -2.189458094146644e-11
+1e9 0.75 192 zeta n=8 sC 0.00158 0.00303 0.00572 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01457 f_max med 0.01540 t_min 1.69e-03 4.65e-03 t_min_lo min 0.0016922135830801943
+1e9 0.75 192 chains(24) n=192 sC -0.85035 -0.32308 -0.02993 sC>=-0.05:1 sC>0:0 sC<-0.25:131 f_min med -1.34486 f_max med 2.18256 t_min 1.24e-14 1.33e-14 t_min_lo min -2.536949255138524e-11
+1e9 0.75 192 liouville n=8 sC -0.53738 -0.29745 -0.16029 sC>=-0.05:0 sC>0:0 sC<-0.25:5 f_min med -1.31724 f_max med 2.06199 t_min 1.29e-14 1.32e-14 t_min_lo min -2.2682687203809086e-11
+1e9 0.75 384 zeta n=8 sC 0.00037 0.00123 0.00279 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01711 f_max med 0.01712 t_min 8.97e-04 3.42e-03 t_min_lo min 0.0008968400135901149
+1e9 0.75 384 chains(24) n=192 sC -0.93549 -0.38721 -0.12359 sC>=-0.05:0 sC>0:0 sC<-0.25:176 f_min med -1.45409 f_max med 2.25481 t_min 1.24e-14 1.30e-14 t_min_lo min -3.0652967182381013e-11
+1e9 0.75 384 liouville n=8 sC -0.54475 -0.32447 -0.25153 sC>=-0.05:0 sC>0:0 sC<-0.25:8 f_min med -1.44940 f_max med 2.07881 t_min 1.27e-14 1.29e-14 t_min_lo min -2.271592016764593e-11
+1e9 0.8 96 zeta n=8 sC 0.00297 0.00815 0.01182 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01629 f_max med 0.01630 t_min 3.07e-03 1.25e-02 t_min_lo min 0.0030704697798247713
+1e9 0.8 96 chains(24) n=192 sC -0.79959 -0.21184 0.07110 sC>=-0.05:14 sC>0:5 sC<-0.25:78 f_min med -1.27701 f_max med 2.09632 t_min 1.26e-14 1.65e-14 t_min_lo min -2.5243094259914082e-11
+1e9 0.8 96 liouville n=8 sC -0.42992 -0.14570 -0.00206 sC>=-0.05:1 sC>0:0 sC<-0.25:1 f_min med -1.28768 f_max med 1.98416 t_min 1.27e-14 1.35e-14 t_min_lo min -2.189458094146644e-11
+1e9 0.8 192 zeta n=8 sC 0.00123 0.00357 0.00617 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01676 f_max med 0.01675 t_min 1.69e-03 4.65e-03 t_min_lo min 0.0016922135830801943
+1e9 0.8 192 chains(24) n=192 sC -0.96429 -0.31518 -0.04009 sC>=-0.05:1 sC>0:0 sC<-0.25:130 f_min med -1.39924 f_max med 2.18868 t_min 1.24e-14 1.33e-14 t_min_lo min -2.536949255138524e-11
+1e9 0.8 192 liouville n=8 sC -0.54723 -0.29666 -0.15730 sC>=-0.05:0 sC>0:0 sC<-0.25:4 f_min med -1.36817 f_max med 2.03349 t_min 1.29e-14 1.32e-14 t_min_lo min -2.2682687203809086e-11
+1e9 0.8 384 zeta n=8 sC -0.00193 0.00094 0.00332 sC>=-0.05:8 sC>0:6 sC<-0.25:0 f_min med -0.02010 f_max med 0.02004 t_min 8.97e-04 3.42e-03 t_min_lo min 0.0008968400135901149
+1e9 0.8 384 chains(24) n=192 sC -1.08438 -0.38912 -0.17207 sC>=-0.05:0 sC>0:0 sC<-0.25:176 f_min med -1.50846 f_max med 2.26149 t_min 1.24e-14 1.30e-14 t_min_lo min -3.0652967182381013e-11
+1e9 0.8 384 liouville n=8 sC -0.55033 -0.33975 -0.28686 sC>=-0.05:0 sC>0:0 sC<-0.25:8 f_min med -1.48110 f_max med 2.04897 t_min 1.27e-14 1.29e-14 t_min_lo min -2.271592016764593e-11
+1e9 0.85 96 zeta n=8 sC 0.00334 0.00852 0.01247 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01490 f_max med 0.01459 t_min 3.07e-03 1.25e-02 t_min_lo min 0.0030704697798247713
+1e9 0.85 96 chains(24) n=192 sC -0.84210 -0.22454 0.06616 sC>=-0.05:8 sC>0:5 sC<-0.25:85 f_min med -1.31213 f_max med 2.10457 t_min 1.26e-14 1.65e-14 t_min_lo min -2.5243094259914082e-11
+1e9 0.85 96 liouville n=8 sC -0.43186 -0.16226 -0.03147 sC>=-0.05:1 sC>0:0 sC<-0.25:2 f_min med -1.36820 f_max med 1.98051 t_min 1.27e-14 1.35e-14 t_min_lo min -2.189458094146644e-11
+1e9 0.85 192 zeta n=8 sC 0.00066 0.00339 0.00554 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.01590 f_max med 0.01662 t_min 1.69e-03 4.65e-03 t_min_lo min 0.0016922135830801943
+1e9 0.85 192 chains(24) n=192 sC -0.97184 -0.32187 -0.07797 sC>=-0.05:0 sC>0:0 sC<-0.25:141 f_min med -1.43936 f_max med 2.19368 t_min 1.24e-14 1.33e-14 t_min_lo min -2.536949255138524e-11
+1e9 0.85 192 liouville n=8 sC -0.54355 -0.34772 -0.09792 sC>=-0.05:0 sC>0:0 sC<-0.25:5 f_min med -1.37995 f_max med 2.02335 t_min 1.29e-14 1.32e-14 t_min_lo min -2.2682687203809086e-11
+1e9 0.85 384 zeta n=8 sC -0.00080 0.00190 0.00324 sC>=-0.05:8 sC>0:7 sC<-0.25:0 f_min med -0.01876 f_max med 0.01872 t_min 8.97e-04 3.42e-03 t_min_lo min 0.0008968400135901149
+1e9 0.85 384 chains(24) n=192 sC -1.11149 -0.38914 -0.15695 sC>=-0.05:0 sC>0:0 sC<-0.25:184 f_min med -1.53359 f_max med 2.26782 t_min 1.24e-14 1.30e-14 t_min_lo min -3.0652967182381013e-11
+1e9 0.85 384 liouville n=8 sC -0.54601 -0.38735 -0.22997 sC>=-0.05:0 sC>0:0 sC<-0.25:7 f_min med -1.54560 f_max med 2.02502 t_min 1.27e-14 1.29e-14 t_min_lo min -2.271592016764593e-11
+1e12 0.75 96 zeta n=8 sC 0.00206 0.00435 0.00712 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00475 f_max med 0.00464 t_min 2.02e-03 9.19e-03 t_min_lo min 0.002023275379685746
+1e12 0.75 96 chains(24) n=192 sC -0.86492 -0.21615 0.02164 sC>=-0.05:13 sC>0:3 sC<-0.25:72 f_min med -1.20437 f_max med 2.09055 t_min -8.91e-16 -5.20e-17 t_min_lo min -2.4152123872256912e-11
+1e12 0.75 96 liouville n=8 sC -0.56661 -0.16658 0.09297 sC>=-0.05:1 sC>0:1 sC<-0.25:2 f_min med -1.31223 f_max med 2.03485 t_min -8.01e-16 -3.08e-16 t_min_lo min -2.275653164839151e-11
+1e12 0.75 192 zeta n=8 sC -0.00012 0.00280 0.00409 sC>=-0.05:8 sC>0:7 sC<-0.25:0 f_min med -0.00534 f_max med 0.00533 t_min 1.43e-03 5.96e-03 t_min_lo min 0.0014294495808333443
+1e12 0.75 192 chains(24) n=192 sC -0.90447 -0.31726 -0.07149 sC>=-0.05:0 sC>0:0 sC<-0.25:133 f_min med -1.31775 f_max med 2.19656 t_min -1.11e-15 -4.93e-16 t_min_lo min -2.503580852144266e-11
+1e12 0.75 192 liouville n=8 sC -0.59643 -0.27258 -0.12837 sC>=-0.05:0 sC>0:0 sC<-0.25:5 f_min med -1.31541 f_max med 2.10635 t_min -9.05e-16 -5.81e-16 t_min_lo min -2.2766593011547258e-11
+1e12 0.75 384 zeta n=8 sC -0.00033 0.00155 0.00305 sC>=-0.05:8 sC>0:6 sC<-0.25:0 f_min med -0.00566 f_max med 0.00566 t_min 3.95e-04 3.17e-03 t_min_lo min 0.0003949783776711388
+1e12 0.75 384 chains(24) n=192 sC -0.90776 -0.38600 -0.14340 sC>=-0.05:0 sC>0:0 sC<-0.25:176 f_min med -1.42312 f_max med 2.28455 t_min -1.26e-15 -6.79e-16 t_min_lo min -2.5610010202302524e-11
+1e12 0.75 384 liouville n=8 sC -0.59875 -0.37439 -0.29764 sC>=-0.05:0 sC>0:0 sC<-0.25:8 f_min med -1.46930 f_max med 2.13637 t_min -1.02e-15 -6.71e-16 t_min_lo min -2.3468903068202975e-11
+1e12 0.8 96 zeta n=8 sC 0.00205 0.00416 0.00790 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00453 f_max med 0.00454 t_min 2.02e-03 9.19e-03 t_min_lo min 0.002023275379685746
+1e12 0.8 96 chains(24) n=192 sC -0.88118 -0.22862 -0.00646 sC>=-0.05:8 sC>0:0 sC<-0.25:80 f_min med -1.28072 f_max med 2.10054 t_min -8.91e-16 -5.20e-17 t_min_lo min -2.4152123872256912e-11
+1e12 0.8 96 liouville n=8 sC -0.59190 -0.18394 -0.07337 sC>=-0.05:0 sC>0:0 sC<-0.25:1 f_min med -1.42307 f_max med 2.02630 t_min -8.01e-16 -3.08e-16 t_min_lo min -2.275653164839151e-11
+1e12 0.8 192 zeta n=8 sC 0.00103 0.00270 0.00611 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00515 f_max med 0.00514 t_min 1.43e-03 5.96e-03 t_min_lo min 0.0014294495808333443
+1e12 0.8 192 chains(24) n=192 sC -0.88545 -0.31118 -0.06994 sC>=-0.05:0 sC>0:0 sC<-0.25:140 f_min med -1.37248 f_max med 2.21047 t_min -1.11e-15 -4.93e-16 t_min_lo min -2.503580852144266e-11
+1e12 0.8 192 liouville n=8 sC -0.62730 -0.27949 -0.19146 sC>=-0.05:0 sC>0:0 sC<-0.25:7 f_min med -1.43376 f_max med 2.07545 t_min -9.05e-16 -5.81e-16 t_min_lo min -2.2766593011547258e-11
+1e12 0.8 384 zeta n=8 sC 0.00009 0.00141 0.00311 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00602 f_max med 0.00598 t_min 3.95e-04 3.17e-03 t_min_lo min 0.0003949783776711388
+1e12 0.8 384 chains(24) n=192 sC -0.88850 -0.39163 -0.12865 sC>=-0.05:0 sC>0:0 sC<-0.25:173 f_min med -1.46473 f_max med 2.29634 t_min -1.26e-15 -6.79e-16 t_min_lo min -2.5610010202302524e-11
+1e12 0.8 384 liouville n=8 sC -0.62993 -0.37125 -0.26521 sC>=-0.05:0 sC>0:0 sC<-0.25:8 f_min med -1.51087 f_max med 2.08461 t_min -1.02e-15 -6.71e-16 t_min_lo min -2.3468903068202975e-11
+1e12 0.85 96 zeta n=8 sC 0.00198 0.00463 0.00890 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00434 f_max med 0.00433 t_min 2.02e-03 9.19e-03 t_min_lo min 0.002023275379685746
+1e12 0.85 96 chains(24) n=192 sC -0.81226 -0.22824 0.00008 sC>=-0.05:8 sC>0:1 sC<-0.25:84 f_min med -1.31455 f_max med 2.10937 t_min -8.91e-16 -5.20e-17 t_min_lo min -2.4152123872256912e-11
+1e12 0.85 96 liouville n=8 sC -0.56346 -0.19720 -0.05310 sC>=-0.05:0 sC>0:0 sC<-0.25:2 f_min med -1.40799 f_max med 2.01817 t_min -8.01e-16 -3.08e-16 t_min_lo min -2.275653164839151e-11
+1e12 0.85 192 zeta n=8 sC 0.00113 0.00303 0.00579 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00503 f_max med 0.00502 t_min 1.43e-03 5.96e-03 t_min_lo min 0.0014294495808333443
+1e12 0.85 192 chains(24) n=192 sC -0.87384 -0.32088 -0.07748 sC>=-0.05:0 sC>0:0 sC<-0.25:147 f_min med -1.41765 f_max med 2.20893 t_min -1.11e-15 -4.93e-16 t_min_lo min -2.503580852144266e-11
+1e12 0.85 192 liouville n=8 sC -0.59542 -0.27312 -0.19439 sC>=-0.05:0 sC>0:0 sC<-0.25:5 f_min med -1.51519 f_max med 2.04786 t_min -9.05e-16 -5.81e-16 t_min_lo min -2.2766593011547258e-11
+1e12 0.85 384 zeta n=8 sC 0.00039 0.00146 0.00317 sC>=-0.05:8 sC>0:8 sC<-0.25:0 f_min med -0.00528 f_max med 0.00531 t_min 3.95e-04 3.17e-03 t_min_lo min 0.0003949783776711388
+1e12 0.85 384 chains(24) n=192 sC -0.87667 -0.38593 -0.16066 sC>=-0.05:0 sC>0:0 sC<-0.25:177 f_min med -1.50628 f_max med 2.30733 t_min -1.26e-15 -6.79e-16 t_min_lo min -2.5610010202302524e-11
+1e12 0.85 384 liouville n=8 sC -0.63749 -0.39704 -0.24115 sC>=-0.05:0 sC>0:0 sC<-0.25:7 f_min med -1.54651 f_max med 2.05200 t_min -1.02e-15 -6.71e-16 t_min_lo min -2.3468903068202975e-11
+
+== item 1: owed1_1e12.jsonl : per (theta', m, pair): n; eta* min/med/max; lattice root; ratio med; certified brackets; base (pair removed) min eig/Lg med; f0 (eta -> 0) med
+  (0.6, 96, 'after-long-gap') n=8 eta* 0.0862 0.1108 0.1197 zero:0 lattice 0.0623 ratio med 1.780 cert:8 sD med 0.2397 base med 0.0292 f0 med 0.2170 gap med 0.4280971554460393 u*eta* med 1.715
+  (0.6, 96, 'centre') n=8 eta* 0.0871 0.1374 0.1541 zero:0 lattice 0.0623 ratio med 2.207 cert:8 sD med 0.2397 base med 0.0879 f0 med 0.2390 gap med - u*eta* med 2.127
+  (0.6, 192, 'after-long-gap') n=8 eta* 0.0858 0.1104 0.1196 zero:0 lattice 0.0623 ratio med 1.773 cert:8 sD med 0.1996 base med 0.0288 f0 med 0.1992 gap med 0.4280971554460393 u*eta* med 1.708
+  (0.6, 192, 'centre') n=8 eta* 0.0862 0.1368 0.1540 zero:0 lattice 0.0623 ratio med 2.197 cert:8 sD med 0.1996 base med 0.0875 f0 med 0.1993 gap med - u*eta* med 2.117
+  (0.6, 384, 'after-long-gap') n=8 eta* 0.0856 0.1102 0.1195 zero:0 lattice 0.0623 ratio med 1.769 cert:8 sD med 0.1650 base med 0.0287 f0 med 0.1584 gap med 0.4280971554460393 u*eta* med 1.705
+  (0.6, 384, 'centre') n=8 eta* 0.0858 0.1365 0.1539 zero:0 lattice 0.0623 ratio med 2.192 cert:8 sD med 0.1650 base med 0.0873 f0 med 0.1552 gap med - u*eta* med 2.113
+  (0.8, 96, 'after-long-gap') n=8 eta* 0.0229 0.0548 0.0771 zero:0 lattice 0.0150 ratio med 3.644 cert:8 sD med 0.0740 base med 0.0044 f0 med 0.0589 gap med 0.3632792665495117 u*eta* med 1.131
+  (0.8, 96, 'centre') n=8 eta* 0.0284 0.0724 0.1035 zero:0 lattice 0.0150 ratio med 4.813 cert:8 sD med 0.0740 base med 0.0079 f0 med 0.0641 gap med - u*eta* med 1.494
+  (0.8, 192, 'after-long-gap') n=8 eta* 0.0227 0.0545 0.0770 zero:0 lattice 0.0150 ratio med 3.624 cert:8 sD med 0.0599 base med 0.0044 f0 med 0.0567 gap med 0.3632792665495117 u*eta* med 1.125
+  (0.8, 192, 'centre') n=8 eta* 0.0281 0.0719 0.1030 zero:0 lattice 0.0150 ratio med 4.781 cert:8 sD med 0.0599 base med 0.0076 f0 med 0.0586 gap med - u*eta* med 1.484
+  (0.8, 384, 'after-long-gap') n=8 eta* 0.0226 0.0544 0.0768 zero:0 lattice 0.0150 ratio med 3.615 cert:8 sD med 0.0338 base med 0.0044 f0 med 0.0277 gap med 0.3632792665495117 u*eta* med 1.122
+  (0.8, 384, 'centre') n=8 eta* 0.0279 0.0716 0.1028 zero:0 lattice 0.0150 ratio med 4.763 cert:8 sD med 0.0338 base med 0.0074 f0 med 0.0336 gap med - u*eta* med 1.478
+  (0.95, 96, 'after-long-gap') n=8 eta* 0.0027 0.0172 0.0372 zero:0 lattice 0.0015 ratio med 11.679 cert:6 sD med 0.0124 base med 0.0000 f0 med 0.0057 gap med 0.3304895336423783 u*eta* med 0.421
+  (0.95, 96, 'centre') n=8 eta* 0.0035 0.0210 0.0525 zero:0 lattice 0.0015 ratio med 14.321 cert:7 sD med 0.0124 base med 0.0001 f0 med 0.0069 gap med - u*eta* med 0.516
+  (0.95, 192, 'after-long-gap') n=8 eta* 0.0026 0.0167 0.0362 zero:0 lattice 0.0015 ratio med 11.369 cert:6 sD med 0.0100 base med 0.0000 f0 med 0.0054 gap med 0.3304895336423783 u*eta* med 0.409
+  (0.95, 192, 'centre') n=8 eta* 0.0033 0.0205 0.0508 zero:0 lattice 0.0015 ratio med 13.949 cert:7 sD med 0.0100 base med 0.0001 f0 med 0.0062 gap med - u*eta* med 0.502
+  (0.95, 384, 'after-long-gap') n=8 eta* 0.0025 0.0165 0.0353 zero:0 lattice 0.0015 ratio med 11.221 cert:6 sD med 0.0052 base med 0.0000 f0 med 0.0035 gap med 0.3304895336423783 u*eta* med 0.404
+  (0.95, 384, 'centre') n=8 eta* 0.0032 0.0202 0.0500 zero:0 lattice 0.0015 ratio med 13.718 cert:6 sD med 0.0052 base med 0.0001 f0 med 0.0043 gap med - u*eta* med 0.494
+
+== item 1: owed1_1e6.jsonl : per (theta', m, pair): n; eta* min/med/max; lattice root; ratio med; certified brackets; base (pair removed) min eig/Lg med; f0 (eta -> 0) med
+  (0.6, 96, 'after-long-gap') n=8 eta* 0.1610 0.2507 0.2716 zero:0 lattice 0.1341 ratio med 1.870 cert:8 sD med 0.2804 base med 0.0268 f0 med 0.2654 gap med 0.9280339951319547 u*eta* med 1.802
+  (0.6, 96, 'centre') n=8 eta* 0.2561 0.3076 0.3351 zero:0 lattice 0.1341 ratio med 2.294 cert:8 sD med 0.2804 base med 0.0575 f0 med 0.2786 gap med - u*eta* med 2.211
+  (0.6, 192, 'after-long-gap') n=8 eta* 0.1609 0.2503 0.2698 zero:0 lattice 0.1341 ratio med 1.866 cert:8 sD med 0.2437 base med 0.0266 f0 med 0.2123 gap med 0.9280339951319547 u*eta* med 1.799
+  (0.6, 192, 'centre') n=8 eta* 0.2549 0.3066 0.3343 zero:0 lattice 0.1341 ratio med 2.287 cert:8 sD med 0.2437 base med 0.0572 f0 med 0.2436 gap med - u*eta* med 2.204
+  (0.6, 384, 'after-long-gap') n=8 eta* 0.1608 0.2501 0.2690 zero:0 lattice 0.1341 ratio med 1.865 cert:8 sD med 0.1705 base med 0.0265 f0 med 0.1479 gap med 0.9280339951319547 u*eta* med 1.797
+  (0.6, 384, 'centre') n=8 eta* 0.2542 0.3061 0.3339 zero:0 lattice 0.1341 ratio med 2.283 cert:8 sD med 0.1705 base med 0.0570 f0 med 0.1705 gap med - u*eta* med 2.200
+  (0.8, 96, 'after-long-gap') n=8 eta* 0.0811 0.1379 0.1837 zero:0 lattice 0.0324 ratio med 4.257 cert:8 sD med 0.0818 base med 0.0045 f0 med 0.0697 gap med 0.7880240702529022 u*eta* med 1.321
+  (0.8, 96, 'centre') n=8 eta* 0.0804 0.1271 0.2349 zero:0 lattice 0.0324 ratio med 3.923 cert:8 sD med 0.0818 base med 0.0034 f0 med 0.0751 gap med - u*eta* med 1.217
+  (0.8, 192, 'after-long-gap') n=8 eta* 0.0803 0.1375 0.1834 zero:0 lattice 0.0324 ratio med 4.247 cert:8 sD med 0.0731 base med 0.0044 f0 med 0.0669 gap med 0.7880240702529022 u*eta* med 1.318
+  (0.8, 192, 'centre') n=8 eta* 0.0795 0.1263 0.2342 zero:0 lattice 0.0324 ratio med 3.900 cert:8 sD med 0.0731 base med 0.0033 f0 med 0.0730 gap med - u*eta* med 1.210
+  (0.8, 384, 'after-long-gap') n=8 eta* 0.0798 0.1373 0.1832 zero:0 lattice 0.0324 ratio med 4.240 cert:8 sD med 0.0505 base med 0.0043 f0 med 0.0503 gap med 0.7880240702529022 u*eta* med 1.316
+  (0.8, 384, 'centre') n=8 eta* 0.0791 0.1258 0.2340 zero:0 lattice 0.0324 ratio med 3.883 cert:8 sD med 0.0505 base med 0.0033 f0 med 0.0504 gap med - u*eta* med 1.205
+  (0.95, 96, 'after-long-gap') n=8 eta* 0.0148 0.0298 0.0577 zero:0 lattice 0.0032 ratio med 9.428 cert:8 sD med 0.0235 base med 0.0001 f0 med 0.0091 gap med 0.7260884985502116 u*eta* med 0.340
+  (0.95, 96, 'centre') n=8 eta* 0.0158 0.0269 0.1020 zero:0 lattice 0.0032 ratio med 8.493 cert:8 sD med 0.0235 base med 0.0000 f0 med 0.0099 gap med - u*eta* med 0.306
+  (0.95, 192, 'after-long-gap') n=8 eta* 0.0143 0.0291 0.0566 zero:0 lattice 0.0032 ratio med 9.195 cert:8 sD med 0.0163 base med 0.0000 f0 med 0.0082 gap med 0.7260884985502116 u*eta* med 0.331
+  (0.95, 192, 'centre') n=8 eta* 0.0155 0.0257 0.0980 zero:0 lattice 0.0032 ratio med 8.130 cert:8 sD med 0.0163 base med 0.0000 f0 med 0.0086 gap med - u*eta* med 0.293
+  (0.95, 384, 'after-long-gap') n=8 eta* 0.0142 0.0287 0.0560 zero:0 lattice 0.0032 ratio med 9.082 cert:8 sD med 0.0111 base med 0.0000 f0 med 0.0079 gap med 0.7260884985502116 u*eta* med 0.327
+  (0.95, 384, 'centre') n=8 eta* 0.0154 0.0253 0.0956 zero:0 lattice 0.0032 ratio med 7.980 cert:8 sD med 0.0111 base med 0.0000 f0 med 0.0084 gap med - u*eta* med 0.287
+
+== item 1: owed1_1e9.jsonl : per (theta', m, pair): n; eta* min/med/max; lattice root; ratio med; certified brackets; base (pair removed) min eig/Lg med; f0 (eta -> 0) med
+  (0.6, 96, 'after-long-gap') n=8 eta* 0.1403 0.1567 0.1804 zero:0 lattice 0.0850 ratio med 1.843 cert:8 sD med 0.2507 base med 0.0355 f0 med 0.2068 gap med 0.6579619519536664 u*eta* med 1.776
+  (0.6, 96, 'centre') n=8 eta* 0.1309 0.1937 0.2188 zero:0 lattice 0.0850 ratio med 2.277 cert:8 sD med 0.2507 base med 0.0707 f0 med 0.2073 gap med - u*eta* med 2.194
+  (0.6, 192, 'after-long-gap') n=8 eta* 0.1402 0.1564 0.1797 zero:0 lattice 0.0850 ratio med 1.839 cert:8 sD med 0.1745 base med 0.0352 f0 med 0.1745 gap med 0.6579619519536664 u*eta* med 1.772
+  (0.6, 192, 'centre') n=8 eta* 0.1298 0.1934 0.2182 zero:0 lattice 0.0850 ratio med 2.275 cert:8 sD med 0.1745 base med 0.0619 f0 med 0.1704 gap med - u*eta* med 2.192
+  (0.6, 384, 'after-long-gap') n=8 eta* 0.1401 0.1563 0.1792 zero:0 lattice 0.0850 ratio med 1.838 cert:8 sD med 0.1577 base med 0.0351 f0 med 0.1576 gap med 0.6579619519536664 u*eta* med 1.771
+  (0.6, 384, 'centre') n=8 eta* 0.1292 0.1933 0.2179 zero:0 lattice 0.0850 ratio med 2.273 cert:8 sD med 0.1577 base med 0.0614 f0 med 0.1534 gap med - u*eta* med 2.191
+  (0.8, 96, 'after-long-gap') n=8 eta* 0.0404 0.0547 0.0779 zero:0 lattice 0.0205 ratio med 2.664 cert:8 sD med 0.0969 base med 0.0020 f0 med 0.0629 gap med 0.5461268447022007 u*eta* med 0.827
+  (0.8, 96, 'centre') n=8 eta* 0.0350 0.0685 0.1460 zero:0 lattice 0.0205 ratio med 3.334 cert:8 sD med 0.0969 base med 0.0025 f0 med 0.0740 gap med - u*eta* med 1.035
+  (0.8, 192, 'after-long-gap') n=8 eta* 0.0399 0.0545 0.0773 zero:0 lattice 0.0205 ratio med 2.654 cert:8 sD med 0.0462 base med 0.0020 f0 med 0.0437 gap med 0.5461268447022007 u*eta* med 0.824
+  (0.8, 192, 'centre') n=8 eta* 0.0344 0.0680 0.1457 zero:0 lattice 0.0205 ratio med 3.310 cert:8 sD med 0.0462 base med 0.0025 f0 med 0.0395 gap med - u*eta* med 1.027
+  (0.8, 384, 'after-long-gap') n=8 eta* 0.0396 0.0544 0.0771 zero:0 lattice 0.0205 ratio med 2.648 cert:8 sD med 0.0385 base med 0.0019 f0 med 0.0383 gap med 0.5461268447022007 u*eta* med 0.822
+  (0.8, 384, 'centre') n=8 eta* 0.0341 0.0678 0.1456 zero:0 lattice 0.0205 ratio med 3.301 cert:8 sD med 0.0385 base med 0.0024 f0 med 0.0277 gap med - u*eta* med 1.024
+  (0.95, 96, 'after-long-gap') n=8 eta* 0.0068 0.0169 0.0279 zero:0 lattice 0.0020 ratio med 8.429 cert:8 sD med 0.0207 base med 0.0000 f0 med 0.0042 gap med 0.5255545460428834 u*eta* med 0.304
+  (0.95, 96, 'centre') n=8 eta* 0.0078 0.0144 0.0644 zero:0 lattice 0.0020 ratio med 7.167 cert:8 sD med 0.0207 base med 0.0000 f0 med 0.0049 gap med - u*eta* med 0.258
+  (0.95, 192, 'after-long-gap') n=8 eta* 0.0065 0.0165 0.0260 zero:0 lattice 0.0020 ratio med 8.213 cert:8 sD med 0.0088 base med 0.0000 f0 med 0.0026 gap med 0.5255545460428834 u*eta* med 0.296
+  (0.95, 192, 'centre') n=8 eta* 0.0075 0.0140 0.0624 zero:0 lattice 0.0020 ratio med 6.974 cert:8 sD med 0.0088 base med 0.0000 f0 med 0.0038 gap med - u*eta* med 0.251
+  (0.95, 384, 'after-long-gap') n=8 eta* 0.0064 0.0163 0.0253 zero:0 lattice 0.0020 ratio med 8.123 cert:8 sD med 0.0063 base med 0.0000 f0 med 0.0021 gap med 0.5255545460428834 u*eta* med 0.293
+  (0.95, 384, 'centre') n=8 eta* 0.0074 0.0138 0.0614 zero:0 lattice 0.0020 ratio med 6.885 cert:8 sD med 0.0063 base med 0.0000 f0 med 0.0036 gap med - u*eta* med 0.248
+
+== item 4: owed4_1e6.jsonl : per (theta', a): P; lowest value/Lg over 8 windows (min, median of window minima); certified negative count; fraction of tau negative; predicted P^a/(a^2 u)/Lg; rms Fejer/Lg
+  (0.5, 0.1) P=398 min/Lg 0.732 med 0.845 certneg:0/8 frac<0 0.000 pred 2.537 rms 0.396 median value/Lg 2.017
+  (0.5, 0.3) P=398 min/Lg 0.172 med 0.444 certneg:0/8 frac<0 0.000 pred 0.933 rms 0.543 median value/Lg 2.003
+  (0.75, 0.1) P=7968 min/Lg 0.056 med 0.159 certneg:0/8 frac<0 0.000 pred 2.282 rms 0.638 median value/Lg 1.980
+  (0.75, 0.3) P=7968 min/Lg -1.858 med -1.650 certneg:8/8 frac<0 0.068 pred 1.529 rms 1.264 median value/Lg 2.026
+  (1.0, 0.1) P=159154 min/Lg -0.165 med -0.128 certneg:8/8 frac<0 0.003 pred 2.309 rms 0.919 median value/Lg 2.113
+  (1.0, 0.3) P=159154 min/Lg -5.939 med -5.581 certneg:8/8 frac<0 0.266 pred 2.816 rms 2.912 median value/Lg 2.220
+
+== item 4: owed4_1e9.jsonl : per (theta', a): P; lowest value/Lg over 8 windows (min, median of window minima); certified negative count; fraction of tau negative; predicted P^a/(a^2 u)/Lg; rms Fejer/Lg
+  (0.5, 0.1) P=12615 min/Lg 0.365 med 0.539 certneg:0/8 frac<0 0.000 pred 1.442 rms 0.424 median value/Lg 2.008
+  (0.5, 0.3) P=12615 min/Lg -1.555 med -1.041 certneg:8/8 frac<0 0.016 pred 1.059 rms 0.919 median value/Lg 2.002
+  (0.75, 0.1) P=1416984 min/Lg -0.193 med -0.063 certneg:6/8 frac<0 0.001 pred 1.541 rms 0.739 median value/Lg 1.964
+  (0.75, 0.3) P=1416984 min/Lg -9.935 med -8.328 certneg:8/8 frac<0 0.277 pred 2.910 rms 3.445 median value/Lg 2.070
+  (1.0, 0.1) P=159154943 min/Lg -0.831 med -0.784 certneg:8/8 frac<0 0.055 pred 1.853 rms 1.176 median value/Lg 2.158
+  (1.0, 0.3) P=159154943 min/Lg -37.970 med -36.664 certneg:8/8 frac<0 0.441 pred 8.996 rms 12.900 median value/Lg 2.215
+
+== item 5: owed5_1e12_m192.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  not run: {1.0: 208}
+  (0.6, 192, 'chains(24)') cells=192 viol M0 5 M1 2 hold M0 187 M1 190 s med 0.1935 min -0.1381 objects with >=1 M1 violation: 2/24
+  (0.6, 192, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.2131 min 0.0910 objects with >=1 M1 violation: 0/1
+  (0.6, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1996 min 0.1464 objects with >=1 M1 violation: 0/1
+  (0.8, 192, 'chains(24)') cells=192 viol M0 140 M1 87 hold M0 52 M1 105 s med -0.0552 min -0.5432 objects with >=1 M1 violation: 24/24
+  (0.8, 192, 'liouville') cells=8 viol M0 5 M1 4 hold M0 3 M1 4 s med -0.0605 min -0.3167 objects with >=1 M1 violation: 1/1
+  (0.8, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0599 min 0.0177 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e12_m384.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  not run: {1.0: 208}
+  (0.6, 384, 'chains(24)') cells=192 viol M0 11 M1 5 hold M0 181 M1 187 s med 0.1527 min -0.2454 objects with >=1 M1 violation: 4/24
+  (0.6, 384, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1532 min 0.0902 objects with >=1 M1 violation: 0/1
+  (0.6, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1650 min 0.0924 objects with >=1 M1 violation: 0/1
+  (0.8, 384, 'chains(24)') cells=192 viol M0 180 M1 135 hold M0 12 M1 57 s med -0.1317 min -0.5436 objects with >=1 M1 violation: 24/24
+  (0.8, 384, 'liouville') cells=8 viol M0 8 M1 7 hold M0 0 M1 1 s med -0.1538 min -0.3171 objects with >=1 M1 violation: 1/1
+  (0.8, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0338 min 0.0175 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e12_m96.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  not run: {1.0: 1040}
+  (0.6, 96, 'chains(24)') cells=960 viol M0 27 M1 9 hold M0 933 M1 951 s med 0.2586 min -0.3331 objects with >=1 M1 violation: 9/24
+  (0.6, 96, 'liouville') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.2384 min 0.0337 objects with >=1 M1 violation: 0/1
+  (0.6, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.2480 min 0.0638 objects with >=1 M1 violation: 0/1
+  (0.8, 96, 'chains(24)') cells=960 viol M0 461 M1 233 hold M0 499 M1 727 s med 0.0052 min -0.8400 objects with >=1 M1 violation: 24/24
+  (0.8, 96, 'liouville') cells=40 viol M0 17 M1 10 hold M0 23 M1 30 s med 0.0271 min -0.3154 objects with >=1 M1 violation: 1/1
+  (0.8, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.0764 min 0.0179 objects with >=1 M1 violation: 0/1
+  Fejer (0.6, 'chains(24)') n=192 frac tau M0 0.0000 M1 0.0000 min/Lg -0.079 std/u 0.397
+  Fejer (0.6, 'liouville') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.165 std/u 0.407
+  Fejer (0.6, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.164 std/u 0.407
+  Fejer (0.8, 'chains(24)') n=192 frac tau M0 0.0010 M1 0.0005 min/Lg -0.503 std/u 0.402
+  Fejer (0.8, 'liouville') n=8 frac tau M0 0.0013 M1 0.0006 min/Lg -0.294 std/u 0.408
+  Fejer (0.8, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.064 std/u 0.409
+
+== item 5: owed5_1e6_m192.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 192, 'chains(24)') cells=192 viol M0 0 M1 0 hold M0 192 M1 192 s med 0.2201 min 0.0007 objects with >=1 M1 violation: 0/24
+  (0.6, 192, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1980 min 0.0032 objects with >=1 M1 violation: 0/1
+  (0.6, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.2437 min 0.1910 objects with >=1 M1 violation: 0/1
+  (0.8, 192, 'chains(24)') cells=192 viol M0 129 M1 34 hold M0 63 M1 158 s med -0.0520 min -0.4746 objects with >=1 M1 violation: 20/24
+  (0.8, 192, 'liouville') cells=8 viol M0 6 M1 1 hold M0 2 M1 7 s med -0.0506 min -0.2617 objects with >=1 M1 violation: 1/1
+  (0.8, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0731 min 0.0448 objects with >=1 M1 violation: 0/1
+  (1.0, 192, 'chains(24)') cells=192 viol M0 192 M1 179 hold M0 0 M1 13 s med -0.3144 min -0.9361 objects with >=1 M1 violation: 24/24
+  (1.0, 192, 'liouville') cells=8 viol M0 8 M1 8 hold M0 0 M1 0 s med -0.2516 min -0.5140 objects with >=1 M1 violation: 1/1
+  (1.0, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0065 min 0.0036 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e6_m384.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 384, 'chains(24)') cells=192 viol M0 2 M1 0 hold M0 190 M1 192 s med 0.1665 min -0.0066 objects with >=1 M1 violation: 0/24
+  (0.6, 384, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1914 min 0.0029 objects with >=1 M1 violation: 0/1
+  (0.6, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1705 min 0.1229 objects with >=1 M1 violation: 0/1
+  (0.8, 384, 'chains(24)') cells=192 viol M0 172 M1 61 hold M0 20 M1 131 s med -0.1239 min -0.4757 objects with >=1 M1 violation: 24/24
+  (0.8, 384, 'liouville') cells=8 viol M0 7 M1 1 hold M0 1 M1 7 s med -0.0649 min -0.2636 objects with >=1 M1 violation: 1/1
+  (0.8, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0505 min 0.0269 objects with >=1 M1 violation: 0/1
+  (1.0, 384, 'chains(24)') cells=192 viol M0 192 M1 191 hold M0 0 M1 1 s med -0.3872 min -0.9395 objects with >=1 M1 violation: 24/24
+  (1.0, 384, 'liouville') cells=8 viol M0 8 M1 8 hold M0 0 M1 0 s med -0.3569 min -0.5889 objects with >=1 M1 violation: 1/1
+  (1.0, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0044 min 0.0035 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e6_m96.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 96, 'chains(24)') cells=960 viol M0 4 M1 0 hold M0 956 M1 960 s med 0.2632 min -0.1168 objects with >=1 M1 violation: 0/24
+  (0.6, 96, 'liouville') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.2707 min 0.0140 objects with >=1 M1 violation: 0/1
+  (0.6, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.2696 min 0.1226 objects with >=1 M1 violation: 0/1
+  (0.8, 96, 'chains(24)') cells=960 viol M0 430 M1 88 hold M0 530 M1 872 s med 0.0158 min -0.4687 objects with >=1 M1 violation: 24/24
+  (0.8, 96, 'liouville') cells=40 viol M0 14 M1 2 hold M0 26 M1 38 s med 0.0322 min -0.2065 objects with >=1 M1 violation: 1/1
+  (0.8, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.0818 min 0.0270 objects with >=1 M1 violation: 0/1
+  (1.0, 96, 'chains(24)') cells=960 viol M0 941 M1 687 hold M0 19 M1 273 s med -0.2410 min -0.8885 objects with >=1 M1 violation: 24/24
+  (1.0, 96, 'liouville') cells=40 viol M0 40 M1 29 hold M0 0 M1 11 s med -0.2253 min -0.4356 objects with >=1 M1 violation: 1/1
+  (1.0, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.0095 min 0.0023 objects with >=1 M1 violation: 0/1
+  Fejer (0.6, 'chains(24)') n=192 frac tau M0 0.0000 M1 0.0000 min/Lg 0.024 std/u 0.383
+  Fejer (0.6, 'liouville') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.033 std/u 0.384
+  Fejer (0.6, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.210 std/u 0.385
+  Fejer (0.8, 'chains(24)') n=192 frac tau M0 0.0009 M1 0.0001 min/Lg -0.416 std/u 0.389
+  Fejer (0.8, 'liouville') n=8 frac tau M0 0.0013 M1 0.0002 min/Lg -0.234 std/u 0.391
+  Fejer (0.8, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.081 std/u 0.391
+  Fejer (1.0, 'chains(24)') n=192 frac tau M0 0.0060 M1 0.0017 min/Lg -0.901 std/u 0.394
+  Fejer (1.0, 'liouville') n=8 frac tau M0 0.0072 M1 0.0020 min/Lg -0.554 std/u 0.394
+  Fejer (1.0, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.052 std/u 0.396
+
+== item 5: owed5_1e9_m192.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 192, 'chains(24)') cells=192 viol M0 9 M1 1 hold M0 183 M1 191 s med 0.1979 min -0.1988 objects with >=1 M1 violation: 1/24
+  (0.6, 192, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.2135 min 0.0337 objects with >=1 M1 violation: 0/1
+  (0.6, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1745 min 0.0932 objects with >=1 M1 violation: 0/1
+  (0.8, 192, 'chains(24)') cells=192 viol M0 138 M1 63 hold M0 54 M1 129 s med -0.0552 min -0.5128 objects with >=1 M1 violation: 23/24
+  (0.8, 192, 'liouville') cells=8 viol M0 6 M1 4 hold M0 2 M1 4 s med -0.1090 min -0.2206 objects with >=1 M1 violation: 1/1
+  (0.8, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0462 min 0.0186 objects with >=1 M1 violation: 0/1
+  (1.0, 192, 'chains(24)') cells=192 viol M0 192 M1 188 hold M0 0 M1 4 s med -0.3185 min -0.9440 objects with >=1 M1 violation: 24/24
+  (1.0, 192, 'liouville') cells=8 viol M0 8 M1 8 hold M0 0 M1 0 s med -0.3584 min -0.5399 objects with >=1 M1 violation: 1/1
+  (1.0, 192, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0036 min 0.0017 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e9_m384.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 384, 'chains(24)') cells=192 viol M0 11 M1 1 hold M0 181 M1 191 s med 0.1519 min -0.2007 objects with >=1 M1 violation: 1/24
+  (0.6, 384, 'liouville') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1799 min 0.0335 objects with >=1 M1 violation: 0/1
+  (0.6, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.1577 min 0.0920 objects with >=1 M1 violation: 0/1
+  (0.8, 384, 'chains(24)') cells=192 viol M0 178 M1 106 hold M0 14 M1 86 s med -0.1186 min -0.5130 objects with >=1 M1 violation: 24/24
+  (0.8, 384, 'liouville') cells=8 viol M0 7 M1 4 hold M0 1 M1 4 s med -0.1323 min -0.2221 objects with >=1 M1 violation: 1/1
+  (0.8, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0385 min 0.0165 objects with >=1 M1 violation: 0/1
+  (1.0, 384, 'chains(24)') cells=192 viol M0 192 M1 192 hold M0 0 M1 0 s med -0.3874 min -1.1059 objects with >=1 M1 violation: 24/24
+  (1.0, 384, 'liouville') cells=8 viol M0 8 M1 8 hold M0 0 M1 0 s med -0.3877 min -0.5409 objects with >=1 M1 violation: 1/1
+  (1.0, 384, 'zeta') cells=8 viol M0 0 M1 0 hold M0 8 M1 8 s med 0.0024 min 0.0009 objects with >=1 M1 violation: 0/1
+
+== item 5: owed5_1e9_m96.jsonl : per (theta', m, class): cells; violation at M = 0, M = 1 (certified); hold at M = 0 (certified); s median; chains with a violation in at least one window (M=1)
+  (0.6, 96, 'chains(24)') cells=960 viol M0 12 M1 2 hold M0 948 M1 958 s med 0.2550 min -0.1879 objects with >=1 M1 violation: 2/24
+  (0.6, 96, 'liouville') cells=40 viol M0 1 M1 0 hold M0 39 M1 40 s med 0.2488 min -0.0493 objects with >=1 M1 violation: 0/1
+  (0.6, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.2606 min 0.1048 objects with >=1 M1 violation: 0/1
+  (0.8, 96, 'chains(24)') cells=960 viol M0 441 M1 180 hold M0 519 M1 780 s med 0.0116 min -0.4947 objects with >=1 M1 violation: 24/24
+  (0.8, 96, 'liouville') cells=40 viol M0 16 M1 8 hold M0 24 M1 32 s med 0.0326 min -0.3113 objects with >=1 M1 violation: 1/1
+  (0.8, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.0916 min 0.0196 objects with >=1 M1 violation: 0/1
+  (1.0, 96, 'chains(24)') cells=960 viol M0 939 M1 825 hold M0 21 M1 135 s med -0.2319 min -0.8529 objects with >=1 M1 violation: 24/24
+  (1.0, 96, 'liouville') cells=40 viol M0 39 M1 33 hold M0 1 M1 7 s med -0.2032 min -0.7006 objects with >=1 M1 violation: 1/1
+  (1.0, 96, 'zeta') cells=40 viol M0 0 M1 0 hold M0 40 M1 40 s med 0.0064 min 0.0020 objects with >=1 M1 violation: 0/1
+  Fejer (0.6, 'chains(24)') n=192 frac tau M0 0.0000 M1 0.0000 min/Lg -0.190 std/u 0.392
+  Fejer (0.6, 'liouville') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.042 std/u 0.391
+  Fejer (0.6, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.104 std/u 0.391
+  Fejer (0.8, 'chains(24)') n=192 frac tau M0 0.0008 M1 0.0003 min/Lg -0.490 std/u 0.397
+  Fejer (0.8, 'liouville') n=8 frac tau M0 0.0009 M1 0.0004 min/Lg -0.201 std/u 0.400
+  Fejer (0.8, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.094 std/u 0.398
+  Fejer (1.0, 'chains(24)') n=192 frac tau M0 0.0063 M1 0.0029 min/Lg -0.906 std/u 0.399
+  Fejer (1.0, 'liouville') n=8 frac tau M0 0.0054 M1 0.0022 min/Lg -0.524 std/u 0.403
+  Fejer (1.0, 'zeta') n=8 frac tau M0 0.0000 M1 0.0000 min/Lg 0.034 std/u 0.401

@@ -84,7 +84,7 @@ the boundary-energy note.
 | Every fixed finite configuration sufficiently far into either end is positive definite | Proved by theta-tail asymptotics; no uniformity in size/configuration claimed | `theta_boundary_two_point.md` |
 | Arbitrary-order boundary-kernel PSD / box-pulse propagation / endpoint exponential energy | **Open** | `theta_boundary_energy.md` |
 
-The existing [theta-Fisher/zeta-sphere checkpoint, PR #40](https://github.com/judegomila/mathexplorer/pull/40)
+The existing [theta-Fisher/zeta-sphere checkpoint, PR #40](https://github.com/[user]/mathexplorer/pull/40)
 is related repository context. This directory is an independent checkpoint of
 the present convolution and geometry work; it does not upgrade that campaign's
 finite or conditional claims.

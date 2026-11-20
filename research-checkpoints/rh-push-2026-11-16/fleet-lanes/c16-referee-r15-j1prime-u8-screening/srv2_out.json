@@ -1,0 +1,96 @@
+{
+ "H": 0.03,
+ "stages": [
+  10000.0,
+  20000.0,
+  30000.0
+ ],
+ "workers": 8,
+ "phase constants": [
+  -0.2767871794485258,
+  -3.2200678029270347e-15
+ ],
+ "hidden pairs found": {
+  "LCHI to 10000": 0,
+  "DH to 10000": 3
+ },
+ "stage T<=10000": {
+  "seconds": 718.9931547641754,
+  "max abs imaginary residual (LCHI, DH)": [
+   1.1587975023985564e-10,
+   6.676652901786565e-11
+  ],
+  "LCHI": {
+   "n_zeros": 12704,
+   "first": [
+    6.183578195450854,
+    8.45722917442323,
+    12.674946417011355,
+    14.825025570328426
+   ],
+   "min gap": 0.04726748822213267,
+   "count below 418 (Riemann-von Mangoldt main term 319.8)": 320,
+   "count below 2000 (Riemann-von Mangoldt main term 2028.4)": 2028,
+   "count below 3000 (Riemann-von Mangoldt main term 3236.2)": 3237,
+   "count below 10000 (Riemann-von Mangoldt main term 12703.6)": 12704,
+   "count in [10,2000)": 2026,
+   "hill first 3000 zeros": {
+    "k": 2.9826114447770773,
+    "n_small": 15,
+    "se": 0.7701069635886175
+   },
+   "hill first 10000 zeros": {
+    "k": 3.031359535995302,
+    "n_small": 48,
+    "se": 0.4375390610293567
+   },
+   "hill first 12704 zeros": {
+    "k": 2.8804804139503517,
+    "n_small": 63,
+    "se": 0.36290642055738176
+   },
+   "n normalised gaps below 0.025 / 0.05 / 0.2": [
+    0,
+    0,
+    63
+   ],
+   "C1 gap autocorrelation": -0.3787159394714652
+  },
+  "DH": {
+   "n_zeros": 11570,
+   "first": [
+    5.094159844571095,
+    8.939914408096904,
+    12.133545425800742,
+    14.404003112277497
+   ],
+   "min gap": 0.010481373204356714,
+   "count below 418 (Riemann-von Mangoldt main term 319.8)": 302,
+   "count below 2000 (Riemann-von Mangoldt main term 2028.4)": 1861,
+   "count below 3000 (Riemann-von Mangoldt main term 3236.2)": 2969,
+   "count below 10000 (Riemann-von Mangoldt main term 12703.6)": 11570,
+   "count in [10,2000)": 1859,
+   "hill first 3000 zeros": {
+    "k": 1.8033438586950943,
+    "n_small": 23,
+    "se": 0.37602318803923185
+   },
+   "hill first 10000 zeros": {
+    "k": 1.7976369697559038,
+    "n_small": 83,
+    "se": 0.19731629171536613
+   },
+   "hill first 11570 zeros": {
+    "k": 1.845248282373054,
+    "n_small": 93,
+    "se": 0.19134333336051448
+   },
+   "n normalised gaps below 0.025 / 0.05 / 0.2": [
+    3,
+    9,
+    93
+   ],
+   "C1 gap autocorrelation": -0.16500912547195282
+  }
+ }
+}

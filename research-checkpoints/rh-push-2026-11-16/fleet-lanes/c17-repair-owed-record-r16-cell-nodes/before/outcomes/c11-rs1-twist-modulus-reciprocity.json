@@ -1,0 +1,48 @@
+{
+ "slug": "c11-rs1-twist-modulus-reciprocity",
+ "round": 11,
+ "kind": "explore",
+ "nodes": [
+  "cotangent-reciprocity-period-function",
+  "bettin-conrey-intercept"
+ ],
+ "tags": [
+  "reciprocity",
+  "twisted-second-moment",
+  "dirichlet-family",
+  "mollifier",
+  "dedekind-sum",
+  "rs-1",
+  "device-design"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Stage A only; no statement about zeros. For J_p(s;a) = 1 - sum_{chi mod p} |F(s,chi)A_chi(s) - 1|^2: (i) Lemma 0 and the zero-one law hold: for X >= p-1 with free weights sup_a J = 1 - #{chi : F(s,chi) = 0}, a restatement of the conclusion. (ii) At s = 1 over odd characters, for distinct odd primes, the twisted second moment obeys the three-term identity of Theorem 2 (classical inputs: cotangent formula, Rademacher's law), so the twist variable becomes the modulus; composite moduli need the Moebius divisor-sum form. (iii) The T-NR twin's twisted second moments are a nine-term combination of zeta's at every s, so every step S0 to S4 that holds for zeta with general twists holds for the twin, whose bound S5 is false at its off-line zeros; the window translate passes by substitution. The device is closed on these two controls. Not established: the E_a pass for candidate (C), anything at the centre (relative to unopened sources), the A < 1 abscissa claim, the DH and interpolation-twin rows.",
+ "obstruction": "Stage A. J_p(s;a) = 1 - sum_chi |F(s,chi)A_chi(s) - 1|^2: for X >= p-1 with free weights sup_a J = 1 - #{chi: F(s,chi) = 0} (zero-one law, a restatement). The reciprocity (three-term identity at s = 1, odd characters, distinct odd primes) moves the twist into the modulus but reads only periodicity and the functional equation of the twists; the target's s <-> 1-s is read in 0 steps. T-NR's twisted second moments are a nine-term combination of zeta's at every s, so T-NR passes steps S0 to S4 and its S5 is false at its off-line zeros. Not established: E_a pass for candidate (C), centre statements (Conrey, Young, Bettin not opened), DH row.",
+ "obstructionKind": "periodicity-plus-twist-FE-only; target FE not read; T-NR passes every step; zero-one law at A>=1",
+ "controlsThatDefeat": [
+  "T-NR (passes every step; proved at s = 1)",
+  "window translate (passes by substitution)",
+  "E_a with real a (passes on its central line; not established for candidate (C))",
+  "not run: DH, heat, THIN, U, Beurling"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Verdict (obstruction; device closed) holds with six corrections; report at push/c11-rs1-twist-modulus-reciprocity/REFEREE.md (author second pass kept as Appendix B). Re-derived and confirmed: Lemma 0, S2, Lemma 1, Theorem 2 (distinct odd primes), Lemma 4 (a)(b), the Lemma 3 identity, the Lemma 5 nine-term identity. Reruns on new cases agree (Rademacher on 400 random composite triples exact; Theorem 2 on 4 new triples to 5e-2 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Twist-modulus reciprocity uses periodicity plus the functional equation of the twists (conductor aspect), which is the 7/8 read set; it never reads the target's s <-> 1-s, so it is not an RS-1 device. Moving l into the modulus reproduces the n4 wall (Moebius signs on moduli, conductor >= length). Any device whose steps are family positivity plus identities linear in Hecke twists is passed by T-NR as a finite Hecke polynomial at q.",
+ "followUp": "Independent referee on the control table: open Bettin (2016) to confirm the exact formula covers shifts and the twists h q^j, so the T-NR pass holds at the centre and not only at s = 1. Then register the device as closed; no stage B.",
+ "resultFile": "tmp/research-2026-11-16/push/c11-rs1-twist-modulus-reciprocity/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c11-rs1-twist-modulus-reciprocity/REFEREE.md",
+ "launchedNodes": [
+  "cotangent-reciprocity-period-function",
+  "bettin-conrey-intercept"
+ ],
+ "engineVerdict": "closed"
+}

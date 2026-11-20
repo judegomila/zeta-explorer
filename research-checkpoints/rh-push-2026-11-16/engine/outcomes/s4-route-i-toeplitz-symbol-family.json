@@ -1,0 +1,91 @@
+{
+ "slug": "s4-route-i-toeplitz-symbol-family",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "discrete-p3-pencil-equals-weil",
+  "family-weil-symbol",
+  "fixed-support-weil-symbol",
+  "krein-floor-measured-plateau",
+  "mem-cusp-allocation-half",
+  "multi-rung-arb-lege",
+  "null-symbol-duality",
+  "ri-crossing-drift-to-ln3",
+  "ri-csharp-ln3",
+  "route-i-p3-adjoined-pencil",
+  "route-i-semilocal-trace-remainder",
+  "semilocal-s23-fourier"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "ri-crossing-drift-to-ln3",
+    "route-i-p3-adjoined-pencil",
+    "discrete-p3-pencil-equals-weil"
+   ],
+   "obstruction": "the crossing reads the first omitted non-zero coefficient of -F'/F plus a margin offset: coefficient reading, not an all-primes statistic",
+   "controlsThatDefeat": [
+    "DH (own form positive to 2.6)",
+    "Dirichlet characters (same rule)",
+    "T-NR restricted to S = {2}"
+   ]
+  },
+  {
+   "nodes": [
+    "route-i-semilocal-trace-remainder",
+    "mem-cusp-allocation-half",
+    "semilocal-s23-fourier"
+   ],
+   "obstruction": "the law is abs(alpha_p) = 1 per prime, at every size",
+   "controlsThatDefeat": [
+    "T-NR",
+    "sign twist",
+    "unimodular twist",
+    "L(chi) real part (same pattern as DH)"
+   ]
+  },
+  {
+   "nodes": [
+    "krein-floor-measured-plateau",
+    "ri-csharp-ln3",
+    "multi-rung-arb-lege"
+   ],
+   "obstruction": "the floor law is the zero-counting function (T* = 2 pi e e^{2a}/q): verified height in another form (row P19); Euler-blind below the DH onset",
+   "controlsThatDefeat": [
+    "DH (positive at all supports)",
+    "L(chi) (fail the stated criterion)"
+   ]
+  },
+  {
+   "nodes": [
+    "family-weil-symbol",
+    "fixed-support-weil-symbol",
+    "null-symbol-duality"
+   ],
+   "obstruction": "averaging dilutes (route 14, row P23): the fail criterion is impossible at any size",
+   "controlsThatDefeat": [
+    "DH (q >= 257)",
+    "Liouville (q >= 67)",
+    "T-NR(3,2.2) (q >= 401)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) the crossing reads the first omitted non-zero coefficient of -F'/F plus a margin offset: coefficient reading, not an all-primes statistic | (2) the law is abs(alpha_p) = 1 per prime, at every size | (3) the floor law is the zero-counting function (T* = 2 pi e e^{2a}/q): verified height in another form (row P19); Euler-blind below the DH onset | (4) averaging dilutes (route 14, row P23): the fail criterion is impossible at any size",
+ "controlsThatDefeat": [
+  "DH (own form positive to 2.6)",
+  "DH (positive at all supports)",
+  "DH (q >= 257)",
+  "Dirichlet characters (same rule)",
+  "L(chi) (fail the stated criterion)",
+  "L(chi) real part (same pattern as DH)",
+  "Liouville (q >= 67)",
+  "T-NR",
+  "T-NR restricted to S = {2}",
+  "T-NR(3,2.2) (q >= 401)",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-route-i-toeplitz-symbol-family/RESULT.md"
+}

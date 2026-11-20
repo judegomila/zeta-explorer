@@ -1,0 +1,33 @@
+zeta (0, 0) identity rel defect 6.224487961371607e-87
+zeta (0, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+zeta (0, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+zeta (0.4, 1.1) identity rel defect 1.9034787382436753e-87
+zeta (0.4, 1.1) d/dtau_2 Gram inertia ('ok', 8, 0)
+zeta (0.4, 1.1) d/dtau_1 Gram inertia ('ok', 8, 0)
+zeta (0.4, 1.1) K_T - K_0 inertia ('ok', 8, 0)
+zeta (2, 0) identity rel defect 7.064958169709164e-88
+zeta (2, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+zeta (2, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+zeta (2, 0) K_T - K_0 inertia ('ok', 8, 0)
+sym(0.3,3) (0, 0) identity rel defect 2.814543189957926e-87
+sym(0.3,3) (0, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (0, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (0.4, 1.1) identity rel defect 1.266409198941566e-87
+sym(0.3,3) (0.4, 1.1) d/dtau_2 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (0.4, 1.1) d/dtau_1 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (0.4, 1.1) K_T - K_0 inertia ('ok', 8, 0)
+sym(0.3,3) (2, 0) identity rel defect 3.33669741237905e-88
+sym(0.3,3) (2, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (2, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+sym(0.3,3) (2, 0) K_T - K_0 inertia ('ok', 8, 0)
+left(0.2+3i) (0, 0) identity rel defect 7.849911417559517e-87
+left(0.2+3i) (0, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (0, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (0.4, 1.1) identity rel defect 5.454223499320865e-88
+left(0.2+3i) (0.4, 1.1) d/dtau_2 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (0.4, 1.1) d/dtau_1 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (0.4, 1.1) K_T - K_0 inertia ('ok', 8, 0)
+left(0.2+3i) (2, 0) identity rel defect 1.145749527974767e-87
+left(0.2+3i) (2, 0) d/dtau_2 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (2, 0) d/dtau_1 Gram inertia ('ok', 8, 0)
+left(0.2+3i) (2, 0) K_T - K_0 inertia ('ok', 8, 0)

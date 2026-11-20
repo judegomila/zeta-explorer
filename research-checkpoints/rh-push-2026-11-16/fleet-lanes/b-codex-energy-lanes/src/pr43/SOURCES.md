@@ -61,6 +61,6 @@ of every claim in a referenced preprint or another repository checkpoint.
     Reference for the first positive zero ordinate exceeding 14. The Rayleigh
     certificate itself establishes the candidate-operator upper bound below 14.
 
-Repository context: [Math Explorer PR #40](https://github.com/judegomila/mathexplorer/pull/40)
+Repository context: [Math Explorer PR #40](https://github.com/[user]/mathexplorer/pull/40)
 preserves a different theta-Fisher/zeta-sphere campaign. Its results are not
 assumed to prove the missing boundary-kernel positivity in this checkpoint.

@@ -1,0 +1,15 @@
+planned memory: float64 blocks below 3 MB per worker; workers 8
+sample 500, with flagged 585 family-nodes, jobs 290
+job 25/290 77s
+job 50/290 121s
+job 75/290 172s
+job 100/290 212s
+job 125/290 274s
+job 150/290 339s
+job 175/290 401s
+job 200/290 465s
+job 225/290 516s
+job 250/290 569s
+job 275/290 634s
+status {'ttrain': 585} primary full 0 secondary any 86
+REF2B-DONE 679s

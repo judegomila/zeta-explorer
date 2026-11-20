@@ -1,0 +1,21 @@
+jobs 363 workers 8 zq {30000000.0: (29999999.916404195, 30000000.088563196), 100000000.0: (99999999.58976497, 99999999.93015745)} planned memory per worker about 1.19 GB
+0 30000000.0 0.75 zeta real 0 4 P 102142 N_R 105 n/w 156 156 stage 0 S 0.06590 L 0.06352 E 0.00238 resid -3.15e-10 sec 4.7 elapsed 5
+20 30000000.0 0.75 chain real 13 0 P 102142 N_R 85 n/w 159 159 stage 0 S 0.06287 L 0.06294 E -0.00007 resid 1.87e-11 sec 7.3 elapsed 31
+40 30000000.0 0.75 zeta haar 6 0 P 102142 N_R 85 n/w 154 154 stage 0 S 0.04583 L 0.04489 E 0.00093 resid -4.35e-10 sec 10.7 elapsed 74
+60 30000000.0 0.75 zeta haar 13 0 P 102142 N_R 80 n/w 152 152 stage 0 S 0.05476 L 0.05664 E -0.00188 resid -1.58e-10 sec 57.2 elapsed 132
+80 30000000.0 0.75 ZQ haar 7 0 P 102142 N_R 82 n/w 153 153 stage 0 S 0.04715 L 0.04587 E 0.00128 resid 3.58e-10 sec 22.3 elapsed 191
+100 30000000.0 0.75 DH haar 7 0 P 102142 N_R 63 n/w 138 138 stage 0 S 0.04296 L 0.04290 E 0.00006 resid 9.44e-11 sec 7.0 elapsed 238
+120 100000000.0 0.5 zeta real 0 3 P 3989 N_R 46 n/w 109 109 stage 0 S 0.03525 L 0.03751 E -0.00227 resid 1.78e-10 sec 3.0 elapsed 262
+140 100000000.0 0.5 chain real 16 0 P 3989 N_R 63 n/w 104 104 stage 0 S 0.04571 L 0.04804 E -0.00234 resid 4.74e-11 sec 3.0 elapsed 291
+160 100000000.0 0.5 zeta haar 6 0 P 3989 N_R 53 n/w 102 102 stage 0 S 0.03727 L 0.03902 E -0.00175 resid 5.00e-13 sec 4.7 elapsed 317
+180 100000000.0 0.5 TNR haar 3 0 P 3989 N_R 90 n/w 111 111 stage 0 S 0.19460 L 0.18903 E 0.00557 resid 7.15e-12 sec 3.4 elapsed 344
+200 100000000.0 0.5 EA haar 0 0 P 3989 N_R 113 n/w 122 122 stage 0 S 0.29576 L 0.29921 E -0.00345 resid 7.27e-11 sec 5.4 elapsed 383
+220 100000000.0 0.5 DH haar 4 0 P 3989 N_R 52 n/w 92 92 stage 0 S 0.04166 L 0.04123 E 0.00043 resid -7.30e-11 sec 5.0 elapsed 406
+240 30000000.0 0.5 zeta real 0 1 P 2185 N_R 38 n/w 89 89 stage 0 S 0.02385 L 0.02342 E 0.00043 resid 2.57e-11 sec 4.7 elapsed 424
+260 30000000.0 0.5 chain real 14 0 P 2185 N_R 50 n/w 91 91 stage 0 S 0.03861 L 0.03663 E 0.00198 resid -3.79e-10 sec 3.8 elapsed 439
+280 30000000.0 0.5 zeta haar 2 0 P 2185 N_R 55 n/w 89 89 stage 0 S 0.04414 L 0.04568 E -0.00154 resid -3.99e-11 sec 4.5 elapsed 451
+300 30000000.0 0.5 zeta haar 22 0 P 2185 N_R 55 n/w 91 91 stage 0 S 0.04936 L 0.04849 E 0.00087 resid 1.82e-10 sec 8.1 elapsed 469
+320 30000000.0 0.5 zeta haar 15 0 P 2185 N_R 45 n/w 91 91 stage 0 S 0.03243 L 0.03484 E -0.00241 resid 2.18e-10 sec 28.5 elapsed 484
+340 30000000.0 0.5 DH haar 3 0 P 2185 N_R 36 n/w 80 80 stage 0 S 0.03369 L 0.03543 E -0.00174 resid 2.25e-10 sec 2.7 elapsed 493
+360 30000000.0 0.5 EA haar 0 0 P 2185 N_R 103 n/w 111 111 stage 0 S 0.27375 L 0.27187 E 0.00188 resid -1.14e-11 sec 25.5 elapsed 509
+done 518.6789131164551

@@ -1,0 +1,54 @@
+{
+ "slug": "c19-hq2-screen-fe-int-mult-pos-devices",
+ "round": 19,
+ "kind": "combine",
+ "nodes": [
+  "exact-relation-rigidity"
+ ],
+ "tags": [
+  "control",
+  "HQ2",
+  "HQ3",
+  "HQ4",
+  "pole-clause",
+  "local-euler-shape",
+  "identification",
+  "band-device",
+  "screen"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. (a) HQ2(q, eps) has zeta's functional equation, integer frequencies, multiplicative coefficients a(n) >= 1, off-line zeros and order-4 poles on the line; its log-derivative coefficients are signed for every eps > 0 (first negative at k = 13, 22, 38, 67, 212, 669 for eps = 1e-1, 1e-2, 1e-3, 1e-4, 1e-6, 1e-8). (b) HQ3 and HQ4 have nu >= Lambda (HQ4 also a totally positive local sequence), off-line zeros and simple poles at real part 1/2 +- b; by Lemma N (Landau applied to one local factor) under nu >= 0 a real pole of the factor at real part >= that of every factor zero is unavoidable in the one-prime rational class. (c) For finitely many modified primes with rational local factors and zeta's functional equation: the multiplier splits into one-prime factors symmetric up to sign; a factor with no pole in |u| <= 1 is trivial; geometric local factors force G = zeta. These are elementary identification statements of known type, and within this class they select the same twins as the pole clause; the case of infinitely many modified primes is open. (d) On the band devices N(theta), W and C(theta) at heights 1e4 to 1e6, HQ2 enters only through Z_q - P_q; with factor zeros at distance <= 0.10 from the line it passes N(theta) at M = 1 in 384 of 384 object-cells with theta <= 0.85, and 801 certified pairs at M = 0 fail through the pole lattice alone; zeta is never certified negative. Device rows 10, 11, 12, 18 are ARGUED only. Verdict precise-obstruction stands.",
+ "obstruction": "Screen complete, no device type. Coefficient-level reads (FE, integer frequencies, prime-power support, N >= 0) reject HQ2 only by the pole clause. Three reads reject HQ2 by another step: (a) sign of the log-derivative coefficients at powers of q, removed by the new siblings HQ3, HQ4 (nu >= Lambda, off-line zeros, simple poles at real part 1/2 +- b; Lemma N: under nu >= 0 a real pole right of the factor zeros is unavoidable in the one-prime rational class); (b) local Euler-factor shape at q; (c) complete multiplicativity at q. (b) and (c) are identifications: for finitely many modified primes with rational local factors and zeta's functional equation, geometric local factors force G = zeta (Lemmas S, F, C); within this class they select the same twins as the pole clause. Infinitely many modified primes: open. Band devices N(theta), W, C(theta) see HQ2 only through Z_q - P_q (distance of zeros and pole lattice). Rows 10, 11, 12, 18 (spinor S, D10 among them) are ARGUED, not run.",
+ "obstructionKind": "control-passes: HQ2 passes every coefficient-level read except the pole clause; HQ3 and HQ4 pass local positivity; local-shape reads are identifications of known type, not reads inside the strip",
+ "controlsThatDefeat": [
+  "HQ2 (passes N(theta) at M = 1 in 384 of 384 cells with theta <= 0.85, zeros up to 0.10 off the line)",
+  "HQ3, HQ4 (new controls: nu >= Lambda, off-line zeros, real poles right of the zeros; pass log-derivative positivity)",
+  "not run: D10 Gram form and spinor S on HQ2"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error found in any PROVED step, certified count or identity. All PROVED steps were re-derived (HQ2 functional equation, coefficients, roots, log-derivative formula, HQ3/HQ4, Lemmas N, S, F, C, the band-form identity Q(as written) = Q(zeta) + Z_q - P_q and the Poisson identity). Referee reruns agree: first negative k by exact rational recursion (13, 22, 38, 67, 212, 669; new cases (5,1e-5) 119, (7,3e-3) 29); identity with own code on three new cases (1e-10 for quartets minus poles; 6e-6 to 6e- - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A one-prime twin with zeta's functional equation carries its off-line zeros and extra poles inside one local Euler factor, in Re s >= 1/2. Coefficient-level reads (FE, integer frequencies, prime-power support, N >= 0) meet only the pole clause; any read of local factor shape rejects the twin at that prime with no clause inside the strip; local positivity conditions do not (siblings HQ3, HQ4 with real poles right of the zeros pass them). Band devices order controls by distance of off-line zeros and by the pole lattice, not by multiplicativity. Compute note: repeated ball multiplication by a unit complex ball inflates radii about 1.4x per step; the first server unit was stopped and discarded for this.",
+ "followUp": "Explore candidate for the planner: Euler-shape rigidity without the pole clause for infinitely many modified primes (first lemma: extend Lemma F to sets S with sum p^(-1/2) finite; kill test: a twin with geometric local factors and zeta's functional equation). It is an identification, usable as a pre-filter for local-shape devices, not a route to zeros. Also owed: a referee for Lemmas N, S, F, C and the device table; D10 Gram form and spinor S run on HQ2; engine control codes for HQ3 and HQ4 (MAP_ROW.md, lanes.jsonl in the lane directory).",
+ "resultFile": "tmp/research-2026-11-16/push/c19-hq2-screen-fe-int-mult-pos-devices/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-hq2-screen-fe-int-mult-pos-devices/REFEREE.md",
+ "launchedNodes": [
+  "exact-relation-rigidity"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Holds. Lemmas N, S, F, C re-derived; Lemma N domain: nu(q^k) >= 0 for all k >= 1; one-line replacement of its Cesaro step; four exact instances.",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-hq2-screen-fe-int-mult-pos-devices.md"
+ }
+}

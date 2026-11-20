@@ -1,0 +1,49 @@
+{
+ "slug": "c18-u4-group-law-left-of-one-torus-orbit",
+ "round": 18,
+ "kind": "explore",
+ "nodes": [],
+ "tags": [
+  "U4",
+  "3-4-1",
+  "group-law",
+  "POS",
+  "Theorem P",
+  "pole-dominance",
+  "torus-orbit"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Cell U4 (iv) is closed for the read \"positivity-derived inequality on shifts s+ikt or powers of a character\". (C-F) holds for every sigma, t, U with every term finite in 1/2<sigma<1 (identity E; truncation defect 1e-7 to 3e-6 at non-prime-power X with 600-800 zeros). Lemma GL with (b) corrected to: the inequalities hold iff at each atom the evenly extended sequence k -> Re Lambda_k(n) is positive definite; no relation between primes is read. Theorem T for fixed translates, and by the same computation for the triple sigma+ikt with B locally bounded: a pointwise lower bound holds iff the region is zero-free. Lemma S (with local boundedness hypothesis): sign control of zero terms forces a test at abscissa >= 1; Fejer sign region is exactly Re z <= 0 (proved by the referee). Lemma V: a simple zero at distance delta from Re s=1, in the 3-4-1 mechanism, needs mean log-length < log 2/delta. E_a and the G_+ lift pass steps (1)-(3) with their own poles; U, THIN, TW+, DEL, the Beurling-rational member pass without the functional equation; T-NR fails at the sign of the coefficient at p0^2 for every admissible (q,c) (both local roots negative). The height ceiling 1-beta << 1/log t for general tests remains ARGUED. Float64 tables are records, not decisions; the registered ball test was not run.",
+ "obstruction": "Stops at stage A (controls pass). Cell U4 (iv) closed for the read 'positivity-derived inequality on shifts s+ikt or powers of a character'. Lemma GL (corrected by the referee): the inequalities hold iff at each atom the evenly extended sequence k -> Re Lambda_k(n) is positive definite, so the group-law step reads each prime separately and no relation between primes (no R1). Theorem T: a pointwise lower bound on an open set holds iff the set is zero-free (target). Lemma S: sign control of the zero terms forces a test at abscissa >= 1 (Fejer sign region exactly Re z <= 0). Lemma V: a simple zero at distance delta from Re s = 1 needs mean log-length < log 2/delta in the 3-4-1 mechanism. Height ceiling 1-beta << 1/log t for general tests is ARGUED only. Not covered: inequalities reading phases at different primes jointly, or quadratic in the log-derivative.",
+ "obstructionKind": "control-passes: E_a and the G_+ lift pass steps (1)-(3) with their own poles; U, THIN, TW+, DEL, Beurling-rational pass without the functional equation; the step is atom-by-atom positivity of Lambda",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a) (passes every step with its own poles)",
+  "G_+ lift (passes every step)",
+  "U, THIN, TW+, DEL, Beurling-rational member (pass without the functional equation)",
+  "T-NR fails only at the sign of the coefficient at p0^2 (a sign of Lambda, not a zero read); with long tests it satisfies the inequality at 1e5 random points (pole dominance)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Obstruction verdict holds; REFEREE.md written at tmp/research-2026-11-16/push/c18-u4-group-law-left-of-one-torus-orbit/REFEREE.md. Corrections: (E1) Lemma GL(b) 'iff' is false in the 'only if' direction as written: cosine tests read only Re Lambda_k(n), so the condition is positive definiteness of the even sequence k -> Re Lambda_k(n), not Lambda_k(n) = int e^{ik theta} d mu_n (counterexample Lambda_0=1, Lambda_1=i; density 1+2 sin theta has min -1 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A 3-4-1 inequality left of 1 is either a convergent test of the sign of Lambda (read set inside the P56 identification class; pole term dominates beyond log2/length of the line Re s=1) or a pointwise bound equal to the target. The group-law step reads each prime separately, so it carries no R1. T-NR is not a passer of log-level devices; with long tests it still satisfies the inequality at 0 of 1e5 random points negative (pole dominance), which shows truth of the inequality does not separate it. Incident: `$S:rh-push` expands as a zsh modifier; use `${H}:path`. A stray local directory from this (also holding a duplicate of another lane's fe_lp.py, original intact) was removed.",
+ "followUp": "One independent referee on Lemma GL, Theorem T, Lemmas S and V and the control table (the G_+ lift and the DEL/THIN rows rest on map rows); then add the proposed map row G42. The general ceiling for weights with v(0+)=0 is ARGUED only. Not covered: inequalities that read phases at different primes jointly or are quadratic in the log-derivative.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-u4-group-law-left-of-one-torus-orbit/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-u4-group-law-left-of-one-torus-orbit/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c19-referee-r18-independent-sources",
+  "outcome": "holds with corrections",
+  "note": "Holds with corrections. No displayed inequality uses a cross-prime relation; the group-law step is positive definiteness of k -> Re Lambda_k(n) atom by atom (Lemma GL (b) as printed is wrong in one direction; same finding as the first referee). Identity E, Lemmas S, V, Theorem T re-derived.",
+  "report": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE2-c18-u4-group-law-left-of-one-torus-orbit.md"
+ },
+ "brokenProved": 1
+}

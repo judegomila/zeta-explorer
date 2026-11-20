@@ -690,9 +690,9 @@ end matrices cannot substitute for that theorem.
 ## Sources
 
 1. Math Explorer, pinned theta-boundary checkpoint:
-   <https://github.com/judegomila/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/theta_boundary_energy.md>
+   <https://github.com/[user]/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/theta_boundary_energy.md>
    and
-   <https://github.com/judegomila/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/theta_boundary_two_point.md>.
+   <https://github.com/[user]/mathexplorer/blob/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08/theta_boundary_two_point.md>.
    These provide the normalization, bounded convolution identity, density
    argument, and fixed-finite same-end theorem. They do not contain the new
    explicit obstruction or local-interval application in this note.

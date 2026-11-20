@@ -1,0 +1,34 @@
+{
+ "slug": "c16-repair-owed-record-r15",
+ "round": 16,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "repair",
+  "record"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; nothing about zeros of zeta. Confirmed on the live files: map 202 -> 205 rows (S12b, Q30, G41 with the canonical tier NOT CLOSED) plus control rows ZQ, SG, NR-q, worded faithfully to the four referee files; 30 label restrictions and the dated notes entered; devices 53 closed / 1 floored / 11 open, pending 7, controls 23; ten screening lines with referees 0; Statement O version 4 written; headline 1 of 4 and hold rate 90.8% unchanged; outcomes byte-identical (142 sha256 values recomputed); top 60 identical after stage 1, 2 of 60 keys left after the silent-cell nodes. Correction: the generator scores the eleven silent cells as open crossing devices (weight 2 and exemption from two penalties), so the current top 60 is an effect of that state and not a ranking of leads; the state should be changed before the list is used. This pass counts as one independent referee; D_+ >= 0 for G_+ now has a second derivation.",
+ "obstruction": "Record lane, no attack. Map 202 -> 205 rows (S12b, Q30, G41) plus control rows ZQ, SG, NR-q; 30 label restrictions and dated notes entered; engine devices 53 closed / 1 floored / 11 open, controls 23, pending 7; Statement O version 4 written. Referee correction E1: the eleven silent cells were entered with device state 'open', which engine/generate.py scores as an open crossing device (weight 2, exemption from two -3 penalties); 57 of the top 60 candidates now stand on those nodes, so the current top 60 is an effect of that state and not a ranking of leads. Row G41 still says the canonical tier is NOT CLOSED and needs the c16 DN result.",
+ "obstructionKind": "record",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "E1 (substantive, engine semantics, only partly disclosed): the eleven silent cells are entered with device state \"open\". In engine/generate.py that state means an open crossing device: it fills the requirement slot \"crossing\", adds weight 2 (line 439) and exempts a candidate from the two -3 penalties for a majority of flow-side or mean-value members (lines 475, 480). The node texts say \"Not a lead\". The live CANDIDATES.json has rank 1 = M3-f0e2d7 (12.03) with crossing = silent-u8, and 57 of 60 w - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Entering read classes as open device nodes is not a neutral record edit. The generator keeps a fixed number of device partners per anchor and weights open devices above the floored one, so eleven new nodes replaced 58 of the top 60 and dropped 13 former candidates from enumeration. Staging the reruns (rows and controls, then nodes, then lane lines) gave each change one cause. Node text that says \"map row X\" makes the builder attach that row and its controls to the node.",
+ "followUp": "Planner decision before using the top 60: keep the eleven silent-cell types as open devices or move them to PENDING (see engine/curated/CHANGELOG_c16-repair.md; the former list is baseline/CANDIDATES.json). Also owed: an independent referee for this lane and a second referee for Statement O v4 lines 13 to 17; the CONTROL_CODE_RE codes NR-q, ZQ, SG; an update of row G41 once c16-dn-canonical-tier-ball-conversion reports.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-repair-owed-record-r15/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-repair-owed-record-r15/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

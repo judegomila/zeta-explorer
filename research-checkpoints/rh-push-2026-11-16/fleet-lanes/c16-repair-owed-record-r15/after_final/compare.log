@@ -1,0 +1,134 @@
+{
+ "nodes": [
+  1718,
+  1718
+ ],
+ "live": [
+  974,
+  974
+ ],
+ "rows": [
+  241,
+  241
+ ],
+ "controls": [
+  23,
+  23
+ ],
+ "byType": {},
+ "edges": [
+  9118,
+  9118
+ ],
+ "edgesByType": {
+  "composes-with": [
+   7559,
+   7559
+  ],
+  "control-defeats": [
+   871,
+   871
+  ],
+  "obstructs": [
+   270,
+   270
+  ],
+  "restates": [
+   188,
+   188
+  ],
+  "separates-from": [
+   4,
+   4
+  ],
+  "special-case-of": [
+   132,
+   132
+  ],
+  "uses": [
+   94,
+   94
+  ]
+ },
+ "devicesMeta": [
+  {
+   "closed": 69,
+   "floored": 6,
+   "open": 11
+  },
+  {
+   "closed": 69,
+   "floored": 6,
+   "open": 11
+  }
+ ],
+ "nodesAdded": [],
+ "nodesRemoved": [],
+ "edgesRemoved": [],
+ "nodesChangedFields": [],
+ "deviceTypes": [
+  {
+   "closed": 53,
+   "floored": 1,
+   "open": 11
+  },
+  {
+   "closed": 53,
+   "floored": 1,
+   "open": 11
+  }
+ ],
+ "pending": [
+  7,
+  7
+ ],
+ "deviceTypesAdded": [],
+ "deviceEvidenceChanged": [],
+ "controlsCurated": [
+  8,
+  8
+ ],
+ "generatorMeta": {},
+ "generatorMeta/graphCounts": {},
+ "generatorMeta/pools": {},
+ "generatorMeta/filters": {
+  "/dump_all": [
+   "tmp/research-2026-11-16/push/c16-repair-owed-record-r15/after/all_scored.json",
+   null
+  ]
+ },
+ "generatorMeta/r4Rules": {},
+ "generatorMeta/families": {},
+ "generatorMeta/moves": {},
+ "top": {
+  "lenA": 60,
+  "lenB": 60,
+  "keysInCommon": 60,
+  "sameOrder": true,
+  "sameScores": true,
+  "rank1": [
+   "capture-ratio-psd-slope x silent-u8-kernel-conditions-beyond-searched-range x sympow-conductor-normalised-shift (12.03)",
+   "capture-ratio-psd-slope x silent-u8-kernel-conditions-beyond-searched-range x sympow-conductor-normalised-shift (12.03)"
+  ],
+  "entered": [],
+  "left": [],
+  "commonRelativeOrderKept": true,
+  "commonScoreChanged": [],
+  "commonRowsCheckedChanged": {
+   "candidates": 0,
+   "rows": {}
+  }
+ },
+ "scoreboardDiff": {
+  "/A_requirements/scoreHistogram/0": [
+   138,
+   139
+  ],
+  "/D_reliability/lanesRun": [
+   140,
+   141
+  ],
+  "/history": [
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.846, \"lanesCumulative\": 26, \"lanesThisRound\": 8, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 2, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.882, \"lanesCumulative\": 34, \"lanesThisRound\": 8, \"lemmasDecided\": 4, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 3, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.905, \"lanesCumulative\": 42, \"lanesThisRound\": 8, \"lemmasDecided\": 5, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 4, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.88, \"lanesCumulative\": 50, \"lanesThisRound\": 8, \"lemmasDecided\": 9, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 5, \"round\": 5, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.862, \"lanesCumulative\": 58, \"lanesThisRound\": 8, \"lemmasDecided\": 16, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 6, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.879, \"lanesCumulative\": 66, \"lanesThisRound\": 8, \"lemmasDecided\": 23, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 7, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.865, \"lanesCumulative\": 74, \"lanesThisRound\": 8, \"lemmasDecided\": 30, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 8, \"round\": 8, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 82, \"lanesThisRound\": 8, \"lemmasDecided\": 37, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 9, \"round\": 9, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 90, \"lanesThisRound\": 8, \"lemmasDecided\": 43, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 10, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.888, \"lanesCumulative\": 98, \"lanesThisRound\": 8, \"lemmasDecided\": 53, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 11, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.896, \"lanesCumulative\": 106, \"lanesThisRound\": 8, \"lemmasDecided\": 61, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 12, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.904, \"lanesCumulative\": 114, \"lanesThisRound\": 8, \"lemmasDecided\": 75, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 13, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.902, \"lanesCumulative\": 122, \"lanesThisRound\": 8, \"lemmasDecided\": 92, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 14, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.908, \"lanesCumulative\": 140, \"lanesThisRound\": 18, \"lemmasDecided\": 107, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 15, \"threeReferee\": 1}]",
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bes
+edgesAdded: 0

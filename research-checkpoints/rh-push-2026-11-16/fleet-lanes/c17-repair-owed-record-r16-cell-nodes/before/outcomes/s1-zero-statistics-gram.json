@@ -1,0 +1,87 @@
+{
+ "slug": "s1-zero-statistics-gram",
+ "round": 1,
+ "kind": "screen",
+ "nodes": [
+  "cue-neff-small-gap-correction",
+  "euler-detection-decouples-from-offline",
+  "extreme-gap-exponent",
+  "gap-structure-function",
+  "mem-fifth-pair-degeneracy",
+  "palm-mirror-additive-deficit",
+  "random-platt-windows",
+  "route-l-cmv-detector-reach",
+  "vasyunin-lammin-power-law",
+  "zeta-zero-lag1-anticorrelation"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "extreme-gap-exponent",
+    "cue-neff-small-gap-correction",
+    "random-platt-windows"
+   ],
+   "obstruction": "no ordinate-list statistic can fail every control (T-NR identical); exponent is a proportion statement, blind to heat step below n^(-2/3)",
+   "controlsThatDefeat": [
+    "T-NR",
+    "unimodular twist",
+    "E_a",
+    "heat (small step)"
+   ]
+  },
+  {
+   "nodes": [
+    "zeta-zero-lag1-anticorrelation",
+    "gap-structure-function",
+    "palm-mirror-additive-deficit"
+   ],
+   "obstruction": "does not distinguish zeta from a lattice; control failure is a zero count",
+   "controlsThatDefeat": [
+    "T-NR",
+    "jittered lattice",
+    "unimodular twist"
+   ]
+  },
+  {
+   "nodes": [
+    "route-l-cmv-detector-reach",
+    "euler-detection-decouples-from-offline"
+   ],
+   "obstruction": "CMV onset = Pick onset (verified height in another form); coefficient relation passed by T-NR, E_a, sign twists",
+   "controlsThatDefeat": [
+    "T-NR",
+    "E_a",
+    "sign twist",
+    "DH below order 149"
+   ]
+  },
+  {
+   "nodes": [
+    "mem-fifth-pair-degeneracy",
+    "vasyunin-lammin-power-law"
+   ],
+   "obstruction": "pairing is algebraic for every kernel; exponent identical for all controls; NB distance needs log N in the hundreds for DH",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "generic kernels"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) no ordinate-list statistic can fail every control (T-NR identical); exponent is a proportion statement, blind to heat step below n^(-2/3) | (2) does not distinguish zeta from a lattice; control failure is a zero count | (3) CMV onset = Pick onset (verified height in another form); coefficient relation passed by T-NR, E_a, sign twists | (4) pairing is algebraic for every kernel; exponent identical for all controls; NB distance needs log N in the hundreds for DH",
+ "controlsThatDefeat": [
+  "DH",
+  "DH below order 149",
+  "E_a",
+  "T-NR",
+  "generic kernels",
+  "heat (small step)",
+  "jittered lattice",
+  "sign twist",
+  "unimodular twist"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s1-zero-statistics-gram/RESULT.md"
+}

@@ -6,7 +6,7 @@ A second result replaces the pointwise ratio assumptions by a sufficient compari
 
 ## Definitions and established inputs
 
-Use the conventions of [the positive first-pair proof in PR #48](https://github.com/judegomila/mathexplorer/blob/499528b487e3249c5a35602f83343aaa53cec848/rigorous/theta-schur-kernels-2026-11-09/theta_schur_positive_kernels_20261109.md) and [the coupled-kernel note in PR #50](https://github.com/judegomila/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/theta_second_kernel_structure_20261109.md):
+Use the conventions of [the positive first-pair proof in PR #48](https://github.com/[user]/mathexplorer/blob/499528b487e3249c5a35602f83343aaa53cec848/rigorous/theta-schur-kernels-2026-11-09/theta_schur_positive_kernels_20261109.md) and [the coupled-kernel note in PR #50](https://github.com/[user]/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/theta_second_kernel_structure_20261109.md):
 
 $$
 F(z)=\xi(1/2+z)=\int_{\mathbb R}\kappa(t)e^{zt/2}\,dt,

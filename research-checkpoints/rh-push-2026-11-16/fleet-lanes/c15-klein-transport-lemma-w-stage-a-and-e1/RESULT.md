@@ -86,7 +86,7 @@ region R = {0 < d <= 1/(2A)}: no implication from W(A) together with hypotheses 
 many zeros (Blaschke multiplication of a coefficient, control BLS) can give a strip narrower than 1/(2A).
 
 Decisive test, controls against W(A) (any A > 1):
-- E_a0 = zeta(s + a0) zeta(s - a0): all 2N(T) zeros at distance a0; sum = 2N(T) T^(2A a0). FAILS for every
+- E_a0 = zeta(s + a0) zeta(s - a0): all 2N(T) zeros at distance a0; sum = 2N(T) T^(2A a0). [Correction entered 2026-11-19 by lane c18-repair-owed-record-r17-open-device-nodes (register campaign/CORRECTIONS_R16.md row 7; second referee push/c16-referee-r15-j1prime-u8-screening): the preceding statement is false as written. Corrected: "each zeta zero at signed offset e gives zeros of E_a0 at offsets e + a0, e - a0, and T^(2A abs(e+a0)) + T^(2A abs(e-a0)) >= 2 T^(2A a0); so the sum is at least 2N(T) T^(2A a0)." The conclusion FAILS stands.] FAILS for every
   A > 0 (PROVED). Ratio to T log T at a0 = 0.05, A = 4/3: 0.47, 1.60, 11.4 at T = 1e3, 1e6, 1e12.
 - T-NR, xi(s)(2 cosh((s - 1/2) log q) + c), c > 2: (T log q)/pi added zeros at distance
   b = arccosh(c/2)/log q; sum >= (T log q/pi) T^(2A b). FAILS for every A > 0 (PROVED). q = 2, c = 2.0506,
@@ -186,7 +186,7 @@ Controls, composed statement; first failing step named:
 | BLS | passes for d <= 1/(2A) | passes | none: the control passes; the conclusion (strip 1/(2A)) is true for it |
 
 No control fails at a step that uses the Euler product: the section-6 inequality uses no property of F beyond
-analyticity and a non-vanishing trace, and Lemma W is a statement about the zero multiset.
+analyticity and a non-vanishing trace, and Lemma W is a statement about the zero multiset. [Correction entered 2026-11-19 by lane c18-repair-owed-record-r17-open-device-nodes (register campaign/CORRECTIONS_R16.md row 8; second referee push/c16-referee-r15-j1prime-u8-screening): the preceding statement is false as written. Corrected: "the section-6 inequality uses the functional-equation symmetry, order one and a non-vanishing trace; no Euler product." (First referee; not rechecked by the second.)]
 
 ## 5. Sentence E1 (part 2)
 

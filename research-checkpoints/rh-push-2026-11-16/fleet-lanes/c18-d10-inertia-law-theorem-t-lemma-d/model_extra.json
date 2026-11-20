@@ -1,0 +1,168 @@
+[
+ {
+  "case": "single real 1/4 + symmetric quartet (1/4,2)",
+  "base": "pole",
+  "deg_b": 6,
+  "basis": 27,
+  "symmetric": true,
+  "pos": 7,
+  "neg": 4,
+  "rank": 11,
+  "predicted": null,
+  "sec": 0.1
+ },
+ {
+  "case": "single real 3/4 + symmetric quartet (1/4,2)",
+  "base": "pole",
+  "deg_b": 6,
+  "basis": 27,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 5,
+  "rank": 11,
+  "predicted": null,
+  "sec": 0.1
+ },
+ {
+  "case": "single real 1/4 + line pair 1/2+-3i",
+  "base": "pole",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 2,
+  "neg": 2,
+  "rank": 4,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "single real 3/4 + line pair 1/2+-3i",
+  "base": "pole",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 3,
+  "rank": 4,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "single real 1/4 + two line pairs",
+  "base": "pole",
+  "deg_b": 6,
+  "basis": 27,
+  "symmetric": true,
+  "pos": 7,
+  "neg": 4,
+  "rank": 11,
+  "predicted": null,
+  "sec": 0.1
+ },
+ {
+  "case": "single real 3/4 + two line pairs",
+  "base": "pole",
+  "deg_b": 6,
+  "basis": 27,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 5,
+  "rank": 11,
+  "predicted": null,
+  "sec": 0.1
+ },
+ {
+  "case": "real {1/4, 3/4, 1} (partners and a zero at 1)",
+  "base": "pole",
+  "deg_b": 4,
+  "basis": 12,
+  "symmetric": true,
+  "pos": 1,
+  "neg": 0,
+  "rank": 1,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "left pair doubled 1/4+-i twice",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 6,
+  "neg": 4,
+  "rank": 10,
+  "predicted": {
+   "neg": 4
+  },
+  "sec": 0.0
+ },
+ {
+  "case": "quartet with the left pair doubled",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 15,
+  "neg": 2,
+  "rank": 17,
+  "predicted": {
+   "neg": 2
+  },
+  "sec": 0.3
+ },
+ {
+  "case": "quartet with the right pair doubled",
+  "base": "pole",
+  "deg_b": 7,
+  "basis": 37,
+  "symmetric": true,
+  "pos": 17,
+  "neg": 0,
+  "rank": 17,
+  "predicted": {
+   "neg": 0
+  },
+  "sec": 0.4
+ },
+ {
+  "case": "quartet doubled",
+  "base": "pole",
+  "deg_b": 9,
+  "basis": 61,
+  "symmetric": true,
+  "pos": 28,
+  "neg": 0,
+  "rank": 28,
+  "predicted": {
+   "neg": 0
+  },
+  "sec": 2.4
+ },
+ {
+  "case": "symmetric quartet with eta = 1/2 exactly (zeros on Re = 0 and Re = 1), g = 2",
+  "base": "pole",
+  "deg_b": 5,
+  "basis": 19,
+  "symmetric": true,
+  "pos": 3,
+  "neg": 0,
+  "rank": 3,
+  "predicted": null,
+  "sec": 0.0
+ },
+ {
+  "case": "sym d=12: three quartets",
+  "base": "pole",
+  "deg_b": 13,
+  "basis": 127,
+  "symmetric": true,
+  "pos": 66,
+  "neg": 0,
+  "rank": 66,
+  "predicted": {
+   "neg": 0
+  },
+  "sec": 43.6
+ }
+]

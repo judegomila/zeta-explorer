@@ -1,0 +1,42 @@
+{
+ "slug": "c20-statement-o-line4-heat-zero-enclosures-server",
+ "round": 20,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [
+  "compute",
+  "certified-conversion",
+  "statement-o",
+  "line-4",
+  "line-12",
+  "line-14",
+  "line-15",
+  "controls"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Partial-result stands as claimed: no statement about zeros of zeta, no requirement score. All lemmas (A0, P1, P2, T, S, Q for this application, the layer bound A1, W, mean-value enclosures, closed forms for SG and NR-q, the item D counting argument) were re-derived and confirmed; the code was read against them and the tables match the JSON outputs. Independent re-computation with own mpmath code on a third line (Im w = -1.3), at the three heights the lane's own pass had not cross-checked outside Arb (tau = 0.2, 0.1, 0.15; Im s = 2.5e8, 5e9, 8.5e10): Newton roots equal to the lane's to 21-22 digits, values equal up to the REF rounding constant to 9e-13 / 6e-11 / 4e-9 relative, winding 1 for F on both squares and 0 for H_0. Item D float64 winding with own code: P = 37 gives 94 (zeta phases) and 96 (U_s0); P = 47 zeta phases gives 130; P = 13 gives 32 and 34; all equal to the certified integers. Additional MEASURED (float64, not certified): U_s0 at P = 47 gives 131; no zero of N with 4 <= Re z < 8 in the window for P = 13, 37, 47. Items B, C confirmed at the lane's parameters and at c = 2.5, b = 0.35. Status of the six heat zeros, the SG and NR-q zeros and the stage pole counts: certified in Arb, one derivation, one execution, plus this non-rigorous independent confirmation.",
+ "obstruction": "Certified conversion of control records, not an attack. Six off-axis zeros of H_{-tau} (tau = 1, 0.25 twice, 0.2, 0.15, 0.1) enclosed with winding number 1 (zeta's H_0 gives 0 on the same squares); SG real zero at 1/2 + b (b = 0.3, 0.4); NR-q zero at c = 2.1, 2.05; exact pole counts for zeta phases P = 13..47 and U_s0 P = 13..37. Status: certified in Arb, one derivation, one execution, plus a non-rigorous independent confirmation. Stops at: Lemma Q (Trefethen-Weideman Theorem 5.1) quoted from memory and not opened; the escape law F1 of line 4 not re-derived; U_s0 at P = 47 float64 only (131).",
+ "obstructionKind": "certified conversion of control records",
+ "controlsThatDefeat": [
+  "not applicable (certified conversion; the located zeros are the controls' own)",
+  "not run: U_s0 at P = 47 in balls; 256-bit rerun at P = 47"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error changes a certified integer or enclosure. Text errors and gaps found: (1) RESULT.md section 2.2 states \"REF = -1968.99 at x = 5002\"; the runs used -1950.160 and -1949.861 and hand evaluation gives -1950.16 (cosmetic: REF is an arbitrary scaling constant). (2) Item D certificate omits the case D = 0 with N != 0 in 0 < Re z <= 1/64; it is harmless (L~ has a pole there, so S~ = -1, not a pole), but the sentence is missing. (3) Lemma Q is cited from memory and not opened by the lane or by m - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A rigorous enclosure of the Gaussian-convolved xi at heights 1e3 to 1e11 runs in seconds to minutes once the kernel integral is a trapezoid sum with shared zeta samples on a line Re s > 1 and the tail bound keeps the gamma factor's decay e^{-pi t/8}. Adaptive ball quadrature with a constant bound for xi did not finish one evaluation. Mean-value segment enclosures removed the cost of cancellation in the sum.",
+ "followUp": "At the checkpoint, relabel the located HEAT, SG and NR-q zeros and the stage pole counts from MEASURED to \"certified, one derivation\" (Statement O lines 4, 14, 15, 12). An independent referee should open Lemma Q (Trefethen-Weideman Thm 5.1, quoted from memory) and Lemma T. Line 4 still needs a second referee on the escape law F1 itself, which this lane did not re-derive.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-statement-o-line4-heat-zero-enclosures-server/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-statement-o-line4-heat-zero-enclosures-server/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

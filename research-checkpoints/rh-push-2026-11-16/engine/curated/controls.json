@@ -1,5 +1,5 @@
 {
- "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8. BLS added and UNIV source extended by c14-repair-map-engine-checkpoint-record (round 14). NR-vec added by c15-repair-record-strategy-v4-report (round 15); BLS, UNIV and NR-vec are in CONTROL_CODE_RE of build_graph.py from that lane on.",
+ "about": "Curated auxiliary controls added by lanes (merged into CONTROLS by build_graph.py at import). Each entry: code -> name, has, lacks, kills, kw, status, source. Written by c9-repair-referee-debts-r8. BLS added and UNIV source extended by c14-repair-map-engine-checkpoint-record (round 14). NR-vec added by c15-repair-record-strategy-v4-report (round 15); BLS, UNIV and NR-vec are in CONTROL_CODE_RE of build_graph.py from that lane on. HQ2, HQ3, HQ4 added by c20-repair-owed-record-r19-statement-o-v5 (round 20; owed list of round 19); the three codes are in CONTROL_CODE_RE of build_graph.py from that lane on.",
  "controls": {
   "EISW": {
    "name": "EIS-w: Eisenstein series E(z, w') of PSL_2(Z) off resonance (phi(w') != 0), Re w' in (1/2, 1)",
@@ -48,6 +48,66 @@
    "status": "coefficient statement elementary (re-derived by one independent referee); level relative to Shimura 1973 Lemma 3.6 (not opened)",
    "source": "push/c14-theta-orthogonal-metaplectic-eigenobject/RESULT.md Lemma V and engine_device_proposal.json, with the definition repaired by REFEREE.md (independent pass, correction 2: the principal twist is replaced by F - (1/q) sum F(z + j/q)); map section 2 note NR-vec and row G39. Entered by c15-repair-record-strategy-v4-report",
    "scope": "control for weight-1/2 (metaplectic) Hecke eigen-objects on Gamma_0(4); not a Dirichlet-series control; not computed as a function"
+  },
+  "ZQ": {
+   "name": "ZQ: zero-quartet multiplier twin zeta(s) m(s), m rational in s(1-s) of degree 0; two on-line zero pairs at +-g1, +-g2 exchanged for the quartet 1/2 +- eta +- i (g1+g2)/2",
+   "has": "zeta's own functional equation exactly, at all heights; the simple pole at 1; order 1; N(T) for T > g2; every prime-power atom of log zeta (Euler product, GEOM, SIZE read on the atoms)",
+   "lacks": "INT and SUPP (absolutely continuous signed density D with sup abs D <= 8 e^-2 (eta^2 + d^2)/(1/2 - eta)^2); POS (forced with the pole clause: Lemma L)",
+   "kills": "kills a device that reads zeta's functional equation with multiplicative structure on the prime-power atoms and not the absence of coefficient mass off log N; if GEOM and SIZE are read on ordinary coefficients the read set is an identification class and ZQ does not apply",
+   "kw": "\\bZQ\\b|zero-quartet",
+   "status": "construction and defect bound proved (re-derived by one independent referee); instances measured; second referee owed",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "control for read sets containing FE of zeta without INT; conditional on the atom reading (referee E2); zeros at any prescribed 1/2 + eta, 0 < eta < 1/2"
+  },
+  "SG": {
+   "name": "SG: real-zero twin zeta(s)(t^2 + b^2)/(t^2 - g1^2), t^2 = s(1-s) - 1/4; zeros 1/2 +- i g1 of zeta replaced by the real pair 1/2 +- b",
+   "has": "zeta's own functional equation exactly; exact prime-power atoms; Lambda_SG <= Lambda (density -2 x^(-1/2)(cosh(b log x) - cos(g1 log x)) <= 0)",
+   "lacks": "INT, SUPP, POS; real zero at 1/2 + b",
+   "kills": "kills steps that use an upper bound for Lambda, or positivity of the atoms only, together with the functional equation",
+   "kw": "\\bSG\\b|real-zero twin",
+   "status": "proved (re-derived by one independent referee); measured at b = 0.3",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "companion of ZQ; one-sided relaxation of POS with exact atoms"
+  },
+  "NR-q": {
+   "name": "NR-q: T-NR at a base with no rational power, zeta(s)(q^(s-1/2) + c + q^(1/2-s)), q = 1 + sqrt 2, 2 < abs c < q^(1/2) + q^(-1/2)",
+   "has": "zeta's own functional equation exactly; discrete frequencies; integer-frequency part equal to c zeta; Hecke relation at every rational prime on each coset q^j N",
+   "lacks": "INT; GEOM, SIZE, POS at the one added generalised prime q; zeros on Re s = 1/2 +- arccosh(abs c/2)/log q",
+   "kills": "kills steps that read the coefficients at integers only, or covariance at rational primes only, together with the functional equation",
+   "kw": "\\bNR-q\\b|no rational power",
+   "status": "proved (re-derived by one independent referee); measured at c = 2.1",
+   "source": "push/c15-control-with-zeta-fe-classes-u1-u2/RESULT.md sections 2, 4 and engine_control_proposal.json, with the corrections of REFEREE.md (independent pass, E1 to E5); map section 2 table rows ZQ, SG, NR-q and the note \"Controls ZQ, SG, NR-q and Lemma L\". Entered by c16-repair-owed-record-r15",
+   "scope": "companion of ZQ; discrete relaxation of INT with GEOM kept at rational primes"
+  },
+  "HQ2": {
+   "name": "HQ2: pole-clause twin zeta(s)(1 + eps u^2/(1 - u)^4), u = q^(1/2 - s), q prime, eps > 0",
+   "has": "zeta's functional equation exactly; ordinary Dirichlet series with integer frequencies; multiplicative coefficients a(n) >= 1 (equal to 1 unless q^2 divides n); Euler product; finite order; the pole of zeta at 1; on-line zeros exactly zeta's",
+   "lacks": "the pole clause (pole of order 4 at s = 1/2 and at each 1/2 + 2 pi i k/log q where zeta does not vanish); log-level positivity (nu(q^k) is signed for every eps > 0; first negative k = 13, 22, 38, 67, 212, 669 at q = 2 for eps = 1e-1 to 1e-8); geometric local factor at q; complete multiplicativity at q^2; Ramanujan size at q. Four zeros near each pole at distance (2/log q) Re asinh((eps^(1/4)/2) e^(i pi/4)) from the line",
+   "kills": "kills steps that read the functional equation, integer frequencies, multiplicativity and coefficient positivity together without reading analyticity on the critical line or the local Euler shape at every prime",
+   "kw": "\\bHQ2\\b|pole-clause twin",
+   "status": "proved (re-derived by two referees for the construction, one for the round-19 addendum); ball enclosures of eight off-line zeros",
+   "source": "push/c18-exact-relation-rigidity-klein-spinor/RESULT.md with REFEREE.md (E1 to E5) and push/c19-referee-r18-independent-sources/REFEREE2-c18-exact-relation-rigidity-klein-spinor.md; push/c19-hq2-screen-fe-int-mult-pos-devices/RESULT.md section 2 and MAP_ROW.md, with the corrections of REFEREE.md (one referee, E1 to E7); map section 2 table rows HQ2, HQ3, HQ4 and row X2. Entered by c20-repair-owed-record-r19-statement-o-v5",
+   "scope": "single-object devices reading coefficients; not a screen for devices that read the local Euler shape at q (map row X2)"
+  },
+  "HQ3": {
+   "name": "HQ3: log-positive pole-clause twin zeta(s)(1 - alpha u + u^2)/(1 - beta u + u^2), u = q^(1/2 - s), alpha = q^a + q^-a, beta = q^b + q^-b, 0 < a < b < 1/2",
+   "has": "zeta's functional equation exactly; ordinary Dirichlet series with integer frequencies; Euler product; nu >= Lambda >= 0 on prime powers; a(n) >= 1; zeros of the factor at 1/2 +- a + 2 pi i k/log q",
+   "lacks": "the pole clause (simple poles at 1/2 +- b + 2 pi i k/log q; the one with k = 0 is real, in (1/2, 1)); geometric local factor at q",
+   "kills": "kills steps that read the functional equation, integer frequencies, multiplicativity and log-level positivity (nu >= 0 or nu >= Lambda) without the pole clause or the local shape at every prime",
+   "kw": "\\bHQ3\\b|log-positive pole-clause twin",
+   "status": "proved (elementary; re-derived by one referee; checked to 1e-60 on the member (5; 0.07, 0.31))",
+   "source": "push/c19-hq2-screen-fe-int-mult-pos-devices/RESULT.md section 2 and MAP_ROW.md, with the corrections of REFEREE.md (one referee, E1 to E7); map section 2 table rows HQ2, HQ3, HQ4 and row X2. Entered by c20-repair-owed-record-r19-statement-o-v5",
+   "scope": "integer-frequency, multiplicative form of G_+ (referee of c15-control-with-zeta-fe-classes-u1-u2); removes the sign of nu at powers of q as a separator from HQ2-type twins"
+  },
+  "HQ4": {
+   "name": "HQ4: totally positive pole-clause twin zeta(s)(1 + alpha u + u^2)/(1 - beta u + u^2), same parameters as HQ3",
+   "has": "as HQ3 (functional equation, integer frequencies, Euler product, nu >= Lambda >= 0, a(n) >= 1); zeros of the factor at 1/2 +- a + (2k + 1) pi i/log q; local coefficient sequence at q totally positive (Edrei-Thoma form: negative real zeros, positive real poles)",
+   "lacks": "the pole clause (simple poles at 1/2 +- b + 2 pi i k/log q); geometric local factor at q",
+   "kills": "as HQ3, and in addition kills local total positivity of the Euler factor as a separator",
+   "kw": "\\bHQ4\\b|totally positive pole-clause twin",
+   "status": "proved (elementary; re-derived by one referee; Edrei's theorem classical, not opened; 24309 minors of order <= 4 non-negative on the member (5; 0.07, 0.31))",
+   "source": "push/c19-hq2-screen-fe-int-mult-pos-devices/RESULT.md section 2 and MAP_ROW.md, with the corrections of REFEREE.md (one referee, E1 to E7); map section 2 table rows HQ2, HQ3, HQ4 and row X2. Entered by c20-repair-owed-record-r19-statement-o-v5",
+   "scope": "companion of HQ3"
   }
  }
 }

@@ -1,0 +1,33 @@
+{
+ "slug": "c18-u6c-gl3-cover-whittaker-constants-method",
+ "round": 18,
+ "kind": "deepen",
+ "nodes": [],
+ "tags": [],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Nothing about zeros of zeta; score 0. Cubic theta on GL(3): support (l1,l2) = (0,0) or (1,1) mod 3 follows from a recalled Kazhdan-Patterson criterion (count verified; l2 = 0 case confirmed by the opened Friedberg-Ginzburg text) and is consistent with smoothed A_2 double sums at X = 1e5 and 2e5 on 34 lane indices plus 23 referee indices; tau(p,p)/tau(1,1) = kappa conj(gamma(p)) q^(-1/6) with kappa real, 0.97 to 0.99, limit not resolved; periodicity at p^3 and the reciprocity cocycle on the diagonal hold to 1 to 3 per cent. Known array (Proskurin, Bump-Hoffstein; not opened), the cubic Gauss-sum array used by the Z14/Z15 row family. The sign candidate (C3) is a residue statement of Patterson's series; its truth for character twists depends on arg gamma(p), and it fails on a class mod 9 of theta itself: not a separating inequality. Double cover: theta has no Whittaker coefficient (opened); local Whittaker dimension 4 (verified from the recalled commutator); squarefree-class constants not computed; the method is a plan, not run, and (K3) is not yet a defined statement.",
+ "obstruction": "Cell U6 (c) splits; cubic half decided. Cubic theta on GL(3) (unique Whittaker model): tau(p^l1,p^l2) != 0 iff (l1,l2) = (0,0) or (1,1) mod 3 (recalled Kazhdan-Patterson criterion; l2 = 0 opened in Friedberg-Ginzburg 1403.3929; consistent with smoothed A_2 double sums at X = 1e5, 2e5 on 57 indices); tau(p,p)/tau(1,1) = kappa conj(gamma(p)) q^(-1/6), kappa 0.97 to 0.99, limit not resolved: the cubic Gauss-sum array of rows Z14/Z15, no new object. The sign candidate (C3) is a residue identity of Patterson's series, fails for multiplicative unimodular twins and on a class mod 9 of theta itself. Double cover: theta has no Whittaker coefficient; local Whittaker dimension 4, so squarefree-class constants are global period-type data; method is a plan, not run; (K3) not yet a defined statement. Zeta controls have no lift to the cover.",
+ "obstructionKind": "no-new-object: constants are cubic Gauss sums (rows Z14/Z15); the reads are identities shared by multiplicative twists; 7/8-adjacent",
+ "controlsThatDefeat": [
+  "multiplicative unimodular twins (sign candidate fails / identity shared)",
+  "theta itself on a residue class mod 9 (sign candidate fails)",
+  "not run: zeta controls have no lift to the cover; double-cover method not run"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error changes the verdict; six corrections (REFEREE.md at tmp/research-2026-11-16/push/c18-u6c-gl3-cover-whittaker-constants-method/REFEREE.md). All PROVED steps re-derived and confirmed relative to their recalled inputs (Lemma K orbit counts on all six permutations; Lemma D rank of I+J and dimension 4; commutator from the cocycle). Rerun locally at X = 1e5 with 23 new indices (P31, P37, inert 11, P13^(4,4), P13^(2,5), mixed): S(X;1,1) reproduce - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Where the Whittaker model is unique (cubic cover of GL(3)) the global constants are forced to be Gauss sums and add no object beyond rows Z14/Z15. Where it is not unique (double cover, local dimension 4) the squarefree-class constants are global period-type data that no Hecke relation reaches. Neither half gives an inequality: the cubic reads are identities shared by multiplicative twists, and the zeta controls have no lift to the cover.",
+ "followUp": "Referee Lemma K and the value at (p,p) against the unopened sources (Kazhdan-Patterson I.3, Bump-Hoffstein), then enter the proposed row (MAP_ROW.md, Z24). Run the section 5 method (Epstein and Chinta-Offen validation inputs first) only if the planner wants the double-cover array; (K3) has no supporting argument.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-u6c-gl3-cover-whittaker-constants-method/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-u6c-gl3-cover-whittaker-constants-method/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

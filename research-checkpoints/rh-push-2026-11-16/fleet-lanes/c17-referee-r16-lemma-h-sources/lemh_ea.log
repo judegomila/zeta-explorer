@@ -1,0 +1,23 @@
+Ea 0 S<0,M>0,lam>0 thr [0.48432971 +/- 8.26e-11] 13 0 0 7
+Ea 1 S<0,M>0,lam>0 thr [33.576612 +/- 1.66e-7] 13 0 0 5
+Ea 2 S<0,M>0,lam>0 thr [9.8680148e-7 +/- 7.80e-16] 13 0 0 10
+Ea 3 S>0,M>0,lam>0 all 6 0 0 0
+Ea 4 S>0,M>0,lam>0 all 6 0 0 0
+Ea 5 S>0,M>0,lam>0 all 6 0 0 0
+Ea 6 S>0,M>0,lam>0 all 6 0 0 0
+Ea 7 S>0,M>0,lam>0 all 6 0 0 0
+Ea 8 S>0,M>0,lam>0 all 6 0 0 0
+Ea 9 S>0,M>0,lam>0 all 6 0 0 0
+Ea 10 S<0,M>0,lam>0 thr [0.00079999996 +/- 4.68e-13] 13 0 0 10
+Ea 11 S>0,M>0,lam>0 all 6 0 0 0
+Ea 12 S>0,M>0,lam>0 all 6 0 0 0
+Ea 13 S>0,M>0,lam>0 all 6 0 0 0
+Ea 14 S<0,M>0,lam>0 thr [4.8721069e-6 +/- 4.56e-14] 13 0 0 10
+Ea 15 S>0,M>0,lam>0 all 6 0 0 0
+Ea 16 S>0,M>0,lam>0 all 6 0 0 0
+Ea 17 S<0,M>0,lam>0 thr [6.1647331 +/- 2.34e-8] 13 0 0 6
+Ea 18 S<0,M>0,lam>0 thr [5.7636885e-6 +/- 2.41e-14] 13 0 0 10
+Ea 19 S>0,M>0,lam>0 all 6 0 0 0
+Ea {'cases': {'S<0,M>0,lam>0': 7, 'S>0,M>0,lam>0': 13}, 'points': 20, 'agree': 169, 'disagree': 0, 'undecided': 0, 'certified_failures': 58, 'seconds': 0.6115169525146484}
+{'tau': -0.3, 'z': 3.7, 'kernel_side': '[0.11472066061466460209 +/- 8.94e-21]', 'gaussian_average_of_Xi': '[0.1147206606146646021 +/- 2.02e-20]', 'diff': '[1.4250e-20 +/- 3.62e-25]', 'Xi0_integral': '[0.12428019454707852748 +/- 4.02e-21]', 'Xi0_formula': '[0.1242801945470785274781934 +/- 3.50e-26]', 'note': 'tails beyond |u|>3 (below 1e-10000) and |y|>12 (below Xi(0) erfc(12/sqrt 0.3) < 1e-200) not inside the balls'} 0.035336971282958984
+exit 0

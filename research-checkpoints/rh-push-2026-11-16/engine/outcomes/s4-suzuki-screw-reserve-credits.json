@@ -1,0 +1,97 @@
+{
+ "slug": "s4-suzuki-screw-reserve-credits",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "box-defect-psi-w",
+  "closed-reserve-credit-debt",
+  "credit-variation-block-freeze",
+  "curvature-charge-d",
+  "discrepancy-floor-implication",
+  "flat-window-diagonal-v7",
+  "gain-ratio-target",
+  "proper-power-memory",
+  "suzuki-reserve-update",
+  "suzuki-screw-response-psi",
+  "suzuki-spectral-convergence",
+  "suzuki-toeplitz-compression"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "curvature-charge-d",
+    "suzuki-screw-response-psi",
+    "closed-reserve-credit-debt"
+   ],
+   "obstruction": "one direction of the Weil form: controls fail exactly where their zero lists predict and later than under the full form; twists fail only by pole term / coefficient identification",
+   "controlsThatDefeat": [
+    "DH (fails only at log 19.57)",
+    "E_a(0.05) passes to 1e11",
+    "sign twist",
+    "unimodular twist"
+   ]
+  },
+  {
+   "nodes": [
+    "proper-power-memory",
+    "credit-variation-block-freeze",
+    "suzuki-reserve-update"
+   ],
+   "obstruction": "zero-blind: the bound uses smoothness and sign-constancy of Lambda on primes plus the Chebyshev envelope; the constant is a prime-gap statistic",
+   "controlsThatDefeat": [
+    "T-NR(3,2.2)",
+    "T-NR(3,2.01)",
+    "thinned primes",
+    "real sign twists (B part)"
+   ]
+  },
+  {
+   "nodes": [
+    "suzuki-toeplitz-compression",
+    "gain-ratio-target",
+    "suzuki-spectral-convergence"
+   ],
+   "obstruction": "Rayleigh-Ritz: compression can only delay the Weil onset; the mesh must resolve gamma_off; no control fails below 0.8 x its known onset",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "heat (not formulable)"
+   ]
+  },
+  {
+   "nodes": [
+    "flat-window-diagonal-v7",
+    "box-defect-psi-w",
+    "discrepancy-floor-implication"
+   ],
+   "obstruction": "verified height restated in the modulation frequency alpha; exponent reads Theta only at supports beyond the zero-resolution scale",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a(0.05)",
+    "T-NR(101,2.2)",
+    "heat (not formulable)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) one direction of the Weil form: controls fail exactly where their zero lists predict and later than under the full form; twists fail only by pole term / coefficient identification | (2) zero-blind: the bound uses smoothness and sign-constancy of Lambda on primes plus the Chebyshev envelope; the constant is a prime-gap statistic | (3) Rayleigh-Ritz: compression can only delay the Weil onset; the mesh must resolve gamma_off; no control fails below 0.8 x its known onset | (4) verified height restated in the modulation frequency alpha; exponent reads Theta only at supports beyond the zero-resolution scale",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (fails only at log 19.57)",
+  "E_a",
+  "E_a(0.05)",
+  "E_a(0.05) passes to 1e11",
+  "T-NR",
+  "T-NR(101,2.2)",
+  "T-NR(3,2.01)",
+  "T-NR(3,2.2)",
+  "heat (not formulable)",
+  "real sign twists (B part)",
+  "sign twist",
+  "thinned primes",
+  "unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-suzuki-screw-reserve-credits/RESULT.md"
+}

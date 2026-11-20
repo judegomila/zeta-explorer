@@ -33,7 +33,7 @@ directory. They are not presented as previously unpublished results.
 
 ## Previous repository checkpoint
 
-[PR #43](https://github.com/judegomila/mathexplorer/pull/43), commit
+[PR #43](https://github.com/[user]/mathexplorer/pull/43), commit
 `69d4049f289217812051188378a0a9f3f061a169`, preserves the torus/spinor/minitwistor
 construction, exact cutoff-energy identity, positive Gram plus correction,
 single-pulse criterion, and earlier fixed-finite tail theorem. This new lane

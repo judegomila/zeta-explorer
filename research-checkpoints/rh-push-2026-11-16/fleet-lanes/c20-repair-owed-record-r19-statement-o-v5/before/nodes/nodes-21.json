@@ -1,0 +1,177 @@
+{
+ "about": "Silent cells of the refereed checkpoint (push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md, one referee) with the round-15 outcomes of campaign/STRATEGY.md section 4.0 version 5. Classes on which the record is silent; not leads. Written by push/c16-repair-owed-record-r15/patch_engine.py",
+ "nodes": [
+  {
+   "id": "silent-u3-identification-relaxation",
+   "type": "open-direction",
+   "name": "Silent cell U3: identification classes, tested by relaxing one input",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read sets: {zeta's own functional equation, ordinary Dirichlet series} (Hamburger); degree one with the functional equation, an ordinary series and the Euler-product axiom (Kaczorowski-Perelli); {positivity of Lambda, unimodular parameters at every rational prime, ordinary series}; {functional equation, pole at 1 only, Lambda_G >= Lambda} (Lemma L). No control can lie in such a class, and the record holds identifications there and no inequality. U1 {FE, GEOM} and the SIZE branch of U2 are cells of it. Entry test for a device: its decisive step must fail when one input is relaxed inside a family where the conclusion is false, at a named step with the size it needs: ZQ (ordinary series relaxed continuously), SG (positivity relaxed one-sidedly), NR-q and T-NR in Laurent form (ordinary series relaxed discretely), U, THIN, DEL (functional equation), WT (functional equation at all heights), E_a (unimodular parameters), sign twists (positivity). A step that is only an identification scores 0. Round-16 lane: c16-qa-filter-silent-cells-geometric-nodes (paper filter). No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "functional-equation",
+    "identification",
+    "euler-product",
+    "rigidity"
+   ]
+  },
+  {
+   "id": "silent-u2-pos-fe-positivity-rigidity",
+   "type": "open-direction",
+   "name": "Silent cell U2-POS: zeta's functional equation with Lambda_G >= 0 and exact atoms (lemma POS-FE)",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: {zeta's own functional equation, pole at 1 only, finite order, -G'/G a Laplace-Stieltjes transform of a non-negative measure}. Neither constructed nor excluded: a G not proportional to zeta with these properties would be a control and close the cell; a proof that G = c zeta would be an identification (cell of U3, score 0); only a quantitative form (a measure bounded below by -eps times a reference measure forces every zero within f(eps) of the line) would be a non-identity statement, and ZQ shows the dependence cannot be better than eps of order eta^2 + d^2 for an absolutely continuous defect. Known: with Lambda_G >= Lambda the conclusion G = c zeta holds (Lemma L, relative to Landau's theorem), and the pole clause is necessary (referee control G_+ with real poles in (0, 1)). First controls: ZQ, SG, G_+, NR-q. Round-16 lane: c16-pos-fe-u2-positivity-rigidity. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "functional-equation",
+    "positivity",
+    "landau",
+    "explicit-formula"
+   ]
+  },
+  {
+   "id": "silent-u4-joint-functionals-not-scaling-invariant",
+   "type": "open-direction",
+   "name": "Silent cell U4: joint functionals of zeta and twists outside the five closed types",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a functional of zeta and its twists that is not (i) a function of finitely many ratios L(chi)/zeta, (ii) a Gram or Hankel-block form of the pair of unitary symbols, (iii) a twist-transfer Weil form, (iv) a sign functional of dictionary DJ, (v) invariant under a common pointwise scaling of the members. Examples left: quotients at different points, a logarithm of one member alone, kernels with polar terms, triples read through the group law at several points. State: dictionary DN closed as measured at the nine-class and six-class tiers; the canonical tier {T-NR, E_a, HEAT} is undecided at float64 (67,138 nodes); Lemma J1' has one derivation and no referee. Lift rules for any search: LIFT_RULING.md (T-NR, E_a, HEAT canonical). First controls: T-NR at a split prime, backward heat with equal and unequal tau, E_a. Round-16 lane: c16-dn-canonical-tier-ball-conversion (compute). No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "theta",
+    "turan",
+    "noncone",
+    "euler-product"
+   ]
+  },
+  {
+   "id": "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "type": "open-direction",
+   "name": "Silent cell U6 (a): Hecke eigen-objects with parameter rho in rank >= 2, non-Borel or metaplectic",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: an inequality on an eigen-object attached to a zero outside rank one. Closed already: the LRS-type count in rank one for any cover, level and vector (pole minus gamma pole equals 1; relative to an unopened source for the pole position); the twelve catalogued inequalities for torus parameters; isobaric sums with cuspidal data are argued closed, not proved. A device that reads theta-orthogonality must fix the level or read the Whittaker functional on the whole representation (control NR-vec) and must use the factor zeta(u) in every square-index coefficient. No candidate object is on file. First controls: EIS-w, BLS, NR-vec. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "automorphic",
+    "metaplectic",
+    "hecke",
+    "rankin-selberg"
+   ]
+  },
+  {
+   "id": "silent-u6b-nonsolid-laxphillips-norms",
+   "type": "open-direction",
+   "name": "Silent cell U6 (b): Lax-Phillips norms outside the tested families",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a Hecke-built norm on resonance states that is non-solid and outside the Hecke-sup, L^q and zero-mode families, or a norm on an invariant subspace smaller than the mean-zero subspace. Closed already: solid norms, the Hecke-sup norm, L^q with q < 2, the zero-mode space (the four families of row G37 in the obstruction table). No candidate norm is on file. First controls: EIS-w, BLS, an abstract Lax-Phillips triple. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "lax-phillips",
+    "hecke",
+    "scattering",
+    "resonance"
+   ]
+  },
+  {
+   "id": "silent-u6c-gl3-cover-global-whittaker-constants",
+   "type": "open-direction",
+   "name": "Silent cell U6 (c): global Whittaker constants of a genuine cusp form on the double cover of GL(3)",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: the global constants relating Whittaker coefficients of a genuine cusp form on the double cover of GL(3) (item 18 of section 6 in the obstruction table file; the local data are closed, row Z23). Unchanged since round 6: no computation of such constants is on file. Former pending entry of lane c6-gl3-cover-epsilon-cocycle. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "metaplectic",
+    "automorphic",
+    "hecke"
+   ]
+  },
+  {
+   "id": "silent-u6d-rank2-compact-squares-without-hecke-rule",
+   "type": "open-direction",
+   "name": "Silent cell U6 (d): rank >= 2 compact-at-infinity squares without a Hecke rule",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a positive square on a rank >= 2 compact-at-infinity carrier with no Hecke rule. Unchanged since round 6; as stated it carries no use of multiplicativity (requirement R1 absent). Former pending entry of lane c6-square-intertwiner-weyl. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "no",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "hidden-square",
+    "automorphic",
+    "krein-square"
+   ]
+  },
+  {
+   "id": "silent-u6e-bost-connes-states-outside-d8",
+   "type": "open-direction",
+   "name": "Silent cell U6 (e): states of the Bost-Connes system outside the three classes of row D8",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a positivity or inequality statement on a state of the Bost-Connes system that is not in one of the three classes closed in row D8 of the obstruction table. A device whose read set is invariant under multiplication of the state by a positive element of C*(Q/Z) is passed by T-NR. Unchanged; first control T-NR. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "bost-connes",
+    "positivity",
+    "hecke"
+   ]
+  },
+  {
+   "id": "silent-u6f-isogenous-points-nonlinear-functionals",
+   "type": "open-direction",
+   "name": "Silent cell U6 (f): functionals of the unsummed complex isogenous points that are neither linear nor a second moment",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a functional of the individual complex isogenous points of the Hecke correspondence on the real oval of X_0(4) (the carrier of row G33 in the obstruction table) that is neither linear nor a second moment. Unchanged; first control T-NR. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "hecke",
+    "klein",
+    "automorphic"
+   ]
+  },
+  {
+   "id": "silent-u6g-scattering-exact-normalisation-affine-kernel",
+   "type": "open-direction",
+   "name": "Silent cell U6 (g): scattering inequalities reading an exact normalisation, the archimedean factor or f(z) = f(1 - z); rank above one; the two-variable affine kernel",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: an inequality on a scattering coefficient that reads its exact normalisation, the archimedean factor, or the relation f(z) = f(1 - z) for f with M = f(z)/f(z+1); or scattering data in rank above one; or the two-variable affine kernel left argued in row D9 of the obstruction table. Closed already: Schur, bounded-analytic and Pick conditions on a zero-type coefficient (control BLS). First controls: EIS-w, BLS, ZQ. Round-16 lane: c16-u6g-scattering-fe-rank2-bridge-stage-a (explore). No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "scattering",
+    "eisenstein-series",
+    "maass-selberg",
+    "bridge"
+   ]
+  },
+  {
+   "id": "silent-u8-kernel-conditions-beyond-searched-range",
+   "type": "open-direction",
+   "name": "Silent cell U8: single-object kernel sign conditions beyond the searched range",
+   "statement": "Silent cell of the refereed checkpoint: a read class on which the obstruction record neither defeats nor supports a device. Not a lead; no lane has a registered reason to expect a crossing here. Read set: a sign condition on the theta-normalised kernel of one object with order above 4, more than three parameters, nodes outside [-2.6, 2.6], or another normalisation (beyond the searched range of rows G36 and P55 in the obstruction table). Excluded from the cell by proved statements: minors on one lattice (T-NR with c >= 2 passes); Polya-frequency orders of the xi-kernel (E_a passes); monomial inequalities with non-negative quadratic weight for kernels without polar terms (backward heat inherits them; one derivation, no referee). A search in this cell follows the pre-registration rules of the compute lanes and the canonical lifts T-NR, E_a, HEAT. No statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "push/c15-referee-r14-independent-checkpoint/CHECKPOINT_R15_REFEREED.md; campaign/STRATEGY.md section 4.0 (version 5); entered by push/c16-repair-owed-record-r15",
+   "tags": [
+    "theta",
+    "total-positivity",
+    "noncone",
+    "turan"
+   ]
+  }
+ ]
+}

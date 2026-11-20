@@ -1,0 +1,14 @@
+{
+ "mu_cross_12_liouville": -1.523000020837618,
+ "mu_cross_6_liouville": 1.523000020837618,
+ "rho0": -0.8550095463660845,
+ "rho3": -0.11845012097446411,
+ "rho6": -0.007524962899454218,
+ "sign_change": 6.289835988836903,
+ "negative_mass": 2.2478871186446674,
+ "max_D_SG_grid": 0.0,
+ "min_D_plus_grid": 0.0,
+ "SG_numerator_at_half_plus_b": 2.465190328815662e-32,
+ "zeta_at_half_plus_b": -4.437538415895551,
+ "HQ2_distance_formula_q7_eps0.2": 0.24729395922685266
+}

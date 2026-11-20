@@ -171,7 +171,9 @@ EXTRA_EDGES = [
     ('ctl-EISW', 'hecke-correspondence-recurrence', 'control-defeats', 'E(z, w\') off resonance satisfies every input the device reads (c8-hecke-entropy-resonance-rigidity Proposition 4; two referees)'),
     ('ctl-WT', 'ctl-EISW', 'special-case-of', 'on the modular surface the window translate tau_{w - i alpha} is the Eisenstein series E(., w - i alpha)'),
 ]
-CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(NR-vec|BLS|UNIV|DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])')
+# c17-repair-owed-record-r16-cell-nodes: codes NR-q, ZQ, SG added (owed by c16-repair-owed-record-r15; NR-q before NR)
+# HQ2, HQ3, HQ4 added by c20-repair-owed-record-r19-statement-o-v5 (curated/controls.json; map section 2).
+CONTROL_CODE_RE = re.compile(r'(?<![A-Za-z])(NR-vec|NR-q|ZQ|SG|BLS|UNIV|HQ2|HQ3|HQ4|DH|HEAT|TW\+-|TW\+|TW-|TW|EA|NR|THW|THIN|PA|WT|FM|EIS-w|EISW|U|B)(?![A-Za-z_0-9(])')
 
 # ----------------------------------------------------------------------------- roles
 CROSSING_RE = re.compile(
@@ -195,6 +197,22 @@ def load_devices():
     out = {}
     if os.path.exists(path):
         for d in json.load(open(path, encoding='utf-8')).get('devices', []):
+            for nid in d['nodes']:
+                out[nid] = dict(type=d['id'], state=d['state'], evidence=d.get('evidence', ''))
+                # c18-repair-owed-record-r17-open-device-nodes: a proposed, untested device type carries its status
+                if d.get('status'):
+                    out[nid]['status'] = d['status']
+    return out
+
+
+# ---- curated cells (c17-repair-owed-record-r16-cell-nodes; planner decision of round 17): read classes on which the
+# record is silent. Key 'cells' of curated/devices.json. A cell node is NOT a device: it gets n['cell'] and the role
+# 'cell', never n['device'] or the role 'device'. States: cell / tried-not-closed / closed.
+def load_cells():
+    path = os.path.join(HERE, 'curated', 'devices.json')
+    out = {}
+    if os.path.exists(path):
+        for d in json.load(open(path, encoding='utf-8')).get('cells', []):
             for nid in d['nodes']:
                 out[nid] = dict(type=d['id'], state=d['state'], evidence=d.get('evidence', ''))
     return out
@@ -584,11 +602,15 @@ def main():
 
     # 4. row attachment and roles
     devices = load_devices()
+    cells = load_cells()
+    assert not set(devices) & set(cells), 'a node is both a device and a cell'
     crossing_keyword = 0
     for n in nodes:
         text = n.get('name', '') + '. ' + n.get('statement', '')
         if n['id'] in devices:
             n['device'] = devices[n['id']]
+        if n['id'] in cells:
+            n['cell'] = cells[n['id']]
         if CROSSING_RE.search(text):
             crossing_keyword += 1
         att = set()
@@ -622,6 +644,9 @@ def main():
             # n['device']); the keyword role 'crossing' is no longer assigned
             if n['id'] in devices:
                 roles.append('device')
+            # c17-repair: a cell is a read class, scored by generate.py as a tagged node (no device role)
+            if n['id'] in cells:
+                roles.append('cell')
             if n['type'] == 'measured-phenomenon':
                 roles.append('phenomenon')
             if n['type'] in ('mechanism', 'identity') and n.get('status') in ('proved', 'certified'):
@@ -811,6 +836,7 @@ def main():
                     rows=len(rows), controls=len(CONTROLS), underused=len(underused),
                     devices=dict(Counter(n['device']['state'] for n in nodes if n.get('device'))),
                     devicesLive=dict(Counter(n['device']['state'] for n in nodes if n.get('device') and 'wall' not in n['roles'])),
+                    cells=dict(Counter(n['cell']['state'] for n in nodes if n.get('cell'))),
                     crossingKeyword=crossing_keyword),
         thresholds=dict(merge=MERGE_COS, restates=RESTATE_COS, composePerNode=COMPOSE_TOP),
         tagIdf={t: round(v, 3) for t, v in sorted(idf.items())},

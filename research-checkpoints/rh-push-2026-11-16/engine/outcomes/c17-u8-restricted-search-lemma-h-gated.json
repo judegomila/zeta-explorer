@@ -1,0 +1,33 @@
+{
+ "slug": "c17-u8-restricted-search-lemma-h-gated",
+ "round": 17,
+ "kind": "compute",
+ "nodes": [],
+ "tags": [],
+ "verdict": "dead",
+ "survivingClaim": "MEASURED, finite, no statement about zeros of zeta. On dictionary DU of cell U8 (minors of orders 5 and 6, sign and thresholded; three-term Turan forms on 5 and 6 nodes; four parameters; K3 on [-4,4], Kpol on [-3,3]; canonical lifts T-NR, E_a, HEAT with abs(tau) <= 0.005; thresholds scanned over the line) there are 0 hold-out survivors: registered outcome \"none\", verdict dead. Lane prefix recounted from raw outputs: 1,966,200 family-nodes, 1,058 T-train (all T6 Kpol, thresholds within 1e-6 relative of zeta's value, best hold-out score 15 of 23), 0 undecided after the post-pass; 0 of 160,000 K3 sign minors reject a training HEAT member. With the referee's completion of every cut registered stream (same code): 4,360,000 family-nodes, 1,923 T-train (all T6 Kpol, best score 15), 0 hold-out survivors, 0 undecided. A denser referee sample of the T-train region with off-grid mu (3,840 node-mu, 1,651 T-train) also gives 0 survivors (best 15.5 of 23). Five two-class {T-NR, HEAT} hold-out passes in total (one in the lane, four in the completed part), all identifications with thresholds within 2e-52 or 2e-161 relative of zeta's value and E_a not rejected; no score. T3/T6 exclusions are float64 except 11,915 ball decisions; minors are ball decisions throughout. Lemma H (H1, H2), the C4 multiplier identity, the heat exponents and the planted-separator signs were re-derived and are correct; the gate file predates the search. No RH assumption, no verified-height restatement, no known theorem presented as new. Controls other than the three canonical lifts are not run.",
+ "obstruction": "Registered outcome 'none' (MEASURED, finite): 0 hold-out survivors on dictionary DU (minors of orders 5 and 6, sign and thresholded; three-term Turan forms on 5 and 6 nodes; K3 on [-4,4], Kpol on [-3,3]; lifts T-NR, E_a, HEAT with |tau| <= 0.005; thresholds scanned). Lane prefix 1,966,200 family-nodes; with the referee's completion of the cut streams 4,360,000 family-nodes, 1,923 T-train (all T6 Kpol, thresholds within 1e-6 relative of zeta's value, best hold-out score 15 of 23), 0 undecided; 0 of 160,000 K3 sign minors reject a training HEAT member. Five two-class {T-NR, HEAT} passes are identifications (threshold within 2e-52 or 2e-161 relative of zeta's value; E_a not rejected). T3/T6 exclusions are float64 except 11,915 ball decisions; minors are ball decisions. Controls beyond the three canonical lifts not run.",
+ "obstructionKind": "",
+ "controlsThatDefeat": [
+  "HEAT at |tau| <= 0.005 (0 of 160,000 K3 sign minors reject it)",
+  "E_a (not rejected by the two-class passes)",
+  "held-out T-NR / characters (best hold-out score 15 of 23)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error changes the outcome. Report written to tmp/research-2026-11-16/push/c17-u8-restricted-search-lemma-h-gated/REFEREE.md. Corrections: (1) \"ball-certified\" overstates: 1,563,058 of the 1,966,200 family-nodes (79.5%, T3/T6 node-mu) are excluded by the float64 scan alone, whose error bands are estimates; only 4,742 T3/T6 node-mu plus the 398,400 minor nodes are ball decisions. My cross-check on fresh nodes (10,800 tier decisions, float64 agains - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A scanned-threshold hold-out read can be passed by an identification (threshold within 2e-52 relative of zeta's own value) when all held-out members of a class move the functional in one direction; register a minimum relative margin. The search code rounded breakpoints to 128 bits (conservative; 96 false \"undecided\", fixed by a post-pass). The copied ballk.BEA returns E_a balls of relative radius above 1 in a range of the Bessel argument; ballk.gauss_series drops tails whose float bound underflows. Server gave about 0.9 core for an 8-core unit; deadlines in the first driver were soft.",
+ "followUp": "None inside U8 at this range: add the proposed map row (RESULT.md section 8). If U8 is reopened: register a minimum relative threshold margin, complete the unreached parts of the T3/T6 K3 and T6 Kpol streams, and have this lane's code (E_a and HEAT enclosures, float64 bands) refereed independently.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-u8-restricted-search-lemma-h-gated/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-u8-restricted-search-lemma-h-gated/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

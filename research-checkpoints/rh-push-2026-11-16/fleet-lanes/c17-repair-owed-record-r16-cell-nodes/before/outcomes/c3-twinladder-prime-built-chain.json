@@ -1,0 +1,45 @@
+{
+ "slug": "c3-twinladder-prime-built-chain",
+ "round": 3,
+ "kind": "explore",
+ "nodes": [
+  "twin-ladder-jacobi-reconstruction",
+  "canonical-system-indivisible-chain",
+  "cdb-exist-noncircularity"
+ ],
+ "tags": [
+  "de-branges",
+  "canonical-system",
+  "euler-product",
+  "finite-stage",
+  "twin-ladder",
+  "pontryagin"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, no statement about zeros of zeta: for every X >= 2 and every real symmetric normalisation, Theta_X = E_X^#/E_X has poles in Re s > 1/2 at s = 1 + 2 pi i k/log p (simple, k != 0, p <= X), at s = 1 (order pi(X)+1) and at s = 3, 5, 7, ... (simple); T theta(X)/pi + O(pi(X)) of them have abs(Im s) <= T, so by Krein-Langer (recalled) the stage kernel has infinitely many negative squares and no stage de Branges/Pontryagin space or Hamiltonian exists. abs(theta_p)^2 - 1 has the sign of 2 cos(t log p) - p^(-sigma) - p^(sigma-1) for sigma > 1/2 (exact, also for unimodular twists), so adjoining a prime is neither contractive nor expansive below sigma*(p). K_X(w,w) is non-monotone in X at all 20 test points and changes sign at 14 (measured, zeta; same for Liouville and random U). 1 + Theta_X and the assigned xi_X have off-line zeros in the strip already at X = 2 (measured, winding-checked, not certified). On Re s > 1 the kernels converge to the weighted Hardy kernel of E_inf, of the same form for zeta and twists. theta_p^(c) is inner iff c <= 0 and the factor is analytic in Re s > c iff c >= 0; about c = 1/2 it is not inner. This restates rows G10/Q10 in de Branges terms; controls U, Liouville, E_a, RZ_b, Beurling are not separated from zeta; DH, backward heat, theta^w are not formulable.",
+ "obstruction": "For every X >= 2 and every real symmetric normalisation, Theta_X = E_X^#/E_X has poles in Re s > 1/2 at 1 + 2 pi i k/log p, at 1 and at 3, 5, 7, ...; about T theta(X)/pi lie below height T, so the stage kernel has infinitely many negative squares and no stage de Branges or Pontryagin space or Hamiltonian exists. Adjoining a prime is neither contractive nor expansive; K_X(w,w) is not monotone in X. The negative-square count goes to infinity along the stages and to zero in the limit, which no monotone or semicontinuous device follows. The Euler factor is lossless only about Re s = 0; the functional equation is not an input of any finite stage. Restates rows G10/Q10.",
+ "obstructionKind": "stage-kernel-infinitely-many-negative-squares",
+ "controlsThatDefeat": [
+  "unimodular twist U",
+  "Liouville twist",
+  "E_a",
+  "RZ_b",
+  "Beurling (all fail at the same step as zeta: not separated)",
+  "DH, backward heat, theta^w: not formulable"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "All PROVED steps re-derived and confirmed (Lemma 1 incl. twisted form, max rel err 2.2e-38 on 300 fresh points; Lemma 2 pole list, orders and closed-form residues at new cases; Lemma 3; limit space in Re s > 1; smoothed stage; Lemma 4). Four non-fatal errors, none in a PROVED step: (E1) \"off-line zeros in the strip from X = 5\" is an artefact of the window t < 60 and of the normalisation: X = 2 already has a zero of 1 + Theta_2 at 0.788462363074 + 72.783980891649i (residual 3e-40, winding 1); and [record truncated in transit; full text in push/c3-twinladder-prime-built-chain/REFEREE.md]",
+ "lesson": "The de Branges kernel about Re s = 1/2 needs the stage at the reflected point 1 - s, where the Euler product diverges; the functional equation is not an input of any finite stage. Each Euler factor is lossless about Re s = 0 only, and moving the axis to 1/2 turns the Paley-Wiener chain into negative squares one for one (density theta(X)/pi). Zeta's own Theta about 1/2 is a Moebius factor, so its space is rank one with or without RH: the negative-square count goes to infinity along the stages and to zero in the limit, which no monotone or semicontinuous device can follow. Unimodular twists, Liouville, E_a, RZ_b and Beurling fail at the same step as zeta, so the construction does not separate controls.",
+ "followUp": "None on this route. If the canonical-system gap is revisited, the stage must take the functional equation as an input (for example a stage whose Theta is a finite Blaschke product by construction), not a truncated Euler product reflected about 1/2. A separate small check: open Gonek 2012 to confirm that his on-line statement concerns the non-analytic P_X(s) + chi(s) P_X(conj s), which was recalled here, not read.",
+ "resultFile": "tmp/research-2026-11-16/push/c3-twinladder-prime-built-chain/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c3-twinladder-prime-built-chain/REFEREE.md"
+}

@@ -20,6 +20,7 @@ Directory: `tmp/research-2026-11-16/engine/`. Purpose: hold the results of the r
 | `curated/batch-1.json` | the ten hand-selected assignments of batch 1 (written by `mk_batch1.py`) |
 | `curated/batch-2.json` | the ten hand-selected assignments of batch 2 (written by `mk_batch2.py`) |
 | `curated/devices.json` | curated list of crossing devices with states closed / floored / open (written by `curated/mk_devices.py`); read by `build_graph.py` (node field `device`, role `device`) and `generate.py`. Replaces the keyword role `crossing` (lane `c5-repair-engine-map-r4`) |
+| `nodes/nodes-22.json`, `curated/devices.json` fields `status`, `entryConditions`, `controlsThatMustFail` | two proposed, untested device types entered as open device nodes (lane `c18-repair-owed-record-r17-open-device-nodes`). `generate.py` treats a proposed type as an open device for the R4-device rule and the weight, without the three penalty waivers of an open device; `--proposed-waivers` gives the comparison run |
 | `ENGINE_LOG.md` | one section per batch: lanes, where each stopped, engine changes |
 | `ROADMAP.md` | the wall, the families, what is closed, what is open, order of attack |
 

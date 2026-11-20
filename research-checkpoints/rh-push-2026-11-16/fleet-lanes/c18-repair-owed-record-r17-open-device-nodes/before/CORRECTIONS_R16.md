@@ -1,0 +1,42 @@
+# Corrected sentences of round 16 (register)
+
+Written 2026-11-20 by lane `c17-repair-owed-record-r16-cell-nodes` (campaign round 17, repair lane B). Source:
+`push/c16-referee-r15-j1prime-u8-screening/RESULT.md` section 3 (eleven sentences false as written) with the
+correction E1 and the note E2 of that lane's own referee (`REFEREE.md`). Nothing here is a statement about zeros of
+zeta. No verdict of any lane changes. Labels are those of the source: the corrected sentences are the second
+referee's (one derivation each unless a count is given); "MEASURED" marks numeric reruns.
+
+Rule of this lane: edits are allowed in `engine/`, `campaign/` and `push/OBSTRUCTION_MAP.md` only. Sentences 1 and 2
+stand in a campaign file and are corrected in place. Sentences 3 to 11 stand in lane files under `push/`, which this
+lane does not edit; for each the corrected sentence below is the one to quote, and the place where the campaign
+record carries it is named.
+
+| # | file and place of the false sentence | sentence as written | corrected sentence | where the record carries it |
+|---|---|---|---|---|
+| 1 | `campaign/STRATEGY.md` section 0b | "Every separation found was one of four kinds: the control's own off-line zeros read at the explicit-formula scale (cutoff at or above the height); coefficient size readable right of 1; a count of on-line zeros; a mean value." | "Every separation found in the lanes refereed so far was one of five kinds: (1) the explicit-formula regime, i.e. zeros at the height of the test read with a cutoff or certificate order at or above what that height requires; (2) coefficient size readable right of 1; (3) a statistic of the list of on-line ordinates over a long range (count against the counting function, deficit of sign changes, proportion of close pairs); (4) a mean value; (5) a property of the coefficients alone (a broken multiplicative relation, the Haar law of the torus function), which restates the input 'not zeta's Euler product'." | corrected in place (STRATEGY section 0b); section 3.1 item 41; map section 7 |
+| 2 | `campaign/STRATEGY.md` section 0b | "defect an absolutely continuous density of sup size O(eta^2 + d^2)" | "of sup size at most 8 e^-2 (eta^2 + d^2)/(1/2 - eta)^2" (and abs D <= 8 for all parameters; the O-form needs eta bounded away from 1/2) | corrected in place (STRATEGY section 0b; bracket in section 1, explore row); map section 2, note on ZQ |
+| 3 | `push/c15-u5-window-count-threshold-translate-control/RESULT.md` verdict item 1 | "and no translate other than the near-identity ones does better." | With E1 of the referee of the referee lane (the first replacement, defect L^2/(8T), is not exact and is not to be used): "the reflected translate alpha = -2c has defect (L + 2 abs(delta))^2/(8T), abs(delta) <= pi/(2 log(T/2 pi)) depending on T; it is better than the k = 1 translate when (L + 2 abs(delta))^2 < 8 pi L/log(T/2 pi), which holds for every origin if L < 8 pi/log(T/2 pi) - 2 pi/log(T/2 pi) (1 + o(1)) and for no origin if L > 8 pi/log(T/2 pi). For a fixed number of unit windows K_tr = max(eta T log(T/2 pi)/pi, sqrt(8 eta T))(1 + O(1/log T)); the second term is an upper bound for the reflection branch." Among translates with abs(alpha) <= T/2 no other does better. | map row S12b (clause added); map section 7 |
+| 4 | `push/c15-edge-argument-strip-width-hecke-amplified/RESULT.md` section 3, S4 | "alpha_p = i p^(-delta/2) one has tau(p) = 0" | "For the unimodular parameters alpha_p = i one has tau(p) = 0; for alpha_p = i p^(-delta/2) it is -i (p^(delta/2) - p^(-delta/2))." Verdict line: "closed for T >= N; T < N open" (now: measured obstruction on T <= 4, N <= 128, row G42) | map row G42; map section 7 |
+| 5 | `push/c15-u7-growing-section-twin-ladder-bridge/RESULT.md` section 2 | "T-NR has no Euler product." | "For 0 < c <= 2 the symmetric factor has its zeros on the line and adds non-negative terms; this is not the control T-NR (abs c > 2), for which the statement fails through the off-line zeros of the factor." | map row Q30 (defeated-by cell); map section 7 (row of the first referee) |
+| 6 | same file, section 6, R3 | "unimodular twists pass" | "Dirichlet characters pass under GRH; the campaign's unimodular control violates the stage statement at theta >= 1." (first referee: 4 of 4 random unimodular twists violate; second referee: 6 of 6 at t near 2000, P = 2000; MEASURED) | map row Q30 (count of the rerun added); map section 7 |
+| 7 | `push/c15-klein-transport-lemma-w-stage-a-and-e1/RESULT.md` section 2 | "E_a0: all 2N(T) zeros at distance a0" | "Each zeta zero at signed offset e gives zeros of E_a0 at offsets e + a0, e - a0, and T^(2A abs(e+a0)) + T^(2A abs(e-a0)) >= 2 T^(2A a0); so the sum is at least 2N(T) T^(2A a0)." | map section 7 (row of the second referee). The outcome record `engine/outcomes/c15-klein-transport-lemma-w-stage-a-and-e1.json` and `lanes.jsonl` quote the lane's sentence and are not rewritten |
+| 8 | same file, section 4 | "uses no property of F beyond analyticity and a non-vanishing trace" | "uses the functional-equation symmetry, order one and a non-vanishing trace; no Euler product." (first referee; not rechecked by the second) | map section 7; same remark on the outcome record |
+| 9 | `push/c15-nonhomogeneous-pair-triple-kernel-search/RESULT.md` sections 0, 2, 6 | "280 by reflection identity, 472 in balls"; "280 identity, 2,494 read" | "Nine-class tier: 752 = 360 identity + 392 in balls; six-class tier: 2,774 = 360 identity + 2,414 in balls." | map row G41; map section 7 (row of the first referee) |
+| 10 | `push/s1-prime-torus-orbit/RESULT.md` section 2.1 | "pointwise variance 0.97 ... 1.63 = (1/2) log log P + 0.21 to within 0.02" | "The exact Haar variance at sigma = 1/2 is (1/2) sum over p <= P of Li_2(1/p) = 0.971 ... 1.590 for P = 1e2 ... 1e7; the sampled column 0.988 ... 1.630 is high by 0.02 to 0.04." | map section 7; `ROUND_LOG.md` round 16, result line 7 (1.5905, not 1.63) |
+| 11 | `push/s1-zero-statistics-gram/RESULT.md` table, rows 1a to 2, cells "LIOU =" and (row 1a) "T-NR =" | the "=" cells without scope | The cells hold with scope lines 1 and 3 of `push/c16-referee-r15-j1prime-u8-screening/REFEREE2_s1-zero-statistics-gram.md`. For T-NR: "every functional of the list of on-line ordinates takes the same value on zeta and on T-NR for abs c > 2, where the functional reads the list alone; a statistic that also uses the object's own counting function or conductor separates T-NR through its T log q/pi further zeros, which is a zero count." | STRATEGY section 0b (scope line added); map section 7 |
+
+Notes.
+
+- E2 of `push/c16-referee-r15-j1prime-u8-screening/REFEREE.md`: the count "eleven" is unchanged, but sentence 3 as
+  first corrected needs E1; the form in row 3 above is the one after E1.
+- Already corrected before this lane and confirmed by the second referee: the three sentences of
+  `c15-control-with-zeta-fe-classes-u1-u2` that dropped the pole clause of Lemma L (map section 7).
+- The shorthand "defect O(eta^2 + d^2)" also occurs in `ROUND_LOG.md` (round 15, lesson 2 and combinable 1; round 16,
+  combinable 1) and in records that quote the lane (`round15_records.json`, `lanes.jsonl`,
+  `engine/outcomes/c15-control-with-zeta-fe-classes-u1-u2.json`). These are logs and quotations and are not
+  rewritten; they are to be read with the bound of row 2.
+- Corrections of the round-16 lanes' own referees (lanes 1 to 6) are in section 7 of the map (six rows added by this
+  lane) and in the rows D10, P56, G41, G42, Q30, P45.
+- Disposition recorded with these corrections (planner, round 17): the fired clause S2 of
+  `c16-amplifier-below-truncation-eisw-compute` is set aside; the clause had no control comparison; EIS-w shares the
+  excess; no follow-up lane (map row G42; STRATEGY section 3.1 item 47; `engine/curated/devices.json`, pending).

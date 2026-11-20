@@ -1,0 +1,93 @@
+{
+ "slug": "s3-dbn-barrier-mollified-triangle",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "dbn-finite-lane-margins",
+  "dbn-native-triangle-binding",
+  "dbn-projective-macrocell-014",
+  "dbn-tail-contraction-lemma",
+  "derivative-cap-route-comparison",
+  "i2-i3-same-obstruction",
+  "lean-cg-covering-identity",
+  "lemma-cg-covering-identity",
+  "lemma-cg-lambda-euler-weights",
+  "modulus-last-normal-form",
+  "route7-cost-exponential",
+  "w3-tail-lemma"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "dbn-native-triangle-binding",
+    "lemma-cg-lambda-euler-weights",
+    "dbn-finite-lane-margins"
+   ],
+   "obstruction": "margin is a function of coefficient size: twists equal zeta, DH and L(chi) pass earlier than zeta, T-NR and E_a later; never separates",
+   "controlsThatDefeat": [
+    "sign twist",
+    "Liouville twist",
+    "unimodular twist",
+    "DH",
+    "zeta itself (N < 637,495)"
+   ]
+  },
+  {
+   "nodes": [
+    "dbn-tail-contraction-lemma",
+    "lean-cg-covering-identity",
+    "lemma-cg-covering-identity"
+   ],
+   "obstruction": "reads the sign of a(n): T-NR and E_a (off-line zeros) pass, Dirichlet L-functions fail; the contraction needs |c_n| only",
+   "controlsThatDefeat": [
+    "T-NR",
+    "E_a",
+    "L(chi) (fails as positive comparison)"
+   ]
+  },
+  {
+   "nodes": [
+    "route7-cost-exponential",
+    "dbn-projective-macrocell-014",
+    "modulus-last-normal-form"
+   ],
+   "obstruction": "coefficient property (complete multiplicativity at 25 primes), not zeros; twists and L(chi) equal zeta; zeta itself exceeds the budget below N = 690988",
+   "controlsThatDefeat": [
+    "sign twist",
+    "unimodular twist",
+    "zeta itself (x < 1.13e12)"
+   ]
+  },
+  {
+   "nodes": [
+    "w3-tail-lemma",
+    "i2-i3-same-obstruction",
+    "derivative-cap-route-comparison"
+   ],
+   "obstruction": "negative margin without zeros occurs for zeta too; onset ordered by coefficient size; twist-invariant",
+   "controlsThatDefeat": [
+    "DH",
+    "unimodular twist",
+    "sign twist",
+    "zeta itself (N < 6.4e5)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) margin is a function of coefficient size: twists equal zeta, DH and L(chi) pass earlier than zeta, T-NR and E_a later; never separates | (2) reads the sign of a(n): T-NR and E_a (off-line zeros) pass, Dirichlet L-functions fail; the contraction needs |c_n| only | (3) coefficient property (complete multiplicativity at 25 primes), not zeros; twists and L(chi) equal zeta; zeta itself exceeds the budget below N = 690988 | (4) negative margin without zeros occurs for zeta too; onset ordered by coefficient size; twist-invariant",
+ "controlsThatDefeat": [
+  "DH",
+  "E_a",
+  "L(chi) (fails as positive comparison)",
+  "Liouville twist",
+  "T-NR",
+  "sign twist",
+  "unimodular twist",
+  "zeta itself (N < 6.4e5)",
+  "zeta itself (N < 637,495)",
+  "zeta itself (x < 1.13e12)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-dbn-barrier-mollified-triangle/RESULT.md"
+}

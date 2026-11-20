@@ -45,7 +45,7 @@
   "r4": false
  },
  "refereeHolds": true,
- "referees": 1,
+ "referees": 2,
  "aboutZeros": false,
  "refereeNote": "No error that changes the verdict. (1) Count error in RESULT sections 0, 2, 6: reflection-identity nodes are 360 (b6 40 + 4 x 80; confirmed in out/ball_und.json and out2/ball_und_six.json), not 280. Correct splits: nine-class tier 752 = 360 identity + 392 in balls (not 280 + 472); six-class tier 2,774 = 360 identity + 2,414 in balls (RESULT writes 280 + 2,414 = 2,694 in one place and 280 + 2,494 in another). All zeros unaffected. (2) Scope: the PROVED backward-heat blindness holds only for the l - [truncated in the learn-step input; full text in REFEREE.md]",
  "lesson": "Dividing or taking logarithms does not escape the Gaussian-multiplier blindness: any read unchanged by a common pointwise factor is passed by backward heat exactly, and the reads that are not (single-kernel log curvature, polar terms, convolution against pointwise product) still fail on HEAT or because the positives disagree among themselves. Solving the threshold parameter exactly makes a 3-parameter search exhaustive in one parameter at low cost.",
@@ -57,5 +57,11 @@
   "joint-zeta-twist-pair",
   "product-kernel-triple"
  ],
- "engineVerdict": "closed"
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c16-referee-r15-j1prime-u8-screening",
+  "outcome": "holds with corrections; no PROVED statement broken",
+  "narrowerForm": "see report; eleven corrected sentences listed in push/c16-referee-r15-j1prime-u8-screening/RESULT.md (not applied)",
+  "report": "tmp/research-2026-11-16/push/c16-referee-r15-j1prime-u8-screening/REFEREE2_c15-nonhomogeneous-pair-triple-kernel-search.md"
+ }
 }

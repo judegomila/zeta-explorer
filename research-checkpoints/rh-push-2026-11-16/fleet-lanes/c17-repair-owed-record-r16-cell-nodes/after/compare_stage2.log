@@ -1,0 +1,74 @@
+{
+ "before": {
+  "top": 60,
+  "topWithOpenDevice": 0,
+  "floored": 60,
+  "closed": 0,
+  "topWithCell": 2,
+  "topWithSilentNode": 2,
+  "generated": 38082,
+  "scored": 8432,
+  "rejected": 29650,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 6,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 0,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {
+   "cell": 9,
+   "tried-not-closed": 1,
+   "closed": 1
+  }
+ },
+ "after": {
+  "top": 60,
+  "topWithOpenDevice": 0,
+  "floored": 60,
+  "closed": 0,
+  "topWithCell": 2,
+  "topWithSilentNode": 2,
+  "generated": 38082,
+  "scored": 8432,
+  "rejected": 29650,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 6,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 0,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {
+   "cell": 9,
+   "tried-not-closed": 1,
+   "closed": 1
+  }
+ },
+ "kept": 60,
+ "scoreChanged": 0,
+ "rejectedChanged": {},
+ "edgesAdded": 67,
+ "edgesRemoved": 57,
+ "nodeChanges": 18
+}

@@ -1,0 +1,90 @@
+{
+ "slug": "s3-torus-short-prime-sum-extremes",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "bohr-torus-scan-certification",
+  "discrepancy-bridge-constant",
+  "fejer-riesz-branch-reduction",
+  "hyperbolic-prime-spiral",
+  "l-damped-finite-window-floor",
+  "lemma-mp3-multipoint-phase",
+  "p47-late-cell-floors",
+  "sawtooth-s-of-t",
+  "sawtooth-s-of-t-lemma",
+  "star-min-pointwise-prime-bound",
+  "sunit-count-cubic"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "star-min-pointwise-prime-bound",
+    "l-damped-finite-window-floor",
+    "lemma-mp3-multipoint-phase"
+   ],
+   "obstruction": "twists separate only at the support that resolves an off-line pair at that height; zeta's pass there is a sampled local zero-free statement; DEL and heat do not fail",
+   "controlsThatDefeat": [
+    "DEL",
+    "heat",
+    "sign twist (N <= 1.18e6)",
+    "unimodular twist (N <= 1.18e6)"
+   ]
+  },
+  {
+   "nodes": [
+    "bohr-torus-scan-certification",
+    "fejer-riesz-branch-reduction",
+    "p47-late-cell-floors"
+   ],
+   "obstruction": "finite-window gap above the torus infimum is the same for true primes and Haar/twisted/perturbed primes: no margin specific to the primes",
+   "controlsThatDefeat": [
+    "Haar flow",
+    "sign twist",
+    "perturbed primes"
+   ]
+  },
+  {
+   "nodes": [
+    "sawtooth-s-of-t",
+    "sawtooth-s-of-t-lemma",
+    "discrepancy-bridge-constant"
+   ],
+   "obstruction": "ratio bound holds for every counting function; the drift is Turing's count with lead 0",
+   "controlsThatDefeat": [
+    "DH",
+    "T-NR",
+    "L(chi)"
+   ]
+  },
+  {
+   "nodes": [
+    "hyperbolic-prime-spiral",
+    "sunit-count-cubic"
+   ],
+   "obstruction": "explicit formula: detection at distance D needs P >= (D^2 log P)^(1/d), costlier than verifying the height; twists fail by the functional equation only",
+   "controlsThatDefeat": [
+    "DH on phi <= gamma_off/4",
+    "sign/unimodular twist (functional equation only)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) twists separate only at the support that resolves an off-line pair at that height; zeta's pass there is a sampled local zero-free statement; DEL and heat do not fail | (2) finite-window gap above the torus infimum is the same for true primes and Haar/twisted/perturbed primes: no margin specific to the primes | (3) ratio bound holds for every counting function; the drift is Turing's count with lead 0 | (4) explicit formula: detection at distance D needs P >= (D^2 log P)^(1/d), costlier than verifying the height; twists fail by the functional equation only",
+ "controlsThatDefeat": [
+  "DEL",
+  "DH",
+  "DH on phi <= gamma_off/4",
+  "Haar flow",
+  "L(chi)",
+  "T-NR",
+  "heat",
+  "perturbed primes",
+  "sign twist",
+  "sign twist (N <= 1.18e6)",
+  "sign/unimodular twist (functional equation only)",
+  "unimodular twist (N <= 1.18e6)"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-torus-short-prime-sum-extremes/RESULT.md"
+}

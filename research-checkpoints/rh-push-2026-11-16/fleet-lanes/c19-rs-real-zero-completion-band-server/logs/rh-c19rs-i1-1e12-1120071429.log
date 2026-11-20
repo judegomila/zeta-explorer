@@ -1,0 +1,25 @@
+item1 1e12 0.6 0 t=63s
+item1 1e12 0.6 5 t=128s
+item1 1e12 0.6 10 t=188s
+item1 1e12 0.6 15 t=251s
+item1 1e12 0.6 20 t=303s
+item1 1e12 0.6 25 t=359s
+item1 1e12 0.6 30 t=410s
+item1 1e12 0.6 35 t=463s
+item1 1e12 0.8 0 t=515s
+item1 1e12 0.8 5 t=563s
+item1 1e12 0.8 10 t=607s
+item1 1e12 0.8 15 t=655s
+item1 1e12 0.8 20 t=698s
+item1 1e12 0.8 25 t=750s
+item1 1e12 0.8 30 t=794s
+item1 1e12 0.8 35 t=842s
+item1 1e12 0.95 0 t=887s
+item1 1e12 0.95 5 t=928s
+item1 1e12 0.95 10 t=965s
+item1 1e12 0.95 15 t=1008s
+item1 1e12 0.95 20 t=1049s
+item1 1e12 0.95 25 t=1089s
+item1 1e12 0.95 30 t=1126s
+item1 1e12 0.95 35 t=1167s
+OWED1 DONE 1e12

@@ -1,0 +1,44 @@
+{
+ "slug": "c4-stage-collision-law",
+ "round": 4,
+ "kind": "combine",
+ "nodes": [
+  "collision-local-index",
+  "euler-fe-coupling-at-height"
+ ],
+ "tags": [
+  "euler-product",
+  "finite-stage",
+  "torus",
+  "prime-torus",
+  "rouche",
+  "collision",
+  "control",
+  "davenport-heilbronn"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, nothing about zeta zeros. PROVED (elementary, largely Gonek/classical): L1-L7 for the stage zeta_X = P_X + chi P_X(1-.): on-line form 2|P_X| cos Phi, stage zeros leave/join the line only through double zeros with Re D_X(1/2+it) = theta'(t), local index -sign(Phi_lambda Phi_tt), no event when sum_{p<=X} log p/(sqrt p - 1) < theta'(t). MEASURED (lane T = 8e3..1e9; referee T = 3e4, 3e5): at fixed a = log X/log T the stationary event has a positive rate close to the torus model; the Rouche inequality on Re s = 1/2 + c/log T fails at a height-independent positive fraction of sampled points for a = 0.5, c = 1, 2 (zeta about 0.6-1.0% and 0.1-0.25%; Davenport-Heilbronn about 1.3% and 0.6%, also height-independent); whole-window passes only at (a=0.25, c=4) and (a=0.1, c=8) for T >= 1e8 and right of 1. Phase-locking of stationary intervals to stage anti-points holds for zeta and for DH, not for random twists. The stage family gives no height-uniform inequality near the line and no step that fails for DH or the window translate.",
+ "obstruction": "The prime-only exit event (double zero of the stage, Re D_X(1/2+it) = theta'(t)) is invariant under torus rotation and has a positive height-independent rate at fixed a = log X/log T (torus model followed to T = 1e20), so it carries no zero information. The Rouche inequality on Re s = 1/2 + c/log T fails at a height-independent positive fraction of sampled points for a = 0.5, c = 1, 2 (zeta 0.6-1.0% and 0.1-0.25%); whole-window passes occur only at (a=0.25, c=4) and (a=0.1, c=8) for T >= 1e8. The Davenport-Heilbronn two-character stage passes at comparable height-independent rates (1.3%, 0.6%) and tracks its off-line zeros: the comparison does not use the Euler product and gives box counts, not location. Measured in finite windows up to T = 1e9; nothing proved about rates.",
+ "obstructionKind": "torus-invariant-event-positive-rate",
+ "controlsThatDefeat": [
+  "DH (two-character stage: same kind of pass rates, phase-locking holds)",
+  "lattice height translate WT (same pass rates)",
+  "torus rotation (the prime-only event is invariant)",
+  "not run: backward heat, sign twist, E_a, T-NR, Beurling, phase-rotated transfer operator, theta^w"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No error in L1-L7 (re-derived by hand; L1, L3, L4, L7 also checked numerically at 30 digits, including the square-root law and index of L3). Measured law reproduced at heights the lane did not use (zeta T=3e4, 3e5; DH T=3e4; torus rate at T=1e9 a=0.3 and T=3e7 a=0.5). Wording errors, none changing the verdict or a flag: (1) \"empty only at (a=0.25, c=4), T>=1e8\" is incomplete: out_1e8/out_1e9 also pass the whole window at (a=0.1, c=8), Re s = 0.934 and 0.886, inside the strip. (2) \"DH shares the ",
+ "lesson": "The prime-only exit event of the Euler stage is invariant under torus rotation and has a positive height-independent rate at fixed log X/log T, so it cannot carry zero information. The Rouche comparison does not use the Euler product (the Davenport-Heilbronn two-character stage passes at the same rates and tracks its off-line zeros) and gives box counts, not location. Matching defect falls roughly like 1/a (0.05 spacings at a = 0.75) but no stage is exact. Ball products of ~1000 complex factors lose all precision by wrapping; sum logarithms instead.",
+ "followUp": "Optional, low priority: test the anti-point sign law at X = T^0.75..T^1 over 1e5-1e6 zeros (no failure seen in three 2000-zero windows; rate below ~1e-3 unresolved) and whether its failures coincide with small zeta gaps. Controls not run: backward heat, sign twist, zeta(s+a)zeta(s-a), T-NR, Beurling, phase-rotated transfer operator, theta^w; Davenport-Heilbronn at one height only. No server units left running.",
+ "resultFile": "tmp/research-2026-11-16/push/c4-stage-collision-law/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c4-stage-collision-law/REFEREE.md"
+}

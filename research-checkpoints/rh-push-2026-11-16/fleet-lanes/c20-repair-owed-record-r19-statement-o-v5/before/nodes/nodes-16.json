@@ -1,0 +1,99 @@
+[
+ {
+  "id": "ctrl-interpolation-twin",
+  "type": "control",
+  "name": "Interpolation twin: zeta(s) + c L(s, chi_-4) L(s, chi_5)",
+  "statement": "L(s, chi_-4) vanishes at s = -1, -3, ... and L(s, chi_5) at s = 0, -2, ..., so C_c(s) = zeta(s) + c L(s, chi_-4) L(s, chi_5) equals zeta at every non-positive integer for every c. C_c is an ordinary Dirichlet series (integer coefficients for c = 1), has the pole of zeta at 1, finite order and polynomial growth on vertical lines. c = -zeta(s0)/(L L)(s0) puts a zero at any s0 where the product does not vanish. For c = 1 zeros were located at 0.8640996 + 29.9504128i and 0.7552582 + 15.6183212i (mpmath, 30 digits, not interval-certified). It lacks the Euler product and the functional equation.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "push/c5-device-table-extension/RESULT.md section (e); twin_test.py, twin_rational.py (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "control",
+   "p-adic",
+   "interpolation",
+   "special-values"
+  ]
+ },
+ {
+  "id": "padic-interpolation-reads-nonpositive-integers",
+  "type": "obstruction",
+  "name": "p-adic interpolation and the Iwasawa module read zeta only on s = 0, -1, -2, ...",
+  "statement": "The Kubota-Leopoldt function of zeta for each p, and the characteristic ideal of the Iwasawa module (Mazur-Wiles), are functions of the values zeta(1-k), k >= 1. A device built on them for all p together passes the interpolation twin unchanged. Under the functional equation the data are the values zeta(2k), right of 1. No comparison between p-adic zeros and complex zeros is known outside function fields, where both are roots of one polynomial.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "unknown",
+  "source": "push/c5-device-table-extension/RESULT.md section (e) (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "p-adic",
+   "iwasawa",
+   "exact-uniqueness",
+   "closed-device"
+  ]
+ },
+ {
+  "id": "frequency-only-devices-coefficient-blind",
+  "type": "obstruction",
+  "name": "Baker bounds and finite Turan power-sum bounds depend on the frequencies log n only",
+  "statement": "A lower bound for a linear form in logarithms of primes, and Turan's first and second main theorems applied to sum a_n n^{-s}, use the exponents log n and the number of terms, not the coefficients a_n. Each holds with the same constants for DH, every sign twist, THIN, U and WT. For integers m != n the bound abs(log m - log n) >= 1/max(m,n) is the Montgomery-Vaughan spacing input (mean values). For S-units with k primes Baker gives a gap >= (log n)^(-C_k); measured exponent for S = {2,3,5,7} up to log n = 80 is between 2.9 and 3.4 (pigeonhole value k - 1 = 3).",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "push/c5-device-table-extension/RESULT.md sections (a), (f); small_tests.py (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "baker",
+   "turan",
+   "mean-value",
+   "closed-device"
+  ]
+ },
+ {
+  "id": "strip-dtn-phase-identity",
+  "type": "identity",
+  "name": "Two-boundary Dirichlet-to-Neumann identity for the phase of the Cayley symbol",
+  "statement": "On the strip 0 < x < b with S = (1 - alpha L)/(1 + alpha L), L = F'/F, S(iy) = exp(i theta(y)): -theta'(y) = (pi/(4 b^2)) int sech^2(pi (y - y')/(2b)) (-log abs S(b + iy')) dy' + sum over zeros of S in the strip of K(x_k, y - y_k) - sum over poles of S in the strip of K(x_j, y - y_j), K(x, d) = (pi/b) sin(pi x/b)/(cosh(pi d/b) - cos(pi x/b)) > 0. -theta' = 2 alpha (Xi'^2 - Xi Xi'')/(Xi^2 + alpha^2 Xi'^2), Xi(y) = xi(1/2 + iy), is the Laguerre expression. Measured: residual <= 6.4e-17 (zeta near 30), <= 7.4e-7 (zeta near 1e4, truncated kernel), <= 4.1e-13 (DH near 85.7, one pole of S at 0.17213 + 85.71597i, pole sum 11.01 against T_b 1.73). T_b is 0.74, 0.32, 0.11, 0.10 of the mean phase derivative at T = 1e2 to 1e5 (alpha = 1, b = 1/2). For zeta and b >= 1/2 the first term is positive unconditionally. The identity is the Poisson-Jensen formula of the strip; it holds for DH with its pole terms.",
+  "status": "proved",
+  "usesMultiplicativity": "no",
+  "heightUniform": "yes",
+  "source": "push/c5-device-table-extension/RESULT.md section (g); dtn_identity.py (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "klein",
+   "bridge",
+   "laguerre",
+   "residue-device",
+   "annulus"
+  ]
+ },
+ {
+  "id": "tensor-squeeze-supplies-size-only",
+  "type": "obstruction",
+  "name": "The tensor-power squeeze bounds local parameters, not zeros",
+  "statement": "Landau's lemma applied to L(s, Sym^m x Sym^m) with non-negative coefficients gives abs(alpha_p) <= p^(1/(2m)): it carries an inequality across the abscissa of convergence for the local parameters. For zeta every symmetric power is zeta. The squeeze fails for E_a at the step 'L(s, Sym^m) is holomorphic in Re s > 1 apart from s = 1' (pole at 1 + m a), is not formulable for DH, and holds at every step for sign twists and THIN. It supplies the SIZE input and nothing about zeros; the positivity form is capped by Fejer's bound a_1 <= 2 cos(pi/(K+2)) a_0 (row P25).",
+  "status": "proved",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "push/c5-device-table-extension/RESULT.md section (d) (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "symmetric-power",
+   "landau",
+   "ramanujan",
+   "closed-device"
+  ]
+ },
+ {
+  "id": "additive-multiplicative-pairing-is-vinogradov",
+  "type": "obstruction",
+  "name": "The sum-product pairing for zeta is Vinogradov's method; the multiplicative side alone is rank one",
+  "statement": "zeta pairs a multiplicative character n^(it) with an additive set (an interval). The estimate sum_{N<n<=2N} n^(it) << N^(1 - c/k^2), k = log t/log N, is a power saving at N = t^epsilon and gives the Vinogradov-Korobov region, a crossing of Re s = 1 by (log t)^(-2/3) up to log log factors. Its additive step holds for DH (periodic coefficients) and fails for sign twists and THIN; its multiplicative step (3-4-1) fails for DH. A bilinear form sum a_m b_n (mn)^(it) over a rectangle has rank one, so no Cauchy-Schwarz gain exists there (proved); for forms with the cut mn <= x this is argued. THIN (zero at b, signs changed on a prime set of relative density zero) passes every estimate whose relative slack exceeds x^(b-1).",
+  "status": "argued",
+  "usesMultiplicativity": "yes",
+  "heightUniform": "yes",
+  "source": "push/c5-device-table-extension/RESULT.md section (b) (refereed once; entered by c6-repair-referee-debts-r5; map rows D1-D7)",
+  "tags": [
+   "sum-product",
+   "vinogradov",
+   "thin-control",
+   "closed-device"
+  ]
+ }
+]

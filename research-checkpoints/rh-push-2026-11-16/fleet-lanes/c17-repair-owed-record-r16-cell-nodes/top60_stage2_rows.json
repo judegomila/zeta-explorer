@@ -1,0 +1,5515 @@
+{
+ "before": "tmp/research-2026-11-16/push/c17-repair-owed-record-r16-cell-nodes/after1/CANDIDATES.json",
+ "after": "tmp/research-2026-11-16/push/c17-repair-owed-record-r16-cell-nodes/after/CANDIDATES.json",
+ "countsBefore": {
+  "top": 60,
+  "topWithOpenDevice": 0,
+  "floored": 60,
+  "closed": 0,
+  "topWithCell": 2,
+  "topWithSilentNode": 2,
+  "generated": 38082,
+  "scored": 8432,
+  "rejected": 29650,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 6,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 0,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {
+   "cell": 9,
+   "tried-not-closed": 1,
+   "closed": 1
+  }
+ },
+ "countsAfter": {
+  "top": 60,
+  "topWithOpenDevice": 0,
+  "floored": 60,
+  "closed": 0,
+  "topWithCell": 2,
+  "topWithSilentNode": 2,
+  "generated": 38082,
+  "scored": 8432,
+  "rejected": 29650,
+  "pools": {
+   "arithmetic": 270,
+   "rigidUniform": 196,
+   "crossing": 6,
+   "phenomenon": 206,
+   "explainer": 394,
+   "lemma": 161,
+   "separator": 9,
+   "flowFunctional": 56,
+   "underusedExplicit": 18,
+   "underusedAuto": 352
+  },
+  "deviceNodesLive": {
+   "open": 0,
+   "floored": 6,
+   "closed": 61
+  },
+  "cellNodesLive": {
+   "cell": 9,
+   "tried-not-closed": 1,
+   "closed": 1
+  }
+ },
+ "keysKept": 60,
+ "keysKeptSameScore": 60,
+ "scoreChanged": [],
+ "rejectedChanged": {},
+ "rows": [
+  {
+   "rank": 1,
+   "before": {
+    "rank": 1,
+    "score": 10.25,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-e8e505",
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 2,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 1,
+    "score": 10.25,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-e8e505",
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "sympow-conductor-normalised-shift",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 2,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 1,
+   "afterKeyWasAtRank": 1
+  },
+  {
+   "rank": 2,
+   "before": {
+    "rank": 2,
+    "score": 9.53,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-998929",
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "sympow-conductor-normalised-shift",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 2,
+    "score": 9.53,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-998929",
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "sympow-conductor-normalised-shift",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.78,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 2,
+   "afterKeyWasAtRank": 2
+  },
+  {
+   "rank": 3,
+   "before": {
+    "rank": 3,
+    "score": 9.25,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-4c9ccb",
+    "nodes": [
+     "sun-prop63-plus4-offset",
+     "katz-sarnak-family-checks",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 3,
+    "score": 9.25,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-4c9ccb",
+    "nodes": [
+     "sun-prop63-plus4-offset",
+     "katz-sarnak-family-checks",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 3,
+   "afterKeyWasAtRank": 3
+  },
+  {
+   "rank": 4,
+   "before": {
+    "rank": 4,
+    "score": 9.0,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-6ac3ca",
+    "nodes": [
+     "theta-density-positivity-p-pos",
+     "alias-width-law-octave-weight",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 4,
+    "score": 9.0,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-6ac3ca",
+    "nodes": [
+     "theta-density-positivity-p-pos",
+     "alias-width-law-octave-weight",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 4,
+   "afterKeyWasAtRank": 4
+  },
+  {
+   "rank": 5,
+   "before": {
+    "rank": 5,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-372916",
+    "nodes": [
+     "gl2-weil-symbol",
+     "finite-support-euler-detector",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 5,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-372916",
+    "nodes": [
+     "gl2-weil-symbol",
+     "finite-support-euler-detector",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 5,
+   "afterKeyWasAtRank": 5
+  },
+  {
+   "rank": 6,
+   "before": {
+    "rank": 6,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-43d13c",
+    "nodes": [
+     "sun-prop63-plus4-offset",
+     "mem-sextic-theta-squarefree",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 6,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-43d13c",
+    "nodes": [
+     "sun-prop63-plus4-offset",
+     "mem-sextic-theta-squarefree",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 6,
+   "afterKeyWasAtRank": 6
+  },
+  {
+   "rank": 7,
+   "before": {
+    "rank": 7,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-585871",
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "route-m-first-moment-kappa",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 7,
+    "score": 8.75,
+    "move": "M1",
+    "theme": "zero-free",
+    "key": "M1-585871",
+    "nodes": [
+     "autocorrelation-moment-ladder",
+     "route-m-first-moment-kappa",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 7,
+   "afterKeyWasAtRank": 7
+  },
+  {
+   "rank": 8,
+   "before": {
+    "rank": 8,
+    "score": 8.75,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-acf0df",
+    "nodes": [
+     "tro6-natural",
+     "gauss-plancherel-alias-lemma",
+     "mem-qrh-7-8"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 8,
+    "score": 8.75,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-acf0df",
+    "nodes": [
+     "tro6-natural",
+     "gauss-plancherel-alias-lemma",
+     "mem-qrh-7-8"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 8,
+   "afterKeyWasAtRank": 8
+  },
+  {
+   "rank": 9,
+   "before": {
+    "rank": 9,
+    "score": 8.5,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-0e299f",
+    "nodes": [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 9,
+    "score": 8.5,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-0e299f",
+    "nodes": [
+     "theta-density-positivity",
+     "staged-strip-triangular-inequality",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 9,
+   "afterKeyWasAtRank": 9
+  },
+  {
+   "rank": 10,
+   "before": {
+    "rank": 10,
+    "score": 8.48,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-67ad42",
+    "nodes": [
+     "curvature-charge-d",
+     "route-m-vasyunin-gram",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.73,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 10,
+    "score": 8.48,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-67ad42",
+    "nodes": [
+     "curvature-charge-d",
+     "route-m-vasyunin-gram",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.73,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 10,
+   "afterKeyWasAtRank": 10
+  },
+  {
+   "rank": 11,
+   "before": {
+    "rank": 11,
+    "score": 8.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-ab6cee",
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "prime-delay-domination-15-4",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 11,
+    "score": 8.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-ab6cee",
+    "nodes": [
+     "capture-ratio-psd-slope",
+     "prime-delay-domination-15-4",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 11,
+   "afterKeyWasAtRank": 11
+  },
+  {
+   "rank": 12,
+   "before": {
+    "rank": 12,
+    "score": 8.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-e6a597",
+    "nodes": [
+     "lean-weil-small-support",
+     "star-min-pointwise-prime-bound",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 12,
+    "score": 8.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-e6a597",
+    "nodes": [
+     "lean-weil-small-support",
+     "star-min-pointwise-prime-bound",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 12,
+   "afterKeyWasAtRank": 12
+  },
+  {
+   "rank": 13,
+   "before": {
+    "rank": 13,
+    "score": 8.25,
+    "move": "M3",
+    "theme": "geometry",
+    "key": "M3-23f5c3",
+    "nodes": [
+     "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+     "qrh-seven-eighths",
+     "ramanujan-cube-satake-point"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [
+     [
+      "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+      "cell"
+     ]
+    ],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 13,
+    "score": 8.25,
+    "move": "M3",
+    "theme": "geometry",
+    "key": "M3-23f5c3",
+    "nodes": [
+     "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+     "qrh-seven-eighths",
+     "ramanujan-cube-satake-point"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [
+     [
+      "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+      "cell"
+     ]
+    ],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 13,
+   "afterKeyWasAtRank": 13
+  },
+  {
+   "rank": 14,
+   "before": {
+    "rank": 14,
+    "score": 8.0,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-dfd448",
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "ramanujan-cube-satake-point",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 14,
+    "score": 8.0,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-dfd448",
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "ramanujan-cube-satake-point",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0.5,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 14,
+   "afterKeyWasAtRank": 14
+  },
+  {
+   "rank": 15,
+   "before": {
+    "rank": 15,
+    "score": 7.99,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-1af84e",
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "pole-term-schur-complement",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 0.99,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 15,
+    "score": 7.99,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-1af84e",
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "pole-term-schur-complement",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 0.99,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 15,
+   "afterKeyWasAtRank": 15
+  },
+  {
+   "rank": 16,
+   "before": {
+    "rank": 16,
+    "score": 7.75,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-20c167",
+    "nodes": [
+     "subleading-k-closed-form",
+     "mem-chi4-signed-ladder",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 16,
+    "score": 7.75,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-20c167",
+    "nodes": [
+     "subleading-k-closed-form",
+     "mem-chi4-signed-ladder",
+     "tro6-natural"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 16,
+   "afterKeyWasAtRank": 16
+  },
+  {
+   "rank": 17,
+   "before": {
+    "rank": 17,
+    "score": 7.75,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-3dc00f",
+    "nodes": [
+     "sun-catalan-preprint-verdict",
+     "mem-qrh-7-8",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 17,
+    "score": 7.75,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-3dc00f",
+    "nodes": [
+     "sun-catalan-preprint-verdict",
+     "mem-qrh-7-8",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 17,
+   "afterKeyWasAtRank": 17
+  },
+  {
+   "rank": 18,
+   "before": {
+    "rank": 18,
+    "score": 7.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e445bf",
+    "nodes": [
+     "start-substitution-lemma",
+     "tro6-natural",
+     "euler-detection-depth-law"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 18,
+    "score": 7.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e445bf",
+    "nodes": [
+     "start-substitution-lemma",
+     "tro6-natural",
+     "euler-detection-depth-law"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "tro6-natural",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 18,
+   "afterKeyWasAtRank": 18
+  },
+  {
+   "rank": 19,
+   "before": {
+    "rank": 19,
+    "score": 7.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e89261",
+    "nodes": [
+     "zv-signed-shear-w",
+     "staged-strip-triangular-inequality",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 19,
+    "score": 7.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e89261",
+    "nodes": [
+     "zv-signed-shear-w",
+     "staged-strip-triangular-inequality",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 19,
+   "afterKeyWasAtRank": 19
+  },
+  {
+   "rank": 20,
+   "before": {
+    "rank": 20,
+    "score": 7.66,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-e4a1b9",
+    "nodes": [
+     "phi-truncation-leftmost-zero",
+     "qrh-seven-eighths"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.91,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 20,
+    "score": 7.66,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-e4a1b9",
+    "nodes": [
+     "phi-truncation-leftmost-zero",
+     "qrh-seven-eighths"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.91,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 20,
+   "afterKeyWasAtRank": 20
+  },
+  {
+   "rank": 21,
+   "before": {
+    "rank": 21,
+    "score": 7.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-0787ec",
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "restricted-mobius-delay-lift",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 21,
+    "score": 7.25,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-0787ec",
+    "nodes": [
+     "zv-boundary-kernel-pa",
+     "restricted-mobius-delay-lift",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 21,
+   "afterKeyWasAtRank": 21
+  },
+  {
+   "rank": 22,
+   "before": {
+    "rank": 22,
+    "score": 7.25,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-54a06d",
+    "nodes": [
+     "sextic-theta-numerics",
+     "qrh-seven-eighths"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 22,
+    "score": 7.25,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-54a06d",
+    "nodes": [
+     "sextic-theta-numerics",
+     "qrh-seven-eighths"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 22,
+   "afterKeyWasAtRank": 22
+  },
+  {
+   "rank": 23,
+   "before": {
+    "rank": 23,
+    "score": 6.75,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-3107b5",
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "finite-support-euler-detector",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 23,
+    "score": 6.75,
+    "move": "M1",
+    "theme": "positivity",
+    "key": "M1-3107b5",
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "finite-support-euler-detector",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 23,
+   "afterKeyWasAtRank": 23
+  },
+  {
+   "rank": 24,
+   "before": {
+    "rank": 24,
+    "score": 6.55,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-f01cb9",
+    "nodes": [
+     "virtual-rungs-positive-extension",
+     "selberg-geodesic-ground-truth",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.8,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 24,
+    "score": 6.55,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-f01cb9",
+    "nodes": [
+     "virtual-rungs-positive-extension",
+     "selberg-geodesic-ground-truth",
+     "qrh-seven-eighths"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "qrh-seven-eighths",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.8,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 24,
+   "afterKeyWasAtRank": 24
+  },
+  {
+   "rank": 25,
+   "before": {
+    "rank": 25,
+    "score": 5.75,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-7d4b75",
+    "nodes": [
+     "lean-weil-small-support",
+     "v7-floor-theorem-c",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 25,
+    "score": 5.75,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-7d4b75",
+    "nodes": [
+     "lean-weil-small-support",
+     "v7-floor-theorem-c",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0.5,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 25,
+   "afterKeyWasAtRank": 25
+  },
+  {
+   "rank": 26,
+   "before": {
+    "rank": 26,
+    "score": 5.25,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-9f2778",
+    "nodes": [
+     "subleading-k-closed-form",
+     "route-m-vasyunin-gram",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 26,
+    "score": 5.25,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-9f2778",
+    "nodes": [
+     "subleading-k-closed-form",
+     "route-m-vasyunin-gram",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 26,
+   "afterKeyWasAtRank": 26
+  },
+  {
+   "rank": 27,
+   "before": {
+    "rank": 27,
+    "score": 5.09,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-2251f5",
+    "nodes": [
+     "gl2-weil-symbol",
+     "sextic-theta-numerics",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.84,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "after": {
+    "rank": 27,
+    "score": 5.09,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-2251f5",
+    "nodes": [
+     "gl2-weil-symbol",
+     "sextic-theta-numerics",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.84,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": 0
+    }
+   },
+   "beforeKeyNowAtRank": 27,
+   "afterKeyWasAtRank": 27
+  },
+  {
+   "rank": 28,
+   "before": {
+    "rank": 28,
+    "score": 5.0,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-b0f1c3",
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "prime-delay-domination",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   },
+   "after": {
+    "rank": 28,
+    "score": 5.0,
+    "move": "M1",
+    "theme": "prime-chain",
+    "key": "M1-b0f1c3",
+    "nodes": [
+     "multi-rung-weil-symbol",
+     "prime-delay-domination",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -1
+    }
+   },
+   "beforeKeyNowAtRank": 28,
+   "afterKeyWasAtRank": 28
+  },
+  {
+   "rank": 29,
+   "before": {
+    "rank": 29,
+    "score": 4.81,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-08aba7",
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "star-min-pointwise-prime-bound",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.81,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 29,
+    "score": 4.81,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-08aba7",
+    "nodes": [
+     "zv-infinity-end-coordinate",
+     "star-min-pointwise-prime-bound",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.81,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 29,
+   "afterKeyWasAtRank": 29
+  },
+  {
+   "rank": 30,
+   "before": {
+    "rank": 30,
+    "score": 4.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-b526c3",
+    "nodes": [
+     "dbn-native-triangle-binding",
+     "route-m-first-moment-kappa",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 30,
+    "score": 4.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-b526c3",
+    "nodes": [
+     "dbn-native-triangle-binding",
+     "route-m-first-moment-kappa",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 30,
+   "afterKeyWasAtRank": 30
+  },
+  {
+   "rank": 31,
+   "before": {
+    "rank": 31,
+    "score": 4.5,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-8b94f0",
+    "nodes": [
+     "map-open-2",
+     "frobenius-gcd-factorisation",
+     "lane-audit-h-desc"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 31,
+    "score": 4.5,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-8b94f0",
+    "nodes": [
+     "map-open-2",
+     "frobenius-gcd-factorisation",
+     "lane-audit-h-desc"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 31,
+   "afterKeyWasAtRank": 31
+  },
+  {
+   "rank": 32,
+   "before": {
+    "rank": 32,
+    "score": 4.5,
+    "move": "M3",
+    "theme": "positivity",
+    "key": "M3-a65e0c",
+    "nodes": [
+     "near-muntz-threshold-cones",
+     "arch-native-prime-jordan-product",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 32,
+    "score": 4.5,
+    "move": "M3",
+    "theme": "positivity",
+    "key": "M3-a65e0c",
+    "nodes": [
+     "near-muntz-threshold-cones",
+     "arch-native-prime-jordan-product",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 32,
+   "afterKeyWasAtRank": 32
+  },
+  {
+   "rank": 33,
+   "before": {
+    "rank": 33,
+    "score": 4.14,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-0f17b0",
+    "nodes": [
+     "theta-density-positivity",
+     "katz-sarnak-family-checks",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.89,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 33,
+    "score": 4.14,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-0f17b0",
+    "nodes": [
+     "theta-density-positivity",
+     "katz-sarnak-family-checks",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.89,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 33,
+   "afterKeyWasAtRank": 33
+  },
+  {
+   "rank": 34,
+   "before": {
+    "rank": 34,
+    "score": 3.86,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-de6488",
+    "nodes": [
+     "bbm-growth-class-implication",
+     "selberg-zeta-freeze-sandbox",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 0.86,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 34,
+    "score": 3.86,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-de6488",
+    "nodes": [
+     "bbm-growth-class-implication",
+     "selberg-zeta-freeze-sandbox",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 0.86,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 34,
+   "afterKeyWasAtRank": 34
+  },
+  {
+   "rank": 35,
+   "before": {
+    "rank": 35,
+    "score": 3.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e2eadd",
+    "nodes": [
+     "zv-signed-shear-w",
+     "ns-rigid-loophole-dirichlet-coefficients",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 0.75,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 35,
+    "score": 3.75,
+    "move": "M4",
+    "theme": "zero-free",
+    "key": "M4-e2eadd",
+    "nodes": [
+     "zv-signed-shear-w",
+     "ns-rigid-loophole-dirichlet-coefficients",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 0.75,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 35,
+   "afterKeyWasAtRank": 35
+  },
+  {
+   "rank": 36,
+   "before": {
+    "rank": 36,
+    "score": 3.6,
+    "move": "M1",
+    "theme": "statistics",
+    "key": "M1-a2f8b7",
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "mv-cap-function-side-gap",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.85,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 36,
+    "score": 3.6,
+    "move": "M1",
+    "theme": "statistics",
+    "key": "M1-a2f8b7",
+    "nodes": [
+     "ingham-offlattice-riesz-floor",
+     "mv-cap-function-side-gap",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1.25,
+     "cohesion": 0.85,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 36,
+   "afterKeyWasAtRank": 36
+  },
+  {
+   "rank": 37,
+   "before": {
+    "rank": 37,
+    "score": 3.5,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-d87aed",
+    "nodes": [
+     "exact-witness-quadratic-cosine",
+     "connes-twin-ladder-crosswalk",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 37,
+    "score": 3.5,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-d87aed",
+    "nodes": [
+     "exact-witness-quadratic-cosine",
+     "connes-twin-ladder-crosswalk",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 37,
+   "afterKeyWasAtRank": 37
+  },
+  {
+   "rank": 38,
+   "before": {
+    "rank": 38,
+    "score": 3.25,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-8d917a",
+    "nodes": [
+     "pr14-boundary-certificate",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -4
+    }
+   },
+   "after": {
+    "rank": 38,
+    "score": 3.25,
+    "move": "M2",
+    "theme": "zero-free",
+    "key": "M2-8d917a",
+    "nodes": [
+     "pr14-boundary-certificate",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": "ctl-DH",
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 1,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -4
+    }
+   },
+   "beforeKeyNowAtRank": 38,
+   "afterKeyWasAtRank": 38
+  },
+  {
+   "rank": 39,
+   "before": {
+    "rank": 39,
+    "score": 3.25,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-1b5f83",
+    "nodes": [
+     "map-open-2",
+     "rm-kappa-arith-exact",
+     "rm-kappa-total-measured"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 39,
+    "score": 3.25,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-1b5f83",
+    "nodes": [
+     "map-open-2",
+     "rm-kappa-arith-exact",
+     "rm-kappa-total-measured"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 39,
+   "afterKeyWasAtRank": 39
+  },
+  {
+   "rank": 40,
+   "before": {
+    "rank": 40,
+    "score": 3.22,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-baa96e",
+    "nodes": [
+     "tilt-det-majorant",
+     "route-i-krein-certificate",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.97,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 40,
+    "score": 3.22,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-baa96e",
+    "nodes": [
+     "tilt-det-majorant",
+     "route-i-krein-certificate",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.97,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 40,
+   "afterKeyWasAtRank": 40
+  },
+  {
+   "rank": 41,
+   "before": {
+    "rank": 41,
+    "score": 3.0,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-e76658",
+    "nodes": [
+     "ff-lambda-of-elliptic-curve",
+     "spec-z-graph-class-pairing",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 41,
+    "score": 3.0,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-e76658",
+    "nodes": [
+     "ff-lambda-of-elliptic-curve",
+     "spec-z-graph-class-pairing",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 41,
+   "afterKeyWasAtRank": 41
+  },
+  {
+   "rank": 42,
+   "before": {
+    "rank": 42,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-30de4a",
+    "nodes": [
+     "map-open-2",
+     "rm-parity-sign-law",
+     "rm-sign-law-t-negative"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 42,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-30de4a",
+    "nodes": [
+     "map-open-2",
+     "rm-parity-sign-law",
+     "rm-sign-law-t-negative"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 42,
+   "afterKeyWasAtRank": 42
+  },
+  {
+   "rank": 43,
+   "before": {
+    "rank": 43,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "prime-chain",
+    "key": "M3-397265",
+    "nodes": [
+     "map-open-22",
+     "cm-eta-heights-lambda1",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 43,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "prime-chain",
+    "key": "M3-397265",
+    "nodes": [
+     "map-open-22",
+     "cm-eta-heights-lambda1",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 43,
+   "afterKeyWasAtRank": 43
+  },
+  {
+   "rank": 44,
+   "before": {
+    "rank": 44,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "prime-chain",
+    "key": "M3-63d586",
+    "nodes": [
+     "silent-u6e-bost-connes-states-outside-d8",
+     "seven-eighths-abscissa-formula",
+     "mem-semilocal-fourier-fs"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [
+     [
+      "silent-u6e-bost-connes-states-outside-d8",
+      "cell"
+     ]
+    ],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 44,
+    "score": 3.0,
+    "move": "M3",
+    "theme": "prime-chain",
+    "key": "M3-63d586",
+    "nodes": [
+     "silent-u6e-bost-connes-states-outside-d8",
+     "seven-eighths-abscissa-formula",
+     "mem-semilocal-fourier-fs"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [
+     [
+      "silent-u6e-bost-connes-states-outside-d8",
+      "cell"
+     ]
+    ],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 44,
+   "afterKeyWasAtRank": 44
+  },
+  {
+   "rank": 45,
+   "before": {
+    "rank": 45,
+    "score": 2.97,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-96a3f3",
+    "nodes": [
+     "mem-freeze-flow-interlacing",
+     "route-m-kappa-first-moment",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 0.72,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 45,
+    "score": 2.97,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-96a3f3",
+    "nodes": [
+     "mem-freeze-flow-interlacing",
+     "route-m-kappa-first-moment",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1.25,
+     "cohesion": 0.72,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 45,
+   "afterKeyWasAtRank": 45
+  },
+  {
+   "rank": 46,
+   "before": {
+    "rank": 46,
+    "score": 2.75,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-43b9fe",
+    "nodes": [
+     "debruijn-landing-rate-thm13",
+     "mem-landau-siegel-uniform",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 46,
+    "score": 2.75,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-43b9fe",
+    "nodes": [
+     "debruijn-landing-rate-thm13",
+     "mem-landau-siegel-uniform",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 46,
+   "afterKeyWasAtRank": 46
+  },
+  {
+   "rank": 47,
+   "before": {
+    "rank": 47,
+    "score": 2.75,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-5c963c",
+    "nodes": [
+     "ff-lambda-of-elliptic-curve",
+     "hasse-weil-checks",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 47,
+    "score": 2.75,
+    "move": "M1",
+    "theme": "geometry",
+    "key": "M1-5c963c",
+    "nodes": [
+     "ff-lambda-of-elliptic-curve",
+     "hasse-weil-checks",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 47,
+   "afterKeyWasAtRank": 47
+  },
+  {
+   "rank": 48,
+   "before": {
+    "rank": 48,
+    "score": 2.75,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-06dbc8",
+    "nodes": [
+     "collision-ladder-data",
+     "route-m-conductor-tones",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 48,
+    "score": 2.75,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-06dbc8",
+    "nodes": [
+     "collision-ladder-data",
+     "route-m-conductor-tones",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 48,
+   "afterKeyWasAtRank": 48
+  },
+  {
+   "rank": 49,
+   "before": {
+    "rank": 49,
+    "score": 2.75,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-59eaea",
+    "nodes": [
+     "tilt-det-majorant",
+     "rung-toeplitz-euler-detector",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "after": {
+    "rank": 49,
+    "score": 2.75,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-59eaea",
+    "nodes": [
+     "tilt-det-majorant",
+     "rung-toeplitz-euler-detector",
+     "map-open-2"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 1.5,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 1,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "beforeKeyNowAtRank": 49,
+   "afterKeyWasAtRank": 49
+  },
+  {
+   "rank": 50,
+   "before": {
+    "rank": 50,
+    "score": 2.68,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-51af38",
+    "nodes": [
+     "confluent-laguerre-floor",
+     "pole-term-schur-complement",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0,
+     "cohesion": 0.68,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 50,
+    "score": 2.68,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-51af38",
+    "nodes": [
+     "confluent-laguerre-floor",
+     "pole-term-schur-complement",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0,
+     "cohesion": 0.68,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 50,
+   "afterKeyWasAtRank": 50
+  },
+  {
+   "rank": 51,
+   "before": {
+    "rank": 51,
+    "score": 2.56,
+    "move": "M4",
+    "theme": "prime-chain",
+    "key": "M4-58a6a8",
+    "nodes": [
+     "zv-taylor-rouche-channel-criterion",
+     "h6-symbol-offline-poisson",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.81,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 51,
+    "score": 2.56,
+    "move": "M4",
+    "theme": "prime-chain",
+    "key": "M4-58a6a8",
+    "nodes": [
+     "zv-taylor-rouche-channel-criterion",
+     "h6-symbol-offline-poisson",
+     "seven-eighths-abscissa-formula"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.81,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 51,
+   "afterKeyWasAtRank": 51
+  },
+  {
+   "rank": 52,
+   "before": {
+    "rank": 52,
+    "score": 2.5,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-e3f266",
+    "nodes": [
+     "map-open-2",
+     "mem-mollifier-proportion-loophole",
+     "ns-rigid-loophole-dirichlet-coefficients"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 52,
+    "score": 2.5,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-e3f266",
+    "nodes": [
+     "map-open-2",
+     "mem-mollifier-proportion-loophole",
+     "ns-rigid-loophole-dirichlet-coefficients"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 52,
+   "afterKeyWasAtRank": 52
+  },
+  {
+   "rank": 53,
+   "before": {
+    "rank": 53,
+    "score": 2.26,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-bcfebc",
+    "nodes": [
+     "route-b-limsup-stieltjes",
+     "corr23-continuity-spectral-criterion",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.76,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 53,
+    "score": 2.26,
+    "move": "M1",
+    "theme": "flow",
+    "key": "M1-bcfebc",
+    "nodes": [
+     "route-b-limsup-stieltjes",
+     "corr23-continuity-spectral-criterion",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.76,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 1,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 53,
+   "afterKeyWasAtRank": 53
+  },
+  {
+   "rank": 54,
+   "before": {
+    "rank": 54,
+    "score": 2.25,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-bfe227",
+    "nodes": [
+     "map-open-2",
+     "rm-e0-uniform-remainder",
+     "binet-positive-kernel"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 54,
+    "score": 2.25,
+    "move": "M3",
+    "theme": "nyman",
+    "key": "M3-bfe227",
+    "nodes": [
+     "map-open-2",
+     "rm-e0-uniform-remainder",
+     "binet-positive-kernel"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-2",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 1.0,
+     "cheapTest": 0.25,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 54,
+   "afterKeyWasAtRank": 54
+  },
+  {
+   "rank": 55,
+   "before": {
+    "rank": 55,
+    "score": 2.08,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-77338f",
+    "nodes": [
+     "lean-cg-covering-identity",
+     "weil-small-support-lean",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.83,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 55,
+    "score": 2.08,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-77338f",
+    "nodes": [
+     "lean-cg-covering-identity",
+     "weil-small-support-lean",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 0.25,
+     "cohesion": 0.83,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 55,
+   "afterKeyWasAtRank": 55
+  },
+  {
+   "rank": 56,
+   "before": {
+    "rank": 56,
+    "score": 2.0,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-d7f333",
+    "nodes": [
+     "mem-concentration-dip-open",
+     "seven-eighths-abscissa-formula",
+     "af-hl-star-hierarchy"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "after": {
+    "rank": 56,
+    "score": 2.0,
+    "move": "M3",
+    "theme": "zero-free",
+    "key": "M3-d7f333",
+    "nodes": [
+     "mem-concentration-dip-open",
+     "seven-eighths-abscissa-formula",
+     "af-hl-star-hierarchy"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "seven-eighths-abscissa-formula",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "beforeKeyNowAtRank": 56,
+   "afterKeyWasAtRank": 56
+  },
+  {
+   "rank": 57,
+   "before": {
+    "rank": 57,
+    "score": 2.0,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-7e8758",
+    "nodes": [
+     "frozen-rung-winding-identity",
+     "prime-delay-domination",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "after": {
+    "rank": 57,
+    "score": 2.0,
+    "move": "M4",
+    "theme": "positivity",
+    "key": "M4-7e8758",
+    "nodes": [
+     "frozen-rung-winding-identity",
+     "prime-delay-domination",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 2,
+     "heightUniform": 1,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.0,
+     "cheapTest": 1,
+     "cohesion": 1.0,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -4
+    }
+   },
+   "beforeKeyNowAtRank": 57,
+   "afterKeyWasAtRank": 57
+  },
+  {
+   "rank": 58,
+   "before": {
+    "rank": 58,
+    "score": 1.29,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-82eb05",
+    "nodes": [
+     "ch-holder-half-sharp",
+     "corr23-mixed-prolate-ladder",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.79,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 58,
+    "score": 1.29,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-82eb05",
+    "nodes": [
+     "ch-holder-half-sharp",
+     "corr23-mixed-prolate-ladder",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 1,
+     "cohesion": 0.79,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 58,
+   "afterKeyWasAtRank": 58
+  },
+  {
+   "rank": 59,
+   "before": {
+    "rank": 59,
+    "score": 0.3,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-c73aba",
+    "nodes": [
+     "zv-polynomial-heat-coefficients",
+     "connes-adelic-truncated-trace",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.55,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 59,
+    "score": 0.3,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-c73aba",
+    "nodes": [
+     "zv-polynomial-heat-coefficients",
+     "connes-adelic-truncated-trace",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0.25,
+     "cohesion": 0.55,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 59,
+   "afterKeyWasAtRank": 59
+  },
+  {
+   "rank": 60,
+   "before": {
+    "rank": 60,
+    "score": 0.29,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-c5a066",
+    "nodes": [
+     "zero-ode-ht",
+     "mixed-group-rigid-profile",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 0.79,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "after": {
+    "rank": 60,
+    "score": 0.29,
+    "move": "M4",
+    "theme": "flow",
+    "key": "M4-c5a066",
+    "nodes": [
+     "zero-ode-ht",
+     "mixed-group-rigid-profile",
+     "map-open-4"
+    ],
+    "control": null,
+    "devices": [
+     [
+      "map-open-4",
+      "floored"
+     ]
+    ],
+    "cells": [],
+    "parts": {
+     "multiplicativity": 1,
+     "heightUniform": 0,
+     "controls": 0,
+     "crossing": 0,
+     "underused": 0.5,
+     "cheapTest": 0,
+     "cohesion": 0.79,
+     "breadth": 1,
+     "sizeNormalisation": 0,
+     "nonlinearPositivity": 0,
+     "integers": 0,
+     "sharedObject": 0,
+     "penalties": -3
+    }
+   },
+   "beforeKeyNowAtRank": 60,
+   "afterKeyWasAtRank": 60
+  }
+ ],
+ "graphBefore": {
+  "nodes": 1724,
+  "live": 974,
+  "rows": 241,
+  "edges": 9118,
+  "edgesByType": {
+   "composes-with": 7559,
+   "control-defeats": 871,
+   "obstructs": 270,
+   "restates": 188,
+   "separates-from": 4,
+   "special-case-of": 132,
+   "uses": 94
+  },
+  "devices": {
+   "closed": 69,
+   "floored": 6,
+   "open": 11
+  },
+  "devicesLive": {
+   "closed": 61,
+   "floored": 6,
+   "open": 11
+  },
+  "cells": null,
+  "controls": 23
+ },
+ "graphAfter": {
+  "nodes": 1727,
+  "live": 974,
+  "rows": 244,
+  "edges": 9127,
+  "edgesByType": {
+   "composes-with": 7563,
+   "control-defeats": 876,
+   "obstructs": 270,
+   "restates": 188,
+   "separates-from": 4,
+   "special-case-of": 132,
+   "uses": 94
+  },
+  "devices": {
+   "closed": 69,
+   "floored": 6
+  },
+  "devicesLive": {
+   "closed": 61,
+   "floored": 6
+  },
+  "cells": {
+   "closed": 1,
+   "cell": 9,
+   "tried-not-closed": 1
+  },
+  "controls": 23
+ },
+ "edgesAdded": [
+  [
+   "composes-with",
+   "af-rank-trace-inertia",
+   "fold-law-collision"
+  ],
+  [
+   "composes-with",
+   "angular-spacing-poisson",
+   "map-pos-19"
+  ],
+  [
+   "composes-with",
+   "bagchi-strong-recurrence",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "bbm-growth-class-implication",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "bridge-multiplier-c0",
+   "zv-divisor-cosine-euler-product"
+  ],
+  [
+   "composes-with",
+   "bridge-scattering-factorisation",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "bridge-winding-equals-NT",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "bridge-winding-equals-NT",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "burgers-limsup-tc",
+   "ramanujan-cube-satake-point"
+  ],
+  [
+   "composes-with",
+   "ch-holder-half-sharp",
+   "katz-sarnak-family-checks"
+  ],
+  [
+   "composes-with",
+   "cmv-truncation-from-taylor-data",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "cofinal-legendre-dual",
+   "silent-u2-pos-fe-positivity-rigidity"
+  ],
+  [
+   "composes-with",
+   "collision-ladder-data",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "darlington-losslessness-s7",
+   "map-pos-17"
+  ],
+  [
+   "composes-with",
+   "dbn-prime-torus-phase-closure",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "etrunc-pt-anchor-lock",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "euler-completed-weil-multiplier",
+   "ramanujan-cube-satake-point"
+  ],
+  [
+   "composes-with",
+   "euler-fe-coupling-at-height",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "euler-fe-coupling-at-height",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "euler-fe-coupling-at-height",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "euler-fe-coupling-at-height",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "euler-fe-coupling-at-height",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "ff-ghost-index-toeplitz",
+   "ff-ghost-second-order"
+  ],
+  [
+   "composes-with",
+   "finite-support-euler-detector",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "gamma-bulk-identity",
+   "map-pos-18"
+  ],
+  [
+   "composes-with",
+   "ghost-zero-witness",
+   "silent-u6g-scattering-exact-normalisation-affine-kernel"
+  ],
+  [
+   "composes-with",
+   "gl2-ramanujan-box-vertex",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "h5-euler-products-bounded",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "h5-euler-products-bounded",
+   "vaughan-sqrt-type1-exact"
+  ],
+  [
+   "composes-with",
+   "hankel-gap-aU-invariant",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "harmonic-strip-transport",
+   "mem-gaussian-damped-primon-gram"
+  ],
+  [
+   "composes-with",
+   "harmonic-strip-transport",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "harmonic-strip-transport",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "heat-evolved-von-mangoldt-positivity",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "heegner-height-upper-bound-h4prime",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "heegner-height-upper-bound-h4prime",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "klein-phase-transport-certificate",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "klein-phase-transport-certificate",
+   "theta-dual-mseries-is-twisted-kubota"
+  ],
+  [
+   "composes-with",
+   "landau-siegel-2026-mechanism",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "landau-siegel-2026-mechanism",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "mem-chi4-signed-ladder",
+   "route-m-first-moment-kappa"
+  ],
+  [
+   "composes-with",
+   "mem-field-channel-bootstrap",
+   "silent-u8-kernel-conditions-beyond-searched-range"
+  ],
+  [
+   "composes-with",
+   "mem-semilocal-fourier-fs",
+   "separating-probe"
+  ],
+  [
+   "composes-with",
+   "mem-sextic-theta-squarefree",
+   "start-substitution-lemma"
+  ],
+  [
+   "composes-with",
+   "mem-v7-floor-reduction",
+   "mem-widom-parseval-peak"
+  ],
+  [
+   "composes-with",
+   "nyman-beurling-dx",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "pick-weil-native-span",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "positive-real-ladder-step",
+   "theta-dual-mseries-is-twisted-kubota"
+  ],
+  [
+   "composes-with",
+   "qrh-seven-eighths",
+   "sextic-theta-numerics"
+  ],
+  [
+   "composes-with",
+   "qrh-seven-eighths",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "qrh-seven-eighths",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "rank2-antisymmetric-shear-kernel",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "route-m-quarter-ceiling",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "selberg-zeta-companion",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "seven-eighths-abscissa-formula",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "seven-eighths-abscissa-formula",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "silent-u4-joint-functionals-not-scaling-invariant",
+   "single-row-bridge"
+  ],
+  [
+   "composes-with",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "tro6-natural"
+  ],
+  [
+   "composes-with",
+   "silent-u6c-gl3-cover-global-whittaker-constants",
+   "tro6-natural"
+  ],
+  [
+   "composes-with",
+   "silent-u6f-isogenous-points-nonlinear-functionals",
+   "strip-dtn-phase-identity"
+  ],
+  [
+   "composes-with",
+   "sympow-conductor-normalised-shift",
+   "map-open-12"
+  ],
+  [
+   "control-defeats",
+   "ctl-BLS",
+   "row-D10"
+  ],
+  [
+   "control-defeats",
+   "ctl-DH",
+   "row-D10"
+  ],
+  [
+   "control-defeats",
+   "ctl-EISW",
+   "row-D10"
+  ],
+  [
+   "control-defeats",
+   "ctl-EISW",
+   "row-G42"
+  ],
+  [
+   "control-defeats",
+   "ctl-ZQ",
+   "row-D10"
+  ]
+ ],
+ "edgesRemoved": [
+  [
+   "composes-with",
+   "af-rank-trace-inertia",
+   "silent-u2-pos-fe-positivity-rigidity"
+  ],
+  [
+   "composes-with",
+   "alias-energy-in-sieve-algebra",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "alias-sign-determinacy",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "arch-native-prime-jordan-product",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "bk-diagonal-prime-identity",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "cascade-s21-zeta2s-over-zeta",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "catalan-signed-ladder",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "connes-adelic-truncated-trace",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "connes-twin-ladder-crosswalk",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "connes-twin-ladder-crosswalk",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "dbn-native-triangle-binding",
+   "silent-u3-identification-relaxation"
+  ],
+  [
+   "composes-with",
+   "euler-completed-weil-multiplier",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "ff-ghost-second-order",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "gauss-plancherel-alias-lemma",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "h6-symbol-offline-poisson",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "katz-sarnak-family-checks",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "lambda-slope-per-theta",
+   "silent-u8-kernel-conditions-beyond-searched-range"
+  ],
+  [
+   "composes-with",
+   "landau-one-sided-d-bound",
+   "selberg-zeta-companion"
+  ],
+  [
+   "composes-with",
+   "lemma-cg-covering-identity",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "mem-chi4-signed-ladder",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "mem-chi4-signed-ladder",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "mem-gaussian-damped-primon-gram",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "mem-qrh-7-8",
+   "silent-u6b-nonsolid-laxphillips-norms"
+  ],
+  [
+   "composes-with",
+   "mem-sextic-theta-squarefree",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "mem-sextic-theta-squarefree",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "multi-rung-arb-lege",
+   "silent-u4-joint-functionals-not-scaling-invariant"
+  ],
+  [
+   "composes-with",
+   "pole-term-schur-complement",
+   "silent-u6g-scattering-exact-normalisation-affine-kernel"
+  ],
+  [
+   "composes-with",
+   "ramanujan-cube-satake-point",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "ramanujan-cube-satake-point",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "ramanujan-cube-satake-point",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "ramanujan-cube-satake-point",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "ramanujan-cube-satake-point",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "route-m-first-moment-kappa",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "selberg-zeta-freeze-sandbox",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "separating-probe",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "separating-probe",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "separating-probe",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule"
+  ],
+  [
+   "composes-with",
+   "separating-probe",
+   "silent-u6e-bost-connes-states-outside-d8"
+  ],
+  [
+   "composes-with",
+   "separating-probe",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "sextic-theta-numerics",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+  ],
+  [
+   "composes-with",
+   "sextic-theta-numerics",
+   "silent-u6c-gl3-cover-global-whittaker-constants"
+  ],
+  [
+   "composes-with",
+   "sextic-theta-numerics",
+   "silent-u6f-isogenous-points-nonlinear-functionals"
+  ],
+  [
+   "composes-with",
+   "silent-u2-pos-fe-positivity-rigidity",
+   "v7-floor-theorem-c"
+  ],
+  [
+   "composes-with",
+   "silent-u2-pos-fe-positivity-rigidity",
+   "vaughan-sqrt-type1-exact"
+  ],
+  [
+   "composes-with",
+   "silent-u4-joint-functionals-not-scaling-invariant",
+   "map-pos-17"
+  ],
+  [
+   "composes-with",
+   "silent-u4-joint-functionals-not-scaling-invariant",
+   "map-pos-18"
+  ],
+  [
+   "composes-with",
+   "silent-u4-joint-functionals-not-scaling-invariant",
+   "staged-strip-triangular-inequality"
+  ],
+  [
+   "composes-with",
+   "silent-u4-joint-functionals-not-scaling-invariant",
+   "zv-divisor-cosine-euler-product"
+  ],
+  [
+   "composes-with",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "map-pos-19"
+  ],
+  [
+   "composes-with",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "theta-dual-mseries-is-twisted-kubota"
+  ],
+  [
+   "composes-with",
+   "silent-u6c-gl3-cover-global-whittaker-constants",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "silent-u6c-gl3-cover-global-whittaker-constants",
+   "theta-dual-mseries-is-twisted-kubota"
+  ],
+  [
+   "composes-with",
+   "silent-u6d-rank2-compact-squares-without-hecke-rule",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "silent-u6e-bost-connes-states-outside-d8",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "silent-u6f-isogenous-points-nonlinear-functionals",
+   "sympow-conductor-normalised-shift"
+  ],
+  [
+   "composes-with",
+   "silent-u6f-isogenous-points-nonlinear-functionals",
+   "twisted-second-moment-oversampling"
+  ]
+ ],
+ "edgesAddedTouchingSilent": 40,
+ "edgesRemovedTouchingSilent": 56,
+ "nodeChanges": [
+  {
+   "id": "row-D10",
+   "change": "added"
+  },
+  {
+   "id": "row-G41",
+   "fields": [
+    "lanes",
+    "mapStatus",
+    "source",
+    "statement"
+   ],
+   "roles": null
+  },
+  {
+   "id": "row-G42",
+   "change": "added"
+  },
+  {
+   "id": "row-P45",
+   "fields": [
+    "statement",
+    "tags"
+   ],
+   "roles": null
+  },
+  {
+   "id": "row-P56",
+   "change": "added"
+  },
+  {
+   "id": "row-Q30",
+   "fields": [
+    "defeatedBy",
+    "lanes",
+    "source",
+    "statement",
+    "tags"
+   ],
+   "roles": null
+  },
+  {
+   "id": "row-S12b",
+   "fields": [
+    "statement"
+   ],
+   "roles": null
+  },
+  {
+   "id": "silent-u2-pos-fe-positivity-rigidity",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u3-identification-relaxation",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u4-joint-functionals-not-scaling-invariant",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6b-nonsolid-laxphillips-norms",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6c-gl3-cover-global-whittaker-constants",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6d-rank2-compact-squares-without-hecke-rule",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6e-bost-connes-states-outside-d8",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6f-isogenous-points-nonlinear-functionals",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u6g-scattering-exact-normalisation-affine-kernel",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  },
+  {
+   "id": "silent-u8-kernel-conditions-beyond-searched-range",
+   "fields": [
+    "cell",
+    "device",
+    "roles"
+   ],
+   "roles": [
+    [
+     "device",
+     "lemma"
+    ],
+    [
+     "cell",
+     "lemma"
+    ]
+   ]
+  }
+ ]
+}

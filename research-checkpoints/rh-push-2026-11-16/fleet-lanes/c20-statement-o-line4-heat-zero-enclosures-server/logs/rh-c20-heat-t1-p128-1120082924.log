@@ -1,0 +1,1 @@
+PLAN: prec 128 bits; point tol 2^-70; segment tol 2^-24; workers 8; memory: no array larger than a few hundred acb values (< 100 MB per worker)

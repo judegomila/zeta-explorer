@@ -1,0 +1,63 @@
+{
+ "slug": "c17-rank2-gram-symmetric-blaschke-closure",
+ "round": 17,
+ "kind": "compute",
+ "nodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat",
+  "lemma-m-apex-reduction",
+  "theorem-t-rational-model",
+  "inertia-law-reflection-defect"
+ ],
+ "tags": [
+  "compute",
+  "u6g",
+  "rank2",
+  "eisenstein",
+  "gram-positivity",
+  "control-bls",
+  "control-zq",
+  "ball-arithmetic",
+  "inertia",
+  "tried-not-closed"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "No statement about zeros of zeta. Closure of the rank-2 Eisenstein Gram form (row D10) under symmetric Blaschke insertions is neither proved nor refuted.\n\nPROVED and confirmed by the referee:\n- Lemma M: the T-derivatives of K_T are rank-one Maass-Selberg Gram kernels. The reduction of chamber positivity to the apex T = 0 holds under rank-one positivity for t >= 0 (classical for zeta, row D9 Theorem C for conjugate pairs, measured for distinct real pairs).\n- Theorem T and Corollary T1: in the rational model M_0 = (u+1)/(u-1) times two zeros, the apex kernel is an explicit 3 x 3 form whose negative index is the number of left zeros without a reflected partner; symmetric pairs give a positive form of rank 1. Degree 4 holds at 14 exact parameter values only.\n\nMEASURED:\n- 1,397,025 Gram matrices (47% uniform sample of the registered plan) plus 5,208 of order 64 and 96, each certified positive for zeta times symmetric insertions; 0 failures.\n- The inertia pattern for zeta's M, on 16 configurations.\n- ZQ in rational form passes (3,360 certified matrices).\n- DH passes at low height.\n- Backward heat passes at t = 0 and t = -1 (low height, non-rigorous) and fails at t = -5 and t = -10.\n\nAdded by the referee (MEASURED, 36 certified matrices): with the pole-free DH base the form detects neither reflection defects nor real-zero parity defects, so the inertia law is specific to a base with the pole at 1.\n\nAll four requirement flags are false.",
+ "obstruction": "Tried, not closed: closure neither proved nor refuted. PROVED: Lemma M (T-derivatives of K_T are rank-one Maass-Selberg Gram kernels; chamber positivity reduces to the apex T = 0 under rank-one positivity for t >= 0); Theorem T / Corollary T1 (rational model M_0 = (u+1)/(u-1) times two zeros: apex kernel is an explicit 3 x 3 form whose negative index = number of left zeros without a reflected partner). MEASURED: 1,397,025 Gram matrices (47% uniform sample of the registered plan) plus 5,208 of order 64 and 96 certified positive for zeta times symmetric insertions, 0 failures; inertia law for zeta's M on 16 configurations. The apex kernel reads only the reflection a -> 1-a of the left zeros, not the critical line; with a pole-free DH base it detects neither reflection nor real-zero parity defects. OPEN: the inertia law for zeta (symmetric quartet in the rational model, then transfer through Lemma D); the range of T in the source (Miller math/0006058 Thm 6.1).",
+ "obstructionKind": "control-passes: every symmetric control (BLS-sym, ZQ rational form) passes with a certificate per matrix; the device reads the reflection symmetry of the zero set (functional equation of the divisor), not the critical line",
+ "controlsThatDefeat": [
+  "ZQ in rational form (passes; 3,360 certified matrices; the c16 table row saying it fails is wrong)",
+  "DH at low height (passes)",
+  "backward heat t = -1 (passes at low height, non-rigorous)",
+  "symmetric Blaschke insertions of order 2 to 20 (pass; 0 failures)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Referee report written to tmp/research-2026-11-16/push/c17-rank2-gram-symmetric-blaschke-closure/REFEREE.md. Both PROVED steps were re-derived and confirmed; none of the items below changes the verdict.\n\nChecks done:\n- Lemma M: coset bookkeeping re-derived by hand; independent mpmath check on a new case (zeta times quartet(0.13, 2.2) times real pair 1/2 -+ 0.31), relative defect 1.8e-141.\n- Theorem T: degree bound re-derived (17, within the stated  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The rank-2 form on T >= 0 is rank-one Maass-Selberg plus one apex kernel at T = 0. That kernel reads only the reflection symmetry a -> 1 - a of the left zeros (a pairing defect of 1e-17 shows at order 40, 1e-30 at order 64), not the critical line. Symmetric controls, including ZQ in rational form (the c16 table row saying it fails is wrong), sit on a rank-drop wall and pass. Symmetric zero sets must be built exactly: float pairing produced false failures.",
+ "followUp": "Prove the inertia law: extend Theorem T to a symmetric quartet in the rational model (two-parameter exact computation), then carry it to zeta through the Lemma D differential-operator form. Otherwise close row D10 as measured, with an independent referee and the Arthur source for the range of T. All five server units of this lane are stopped.",
+ "resultFile": "tmp/research-2026-11-16/push/c17-rank2-gram-symmetric-blaschke-closure/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c17-rank2-gram-symmetric-blaschke-closure/REFEREE.md",
+ "launchedNodes": [
+  "u6g-rank2-eisenstein-gram",
+  "ctrl-bls-symmetric",
+  "ctrl-zq-rational",
+  "ctrl-dh",
+  "ctrl-backward-heat",
+  "lemma-m-apex-reduction",
+  "theorem-t-rational-model",
+  "inertia-law-reflection-defect"
+ ],
+ "engineVerdict": "partial"
+}

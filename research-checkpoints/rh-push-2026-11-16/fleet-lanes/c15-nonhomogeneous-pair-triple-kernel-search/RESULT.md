@@ -204,6 +204,8 @@ always have such a mu).
 | run 2 against run 1 | all registered tier counts identical in the 14 pair families |
 | referee checks (REFEREE.md; `ref_check.json`, `ref_check2.json`) | brute-force threshold scan against the interval solver: 11,076 node-tier comparisons, 0 disagreements; 40 values against mpmath at 40 digits: largest difference 1.9e-15; closed form of the two-member Phi table: 3.8e-15 (Hermite read: up to 2.6e-7 relative in the steep tail); 600 sampled quotient minors recomputed with plain determinants: 600 have both signs among the 529 positives (smallest minority 54 pairs) |
 
+[Correction entered 2026-11-19 by lane c18-repair-owed-record-r17-open-device-nodes (register campaign/CORRECTIONS_R16.md row 9; second referee push/c16-referee-r15-j1prime-u8-screening): the preceding statement is false as written. Corrected: "Nine-class tier: 752 = 360 identity + 392 in balls; six-class tier: 2,774 = 360 identity + 2,414 in balls." This replaces the counts "280 by reflection identity, 472 in balls" (sections 0 and 6), "280 identity, 2,494 read" and "280 identity, 2,494 - 80 = 2,414 in balls" (sections 0, 6) and "280 grid nodes are of this kind" (section 2) of this file. Outcome "none" unchanged (map row G41).]
+
 ## 7. Requirement flags
 
 | flag | value | evidence |

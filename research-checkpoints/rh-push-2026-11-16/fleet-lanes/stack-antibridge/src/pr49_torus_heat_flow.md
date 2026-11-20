@@ -29,7 +29,7 @@ exactly when $\tau\ge\Lambda$; Rodgers–Tao prove $\Lambda\ge0$.
 Thus an improvement toward RH means lowering an upper bound on $\Lambda$.
 A strictly positive lower bound would refute RH.
 
-The geometric construction from [PR #43](https://github.com/judegomila/mathexplorer/pull/43)
+The geometric construction from [PR #43](https://github.com/[user]/mathexplorer/pull/43)
 is
 
 $$
@@ -257,6 +257,6 @@ see `collective_certificate.md` for a usable approximation/error interface.
 - G. Csordas, *Fourier transforms of positive definite kernels and the
   Riemann xi-function*, Theorem 4.2(b),
   [arXiv:1309.0055v2](https://arxiv.org/pdf/1309.0055v2).
-- Prior checkpoint [69d4049f](https://github.com/judegomila/mathexplorer/tree/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08),
+- Prior checkpoint [69d4049f](https://github.com/[user]/mathexplorer/tree/69d4049f289217812051188378a0a9f3f061a169/rigorous/theta-bridge-2026-11-08),
   especially `geometry_and_twistors.md`, `theta_boundary_energy.md`, and
   `theta_boundary_two_point.md`. That checkpoint remains a separate PR.

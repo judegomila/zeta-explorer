@@ -1,0 +1,54 @@
+{
+ "slug": "c19-dp-zero-census-truncation-identity-server",
+ "round": 19,
+ "kind": "compute",
+ "nodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "tags": [
+  "D_P-zeros",
+  "truncation-identity",
+  "Theorem A",
+  "ball-arithmetic",
+  "census",
+  "depth-phase-covariance",
+  "approximate-functional-equation",
+  "server"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "No statement about zeros of zeta. For every Dirichlet polynomial D_P with a_1 = 1 and a_P != 0: -2 Re<h, A_P h> = -u|h|^2 + lim_T sum_{|Im beta| < T} <h, kappa_beta h>. This is PROVED with one classical input and is correction E1 of the c18 referee; here it is confirmed by certified truncations to T = 6400 on six series and by the referee on a seventh. The truncation tail is (u - 2 log|a_P|)/(pi T). When D_P(1/2) != 0, a regularised form has tail |h'|^2 (u - 2 log|a_P|)/(pi T^3). MEASURED (float64, 2340 windows, t = 1e4..1e8, theta' = 0.5, 0.75, 1): every class has zeros of D_P right of the line in every window, so completion C1 is false; the Littlewood identity holds to 6e-8. MEASURED: at P = floor(t/2pi) the right zeros of zeta's D_P satisfy zeta(beta) = F(x) chi(beta) within 0.002 for t >= 3e5, where F is the Fresnel end-point weight with F(0) = 1/2 (classical approximate functional equation). Depth-phase covariance Q2 separates zeta from sign chains at theta' = 1 only. The Laplace-truncated ZQ sum has nearly the same right-zero list as zeta and so shares every statistic of that list: no survivor. Proposition Z not tested.",
+ "obstruction": "No survivor statistic. Theorem A holds with constant -u for every a_1 = 1, a_P != 0 (certified truncations to T = 6400, six series; tail (u - 2 log|a_P|)/(pi T); the limit T -> infinity is extrapolated, not enclosed). MEASURED (float64, 2340 windows, 1e4..1e8): every class has zeros of D_P right of the line in every window, so completion C1 is false. At P = floor(t/2pi) the right zeros of zeta's D_P satisfy zeta = F chi (Fresnel weight, F(0) = 1/2): the zero set is a function of zeta near the line, so every statistic of that list is shared by the Laplace-truncated ZQ sum. Below that length zeta's census and both statistics sit inside the Haar ensemble. Pair covariance separates nothing; depth-phase covariance separates zeta from sign chains at theta' = 1 only. Proposition Z not tested.",
+ "obstructionKind": "control-passes: ZQ shares the right-zero list of D_P at theta' = 1; below theta' = 1 zeta is inside the Haar ensemble of unimodular chains",
+ "controlsThatDefeat": [
+  "ZQ (Laplace-truncated; nearly the same right-zero list as zeta at theta' = 1)",
+  "Haar unimodular chains (zeta's census and statistics inside the ensemble at theta' < 1)",
+  "every class has right zeros of D_P in every window (completion C1 false for zeta as well)",
+  "not run: Proposition Z; enclosure of the T -> infinity limit"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "No error changes the verdict (partial result, no survivor); all PROVED steps were re-derived and confirmed, and the main numbers were rechecked on new cases. Report: tmp/research-2026-11-16/push/c19-dp-zero-census-truncation-identity-server/REFEREE.md. Corrections:\nE1 (attribution): the spurious log|a_P| term, c_0 = 0, the tail (u - 2 log|a_P|)/(pi T) and the hand example D = 1 + a 2^(-s) are already item E1 of the c18 REFEREE.md (file time 20:55,  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "At P = t/2pi the zero set of D_P is a function of zeta near the line through the functional equation (zeta = F*chi, Fresnel weight F = 1/2 at the stationary point), so any phase statistic over those zeros is shared by ZQ. Below that length, zeta's census and both statistics sit inside the Haar ensemble. Two method points: a survivor rule must give every control the same number of windows as zeta (the registered rule did not, and ZQ only showed the effect at 8 windows); and z-scores regressed on zero count extrapolate when zeta has fewer zeros than every Haar draw, so bias-correct by permutation inside each window.",
+ "followUp": "Hand c19-u4 the corrected Theorem A (constant -u, or the regularised T^-3 form) and the right-zero lists in resBC_*.jsonl, and restrict its search to theta' < 1, where no functional-equation relation ties D_P zeros to zeta. Separately, referee the Run A certification logic and the c_0 = 0 lemma (one classical input not opened), and write a rigorous tail bound so the T -> infinity limit is enclosed. The E_a pair-covariance deviations at theta' = 1 are unexplained.",
+ "resultFile": "tmp/research-2026-11-16/push/c19-dp-zero-census-truncation-identity-server/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c19-dp-zero-census-truncation-identity-server/REFEREE.md",
+ "launchedNodes": [
+  "tz-one-sided-completion-bound-band"
+ ],
+ "engineVerdict": "partial",
+ "secondReferee": {
+  "by": "c20-referee-theorem-d-headline-and-r19",
+  "outcome": "holds",
+  "note": "Holds with corrections (label). Constant -u for every a_P != 0 derived independently and checked on a new series (a_P = 0.25, 768 zeros, complete by slab winding): residual/tail 0.993, 1.003, 0.998. runA.py certification logic read and correct. Certified: zero lists and truncated sums; the limit is proved, not certified. Runs B, C not re-examined.",
+  "report": "tmp/research-2026-11-16/push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-dp-zero-census-truncation-identity-server.md"
+ }
+}

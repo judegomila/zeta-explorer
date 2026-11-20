@@ -1,0 +1,116 @@
++ P=~/rh-push/c18-tz-band-completion-controls-server
++ cp ~/rh-push/c18-tz-band-completion-controls-server/engine2 ./engine2
++ python hdr.py ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_0.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_10.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_11.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_1.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_2.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_3.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_4.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_5.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_6.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_7.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_8.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_e12a_9.bin ~/rh-push/c18-tz-band-completion-controls-server/mom_1e6.bin
+mom_1e6.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(7075), np.int64(40), np.int64(8), np.int64(6), np.int64(2), np.int64(1000000), np.int64(1000000)] C0 0 T0,S [np.float64(1000000.0), np.float64(128.0)] XB [1995, 7943, 31622, 125892, 501187, 1000000]
+mom_e12a_0.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(10754), np.int64(40), np.int64(8), np.int64(3), np.int64(2), np.int64(1320744327), np.int64(15848931924)] C0 0 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB [3981072, 63095734, 1000000000]
+mom_e12a_1.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(358), np.int64(40), np.int64(8), np.int64(0), np.int64(1320744328), np.int64(2641488654), np.int64(15848931924)] C0 10751 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_10.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(52), np.int64(40), np.int64(8), np.int64(0), np.int64(13207443271), np.int64(14528187597), np.int64(15848931924)] C0 11930 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_11.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(48), np.int64(40), np.int64(8), np.int64(0), np.int64(14528187598), np.int64(15848931924), np.int64(15848931924)] C0 11979 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_2.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(211), np.int64(40), np.int64(8), np.int64(0), np.int64(2641488655), np.int64(3962232981), np.int64(15848931924)] C0 11106 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_3.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(150), np.int64(40), np.int64(8), np.int64(0), np.int64(3962232982), np.int64(5282977308), np.int64(15848931924)] C0 11314 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_4.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(117), np.int64(40), np.int64(8), np.int64(0), np.int64(5282977309), np.int64(6603721635), np.int64(15848931924)] C0 11461 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_5.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(97), np.int64(40), np.int64(8), np.int64(0), np.int64(6603721636), np.int64(7924465962), np.int64(15848931924)] C0 11575 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_6.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(82), np.int64(40), np.int64(8), np.int64(0), np.int64(7924465963), np.int64(9245210289), np.int64(15848931924)] C0 11669 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_7.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(71), np.int64(40), np.int64(8), np.int64(0), np.int64(9245210290), np.int64(10565954616), np.int64(15848931924)] C0 11748 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_8.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(63), np.int64(40), np.int64(8), np.int64(0), np.int64(10565954617), np.int64(11886698943), np.int64(15848931924)] C0 11816 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
+mom_e12a_9.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(57), np.int64(40), np.int64(8), np.int64(0), np.int64(11886698944), np.int64(13207443270), np.int64(15848931924)] C0 11876 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB []
++ export OMP_NUM_THREADS=1
++ OMP_NUM_THREADS=1
++ ./engine2 prime 1e6 128 40 2 159154 159154 26 mom_1e6.bin 9 398 1321 7968 14502 31622 63095 87443 125892 159154
+planned: moments 102069760 doubles = 0.817 GB; cells 6134; objects 26; windows 40
+segments 115, base primes 6542
+done in 0.8 s; sabs[0]=795.14
++ ./engine2 dh 1e6 128 40 2 125892 125892 1 dh_1e6.bin 3 31622 63095 125892
+planned: moments 3848960 doubles = 0.031 GB; cells 6014; objects 1; windows 40
+planned: DH coefficient array 0.001 GB
+DH check: sum c(n) n^-3 (n <= 125892) = -0.00141876726676319 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 0.1 s; sabs[0]=2410.08
++ for xb in 3981071706 5261288 251979435 915073766
+++ python -c 'import math;print(int(math.floor(math.exp(math.floor(math.log(3981071706)*512)/512.0)))-2)'
++ xs=3975894632
++ ./engine2 prime 1e12 128 40 3975894632 3981071706 3981071706 26 bnd_1e12_3981071706.bin 1 3981071706
+planned: moments 66560 doubles = 0.001 GB; cells 4; objects 26; windows 40
+segments 3, base primes 6542
+done in 1.6 s; sabs[0]=82.0324
++ for xb in 3981071706 5261288 251979435 915073766
+++ python -c 'import math;print(int(math.floor(math.exp(math.floor(math.log(5261288)*512)/512.0)))-2)'
++ xs=5254571
++ ./engine2 prime 1e12 128 40 5254571 5261288 5261288 26 bnd_1e12_5261288.bin 1 5261288
+planned: moments 66560 doubles = 0.001 GB; cells 4; objects 26; windows 40
+segments 1, base primes 6542
+done in 0.0 s; sabs[0]=2.84463
++ for xb in 3981071706 5261288 251979435 915073766
+++ python -c 'import math;print(int(math.floor(math.exp(math.floor(math.log(251979435)*512)/512.0)))-2)'
++ xs=251700385
++ ./engine2 prime 1e12 128 40 251700385 251979435 251979435 26 bnd_1e12_251979435.bin 1 251979435
+planned: moments 66560 doubles = 0.001 GB; cells 4; objects 26; windows 40
+segments 1, base primes 6542
+done in 0.1 s; sabs[0]=17.4385
++ for xb in 3981071706 5261288 251979435 915073766
+++ python -c 'import math;print(int(math.floor(math.exp(math.floor(math.log(915073766)*512)/512.0)))-2)'
++ xs=913516958
++ ./engine2 prime 1e12 128 40 913516958 915073766 915073766 26 bnd_1e12_915073766.bin 1 915073766
+planned: moments 66560 doubles = 0.001 GB; cells 4; objects 26; windows 40
+segments 1, base primes 6542
+done in 0.4 s; sabs[0]=51.5679
++ ./engine2 prime 1e9 128 40 2 159154943 159154943 26 mom_1e9.bin 9 12615 83385 1416984 3642974 5623413 15848932 44668359 61905484 159154943
+planned: moments 160925440 doubles = 1.287 GB; cells 9671; objects 26; windows 40
+segments 1002, base primes 6542
+done in 26.6 s; sabs[0]=25228.4
++ ./engine2 dh 1e9 128 40 2 44668359 44668359 1 dh_1e9.bin 3 5623413 15848932 44668359
+planned: moments 5772800 doubles = 0.046 GB; cells 9020; objects 1; windows 40
+planned: DH coefficient array 0.357 GB
+DH check: sum c(n) n^-3 (n <= 44668359) = -0.00141876726662426 ; c(2)=0.196908588294147 c(3)=-0.312092728516164 c(4)=-1.44223196460646
+done in 56.9 s; sabs[0]=92138.7
++ python zq_zeros.py 1e9 128 40 zq_1e9.json
+0 2846548032 [999999999.733970 +/- 2.48e-7] [1000000000.11565 +/- 8.91e-7] t=0.3s
+1 2846548417 [1000000127.82677 +/- 3.57e-6] [1000000128.07107 +/- 4.52e-6] t=0.4s
+2 2846548802 [1000000255.82658 +/- 2.31e-6] [1000000256.35776 +/- 3.48e-6] t=0.6s
+3 2846549187 [1000000383.93998 +/- 3.17e-6] [1000000384.02798 +/- 3.21e-6] t=0.8s
+4 2846549571 [1000000511.39491 +/- 2.86e-6] [1000000511.88504 +/- 3.34e-6] t=1.1s
+5 2846549956 [1000000639.82544 +/- 1.01e-6] [1000000640.12975 +/- 2.43e-6] t=1.2s
+6 2846550341 [1000000767.63955 +/- 1.48e-6] [1000000767.92442 +/- 4.62e-7] t=1.4s
+7 2846550725 [1000000895.40425 +/- 2.88e-6] [1000000895.72657 +/- 2.16e-6] t=1.6s
+8 2846551110 [1000001023.77067 +/- 3.46e-6] [1000001024.01174 +/- 1.17e-6] t=1.7s
+9 2846551495 [1000001151.71111 +/- 5.71e-7] [1000001152.10253 +/- 2.08e-6] t=1.9s
+10 2846551880 [1000001279.97868 +/- 4.84e-6] [1000001280.19605 +/- 4.87e-6] t=2.2s
+11 2846552264 [1000001407.44504 +/- 9.02e-7] [1000001407.96892 +/- 1.81e-6] t=2.4s
+12 2846552649 [1000001535.42313 +/- 1.81e-7] [1000001535.86771 +/- 1.33e-6] t=2.6s
+13 2846553034 [1000001663.68019 +/- 3.39e-7] [1000001664.09910 +/- 4.39e-6] t=2.9s
+14 2846553419 [1000001791.69028 +/- 4.14e-6] [1000001791.95261 +/- 2.45e-6] t=3.0s
+15 2846553803 [1000001919.49473 +/- 1.78e-6] [1000001919.79639 +/- 2.13e-6] t=3.2s
+16 2846554188 [1000002047.57659 +/- 4.31e-6] [1000002048.18052 +/- 6.15e-7] t=3.5s
+17 2846554573 [1000002175.82965 +/- 2.78e-6] [1000002176.05271 +/- 7.77e-8] t=3.7s
+18 2846554957 [1000002303.77591 +/- 9.32e-7] [1000002303.98396 +/- 7.39e-7] t=3.9s
+19 2846555342 [1000002431.67752 +/- 3.62e-6] [1000002432.10589 +/- 2.28e-6] t=4.1s
+20 2846555727 [1000002559.53200 +/- 4.09e-8] [1000002559.86423 +/- 6.22e-7] t=4.3s
+21 2846556112 [1000002687.75002 +/- 3.45e-6] [1000002687.93666 +/- 1.54e-6] t=4.4s
+22 2846556496 [1000002815.49669 +/- 4.88e-6] [1000002815.88611 +/- 1.48e-6] t=4.7s
+23 2846556881 [1000002943.40522 +/- 3.24e-6] [1000002943.74962 +/- 4.79e-6] t=4.9s
+24 2846557266 [1000003071.67987 +/- 1.89e-6] [1000003072.10878 +/- 8.81e-7] t=5.1s
+25 2846557651 [1000003199.90459 +/- 3.17e-6] [1000003200.22849 +/- 1.91e-6] t=5.3s
+26 2846558035 [1000003327.62886 +/- 1.47e-6] [1000003327.95653 +/- 3.60e-6] t=5.5s
+27 2846558420 [1000003455.74853 +/- 4.01e-6] [1000003455.87815 +/- 9.32e-7] t=5.7s
+28 2846558805 [1000003583.78523 +/- 1.25e-6] [1000003583.84943 +/- 1.12e-6] t=5.9s
+29 2846559189 [1000003711.61750 +/- 4.11e-6] [1000003711.85364 +/- 1.50e-6] t=6.1s
+30 2846559574 [1000003839.42079 +/- 4.85e-6] [1000003839.95192 +/- 4.55e-6] t=6.3s
+31 2846559959 [1000003967.51308 +/- 3.13e-6] [1000003967.75555 +/- 3.60e-6] t=6.5s
+32 2846560344 [1000004095.77718 +/- 4.91e-6] [1000004095.93506 +/- 1.40e-6] t=6.7s
+33 2846560728 [1000004223.64799 +/- 2.33e-6] [1000004223.86025 +/- 4.02e-6] t=6.9s
+34 2846561113 [1000004351.68893 +/- 4.25e-6] [1000004352.00651 +/- 2.60e-6] t=7.1s
+35 2846561498 [1000004479.74464 +/- 2.55e-6] [1000004480.04746 +/- 1.49e-6] t=7.3s
+36 2846561883 [1000004607.80994 +/- 9.56e-7] [1000004608.19157 +/- 4.73e-6] t=7.5s
+37 2846562267 [1000004735.73646 +/- 1.93e-6] [1000004735.89865 +/- 5.80e-8] t=7.6s
+38 2846562652 [1000004863.49869 +/- 5.76e-7] [1000004863.95283 +/- 8.20e-7] t=7.8s
+39 2846563037 [1000004991.69741 +/- 2.28e-7] [1000004992.07602 +/- 1.93e-6] t=8.0s
++ python hdr.py bnd_1e12_251979435.bin bnd_1e12_3981071706.bin bnd_1e12_5261288.bin bnd_1e12_915073766.bin dh_1e6.bin dh_1e9.bin mom_1e6.bin mom_1e9.bin
+bnd_1e12_251979435.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(4), np.int64(40), np.int64(8), np.int64(1), np.int64(251700385), np.int64(251979435), np.int64(251979435)] C0 9902 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB [251979435]
+bnd_1e12_3981071706.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(4), np.int64(40), np.int64(8), np.int64(1), np.int64(3975894632), np.int64(3981071706), np.int64(3981071706)] C0 11315 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB [3981071706]
+bnd_1e12_5261288.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(4), np.int64(40), np.int64(8), np.int64(1), np.int64(5254571), np.int64(5261288), np.int64(5261288)] C0 7921 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB [5261288]
+bnd_1e12_915073766.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(4), np.int64(40), np.int64(8), np.int64(1), np.int64(913516958), np.int64(915073766), np.int64(915073766)] C0 10562 T0,S [np.float64(1000000000000.0), np.float64(128.0)] XB [915073766]
+dh_1e6.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(1), np.int64(6014), np.int64(40), np.int64(8), np.int64(3), np.int64(2), np.int64(125892), np.int64(125892)] C0 0 T0,S [np.float64(1000000.0), np.float64(128.0)] XB [31622, 63095, 125892]
+dh_1e9.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(1), np.int64(9020), np.int64(40), np.int64(8), np.int64(3), np.int64(2), np.int64(44668359), np.int64(44668359)] C0 0 T0,S [np.float64(1000000000.0), np.float64(128.0)] XB [5623413, 15848932, 44668359]
+mom_1e6.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(6134), np.int64(40), np.int64(8), np.int64(9), np.int64(2), np.int64(159154), np.int64(159154)] C0 0 T0,S [np.float64(1000000.0), np.float64(128.0)] XB [398, 1321, 7968, 14502, 31622, 63095, 87443, 125892, 159154]
+mom_1e9.bin NOBJ,NC,NW,Q,NB,XSTART,XMAX,XCHAIN= [np.int64(26), np.int64(9671), np.int64(40), np.int64(8), np.int64(9), np.int64(2), np.int64(159154943), np.int64(159154943)] C0 0 T0,S [np.float64(1000000000.0), np.float64(128.0)] XB [12615, 83385, 1416984, 3642974, 5623413, 15848932, 44668359, 61905484, 159154943]
++ echo STAGE1 DONE
+STAGE1 DONE

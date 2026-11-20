@@ -49,10 +49,10 @@ M2_1/2 pair threshold None base_s 0.0 {} 3s atoms=73505
 M2_1/2 gap threshold 0.0009765625 base_s 0.0 {'kappa': 1.1335682996562716e-05, 'Gq': 0.1353524422698262, 'Gmin_fine': -7.904630504947213e-07, 'bound': 0.1303769330116556, 'rounds': 0, 's': 0.004975509258169632, 'mass_bound': np.float64(93.65270278358965), 'tailup': 1.0482989230769315e-05, 'taillo': 1.0482989230769315e-05, 'delta': 0.0009765625} 21s atoms=73528
 ## low15000 t0=15000.0 L=5.0 N=148 J=32 dens=1.238 L*=3.89 ef_err=5.43e-10 positions={'pair': -0.10541153197209496, 'gap': 1.4639922473415936} gaps=0.2284,1.4715
 Traceback (most recent call last):
-  File "/home/USER/rh-push/stack-feasibility/run_cg.py", line 57, in <module>
+  File "~/rh-push/stack-feasibility/run_cg.py", line 57, in <module>
     mid = (lo+hi)/2; s, cert = solve(mid, tq)
                                ^^^^^^^^^^^^^^
-  File "/home/USER/rh-push/stack-feasibility/run_cg.py", line 47, in solve
+  File "~/rh-push/stack-feasibility/run_cg.py", line 47, in solve
     raise RuntimeError('column generation did not converge')
 RuntimeError: column generation did not converge
 ## low15000 t0=15000.0 L=6.0 N=403 J=39 dens=1.238 L*=3.89 ef_err=3.30e-10 positions={'pair': -0.10541153197209496, 'gap': 1.4639922473415936} gaps=0.2284,1.4715

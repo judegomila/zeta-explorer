@@ -1,0 +1,81 @@
+{
+ "slug": "s4-route-m-cotangent-first-moment",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "mem-vasyunin-mean-conjecture",
+  "rm-bulk-profile",
+  "rm-cauchy-schwarz-first-to-second",
+  "rm-cot-sign-open",
+  "rm-estermann-double-pole-wlin",
+  "rm-inverse-line-detection-identity",
+  "rm-kappa-arith-exact",
+  "rm-parity-sign-law",
+  "rm-resonance-crests",
+  "route-m-first-moment-kappa",
+  "twisted-second-moment-oversampling",
+  "vasyunin-fixed-modulus-antisymmetry"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "route-m-first-moment-kappa",
+    "rm-kappa-arith-exact",
+    "mem-vasyunin-mean-conjecture"
+   ],
+   "obstruction": "Gram-only statistic (depends on abs F(1/2+it)): separation is a constant shift at no size (pattern 11)",
+   "controlsThatDefeat": [
+    "DH",
+    "L(chi)",
+    "T-NR",
+    "Blaschke swap"
+   ]
+  },
+  {
+   "nodes": [
+    "rm-resonance-crests",
+    "rm-bulk-profile",
+    "rm-estermann-double-pole-wlin"
+   ],
+   "obstruction": "crests are coefficient correlations (non-zero for DH); the transform sees a zero only by evaluating at its height",
+   "controlsThatDefeat": [
+    "DH",
+    "L(chi)"
+   ]
+  },
+  {
+   "nodes": [
+    "twisted-second-moment-oversampling",
+    "rm-inverse-line-detection-identity",
+    "rm-cauchy-schwarz-first-to-second"
+   ],
+   "obstruction": "the statistic lives on Re s = 1; DH lies between the two characters; several controls not formulable",
+   "controlsThatDefeat": [
+    "DH",
+    "L(chi)"
+   ]
+  },
+  {
+   "nodes": [
+    "rm-cot-sign-open",
+    "rm-parity-sign-law",
+    "vasyunin-fixed-modulus-antisymmetry"
+   ],
+   "obstruction": "Gram-only with fixed sign for every F; the parity law is a property of an elementary function with no zeta in it",
+   "controlsThatDefeat": [
+    "DH",
+    "L(chi)"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) Gram-only statistic (depends on abs F(1/2+it)): separation is a constant shift at no size (pattern 11) | (2) crests are coefficient correlations (non-zero for DH); the transform sees a zero only by evaluating at its height | (3) the statistic lives on Re s = 1; DH lies between the two characters; several controls not formulable | (4) Gram-only with fixed sign for every F; the parity law is a property of an elementary function with no zeta in it",
+ "controlsThatDefeat": [
+  "Blaschke swap",
+  "DH",
+  "L(chi)",
+  "T-NR"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-route-m-cotangent-first-moment/RESULT.md"
+}

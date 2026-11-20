@@ -1,0 +1,43 @@
+{
+ "slug": "c6-pair-probe-bridge-order2",
+ "round": 6,
+ "kind": "combine",
+ "nodes": [
+  "map-open-1",
+  "bridge-scattering-factorisation"
+ ],
+ "tags": [
+  "seven-eighths",
+  "effective-order",
+  "pair-probe",
+  "bridge",
+  "krein-square",
+  "functional-equation",
+  "linear-program",
+  "homogeneity"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Precise obstruction, with one correction. A probe bilinear in the target has signal f(Z1) f'(Z2). For the same-side pair with factorised H, the pair hypotheses are equivalent (with changed constants) to the linear hypotheses of Proposition 2.1 with halved exponents. The functional-equation pair (rho, 1 - conj rho) contributes a term of exponent 1 + c2 for every beta: no size information. The shifted product zeta(s) zeta(s - d) is the E_a scaling. In the stated model the pair system equals the single c5 system at (lx/2, ly/2, (l1+l2)/2) (algebra confirmed; exact comparisons 0 mismatches). With both compensations h_pair <= 1 and the model values are 13/15, 31/36, 5/6. With the full source ledger the least value at h_pair >= 1 is 52/57 (8/9 with G polar), so no h_pair >= 1 point reaches 13/15. Corrected: points with h_pair > 1 at or below a tier value exist only for lx < l1 + l2 (no construction given) and need at least ONE deleted input: K alone (tie at 31/36, h_pair = 49/48) or the Gram excess alone (69/80 at h_pair = 21/20; infimum 5/6), not \"range losses deleted\" as stated. All values are MODEL abscissae on unrefereed inputs. No statement about zeros of zeta.",
+ "obstruction": "The estimate system is degree-one homogeneous in the target-row length: the pair system equals the single c5 system at (lx/2, ly/2, (l1+l2)/2) (0 mismatches in 36,000 exact comparisons), so with both compensations h_pair <= 1 and the model values 13/15, 31/36, 5/6 are unchanged; with the full source ledger the least value at h_pair >= 1 is 52/57. The functional-equation pair (rho, 1 - conj rho) has product of size Z for every beta, so it carries sign information only and does not compose with the coherent set's size comparison. The shifted product zeta(s) zeta(s-d) is the E_a scaling. Points with h_pair > 1 below a tier value need lx < l1 + l2 (no construction) and at least one deleted input (K alone, or the Gram excess alone). All values are model abscissae on unrefereed inputs.",
+ "obstructionKind": "estimate-system-degree-one-homogeneous-pair-beta-blind",
+ "controlsThatDefeat": [
+  "E_a (the shifted product is the E_a scaling)",
+  "not a control question otherwise: floor statement inside the 7/8 estimate system",
+  "not run: DH, sign twists, THIN"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "E1 (substantive, does not change the verdict): the classification of h_pair > 1 points in verdict statement 3 and section 3 is false. The result says h_pair > 1 occurs \"only with range losses deleted\" / \"with at least the K-loss and the Gram excess deleted\". Exact counterexamples in the hypothetical row geometry (also in free geometry): (a) Gram excess deleted alone, all range losses J, K, P kept: (lx, ly, l1, l2) = (1/10, 37/20, 1/10, 1/10), h_pair = 21/20, is feasible at B = 69/80 = 0.8625 < 1 [record truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "The estimate system is degree-one homogeneous in the target-row length, so any probe of higher degree in the target (pair, n-fold, unequal rows) is the linear probe at a rescaled point. The functional-equation pair product is beta-blind in size (Z^beta * Z^(1-beta) = Z), so the bridge's sign information and the coherent set's size comparison do not compose.",
+ "followUp": "none for this combination. If anything: derive the compensation geometry for a two-row probe from the manuscript (lx >= l1+l2 was read from inclusion-exclusion, not derived); it only affects the classification of deleted-loss vertices, not the 13/15 result.",
+ "resultFile": "tmp/research-2026-11-16/push/c6-pair-probe-bridge-order2/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c6-pair-probe-bridge-order2/REFEREE.md"
+}

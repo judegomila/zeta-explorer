@@ -1,0 +1,2673 @@
+{
+ "before": {
+  "n": 60,
+  "generated": 44431,
+  "scored": 8170,
+  "nodes": 1742,
+  "live": 976,
+  "rows": 247,
+  "edges": 9192,
+  "devices": {
+   "closed": 69,
+   "open": 2,
+   "floored": 6
+  },
+  "devicesLive": {
+   "closed": 61,
+   "open": 2,
+   "floored": 6
+  },
+  "cells": {
+   "closed": 4,
+   "cell": 6,
+   "tried-not-closed": 1
+  },
+  "topWithOpenDevice": 0,
+  "topWithProposedDevice": 0,
+  "topWithFlooredDeviceOnly": 60,
+  "topWithClosedDevice": 0,
+  "topWithCell": 1,
+  "topOnProposedNode": {
+   "tz-one-sided-completion-bound-band": 0,
+   "exact-relation-rigidity": 0
+  },
+  "rank1": {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "score": 10.25
+  },
+  "minScore": -0.02,
+  "perDeviceNode": {
+   "tro6-natural": 12,
+   "qrh-seven-eighths": 12,
+   "map-open-2": 12,
+   "seven-eighths-abscissa-formula": 12,
+   "map-open-4": 12
+  },
+  "rejected": {
+   "contains a combination closed in outcomes.json": 10526,
+   "contains a closed device: finite-support-positivity": 395,
+   "closed family: fam-legendre-dual-limits": 1387,
+   "contains a closed device: positive-kernel-transport": 493,
+   "closed family: fam-vaughan-split-landau": 277,
+   "contains a closed device: residue-explicit-formula": 394,
+   "covariant under shift and reciprocal (RZ_b passes every step)": 376,
+   "closed family: fam-one-zero-forces-many": 208,
+   "closed family: fam-order2-theta-rows": 662,
+   "closed family: fam-nb-gram-lammin": 361,
+   "closed family: fam-projection-domination-gonek": 287,
+   "closed family: fam-arithmetic-nb-span": 275,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 558,
+   "contains a closed device: euler-fe-phase-at-height": 344,
+   "contains a closed device: vector-specific-row-mean-square": 327,
+   "closed family: fam-euler-anchor-heat": 666,
+   "closed family: fam-hecke-shear-commutator": 57,
+   "closed family: fam-pd-log-strip": 5,
+   "contains a closed device: monotone-flow-functional": 756,
+   "contains a closed device: mean-value-convexity": 390,
+   "closed family: fam-laxphillips-hecke-compression": 149,
+   "contains a closed device: strip-dtn-identity": 31,
+   "contains a closed device: exact-uniqueness": 23,
+   "closed family: fam-linear-zero-measure-lmi": 32,
+   "closed family: fam-helson-discrepancy-zerofree": 13,
+   "closed family: fam-selberg-control-companion": 595,
+   "closed family: fam-torus-exclusion-sign-test": 142,
+   "contains a closed device: geometric-positivity": 147,
+   "only arithmetic step is target-blind algebra (same for every control)": 5,
+   "contains a closed device: recurrence-ergodicity": 42,
+   "closed family: fam-heat-monotone-hankel": 246,
+   "no open or floored crossing device (curated/devices.json)": 14031,
+   "all members flow-stable and none arithmetic (backward heat passes)": 586,
+   "closed family: fam-primitive-test-restriction": 559,
+   "all members attached to one closed row": 13,
+   "contains a closed device: dual-measure-compactness": 34,
+   "closed family: fam-multidelay-section": 46,
+   "all members from one module": 4,
+   "closed family: fam-stage-limit-semicontinuity": 113,
+   "closed family: fam-reflected-euler-stage-canonical": 16,
+   "no member uses multiplicativity (DH passes)": 245,
+   "contains a closed device: twisted-discrepancy": 91,
+   "contains a closed device: maximum-principle": 103,
+   "contains a closed cell: silent-cell-u2-pos": 46,
+   "contains a closed cell: silent-cell-u3": 45,
+   "contains a closed cell: silent-cell-u6e": 76,
+   "contains a closed cell: silent-cell-u6f": 84
+  }
+ },
+ "after": {
+  "n": 60,
+  "generated": 38340,
+  "scored": 8426,
+  "nodes": 1746,
+  "live": 976,
+  "rows": 251,
+  "edges": 9211,
+  "devices": {
+   "closed": 71,
+   "floored": 6
+  },
+  "devicesLive": {
+   "closed": 63,
+   "floored": 6
+  },
+  "cells": {
+   "closed": 4,
+   "cell": 6,
+   "tried-not-closed": 1
+  },
+  "topWithOpenDevice": 0,
+  "topWithProposedDevice": 0,
+  "topWithFlooredDeviceOnly": 60,
+  "topWithClosedDevice": 0,
+  "topWithCell": 1,
+  "topOnProposedNode": {
+   "tz-one-sided-completion-bound-band": 0,
+   "exact-relation-rigidity": 0
+  },
+  "rank1": {
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "score": 10.25
+  },
+  "minScore": 0.29,
+  "perDeviceNode": {
+   "tro6-natural": 12,
+   "qrh-seven-eighths": 12,
+   "map-open-2": 12,
+   "seven-eighths-abscissa-formula": 12,
+   "map-open-4": 12
+  },
+  "rejected": {
+   "contains a closed device: finite-support-positivity": 396,
+   "closed family: fam-legendre-dual-limits": 1420,
+   "contains a combination closed in outcomes.json": 3806,
+   "contains a closed device: positive-kernel-transport": 507,
+   "closed family: fam-vaughan-split-landau": 283,
+   "contains a closed device: residue-explicit-formula": 437,
+   "covariant under shift and reciprocal (RZ_b passes every step)": 376,
+   "closed family: fam-one-zero-forces-many": 211,
+   "closed family: fam-order2-theta-rows": 663,
+   "closed family: fam-nb-gram-lammin": 361,
+   "closed family: fam-projection-domination-gonek": 287,
+   "closed family: fam-arithmetic-nb-span": 295,
+   "shares two nodes with a closed lane (nodes or launchedNodes)": 563,
+   "contains a closed device: euler-fe-phase-at-height": 354,
+   "contains a closed device: vector-specific-row-mean-square": 327,
+   "closed family: fam-euler-anchor-heat": 666,
+   "closed family: fam-hecke-shear-commutator": 58,
+   "closed family: fam-pd-log-strip": 5,
+   "contains a closed device: monotone-flow-functional": 766,
+   "contains a closed device: mean-value-convexity": 396,
+   "closed family: fam-laxphillips-hecke-compression": 151,
+   "contains a closed device: strip-dtn-identity": 34,
+   "contains a closed device: exact-uniqueness": 23,
+   "closed family: fam-linear-zero-measure-lmi": 32,
+   "closed family: fam-helson-discrepancy-zerofree": 13,
+   "closed family: fam-selberg-control-companion": 631,
+   "closed family: fam-torus-exclusion-sign-test": 147,
+   "contains a closed device: geometric-positivity": 147,
+   "only arithmetic step is target-blind algebra (same for every control)": 5,
+   "contains a closed device: recurrence-ergodicity": 42,
+   "closed family: fam-heat-monotone-hankel": 288,
+   "no open or floored crossing device (curated/devices.json)": 14352,
+   "all members flow-stable and none arithmetic (backward heat passes)": 586,
+   "closed family: fam-primitive-test-restriction": 577,
+   "all members attached to one closed row": 13,
+   "contains a closed device: dual-measure-compactness": 34,
+   "closed family: fam-multidelay-section": 46,
+   "all members from one module": 4,
+   "closed family: fam-stage-limit-semicontinuity": 113,
+   "closed family: fam-reflected-euler-stage-canonical": 16,
+   "no member uses multiplicativity (DH passes)": 16,
+   "contains a closed device: twisted-discrepancy": 91,
+   "contains a closed device: maximum-principle": 103,
+   "contains a closed cell: silent-cell-u2-pos": 49,
+   "contains a closed cell: silent-cell-u3": 45,
+   "contains a closed cell: silent-cell-u6e": 86,
+   "contains a closed cell: silent-cell-u6f": 93
+  }
+ },
+ "keysInCommon": 56,
+ "sameScoreInCommon": 56,
+ "left": 4,
+ "entered": 4,
+ "rows": [
+  {
+   "side": "before",
+   "rank": 1,
+   "score": 10.25,
+   "move": "M1",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 1, score 10.25"
+  },
+  {
+   "side": "before",
+   "rank": 2,
+   "score": 9.53,
+   "move": "M1",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "sympow-conductor-normalised-shift",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 2, score 9.53"
+  },
+  {
+   "side": "before",
+   "rank": 3,
+   "score": 9.25,
+   "move": "M1",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "katz-sarnak-family-checks",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 3, score 9.25"
+  },
+  {
+   "side": "before",
+   "rank": 4,
+   "score": 9.0,
+   "move": "M1",
+   "nodes": [
+    "theta-density-positivity-p-pos",
+    "alias-width-law-octave-weight",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 4, score 9.00"
+  },
+  {
+   "side": "before",
+   "rank": 5,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "gl2-weil-symbol",
+    "finite-support-euler-detector",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 5, score 8.75"
+  },
+  {
+   "side": "before",
+   "rank": 6,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "mem-sextic-theta-squarefree",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 6, score 8.75"
+  },
+  {
+   "side": "before",
+   "rank": 7,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "route-m-first-moment-kappa",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 7, score 8.75"
+  },
+  {
+   "side": "before",
+   "rank": 8,
+   "score": 8.75,
+   "move": "M3",
+   "nodes": [
+    "tro6-natural",
+    "gauss-plancherel-alias-lemma",
+    "mem-qrh-7-8"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 8, score 8.75"
+  },
+  {
+   "side": "before",
+   "rank": 9,
+   "score": 8.5,
+   "move": "M4",
+   "nodes": [
+    "theta-density-positivity",
+    "staged-strip-triangular-inequality",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 9, score 8.50"
+  },
+  {
+   "side": "before",
+   "rank": 10,
+   "score": 8.48,
+   "move": "M1",
+   "nodes": [
+    "curvature-charge-d",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 10, score 8.48"
+  },
+  {
+   "side": "before",
+   "rank": 11,
+   "score": 8.25,
+   "move": "M1",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "prime-delay-domination-15-4",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 11, score 8.25"
+  },
+  {
+   "side": "before",
+   "rank": 12,
+   "score": 8.25,
+   "move": "M1",
+   "nodes": [
+    "lean-weil-small-support",
+    "star-min-pointwise-prime-bound",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 12, score 8.25"
+  },
+  {
+   "side": "before",
+   "rank": 13,
+   "score": 8.25,
+   "move": "M3",
+   "nodes": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "qrh-seven-eighths",
+    "ramanujan-cube-satake-point"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 13, score 8.25"
+  },
+  {
+   "side": "before",
+   "rank": 14,
+   "score": 8.0,
+   "move": "M1",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "ramanujan-cube-satake-point",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 14, score 8.00"
+  },
+  {
+   "side": "before",
+   "rank": 15,
+   "score": 7.99,
+   "move": "M1",
+   "nodes": [
+    "zv-boundary-kernel-pa",
+    "pole-term-schur-complement",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 15, score 7.99"
+  },
+  {
+   "side": "before",
+   "rank": 16,
+   "score": 7.75,
+   "move": "M1",
+   "nodes": [
+    "subleading-k-closed-form",
+    "mem-chi4-signed-ladder",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 16, score 7.75"
+  },
+  {
+   "side": "before",
+   "rank": 17,
+   "score": 7.75,
+   "move": "M3",
+   "nodes": [
+    "sun-catalan-preprint-verdict",
+    "mem-qrh-7-8",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 17, score 7.75"
+  },
+  {
+   "side": "before",
+   "rank": 18,
+   "score": 7.75,
+   "move": "M4",
+   "nodes": [
+    "start-substitution-lemma",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "kept: rank 18, score 7.75"
+  },
+  {
+   "side": "before",
+   "rank": 19,
+   "score": 7.75,
+   "move": "M4",
+   "nodes": [
+    "zv-signed-shear-w",
+    "staged-strip-triangular-inequality",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 19, score 7.75"
+  },
+  {
+   "side": "before",
+   "rank": 20,
+   "score": 7.66,
+   "move": "M2",
+   "nodes": [
+    "phi-truncation-leftmost-zero",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 20, score 7.66"
+  },
+  {
+   "side": "before",
+   "rank": 21,
+   "score": 7.25,
+   "move": "M1",
+   "nodes": [
+    "zv-boundary-kernel-pa",
+    "restricted-mobius-delay-lift",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 21, score 7.25"
+  },
+  {
+   "side": "before",
+   "rank": 22,
+   "score": 7.25,
+   "move": "M2",
+   "nodes": [
+    "sextic-theta-numerics",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 22, score 7.25"
+  },
+  {
+   "side": "before",
+   "rank": 23,
+   "score": 6.75,
+   "move": "M1",
+   "nodes": [
+    "multi-rung-weil-symbol",
+    "finite-support-euler-detector",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 23, score 6.75"
+  },
+  {
+   "side": "before",
+   "rank": 24,
+   "score": 6.55,
+   "move": "M1",
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "kept: rank 24, score 6.55"
+  },
+  {
+   "side": "before",
+   "rank": 25,
+   "score": 5.75,
+   "move": "M1",
+   "nodes": [
+    "lean-weil-small-support",
+    "v7-floor-theorem-c",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 25, score 5.75"
+  },
+  {
+   "side": "before",
+   "rank": 26,
+   "score": 5.25,
+   "move": "M1",
+   "nodes": [
+    "subleading-k-closed-form",
+    "route-m-vasyunin-gram",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 26, score 5.25"
+  },
+  {
+   "side": "before",
+   "rank": 27,
+   "score": 5.09,
+   "move": "M1",
+   "nodes": [
+    "gl2-weil-symbol",
+    "sextic-theta-numerics",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 27, score 5.09"
+  },
+  {
+   "side": "before",
+   "rank": 28,
+   "score": 5.0,
+   "move": "M1",
+   "nodes": [
+    "multi-rung-weil-symbol",
+    "prime-delay-domination",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 28, score 5.00"
+  },
+  {
+   "side": "before",
+   "rank": 29,
+   "score": 4.81,
+   "move": "M1",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "star-min-pointwise-prime-bound",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 29, score 4.81"
+  },
+  {
+   "side": "before",
+   "rank": 30,
+   "score": 4.75,
+   "move": "M4",
+   "nodes": [
+    "dbn-native-triangle-binding",
+    "route-m-first-moment-kappa",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 30, score 4.75"
+  },
+  {
+   "side": "before",
+   "rank": 31,
+   "score": 4.5,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "frobenius-gcd-factorisation",
+    "lane-audit-h-desc"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 31, score 4.50"
+  },
+  {
+   "side": "before",
+   "rank": 32,
+   "score": 4.5,
+   "move": "M3",
+   "nodes": [
+    "near-muntz-threshold-cones",
+    "arch-native-prime-jordan-product",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 32, score 4.50"
+  },
+  {
+   "side": "before",
+   "rank": 33,
+   "score": 4.14,
+   "move": "M4",
+   "nodes": [
+    "theta-density-positivity",
+    "katz-sarnak-family-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 33, score 4.14"
+  },
+  {
+   "side": "before",
+   "rank": 34,
+   "score": 3.85,
+   "move": "M1",
+   "nodes": [
+    "bbm-growth-class-implication",
+    "selberg-zeta-freeze-sandbox",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 34, score 3.85"
+  },
+  {
+   "side": "before",
+   "rank": 35,
+   "score": 3.75,
+   "move": "M4",
+   "nodes": [
+    "zv-signed-shear-w",
+    "ns-rigid-loophole-dirichlet-coefficients",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 35, score 3.75"
+  },
+  {
+   "side": "before",
+   "rank": 36,
+   "score": 3.6,
+   "move": "M1",
+   "nodes": [
+    "ingham-offlattice-riesz-floor",
+    "mv-cap-function-side-gap",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 36, score 3.60"
+  },
+  {
+   "side": "before",
+   "rank": 37,
+   "score": 3.25,
+   "move": "M2",
+   "nodes": [
+    "pr14-boundary-certificate",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 37, score 3.25"
+  },
+  {
+   "side": "before",
+   "rank": 38,
+   "score": 3.25,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-kappa-arith-exact",
+    "rm-kappa-total-measured"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 38, score 3.25"
+  },
+  {
+   "side": "before",
+   "rank": 39,
+   "score": 3.22,
+   "move": "M4",
+   "nodes": [
+    "tilt-det-majorant",
+    "route-i-krein-certificate",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 39, score 3.22"
+  },
+  {
+   "side": "before",
+   "rank": 40,
+   "score": 3.0,
+   "move": "M1",
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "spec-z-graph-class-pairing",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 40, score 3.00"
+  },
+  {
+   "side": "before",
+   "rank": 41,
+   "score": 3.0,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-parity-sign-law",
+    "rm-sign-law-t-negative"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 41, score 3.00"
+  },
+  {
+   "side": "before",
+   "rank": 42,
+   "score": 3.0,
+   "move": "M3",
+   "nodes": [
+    "map-open-22",
+    "cm-eta-heights-lambda1",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 42, score 3.00"
+  },
+  {
+   "side": "before",
+   "rank": 43,
+   "score": 3.0,
+   "move": "M4",
+   "nodes": [
+    "exact-witness-quadratic-cosine",
+    "qtl-weil-delay-form",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 43, score 3.00"
+  },
+  {
+   "side": "before",
+   "rank": 44,
+   "score": 2.97,
+   "move": "M1",
+   "nodes": [
+    "mem-freeze-flow-interlacing",
+    "route-m-kappa-first-moment",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 44, score 2.97"
+  },
+  {
+   "side": "before",
+   "rank": 45,
+   "score": 2.75,
+   "move": "M1",
+   "nodes": [
+    "debruijn-landing-rate-thm13",
+    "mem-landau-siegel-uniform",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 45, score 2.75"
+  },
+  {
+   "side": "before",
+   "rank": 46,
+   "score": 2.75,
+   "move": "M1",
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "hasse-weil-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 46, score 2.75"
+  },
+  {
+   "side": "before",
+   "rank": 47,
+   "score": 2.75,
+   "move": "M4",
+   "nodes": [
+    "collision-ladder-data",
+    "route-m-conductor-tones",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 47, score 2.75"
+  },
+  {
+   "side": "before",
+   "rank": 48,
+   "score": 2.75,
+   "move": "M4",
+   "nodes": [
+    "tilt-det-majorant",
+    "rung-toeplitz-euler-detector",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 48, score 2.75"
+  },
+  {
+   "side": "before",
+   "rank": 49,
+   "score": 2.67,
+   "move": "M4",
+   "nodes": [
+    "confluent-laguerre-floor",
+    "pole-term-schur-complement",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 49, score 2.67"
+  },
+  {
+   "side": "before",
+   "rank": 50,
+   "score": 2.56,
+   "move": "M4",
+   "nodes": [
+    "zv-taylor-rouche-channel-criterion",
+    "h6-symbol-offline-poisson",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 50, score 2.56"
+  },
+  {
+   "side": "before",
+   "rank": 51,
+   "score": 2.5,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "mem-mollifier-proportion-loophole",
+    "ns-rigid-loophole-dirichlet-coefficients"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 51, score 2.50"
+  },
+  {
+   "side": "before",
+   "rank": 52,
+   "score": 2.26,
+   "move": "M1",
+   "nodes": [
+    "route-b-limsup-stieltjes",
+    "corr23-continuity-spectral-criterion",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 52, score 2.26"
+  },
+  {
+   "side": "before",
+   "rank": 53,
+   "score": 2.25,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-e0-uniform-remainder",
+    "binet-positive-kernel"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "kept: rank 53, score 2.25"
+  },
+  {
+   "side": "before",
+   "rank": 54,
+   "score": 2.0,
+   "move": "M3",
+   "nodes": [
+    "mem-concentration-dip-open",
+    "seven-eighths-abscissa-formula",
+    "af-hl-star-hierarchy"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "kept: rank 55, score 2.00"
+  },
+  {
+   "side": "before",
+   "rank": 55,
+   "score": 2.0,
+   "move": "M4",
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "prime-delay-domination",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 56, score 2.00"
+  },
+  {
+   "side": "before",
+   "rank": 56,
+   "score": 2.0,
+   "move": "M4",
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "five-shell-p97-identity",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "left: displaced or no longer scored"
+  },
+  {
+   "side": "before",
+   "rank": 57,
+   "score": 1.29,
+   "move": "M4",
+   "nodes": [
+    "ch-holder-half-sharp",
+    "corr23-mixed-prolate-ladder",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "kept: rank 57, score 1.29"
+  },
+  {
+   "side": "before",
+   "rank": 58,
+   "score": 0.09,
+   "move": "M1",
+   "nodes": [
+    "mem-freeze-flow-interlacing",
+    "ff-ghost-second-order",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "left: displaced or no longer scored"
+  },
+  {
+   "side": "before",
+   "rank": 59,
+   "score": 0.04,
+   "move": "M1",
+   "nodes": [
+    "zero-ode-ht",
+    "route-i-kato-temple",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "left: displaced or no longer scored"
+  },
+  {
+   "side": "before",
+   "rank": 60,
+   "score": -0.02,
+   "move": "M1",
+   "nodes": [
+    "gauss-conv-equals-negative-time-flow",
+    "hasse-weil-checks",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "left: displaced or no longer scored"
+  },
+  {
+   "side": "after",
+   "rank": 1,
+   "score": 10.25,
+   "move": "M1",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "sympow-conductor-normalised-shift",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 1, score 10.25"
+  },
+  {
+   "side": "after",
+   "rank": 2,
+   "score": 9.53,
+   "move": "M1",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "sympow-conductor-normalised-shift",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 2, score 9.53"
+  },
+  {
+   "side": "after",
+   "rank": 3,
+   "score": 9.25,
+   "move": "M1",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "katz-sarnak-family-checks",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 3, score 9.25"
+  },
+  {
+   "side": "after",
+   "rank": 4,
+   "score": 9.0,
+   "move": "M1",
+   "nodes": [
+    "theta-density-positivity-p-pos",
+    "alias-width-law-octave-weight",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 4, score 9.00"
+  },
+  {
+   "side": "after",
+   "rank": 5,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "gl2-weil-symbol",
+    "finite-support-euler-detector",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 5, score 8.75"
+  },
+  {
+   "side": "after",
+   "rank": 6,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "sun-prop63-plus4-offset",
+    "mem-sextic-theta-squarefree",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 6, score 8.75"
+  },
+  {
+   "side": "after",
+   "rank": 7,
+   "score": 8.75,
+   "move": "M1",
+   "nodes": [
+    "autocorrelation-moment-ladder",
+    "route-m-first-moment-kappa",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 7, score 8.75"
+  },
+  {
+   "side": "after",
+   "rank": 8,
+   "score": 8.75,
+   "move": "M3",
+   "nodes": [
+    "tro6-natural",
+    "gauss-plancherel-alias-lemma",
+    "mem-qrh-7-8"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 8, score 8.75"
+  },
+  {
+   "side": "after",
+   "rank": 9,
+   "score": 8.5,
+   "move": "M4",
+   "nodes": [
+    "theta-density-positivity",
+    "staged-strip-triangular-inequality",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 9, score 8.50"
+  },
+  {
+   "side": "after",
+   "rank": 10,
+   "score": 8.48,
+   "move": "M1",
+   "nodes": [
+    "curvature-charge-d",
+    "route-m-vasyunin-gram",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 10, score 8.48"
+  },
+  {
+   "side": "after",
+   "rank": 11,
+   "score": 8.25,
+   "move": "M1",
+   "nodes": [
+    "capture-ratio-psd-slope",
+    "prime-delay-domination-15-4",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 11, score 8.25"
+  },
+  {
+   "side": "after",
+   "rank": 12,
+   "score": 8.25,
+   "move": "M1",
+   "nodes": [
+    "lean-weil-small-support",
+    "star-min-pointwise-prime-bound",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 12, score 8.25"
+  },
+  {
+   "side": "after",
+   "rank": 13,
+   "score": 8.25,
+   "move": "M3",
+   "nodes": [
+    "silent-u6a-rank2-nonborel-metaplectic-eigenobject",
+    "qrh-seven-eighths",
+    "ramanujan-cube-satake-point"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 13, score 8.25"
+  },
+  {
+   "side": "after",
+   "rank": 14,
+   "score": 8.0,
+   "move": "M1",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "ramanujan-cube-satake-point",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 14, score 8.00"
+  },
+  {
+   "side": "after",
+   "rank": 15,
+   "score": 7.99,
+   "move": "M1",
+   "nodes": [
+    "zv-boundary-kernel-pa",
+    "pole-term-schur-complement",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 15, score 7.99"
+  },
+  {
+   "side": "after",
+   "rank": 16,
+   "score": 7.75,
+   "move": "M1",
+   "nodes": [
+    "subleading-k-closed-form",
+    "mem-chi4-signed-ladder",
+    "tro6-natural"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 16, score 7.75"
+  },
+  {
+   "side": "after",
+   "rank": 17,
+   "score": 7.75,
+   "move": "M3",
+   "nodes": [
+    "sun-catalan-preprint-verdict",
+    "mem-qrh-7-8",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 17, score 7.75"
+  },
+  {
+   "side": "after",
+   "rank": 18,
+   "score": 7.75,
+   "move": "M4",
+   "nodes": [
+    "start-substitution-lemma",
+    "tro6-natural",
+    "euler-detection-depth-law"
+   ],
+   "devices": "tro6-natural (floored)",
+   "fate": "was rank 18, score 7.75"
+  },
+  {
+   "side": "after",
+   "rank": 19,
+   "score": 7.75,
+   "move": "M4",
+   "nodes": [
+    "zv-signed-shear-w",
+    "staged-strip-triangular-inequality",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 19, score 7.75"
+  },
+  {
+   "side": "after",
+   "rank": 20,
+   "score": 7.66,
+   "move": "M2",
+   "nodes": [
+    "phi-truncation-leftmost-zero",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 20, score 7.66"
+  },
+  {
+   "side": "after",
+   "rank": 21,
+   "score": 7.25,
+   "move": "M1",
+   "nodes": [
+    "zv-boundary-kernel-pa",
+    "restricted-mobius-delay-lift",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 21, score 7.25"
+  },
+  {
+   "side": "after",
+   "rank": 22,
+   "score": 7.25,
+   "move": "M2",
+   "nodes": [
+    "sextic-theta-numerics",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 22, score 7.25"
+  },
+  {
+   "side": "after",
+   "rank": 23,
+   "score": 6.75,
+   "move": "M1",
+   "nodes": [
+    "multi-rung-weil-symbol",
+    "finite-support-euler-detector",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 23, score 6.75"
+  },
+  {
+   "side": "after",
+   "rank": 24,
+   "score": 6.55,
+   "move": "M1",
+   "nodes": [
+    "virtual-rungs-positive-extension",
+    "selberg-geodesic-ground-truth",
+    "qrh-seven-eighths"
+   ],
+   "devices": "qrh-seven-eighths (floored)",
+   "fate": "was rank 24, score 6.55"
+  },
+  {
+   "side": "after",
+   "rank": 25,
+   "score": 5.75,
+   "move": "M1",
+   "nodes": [
+    "lean-weil-small-support",
+    "v7-floor-theorem-c",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 25, score 5.75"
+  },
+  {
+   "side": "after",
+   "rank": 26,
+   "score": 5.25,
+   "move": "M1",
+   "nodes": [
+    "subleading-k-closed-form",
+    "route-m-vasyunin-gram",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 26, score 5.25"
+  },
+  {
+   "side": "after",
+   "rank": 27,
+   "score": 5.09,
+   "move": "M1",
+   "nodes": [
+    "gl2-weil-symbol",
+    "sextic-theta-numerics",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 27, score 5.09"
+  },
+  {
+   "side": "after",
+   "rank": 28,
+   "score": 5.0,
+   "move": "M1",
+   "nodes": [
+    "multi-rung-weil-symbol",
+    "prime-delay-domination",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 28, score 5.00"
+  },
+  {
+   "side": "after",
+   "rank": 29,
+   "score": 4.81,
+   "move": "M1",
+   "nodes": [
+    "zv-infinity-end-coordinate",
+    "star-min-pointwise-prime-bound",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 29, score 4.81"
+  },
+  {
+   "side": "after",
+   "rank": 30,
+   "score": 4.75,
+   "move": "M4",
+   "nodes": [
+    "dbn-native-triangle-binding",
+    "route-m-first-moment-kappa",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 30, score 4.75"
+  },
+  {
+   "side": "after",
+   "rank": 31,
+   "score": 4.5,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "frobenius-gcd-factorisation",
+    "lane-audit-h-desc"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 31, score 4.50"
+  },
+  {
+   "side": "after",
+   "rank": 32,
+   "score": 4.5,
+   "move": "M3",
+   "nodes": [
+    "near-muntz-threshold-cones",
+    "arch-native-prime-jordan-product",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 32, score 4.50"
+  },
+  {
+   "side": "after",
+   "rank": 33,
+   "score": 4.14,
+   "move": "M4",
+   "nodes": [
+    "theta-density-positivity",
+    "katz-sarnak-family-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 33, score 4.14"
+  },
+  {
+   "side": "after",
+   "rank": 34,
+   "score": 3.85,
+   "move": "M1",
+   "nodes": [
+    "bbm-growth-class-implication",
+    "selberg-zeta-freeze-sandbox",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 34, score 3.85"
+  },
+  {
+   "side": "after",
+   "rank": 35,
+   "score": 3.75,
+   "move": "M4",
+   "nodes": [
+    "zv-signed-shear-w",
+    "ns-rigid-loophole-dirichlet-coefficients",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 35, score 3.75"
+  },
+  {
+   "side": "after",
+   "rank": 36,
+   "score": 3.6,
+   "move": "M1",
+   "nodes": [
+    "ingham-offlattice-riesz-floor",
+    "mv-cap-function-side-gap",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 36, score 3.60"
+  },
+  {
+   "side": "after",
+   "rank": 37,
+   "score": 3.25,
+   "move": "M2",
+   "nodes": [
+    "pr14-boundary-certificate",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 37, score 3.25"
+  },
+  {
+   "side": "after",
+   "rank": 38,
+   "score": 3.25,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-kappa-arith-exact",
+    "rm-kappa-total-measured"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 38, score 3.25"
+  },
+  {
+   "side": "after",
+   "rank": 39,
+   "score": 3.22,
+   "move": "M4",
+   "nodes": [
+    "tilt-det-majorant",
+    "route-i-krein-certificate",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 39, score 3.22"
+  },
+  {
+   "side": "after",
+   "rank": 40,
+   "score": 3.0,
+   "move": "M1",
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "spec-z-graph-class-pairing",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 40, score 3.00"
+  },
+  {
+   "side": "after",
+   "rank": 41,
+   "score": 3.0,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-parity-sign-law",
+    "rm-sign-law-t-negative"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 41, score 3.00"
+  },
+  {
+   "side": "after",
+   "rank": 42,
+   "score": 3.0,
+   "move": "M3",
+   "nodes": [
+    "map-open-22",
+    "cm-eta-heights-lambda1",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 42, score 3.00"
+  },
+  {
+   "side": "after",
+   "rank": 43,
+   "score": 3.0,
+   "move": "M4",
+   "nodes": [
+    "exact-witness-quadratic-cosine",
+    "qtl-weil-delay-form",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 43, score 3.00"
+  },
+  {
+   "side": "after",
+   "rank": 44,
+   "score": 2.97,
+   "move": "M1",
+   "nodes": [
+    "mem-freeze-flow-interlacing",
+    "route-m-kappa-first-moment",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 44, score 2.97"
+  },
+  {
+   "side": "after",
+   "rank": 45,
+   "score": 2.75,
+   "move": "M1",
+   "nodes": [
+    "debruijn-landing-rate-thm13",
+    "mem-landau-siegel-uniform",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 45, score 2.75"
+  },
+  {
+   "side": "after",
+   "rank": 46,
+   "score": 2.75,
+   "move": "M1",
+   "nodes": [
+    "ff-lambda-of-elliptic-curve",
+    "hasse-weil-checks",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 46, score 2.75"
+  },
+  {
+   "side": "after",
+   "rank": 47,
+   "score": 2.75,
+   "move": "M4",
+   "nodes": [
+    "collision-ladder-data",
+    "route-m-conductor-tones",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 47, score 2.75"
+  },
+  {
+   "side": "after",
+   "rank": 48,
+   "score": 2.75,
+   "move": "M4",
+   "nodes": [
+    "tilt-det-majorant",
+    "rung-toeplitz-euler-detector",
+    "map-open-2"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 48, score 2.75"
+  },
+  {
+   "side": "after",
+   "rank": 49,
+   "score": 2.67,
+   "move": "M4",
+   "nodes": [
+    "confluent-laguerre-floor",
+    "pole-term-schur-complement",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 49, score 2.67"
+  },
+  {
+   "side": "after",
+   "rank": 50,
+   "score": 2.56,
+   "move": "M4",
+   "nodes": [
+    "zv-taylor-rouche-channel-criterion",
+    "h6-symbol-offline-poisson",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 50, score 2.56"
+  },
+  {
+   "side": "after",
+   "rank": 51,
+   "score": 2.5,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "mem-mollifier-proportion-loophole",
+    "ns-rigid-loophole-dirichlet-coefficients"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 51, score 2.50"
+  },
+  {
+   "side": "after",
+   "rank": 52,
+   "score": 2.26,
+   "move": "M1",
+   "nodes": [
+    "route-b-limsup-stieltjes",
+    "corr23-continuity-spectral-criterion",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 52, score 2.26"
+  },
+  {
+   "side": "after",
+   "rank": 53,
+   "score": 2.25,
+   "move": "M3",
+   "nodes": [
+    "map-open-2",
+    "rm-e0-uniform-remainder",
+    "binet-positive-kernel"
+   ],
+   "devices": "map-open-2 (floored)",
+   "fate": "was rank 53, score 2.25"
+  },
+  {
+   "side": "after",
+   "rank": 54,
+   "score": 2.08,
+   "move": "M4",
+   "nodes": [
+    "lean-cg-covering-identity",
+    "weil-small-support-lean",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "entered"
+  },
+  {
+   "side": "after",
+   "rank": 55,
+   "score": 2.0,
+   "move": "M3",
+   "nodes": [
+    "mem-concentration-dip-open",
+    "seven-eighths-abscissa-formula",
+    "af-hl-star-hierarchy"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "was rank 54, score 2.00"
+  },
+  {
+   "side": "after",
+   "rank": 56,
+   "score": 2.0,
+   "move": "M4",
+   "nodes": [
+    "frozen-rung-winding-identity",
+    "prime-delay-domination",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 55, score 2.00"
+  },
+  {
+   "side": "after",
+   "rank": 57,
+   "score": 1.29,
+   "move": "M4",
+   "nodes": [
+    "ch-holder-half-sharp",
+    "corr23-mixed-prolate-ladder",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "was rank 57, score 1.29"
+  },
+  {
+   "side": "after",
+   "rank": 58,
+   "score": 1.25,
+   "move": "M2",
+   "nodes": [
+    "meansquare-pointwise-wall",
+    "seven-eighths-abscissa-formula"
+   ],
+   "devices": "seven-eighths-abscissa-formula (floored)",
+   "fate": "entered"
+  },
+  {
+   "side": "after",
+   "rank": 59,
+   "score": 0.3,
+   "move": "M4",
+   "nodes": [
+    "zv-polynomial-heat-coefficients",
+    "connes-adelic-truncated-trace",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "entered"
+  },
+  {
+   "side": "after",
+   "rank": 60,
+   "score": 0.29,
+   "move": "M4",
+   "nodes": [
+    "zero-ode-ht",
+    "mixed-group-rigid-profile",
+    "map-open-4"
+   ],
+   "devices": "map-open-4 (floored)",
+   "fate": "entered"
+  }
+ ],
+ "rejectedChanged": [
+  [
+   "closed family: fam-arithmetic-nb-span",
+   275,
+   295
+  ],
+  [
+   "closed family: fam-heat-monotone-hankel",
+   246,
+   288
+  ],
+  [
+   "closed family: fam-hecke-shear-commutator",
+   57,
+   58
+  ],
+  [
+   "closed family: fam-laxphillips-hecke-compression",
+   149,
+   151
+  ],
+  [
+   "closed family: fam-legendre-dual-limits",
+   1387,
+   1420
+  ],
+  [
+   "closed family: fam-one-zero-forces-many",
+   208,
+   211
+  ],
+  [
+   "closed family: fam-order2-theta-rows",
+   662,
+   663
+  ],
+  [
+   "closed family: fam-primitive-test-restriction",
+   559,
+   577
+  ],
+  [
+   "closed family: fam-selberg-control-companion",
+   595,
+   631
+  ],
+  [
+   "closed family: fam-torus-exclusion-sign-test",
+   142,
+   147
+  ],
+  [
+   "closed family: fam-vaughan-split-landau",
+   277,
+   283
+  ],
+  [
+   "contains a closed cell: silent-cell-u2-pos",
+   46,
+   49
+  ],
+  [
+   "contains a closed cell: silent-cell-u6e",
+   76,
+   86
+  ],
+  [
+   "contains a closed cell: silent-cell-u6f",
+   84,
+   93
+  ],
+  [
+   "contains a closed device: euler-fe-phase-at-height",
+   344,
+   354
+  ],
+  [
+   "contains a closed device: finite-support-positivity",
+   395,
+   396
+  ],
+  [
+   "contains a closed device: mean-value-convexity",
+   390,
+   396
+  ],
+  [
+   "contains a closed device: monotone-flow-functional",
+   756,
+   766
+  ],
+  [
+   "contains a closed device: positive-kernel-transport",
+   493,
+   507
+  ],
+  [
+   "contains a closed device: residue-explicit-formula",
+   394,
+   437
+  ],
+  [
+   "contains a closed device: strip-dtn-identity",
+   31,
+   34
+  ],
+  [
+   "contains a combination closed in outcomes.json",
+   10526,
+   3806
+  ],
+  [
+   "no member uses multiplicativity (DH passes)",
+   245,
+   16
+  ],
+  [
+   "no open or floored crossing device (curated/devices.json)",
+   14031,
+   14352
+  ],
+  [
+   "shares two nodes with a closed lane (nodes or launchedNodes)",
+   558,
+   563
+  ]
+ ],
+ "scoreboard": [
+  [
+   "A_requirements.calibration",
+   "[{\"counted\": true, \"name\": \"7/8 zero-free half-plane (Lean-checked)\", \"note\": \"known architecture; excluded from the headline\", \"r1\": true, \"r2\": true, \"r3\": true, \"r4\": false, \"score\": 3}, {\"counted\": false, \"name\": \"Weil / Pick / bridge identities\", \"note\": \"restatements (hold at all heights, also for controls); not counted\", \"r1\": false, \"r2\": false, \"r3\": false, \"r4\": false, \"score\": null}, {\"counted\": true, \"name\": \"finite Lee-Yang stage theorem\", \"note\": \"R1 and R3 at stage level only; lost in the limit\", \"r1\": true, \"r2\": false, \"r3\": true, \"r4\": false, \"score\": 2}]",
+   "[{\"counted\": true, \"name\": \"7/8 zero-free half-plane (Lean-checked)\", \"note\": \"known architecture; excluded from the headline\", \"r1\": true, \"r2\": true, \"r3\": true, \"r4\": false, \"score\": 3}, {\"counted\": false, \"name\": \"Weil / Pick / bridge identities\", \"note\": \"restatements (hold at all heights, also for controls); not counted\", \"r1\": false, \"r2\": false, \"r3\": false, \"r4\": false, \"score\": null}, {\"counted\": true, \"name\": \"finite Lee-Yang stage theorem\", \"note\": \"R1 and R3 at stage level only; lost in the limit\", \"r1\": true, \"r2\": false, \"r3\": true, \"r4\": false, \"score\": 2}]",
+   "[{\"counted\": true, \"name\": \"7/8 zero-free half-plane (Lean-checked)\", \"note\": \"known architecture; excluded from the headline\", \"r1\": true, \"r2\": true, \"r3\": true, \"r4\": false, \"score\": 3}, {\"counted\": false, \"name\": \"Weil / Pick / bridge identities\", \"note\": \"restatements (hold at all heights, also for controls); not counted\", \"r1\": false, \"r2\": false, \"r3\": false, \"r4\": false, \"score\": null}, {\"counted\": true, \"name\": \"finite Lee-Yang stage theorem\", \"note\": \"R1 and R3 at stage level only; lost in the limit\", \"r1\": true, \"r2\": false, \"r3\": true, \"r4\": false, \"score\": 2}]",
+   "[{\"counted\": true, \"name\": \"7/8 zero-free half-plane (Lean-checked)\", \"note\": \"known architecture; excluded from the headline\", \"r1\": true, \"r2\": true, \"r3\": true, \"r4\": false, \"score\": 3}, {\"counted\": false, \"name\": \"Weil / Pick / bridge identities\", \"note\": \"restatements (hold at all heights, also for controls); not counted\", \"r1\": false, \"r2\": false, \"r3\": false, \"r4\": false, \"score\": null}, {\"counted\": true, \"name\": \"finite Lee-Yang stage theorem\", \"note\": \"R1 and R3 at stage level only; lost in the limit\", \"r1\": true, \"r2\": false, \"r3\": true, \"r4\": false, \"score\": 2}]"
+  ],
+  [
+   "A_requirements.headline.bestScore",
+   1,
+   1,
+   1,
+   1
+  ],
+  [
+   "A_requirements.headline.file",
+   "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md",
+   "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md",
+   "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md",
+   "tmp/research-2026-11-16/push/c1-leeyang-krein-limit/RESULT.md"
+  ],
+  [
+   "A_requirements.headline.missing",
+   "[\"R2\", \"R3\", \"R4\"]",
+   "[\"R2\", \"R3\", \"R4\"]",
+   "[\"R2\", \"R3\", \"R4\"]",
+   "[\"R2\", \"R3\", \"R4\"]"
+  ],
+  [
+   "A_requirements.headline.slug",
+   "c1-leeyang-krein-limit",
+   "c1-leeyang-krein-limit",
+   "c1-leeyang-krein-limit",
+   "c1-leeyang-krein-limit"
+  ],
+  [
+   "A_requirements.lanesWithR4Confirmed",
+   "[]",
+   "[]",
+   "[]",
+   "[]"
+  ],
+  [
+   "A_requirements.scoreHistogram.0",
+   162,
+   162,
+   162,
+   163
+  ],
+  [
+   "A_requirements.scoreHistogram.1",
+   2,
+   2,
+   2,
+   2
+  ],
+  [
+   "A_requirements.scoreHistogram.2",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A_requirements.scoreHistogram.3",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A_requirements.scoreHistogram.4",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "B_frontier.lambda.accepted",
+   "0.2 (Platt-Trudgian)",
+   "0.2 (Platt-Trudgian)",
+   "0.2 (Platt-Trudgian)",
+   "0.2 (Platt-Trudgian)"
+  ],
+  [
+   "B_frontier.lambda.conditional",
+   "0.116060",
+   "0.116060",
+   "0.116060",
+   "0.116060"
+  ],
+  [
+   "B_frontier.lambda.conditionalDependsOn",
+   "abscissa 0.87488665 (unrefereed) plus Raymond chain H2-H4 (tables not verified)",
+   "abscissa 0.87488665 (unrefereed) plus Raymond chain H2-H4 (tables not verified)",
+   "abscissa 0.87488665 (unrefereed) plus Raymond chain H2-H4 (tables not verified)",
+   "abscissa 0.87488665 (unrefereed) plus Raymond chain H2-H4 (tables not verified)"
+  ],
+  [
+   "B_frontier.lambda.raymondClaim",
+   "0.107964910079",
+   "0.107964910079",
+   "0.107964910079",
+   "0.107964910079"
+  ],
+  [
+   "B_frontier.lambda.raymondStatus",
+   "from VERIFICATION_REPORT.md: Status: **replayed and partially refereed.** Not \"verified\".",
+   "from VERIFICATION_REPORT.md: Status: **replayed and partially refereed.** Not \"verified\".",
+   "from VERIFICATION_REPORT.md: Status: **replayed and partially refereed.** Not \"verified\".",
+   "from VERIFICATION_REPORT.md: Status: **replayed and partially refereed.** Not \"verified\"."
+  ],
+  [
+   "B_frontier.zeroFree.claimed",
+   "0.874886647",
+   "0.874886647",
+   "0.874886647",
+   "0.874886647"
+  ],
+  [
+   "B_frontier.zeroFree.claimedDependsOn",
+   "preprints Liu 2610.12234, Xu-Sang 2610.15291, Liu 2610.26835; manuscript Lemmas 14.3, 15.2, 18.1, 14.11 not checked; not in Lean",
+   "preprints Liu 2610.12234, Xu-Sang 2610.15291, Liu 2610.26835; manuscript Lemmas 14.3, 15.2, 18.1, 14.11 not checked; not in Lean",
+   "preprints Liu 2610.12234, Xu-Sang 2610.15291, Liu 2610.26835; manuscript Lemmas 14.3, 15.2, 18.1, 14.11 not checked; not in Lean",
+   "preprints Liu 2610.12234, Xu-Sang 2610.15291, Liu 2610.26835; manuscript Lemmas 14.3, 15.2, 18.1, 14.11 not checked; not in Lean"
+  ],
+  [
+   "B_frontier.zeroFree.leanChecked",
+   "7/8 = 0.875",
+   "7/8 = 0.875",
+   "7/8 = 0.875",
+   "7/8 = 0.875"
+  ],
+  [
+   "C_coverage.families",
+   120295,
+   126756,
+   126756,
+   126756
+  ],
+  [
+   "C_coverage.familiesClosed",
+   3905,
+   4004,
+   4004,
+   4004
+  ],
+  [
+   "C_coverage.familiesOpenUntried",
+   115308,
+   121670,
+   121670,
+   121670
+  ],
+  [
+   "C_coverage.familiesTriedNotClosed",
+   1082,
+   1082,
+   1082,
+   1082
+  ],
+  [
+   "C_coverage.graphSource",
+   "IDEA_GRAPH.json",
+   "IDEA_GRAPH.json",
+   "IDEA_GRAPH.json",
+   "IDEA_GRAPH.json"
+  ],
+  [
+   "C_coverage.nodes",
+   1737,
+   1742,
+   1746,
+   1746
+  ],
+  [
+   "C_coverage.nodesMarkedClosed",
+   596,
+   601,
+   605,
+   605
+  ],
+  [
+   "C_coverage.openLemmasDecided",
+   136,
+   136,
+   136,
+   136
+  ],
+  [
+   "C_coverage.outcomeFilesUnparsed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "C_coverage.outcomeRecords",
+   194,
+   194,
+   194,
+   194
+  ],
+  [
+   "C_coverage.tags",
+   491,
+   504,
+   504,
+   504
+  ],
+  [
+   "D_reliability.aboutZerosClaimsNotYetCounted",
+   "[]",
+   "[]",
+   "[]",
+   "[]"
+  ],
+  [
+   "D_reliability.laneLinesUnparsed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "D_reliability.lanesRefereed",
+   154,
+   154,
+   154,
+   154
+  ],
+  [
+   "D_reliability.lanesRun",
+   164,
+   164,
+   164,
+   165
+  ],
+  [
+   "D_reliability.provedClaimsBroken",
+   11,
+   11,
+   11,
+   11
+  ],
+  [
+   "D_reliability.refereeHoldRate",
+   0.922,
+   0.922,
+   0.922,
+   0.922
+  ],
+  [
+   "D_reliability.threeRefereeStatements",
+   2,
+   2,
+   2,
+   2
+  ],
+  [
+   "D_reliability.threeRefereeStatementsAboutZeros",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "generated",
+   "2026-11-20T06:21Z",
+   "2026-11-20T06:27Z",
+   "2026-11-20T06:37Z",
+   "2026-11-20T06:45Z"
+  ],
+  [
+   "history",
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.846, \"lanesCumulative\": 26, \"lanesThisRound\": 8, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 2, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.882, \"lanesCumulative\": 34, \"lanesThisRound\": 8, \"lemmasDecided\": 4, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 3, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.905, \"lanesCumulative\": 42, \"lanesThisRound\": 8, \"lemmasDecided\": 5, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 4, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.88, \"lanesCumulative\": 50, \"lanesThisRound\": 8, \"lemmasDecided\": 9, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 5, \"round\": 5, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.862, \"lanesCumulative\": 58, \"lanesThisRound\": 8, \"lemmasDecided\": 16, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 6, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.879, \"lanesCumulative\": 66, \"lanesThisRound\": 8, \"lemmasDecided\": 23, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 7, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.865, \"lanesCumulative\": 74, \"lanesThisRound\": 8, \"lemmasDecided\": 30, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 8, \"round\": 8, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 82, \"lanesThisRound\": 8, \"lemmasDecided\": 37, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 9, \"round\": 9, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 90, \"lanesThisRound\": 8, \"lemmasDecided\": 43, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 10, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.888, \"lanesCumulative\": 98, \"lanesThisRound\": 8, \"lemmasDecided\": 53, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 11, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.896, \"lanesCumulative\": 106, \"lanesThisRound\": 8, \"lemmasDecided\": 61, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 12, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.904, \"lanesCumulative\": 114, \"lanesThisRound\": 8, \"lemmasDecided\": 75, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 13, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.902, \"lanesCumulative\": 122, \"lanesThisRound\": 8, \"lemmasDecided\": 92, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 14, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.908, \"lanesCumulative\": 140, \"lanesThisRound\": 18, \"lemmasDecided\": 107, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 15, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.913, \"lanesCumulative\": 148, \"lanesThisRound\": 8, \"lemmasDecided\": 125, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 16, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.918, \"lanesCumulative\": 156, \"lanesThisRound\": 8, \"lemmasDecided\": 132, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 17, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.922, \"lanesCumulative\": 164, \"lanesThisRound\": 8, \"lemmasDecided\": 136, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 18, \"threeReferee\": 2}]",
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.846, \"lanesCumulative\": 26, \"lanesThisRound\": 8, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 2, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.882, \"lanesCumulative\": 34, \"lanesThisRound\": 8, \"lemmasDecided\": 4, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 3, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.905, \"lanesCumulative\": 42, \"lanesThisRound\": 8, \"lemmasDecided\": 5, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 4, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.88, \"lanesCumulative\": 50, \"lanesThisRound\": 8, \"lemmasDecided\": 9, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 5, \"round\": 5, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.862, \"lanesCumulative\": 58, \"lanesThisRound\": 8, \"lemmasDecided\": 16, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 6, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.879, \"lanesCumulative\": 66, \"lanesThisRound\": 8, \"lemmasDecided\": 23, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 7, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.865, \"lanesCumulative\": 74, \"lanesThisRound\": 8, \"lemmasDecided\": 30, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 8, \"round\": 8, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 82, \"lanesThisRound\": 8, \"lemmasDecided\": 37, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 9, \"round\": 9, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 90, \"lanesThisRound\": 8, \"lemmasDecided\": 43, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 10, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.888, \"lanesCumulative\": 98, \"lanesThisRound\": 8, \"lemmasDecided\": 53, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 11, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.896, \"lanesCumulative\": 106, \"lanesThisRound\": 8, \"lemmasDecided\": 61, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 12, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.904, \"lanesCumulative\": 114, \"lanesThisRound\": 8, \"lemmasDecided\": 75, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 13, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.902, \"lanesCumulative\": 122, \"lanesThisRound\": 8, \"lemmasDecided\": 92, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 14, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.908, \"lanesCumulative\": 140, \"lanesThisRound\": 18, \"lemmasDecided\": 107, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 15, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.913, \"lanesCumulative\": 148, \"lanesThisRound\": 8, \"lemmasDecided\": 125, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 16, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.918, \"lanesCumulative\": 156, \"lanesThisRound\": 8, \"lemmasDecided\": 132, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 17, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.922, \"lanesCumulative\": 164, \"lanesThisRound\": 8, \"lemmasDecided\": 136, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 18, \"threeReferee\": 2}]",
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.846, \"lanesCumulative\": 26, \"lanesThisRound\": 8, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 2, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.882, \"lanesCumulative\": 34, \"lanesThisRound\": 8, \"lemmasDecided\": 4, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 3, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.905, \"lanesCumulative\": 42, \"lanesThisRound\": 8, \"lemmasDecided\": 5, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 4, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.88, \"lanesCumulative\": 50, \"lanesThisRound\": 8, \"lemmasDecided\": 9, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 5, \"round\": 5, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.862, \"lanesCumulative\": 58, \"lanesThisRound\": 8, \"lemmasDecided\": 16, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 6, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.879, \"lanesCumulative\": 66, \"lanesThisRound\": 8, \"lemmasDecided\": 23, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 7, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.865, \"lanesCumulative\": 74, \"lanesThisRound\": 8, \"lemmasDecided\": 30, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 8, \"round\": 8, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 82, \"lanesThisRound\": 8, \"lemmasDecided\": 37, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 9, \"round\": 9, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 90, \"lanesThisRound\": 8, \"lemmasDecided\": 43, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 10, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.888, \"lanesCumulative\": 98, \"lanesThisRound\": 8, \"lemmasDecided\": 53, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 11, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.896, \"lanesCumulative\": 106, \"lanesThisRound\": 8, \"lemmasDecided\": 61, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 12, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.904, \"lanesCumulative\": 114, \"lanesThisRound\": 8, \"lemmasDecided\": 75, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 13, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.902, \"lanesCumulative\": 122, \"lanesThisRound\": 8, \"lemmasDecided\": 92, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 14, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.908, \"lanesCumulative\": 140, \"lanesThisRound\": 18, \"lemmasDecided\": 107, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 15, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.913, \"lanesCumulative\": 148, \"lanesThisRound\": 8, \"lemmasDecided\": 125, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 16, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.918, \"lanesCumulative\": 156, \"lanesThisRound\": 8, \"lemmasDecided\": 132, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 17, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.922, \"lanesCumulative\": 164, \"lanesThisRound\": 8, \"lemmasDecided\": 136, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 18, \"threeReferee\": 2}]",
+   "[{\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.833, \"lanesCumulative\": 18, \"lanesThisRound\": 18, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 1, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.846, \"lanesCumulative\": 26, \"lanesThisRound\": 8, \"lemmasDecided\": 2, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 3, \"round\": 2, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.882, \"lanesCumulative\": 34, \"lanesThisRound\": 8, \"lemmasDecided\": 4, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 3, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.905, \"lanesCumulative\": 42, \"lanesThisRound\": 8, \"lemmasDecided\": 5, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 4, \"round\": 4, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.88, \"lanesCumulative\": 50, \"lanesThisRound\": 8, \"lemmasDecided\": 9, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 5, \"round\": 5, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.862, \"lanesCumulative\": 58, \"lanesThisRound\": 8, \"lemmasDecided\": 16, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 6, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.879, \"lanesCumulative\": 66, \"lanesThisRound\": 8, \"lemmasDecided\": 23, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 7, \"round\": 7, \"threeReferee\": 0}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.865, \"lanesCumulative\": 74, \"lanesThisRound\": 8, \"lemmasDecided\": 30, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 8, \"round\": 8, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 82, \"lanesThisRound\": 8, \"lemmasDecided\": 37, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 9, \"round\": 9, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.878, \"lanesCumulative\": 90, \"lanesThisRound\": 8, \"lemmasDecided\": 43, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 10, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.888, \"lanesCumulative\": 98, \"lanesThisRound\": 8, \"lemmasDecided\": 53, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 11, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.896, \"lanesCumulative\": 106, \"lanesThisRound\": 8, \"lemmasDecided\": 61, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 12, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.904, \"lanesCumulative\": 114, \"lanesThisRound\": 8, \"lemmasDecided\": 75, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 10, \"round\": 13, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.902, \"lanesCumulative\": 122, \"lanesThisRound\": 8, \"lemmasDecided\": 92, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 14, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.908, \"lanesCumulative\": 140, \"lanesThisRound\": 18, \"lemmasDecided\": 107, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 15, \"threeReferee\": 1}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.913, \"lanesCumulative\": 148, \"lanesThisRound\": 8, \"lemmasDecided\": 125, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 16, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.918, \"lanesCumulative\": 156, \"lanesThisRound\": 8, \"lemmasDecided\": 132, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 17, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.922, \"lanesCumulative\": 164, \"lanesThisRound\": 8, \"lemmasDecided\": 136, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 18, \"threeReferee\": 2}, {\"bestScore\": 1, \"bestSlug\": \"c1-leeyang-krein-limit\", \"holdRate\": 0.922, \"lanesCumulative\": 165, \"lanesThisRound\": 1, \"lemmasDecided\": 136, \"missing\": [\"R2\", \"R3\", \"R4\"], \"provedBroken\": 11, \"round\": 19, \"threeReferee\": 2}]"
+  ]
+ ],
+ "devices": [
+  [
+   "devices",
+   "bilinear-reciprocity-height-jform",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "bost-connes-crossed-product-positivity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "catalogued-x2-inequality-torus-parameter-eigenobject",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "coherent-set-large-sieve",
+   "floored",
+   "floored",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "de-branges-positivity-family",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "depth-aspect-height-transfer",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "dictionary-d-kernel-sign-functionals",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "dictionary-dj-joint-pair-sign-functionals",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "dictionary-dn-nonhomogeneous-pair-triple-sign-functionals",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "dual-measure-compactness",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "edrei-thoma-local-total-positivity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "effective-order-two",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "euler-fe-phase-at-height",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "exact-relation-rigidity",
+   "open",
+   "closed",
+   "closedOn edited; evidence edited (+1679 chars); name edited (+12 chars); state: open -> closed; status edited (+-72 chars)"
+  ],
+  [
+   "devices",
+   "exact-uniqueness",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "fejer-section-prime-chain-growing-p",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "finite-support-positivity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "fourier-interpolation-zero-nodes",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "frequency-only",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "function-field-order2-vertex",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "geometric-positivity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "hecke-compression-lax-phillips",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "hecke-correspondence-recurrence",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "helson-discrepancy",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "joint-pair-ratio-crossgram-twist-transfer",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "kacmoody-loop-eisenstein-maass-selberg",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "landau-siegel-mechanism",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "laurent-shell-gamma-section",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "laxphillips-hecke-norm-outside-l2",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "lrs-amplification-eisenstein-at-zero",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "lrs-count-rank-one-eigenobject-at-zero-theta-orthogonal",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "maximum-principle",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "mean-value-convexity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "monotone-flow-functional",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "nonprincipal-row-cancellation",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "padic-special-values",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "positive-kernel-transport",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "positive-term-sum-rule",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "quadratic-positivity-companions",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "recurrence-ergodicity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "regular-rep-matrix-bridge",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "residue-explicit-formula",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "section-extraction",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "selberg-operator",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "single-row-bridge",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "stage-limit",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "strip-dtn-identity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "sum-product-vinogradov",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "tensor-squeeze",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "test-restriction-commutator",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "twist-modulus-reciprocity",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "twisted-discrepancy",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "tz-one-sided-completion-bound-band",
+   "open",
+   "closed",
+   "closedOn edited; evidence edited (+1960 chars); name edited (+46 chars); state: open -> closed; status edited (+74 chars)"
+  ],
+  [
+   "devices",
+   "vector-specific-row-mean-square",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "window-fe-rigidity-growing-count-one-span",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "devices",
+   "x04-oval-hecke-fricke-loading",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "cells",
+   "silent-cell-u2-pos",
+   "closed",
+   "closed",
+   "unchanged"
+  ],
+  [
+   "cells",
+   "silent-cell-u3",
+   "closed",
+   "closed",
+   "evidence edited (+269 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u4",
+   "cell",
+   "cell",
+   "evidence edited (+745 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u6a",
+   "cell",
+   "cell",
+   "unchanged"
+  ],
+  [
+   "cells",
+   "silent-cell-u6b",
+   "cell",
+   "cell",
+   "unchanged"
+  ],
+  [
+   "cells",
+   "silent-cell-u6c",
+   "cell",
+   "cell",
+   "evidence edited (+654 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u6d",
+   "cell",
+   "cell",
+   "unchanged"
+  ],
+  [
+   "cells",
+   "silent-cell-u6e",
+   "closed",
+   "closed",
+   "evidence edited (+323 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u6f",
+   "closed",
+   "closed",
+   "evidence edited (+227 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u6g",
+   "tried-not-closed",
+   "tried-not-closed",
+   "evidence edited (+713 chars)"
+  ],
+  [
+   "cells",
+   "silent-cell-u8",
+   "cell",
+   "cell",
+   "unchanged"
+  ]
+ ],
+ "pending": [
+  [
+   "c16-amplifier-below-truncation-eisw-compute",
+   "tried-not-closed",
+   "tried-not-closed",
+   "unchanged"
+  ],
+  [
+   "c17-rank2-gram-symmetric-blaschke-closure",
+   "tried-not-closed",
+   "tried-not-closed",
+   "unchanged"
+  ],
+  [
+   "c17-window-information-law-ctheta-u5",
+   "open",
+   "open",
+   "name edited"
+  ],
+  [
+   "c6-quadratic-companion-positivity",
+   "open",
+   "open",
+   "unchanged"
+  ],
+  [
+   "c6-unreflected-marks-kd23",
+   "open",
+   "open",
+   "unchanged"
+  ],
+  [
+   null,
+   "open",
+   "open",
+   "unchanged"
+  ]
+ ]
+}

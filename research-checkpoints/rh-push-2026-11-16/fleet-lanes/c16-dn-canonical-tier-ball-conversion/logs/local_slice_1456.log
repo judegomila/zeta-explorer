@@ -1,0 +1,49 @@
+objects 650; groups {'P': 23, 'PX': 506, 'PH': 24, 'C3': 10, 'H3': 24, 'C4': 10, 'H4': 24, 'C2': 5, 'H2': 24}; names equal to the stored c15 objects: True
+planned memory: per worker float64 blocks of at most 25 nodes x 650 pairs x 4 arrays x 4 families = 2.08 MB; ball caches per node only
+g1: 19293 distinct nodes, 37674 family-nodes
+g2: 14652 distinct nodes, 29464 family-nodes
+jobs 3396; meta {'b1-Aw': {'und': 19253, 'feas': 0, 'nodes': 215769}, 'b3-with': {'und': 18381, 'feas': 0, 'nodes': 215769}, 'b6-with': {'und': 40, 'feas': 0, 'nodes': 215769}, 'b2-with': {'und': 14652, 'feas': 15784, 'nodes': 163377}, 'b5l-with': {'und': 14652, 'feas': 6724, 'nodes': 163377}, 'b5m-with': {'und': 80, 'feas': 0, 'nodes': 163377}, 'b5p-with': {'und': 80, 'feas': 0, 'nodes': 163377}}
+job slice [1456:1496): 40 jobs
+  job 1/40 7s; rows 20
+  job 2/40 13s; rows 39
+  job 3/40 18s; rows 59
+  job 4/40 24s; rows 78
+  job 5/40 31s; rows 97
+  job 6/40 36s; rows 116
+  job 7/40 42s; rows 135
+  job 8/40 48s; rows 154
+  job 9/40 54s; rows 173
+  job 10/40 60s; rows 193
+  job 11/40 66s; rows 213
+  job 12/40 73s; rows 232
+  job 13/40 78s; rows 252
+  job 14/40 84s; rows 272
+  job 15/40 90s; rows 292
+  job 16/40 96s; rows 312
+  job 17/40 102s; rows 331
+  job 18/40 108s; rows 351
+  job 19/40 114s; rows 371
+  job 20/40 120s; rows 391
+  job 21/40 125s; rows 410
+  job 22/40 131s; rows 430
+  job 23/40 137s; rows 449
+  job 24/40 142s; rows 469
+  job 25/40 149s; rows 489
+  job 26/40 154s; rows 508
+  job 27/40 160s; rows 528
+  job 28/40 166s; rows 548
+  job 29/40 172s; rows 568
+  job 30/40 178s; rows 586
+  job 31/40 184s; rows 605
+  job 32/40 190s; rows 624
+  job 33/40 195s; rows 644
+  job 34/40 201s; rows 663
+  job 35/40 207s; rows 683
+  job 36/40 213s; rows 701
+  job 37/40 219s; rows 721
+  job 38/40 225s; rows 741
+  job 39/40 230s; rows 761
+  job 40/40 236s; rows 780
+b1-Aw {'identity': 0, 'excluded': 400, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 13200, 'maxprec': {'256': 235, '512': 82, '128': 83}}
+b3-with {'identity': 0, 'excluded': 380, 'ttrain': 0, 'undecided': 0, 'primary_full': 0, 'secondary_any': 0, 'nb': 12534, 'maxprec': {'256': 235, '512': 82, '128': 63}}
+CBALL-DONE 236s

@@ -264,7 +264,7 @@ Thus $\beta_a/t$ is uniformly positive on $[0,3]$ for sufficiently small positiv
 
 The corollary asserts existence of a common parameter range. It does not assign a numerical value to $\delta$, and it does not assert a positive unscaled margin uniform as $a\downarrow0$.
 
-By the [exact sufficient criterion in PR #50](https://github.com/judegomila/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/theta_second_kernel_structure_20261109.md), this also makes both second canceled kernels strictly positive for every second anchor $c>0$, whenever the first anchor satisfies $0<a\le\delta$. It does not prove the derivative-ratio conditions required at the following stage.
+By the [exact sufficient criterion in PR #50](https://github.com/[user]/mathexplorer/blob/146ce77aa8407e912ed54c73e30664d86936c253/rigorous/theta-fourth-stage-2026-11-09/theta_second_kernel_structure_20261109.md), this also makes both second canceled kernels strictly positive for every second anchor $c>0$, whenever the first anchor satisfies $0<a\le\delta$. It does not prove the derivative-ratio conditions required at the following stage.
 
 ## Validation and remaining work
 

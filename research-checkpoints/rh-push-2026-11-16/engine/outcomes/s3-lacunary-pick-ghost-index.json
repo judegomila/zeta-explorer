@@ -1,0 +1,89 @@
+{
+ "slug": "s3-lacunary-pick-ghost-index",
+ "round": 3,
+ "kind": "screen",
+ "nodes": [
+  "blaschke-ghost-index-identity",
+  "bounded-type-lemma-xi-logderiv",
+  "heat-fiber-completion-theorem",
+  "lac-eq-caratheodory-interpolation",
+  "lacunary-cone-4k-certificate",
+  "lacunary-detection-horizon-law",
+  "mem-lacunary-loophole",
+  "near-muntz-threshold-cones",
+  "pontryagin-index-detectors",
+  "pontryagin-index-ka",
+  "schur-ratio-max-principle-gap",
+  "twistor-heat-compat-lemma"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "lacunary-cone-4k-certificate",
+    "lacunary-detection-horizon-law",
+    "mem-lacunary-loophole"
+   ],
+   "obstruction": "law horizon of the lattice must pass the first off-line height; fixed pivot index is a zero count, not a horizon gain (verified height)",
+   "controlsThatDefeat": [
+    "DH (m <= 19)",
+    "heat tau=-0.5 (m <= 8)",
+    "planted pair on zeta"
+   ]
+  },
+  {
+   "nodes": [
+    "near-muntz-threshold-cones",
+    "bounded-type-lemma-xi-logderiv",
+    "lac-eq-caratheodory-interpolation"
+   ],
+   "obstruction": "node count needed is proportional to off-line height and pivot bits are 3.2 to 22 times pi gamma/(4 ln 2); sparser nodes see less",
+   "controlsThatDefeat": [
+    "DH",
+    "planted pair on zeta"
+   ]
+  },
+  {
+   "nodes": [
+    "pontryagin-index-ka",
+    "blaschke-ghost-index-identity",
+    "pontryagin-index-detectors"
+   ],
+   "obstruction": "ghost index from a distant box costs one node per intervening zero and about 8 bits per node: a zero count (verified height at higher cost)",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "planted pairs (nine heights)"
+   ]
+  },
+  {
+   "nodes": [
+    "heat-fiber-completion-theorem",
+    "twistor-heat-compat-lemma",
+    "schur-ratio-max-principle-gap"
+   ],
+   "obstruction": "energy excess is not specific to a pole and is below noise until T exceeds the off-line height",
+   "controlsThatDefeat": [
+    "DH",
+    "E_a",
+    "T-NR",
+    "planted pairs on zeta"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) law horizon of the lattice must pass the first off-line height; fixed pivot index is a zero count, not a horizon gain (verified height) | (2) node count needed is proportional to off-line height and pivot bits are 3.2 to 22 times pi gamma/(4 ln 2); sparser nodes see less | (3) ghost index from a distant box costs one node per intervening zero and about 8 bits per node: a zero count (verified height at higher cost) | (4) energy excess is not specific to a pole and is below noise until T exceeds the off-line height",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (m <= 19)",
+  "E_a",
+  "T-NR",
+  "heat",
+  "heat tau=-0.5 (m <= 8)",
+  "planted pair on zeta",
+  "planted pairs (nine heights)",
+  "planted pairs on zeta"
+ ],
+ "score": 0,
+ "resultFile": "tmp/research-2026-11-16/push/s3-lacunary-pick-ghost-index/RESULT.md"
+}

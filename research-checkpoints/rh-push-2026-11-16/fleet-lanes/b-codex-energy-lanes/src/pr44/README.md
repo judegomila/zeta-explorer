@@ -1,7 +1,7 @@
 # Actual theta propagation: quantitative energy and the remaining uniformity
 
 Research continuation, **8 November 2026**. This is a new checkpoint following
-[PR #43](https://github.com/judegomila/mathexplorer/pull/43). It adds independent
+[PR #43](https://github.com/[user]/mathexplorer/pull/43). It adds independent
 proofs and certificates and can be reviewed without merging that earlier PR.
 No novelty claim is made.
 

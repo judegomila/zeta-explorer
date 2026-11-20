@@ -1,0 +1,39 @@
+{
+ "slug": "c10-repair-record-referee-r9",
+ "round": 10,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "record",
+  "obstruction-map",
+  "control",
+  "referee",
+  "statement-o",
+  "map-rows",
+  "engine"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record and bookkeeping only; nothing about zeros of zeta. Statement O has a second referee file for its 12 lines. Under its two-file rule: PROVED lines 6 (without KER), 8 (no floor) and 9 as labelled, and line 3 only for the inputs {EP, POS, FE} (E_a has an Euler product, non-negative Lambda, a functional equation, and zeros on Re s = 1/2 + a; the part reading ZF(theta) as a hypothesis is ARGUED, and membership at theta = 1/2 + a is equivalent to RH); MEASURED 1 (line 2); ARGUED 7, each relative to a named source. Joint clause withdrawn. Map 166 -> 180 rows (Q23-Q27, G31, Z24b, Z27-Z32, O1, control EIS-w), MAP_PENDING consistent. Round-9 records and lane lines carry correction fields in 7 of 8; device evidence text corrected, states unchanged. Engine counts 1,640 / 8,855 / 40,671 / 10,311 confirmed. STRATEGY 3.1 items 15-21 and 4.0 present. b1_blocks.json and checks.json untouched. Server removal not independently checked.",
+ "obstruction": "Record lane, no attack. The referee does not hold the lane as written: of the four PROVED labels of Statement O, line 3 is confirmed only for the inputs {EP, POS, FE}; the part reading ZF(theta) as a hypothesis is ARGUED, and membership of E_a at theta = 1/2 + a is equivalent to RH. Standing: PROVED lines 6 (without KER), 8 (no floor), 9, and 3 for {EP, POS, FE}; MEASURED line 2; ARGUED 7. Joint clause withdrawn. Map 166 -> 180 rows. Not re-run: lines 4, 10 and the step mode of line 1. Server removal not independently checked. Open for the planner: state of device effective-order-two (node map-open-1).",
+ "obstructionKind": "filter-repair",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": false,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "Report: tmp/research-2026-11-16/push/c10-repair-record-referee-r9/REFEREE.md. holds=false under the strict rule: one of the four PROVED labels (line 3) is not confirmed as written; the repair is two sentences.\n\nE1 (line 3, PROVED not confirmed for the read class as written): the read class is {EP, POS, FE, explicit formula, ZF(theta) as hypothesis, growth}. REFEREE2 section 3 checks membership of E_a = zeta(s+a)zeta(s-a) for EP, POS, FE only. ZF(th - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "A zero-mode line of the record closes with membership of the control in the read class plus one zero; where both are elementary a second pass can cover it, otherwise the line is \"relative to\" its source. Device state \"closed\" also covers argued and measured closures, so the row text must carry the referee's limit.",
+ "followUp": "Planner: engine device effective-order-two (node map-open-1) is still open while STRATEGY 4.0 now says ORDER-2 is closed as an attack lead; decide its state. After c10-thin-deletion-zero-mode-control is refereed, update Statement O lines 1 and 5 and add its map row. Lines 4, 10 and the step mode of line 1 were not re-run.",
+ "resultFile": "tmp/research-2026-11-16/push/c10-repair-record-referee-r9/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c10-repair-record-referee-r9/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

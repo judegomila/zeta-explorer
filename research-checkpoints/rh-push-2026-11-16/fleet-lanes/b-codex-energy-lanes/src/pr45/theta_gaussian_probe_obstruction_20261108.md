@@ -83,8 +83,8 @@ formal inverse operator. Because \(V_\sigma\) is zero-free, every denominator ze
 is removable in \(N/D\). All possible genuine right-half-plane poles lie
 strictly inside \(0<\Re z<1/2\); hence the endpoint \(X=1/2\) suffices.
 The previously audited xi-specific pole-free-to-inner argument then gives RH;
-see the [prior Hardy analysis](https://github.com/judegomila/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md)
-and the [weighted-criterion checkpoint](https://github.com/judegomila/mathexplorer/pull/43).
+see the [prior Hardy analysis](https://github.com/[user]/mathexplorer/blob/a89222f2d069f24690b2f62904d5049e9ff676ed/rigorous/theta-propagation-2026-11-08/theta_pulse_hardy_defect_20261108.md)
+and the [weighted-criterion checkpoint](https://github.com/[user]/mathexplorer/pull/43).
 Conversely, under RH the actual multiplier contracts exponentially weighted
 norms, and (2) gives the bound
 

@@ -1,0 +1,12 @@
+M = 1                                      rank undecided  positive 0  negative 0
+M = 1, quartet(0.3,3)                      rank 10  positive 10  negative 0
+M = 1, left pair 0.2+-3i                   rank 3  positive 3  negative 0
+M = 1, real pair (0.2)                     rank 3  positive 3  negative 0
+toy                                        rank undecided  positive 0  negative 0
+toy, real pair (0.2)                       rank 1  positive 1  negative 0
+toy, quartet(0.3,3)                        rank 6  positive 6  negative 0
+toy, two quartets                          rank 28  positive 28  negative 0
+toy, left pair 0.2+-3i                     rank 3  positive 1  negative 2
+toy, right pair 0.8+-3i                    rank 3  positive 3  negative 0
+toy, mis-paired quartet (0.3,3; 1e-6)      rank 10  positive 8  negative 2
+toy, real left pair {0.3,0.2}              rank 3  positive 1  negative 2

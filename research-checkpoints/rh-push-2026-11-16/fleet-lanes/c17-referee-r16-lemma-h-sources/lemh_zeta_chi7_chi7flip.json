@@ -1,0 +1,1790 @@
+{
+ "zeta": {
+  "rows": [
+   {
+    "point": 0,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.5,
+     0.11,
+     0.49
+    ],
+    "e": [
+     2,
+     2,
+     3
+    ],
+    "S": 1.2445,
+    "M0": "[4.52234429166e-35 +/- 4.73e-47]",
+    "lam": "[1.80893771667e-34 +/- 4.12e-46]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 1,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.37,
+     0.42
+    ],
+    "e": [
+     3,
+     2
+    ],
+    "S": 0.7635,
+    "M0": "[1.75988702925e-19 +/- 1.07e-31]",
+    "lam": "[1.93587573217e-19 +/- 3.84e-31]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 2,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.03,
+     -0.22
+    ],
+    "e": [
+     -1,
+     -1.5
+    ],
+    "S": -0.0735,
+    "M0": "[162.049217175 +/- 4.37e-10]",
+    "lam": "[162.049233380 +/- 3.59e-10]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[5.44217660181698e-6 +/- 2.06e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 3,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.43,
+     0.53,
+     0.28,
+     0.21
+    ],
+    "e": [
+     -2,
+     1.5,
+     2,
+     -1
+    ],
+    "S": 0.16425,
+    "M0": "[5.49186596349e-6 +/- 3.69e-18]",
+    "lam": "[1.37296649087e-5 +/- 1.58e-17]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 4,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.59,
+     0.46,
+     0.07,
+     -0.52
+    ],
+    "e": [
+     -2,
+     -2,
+     -0.5,
+     -0.5
+    ],
+    "S": -1.25705,
+    "M0": "[6.70188551952e+36 +/- 2.78e+24]",
+    "lam": "[2.68075420781e+37 +/- 3.11e+25]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[4.41126243544772 +/- 4.82e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 5,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.39,
+     -0.01
+    ],
+    "e": [
+     1,
+     2
+    ],
+    "S": 0.1523,
+    "M0": "[3.78210898055e-5 +/- 2.46e-17]",
+    "lam": "[4.16031987860e-5 +/- 2.31e-17]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 6,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.31,
+     0.21,
+     -0.23,
+     0.03
+    ],
+    "e": [
+     -2,
+     -1.5,
+     2,
+     0.5
+    ],
+    "S": -0.1521,
+    "M0": "[2736.17794694 +/- 1.56e-9]",
+    "lam": "[2736.17822056 +/- 3.76e-9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[2.62984865373799e-6 +/- 6.47e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 7,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.1,
+     0.59,
+     0.47
+    ],
+    "e": [
+     -1.5,
+     0.5,
+     1
+    ],
+    "S": 0.37995,
+    "M0": "[3.15408984750e-11 +/- 3.02e-23]",
+    "lam": "[7.88522461874e-11 +/- 2.47e-23]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 8,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.05,
+     -0.24
+    ],
+    "e": [
+     -2,
+     -1.5
+    ],
+    "S": -0.0914,
+    "M0": "[809.539723402 +/- 2.2e-12]",
+    "lam": "[3238.15889361 +/- 2.00e-9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[60.6693374669536 +/- 3.76e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 5
+   },
+   {
+    "point": 9,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.09,
+     -0.47
+    ],
+    "e": [
+     0.5,
+     1.5
+    ],
+    "S": 0.3354,
+    "M0": "[9.88390179248e-10 +/- 2.40e-22]",
+    "lam": "[1.08722919717e-9 +/- 2.54e-21]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 10,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.48,
+     0.27
+    ],
+    "e": [
+     -2,
+     -0.5
+    ],
+    "S": -0.49725,
+    "M0": "[1.60209156593e+13 +/- 49.2]",
+    "lam": "[1.60209172613e+13 +/- 42.5]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[8.04424294084561e-7 +/- 4.50e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 11,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.58,
+     0.56
+    ],
+    "e": [
+     -2,
+     2
+    ],
+    "S": -0.0456,
+    "M0": "[94.3855961365 +/- 6.3e-13]",
+    "lam": "[235.963990341 +/- 2.52e-10]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[80.3763799889610 +/- 2.94e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 5
+   },
+   {
+    "point": 12,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.3,
+     -0.1,
+     -0.07
+    ],
+    "e": [
+     -1.5,
+     -0.5,
+     0.5
+    ],
+    "S": -0.13755,
+    "M0": "[1726.31002019 +/- 2.42e-9]",
+    "lam": "[2589.46503029 +/- 1.38e-9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[11.7910609409862 +/- 4.16e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 13,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.21,
+     -0.18
+    ],
+    "e": [
+     -2,
+     1.5
+    ],
+    "S": -0.0396,
+    "M0": "[8.13755751616 +/- 3.84e-13]",
+    "lam": "[8.95131326778 +/- 4.43e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[9.62729088932575 +/- 1.60e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 14,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.29,
+     0.3
+    ],
+    "e": [
+     -1.5,
+     -2
+    ],
+    "S": -0.30615,
+    "M0": "[17764780.2750 +/- 4.97e-5]",
+    "lam": "[17764782.0515 +/- 2.77e-5]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[1.30654901268512e-6 +/- 4.28e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 15,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.01,
+     0.42
+    ],
+    "e": [
+     2,
+     -1
+    ],
+    "S": -0.1762,
+    "M0": "[5259.22919426 +/- 8.64e-10]",
+    "lam": "[13148.0729856 +/- 4.79e-8]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[20.8011516884031 +/- 3.39e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 5
+   },
+   {
+    "point": 16,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     0.11,
+     -0.36,
+     -0.03,
+     0.05
+    ],
+    "e": [
+     -0.5,
+     -1,
+     1.5,
+     1.5
+    ],
+    "S": -0.13055,
+    "M0": "[178.379025157 +/- 1.20e-10]",
+    "lam": "[187.297976415 +/- 2.41e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[1.49491119630584 +/- 4.68e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 17,
+    "names": [
+     "zeta",
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.07,
+     -0.33,
+     -0.6
+    ],
+    "e": [
+     0.5,
+     0.5,
+     -2
+    ],
+    "S": -0.6631,
+    "M0": "[2.14215312491e+21 +/- 3.75e+9]",
+    "lam": "[2.35636843740e+21 +/- 3.13e+9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[0.574936991731714 +/- 3.17e-16]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 18,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.1,
+     0.49
+    ],
+    "e": [
+     -1.5,
+     -2
+    ],
+    "S": -0.4952,
+    "M0": "[6.11992548964e+13 +/- 30.5]",
+    "lam": "[6.11992610163e+13 +/- 4.98]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[8.07754402733336e-7 +/- 3.91e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 19,
+    "names": [
+     "zeta",
+     "zeta"
+    ],
+    "u": [
+     -0.33,
+     -0.04
+    ],
+    "e": [
+     0.5,
+     -2
+    ],
+    "S": 0.05125,
+    "M0": "[0.289388990603 +/- 4.68e-13]",
+    "lam": "[0.723472476506 +/- 3.31e-13]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   }
+  ],
+  "cases": {
+   "S>0,M>0,lam>0": 7,
+   "S<0,M>0,lam>0": 13
+  },
+  "points": 20,
+  "agree": 211,
+  "disagree": 0,
+  "undecided": 0,
+  "certified_failures": 97,
+  "seconds": 0.027942895889282227
+ },
+ "chi7": {
+  "rows": [
+   {
+    "point": 0,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.26,
+     0.24,
+     0.07
+    ],
+    "e": [
+     -3,
+     -1,
+     1
+    ],
+    "S": -0.2555,
+    "M0": "[33.3056211917 +/- 2.94e-11]",
+    "lam": "[49.9584317875 +/- 5.99e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[6.34779034220218 +/- 2.11e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 1,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.43,
+     -0.02,
+     0.28,
+     0.5
+    ],
+    "e": [
+     -1,
+     -2,
+     -1,
+     -2
+    ],
+    "S": -0.7641,
+    "M0": "[226420.766661 +/- 4.52e-8]",
+    "lam": "[249062.843327 +/- 1.50e-7]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[0.498940870589320 +/- 4.60e-16]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 2,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.44,
+     -0.35,
+     -0.51,
+     0.05
+    ],
+    "e": [
+     -3,
+     3,
+     2,
+     -2
+    ],
+    "S": 0.3019,
+    "M0": "[786.318698790 +/- 4.52e-10]",
+    "lam": "[786.318777422 +/- 3.22e-10]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 3,
+    "names": [
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.06,
+     -0.04
+    ],
+    "e": [
+     -2,
+     2
+    ],
+    "S": -0.004,
+    "M0": "[0.0678991066375 +/- 3.17e-14]",
+    "lam": "[0.169747766594 +/- 1.71e-13]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[916.290731874155 +/- 6.53e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 4
+   },
+   {
+    "point": 4,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.52,
+     0.19,
+     0.11
+    ],
+    "e": [
+     2,
+     -3,
+     1
+    ],
+    "S": 0.4446,
+    "M0": "[0.476599761971 +/- 2.19e-13]",
+    "lam": "[1.90639904788 +/- 3.13e-12]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 5,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re"
+    ],
+    "u": [
+     0.25,
+     0.16,
+     0.17
+    ],
+    "e": [
+     3,
+     3,
+     -3
+    ],
+    "S": 0.1776,
+    "M0": "[3.45359959797e-7 +/- 4.22e-19]",
+    "lam": "[3.79895955777e-7 +/- 1.65e-19]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 6,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.27,
+     -0.15,
+     0.6,
+     -0.14
+    ],
+    "e": [
+     -2,
+     -1,
+     -1,
+     -1
+    ],
+    "S": -0.5479,
+    "M0": "[3502.96119038 +/- 1.91e-9]",
+    "lam": "[3502.96154067 +/- 4.22e-9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[7.30060193892222e-7 +/- 4.62e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 7,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.13,
+     0.43,
+     0.37,
+     0.04
+    ],
+    "e": [
+     -3,
+     2,
+     -3,
+     -2
+    ],
+    "S": -0.0948,
+    "M0": "[-6118762.70485 +/- 2.04e-6]",
+    "lam": "0",
+    "case": "S<0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 8,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.06,
+     -0.55,
+     -0.11,
+     -0.34
+    ],
+    "e": [
+     3,
+     -1,
+     -3,
+     1
+    ],
+    "S": -0.2124,
+    "M0": "[1.51034970421 +/- 4.03e-12]",
+    "lam": "[2.26552455632 +/- 1.04e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[7.63587774214999 +/- 1.64e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 9,
+    "names": [
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     -0.16,
+     0.17,
+     0.21
+    ],
+    "e": [
+     -2,
+     -1,
+     -1
+    ],
+    "S": -0.1242,
+    "M0": "[864.100396447 +/- 6.78e-11]",
+    "lam": "[3456.40158579 +/- 1.73e-9]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[44.6471613887243 +/- 3.56e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 5
+   },
+   {
+    "point": 10,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.29,
+     0.49,
+     0.01
+    ],
+    "e": [
+     2,
+     -1,
+     -2
+    ],
+    "S": -0.0721,
+    "M0": "[41.2983103217 +/- 4.34e-11]",
+    "lam": "[41.2983144516 +/- 2.56e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[5.54784993389110e-6 +/- 1.80e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 11,
+    "names": [
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.38,
+     0.35
+    ],
+    "e": [
+     -1,
+     -1
+    ],
+    "S": -0.2669,
+    "M0": "[4.76514602750 +/- 1.11e-12]",
+    "lam": "[11.9128650687 +/- 4.73e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[13.7323451760833 +/- 4.69e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 12,
+    "names": [
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.3,
+     0.41
+    ],
+    "e": [
+     -2,
+     2
+    ],
+    "S": 0.1562,
+    "M0": "[0.899681163326 +/- 4.17e-15]",
+    "lam": "[0.944665221492 +/- 2.96e-13]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 13,
+    "names": [
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.09,
+     0.04,
+     -0.41
+    ],
+    "e": [
+     3,
+     -3,
+     -2
+    ],
+    "S": -0.3167,
+    "M0": "[-3462.32338412 +/- 4.62e-9]",
+    "lam": "[-3116.09104571 +/- 2.16e-9]",
+    "case": "S<0,M<0,lam<0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 14,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.2,
+     -0.15,
+     -0.27
+    ],
+    "e": [
+     -1,
+     2,
+     -3
+    ],
+    "S": -0.2137,
+    "M0": "[682.215776145 +/- 3.46e-10]",
+    "lam": "[682.215844367 +/- 7.77e-11]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[1.87178278069045e-6 +/- 4.61e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 15,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.18,
+     0.6,
+     0.5
+    ],
+    "e": [
+     2,
+     -1,
+     -3
+    ],
+    "S": -1.0452,
+    "M0": "[-167023.289622 +/- 2.41e-7]",
+    "lam": "0",
+    "case": "S<0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 16,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.6,
+     0.28,
+     -0.57,
+     -0.44
+    ],
+    "e": [
+     -2,
+     1,
+     1,
+     -3
+    ],
+    "S": -0.8975,
+    "M0": "[-13.2498072782 +/- 1.33e-12]",
+    "lam": "[26.4996145564 +/- 2.64e-12]",
+    "case": "S<0,M<0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 17,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.19,
+     0.32,
+     0.57,
+     0.59
+    ],
+    "e": [
+     2,
+     -3,
+     1,
+     -2
+    ],
+    "S": -0.6063,
+    "M0": "[-14.5786588513 +/- 4.02e-11]",
+    "lam": "[-13.1207929661 +/- 3.39e-11]",
+    "case": "S<0,M<0,lam<0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 18,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.21,
+     0.34,
+     -0.11
+    ],
+    "e": [
+     -3,
+     -3,
+     -3
+    ],
+    "S": -0.5154,
+    "M0": "[451.242740319 +/- 4.28e-10]",
+    "lam": "[451.242785443 +/- 1.54e-10]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[7.76096197581584e-7 +/- 4.14e-22]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 19,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.08,
+     -0.35,
+     0.41
+    ],
+    "e": [
+     -2,
+     -1,
+     -1
+    ],
+    "S": -0.3034,
+    "M0": "[-12569.1078950 +/- 1.15e-8]",
+    "lam": "0",
+    "case": "S<0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   }
+  ],
+  "cases": {
+   "S<0,M>0,lam>0": 10,
+   "S>0,M>0,lam>0": 4,
+   "S<0,M<0,lam=0": 3,
+   "S<0,M<0,lam<0": 2,
+   "S<0,M<0,lam>0": 1
+  },
+  "points": 20,
+  "agree": 190,
+  "disagree": 0,
+  "undecided": 0,
+  "certified_failures": 74,
+  "seconds": 0.023417949676513672
+ },
+ "chi7flip": {
+  "rows": [
+   {
+    "point": 0,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.26,
+     0.24,
+     0.07
+    ],
+    "e": [
+     3,
+     1,
+     -1
+    ],
+    "S": 0.2555,
+    "M0": "[0.0300249616797 +/- 4.46e-14]",
+    "lam": "[0.0450374425196 +/- 1.69e-14]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 1,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.43,
+     -0.02,
+     0.28,
+     0.5
+    ],
+    "e": [
+     1,
+     2,
+     1,
+     2
+    ],
+    "S": 0.7641,
+    "M0": "[4.41655601978e-6 +/- 1.84e-19]",
+    "lam": "[4.85821162176e-6 +/- 2.21e-18]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 2,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.44,
+     -0.35,
+     -0.51,
+     0.05
+    ],
+    "e": [
+     3,
+     -3,
+     -2,
+     2
+    ],
+    "S": -0.3019,
+    "M0": "[0.00127174897600 +/- 4.57e-15]",
+    "lam": "[0.00127174910318 +/- 5.36e-16]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[1.32494196831251e-6 +/- 4.68e-21]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 10
+   },
+   {
+    "point": 3,
+    "names": [
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.06,
+     -0.04
+    ],
+    "e": [
+     2,
+     -2
+    ],
+    "S": 0.004,
+    "M0": "[14.7277342740 +/- 6.54e-12]",
+    "lam": "[36.8193356850 +/- 1.64e-11]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 4,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.52,
+     0.19,
+     0.11
+    ],
+    "e": [
+     -2,
+     3,
+     -1
+    ],
+    "S": -0.4446,
+    "M0": "[2.09819659973 +/- 1.64e-12]",
+    "lam": "[8.39278639893 +/- 3.47e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[12.4722839506963 +/- 2.82e-14]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 5,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re"
+    ],
+    "u": [
+     0.25,
+     0.16,
+     0.17
+    ],
+    "e": [
+     -3,
+     -3,
+     3
+    ],
+    "S": -0.1776,
+    "M0": "[2895529.63982 +/- 1.39e-6]",
+    "lam": "[3185082.60380 +/- 4.76e-7]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[2.14662567126858 +/- 2.53e-16]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 6
+   },
+   {
+    "point": 6,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.27,
+     -0.15,
+     0.6,
+     -0.14
+    ],
+    "e": [
+     2,
+     1,
+     1,
+     1
+    ],
+    "S": 0.5479,
+    "M0": "[0.000285472760231 +/- 1.99e-16]",
+    "lam": "[0.000285472788778 +/- 4.75e-16]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 7,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.13,
+     0.43,
+     0.37,
+     0.04
+    ],
+    "e": [
+     3,
+     -2,
+     3,
+     2
+    ],
+    "S": 0.0948,
+    "M0": "[-1.63431734198e-7 +/- 1.07e-19]",
+    "lam": "0",
+    "case": "S>0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 8,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.06,
+     -0.55,
+     -0.11,
+     -0.34
+    ],
+    "e": [
+     -3,
+     1,
+     3,
+     -1
+    ],
+    "S": 0.2124,
+    "M0": "[0.662098318826 +/- 3.63e-13]",
+    "lam": "[0.993147478240 +/- 4.57e-13]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 9,
+    "names": [
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     -0.16,
+     0.17,
+     0.21
+    ],
+    "e": [
+     2,
+     1,
+     1
+    ],
+    "S": 0.1242,
+    "M0": "[0.00115727293277 +/- 4.65e-15]",
+    "lam": "[0.00462909173106 +/- 1.41e-15]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 10,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.29,
+     0.49,
+     0.01
+    ],
+    "e": [
+     -2,
+     1,
+     2
+    ],
+    "S": 0.0721,
+    "M0": "[0.0242140657138 +/- 9.71e-15]",
+    "lam": "[0.0242140681352 +/- 1.63e-14]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 11,
+    "names": [
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.38,
+     0.35
+    ],
+    "e": [
+     1,
+     1
+    ],
+    "S": 0.2669,
+    "M0": "[0.209857157415 +/- 3.58e-13]",
+    "lam": "[0.524642893538 +/- 3.93e-13]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 12,
+    "names": [
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.3,
+     0.41
+    ],
+    "e": [
+     2,
+     -2
+    ],
+    "S": -0.1562,
+    "M0": "[1.11150487613 +/- 9.39e-13]",
+    "lam": "[1.16708011994 +/- 2.52e-12]",
+    "case": "S<0,M>0,lam>0",
+    "rule": "threshold",
+    "tau_star": "[1.24942801970376 +/- 4.56e-15]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 13,
+    "names": [
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.09,
+     0.04,
+     -0.41
+    ],
+    "e": [
+     -3,
+     3,
+     2
+    ],
+    "S": 0.3167,
+    "M0": "[-0.000288823396620 +/- 7.94e-17]",
+    "lam": "[-0.000259941056958 +/- 7.15e-17]",
+    "case": "S>0,M<0,lam<0",
+    "rule": "threshold",
+    "tau_star": "[1.33072959466784 +/- 5.63e-16]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 14,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.2,
+     -0.15,
+     -0.27
+    ],
+    "e": [
+     1,
+     -2,
+     3
+    ],
+    "S": 0.2137,
+    "M0": "[0.00146581189554 +/- 1.62e-15]",
+    "lam": "[0.00146581204212 +/- 2.81e-15]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 15,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     -0.18,
+     0.6,
+     0.5
+    ],
+    "e": [
+     -2,
+     1,
+     3
+    ],
+    "S": 1.0452,
+    "M0": "[-5.98718898581e-6 +/- 1.92e-19]",
+    "lam": "0",
+    "case": "S>0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 16,
+    "names": [
+     "chi7_im",
+     "chi7_im",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     -0.6,
+     0.28,
+     -0.57,
+     -0.44
+    ],
+    "e": [
+     2,
+     -1,
+     -1,
+     3
+    ],
+    "S": 0.8975,
+    "M0": "[-0.0754727958682 +/- 3.63e-14]",
+    "lam": "[0.150945591736 +/- 3.28e-13]",
+    "case": "S>0,M<0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 17,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im",
+     "chi7_im"
+    ],
+    "u": [
+     0.19,
+     0.32,
+     0.57,
+     0.59
+    ],
+    "e": [
+     -2,
+     3,
+     -1,
+     2
+    ],
+    "S": 0.6063,
+    "M0": "[-0.0685934152244 +/- 4.53e-14]",
+    "lam": "[-0.0617340737020 +/- 6.89e-16]",
+    "case": "S>0,M<0,lam<0",
+    "rule": "threshold",
+    "tau_star": "[0.695104836931066 +/- 3.46e-16]",
+    "n_tau": 13,
+    "agree": 13,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 7
+   },
+   {
+    "point": 18,
+    "names": [
+     "chi7_re",
+     "chi7_re",
+     "chi7_re"
+    ],
+    "u": [
+     0.21,
+     0.34,
+     -0.11
+    ],
+    "e": [
+     3,
+     3,
+     3
+    ],
+    "S": 0.5154,
+    "M0": "[0.00221610213451 +/- 4.73e-15]",
+    "lam": "[0.00221610235612 +/- 4.51e-15]",
+    "case": "S>0,M>0,lam>0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   },
+   {
+    "point": 19,
+    "names": [
+     "chi7_im",
+     "chi7_re",
+     "chi7_im"
+    ],
+    "u": [
+     0.08,
+     -0.35,
+     0.41
+    ],
+    "e": [
+     2,
+     1,
+     1
+    ],
+    "S": 0.3034,
+    "M0": "[-7.95601412888e-5 +/- 4.30e-17]",
+    "lam": "0",
+    "case": "S>0,M<0,lam=0",
+    "rule": "all tau",
+    "tau_star": null,
+    "n_tau": 6,
+    "agree": 6,
+    "disagree": 0,
+    "undecided": 0,
+    "certified_failures": 0
+   }
+  ],
+  "cases": {
+   "S>0,M>0,lam>0": 10,
+   "S<0,M>0,lam>0": 4,
+   "S>0,M<0,lam=0": 3,
+   "S>0,M<0,lam<0": 2,
+   "S>0,M<0,lam>0": 1
+  },
+  "points": 20,
+  "agree": 162,
+  "disagree": 0,
+  "undecided": 0,
+  "certified_failures": 43,
+  "seconds": 0.019876718521118164
+ }
+}

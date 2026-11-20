@@ -1,0 +1,7 @@
+tasks 5
+{"tag": "fam A=80 n=800 kappa=3 p=4", "T": null, "theta": 1.0, "n": 800, "bmax": 80.0, "grid_points": 48286, "ball_lower_min": -2.3364368755380045e+17, "argmin": [-28.7346434061119, 1.0], "max_radius": 1.0577862462712777e-44}
+{"tag": "fam A=80 n=800 kappa=2.5 p=4", "T": null, "theta": 1.0, "n": 800, "bmax": 80.0, "grid_points": 57295, "ball_lower_min": -3.8350082599064954e+17, "argmin": [-0.0368120873351927, 1.0], "max_radius": 1.0331363187558893e-44}
+{"tag": "fam A=40 n=300 kappa=2.5 p=4", "T": null, "theta": 1.0, "n": 300, "bmax": 40.0, "grid_points": 23464, "ball_lower_min": -0.0252151960154314, "argmin": [-430.17828136933946, 1.0], "max_radius": 9.163148255862596e-62}
+{"tag": "fam A=40 n=280 kappa=2.5 p=3", "T": null, "theta": 1.0, "n": 280, "bmax": 40.0, "grid_points": 22113, "ball_lower_min": -0.042529723185160524, "argmin": [-405.0455401406211, 1.0], "max_radius": 9.916681715175893e-62}
+{"tag": "fam A=80 n=640 kappa=2.5 p=4", "T": null, "theta": 1.0, "n": 640, "bmax": 80.0, "grid_points": 46473, "ball_lower_min": -3.030540768576348e+17, "argmin": [0.04511774241859712, 1.0], "max_radius": 8.340212446411624e-45}
+done

@@ -1,0 +1,20 @@
+TM5 k3 mean s/node 0.005 max 0.01 {'loco_n': 20, 'n': 40, 'prec_128': 32, 'prec_256': 4, 'prec_512': 4, 's_excl': 40, 'why_HEATcol': 20, 'why_P': 20}
+TM5 pol mean s/node 0.003 max 0.01 {'loco_n': 20, 'n': 40, 'prec_128': 35, 'prec_256': 3, 'prec_512': 2, 's_excl': 40, 'why_P': 40}
+TM6 k3 mean s/node 0.006 max 0.02 {'loco_n': 20, 'n': 40, 'prec_128': 35, 'prec_256': 3, 'prec_512': 2, 's_excl': 40, 'why_HEATcol': 20, 'why_P': 20}
+TM6 pol mean s/node 0.001 max 0.0 {'loco_n': 20, 'n': 40, 'prec_128': 37, 'prec_256': 1, 'prec_512': 2, 's_excl': 40, 'why_P': 40}
+DM5 k3 mean s/node 0.007 max 0.05 {'loco_n': 20, 'n': 40, 'prec_1024': 2, 'prec_128': 32, 'prec_2048': 1, 'prec_256': 2, 'prec_512': 3, 's_excl': 40, 'why_HEATcol': 20, 'why_P': 20}
+DM5 pol mean s/node 0.003 max 0.0 {'loco_n': 20, 'n': 40, 'prec_128': 37, 'prec_256': 2, 'prec_512': 1, 's_excl': 40, 'why_P': 40}
+DM6 k3 mean s/node 0.012 max 0.19 {'loco_n': 20, 'n': 40, 'prec_128': 32, 'prec_256': 4, 'prec_4096': 1, 'prec_512': 3, 's_excl': 40, 'why_HEATcol': 20, 'why_P': 20}
+DM6 pol mean s/node 0.001 max 0.0 {'loco_n': 20, 'n': 40, 'prec_128': 38, 'prec_256': 2, 's_excl': 40, 'why_P': 40}
+TMt5 k3 mean s/node 0.188 max 1.91 {'lazy': 3, 'loco_n': 12, 'loco_pos': 4, 'lt_TH': 1, 'n': 24, 'posfeas': 8, 'prec_128': 24, 's_excl': 24, 'why_C': 3, 'why_None': 2, 'why_P': 16, 'why_lazy:HT': 3}
+TMt5 pol mean s/node 0.339 max 2.93 {'lazy': 3, 'loco_n': 12, 'loco_pos': 3, 'n': 24, 'posfeas': 6, 'prec_128': 24, 's_excl': 24, 'why_C': 3, 'why_P': 18, 'why_lazy:T': 3}
+TMt6 k3 mean s/node 0.122 max 1.87 {'lazy': 3, 'loco_n': 12, 'loco_pos': 2, 'lt_TH': 1, 'n': 24, 'posfeas': 5, 'prec_128': 23, 'prec_256': 1, 's_excl': 24, 'why_C': 1, 'why_None': 1, 'why_P': 19, 'why_lazy:H': 1, 'why_lazy:HT': 2}
+TMt6 pol mean s/node 0.395 max 3.43 {'loco_n': 12, 'loco_pos': 3, 'n': 24, 'posfeas': 3, 'prec_128': 24, 's_excl': 24, 'why_C': 3, 'why_P': 21}
+DMt5 k3 mean s/node 0.13 max 0.52 {'lazy': 5, 'loco_n': 12, 'loco_pos': 6, 'n': 24, 'posfeas': 11, 'prec_128': 23, 'prec_256': 1, 's_excl': 24, 'why_C': 6, 'why_P': 13, 'why_lazy:HT': 5}
+DMt5 pol mean s/node 0.121 max 2.58 {'lazy': 4, 'loco_n': 12, 'loco_pos': 1, 'n': 24, 'posfeas': 5, 'prec_128': 24, 's_excl': 24, 'why_C': 1, 'why_P': 19, 'why_lazy:T': 4}
+DMt6 k3 mean s/node 0.058 max 0.7 {'lazy': 4, 'loco_n': 12, 'loco_pos': 1, 'n': 24, 'posfeas': 5, 'prec_128': 23, 'prec_256': 1, 's_excl': 24, 'why_C': 1, 'why_P': 19, 'why_lazy:HT': 4}
+DMt6 pol mean s/node 0.242 max 2.8 {'lazy': 2, 'loco_n': 12, 'loco_pos': 2, 'n': 24, 'posfeas': 4, 'prec_128': 24, 's_excl': 24, 'why_C': 2, 'why_P': 20, 'why_lazy:T': 2}
+T3 k3 mean s/node 0.029 max 0.16 {'ft_TE': 17, 'fu_TE': 1, 'fu_TH': 1, 'n': 216, 'posfeas': 90}
+T3 pol mean s/node 0.012 max 0.01 {'n': 216, 'posfeas': 77}
+T6 k3 mean s/node 0.012 max 0.01 {'n': 216, 'posfeas': 36}
+T6 pol mean s/node 1.667 max 7.0 {'b_excl': 3, 'b_lazy': 2, 'b_ttrain': 9, 'ball': 12, 'bt_EH': 9, 'bt_TE': 9, 'bt_TH': 9, 'bt_full': 9, 'fhu_TH': 1, 'ft_EH': 4, 'ft_TE': 9, 'ft_TH': 4, 'ft_full': 4, 'fu_EH': 11, 'fu_TE': 3, 'fu_TH': 9, 'fu_full': 8, 'n': 216, 'posfeas': 93, 'prec_128': 12}

@@ -27,7 +27,7 @@ The certificate summary retains the event-table hash. The replay also checks bot
 
 ## Relationship to the existing repository
 
-Comparison baseline: `judegomila/mathexplorer` main commit `942ba1760c4ef54a519750ab91c37a661c31e0ce` (tree `d94ea0ebf222f4af4c2599d5f094288fe5c49094`). The root README, research-inputs index, formalization guidance, and the existing `src/math/mobius-rh-connection.js` were inspected. Filename-tree searches covered `formalization/`, `research-inputs/`, `thinking/`, `scripts/`, and `src/`; repository text searches sought Suzuki, centered Vaughan, and the bundle title. This was a targeted comparison, not an audit of every repository file.
+Comparison baseline: `[user]/mathexplorer` main commit `942ba1760c4ef54a519750ab91c37a661c31e0ce` (tree `d94ea0ebf222f4af4c2599d5f094288fe5c49094`). The root README, research-inputs index, formalization guidance, and the existing `src/math/mobius-rh-connection.js` were inspected. Filename-tree searches covered `formalization/`, `research-inputs/`, `thinking/`, `scripts/`, and `src/`; repository text searches sought Suzuki, centered Vaughan, and the bundle title. This was a targeted comparison, not an audit of every repository file.
 
 The existing Möbius module discusses the Liouville ratio `zeta(2s)/zeta(s)` and is not this centered Vaughan calculation. The existing research-inputs folder is for source PDFs. This new `research/vortex-bridge-reserve/` directory keeps the executable research package separate from those PDFs, the app, and Lean scaffolding. No exact copy of this package was identified in the inspected material.
 

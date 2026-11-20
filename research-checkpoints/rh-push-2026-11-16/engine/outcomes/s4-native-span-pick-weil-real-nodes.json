@@ -1,0 +1,93 @@
+{
+ "slug": "s4-native-span-pick-weil-real-nodes",
+ "round": 4,
+ "kind": "screen",
+ "nodes": [
+  "arch-native-prime-jordan-product",
+  "cayley-schur-trajectory",
+  "eventual-psd-is-global",
+  "lacunary-cone-weil-positivity",
+  "np-pick-seam-pencil",
+  "ns-rigid-primes-enter-as-n-scalars",
+  "odd-power-pick-signature",
+  "one-point-all-jets",
+  "pick-weil-native-span",
+  "poisson-measure-criterion",
+  "positive-real-ladder-step",
+  "schur-defect-screw-form"
+ ],
+ "combinations": [
+  {
+   "nodes": [
+    "np-pick-seam-pencil",
+    "pick-weil-native-span",
+    "arch-native-prime-jordan-product"
+   ],
+   "obstruction": "first negative pivot = zero count out to 1.5-1.8 gamma_off on every node geometry; accumulating nodes at s = 1 gives no gain",
+   "controlsThatDefeat": [
+    "DH (n = 149)",
+    "heat tau=-0.1 (passes to 200)",
+    "planted pair in zeta (same n*)"
+   ]
+  },
+  {
+   "nodes": [
+    "ns-rigid-primes-enter-as-n-scalars",
+    "lacunary-cone-weil-positivity",
+    "odd-power-pick-signature"
+   ],
+   "obstruction": "detects gamma-factor/pole mismatch, not zeros or arithmetic: comparison L-functions fail with the controls; heat and non-Euler vectors pass",
+   "controlsThatDefeat": [
+    "L(chi_-4)",
+    "L(chi_5)",
+    "heat tau=-0.5",
+    "non-Euler coefficient vectors"
+   ]
+  },
+  {
+   "nodes": [
+    "schur-defect-screw-form",
+    "one-point-all-jets",
+    "eventual-psd-is-global"
+   ],
+   "obstruction": "d_first grows superlinearly with gamma_off (zero count); zeros with delta < a are invisible to K_a",
+   "controlsThatDefeat": [
+    "DH",
+    "heat",
+    "planted pair in zeta"
+   ]
+  },
+  {
+   "nodes": [
+    "positive-real-ladder-step",
+    "poisson-measure-criterion",
+    "cayley-schur-trajectory"
+   ],
+   "obstruction": "ladder = Pick pivots; NNLS residual is a local detector of zeros inside the window (verified height)",
+   "controlsThatDefeat": [
+    "DH (windows without off-line zeros pass)",
+    "heat tau=-0.1",
+    "real unimodular twist"
+   ]
+  }
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "",
+ "obstruction": "(1) first negative pivot = zero count out to 1.5-1.8 gamma_off on every node geometry; accumulating nodes at s = 1 gives no gain | (2) detects gamma-factor/pole mismatch, not zeros or arithmetic: comparison L-functions fail with the controls; heat and non-Euler vectors pass | (3) d_first grows superlinearly with gamma_off (zero count); zeros with delta < a are invisible to K_a | (4) ladder = Pick pivots; NNLS residual is a local detector of zeros inside the window (verified height)",
+ "controlsThatDefeat": [
+  "DH",
+  "DH (n = 149)",
+  "DH (windows without off-line zeros pass)",
+  "L(chi_-4)",
+  "L(chi_5)",
+  "heat",
+  "heat tau=-0.1",
+  "heat tau=-0.1 (passes to 200)",
+  "heat tau=-0.5",
+  "non-Euler coefficient vectors",
+  "planted pair in zeta",
+  "planted pair in zeta (same n*)",
+  "real unimodular twist"
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/s4-native-span-pick-weil-real-nodes/RESULT.md"
+}

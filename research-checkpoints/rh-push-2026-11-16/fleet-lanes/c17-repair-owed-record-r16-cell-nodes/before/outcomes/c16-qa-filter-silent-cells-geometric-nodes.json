@@ -1,0 +1,46 @@
+{
+ "slug": "c16-qa-filter-silent-cells-geometric-nodes",
+ "round": 16,
+ "kind": "combine",
+ "nodes": [],
+ "tags": [
+  "prefilter",
+  "control-zq",
+  "control-nrq",
+  "Q-A",
+  "U3",
+  "U4",
+  "U6",
+  "U8",
+  "geometric-program",
+  "finite-certificate",
+  "flow-blindness"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta. Lemma QA (a), (b), (c) holds: ZQ has data (d1) to (d5) of zeta, and NR-q keeps the functional equation at every lift value z with zeros on Re s = 1/2 +- arccosh(c/2)/log q. Lemma C (i) and (ii) for t >= 0, Lemma R (with the disjointness side condition), Proposition M in its sup-norm form (reach 0.48 sqrt(eps)), and J2, J3, K hold. M_ZQ is Schur unconditionally, a standard fact for any such f. The 16-row cell table and 71-row node table are internally consistent readings by one reader (31 target-level, 25 passed by ZQ including 3 under an unestablished margin, 12 by a recorded control, 3 other; no node is an explore candidate). Not surviving as written: the reach eta(eps) in the norm p, and the additive-carrier pattern for all five explore candidates (it covers U3-1 to U3-3 and U6 (c), (e), (f), not the U4 residual). Verdict precise-obstruction stands as a filter and a table.",
+ "obstruction": "Lemma QA (PROVED): a step reading only the functional equation, poles, order, zero count up to O(1) and prime-power atoms is passed by ZQ; twist families by NR-q at every lift value. ZQ passes strict compact certificates and heat-box certificates (t >= 0) once the removed pair is high; M_ZQ is Schur. Cell table (one reader): 16 rows; no passing control on file for U3 as an inequality, the U4 residual, U6 (c), (e), (f). Node table: 71 nodes, 31 target-level, 25 passed by ZQ (3 under an unestablished margin), 12 by a recorded control, 3 other; no node is an explore candidate. A critical-line step must be discontinuous in the coefficient measure at zeta (margin zero; reach 0.48 sqrt(eps) in sup norm). Sign searches on compact parameter sets (U8, DN canonical tier) sit inside the flow-blindness wall. Not surviving: the reach in the norm p; the additive-carrier pattern for the U4 residual.",
+ "obstructionKind": "control-passes",
+ "controlsThatDefeat": [
+  "ZQ (atom-only steps, strict compact certificates, heat-box certificates, Schur carrier)",
+  "NR-q (twist families, every lift value)",
+  "HEAT at small |tau| (compact-parameter sign searches)",
+  "recorded controls on 12 nodes"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "refereeNote": "No PROVED step failed; all were re-derived and a fresh numeric run (pairs 10/11, 34/35, 50/51; NR-q at c=2.19; Lemma R on 50/51 with 60/61; new Pick seed) agrees. Corrections, appended as an independent section to tmp/research-2026-11-16/push/c16-qa-filter-silent-cells-geometric-nodes/REFEREE.md (the same-lane pass is kept above it):\nE1: outcome item 2 gives the reach eta(eps) = 0.48 sqrt(eps) \"in the density norm\", but that is the sup term alone.  - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Every silent geometric-program node is target-level or passed by a control; ZQ passes finite certificates and atom-only steps inside zeta's own functional-equation class. The five cell rows with no passing control (U3 as an inequality, U4 residual, U6 c, e, f) all read the integers as an additive set (a reading, one reader). A critical-line step must be discontinuous in the coefficient measure at zeta: the margin is zero, f(eps) >= 0.48 sqrt(eps). Sign searches on compact parameter sets (U8, DN canonical tier) sit inside the flow-blindness wall: a survivor there is not a device with R3.",
+ "followUp": "Round-17 explore: take one of the five no-control rows with the entry condition \"name the step that fails for ZQ as its defect tends to 0 and for NR-q at every lift value\". Before any search reports a survivor, add HEAT members at abs(tau) <= 0.005 to its battery. Owed: an independent referee for this lane, a re-read of the five atom-only node rows against their sources, and a proof or refutation of Maass-Selberg positivity for ZQ.",
+ "resultFile": "tmp/research-2026-11-16/push/c16-qa-filter-silent-cells-geometric-nodes/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c16-qa-filter-silent-cells-geometric-nodes/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "closed"
+}

@@ -1,0 +1,3 @@
+controls.json: ['EISW', 'DEL', 'UNIV', 'BLS', 'NR-vec', 'ZQ', 'SG', 'NR-q', 'HQ2', 'HQ3', 'HQ4']
+build_graph.py: CONTROL_CODE_RE extended
+mk_devices.py: block R19 added

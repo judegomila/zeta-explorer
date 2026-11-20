@@ -324,7 +324,7 @@ with its actual operator domains.
 - The exact modular positive system is proved in
   `theta_modular_system_20261108.md`. The previously certified
   `D(-1)>0` is in PR #45:
-  https://github.com/judegomila/mathexplorer/pull/45 .
+  https://github.com/[user]/mathexplorer/pull/45 .
 
 The new endpoint calculations and scaling are derived above and received
 an independent analytical audit. No novelty or RH proof claim is made.

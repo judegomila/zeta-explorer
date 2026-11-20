@@ -1,0 +1,50 @@
+{
+ "slug": "c20-u6ab-rank2-metaplectic-eigenobject-verdict",
+ "round": 20,
+ "kind": "deepen",
+ "nodes": [
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+ ],
+ "tags": [
+  "U6a",
+  "U6b",
+  "GL(3)",
+  "GL(4)",
+  "maximal-parabolic",
+  "Eisenstein",
+  "Maass-Selberg",
+  "BLS",
+  "Lemma K"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "Cells U6 (a) linear and U6 (b): precise obstruction, no candidate device, nothing about zeros of zeta. On O2 (ternary Epstein series; PROVED) and on O1, O3 (PROVED relative to recalled Langlands-Shahidi formulas and D9 Theorems B, C): zeta at real part in (1/2,1) is read only as a numerator zero of an intertwining ratio or through the pole at 1; no zero-indexed object is square-integrable; the Hermitian condition at 2u = 1 + rho is the identity x = (beta - 1/2)/3 and nothing forces it; the O3 truncated-norm inequality is the rank-one D9 form with M_zeta times an inner function and holds for every placement of non-real zeros (a realised BLS member); the Rankin-Selberg count is shift-independent once the product is corrected to Pi x conj(Pi); Lemma K holds. EIS-w, BLS and ZQ pass every step (confirmed here). Not established: the double cover (ARGUED only), the truncated norm of the degenerate series O2 (not derived, inherits row D10), table row E_a (ARGUED). One independent referee pass (this one).",
+ "obstruction": "No candidate device. On O2 (ternary Epstein; PROVED) and O1, O3 (PROVED relative to recalled Langlands-Shahidi formulas and D9 Theorems B, C): zeta at real part in (1/2,1) is read only as a numerator zero of an intertwining ratio or through the pole at 1; no zero-indexed object is square-integrable; the Hermitian condition at 2u = 1 + rho is the identity x = (beta - 1/2)/3 and nothing forces it; the GL(4) truncated-norm inequality is row D9's rank-one form with M_zeta times an inner function and holds for every placement of non-real zeros (a realised BLS member); the Rankin-Selberg count is shift-independent (product corrected to Pi x conj(Pi)). Cell (b): Lemma K, finite-codimension Hecke-invariant subspaces contain all but finitely many Eisenstein parameters. Not established: double cover (ARGUED), truncated norm of the degenerate P_(2,1) series (inherits row D10), table row E_a (ARGUED).",
+ "obstructionKind": "control-passes: EIS-w, BLS, ZQ pass every step; the first linear non-Borel object reading zeta in the strip is itself a BLS member",
+ "controlsThatDefeat": [
+  "EIS-w (off-resonance series; passes every step)",
+  "BLS (the GL(4) form is a realised member)",
+  "ZQ (passes every step)",
+  "E_a, T-NR (pass; E_a row ARGUED)",
+  "not run: double cover; regularised truncated norm of the degenerate P_(2,1) series at 2u = 1 + rho"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "Verdict precise-obstruction holds after five corrections of wording or label; no PROVED step failed. (1) Lemma 5 displays an inconsistent factorisation: it writes L(s, Pi x conj-dual Pi) with shifts w_i - conj(w_j) and then poles at 1 - Re(w_i - w_j). The product with non-negative coefficients is Pi x conj(Pi), with shifts w_i + conj(w_j); with that product P - beta_0 >= 1 - 2 max theta_i, so the shift-independent conclusion stands. (2) \"O3 is the lowest-rank linear non-Borel object reading zeta - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "In rank >= 2 non-Borel objects a zero of zeta only removes one constant-term exponent; the off-resonance series (EIS-w) passes every other step. The first linear non-Borel object that reads zeta in the strip (GL(4), datum f x f) is itself a BLS member, so its positivity carries no zero-location information. Conditions of the form \"unitary iff beta = 1/2\" are identities in the parameter.",
+ "followUp": "Independent referee pass. Then one paper item: derive the regularised truncated norm of the degenerate P_(2,1) series at 2u = 1 + rho (two exponents, coefficients of equal modulus iff beta = 1/2) and test it against ZQ; it is a wall residue of row D10's form. Enter MAP_ROW.md as G45; mark U6 (a) closed for linear groups, argued for the double cover.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-u6ab-rank2-metaplectic-eigenobject-verdict/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-u6ab-rank2-metaplectic-eigenobject-verdict/REFEREE.md",
+ "launchedNodes": [
+  "silent-u6a-rank2-nonborel-metaplectic-eigenobject"
+ ],
+ "engineVerdict": "closed"
+}

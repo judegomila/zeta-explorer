@@ -1,0 +1,55 @@
+{
+ "slug": "c18-exact-relation-rigidity-klein-spinor",
+ "round": 18,
+ "kind": "combine",
+ "nodes": [
+  "exact-relation-rigidity"
+ ],
+ "tags": [
+  "exact-relation",
+  "rigidity",
+  "Hamburger",
+  "Theorem P",
+  "multiplicativity",
+  "pole-clause",
+  "HQ",
+  "TN1",
+  "klein-seam",
+  "spinor-square-root"
+ ],
+ "verdict": "precise-obstruction",
+ "survivingClaim": "No statement about zeros of zeta; precise obstruction stands. (1) TN1 = zeta(s)(1+q^(3/4-s)) is integer-frequency, multiplicative, non-negative, single pole at 1, zeros on Re s=3/4, lacks FE. (2) HQ2 = zeta(s)(1+eps u^2/(1-u)^4), u=q^(1/2-s), has zeta's exact functional equation, integer frequencies, multiplicative coefficients >=1, zeros at distance eps^(1/4)/(sqrt2 log q)(1+O(sqrt eps)) from the line, and an order-4 pole at s=1/2: ordinary multiplicativity replaces neither the FE clause nor the pole clause of Hamburger/Theorem P. (3) Lemma Q: a pole-free symmetric one-base multiplier is 1 (Liouville; no multiplicativity). (4) Proposition F: members with zeta's coefficients for n<q, exact FE, multiplicative non-negative coefficients, within delta of zeta on Re s>=2, vanish on Re s=3/4. (5) Among the listed relations only a(pn)=a(n) (definition) and J=1 (target) exclude every control. Statements that ZQ, NR-q, Proposition W twin pass multiplicativity are by convention; Proposition D (c) needs repair. One referee holds with corrections; elementary; no ball arithmetic.",
+ "obstruction": "Closes at the decisive test. Multiplicativity replaces no clause of Hamburger / Theorem P. FE clause deleted: TN1 = zeta(s)(1+q^(3/4-s)) is integer-frequency, multiplicative, non-negative, single pole at 1, zeros on Re s = 3/4. Pole clause deleted: HQ2 = zeta(s)(1+eps u^2/(1-u)^4), u = q^(1/2-s), has zeta's exact functional equation, integer frequencies, multiplicative coefficients >= 1, zeros at distance eps^(1/4)/(sqrt2 log q) from the line for every eps > 0 and an order-4 pole at s = 1/2. Lemma Q: a pole-free symmetric one-base multiplier is 1 (Liouville; no multiplicativity). Proposition F: members with zeta's coefficients for n < q, within delta of zeta on Re s >= 2, vanish on Re s = 3/4. Only a(pn) = a(n) (definition) and J = 1 (target) exclude every control. Proposition D (c) needs repair.",
+ "obstructionKind": "control-passes: HQ2 (exact FE, integer frequencies, multiplicative coefficients >= 1, zeros off the line) fails only the pole clause, which is analyticity on the critical line; rigidity is linear algebra in the coefficient measure",
+ "controlsThatDefeat": [
+  "HQ2 = zeta(s)(1+eps u^2/(1-u)^4) (new control: FE + INT + MULT + N >= 1, zeros off the line)",
+  "TN1 = zeta(s)(1+q^(3/4-s)) (multiplicative, non-negative, no FE, zeros on Re s = 3/4)",
+  "ZQ, NR-q, Proposition W twin (pass multiplicativity on their own atoms / semigroups, by convention)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "refereeNote": "Referee file: tmp/research-2026-11-16/push/c18-exact-relation-rigidity-klein-spinor/REFEREE.md. All PROVED steps (TN1, HQ1, HQ2, Lemma Q, Proposition F, Proposition D (a),(b)) re-derived and confirmed; numeric checks rerun on new cases (HQ2 q=7 eps=0.2: findroot from crude start matches closed form to 3e-42; argument principle gives exactly four zeros in 0.1<|s-1/2|<0.6 and pole order 4 at 1/2; FE residual <=3e-41 at new points; coefficients n<=200 - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Rigidity on file is linear algebra in the coefficient measure (FE, integrality and the pole clause intersect in a line); multiplicativity is linear in a different coordinate (log G) and is never needed. The one clause that completes the identification, analyticity on the critical line, is the only one not stated right of 1. In the coefficient topology zeros are discontinuous even inside {FE, INT, MULT, N>=0}. Do not look for a control that fails through multiplicativity inside an exact relation.",
+ "followUp": "Record lane: add proposed map row X1 and control HQ (RESULT.md section 8) to OBSTRUCTION_MAP.md, which this lane did not edit, and send Lemma Q, HQ2 and Propositions I and F to one independent referee. Then screen devices on file that read FE + INT + MULT + positivity against HQ. No further attack on this branch.",
+ "resultFile": "tmp/research-2026-11-16/push/c18-exact-relation-rigidity-klein-spinor/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c18-exact-relation-rigidity-klein-spinor/REFEREE.md",
+ "launchedNodes": [
+  "exact-relation-rigidity"
+ ],
+ "engineVerdict": "closed",
+ "secondReferee": {
+  "by": "c19-referee-r18-independent-sources",
+  "outcome": "holds with corrections",
+  "note": "Holds with corrections. HQ2: functional equation, integer frequencies, multiplicativity, coefficients >= 1, pole of order 4 at 1/2 (and at k = 1, 2 for q = 2, 3), eight off-line zeros enclosed in balls with certified counts; Lemma Q and Proposition F re-derived and hold.",
+  "report": "tmp/research-2026-11-16/push/c19-referee-r18-independent-sources/REFEREE2-c18-exact-relation-rigidity-klein-spinor.md"
+ },
+ "brokenProved": 0
+}

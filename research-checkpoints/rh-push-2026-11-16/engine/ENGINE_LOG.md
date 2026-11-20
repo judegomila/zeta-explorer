@@ -632,3 +632,120 @@ Limits: the generator still cannot propose a device type with no node (`positive
 - `campaign/scoreboard.py` rerun: headline, lanes (130), hold rate and lemma count unchanged; part C moved with the graph rebuild (nodes 1,695 -> 1,701; tags 423 -> 462; tag-pair families 89,253 -> 106,491; closed 3,305 -> 3,618; tried 592 -> 610; untried 85,356 -> 102,263). Previous file `scratch/SCOREBOARD.before-strategy-v5.md`.
 - Not done by this review: device states and pending proposals in `curated/` (round-15 rows and the silent cells of ROADMAP section 13.2 have no node); outcome records for the screening lanes `push/s1-*`.
 
+
+## 2026-11-20, campaign round 17, repair lane B (`c17-repair-owed-record-r16-cell-nodes`): node type `cell`, round-16 rows
+
+Record lane; no attack; nothing here is a statement about zeros of zeta. Full account, with the entry-by-entry top-60 table: `../push/c17-repair-owed-record-r16-cell-nodes/RESULT.md` and `top60_before_after.md` there. Also covers the two entries owed by `curated/CHANGELOG_c16-repair.md` (this log entry; the `CONTROL_CODE_RE` line).
+
+What changed in the engine.
+- `curated/mk_devices.py`, `curated/devices.json` (previous files `scratch/mk_devices.pre-c17-repair.py`, `scratch/devices.pre-c17-repair.json`): the eleven `silent-cell-*` entries left the device list. They are the new list `CELLS` (key `cells`, type `cell`, states `cell` / `tried-not-closed` / `closed`; key `cellStates` documents them). Planner decision of round 17 (`../campaign/ROUND_LOG.md`, "Round 17 allocation"): read classes, not crossing devices. States: U2-POS closed (identification, Theorem P of `c16-pos-fe-u2-positivity-rigidity`); U6 (g) tried-not-closed; the other nine `cell`. Evidence of `fejer-section-prime-chain-growing-p` (Proposition 5 decided) and `dictionary-dn-nonhomogeneous-pair-triple-sign-functionals` (canonical tier closed as MEASURED) carries the round-16 outcomes. Pending: Proposition 5 and the DN canonical tier removed; the rank-2 closure question added; the amplifier item `T < N` set to `tried-not-closed` with the disposition of the fired clause S2 (set aside; the clause had no control comparison; EIS-w shares the excess; no follow-up lane).
+- `build_graph.py` (previous file `scratch/build_graph.pre-c17-repair.py`): `load_cells()`; a cell node gets the field `cell` and the role `cell`, never `device`; `meta.counts.cells`; `CONTROL_CODE_RE` gains the codes NR-q, ZQ, SG.
+- `generate.py` (previous file `scratch/generate.pre-c17-repair.py`): rule `cell`. A cell node is scored as any tagged node: not in the device pool, no device weight, does not satisfy the R4-device rule, none of the open-device exemptions (family match by device text, reuse penalty, flow-side and mean-value majority penalties, per-device cap). A candidate with a closed cell node is rejected ("contains a closed cell"). Candidates list their cell members under `cells`; `meta.r4Rules` has `cellNodesLive` and `topWithCell`. Weights unchanged.
+- Not changed: `merge_outcomes.py` (not run), `outcomes/` and `outcomes.json` by this lane, `closed_families.json`, `nodes/`. All eight round-16 lanes already had an outcome record. Ten files `outcomes/s2-*.json` were written by the screening arm while this lane ran (16:42 local).
+
+Reruns, each through `scripts/memcap.sh 8`: baseline (`build_graph.py`, `generate.py --top 60`, `../campaign/scoreboard.py`) before any edit; stage 1 after the cell change; final after the map rows. Logs under `../push/c17-repair-owed-record-r16-cell-nodes/{baseline,after1,after}/`.
+
+| quantity | on file at start | baseline rerun | stage 1 (cells) | final (cells + map rows) | cause |
+|---|---|---|---|---|---|
+| device types closed / floored / open | 53 / 1 / 11 | same | 53 / 1 / 0 | same | eleven silent-cell types moved to `cells` |
+| cells (cell / tried-not-closed / closed) | none | none | 9 / 1 / 1 | same | new node type |
+| pending proposals | 7 | 7 | 6 | 6 | two decided in round 16, one added |
+| device nodes in graph closed / floored / open | 69 / 6 / 11 | same | 69 / 6 / 0 | same | as above |
+| map rows parsed | 241 | 241 | 241 | 244 | rows D10, P56, G42 |
+| nodes (live) | 1,724 (974) | same | same | 1,727 (974) | three row nodes |
+| edges | 9,118 | 9,118 | 9,122 | 9,127 | next two lines |
+| composes-with | 7,559 | 7,559 | 7,563 | 7,563 | 61 added, 57 removed; 40 and 56 of them touch a `silent-*` node; the rest are second-order changes of the per-node lists. Cause: the role `device` left the eleven nodes, so the pairing reason "limit mechanism + arithmetic input" no longer applies to them |
+| control-defeats | 871 | 871 | 871 | 876 | `ctl-BLS`, `ctl-DH`, `ctl-EISW`, `ctl-ZQ` -> `row-D10`; `ctl-EISW` -> `row-G42` (the ZQ edge needs the new regex code) |
+| generated / scored / rejected | 52,367 / 19,088 / 33,279 | same | 38,082 / 8,432 / 29,650 | same | device pool 17 -> 6 nodes |
+| rejected "no open or floored crossing device" | 13,534 | same | 14,549 | same | cell nodes no longer satisfy the rule |
+| rejected "contains a closed cell: silent-cell-u2-pos" | - | - | 49 | 49 | new rule |
+| top 60 with an open device / floored only / closed device | 57 / 3 / 0 | same | 0 / 60 / 0 | same | all 57 open-device entries stood on a `silent-*` node |
+| top 60 with a cell member | 57 (as devices) | same | 2 | 2 | rank 13 (U6 (a), 8.25) and rank 44 (U6 (e), 3.0), each as the open-lemma member of an M3 triple that also has a floored device |
+| top 60 keys in common with the baseline | - | 60 | 1 | 1 | former rank 50 is rank 9 |
+| rank 1 | `silent-u8-...` x `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` (12.03) | same | `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural` (10.25) | same | the rank 1 of the list before the silent cells were entered |
+
+- Baseline: `IDEA_GRAPH.json` and `CANDIDATES.json` byte-identical to the files on file. `scoreboard.json` on file was older than the graph (part C: 1,718 nodes, 462 tags, 106,491 families); the baseline rerun moved it to 1,724 nodes, 585 marked closed, 485 tags, 117,370 families (3,797 closed, 861 tried, 112,712 untried). Cause: the graph rebuild of the round-16 repair lane and the round-17 planner, after which the scoreboard had not been rerun.
+- Against the last list made before the silent cells existed (`../push/c16-repair-owed-record-r15/after1/CANDIDATES.json`; 8,437 scored): 45 of 60 keys in common, 39 with the same score, 6 differing by 0.01 in the cohesion part (tag weights shift because the eleven nodes are still live tagged nodes). 15 left the list: 4 are no longer enumerated, 11 have the same score and are displaced by the selection caps; 15 entered, 2 of them with a cell member. Detail: `top60_vs_presilent.json`.
+- 23 of the 8,432 scored candidates have a cell member (best score 8.25). No cell member carries a device weight.
+- Final against stage 1: keys, order and scores of the top 60 identical; 35 entries have a changed `rowsChecked` list (P45 enters 18, P56 enters 15, Q30 enters 3).
+- `../campaign/scoreboard.py`: headline 1 of 4 (`c1-leeyang-krein-limit`; missing R2, R3, R4), hold rate 91.3%, PROVED broken 11, three-referee statements 2 (about zeros: 0): unchanged. Changed numbers, attributed by rerunning the script on a copy with the lanes file and the outcome directory as they stood before this lane (`scoreboard_attribution.json`): by this lane, nodes 1,724 -> 1,727 and nodes marked closed 585 -> 588 (the three row nodes); by files of other lanes written meanwhile, lanes run 148 -> 149 and score-0 lanes 146 -> 147 (line of `c17-u6e-bost-connes-non-invariant-state-twin-ladder` in `lanes.jsonl`), outcome records 158 -> 168 (`outcomes/s2-*.json`), lemmas decided 125 -> 130, families tried-not-closed 861 -> 988, untried 112,712 -> 112,585.
+- Limits. The keyword tagger gives the new row nodes tags by word match (`row-D10`: automorphic, heat-flow, hecke, pair-correlation; `row-P56`: euler-product, hecke, theta, zero-free); these are builder labels, not readings. With `--no-r4-rules` the closed-cell rejection is off together with the other device rules. The generator still cannot propose a device type that has no node, and after this change it has no open device node: every listed candidate stands on a node of the one floored device type `coherent-set-large-sieve` (`tro6-natural`, `qrh-seven-eighths`, `seven-eighths-abscissa-formula`, `map-open-2`, `map-open-4`; 12 entries each, the per-device cap), which is part-B work.
+
+## 2026-11-19, campaign round 18, repair lane B (`c18-repair-owed-record-r17-open-device-nodes`): cell states after round 17, two proposed open device nodes, round-17 rows
+
+Engine counts only; nothing here is a statement about zeros of zeta. Files of the lane: `../push/c18-repair-owed-record-r17-open-device-nodes/` (scripts `edit_engine.py`, `edit_engine2.py`, `compare_top60.py`, `attrib_counts.py`, `geo_best.py`; logs under `logs/`; previous files under `before/`).
+
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c18-repair.py`), `curated/devices.json`: block `R17_CELLS` sets the cell states after round 17: `silent-cell-u3` (read as an inequality), `silent-cell-u6e`, `silent-cell-u6f` closed, one referee each; `silent-cell-u6g` stays tried-not-closed; `silent-cell-u8` stays a cell (dictionary DU closed as MEASURED; the class beyond DU open); evidence lines for U4 and U6 (c). Cells: 9 / 1 / 1 -> 6 / 1 / 4 (cell / tried-not-closed / closed). Block `PROPOSED` and two entries of `D`: device types `tz-one-sided-completion-bound-band` and `exact-relation-rigidity`, state `open`, with the fields `status` ("proposed, untested ..."), `sources`, `entryConditions` (five each), `controlsThatMustFail`. Device types 54 -> 56 (closed 53, floored 1, open 0 -> 2). An assertion forbids a cell node among the device nodes. Two pending entries carry their round-17 state.
+- `nodes/nodes-22.json` (new): one node per proposed type, type `open-direction`, status `conjectural`. Declared tags: `weil, toeplitz, hankel, explicit-formula, functional-equation, bridge, antibridge, turan` and `rigidity, identification, functional-equation, klein, spinor, twin-ladder, bost-connes, hecke`. The geometric-program tags are those of the carriers named in the round-18 allocation (lanes 2 and 6); they are one reader's choice and decide which partners the generator proposes.
+- `build_graph.py` (previous file `scratch/build_graph.pre-c18-repair.py`): `load_devices()` carries the field `status` into `n['device']`. No other change.
+- `generate.py` (previous file `scratch/generate.pre-c18-repair.py`): rule `proposed`. A device node whose type has a status beginning with "proposed" is an open device for the R4-device rule and for the weight `deviceOpen` (2) and keeps the rejection exemption "closed family matched by the device text alone". The three penalty waivers of an open device (reuse of a node of a closed lane; flow-side majority; mean-value majority) are not applied to it. Option `--proposed-waivers` applies them (comparison run). A note is added to each candidate with a proposed member; `r4Devices` entries carry `status`; `meta.r4Rules` has `proposedDeviceNodes`, `proposedWaivers`, `topWithProposedDevice`, `topPerProposedNode`.
+- Not changed: `merge_outcomes.py` (not run), `outcomes/`, `outcomes.json`, `closed_families.json`, weights. All eight round-17 lanes already had an outcome record (checked: verdict, one referee, holds); none was written.
+
+Reruns, each through `scripts/memcap.sh 8`: before any edit and after all edits (`build_graph.py`, `generate.py --top 60`, `../campaign/scoreboard.py`).
+
+| quantity | before (rerun) | after | cause |
+|---|---|---|---|
+| nodes / live | 1,732 / 974 | 1,737 / 976 | two device nodes (live), three row nodes |
+| map rows parsed | 244 | 247 | rows P57, G43, Q31 |
+| edges | 9,129 | 9,189 | composes-with 7,563 -> 7,609; control-defeats 876 -> 889; restates 188 -> 189 |
+| device nodes closed / floored / open | 69 / 6 / 0 | 69 / 6 / 2 | proposed types |
+| candidates generated / scored | 38,082 / 8,432 | 44,431 / 12,315 | 1,827 scored candidates contain the first proposed node, 2,330 the second, 12 both; 277 rejections "closed cell" |
+| top 60: open device / floored only / closed device / with a cell member | 0 / 60 / 0 / 2 | 24 / 36 / 0 / 2 | 12 entries per proposed node (the per-device cap) |
+| rank 1 | `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural`, 10.25 | same partners x `tz-one-sided-completion-bound-band`, 11.25 | weight 2 against 0, cohesion |
+| keys in common | | 23 of 60 (22 with the same score) | 37 left: 33 still scored (32 with the same score) and displaced, 4 not among the scored candidates of the new run (one contains the now closed cell `silent-u6e`; three contain `map-open-4`, cause not determined: the generator's partner lists are capped and shift when nodes enter) |
+
+- With `--proposed-waivers`: the same counts (24 / 36 / 0), the same rank 1, 56 of 60 keys in common with the final list. The penalty waivers move four entries.
+- Limits. The generator ranks by tags; rank 1 joins its partners to the proposed node by the tags `bridge` and `shear` only and is not usable (`../campaign/PLANNER_NOTE_R19.md`). The cap of 12 per device node fixes the split 12 / 12 / 36. The row tagger gives the new row nodes tags by word match (`row-P57`: euler-product, pair-correlation; `row-G43`: heat-flow). Lane `c18-exact-relation-rigidity-klein-spinor` (0 referees) reports the second type closed for the relation multiplicativity: its state is to be set by the next record lane on a referee file.
+
+## 2026-11-20, campaign round 19, repair lane B (`c19-repair-owed-record-r18-checkpoint-prep`): both proposed device types closed, cell evidence after round 18, round-18 rows
+
+Engine counts only; nothing here is a statement about zeros of zeta. Files of the lane: `../push/c19-repair-owed-record-r18-checkpoint-prep/` (scripts `edit_engine.py`, `compare.py`; logs under `logs/`; previous files under `before/`; comparison `compare_before_after.md`).
+
+- `curated/mk_devices.py` (previous file `scratch/mk_devices.pre-c19-repair.py`), `curated/devices.json`: block `R18`. `tz-one-sided-completion-bound-band` and `exact-relation-rigidity` open -> closed on the referee files of their round-18 lanes (one referee per lane; field `closedOn` names the files, the map row and the count; second referees owed by `c19-referee-r18-independent-sources`). Cell evidence after round 18 for `silent-cell-u4` (residual (iv) closed for positivity-derived reads; the joint / quadratic residual stays a cell), `silent-cell-u6c` (cubic half closed; double-cover half stays a cell), `silent-cell-u6g` (addendum), `silent-cell-u3`, `-u6e`, `-u6f` (two referees). One pending entry (U5) extended. Device types: 55 closed, 1 floored, 0 open. Cells: 6 / 1 / 4, unchanged.
+- `nodes/nodes-22.json`: name and statement of the two device nodes say what the referee files hold. Tags, type and status fields unchanged.
+- Not changed: `build_graph.py`, `generate.py`, weights, `curated/controls.json` (control HQ2 is in the map, section 2, and has no engine code), `merge_outcomes.py` (not run), `outcomes/`, `outcomes.json`, `closed_families.json`.
+
+Reruns, each through `scripts/memcap.sh 8`: before any edit, after the edits, and after the lane's line in `../campaign/lanes.jsonl`.
+
+| quantity | before (rerun) | after | cause |
+|---|---|---|---|
+| nodes / live | 1,742 / 976 | 1,746 / 976 | four row nodes (X1, P58, G44, Z37) |
+| map rows parsed | 247 | 251 | the four rows |
+| edges | 9,192 | 9,211 | control-defeats 889 -> 907; obstructs 275 -> 276 |
+| device nodes closed / floored / open | 69 / 6 / 2 | 71 / 6 / 0 | the two types |
+| crossing pool | 8 | 6 | the two device nodes leave the pool |
+| candidates generated / scored | 44,431 / 8,170 | 38,340 / 8,426 | candidates on a proposed node are no longer generated |
+| rejected "contains a combination closed in outcomes.json" | 10,526 | 3,806 | before the edit every candidate with a proposed node was rejected by the round-18 outcome records (0 scored candidates contained one) |
+| top 60: open device / floored only / closed device / with a cell member | 0 / 60 / 0 / 1 | 0 / 60 / 0 / 1 | none |
+| rank 1 | `capture-ratio-psd-slope` x `sympow-conductor-normalised-shift` x `tro6-natural`, 10.25 | the same | none |
+| keys in common | | 56 of 60, all with the same score | ranks 56, 58, 59, 60 of the old list (scores 2.00, 0.09, 0.04, -0.02) are still scored with the same scores and are displaced by four entries (2.08, 1.25, 0.30, 0.29), of which three were not scored before and one was scored (1.25) and cut by a cap |
+
+- The state change does not alter the list of leads: the list had 0 entries on an open device before the edit, because the learn step of round 18 wrote outcome records whose `nodes` field names the proposed node. The device table and the outcome records now agree.
+- Limit: for the three entries that were not scored before, the rejection reason in the old run was not determined (the sample dump holds 25 candidates per reason).
+
+## 2026-11-20: owed record of round 19 (lane `c20-repair-owed-record-r19-statement-o-v5`, campaign round 20)
+
+Scripts and previous files: `../push/c20-repair-owed-record-r19-statement-o-v5/` (`edit_engine.py`, `apply_map.py`, `compare.py`, `before/`, `after/`, `final/`, `logs/`). Engine counts only; nothing here is evidence about zeros of zeta.
+
+- `curated/controls.json`: codes HQ2, HQ3, HQ4 added (name, has, lacks, kills, kw, status, source, scope), worded after the referee files of `c18-exact-relation-rigidity-klein-spinor`, `c19-referee-r18-independent-sources` and `c19-hq2-screen-fe-int-mult-pos-devices`. 11 curated codes (was 8).
+- `build_graph.py`: `CONTROL_CODE_RE` extended by `HQ2|HQ3|HQ4` (one line and one comment; previous file `scratch/build_graph.pre-c20-repair.py`). The codes are read from the "Defeated by" cells of map rows and from lane records. After the rebuild: `ctl-HQ2` defeats rows X1, X2, G45; `ctl-HQ3` and `ctl-HQ4` defeat row X2. `generate.py` is not edited: it reads the controls through `defeatedByControls` of the row nodes (the "rows checked" verdict of a candidate); move M2 still names only DH, HEAT or TW- as the control to test.
+- `curated/mk_devices.py`: block `R19` (previous file `scratch/mk_devices.pre-c20-repair.py`). No state change. `tz-one-sided-completion-bound-band` stays closed; its name, status, evidence and `closedOn` now name the five referee files on record after round 19 (two per round-18 lane, one for the round-19 continuation lane, whose Lemma P stands in the form repaired by its referee). `exact-relation-rigidity`: `closedOn.referees` 1 -> 2 with the second file. Cells U4, U6 (c), U6 (g): evidence extended, states unchanged. U6 (c) is recorded closed by its round-19 lane and the learn step on one referee file; the engine state stays `cell` until a second referee file holds (STRATEGY section 2), and the block says where to change it. The assertion "no open device type" is scoped to the ids of block R18 (referee E2 of the previous record lane), so a new proposed type can be registered as open. `devices.json` regenerated: 56 device types (55 closed, 1 floored, 0 open), 11 cells (6 cell, 1 tried-not-closed, 4 closed), as before.
+- Map (read by `build_graph.py`): rows X2 and G45, control rows HQ3 and HQ4, item 23 of section 6; edited rows HQ2, X1, G44, P58, D10, Z37, Q31, O1.
+
+Reruns, each through `scripts/memcap.sh 8`: before any edit, after the edits, and after the lane's line in `../campaign/lanes.jsonl` (`build_graph.py`, `generate.py --top 60`, `../campaign/scoreboard.py`).
+
+| quantity | before | after |
+|---|---|---|
+| graph: nodes / live / rows / edges | 1,750 / 976 / 251 / 9,213 | 1,756 / 977 / 253 / 9,236 |
+| edges: composes-with / control-defeats | 7,609 / 907 | 7,619 / 920 |
+| generated / scored / rejected | 38,340 / 8,426 / 29,914 | 38,485 / 8,426 / 30,059 |
+| top 60 | 60 on the floored 7/8 type, 0 open | identical: 60 of 60 keys, scores and ranks |
+
+The six new nodes are `ctl-HQ2`, `ctl-HQ3`, `ctl-HQ4`, `row-X2`, `row-G45` and `map-open-23` (section 6, item 23; the one new live node). Generated and rejected both rise by 145 (eight rejection reasons change, by 1 to 45 each, sum 145; list in `compare_before_after.md` section 2), and a run with `--node map-open-23 --dump-all` shows 0 of the 8,426 scored candidates containing the new node, so the new open item adds only rejected candidates. The scored count is unchanged; that the scored set is the same set was checked on the top 60 only (same 60 keys, scores and ranks). What does change in the output is the field `rowsChecked`: 581 of the 8,426 scored candidates now carry a row verdict that names HQ2, HQ3 or HQ4 (example: 'adjacent by tags only; row falls to HQ2/HQ3/HQ4/NR/ZQ: answer Q1 for these controls first', row X2), 6 of them in the top 60 (0 before); 13 top-60 entries differ from the before run in `rowsChecked` only and 47 are identical in every field (`after/scored_counts.json`). Scoreboard: nodes 1,750 -> 1,756, nodes marked closed 609 -> 611, every other entry unchanged by the edits; the lane line adds one lane (172 -> 173), one refereed lane (162 -> 163, after the independent referee report), one count at score 0 and one history entry. After the referee's corrections (wording in the map, the device name 'three refereed lanes of the device type', one evidence clause) the scripts were rerun: graph counts, generated / scored / rejected and the top 60 are identical. `merge_outcomes.py` was not run.
+
+## 2026-11-20: strategy review after round 20 (STRATEGY version 6)
+
+- `generate.py`, dict `WEIGHTS`: `underExplicit` 1 -> 0.5, `underAuto` 0.5 -> 0.25, `underCap` 2 -> 1, `integersKeyword` 1 -> 0.5; meta string `scoring` updated. Previous file `scratch/generate.before-strategy-v6.py`. Reasons and the comparison of ranks with outcomes: `../campaign/STRATEGY.md`, change log, entry v6.
+- Rerun: `generate.py --top 60` through `scripts/memcap.sh 8` (log `scratch/rerun-strategy-v6.log`). `build_graph.py` and `merge_outcomes.py` not run; `IDEA_GRAPH.json`, `outcomes.json`, `closed_families.json` not touched. Before / after: generated 38,485 / 38,485; scored 8,426 / 8,415; top 60 keys in common 52; rank 1 the same triple, 10.25 / 9.25; top 60 on the floored 7/8 type 60 / 60; with a cell member 1 / 0. Previous list: `scratch/CANDIDATES.before-strategy-v6.json`.
+- `ROADMAP.md`: section 14 added, header and current-state line updated (previous file `scratch/ROADMAP.before-strategy-v6.md`).
+- Not done here (owed to the record lane): engine states of cells U4, U6 (a), (b), (c); nodes for BR-2, BR-3 and the twin screen.

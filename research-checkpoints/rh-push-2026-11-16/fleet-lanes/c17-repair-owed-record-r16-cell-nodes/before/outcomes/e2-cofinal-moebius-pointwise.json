@@ -1,0 +1,71 @@
+{
+ "slug": "e2-cofinal-moebius-pointwise",
+ "round": 2,
+ "batch": 2,
+ "kind": "attack",
+ "family": "integers + all primes: pointwise Moebius sum of one fixed sawtooth remainder",
+ "nodes": [
+  "cofinal-pointwise-mobius-sum",
+  "rig-continuum-sawtooth",
+  "legendre-dual-limit-density-zero"
+ ],
+ "launchedNodes": [
+  "cofinal-pointwise-mobius-sum",
+  "rig-continuum-sawtooth",
+  "legendre-dual-limit-density-zero",
+  "spectral-head-mobius-poisson",
+  "mobius-interval-sign-reversal"
+ ],
+ "rowsChecked": [
+  "T2",
+  "P10",
+  "P29",
+  "fam-legendre-dual-limits"
+ ],
+ "tags": [
+  "legendre-lp",
+  "cofinal",
+  "moebius-inversion",
+  "restatement",
+  "mv-cap"
+ ],
+ "verdict": "dead",
+ "survivingClaim": "Restatement, no new result, no statement about zeros. PROVED: for every b, F_b(x) = psi_b(x) - a x[m(x) log x - beta(x)] - c x m(x); for b >= 0 of density 0 with logarithmic discrepancy, F_b = -c x m(x) + psi_b with 0 <= psi_b = O(log^2 x). CLASSICAL (Landau): for such b with c > 0 a one-sided bound of exponent theta on F_b implies Theta <= theta, and Theta <= theta gives |F_b| << x^(theta+eps). PROVED: tail_K = integral of (M(x/u) - M(K)) d r_b(u); b >= 0 gives only an absolute-value bound (x/K) sup|M|, no sign. MEASURED: exponents near 1/2 for delta_1 and O(log Y) Beurling systems, near 1/2 + a for E_a (a = 0.2, 0.1).",
+ "obstruction": "By Moebius inversion the sum sum_k mu(k) r_b(x/k) equals psi_b minus universal sums of mu(k)/k: for density 0 it is -c x m(x) plus a nonnegative O(log^2 x) term, so the pointwise bound is the pointwise bound on x m(x) (Mertens-type, RH strength); for density a > 0 it is the statement for e_b itself. Positivity of b contributes only a polylog term. Landau turns an assumed one-sided bound into Theta <= theta, never the reverse; every other input is a mean square (MV-CAP).",
+ "obstructionKind": "restatement-of-mertens",
+ "controlsThatDefeat": [
+  "E_a = zeta(s+a)zeta(s-a): passes every step, returns exponent 1/2 + a (measured at a = 0.2, 0.1)",
+  "unimodular twist: exactly the same function m(x)",
+  "Beurling with O(log Y) discrepancy: passes every step (exponents 0.504 / 0.508)",
+  "Liouville sign twist: returns Theta/2",
+  "DH: does not engage (F_b = psi_b identically, target 0)",
+  "not run: Beurling with large discrepancy, theta^3, operator controls"
+ ],
+ "lesson": "A Moebius sum of sawtooth remainders of a fixed measure holds for every coefficient sequence and returns the control's own exponent. Item 1 of 'least blocked after batch 1' is withdrawn.",
+ "refereeHolds": true,
+ "referees": 1,
+ "aboutZeros": false,
+ "strength": 0.03,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false
+ },
+ "nodeRepairs": [
+  {
+   "id": "cofinal-pointwise-mobius-sum",
+   "change": "type open-lemma -> restatement (of the pointwise bound on x*m(x) at density 0; of e_b at density a > 0); status open -> reduced",
+   "source": "e1-cofinal-legendre-dual newNodes"
+  }
+ ],
+ "newNodes": [
+  {
+   "id": "cofinal-mobius-sum-equals-x-m",
+   "type": "identity",
+   "status": "proved",
+   "statement": "For density-0 b >= 0 with log discrepancy, sum_k mu(k) r_b(x/k) form F_b = -c x m(x) + psi_b, 0 <= psi_b = O(log^2 x)."
+  }
+ ],
+ "resultFile": "tmp/research-2026-11-16/push/e2-cofinal-moebius-pointwise/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/e2-cofinal-moebius-pointwise/REFEREE.md"
+}

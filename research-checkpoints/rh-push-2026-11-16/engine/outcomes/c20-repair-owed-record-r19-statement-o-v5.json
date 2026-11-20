@@ -1,0 +1,40 @@
+{
+ "slug": "c20-repair-owed-record-r19-statement-o-v5",
+ "round": 20,
+ "kind": "repair",
+ "nodes": [],
+ "tags": [
+  "repair",
+  "record",
+  "map-rows",
+  "control-codes",
+  "statement-o",
+  "checkpoint-decision-sheet",
+  "corrections"
+ ],
+ "verdict": "partial-result",
+ "survivingClaim": "Record lane; no attack; no statement about zeros of zeta; headline unchanged at 1 of 4.\n\n- **Map:** 217 labelled rows plus control labels HQ2, HQ3, HQ4. Rows X2 and G45, control rows HQ3 and HQ4, and round-19 addenda to Z37, D10, P58 are entered.\n- **Corrections:** twelve notes in two round-19 lane files are pure insertions; one `claim` field corrected; the register holds 23 sentences.\n- **Engine:** no device or cell state changed (55/1/0; 6/1/4); the band device stays closed.\n- **Scoreboard:** moved only in nodes (1,756), nodes marked closed (611), lanes run (173), lanes refereed (163), score-0 count (171) and one history entry.\n- **Statement O version 5:** lines 13, 14, 16, 17 are relabelled PROVED under the label rule (two referee files cover the closing step) in restricted forms. Their closing steps are correct, re-derived and checked on new cases. Line 15 is correct as mathematics and stays ARGUED.\n- **Checkpoint:** the decision sheet applies nothing and no rule text changed.\n- **Confirmed on new cases:** Liouville fails at p q^2 for P > 12; the Lemma P measure is signed and the repaired bound holds.\n\nOpen after this report: C1 (items 59, 61, 63 listed as closed by the rule on one referee each; STRATEGY and engine disagree on U6 (c)), C2 (the reflection figure L^2/(8T) is an optimum over c), C3 (the lane set its own referee fields).",
+ "obstruction": "Record lane, no attack. Map 217 rows (X2, G45) plus control rows HQ3, HQ4; no device or cell state changed (55/1/0; 6/1/4); Statement O v5 relabels lines 13, 14, 16, 17 PROVED in restricted forms, line 15 (NR-q) stays ARGUED because its second referee file does not cover the construction; the decision sheet applies nothing. Open after the referee: C1 (items 59, 61, 63 listed as closed on one referee each; STRATEGY and engine disagree on U6 (c)), C2 (reflection figure L^2/(8T) is an optimum over c), C3 (the lane set its own referee fields).",
+ "obstructionKind": "record lane",
+ "controlsThatDefeat": [
+  "not applicable (repair lane)"
+ ],
+ "score": 0,
+ "requirements": {
+  "r1": false,
+  "r2": false,
+  "r3": false,
+  "r4": false
+ },
+ "refereeHolds": true,
+ "referees": 2,
+ "aboutZeros": false,
+ "brokenProved": 0,
+ "refereeNote": "Holds with corrections C1 to C5; none changes a count, a state or a label decision. Report written to tmp/research-2026-11-16/push/c20-repair-owed-record-r19-statement-o-v5/REFEREE.md. A REFEREE.md from the lane's own referee process already stood there; I kept it verbatim below mine in the same file (only its title line was demoted to a sub-heading) so the references in RESULT.md section 9 still resolve.\n\nC1: STRATEGY section 3 says two refereed o - [truncated in the learn-step input; full text in REFEREE.md]",
+ "lesson": "Checking each second referee file against the closing step of its Statement O line gave four relabels, not the five expected from file names: NR-q is not covered, and the reflection-translate clause of line 17 holds only in a form its own referee had corrected. New control codes reach the generator only through the \"Defeated by\" cells of map rows (581 scored candidates now name HQ2/HQ3/HQ4 in a row verdict); no score or ranking changed. The round log's \"four refereed lanes\" for the band device is not supported by the files named (three).",
+ "followUp": "Checkpoint after round 20: decide conditions A and B from the round-20 learn step (the explore lane on the last U4 read reports a stage-A stop with no independent referee), and accept or reject STATEMENT_O_v5.md (line 14 is the weakest relabel). A referee pass on the NR-q construction (table row F4 of c15-control-with-zeta-fe-classes-u1-u2) would let line 15 follow. Set cell U6 (c) to closed in mk_devices.py block R19 once a second referee file for c19-u6c-double-cover-k3-run holds. Files: campaign/CHECKPOINT_R20_DECISION_SHEET.md, campaign/CORRECTIONS_R18.md.",
+ "resultFile": "tmp/research-2026-11-16/push/c20-repair-owed-record-r19-statement-o-v5/RESULT.md",
+ "refereeFile": "tmp/research-2026-11-16/push/c20-repair-owed-record-r19-statement-o-v5/REFEREE.md",
+ "launchedNodes": [],
+ "engineVerdict": "partial"
+}

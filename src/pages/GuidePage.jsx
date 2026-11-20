@@ -65,7 +65,7 @@ export default function GuidePage() {
       meta={['start here', 'no prior background assumed']}
       title="A guide to the Riemann Hypothesis"
       dek="What it says, why it is hard, every major line of attack — the field's and this project's — and exactly where each one stops. Nothing here is claimed beyond what is established: Platt–Trudgian Λ ≤ 0.2 is the accepted bound and RH is open."
-      byline={['zetaexplorer', 'assembled from the graded results, route map, and no-go ledger']}
+      byline={['explorezeta', 'assembled from the graded results, route map, and no-go ledger']}
       ticker={<span>{RESULTS_COUNT} graded results · {FULL_ROUTE_MAP.totalRoutes} closure routes · {noGoCount} no-go findings · PT Λ≤0.2 SOTA · RH open</span>}
       footer={<>
         Go deeper: <Link to="/atlas">the atlas</Link>{' · '}

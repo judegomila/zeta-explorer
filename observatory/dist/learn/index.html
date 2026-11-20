@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Riemann hypothesis from the ground up · Zeta Observatory</title>
+<meta name="description" content="What the Riemann hypothesis says, why it controls the prime numbers, what has been proved, and what this site explores. No background assumed at the start.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1520'/%3E%3Ctext x='19' y='47' font-size='48' fill='%23cff4a1' font-family='serif'%3Eζ%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="./learn.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../"><span class="mark">ζ</span><span>Zeta Observatory</span></a>
+  <nav class="top-links" aria-label="Site">
+    <a href="../">Open the Observatory</a>
+    <a href="../../">Research programme</a>
+    <a href="../methods.html">Methods</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <p class="eyebrow">A guided introduction</p>
+  <h1>The Riemann hypothesis, from the ground up.</h1>
+  <p class="lede">One sentence about where a function vanishes decides how regularly the prime numbers are spread. This page builds that sentence from nothing, shows why it matters, and then says plainly what is proved, what is not, and what this site adds.</p>
+  <ol class="route" aria-label="Contents">
+    <li><a href="#primes"><b>1</b> Primes</a><span>school arithmetic</span></li>
+    <li><a href="#euler"><b>2</b> Euler's product</a><span>infinite sums</span></li>
+    <li><a href="#riemann"><b>3</b> Riemann's function</a><span>complex numbers</span></li>
+    <li><a href="#zeros"><b>4</b> The hypothesis</a><span>complex numbers</span></li>
+    <li><a href="#music"><b>5</b> Zeros and primes</a><span>some calculus</span></li>
+    <li><a href="#known"><b>6</b> What is proved</a><span>survey</span></li>
+    <li><a href="#here"><b>7</b> What this site adds</a><span>research</span></li>
+    <li><a href="#next"><b>8</b> Where to go next</a><span>links</span></li>
+  </ol>
+</section>
+
+<section id="primes">
+  <p class="eyebrow">Part 1</p>
+  <h2>Primes thin out, and nobody can predict the next one.</h2>
+  <p>A prime is a whole number above 1 that only 1 and itself divide: 2, 3, 5, 7, 11, 13 and so on. Every whole number is a product of primes in exactly one way, so primes are the atoms of arithmetic.</p>
+  <p>Write <span class="m">π(x)</span> for the number of primes up to <span class="m">x</span>. (This π is a name for a counting function. It has nothing to do with circles.) The graph of <span class="m">π(x)</span> is a staircase that climbs one step at each prime. The steps come at irregular places, yet from far away the staircase follows a smooth curve.</p>
+  <figure>
+    <canvas id="figPrimes" role="img" aria-label="Staircase of the prime counting function with two smooth approximations"></canvas>
+    <div class="controls"><label for="primeRange">Count primes up to <output id="primeRangeOut">100</output></label><input id="primeRange" type="range" min="30" max="3000" step="10" value="100"></div>
+    <figcaption><span class="key k-text"></span> <span class="m">π(x)</span>, the true count. <span class="key k-blue"></span> <span class="m">x / ln x</span>. <span class="key k-accent"></span> <span class="m">Li(x)</span>, the logarithmic integral. Drag the slider: the staircase stays jagged, and <span class="m">Li(x)</span> stays close.</figcaption>
+  </figure>
+  <p>Gauss noticed in the 1790s that near a large number <span class="m">x</span>, roughly one number in <span class="m">ln x</span> is prime. Adding up those densities gives the logarithmic integral <span class="m">Li(x) = ∫<sub>2</sub><sup>x</sup> dt / ln t</span>. The <b>prime number theorem</b>, proved in 1896, says the ratio <span class="m">π(x) / Li(x)</span> tends to 1.</p>
+  <p class="point">The question behind the Riemann hypothesis is the next one: <b>how big is the error</b> <span class="m">π(x) − Li(x)</span>?</p>
+</section>
+
+<section id="euler">
+  <p class="eyebrow">Part 2</p>
+  <h2>Euler found a formula that knows every prime at once.</h2>
+  <p>For a number <span class="m">s &gt; 1</span>, add up the reciprocal powers of all whole numbers:</p>
+  <p class="display">ζ(s) = 1 + 1/2<sup>s</sup> + 1/3<sup>s</sup> + 1/4<sup>s</sup> + …</p>
+  <p>In 1737 Euler showed the same quantity is a product with one factor for each prime:</p>
+  <p class="display">ζ(s) = 1/(1 − 2<sup>−s</sup>) · 1/(1 − 3<sup>−s</sup>) · 1/(1 − 5<sup>−s</sup>) · 1/(1 − 7<sup>−s</sup>) · …</p>
+  <p>The reason is unique factorisation. Each factor expands as <span class="m">1 + p<sup>−s</sup> + p<sup>−2s</sup> + …</span>, and multiplying the factors out produces each whole number <span class="m">n<sup>−s</sup></span> exactly once, because <span class="m">n</span> is a product of primes in exactly one way.</p>
+  <p class="point">The left side involves no primes at all. The right side involves nothing else. Anything learned about <span class="m">ζ</span> as a function is therefore a statement about primes.</p>
+</section>
+
+<section id="riemann">
+  <p class="eyebrow">Part 3</p>
+  <h2>Riemann let <span class="m">s</span> be a complex number.</h2>
+  <p>In 1859 Riemann wrote <span class="m">s = σ + it</span>, a point in the plane with horizontal coordinate <span class="m">σ</span> and vertical coordinate <span class="m">t</span>. The sum above only converges for <span class="m">σ &gt; 1</span>. Riemann showed that the function it defines extends in exactly one way to the whole plane, apart from a single pole at <span class="m">s = 1</span>. That extension is the Riemann zeta function.</p>
+  <p>He also found a symmetry. Multiply <span class="m">ζ</span> by some explicit, well-understood factors to form the completed function</p>
+  <p class="display">ξ(s) = ½ · s(s − 1) · π<sup>−s/2</sup> · Γ(s/2) · ζ(s).</p>
+  <p>Then</p>
+  <p class="display">ξ(s) = ξ(1 − s).</p>
+  <p>The map <span class="m">s → 1 − s</span> is a half-turn about the point <span class="m">s = ½</span>. Combined with the fact that <span class="m">ξ</span> takes conjugate values at conjugate points, it makes the picture a mirror image across the vertical line <span class="m">σ = ½</span>. That line is called the <b>critical line</b>.</p>
+</section>
+
+<section id="zeros">
+  <p class="eyebrow">Part 4</p>
+  <h2>The hypothesis is about where zeta is zero.</h2>
+  <p>A zero is a point <span class="m">s</span> with <span class="m">ζ(s) = 0</span>. There are two kinds.</p>
+  <ul>
+    <li>The <b>trivial zeros</b> at <span class="m">s = −2, −4, −6, …</span> are fully understood and play no further role.</li>
+    <li>The <b>nontrivial zeros</b> all lie in the <b>critical strip</b> <span class="m">0 &lt; σ &lt; 1</span>. There are infinitely many, and by the symmetry above they are placed symmetrically about the critical line.</li>
+  </ul>
+  <blockquote class="statement"><b>Riemann hypothesis.</b> Every nontrivial zero of the zeta function has real part exactly <span class="m">½</span>.</blockquote>
+  <p>Symmetry allows a zero off the line as long as its mirror image is also a zero. The hypothesis says this never happens: every zero sits on the mirror itself.</p>
+  <p>Zeros on the line can be seen with a real-valued function. Hardy's function <span class="m">Z(t)</span> is <span class="m">ζ(½ + it)</span> with its phase rotated away, so <span class="m">Z(t)</span> is real and <span class="m">|Z(t)| = |ζ(½ + it)|</span>. Each time the curve crosses the axis, zeta has a zero on the critical line.</p>
+  <figure>
+    <canvas id="figHardy" role="img" aria-label="Graph of Hardy's Z function showing sign changes at the zeros of zeta on the critical line"></canvas>
+    <div class="controls"><label for="hardyRange">Height <span class="m">t</span> up to <output id="hardyRangeOut">60</output></label><input id="hardyRange" type="range" min="30" max="90" step="5" value="60"></div>
+    <figcaption><span class="key k-accent"></span> <span class="m">Z(t)</span>, computed in your browser. <span class="key k-pink"></span> crossings, at <span class="m">t ≈ 14.13, 21.02, 25.01, …</span> These are the heights of the first zeros.</figcaption>
+  </figure>
+  <p>Counting sign changes proves zeros exist on the line. It cannot by itself show that none exist off it. That needs a separate count of all zeros in the strip, and the two counts must agree.</p>
+  <figure class="shot">
+    <a href="../?view=critical"><img src="./strip.jpg" width="1200" height="982" loading="lazy" alt="The Observatory's landscape of zeta over the critical strip, with the first six zeros labelled along the critical line"></a>
+    <figcaption>The same zeros in the Observatory. Height shows the size of <span class="m">ζ</span>, colour shows its phase, and each zero is a pit where all colours meet. <a href="../?view=critical">Open this view</a>.</figcaption>
+  </figure>
+</section>
+
+<section id="music">
+  <p class="eyebrow">Part 5</p>
+  <h2>Each zero is a wave, and the waves add up to the primes.</h2>
+  <p>The cleanest way to see it uses a weighted count. Let <span class="m">ψ(x)</span> add <span class="m">ln p</span> for every prime power <span class="m">p<sup>k</sup> ≤ x</span>. It is a staircase like <span class="m">π(x)</span>, and it carries the same information. Riemann's idea, proved by von Mangoldt in 1895, is an exact formula:</p>
+  <p class="display">ψ(x) = x − Σ<sub>ρ</sub> x<sup>ρ</sup>/ρ − ln 2π − ½ ln(1 − x<sup>−2</sup>)</p>
+  <p>The sum runs over all nontrivial zeros <span class="m">ρ</span>, taken in conjugate pairs in order of height. (At a jump, the formula gives the midpoint of the step.) The term <span class="m">x</span> is the smooth trend. A zero <span class="m">ρ = β + iγ</span> contributes an oscillation in <span class="m">ln x</span> with frequency <span class="m">γ</span> and amplitude proportional to <span class="m">x<sup>β</sup></span>.</p>
+  <figure>
+    <canvas id="figExplicit" role="img" aria-label="The prime power staircase and its reconstruction from a chosen number of zeta zeros"></canvas>
+    <div class="controls"><label for="zeroCount">Zeros used: <output id="zeroCountOut">0</output> of 25</label><input id="zeroCount" type="range" min="0" max="25" step="1" value="0"></div>
+    <figcaption><span class="key k-text"></span> <span class="m">ψ(x)</span>, the true staircase. <span class="key k-accent"></span> the formula with only the first few zeros. With none it is a straight trend. Add zeros and the steps appear at the primes. The exact formula needs all the zeros; this is a truncation.</figcaption>
+  </figure>
+  <p>So the amplitude of every wave is set by the real part <span class="m">β</span> of its zero. If all zeros have <span class="m">β = ½</span>, every wave grows like <span class="m">√x</span> and no faster. A single zero with larger real part would make a louder wave and a larger error in the prime count.</p>
+  <p class="point">This is why the hypothesis matters. It is <b>equivalent</b> to the statement that the error in the prime number theorem is as small as it can be: <span class="m">|π(x) − Li(x)|</span> is at most a constant times <span class="m">√x · ln x</span> (von Koch, 1901).</p>
+</section>
+
+<section id="known">
+  <p class="eyebrow">Part 6</p>
+  <h2>What has actually been proved.</h2>
+  <p>The hypothesis is open. These are the main established facts around it. Each is a theorem unless marked otherwise.</p>
+  <dl class="ledger">
+    <div><dt>No zeros on the edge</dt><dd>Hadamard and de la Vallée Poussin (1896) proved that no zero has <span class="m">σ = 1</span>. This is what proves the prime number theorem. No one has proved that zeros avoid any strip <span class="m">σ &gt; 1 − c</span> for a fixed <span class="m">c &gt; 0</span>.</dd></div>
+    <div><dt>Many zeros on the line</dt><dd>Hardy (1914): infinitely many. Selberg (1942): a positive proportion. Levinson (1974): more than a third. Conrey (1989): more than two fifths. Pratt, Robles, Zaharescu and Zeindler (<a href="https://arxiv.org/abs/1802.10521" rel="noopener">2020</a>): slightly over five twelfths.</dd></div>
+    <div><dt>Checked by computer</dt><dd>Platt and Trudgian (<a href="https://arxiv.org/abs/2004.09765" rel="noopener">2021</a>): every zero with height <span class="m">0 &lt; t ≤ 3·10<sup>12</sup></span> lies on the line. A finite check of this kind can never settle the infinite statement.</dd></div>
+    <div><dt>Few zeros far from the line</dt><dd>Zero-density estimates bound how many zeros could have <span class="m">σ</span> above a given value. Guth and Maynard (<a href="https://arxiv.org/abs/2405.20552" rel="noopener">2024</a>) proved <span class="m">N(σ, T) ≤ T<sup>30(1−σ)/13 + o(1)</sup></span>, improving the classical bounds of Ingham and Huxley for <span class="m">σ</span> near <span class="m">¾</span>.</dd></div>
+    <div><dt>The heat-flow form</dt><dd>Deform <span class="m">ξ</span> by a heat flow with time <span class="m">τ</span>. There is a constant <span class="m">Λ</span>, the de Bruijn–Newman constant, such that every zero of the deformed function lies on the critical line exactly when <span class="m">τ ≥ Λ</span>. The hypothesis is equivalent to <span class="m">Λ ≤ 0</span>. Rodgers and Tao (<a href="https://arxiv.org/abs/1801.05914" rel="noopener">2018</a>) proved <span class="m">Λ ≥ 0</span>, so the hypothesis is now equivalent to <span class="m">Λ = 0</span>. From above, Polymath 15 (<a href="https://arxiv.org/abs/1904.12438" rel="noopener">2019</a>) proved <span class="m">Λ ≤ 0.22</span>, and Platt and Trudgian's verification lowers this to <span class="m">Λ ≤ 0.2</span>.</dd></div>
+    <div><dt>Statistics of the zeros <em>(conjecture and numerics)</em></dt><dd>Montgomery (1973) conjectured, and Odlyzko's computations support, that the spacings between zeros match those of eigenvalues of large random Hermitian matrices. This suggests the zeros are the spectrum of some operator, an idea going back to Hilbert and Pólya. No such operator has been found.</dd></div>
+  </dl>
+</section>
+
+<section id="here">
+  <p class="eyebrow">Part 7</p>
+  <h2>What this site adds.</h2>
+  <p class="status"><b>Status.</b> Nothing on this site proves the Riemann hypothesis. Every claim below carries its own grade: theorem, machine-checked certificate, numerical evidence, or open.</p>
+  <h3>The Observatory: zeta on surfaces</h3>
+  <p>The Observatory computes <span class="m">ζ</span>, <span class="m">ξ</span> and the heat-flow family in your browser and draws them on several surfaces: the plane, the sphere, a torus, a projective double cover, a Klein bottle and an annulus. Compactifying the plane brings the point at infinity and the symmetry <span class="m">s → 1 − s</span> into view as geometry.</p>
+  <figure class="shot">
+    <a href="../?view=projective"><img src="./torus.jpg" width="1200" height="982" loading="lazy" alt="The completed zeta function drawn on a torus, with zeros, the anti-bridge point and flow lines marked"></a>
+    <figcaption>The completed function on the elliptic double cover. Both lifts of each zero and the two points over <span class="m">s = ∞</span> are marked. <a href="../?view=projective">Open this view</a>.</figcaption>
+  </figure>
+  <h3>Zero traps: a small rigorous statement</h3>
+  <p>Take a disc centred on the critical line. The mirror symmetry maps it to itself, so zeros of <span class="m">ξ</span> inside it come in mirror pairs unless they lie on the line. Hence:</p>
+  <blockquote class="statement"><b>Trap lemma.</b> If such a disc contains exactly one zero, that zero is on the critical line and is simple.</blockquote>
+  <p>The count "exactly one" is the part that needs proof. The Observatory ships an interval-arithmetic certificate, computed with the Arb library, that each of the 1517 zeros with height below 2000 sits alone in its own disc, and that the strip contains no other zeros up to that height. It is a finite, machine-checked statement. It has not been formalised in a proof assistant, and it says nothing above height 2000. <a href="../methods.html">Method and scope</a>.</p>
+  <h3>Heat flow you can watch</h3>
+  <p>The heat-flow family from Part 6 is one of the Observatory's three functions. Move the time <span class="m">τ</span> and the zeros move with it. The viewer also draws fall lines: paths along which the size of the function only decreases, ending at zeros, coloured by the zero they reach.</p>
+  <h3>The research programme</h3>
+  <p>The rest of this site is an open research programme on the de Bruijn–Newman constant and on direct routes to the hypothesis. It includes candidate bounds on <span class="m">Λ</span> that are not yet refereed, no-go theorems showing which kinds of argument cannot work, and results checked in the Lean proof assistant. Its own status page separates what is established from what is not. <a href="../../#/what-we-know">What we know</a> · <a href="../../#/atlas">Map of approaches</a>.</p>
+</section>
+
+<section id="next">
+  <p class="eyebrow">Part 8</p>
+  <h2>Where to go next.</h2>
+  <div class="cards">
+    <a class="card" href="../"><b>Open the Observatory</b><span>Start on the critical strip, then try the sphere and the torus.</span></a>
+    <a class="card" href="../?view=ultimatePlane"><b>Every layer on the plane</b><span>Zeros, traps, fall lines and the counted region together.</span></a>
+    <a class="card" href="../methods.html"><b>Methods and mathematics</b><span>Definitions, numerical methods and the limits of each picture.</span></a>
+    <a class="card" href="../../"><b>The research programme</b><span>Approaches, obstructions and machine-checked results.</span></a>
+    <a class="card" href="https://github.com/judegomila/zeta-explorer" rel="noopener"><b>Source code</b><span>Everything here is computed by code you can read and run.</span></a>
+  </div>
+  <p class="fine">Further reading: H. M. Edwards, <i>Riemann's Zeta Function</i>; E. C. Titchmarsh, <i>The Theory of the Riemann Zeta-Function</i>; E. Bombieri's <a href="https://www.claymath.org/millennium/riemann-hypothesis/" rel="noopener">problem description</a> for the Clay Mathematics Institute.</p>
+</section>
+</main>
+<script type="module" src="./learn.js"></script>
+</body>
+</html>

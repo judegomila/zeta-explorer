@@ -11,7 +11,7 @@ import './styles/app.css';
 import './styles/editorial.css';
 import { isEditorialRoute, isVizLegacyRoute } from './data/editorial-routes.js';
 import { getConceptIndex, loadConceptRegistry } from './components/conceptRegistryClient.js';
-import { EditorialHeader, GroupDropdown, useDropdownRow, useMenuPanel } from './components/editorial/PostLayout.jsx';
+import { EditorialHeader, GroupDropdown, ModeSwitch, useDropdownRow, useMenuPanel } from './components/editorial/PostLayout.jsx';
 
 // Lazy-load all pages except the editorial landing for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
@@ -2069,7 +2069,7 @@ function DocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
     const match = ALL_ROUTES.find(r => r.to === pathname);
-    document.title = match ? `${match.label} | zetaexplorer` : 'zetaexplorer — Riemann Hypothesis engine room';
+    document.title = match ? `${match.label} | explorezeta` : 'explorezeta — Riemann Hypothesis engine room';
   }, [pathname]);
   return null;
 }
@@ -2337,10 +2337,11 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
         end
         className="nav-logo"
         style={{ textDecoration: 'none' }}
-        aria-label="zetaexplorer home"
+        aria-label="explorezeta home"
       >
-        zeta<span className="nav-logo-text">explorer</span>
+        explore<span className="nav-logo-text">zeta</span>
       </NavLink>
+      <ModeSwitch />
       <nav id="mobile-nav" ref={panelRef} aria-label="Site sections" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
         {/* >= 1100px: grouped dropdowns */}
         <div className="nav-desktop-groups" ref={row.rowRef}>

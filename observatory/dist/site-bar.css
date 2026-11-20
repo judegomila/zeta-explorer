@@ -1,0 +1,47 @@
+/* Site bar: the mode switch and the research programme's menus, drawn in the
+   Observatory's own colours. Only present when ./site-nav.json exists (the
+   combined site). Colours come from tokens.css. */
+.site-bar{--sb-h:calc(74px + var(--site-bar));position:relative;z-index:50;height:var(--sb-h);display:flex;align-items:center;gap:16px;padding:0 22px;
+  background:#080d15;color:var(--text);border-bottom:1px solid var(--line);font:12px var(--mono)}
+.site-bar a{color:inherit;text-decoration:none}
+.site-bar :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.site-bar .sb-brand{flex:0 0 auto;font:600 19px var(--serif);color:var(--text);white-space:nowrap}
+.site-bar .sb-brand i{color:var(--accent)}
+.site-bar .sb-mode{display:flex;flex:0 0 auto;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font-size:11px;letter-spacing:.04em}
+.site-bar .sb-mode>*{padding:6px 13px;border-radius:999px;white-space:nowrap}
+.site-bar .sb-mode [aria-current]{background:var(--accent);color:#0b111b;font-weight:600}
+.site-bar .sb-mode a{color:var(--muted)}
+.site-bar .sb-mode a:hover{color:var(--accent)}
+.site-bar .sb-mode small{font-size:10px;opacity:.75;margin-left:5px}
+.site-bar .sb-groups{display:flex;align-items:center;gap:18px;min-width:0}
+.site-bar details{position:relative}
+/* the open panel is absolutely placed; pin the row height so the label does not move */
+.site-bar .sb-groups>details,.site-bar>.sb-menu{height:25px}
+.site-bar summary{display:block;list-style:none;cursor:pointer;white-space:nowrap;color:var(--muted);padding:6px 2px;user-select:none}
+.site-bar summary::-webkit-details-marker{display:none}
+.site-bar summary::after{content:"▾";font-size:9px;margin-left:4px;color:var(--dim)}
+.site-bar summary small{margin-left:5px;padding:1px 5px;border-radius:999px;background:var(--panel2);color:var(--accent);font-size:9.5px}
+.site-bar summary:hover,.site-bar details[open]>summary{color:var(--accent)}
+.site-bar .sb-panel{position:absolute;top:calc(100% + 11px);left:-14px;width:max-content;max-width:min(880px,calc(100vw - 40px));max-height:70vh;overflow:auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px 28px;padding:18px 20px;background:var(--panel);
+  border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 44px #000b}
+.site-bar .sb-panel h3{margin:0 0 6px;font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.site-bar .sb-panel a{display:block;padding:4px 0;font:13px/1.35 var(--sans);color:var(--text)}
+.site-bar .sb-panel a:hover{color:var(--accent)}
+.site-bar .sb-right{margin-left:auto;flex:0 0 auto;display:flex;align-items:center}
+.site-bar .sb-right .learn-link{margin:0 6px 0 4px}
+.site-bar .sb-menu{display:none}
+.site-bar .sb-menu>.sb-panel{position:fixed;left:0;right:0;top:var(--sb-h);width:auto;max-width:none;max-height:calc(100dvh - var(--sb-h));border-radius:0;border-width:0 0 1px;display:block}
+.site-bar .sb-menu details{border-top:1px solid var(--line)}
+.site-bar .sb-menu details summary{padding:13px 0;font-size:13px;color:var(--text)}
+.site-bar .sb-menu details .sb-panel{position:static;width:auto;max-width:none;max-height:none;border:0;box-shadow:none;padding:0 0 14px;background:none}
+/* right-hand menus open leftwards so their panels stay on screen */
+.site-bar .sb-groups>details:nth-last-child(-n+3)>.sb-panel{left:auto;right:-14px}
+@media(max-width:1750px){.site-bar .header-actions button span{display:none}.site-bar .header-actions button{padding:8px 10px}}
+@media(max-width:1560px){.site-bar .sb-mode small{display:none}.site-bar .sb-groups{gap:12px;font-size:11.5px}.site-bar .sb-right .learn-link{display:none}}
+@media(max-width:1270px){.site-bar{gap:10px}.site-bar .sb-groups{display:none}.site-bar .sb-menu{display:block}}
+@media(max-width:900px){.site-bar .sb-right .learn-link{display:none}.site-bar .header-actions button span{display:none}.site-bar .header-actions button{padding:8px}}
+@media(max-width:760px){.site-bar{--sb-h:calc(64px + var(--site-bar));padding:0 10px;gap:8px}.site-bar .sb-brand{font-size:16px}.site-bar .sb-mode>*{padding:5px 9px}}
+@media(max-width:520px){.site-bar .sb-brand{display:none}}
+/* the Observatory's own header row is replaced by the bar */
+body[data-site-bar="true"] .topbar{display:none}

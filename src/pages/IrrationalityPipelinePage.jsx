@@ -15,7 +15,7 @@ export default function IrrationalityPipelinePage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['irrationality workstream · zetaexplorer', 'method, not a theorem']}
+      byline={['irrationality workstream · explorezeta', 'method, not a theorem']}
       ticker={<span>encode → predict → generate → measure → cancel → test</span>}
       footer={<>
         Related: <Link to="/catalan-signed-ladder">The signed ladder &amp; Catalan</Link>

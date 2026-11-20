@@ -15,7 +15,7 @@ export default function LambdaCandidate01758354Page() {
       meta={['2026-08-18', 'computer-assisted', 'unrefereed']}
       title={<>Λ ≤ 0.1758354 — a four-gate barrier certificate</>}
       dek={<>A revised mollifier and an extended finite lane certify a de Bruijn–Newman bound of 0.1758354, below the 0.1787854 candidate. Four gates, each machine-checked in interval arithmetic; the y-transfer reduction and Lemma B3 are Lean-checked. This is not a refereed result and does not displace Platt–Trudgian.</>}
-      byline={['Barrier program · zetaexplorer', 'candidate — not SOTA']}
+      byline={['Barrier program · explorezeta', 'candidate — not SOTA']}
       ticker={<span>candidate · Λ ≤ <b>&nbsp;0.1758354</b></span>}
       footer={<>Related: <Link to="/newman-lambda-01787854-candidate">Λ ≤ 0.1787854 package</Link> · <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/pt-floor-audit">what binds the floor</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >

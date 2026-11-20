@@ -1,0 +1,16 @@
+zeta [0.01,0.5] Nmax=100 dps=840 base first-indefinite: None pivot(N) samples: [(5, '3.91e-21'), (10, '1.24e-53'), (20, '7.34e-118'), (30, '5.17e-176'), (40, '9.88e-251'), (60, '8.56e-391'), (80, '1.68e-529'), (100, '2.54e-683')]
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=14.13472514 d=0.3 first-indefinite N*= 7
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=21.02203964 d=0.3 first-indefinite N*= 12
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=25.01085758 d=0.3 first-indefinite N*= 15
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=32.93506159 d=0.3 first-indefinite N*= 24
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=43.32707328 d=0.3 first-indefinite N*= 34
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=56.4462477 d=0.3 first-indefinite N*= 49
+zeta [0.01,0.5] Nmax=100 dps=840 twin move g=77.14484007 d=0.3 first-indefinite N*= 81
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=14.0 d=0.03 first-indefinite N*= 15
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=20.0 d=0.3 first-indefinite N*= 13
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=40.0 d=0.3 first-indefinite N*= 34
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=50.0 d=0.3 first-indefinite N*= 44
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=60.0 d=0.3 first-indefinite N*= 65
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=80.0 d=0.3 first-indefinite N*= 92
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=20.0 d=0.03 first-indefinite N*= 18
+zeta [0.01,0.5] Nmax=100 dps=840 twin add g=40.0 d=0.03 first-indefinite N*= 41

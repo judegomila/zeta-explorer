@@ -1,0 +1,18 @@
+control (no quartet), x in [0.00262,0.131]: first indefinite order within 2g: None ; pivot 2g = 3.3638e-114
+control (no quartet), x in [0.0262,0.785]: first indefinite order within 2g: None ; pivot 2g = 9.1763e-75
+control (no quartet), x in [0.0785,7.85]: first indefinite order within 2g: None ; pivot 2g = 7.4502e-43
+g=12 r=1.2 spacing=dense; inertia bound K* <= 2g+3 = 27
+ n = number of on-circle zero pairs with angle below the planted quartet
+  n= 0  K* by node family [2, 2, 4]   min=2   2n+3=3
+  n= 1  K* by node family [6, 6, 8]   min=6   2n+3=5
+  n= 2  K* by node family [9, 9, 10]   min=9   2n+3=7
+  n= 3  K* by node family [11, 12, 10]   min=10   2n+3=9
+  n= 4  K* by node family [11, 12, 13]   min=11   2n+3=11
+  n= 5  K* by node family [14, 14, 15]   min=14   2n+3=13
+  n= 6  K* by node family [16, 16, 16]   min=16   2n+3=15
+  n= 7  K* by node family [17, 17, 18]   min=17   2n+3=17
+  n= 8  K* by node family [19, 19, 17]   min=17   2n+3=19
+  n= 9  K* by node family [18, 18, 19]   min=18   2n+3=21
+  n=10  K* by node family [20, 20, 19]   min=19   2n+3=23
+  n=11  K* by node family [19, 19, 17]   min=17   2n+3=25
+  n=12  K* by node family [23, 23, 23]   min=23   2n+3=27

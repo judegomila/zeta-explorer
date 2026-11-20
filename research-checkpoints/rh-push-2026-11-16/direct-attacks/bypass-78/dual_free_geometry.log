@@ -1,0 +1,6 @@
+Region A: residual of the lx-equation factors as: 324*delta**2*kappa**2 - 3*delta**2 - 756*delta*kappa**2 + 54*delta*kappa + 5*delta + 300*kappa**2 - 40*kappa  /  4*(72*delta**2*kappa - 9*delta**2 + 792*delta*kappa**2 - 198*delta*kappa + 15*delta - 975*kappa**2 + 130*kappa)
+   Liu's cr(delta,kappa) divides it: True
+   kappa=0.750000000000000: delta_c=0.469355752046981  weights={'w0': 0.6453141835, 'wK': 0.1251130106, 'wH': 0.2295728059}  => B >= 0.874886989357901500313173070992
+   kappa=0.749773294079900: delta_c=0.469344858698142  weights={'w0': 0.6453188308, 'wK': 0.1251133530, 'wH': 0.2295678162}  => B >= 0.874886647039964088257001827518
+   Region B, kappa=0.750000000000000: best class delta=0.666: weights {'v0': 0.21082483, 'vK': 0.11293252, 'vH': 0.67624265, 'lam': 0.28165506}  => B >= 0.887067477512781
+   Region B, kappa=0.749773294079900: best class delta=0.666: weights {'v0': 0.21082382, 'vK': 0.11293267, 'vH': 0.67624352, 'lam': 0.28165542}  => B >= 0.887067332605281

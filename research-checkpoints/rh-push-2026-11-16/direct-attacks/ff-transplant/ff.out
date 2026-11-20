@@ -1,0 +1,126 @@
+==============================================================================
+y^2=x^3+x+1  q=5 g=1
+ P(T) coefficients: ['1', '3', '5']
+ |alpha_j|/sqrt(q): ['1.0', '1.0']
+ theta_j/pi      : ['-0.7340578598', '0.7340578598']
+ brute-force N_n: [9, 27, 108, 675]  from P: ['9.0', '27.0', '108.0', '675.0']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['2.0', '-1.341640786', '-0.2', '1.609968944', '-1.96', '1.019646998', '0.592']
+  Toeplitz size  2: min eig 0.65835921  max eig 3.3416408  rank 2
+  Toeplitz size  3: min eig 5.7600114e-61  max eig 3.8  rank 2
+  Toeplitz size  6: min eig -3.3929478e-62  max eig 7.2879752  rank 2
+  Verblunsky gamma_k: ['0.6708203932', '1.0']
+  Schur defects D_k : ['2.0', '1.1', '6.8453168e-61']
+  K= 1 nodes x>1/2: disc Pick min eig 1.16018 rank 1 | cont Pick min eig 1.40846
+  K= 2 nodes x>1/2: disc Pick min eig 0.0057384 rank 2 | cont Pick min eig 0.0219538
+  K= 4 nodes x>1/2: disc Pick min eig -4.43958e-61 rank 2 | cont Pick min eig 8.84245e-6
+  Q_L(v): Pick 0.0031217622506683 | genus+pole-prime side 0.0031217622506683 | zero side (|k|<=4000) 0.003121762251
+  intersection form on <H1,H2,Gamma_0..Gamma_4>: inertia (+,-,0) = (1,3,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 4.7793e-58
+  genus 1: Q_disc(a)=42.099689438, 2*deg(a0 + a1 q^{-1/2} F)=42.099689438
+==============================================================================
+y^2=x^3+3x+2  q=7 g=1
+ P(T) coefficients: ['1', '1', '7']
+ |alpha_j|/sqrt(q): ['1.0', '1.0']
+ theta_j/pi      : ['-0.5605188592', '0.5605188592']
+ brute-force N_n: [9, 63, 324]  from P: ['9.0', '63.0', '324.0']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['2.0', '-0.377964473', '-1.857142857', '1.079898494', '1.448979592', '-1.627561302', '-0.833819242']
+  Toeplitz size  2: min eig 1.6220355  max eig 2.3779645  rank 2
+  Toeplitz size  3: min eig 7.7787691e-62  max eig 3.8571429  rank 2
+  Toeplitz size  6: min eig -2.025336e-60  max eig 6.9256273  rank 2
+  Verblunsky gamma_k: ['0.1889822365', '1.0']
+  Schur defects D_k : ['2.0', '1.9285714', '3.0003824e-61']
+  K= 1 nodes x>1/2: disc Pick min eig 1.60358 rank 1 | cont Pick min eig 2.50316
+  K= 2 nodes x>1/2: disc Pick min eig 0.0204056 rank 2 | cont Pick min eig 0.0598396
+  K= 4 nodes x>1/2: disc Pick min eig -5.15204e-61 rank 2 | cont Pick min eig 4.22234e-5
+  Q_L(v): Pick 0.0032062106342865 | genus+pole-prime side 0.0032062106342865 | zero side (|k|<=4000) 0.003206210634
+  intersection form on <H1,H2,Gamma_0..Gamma_4>: inertia (+,-,0) = (1,3,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 1.9117e-57
+  genus 1: Q_disc(a)=30.5355736761, 2*deg(a0 + a1 q^{-1/2} F)=30.5355736761
+==============================================================================
+y^2=x^5+x^2+1  q=3 g=2
+ P(T) coefficients: ['1', '2', '6', '6', '9']
+ |alpha_j|/sqrt(q): ['1.0', '1.0', '1.0', '1.0']
+ theta_j/pi      : ['0.695913276', '-0.695913276', '0.5', '-0.5']
+ brute-force N_n: [6, 18, 18, 78, 246]  from P: ['6.0', '18.0', '18.0', '78.0', '246.0']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['4.0', '-1.154700538', '-2.666666667', '1.924500897', '0.4444444444', '-0.1283000598', '-0.2962962963']
+  Toeplitz size  4: min eig 0.26504367  max eig 8.5047567  rank 4
+  Toeplitz size  5: min eig -6.6016598e-61  max eig 8.5609277  rank 4
+  Toeplitz size  8: min eig -1.4914513e-60  max eig 10.200604  rank 4
+  Verblunsky gamma_k: ['0.2886751346', '0.8181818182', '0.3464101615', '1.0']
+  Schur defects D_k : ['4.0', '3.6666667', '1.2121212', '1.0666667', '1.4935237e-60']
+  K= 3 nodes x>1/2: disc Pick min eig 0.000129113 rank 3 | cont Pick min eig 0.000427246
+  K= 4 nodes x>1/2: disc Pick min eig 1.71385e-6 rank 4 | cont Pick min eig 1.10443e-5
+  K= 6 nodes x>1/2: disc Pick min eig -9.02854e-61 rank 4 | cont Pick min eig 2.2725e-8
+  Q_L(v): Pick 0.004242717711988 | genus+pole-prime side 0.004242717711988 | zero side (|k|<=4000) 0.004242717712
+  intersection form on <H1,H2,Gamma_0..Gamma_6>: inertia (+,-,0) = (1,5,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 1.5931e-57
+==============================================================================
+y^2=x^5+2x+1  q=5 g=2
+ P(T) coefficients: ['1', '0', '0', '0', '25']
+ |alpha_j|/sqrt(q): ['1.0', '1.0', '1.0', '1.0']
+ theta_j/pi      : ['-0.75', '0.75', '-0.25', '0.25']
+ brute-force N_n: [6, 26, 126, 726]  from P: ['6.0', '26.0', '126.0', '726.0']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['4.0', '0.0', '0.0', '0.0', '-4.0', '0.0', '0.0']
+  Toeplitz size  4: min eig 4.0  max eig 4.0  rank 4
+  Toeplitz size  5: min eig 1.8669046e-60  max eig 8.0  rank 4
+  Toeplitz size  8: min eig 1.8669046e-60  max eig 8.0  rank 4
+  Verblunsky gamma_k: ['0.0', '0.0', '0.0', '1.0']
+  Schur defects D_k : ['4.0', '4.0', '4.0', '4.0', '2.4892061e-60']
+  K= 3 nodes x>1/2: disc Pick min eig 0.0013536 rank 3 | cont Pick min eig 0.00473318
+  K= 4 nodes x>1/2: disc Pick min eig 6.41556e-6 rank 4 | cont Pick min eig 0.000173957
+  K= 6 nodes x>1/2: disc Pick min eig -1.3735e-60 rank 4 | cont Pick min eig 2.92872e-7
+  Q_L(v): Pick 0.0050431001693084 | genus+pole-prime side 0.0050431001693084 | zero side (|k|<=4000) 0.005043100169
+  intersection form on <H1,H2,Gamma_0..Gamma_6>: inertia (+,-,0) = (1,5,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 3.0587e-56
+==============================================================================
+FAKE 1-5T+5T^2  q=5 g=1
+ P(T) coefficients: ['1', '-5', '5']
+ |alpha_j|/sqrt(q): ['0.61803398875', '1.61803398875']
+ theta_j/pi      : ['0.0', '0.0']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['2.0', '2.236067977', '3.0', '4.472135955', '7.0', '11.18033989', '18.0']
+  Toeplitz size  2: min eig -0.23606798  max eig 4.236068  rank 2
+  Toeplitz size  3: min eig -1.0  max eig 7.0  rank 2
+  Toeplitz size  6: min eig -11.888544  max eig 23.888544  rank 2
+  Verblunsky gamma_k: ['-1.118033989', '1.0']
+  Schur defects D_k : ['2.0', '-0.5', '1.8669046e-60']
+  K= 1 nodes x>1/2: disc Pick min eig 8.07796 rank 1 | cont Pick min eig 9.80666
+  K= 2 nodes x>1/2: disc Pick min eig -0.164933 rank 2 | cont Pick min eig -0.091126
+  K= 4 nodes x>1/2: disc Pick min eig -0.435229 rank 2 | cont Pick min eig -0.112746
+  Q_L(v): Pick 0.0014104141349858 | genus+pole-prime side 0.0014104141349858 | zero side (|k|<=4000) 0.001410414135
+  intersection form on <H1,H2,Gamma_0..Gamma_4>: inertia (+,-,0) = (2,2,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 4.7793e-58
+  genus 1: Q_disc(a)=-0.832815729997, 2*deg(a0 + a1 q^{-1/2} F)=-0.832815729997
+==============================================================================
+FAKE 1-T-3T^2-3T^3+9T^4  q=3 g=2
+ P(T) coefficients: ['1', '-1', '-3', '-3', '9']
+ |alpha_j|/sqrt(q): ['0.809905546186', '1.23471188055', '1.0', '1.0']
+ theta_j/pi      : ['0.0', '0.0', '0.762177117', '-0.762177117']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['4.0', '0.5773502692', '2.333333333', '3.656551705', '0.7777777778', '4.875402273', '3.37037037']
+  Toeplitz size  4: min eig -0.45229826  max eig 9.4097385  rank 4
+  Toeplitz size  5: min eig -0.73146798  max eig 11.0  rank 4
+  Toeplitz size  8: min eig -3.939575  max eig 20.303393  rank 4
+  Verblunsky gamma_k: ['-0.1443375673', '-0.5744680851', '-1.212435565', '1.0']
+  Schur defects D_k : ['4.0', '3.9166667', '2.6241135', '-1.2333333', '1.1512578e-60']
+  K= 3 nodes x>1/2: disc Pick min eig -0.00701259 rank 3 | cont Pick min eig -0.00284758
+  K= 4 nodes x>1/2: disc Pick min eig -0.0134913 rank 4 | cont Pick min eig -0.0044597
+  K= 6 nodes x>1/2: disc Pick min eig -0.0222496 rank 4 | cont Pick min eig -0.00472367
+  Q_L(v): Pick 0.0027975967881294 | genus+pole-prime side 0.0027975967881294 | zero side (|k|<=4000) 0.002797596788
+  intersection form on <H1,H2,Gamma_0..Gamma_6>: inertia (+,-,0) = (2,4,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 1.5931e-57
+==============================================================================
+FAKE 1-T+7T^2-3T^3+9T^4  q=3 g=2
+ P(T) coefficients: ['1', '-1', '7', '-3', '9']
+ |alpha_j|/sqrt(q): ['0.778897181691', '0.778897181691', '1.2838665019', '1.2838665019']
+ theta_j/pi      : ['-0.4553071638', '0.4553071638', '-0.4553071638', '0.4553071638']
+ c_n = q^{-n/2}(q^n+1-N_n), n=0..6: ['4.0', '0.5773502692', '-4.333333333', '-2.116950987', '5.222222222', '4.875402273', '-6.259259259']
+  Toeplitz size  4: min eig -0.76006646  max eig 9.8619147  rank 4
+  Toeplitz size  5: min eig -1.9295534  max eig 13.490151  rank 4
+  Toeplitz size  8: min eig -8.5989728  max eig 26.4321  rank 4
+  Verblunsky gamma_k: ['-0.1443375673', '1.127659574', '-0.1270170592', '1.0']
+  Schur defects D_k : ['4.0', '3.9166667', '-1.0638298', '-1.0466667', '-1.3026845e-60']
+  K= 3 nodes x>1/2: disc Pick min eig -0.000348089 rank 3 | cont Pick min eig 0.000409825
+  K= 4 nodes x>1/2: disc Pick min eig -0.00112502 rank 4 | cont Pick min eig -1.24614e-5
+  K= 6 nodes x>1/2: disc Pick min eig -0.00307415 rank 4 | cont Pick min eig -2.79136e-5
+  Q_L(v): Pick 0.0038419270504958 | genus+pole-prime side 0.0038419270504958 | zero side (|k|<=4000) 0.00384192705
+  intersection form on <H1,H2,Gamma_0..Gamma_6>: inertia (+,-,0) = (3,3,3)
+  max |primitive(Gamma_m.Gamma_n) + q^{(m+n)/2} c_|m-n||| = 1.5931e-57

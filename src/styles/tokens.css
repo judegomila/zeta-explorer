@@ -8,22 +8,23 @@
    ========================================================================== */
 
 :root {
-  /* core */
-  --paper: #0a0e1a;
-  --paper-2: #111827;
-  --paper-3: #1a1f36;
-  --paper-4: #222845;
-  --ink: #e2e8f0;
-  --ink-soft: #94a3b8;
+  /* core: surfaces, text, rules and accent follow the Zeta Observatory
+     palette (observatory/dist/tokens.css) */
+  --paper: #0b111b;
+  --paper-2: #101721;
+  --paper-3: #141e2b;
+  --paper-4: #1b2736;
+  --ink: #e6eaf0;
+  --ink-soft: #91a0b2;
   --ink-faint: #8290a3;
-  --rule: #334155;
-  --rule-soft: #1e293b;
-  --accent: #38bdf8;
+  --rule: #26303e;
+  --rule-soft: #1e2835;
+  --accent: #d1f1a8;
   --accent-deco: #3b82f6;
   --brass: #facc15;
   --brass-deco: #f59e0b;
   --warn: #f87171;
-  --focus-ring: #38bdf8;
+  --focus-ring: #d1f1a8;
 
   /* status foregrounds */
   --status-proved: #4ade80;

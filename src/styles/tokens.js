@@ -3,7 +3,7 @@
 // use V.* (CSS var strings) for inline HTML styles. No imports.
 const K = ['paper','paper2','paper3','paper4','ink','inkSoft','inkFaint','rule','ruleSoft','accent','accentDeco','brass','brassDeco','warn','focusRing','series1','series2','series3','series4','series5','series6','series7','series8'];
 const mk = (vals) => Object.fromEntries(K.map((k, i) => [k, vals[i]]));
-export const CLASSIC = mk(['#0a0e1a','#111827','#1a1f36','#222845','#e2e8f0','#94a3b8','#8290a3','#334155','#1e293b','#38bdf8','#3b82f6','#facc15','#f59e0b','#f87171','#38bdf8','#38bdf8','#f87171','#4ade80','#facc15','#a78bfa','#2dd4bf','#f472b6','#94a3b8']);
+export const CLASSIC = mk(['#0b111b','#101721','#141e2b','#1b2736','#e6eaf0','#91a0b2','#8290a3','#26303e','#1e2835','#d1f1a8','#3b82f6','#facc15','#f59e0b','#f87171','#d1f1a8','#38bdf8','#f87171','#4ade80','#facc15','#a78bfa','#2dd4bf','#f472b6','#94a3b8']);
 export const ED = mk(['#fdfaf3','#f6f1e7','#efe7d6','#e8dfcb','#1c1814','#4a4238','#71665a','#d5c9b2','#e3d8c2','#c23a1c','#d9502e','#8c6a1d','#b58a2e','#c23a1c','#c23a1c','#3f6b86','#c23a1c','#4c7a4a','#8c6a1d','#6d55b8','#2f6f6a','#9b4a7a','#63707d']);
 export const TOKENS = { classic: CLASSIC, editorial: ED };
 const kebab = (k) => k.replace(/([a-z])([A-Z0-9])/g, '$1-$2').toLowerCase();

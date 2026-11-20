@@ -1,0 +1,20 @@
+Exact verification receipt - 20 October 2026
+
+certify_parameters.py:
+  First-stage boundary: 69991/80000
+  New-stage boundary: 17497733/20000000 = 0.87488665
+  Gain against 8748867/10000000: 1/20000000
+  All numerical admissibility conditions: PASS
+
+verify_certificate.py:
+  Separate rational-function identity verification: PASS
+  Full-rectangle positivity from integer coefficients: PASS
+  Every scalar gate and stage licensing: PASS
+  B <= 0.8748 obstruction in stated source system: PASS
+
+Imported analytic estimates and closure lemma: NOT independently verified
+New direct twin-ladder energy exponent: NOT proved
+Literature priority: NOT claimed
+Lean formalization of this certificate: NOT performed
+
+PDF: six pages rendered and visually reviewed after embedding fonts.

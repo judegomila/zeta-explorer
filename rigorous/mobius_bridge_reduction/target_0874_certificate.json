@@ -1,0 +1,67 @@
+{
+  "status": "EXACT_NUMERICAL_IMPLICATION_ONLY",
+  "new_analytic_input": "UNPROVED: restricted numerator fourth moment <= U^(39/40+epsilon), with the source coefficient, slot, mask, and uniformity conditions",
+  "source_analytic_inputs": "IMPORTED, NOT INDEPENDENTLY VERIFIED",
+  "target_boundary": "437/500",
+  "parameters": {
+    "b": "1/25",
+    "ell": "64/375",
+    "kappa": "29991/40000",
+    "eta": "1/160",
+    "g": "1/10000",
+    "zeta": "1/1000000",
+    "gstar": "1/20000",
+    "h": "97/125"
+  },
+  "conditional_gain": "17733/20000000",
+  "positive_scalar_margins": {
+    "b": "1/25",
+    "ell_above_1_6": "1/250",
+    "ell_below_1_5": "11/375",
+    "boundary_above_87_100": "1/250",
+    "lx_above_ell": "28/125",
+    "geometry": "143/750",
+    "six_kappa_ell": "5553/312500",
+    "full_capacity": "20576/8727381",
+    "supply": "2311937/232800300",
+    "ly_above_half_h": "7/150",
+    "ly_below_half": "49/750",
+    "small_delta": "431/218250",
+    "floor": "61/12500",
+    "small_rows": "481/37500",
+    "extension": "3/62500",
+    "gstar_positive": "1/20000",
+    "gstar_small": "19/20000",
+    "zeta_positive": "1/500000",
+    "zeta_small": "499/500000",
+    "modified_scale_slope": "23/800",
+    "short_block_supply_with_extra_saving": "1884239/93120120",
+    "supply_comparison_slope": "1040002/2328003"
+  },
+  "multiplier": "582850132488000",
+  "A": [
+    261053687392896,
+    439931853392256,
+    324251015675904,
+    166142115840000
+  ],
+  "Bpoly": [
+    -267902152257554,
+    -237420356232244,
+    78832687889920
+  ],
+  "C": [
+    69384345699825,
+    63771729639930
+  ],
+  "four_AC_minus_B_squared": [
+    680593984901327792663709884,
+    61478067047491661736047227568,
+    188083107073271798598415231344,
+    166255810114737768744554147840,
+    36166087692668106775927193600
+  ],
+  "identity": "2*M*J*(-E + eta*h - g) = A(y)*delta^2 + Bpoly(y)*delta + C(y)",
+  "proved_modified_endpoint": "E - eta*h < -1/10000 on 0<=delta<=5/6, 0<=x<=1/2",
+  "original_endpoint_positive_at_half_half": "656263480697/156494717496000"
+}

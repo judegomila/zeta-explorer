@@ -1,6 +1,6 @@
 # zeta-view — Zeta Observatory
 
-A dedicated mathematical geometry workbench for the Riemann zeta function, with private source at [judegomila/zeta-view](https://github.com/judegomila/zeta-view).
+A dedicated mathematical geometry workbench for the Riemann zeta function, with source at [judegomila/zeta-view](https://github.com/judegomila/zeta-view).
 
 The app is self-contained and runs on any static HTTP(S) host. Vercel serves `dist/` using `vercel.json` and prepares the projective numerical pack during deployment. Local serving requires no build, ChatGPT runtime, API key, or database. The application keeps the Zeta Observatory name.
 

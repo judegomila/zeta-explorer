@@ -1,0 +1,2 @@
+explicit LCHI4 X=1e+08 eta=0.5 Tc=100000 delta=0.005 N=2^22 lines [0.0434294482, 0.0868588964, 0.1737177928, 0.3474355855] workers 3 direct 0; per-worker accumulators 0.54 GB
+terms 5762859  done 7.4 s

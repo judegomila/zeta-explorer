@@ -1,0 +1,12 @@
+zeros 999.7916, 1001.3495 (gap 1.558, mean spacing 1.239), quadruple at 1000.5705, L = 5.070
+  b = 0.40: 2a* added 5.35 (c = 1.055)   moved 4.10 (c = 0.809)
+  b = 0.30: 2a* added 5.40 (c = 1.065)   moved 4.40 (c = 0.868)
+  b = 0.20: 2a* added 5.45 (c = 1.075)   moved 4.65 (c = 0.917)
+  b = 0.10: 2a* added 5.50 (c = 1.085)   moved 4.95 (c = 0.976)
+  b = 0.01: 2a* added 5.60 (c = 1.104)   moved 5.15 (c = 1.016)
+zeros 9998.8504, 10000.0653 (gap 1.215, mean spacing 0.852), quadruple at 9999.4579, L = 7.372
+  b = 0.40: 2a* added 5.75 (c = 0.780)   moved 4.90 (c = 0.665)
+  b = 0.30: 2a* added 7.45 (c = 1.011)   moved 5.25 (c = 0.712)
+  b = 0.20: 2a* added 7.70 (c = 1.044)   moved 5.70 (c = 0.773)
+  b = 0.10: 2a* added 7.80 (c = 1.058)   moved 6.55 (c = 0.888)
+  b = 0.01: 2a* added 7.90 (c = 1.072)   moved 7.40 (c = 1.004)

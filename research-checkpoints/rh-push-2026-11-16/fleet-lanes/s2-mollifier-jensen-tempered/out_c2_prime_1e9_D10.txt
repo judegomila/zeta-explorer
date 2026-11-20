@@ -1,0 +1,4 @@
+T 1e+09 Delta 10 N 2000 extended True
+planned allocation: N x N longdouble/complex work arrays x 6 = 384.0 MB
+prime powers used: 1035 (k <= 7793)  215s
+{"T": 1000000000.0, "Delta": 10.0, "N": 2000, "lam_min": -4.830017888451773e-11, "lam_max": 76.96507455980412, "ratio": -6.275596971842998e-13, "rank_1e-9": 113, "rank_1e-12": 129, "zeros_per_unit": 3.005702975043146, "zeros_within_Delta": 60.11405950086292, "negative_below_-1e-10": 0}

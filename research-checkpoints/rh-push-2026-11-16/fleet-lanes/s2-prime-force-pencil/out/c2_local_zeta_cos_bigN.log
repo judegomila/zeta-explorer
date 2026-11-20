@@ -1,0 +1,16 @@
+15:12:26 mp extrema below 1000: 243, max shift/gap 1.212e+00
+15:12:26 zeta cos N=256: zeros 10000040, near-collisions 3864834, heights 23.10 .. 4992398.27, dim 256
+15:12:27   N=256 K=200000 T=330873.84 rho in [0.088362, 0.088362] feasible passes 7 support 62
+15:12:30   N=256 K=900000 T=1304736.99 rho in [0.051301, 0.051301] feasible passes 7 support 100
+15:12:48   N=256 K=3864834 T=4992398.27 rho in [0.030918, 0.030918] feasible passes 7 support 142
+15:12:48 no onset within the list for N=256 (last status feasible)
+15:12:48 zeta cos N=512: zeros 10000040, near-collisions 3864834, heights 23.10 .. 4992398.27, dim 512
+15:12:50   N=512 K=200000 T=330873.84 rho in [0.086659, 0.086659] feasible passes 5 support 68
+15:12:58   N=512 K=900000 T=1304736.99 rho in [0.051212, 0.051212] feasible passes 6 support 118
+15:13:43   N=512 K=3864834 T=4992398.27 rho in [0.031981, 0.031981] feasible passes 7 support 184
+15:13:43 no onset within the list for N=512 (last status feasible)
+15:13:43 zeta cos N=1024: zeros 10000040, near-collisions 3864834, heights 23.10 .. 4992398.27, dim 1024
+15:13:46   N=1024 K=200000 T=330873.84 rho in [0.085025, 0.085025] feasible passes 4 support 77
+15:14:03   N=1024 K=900000 T=1304736.99 rho in [0.050241, 0.050241] feasible passes 6 support 133
+15:15:30   N=1024 K=3864834 T=4992398.27 rho in [0.031986, 0.031986] feasible passes 7 support 222
+15:15:30 no onset within the list for N=1024 (last status feasible)

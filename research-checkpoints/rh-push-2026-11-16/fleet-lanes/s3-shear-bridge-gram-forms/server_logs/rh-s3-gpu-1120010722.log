@@ -1,0 +1,62 @@
+GPU True
+zeta: symbol max 2.027383e-04 at theta0 0.269344, |g''| 5.575239e-03, band 53 lags, second local max / max 0.0000
+  planned: N=200, T and S float64: 2 x 0.00 GB (+ eigensolver workspace of the same order)
+  planned: N=200, T and S float64: 2 x 0.00 GB (+ eigensolver workspace of the same order)
+  N=   200  max split 3.24e-16  C N^2 257.952191  C/Cpred 0.959940  ladder resid 9.90e-03  ratios L3/L2 2.670768 L4/L2 5.018484 (8/3, 5)  lam1/M^2 0.99357981  2s
+  planned: N=400, T and S float64: 2 x 0.00 GB (+ eigensolver workspace of the same order)
+  planned: N=400, T and S float64: 2 x 0.00 GB (+ eigensolver workspace of the same order)
+  N=   400  max split 6.45e-16  C N^2 264.451805  C/Cpred 0.979237  ladder resid 2.57e-03  ratios L3/L2 2.667734 L4/L2 5.004807 (8/3, 5)  lam1/M^2 0.99834907  0s
+  planned: N=800, T and S float64: 2 x 0.01 GB (+ eigensolver workspace of the same order)
+  planned: N=800, T and S float64: 2 x 0.01 GB (+ eigensolver workspace of the same order)
+  N=   800  max split 1.61e-16  C N^2 267.869265  C/Cpred 0.989420  ladder resid 6.54e-04  ratios L3/L2 2.666939 L4/L2 5.001227 (8/3, 5)  lam1/M^2 0.99958158  0s
+  planned: N=1600, T and S float64: 2 x 0.02 GB (+ eigensolver workspace of the same order)
+  planned: N=1600, T and S float64: 2 x 0.02 GB (+ eigensolver workspace of the same order)
+  N=  1600  max split 0.00e+00  C N^2 269.622870  C/Cpred 0.994654  ladder resid 1.65e-04  ratios L3/L2 2.666736 L4/L2 5.000310 (8/3, 5)  lam1/M^2 0.99989469  1s
+  planned: N=2400, T and S float64: 2 x 0.05 GB (+ eigensolver workspace of the same order)
+  planned: N=2400, T and S float64: 2 x 0.05 GB (+ eigensolver workspace of the same order)
+  N=  2400  max split 1.61e-16  C N^2 270.214277  C/Cpred 0.996421  ladder resid 7.37e-05  ratios L3/L2 2.666697 L4/L2 5.000138 (8/3, 5)  lam1/M^2 0.99995309  2s
+  planned: N=3200, T and S float64: 2 x 0.08 GB (+ eigensolver workspace of the same order)
+  planned: N=3200, T and S float64: 2 x 0.08 GB (+ eigensolver workspace of the same order)
+  N=  3200  max split 4.83e-16  C N^2 270.511289  C/Cpred 0.997308  ladder resid 4.15e-05  ratios L3/L2 2.666684 L4/L2 5.000078 (8/3, 5)  lam1/M^2 0.99997358  3s
+  planned: N=6400, T and S float64: 2 x 0.33 GB (+ eigensolver workspace of the same order)
+  N=  6400  max split 4.83e-16  C N^2 270.958453  C/Cpred 0.998645  ladder resid 1.04e-05  ratios L3/L2 2.666671 L4/L2 5.000020 (8/3, 5)  lam1/M^2 0.99999339  7s
+  planned: N=12800, T and S float64: 2 x 1.31 GB (+ eigensolver workspace of the same order)
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c2.py", line 93, in <module>
+    lam = top_eigs(t, N)
+          ^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c2.py", line 64, in top_eigs
+    ev = xp.linalg.eigvalsh(S)
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/linalg/_eigenvalue.py", line 355, in eigvalsh
+    return _syevd(a, UPLO, False)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/linalg/_eigenvalue.py", line 61, in _syevd
+    work_device = cupy.empty(work_device_size, 'b')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/venv/lib/python3.12/site-packages/cupy/_creation/basic.py", line 34, in empty
+    return cupy.ndarray(shape, dtype, order=order)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 176, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 282, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 3,933,133,312 bytes (allocated so far: 2,952,502,784 bytes, limit set to: 25,769,803,776 bytes).
+GPU True
+zeta N=200 (40 digits): max pair split 2.18e-40  C N^2 257.952191  ladder resid 0.0099  L3/L2 2.6707676 L4/L2 5.0184839
+zeta_repo N=200 (40 digits): max pair split 2.65e-40  C N^2 198.4242587  ladder resid 0.003695  L3/L2 2.6682425 L4/L2 5.0070505
+chi-3 N=200 (40 digits): max pair split 6.31e-41  C N^2 602.5008662  ladder resid 0.02806  L3/L2 2.678066 L4/L2 5.0516495
+DH N=200 (40 digits): max pair split 2.95e-41  C N^2 943.8985223  ladder resid 0.0561  L3/L2 2.6885071 L4/L2 5.1000236
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s3-shear-bridge-gram-forms/c2_mp.py", line 11, in <module>
+    t = tvec(KERNELS[name], 400)
+             ~~~~~~~^^^^^^
+KeyError: 'T-NR(3'
+GPU True
+zeta N=400 (40 digits): max pair split 3.0e-40  C N^2 264.4518052  ladder resid 0.002567  L3/L2 2.6677344 L4/L2 5.0048067
+DH N=400 (40 digits): max pair split 2.46e-40  C N^2 985.5848404  ladder resid 0.01419  L3/L2 2.672471 L4/L2 5.0262441
+DONE_GPU

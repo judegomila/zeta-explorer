@@ -1,0 +1,24 @@
+case PLANT T 10000 nearest off-line ordinate at distance 50.000, Delta 8.335, zeros used 549 (on-line 547), on-line zeros nearer than the off-line one: 117
+case PLANT T 10000 nearest off-line ordinate at distance 20.000, Delta 6.666, zeros used 440 (on-line 438), on-line zeros nearer than the off-line one: 46
+case PLANT T 10000 nearest off-line ordinate at distance 30.000, Delta 9.999, zeros used 659 (on-line 657), on-line zeros nearer than the off-line one: 70
+case PLANT T 100000 nearest off-line ordinate at distance 20.000, Delta 6.666, zeros used 577 (on-line 575), on-line zeros nearer than the off-line one: 61
+  pivot 38 undecided at 256 bits -> 512 bits
+  pivot 59 undecided at 512 bits -> 1024 bits
+  pivot 45 undecided at 256 bits -> 512 bits
+  pivot 38 undecided at 256 bits -> 512 bits
+  pivot 42 undecided at 256 bits -> 512 bits
+  pivot 68 undecided at 512 bits -> 1024 bits
+  pivot 64 undecided at 512 bits -> 1024 bits
+  pivot 59 undecided at 512 bits -> 1024 bits
+  pivot 95 undecided at 1024 bits -> 2048 bits
+  pivot 101 undecided at 1024 bits -> 2048 bits
+  pivot 95 undecided at 1024 bits -> 2048 bits
+  pivot 106 undecided at 1024 bits -> 2048 bits
+  pivot 164 undecided at 2048 bits -> 4096 bits
+  pivot 156 undecided at 2048 bits -> 4096 bits
+  pivot 156 undecided at 2048 bits -> 4096 bits
+  pivot 172 undecided at 2048 bits -> 4096 bits
+  pivot 262 undecided at 4096 bits -> 8192 bits
+  pivot 274 undecided at 4096 bits -> 8192 bits
+  pivot 262 undecided at 4096 bits -> 8192 bits
+  pivot 285 undecided at 4096 bits -> 8192 bits

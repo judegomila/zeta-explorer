@@ -1,0 +1,15 @@
+N = 1e+09; planned: primes ~5.31e+07 terms, host arrays ~2.97 GB; GPU = False
+terms: 50851223 prime powers <= 1000000000 (50847534 primes), 5s
+  window Tc = 1e+12: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 5.12e-07 on 24 values; pad 0.0e+00 0.0e+00; 393s
+    zeta q=0.01: minP 3.205 at T=999999989926.15, mean 12.897, maxRe 9.692; q=0.5625: minP 9.585; total 401s
+  window Tc = 1e+11: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 2.49e-07 on 24 values; pad 0.0e+00 0.0e+00; 476s
+    zeta q=0.01: minP 2.741 at T=99999999323.60, mean 11.745, maxRe 9.004; q=0.5625: minP 8.274; total 879s
+  window Tc = 1e+10: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 3.94e-07 on 24 values; pad 0.0e+00 0.0e+00; 457s
+    zeta q=0.01: minP 2.273 at T=10000006166.05, mean 10.594, maxRe 8.321; q=0.5625: minP 7.181; total 1338s
+  window Tc = 14000: terms 50851223, channels 56; grid alloc 0.88 GB, chunk alloc 0.88 GB
+    nufft vs direct: max rel err 2.99e-07 on 24 values; pad 0.0e+00 0.0e+00; 423s
+    zeta q=0.01: minP 0.217 at T=1069.25, mean 3.854, maxRe 3.727; q=0.5625: minP 0.898; total 1763s
+DONE

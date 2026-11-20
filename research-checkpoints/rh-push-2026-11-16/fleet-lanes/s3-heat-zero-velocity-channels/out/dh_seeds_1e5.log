@@ -1,0 +1,45 @@
+starts 6099968 planned memory 1.46 GB
+off-line pairs found below 100000: 8138 ; x range 0.0010 .. 0.4371
+  [      5.1,    2505.0) phase count   2629.98  on   2412  off pairs   109  phase - on - 2 off =  -0.02
+  [   2505.0,    5004.8) phase count   3176.28  on   2889  off pairs   144  phase - on - 2 off =  -0.72
+  [   5004.8,    7504.7) phase count   3384.23  on   3098  off pairs   143  phase - on - 2 off =  +0.23
+  [   7504.7,   10004.6) phase count   3519.33  on   3177  off pairs   171  phase - on - 2 off =  +0.33
+  [  10004.6,   12504.4) phase count   3619.80  on   3288  off pairs   166  phase - on - 2 off =  -0.20
+  [  12504.4,   15004.3) phase count   3699.88  on   3332  off pairs   184  phase - on - 2 off =  -0.12
+  [  15004.3,   17504.2) phase count   3766.48  on   3413  off pairs   177  phase - on - 2 off =  -0.52
+  [  17504.2,   20004.1) phase count   3823.50  on   3475  off pairs   174  phase - on - 2 off =  +0.50
+  [  20004.1,   22503.9) phase count   3873.35  on   3495  off pairs   189  phase - on - 2 off =  +0.35
+  [  22503.9,   25003.8) phase count   3917.64  on   3539  off pairs   189  phase - on - 2 off =  +0.64
+  [  25003.8,   27503.7) phase count   3957.48  on   3588  off pairs   185  phase - on - 2 off =  -0.52
+  [  27503.7,   30003.6) phase count   3993.70  on   3558  off pairs   218  phase - on - 2 off =  -0.30
+  [  30003.6,   32503.4) phase count   4026.89  on   3643  off pairs   192  phase - on - 2 off =  -0.11
+  [  32503.4,   35003.3) phase count   4057.52  on   3642  off pairs   208  phase - on - 2 off =  -0.48
+  [  35003.3,   37503.2) phase count   4085.95  on   3651  off pairs   217  phase - on - 2 off =  +0.95
+  [  37503.2,   40003.1) phase count   4112.50  on   3717  off pairs   198  phase - on - 2 off =  -0.50
+  [  40003.1,   42502.9) phase count   4137.38  on   3699  off pairs   219  phase - on - 2 off =  +0.38
+  [  42502.9,   45002.8) phase count   4160.79  on   3755  off pairs   203  phase - on - 2 off =  -0.21
+  [  45002.8,   47502.7) phase count   4182.90  on   3781  off pairs   201  phase - on - 2 off =  -0.10
+  [  47502.7,   50002.5) phase count   4203.85  on   3778  off pairs   213  phase - on - 2 off =  -0.15
+  [  50002.5,   52502.4) phase count   4223.75  on   3826  off pairs   199  phase - on - 2 off =  -0.25
+  [  52502.4,   55002.3) phase count   4242.70  on   3827  off pairs   208  phase - on - 2 off =  -0.30
+  [  55002.3,   57502.2) phase count   4260.79  on   3847  off pairs   207  phase - on - 2 off =  -0.21
+  [  57502.2,   60002.0) phase count   4278.09  on   3865  off pairs   206  phase - on - 2 off =  +1.09
+  [  60002.0,   62501.9) phase count   4294.67  on   3843  off pairs   226  phase - on - 2 off =  -0.33
+  [  62501.9,   65001.8) phase count   4310.59  on   3856  off pairs   227  phase - on - 2 off =  +0.59
+  [  65001.8,   67501.7) phase count   4325.90  on   3888  off pairs   219  phase - on - 2 off =  -0.10
+  [  67501.7,   70001.5) phase count   4340.64  on   3923  off pairs   209  phase - on - 2 off =  -0.36
+  [  70001.5,   72501.4) phase count   4354.85  on   3897  off pairs   229  phase - on - 2 off =  -0.15
+  [  72501.4,   75001.3) phase count   4368.57  on   3932  off pairs   218  phase - on - 2 off =  +0.57
+  [  75001.3,   77501.1) phase count   4381.83  on   3928  off pairs   227  phase - on - 2 off =  -0.17
+  [  77501.1,   80001.0) phase count   4394.67  on   3919  off pairs   238  phase - on - 2 off =  -0.33
+  [  80001.0,   82500.9) phase count   4407.10  on   3939  off pairs   234  phase - on - 2 off =  +0.10
+  [  82500.9,   85000.8) phase count   4419.16  on   3971  off pairs   224  phase - on - 2 off =  +0.16
+  [  85000.8,   87500.6) phase count   4430.86  on   3977  off pairs   227  phase - on - 2 off =  -0.14
+  [  87500.6,   90000.5) phase count   4442.23  on   3998  off pairs   222  phase - on - 2 off =  +0.23
+  [  90000.5,   92500.4) phase count   4453.28  on   4015  off pairs   219  phase - on - 2 off =  +0.28
+  [  92500.4,   95000.3) phase count   4464.04  on   4005  off pairs   230  phase - on - 2 off =  -0.96
+  [  95000.3,   97500.1) phase count   4474.51  on   4032  off pairs   221  phase - on - 2 off =  +0.51
+  [  97500.1,  100000.0) phase count   4484.71  on   3989  off pairs   248  phase - on - 2 off =  -0.29
+total difference -0.64
+battery table: 84 pairs below 2000 ; found here 84 ; max difference in (x, gamma): 2.25e-09 2.12e-09
+done

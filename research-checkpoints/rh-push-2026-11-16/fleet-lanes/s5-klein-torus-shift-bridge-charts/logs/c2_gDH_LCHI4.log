@@ -1,0 +1,14 @@
+pick: LCHI4 a=0.1 rect [0.01,2]x[-21.4248371213444,21.4248371213444] n=300 bits=4000 kernels 11; matrix memory per kernel ~ 0.05 GB
+S values: 19.9 s
+sinh:43 first_neg None n_neg 0 undet None last log10 rho -379.016 30.0 s
+sinh:60 first_neg None n_neg 0 undet None last log10 rho -456.658 27.2 s
+sinh:73 first_neg None n_neg 0 undet None last log10 rho -497.261 30.0 s
+sinh:81 first_neg None n_neg 0 undet None last log10 rho -517.134 31.4 s
+sinh:85.4 first_neg None n_neg 0 undet None last log10 rho -526.758 30.7 s
+sinh:90 first_neg None n_neg 0 undet None last log10 rho -535.956 33.7 s
+sinh:100 first_neg None n_neg 0 undet None last log10 rho -553.406 34.1 s
+sinh:110 first_neg None n_neg 0 undet None last log10 rho -567.87 27.0 s
+sinh:130 first_neg None n_neg 0 undet None last log10 rho -590.035 28.2 s
+sinh:170 first_neg None n_neg 0 undet None last log10 rho -617.144 29.4 s
+lin first_neg None n_neg 0 undet None last log10 rho -662.452 26.2 s
+done 103.1 s

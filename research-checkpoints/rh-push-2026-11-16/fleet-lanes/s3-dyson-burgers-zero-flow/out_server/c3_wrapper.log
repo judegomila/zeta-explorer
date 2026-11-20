@@ -1,0 +1,4 @@
+01:16:45 eps 0.0 last step 45 minGapLo <= 0 final maxW 1.355e-06 minGapLo -2.995e-02
+01:16:49 eps 0.01 last step 43 minGapLo <= 0 final maxW 6.804e-09 minGapLo -6.870e-03
+01:16:52 eps 0.05 last step 42 minGapLo <= 0 final maxW 1.174e-09 minGapLo -1.275e-02
+01:16:52 {'N': 500, 'dt': 0.0003, 'nsteps': 200, 'k0': 3.141592653589793, 'omega': np.float64(6.178953465234002), 'g_min0': 0.31043070452653865, 'ratio_final_0.01': 199.14644945697577, 'same_step_note': "ratio at each run's own final row compares different steps when the runs stop at different steps", 'last_steps_0.01': [45, 43], 'ratio_final_0.05': 1153.9272920902313, 'last_steps_0.05': [45, 42], 'source': 'memo: baseline 1.33e-6 (implied), eps 0.01: 7.17e-9 (185x), eps 0.05: 1.19e-9 (1114x)'}

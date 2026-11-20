@@ -1,0 +1,10 @@
+DH 1/360 0s last {'d': 2, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 2, 'certified_t0': True, 'scale': 10.196842191700508, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 41/360 0s last {'d': 4, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 4, 'certified_t0': True, 'scale': 86.4685632264104, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 81/360 0s last {'d': 7, 'n': 3, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 7, 'certified_t0': True, 'scale': 16.024342895188543, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 121/360 0s last {'d': 13, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 13, 'certified_t0': True, 'scale': 10.196842191700508, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 161/360 0s last {'d': 20, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 20, 'certified_t0': True, 'scale': 86.4685632264104, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 201/360 0s last {'d': 40, 'n': 5, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 40, 'certified_t0': True, 'scale': 18.94844499358633, 'tstar_raw': 0.0, 'sec': 0.0}
+DH 241/360 0s last {'d': 64, 'n': 2000, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 64, 'certified_t0': True, 'scale': 684.7248742656708, 'tstar_raw': 0.0, 'sec': 0.1}
+DH 281/360 2s last {'d': 128, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 128, 'certified_t0': True, 'scale': 86.4685632264104, 'tstar_raw': 0.0, 'sec': 0.4}
+DH 321/360 15s last {'d': 256, 'n': 8, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 256, 'certified_t0': True, 'scale': 22.72393554856173, 'tstar_raw': 0.0, 'sec': 4.2}
+{"obj": "DH", "table": "data/mom_local.pkl", "prec": 4000, "dstar_grid": {"0": 400, "1": 400, "2": 400, "3": 400, "5": 400, "8": 400, "12": 400, "20": 400, "30": 400, "50": 400, "100": 400, "200": 400, "500": 400, "1000": 400, "2000": 400}, "n_cells": 360, "n_positive": 0, "uncertified": 0}

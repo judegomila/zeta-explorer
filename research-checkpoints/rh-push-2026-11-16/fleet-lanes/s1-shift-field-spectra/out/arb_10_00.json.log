@@ -1,0 +1,3 @@
+arb band T=10 U=10 dt=0.01 points=1604 (pad 302) objects=['ZETA', 'LCHI', 'DH', 'EA18', 'EA14', 'LIOU']; planned arrays 0.00 GB
+arb values done 5.5 s
+wrote out/arb_10_00.json

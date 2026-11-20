@@ -1,0 +1,21 @@
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/02-stage-selfdual/StageSelfdualProved.lean:162:40: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/02-stage-selfdual/StageSelfdualProved.lean:252:29: warning: unused variable `hinj`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/02-stage-selfdual/StageSelfdualProved.lean:253:5: warning: unused variable `hsymm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/02-stage-selfdual/StageSelfdualProved.lean:253:36: warning: unused variable `hnn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+tmp/research-2026-11-16/push/lean-harmonic-rh-push/02-stage-selfdual/StageSelfdualProved.lean:265:29: warning: unused variable `hinj`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'stagePoly_ne_zero_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'stagePoly_ne_zero_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'stagePoly_zero_on_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'stagePoly_self_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichletStage_zero_on_critical_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dirichletStage_functional_equation' depends on axioms: [propext, Classical.choice, Quot.sound]

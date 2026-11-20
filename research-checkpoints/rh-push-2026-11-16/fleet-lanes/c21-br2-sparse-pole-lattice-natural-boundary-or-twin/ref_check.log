@@ -1,0 +1,8 @@
+CYC spike identity: max |lhs - rhs| over 721 frequencies = 5.811378727571537e-06 (terms of size up to 140.62237294951805 )
+quadrature vs spike sum at w = 7.3896: 11.0321814604 -8.82e-38i   11.0321814604
+quadrature vs spike sum at w = 20.0855: 13.5479334010 +7.05e-38i   13.5479334010
+quadrature vs spike sum at w = 11.0000: 9.8501531034 -9.40e-38i   9.8501531034
+pole kernel w = 5: 7.88764085 +3.62e-35i   2 pi T(0) = 8.37758041
+pole kernel w = 20: 8.37733049 +3.50e-35i   2 pi T(0) = 8.37758041
+pole kernel w = 80: 8.37691025 +3.58e-35i   2 pi T(0) = 8.37758041
+-0.24022650695910072 -0.2402265069591007 0.6931471805599453 0.6931471805599453

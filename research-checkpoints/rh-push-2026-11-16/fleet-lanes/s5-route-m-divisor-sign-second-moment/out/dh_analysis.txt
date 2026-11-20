@@ -1,0 +1,40 @@
+# first coefficients n d(n) Lambda_F(n): (1 1.000000 0.000000) (2 -0.284079 0.196909) (3 0.284079 -0.312093) (4 1.080701 -1.442232) (5 0.000000 0.000000) (6 -1.161402 1.936356) (7 -0.284079 0.552792) 
+max |Lambda_F(n)|/log n up to N: 3980
+x=100  D=3.1846e-02  D sqrt x=0.3185  sup_{[x/10,x]} |D| sqrt x = 0.8925
+x=1e+03  D=-6.9204e-03  D sqrt x=-0.2191  sup_{[x/10,x]} |D| sqrt x = 1.3075
+x=9.98e+03  D=-5.6525e-03  D sqrt x=-0.5646  sup_{[x/10,x]} |D| sqrt x = 1.3768
+x=1e+05  D=-4.5512e-03  D sqrt x=-1.4419  sup_{[x/10,x]} |D| sqrt x = 2.3597
+x=1e+06  D=4.0146e-04  D sqrt x=0.4014  sup_{[x/10,x]} |D| sqrt x = 3.2054
+x=9.96e+06  D=1.9050e-03  D sqrt x=6.0107  sup_{[x/10,x]} |D| sqrt x = 8.3676
+x=1e+08  D=3.3069e-04  D sqrt x=3.3069  sup_{[x/10,x]} |D| sqrt x = 16.6663
+envelope exponent of |D(x)| on [1e3,N]: -0.230
+variance of D on x>=1e4 explained by the listed zero terms: 0.7109
+ zero 0.808517 + 85.699348 i: fitted amplitude of x^(beta-1) term 0.02304 ; explicit formula 2/|rho-1| = 0.02334
+ zero 0.650830 + 114.163343 i: fitted amplitude of x^(beta-1) term 0.01627 ; explicit formula 2/|rho-1| = 0.01752
+ zero 0.574356 + 166.479306 i: fitted amplitude of x^(beta-1) term 0.02723 ; explicit formula 2/|rho-1| = 0.01201
+ zero 0.724258 + 176.702461 i: fitted amplitude of x^(beta-1) term 0.01097 ; explicit formula 2/|rho-1| = 0.01132
+ zero 0.869531 + 240.404672 i: fitted amplitude of x^(beta-1) term 0.00809 ; explicit formula 2/|rho-1| = 0.00832
+ zero 0.819550 + 320.876490 i: fitted amplitude of x^(beta-1) term 0.00596 ; explicit formula 2/|rho-1| = 0.00623
+ zero 0.768223 + 331.050259 i: fitted amplitude of x^(beta-1) term 0.00697 ; explicit formula 2/|rho-1| = 0.00604
+ zero 0.628508 + 366.640908 i: fitted amplitude of x^(beta-1) term 0.00888 ; explicit formula 2/|rho-1| = 0.00545
+ zero 0.815874 + 411.796738 i: fitted amplitude of x^(beta-1) term 0.00487 ; explicit formula 2/|rho-1| = 0.00486
+ zero 0.708882 + 440.484511 i: fitted amplitude of x^(beta-1) term 0.00541 ; explicit formula 2/|rho-1| = 0.00454
+ zero 0.515918 + 520.943801 i: fitted amplitude of x^(beta-1) term 0.60250 ; explicit formula 2/|rho-1| = 0.00384
+ zero 0.846954 + 531.279727 i: fitted amplitude of x^(beta-1) term 0.00410 ; explicit formula 2/|rho-1| = 0.00376
+ zero 0.729533 + 548.906794 i: fitted amplitude of x^(beta-1) term 0.00671 ; explicit formula 2/|rho-1| = 0.00364
+ zero 0.786559 + 566.509713 i: fitted amplitude of x^(beta-1) term 0.00343 ; explicit formula 2/|rho-1| = 0.00353
+ zero 0.582856 + 595.023378 i: fitted amplitude of x^(beta-1) term 0.10616 ; explicit formula 2/|rho-1| = 0.00336
+ zero 0.628252 + 611.775098 i: fitted amplitude of x^(beta-1) term 0.03727 ; explicit formula 2/|rho-1| = 0.00327
+ zero 0.610765 + 646.986823 i: fitted amplitude of x^(beta-1) term 0.08457 ; explicit formula 2/|rho-1| = 0.00309
+ zero 0.760597 + 657.108371 i: fitted amplitude of x^(beta-1) term 0.00735 ; explicit formula 2/|rho-1| = 0.00304
+ zero 0.788703 + 692.892491 i: fitted amplitude of x^(beta-1) term 0.00219 ; explicit formula 2/|rho-1| = 0.00289
+ zero 0.777360 + 737.766997 i: fitted amplitude of x^(beta-1) term 0.00412 ; explicit formula 2/|rho-1| = 0.00271
+ zero 0.853001 + 783.653007 i: fitted amplitude of x^(beta-1) term 0.00275 ; explicit formula 2/|rho-1| = 0.00255
+ zero 0.668551 + 811.765792 i: fitted amplitude of x^(beta-1) term 0.00542 ; explicit formula 2/|rho-1| = 0.00246
+ zero 0.561948 + 847.465732 i: fitted amplitude of x^(beta-1) term 0.08534 ; explicit formula 2/|rho-1| = 0.00236
+ zero 0.856109 + 857.295887 i: fitted amplitude of x^(beta-1) term 0.00192 ; explicit formula 2/|rho-1| = 0.00233
+ zero 0.680900 + 864.118091 i: fitted amplitude of x^(beta-1) term 0.00328 ; explicit formula 2/|rho-1| = 0.00231
+ zero 0.688430 + 892.149035 i: fitted amplitude of x^(beta-1) term 0.00194 ; explicit formula 2/|rho-1| = 0.00224
+ zero 0.759357 + 921.172683 i: fitted amplitude of x^(beta-1) term 0.00267 ; explicit formula 2/|rho-1| = 0.00217
+ zero 0.762499 + 983.752193 i: fitted amplitude of x^(beta-1) term 0.00221 ; explicit formula 2/|rho-1| = 0.00203
+ residual: sup |r| sqrt x on [1e4,N] = 8.0346 ; on last decade 8.0346

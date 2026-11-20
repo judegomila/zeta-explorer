@@ -1,0 +1,311 @@
+{
+ "widths": [
+  0.05,
+  40.0,
+  400
+ ],
+ "objects": {
+  "ZETA": {
+   "grid_fraction_negative": 0.0,
+   "grid_min": 0.0,
+   "grid_smallest_negative_width": null,
+   "targeted_smallest_negative": null,
+   "sech_L0.5": {
+    "min": 0.09037949097495596,
+    "centre_of_min": 27.70000000000011,
+    "mean": 2.3269910272290004
+   },
+   "sech_L0.9": {
+    "min": 0.005372026226154695,
+    "centre_of_min": 27.70000000000011,
+    "mean": 2.327132467993886
+   },
+   "sech_L1": {
+    "min": 0.002550304750268511,
+    "centre_of_min": 27.70000000000011,
+    "mean": 2.327153310866642
+   },
+   "n_offline_points": 0,
+   "max_eta": 0.0
+  },
+  "WT": {
+   "grid_fraction_negative": 0.0,
+   "grid_min": 0.0,
+   "grid_smallest_negative_width": null,
+   "targeted_smallest_negative": null,
+   "sech_L0.5": {
+    "min": 0.09042155549392734,
+    "centre_of_min": 26.45000000000009,
+    "mean": 2.328614680846363
+   },
+   "sech_L0.9": {
+    "min": 0.005375291995851036,
+    "centre_of_min": 26.500000000000092,
+    "mean": 2.328572697058281
+   },
+   "sech_L1": {
+    "min": 0.0025521346618830724,
+    "centre_of_min": 26.500000000000092,
+    "mean": 2.328556766635826
+   },
+   "n_offline_points": 0,
+   "max_eta": 0.0
+  },
+  "DH": {
+   "grid_fraction_negative": 0.0101,
+   "grid_min": -6.0431251525821e+23,
+   "grid_smallest_negative_width": 3.7057839515617634,
+   "targeted_smallest_negative": {
+    "width": 2.1679577990130747,
+    "t_off": 85.6993484853776,
+    "eta": 0.3085171824566374,
+    "value": -0.009986021107173003,
+    "centre": 84.50006314818903,
+    "width_times_eta": 0.6688522318364069,
+    "log_gamma_over_2pi": 2.6129681568945182,
+    "ratio_width_to_log": 0.8296916260891855
+   },
+   "sech_L0.5": {
+    "min": 0.724498699796957,
+    "centre_of_min": 20.70000000000001,
+    "mean": 3.1315756091625038
+   },
+   "sech_L0.9": {
+    "min": 0.20496409081167102,
+    "centre_of_min": 20.75000000000001,
+    "mean": 3.131787682565923
+   },
+   "sech_L1": {
+    "min": 0.14471351231800328,
+    "centre_of_min": 20.75000000000001,
+    "mean": 3.131842989073288
+   },
+   "n_offline_points": 84,
+   "max_eta": 0.36953057964064306
+  },
+  "EA-1_4": {
+   "grid_fraction_negative": 0.18425,
+   "grid_min": -4.5126683116462485e+23,
+   "grid_smallest_negative_width": 1.7731270163838564,
+   "targeted_smallest_negative": {
+    "width": 1.5769155788775933,
+    "t_off": 21.022039638771556,
+    "eta": 0.25,
+    "value": -8.76996636940138e-06,
+    "centre": 18.485442211757046,
+    "width_times_eta": 0.3942288947193983,
+    "log_gamma_over_2pi": 1.2076943275752148,
+    "ratio_width_to_log": 1.3057240916612516
+   },
+   "sech_L0.5": {
+    "min": 0.16701919447622907,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.654010958198416
+   },
+   "sech_L0.9": {
+    "min": 0.008169844709284266,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.654316045166166
+   },
+   "sech_L1": {
+    "min": 0.003606675865754441,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.654360655290896
+   },
+   "n_offline_points": 1517,
+   "max_eta": 0.25
+  },
+  "EA-1_8": {
+   "grid_fraction_negative": 0.158825,
+   "grid_min": -22151089.91081408,
+   "grid_smallest_negative_width": 2.520774848059079,
+   "targeted_smallest_negative": {
+    "width": 3.1341584489626007,
+    "t_off": 787.46846381591,
+    "eta": 0.125,
+    "value": -6.488281583649536e-05,
+    "centre": 788.7447234770398,
+    "width_times_eta": 0.3917698061203251,
+    "log_gamma_over_2pi": 4.830946257540531,
+    "ratio_width_to_log": 0.6487669872275132
+   },
+   "sech_L0.5": {
+    "min": 0.17729117546126302,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.653989213545678
+   },
+   "sech_L0.9": {
+    "min": 0.010079978020243444,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.654277589642274
+   },
+   "sech_L1": {
+    "min": 0.004712348835584367,
+    "centre_of_min": 27.70000000000011,
+    "mean": 4.654319802166219
+   },
+   "n_offline_points": 1517,
+   "max_eta": 0.125
+  },
+  "TNR3": {
+   "grid_fraction_negative": 0.0404625,
+   "grid_min": -1.428892296428916e+58,
+   "grid_smallest_negative_width": 2.2418298813437163,
+   "targeted_smallest_negative": {
+    "width": 1.2061291331975175,
+    "t_off": 20.017206071660887,
+    "eta": 0.40375322482772363,
+    "value": -0.0002960970936806702,
+    "centre": 17.28118062532123,
+    "width_times_eta": 0.4869785270871647,
+    "log_gamma_over_2pi": 1.158715140878669,
+    "ratio_width_to_log": 1.0409194552190748
+   },
+   "sech_L0.5": {
+    "min": 0.254189338741448,
+    "centre_of_min": 28.200000000000117,
+    "mean": 3.424959472761201
+   },
+   "sech_L0.9": {
+    "min": 0.01501034842323063,
+    "centre_of_min": 28.050000000000114,
+    "mean": 3.4251705295342294
+   },
+   "sech_L1": {
+    "min": 0.00673932676161518,
+    "centre_of_min": 28.000000000000114,
+    "mean": 3.4253560893521198
+   },
+   "n_offline_points": 350,
+   "max_eta": 0.40375322482772363
+  },
+  "TNR1000003": {
+   "grid_fraction_negative": 0.051175,
+   "grid_min": -31.032998335979926,
+   "grid_smallest_negative_width": 14.886103040498842,
+   "targeted_smallest_negative": {
+    "width": 14.886103040498842,
+    "t_off": 20.23824485398154,
+    "eta": 0.03210653389931745,
+    "value": -0.012702951203863588,
+    "centre": 20.009843909103623,
+    "width_times_eta": 0.4779411718985087,
+    "log_gamma_over_2pi": 1.1696970575492922,
+    "ratio_width_to_log": 12.726460192767927
+   },
+   "sech_L0.5": {
+    "min": 13.905842355056002,
+    "centre_of_min": 27.70000000000011,
+    "mean": 16.142504585244236
+   },
+   "sech_L0.9": {
+    "min": 13.79286131861942,
+    "centre_of_min": 27.75000000000011,
+    "mean": 16.142646051686924
+   },
+   "sech_L1": {
+    "min": 13.757703864524085,
+    "centre_of_min": 27.75000000000011,
+    "mean": 16.1426669242424
+   },
+   "n_offline_points": 4398,
+   "max_eta": 0.03210653389931745
+  },
+  "SGN-LIOU": {
+   "grid_fraction_negative": 0.17965,
+   "grid_min": -2.4606887137062458e+23,
+   "grid_smallest_negative_width": 1.7731270163838564,
+   "targeted_smallest_negative": {
+    "width": 1.474703750363682,
+    "t_off": 75.46262880612073,
+    "eta": 0.25,
+    "value": -0.020655961071717854,
+    "centre": 77.09007431808077,
+    "width_times_eta": 0.3686759375909205,
+    "log_gamma_over_2pi": 2.485760484600869,
+    "ratio_width_to_log": 0.5932605975110553
+   },
+   "sech_L0.5": {
+    "min": 0.2345078968939709,
+    "centre_of_min": 40.7500000000003,
+    "mean": 3.0194955778370467
+   },
+   "sech_L0.9": {
+    "min": -2.427264914607704,
+    "centre_of_min": 1083.250000000015,
+    "mean": 3.019430945439939
+   },
+   "sech_L1": {
+    "min": -3.20834742252496,
+    "centre_of_min": 1083.250000000015,
+    "mean": 3.0194128984636026
+   },
+   "n_offline_points": 3474,
+   "max_eta": 0.25
+  },
+  "HEAT--0.1": {
+   "grid_fraction_negative": 0.0056125,
+   "grid_min": -14.51522586254055,
+   "grid_smallest_negative_width": 3.465584058276265,
+   "targeted_smallest_negative": {
+    "width": 2.8823145554250593,
+    "t_off": 750.8507225167028,
+    "eta": 0.1610984280016015,
+    "value": -0.000535524613244595,
+    "centre": 749.6017262913518,
+    "width_times_eta": 0.46433634388511197,
+    "log_gamma_over_2pi": 4.783329793981518,
+    "ratio_width_to_log": 0.6025749173832098
+   },
+   "sech_L0.5": {
+    "min": 0.0890839684696619,
+    "centre_of_min": 27.75000000000011,
+    "mean": 2.326894234532607
+   },
+   "sech_L0.9": {
+    "min": 0.005226672842605468,
+    "centre_of_min": 27.75000000000011,
+    "mean": 2.327015598447871
+   },
+   "sech_L1": {
+    "min": 0.0024733468903841253,
+    "centre_of_min": 27.75000000000011,
+    "mean": 2.3270341917462227
+   },
+   "n_offline_points": 41,
+   "max_eta": 0.2256105296700814
+  },
+  "HEAT--0.5": {
+   "grid_fraction_negative": 0.0551125,
+   "grid_min": -1.175976411976253e+101,
+   "grid_smallest_negative_width": 1.524953546235984,
+   "targeted_smallest_negative": {
+    "width": 1.3791170437193843,
+    "t_off": 650.462207419995,
+    "eta": 0.4847274617300371,
+    "value": -0.013171625324286939,
+    "centre": 652.2749614653353,
+    "width_times_eta": 0.6684959040307298,
+    "log_gamma_over_2pi": 4.639806132115268,
+    "ratio_width_to_log": 0.2972359198746631
+   },
+   "sech_L0.5": {
+    "min": 0.08393650072121361,
+    "centre_of_min": 27.900000000000112,
+    "mean": 2.3263221775794944
+   },
+   "sech_L0.9": {
+    "min": -113.98469925398621,
+    "centre_of_min": 1626.3500000000229,
+    "mean": 2.2227385479457693
+   },
+   "sech_L1": {
+    "min": -288.74560067589573,
+    "centre_of_min": 1691.4000000000237,
+    "mean": 2.025749480270788
+   },
+   "n_offline_points": 294,
+   "max_eta": 0.6705559717470773
+  }
+ }
+}

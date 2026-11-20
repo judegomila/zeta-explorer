@@ -1,0 +1,3 @@
+EA-1/2 M 400 prec 14000 moments 45.9 s;  s_0 = [0.09230863459160920551421598 +/- 7.60e-28]
+  base: {"n_coeff": 399, "first_negative": 6, "negatives_head": [6, 8, 13, 15, 20, 22, 27, 29, 34, 36, 40, 42], "n_negative": 122}
+DONE EA-1/2 46.9

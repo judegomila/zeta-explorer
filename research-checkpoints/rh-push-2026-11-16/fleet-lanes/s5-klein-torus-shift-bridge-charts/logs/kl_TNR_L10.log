@@ -1,0 +1,16 @@
+klein TNR r=1.5 L=10 N=2^14 kmax=8000 circles 15; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.03 v=0.251835652750 xmin=0.03 wind=6.000000-2.04e-13j max|t|=416.6 tail |hhat| at N/2: 1.42e-04 (rel to max 2.20e-08) 0.6 s
+circle x:0.04 v=0.252447520915 xmin=0.04 wind=6.000000-4.85e-13j max|t|=312.5 tail |hhat| at N/2: 4.47e-11 (rel to max 9.54e-15) 0.4 s
+circle x:0.05 v=0.253059375293 xmin=0.05 wind=6.000000-5.81e-13j max|t|=250 tail |hhat| at N/2: 3.97e-03 (rel to max 1.10e-06) 0.4 s
+circle x:0.07 v=0.254283028904 xmin=0.07 wind=4.000000-5.47e-13j max|t|=178.6 tail |hhat| at N/2: 7.84e-12 (rel to max 3.21e-15) 0.3 s
+circle x:0.09 v=0.255506586017 xmin=0.09 wind=4.000000-4.07e-13j max|t|=138.9 tail |hhat| at N/2: 3.75e-12 (rel to max 2.04e-15) 0.6 s
+circle x:0.11 v=0.256730019072 xmin=0.11 wind=4.000000-3.32e-13j max|t|=113.7 tail |hhat| at N/2: 1.78e-12 (rel to max 1.24e-15) 0.8 s
+circle x:0.15 v=0.259176402809 xmin=0.15 wind=4.000000-2.16e-13j max|t|=83.39 tail |hhat| at N/2: 9.67e-13 (rel to max 9.62e-16) 0.8 s
+circle x:0.2 v=0.262233194124 xmin=0.2 wind=2.000000-1.20e-13j max|t|=62.57 tail |hhat| at N/2: 4.46e-13 (rel to max 6.24e-16) 0.7 s
+circle x:0.25 v=0.265288263983 xmin=0.25 wind=2.000000-7.86e-14j max|t|=50.09 tail |hhat| at N/2: 2.75e-13 (rel to max 4.94e-16) 0.7 s
+circle x:0.29 v=0.267730792095 xmin=0.29 wind=2.000000-5.51e-14j max|t|=43.21 tail |hhat| at N/2: 1.76e-13 (rel to max 3.85e-16) 0.7 s
+circle x:0.32 v=0.269561653063 xmin=0.32 wind=2.000000-4.32e-14j max|t|=39.18 tail |hhat| at N/2: 1.28e-13 (rel to max 3.22e-16) 0.6 s
+circle x:0.36 v=0.272001245308 xmin=0.36 wind=2.000000-2.69e-14j max|t|=34.85 tail |hhat| at N/2: 1.33e-13 (rel to max 3.79e-16) 0.4 s
+circle x:0.45 v=0.277482763217 xmin=0.45 wind=2.000000-9.54e-15j max|t|=27.94 tail |hhat| at N/2: 4.64e-14 (rel to max 1.72e-16) 0.5 s
+circle x:0.6 v=0.286589652273 xmin=0.6 wind=-0.000000+2.22e-15j max|t|=21.05 tail |hhat| at N/2: 2.04e-14 (rel to max 1.07e-16) 0.6 s
+circle ax:0.2 v=0.762233194124 xmin=-125 wind=2.000000+8.83e-15j max|t|=62.57 tail |hhat| at N/2: 7.12e-14 (rel to max 9.95e-17) 0.6 s

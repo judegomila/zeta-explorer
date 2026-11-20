@@ -1,0 +1,42 @@
+22:35:09 backend cupy
+T0 10000 x -0.49 d 0.37  rel err zeta 7.68e-11  zeta' 3.34e-11  zeta'' 1.51e-11   |zeta| 1.929e+01
+T0 10000 x -0.20 d 0.37  rel err zeta 2.99e-10  zeta' 1.39e-10  zeta'' 5.85e-11   |zeta| 1.703e+00
+T0 10000 x +0.00 d 0.37  rel err zeta 4.83e-10  zeta' 4.30e-10  zeta'' 1.64e-10   |zeta| 5.034e-01
+T0 10000 x +0.01 d 0.37  rel err zeta 4.83e-10  zeta' 4.57e-10  zeta'' 1.72e-10   |zeta| 4.859e-01
+T0 10000 x +0.30 d 0.37  rel err zeta 1.91e-10  zeta' 4.43e-10  zeta'' 1.10e-09   |zeta| 4.218e-01
+T0 10000 x +0.50 d 0.37  rel err zeta 7.33e-11  zeta' 2.04e-10  zeta'' 2.38e-09   |zeta| 5.260e-01
+T0 10000 x +1.00 d 0.37  rel err zeta 8.03e-12  zeta' 5.35e-11  zeta'' 2.40e-10   |zeta| 7.602e-01
+22:35:10 T0 10000 N 39 time 0.53s
+T0 1e+06 x -0.49 d 0.37  rel err zeta 6.01e-15  zeta' 3.19e-15  zeta'' 1.46e-14   |zeta| 4.098e+02
+T0 1e+06 x -0.20 d 0.37  rel err zeta 2.70e-14  zeta' 1.53e-14  zeta'' 7.92e-14   |zeta| 1.526e+01
+T0 1e+06 x +0.00 d 0.37  rel err zeta 4.86e-14  zeta' 3.86e-14  zeta'' 3.82e-13   |zeta| 2.655e+00
+T0 1e+06 x +0.01 d 0.37  rel err zeta 4.79e-14  zeta' 3.96e-14  zeta'' 3.99e-13   |zeta| 2.505e+00
+T0 1e+06 x +0.30 d 0.37  rel err zeta 1.63e-14  zeta' 7.15e-14  zeta'' 1.93e-13   |zeta| 1.257e+00
+T0 1e+06 x +0.50 d 0.37  rel err zeta 5.59e-15  zeta' 8.26e-14  zeta'' 6.28e-13   |zeta| 1.155e+00
+T0 1e+06 x +1.00 d 0.37  rel err zeta 4.17e-16  zeta' 1.14e-14  zeta'' 9.86e-13   |zeta| 1.097e+00
+22:35:12 T0 1e+06 N 398 time 0.03s
+T0 1e+09 x -0.49 d 0.37  rel err zeta 2.16e-15  zeta' 2.28e-15  zeta'' 2.18e-15   |zeta| 9.949e+03
+T0 1e+09 x -0.20 d 0.37  rel err zeta 2.11e-15  zeta' 1.94e-15  zeta'' 1.70e-15   |zeta| 2.851e+01
+T0 1e+09 x +0.00 d 0.37  rel err zeta 7.88e-15  zeta' 4.73e-15  zeta'' 3.86e-15   |zeta| 5.131e-01
+T0 1e+09 x +0.01 d 0.37  rel err zeta 9.33e-15  zeta' 6.67e-15  zeta'' 5.96e-15   |zeta| 4.741e-01
+T0 1e+09 x +0.30 d 0.37  rel err zeta 4.46e-16  zeta' 2.16e-15  zeta'' 1.08e-14   |zeta| 7.874e-01
+T0 1e+09 x +0.50 d 0.37  rel err zeta 1.19e-15  zeta' 3.18e-15  zeta'' 9.97e-15   |zeta| 9.585e-01
+T0 1e+09 x +1.00 d 0.37  rel err zeta 8.71e-16  zeta' 2.34e-15  zeta'' 1.98e-14   |zeta| 1.089e+00
+22:35:14 T0 1e+09 N 12615 time 0.06s
+T0 1e+10 x -0.49 d 0.37  rel err zeta 7.61e-16  zeta' 6.17e-16  zeta'' 5.24e-16   |zeta| 4.009e+04
+T0 1e+10 x -0.20 d 0.37  rel err zeta 4.54e-15  zeta' 3.10e-15  zeta'' 2.32e-15   |zeta| 9.624e+01
+T0 1e+10 x +0.00 d 0.37  rel err zeta 1.31e-14  zeta' 8.00e-15  zeta'' 3.88e-15   |zeta| 2.545e+00
+T0 1e+10 x +0.01 d 0.37  rel err zeta 1.11e-14  zeta' 8.99e-15  zeta'' 6.10e-15   |zeta| 2.307e+00
+T0 1e+10 x +0.30 d 0.37  rel err zeta 1.15e-15  zeta' 4.08e-15  zeta'' 1.06e-14   |zeta| 1.309e+00
+T0 1e+10 x +0.50 d 0.37  rel err zeta 6.99e-16  zeta' 1.36e-15  zeta'' 1.04e-14   |zeta| 1.240e+00
+T0 1e+10 x +1.00 d 0.37  rel err zeta 1.23e-15  zeta' 2.19e-15  zeta'' 8.66e-14   |zeta| 1.178e+00
+22:35:20 T0 1e+10 N 39894 time 0.02s
+T0 1e+12 x -0.49 d 0.37  rel err zeta 2.25e-15  zeta' 2.07e-15  zeta'' 2.04e-15   |zeta| 2.357e+05
+T0 1e+12 x -0.20 d 0.37  rel err zeta 6.21e-15  zeta' 3.50e-15  zeta'' 2.55e-15   |zeta| 8.630e+01
+T0 1e+12 x +0.00 d 0.37  rel err zeta 3.13e-13  zeta' 6.06e-14  zeta'' 2.39e-14   |zeta| 8.727e-02
+T0 1e+12 x +0.01 d 0.37  rel err zeta 3.12e-13  zeta' 7.19e-14  zeta'' 4.94e-14   |zeta| 8.988e-02
+T0 1e+12 x +0.30 d 0.37  rel err zeta 8.77e-16  zeta' 9.45e-15  zeta'' 2.61e-14   |zeta| 6.330e-01
+T0 1e+12 x +0.50 d 0.37  rel err zeta 9.50e-16  zeta' 4.07e-15  zeta'' 5.84e-14   |zeta| 7.689e-01
+T0 1e+12 x +1.00 d 0.37  rel err zeta 1.15e-15  zeta' 1.14e-14  zeta'' 2.89e-13   |zeta| 8.671e-01
+22:36:16 T0 1e+12 N 398942 time 0.03s
+worst relative error 2.3800898958021053e-09

@@ -1,0 +1,5 @@
+08:15:01 zeta9 zeros 1020007 T0 1000000000.0 heights 1e+09 .. 1.00034e+09 grid points 27134576 dt 0.0125 planned largest temporary 0.72 GB GPU True
+08:15:39 Y 0.165: min 0.7137 at 1000137293.5781 (gap 3.39 mean spacings) mean 4.7214 (formula 4.7214) std 2.0694 below p_req 0.4800 blocks below 414 of 414; ratio to mean: min 0.151 q1e-3 0.224
+08:15:40 Y 0.33: min 1.3813 at 1000137293.5781 (gap 3.39 mean spacings) mean 4.7214 (formula 4.7214) std 1.0357 below p_req 0.3551 blocks below 414 of 414; ratio to mean: min 0.293 q1e-3 0.415
+08:15:42 Y 0.4: min 1.6420 at 1000137293.5781 (gap 3.39 mean spacings) mean 4.7214 (formula 4.7214) std 0.8475 below p_req 0.3308 blocks below 414 of 414; ratio to mean: min 0.348 q1e-3 0.482
+08:15:45 Y 1: min 3.2191 at 1000137293.5781 (gap 3.39 mean spacings) mean 4.7214 (formula 4.7214) std 0.3173 below p_req 0.1407 blocks below 414 of 414; ratio to mean: min 0.682 q1e-3 0.782

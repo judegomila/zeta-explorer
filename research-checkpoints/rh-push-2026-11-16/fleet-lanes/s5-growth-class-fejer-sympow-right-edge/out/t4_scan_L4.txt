@@ -1,0 +1,3 @@
+L4 sigma 1.01 341: min 97.04 at t=10.3 neg 0 first None F4: min 95.83 at t=16.5 neg 0 first None F16: min 91.41 at t=0.1 neg 0 first None F64: min 85.19 at t=0.1 neg 0 first None
+L4 sigma 1.1 341: min 7.49 at t=10.3 neg 0 first None F4: min 6.578 at t=16.5 neg 0 first None F16: min 4.851 at t=0.2 neg 0 first None F64: min 1.481 at t=0.1 neg 0 first None
+L4 sigma 1.3 341: min 1.483 at t=10.4 neg 0 first None F4: min 0.9908 at t=16.5 neg 0 first None F16: min 0.4993 at t=0.3 neg 0 first None F64: min 0.04354 at t=0.1 neg 0 first None

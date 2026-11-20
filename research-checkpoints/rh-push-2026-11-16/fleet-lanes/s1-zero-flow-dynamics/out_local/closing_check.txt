@@ -1,0 +1,24 @@
+chi: 349424 zeros ; close pairs 2408 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+chibar: 349424 zeros ; close pairs 2371 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+dh: 313858 zeros ; close pairs 2613 ; candidates (a neighbouring gap below 0.45 of the pair gap) 1
+  closing pair at 82784.737794948: s = 0.151206, neighbouring gaps 1.439030 0.031218 (normalised), R_eff = 2.025571 ; 30-digit zeros 82783.8347706607919 82784.7377949473462 82784.8326801258299 82784.8522699613328
+  closing close pairs: 1 ; per 1e6 zeros: 3.186
+alt: 255828 zeros ; close pairs 2792 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+zeta: 10000040 zeros ; close pairs 74297 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+heat: 1001518 zeros ; close pairs 7697 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+heat: 1001474 zeros ; close pairs 7892 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+heat: 1000998 zeros ; close pairs 8552 ; candidates (a neighbouring gap below 0.45 of the pair gap) 1
+  closing pair at 10385792.368568957: s = 0.151624, neighbouring gaps 1.233610 0.052708 (normalised), R_eff = 1.086124 ; 
+  closing close pairs: 1 ; per 1e6 zeros: 0.999
+heat: 997590 zeros ; close pairs 10487 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000
+heat: 961976 zeros ; close pairs 16317 ; candidates (a neighbouring gap below 0.45 of the pair gap) 3
+  closing pair at 10069297.086378276: s = 0.165998, neighbouring gaps 0.027188 1.423976 (normalised), R_eff = 2.647119 ; 
+  closing pair at 10324511.127507087: s = 0.188611, neighbouring gaps 0.065111 3.713927 (normalised), R_eff = 1.096626 ; 
+  closing close pairs: 2 ; per 1e6 zeros: 2.079

@@ -1,0 +1,169 @@
+A p=2 zeta  k=0 height(rho = p^k + 1e-7) = +12.146531  height(eps=1e-7) = +12.146531 slope/log_p = +0.500617 (coarser +0.498656) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 zeta  k=1 height(rho = p^k + 1e-7) = +16.651084  height(eps=1e-7) = +15.943977 slope/log_p = +0.707979 (coarser +0.705209) zeta law 0.707107  slope_in/slope = 0.500000 (1/rho = 0.500000)
+A p=2 zeta  k=2 height(rho = p^k + 1e-7) = +22.713239  height(eps=1e-7) = +20.713240 slope/log_p = +1.001233 (coarser +0.997316) zeta law 1.000000  slope_in/slope = 0.250000 (1/rho = 0.250000)
+A p=2 zeta  k=3 height(rho = p^k + 1e-7) = +31.699639  height(eps=1e-7) = +27.456999 slope/log_p = +1.415958 (coarser +1.410418) zeta law 1.414214  slope_in/slope = 0.125000 (1/rho = 0.125000)
+A p=2 zeta  k=4 height(rho = p^k + 1e-7) = +44.559851  height(eps=1e-7) = +36.559852 slope/log_p = +2.002466 (coarser +1.994634) zeta law 2.000000  slope_in/slope = 0.062500 (1/rho = 0.062500)
+A p=2 sign  k=0 height(rho = p^k + 1e-7) = +12.429750  height(eps=1e-7) = +12.429750 slope/log_p = +0.500617 (coarser +0.498656) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 sign  k=1 height(rho = p^k + 1e-7) = -14.655421  height(eps=1e-7) = -13.948315 slope/log_p = -0.707979 (coarser -0.705206) zeta law 0.707107  slope_in/slope = 0.500000 (1/rho = 0.500000)
+A p=2 sign  k=2 height(rho = p^k + 1e-7) = +22.677508  height(eps=1e-7) = +20.677509 slope/log_p = +1.001233 (coarser +0.997316) zeta law 1.000000  slope_in/slope = 0.250000 (1/rho = 0.250000)
+A p=2 sign  k=3 height(rho = p^k + 1e-7) = -30.959403  height(eps=1e-7) = -26.716764 slope/log_p = -1.415958 (coarser -1.410417) zeta law 1.414214  slope_in/slope = 0.125000 (1/rho = 0.125000)
+A p=2 sign  k=4 height(rho = p^k + 1e-7) = +44.552889  height(eps=1e-7) = +36.552891 slope/log_p = +2.002466 (coarser +1.994634) zeta law 2.000000  slope_in/slope = 0.062500 (1/rho = 0.062500)
+A p=2 tnr   k=0 height(rho = p^k + 1e-7) = +12.146531  height(eps=1e-7) = +12.146531 slope/log_p = +0.500617 (coarser +0.498656) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 tnr   k=1 height(rho = p^k + 1e-7) = +16.651084  height(eps=1e-7) = +15.943977 slope/log_p = +0.707979 (coarser +0.705209) zeta law 0.707107  slope_in/slope = 0.500000 (1/rho = 0.500000)
+A p=2 tnr   k=2 height(rho = p^k + 1e-7) = +22.713239  height(eps=1e-7) = +20.713240 slope/log_p = +1.001233 (coarser +0.997316) zeta law 1.000000  slope_in/slope = 0.250000 (1/rho = 0.250000)
+A p=2 tnr   k=3 height(rho = p^k + 1e-7) = +31.699639  height(eps=1e-7) = +27.456999 slope/log_p = +1.415958 (coarser +1.410418) zeta law 1.414214  slope_in/slope = 0.125000 (1/rho = 0.125000)
+A p=2 tnr   k=4 height(rho = p^k + 1e-7) = +44.559851  height(eps=1e-7) = +36.559852 slope/log_p = +2.002466 (coarser +1.994634) zeta law 2.000000  slope_in/slope = 0.062500 (1/rho = 0.062500)
+A p=2 dh    k=0 height(rho = p^k + 1e-7) = +14.441557  height(eps=1e-7) = +14.441557 slope/log_p = +0.592449 (coarser +0.601501) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 dh    k=1 height(rho = p^k + 1e-7) = +1.182860  height(eps=1e-7) = +1.087822 slope/log_p = +0.006505 (coarser -0.011309) zeta law 0.707107  slope_in/slope = -0.499998 (1/rho = 0.500000)
+A p=2 dh    k=2 height(rho = p^k + 1e-7) = -26.852108  height(eps=1e-7) = -24.468619 slope/log_p = -1.184897 (coarser -1.203003) zeta law 1.000000  slope_in/slope = 0.250000 (1/rho = 0.250000)
+A p=2 dh    k=3 height(rho = p^k + 1e-7) = +0.043022  height(eps=1e-7) = +0.233098 slope/log_p = -0.013011 (coarser +0.022620) zeta law 1.414214  slope_in/slope = -0.125000 (1/rho = 0.125000)
+A p=2 dh    k=4 height(rho = p^k + 1e-7) = +54.925907  height(eps=1e-7) = +45.391951 slope/log_p = +2.369795 (coarser +2.406012) zeta law 2.000000  slope_in/slope = 0.062500 (1/rho = 0.062500)
+A p=2 l2    k=0 height(rho = p^k + 1e-7) = +13.738622  height(eps=1e-7) = +13.738622 slope/log_p = +0.557340 (coarser +0.571165) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 l2    k=1 height(rho = p^k + 1e-7) = +0.940292  height(eps=1e-7) = +0.940292 slope/log_p = +0.000000 (coarser +0.000001) zeta law 0.707107  slope_in/slope = 1.795610 (1/rho = 0.500000)
+A p=2 l2    k=2 height(rho = p^k + 1e-7) = -25.418841  height(eps=1e-7) = -23.168842 slope/log_p = -1.114680 (coarser -1.142332) zeta law 1.000000  slope_in/slope = 0.250000 (1/rho = 0.250000)
+A p=2 l2    k=3 height(rho = p^k + 1e-7) = +0.339587  height(eps=1e-7) = +0.339587 slope/log_p = +0.000000 (coarser +0.000000) zeta law 1.414214  slope_in/slope = -2.035046 (1/rho = 0.125000)
+A p=2 l2    k=4 height(rho = p^k + 1e-7) = +52.132604  height(eps=1e-7) = +43.132606 slope/log_p = +2.229359 (coarser +2.284669) zeta law 2.000000  slope_in/slope = 0.062500 (1/rho = 0.062500)
+A p=2 ntp   k=0 height(rho = p^k + 1e-7) = +503.625645  height(eps=1e-7) = +503.625645 slope/log_p = +1478.035946 (coarser +63.721359) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 ntp   k=1 height(rho = p^k + 1e-7) = +817.368552  height(eps=1e-7) = +619.279372 slope/log_p = +1819.675697 (coarser +78.450198) zeta law 0.707107  slope_in/slope = 0.659754 (1/rho = 0.500000)
+A p=2 ntp   k=2 height(rho = p^k + 1e-7) = +1326.719697  height(eps=1e-7) = +761.046478 slope/log_p = +2240.283569 (coarser +96.583522) zeta law 1.000000  slope_in/slope = 0.435275 (1/rho = 0.250000)
+A p=2 ntp   k=3 height(rho = p^k + 1e-7) = +2154.713554  height(eps=1e-7) = +935.527629 slope/log_p = +2758.112600 (coarser +118.908264) zeta law 1.414214  slope_in/slope = 0.287175 (1/rho = 0.125000)
+A p=2 ntp   k=4 height(rho = p^k + 1e-7) = +3499.990511  height(eps=1e-7) = +1149.769625 slope/log_p = +3395.634919 (coarser +146.393246) zeta law 2.000000  slope_in/slope = 0.189465 (1/rho = 0.062500)
+A p=2 ntm   k=0 height(rho = p^k + 1e-7) = +3.615801  height(eps=1e-7) = +3.615801 slope/log_p = +0.000415 (coarser +0.004501) zeta law 0.500000  slope_in/slope = 1.000064 (1/rho = 1.000000)
+A p=2 ntm   k=1 height(rho = p^k + 1e-7) = +4.106510  height(eps=1e-7) = +4.104283 slope/log_p = +0.000675 (coarser +0.007315) zeta law 0.707107  slope_in/slope = 0.378950 (1/rho = 0.500000)
+A p=2 ntm   k=2 height(rho = p^k + 1e-7) = +4.432977  height(eps=1e-7) = +4.426620 slope/log_p = +0.001096 (coarser +0.011882) zeta law 1.000000  slope_in/slope = 0.143597 (1/rho = 0.250000)
+A p=2 ntm   k=3 height(rho = p^k + 1e-7) = +5.144848  height(eps=1e-7) = +5.131146 slope/log_p = +0.001780 (coarser +0.019302) zeta law 1.414214  slope_in/slope = 0.054413 (1/rho = 0.125000)
+A p=2 ntm   k=4 height(rho = p^k + 1e-7) = +6.134737  height(eps=1e-7) = +6.108324 slope/log_p = +0.002892 (coarser +0.031358) zeta law 2.000000  slope_in/slope = 0.020619 (1/rho = 0.062500)
+A p=2 ea    k=0 height(rho = p^k + 1e-7) = +2089.648469  height(eps=1e-7) = +2089.648469 slope/log_p = +6299.373234 (coarser +268.984579) zeta law 0.500000  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=2 ea    k=1 height(rho = p^k + 1e-7) = +3403.411660  height(eps=1e-7) = +2562.685819 slope/log_p = +7754.900693 (coarser +330.627434) zeta law 0.707107  slope_in/slope = 0.659834 (1/rho = 0.500000)
+A p=2 ea    k=2 height(rho = p^k + 1e-7) = +5539.061841  height(eps=1e-7) = +3138.455042 slope/log_p = +9546.529538 (coarser +406.186806) zeta law 1.000000  slope_in/slope = 0.435385 (1/rho = 0.250000)
+A p=2 ea    k=3 height(rho = p^k + 1e-7) = +9011.714696  height(eps=1e-7) = +3838.478896 slope/log_p = +11751.738111 (coarser +498.672164) zeta law 1.414214  slope_in/slope = 0.287291 (1/rho = 0.125000)
+A p=2 ea    k=4 height(rho = p^k + 1e-7) = +14656.374250  height(eps=1e-7) = +4685.941721 slope/log_p = +14465.782530 (coarser +611.659157) zeta law 2.000000  slope_in/slope = 0.189576 (1/rho = 0.062500)
+A p=3 zeta  k=0 height(rho = p^k + 1e-7) = +13.595997  height(eps=1e-7) = +13.595997 slope/log_p = +0.883003 (coarser +0.894742) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 zeta  k=1 height(rho = p^k + 1e-7) = +22.713388  height(eps=1e-7) = +21.173788 slope/log_p = +1.529406 (coarser +1.549742) zeta law 1.539601  slope_in/slope = 0.333333 (1/rho = 0.333333)
+A p=3 zeta  k=2 height(rho = p^k + 1e-7) = +38.549881  height(eps=1e-7) = +33.216549 slope/log_p = +2.649009 (coarser +2.684234) zeta law 2.666667  slope_in/slope = 0.111111 (1/rho = 0.111111)
+A p=3 zeta  k=3 height(rho = p^k + 1e-7) = +66.366063  height(eps=1e-7) = +52.509659 slope/log_p = +4.588219 (coarser +4.649234) zeta law 4.618802  slope_in/slope = 0.037037 (1/rho = 0.037037)
+A p=3 zeta  k=4 height(rho = p^k + 1e-7) = +114.722583  height(eps=1e-7) = +82.722587 slope/log_p = +7.947028 (coarser +8.052719) zeta law 8.000000  slope_in/slope = 0.012346 (1/rho = 0.012346)
+A p=3 sign  k=0 height(rho = p^k + 1e-7) = +13.701751  height(eps=1e-7) = +13.701751 slope/log_p = +0.883003 (coarser +0.894742) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 sign  k=1 height(rho = p^k + 1e-7) = -21.401316  height(eps=1e-7) = -19.861716 slope/log_p = -1.529406 (coarser -1.549740) zeta law 1.539601  slope_in/slope = 0.333333 (1/rho = 0.333333)
+A p=3 sign  k=2 height(rho = p^k + 1e-7) = +38.533759  height(eps=1e-7) = +33.200427 slope/log_p = +2.649009 (coarser +2.684234) zeta law 2.666667  slope_in/slope = 0.111111 (1/rho = 0.111111)
+A p=3 sign  k=3 height(rho = p^k + 1e-7) = -65.977276  height(eps=1e-7) = -52.120872 slope/log_p = -4.588219 (coarser -4.649234) zeta law 4.618802  slope_in/slope = 0.037037 (1/rho = 0.037037)
+A p=3 sign  k=4 height(rho = p^k + 1e-7) = +114.721559  height(eps=1e-7) = +82.721563 slope/log_p = +7.947028 (coarser +8.052719) zeta law 8.000000  slope_in/slope = 0.012346 (1/rho = 0.012346)
+A p=3 tnr   k=0 height(rho = p^k + 1e-7) = +13.595997  height(eps=1e-7) = +13.595997 slope/log_p = +0.883003 (coarser +0.894742) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 tnr   k=1 height(rho = p^k + 1e-7) = +22.713388  height(eps=1e-7) = +21.173788 slope/log_p = +1.529406 (coarser +1.549742) zeta law 1.539601  slope_in/slope = 0.333333 (1/rho = 0.333333)
+A p=3 tnr   k=2 height(rho = p^k + 1e-7) = +38.549881  height(eps=1e-7) = +33.216549 slope/log_p = +2.649009 (coarser +2.684234) zeta law 2.666667  slope_in/slope = 0.111111 (1/rho = 0.111111)
+A p=3 tnr   k=3 height(rho = p^k + 1e-7) = +66.366063  height(eps=1e-7) = +52.509659 slope/log_p = +4.588219 (coarser +4.649234) zeta law 4.618802  slope_in/slope = 0.037037 (1/rho = 0.037037)
+A p=3 tnr   k=4 height(rho = p^k + 1e-7) = +114.722583  height(eps=1e-7) = +82.722587 slope/log_p = +7.947028 (coarser +8.052719) zeta law 8.000000  slope_in/slope = 0.012346 (1/rho = 0.012346)
+A p=3 dh    k=0 height(rho = p^k + 1e-7) = +13.119856  height(eps=1e-7) = +13.119856 slope/log_p = +0.850289 (coarser +0.862039) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 dh    k=1 height(rho = p^k + 1e-7) = +0.286745  height(eps=1e-7) = +0.332547 slope/log_p = +0.015246 (coarser +0.016160) zeta law 1.539601  slope_in/slope = -0.333333 (1/rho = 0.333333)
+A p=3 dh    k=2 height(rho = p^k + 1e-7) = -37.789668  height(eps=1e-7) = -32.711878 slope/log_p = -2.550867 (coarser -2.586124) zeta law 2.666667  slope_in/slope = 0.111111 (1/rho = 0.111111)
+A p=3 dh    k=3 height(rho = p^k + 1e-7) = +0.994829  height(eps=1e-7) = +0.857421 slope/log_p = -0.045739 (coarser -0.048478) zeta law 4.618802  slope_in/slope = -0.037037 (1/rho = 0.037037)
+A p=3 dh    k=4 height(rho = p^k + 1e-7) = +114.433894  height(eps=1e-7) = +83.967150 slope/log_p = +7.652600 (coarser +7.758391) zeta law 8.000000  slope_in/slope = 0.012346 (1/rho = 0.012346)
+A p=3 l2    k=0 height(rho = p^k + 1e-7) = +12.374639  height(eps=1e-7) = +12.374639 slope/log_p = +0.797048 (coarser +0.808210) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 l2    k=1 height(rho = p^k + 1e-7) = +0.637274  height(eps=1e-7) = +0.637274 slope/log_p = +0.000000 (coarser +0.000001) zeta law 1.539601  slope_in/slope = 2.102451 (1/rho = 0.333333)
+A p=3 l2    k=2 height(rho = p^k + 1e-7) = -35.462873  height(eps=1e-7) = -30.722134 slope/log_p = -2.391143 (coarser -2.424635) zeta law 2.666667  slope_in/slope = 0.111111 (1/rho = 0.111111)
+A p=3 l2    k=3 height(rho = p^k + 1e-7) = +0.185112  height(eps=1e-7) = +0.185112 slope/log_p = +0.000000 (coarser +0.000000) zeta law 4.618802  slope_in/slope = -1.373339 (1/rho = 0.037037)
+A p=3 l2    k=4 height(rho = p^k + 1e-7) = +107.483823  height(eps=1e-7) = +79.039382 slope/log_p = +7.173430 (coarser +7.273922) zeta law 8.000000  slope_in/slope = 0.012346 (1/rho = 0.012346)
+A p=3 ntp   k=0 height(rho = p^k + 1e-7) = +649.190520  height(eps=1e-7) = +649.190520 slope/log_p = +2924.864998 (coarser +130.660049) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 ntp   k=1 height(rho = p^k + 1e-7) = +1399.519941  height(eps=1e-7) = +901.186687 slope/log_p = +4066.700618 (coarser +181.668321) zeta law 1.539601  slope_in/slope = 0.517282 (1/rho = 0.333333)
+A p=3 ntp   k=2 height(rho = p^k + 1e-7) = +3018.598138  height(eps=1e-7) = +1250.482595 slope/log_p = +5654.296499 (coarser +252.589667) zeta law 2.666667  slope_in/slope = 0.267581 (1/rho = 0.111111)
+A p=3 ntp   k=3 height(rho = p^k + 1e-7) = +6512.580319  height(eps=1e-7) = +1734.202762 slope/log_p = +7861.672618 (coarser +351.197943) zeta law 4.618802  slope_in/slope = 0.138415 (1/rho = 0.037037)
+A p=3 ntp   k=4 height(rho = p^k + 1e-7) = +14051.682830  height(eps=1e-7) = +2402.066575 slope/log_p = +10930.784468 (coarser +488.301826) zeta law 8.000000  slope_in/slope = 0.071599 (1/rho = 0.012346)
+A p=3 ntm   k=0 height(rho = p^k + 1e-7) = +3.797023  height(eps=1e-7) = +3.797023 slope/log_p = +0.000656 (coarser +0.007230) zeta law 0.888889  slope_in/slope = 1.000067 (1/rho = 1.000000)
+A p=3 ntm   k=1 height(rho = p^k + 1e-7) = +4.730409  height(eps=1e-7) = +4.726081 slope/log_p = +0.001415 (coarser +0.015607) zeta law 1.539601  slope_in/slope = 0.214812 (1/rho = 0.333333)
+A p=3 ntm   k=2 height(rho = p^k + 1e-7) = +6.024205  height(eps=1e-7) = +6.008849 slope/log_p = +0.003052 (coarser +0.033676) zeta law 2.666667  slope_in/slope = 0.046141 (1/rho = 0.111111)
+A p=3 ntm   k=3 height(rho = p^k + 1e-7) = +8.092808  height(eps=1e-7) = +8.051309 slope/log_p = +0.006586 (coarser +0.072665) zeta law 4.618802  slope_in/slope = 0.009911 (1/rho = 0.037037)
+A p=3 ntm   k=4 height(rho = p^k + 1e-7) = +11.093150  height(eps=1e-7) = +10.991975 slope/log_p = +0.014210 (coarser +0.156794) zeta law 8.000000  slope_in/slope = 0.002129 (1/rho = 0.012346)
+A p=3 ea    k=0 height(rho = p^k + 1e-7) = +2234.580763  height(eps=1e-7) = +2234.580763 slope/log_p = +10276.402238 (coarser +455.775678) zeta law 0.888889  slope_in/slope = 1.000000 (1/rho = 1.000000)
+A p=3 ea    k=1 height(rho = p^k + 1e-7) = +4836.148260  height(eps=1e-7) = +3090.777492 slope/log_p = +14286.890523 (coarser +632.387676) zeta law 1.539601  slope_in/slope = 0.517360 (1/rho = 0.333333)
+A p=3 ea    k=2 height(rho = p^k + 1e-7) = +10454.640147  height(eps=1e-7) = +4262.973289 slope/log_p = +19861.515934 (coarser +876.421399) zeta law 2.666667  slope_in/slope = 0.267669 (1/rho = 0.111111)
+A p=3 ea    k=3 height(rho = p^k + 1e-7) = +22586.295975  height(eps=1e-7) = +5857.598484 slope/log_p = +27609.147877 (coarser +1212.431320) zeta law 4.618802  slope_in/slope = 0.138494 (1/rho = 0.037037)
+A p=3 ea    k=4 height(rho = p^k + 1e-7) = +48773.984449  height(eps=1e-7) = +8004.280267 slope/log_p = +38374.322626 (coarser +1672.512982) zeta law 8.000000  slope_in/slope = 0.071666 (1/rho = 0.012346)
+A zeta p=2 delta_S(3) = 0.379224 (source 0.379224)
+B zeta x zeta                                          Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +1.414214 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = +1.732051 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = +2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = +2.449490 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = +3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = +2.828427 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = +3.464102 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = +4.242641 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+B sign x sign (chi_5)                                  Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = -1.414214 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = -1.732051 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = +2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = +2.449490 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = +3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = -2.828427 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = -3.464102 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = -4.242641 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+B sign x zeta (chi_13)                                 Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = -1.414214 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = +1.732051 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = +2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = -2.449490 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = +3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = -2.828427 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = +3.464102 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = -4.242641 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+B l2 x l2 (L(chi)L(chibar), chi mod 5 complex)         Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = -2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = -3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+B dh2 x dh3 (product of the p-parts)                   Laurent check 6.0e-08  M(0,0) = 0.126071
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = -2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 2.27e-16
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = -3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.38e-17
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.18e-18
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 2.18e-16
+B L(chi), chi mod 5 complex (chi(2) = i, chi(3) = -i)  Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +0.000000 -1.414214i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = +0.000000 +1.732051i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = -2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = +2.449490 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = -3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = +0.000000 +2.828427i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = +0.000000 -3.464102i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = +0.000000 +4.242641i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+B unimodular twist (alpha_2 = e^{i}, alpha_3 = e^{2i}) Laurent check 6.0e-08  M(0,0) = 0.111111
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +0.764103 -1.190020i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = -0.720787 -1.574949i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = -0.832294 -1.818595i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = -2.424976 -0.345672i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = -1.960931 +2.270407i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = -2.800122 -0.399148i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = -2.264288 +2.621641i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.41e-16
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = +1.203477 +4.068371i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.45e-16
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = -2.614574 +3.027210i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +5.761022 +1.676493i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.45e-16
+B DH true {2^a 3^b}-part                               Laurent check 7.8e-08  M(0,0) = 0.169463
+    rho0 = 2^1 3^0 =    2  sqrt(rho0) M / M00 = +0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^0 3^1 =    3  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^0 =    4  sqrt(rho0) M / M00 = -2.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^1 3^1 =    6  sqrt(rho0) M / M00 = +2.449490 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.00e+00
+    rho0 = 2^0 3^2 =    9  sqrt(rho0) M / M00 = -3.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^3 3^0 =    8  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^1 =   12  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 8.47e-09
+    rho0 = 2^1 3^2 =   18  sqrt(rho0) M / M00 = -0.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 1.96e-10
+    rho0 = 2^4 3^0 =   16  sqrt(rho0) M / M00 = +4.000001 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 0.00e+00
+    rho0 = 2^2 3^2 =   36  sqrt(rho0) M / M00 = +6.000000 +0.000000i   |M(a,b) M00 - M(a,0) M(0,b)| / M00^2 = 6.14e-10

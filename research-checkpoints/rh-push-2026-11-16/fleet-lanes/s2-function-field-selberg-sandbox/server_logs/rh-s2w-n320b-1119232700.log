@@ -1,0 +1,6 @@
+N = 320, prec = 384 bits, workers = 4; quadrature nodes 752; planned: (24 + 1) ball matrices 320x320 per worker (~1.54 GB per worker at 0.2 kB per entry incl. serialised copies)
+stage 1 done 759s; A_log[0,0]-1 = [-8e-115 +/- 6.30e-116]
+K6 real objects done 140s
+K6 complex + cramer done 141s
+K3 real objects done 141s
+K3 complex + cramer done 142s

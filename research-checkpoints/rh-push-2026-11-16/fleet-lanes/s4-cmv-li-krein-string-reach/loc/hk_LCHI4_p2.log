@@ -1,0 +1,3 @@
+LCHI4 M 400 prec 10000 moments 15.1 s;  s_0 = [0.1560296498896448846076823 +/- 1.67e-26]
+  base: {"n_coeff": 399, "first_negative": null, "negatives_head": [], "n_negative": 0}
+DONE LCHI4 15.6

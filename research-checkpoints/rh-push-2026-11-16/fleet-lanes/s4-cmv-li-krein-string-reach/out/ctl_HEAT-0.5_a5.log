@@ -1,0 +1,4 @@
+HEAT-0.5 a 5 N 300 prec 9000 moments 577.8 s  c0 [4.4096900008676341925 +/- 2.90e-20]
+   n 50 log2 E -284.1 k 0.9963934805220697
+   n 100 log2 E -682.5 k 0.9986299457811726
+DONE HEAT-0.5 first index with E<=0: 123 last n 123 log2E -885.7 lev s 0.1

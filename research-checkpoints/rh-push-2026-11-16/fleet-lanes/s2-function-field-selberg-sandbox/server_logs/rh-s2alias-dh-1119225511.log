@@ -1,0 +1,7 @@
+planned allocation: Lambda_DH and Lambda tables 2 x 1.07 GB
+max |Lambda_DH| = 1.004e+05; mean |Lambda_DH| on the last 1e6: 9.712
+T0=1.000e+06: 1105 blocks, 1763953163 integers in blocks, full alias sets at k=1: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+  done 566s
+T0=1.000e+07: 1095 blocks, 4830101814 integers in blocks, full alias sets at k=1: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+  done 1152s
+T0=1.000e+08: 962 blocks, 7856032422 integers in blocks, full alias sets at k=1: [2, 3]

@@ -1,0 +1,433 @@
+zeta_a20_N1600.json first E<=0: None last 1599 log2E -13362.5 time 134.3 456.8
+    size 100 prefix 20 19 count 20 19
+    size 200 prefix 47 47 count 47 47
+    size 400 prefix 104 103 count 104 103
+    size 800 prefix 220 220 count 220 220
+    size 1600 prefix 456 456 count 456 456
+zeta_a20_N1600_p2.json first E<=0: None last 1599 log2E -13362.5 time 86.5 275.7
+    size 1600 prefix 456 456 count 36 36
+zeta_a5_N800.json first E<=0: None last 799 log2E -8666.3 time 99.6 247.0
+    size 100 prefix 21 21 count 21 21
+    size 200 prefix 48 47 count 48 47
+    size 400 prefix 105 105 count 105 105
+    size 800 prefix 221 221 count 221 221
+zeta_a80_N1600.json first E<=0: None last 1599 log2E -7137.6 time 31.2 222.6
+    size 100 prefix 10 9 count 10 9
+    size 200 prefix 39 38 count 39 38
+    size 400 prefix 97 97 count 97 97
+    size 800 prefix 215 214 count 215 214
+    size 1600 prefix 452 452 count 452 452
+zeta_a80_N1600_p2.json first E<=0: 1497 last 1497 log2E -6477.4 time 17.8 97.8
+lchi4_a20_N1600.json first E<=0: None last 1599 log2E -12050.1 time 982.8 1458.5
+    size 100 prefix 20 20 count 20 20
+    size 200 prefix 48 48 count 48 48
+    size 400 prefix 107 106 count 107 106
+    size 800 prefix 224 224 count 224 224
+    size 1600 prefix 463 463 count 463 463
+zeta_a20_N2400.json first E<=0: None last 2399 log2E -22209.6 time 844.8 1203.2
+    size 2400 prefix 692 692 count 52 52
+zeta_a80_N4000.json first E<=0: None last 3999 log2E -25843.2 time 2655.2 2833.1
+    size 4000 prefix 1170 1170 count 120 120
+== loc/zeta_a20_N1600.json a 20
+   add:0.1 fit {'A': 0.5696858044322471, 'b': 1.188353407839363, 'n': 10} fit>=100 {'A': 0.39962745878309797, 'b': 1.2535913940499261, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 20, 1), (27.718, 29, 3), (51.372, 57, 10), (73.886, 87, 18), (100.075, 128, 29), (148.738, 212, 52), (199.64, 305, 79), (300.745, 515, 138), (400.912, 734, 202), (600.574, 1208, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.816, 1.095, 1.164, 1.273, 1.273, 1.236, 1.278, 1.233, 1.233]  N/zeros below [20.0, 9.67, 5.7, 4.83, 4.41, 4.08, 3.86, 3.73, 3.63, 3.54]
+   add:0.25 fit {'A': 0.4889169905554774, 'b': 1.213049704064418, 'n': 10} fit>=100 {'A': 0.37212150437827063, 'b': 1.2635898063424071, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 18, 1), (27.718, 27, 3), (51.372, 55, 10), (73.886, 83, 18), (100.075, 125, 29), (148.738, 207, 52), (199.64, 299, 79), (300.745, 509, 138), (400.912, 727, 202), (600.574, 1197, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.89, 1.153, 1.132, 1.35, 1.273, 1.249, 1.298, 1.24, 1.234]  N/zeros below [18.0, 9.0, 5.5, 4.61, 4.31, 3.98, 3.78, 3.69, 3.6, 3.51]
+   add:0.4 fit {'A': 0.4392804679705171, 'b': 1.2285823283575807, 'n': 10} fit>=100 {'A': 0.3473149088351747, 'b': 1.272319948530684, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 17, 1), (27.718, 25, 3), (51.372, 53, 10), (73.886, 80, 18), (100.075, 122, 29), (148.738, 200, 52), (199.64, 294, 79), (300.745, 498, 138), (400.912, 715, 202), (600.574, 1183, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.847, 1.218, 1.133, 1.391, 1.247, 1.309, 1.286, 1.258, 1.246]  N/zeros below [17.0, 8.33, 5.3, 4.44, 4.21, 3.85, 3.72, 3.61, 3.54, 3.47]
+   disp:0.1 fit {'A': 0.41316510898402853, 'b': 1.2382833292154651, 'n': 9} fit>=100 {'A': 0.3486159684938688, 'b': 1.2721667396522962, 'n': 4}
+      points (gamma, N_det, zeros below): [(14.135, 13, 1), (25.011, 21, 3), (37.586, 34, 6), (49.774, 49, 10), (77.145, 86, 20), (122.947, 158, 40), (201.265, 298, 80), (334.211, 572, 160), (570.051, 1110, 320)]
+      local exponents [0.84, 1.183, 1.301, 1.284, 1.305, 1.287, 1.286, 1.242]  N/zeros below [13.0, 7.0, 5.67, 4.9, 4.3, 3.95, 3.73, 3.58, 3.47]
+== loc/zeta_a20_N1600_p2.json a 20
+   add:0.1 fit {'A': 0.5696858044322471, 'b': 1.188353407839363, 'n': 10} fit>=100 {'A': 0.39962745878309797, 'b': 1.2535913940499261, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 20, 1), (27.718, 29, 3), (51.372, 57, 10), (73.886, 87, 18), (100.075, 128, 29), (148.738, 212, 52), (199.64, 305, 79), (300.745, 515, 138), (400.912, 734, 202), (600.574, 1208, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.816, 1.095, 1.164, 1.273, 1.273, 1.236, 1.278, 1.233, 1.233]  N/zeros below [20.0, 9.67, 5.7, 4.83, 4.41, 4.08, 3.86, 3.73, 3.63, 3.54]
+   add:0.25 fit {'A': 0.4889169905554774, 'b': 1.213049704064418, 'n': 10} fit>=100 {'A': 0.37212150437827063, 'b': 1.2635898063424071, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 18, 1), (27.718, 27, 3), (51.372, 55, 10), (73.886, 83, 18), (100.075, 125, 29), (148.738, 207, 52), (199.64, 299, 79), (300.745, 509, 138), (400.912, 727, 202), (600.574, 1197, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.89, 1.153, 1.132, 1.35, 1.273, 1.249, 1.298, 1.24, 1.234]  N/zeros below [18.0, 9.0, 5.5, 4.61, 4.31, 3.98, 3.78, 3.69, 3.6, 3.51]
+   add:0.4 fit {'A': 0.4392804679705171, 'b': 1.2285823283575807, 'n': 10} fit>=100 {'A': 0.3473149088351747, 'b': 1.272319948530684, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 17, 1), (27.718, 25, 3), (51.372, 53, 10), (73.886, 80, 18), (100.075, 122, 29), (148.738, 200, 52), (199.64, 294, 79), (300.745, 498, 138), (400.912, 715, 202), (600.574, 1183, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.847, 1.218, 1.133, 1.391, 1.247, 1.309, 1.286, 1.258, 1.246]  N/zeros below [17.0, 8.33, 5.3, 4.44, 4.21, 3.85, 3.72, 3.61, 3.54, 3.47]
+   disp:0.1 fit {'A': 0.41316510898402853, 'b': 1.2382833292154651, 'n': 9} fit>=100 {'A': 0.3486159684938688, 'b': 1.2721667396522962, 'n': 4}
+      points (gamma, N_det, zeros below): [(14.135, 13, 1), (25.011, 21, 3), (37.586, 34, 6), (49.774, 49, 10), (77.145, 86, 20), (122.947, 158, 40), (201.265, 298, 80), (334.211, 572, 160), (570.051, 1110, 320)]
+      local exponents [0.84, 1.183, 1.301, 1.284, 1.305, 1.287, 1.286, 1.242]  N/zeros below [13.0, 7.0, 5.67, 4.9, 4.3, 3.95, 3.73, 3.58, 3.47]
+== loc/zeta_a5_N800.json a 5
+   add:0.1 fit {'A': 0.35718459862746976, 'b': 1.273402508098046, 'n': 9} fit>=100 {'A': 0.36492095178845363, 'b': 1.2697101112924496, 'n': 5}
+      points (gamma, N_det, zeros below): [(17.578, 14, 1), (27.718, 24, 3), (51.372, 54, 10), (73.886, 85, 18), (100.075, 126, 29), (148.738, 210, 52), (199.64, 304, 79), (300.745, 514, 138), (400.912, 733, 202), (600.574, None, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [1.184, 1.314, 1.248, 1.297, 1.289, 1.257, 1.282, 1.235]  N/zeros below [14.0, 8.0, 5.4, 4.72, 4.34, 4.04, 3.85, 3.72, 3.63]
+   add:0.25 fit {'A': 0.3061176278782819, 'b': 1.298484559317785, 'n': 9} fit>=100 {'A': 0.3361639991031972, 'b': 1.2816471329767423, 'n': 5}
+      points (gamma, N_det, zeros below): [(17.578, 13, 1), (27.718, 22, 3), (51.372, 51, 10), (73.886, 81, 18), (100.075, 123, 29), (148.738, 205, 52), (199.64, 297, 79), (300.745, 508, 138), (400.912, 726, 202), (600.574, None, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [1.155, 1.363, 1.273, 1.377, 1.289, 1.26, 1.31, 1.242]  N/zeros below [13.0, 7.33, 5.1, 4.5, 4.24, 3.94, 3.76, 3.68, 3.59]
+   add:0.4 fit {'A': 0.27576951117223464, 'b': 1.3143006904129526, 'n': 9} fit>=100 {'A': 0.31801652279116754, 'b': 1.288073204028025, 'n': 5}
+      points (gamma, N_det, zeros below): [(17.578, 12, 1), (27.718, 21, 3), (51.372, 50, 10), (73.886, 78, 18), (100.075, 120, 29), (148.738, 199, 52), (199.64, 293, 79), (300.745, 497, 138), (400.912, 714, 202), (600.574, None, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [1.229, 1.406, 1.224, 1.42, 1.276, 1.314, 1.29, 1.26]  N/zeros below [12.0, 7.0, 5.0, 4.33, 4.14, 3.83, 3.71, 3.6, 3.53]
+   disp:0.1 fit {'A': 0.25019507769640104, 'b': 1.3334569488761367, 'n': 8} fit>=100 {'A': 0.31479112135506515, 'b': 1.291104692213825, 'n': 3}
+      points (gamma, N_det, zeros below): [(14.135, 9, 1), (25.011, 17, 3), (37.586, 31, 6), (49.774, 46, 10), (77.145, 84, 20), (122.947, 157, 40), (201.265, 297, 80), (334.211, 571, 160), (570.051, None, 320)]
+      local exponents [1.114, 1.475, 1.405, 1.374, 1.342, 1.293, 1.289]  N/zeros below [9.0, 5.67, 5.17, 4.6, 4.2, 3.92, 3.71, 3.57]
+== loc/zeta_a80_N1600.json a 80
+   add:0.1 fit {'A': 3.1380030082050183, 'b': 0.8948271514473076, 'n': 10} fit>=100 {'A': 0.7942839160857844, 'b': 1.1425521924522608, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 55, 1), (27.718, 66, 3), (51.372, 95, 10), (73.886, 122, 18), (100.075, 159, 29), (148.738, 238, 52), (199.64, 326, 79), (300.745, 531, 138), (400.912, 748, 202), (600.574, 1218, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.4, 0.59, 0.688, 0.873, 1.018, 1.069, 1.191, 1.192, 1.206]  N/zeros below [55.0, 22.0, 9.5, 6.78, 5.48, 4.58, 4.13, 3.85, 3.7, 3.57]
+   add:0.25 fit {'A': 2.8249204979586953, 'b': 0.9111357995216741, 'n': 10} fit>=100 {'A': 0.7522319394410084, 'b': 1.1497132247043151, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 51, 1), (27.718, 63, 3), (51.372, 92, 10), (73.886, 118, 18), (100.075, 156, 29), (148.738, 233, 52), (199.64, 320, 79), (300.745, 525, 138), (400.912, 740, 202), (600.574, 1207, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.464, 0.614, 0.685, 0.92, 1.012, 1.078, 1.208, 1.194, 1.211]  N/zeros below [51.0, 21.0, 9.2, 6.56, 5.38, 4.48, 4.05, 3.8, 3.66, 3.54]
+   add:0.4 fit {'A': 2.640972956328036, 'b': 0.9197946870569716, 'n': 10} fit>=100 {'A': 0.7093968189406876, 'b': 1.1568165058471123, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 49, 1), (27.718, 60, 3), (51.372, 90, 10), (73.886, 114, 18), (100.075, 153, 29), (148.738, 225, 52), (199.64, 315, 79), (300.745, 515, 138), (400.912, 728, 202), (600.574, 1193, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.445, 0.657, 0.65, 0.97, 0.973, 1.143, 1.2, 1.204, 1.222]  N/zeros below [49.0, 20.0, 9.0, 6.33, 5.28, 4.33, 3.99, 3.73, 3.6, 3.5]
+   disp:0.1 fit {'A': 2.5521293596133607, 'b': 0.9235150977947959, 'n': 9} fit>=100 {'A': 0.6408500519607877, 'b': 1.1746383830350235, 'n': 4}
+      points (gamma, N_det, zeros below): [(14.135, 39, 1), (25.011, 52, 3), (37.586, 67, 6), (49.774, 83, 10), (77.145, 118, 20), (122.947, 186, 40), (201.265, 318, 80), (334.211, 587, 160), (570.051, 1120, 320)]
+      local exponents [0.504, 0.622, 0.762, 0.803, 0.976, 1.088, 1.209, 1.21]  N/zeros below [39.0, 17.33, 11.17, 8.3, 5.9, 4.65, 3.98, 3.67, 3.5]
+== loc/zeta_a80_N1600_p2.json a 80
+   add:0.1 fit {'A': 3.1380030082050183, 'b': 0.8948271514473076, 'n': 10} fit>=100 {'A': 0.7942839160857844, 'b': 1.1425521924522608, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 55, 1), (27.718, 66, 3), (51.372, 95, 10), (73.886, 122, 18), (100.075, 159, 29), (148.738, 238, 52), (199.64, 326, 79), (300.745, 531, 138), (400.912, 748, 202), (600.574, 1218, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.4, 0.59, 0.688, 0.873, 1.018, 1.069, 1.191, 1.192, 1.206]  N/zeros below [55.0, 22.0, 9.5, 6.78, 5.48, 4.58, 4.13, 3.85, 3.7, 3.57]
+   add:0.25 fit {'A': 2.8249204979586953, 'b': 0.9111357995216741, 'n': 10} fit>=100 {'A': 0.7522319394410084, 'b': 1.1497132247043151, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 51, 1), (27.718, 63, 3), (51.372, 92, 10), (73.886, 118, 18), (100.075, 156, 29), (148.738, 233, 52), (199.64, 320, 79), (300.745, 525, 138), (400.912, 740, 202), (600.574, 1207, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.464, 0.614, 0.685, 0.92, 1.012, 1.078, 1.208, 1.194, 1.211]  N/zeros below [51.0, 21.0, 9.2, 6.56, 5.38, 4.48, 4.05, 3.8, 3.66, 3.54]
+   add:0.4 fit {'A': 2.640972956328036, 'b': 0.9197946870569716, 'n': 10} fit>=100 {'A': 0.7093968189406876, 'b': 1.1568165058471123, 'n': 6}
+      points (gamma, N_det, zeros below): [(17.578, 49, 1), (27.718, 60, 3), (51.372, 90, 10), (73.886, 114, 18), (100.075, 153, 29), (148.738, 225, 52), (199.64, 315, 79), (300.745, 515, 138), (400.912, 728, 202), (600.574, 1193, 341), (800.629, None, 491), (1000.571, None, 649), (1299.948, None, 897), (1700.394, None, 1246), (2199.827, None, 1702), (3000.259, None, 2469)]
+      local exponents [0.445, 0.657, 0.65, 0.97, 0.973, 1.143, 1.2, 1.204, 1.222]  N/zeros below [49.0, 20.0, 9.0, 6.33, 5.28, 4.33, 3.99, 3.73, 3.6, 3.5]
+   disp:0.1 fit {'A': 2.5521293596133607, 'b': 0.9235150977947959, 'n': 9} fit>=100 {'A': 0.6408500519607877, 'b': 1.1746383830350235, 'n': 4}
+      points (gamma, N_det, zeros below): [(14.135, 39, 1), (25.011, 52, 3), (37.586, 67, 6), (49.774, 83, 10), (77.145, 118, 20), (122.947, 186, 40), (201.265, 318, 80), (334.211, 587, 160), (570.051, 1120, 320)]
+      local exponents [0.504, 0.622, 0.762, 0.803, 0.976, 1.088, 1.209, 1.21]  N/zeros below [39.0, 17.33, 11.17, 8.3, 5.9, 4.65, 3.98, 3.67, 3.5]
+== out/zeta_a20_N2400.json a 20
+   add:0.1 fit {'A': 0.4939461931459673, 'b': 1.2196817867316627, 'n': 5} fit>=100 {'A': 0.4939461931459673, 'b': 1.2196817867316627, 'n': 5}
+      points (gamma, N_det, zeros below): [(600.574, 1208, 341), (699.714, 1460, 414), (800.629, 1716, 491), (900.354, 1987, 569), (1000.571, 2250, 649), (1150.773, None, 772), (1299.948, None, 897), (1499.996, None, 1069), (1700.394, None, 1246), (1999.99, None, 1517)]
+      local exponents [1.24, 1.199, 1.249, 1.178]  N/zeros below [3.54, 3.53, 3.49, 3.49, 3.47]
+   add:0.4 fit {'A': 0.47579818353558395, 'b': 1.222055127956082, 'n': 5} fit>=100 {'A': 0.47579818353558395, 'b': 1.222055127956082, 'n': 5}
+      points (gamma, N_det, zeros below): [(600.574, 1183, 341), (699.714, 1427, 414), (800.629, 1686, 491), (900.354, 1923, 569), (1000.571, 2219, 649), (1150.773, None, 772), (1299.948, None, 897), (1499.996, None, 1069), (1700.394, None, 1246), (1999.99, None, 1517)]
+      local exponents [1.227, 1.238, 1.12, 1.357]  N/zeros below [3.47, 3.45, 3.43, 3.38, 3.42]
+== out/zeta_a80_N4000.json a 80
+   add:0.1 fit {'A': 0.5532832813787011, 'b': 1.2033628619252759, 'n': 8} fit>=100 {'A': 0.5532832813787011, 'b': 1.2033628619252759, 'n': 8}
+      points (gamma, N_det, zeros below): [(600.574, 1218, 341), (699.714, 1469, 414), (800.629, 1724, 491), (900.354, 1994, 569), (1000.571, 2256, 649), (1150.773, 2664, 772), (1299.948, 3092, 897), (1499.996, 3671, 1069), (1700.394, None, 1246), (1999.99, None, 1517)]
+      local exponents [1.226, 1.188, 1.239, 1.17, 1.189, 1.222, 1.199]  N/zeros below [3.57, 3.55, 3.51, 3.5, 3.48, 3.45, 3.45, 3.43]
+   add:0.4 fit {'A': 0.5327317114363811, 'b': 1.205951109253103, 'n': 8} fit>=100 {'A': 0.5327317114363811, 'b': 1.205951109253103, 'n': 8}
+      points (gamma, N_det, zeros below): [(600.574, 1193, 341), (699.714, 1436, 414), (800.629, 1693, 491), (900.354, 1930, 569), (1000.571, 2226, 649), (1150.773, 2638, 772), (1299.948, 3042, 897), (1499.996, 3573, 1069), (1700.394, None, 1246), (1999.99, None, 1517)]
+      local exponents [1.213, 1.222, 1.116, 1.352, 1.214, 1.169, 1.124]  N/zeros below [3.5, 3.47, 3.45, 3.39, 3.43, 3.42, 3.39, 3.34]
+== controls (first Levinson index with E <= 0)
+   server:ctl_DH_a20.json DH a 20 prec 16000 first 152 last 152 log2E -369.2 {'50': (6, 5), '100': (20, 20), '150': (34, 34)}
+   server:ctl_DH_a20_p2.json DH a 20 prec 11000 first 152 last 152 log2E -369.2 {'50': (6, 5), '100': (20, 20), '150': (34, 34)}
+   server:ctl_DH_a5.json DH a 5 prec 16000 first 149 last 149 log2E -907.9 {'50': (9, 8), '100': (22, 21)}
+   server:ctl_DH_a5_p2.json DH a 5 prec 11000 first 149 last 149 log2E -907.9 {'50': (9, 8), '100': (22, 21)}
+   server:ctl_DH_a80.json DH a 80 prec 16000 first 202 last 202 log2E -55.1 {'50': (0, 0), '100': (0, 0), '150': (13, 12), '200': (31, 30)}
+   server:ctl_DH_a80_p2.json DH a 80 prec 11000 first 202 last 202 log2E -55.1 {'50': (0, 0), '100': (0, 0), '150': (13, 12), '200': (31, 30)}
+   server:ctl_EA-1_2_a20.json EA-1/2 a 20 prec 16000 first 10 last 10 log2E 3.7 {}
+   server:ctl_EA-1_2_a20_p2.json EA-1/2 a 20 prec 11000 first 10 last 10 log2E 3.7 {}
+   server:ctl_EA-1_2_a5.json EA-1/2 a 5 prec 16000 first 6 last 6 log2E -16.2 {}
+   server:ctl_EA-1_2_a5_p2.json EA-1/2 a 5 prec 11000 first 6 last 6 log2E -16.2 {}
+   server:ctl_EA-1_2_a80.json EA-1/2 a 80 prec 16000 first 32 last 32 log2E 12.1 {}
+   server:ctl_EA-1_2_a80_p2.json EA-1/2 a 80 prec 11000 first 32 last 32 log2E 12.1 {}
+   server:ctl_EA-1_4_a20.json EA-1/4 a 20 prec 16000 first 11 last 11 log2E 0.3 {}
+   server:ctl_EA-1_4_a20_p2.json EA-1/4 a 20 prec 11000 first 11 last 11 log2E 0.3 {}
+   server:ctl_EA-1_4_a5.json EA-1/4 a 5 prec 16000 first 7 last 7 log2E -19.7 {}
+   server:ctl_EA-1_4_a5_p2.json EA-1/4 a 5 prec 11000 first 7 last 7 log2E -19.7 {}
+   server:ctl_EA-1_4_a80.json EA-1/4 a 80 prec 16000 first 35 last 35 log2E 6.2 {}
+   server:ctl_EA-1_4_a80_p2.json EA-1/4 a 80 prec 11000 first 35 last 35 log2E 6.2 {}
+   server:ctl_EA-1_8_a20.json EA-1/8 a 20 prec 16000 first 12 last 12 log2E -1.8 {}
+   server:ctl_EA-1_8_a20_p2.json EA-1/8 a 20 prec 11000 first 12 last 12 log2E -1.8 {}
+   server:ctl_EA-1_8_a5.json EA-1/8 a 5 prec 16000 first 8 last 8 log2E -23.0 {}
+   server:ctl_EA-1_8_a5_p2.json EA-1/8 a 5 prec 11000 first 8 last 8 log2E -23.0 {}
+   server:ctl_EA-1_8_a80.json EA-1/8 a 80 prec 16000 first 38 last 38 log2E 7.2 {}
+   server:ctl_EA-1_8_a80_p2.json EA-1/8 a 80 prec 11000 first 38 last 38 log2E 7.2 {}
+   server:ctl_HEAT-0.1_a20.json HEAT-0.1 a 20 prec 9000 first None last 299 log2E -1462.9 {}
+   server:ctl_HEAT-0.1_a20_p2.json HEAT-0.1 a 20 prec 6500 first None last 299 log2E -1462.9 {}
+   server:ctl_HEAT-0.1_a5.json HEAT-0.1 a 5 prec 9000 first None last 299 log2E -2643.9 {}
+   server:ctl_HEAT-0.1_a5_p2.json HEAT-0.1 a 5 prec 6500 first None last 299 log2E -2643.9 {}
+   server:ctl_HEAT-0.5_a20.json HEAT-0.5 a 20 prec 9000 first 125 last 125 log2E -416.8 {}
+   server:ctl_HEAT-0.5_a20_p2.json HEAT-0.5 a 20 prec 6500 first 125 last 125 log2E -416.8 {}
+   server:ctl_HEAT-0.5_a5.json HEAT-0.5 a 5 prec 9000 first 123 last 123 log2E -885.7 {}
+   server:ctl_HEAT-0.5_a5_p2.json HEAT-0.5 a 5 prec 6500 first 123 last 123 log2E -885.7 {}
+   server:ctl_LCHI3_a20.json LCHI3 a 20 prec 16000 first None last 499 log2E -2552.0 {}
+   server:ctl_LCHI3_a20_p2.json LCHI3 a 20 prec 11000 first None last 499 log2E -2552.0 {}
+   server:ctl_LCHI3_a5.json LCHI3 a 5 prec 16000 first None last 499 log2E -4515.0 {}
+   server:ctl_LCHI3_a5_p2.json LCHI3 a 5 prec 11000 first None last 499 log2E -4515.0 {}
+   server:ctl_LCHI3_a80.json LCHI3 a 80 prec 16000 first None last 499 log2E -803.5 {}
+   server:ctl_LCHI3_a80_p2.json LCHI3 a 80 prec 11000 first None last 499 log2E -803.5 {}
+   server:ctl_LCHI5_a20.json LCHI5 a 20 prec 16000 first None last 499 log2E -2398.2 {}
+   server:ctl_LCHI5_a20_p2.json LCHI5 a 20 prec 11000 first None last 499 log2E -2398.2 {}
+   server:ctl_LCHI5_a5.json LCHI5 a 5 prec 16000 first None last 499 log2E -4352.1 {}
+   server:ctl_LCHI5_a5_p2.json LCHI5 a 5 prec 11000 first None last 499 log2E -4352.1 {}
+   server:ctl_LCHI5_a80.json LCHI5 a 80 prec 16000 first None last 499 log2E -690.7 {}
+   server:ctl_LCHI5_a80_p2.json LCHI5 a 80 prec 11000 first None last 499 log2E -690.7 {}
+   server:ctl_LIOUX_a20.json LIOUX a 20 prec 16000 first 7 last 7 log2E 7.6 {}
+   server:ctl_LIOUX_a20_p2.json LIOUX a 20 prec 11000 first 7 last 7 log2E 7.6 {}
+   server:ctl_LIOUX_a5.json LIOUX a 5 prec 16000 first 2 last 2 log2E 4.5 {}
+   server:ctl_LIOUX_a5_p2.json LIOUX a 5 prec 11000 first 2 last 2 log2E 4.5 {}
+   server:ctl_LIOUX_a80.json LIOUX a 80 prec 16000 first 28 last 28 log2E 5.4 {}
+   server:ctl_LIOUX_a80_p2.json LIOUX a 80 prec 11000 first 28 last 28 log2E 5.4 {}
+   server:ctl_LIOU_a20.json LIOU a 20 prec 16000 first 2 last 2 log2E 7.4 {}
+   server:ctl_LIOU_a20_p2.json LIOU a 20 prec 11000 first 2 last 2 log2E 7.4 {}
+   server:ctl_LIOU_a5.json LIOU a 5 prec 16000 first 2 last 2 log2E 3.7 {}
+   server:ctl_LIOU_a5_p2.json LIOU a 5 prec 11000 first 2 last 2 log2E 3.7 {}
+   server:ctl_LIOU_a80.json LIOU a 80 prec 16000 first 8 last 8 log2E 7.9 {}
+   server:ctl_LIOU_a80_p2.json LIOU a 80 prec 11000 first 8 last 8 log2E 7.9 {}
+   server:ctl_TNR_a20.json TNR a 20 prec 16000 first 15 last 15 log2E 8.0 {}
+   server:ctl_TNR_a20_p2.json TNR a 20 prec 11000 first 15 last 15 log2E 8.0 {}
+   server:ctl_TNR_a5.json TNR a 5 prec 16000 first 5 last 5 log2E 3.0 {}
+   server:ctl_TNR_a5_p2.json TNR a 5 prec 11000 first 5 last 5 log2E 3.0 {}
+   server:ctl_TNR_a80.json TNR a 80 prec 16000 first 51 last 51 log2E 9.7 {}
+   server:ctl_TNR_a80_p2.json TNR a 80 prec 11000 first 51 last 51 log2E 9.7 {}
+   local:cmv_DH_a20.json DH a 20 prec 12000 first 152 last 152 log2E -369.2 {'50': (6, 5), '100': (20, 20), '150': (34, 34)}
+   local:cmv_DH_a20_p2.json DH a 20 prec 8000 first 152 last 152 log2E -369.2 {'50': (6, 5), '100': (20, 20), '150': (34, 34)}
+   local:cmv_DH_a5.json DH a 5 prec 12000 first 149 last 149 log2E -907.9 {'50': (9, 8), '100': (22, 21)}
+   local:cmv_DH_a5_p2.json DH a 5 prec 8000 first 149 last 149 log2E -907.9 {'50': (9, 8), '100': (22, 21)}
+   local:cmv_DH_a80.json DH a 80 prec 12000 first 202 last 202 log2E -55.1 {'50': (0, 0), '100': (0, 0), '150': (13, 12), '200': (31, 30)}
+   local:cmv_DH_a80_p2.json DH a 80 prec 8000 first 202 last 202 log2E -55.1 {'50': (0, 0), '100': (0, 0), '150': (13, 12), '200': (31, 30)}
+   local:cmv_EA-1_2_a20.json EA-1/2 a 20 prec 12000 first 10 last 10 log2E 3.7 {}
+   local:cmv_EA-1_2_a20_p2.json EA-1/2 a 20 prec 8000 first 10 last 10 log2E 3.7 {}
+   local:cmv_EA-1_2_a5.json EA-1/2 a 5 prec 12000 first 6 last 6 log2E -16.2 {}
+   local:cmv_EA-1_2_a5_p2.json EA-1/2 a 5 prec 8000 first 6 last 6 log2E -16.2 {}
+   local:cmv_EA-1_2_a80.json EA-1/2 a 80 prec 12000 first 32 last 32 log2E 12.1 {}
+   local:cmv_EA-1_2_a80_p2.json EA-1/2 a 80 prec 8000 first 32 last 32 log2E 12.1 {}
+   local:cmv_EA-1_4_a20.json EA-1/4 a 20 prec 12000 first 11 last 11 log2E 0.3 {}
+   local:cmv_EA-1_4_a20_p2.json EA-1/4 a 20 prec 8000 first 11 last 11 log2E 0.3 {}
+   local:cmv_EA-1_4_a5.json EA-1/4 a 5 prec 12000 first 7 last 7 log2E -19.7 {}
+   local:cmv_EA-1_4_a5_p2.json EA-1/4 a 5 prec 8000 first 7 last 7 log2E -19.7 {}
+   local:cmv_EA-1_4_a80.json EA-1/4 a 80 prec 12000 first 35 last 35 log2E 6.2 {}
+   local:cmv_EA-1_4_a80_p2.json EA-1/4 a 80 prec 8000 first 35 last 35 log2E 6.2 {}
+   local:cmv_EA-1_8_a20.json EA-1/8 a 20 prec 12000 first 12 last 12 log2E -1.8 {}
+   local:cmv_EA-1_8_a20_p2.json EA-1/8 a 20 prec 8000 first 12 last 12 log2E -1.8 {}
+   local:cmv_EA-1_8_a5.json EA-1/8 a 5 prec 12000 first 8 last 8 log2E -23.0 {}
+   local:cmv_EA-1_8_a5_p2.json EA-1/8 a 5 prec 8000 first 8 last 8 log2E -23.0 {}
+   local:cmv_EA-1_8_a80.json EA-1/8 a 80 prec 12000 first 38 last 38 log2E 7.2 {}
+   local:cmv_EA-1_8_a80_p2.json EA-1/8 a 80 prec 8000 first 38 last 38 log2E 7.2 {}
+   local:cmv_HEAT-0.5_a20.json HEAT-0.5 a 20 prec 7000 first 125 last 125 log2E -416.8 {}
+   local:cmv_HEAT-0.5_a20_p2.json HEAT-0.5 a 20 prec 5000 first 125 last 125 log2E -416.8 {}
+   local:cmv_HEAT-0.5_a5.json HEAT-0.5 a 5 prec 7000 first 123 last 123 log2E -885.7 {}
+   local:cmv_HEAT-0.5_a5_p2.json HEAT-0.5 a 5 prec 5000 first 123 last 123 log2E -885.7 {}
+   local:cmv_HEAT-0.5_a80.json HEAT-0.5 a 80 prec 7000 first 151 last 151 log2E -89.6 {}
+   local:cmv_HEAT-0.5_a80_p2.json HEAT-0.5 a 80 prec 5000 first 151 last 151 log2E -89.6 {}
+   local:cmv_LCHI3_a20.json LCHI3 a 20 prec 12000 first None last 399 log2E -1852.8 {}
+   local:cmv_LCHI3_a20_p2.json LCHI3 a 20 prec 8000 first None last 399 log2E -1852.8 {}
+   local:cmv_LCHI3_a5.json LCHI3 a 5 prec 12000 first None last 399 log2E -3416.0 {}
+   local:cmv_LCHI3_a5_p2.json LCHI3 a 5 prec 8000 first None last 399 log2E -3416.0 {}
+   local:cmv_LCHI3_a80.json LCHI3 a 80 prec 12000 first None last 399 log2E -501.1 {}
+   local:cmv_LCHI3_a80_p2.json LCHI3 a 80 prec 8000 first None last 399 log2E -501.1 {}
+   local:cmv_LCHI4_a20.json LCHI4 a 20 prec 12000 first None last 399 log2E -1778.6 {}
+   local:cmv_LCHI4_a20_p2.json LCHI4 a 20 prec 8000 first None last 399 log2E -1778.6 {}
+   local:cmv_LCHI4_a5.json LCHI4 a 5 prec 12000 first None last 399 log2E -3335.5 {}
+   local:cmv_LCHI4_a5_p2.json LCHI4 a 5 prec 8000 first None last 399 log2E -3335.5 {}
+   local:cmv_LCHI4_a80.json LCHI4 a 80 prec 12000 first None last 399 log2E -450.2 {}
+   local:cmv_LCHI4_a80_p2.json LCHI4 a 80 prec 8000 first None last 399 log2E -450.2 {}
+   local:cmv_LCHI5_a20.json LCHI5 a 20 prec 12000 first None last 399 log2E -1727.8 {}
+   local:cmv_LCHI5_a20_p2.json LCHI5 a 20 prec 8000 first None last 399 log2E -1727.8 {}
+   local:cmv_LCHI5_a5.json LCHI5 a 5 prec 12000 first None last 399 log2E -3282.0 {}
+   local:cmv_LCHI5_a5_p2.json LCHI5 a 5 prec 8000 first None last 399 log2E -3282.0 {}
+   local:cmv_LCHI5_a80.json LCHI5 a 80 prec 12000 first None last 399 log2E -416.1 {}
+   local:cmv_LCHI5_a80_p2.json LCHI5 a 80 prec 8000 first None last 399 log2E -416.1 {}
+   local:cmv_LIOUX_a20.json LIOUX a 20 prec 12000 first 7 last 7 log2E 7.6 {}
+   local:cmv_LIOUX_a20_p2.json LIOUX a 20 prec 8000 first 7 last 7 log2E 7.6 {}
+   local:cmv_LIOUX_a5.json LIOUX a 5 prec 12000 first 2 last 2 log2E 4.5 {}
+   local:cmv_LIOUX_a5_p2.json LIOUX a 5 prec 8000 first 2 last 2 log2E 4.5 {}
+   local:cmv_LIOUX_a80.json LIOUX a 80 prec 12000 first 28 last 28 log2E 5.4 {}
+   local:cmv_LIOUX_a80_p2.json LIOUX a 80 prec 8000 first 28 last 28 log2E 5.4 {}
+   local:cmv_LIOU_a20.json LIOU a 20 prec 12000 first 2 last 2 log2E 7.4 {}
+   local:cmv_LIOU_a20_p2.json LIOU a 20 prec 8000 first 2 last 2 log2E 7.4 {}
+   local:cmv_LIOU_a5.json LIOU a 5 prec 12000 first 2 last 2 log2E 3.7 {}
+   local:cmv_LIOU_a5_p2.json LIOU a 5 prec 8000 first 2 last 2 log2E 3.7 {}
+   local:cmv_LIOU_a80.json LIOU a 80 prec 12000 first 8 last 8 log2E 7.9 {}
+   local:cmv_LIOU_a80_p2.json LIOU a 80 prec 8000 first 8 last 8 log2E 7.9 {}
+   local:cmv_TNR_a20.json TNR a 20 prec 12000 first 15 last 15 log2E 8.0 {}
+   local:cmv_TNR_a20_p2.json TNR a 20 prec 8000 first 15 last 15 log2E 8.0 {}
+   local:cmv_TNR_a5.json TNR a 5 prec 12000 first 5 last 5 log2E 3.0 {}
+   local:cmv_TNR_a5_p2.json TNR a 5 prec 8000 first 5 last 5 log2E 3.0 {}
+   local:cmv_TNR_a80.json TNR a 80 prec 12000 first 51 last 51 log2E 9.7 {}
+   local:cmv_TNR_a80_p2.json TNR a 80 prec 8000 first 51 last 51 log2E 9.7 {}
+== out/trunc/trunc_a20.json n 260
+    ZETA-EUL:100 [25, -23.985254499740414]
+    LCHI4-EUL:100 [33, -10.399363450057793]
+    SGN-EUL:100 [2, 7.386137645151476]
+    SGNX-EUL:100 [7, 7.531112463861882]
+    U-EUL:100 [2, 7.386391886267023]
+    ZETA-EUL:1000 [34, -43.18393426341721]
+    LCHI4-EUL:1000 [43, -26.02024583940878]
+    SGN-EUL:1000 [2, 7.386137645151476]
+    SGNX-EUL:1000 [7, 7.531112463861882]
+    U-EUL:1000 [2, 7.386391886267023]
+    ZETA-EUL:10000 [43, -60.54019419472836]
+    LCHI4-EUL:10000 [52, -43.54346838228412]
+    SGN-EUL:10000 [2, 7.386137645151476]
+    SGNX-EUL:10000 [7, 7.531112463861882]
+    U-EUL:10000 [2, 7.386391886267023]
+    ZETA-EUL:100000 [50, -91.62820653120635]
+    LCHI4-EUL:100000 [61, -66.29027988487555]
+    SGN-EUL:100000 [2, 7.386137645151476]
+    SGNX-EUL:100000 [7, 7.531112463861882]
+    U-EUL:100000 [2, 7.386391886267023]
+    ZETA-DIR:100 [25, -19.740441430536418]
+    DH-DIR:100 [34, -5.239532958902161]
+    ZETA-DIR:1000 [34, -38.38923026451407]
+    DH-DIR:1000 [45, -20.43038990955743]
+    ZETA-DIR:10000 [42, -62.257688659961694]
+    DH-DIR:10000 [55, -39.613043581354376]
+    ZETA-DIR:100000 [50, -85.15562565922869]
+    DH-DIR:100000 [65, -56.194985855563054]
+    ZETA:exact [None, -1196.3543878700464]
+    LCHI4:exact [None, -925.7030877874998]
+    DH:exact [152, -369.2363444588323]
+    LIOU:exact [2, 7.386136251311101]
+    LIOUX:exact [7, 7.589678706474842]
+== out/trunc80/trunc_a80.json n 600
+    ZETA-EUL:100 [124, -44.37768802698736]
+    LCHI4-EUL:100 [148, -13.997299392601919]
+    SGN-EUL:100 [8, 7.908355550710766]
+    SGNX-EUL:100 [28, 5.395645538800393]
+    U-EUL:100 [8, 7.908355550710949]
+    ZETA-EUL:1000 [167, -104.5786503432961]
+    LCHI4-EUL:1000 [197, -51.960071317623175]
+    SGN-EUL:1000 [8, 7.908355550710766]
+    SGNX-EUL:1000 [28, 5.395645538800393]
+    U-EUL:1000 [8, 7.908355550710949]
+    ZETA-EUL:10000 [205, -188.58821188960732]
+    LCHI4-EUL:10000 [239, -117.16519861038854]
+    SGN-EUL:10000 [8, 7.908355550710766]
+    SGNX-EUL:10000 [28, 5.395645538800393]
+    U-EUL:10000 [8, 7.908355550710949]
+    ZETA-DIR:100 [124, -42.38013057005738]
+    DH-DIR:100 [152, -5.206669305073002]
+    ZETA-DIR:1000 [166, -106.28654279152228]
+    DH-DIR:1000 [201, -49.54288988432691]
+    ZETA:exact [None, -1523.37860045494]
+    LCHI4:exact [None, -1068.6094954326359]
+    DH:exact [202, -55.13462733997858]
+    LIOU:exact [8, 7.908355550710766]
+    LIOUX:exact [28, 5.395648347221813]
+c3 server ctl_DH.json DH M 500 prec 18000 s0 [0.1961391539066727338 {'n_coeff': 499, 'first_negative': 148, 'negatives_head': [148, 150, 217, 219, 351, 353, 372, 374], 'n_negative': 8}
+c3 server ctl_DH_p2.json DH M 500 prec 12000 s0 [0.1961391539066727338 {'n_coeff': 499, 'first_negative': 148, 'negatives_head': [148, 150, 217, 219, 351, 353, 372, 374], 'n_negative': 8}
+c3 server ctl_EA-1_2.json EA-1/2 M 500 prec 18000 s0 [0.0923086345916092055 {'n_coeff': 499, 'first_negative': 6, 'negatives_head': [6, 8, 13, 15, 20, 22, 27, 29, 34, 36, 40, 42], 'n_negative': 152}
+c3 server ctl_EA-1_2_p2.json EA-1/2 M 500 prec 12000 s0 [0.0923086345916092055 {'n_coeff': 499, 'first_negative': 6, 'negatives_head': [6, 8, 13, 15, 20, 22, 27, 29, 34, 36, 40, 42], 'n_negative': 152}
+c3 server ctl_EA-1_4.json EA-1/4 M 500 prec 18000 s0 [0.0923921042712696431 {'n_coeff': 499, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 21, 23, 29, 31, 35, 37, 42, 44], 'n_negative': 150}
+c3 server ctl_EA-1_4_p2.json EA-1/4 M 500 prec 12000 s0 [0.0923921042712696431 {'n_coeff': 499, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 21, 23, 29, 31, 35, 37, 42, 44], 'n_negative': 150}
+c3 server ctl_EA-1_8.json EA-1/8 M 500 prec 18000 s0 [0.0924130033032133569 {'n_coeff': 499, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 22, 24, 30, 32, 36, 38, 43, 45], 'n_negative': 148}
+c3 server ctl_EA-1_8_p2.json EA-1/8 M 500 prec 12000 s0 [0.0924130033032133569 {'n_coeff': 499, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 22, 24, 30, 32, 36, 38, 43, 45], 'n_negative': 148}
+c3 server ctl_LCHI3.json LCHI3 M 500 prec 18000 s0 [0.1134021568527585716 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_LCHI3_p2.json LCHI3 M 500 prec 12000 s0 [0.1134021568527585716 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_LCHI4.json LCHI4 M 500 prec 18000 s0 [0.1560296498896448846 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_LCHI4_p2.json LCHI4 M 500 prec 12000 s0 [0.1560296498896448846 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_LCHI5.json LCHI5 M 500 prec 18000 s0 [0.1569142174350565439 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_LCHI5_p2.json LCHI5 M 500 prec 12000 s0 [0.1569142174350565439 {'n_coeff': 499, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 server ctl_TNR.json TNR M 500 prec 18000 s0 [0.6209475866177817405 {'n_coeff': 499, 'first_negative': 3, 'negatives_head': [3, 5, 9, 11, 15, 17, 25, 27, 39, 41, 50, 52], 'n_negative': 70}
+c3 server ctl_TNR_p2.json TNR M 500 prec 12000 s0 [0.6209475866177817405 {'n_coeff': 499, 'first_negative': 3, 'negatives_head': [3, 5, 9, 11, 15, 17, 25, 27, 39, 41, 50, 52], 'n_negative': 70}
+c3 local hk_DH.json DH M 400 prec 14000 s0 [0.1961391539066727338 {'n_coeff': 399, 'first_negative': 148, 'negatives_head': [148, 150, 217, 219, 351, 353, 372, 374], 'n_negative': 8}
+c3 local hk_DH_p2.json DH M 400 prec 10000 s0 [0.1961391539066727338 {'n_coeff': 399, 'first_negative': 148, 'negatives_head': [148, 150, 217, 219, 351, 353, 372, 374], 'n_negative': 8}
+c3 local hk_EA-1_2.json EA-1/2 M 400 prec 14000 s0 [0.0923086345916092055 {'n_coeff': 399, 'first_negative': 6, 'negatives_head': [6, 8, 13, 15, 20, 22, 27, 29, 34, 36, 40, 42], 'n_negative': 122}
+c3 local hk_EA-1_4.json EA-1/4 M 400 prec 14000 s0 [0.0923921042712696431 {'n_coeff': 399, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 21, 23, 29, 31, 35, 37, 42, 44], 'n_negative': 119}
+c3 local hk_EA-1_4_p2.json EA-1/4 M 400 prec 10000 s0 [0.0923921042712696431 {'n_coeff': 399, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 21, 23, 29, 31, 35, 37, 42, 44], 'n_negative': 119}
+c3 local hk_EA-1_8.json EA-1/8 M 400 prec 14000 s0 [0.0924130033032133569 {'n_coeff': 399, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 22, 24, 30, 32, 36, 38, 43, 45], 'n_negative': 118}
+c3 local hk_EA-1_8_p2.json EA-1/8 M 400 prec 10000 s0 [0.0924130033032133569 {'n_coeff': 399, 'first_negative': 7, 'negatives_head': [7, 9, 15, 17, 22, 24, 30, 32, 36, 38, 43, 45], 'n_negative': 118}
+c3 local hk_HEAT-0.5.json HEAT-0.5 M 400 prec 14000 s0 [0.0457363708009616222 {'n_coeff': 399, 'first_negative': 123, 'negatives_head': [123, 125, 189, 191, 219, 221, 248, 250, 311, 313, 336, 338], 'n_negative': 12}
+c3 local hk_HEAT-0.5_p2.json HEAT-0.5 M 400 prec 10000 s0 [0.0457363708009616222 {'n_coeff': 399, 'first_negative': 123, 'negatives_head': [123, 125, 189, 191, 219, 221, 248, 250, 311, 313, 336, 338], 'n_negative': 12}
+c3 local hk_LCHI3.json LCHI3 M 400 prec 14000 s0 [0.1134021568527585716 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_LCHI3_p2.json LCHI3 M 400 prec 10000 s0 [0.1134021568527585716 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_LCHI4.json LCHI4 M 400 prec 14000 s0 [0.1560296498896448846 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_LCHI4_p2.json LCHI4 M 400 prec 10000 s0 [0.1560296498896448846 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_LCHI5.json LCHI5 M 400 prec 14000 s0 [0.1569142174350565439 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_LCHI5_p2.json LCHI5 M 400 prec 10000 s0 [0.1569142174350565439 {'n_coeff': 399, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+c3 local hk_TNR.json TNR M 400 prec 14000 s0 [0.6209475866177817405 {'n_coeff': 399, 'first_negative': 3, 'negatives_head': [3, 5, 9, 11, 15, 17, 25, 27, 39, 41, 50, 52], 'n_negative': 62}
+c3 local hk_TNR_p2.json TNR M 400 prec 10000 s0 [0.6209475866177817405 {'n_coeff': 399, 'first_negative': 3, 'negatives_head': [3, 5, 9, 11, 15, 17, 25, 27, 39, 41, 50, 52], 'n_negative': 62}
+c3 local hk_ZETA_M1600.json ZETA M 1600 prec 40000 s0 [0.0462099862308379415 {'n_coeff': 1599, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+      add:0.1:499.444934 first neg 962 negs [962, 964] zeros below 269
+      add:0.4:499.444934 first neg 939 negs [939, 941] zeros below 269
+      add:0.1:600.573889 first neg 1206 negs [1206, 1208] zeros below 341
+      add:0.4:600.573889 first neg 1181 negs [1181, 1183] zeros below 341
+      add:0.1:699.714417 first neg 1459 negs [1459, 1461] zeros below 414
+      add:0.4:699.714417 first neg 1426 negs [1426, 1428] zeros below 414
+c3 local hk_ZETA_M800.json ZETA M 800 prec 24000 s0 [0.0462099862308379415 {'n_coeff': 799, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+      add:0.1:17.578382 first neg 13 negs [13, 15] zeros below 1
+      add:0.25:17.578382 first neg 11 negs [11, 13] zeros below 1
+      add:0.4:17.578382 first neg 11 negs [11, 13] zeros below 1
+      add:0.1:27.717867 first neg 23 negs [23, 25] zeros below 3
+      add:0.25:27.717867 first neg 21 negs [21, 23] zeros below 3
+      add:0.4:27.717867 first neg 19 negs [19, 21] zeros below 3
+      add:0.1:51.372077 first neg 52 negs [52, 54] zeros below 10
+      add:0.25:51.372077 first neg 50 negs [50, 52] zeros below 10
+      add:0.4:51.372077 first neg 49 negs [49, 51] zeros below 10
+      add:0.1:73.885924 first neg 83 negs [83, 85] zeros below 18
+      add:0.25:73.885924 first neg 80 negs [80, 82] zeros below 18
+      add:0.4:73.885924 first neg 76 negs [76, 78] zeros below 18
+      add:0.1:100.074523 first neg 125 negs [125, 127] zeros below 29
+      add:0.25:100.074523 first neg 122 negs [122, 124] zeros below 29
+      add:0.4:100.074523 first neg 119 negs [119, 121] zeros below 29
+      add:0.1:148.738143 first neg 209 negs [209, 211] zeros below 52
+      add:0.25:148.738143 first neg 204 negs [204, 206] zeros below 52
+      add:0.4:148.738143 first neg 198 negs [198, 200] zeros below 52
+      add:0.1:199.640031 first neg 302 negs [302, 304] zeros below 79
+      add:0.25:199.640031 first neg 296 negs [296, 298] zeros below 79
+      add:0.4:199.640031 first neg 292 negs [292, 294] zeros below 79
+      add:0.1:300.744826 first neg 513 negs [513, 515] zeros below 138
+      add:0.25:300.744826 first neg 507 negs [507, 509] zeros below 138
+      add:0.4:300.744826 first neg 496 negs [496, 498] zeros below 138
+      add:0.1:400.912174 first neg 732 negs [732, 734] zeros below 202
+      add:0.25:400.912174 first neg 725 negs [725, 727] zeros below 202
+      add:0.4:400.912174 first neg 713 negs [713, 715] zeros below 202
+      add:0.1:499.444934 first neg None negs [] zeros below 269
+      add:0.25:499.444934 first neg None negs [] zeros below 269
+      add:0.4:499.444934 first neg None negs [] zeros below 269
+      add:0.1:600.573889 first neg None negs [] zeros below 341
+      add:0.25:600.573889 first neg None negs [] zeros below 341
+      add:0.4:600.573889 first neg None negs [] zeros below 341
+      disp:0.1:k1 first neg 7 negs [7, 9, 43, 45] zeros below 0
+      disp:0.1:k3 first neg 16 negs [16, 18, 65, 67] zeros below 2
+      disp:0.1:k6 first neg 29 negs [29, 31, 87, 89] zeros below 5
+      disp:0.1:k10 first neg 45 negs [45, 47, 110, 112] zeros below 9
+      disp:0.1:k20 first neg 83 negs [83, 85, 152, 154] zeros below 19
+      disp:0.1:k40 first neg 155 negs [155, 157, 247, 249] zeros below 39
+      disp:0.1:k80 first neg 295 negs [295, 297, 407, 409] zeros below 79
+      disp:0.1:k160 first neg 570 negs [570, 572, 707, 709] zeros below 159
+c3 local hk_ZETA_M800_p2.json ZETA M 800 prec 17000 s0 [0.0462099862308379415 {'n_coeff': 799, 'first_negative': None, 'negatives_head': [], 'n_negative': 0}
+      add:0.1:17.578382 first neg 13 negs [13, 15] zeros below 1
+      add:0.25:17.578382 first neg 11 negs [11, 13] zeros below 1
+      add:0.4:17.578382 first neg 11 negs [11, 13] zeros below 1
+      add:0.1:27.717867 first neg 23 negs [23, 25] zeros below 3
+      add:0.25:27.717867 first neg 21 negs [21, 23] zeros below 3
+      add:0.4:27.717867 first neg 19 negs [19, 21] zeros below 3
+      add:0.1:51.372077 first neg 52 negs [52, 54] zeros below 10
+      add:0.25:51.372077 first neg 50 negs [50, 52] zeros below 10
+      add:0.4:51.372077 first neg 49 negs [49, 51] zeros below 10
+      add:0.1:73.885924 first neg 83 negs [83, 85] zeros below 18
+      add:0.25:73.885924 first neg 80 negs [80, 82] zeros below 18
+      add:0.4:73.885924 first neg 76 negs [76, 78] zeros below 18
+      add:0.1:100.074523 first neg 125 negs [125, 127] zeros below 29
+      add:0.25:100.074523 first neg 122 negs [122, 124] zeros below 29
+      add:0.4:100.074523 first neg 119 negs [119, 121] zeros below 29
+      add:0.1:148.738143 first neg 209 negs [209, 211] zeros below 52
+      add:0.25:148.738143 first neg 204 negs [204, 206] zeros below 52
+      add:0.4:148.738143 first neg 198 negs [198, 200] zeros below 52
+      add:0.1:199.640031 first neg 302 negs [302, 304] zeros below 79
+      add:0.25:199.640031 first neg 296 negs [296, 298] zeros below 79
+      add:0.4:199.640031 first neg 292 negs [292, 294] zeros below 79
+      add:0.1:300.744826 first neg 513 negs [513, 515] zeros below 138
+      add:0.25:300.744826 first neg 507 negs [507, 509] zeros below 138
+      add:0.4:300.744826 first neg 496 negs [496, 498] zeros below 138
+      add:0.1:400.912174 first neg 732 negs [732, 734] zeros below 202
+      add:0.25:400.912174 first neg 725 negs [725, 727] zeros below 202
+      add:0.4:400.912174 first neg 713 negs [713, 715] zeros below 202
+      add:0.1:499.444934 first neg None negs [] zeros below 269
+      add:0.25:499.444934 first neg None negs [] zeros below 269
+      add:0.4:499.444934 first neg None negs [] zeros below 269
+      add:0.1:600.573889 first neg None negs [] zeros below 341
+      add:0.25:600.573889 first neg None negs [] zeros below 341
+      add:0.4:600.573889 first neg None negs [] zeros below 341
+      disp:0.1:k1 first neg 7 negs [7, 9, 43, 45] zeros below 0
+      disp:0.1:k3 first neg 16 negs [16, 18, 65, 67] zeros below 2
+      disp:0.1:k6 first neg 29 negs [29, 31, 87, 89] zeros below 5
+      disp:0.1:k10 first neg 45 negs [45, 47, 110, 112] zeros below 9
+      disp:0.1:k20 first neg 83 negs [83, 85, 152, 154] zeros below 19
+      disp:0.1:k40 first neg 155 negs [155, 157, 247, 249] zeros below 39
+      disp:0.1:k80 first neg 295 negs [295, 297, 407, 409] zeros below 79
+      disp:0.1:k160 first neg 570 negs [570, 572, 707, 709] zeros below 159
+c4 dh_1000.json N 1000 M 22919 its 30 final max res 0.006457953102199099 dV l2 936.55 max 345.36
+     residual_list corr 0.793 max non-pp [4.301016730396654, 26] mean non-pp 1.99 lines>5bg [11, 19, 29] c None
+     dV_spectrum corr -0.046 max non-pp [1.624202806722241, 12] mean non-pp 0.91 lines>5bg [] c 0.02285176373603965
+c4 lchi4_1000.json N 1000 M 21563 its 17 final max res 1.821831574488897e-11 dV l2 108.65 max 54.85
+     residual_list corr 0.972 max non-pp [6.57452813307117, 15] mean non-pp 2.2 lines>5bg [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 29, 31, 33] c None
+     dV_spectrum corr 0.821 max non-pp [2.747530596713515, 15] mean non-pp 1.39 lines>5bg [3, 5, 7, 11] c 0.012473647130444635
+c4 zeta_1000.json N 1000 M 29283 its 16 final max res 3.5720404412131757e-10 dV l2 127.28 max 57.0
+     residual_list corr 0.867 max non-pp [5.010141202688768, 15] mean non-pp 3.61 lines>5bg [2, 3, 4, 5, 7, 11, 13, 15, 17, 19, 23] c None
+     dV_spectrum corr 0.684 max non-pp [2.8734800877160076, 6] mean non-pp 1.44 lines>5bg [2, 3, 4, 5] c 0.016657929338350554
+c4 zeta_300.json N 300 M 7054 its 8 final max res 4.61142235508305e-12 dV l2 55.0 max 24.02
+     residual_list corr 0.875 max non-pp [3.145877475796513, 14] mean non-pp 2.83 lines>5bg [2, 3, 5, 7] c None
+     dV_spectrum corr 0.795 max non-pp [2.3585797701146904, 6] mean non-pp 1.38 lines>5bg [2, 3] c 0.02312275126690333

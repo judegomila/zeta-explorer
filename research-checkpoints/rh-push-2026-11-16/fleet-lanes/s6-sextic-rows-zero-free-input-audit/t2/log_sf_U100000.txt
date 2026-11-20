@@ -1,0 +1,59 @@
+U=100000 rows R=28224 (squarefree primary u coprime to 6, N(u)<=U) t=0.0s
+config r=0.0 z=0.5 k=1: marks n=40 (split primes, 79.1 < N <= 316.2); planned A 40x28224 c64 x2 + G: 0.02 GB
+    objects I(a_F)/(mean|a|^2 tr): zeta=0.999 chi4=1.002 chi5=1.000 DH=0.998 hash=0.997 liou=0.999 unimod=0.998 Ea25=0.999 randphase=1.004
+  w=one  mean w=1.0000 tr=0.9943 | I(1)/tr=0.999 | best Gauss conj_g2 I/tr=1.008 | sup/tr >= 1.049 (start rand3) <= 1.060 | n/R=0.0014 (1+sqrt(n/R))^2=1.077 | top row N=94663 share 0.000 | max overlap conj_g2 0.317 t=0s
+config r=0.2 z=0.4 k=1: marks n=16 (split primes, 25.0 < N <= 100.0); planned A 16x28224 c64 x2 + G: 0.01 GB
+  inverse r=0.2: X=10.0 primes<=X: 2; table 2x28224 int8 = 0.00 GB
+  skipped (fewer than 3 inverse columns)
+config r=0.3 z=0.3 k=1: marks n=6 (split primes, 7.9 < N <= 31.6); planned A 6x28224 c64 x2 + G: 0.00 GB
+  inverse r=0.3: X=31.6 primes<=X: 9; table 9x28224 int8 = 0.00 GB
+  inverse columns: 9
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.402 chi4=0.875 chi5=0.875 DH=1.260 hash=0.875 liou=1.402 unimod=1.375 Ea25=1.375 randphase=0.941
+  w=mu   mean w=0.9472 tr=0.9068 | I(1)/tr=1.402 | best Gauss g3 I/tr=1.138 | sup/tr >= 1.417 (start conj_g2) <= 1.609 | n/R=0.0002 (1+sqrt(n/R))^2=1.029 | top row N=96901 share 0.001 | max overlap conj_g5 0.465 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.274 chi4=0.887 chi5=0.887 DH=1.155 hash=0.887 liou=1.274 unimod=1.215 Ea25=1.253 randphase=0.901
+  w=rand mean w=0.9472 tr=0.9067 | I(1)/tr=1.274 | best Gauss g3 I/tr=1.172 | sup/tr >= 1.420 (start rand4) <= 1.612 | n/R=0.0002 (1+sqrt(n/R))^2=1.029 | top row N=14821 share 0.000 | max overlap conj_g1 0.580 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.003 chi4=1.002 chi5=1.002 DH=1.010 hash=1.002 liou=1.003 unimod=1.003 Ea25=1.005 randphase=1.001
+  w=one  mean w=1.0000 tr=0.9491 | I(1)/tr=1.003 | best Gauss conj_g2 I/tr=1.004 | sup/tr >= 1.006 (start conj_g2) <= 1.024 | n/R=0.0002 (1+sqrt(n/R))^2=1.029 | top row N=74929 share 0.000 | max overlap conj_g2 0.876 t=0s
+config r=0.3 z=0.5 k=1: marks n=40 (split primes, 79.1 < N <= 316.2); planned A 40x28224 c64 x2 + G: 0.02 GB
+  inverse columns: 9
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.009 chi4=1.009 chi5=0.989 DH=1.000 hash=1.007 liou=1.009 unimod=1.007 Ea25=1.011 randphase=0.994
+  w=mu   mean w=0.9472 tr=0.9418 | I(1)/tr=1.009 | best Gauss g3 I/tr=1.011 | sup/tr >= 1.071 (start rand1) <= 1.083 | n/R=0.0014 (1+sqrt(n/R))^2=1.077 | top row N=77413 share 0.001 | max overlap conj_g3 0.358 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.004 chi4=1.013 chi5=0.989 DH=1.000 hash=0.995 liou=1.004 unimod=1.001 Ea25=1.005 randphase=1.007
+  w=rand mean w=0.9472 tr=0.9420 | I(1)/tr=1.004 | best Gauss conj_g2 I/tr=1.013 | sup/tr >= 1.069 (start rand0) <= 1.082 | n/R=0.0014 (1+sqrt(n/R))^2=1.077 | top row N=4447 share 0.001 | max overlap conj_g3 0.256 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=0.999 chi4=1.002 chi5=1.000 DH=0.998 hash=0.997 liou=0.999 unimod=0.998 Ea25=0.999 randphase=1.004
+  w=one  mean w=1.0000 tr=0.9943 | I(1)/tr=0.999 | best Gauss conj_g2 I/tr=1.008 | sup/tr >= 1.049 (start conj_g1) <= 1.060 | n/R=0.0014 (1+sqrt(n/R))^2=1.077 | top row N=94663 share 0.000 | max overlap conj_g2 0.314 t=0s
+config r=0.4 z=0.45 k=1: marks n=24 (split primes, 44.5 < N <= 177.8); planned A 24x28224 c64 x2 + G: 0.01 GB
+  inverse r=0.4: X=100.0 primes<=X: 23; table 23x28224 int8 = 0.00 GB
+  inverse columns: 22
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.200 chi4=0.965 chi5=0.982 DH=0.988 hash=1.026 liou=1.200 unimod=1.197 Ea25=1.169 randphase=0.993
+  w=mu   mean w=0.9644 tr=0.9552 | I(1)/tr=1.200 | best Gauss conj_g2 I/tr=1.051 | sup/tr >= 1.237 (start conj_g5) <= 1.591 | n/R=0.0009 (1+sqrt(n/R))^2=1.059 | top row N=33061 share 0.002 | max overlap g5 0.295 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=0.977 chi4=0.993 chi5=0.967 DH=1.001 hash=1.013 liou=0.977 unimod=0.980 Ea25=0.980 randphase=0.986
+  w=rand mean w=0.9617 tr=0.9525 | I(1)/tr=0.977 | best Gauss g1 I/tr=1.017 | sup/tr >= 1.227 (start g2) <= 1.571 | n/R=0.0009 (1+sqrt(n/R))^2=1.059 | top row N=70051 share 0.001 | max overlap g1 0.339 t=0s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.001 chi4=0.996 chi5=1.006 DH=1.008 hash=0.997 liou=1.001 unimod=1.001 Ea25=1.001 randphase=1.003
+  w=one  mean w=1.0000 tr=0.9900 | I(1)/tr=1.001 | best Gauss g1 I/tr=1.004 | sup/tr >= 1.021 (start conj_g4) <= 1.028 | n/R=0.0009 (1+sqrt(n/R))^2=1.059 | top row N=99001 share 0.000 | max overlap conj_g5 0.312 t=0s
+config r=0.2 z=0.6 k=1: marks n=110 (split primes, 250.0 < N <= 1000.0); planned A 110x28224 c64 x2 + G: 0.05 GB
+  skipped (fewer than 3 inverse columns)
+config r=0.5 z=0.6 k=1: marks n=110 (split primes, 250.0 < N <= 1000.0); planned A 110x28224 c64 x2 + G: 0.05 GB
+  inverse r=0.5: X=316.2 primes<=X: 63; table 63x28224 int8 = 0.00 GB
+  inverse columns: 75
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.008 chi4=0.995 chi5=0.994 DH=1.008 hash=0.999 liou=1.008 unimod=1.011 Ea25=1.006 randphase=0.996
+  w=mu   mean w=0.9350 tr=0.9333 | I(1)/tr=1.008 | best Gauss conj_g5 I/tr=1.083 | sup/tr >= 1.199 (start conj_g5) <= 1.221 | n/R=0.0039 (1+sqrt(n/R))^2=1.129 | top row N=91327 share 0.001 | max overlap conj_g5 0.429 t=1s
+    objects I(a_F)/(mean|a|^2 tr): zeta=0.993 chi4=0.996 chi5=1.001 DH=1.002 hash=0.994 liou=0.993 unimod=0.996 Ea25=0.992 randphase=1.001
+  w=rand mean w=0.9407 tr=0.9389 | I(1)/tr=0.993 | best Gauss conj_g5 I/tr=1.088 | sup/tr >= 1.191 (start rand2) <= 1.214 | n/R=0.0039 (1+sqrt(n/R))^2=1.129 | top row N=81217 share 0.001 | max overlap conj_g5 0.524 t=1s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.005 chi4=0.998 chi5=1.004 DH=1.005 hash=1.002 liou=1.005 unimod=1.006 Ea25=1.004 randphase=1.000
+  w=one  mean w=1.0000 tr=0.9981 | I(1)/tr=1.005 | best Gauss g1 I/tr=1.088 | sup/tr >= 1.163 (start rand0) <= 1.176 | n/R=0.0039 (1+sqrt(n/R))^2=1.129 | top row N=44083 share 0.000 | max overlap g1 0.551 t=1s
+config r=0.3 z=0.75 k=1: marks n=512 (split primes, 1405.9 < N <= 5623.4); planned A 512x28224 c64 x2 + G: 0.25 GB
+  inverse columns: 9
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.070 chi4=0.979 chi5=0.984 DH=0.990 hash=0.990 liou=1.070 unimod=1.053 Ea25=1.069 randphase=0.998
+  w=mu   mean w=0.9472 tr=0.9468 | I(1)/tr=1.070 | best Gauss g1 I/tr=1.139 | sup/tr >= 1.378 (start rand2) <= 1.451 | n/R=0.0181 (1+sqrt(n/R))^2=1.288 | top row N=30907 share 0.001 | max overlap g3 0.039 t=2s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.023 chi4=0.980 chi5=0.991 DH=1.004 hash=0.986 liou=1.023 unimod=1.016 Ea25=1.024 randphase=1.009
+  w=rand mean w=0.9472 tr=0.9469 | I(1)/tr=1.023 | best Gauss conj_g5 I/tr=1.147 | sup/tr >= 1.377 (start g2) <= 1.447 | n/R=0.0181 (1+sqrt(n/R))^2=1.288 | top row N=59053 share 0.001 | max overlap conj_g4 0.073 t=3s
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.004 chi4=0.990 chi5=0.983 DH=1.010 hash=0.985 liou=1.004 unimod=1.001 Ea25=1.004 randphase=1.006
+  w=one  mean w=1.0000 tr=0.9996 | I(1)/tr=1.004 | best Gauss conj_g5 I/tr=1.144 | sup/tr >= 1.311 (start rand2) <= 1.373 | n/R=0.0181 (1+sqrt(n/R))^2=1.288 | top row N=64981 share 0.000 | max overlap g5 0.052 t=3s
+config r=0.0 z=0.75 k=1: marks n=512 (split primes, 1405.9 < N <= 5623.4); planned A 512x28224 c64 x2 + G: 0.25 GB
+    objects I(a_F)/(mean|a|^2 tr): zeta=1.004 chi4=0.990 chi5=0.983 DH=1.010 hash=0.985 liou=1.004 unimod=1.001 Ea25=1.004 randphase=1.006
+  w=one  mean w=1.0000 tr=0.9996 | I(1)/tr=1.004 | best Gauss conj_g5 I/tr=1.144 | sup/tr >= 1.311 (start rand5) <= 1.373 | n/R=0.0181 (1+sqrt(n/R))^2=1.288 | top row N=64981 share 0.000 | max overlap g5 0.053 t=5s
+config r=0.0 z=0.75 k=2: marks n=512 (split primes, 1405.9 < N <= 5623.4); planned A 512x28224 c64 x2 + G: 0.25 GB
+    objects I(a_F)/(mean|a|^2 tr): zeta=0.987 chi4=1.005 chi5=1.004 DH=0.995 hash=0.998 liou=0.987 unimod=0.990 Ea25=0.987 randphase=1.007
+  w=one  mean w=1.0000 tr=0.9996 | I(1)/tr=0.987 | best Gauss conj_g4 I/tr=1.753 | sup/tr >= 1.763 (start g2) <= 1.776 | n/R=0.0181 (1+sqrt(n/R))^2=1.288 | top row N=1 share 0.000 | max overlap g2 0.993 t=6s
+total 5.8s

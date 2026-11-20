@@ -1,0 +1,13 @@
+tmp/research-2026-11-16/push/c21-record-engine-states-statement-o-v5-br-nodes/edit_engine.py:29: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  report = dict(time=__import__('datetime').datetime.utcnow().strftime('%Y-%m-%dT%H:%MZ'), u6c_second_file=U6C_2, u6c_exists=have_u6c,
+{
+ "time": "2026-11-20T10:22Z",
+ "u6c_second_file": "push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-u6c-double-cover-k3-run.md",
+ "u6c_exists": true,
+ "referee_dir": "push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1",
+ "referee_dir_exists": false,
+ "referee_dir_files": null,
+ "u4_second_file": null,
+ "u6ab_second_file": null
+}
+written tmp/research-2026-11-16/engine/nodes/nodes-23.json and tmp/research-2026-11-16/engine/curated/mk_devices.py

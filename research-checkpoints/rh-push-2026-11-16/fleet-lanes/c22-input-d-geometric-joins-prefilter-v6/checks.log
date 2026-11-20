@@ -1,0 +1,12 @@
+planned allocation: 6 lists of 200001 python ints, < 20 MB
+(1) sum L(x/n) = floor sqrt x: True  points: 3060
+(2) Liouville x THIN relation with weights eps_S: True  |S| = 2995
+(3) partial sums of lam*V6 = sum_k w(6^k) L(x/6^k): True
+(4) lam*V6 all-n relation: True
+(5) f*f = d f first failure: lam None  eps None  g None  V6 (6, 0, -4)  lam*V6 (6, 0, -4)
+(6) rank of (f(mn)), m,n<=12: lam 1  g 1  V6 5  lam*V6 5
+x=1000  L=-14  LV=-8  G(lam x THIN)=-22  log|G|/log x=0.454  sqrt x=31.6
+x=10000  L=-94  LV=-48  G(lam x THIN)=-288  log|G|/log x=0.615  sqrt x=100.0
+x=100000  L=-288  LV=-116  G(lam x THIN)=-2428  log|G|/log x=0.677  sqrt x=316.2
+x=200000  L=-294  LV=-134  G(lam x THIN)=-4512  log|G|/log x=0.689  sqrt x=447.2
+max |LV(x)|/sqrt(x), x in [100, N]: 0.9331 ; max |L(x)|/sqrt(x): 1.3302

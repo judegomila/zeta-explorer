@@ -1,0 +1,113 @@
+Basis: G1 stack 2 x 700 x 170 x 170 float64 = 0.32 GB
+ZETA on-line 1517 off-line pairs 0 lowest off-line None
+  a=0.60 X=     3.3 zero side ( 1.2471e-14,  9.3759e-15)  coefficient side ( 1.6126e-09,  5.9831e-07)  max diff on the 40x40 low block 1.7e-03
+  a=0.70 X=     4.1 zero side ( 2.9666e-13,  6.8121e-12)  coefficient side ( 6.1391e-13,  2.5638e-10)  max diff on the 40x40 low block 6.2e-04
+  a=0.80 X=     5.0 zero side ( 9.8131e-17,  1.1275e-14)  coefficient side ( 1.2503e-13,  1.4369e-13)  max diff on the 40x40 low block 2.5e-04
+  a=0.90 X=     6.0 zero side (-4.9651e-19, -9.8036e-19)  coefficient side ( 5.0803e-14,  4.9101e-14)  max diff on the 40x40 low block 1.1e-04
+  a=1.00 X=     7.4 zero side (-3.1771e-15, -2.1267e-16)  coefficient side ( 1.1199e-13,  7.5133e-14)  max diff on the 40x40 low block 5.4e-05
+  a=1.10 X=     9.0 zero side (-4.4532e-15, -2.3814e-15)  coefficient side ( 1.2860e-13,  1.2703e-13)  max diff on the 40x40 low block 2.8e-05
+  a=1.20 X=    11.0 zero side (-2.0551e-15, -3.8315e-15)  coefficient side ( 4.0239e-14,  4.2606e-14)  max diff on the 40x40 low block 1.7e-05
+  a=1.30 X=    13.5 zero side (-5.3620e-15, -7.3137e-15)  coefficient side ( 6.3699e-14,  7.7884e-14)  max diff on the 40x40 low block 8.9e-06
+  a=1.40 X=    16.4 zero side (-1.2423e-14, -7.4886e-15)  coefficient side (-5.5114e-14, -4.6899e-14)  max diff on the 40x40 low block 5.3e-06
+  a=1.50 X=    20.1 zero side (-7.0108e-15, -7.8941e-15)  coefficient side ( 6.7708e-14,  3.3774e-14)  max diff on the 40x40 low block 3.4e-06
+  a=1.60 X=    24.5 zero side (-7.6414e-15, -7.3827e-15)  coefficient side ( 2.9956e-14, -1.7227e-14)  max diff on the 40x40 low block 2.1e-06
+  a=1.70 X=    30.0 zero side (-2.1277e-14, -8.5845e-15)  coefficient side (-7.7066e-14, -9.5937e-14)  max diff on the 40x40 low block 1.4e-06
+  a=1.80 X=    36.6 zero side (-1.0875e-14, -1.2095e-14)  coefficient side (-7.7476e-14, -8.8490e-14)  max diff on the 40x40 low block 9.1e-07
+  a=1.90 X=    44.7 zero side (-9.3604e-15, -1.2301e-14)  coefficient side (-5.9390e-14, -1.4156e-13)  max diff on the 40x40 low block 6.5e-07
+  a=2.00 X=    54.6 zero side (-8.3082e-15, -1.0364e-14)  coefficient side (-2.7068e-14, -4.9325e-14)  max diff on the 40x40 low block 4.5e-07
+  a=2.10 X=    66.7 zero side (-7.0210e-15, -1.0960e-14)  coefficient side (-1.0886e-13, -1.2966e-13)  max diff on the 40x40 low block 3.1e-07
+  a=2.20 X=    81.5 zero side (-1.0893e-14, -8.8808e-15)  coefficient side (-1.4042e-13, -1.8744e-13)  max diff on the 40x40 low block 2.4e-07
+  a=2.30 X=    99.5 zero side (-9.1999e-15, -1.1582e-14)  coefficient side (-1.5333e-13, -1.7079e-13)  max diff on the 40x40 low block 1.7e-07
+  a=2.40 X=   121.5 zero side (-1.3541e-14, -8.6961e-15)  coefficient side (-2.6138e-13, -2.2388e-13)  max diff on the 40x40 low block 1.3e-07
+  a=2.50 X=   148.4 zero side (-1.2010e-14, -9.6284e-15)  coefficient side ( 2.5808e-14,  2.1874e-15)  max diff on the 40x40 low block 9.4e-08
+  a=2.60 X=   181.3 zero side (-1.1005e-14, -1.0042e-14)  coefficient side (-3.5975e-13, -6.1309e-13)  max diff on the 40x40 low block 7.0e-08
+  a=2.70 X=   221.4 zero side (-7.9190e-15, -1.1779e-14)  coefficient side (-2.6600e-13, -3.8077e-13)  max diff on the 40x40 low block 5.5e-08
+  a=2.80 X=   270.4 zero side (-9.6499e-15, -8.4711e-15)  coefficient side (-4.4916e-13, -4.8012e-13)  max diff on the 40x40 low block 4.3e-08
+  a=2.90 X=   330.3 zero side (-1.1486e-14, -9.6281e-15)  coefficient side (-4.9369e-14, -1.7425e-13)  max diff on the 40x40 low block 3.2e-08
+  a=3.00 X=   403.4 zero side (-1.0040e-14, -8.5552e-15)  coefficient side (-2.3285e-13, -5.0223e-13)  max diff on the 40x40 low block 2.6e-08
+  a=3.10 X=   492.7 zero side (-9.6560e-15, -1.1051e-14)  coefficient side (-2.5063e-13, -3.2734e-13)  max diff on the 40x40 low block 2.1e-08
+  a=3.20 X=   601.8 zero side (-1.1049e-14, -1.0257e-14)  coefficient side (-2.8169e-13, -4.2685e-13)  max diff on the 40x40 low block 1.7e-08
+DH on-line 1861 off-line pairs 84 lowest off-line [[0.3085171824566374, 85.6993484853776], [0.15083008060973713, 114.16334273075698]]
+  a=0.60 X=     3.3 zero side ( 1.8843e-14,  6.0830e-15)  coefficient side ( 1.3856e-01,  1.2579e+00)  max diff on the 40x40 low block 2.1e-03
+  a=0.70 X=     4.1 zero side ( 1.2610e-11,  1.0413e-11)  coefficient side ( 3.6666e-02,  9.8579e-01)  max diff on the 40x40 low block 7.6e-04
+  a=0.80 X=     5.0 zero side ( 1.8156e-09,  1.4841e-09)  coefficient side ( 6.6046e-03,  4.4883e-01)  max diff on the 40x40 low block 3.2e-04
+  a=0.90 X=     6.0 zero side ( 7.6388e-08,  6.6670e-08)  coefficient side ( 6.6062e-04,  9.7301e-02)  max diff on the 40x40 low block 1.5e-04
+  a=1.00 X=     7.4 zero side ( 1.4816e-06,  1.2769e-06)  coefficient side ( 3.4489e-05,  1.2155e-02)  max diff on the 40x40 low block 6.9e-05
+  a=1.10 X=     9.0 zero side ( 6.3316e-07,  1.3967e-05)  coefficient side ( 6.9597e-07,  4.1718e-04)  max diff on the 40x40 low block 3.6e-05
+  a=1.20 X=    11.0 zero side ( 6.6821e-09,  7.0495e-06)  coefficient side ( 7.3632e-09,  7.7308e-06)  max diff on the 40x40 low block 2.1e-05
+  a=1.30 X=    13.5 zero side ( 2.0823e-11,  3.8221e-08)  coefficient side ( 2.3600e-11,  4.2074e-08)  max diff on the 40x40 low block 1.1e-05
+  a=1.40 X=    16.4 zero side ( 1.2057e-14,  2.5377e-11)  coefficient side ( 3.0127e-14,  2.8362e-11)  max diff on the 40x40 low block 6.8e-06
+  a=1.50 X=    20.1 zero side (-3.8811e-17,  9.6785e-15)  coefficient side ( 4.9850e-14,  6.4923e-14)  max diff on the 40x40 low block 4.2e-06
+  a=1.60 X=    24.5 zero side (-1.4324e-16, -2.7438e-16)  coefficient side ( 5.7433e-14,  6.3228e-14)  max diff on the 40x40 low block 2.7e-06
+  a=1.70 X=    30.0 zero side (-1.2943e-16, -4.8106e-15)  coefficient side ( 6.1790e-14,  1.2608e-13)  max diff on the 40x40 low block 1.8e-06
+  a=1.80 X=    36.6 zero side (-2.7054e-07, -1.1454e-08)  coefficient side (-2.6773e-07, -8.4226e-09)  max diff on the 40x40 low block 1.2e-06
+  a=1.90 X=    44.7 zero side (-2.7256e-01, -2.5149e-01)  coefficient side (-2.6893e-01, -2.5131e-01)  max diff on the 40x40 low block 8.3e-07
+  a=2.00 X=    54.6 zero side (-7.1218e-01, -7.6610e-01)  coefficient side (-7.0904e-01, -7.6525e-01)  max diff on the 40x40 low block 5.7e-07
+  a=2.10 X=    66.7 zero side (-1.0567e+00, -1.0730e+00)  coefficient side (-1.0565e+00, -1.0718e+00)  max diff on the 40x40 low block 4.0e-07
+  a=2.20 X=    81.5 zero side (-1.2554e+00, -1.2613e+00)  coefficient side (-1.2554e+00, -1.2604e+00)  max diff on the 40x40 low block 3.0e-07
+  a=2.30 X=    99.5 zero side (-1.4281e+00, -1.4049e+00)  coefficient side (-1.4275e+00, -1.4045e+00)  max diff on the 40x40 low block 2.2e-07
+  a=2.40 X=   121.5 zero side (-1.6081e+00, -1.6205e+00)  coefficient side (-1.6071e+00, -1.6204e+00)  max diff on the 40x40 low block 1.6e-07
+  a=2.50 X=   148.4 zero side (-1.8568e+00, -1.8811e+00)  coefficient side (-1.8565e+00, -1.8802e+00)  max diff on the 40x40 low block 1.2e-07
+  a=2.60 X=   181.3 zero side (-2.1772e+00, -2.1523e+00)  coefficient side (-2.1770e+00, -2.1513e+00)  max diff on the 40x40 low block 9.0e-08
+  a=2.70 X=   221.4 zero side (-2.5471e+00, -2.5240e+00)  coefficient side (-2.5457e+00, -2.5240e+00)  max diff on the 40x40 low block 7.0e-08
+  a=2.80 X=   270.4 zero side (-2.8956e+00, -2.9371e+00)  coefficient side (-2.8947e+00, -2.9367e+00)  max diff on the 40x40 low block 5.4e-08
+  a=2.90 X=   330.3 zero side (-3.2782e+00, -3.2841e+00)  coefficient side (-3.2781e+00, -3.2830e+00)  max diff on the 40x40 low block 4.3e-08
+  a=3.00 X=   403.4 zero side (-3.6920e+00, -3.6456e+00)  coefficient side (-3.6914e+00, -3.6451e+00)  max diff on the 40x40 low block 3.5e-08
+  a=3.10 X=   492.7 zero side (-4.0693e+00, -4.0783e+00)  coefficient side (-4.0684e+00, -4.0783e+00)  max diff on the 40x40 low block 2.7e-08
+  a=3.20 X=   601.8 zero side (-4.5071e+00, -4.5582e+00)  coefficient side (-4.5068e+00, -4.5576e+00)  max diff on the 40x40 low block 2.1e-08
+HEAT--0.5 on-line 929 off-line pairs 294 lowest off-line [[0.2429565064869738, 111.69422767246392], [0.19810791112610754, 150.69224610050648]]
+  a=0.60 X=     3.3 zero side ( 1.1237e-14,  7.9744e-15)
+  a=0.70 X=     4.1 zero side ( 1.8464e-13,  6.5464e-12)
+  a=0.80 X=     5.0 zero side ( 8.2657e-17,  6.1073e-15)
+  a=0.90 X=     6.0 zero side (-1.2406e-17,  2.3648e-16)
+  a=1.00 X=     7.4 zero side (-1.2273e-15, -7.7068e-16)
+  a=1.10 X=     9.0 zero side (-1.9982e-15, -2.9036e-15)
+  a=1.20 X=    11.0 zero side (-2.3536e-14, -4.3277e-13)
+  a=1.30 X=    13.5 zero side (-1.5657e-02, -6.4883e-03)
+  a=1.40 X=    16.4 zero side (-1.1424e-01, -1.1785e-01)
+  a=1.50 X=    20.1 zero side (-1.9396e-01, -1.9241e-01)
+  a=1.60 X=    24.5 zero side (-2.7946e-01, -2.7829e-01)
+  a=1.70 X=    30.0 zero side (-4.5767e-01, -4.5683e-01)
+  a=1.80 X=    36.6 zero side (-5.4628e-01, -5.5465e-01)
+  a=1.90 X=    44.7 zero side (-6.2035e-01, -6.3896e-01)
+  a=2.00 X=    54.6 zero side (-7.1070e-01, -7.0503e-01)
+  a=2.10 X=    66.7 zero side (-8.5769e-01, -8.5765e-01)
+  a=2.20 X=    81.5 zero side (-8.2609e-01, -8.2708e-01)
+  a=2.30 X=    99.5 zero side (-1.0476e+00, -1.0569e+00)
+  a=2.40 X=   121.5 zero side (-1.0752e+00, -1.0897e+00)
+  a=2.50 X=   148.4 zero side (-1.2303e+00, -1.2166e+00)
+  a=2.60 X=   181.3 zero side (-1.3900e+00, -1.4080e+00)
+  a=2.70 X=   221.4 zero side (-1.5988e+00, -1.5902e+00)
+  a=2.80 X=   270.4 zero side (-1.7913e+00, -1.7926e+00)
+  a=2.90 X=   330.3 zero side (-2.0202e+00, -2.0231e+00)
+  a=3.00 X=   403.4 zero side (-2.2577e+00, -2.2414e+00)
+  a=3.10 X=   492.7 zero side (-2.4827e+00, -2.4991e+00)
+  a=3.20 X=   601.8 zero side (-2.7189e+00, -2.7087e+00)
+HEAT--0.1 on-line 1435 off-line pairs 41 lowest off-line [[0.021557868614291504, 415.25627896409037], [0.06091524183124322, 540.4697362296962]]
+  a=0.60 X=     3.3 zero side ( 1.2206e-14,  8.5241e-15)
+  a=0.70 X=     4.1 zero side ( 2.7114e-13,  6.7778e-12)
+  a=0.80 X=     5.0 zero side ( 9.7131e-17,  1.0284e-14)
+  a=0.90 X=     6.0 zero side (-8.8037e-16, -3.7938e-16)
+  a=1.00 X=     7.4 zero side (-1.0244e-15, -7.7606e-16)
+  a=1.10 X=     9.0 zero side (-1.4122e-15, -1.0235e-15)
+  a=1.20 X=    11.0 zero side (-3.1008e-15, -4.3739e-15)
+  a=1.30 X=    13.5 zero side (-5.3710e-15, -6.7522e-15)
+  a=1.40 X=    16.4 zero side (-6.2748e-15, -9.4736e-15)
+  a=1.50 X=    20.1 zero side (-5.8223e-15, -7.0291e-15)
+  a=1.60 X=    24.5 zero side (-6.4972e-15, -6.8276e-15)
+  a=1.70 X=    30.0 zero side (-1.5591e-14, -8.4795e-15)
+  a=1.80 X=    36.6 zero side (-8.0885e-15, -8.9847e-15)
+  a=1.90 X=    44.7 zero side (-8.0333e-15, -7.6067e-15)
+  a=2.00 X=    54.6 zero side (-9.6785e-15, -8.1273e-15)
+  a=2.10 X=    66.7 zero side (-8.5774e-15, -9.8639e-15)
+  a=2.20 X=    81.5 zero side (-7.8300e-15, -7.8716e-15)
+  a=2.30 X=    99.5 zero side (-9.0249e-15, -9.2995e-15)
+  a=2.40 X=   121.5 zero side (-1.1663e-14, -8.2115e-15)
+  a=2.50 X=   148.4 zero side (-9.6965e-15, -1.0933e-14)
+  a=2.60 X=   181.3 zero side (-9.4519e-15, -1.2499e-14)
+  a=2.70 X=   221.4 zero side (-9.6729e-15, -7.3849e-15)
+  a=2.80 X=   270.4 zero side (-1.0162e-14, -9.7306e-15)
+  a=2.90 X=   330.3 zero side (-9.1157e-15, -1.1012e-14)
+  a=3.00 X=   403.4 zero side (-1.0646e-14, -8.5120e-15)
+  a=3.10 X=   492.7 zero side (-1.0532e-14, -1.0553e-14)
+  a=3.20 X=   601.8 zero side (-1.1725e-14, -1.0572e-14)

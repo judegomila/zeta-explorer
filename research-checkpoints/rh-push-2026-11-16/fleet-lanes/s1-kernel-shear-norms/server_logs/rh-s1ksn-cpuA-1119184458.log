@@ -1,0 +1,26 @@
+a=0.05 LMAX=3.6 h=0.004 N=1341 jobs=449 windows=67
+chi_real_q8 l*= None freq= None maxexc=3.866e-10 zeros [] 17s 
+chi_real_q3 l*= None freq= None maxexc=6.385e-10 zeros [] 25s 
+zeta l*= None freq= None maxexc=1.000e-09 zeros [] 26s 
+chi_real_q5 l*= None freq= None maxexc=4.083e-10 zeros [] 26s 
+chi_real_q7 l*= None freq= None maxexc=5.482e-10 zeros [] 26s 
+chi_real_q4 l*= None freq= None maxexc=5.192e-10 zeros [] 28s 
+chi_real_q11 l*= None freq= None maxexc=4.140e-10 zeros [] 19s 
+chi_real_q13 l*= None freq= None maxexc=2.776e-10 zeros [] 16s 
+q5.0.T- l*= 0.5 freq= 5.288876521194938 maxexc=1.098e+04 zeros [[2.308622947, 8.9183552921]] 15s 
+q5.0.T+ l*= 1.85 freq= 84.5253430226914 maxexc=5.887e-01 zeros [[0.8085171825, 85.6993484854]] 20s 
+DH l*= 1.85 freq= 84.5253430226914 maxexc=5.887e-01 zeros [] 26s 
+q7.1.T+ l*= 1.95 freq= 130.00224252122305 maxexc=5.924e-01 zeros [[0.6356156219, 68.2088037792]] 12s 
+q7.0.T+ l*= 1.3 freq= 30.14261244028944 maxexc=2.413e+00 zeros [[1.0356987161, 31.5803605411]] 25s 
+q7.1.T- l*= 0.5 freq= 5.288876521194938 maxexc=1.442e+04 zeros [[2.2966369153, 8.7297527169]] 14s 
+q9.0.T- l*= 0.8 freq= 11.420778662379002 maxexc=9.132e+01 zeros [[1.3159555916, 9.2447269524]] 15s 
+q9.0.T+ l*= 2.2 freq= 147.5617299146906 maxexc=3.067e-01 zeros [[0.6215870418, 77.5448748268]] 24s 
+q9.1.T+ l*= 2.05 freq= 84.88313483964019 maxexc=2.836e-01 zeros [[0.7372351107, 85.9292134901]] 20s 
+q11.0.T+ l*= 2.5 freq= 252.96845239728916 maxexc=1.729e-01 zeros [] 17s 
+q7.0.T- l*= 1.0 freq= 15.794112975085794 maxexc=1.860e+01 zeros [[1.347457891, 17.5285864825]] 41s 
+q11.0.T- l*= 0.6 freq= 11.316976417830666 maxexc=1.960e+05 zeros [[2.7136255561, 8.7790181828]] 19s 
+q9.1.T- l*= 0.85 freq= 3.7519020544464086 maxexc=1.082e+02 zeros [[1.4660511689, 9.4871729548]] 32s 
+q11.1.T- l*= 0.75 freq= 11.659711451862357 maxexc=2.073e+03 zeros [[2.0211237962, 9.1184074225], [1.4589883217, 18.393835072]] 17s 
+q11.1.T+ l*= 2.4 freq= 456.15446659230304 maxexc=5.905e-01 zeros [] 20s 
+q11.3.T- l*= 1.0 freq= 3.2306140176311855 maxexc=3.868e+01 zeros [[0.9577720325, 10.8658684796], [1.4810873956, 17.476653313]] 17s 
+q11.2.T+ l*= 0.75 freq= 2.331942290372471 maxexc=2.842e+02 zeros [[0.8517993186, 4.6207786013], [1.7661211574, 13.8129752236]] 33s 

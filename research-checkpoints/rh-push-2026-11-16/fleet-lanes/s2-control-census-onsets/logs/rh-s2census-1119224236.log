@@ -1,0 +1,11 @@
+forms: 7597; h=1: 13; principal: 1000; basis N=170
+onset 0/6333  2s  last [17, 15, 18] a_neg=0.3453125 secs=1.3
+onset 200/6333  80s  last [8, 7, 59] a_neg=2.08125 secs=1.2
+onset 400/6333  160s  last [4, 1, 46] a_neg=2.3234375 secs=3.5
+onset 600/6333  231s  last [15, 3, 29] a_neg=1.3234375 secs=1.1
+onset 800/6333  301s  last [2, 1, 151] a_neg=2.096875 secs=1.5
+onset 1000/6333  370s  last [19, 2, 20] a_neg=0.55625 secs=1.5
+onset 1200/6333  438s  last [5, 1, 55] a_neg=2.190625 secs=2.0
+onset 1400/6333  505s  last [5, 2, 16] a_neg=1.9874999999999998 secs=2.2
+onset 1600/6333  578s  last [13, 9, 25] a_neg=1.4875 secs=0.9
+onset 1800/6333  633s  last [19, 11, 26] a_neg=1.1265625 secs=1.0

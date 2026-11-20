@@ -1,0 +1,70 @@
+nodes 2822619 fields ['N', 'X', 'depth', 'g1', 'g2', 'g3', 'last', 'm4', 'm9', 'mu', 'na', 'nb', 'pa', 'parent', 'pb', 'pg1', 'pg2', 'pg3', 'pinert', 'pp', 'pq', 'pw']
+fraction of nodes moved 0.9843 ; mean |g1 - g1_perm| 1.2534 ; corr(g1, g1_perm) 0.01569
+written /home/USER/rh-push/s4-floor-exponent-moebius-cubic-rows/perm/sx/data/sf_1e7.npz
+identity gamma1 gamma2 = mu alpha G on 2822619 nodes: max |diff| = 2.00e+00
+identity al g2 = conj pred: max diff 2.0000000006507563
+setup: nodes 2822619 (even 1411211), half rows 6798, bins [1707, 696, 993, 1416, 1986], n3 terms 2342, 6s
+Q grid: 937.5, 1325.8, 1875.0, 2651.7, 3750.0
+R grid: 14480, 23522, 38212, 62076, 100843
+exponent cache built: 527 primes, 112s
+    bin 0 worker 0: 200/854 rows, 57s
+    bin 0 worker 0: 400/854 rows, 118s
+    bin 0 worker 0: 600/854 rows, 173s
+    bin 0 worker 0: 800/854 rows, 232s
+bin 0 (N(m) <= 937.5): 1707 half rows, 246s (total 365s)
+    bin 1 worker 0: 200/348 rows, 47s
+bin 1 (N(m) <= 1325.8): 696 half rows, 100s (total 465s)
+    bin 2 worker 0: 200/497 rows, 78s
+    bin 2 worker 0: 400/497 rows, 135s
+bin 2 (N(m) <= 1875.0): 993 half rows, 157s (total 622s)
+    bin 3 worker 0: 200/708 rows, 66s
+    bin 3 worker 0: 400/708 rows, 111s
+    bin 3 worker 0: 600/708 rows, 156s
+bin 3 (N(m) <= 2651.7): 1416 half rows, 192s (total 814s)
+    bin 4 worker 0: 200/993 rows, 75s
+    bin 4 worker 0: 400/993 rows, 154s
+    bin 4 worker 0: 600/993 rows, 235s
+    bin 4 worker 0: 800/993 rows, 330s
+bin 4 (N(m) <= 3750.0): 1986 half rows, 375s (total 1189s)
+ALLDONE
+k=4 Q=3750: 7190 conductors; output 142 MB
+  0/7190 0s
+  500/7190 209s
+  1000/7190 386s
+  1500/7190 601s
+  2000/7190 783s
+  2500/7190 968s
+  3000/7190 1138s
+  3500/7190 1320s
+  4000/7190 1489s
+  4500/7190 1670s
+  5000/7190 1820s
+  5500/7190 2015s
+  6000/7190 2199s
+  6500/7190 2376s
+  7000/7190 2554s
+done 2612.3352386951447
+k=4 Q=3750: 7190 conductors; conjugate found for 7190, self-conjugate 32; 108 groups (c mod 4, c mod 9), median size 67
+explained fraction R2 of a_sigma (6 columns) by the 12 classes tau of one system; null = conductors permuted inside groups (expected 12/n_g)
+  system (1, 0, 0): full 0.1869 | null 0.1833 | moduli <= 2e6 only 0.1844 | moduli > 2e6 only 0.1839 | both halves as 24 predictors 0.3688 (null 24/n_g) | conjugate conductor 0.1831 | corr(lo, hi) per tau: mean 0.012
+  system (3, 4, 5): full 0.1849 | null 0.1833 | moduli <= 2e6 only 0.1839 | moduli > 2e6 only 0.1844 | both halves as 24 predictors 0.3687 (null 24/n_g) | conjugate conductor 0.1844 | corr(lo, hi) per tau: mean 0.010
+  system (0, 0, 0): full 0.1823 | null 0.1846 | moduli <= 2e6 only 0.1857 | moduli > 2e6 only 0.1820 | both halves as 24 predictors 0.3663 (null 24/n_g) | conjugate conductor 0.1810 | corr(lo, hi) per tau: mean 0.012
+  system (5, 1, 0): full 0.1883 | null 0.1839 | moduli <= 2e6 only 0.1871 | moduli > 2e6 only 0.1888 | both halves as 24 predictors 0.3732 (null 24/n_g) | conjugate conductor 0.1859 | corr(lo, hi) per tau: mean 0.009
+Moebius slice of the dual form at s = 1 (2592 columns = 216 systems x 12 classes); t ~ Exp(1) for a random row: mean 1, max of 2592 about 7.9 +- 1.3
+   mu alpha^2 G: mean t 0.942  max 6.79  frac > 3: 0.0417 (Exp: 0.0498)
+   mu alpha^3 G: mean t 1.017  max 6.46  frac > 3: 0.0602 (Exp: 0.0498)
+   mu alpha^1 G: mean t 1.199  max 7.08  frac > 3: 0.0694 (Exp: 0.0498)
+   mu alpha^4 G: mean t 0.987  max 4.63  frac > 3: 0.0370 (Exp: 0.0498)
+   mu alpha^0 G: mean t 0.937  max 4.94  frac > 3: 0.0509 (Exp: 0.0498)
+   mu alpha^5 G: mean t 1.177  max 9.38  frac > 3: 0.0741 (Exp: 0.0498)
+   mu alpha^-1 G: mean t 0.979  max 6.19  frac > 3: 0.0556 (Exp: 0.0498)
+   random completely multiplicative draw 0: mean t 0.892  max 3.46  frac > 3: 0.0231
+   random completely multiplicative draw 1: mean t 1.095  max 6.48  frac > 3: 0.0787
+   random completely multiplicative draw 2: mean t 1.105  max 6.69  frac > 3: 0.0926
+   random completely multiplicative draw 3: mean t 0.988  max 4.88  frac > 3: 0.0463
+   weight 1: mean t 1.090  max 6.38 at system (0, 1, 0) tau 1  frac > 3: 0.0741
+   weight mu: mean t 1.021  max 6.22 at system (2, 1, 1) tau 10  frac > 3: 0.0556
+   weight alpha^2 G: mean t 0.985  max 5.20 at system (1, 0, 1) tau 10  frac > 3: 0.0556
+   weight conj(gamma_1): mean t 0.933  max 4.69 at system (1, 1, 2) tau 10  frac > 3: 0.0463
+   weight conj(gamma_1 gamma_2): mean t 0.912  max 4.53 at system (1, 0, 1) tau 4  frac > 3: 0.0139
+PERMRUN DONE

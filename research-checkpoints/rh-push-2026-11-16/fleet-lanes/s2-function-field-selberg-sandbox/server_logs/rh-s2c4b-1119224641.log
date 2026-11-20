@@ -1,0 +1,25 @@
+22:46:42 chi: M=946483 ordinates in [6.184, 499997.177], cond 5
+22:46:42   nufft: H=5e+05 band grid 2^23, 11 interleaved FFTs, stored 30758266 complex (0.49 GB), du=7.490e-07, H*du=0.374 rad
+22:46:54 po_chi: M=946483 ordinates in [6.825, 499997.056], cond 5
+22:46:54   nufft: H=5e+05 band grid 2^23, 11 interleaved FFTs, stored 30758266 complex (0.49 GB), du=7.490e-07, H*du=0.374 rad
+22:47:05 dh: M=847701 ordinates in [5.094, 499996.193], cond 5
+22:47:05   nufft: H=5e+05 band grid 2^23, 11 interleaved FFTs, stored 30758266 complex (0.49 GB), du=7.490e-07, H*du=0.374 rad
+22:47:15 heat0: M=1000000 ordinates in [10000000.240, 10439325.795], cond 1
+22:47:15   nufft: H=4.393e+05 band grid 2^23, 10 interleaved FFTs, stored 27962060 complex (0.45 GB), du=8.239e-07, H*du=0.362 rad
+22:47:26 heatm2: M=1000000 ordinates in [10000000.248, 10457342.789], cond 1
+22:47:26   nufft: H=4.573e+05 band grid 2^23, 10 interleaved FFTs, stored 27962060 complex (0.45 GB), du=8.239e-07, H*du=0.377 rad
+22:48:29   segment 20 primes to 671088637  (54s)
+22:49:30   segment 40 primes to 1342177237  (116s)
+22:50:35   segment 60 primes to 2013265921  (180s)
+22:51:33   segment 80 primes to 2684354557  (238s)
+22:52:42   segment 100 primes to 3355443167  (307s)
+22:53:29   segment 120 primes to 4026531833  (355s)
+22:54:14   segment 140 primes to 4697620457  (399s)
+22:54:56   segment 160 primes to 5368709117  (441s)
+22:55:39   segment 180 primes to 6039797747  (485s)
+22:56:25   segment 200 primes to 6710886373  (531s)
+22:57:09   segment 220 primes to 7381974989  (575s)
+22:58:00   segment 240 primes to 8053063661  (625s)
+22:58:48   segment 260 primes to 8724152249  (673s)
+22:59:31   segment 280 primes to 9395240929  (717s)
+23:00:10 done 455052511 primes, thin 25424616

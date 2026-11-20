@@ -1,0 +1,3 @@
+L4 1/51 2s last {'d': 8, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 8, 'certified_t0': True, 'scale': 12.818076573359873, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 41/51 69s last {'d': 400, 'n': 12, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 400, 'certified_t0': True, 'scale': 30.673688381331395, 'tstar_raw': 0.0, 'sec': 31.2}
+{"obj": "L4", "table": "data/mom_main.pkl", "prec": 10000, "dstar_grid": {"0": 400, "1": 400, "2": 400, "3": 400, "5": 400, "8": 400, "12": 400, "20": 400, "30": 400, "50": 400, "100": 400, "200": 400, "500": 400, "1000": 400, "2000": 400, "5000": 400, "10000": 400}, "n_cells": 51, "n_positive": 0, "uncertified": 0}

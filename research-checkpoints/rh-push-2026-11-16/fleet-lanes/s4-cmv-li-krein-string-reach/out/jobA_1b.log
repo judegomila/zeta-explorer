@@ -1,0 +1,32 @@
+ZETA a 20 N 2400 prec 34000 moments 844.8 s  c0 [53.323961911988009949 +/- 6.03e-20]
+   n 120 log2 E -390.2 k 0.98347379049472
+   n 240 log2 E -1074.2 k 0.9937803285067252
+   n 360 log2 E -1889.8 k 0.9965513828255471
+   n 480 log2 E -2793.3 k 0.9977937181922721
+   n 600 log2 E -3763.4 k 0.9983798850927067
+   n 720 log2 E -4787.1 k 0.9988119523098757
+   n 840 log2 E -5855.9 k 0.9990766545981948
+   n 960 log2 E -6963.6 k 0.9992579403798248
+   n 1080 log2 E -8105.6 k 0.9993563879575692
+   planted add:0.4:600.573889 first indefinite size 1183
+   n 1200 log2 E -9278.0 k 0.9994653370809635
+   planted add:0.1:600.573889 first indefinite size 1208
+   n 1320 log2 E -10478.3 k 0.9995596179205711
+   planted add:0.4:699.714417 first indefinite size 1427
+   n 1440 log2 E -11703.5 k 0.9995926990764628
+   planted add:0.1:699.714417 first indefinite size 1460
+   n 1560 log2 E -12952.0 k 0.9996492604034558
+   n 1680 log2 E -14222.0 k 0.9997011198295418
+   planted add:0.4:800.629291 first indefinite size 1686
+   planted add:0.1:800.629291 first indefinite size 1716
+   n 1800 log2 E -15511.9 k 0.9997320551408301
+   n 1920 log2 E -16820.5 k 0.9997496296270247
+   planted add:0.4:900.354312 first indefinite size 1923
+   planted add:0.1:900.354312 first indefinite size 1987
+   n 2040 log2 E -18146.9 k 0.9997800423796007
+   n 2160 log2 E -19489.5 k 0.9997982593440087
+   planted add:0.4:1000.570527 first indefinite size 2219
+   planted add:0.1:1000.570527 first indefinite size 2250
+   n 2280 log2 E -20847.8 k 0.9998132319361133
+   snap size 2400 {"beta+1": {"count": 52, "prefix": 692, "tracked_from": 641, "missed_first": [693, 694, 695, 696, 697, 698, 699, 700, 701, 702]}, "beta-1": {"count": 52, "prefix": 692, "tracked_from": 641, "missed_first": [693, 694, 695, 696, 697, 698, 699, 700, 701, 702]}}
+DONE ZETA first index with E<=0: None last n 2399 log2E -22209.6 lev s 1203.2

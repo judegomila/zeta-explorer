@@ -1,0 +1,7 @@
+pool ea0.35 251.3 s
+pool tnr3_2.2 427.3 s
+pool chi-7 748.7 s
+ea0.35 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (531447, 468553, 0), (503908, 496092, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 468553, 439467, 91980]
+tnr3_2.2 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (482235, 517765, 0), (516065, 483935, 0), (814771, 185229, 0), (955982, 44018, 0), (992228, 7772, 0)] first negative pivot order hist [0, 0, 0, 0, 517765, 354930, 104677, 19622, 2672, 334]
+chi-7 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+./run_local.sh t_tp.py pick out/pick8_local_1e6_c.json ea0.35,tnr3_2.2,chi-7   714.42s user 9.26s system 58% cpu 20:44.34 total

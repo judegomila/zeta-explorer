@@ -1,0 +1,12 @@
+N 2000 planned allocation: matrix 0.03 GB float64 (+ eigensolver workspace about 2x)
+cupy_backends.cuda.libs.cusolver.CUSOLVERError: CUSOLVER_STATUS_INTERNAL_ERROR
+N 2000 planned allocation: matrix 0.03 GB float64 (+ eigensolver workspace about 2x)
+{"N": 2000, "min_eig": -6614570206.294228, "second_eig": -7.020314209713168e-07, "max_eig": 5351114986.51249, "n_below_-tol": 1, "n_above_tol": 29, "n_within_tol": 1970, "tol": 0.06614570206294228, "most_negative_5": [-6614570206.294228, -7.020314209713168e-07, -4.609183304659857e-07, -4.260781705026815e-07, -4.0033986293643217e-07], "offdiag_all_negative": true, "solver": "gpu", "seconds": 3.675305128097534}
+N 5000 planned allocation: matrix 0.19 GB float64 (+ eigensolver workspace about 2x)
+GPU eigensolver failed (OutOfMemoryError('Out of memory allocating 600,380,416 bytes (allocated so far: 400,040,960 bytes, limit set to: 25,769,); CPU fallback
+{"N": 5000, "min_eig": -103398519804.17776, "second_eig": -4.3097759762768626e-05, "max_eig": 83648376585.3651, "n_below_-tol": 1, "n_above_tol": 30, "n_within_tol": 4969, "tol": 1.0339851980417776, "most_negative_5": [-103398519804.17776, -4.3097759762768626e-05, -4.047531350893724e-05, -3.8363499318982786e-05, -3.492877235269915e-05], "offdiag_all_negative": null, "solver": "cpu", "seconds": 8.51359748840332}
+N 10000 planned allocation: matrix 0.75 GB float64 (+ eigensolver workspace about 2x)
+GPU eigensolver failed (OutOfMemoryError('Out of memory allocating 800,000,000 bytes (allocated so far: 800,000,000 bytes, limit set to: 25,769,); CPU fallback
+{"N": 10000, "min_eig": -827310468782.6165, "second_eig": -0.000391234457137642, "max_eig": 669286260225.6699, "n_below_-tol": 1, "n_above_tol": 30, "n_within_tol": 9969, "tol": 8.273104687826164, "most_negative_5": [-827310468782.6165, -0.000391234457137642, -0.0003602118711910452, -0.0003564446332395077, -0.00034185653593230594], "offdiag_all_negative": null, "solver": "cpu", "seconds": 70.8494040966034}
+N 20000 planned allocation: matrix 2.98 GB float64 (+ eigensolver workspace about 2x)
+GPU eigensolver failed (OutOfMemoryError('Out of memory allocating 3,200,000,000 bytes (allocated so far: 3,200,000,000 bytes, limit set to: 25,); CPU fallback

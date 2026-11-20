@@ -1,0 +1,68 @@
+{
+ "about": "Nodes for the lead BR (BR-2, BR-3) and the twin screen TS; curated; entered by push/c21-record-engine-states-statement-o-v5-br-nodes (round 21). BR-2 and BR-3 are proposed, untested device types of curated/devices.json; TS is a filter (type tool).",
+ "nodes": [
+  {
+   "id": "br3-euler-shape-rigidity-regime3",
+   "type": "open-direction",
+   "name": "Proposed, untested: BR-3, Euler-shape rigidity in regime 3 (relative abscissa above 1/2)",
+   "statement": "Proposed, untested device type; an identification question. Let abs(alpha_p) <= 1 for every prime p and G(s) = prod over p of (1 - alpha_p p^-s)^-1 for Re s > 1. Suppose G extends to a meromorphic function on C of finite order with (s - 1) G(s) analytic near Re s >= 1/2 apart from finitely many poles, and G satisfies the functional equation of zeta. Suppose sum over p of abs(1 - alpha_p) p^-sigma diverges for some sigma > 1/2 (regime 3: the relative product zeta/G has abscissa of absolute convergence sigma_rel > 1/2). Question: is G = zeta, or is there an explicit G != zeta with these properties. On file (one referee): regime 1 (the sum converges at 1/2) gives G = zeta (Theorem A; the proof uses reflection and Liouville's theorem, no multiplicativity, and holds with any base in place of zeta); the proof has no input in 1/2 < Re s <= sigma_rel; THIN and DEL show that without the functional equation the continued relative product can vanish there. BR-0 (paper, first): whether Hamburger-type theorems with finitely many poles (rows P56, P57, X1) already decide the question. An identification scores 0 and enters class U3; a twin with an off-line zero would be a control with an Euler product and zeta's functional equation. Not a statement about zeros of zeta; no route from it to one is registered.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "campaign/STRATEGY.md section 4.0 (version 6) and section 1; campaign/ROUND_LOG.md round 20 (lessons) and round 21 allocation; push/c20-euler-shape-rigidity-infinite-modified-primes (RESULT.md, REFEREE.md, one referee); entered by push/c21-record-engine-states-statement-o-v5-br-nodes",
+   "tags": [
+    "euler-product",
+    "functional-equation",
+    "rigidity",
+    "identification",
+    "local-euler-shape",
+    "hamburger",
+    "pole-clause",
+    "twin-ladder"
+   ]
+  },
+  {
+   "id": "br2-sparse-pole-lattice-regime-k",
+   "type": "open-direction",
+   "name": "Proposed, untested: BR-2, regime (K) on sparse prime sets: natural boundary on the critical line or a twin",
+   "statement": "Proposed, untested device type; an identification question. For abs(alpha_p) = p^(1/2) on a set S of primes with sum over S of p^-sigma finite for every sigma > 1/2 and infinite at 1/2, and alpha_p = 1 off S: either the product G has the line Re s = 1/2 as a natural boundary, or a twin (G != zeta with zeta's functional equation) is constructed. The local factor at p in S has poles on the lattice 1/2 + 2 pi i k/log p (the reading of the prime torus and of the zero channels in the geometric program). On file (one referee): Theorem C: a twin in regime (K) has no zero off the line beyond zeta's, and a twin of finite order has a zero of G/zeta on the line. The planner's first lemma (cofactor of the factor at p at distance delta to the right of a local pole at least 2^(-N_S) > delta^(1-c) on super-sparse S, so abs(G) >= delta^(-c)/log p at a dense set of the line) is a sketch, OPEN. A natural-boundary proof is an identification-type row (score 0) for the sparse subclass; a twin is an on-line control. Not a statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "campaign/STRATEGY.md section 4.0 (version 6) and section 1; campaign/ROUND_LOG.md round 20 (lessons) and round 21 allocation; push/c20-euler-shape-rigidity-infinite-modified-primes (RESULT.md, REFEREE.md, one referee); entered by push/c21-record-engine-states-statement-o-v5-br-nodes",
+   "tags": [
+    "euler-product",
+    "functional-equation",
+    "rigidity",
+    "identification",
+    "local-euler-shape",
+    "prime-torus",
+    "torus",
+    "zero-channel",
+    "pole-clause"
+   ]
+  },
+  {
+   "id": "twin-screen-ts",
+   "type": "tool",
+   "name": "Twin screen TS: three structural reasons applied to a device, statistic or combination before a lane is launched",
+   "statement": "A filter, not a device and not a lead. Written by lane c21-twin-screen-ts (round 21; not on disk as a refereed file when this node was entered). A row of TS states for a device type, a pending item or an object of the geometric program (twin ladder, bridge, bridge shear, antibridge, torus, Klein, spinor, twistor, zero channels, vortex) which of three reasons applies, or that none does. Reason 1, window scalar (Lemma S): on window vectors at height t the archimedean side is a scalar up to log t / t, so a form pairing the prime side below P with the gamma side is the first-order band form times a scalar. Reason 2, twin invisibility at a stage (K3-M with Theorem A): every form reading Lambda(n), n < P, with the gamma side takes the same value for zeta and for twins modified at a prime q >= P (HQ1, HQ3, HQ4 at q >= P; HQ2 at q^2 >= P). Reason 3, stage-level tests are not arithmetic (Lemma E; Theorem C of the line-2 lane): zero-free finite stages exist for Davenport-Heilbronn, and a non-Euler series with off-line zeros passes Pick positivity to any order on bounded node ranges. Rule (STRATEGY version 6, section 2): from round 22 no lane is launched before its row of TS exists; a row to which one of the three reasons applies is not launched; a row marked 'none of the three' is a candidate of the inverse-explore slot. Each reason has one referee file. Not a statement about zeros of zeta.",
+   "status": "conjectural",
+   "usesMultiplicativity": "unknown",
+   "heightUniform": "unknown",
+   "source": "campaign/STRATEGY.md section 4.0 (version 6) and section 1; campaign/ROUND_LOG.md round 20 (lessons) and round 21 allocation; push/c20-euler-shape-rigidity-infinite-modified-primes (RESULT.md, REFEREE.md, one referee); entered by push/c21-record-engine-states-statement-o-v5-br-nodes",
+   "tags": [
+    "prefilter",
+    "filter",
+    "screen",
+    "control",
+    "twin-ladder",
+    "finite-stage",
+    "bridge",
+    "antibridge",
+    "pick",
+    "euler-product"
+   ]
+  }
+ ]
+}

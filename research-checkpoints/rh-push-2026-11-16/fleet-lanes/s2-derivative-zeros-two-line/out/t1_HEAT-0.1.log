@@ -1,0 +1,4 @@
+t1_low HEAT-0.1 windows 2 H 10.0 workers 8
+HEAT-0.1 T 405.50 winding 1.0000 count 1 roots (0.499513, 415.256186)  maxstep 0.53 evals 352/659 12.1s
+HEAT-0.1 T 415.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 336/336 9.4s
+total count 1 roots found 1

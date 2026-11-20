@@ -1,0 +1,63 @@
+14:31:23 mp extrema below 1000: 243, max shift/gap 1.212e+00
+14:31:23 zeta cos N=32: zeros 466659, near-collisions 179519, heights 23.10 .. 299999.61, dim 32
+14:31:23   N=32 K=8 T=83.79 rho in [0.691894, 0.691894] feasible passes 0 support 6
+14:31:23   N=32 K=12 T=106.39 rho in [0.660899, 0.660899] feasible passes 2 support 8
+14:31:23   N=32 K=17 T=134.16 rho in [0.648849, 0.648849] feasible passes 1 support 10
+14:31:23   N=32 K=25 T=174.03 rho in [0.620978, 0.620978] feasible passes 1 support 12
+14:31:23   N=32 K=36 T=237.11 rho in [0.607437, 0.607437] feasible passes 2 support 13
+14:31:23   N=32 K=51 T=305.29 rho in [0.595950, 0.595950] feasible passes 3 support 17
+14:31:23   N=32 K=73 T=402.31 rho in [0.559205, 0.559205] feasible passes 2 support 11
+14:31:23   N=32 K=104 T=524.57 rho in [0.551270, 0.551270] feasible passes 2 support 14
+14:31:23   N=32 K=148 T=684.50 rho in [0.532956, 0.532956] feasible passes 2 support 13
+14:31:23   N=32 K=210 T=890.27 rho in [0.499450, 0.499450] feasible passes 2 support 13
+14:31:23   N=32 K=297 T=1165.02 rho in [0.483635, 0.483635] feasible passes 3 support 10
+14:31:23   N=32 K=421 T=1552.38 rho in [0.455908, 0.455908] feasible passes 3 support 15
+14:31:23   N=32 K=596 T=2034.82 rho in [0.422165, 0.422165] feasible passes 2 support 10
+14:31:23   N=32 K=843 T=2702.75 rho in [0.407164, 0.407164] feasible passes 2 support 14
+14:31:23   N=32 K=1193 T=3612.12 rho in [0.390872, 0.390872] feasible passes 2 support 17
+14:31:23   N=32 K=1688 T=4854.32 rho in [0.368425, 0.368425] feasible passes 2 support 16
+14:31:23   N=32 K=2388 T=6560.88 rho in [0.338957, 0.338957] feasible passes 3 support 15
+14:31:23   N=32 K=3378 T=8822.71 rho in [0.228183, 0.228183] feasible passes 2 support 8
+14:31:23   N=32 K=4778 T=11928.59 rho in [0.226972, 0.226972] feasible passes 2 support 10
+14:31:23   N=32 K=6758 T=16165.70 rho in [0.226057, 0.226057] feasible passes 2 support 12
+14:31:23   N=32 K=9558 T=21854.33 rho in [0.206988, 0.206988] feasible passes 2 support 10
+14:31:23   N=32 K=13518 T=29702.63 rho in [0.197204, 0.197204] feasible passes 2 support 12
+14:31:23   N=32 K=19118 T=40350.95 rho in [0.178747, 0.178747] feasible passes 2 support 15
+14:31:23   N=32 K=27037 T=54813.01 rho in [0.163139, 0.163139] feasible passes 3 support 18
+14:31:23   N=32 K=38237 T=74683.56 rho in [0.143623, 0.143623] feasible passes 4 support 20
+14:31:23   N=32 K=54076 T=101757.42 rho in [0.133248, 0.133248] feasible passes 5 support 25
+14:31:24   N=32 K=76476 T=138955.52 rho in [0.124928, 0.124928] feasible passes 5 support 22
+14:31:24   N=32 K=108154 T=189801.46 rho in [0.108385, 0.108385] feasible passes 3 support 23
+14:31:24   N=32 K=152953 T=259481.57 rho in [0.085258, 0.085258] feasible passes 3 support 20
+14:31:24   N=32 K=179519 T=299999.61 rho in [0.083818, 0.083818] feasible passes 4 support 23
+14:31:24 no onset within the list for N=32 (last status feasible)
+14:31:24 zeta cos N=64: zeros 466659, near-collisions 179519, heights 23.10 .. 299999.61, dim 64
+14:31:24   N=64 K=16 T=130.33 rho in [0.626733, 0.626733] feasible passes 0 support 10
+14:31:24   N=64 K=23 T=158.25 rho in [0.599628, 0.599628] feasible passes 2 support 15
+14:31:24   N=64 K=33 T=221.08 rho in [0.584112, 0.584112] feasible passes 2 support 17
+14:31:24   N=64 K=47 T=282.81 rho in [0.568377, 0.568377] feasible passes 2 support 23
+14:31:24   N=64 K=67 T=373.44 rho in [0.540296, 0.540296] feasible passes 3 support 17
+14:31:24   N=64 K=95 T=493.62 rho in [0.528298, 0.528298] feasible passes 2 support 20
+14:31:24   N=64 K=135 T=630.64 rho in [0.510487, 0.510487] feasible passes 3 support 25
+14:31:24   N=64 K=191 T=831.35 rho in [0.489952, 0.489952] feasible passes 3 support 17
+14:31:24   N=64 K=271 T=1083.11 rho in [0.465477, 0.465477] feasible passes 2 support 21
+14:31:24   N=64 K=384 T=1434.18 rho in [0.437681, 0.437681] feasible passes 3 support 16
+14:31:24   N=64 K=544 T=1900.29 rho in [0.430806, 0.430806] feasible passes 3 support 19
+14:31:24   N=64 K=770 T=2504.41 rho in [0.396258, 0.396258] feasible passes 3 support 20
+14:31:24   N=64 K=1089 T=3342.60 rho in [0.381087, 0.381087] feasible passes 3 support 23
+14:31:24   N=64 K=1541 T=4503.54 rho in [0.359573, 0.359573] feasible passes 4 support 22
+14:31:24   N=64 K=2180 T=6076.61 rho in [0.330734, 0.330734] feasible passes 3 support 21
+14:31:24   N=64 K=3083 T=8142.57 rho in [0.248343, 0.248343] feasible passes 2 support 12
+14:31:24   N=64 K=4361 T=11011.77 rho in [0.222647, 0.222647] feasible passes 2 support 7
+14:31:24   N=64 K=6168 T=14905.75 rho in [0.221148, 0.221148] feasible passes 2 support 12
+14:31:24   N=64 K=8723 T=20192.65 rho in [0.208588, 0.208588] feasible passes 3 support 14
+14:31:24   N=64 K=12337 T=27376.24 rho in [0.194040, 0.194040] feasible passes 2 support 16
+14:31:24   N=64 K=17448 T=37253.15 rho in [0.182816, 0.182816] feasible passes 2 support 22
+14:31:24   N=64 K=24676 T=50504.68 rho in [0.166130, 0.166130] feasible passes 4 support 26
+14:31:24   N=64 K=34898 T=68835.96 rho in [0.158505, 0.158505] feasible passes 3 support 28
+14:31:24   N=64 K=49354 T=93795.56 rho in [0.138820, 0.138820] feasible passes 2 support 30
+14:31:24   N=64 K=69798 T=127997.27 rho in [0.126873, 0.126873] feasible passes 4 support 31
+14:31:25   N=64 K=98710 T=174758.16 rho in [0.109825, 0.109825] feasible passes 4 support 32
+14:31:25   N=64 K=139598 T=238877.28 rho in [0.098251, 0.098251] feasible passes 4 support 31
+14:31:25   N=64 K=179519 T=299999.61 rho in [0.088386, 0.088386] feasible passes 4 support 37
+14:31:25 no onset within the list for N=64 (last status feasible)

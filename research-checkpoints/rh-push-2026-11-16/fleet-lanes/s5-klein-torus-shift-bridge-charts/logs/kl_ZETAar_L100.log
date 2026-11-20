@@ -1,0 +1,13 @@
+klein ZETA r=1.5 L=100 N=2^16 kmax=20000 circles 12; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.02 v=0.250122377879 xmin=0.02 wind=-1.000000-1.64e-16j max|t|=6.225e+04 tail |hhat| at N/2: 2.13e-06 (rel to max 1.15e-08) 1.4 s
+circle x:0.04 v=0.250244755731 xmin=0.04 wind=-1.000000+6.60e-16j max|t|=3.125e+04 tail |hhat| at N/2: 6.64e-13 (rel to max 6.19e-15) 1.3 s
+circle x:0.06 v=0.250367133528 xmin=0.06 wind=-1.000000+5.57e-16j max|t|=2.083e+04 tail |hhat| at N/2: 6.97e-15 (rel to max 7.54e-17) 1.3 s
+circle x:0.1 v=0.250611888846 xmin=0.1 wind=-1.000000+4.06e-16j max|t|=1.25e+04 tail |hhat| at N/2: 9.42e-14 (rel to max 1.28e-15) 1.1 s
+circle x:0.2 v=0.251223774245 xmin=0.2 wind=-1.000000+1.51e-16j max|t|=6250 tail |hhat| at N/2: 1.11e-13 (rel to max 1.97e-15) 1.2 s
+circle x:0.3 v=0.251835652750 xmin=0.3 wind=-1.000000+9.15e-17j max|t|=4167 tail |hhat| at N/2: 9.73e-14 (rel to max 1.96e-15) 1.1 s
+circle x:0.6 v=0.253671212438 xmin=0.6 wind=-0.000000-2.51e-16j max|t|=2084 tail |hhat| at N/2: 4.88e-15 (rel to max 1.36e-16) 1.0 s
+circle x:0.7 v=0.254283028904 xmin=0.7 wind=-0.000000-5.90e-17j max|t|=1786 tail |hhat| at N/2: 1.94e-15 (rel to max 6.32e-17) 0.9 s
+circle x:0.8 v=0.254894821246 xmin=0.8 wind=-0.000000-3.60e-17j max|t|=1563 tail |hhat| at N/2: 9.13e-15 (rel to max 3.39e-16) 1.0 s
+circle x:1.5 v=0.259176402809 xmin=1.5 wind=0.000000-2.76e-17j max|t|=833.9 tail |hhat| at N/2: 2.79e-16 (rel to max 1.78e-17) 0.8 s
+circle x:2 v=0.262233194124 xmin=2 wind=0.000000-2.08e-17j max|t|=625.7 tail |hhat| at N/2: 1.81e-15 (rel to max 1.54e-16) 0.7 s
+circle x:2.5 v=0.265288263983 xmin=2.5 wind=-0.000000-1.17e-17j max|t|=500.9 tail |hhat| at N/2: 1.22e-15 (rel to max 1.35e-16) 0.7 s

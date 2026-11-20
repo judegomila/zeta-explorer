@@ -1,0 +1,4 @@
+  File "/home/USER/rh-push/s3-torus-short-prime-sum-extremes/c1n.py", line 159
+    else:
+    ^^^^
+SyntaxError: invalid syntax

@@ -1,0 +1,2 @@
+EA:9/20 1/51 3s last {'d': 8, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 8, 'certified_t0': True, 'scale': 21.66148786130452, 'tstar_raw': 0.0, 'sec': 0.0}
+memcap: RSS 11 GB exceeded cap 8 GB; killing 14734

@@ -1,0 +1,20 @@
+P=1000000 primes=78498 GPU=True families=['ZETA', 'CHI', 'CHIB', 'SGN', 'LIO', 'UNI'] cuts=[100.0, 1000.0, 10000.0, 100000.0, 1000000.0]
+planned per-chunk allocation per worker: 6.00e+07 elements x 16 B x 3 arrays = 2.88 GB; workers 1
+prime pass band 1e2: 300 windows, 464s
+prime pass band 1e3: 300 windows, 878s
+prime pass band 1e4: 300 windows, 1320s
+prime pass band 1e6: 300 windows, 1782s
+prime pass band 1e8: 300 windows, 2151s
+prime pass band 1e10: 300 windows, 2499s
+prime pass band 1e12: 300 windows, 2790s
+prime pass band HAAR: 300 windows, 3050s
+composite pass: Nc=300000, planned per-chunk allocation about 2.4 GB
+composite pass band 1e2: 80 windows, 3180s
+composite pass band 1e3: 80 windows, 3309s
+composite pass band 1e4: 80 windows, 3440s
+composite pass band 1e6: 80 windows, 3565s
+composite pass band 1e8: 80 windows, 3716s
+composite pass band 1e10: 80 windows, 3843s
+composite pass band 1e12: 80 windows, 3925s
+composite pass band HAAR: 80 windows, 4011s
+saved t12_1e6.npz 4011s

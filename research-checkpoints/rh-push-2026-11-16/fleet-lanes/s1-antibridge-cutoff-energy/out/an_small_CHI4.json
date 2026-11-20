@@ -1,0 +1,107 @@
+{
+ "obj": "CHI4",
+ "T": 600.0,
+ "dt": 0.025,
+ "points": 24001,
+ "offline_pairs_in_table_below_T": 0,
+ "first_offline": null,
+ "laguerre": {
+  "norm_min": 0.3011667200337739,
+  "norm_min_t": 422.225,
+  "rho_min": 0.3928756930662737,
+  "rho_min_t": 585.775,
+  "negative_samples": 0,
+  "negative_intervals": 0,
+  "first_negative_intervals": [],
+  "match": {
+   "n": 0
+  }
+ },
+ "w": [
+  {
+   "h": 0.01,
+   "a": 0.02,
+   "norm_min": 0.39285463376400465,
+   "norm_min_t": 585.775,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  },
+  {
+   "h": 0.05,
+   "a": 0.1,
+   "norm_min": 0.3923501271398769,
+   "norm_min_t": 585.775,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  },
+  {
+   "h": 0.125,
+   "a": 0.25,
+   "norm_min": 0.38962186149570227,
+   "norm_min_t": 585.775,
+   "negative_samples": 0,
+   "first_negative_intervals": [],
+   "match": {
+    "n": 0
+   }
+  }
+ ],
+ "online_zeros": 473,
+ "close_pairs": 0,
+ "half_gram": {
+  "intervals": 471,
+  "violations": 285,
+  "fraction": 0.6050955414012739,
+  "empty": 143,
+  "two": 142,
+  "three_plus": 0,
+  "first_violation_index": 0,
+  "first_violation_interval": [
+   6.226976569265555,
+   10.067520632982493
+  ],
+  "octile_fractions": [
+   0.7068965517241379,
+   0.6101694915254238,
+   0.6779661016949152,
+   0.559322033898305,
+   0.5254237288135594,
+   0.6271186440677966,
+   0.559322033898305,
+   0.576271186440678
+  ]
+ },
+ "gram": {
+  "intervals": 472,
+  "violations": 12,
+  "fraction": 0.025423728813559324,
+  "empty": 6,
+  "two": 6,
+  "three_plus": 0,
+  "first_violation_index": 76,
+  "first_violation_interval": [
+   137.35032196748728,
+   138.75405861277332
+  ],
+  "octile_fractions": [
+   0.0,
+   0.03389830508474576,
+   0.0,
+   0.03389830508474576,
+   0.06779661016949153,
+   0.03389830508474576,
+   0.0,
+   0.03389830508474576
+  ]
+ },
+ "count_check": {
+  "online_zeros": 473,
+  "theta_T_over_pi_plus_1": 473.37085848358487
+ }
+}

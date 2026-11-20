@@ -1,0 +1,3 @@
+DH sigma 1.01 341: min -2.36 at t=40.3 neg 315 first 0.1 F4: min -5.16 at t=42.9 neg 326 first 0.1 F16: min -12.12 at t=42.9 neg 293 first 0.1 F64: min -24.47 at t=14.3 neg 302 first 0.2
+DH sigma 1.1 341: min -1.97 at t=40.3 neg 337 first 0.1 F4: min -3.701 at t=42.9 neg 333 first 0.1 F16: min -8.943 at t=42.9 neg 292 first 0.1 F64: min -19.01 at t=14.3 neg 301 first 0.2
+DH sigma 1.3 341: min -1.332 at t=40.3 neg 366 first 0.1 F4: min -1.883 at t=42.9 neg 338 first 0.1 F16: min -4.796 at t=28.6 neg 292 first 0.1 F64: min -12.56 at t=34.3 neg 291 first 0.2

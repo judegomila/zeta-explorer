@@ -1,0 +1,50 @@
+{
+ "0.18727199470289196": {
+  "y": 0.18727199470289196,
+  "nN": 2219,
+  "best": {
+   "violations": 66,
+   "largest_drop": 0.0028688371096525778,
+   "at_N": 1021,
+   "first_positive_N": 690988,
+   "negative_after_first_positive": 0
+  },
+  "P3": {
+   "violations": 55,
+   "largest_drop": 0.002501472967987084,
+   "at_N": 1021,
+   "first_positive_N": 1035642,
+   "negative_after_first_positive": 0
+  },
+  "P5": {
+   "violations": 57,
+   "largest_drop": 0.002997864548018647,
+   "at_N": 1003,
+   "first_positive_N": 818423,
+   "negative_after_first_positive": 0
+  },
+  "P7": {
+   "violations": 61,
+   "largest_drop": 0.0028156856295256105,
+   "at_N": 1021,
+   "first_positive_N": 729764,
+   "negative_after_first_positive": 0
+  },
+  "P11": {
+   "violations": 66,
+   "largest_drop": 0.0028688371096525778,
+   "at_N": 1021,
+   "first_positive_N": 690988,
+   "negative_after_first_positive": 0
+  },
+  "panel_density_I_at": {
+   "690988": 5914554.622378512,
+   "3840000": 4.584900753879798
+  },
+  "ratio_DII_over_DI": [
+   6.473575275150086,
+   19.74157630194853
+  ],
+  "DI_over_logN_times_S": null
+ }
+}

@@ -1,0 +1,12 @@
+14:43:17 pair 33 x*=111.4364 gap 0.8451 u=0.05 delta=0.0348: exact c_n vs first-order form: cosine 0.99999998, scale 7.952 (>0: same orientation); dz/dtau check rel 1.0e-06
+14:43:17 pair 33 x*=111.4364 gap 0.8451 u=0.50 delta=0.3478: exact c_n vs first-order form: cosine 0.99982767, scale 0.779 (>0: same orientation); dz/dtau check rel 7.0e-09
+14:43:17 pair 33 x*=111.4364 gap 0.8451 u=2.00 delta=1.3910: exact c_n vs first-order form: cosine 0.98645084, scale 0.1416 (>0: same orientation); dz/dtau check rel 2.9e-09
+14:43:18 pair 1028 x*=1453.9641 gap 0.4884 u=0.05 delta=0.0184: exact c_n vs first-order form: cosine 0.99999992, scale 5.644 (>0: same orientation); dz/dtau check rel 9.7e-07
+14:43:19 pair 1028 x*=1453.9641 gap 0.4884 u=0.50 delta=0.1837: exact c_n vs first-order form: cosine 0.99924904, scale 0.5536 (>0: same orientation); dz/dtau check rel 6.9e-09
+14:43:19 pair 1028 x*=1453.9641 gap 0.4884 u=2.00 delta=0.7347: exact c_n vs first-order form: cosine 0.96527894, scale 0.1161 (>0: same orientation); dz/dtau check rel 3.8e-09
+14:43:28 pair 20009 x*=18054.5196 gap 0.3756 u=0.05 delta=0.0126: exact c_n vs first-order form: cosine 0.99999990, scale 3.365 (>0: same orientation); dz/dtau check rel 4.4e-07
+14:43:29 pair 20009 x*=18054.5196 gap 0.3756 u=0.50 delta=0.1256: exact c_n vs first-order form: cosine 0.99905685, scale 0.3279 (>0: same orientation); dz/dtau check rel 6.0e-09
+14:43:29 pair 20009 x*=18054.5196 gap 0.3756 u=2.00 delta=0.5023: exact c_n vs first-order form: cosine 0.90643617, scale 0.06122 (>0: same orientation); dz/dtau check rel 3.6e-09
+14:43:33 pair 150020 x*=107731.7596 gap 0.1677 u=0.05 delta=0.0103: exact c_n vs first-order form: cosine 0.99999984, scale 3.256 (>0: same orientation); dz/dtau check rel 2.9e-07
+14:43:34 pair 150020 x*=107731.7596 gap 0.1677 u=0.50 delta=0.1026: exact c_n vs first-order form: cosine 0.99845696, scale 0.3163 (>0: same orientation); dz/dtau check rel 7.5e-09
+14:43:34 pair 150020 x*=107731.7596 gap 0.1677 u=2.00 delta=0.4103: exact c_n vs first-order form: cosine 0.85874684, scale 0.05413 (>0: same orientation); dz/dtau check rel 4.0e-09

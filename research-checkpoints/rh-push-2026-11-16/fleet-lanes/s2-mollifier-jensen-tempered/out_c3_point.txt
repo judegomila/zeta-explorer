@@ -1,0 +1,4 @@
+extended longdouble: True
+t 0.130 x 9079224110354.168: |E f| = 0.915083335666, Re = 0.915035687547 (longdouble phases); 0.915230338790 (double phases); source 0.915230628307
+t 0.125 x 9079224110354.174: |E f| = 0.915128266405, Re = 0.915059052059 (longdouble phases); 0.915283139141 (double phases); source 0.915337415039
+t 0.120 x 9079224110354.178: |E f| = 0.914874958521, Re = 0.914806609319 (longdouble phases); 0.915033095071 (double phases); source 0.914664398682

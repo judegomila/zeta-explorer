@@ -1,0 +1,5 @@
+T 1e+06 Delta 10 N 2000 extended True
+planned allocation: N x N longdouble/complex work arrays x 6 = 384.0 MB
+prime powers used: 1035 (k <= 7793)  221s
+zero side vs prime side: max |difference| 3.708e-08 (max |S| 47.784), 534 zeros
+{"T": 1000000.0, "Delta": 10.0, "N": 2000, "check_max_abs_diff": 3.707668074417449e-08, "check_max_abs": 47.78384418869245, "zeros_in_14_Delta": 534, "lam_min": -1.3419684561268696e-14, "lam_max": 49.440630423994264, "ratio": -2.7143028812909163e-16, "rank_1e-9": 112, "rank_1e-12": 128, "zeros_per_unit": 1.9062995767240045, "zeros_within_Delta": 38.12599153448009, "negative_below_-1e-10": 0}

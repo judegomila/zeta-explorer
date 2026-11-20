@@ -1,0 +1,16 @@
+ZETA M 1600 prec 34000 moments 3783.6 s;  s_0 = [0.04620998623083794157786762 +/- 8.61e-28]
+  base: {"n_coeff": 1599, "first_negative": null, "negatives_head": [], "n_negative": 0}
+  planted add:0.1:17.578382 first negative coefficient 13 negatives [13, 15] nbelow 1
+  planted add:0.25:17.578382 first negative coefficient 11 negatives [11, 13] nbelow 1
+  planted add:0.4:17.578382 first negative coefficient 11 negatives [11, 13] nbelow 1
+  planted add:0.1:27.717867 first negative coefficient 23 negatives [23, 25] nbelow 3
+  planted add:0.25:27.717867 first negative coefficient 21 negatives [21, 23] nbelow 3
+  planted add:0.4:27.717867 first negative coefficient 19 negatives [19, 21] nbelow 3
+  planted add:0.1:51.372077 first negative coefficient 52 negatives [52, 54] nbelow 10
+  planted add:0.25:51.372077 first negative coefficient 50 negatives [50, 52] nbelow 10
+  planted add:0.4:51.372077 first negative coefficient 49 negatives [49, 51] nbelow 10
+  planted add:0.1:73.885924 first negative coefficient 83 negatives [83, 85] nbelow 18
+  planted add:0.25:73.885924 first negative coefficient 80 negatives [80, 82] nbelow 18
+  planted add:0.4:73.885924 first negative coefficient 76 negatives [76, 78] nbelow 18
+  planted add:0.1:100.074523 first negative coefficient 125 negatives [125, 127] nbelow 29
+  planted add:0.25:100.074523 first negative coefficient 122 negatives [122, 124] nbelow 29

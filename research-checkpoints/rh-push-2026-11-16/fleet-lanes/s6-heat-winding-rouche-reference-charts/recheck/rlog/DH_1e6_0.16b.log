@@ -1,0 +1,7 @@
+y 0.0300 box 337 engine 1.110512 true 1.104292  (49s)
+y 0.0300 box 16050 engine 1.171491 true 1.176099  (99s)
+y 0.1809 box 337 engine 0.509663 true 0.505953  (148s)
+y 0.1809 box 16050 engine 0.567648 true 0.570670  (196s)
+y 1.0000 box 337 engine 0.104523 true 0.104279  (254s)
+y 1.0000 box 16050 engine 0.128631 true 0.128810  (306s)
+SUMMARY {"X": 1000000.0, "t": 0.16, "kind": "DH", "nodes": 24, "prec": 96, "max_abs_f_diff": 0.005890890156638698, "max_rel_E_diff": 9.412553348912179e-11, "sign_flips": 0, "max_ball_radius": 9.219625753260252e-22}

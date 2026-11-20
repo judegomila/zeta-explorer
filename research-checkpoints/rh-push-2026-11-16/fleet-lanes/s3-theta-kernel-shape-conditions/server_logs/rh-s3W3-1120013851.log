@@ -1,0 +1,17 @@
+pool zeta 245.4 s
+pool chi-3 469.0 s
+pool chi-4 742.7 s
+pool delta 1982.5 s
+pool dh 2296.2 s
+pool heat-0.2 2792.7 s
+pool ea0.35 3214.2 s
+pool tnr3_2.2 3423.4 s
+zeta det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+chi-3 det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+chi-4 det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+delta det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+dh det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+heat-0.2 det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 300000]
+ea0.35 det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (159404, 140596, 0), (151409, 148591, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 140596, 131503, 27901]
+tnr3_2.2 det sign counts by order (pos/neg/und): [(300000, 0, 0), (300000, 0, 0), (300000, 0, 0), (144935, 155065, 0), (154499, 145501, 0), (244619, 55381, 0), (286607, 13393, 0), (297661, 2339, 0)] first negative pivot order hist [0, 0, 0, 0, 155065, 106772, 31291, 5943, 823, 106]
+UNIT_DONE run_U3.sh

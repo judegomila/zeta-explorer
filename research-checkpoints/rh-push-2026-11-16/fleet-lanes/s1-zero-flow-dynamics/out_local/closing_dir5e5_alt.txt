@@ -1,0 +1,3 @@
+alt: 698848 zeros ; close pairs 7881 ; candidates (a neighbouring gap below 0.45 of the pair gap) 2
+  closing pair at 235804.831334912: s = 0.185913, neighbouring gaps 1.271890 0.066296 (normalised), R_eff = 1.070988 ; 30-digit zeros 235803.94125290823 235804.831334911028 235804.961438766169 235805.007833638899
+  closing close pairs: 1 ; per 1e6 zeros: 1.431

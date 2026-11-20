@@ -1,0 +1,14 @@
+{
+ "0.05": {
+  "max_dev_prime_vs_kernel_sum": 2.790458326423791e-05,
+  "max_dev_lorentz_vs_arb": 2.7904580826298986e-05,
+  "max_abs_A": 10.9168811888524,
+  "max_dev_prime_vs_arb": 3.8179869504322936
+ },
+ "0.2": {
+  "max_dev_prime_vs_kernel_sum": 0.00011161832377374549,
+  "max_dev_lorentz_vs_arb": 0.0001116183234777246,
+  "max_abs_A": 5.684511331514989,
+  "max_dev_prime_vs_arb": 0.37171881629898396
+ }
+}

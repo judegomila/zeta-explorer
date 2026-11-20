@@ -1,0 +1,488 @@
+{
+ "Lemma S pointwise": [
+  {
+   "t": "43.0",
+   "max ratio |G(x)-G(t)| t/(log t |x-t|) (claimed <= 8)": "0.99330196",
+   "at x": "-0.0043",
+   "near zone: max |G(x)-G(t)| t/|x-t| (claimed <= 2)": "0.69331252",
+   "2 Re G(1/2+it) - Lg": "-2.2537e-5",
+   "Im G - pi/4": "0.0058147"
+  },
+  {
+   "t": "100.0",
+   "max ratio |G(x)-G(t)| t/(log t |x-t|) (claimed <= 8)": "0.90169936",
+   "at x": "-0.01",
+   "near zone: max |G(x)-G(t)| t/|x-t| (claimed <= 2)": "0.69317772",
+   "2 Re G(1/2+it) - Lg": "-4.1667e-6",
+   "Im G - pi/4": "0.0025001"
+  },
+  {
+   "t": "1000.0",
+   "max ratio |G(x)-G(t)| t/(log t |x-t|) (claimed <= 8)": "0.76449185",
+   "at x": "-0.1",
+   "near zone: max |G(x)-G(t)| t/|x-t| (claimed <= 2)": "0.69314749",
+   "2 Re G(1/2+it) - Lg": "-4.1667e-8",
+   "Im G - pi/4": "0.00025"
+  },
+  {
+   "t": "100000.0",
+   "max ratio |G(x)-G(t)| t/(log t |x-t|) (claimed <= 8)": "0.65704407",
+   "at x": "0.0",
+   "near zone: max |G(x)-G(t)| t/|x-t| (claimed <= 2)": "0.69314718",
+   "2 Re G(1/2+it) - Lg": "-4.1667e-12",
+   "Im G - pi/4": "2.5e-6"
+  }
+ ],
+ "K3-M first differing atom (q = 7)": {
+  "HQ1 eps=1": {
+   "first k with nonzero coefficient of y^k in log f": 1,
+   "Lambda_F(q^j0) - Lambda(q^j0) = j0 l_j0 log q q^(j0/2)": "5.1483943",
+   "coefficients l_1..l_4": [
+    "1.0",
+    "1.5",
+    "1.3333333333333333",
+    "0.75"
+   ]
+  },
+  "HQ2 eps=0.01": {
+   "first k with nonzero coefficient of y^k in log f": 2,
+   "Lambda_F(q^j0) - Lambda(q^j0) = j0 l_j0 log q q^(j0/2)": "0.27242742",
+   "coefficients l_1..l_4": [
+    "0.0",
+    "0.01",
+    "0.04",
+    "0.09995"
+   ]
+  },
+  "HQ3 (7;0.1,0.2)": {
+   "first k with nonzero coefficient of y^k in log f": 1,
+   "Lambda_F(q^j0) - Lambda(q^j0) = j0 l_j0 log q q^(j0/2)": "0.59411841",
+   "coefficients l_1..l_4": [
+    "0.11539878",
+    "0.24183945",
+    "0.39154852",
+    "0.57925954"
+   ]
+  },
+  "HQ4 (7;0.1,0.2)": {
+   "first k with nonzero coefficient of y^k in log f": 1,
+   "Lambda_F(q^j0) - Lambda(q^j0) = j0 l_j0 log q q^(j0/2)": "21.578822",
+   "coefficients l_1..l_4": [
+    "4.1913694",
+    "0.24183945",
+    "1.9586017",
+    "0.57925954"
+   ]
+  }
+ },
+ "DEL / THIN with zeta Arch imposed": {
+  "T0=1e+06, b=0.75": {
+   "P": 31622,
+   "u": 10.36160835987009,
+   "u/Lg": 0.8650797644773276,
+   "K": 6,
+   "b": 0.75,
+   "heights": 40000,
+   "range": [
+    1000000.0,
+    1002000.0
+   ],
+   "step": 0.05,
+   "S_DEL below P": 362,
+   "S_THIN below P": 181,
+   "S_DEL first": [
+    5,
+    7,
+    11,
+    13,
+    19,
+    29,
+    37,
+    41
+   ],
+   "S_THIN first": [
+    7,
+    13,
+    29,
+    41,
+    67,
+    89,
+    127,
+    149
+   ],
+   "uniform error bound err_K (form units, norm 1)": 0.05215983837905704,
+   "overlap closed form vs quadrature (mp)": "1.4791e-31",
+   "scan_seconds": 2.864312171936035,
+   "zeta": {
+    "min lambda_min (float64)": 0.2914461652370135,
+    "at t": 1000779.725,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 4.370390621316012,
+    "heights with lambda_min < 0": 0
+   },
+   "DEL": {
+    "min lambda_min (float64)": 0.09052839745165378,
+    "at t": 1001988.275,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 6.126271908682737,
+    "heights with lambda_min < 0": 0,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "1001988.275",
+     "P = floor(t^0.75)": 31669,
+     "norm(h_0')/norm(h_0)": "1.1454164",
+     "form value for the control (norm 1)": "0.0890797014395645",
+     "form value for zeta, same vector": "2.28392966941415",
+     "Lg": "11.97961979",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.03279942288978785,
+     "violates (M) with the error term": false,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       0.08282821678195115,
+       0.0
+      ],
+      [
+       -2.7755575615628914e-16,
+       0.14544294249331483
+      ],
+      [
+       -0.7600397719092671,
+       -1.942890293094024e-16
+      ],
+      [
+       8.777700788442644e-16,
+       -0.5103738473186556
+      ],
+      [
+       0.006909391220858985,
+       1.249000902703301e-16
+      ],
+      [
+       6.531233887052679e-16,
+       -0.3657815992991293
+      ]
+     ]
+    }
+   },
+   "THIN": {
+    "min lambda_min (float64)": -3.5877553652739835,
+    "at t": 1000381.175,
+    "heights with lambda_min < -err_K": 731,
+    "fraction": 0.018275,
+    "median lambda_min": 4.758203678836653,
+    "heights with lambda_min < 0": 778,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "1000381.175",
+     "P = floor(t^0.75)": 31631,
+     "norm(h_0')/norm(h_0)": "1.0941375",
+     "form value for the control (norm 1)": "-3.58838335229927",
+     "form value for zeta, same vector": "2.68504679537009",
+     "Lg": "11.97801459",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.03136365559276114,
+     "violates (M) with the error term": true,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       -0.073108937468577,
+       -0.0
+      ],
+      [
+       -1.1102230246251565e-15,
+       0.3499000302084503
+      ],
+      [
+       0.6953941875444385,
+       1.3322676295501878e-15
+      ],
+      [
+       1.0269562977782698e-15,
+       -0.5388356997473411
+      ],
+      [
+       0.027762292378950372,
+       5.551115123125783e-17
+      ],
+      [
+       5.134781488891349e-16,
+       -0.31230965379157016
+      ]
+     ]
+    }
+   }
+  },
+  "T0=1e+06, b=0.9": {
+   "P": 31622,
+   "u": 10.36160835987009,
+   "u/Lg": 0.8650797644773276,
+   "K": 6,
+   "b": 0.9,
+   "heights": 40000,
+   "range": [
+    1000000.0,
+    1002000.0
+   ],
+   "step": 0.05,
+   "S_DEL below P": 1376,
+   "S_THIN below P": 688,
+   "S_DEL first": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    23,
+    29
+   ],
+   "S_THIN first": [
+    5,
+    11,
+    17,
+    29,
+    37,
+    43,
+    59,
+    67
+   ],
+   "uniform error bound err_K (form units, norm 1)": 0.05215983837905704,
+   "overlap closed form vs quadrature (mp)": "1.4791e-31",
+   "scan_seconds": 2.878751754760742,
+   "zeta": {
+    "min lambda_min (float64)": 0.2914461652370135,
+    "at t": 1000779.725,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 4.370390621316012,
+    "heights with lambda_min < 0": 0
+   },
+   "DEL": {
+    "min lambda_min (float64)": 2.824369753010449,
+    "at t": 1000619.775,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 7.8159473501501004,
+    "heights with lambda_min < 0": 0,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "1000619.775",
+     "P = floor(t^0.75)": 31637,
+     "norm(h_0')/norm(h_0)": "1.114336",
+     "form value for the control (norm 1)": "2.8236124545212",
+     "form value for zeta, same vector": "2.00162697348486",
+     "Lg": "11.97825307",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.03193788412430324,
+     "violates (M) with the error term": false,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       0.11059709805249517,
+       -0.0
+      ],
+      [
+       5.551115123125783e-16,
+       0.5333228300559019
+      ],
+      [
+       0.3065155584980002,
+       -4.718447854656915e-16
+      ],
+      [
+       9.71445146547012e-16,
+       0.7170161569956236
+      ],
+      [
+       0.11360853796129522,
+       -5.551115123125783e-17
+      ],
+      [
+       2.7755575615628914e-16,
+       0.2869916095493277
+      ]
+     ]
+    }
+   },
+   "THIN": {
+    "min lambda_min (float64)": -2.3684477043842715,
+    "at t": 1001913.075,
+    "heights with lambda_min < -err_K": 889,
+    "fraction": 0.022225,
+    "median lambda_min": 4.719992855701524,
+    "heights with lambda_min < 0": 914,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "1001913.075",
+     "P = floor(t^0.75)": 31668,
+     "norm(h_0')/norm(h_0)": "1.0997025",
+     "form value for the control (norm 1)": "-2.37014397704825",
+     "form value for zeta, same vector": "4.39252802751147",
+     "Lg": "11.97954474",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.03149229343808892,
+     "violates (M) with the error term": true,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       -0.1278754977371961,
+       -0.0
+      ],
+      [
+       -1.0547118733938987e-15,
+       0.040549259966400936
+      ],
+      [
+       0.8203743195509089,
+       2.3037127760972e-15
+      ],
+      [
+       1.7763568394002505e-15,
+       -0.44450725259173784
+      ],
+      [
+       0.09186191197359089,
+       -1.0408340855860843e-17
+      ],
+      [
+       1.4016565685892601e-15,
+       -0.3208804792098246
+      ]
+     ]
+    }
+   }
+  },
+  "T0=100000, b=0.75": {
+   "P": 5623,
+   "u": 8.634620608292202,
+   "u/Lg": 0.892462781847847,
+   "K": 6,
+   "b": 0.75,
+   "heights": 40000,
+   "range": [
+    100000.0,
+    102000.0
+   ],
+   "step": 0.05,
+   "S_DEL below P": 124,
+   "S_THIN below P": 62,
+   "S_DEL first": [
+    5,
+    7,
+    11,
+    13,
+    19,
+    29,
+    37,
+    41
+   ],
+   "S_THIN first": [
+    7,
+    13,
+    29,
+    41,
+    67,
+    89,
+    127,
+    149
+   ],
+   "uniform error bound err_K (form units, norm 1)": 0.2819117290641645,
+   "overlap closed form vs quadrature (mp)": "3.4205e-31",
+   "scan_seconds": 0.8686299324035645,
+   "zeta": {
+    "min lambda_min (float64)": 0.19881014753046639,
+    "at t": 101561.575,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 3.3320003018321365,
+    "heights with lambda_min < 0": 0
+   },
+   "DEL": {
+    "min lambda_min (float64)": 0.48973865996634797,
+    "at t": 101579.025,
+    "heights with lambda_min < -err_K": 0,
+    "fraction": 0.0,
+    "median lambda_min": 5.018894994414372,
+    "heights with lambda_min < 0": 0,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "101579.025",
+     "P = floor(t^0.75)": 5689,
+     "norm(h_0')/norm(h_0)": "0.80651151",
+     "form value for the control (norm 1)": "0.476090877975854",
+     "form value for zeta, same vector": "1.80748950230268",
+     "Lg": "9.69071528",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.1030743102607364,
+     "violates (M) with the error term": false,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       0.6642288608936626,
+       0.0
+      ],
+      [
+       -4.440892098500626e-16,
+       -0.6329794349931115
+      ],
+      [
+       0.2807023637547495,
+       -1.9038590148845458e-16
+      ],
+      [
+       -3.8163916471489756e-17,
+       -0.14798604748761723
+      ],
+      [
+       0.14904956373870426,
+       -1.3357370765021415e-16
+      ],
+      [
+       1.3877787807814457e-17,
+       -0.18769015827288293
+      ]
+     ]
+    }
+   },
+   "THIN": {
+    "min lambda_min (float64)": -4.144291538232021,
+    "at t": 101143.825,
+    "heights with lambda_min < -err_K": 718,
+    "fraction": 0.01795,
+    "median lambda_min": 3.6963134923611847,
+    "heights with lambda_min < 0": 838,
+    "30-digit re-evaluation at the minimiser": {
+     "t": "101143.825",
+     "P = floor(t^0.75)": 5671,
+     "norm(h_0')/norm(h_0)": "0.60666855",
+     "form value for the control (norm 1)": "-4.15277085138352",
+     "form value for zeta, same vector": "3.25061090411283",
+     "Lg": "9.686421726",
+     "error bound (|E_M| + E_0 n')/Lg for this vector": 0.07775590821068618,
+     "violates (M) with the error term": true,
+     "zeta passes on this vector": true,
+     "coefficients c_k (float64 eigenvector)": [
+      [
+       0.8631512749170173,
+       0.0
+      ],
+      [
+       -1.1102230246251565e-16,
+       -0.42818255649805687
+      ],
+      [
+       0.1581747037377919,
+       -8.673617379884035e-19
+      ],
+      [
+       5.551115123125783e-17,
+       -0.15863281180897926
+      ],
+      [
+       0.09169360909184042,
+       1.1188966420050406e-16
+      ],
+      [
+       2.710505431213761e-17,
+       -0.11418516141192624
+      ]
+     ]
+    }
+   }
+  }
+ }
+}

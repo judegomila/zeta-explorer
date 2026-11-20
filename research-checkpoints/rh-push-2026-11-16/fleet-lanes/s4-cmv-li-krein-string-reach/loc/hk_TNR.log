@@ -1,0 +1,3 @@
+TNR M 400 prec 14000 moments 16.7 s;  s_0 = [0.6209475866177817405510958 +/- 2.50e-26]
+  base: {"n_coeff": 399, "first_negative": 3, "negatives_head": [3, 5, 9, 11, 15, 17, 25, 27, 39, 41, 50, 52], "n_negative": 62}
+DONE TNR 17.5

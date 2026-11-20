@@ -1,0 +1,6 @@
+A heat-2 a=0.05 d=0.1                        n=580 top=57.9 pmin=-2.318e+01 | n=600 top=59.9 pmin=-2.342e+01 | n=620 top=61.9 pmin=-2.361e+01 | n=640 top=63.9 pmin=-2.369e+01  pmax 0.972795 cond 5.2e+02  [454s]
+A heat-2 a=0.2 d=0.1                         n=580 top=57.9 pmin=-1.807e+01 | n=600 top=59.9 pmin=-1.812e+01 | n=620 top=61.9 pmin=-2.830e+01 | n=640 top=63.9 pmin=-4.003e+01  pmax 0.998284 cond 5.2e+02  [255s]
+A heat-0.2 a=0.05 d=0.1                      n=580 top=57.9 pmin=-4.725e-15 | n=600 top=59.9 pmin=-4.336e-15 | n=620 top=61.9 pmin=-5.168e-15 | n=640 top=63.9 pmin=-4.110e-15  pmax 0.972468 cond 5.2e+02  [231s]
+A heat-0.2 a=0.2 d=0.1                       n=580 top=57.9 pmin=-9.400e-15 | n=600 top=59.9 pmin=-8.466e-15 | n=620 top=61.9 pmin=-9.061e-15 | n=640 top=63.9 pmin=-1.076e-14  pmax 0.998290 cond 5.2e+02  [196s]
+A heat0.05 a=0.05 d=0.1                      n=580 top=57.9 pmin=-4.435e-15 | n=600 top=59.9 pmin=-3.897e-15 | n=620 top=61.9 pmin=-4.359e-15 | n=640 top=63.9 pmin=-3.811e-15  pmax 0.972825 cond 5.2e+02  [166s]
+A heat0.05 a=0.2 d=0.1                       n=580 top=57.9 pmin=-7.429e-15 | n=600 top=59.9 pmin=-7.292e-15 | n=620 top=61.9 pmin=-8.397e-15 | n=640 top=63.9 pmin=-8.279e-15  pmax 0.998292 cond 5.2e+02  [165s]

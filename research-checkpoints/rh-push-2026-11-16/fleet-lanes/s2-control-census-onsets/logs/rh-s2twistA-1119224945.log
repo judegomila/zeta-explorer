@@ -1,0 +1,7 @@
+part arms: 220 objects, NB=170 AMAX=3 NMAX=406
+0 q5.0.L None None 1s
+100 q35.4.L None None 23s
+200 q48.0.L None None 35s
+done 38s
+dh: 60786 discriminants, 304 chunks, T1=2.5 SG=0.15
+0 304 32s

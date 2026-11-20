@@ -1,0 +1,23 @@
+14:04:59 sieve to 1e+09: planned memory about 2.84 GB
+14:05:06 prime powers 50851223
+14:05:24 L4             x0=100.37 c=1.2  |dM0| 2.12e-06  |dM-| 2.91e-11  Burgers 1.7e-05/3.1e-01  |dM+| 8.85e-01 (strip part 8.85e-01)  0s
+14:05:24 L4             x0=100.37 c=2.0  |dM0| 2.38e-10  |dM-| 4.53e-15  Burgers 1.3e-05/6.4e-02  |dM+| 3.44e-02 (strip part 3.44e-02)  0s
+14:05:24 L5             x0=100.37 c=1.2  |dM0| 1.08e-06  |dM-| 1.26e-10  Burgers 1.0e-05/3.9e-01  |dM+| 1.05e+00 (strip part 1.05e+00)  0s
+14:05:24 L5             x0=100.37 c=2.0  |dM0| 3.25e-10  |dM-| 3.99e-14  Burgers 1.0e-05/2.4e-01  |dM+| 4.55e-02 (strip part 4.55e-02)  0s
+14:05:24 DH             x0=100.37 c=1.2  |dM0| 2.21e-06  |dM-| 5.13e-10  Burgers 1.7e-05/7.4e-01  |dM+| 6.29e-01 (strip part 6.29e-01)  0s
+14:05:25 DH             x0=100.37 c=2.0  |dM0| 6.89e-10  |dM-| 1.02e-13  Burgers 1.4e-05/2.1e-01  |dM+| 2.27e-02 (strip part 2.27e-02)  0s
+14:05:25 x0=100.37 kernel 18s
+14:05:43 L4             x0=1000.37 c=1.2  |dM0| 5.07e-07  |dM-| 4.37e-10  Burgers 9.9e-06/7.3e-01  |dM+| 7.33e-01 (strip part 7.33e-01)  0s
+14:05:43 L4             x0=1000.37 c=2.0  |dM0| 2.11e-10  |dM-| 1.39e-13  Burgers 7.4e-06/3.1e-01  |dM+| 2.10e-02 (strip part 2.10e-02)  0s
+14:05:43 L5             x0=1000.37 c=1.2  |dM0| 1.64e-06  |dM-| 4.54e-10  Burgers 5.1e-06/4.2e-01  |dM+| 7.11e-01 (strip part 7.11e-01)  0s
+14:05:44 L5             x0=1000.37 c=2.0  |dM0| 3.66e-10  |dM-| 1.22e-13  Burgers 6.6e-06/1.9e-01  |dM+| 1.83e-02 (strip part 1.83e-02)  0s
+14:05:44 DH             x0=1000.37 c=1.2  |dM0| 2.94e-06  |dM-| 1.43e-09  Burgers 9.3e-06/4.2e-01  |dM+| 5.84e-01 (strip part 5.84e-01)  0s
+14:05:45 DH             x0=1000.37 c=2.0  |dM0| 7.71e-10  |dM-| 3.38e-13  Burgers 9.5e-06/2.1e-01  |dM+| 1.51e-02 (strip part 1.51e-02)  0s
+14:05:45 x0=1000.37 kernel 18s
+14:06:04 L4             x0=10000.4 c=1.2  |dM0| 2.42e-06  |dM-| 2.42e-09  Burgers 1.2e-04/2.0e+00  |dM+| 3.84e-01 (strip part 3.84e-01)  1s
+14:06:04 L4             x0=10000.4 c=2.0  |dM0| 3.16e-10  |dM-| 6.87e-13  Burgers 2.3e-05/7.0e-01  |dM+| 7.18e-03 (strip part 7.18e-03)  1s
+14:06:06 L5             x0=10000.4 c=1.2  |dM0| 1.83e-06  |dM-| 7.89e-10  Burgers 2.2e-05/8.5e-01  |dM+| 5.00e-01 (strip part 5.00e-01)  2s
+14:06:07 L5             x0=10000.4 c=2.0  |dM0| 2.13e-10  |dM-| 2.80e-13  Burgers 1.3e-05/3.7e-01  |dM+| 9.33e-03 (strip part 9.33e-03)  1s
+14:06:10 DH             x0=10000.4 c=1.2  |dM0| 4.02e-07  |dM-| 3.76e-10  Burgers 7.5e-05/2.0e+00  |dM+| 5.59e-01 (strip part 5.59e-01)  3s
+14:06:13 DH             x0=10000.4 c=2.0  |dM0| 9.67e-11  |dM-| 4.12e-14  Burgers 1.8e-05/9.4e-01  |dM+| 9.58e-03 (strip part 9.58e-03)  3s
+14:06:13 x0=10000.4 kernel 18s

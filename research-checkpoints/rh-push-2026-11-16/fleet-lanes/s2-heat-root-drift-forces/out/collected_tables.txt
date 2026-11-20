@@ -1,0 +1,303 @@
+## combo1 exact (heights below 2000)
+ZETA n 1517 first offline None dgamma/dtau first3 [-0.2898, -0.3775, -0.2929]
+  X=100 sharp | all: corr 0.763 slope 1.301 | <85: corr 0.415 (n=23) | <200: 0.591 | <1000: 0.813 | std_E 1.89 std_V 1.11
+  X=100 fejer | all: corr 0.802 slope 0.594 | <85: corr 0.994 (n=23) | <200: 0.989 | <1000: 0.913 | std_E 0.822 std_V 1.11
+  X=100 cos2  | all: corr 0.762 slope 0.583 | <85: corr 0.991 (n=23) | <200: 0.989 | <1000: 0.878 | std_E 0.851 std_V 1.11
+  X=10000 sharp | all: corr 0.680 slope 1.069 | <85: corr 0.703 (n=23) | <200: 0.508 | <1000: 0.658 | std_E 1.75 std_V 1.11
+  X=10000 fejer | all: corr 0.926 slope 0.876 | <85: corr 0.998 (n=23) | <200: 0.994 | <1000: 0.990 | std_E 1.05 std_V 1.11
+  X=10000 cos2  | all: corr 0.912 slope 1.000 | <85: corr 1.000 (n=23) | <200: 0.996 | <1000: 0.984 | std_E 1.22 std_V 1.11
+  X=1e+06 sharp | all: corr 0.650 slope 0.989 | <85: corr 0.358 (n=23) | <200: 0.521 | <1000: 0.616 | std_E 1.69 std_V 1.11
+  X=1e+06 fejer | all: corr 0.960 slope 0.931 | <85: corr 0.999 (n=23) | <200: 0.998 | <1000: 0.993 | std_E 1.08 std_V 1.11
+  X=1e+06 cos2  | all: corr 0.949 slope 1.050 | <85: corr 1.000 (n=23) | <200: 1.000 | <1000: 0.990 | std_E 1.23 std_V 1.11
+  X=1e+08 sharp | all: corr 0.669 slope 1.026 | <85: corr 0.610 (n=23) | <200: 0.613 | <1000: 0.538 | std_E 1.7 std_V 1.11
+  X=1e+08 fejer | all: corr 0.978 slope 0.945 | <85: corr 0.999 (n=23) | <200: 0.999 | <1000: 0.997 | std_E 1.07 std_V 1.11
+  X=1e+08 cos2  | all: corr 0.970 slope 1.042 | <85: corr 1.000 (n=23) | <200: 1.000 | <1000: 0.992 | std_E 1.19 std_V 1.11
+DH n 1861 first offline 85.6993484853776 dgamma/dtau first3 [-0.301, -0.3589, -0.4353]
+  X=100 sharp | all: corr 0.251 slope 0.160 | <85: corr 0.739 (n=43) | <200: 0.760 | <1000: 0.592 | std_E 2.18 std_V 3.41
+  X=100 fejer | all: corr 0.263 slope 0.057 | <85: corr 0.963 (n=43) | <200: 0.953 | <1000: 0.629 | std_E 0.738 std_V 3.41
+  X=100 cos2  | all: corr 0.242 slope 0.051 | <85: corr 0.916 (n=43) | <200: 0.926 | <1000: 0.588 | std_E 0.724 std_V 3.41
+  X=10000 sharp | all: corr 0.158 slope 0.151 | <85: corr 0.292 (n=43) | <200: 0.346 | <1000: 0.344 | std_E 3.26 std_V 3.41
+  X=10000 fejer | all: corr 0.330 slope 0.109 | <85: corr 0.995 (n=43) | <200: 0.985 | <1000: 0.749 | std_E 1.13 std_V 3.41
+  X=10000 cos2  | all: corr 0.322 slope 0.124 | <85: corr 0.990 (n=43) | <200: 0.987 | <1000: 0.743 | std_E 1.32 std_V 3.41
+  X=1e+06 sharp | all: corr 0.061 slope 0.198 | <85: corr 0.290 (n=43) | <200: 0.194 | <1000: 0.079 | std_E 11.1 std_V 3.41
+  X=1e+06 fejer | all: corr 0.334 slope 0.128 | <85: corr 0.974 (n=43) | <200: 0.962 | <1000: 0.755 | std_E 1.31 std_V 3.41
+  X=1e+06 cos2  | all: corr 0.352 slope 0.141 | <85: corr 0.997 (n=43) | <200: 0.997 | <1000: 0.780 | std_E 1.37 std_V 3.41
+  X=1e+08 sharp | all: corr 0.015 slope 0.228 | <85: corr -0.099 (n=43) | <200: 0.014 | <1000: 0.012 | std_E 52.4 std_V 3.41
+  X=1e+08 fejer | all: corr 0.243 slope 0.138 | <85: corr 0.887 (n=43) | <200: 0.814 | <1000: 0.544 | std_E 1.94 std_V 3.41
+  X=1e+08 cos2  | all: corr 0.352 slope 0.151 | <85: corr 0.999 (n=43) | <200: 0.999 | <1000: 0.782 | std_E 1.46 std_V 3.41
+TNR n 1517 first offline 2.859600867380127 dgamma/dtau first3 [-1.1344, 0.3773, -1.2723]
+  X=100 sharp | all: corr 0.664 slope 2.409 | <85: corr 0.749 (n=23) | <200: 0.652 | <1000: 0.691 | std_E 7.02 std_V 1.93
+  X=100 fejer | all: corr 0.898 slope 1.118 | <85: corr 0.972 (n=23) | <200: 0.967 | <1000: 0.947 | std_E 2.41 std_V 1.93
+  X=100 cos2  | all: corr 0.894 slope 1.148 | <85: corr 0.979 (n=23) | <200: 0.974 | <1000: 0.945 | std_E 2.48 std_V 1.93
+  X=10000 sharp | all: corr 0.191 slope 3.634 | <85: corr -0.251 (n=23) | <200: 0.227 | <1000: 0.254 | std_E 36.9 std_V 1.93
+  X=10000 fejer | all: corr 0.545 slope 2.019 | <85: corr 0.347 (n=23) | <200: 0.630 | <1000: 0.596 | std_E 7.17 std_V 1.93
+  X=10000 cos2  | all: corr 0.671 slope 2.100 | <85: corr 0.676 (n=23) | <200: 0.740 | <1000: 0.705 | std_E 6.06 std_V 1.93
+  X=1e+06 sharp | all: corr 0.010 slope 1.101 | <85: corr 0.275 (n=23) | <200: -0.062 | <1000: -0.022 | std_E 220 std_V 1.93
+  X=1e+06 fejer | all: corr 0.177 slope 2.726 | <85: corr 0.177 (n=23) | <200: 0.079 | <1000: 0.174 | std_E 29.8 std_V 1.93
+  X=1e+06 cos2  | all: corr 0.300 slope 2.961 | <85: corr 0.111 (n=23) | <200: 0.287 | <1000: 0.332 | std_E 19.1 std_V 1.93
+  X=1e+08 sharp | all: corr -0.003 slope -2.238 | <85: corr -0.058 (n=23) | <200: -0.116 | <1000: 0.002 | std_E 1.3e+03 std_V 1.93
+  X=1e+08 fejer | all: corr 0.017 slope 1.271 | <85: corr 0.012 (n=23) | <200: -0.178 | <1000: -0.015 | std_E 145 std_V 1.93
+  X=1e+08 cos2  | all: corr 0.066 slope 2.539 | <85: corr 0.112 (n=23) | <200: -0.125 | <1000: 0.022 | std_E 74.7 std_V 1.93
+## combo1 lists
+c1_list_LCHI.json height [6.1835781954506075, 487079.01316300005] count 920000 V_std 3.169
+  X=10000 sharp corr 0.6875 slope 0.932 std_E 4.3 | deciles min 0.662 max 0.711 | id-check None
+  X=10000 fejer corr 0.6818 slope 0.370 std_E 1.72 | deciles min 0.649 max 0.739 | id-check None
+  X=10000 cos2  corr 0.6369 slope 0.348 std_E 1.73 | deciles min 0.603 max 0.700 | id-check None
+  X=1e+06 sharp corr 0.6993 slope 1.021 std_E 4.62 | deciles min 0.686 max 0.723 | id-check None
+  X=1e+06 fejer corr 0.7907 slope 0.594 std_E 2.38 | deciles min 0.760 max 0.829 | id-check None
+  X=1e+06 cos2  corr 0.7586 slope 0.614 std_E 2.57 | deciles min 0.727 max 0.802 | id-check None
+  X=1e+08 sharp corr 0.6985 slope 1.017 std_E 4.61 | deciles min 0.684 max 0.716 | id-check None
+  X=1e+08 fejer corr 0.8469 slope 0.699 std_E 2.62 | deciles min 0.819 max 0.873 | id-check None
+  X=1e+08 cos2  corr 0.8219 slope 0.770 std_E 2.97 | deciles min 0.792 max 0.853 | id-check None
+c1_list_LCHIBAR.json height [6.1835781954506075, 487079.01316300005] count 920000 V_std 3.169
+  X=10000 sharp corr -0.0441 slope -0.062 std_E 4.49 | deciles min -0.052 max -0.041 | id-check None
+  X=10000 fejer corr -0.0840 slope -0.046 std_E 1.75 | deciles min -0.101 max -0.078 | id-check None
+  X=10000 cos2  corr -0.0903 slope -0.050 std_E 1.75 | deciles min -0.108 max -0.083 | id-check None
+  X=1e+06 sharp corr -0.0203 slope -0.044 std_E 6.81 | deciles min -0.035 max -0.010 | id-check None
+  X=1e+06 fejer corr -0.0603 slope -0.051 std_E 2.71 | deciles min -0.070 max -0.057 | id-check None
+  X=1e+06 cos2  corr -0.0652 slope -0.056 std_E 2.73 | deciles min -0.077 max -0.060 | id-check None
+  X=1e+08 sharp corr -0.0228 slope -0.062 std_E 8.58 | deciles min -0.027 max -0.019 | id-check None
+  X=1e+08 fejer corr -0.0465 slope -0.053 std_E 3.64 | deciles min -0.055 max -0.042 | id-check None
+  X=1e+08 cos2  corr -0.0495 slope -0.058 std_E 3.7 | deciles min -0.058 max -0.046 | id-check None
+c1_list_TNR_1e9.json height [1000003326.9466927, 1000336024.5760895] count 1000000 V_std 5.267
+  X=10000 sharp corr 0.1278 slope 0.842 std_E 36.2 | deciles min 0.124 max 0.132 | id-check None
+  X=10000 fejer corr 0.2849 slope 0.365 std_E 7.03 | deciles min 0.277 max 0.291 | id-check None
+  X=10000 cos2  corr 0.3274 slope 0.355 std_E 5.94 | deciles min 0.318 max 0.334 | id-check None
+  X=1e+06 sharp corr 0.0357 slope 1.372 std_E 211 | deciles min 0.033 max 0.039 | id-check None
+  X=1e+06 fejer corr 0.1176 slope 0.611 std_E 28.5 | deciles min 0.115 max 0.120 | id-check None
+  X=1e+06 cos2  corr 0.1767 slope 0.596 std_E 18.5 | deciles min 0.173 max 0.180 | id-check None
+  X=1e+08 sharp corr 0.0090 slope 2.041 std_E 1.24e+03 | deciles min 0.003 max 0.013 | id-check None
+  X=1e+08 fejer corr 0.0346 slope 0.861 std_E 136 | deciles min 0.031 max 0.038 | id-check None
+  X=1e+08 cos2  corr 0.0657 slope 0.846 std_E 70.7 | deciles min 0.062 max 0.068 | id-check None
+c1_list_TNR_first.json height [14.134725141734695, 600269.6770124449] count 1000000 V_std 2.854
+  X=10000 sharp corr 0.1713 slope 1.928 std_E 36.6 | deciles min 0.163 max 0.179 | id-check None
+  X=10000 fejer corr 0.4236 slope 0.928 std_E 7.12 | deciles min 0.401 max 0.476 | id-check None
+  X=10000 cos2  corr 0.5003 slope 0.927 std_E 6.03 | deciles min 0.473 max 0.571 | id-check None
+  X=1e+06 sharp corr 0.0369 slope 2.427 std_E 214 | deciles min 0.028 max 0.043 | id-check None
+  X=1e+06 fejer corr 0.1514 slope 1.348 std_E 28.9 | deciles min 0.140 max 0.161 | id-check None
+  X=1e+06 cos2  corr 0.2405 slope 1.389 std_E 18.8 | deciles min 0.225 max 0.260 | id-check None
+  X=1e+08 sharp corr 0.0073 slope 2.818 std_E 1.26e+03 | deciles min 0.003 max 0.010 | id-check None
+  X=1e+08 fejer corr 0.0382 slope 1.627 std_E 138 | deciles min 0.033 max 0.043 | id-check None
+  X=1e+08 cos2  corr 0.0783 slope 1.725 std_E 71.7 | deciles min 0.073 max 0.085 | id-check None
+c1_list_ZETA_1e6.json height [1001497.4863216185, 1516475.432170655] count 1000000 V_std 3.266
+  X=10000 sharp corr 0.6961 slope 0.930 std_E 4.36 | deciles min 0.669 max 0.716 | id-check 0.9999990189627048
+  X=10000 fejer corr 0.6881 slope 0.375 std_E 1.78 | deciles min 0.662 max 0.706 | id-check None
+  X=10000 cos2  corr 0.6428 slope 0.355 std_E 1.8 | deciles min 0.619 max 0.659 | id-check None
+  X=1e+06 sharp corr 0.7183 slope 1.074 std_E 4.88 | deciles min 0.691 max 0.741 | id-check 0.9999959318500422
+  X=1e+06 fejer corr 0.7987 slope 0.603 std_E 2.46 | deciles min 0.768 max 0.821 | id-check None
+  X=1e+06 cos2  corr 0.7662 slope 0.620 std_E 2.64 | deciles min 0.737 max 0.787 | id-check None
+  X=1e+08 sharp corr 0.7122 slope 1.045 std_E 4.79 | deciles min 0.686 max 0.733 | id-check 0.9999703696796238
+  X=1e+08 fejer corr 0.8556 slope 0.714 std_E 2.72 | deciles min 0.823 max 0.880 | id-check None
+  X=1e+08 cos2  corr 0.8304 slope 0.782 std_E 3.08 | deciles min 0.799 max 0.854 | id-check None
+c1_list_ZETA_1e9.json height [1000003326.9466927, 1000336024.5760895] count 1000000 V_std 5.267
+  X=10000 sharp corr 0.5735 slope 0.492 std_E 4.52 | deciles min 0.556 max 0.587 | id-check 0.9999984340321983
+  X=10000 fejer corr 0.5225 slope 0.177 std_E 1.79 | deciles min 0.507 max 0.534 | id-check None
+  X=10000 cos2  corr 0.4734 slope 0.162 std_E 1.81 | deciles min 0.459 max 0.484 | id-check None
+  X=1e+06 sharp corr 0.6784 slope 0.856 std_E 6.65 | deciles min 0.660 max 0.694 | id-check 0.9999925797240737
+  X=1e+06 fejer corr 0.6663 slope 0.345 std_E 2.73 | deciles min 0.647 max 0.682 | id-check None
+  X=1e+06 cos2  corr 0.6220 slope 0.327 std_E 2.77 | deciles min 0.604 max 0.636 | id-check None
+  X=1e+08 sharp corr 0.7162 slope 1.046 std_E 7.7 | deciles min 0.698 max 0.733 | id-check 0.9999962488400779
+  X=1e+08 fejer corr 0.7489 slope 0.502 std_E 3.53 | deciles min 0.729 max 0.766 | id-check None
+  X=1e+08 cos2  corr 0.7128 slope 0.498 std_E 3.68 | deciles min 0.693 max 0.729 | id-check None
+c1_list_ZETA_4e7.json height [42254010.04992627, 42653549.760951556] count 1000000 V_std 4.474
+  X=10000 sharp corr 0.6083 slope 0.614 std_E 4.51 | deciles min 0.532 max 0.649 | id-check 0.9999970852108195
+  X=10000 fejer corr 0.5731 slope 0.229 std_E 1.79 | deciles min 0.501 max 0.611 | id-check None
+  X=10000 cos2  corr 0.5250 slope 0.212 std_E 1.81 | deciles min 0.459 max 0.560 | id-check None
+  X=1e+06 sharp corr 0.6891 slope 0.955 std_E 6.2 | deciles min 0.604 max 0.735 | id-check 0.9999987692499478
+  X=1e+06 fejer corr 0.7013 slope 0.421 std_E 2.68 | deciles min 0.614 max 0.748 | id-check None
+  X=1e+06 cos2  corr 0.6632 slope 0.408 std_E 2.75 | deciles min 0.580 max 0.707 | id-check None
+  X=1e+08 sharp corr 0.6887 slope 0.965 std_E 6.27 | deciles min 0.605 max 0.732 | id-check 0.9999938270647218
+  X=1e+08 fejer corr 0.7710 slope 0.561 std_E 3.25 | deciles min 0.676 max 0.822 | id-check None
+  X=1e+08 cos2  corr 0.7403 slope 0.582 std_E 3.52 | deciles min 0.648 max 0.789 | id-check None
+c1_list_ZETA_first.json height [14.134725141734695, 600269.6770124449] count 1000000 V_std 2.854
+  X=10000 sharp corr 0.7025 slope 1.006 std_E 4.09 | deciles min 0.662 max 0.737 | id-check 0.9581409209721445
+  X=10000 fejer corr 0.7156 slope 0.438 std_E 1.75 | deciles min 0.671 max 0.790 | id-check None
+  X=10000 cos2  corr 0.6754 slope 0.424 std_E 1.79 | deciles min 0.633 max 0.756 | id-check None
+  X=1e+06 sharp corr 0.6952 slope 1.003 std_E 4.12 | deciles min 0.656 max 0.715 | id-check 0.9561156167722766
+  X=1e+06 fejer corr 0.8121 slope 0.637 std_E 2.24 | deciles min 0.763 max 0.867 | id-check None
+  X=1e+06 cos2  corr 0.7837 slope 0.679 std_E 2.47 | deciles min 0.736 max 0.844 | id-check None
+  X=1e+08 sharp corr 0.6946 slope 1.000 std_E 4.11 | deciles min 0.660 max 0.714 | id-check 0.9563449628623742
+  X=1e+08 fejer corr 0.8605 slope 0.728 std_E 2.41 | deciles min 0.811 max 0.904 | id-check None
+  X=1e+08 cos2  corr 0.8391 slope 0.809 std_E 2.75 | deciles min 0.789 max 0.888 | id-check None
+## combo2 float64 N=20000
+c2_first_prime.json
+   ZETA      t=0.1      prime  N=20000 lam_min -2.600e-12 lam_max 7.377e-09 rank 9999 | r_nodes=118 p_max_used=224737.0
+   ZETA      t=0.01     prime  N=20000 lam_min -2.488e-12 lam_max 4.807e-01 rank 20 | r_nodes=369 p_max_used=224737.0
+   ZETA      t=0.001    prime  N=20000 lam_min -1.746e-12 lam_max 4.838e+00 rank 110 | r_nodes=1164 p_max_used=224737.0
+   ZETA      t=0.0001   prime  N=20000 lam_min -5.147e-13 lam_max 2.680e+01 rank 491 | r_nodes=3677 p_max_used=224737.0
+   ZETA      t=1e-05    prime  N=20000 lam_min -2.870e-13 lam_max 1.325e+02 rank 1943 | r_nodes=11625 p_max_used=224737.0
+   ZETA      t=1e-06    prime  N=20000 lam_min -1.456e-13 lam_max 5.779e+02 rank 5330 | r_nodes=36757 p_max_used=224737.0
+c2_first_prime_DH.json
+   DH        t=0.1      prime  N=20000 lam_min -1.738e-14 lam_max 2.398e-01 rank 8 | r_nodes=118 p_max_used=224737.0
+   DH        t=0.03     prime  N=20000 lam_min -1.530e-14 lam_max 1.571e+00 rank 20 | r_nodes=214 p_max_used=224737.0
+   DH        t=0.01     prime  N=20000 lam_min -1.517e-14 lam_max 3.240e+00 rank 42 | r_nodes=369 p_max_used=224737.0
+   DH        t=0.005    prime  N=20000 lam_min -1.164e-14 lam_max 4.517e+00 rank 68 | r_nodes=521 p_max_used=224737.0
+   DH        t=0.003    prime  N=20000 lam_min -1.013e-09 lam_max 5.838e+00 rank 90 | r_nodes=673 p_max_used=224737.0
+   DH        t=0.001    prime  N=20000 lam_min -2.532e-03 lam_max 1.115e+01 rank 177 | r_nodes=1164 p_max_used=224737.0
+   DH        t=0.0001   prime  N=20000 lam_min -2.805e+00 lam_max 4.975e+01 rank 691 | r_nodes=3677 p_max_used=224737.0
+   DH        t=1e-05    prime  N=20000 lam_min -4.950e+00 lam_max 2.058e+02 rank 2242 | r_nodes=11625 p_max_used=224737.0
+c2_first_prime_EA.json
+   EA-1/4    t=0.01     prime  N=20000 lam_min -1.068e+00 lam_max 2.034e+00 rank 40 | r_nodes=369 p_max_used=224737.0
+   EA-1/4    t=0.0001   prime  N=20000 lam_min -1.367e+01 lam_max 6.749e+01 rank 479 | r_nodes=3677 p_max_used=224737.0
+c2_first_prime_ZETA.json
+   ZETA      t=0.1      prime  N=20000 lam_min -2.600e-12 lam_max 7.377e-09 rank 9999 | r_nodes=118 p_max_used=224737.0
+   ZETA      t=0.01     prime  N=20000 lam_min -2.488e-12 lam_max 4.807e-01 rank 20 | r_nodes=369 p_max_used=224737.0
+   ZETA      t=0.001    prime  N=20000 lam_min -1.746e-12 lam_max 4.838e+00 rank 110 | r_nodes=1164 p_max_used=224737.0
+   ZETA      t=0.0001   prime  N=20000 lam_min -5.147e-13 lam_max 2.680e+01 rank 491 | r_nodes=3677 p_max_used=224737.0
+   ZETA      t=1e-05    prime  N=20000 lam_min -2.870e-13 lam_max 1.325e+02 rank 1943 | r_nodes=11625 p_max_used=224737.0
+   ZETA      t=1e-06    prime  N=20000 lam_min -1.456e-13 lam_max 5.779e+02 rank 5330 | r_nodes=36757 p_max_used=224737.0
+c2_first_prime_ctl.json
+   SGN-LIOU  t=0.1      prime  N=20000 lam_min -1.909e+02 lam_max 1.974e+02 rank 13 | r_nodes=118 p_max_used=224737.0
+   SGN-LIOU  t=0.01     prime  N=20000 lam_min -1.868e+02 lam_max 1.928e+02 rank 80 | r_nodes=369 p_max_used=224737.0
+   SGN-LIOU  t=0.001    prime  N=20000 lam_min -1.853e+02 lam_max 1.934e+02 rank 249 | r_nodes=1164 p_max_used=224737.0
+   SGN-LIOU  t=0.0001   prime  N=20000 lam_min -1.770e+02 lam_max 2.020e+02 rank 721 | r_nodes=3677 p_max_used=224737.0
+   SGN-LIOU  t=1e-05    prime  N=20000 lam_min -1.448e+02 lam_max 2.537e+02 rank 2056 | r_nodes=11625 p_max_used=224737.0
+   TNR       t=0.1      prime  N=20000 lam_min -1.734e+01 lam_max 2.010e+01 rank 8 | r_nodes=118 p_max_used=224737.0
+   TNR       t=0.01     prime  N=20000 lam_min -3.757e+01 lam_max 4.415e+01 rank 34 | r_nodes=369 p_max_used=224737.0
+   TNR       t=0.001    prime  N=20000 lam_min -5.842e+01 lam_max 7.459e+01 rank 150 | r_nodes=1164 p_max_used=224737.0
+   TNR       t=0.0001   prime  N=20000 lam_min -9.026e+01 lam_max 1.493e+02 rank 606 | r_nodes=3677 p_max_used=224737.0
+   TNR       t=1e-05    prime  N=20000 lam_min -1.201e+02 lam_max 3.518e+02 rank 1934 | r_nodes=11625 p_max_used=224737.0
+   LCHI5     t=0.1      prime  N=20000 lam_min -3.567e-15 lam_max 4.434e-02 rank 8 | r_nodes=118 p_max_used=224737.0
+   LCHI5     t=0.01     prime  N=20000 lam_min -7.040e-15 lam_max 2.717e+00 rank 42 | r_nodes=369 p_max_used=224737.0
+   LCHI5     t=0.001    prime  N=20000 lam_min -1.302e-14 lam_max 1.079e+01 rank 182 | r_nodes=1164 p_max_used=224737.0
+   LCHI5     t=0.0001   prime  N=20000 lam_min -3.215e-14 lam_max 4.844e+01 rank 710 | r_nodes=3677 p_max_used=224737.0
+c2_first_variants.json
+   ZETA      t=0.01     nopole N=20000 lam_min -9.797e+01 lam_max 9.270e+01 rank 17 | r_nodes=369 p_max_used=224737.0
+   ZETA      t=0.01     cut    N=20000 lam_min -2.767e-06 lam_max 4.807e-01 rank 21 | r_nodes=369 p_max_used=224737.0
+c2_first_zero.json
+   ZETA      t=0.01     zero   N=20000 lam_min -4.206e-17 lam_max 4.807e-01 rank 20 | n_online=16 n_offline=0
+   ZETA      t=0.0001   zero   N=20000 lam_min -7.499e-16 lam_max 2.680e+01 rank 491 | n_online=399 n_offline=0
+   TNR       t=0.01     zero   N=20000 lam_min -3.757e+01 lam_max 4.415e+01 rank 34 | n_online=16 n_offline=12
+   TNR       t=0.0001   zero   N=20000 lam_min -9.026e+01 lam_max 1.493e+02 rank 606 | n_online=399 n_offline=119
+   EA-1/2    t=0.01     zero   N=20000 lam_min -1.649e+01 lam_max 1.745e+01 rank 20 | n_online=0 n_offline=16
+   EA-1/2    t=0.0001   zero   N=20000 lam_min -3.479e+02 lam_max 4.014e+02 rank 452 | n_online=0 n_offline=399
+c2_first_zero_heat05.json
+   HEAT--0.5 t=0.001    zero   N=20000 lam_min -7.169e-06 lam_max 4.770e+00 rank 106 | n_online=79 n_offline=4
+c2_first_zero_tab.json
+   DH        t=0.1      zero   N=20000 lam_min -4.689e-17 lam_max 2.398e-01 rank 8 | n_online=6 n_offline=0
+   DH        t=0.03     zero   N=20000 lam_min -2.318e-16 lam_max 1.571e+00 rank 20 | n_online=15 n_offline=0
+   DH        t=0.01     zero   N=20000 lam_min -3.495e-16 lam_max 3.240e+00 rank 42 | n_online=32 n_offline=0
+   DH        t=0.005    zero   N=20000 lam_min -4.234e-16 lam_max 4.517e+00 rank 68 | n_online=49 n_offline=1
+   DH        t=0.003    zero   N=20000 lam_min -1.013e-09 lam_max 5.838e+00 rank 90 | n_online=67 n_offline=2
+   DH        t=0.001    zero   N=20000 lam_min -2.532e-03 lam_max 1.115e+01 rank 177 | n_online=134 n_offline=4
+   DH        t=0.0003   zero   N=20000 lam_min -5.531e-01 lam_max 2.425e+01 rank 366 | n_online=280 n_offline=8
+   DH        t=0.0001   zero   N=20000 lam_min -2.805e+00 lam_max 4.975e+01 rank 691 | n_online=535 n_offline=18
+   DH        t=3e-05    zero   N=20000 lam_min -3.997e+00 lam_max 1.053e+02 rank 1355 | n_online=1086 n_offline=38
+   DH        t=1.2e-05  zero   N=20000 lam_min -4.705e+00 lam_max 1.843e+02 rank 2084 | n_online=1819 n_offline=80
+   HEAT--0.1 t=0.1      zero   N=20000 lam_min -1.554e-24 lam_max 6.804e-09 rank 4 | n_online=2 n_offline=0
+   HEAT--0.1 t=0.03     zero   N=20000 lam_min -1.191e-18 lam_max 8.540e-03 rank 8 | n_online=6 n_offline=0
+   HEAT--0.1 t=0.01     zero   N=20000 lam_min -4.842e-17 lam_max 4.771e-01 rank 20 | n_online=16 n_offline=0
+   HEAT--0.1 t=0.005    zero   N=20000 lam_min -1.111e-16 lam_max 1.358e+00 rank 34 | n_online=28 n_offline=0
+   HEAT--0.1 t=0.003    zero   N=20000 lam_min -1.718e-16 lam_max 2.192e+00 rank 50 | n_online=40 n_offline=0
+   HEAT--0.1 t=0.001    zero   N=20000 lam_min -3.224e-16 lam_max 4.825e+00 rank 110 | n_online=87 n_offline=0
+   HEAT--0.1 t=0.0003   zero   N=20000 lam_min -2.826e-16 lam_max 1.182e+01 rank 245 | n_online=196 n_offline=0
+   HEAT--0.1 t=0.0001   zero   N=20000 lam_min -1.101e-10 lam_max 2.677e+01 rank 488 | n_online=391 n_offline=4
+   HEAT--0.1 t=3e-05    zero   N=20000 lam_min -1.664e-05 lam_max 6.297e+01 rank 1006 | n_online=823 n_offline=11
+   HEAT--0.1 t=1.2e-05  zero   N=20000 lam_min -2.730e-03 lam_max 1.173e+02 rank 1719 | n_online=1400 n_offline=39
+   HEAT--0.5 t=0.1      zero   N=20000 lam_min -9.292e-25 lam_max 4.907e-09 rank 4 | n_online=2 n_offline=0
+   HEAT--0.5 t=0.03     zero   N=20000 lam_min -1.083e-18 lam_max 7.763e-03 rank 8 | n_online=6 n_offline=0
+   HEAT--0.5 t=0.01     zero   N=20000 lam_min -4.624e-17 lam_max 4.628e-01 rank 20 | n_online=16 n_offline=0
+   HEAT--0.5 t=0.005    zero   N=20000 lam_min -1.305e-16 lam_max 1.336e+00 rank 34 | n_online=28 n_offline=0
+   HEAT--0.5 t=0.003    zero   N=20000 lam_min -2.191e-16 lam_max 2.164e+00 rank 50 | n_online=38 n_offline=1
+   HEAT--0.5 0.001 zero ERROR OutOfMemoryError('Out of memory allocating 9,601,520,640 bytes (allocated so far: 9,600,161,280 byte
+   HEAT--0.5 t=0.0003   zero   N=20000 lam_min -4.720e-02 lam_max 1.174e+01 rank 235 | n_online=167 n_offline=14
+   HEAT--0.5 t=0.0001   zero   N=20000 lam_min -6.345e-01 lam_max 2.693e+01 rank 448 | n_online=317 n_offline=41
+   HEAT--0.5 t=3e-05    zero   N=20000 lam_min -3.923e+00 lam_max 6.520e+01 rank 907 | n_online=576 n_offline=129
+   HEAT--0.5 t=1.2e-05  zero   N=20000 lam_min -1.295e+01 lam_max 1.269e+02 rank 1457 | n_online=912 n_offline=266
+c2_log7_prime.json
+   ZETA      t=0.001    prime  N=20000 lam_min -4.173e-13 lam_max 4.730e+00 rank 110 | r_nodes=1293 p_max_used=9999991.0
+   ZETA      t=1e-05    prime  N=20000 lam_min -1.452e-13 lam_max 1.323e+02 rank 1892 | r_nodes=12920 p_max_used=9999991.0
+   DH        t=0.001    prime  N=20000 lam_min -1.454e-03 lam_max 1.100e+01 rank 176 | r_nodes=1293 p_max_used=9999991.0
+   DH        t=1e-05    prime  N=20000 lam_min -2.410e+00 lam_max 2.045e+02 rank 2423 | r_nodes=12920 p_max_used=9999991.0
+## combo2 exact
+   DH        t=0.01 N=300 prec=4000 n*=107 p*=587 decided=265 neg=8 first_off=85.6993484853776 log10|pivot|=-57.33904474117174
+   ZETA      t=0.001 N=300 prec=2500 n*=None p*=None decided=272 neg=0 first_off=None log10|pivot|=None
+   DH        t=0.001 N=300 prec=2500 n*=135 p*=761 decided=257 neg=2 first_off=85.6993484853776 log10|pivot|=-17.679671593135357
+   DH        t=0.0001 N=300 prec=2500 n*=164 p*=971 decided=300 neg=2 first_off=85.6993484853776 log10|pivot|=-2.9089630865086655
+   HEAT--0.1 t=0.001 N=700 prec=2500 n*=None p*=None decided=272 neg=0 first_off=415.25627896409037 log10|pivot|=None
+   DH        t=0.1 N=260 prec=20000 n*=87 p*=449 decided=260 neg=8 first_off=85.6993484853776 log10|pivot|=-328.6908291110663
+   HEAT--0.5 t=0.01 N=300 prec=5000 n*=69 p*=347 decided=300 neg=20 first_off=111.69422767246392 log10|pivot|=-56.079031379281695
+   HEAT--0.5 t=0.001 N=400 prec=2500 n*=77 p*=389 decided=272 neg=12 first_off=111.69422767246392 log10|pivot|=-9.532670866920421
+   HEAT--0.5 t=0.1 N=200 prec=30000 n*=69 p*=347 decided=200 neg=12 first_off=111.69422767246392 log10|pivot|=-542.8554652994964
+   HEAT--0.1 t=0.01 N=600 prec=12000 n*=427 p*=2963 decided=572 neg=2 first_off=415.25627896409037 log10|pivot|=-825.279740005736
+## combo3 float64
+c3_w250.json
+   ZETA wmax 251 0.25:+3.3e-02(0;0) 0.4:+1.8e-04(0;0) 0.5:+9.5e-07(0;0) 0.55:+5.4e-08(0;0) 0.6:+1.7e-09(0;0) 0.7:+4.6e-13(0;0) 0.8:+7.1e-15(0;0) 0.9:-1.6e-14(0;3) 1:+1.2e-14(0;0) 1.25:-4.7e-14(0;3) 1.5:-9.5e-15(0;29) 1.75:-4.3e-14(0;92) 2:-3.5e-14(0;91) 2.25:-7.5e-14(0;188) 2.5:-1.6e-13(0;188) 2.75:-2.2e-13(0;188) 3:-3.1e-13(0;218) 3.25:-2.6e-13(0;191) 3.5:-2.7e-13(0;153) 3.75:-3.6e-13(0;194) 4:-2.7e-13(0;170) 4.5:-5.0e-13(0;223) 5:-1.2e-12(0;160) 5.5:-9.0e-13(0;207) 6:-7.4e-13(0;207) 6.5:-2.3e-12(0;191) 7:-1.3e-12(0;197) 7.5:-1.7e-12(0;220) 8:-3.4e-12(0;207) 8.5:-2.1e-12(0;231) 9:-2.1e-12(0;197) 9.2:-4.9e-12(0;0)
+   LCHI5 wmax 251 0.25:+7.0e-01(0;0) 0.4:+2.2e-01(0;0) 0.5:+9.0e-02(0;0) 0.55:+4.3e-02(0;0) 0.6:+2.0e-02(0;0) 0.7:+4.8e-03(0;0) 0.8:+7.6e-04(0;0) 0.9:+4.3e-05(0;0) 1:+2.0e-06(0;0) 1.25:+2.1e-11(0;0) 1.5:-9.6e-16(0;2) 1.75:-2.8e-15(0;2) 2:-1.6e-14(0;0) 2.25:-8.7e-15(0;1) 2.5:-2.4e-14(0;85) 2.75:-3.8e-14(0;112) 3:-2.4e-13(0;176) 3.25:-1.7e-13(0;180) 3.5:-1.9e-13(0;203) 3.75:-2.4e-13(0;168) 4:-1.3e-13(0;175) 4.5:-4.3e-13(0;231) 5:-1.1e-12(0;196) 5.5:-9.0e-13(0;197) 6:-1.1e-12(0;180) 6.5:-2.6e-12(0;197) 7:-1.4e-12(0;175) 7.5:-1.2e-12(0;213) 8:-2.9e-12(0;231) 8.5:-1.8e-12(0;197) 9:-3.5e-12(0;237) 9.2:-3.0e-12(0;231)
+   DH wmax 251 0.25:+9.4e-01(0;0) 0.4:+5.2e-01(0;0) 0.5:+3.0e-01(0;0) 0.55:+2.1e-01(0;0) 0.6:+1.4e-01(0;0) 0.7:+3.7e-02(0;0) 0.8:+6.6e-03(0;0) 0.9:+6.6e-04(0;0) 1:+3.4e-05(0;0) 1.25:+4.8e-10(0;0) 1.5:-1.5e-15(0;0) 1.75:-4.1e-14(0;2) 2:-7.6e-01(2;85) 2.25:-1.3e+00(8;87) 2.5:-2.4e+00(10;241) 2.75:-3.7e+00(10;241) 3:-5.2e+00(10;240) 3.25:-7.5e+00(10;240) 3.5:-1.0e+01(10;240) 3.75:-1.3e+01(10;240) 4:-1.6e+01(10;241) 4.5:-2.7e+01(10;241) 5:-4.3e+01(10;240) 5.5:-6.6e+01(10;240) 6:-9.9e+01(10;241) 6.5:-1.5e+02(12;241) 7:-2.2e+02(10;240) 7.5:-3.2e+02(12;240) 8:-4.8e+02(12;241) 8.5:-7.1e+02(12;241) 9:-1.0e+03(12;240) 9.2:-1.2e+03(12;241)
+   TNR wmax 251 0.25:+2.2e+00(0;0) 0.4:+2.2e+00(0;0) 0.5:+2.2e+00(0;0) 0.55:+2.2e+00(0;0) 0.6:+1.9e-01(0;0) 0.7:-1.9e-01(2;0) 0.8:-2.2e-01(3;0) 0.9:-2.2e-01(4;0) 1:-2.2e-01(6;0) 1.25:-8.8e-01(12;8) 1.5:-9.2e-01(18;4) 1.75:-2.2e+00(35;2) 2:-2.5e+00(62;2) 2.25:-4.6e+00(82;15)
+c3_w250_ZETA_LCHI5_DH.json
+   ZETA wmax 251 0.25:+3.3e-02(0;0) 0.4:+1.8e-04(0;0) 0.5:+9.5e-07(0;0) 0.55:+5.4e-08(0;0) 0.6:+1.7e-09(0;0) 0.7:+4.6e-13(0;0) 0.8:+7.1e-15(0;0) 0.9:-1.6e-14(0;3) 1:+1.2e-14(0;0) 1.25:-4.7e-14(0;3) 1.5:-9.5e-15(0;29) 1.75:-4.3e-14(0;92) 2:-3.5e-14(0;91) 2.25:-7.5e-14(0;188) 2.5:-1.6e-13(0;188) 2.75:-2.2e-13(0;188) 3:-3.1e-13(0;218) 3.25:-2.6e-13(0;191) 3.5:-2.7e-13(0;153) 3.75:-3.6e-13(0;194) 4:-2.7e-13(0;170) 4.5:-5.0e-13(0;223) 5:-1.2e-12(0;160) 5.5:-9.0e-13(0;207) 6:-7.4e-13(0;207) 6.5:-2.3e-12(0;191) 7:-1.3e-12(0;197) 7.5:-1.7e-12(0;220) 8:-3.4e-12(0;207) 8.5:-2.1e-12(0;231) 9:-2.1e-12(0;197) 9.2:-4.9e-12(0;0)
+   LCHI5 wmax 251 0.25:+7.0e-01(0;0) 0.4:+2.2e-01(0;0) 0.5:+9.0e-02(0;0) 0.55:+4.3e-02(0;0) 0.6:+2.0e-02(0;0) 0.7:+4.8e-03(0;0) 0.8:+7.6e-04(0;0) 0.9:+4.3e-05(0;0) 1:+2.0e-06(0;0) 1.25:+2.1e-11(0;0) 1.5:-9.6e-16(0;2) 1.75:-2.8e-15(0;2) 2:-1.6e-14(0;0) 2.25:-8.7e-15(0;1) 2.5:-2.4e-14(0;85) 2.75:-3.8e-14(0;112) 3:-2.4e-13(0;176) 3.25:-1.7e-13(0;180) 3.5:-1.9e-13(0;203) 3.75:-2.4e-13(0;168) 4:-1.3e-13(0;175) 4.5:-4.3e-13(0;231) 5:-1.1e-12(0;196) 5.5:-9.0e-13(0;197) 6:-1.1e-12(0;180) 6.5:-2.6e-12(0;197) 7:-1.4e-12(0;175) 7.5:-1.2e-12(0;213) 8:-2.9e-12(0;231) 8.5:-1.8e-12(0;197) 9:-3.5e-12(0;237) 9.2:-3.0e-12(0;231)
+   DH wmax 251 0.25:+9.4e-01(0;0) 0.4:+5.2e-01(0;0) 0.5:+3.0e-01(0;0) 0.55:+2.1e-01(0;0) 0.6:+1.4e-01(0;0) 0.7:+3.7e-02(0;0) 0.8:+6.6e-03(0;0) 0.9:+6.6e-04(0;0) 1:+3.4e-05(0;0) 1.25:+4.8e-10(0;0) 1.5:-1.5e-15(0;0) 1.75:-4.1e-14(0;2) 2:-7.6e-01(2;85) 2.25:-1.3e+00(8;87) 2.5:-2.4e+00(10;241) 2.75:-3.7e+00(10;241) 3:-5.2e+00(10;240) 3.25:-7.5e+00(10;240) 3.5:-1.0e+01(10;240) 3.75:-1.3e+01(10;240) 4:-1.6e+01(10;241) 4.5:-2.7e+01(10;241) 5:-4.3e+01(10;240) 5.5:-6.6e+01(10;240) 6:-9.9e+01(10;241) 6.5:-1.5e+02(12;241) 7:-2.2e+02(10;240) 7.5:-3.2e+02(12;240) 8:-4.8e+02(12;241) 8.5:-7.1e+02(12;241) 9:-1.0e+03(12;240) 9.2:-1.2e+03(12;241)
+   TNR wmax 251 0.25:+2.2e+00(0;0) 0.4:+2.2e+00(0;0) 0.5:+2.2e+00(0;0) 0.55:+2.2e+00(0;0) 0.6:+1.9e-01(0;0) 0.7:-1.9e-01(2;0) 0.8:-2.2e-01(3;0) 0.9:-2.2e-01(4;0) 1:-2.2e-01(6;0) 1.25:-8.8e-01(12;8) 1.5:-9.2e-01(18;4) 1.75:-2.2e+00(35;2) 2:-2.5e+00(62;2) 2.25:-4.6e+00(82;15)
+c3_w250_controls.json
+   TNR wmax 251 0.25:+2.2e+00(0;0) 0.4:+2.2e+00(0;0) 0.5:+2.2e+00(0;0) 0.6:+1.9e-01(0;0) 0.7:-1.9e-01(2;0) 0.8:-2.2e-01(3;0) 1:-2.2e-01(6;0) 1.5:-9.2e-01(18;4) 2:-2.5e+00(62;2) 3:-1.0e+01(88;2) 4:-3.3e+01(90;2) 6:-1.5e+02(94;3) 8:-9.1e+02(92;3) 9.2:-2.2e+03(92;3)
+   EA-1/8 wmax 251 0.25:+6.7e-02(0;0) 0.4:+3.4e-04(0;0) 0.5:-7.9e-06(1;0) 0.6:-4.1e-04(2;10) 0.7:-3.6e-03(4;9) 0.8:-1.1e-02(4;12) 1:-3.5e-02(8;28) 1.5:-1.6e-01(27;73) 2:-4.4e-01(80;132) 3:-1.4e+00(187;157) 4:-3.1e+00(216;225) 6:-1.0e+01(218;185) 8:-2.1e+01(218;202) 9.2:-3.3e+01(220;232)
+   EA-1/4 wmax 251 0.25:+6.6e-02(0;0) 0.4:+2.6e-04(0;0) 0.5:-2.1e-04(2;6) 0.6:-2.4e-03(2;10) 0.7:-2.4e-02(4;9) 0.8:-5.1e-02(5;16) 1:-1.4e-01(8;28) 1.5:-7.0e-01(28;73) 2:-1.9e+00(81;132) 3:-6.0e+00(189;157) 4:-1.5e+01(218;225) 6:-6.1e+01(218;185) 8:-1.8e+02(220;202) 9.2:-3.2e+02(224;232)
+   EA-1/2 wmax 251 0.25:+6.5e-02(0;0) 0.4:-8.1e-05(1;0) 0.5:-2.3e-03(2;6) 0.6:-3.8e-02(3;10) 0.7:-1.1e-01(4;18) 0.8:-2.2e-01(6;16) 1:-6.3e-01(9;28) 1.5:-3.3e+00(45;117) 2:-9.3e+00(93;132) 3:-3.5e+01(190;158) 4:-1.2e+02(222;225) 6:-1.1e+03(219;214) 8:-7.6e+03(222;202) 9.2:-2.3e+04(224;232)
+   SGN-LIOU wmax 251 0.25:+3.3e-02(0;0) 0.4:-2.5e-01(2;8) 0.5:-7.5e-01(2;6) 0.6:-1.1e+00(2;5) 0.7:-1.5e+00(2;4) 0.8:-1.7e+00(4;4) 1:-2.1e+00(5;3) 1.5:-4.3e+00(18;2) 2:-8.7e+00(43;2) 3:-3.1e+01(114;1) 4:-9.6e+01(190;1) 6:-7.9e+02(256;1) 8:-5.9e+03(273;0) 9.2:-2.0e+04(282;1)
+   SGN-R wmax 251 0.25:+3.3e-02(0;0) 0.4:-2.5e-01(2;8) 0.5:-7.5e-01(2;6) 0.6:-9.5e-01(2;5) 0.7:-9.8e-01(2;4) 0.8:-1.2e+00(3;4) 1:-1.8e+00(6;6) 1.5:-3.0e+00(20;2) 2:-5.7e+00(43;2) 3:-1.6e+01(114;1) 4:-5.4e+01(192;1) 6:-4.0e+02(340;1) 8:-3.0e+03(497;0) 9.2:-9.9e+03(589;1)
+## combo3 arb
+   DH        a=1.5   K=58 lam_min 3.6205197908e-18 lam_2 1.19910382862e-14 neg_eig 0 ldl 117/117 neg 0
+   DH        a=1.6   K=62 lam_min 5.9489322555e-23 lam_2 4.91971072961e-19 neg_eig 0 ldl 125/125 neg 0
+   DH        a=1.7   K=65 lam_min 1.40376154817e-28 lam_2 7.35037075507e-25 neg_eig 0 ldl 131/131 neg 0
+   DH        a=1.75  K=67 lam_min -4.74842650116e-21 lam_2 -1.55371694734e-23 neg_eig 2 ldl 135/135 neg 2
+   DH        a=1.8   K=69 lam_min -2.08610555856e-7 lam_2 -4.88970754725e-9 neg_eig 2 ldl 139/139 neg 2
+   DH        a=1.9   K=73 lam_min -0.242082648821 lam_2 -0.239866889401 neg_eig 3 ldl 147/147 neg 3
+   DH        a=2     K=77 lam_min -0.754024780899 lam_2 -0.702207854694 neg_eig 4 ldl 155/155 neg 4
+   EA-1/2    a=0.38  K=8 lam_min 0.000314543311199 lam_2 0.0551107847529 neg_eig 0 ldl 17/17 neg 0
+   EA-1/2    a=0.4   K=8 lam_min -4.78978289689e-5 lam_2 0.02800731367 neg_eig 1 ldl 17/17 neg 1
+   EA-1/4    a=0.42  K=9 lam_min 8.48929080945e-5 lam_2 0.0166514816561 neg_eig 0 ldl 19/19 neg 0
+   EA-1/4    a=0.44  K=9 lam_min -1.92957000334e-6 lam_2 0.00774529699336 neg_eig 1 ldl 19/19 neg 1
+   EA-1/4    a=0.5   K=10 lam_min -0.000157529923368 lam_2 -4.2361581833e-5 neg_eig 2 ldl 21/21 neg 2
+   EA-1/8    a=0.45  K=9 lam_min 2.47824319123e-5 lam_2 0.00574556510422 neg_eig 0 ldl 19/19 neg 0
+   EA-1/8    a=0.48  K=10 lam_min -3.97638696102e-6 lam_2 0.00130851308632 neg_eig 1 ldl 21/21 neg 1
+   LCHI5     a=1.5   K=39 lam_min 9.11758798298e-20 lam_2 2.79875177598e-16 neg_eig 0 ldl 79/79 neg 0
+   LCHI5     a=2.5   K=64 lam_min 1.85647801876e-88 lam_2 2.1606057042e-84 neg_eig 0 ldl 110/129 neg 0
+   LCHI5     a=4     K=102 lam_min -1.83033431548e-168 lam_2 -1.52478373121e-169 neg_eig 10 ldl 83/205 neg 0
+   SGN-LIOU  a=0.35  K=7 lam_min 0.00139872861259 lam_2 0.0833461142348 neg_eig 0 ldl 15/15 neg 0
+   SGN-LIOU  a=0.37  K=8 lam_min -0.00531397323874 lam_2 0.00123172772227 neg_eig 1 ldl 17/17 neg 1
+   SGN-LIOU  a=0.4   K=8 lam_min -0.213111533275 lam_2 -0.00111334763628 neg_eig 2 ldl 17/17 neg 2
+   TNR       a=0.6   K=12 lam_min 0.226615595739 lam_2 1.86415265441 neg_eig 0 ldl 25/25 neg 0
+   TNR       a=0.62  K=12 lam_min 0.0378468242831 lam_2 0.806668343643 neg_eig 0 ldl 25/25 neg 0
+   TNR       a=0.65  K=13 lam_min -0.11382925555 lam_2 0.445172608687 neg_eig 1 ldl 27/27 neg 1
+   ZETA      a=1     K=26 lam_min 1.3830413661e-29 lam_2 3.49329305386e-26 neg_eig 0 ldl 53/53 neg 0
+   ZETA      a=1.5   K=39 lam_min 3.25223042514e-67 lam_2 1.04947799435e-63 neg_eig 0 ldl 79/79 neg 0
+   ZETA      a=2     K=51 lam_min 2.26234847411e-107 lam_2 1.00442069268e-103 neg_eig 0 ldl 90/103 neg 0
+   ZETA      a=2.5   K=64 lam_min 3.21215121437e-152 lam_2 2.20313453892e-148 neg_eig 0 ldl 81/129 neg 0
+   ZETA      a=3     K=77 lam_min -5.19296353924e-169 lam_2 -4.8140605148e-170 neg_eig 8 ldl 76/155 neg 0
+   ZETA      a=4     K=102 lam_min -7.0470853589e-141 lam_2 -5.32950818848e-141 neg_eig 52 ldl 69/205 neg 0
+## combo4
+   ZETA           n*=None decided=120 negatives=0 acc_bits=2091 log10|piv| at 20,60,120: [-66.69, -238.61, -504.47]
+   LCHI5          n*=None decided=120 negatives=0 acc_bits=2266 log10|piv| at 20,60,120: [-55.01, -208.89, -451.43]
+   DH             n*=None decided=120 negatives=0 acc_bits=2272 log10|piv| at 20,60,120: [-53.84, -207.42, -449.69]
+   TNR            n*=4 decided=120 negatives=22 acc_bits=2343 log10|piv| at 20,60,120: [-47.1, -193.02, -427.72]
+   EA-1/8         n*=8 decided=120 negatives=34 acc_bits=2231 log10|piv| at 20,60,120: [-62.29, -218.91, -462.07]
+   EA-1/4         n*=8 decided=120 negatives=34 acc_bits=2231 log10|piv| at 20,60,120: [-62.37, -219.63, -461.86]
+   EA-1/2         n*=7 decided=120 negatives=34 acc_bits=2230 log10|piv| at 20,60,120: [-63.16, -219.8, -462.23]
+   HEAT eps=0     n*=None decided=120 negatives=0 acc_bits=2084 log10|piv| at 20,60,120: [-66.69, -238.61, -504.47]
+   HEAT eps=0.0001 n*=None decided=120 negatives=0 acc_bits=2084 log10|piv| at 20,60,120: [-66.69, -238.61, -504.47]
+   HEAT eps=0.1   n*=None decided=120 negatives=0 acc_bits=2083 log10|piv| at 20,60,120: [-66.71, -238.65, -504.54]
+   HEAT eps=1     n*=100 decided=120 negatives=4 acc_bits=2086 log10|piv| at 20,60,120: [-66.91, -239.05, -503.88]
+   HEAT eps=5     n*=17 decided=120 negatives=26 acc_bits=2078 log10|piv| at 20,60,120: [-67.71, -240.52, -506.05]
+   HEAT eps=20    n*=9 decided=120 negatives=36 acc_bits=2058 log10|piv| at 20,60,120: [-70.37, -245.28, -512.64]
+   HEAT eps=50    n*=7 decided=120 negatives=42 acc_bits=2020 log10|piv| at 20,60,120: [-74.19, -253.06, -524.34]
+   HEAT eps=1000  n*=5 decided=120 negatives=53 acc_bits=1515 log10|piv| at 20,60,120: [-109.19, -340.14, -677.17]
+   HEAT eps=1e-06 n*=None decided=120 negatives=0 acc_bits=2084 log10|piv| at 20,60,120: [-66.69, -238.61, -504.47]
+   HEAT eps=0.01  n*=None decided=120 negatives=0 acc_bits=2084 log10|piv| at 20,60,120: [-66.69, -238.61, -504.47]
+   HEAT eps=0.5   n*=None decided=120 negatives=0 acc_bits=2082 log10|piv| at 20,60,120: [-66.8, -238.83, -504.95]
+   HEAT eps=2     n*=37 decided=120 negatives=12 acc_bits=2080 log10|piv| at 20,60,120: [-67.15, -239.54, -505.44]
+   HEAT eps=10    n*=15 decided=120 negatives=32 acc_bits=2068 log10|piv| at 20,60,120: [-68.96, -242.54, -509.4]
+   HEAT eps=30    n*=8 decided=120 negatives=40 acc_bits=2051 log10|piv| at 20,60,120: [-69.51, -244.78, -514.64]
+   HEAT eps=100   n*=7 decided=120 negatives=46 acc_bits=1969 log10|piv| at 20,60,120: [-79.4, -262.57, -539.63]
+   eps=1 first non-real: Re z=0.2468 height=95.576 angle=0.0026 | on-line below it: 26 | on-line zeros of smaller modulus: 26 | lowest on-line 14.426
+   eps=2 first non-real: Re z=0.2486 height=49.715 angle=0.0050 | on-line below it: 8 | on-line zeros of smaller modulus: 8 | lowest on-line 14.719
+   eps=5 first non-real: Re z=0.7447 height=33.478 angle=0.0222 | on-line below it: 3 | on-line zeros of smaller modulus: 3 | lowest on-line 15.610
+   eps=10 first non-real: Re z=2.0522 height=35.306 angle=0.0581 | on-line below it: 3 | on-line zeros of smaller modulus: 3 | lowest on-line 17.133
+   eps=20 first non-real: Re z=2.1781 height=29.967 angle=0.0726 | on-line below it: 1 | on-line zeros of smaller modulus: 1 | lowest on-line 20.290
+   eps=30 first non-real: Re z=3.7884 height=33.519 angle=0.1125 | on-line below it: 1 | on-line zeros of smaller modulus: 1 | lowest on-line 23.551
+   eps=50 first non-real: Re z=6.7123 height=40.696 angle=0.1635 | on-line below it: 1 | on-line zeros of smaller modulus: 1 | lowest on-line 30.202
+   eps=100 first non-real: Re z=13.4887 height=58.858 angle=0.2253 | on-line below it: 1 | on-line zeros of smaller modulus: 1 | lowest on-line 46.755
+   eps=1000 none found below 120 (seeds Re z <= 40)
+[{'eps': 0.01, 'gap_threshold': 0.1414213562373095, 'first_height': 1977.1739437101703, 'zeros_below': 1495, 'gap': 0.09750247718397986, 'list_top': 42699999.24693034}, {'eps': 0.001, 'gap_threshold': 0.044721359549995794, 'first_height': 5229.198557199466, 'zeros_below': 4764, 'gap': 0.04325405929739645, 'list_top': 42699999.24693034}, {'eps': 0.0001, 'gap_threshold': 0.01414213562373095, 'first_height': 234016.89498229505, 'zeros_below': 354768, 'gap': 0.013053217844571918, 'list_top': 42699999.24693034}, {'eps': 1e-05, 'gap_threshold': 0.00447213595499958, 'first_height': 663318.508310487, 'zeros_below': 1115577, 'gap': 0.002958653261885047, 'list_top': 42699999.24693034}, {'eps': 1e-06, 'gap_threshold': 0.001414213562373095, 'first_height': 11412127.112198438, 'zeros_below': 24360731, 'gap': 0.0008808784186840057, 'list_top': 42699999.24693034}, {'eps': 1e-07, 'gap_threshold': 0.00044721359549995795, 'first_height': None, 'zeros_below': None, 'gap': None, 'list_top': 42699999.24693034}]

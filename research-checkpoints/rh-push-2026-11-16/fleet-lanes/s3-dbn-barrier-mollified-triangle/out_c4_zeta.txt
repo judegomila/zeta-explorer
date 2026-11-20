@@ -1,0 +1,1 @@
+planned allocation: 4 families x about 14 float64[3840000] = 1720.3 MB

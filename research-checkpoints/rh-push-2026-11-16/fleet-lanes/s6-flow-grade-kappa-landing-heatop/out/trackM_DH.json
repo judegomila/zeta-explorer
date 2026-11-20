@@ -1,0 +1,1980 @@
+{
+"obj": "DH",
+"table": "data/mom_main.pkl",
+"pairs": [
+{
+"g": "85.699348485377592171929267708942",
+"b": "0.30851718245663738555335196060684",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+85.6993484853776,
+-0.3085171824566374
+],
+"cancel_bits": null,
+"D0_pair": 19290.68249528516,
+"d_pair": 20786,
+"d_pair_lower": 20785,
+"root_at_d_pair": [
+-7330.467104442837,
+0.32780310569496457
+],
+"ratio_to_D0": 1.077515013016274,
+"terms_used": 539,
+"log2_largest_term": 197.6
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-7352.582449573485,
+-0.0
+]
+}
+],
+"prec": 1214,
+"sec": 1.8
+},
+{
+"g": "114.16334273075698090416436263335",
+"b": "0.1508300806097370824037606424877",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+114.16334273075698,
+-0.15083008060973707
+],
+"cancel_bits": null,
+"D0_pair": 143225.039792328,
+"d_pair": 146366,
+"d_pair_lower": 146365,
+"root_at_d_pair": [
+-13030.514968515852,
+0.06492491266802869
+],
+"ratio_to_D0": 1.0219302449643324,
+"terms_used": 682,
+"log2_largest_term": 287.7
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-13034.692641790041,
+-0.0
+]
+}
+],
+"prec": 1384,
+"sec": 3.1
+},
+{
+"g": "166.47930591316815587647765105776",
+"b": "0.0743560504508059907214821053217",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+166.47930591316816,
+-0.074356050450806
+],
+"cancel_bits": null,
+"D0_pair": 1253222.1673389913,
+"d_pair": 1260735,
+"d_pair_lower": 1260734,
+"root_at_d_pair": [
+-27713.572090164653,
+0.010483772640461205
+],
+"ratio_to_D0": 1.0059948130960379,
+"terms_used": 943,
+"log2_largest_term": 465.3
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-27716.266048623074,
+-0.0
+]
+}
+],
+"prec": 1698,
+"sec": 3.9
+},
+{
+"g": "176.70246124285582505447387389275",
+"b": "0.22425769462680978021118609148727",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+176.70246124285583,
+-0.22425769462680978
+],
+"cancel_bits": null,
+"D0_pair": 155214.36002676914,
+"d_pair": 164882,
+"d_pair_lower": 164881,
+"root_at_d_pair": [
+-31206.581629216696,
+0.04111784617051126
+],
+"ratio_to_D0": 1.0622857316266583,
+"terms_used": 994,
+"log2_largest_term": 501.2
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-31233.554196731795,
+-0.0
+]
+}
+],
+"prec": 1760,
+"sec": 3.5
+},
+{
+"g": "240.40467235144069377850259558398",
+"b": "0.36953057964064307304044545781724",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+240.4046723514407,
+-0.36953057964064306
+],
+"cancel_bits": null,
+"D0_pair": 105810.09458080892,
+"d_pair": 125280,
+"d_pair_lower": 125279,
+"root_at_d_pair": [
+-57765.93162537219,
+0.27256658724601235
+],
+"ratio_to_D0": 1.1840080145124678,
+"terms_used": 1316,
+"log2_largest_term": 735.4
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-57811.279336641855,
+0.0
+]
+}
+],
+"prec": 2142,
+"sec": 7.6
+},
+{
+"g": "320.87648966877486960291174459268",
+"b": "0.31954959209881083500076492760248",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+320.87648966877487,
+-0.31954959209881084
+],
+"cancel_bits": null,
+"D0_pair": 252081.01036116117,
+"d_pair": 287962,
+"d_pair_lower": 287961,
+"root_at_d_pair": [
+-102903.67584157936,
+0.2598659092456139
+],
+"ratio_to_D0": 1.1423391218062457,
+"terms_used": 1732,
+"log2_largest_term": 1049.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-103000.16466553847,
+0.0
+]
+}
+],
+"prec": 2625,
+"sec": 14.1
+},
+{
+"g": "331.05025940794964765131399510978",
+"b": "0.26822312361572153154116786117289",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+331.0502594079496,
+-0.26822312361572154
+],
+"cancel_bits": null,
+"D0_pair": 380834.2613183448,
+"d_pair": 425639,
+"d_pair_lower": 425638,
+"root_at_d_pair": [
+-109546.99101805546,
+0.2165849125655645
+],
+"ratio_to_D0": 1.1176489177380033,
+"terms_used": 1786,
+"log2_largest_term": 1090.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-109624.81902209751,
+-0.0
+]
+}
+],
+"prec": 2686,
+"sec": 15.4
+},
+{
+"g": "366.64090757620247769830395118294",
+"b": "0.12850810832586113616173803625752",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+366.6409075762025,
+-0.12850810832586113
+],
+"cancel_bits": null,
+"D0_pair": 2034983.501397425,
+"d_pair": 2092382,
+"d_pair_lower": 2092381,
+"root_at_d_pair": [
+-134417.66573451116,
+0.024852531371030745
+],
+"ratio_to_D0": 1.0282058790959039,
+"terms_used": 1974,
+"log2_largest_term": 1234.9
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-134429.65306073657,
+0.0
+]
+}
+],
+"prec": 2899,
+"sec": 21.4
+},
+{
+"g": "411.79673754901283332943128218789",
+"b": "0.31587367784572081324593844375922",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+411.79673754901285,
+-0.3158736778457208
+],
+"cancel_bits": null,
+"D0_pair": 424892.87524275,
+"d_pair": 496830,
+"d_pair_lower": 496829,
+"root_at_d_pair": [
+-169488.26551866633,
+0.2976480697918163
+],
+"ratio_to_D0": 1.169306498058248,
+"terms_used": 2210,
+"log2_largest_term": 1420.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-169642.01073084993,
+-0.0
+]
+}
+],
+"prec": 3170,
+"sec": 23.4
+},
+{
+"g": "440.48451073974754158329495208079",
+"b": "0.20888222425128571857416708910102",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+440.4845107397475,
+-0.20888222425128572
+],
+"cancel_bits": null,
+"D0_pair": 1111727.9390161429,
+"d_pair": 1196309,
+"d_pair_lower": 1196308,
+"root_at_d_pair": [
+-194016.40936880134,
+0.07743628446421809
+],
+"ratio_to_D0": 1.0760807190459831,
+"terms_used": 2364,
+"log2_largest_term": 1542.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-194031.60595976136,
+-0.0
+]
+}
+],
+"prec": 3342,
+"sec": 25.3
+},
+{
+"g": "520.94380103508924356103636406713",
+"b": "0.01591831438098140434547107410768",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+520.9438010350892,
+-0.015918314380981406
+],
+"cancel_bits": null,
+"D0_pair": 267748843.28564838,
+"d_pair": 267893995,
+"d_pair_lower": 267893994,
+"root_at_d_pair": [
+-271382.30997542327,
+0.0008700989943867778
+],
+"ratio_to_D0": 1.0005421189222348,
+"terms_used": 2796,
+"log2_largest_term": 1887.3
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-271382.51092038135,
+0.0
+]
+}
+],
+"prec": 3825,
+"sec": 55.1
+},
+{
+"g": "531.2797268965208807670597610081",
+"b": "0.34695380309204905288378897817469",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+531.2797268965209,
+-0.34695380309204904
+],
+"cancel_bits": null,
+"D0_pair": 586196.9607609333,
+"d_pair": 701110,
+"d_pair_lower": 701109,
+"root_at_d_pair": [
+-282204.8793437266,
+0.39930942345909154
+],
+"ratio_to_D0": 1.196031448354662,
+"terms_used": 2849,
+"log2_largest_term": 1931.5
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-282290.6928295381,
+-0.0
+]
+}
+],
+"prec": 3887,
+"sec": 39.6
+},
+{
+"g": "548.90679377779148119292706017879",
+"b": "0.22953339998003299691466361257424",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+548.9067937777914,
+-0.229533399980033
+],
+"cancel_bits": null,
+"D0_pair": 1429702.225296027,
+"d_pair": 1577764,
+"d_pair_lower": 1577763,
+"root_at_d_pair": [
+-301274.7489504061,
+0.11776086526194915
+],
+"ratio_to_D0": 1.103561267573264,
+"terms_used": 2946,
+"log2_largest_term": 2009.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-301311.5843257581,
+-0.0
+]
+}
+],
+"prec": 3993,
+"sec": 40.7
+},
+{
+"g": "566.50971291149716694714942939556",
+"b": "0.28655908202061630438172853015826",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+566.5097129114972,
+-0.2865590820206163
+],
+"cancel_bits": null,
+"D0_pair": 977072.0656122639,
+"d_pair": 1134577,
+"d_pair_lower": 1134576,
+"root_at_d_pair": [
+-320881.2810478126,
+0.25812683929364
+],
+"ratio_to_D0": 1.1612009389389704,
+"terms_used": 3041,
+"log2_largest_term": 2086.2
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-320965.39327284385,
+-0.0
+]
+}
+],
+"prec": 4099,
+"sec": 45.3
+},
+{
+"g": "595.02337802782388641058981978304",
+"b": "0.08285566975069014376773188384813",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+595.0233780278239,
+-0.08285566975069014
+],
+"cancel_bits": null,
+"D0_pair": 12893286.092045588,
+"d_pair": 13046571,
+"d_pair_lower": 13046570,
+"root_at_d_pair": [
+-354050.2148032686,
+0.016650187083740983
+],
+"ratio_to_D0": 1.0118887385931024,
+"terms_used": 3197,
+"log2_largest_term": 2213.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-354054.1340127046,
+0.0
+]
+}
+],
+"prec": 4270,
+"sec": 57.7
+},
+{
+"g": "611.77509763876847486591535757804",
+"b": "0.12825198269455128100581427316023",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+611.7750976387684,
+-0.1282519826945513
+],
+"cancel_bits": null,
+"D0_pair": 5688469.860195846,
+"d_pair": 6003208,
+"d_pair_lower": 6003207,
+"root_at_d_pair": [
+-374232.7368944086,
+0.05516459094090137
+],
+"ratio_to_D0": 1.05532913903728,
+"terms_used": 3288,
+"log2_largest_term": 2287.4
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-374289.7817587883,
+-0.0
+]
+}
+],
+"prec": 4370,
+"sec": 57.5
+},
+{
+"g": "646.98682319624614142407059966249",
+"b": "0.11076460880870881065967292852761",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+646.9868231962462,
+-0.11076460880870881
+],
+"cancel_bits": null,
+"D0_pair": 8529604.013892455,
+"d_pair": 8720938,
+"d_pair_lower": 8720937,
+"root_at_d_pair": [
+-418576.88549753546,
+0.039204310127213524
+],
+"ratio_to_D0": 1.0224317548383153,
+"terms_used": 3480,
+"log2_largest_term": 2445.4
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-418599.7878645925,
+-0.0
+]
+}
+],
+"prec": 4581,
+"sec": 64.2
+},
+{
+"g": "657.10837082119216467626996391414",
+"b": "0.26059716255339186086200191437912",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+657.1083708211921,
+-0.2605971625533919
+],
+"cancel_bits": null,
+"D0_pair": 1589552.144055158,
+"d_pair": 1818704,
+"d_pair_lower": 1818703,
+"root_at_d_pair": [
+-431693.50712789706,
+0.019718203010438768
+],
+"ratio_to_D0": 1.1441612700796624,
+"terms_used": 3534,
+"log2_largest_term": 2490.4
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-431858.94475699536,
+-0.0
+]
+}
+],
+"prec": 4642,
+"sec": 66.3
+},
+{
+"g": "692.89249056228620185731048279801",
+"b": "0.2887031378710163793350289659616",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+692.8924905622862,
+-0.28870313787101637
+],
+"cancel_bits": null,
+"D0_pair": 1440021.115042751,
+"d_pair": 1674691,
+"d_pair_lower": 1674690,
+"root_at_d_pair": [
+-480036.15048829746,
+0.11654674135366554
+],
+"ratio_to_D0": 1.1629628083267947,
+"terms_used": 3730,
+"log2_largest_term": 2652.7
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-480138.9342270589,
+-0.0
+]
+}
+],
+"prec": 4857,
+"sec": 74.6
+},
+{
+"g": "737.76699675458589370182532816432",
+"b": "0.27736005781434733636912262065454",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+737.7669967545859,
+-0.27736005781434736
+],
+"cancel_bits": null,
+"D0_pair": 1768848.918139935,
+"d_pair": 2059663,
+"d_pair_lower": 2059662,
+"root_at_d_pair": [
+-544154.0652678871,
+0.24241208717290824
+],
+"ratio_to_D0": 1.1644086608402235,
+"terms_used": 3978,
+"log2_largest_term": 2857.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-544410.077063036,
+-0.0
+]
+}
+],
+"prec": 5126,
+"sec": 86.3
+},
+{
+"g": "783.65300697987597444100407537189",
+"b": "0.3530014501384969912700820026509",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+783.653006979876,
+-0.353001450138497
+],
+"cancel_bits": null,
+"D0_pair": 1232068.3879230127,
+"d_pair": 1535929,
+"d_pair_lower": 1535928,
+"root_at_d_pair": [
+-613973.6430456025,
+0.1372990453162658
+],
+"ratio_to_D0": 1.2466264170524066,
+"terms_used": 4231,
+"log2_largest_term": 3069.6
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-614217.6387234564,
+0.0
+]
+}
+],
+"prec": 5401,
+"sec": 99.2
+},
+{
+"g": "811.76579229556872798447980638095",
+"b": "0.16855147770975615220178731817573",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+811.7657922955688,
+-0.16855147770975615
+],
+"cancel_bits": null,
+"D0_pair": 5798777.0292319525,
+"d_pair": 6186316,
+"d_pair_lower": 6186315,
+"root_at_d_pair": [
+-658937.7608836072,
+0.1027743698566905
+],
+"ratio_to_D0": 1.0668311557444685,
+"terms_used": 4389,
+"log2_largest_term": 3201.3
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-658977.8007353941,
+0.0
+]
+}
+],
+"prec": 5570,
+"sec": 112.9
+},
+{
+"g": "847.46573155710040588553455982402",
+"b": "0.06194789662554982912837394378855",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+847.4657315571004,
+-0.06194789662554983
+],
+"cancel_bits": null,
+"D0_pair": 46787643.838206284,
+"d_pair": 47247767,
+"d_pair_lower": 47247766,
+"root_at_d_pair": [
+-718197.2745050315,
+0.013496049759416229
+],
+"ratio_to_D0": 1.0098342879454423,
+"terms_used": 4588,
+"log2_largest_term": 3368.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-718198.594853051,
+0.0
+]
+}
+],
+"prec": 5784,
+"sec": 137.8
+},
+{
+"g": "857.29588675477848592334464154937",
+"b": "0.35610941585513724562065981868182",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+857.2958867547785,
+-0.3561094158551372
+],
+"cancel_bits": null,
+"D0_pair": 1448887.6968415692,
+"d_pair": 1814681,
+"d_pair_lower": 1814680,
+"root_at_d_pair": [
+-734799.5784290177,
+0.026579004536323177
+],
+"ratio_to_D0": 1.2524649108111165,
+"terms_used": 4640,
+"log2_largest_term": 3413.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-735084.6107597824,
+0.0
+]
+}
+],
+"prec": 5843,
+"sec": 111.1
+},
+{
+"g": "864.11809118739908119864278137057",
+"b": "0.18089979712660090489962753085102",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+864.118091187399,
+-0.1808997971266009
+],
+"cancel_bits": null,
+"D0_pair": 5704401.460000343,
+"d_pair": 6053879,
+"d_pair_lower": 6053878,
+"root_at_d_pair": [
+-746646.981781388,
+0.08649509179803917
+],
+"ratio_to_D0": 1.0612645415036472,
+"terms_used": 4680,
+"log2_largest_term": 3446.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-746729.6731099157,
+0.0
+]
+}
+],
+"prec": 5884,
+"sec": 130.3
+},
+{
+"g": "892.1490347734271855962230625897",
+"b": "0.18843013659640001930326927070852",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+892.1490347734272,
+-0.1884301365964
+],
+"cancel_bits": null,
+"D0_pair": 5604206.653838374,
+"d_pair": 6172698,
+"d_pair_lower": 6172697,
+"root_at_d_pair": [
+-795824.5114987461,
+0.12835556899293063
+],
+"ratio_to_D0": 1.1014401112015135,
+"terms_used": 4837,
+"log2_largest_term": 3579.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-795998.7821062206,
+0.0
+]
+}
+],
+"prec": 6052,
+"sec": 122.4
+},
+{
+"g": "921.1726827107217306140362357747",
+"b": "0.25935735078315046376047161014301",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+921.1726827107217,
+-0.2593573507831505
+],
+"cancel_bits": null,
+"D0_pair": 3153733.9676908073,
+"d_pair": 3585431,
+"d_pair_lower": 3585430,
+"root_at_d_pair": [
+-848544.6401083816,
+0.20095969965944047
+],
+"ratio_to_D0": 1.1368844159754177,
+"terms_used": 4999,
+"log2_largest_term": 3716.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-848563.1483283939,
+0.0
+]
+}
+],
+"prec": 6227,
+"sec": 144.2
+},
+{
+"g": "983.75219256889583790019852749005",
+"b": "0.26249852117094174634121446813916",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+983.7521925688958,
+-0.26249852117094175
+],
+"cancel_bits": null,
+"D0_pair": 3511217.844518463,
+"d_pair": 4221057,
+"d_pair_lower": 4221056,
+"root_at_d_pair": [
+-967769.8901964445,
+0.027526434641676666
+],
+"ratio_to_D0": 1.202163234215075,
+"terms_used": 5351,
+"log2_largest_term": 4016.2
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-967749.7893150643,
+0.0
+]
+}
+],
+"prec": 6602,
+"sec": 146.8
+},
+{
+"g": "1012.0199814890878926017644666198",
+"b": "0.19140480898375215547349582999771",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1012.0199814890879,
+-0.19140480898375214
+],
+"cancel_bits": null,
+"D0_pair": 6988959.508087919,
+"d_pair": 7546917,
+"d_pair_lower": 7546916,
+"root_at_d_pair": [
+-1024164.3959344698,
+0.12967205707348284
+],
+"ratio_to_D0": 1.0798341285661175,
+"terms_used": 5511,
+"log2_largest_term": 4152.5
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1024194.3827070636,
+-0.0
+]
+}
+],
+"prec": 6772,
+"sec": 171.4
+},
+{
+"g": "1018.79576231319726304065829893",
+"b": "0.19809797126658454764971807003292",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1018.7957623131973,
+-0.19809797126658454
+],
+"cancel_bits": null,
+"D0_pair": 6612325.823335455,
+"d_pair": 7176214,
+"d_pair_lower": 7176213,
+"root_at_d_pair": [
+-1037889.0999502382,
+0.13241041761541716
+],
+"ratio_to_D0": 1.0852783410452245,
+"terms_used": 5549,
+"log2_largest_term": 4185.1
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1037976.1367632821,
+-0.0
+]
+}
+],
+"prec": 6812,
+"sec": 167.1
+},
+{
+"g": "1029.0046923565901962678800502061",
+"b": "0.08613734714099387239268907676758",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1029.00469235659,
+-0.08613734714099387
+],
+"cancel_bits": null,
+"D0_pair": 35677280.319990315,
+"d_pair": 36445888,
+"d_pair_lower": 36445887,
+"root_at_d_pair": [
+-1058844.707503381,
+0.028036177105432627
+],
+"ratio_to_D0": 1.021543337191513,
+"terms_used": 5608,
+"log2_largest_term": 4234.8
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1058853.633721119,
+-0.0
+]
+}
+],
+"prec": 6874,
+"sec": 209.3
+},
+{
+"g": "1078.4906942811594545637408704886",
+"b": "0.11106546429773218656169147264572",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1078.4906942811594,
+-0.11106546429773219
+],
+"cancel_bits": null,
+"D0_pair": 23572994.19571396,
+"d_pair": 24217109,
+"d_pair_lower": 24217108,
+"root_at_d_pair": [
+-1163128.7496336438,
+0.0468018499434484
+],
+"ratio_to_D0": 1.027324267716621,
+"terms_used": 5888,
+"log2_largest_term": 4475.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1163149.0479781698,
+0.0
+]
+}
+],
+"prec": 7170,
+"sec": 190.1
+},
+{
+"g": "1092.4544973072469834667766388942",
+"b": "0.35462961894627521596803861114343",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1092.454497307247,
+-0.3546296189462752
+],
+"cancel_bits": null,
+"D0_pair": 2372448.5514086033,
+"d_pair": 3048781,
+"d_pair_lower": 3048780,
+"root_at_d_pair": [
+-1193307.177150681,
+0.10251481392763793
+],
+"ratio_to_D0": 1.2850778147285153,
+"terms_used": 5965,
+"log2_largest_term": 4542.1
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1193572.205818993,
+-0.0
+]
+}
+],
+"prec": 7254,
+"sec": 181.2
+},
+{
+"g": "1109.5485233905412774740231602226",
+"b": "0.10577530682088512922533863187713",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1109.5485233905413,
+-0.10577530682088512
+],
+"cancel_bits": null,
+"D0_pair": 27508317.52043217,
+"d_pair": 28883998,
+"d_pair_lower": 28883997,
+"root_at_d_pair": [
+-1231040.6032361495,
+0.02018107876510447
+],
+"ratio_to_D0": 1.0500096190378065,
+"terms_used": 6064,
+"log2_largest_term": 4626.6
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1231131.0654160366,
+-0.0
+]
+}
+],
+"prec": 7357,
+"sec": 216.2
+},
+{
+"g": "1154.6823958160459630679115802731",
+"b": "0.24364472901005032701426486015098",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+1154.682395816046,
+-0.24364472901005033
+],
+"cancel_bits": null,
+"D0_pair": 5615017.265322638,
+"d_pair": 6312894,
+"d_pair_lower": 6312893,
+"root_at_d_pair": [
+-1333120.9636614947,
+0.2092556154899552
+],
+"ratio_to_D0": 1.1242875492097462,
+"terms_used": 6320,
+"log2_largest_term": 4847.5
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1333402.589435021,
+-0.0
+]
+}
+],
+"prec": 7628,
+"sec": 234.4
+},
+{
+"g": "1190.3933875638611538759452562917",
+"b": "0.14496858515023409769970631879963",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1417036.3961398744,
+345.13929033465445
+]
+}
+],
+"prec": 7842,
+"sec": 29.1
+},
+{
+"g": "1212.1074023319100072356172142441",
+"b": "0.14958960523229657965345289573798",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1469204.3324107607,
+362.6373356279498
+]
+}
+],
+"prec": 7972,
+"sec": 31.1
+},
+{
+"g": "1218.6845753296288365841184742485",
+"b": "0.27426181573101509253640165465488",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1485192.0189268142,
+668.4772888665701
+]
+}
+],
+"prec": 8012,
+"sec": 30.5
+},
+{
+"g": "1264.1955849993464261802530878608",
+"b": "0.330450356492893932295729786884",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1598190.3679344016,
+835.5077634795532
+]
+}
+],
+"prec": 8285,
+"sec": 33.5
+},
+{
+"g": "1274.2191561321539196975149277152",
+"b": "0.25558833418681675488588961072378",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-1623634.3925287419,
+651.3511030094971
+]
+}
+],
+"prec": 8345,
+"sec": 36.2
+},
+{
+"g": "1292.9403868785339605954723972763",
+"b": "0.15654022117146549575603615693983",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8457,
+"sec": 0.6
+},
+{
+"g": "1309.5986029417693856474816461613",
+"b": "0.25155132823061162925911112253227",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8557,
+"sec": 0.6
+},
+{
+"g": "1323.9391001363915348656615867354",
+"b": "0.10833195966170160724013835519787",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8643,
+"sec": 0.6
+},
+{
+"g": "1338.1191868404127915393860397122",
+"b": "0.22135813978551523910598288530161",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8728,
+"sec": 0.7
+},
+{
+"g": "1344.8562198299860344609898544255",
+"b": "0.19362655571357974567632944262508",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8769,
+"sec": 0.7
+},
+{
+"g": "1354.831636320521209255068122131",
+"b": "0.33361281676585328113189542446183",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 8828,
+"sec": 0.7
+},
+{
+"g": "1418.5236294324330449764147609162",
+"b": "0.2179208227985745500174001781742",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9211,
+"sec": 0.8
+},
+{
+"g": "1428.9580046933299119251660376022",
+"b": "0.06656009406374681233557153611471",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9273,
+"sec": 0.8
+},
+{
+"g": "1435.5252262024197273425126038206",
+"b": "0.07130337093698638202668025178836",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9313,
+"sec": 0.8
+},
+{
+"g": "1464.4262569055228326280726489761",
+"b": "0.32791731326295043905396631022932",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9486,
+"sec": 0.8
+},
+{
+"g": "1509.2725180408994727961116175574",
+"b": "0.10928412734592849857449894019057",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9755,
+"sec": 0.9
+},
+{
+"g": "1526.8400048611878024636596856355",
+"b": "0.21574364061319035568664241928433",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9861,
+"sec": 0.9
+},
+{
+"g": "1544.6987467927409406502907878976",
+"b": "0.12512224013809128569585600849981",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 9968,
+"sec": 1.0
+},
+{
+"g": "1555.1021907574451512071999313684",
+"b": "0.27923789579112796396183746344631",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1576.2652414221383689116932597668",
+"b": "0.06118719505995863470410903192226",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1590.254277173813026289327372312",
+"b": "0.04284486946864557816085472207881",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1600.0653891599206498265105806078",
+"b": "0.07486045147325573548664380211323",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1607.166226640781018964430979246",
+"b": "0.17502880189001639582723857060698",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1635.9293725698865226303136984804",
+"b": "0.13300725728822319803661816422529",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1649.8909961644740453132592068635",
+"b": "0.25628915682056212526414372416753",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1653.5129009039384278376809179164",
+"b": "0.09607900388894127129209906890437",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1664.0035855738646080802015512034",
+"b": "0.13271335527927520510736446264317",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1670.9896173283908187234696536837",
+"b": "0.21771716794851854819530288694413",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1680.8830664020823095053184856085",
+"b": "0.1057673690347821093571275423138",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1699.5838033926095483517294233063",
+"b": "0.19429222908835000750537225977822",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1709.413585419522883405124010367",
+"b": "0.33016280593376161837687655192897",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.0
+},
+{
+"g": "1726.7564172771381861697384786792",
+"b": "0.05798137189396613221176178979568",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1761.6959412680723619828281417587",
+"b": "0.22483729272538875271228897320257",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1790.5898490063516452811364115039",
+"b": "0.24468516131159431443668006922866",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1804.5916014491722071207712847828",
+"b": "0.1114569761704184820144478703791",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1807.4292823025981245476953226427",
+"b": "0.21606505606406117081970502511665",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1817.7416487796901771411021718858",
+"b": "0.03110018658452078565990929563563",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1835.6826077185395745901078014345",
+"b": "0.19515991263475549085552423039946",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1864.1118106479212813814339738589",
+"b": "0.33627173306462196069798450638091",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1871.1517575111175171721814181905",
+"b": "0.22283813554875350889479355275442",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1881.3547671483133720117662830887",
+"b": "0.25719487038281800349918718106637",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1899.3051418424926237652547762302",
+"b": "0.13258513350967648001817973181434",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1909.6300834304864986666339328724",
+"b": "0.04469797548382563396822436534788",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1916.5300650348042705784243328307",
+"b": "0.19427565801403323799815310757522",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1944.7914069265720472406481307872",
+"b": "0.09675050749106276603893385873247",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1958.5725390662283613415662719637",
+"b": "0.13529231806076907328089130476491",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.1
+},
+{
+"g": "1961.921979416683250111582571809",
+"b": "0.30755938483171029787025862252696",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.2
+},
+{
+"g": "1972.159333195619763034281674451",
+"b": "0.11805691045096399387368615978256",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.2
+},
+{
+"g": "1990.1744232184659512394974859394",
+"b": "0.13052879405650924183180842844889",
+"rows": [
+{
+"n": 0,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+NaN,
+NaN
+]
+}
+],
+"prec": 10000,
+"sec": 1.3
+}
+]
+}

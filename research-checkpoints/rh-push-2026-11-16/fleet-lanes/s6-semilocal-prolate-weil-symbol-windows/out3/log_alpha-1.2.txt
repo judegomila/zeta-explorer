@@ -1,0 +1,3 @@
+[alpha:-1.2@2] gpu=False KMAX=90 NRES=208 NEXT=76 t-points=3001; planned: cos blocks of 4713 t-points x <= 5328 nodes
+  spike 0: mass +7.9829e-01 [6s]
+  spike 20: mass +2.6631e-02 [258s]

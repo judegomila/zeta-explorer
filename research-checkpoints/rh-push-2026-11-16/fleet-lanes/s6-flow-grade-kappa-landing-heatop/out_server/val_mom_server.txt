@@ -1,0 +1,7 @@
+prec 10000 jmax 20900 steps 1/2500, 1/3200
+  ZETA|heat|0/1          entries 10451  worst relative difference between the two steps: 2^-2322
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s6-flow-grade-kappa-landing-heatop/val_mom.py", line 10, in <module>
+    a, b = A['tables'][k], B['tables'][k]; worst = -10 ** 6
+                           ~~~~~~~~~~~^^^
+KeyError: 'ZETA|heat|-1/10'

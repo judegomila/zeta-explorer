@@ -1,0 +1,2 @@
+04:15:31 heat-0.5 i0 364 h 768.311 H 0.20625 t_true/pair 1.02366312 decl pg [0.99988615, 1.04927950] in=True uni in=True honest pg in=True Kon 0.01071 Koff 0.8234 near 2.8347963955149904 direct/flow None
+{"name": "heat-0.5", "kind": "off", "windows": 1, "declared_pg": {"inside": 1, "outside": 0, "not_certified": 0}, "declared_uni": {"inside": 1, "outside": 0, "not_certified": 0}, "honest_pg": {"inside": 1, "outside": 0, "not_certified": 0}, "honest_uni": {"inside": 1, "outside": 0, "not_certified": 0}}

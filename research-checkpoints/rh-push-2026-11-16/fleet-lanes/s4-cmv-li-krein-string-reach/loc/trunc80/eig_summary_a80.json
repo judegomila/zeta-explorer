@@ -1,0 +1,29 @@
+{
+ "100": {
+  "first_index": 124,
+  "log2E_at_break": -44.37768802698736,
+  "last_pd_size": 124,
+  "prefix": [
+   15,
+   16
+  ]
+ },
+ "1000": {
+  "first_index": 167,
+  "log2E_at_break": -104.5786503432961,
+  "last_pd_size": 167,
+  "prefix": [
+   29,
+   29
+  ]
+ },
+ "10000": {
+  "first_index": 205,
+  "log2E_at_break": -188.58821188960732,
+  "last_pd_size": 205,
+  "prefix": [
+   40,
+   40
+  ]
+ }
+}

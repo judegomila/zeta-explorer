@@ -1,0 +1,2 @@
+zeros 100115897 ; chunk 1000000 ; planned memory per worker 0.08 GB
+{'zeros': 100115897, 'J': 200, 'negative': 0, 'min_kappa_over_rho2': 4.337135099588457, 'argmin_index': 90072606, 'gamma_at_min': 38676170.131095834, 'kappa_at_min': 26.848494128803225, 'quantiles_kappa_over_rho2': {'0.001': 5.0, '0.01': 6.0, '0.1': 8.0, '0.5': 13.0, '0.9': 33.0, '0.99': 139.0}, 'mean_kappa_over_rho2': 22.040536004162323, 'mean_S1sq_share': 0.07985473212432177}

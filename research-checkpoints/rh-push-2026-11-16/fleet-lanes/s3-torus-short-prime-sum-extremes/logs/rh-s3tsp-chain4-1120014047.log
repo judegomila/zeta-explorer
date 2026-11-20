@@ -1,0 +1,17 @@
++ python c1n.py --N 1e8 --K 4e9 --weights 0.137:18.42,0.1:18.42,0.05:18.42 --fams ZETA,CHI,SGN,UNI,DEL,TNR,EA --out c1n_F.json --hours 1.2
+planned host arrays: Z 1.80 GiB; terms 5762859
+N=100000000 terms=5762859 cols=21 K=4000000000 step=24251 M=67108864 nf=134217728 blocks=60 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 1.202 GiB
+block 11/60 done=7.382e+08 t=357s rate=2.065e+06 heights/s
+block 22/60 done=1.476e+09 t=658s rate=2.242e+06 heights/s
+block 34/60 done=2.282e+09 t=960s rate=2.378e+06 heights/s
+block 47/60 done=3.154e+09 t=1269s rate=2.486e+06 heights/s
+block 58/60 done=3.892e+09 t=1570s rate=2.479e+06 heights/s
+block 60/60 done=4.000e+09 t=1622s rate=2.466e+06 heights/s
+done 4000000000 1622s
++ python c1n.py --N 1e8 --K 1e9 --weights 0.137:18.42,0.1:18.42,0.05:18.42 --fams ZETA --mode haarflow --out c1n_F2.json --hours 0.3
+planned host arrays: Z 0.26 GiB; terms 5762859
+N=100000000 terms=5762859 cols=3 K=1000000000 step=97001 M=67108864 nf=134217728 blocks=15 mode=haarflow GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 1.202 GiB
+block 15/15 done=1.000e+09 t=93s rate=1.072e+07 heights/s
+done 1000000000 93s

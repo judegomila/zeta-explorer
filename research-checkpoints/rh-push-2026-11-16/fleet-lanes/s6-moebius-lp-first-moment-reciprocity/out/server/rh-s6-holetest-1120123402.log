@@ -1,0 +1,5 @@
+# zeta T0=1.000e+08 windows=2000 points=340000 ncut=6321 y=[100, 10000] nmax=10000; planned GPU/CPU chunk memory about 7.2 GB; host arrays 0.02 GB
+# tables 0s  theta0=3.537916  max|inv|=1
+# chunk 0/12 1s
+done zeta T0=100000000 points=340000 secs=7 gpu=True max|Z|=65.575
+zeta T0=1.0e+08 zeros=33999 (count-expected -1.0) viol=0 gap_max=3.075 max|Z|=65.6 cert_max(th=0.5)=2.400 false=0 J17=2.690

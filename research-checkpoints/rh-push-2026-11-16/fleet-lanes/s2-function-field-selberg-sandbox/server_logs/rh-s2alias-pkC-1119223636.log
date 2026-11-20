@@ -1,0 +1,13 @@
+T2.999997e+12: 735 blocks, 29308 (window, alias) pairs, planned sieve length 1.099e+11, largest allocation per block 0.9 MB, base primes to 7.49e+06
+  T2.999997e+12 100/735  774s
+  T2.999997e+12 200/735  929s
+  T2.999997e+12 300/735  1011s
+  T2.999997e+12 400/735  1057s
+  T2.999997e+12 500/735  1081s
+  T2.999997e+12 600/735  1097s
+  T2.999997e+12 700/735  1108s
+T2.999997e+12 done in 1110s; prime powers processed 3.670e+09
+T2.379200e+14: 265 blocks, 3007 (window, alias) pairs, planned sieve length 1.536e+11, largest allocation per block 0.1 MB, base primes to 6.67e+07
+  T2.379200e+14 100/265  1111s
+  T2.379200e+14 200/265  1279s
+T2.379200e+14 done in 1339s; prime powers processed 4.180e+09

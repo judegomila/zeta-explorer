@@ -1,0 +1,5 @@
+ZETA zeros/poles on line 202 local minima 199 cells 1997 nodes 47928
+ZETA done 49.5s; int U dt over [0, 400] = -0.974493; D over the full window, tau in [T_lo+20, T_hi-20]:
+   sigma1 1.0  min D -0.000183 at tau 380.00   max D -0.000001
+   sigma1 1.2  min D -0.000257 at tau 380.00   max D -0.000002
+   sigma1 1.5  min D -0.000366 at tau 380.00   max D -0.000002

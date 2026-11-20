@@ -1,0 +1,19 @@
+# Proposed map entries (for the record lane; the map is not edited here)
+
+Lane `c21-br0-br3-hamburger-finite-poles-regime3`, round 21, deepen. Zero referees (REFEREE.md is the
+author's adversarial pass).
+
+## Section 3: one row
+
+| X4 | BR-0 / BR-3: Euler-shape rigidity in regime 3 with finitely many poles and finite order (campaign round 21; deepen; lead of STRATEGY.md 4.0 version 6) | Decided by Hamburger's theorem in the form with finitely many poles (Titchmarsh 2.13, recalled; proof written in the lane): an ordinary Dirichlet series absolutely convergent in Re s > 1, meromorphic of finite order with finitely many poles and zeta's functional equation is a_1 zeta. Under BR-3 the poles left of the line are reflections, so G = zeta. The space asked for by BR-0 is C zeta. No multiplicativity, no local shape and no bound on alpha_p is read; in the strip the proof reads the growth bound and the pole count. HQ1 to HQ4 are not in the space: their poles form lattices 2 pi i k/log q (infinitely many poles in Re s >= 1/2); the clause separating them is 'finitely many poles', and the geometric shape excludes nothing in this class. Corollary: a twin of finite order has infinitely many poles in 1/2 <= Re s <= 1 (regime 3; Q-inf remains open only there and at infinite order); in regime 2 infinitely many poles on the line (relative to X3 Theorem C (c)). Theorem H': finite order may be replaced by growth exp(C e^(k abs t)), k < pi, in the strip. Control NWM: zeta(s)(1 + R(s)), R the symmetrised Newman function, a Dirichlet integral on real frequencies >= 0: zeta's functional equation, the pole at 1 only, infinite order, zeros off the line; so for real frequencies the growth clause is necessary and k < pi is sharp. Open: the same question for integer frequencies without a growth clause (BR-3'). | PROVED (Theorem H with the proof in the lane; Lemma 1; Corollary H1 (a); H'; NWM bound and Laplace form); CLASSICAL (Hamburger; Phragmen-Lindelof; Carlson; Putnam; recalled, not opened); MEASURED (mpmath 40 to 50 digits: theta-relation defects of HQ1 to HQ4 at q = 2, 3; NWM values and three zeros, not enclosed); ARGUED (DH base at conductor 5); OPEN (BR-3'); zero referees | identification, class U3: HQ1 to HQ4 fail the pole count; ZQ, Proposition W, NWM fail integrality (NWM also growth); DEL, THIN have no functional equation; the theorem holds at the DH base (argued). No control fails through multiplicativity | `c21-br0-br3-hamburger-finite-poles-regime3` (+ REFEREE.md, author's pass) |
+
+## Section 2 (controls): one row
+
+| NWM | Newman-type symmetric multiplier (campaign round 21): zeta(s)(1 + R(s)), R(s) = g(z) + g(-z), z = -i kappa (s - 1/2), g(z) = int_0^inf e^(zt) t^-t dt; for Re s > 1/2 + pi/(2 kappa): R(s) = 2 int_0^inf sin(r log r) e^(pi r/2) e^(-kappa (s - 1/2) r) dr | zeta's functional equation exactly; entire multiplier; the pole of zeta at 1 only; coefficient measure on frequencies >= 0, absolutely convergent for Re s > max(1, 1/2 + pi/(2 kappa)); bounded by 2/(kappa abs(sigma - 1/2) - pi/2) outside the strip abs(sigma - 1/2) <= pi/(2 kappa); zeros off the line (kappa = 4: 0.947669 -+ 0.784676 i, measured) | integer frequencies; finite order (growth exp(exp(kappa abs t)/e) on the line); multiplicativity; sign of the coefficient measure | kills any step that reads the functional equation, the pole clause, entirety of the multiplier and boundedness on Re s >= 1/2 + d without reading integrality or a growth bound in the strip abs(sigma - 1/2) < d |
+
+## STRATEGY.md 4.0: proposed edit
+
+BR-3 in the stated form (finite order, finitely many poles) is decided as an identification by a classical
+theorem; remove it as the 'exact missing lemma'. BR-0 answered: the space is C zeta; HQ2 to HQ4 are not in it.
+Remaining items of the lead, all identification questions: BR-2; Q-inf with infinitely many poles in
+1/2 <= Re s <= 1; BR-3' (integer frequencies without a growth clause).

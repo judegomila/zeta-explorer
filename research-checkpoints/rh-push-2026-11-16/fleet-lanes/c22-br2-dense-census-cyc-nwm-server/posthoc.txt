@@ -1,0 +1,77 @@
+CYC failing heights 123 classes [123, 0, 0, 0] max t among failing 0.004887013201089084 max distance to a pole of 1/(1-w) among failing 0.004887013201089084 min distance among passing non-pole 0.005061549386842266
+CYC: heights with dist < 0.0125: 192  failing among dist >= 0.0125: 0
+CYC reg=0.9385 tge.5=1.0000(n=1667) term4=0.9935 term4&tge.5=1.0000 sd_beta=0.159 sd_y_gen=0.881
+CYCP reg=0.7970 tge.5=0.8302(n=1667) term4=0.9715 term4&tge.5=0.9736 sd_beta=0.298 sd_y_gen=1.72
+CYCeps_0.0001 reg=0.0785 tge.5=0.0463(n=1664) term4=0.1045 term4&tge.5=0.0391 sd_beta=0.619 sd_y_gen=2.61
+CYCeps_0.01 reg=0.0520 tge.5=0.0518(n=1660) term4=0.0395 term4&tge.5=0.0380 sd_beta=0.759 sd_y_gen=3.51
+CYCeps_1e-06 reg=0.2280 tge.5=0.1460(n=1664) term4=0.2210 term4&tge.5=0.0715 sd_beta=0.25 sd_y_gen=1.6
+CYCeps_1e-07 reg=0.4910 tge.5=0.4631(n=1667) term4=0.3505 term4&tge.5=0.2286 sd_beta=0.162 sd_y_gen=0.964
+CYCeps_1e-08 reg=0.9385 tge.5=1.0000(n=1667) term4=0.7495 term4&tge.5=0.7073 sd_beta=0.159 sd_y_gen=0.881
+CYCeps_1e-09 reg=0.9385 tge.5=1.0000(n=1667) term4=0.9935 term4&tge.5=1.0000 sd_beta=0.159 sd_y_gen=0.88
+CYCeps_1e-10 reg=0.9385 tge.5=1.0000(n=1667) term4=0.9935 term4&tge.5=1.0000 sd_beta=0.159 sd_y_gen=0.881
+D1R1_+ reg=0.0405 tge.5=0.0402(n=1915) term4=0.0395 term4&tge.5=0.0392 sd_beta=34.3 sd_y_gen=291
+D1R1_rand1 reg=0.0370 tge.5=0.0365(n=1916) term4=0.0425 term4&tge.5=0.0433 sd_beta=35.7 sd_y_gen=286
+D1R2_+ reg=0.0420 tge.5=0.0413(n=1915) term4=0.0380 term4&tge.5=0.0371 sd_beta=33.5 sd_y_gen=279
+D1R2_rand1 reg=0.0350 tge.5=0.0350(n=1916) term4=0.0400 term4&tge.5=0.0407 sd_beta=36.1 sd_y_gen=292
+D1R3_+ reg=0.0435 tge.5=0.0433(n=1915) term4=0.0405 term4&tge.5=0.0402 sd_beta=33 sd_y_gen=279
+D1R3_rand1 reg=0.0380 tge.5=0.0376(n=1916) term4=0.0375 term4&tge.5=0.0360 sd_beta=35.4 sd_y_gen=276
+D1_+ reg=0.0400 tge.5=0.0402(n=1915) term4=0.0340 term4&tge.5=0.0350 sd_beta=1.52e+04 sd_y_gen=8.28
+D1_alt reg=0.0245 tge.5=0.0234(n=1920) term4=0.0345 term4&tge.5=0.0354 sd_beta=1.52e+04 sd_y_gen=17.8
+D1_rand1 reg=0.0440 tge.5=0.0449(n=1916) term4=0.0600 term4&tge.5=0.0616 sd_beta=35.7 sd_y_gen=298
+D1_rand2 reg=0.0380 tge.5=0.0381(n=1918) term4=0.0520 term4&tge.5=0.0516 sd_beta=37 sd_y_gen=284
+D1_rand3 reg=0.0310 tge.5=0.0313(n=1919) term4=0.0465 term4&tge.5=0.0464 sd_beta=35.7 sd_y_gen=279
+D2R1_+ reg=0.0575 tge.5=0.0579(n=397) term4=0.0550 term4&tge.5=0.0529 sd_beta=4.65 sd_y_gen=28
+D2R1_rand1 reg=0.0350 tge.5=0.0350(n=400) term4=0.0375 term4&tge.5=0.0375 sd_beta=49.8 sd_y_gen=484
+D2_+ reg=0.0400 tge.5=0.0403(n=397) term4=0.0525 term4&tge.5=0.0453 sd_beta=3.27 sd_y_gen=17.5
+D2_alt reg=0.0425 tge.5=0.0402(n=398) term4=0.0300 term4&tge.5=0.0276 sd_beta=5.28 sd_y_gen=31.9
+D2_rand1 reg=0.0275 tge.5=0.0275(n=400) term4=0.0375 term4&tge.5=0.0375 sd_beta=52.1 sd_y_gen=487
+D2_rand2 reg=0.0550 tge.5=0.0550(n=400) term4=0.0625 term4&tge.5=0.0625 sd_beta=51.5 sd_y_gen=523
+D2_rand3 reg=0.0650 tge.5=0.0650(n=400) term4=0.0250 term4&tge.5=0.0250 sd_beta=55.9 sd_y_gen=550
+D4R1_+ reg=0.0350 tge.5=0.0350(n=200) term4=0.0350 term4&tge.5=0.0350 sd_beta=6.19 sd_y_gen=8.87
+D4R1_rand1 reg=0.0600 tge.5=0.0600(n=200) term4=0.0600 term4&tge.5=0.0600 sd_beta=3.46 sd_y_gen=8.24
+D4_+ reg=0.0750 tge.5=0.0750(n=200) term4=0.0750 term4&tge.5=0.0750 sd_beta=8.49 sd_y_gen=11.6
+D4_rand1 reg=0.0300 tge.5=0.0300(n=200) term4=0.0300 term4&tge.5=0.0300 sd_beta=3.76 sd_y_gen=8.33
+DEL_D1 reg=1.0000 tge.5=1.0000(n=1962) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.000532 sd_y_gen=0.55
+DEL_D2 reg=1.0000 tge.5=1.0000(n=1997) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.000961 sd_y_gen=0.789
+DER1_+ reg=0.0400 tge.5=0.0213(n=188) term4=0.0400 term4&tge.5=0.0213 sd_beta=1.07 sd_y_gen=2.27
+DER1_rand1 reg=0.0350 tge.5=0.0365(n=192) term4=0.0350 term4&tge.5=0.0365 sd_beta=1.05 sd_y_gen=2.04
+DE_+ reg=0.0200 tge.5=0.0213(n=188) term4=0.0200 term4&tge.5=0.0213 sd_beta=1.03 sd_y_gen=2.01
+DE_rand1 reg=0.0450 tge.5=0.0469(n=192) term4=0.0450 term4&tge.5=0.0469 sd_beta=1.04 sd_y_gen=2.18
+ETA reg=0.0120 tge.5=0.0110(n=1915) term4=0.0235 term4&tge.5=0.0240 sd_beta=1.89e+04 sd_y_gen=7.37
+HQ1 reg=1.0000 tge.5=1.0000(n=2000) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.49 sd_y_gen=0.879
+HQ1map reg=0.9985 tge.5=0.9985(n=2000) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.98 sd_y_gen=1.73
+INJ16_+ reg=0.0490 tge.5=0.0486(n=1915) term4=0.0385 term4&tge.5=0.0397 sd_beta=2.48e+03 sd_y_gen=262
+INJ16_alt reg=0.0400 tge.5=0.0396(n=1920) term4=0.0520 term4&tge.5=0.0510 sd_beta=588 sd_y_gen=282
+INJ16_rand1 reg=0.0390 tge.5=0.0376(n=1916) term4=0.0385 term4&tge.5=0.0397 sd_beta=34.8 sd_y_gen=273
+INJ1_+ reg=0.0325 tge.5=0.0320(n=1905) term4=0.0300 term4&tge.5=0.0294 sd_beta=1.7e+04 sd_y_gen=164
+INJ1_alt reg=0.0720 tge.5=0.0734(n=1907) term4=0.1010 term4&tge.5=0.1023 sd_beta=3.6e+03 sd_y_gen=208
+INJ1_rand1 reg=0.0345 tge.5=0.0320(n=1908) term4=0.0415 term4&tge.5=0.0393 sd_beta=34.2 sd_y_gen=270
+INJ2_+ reg=0.0470 tge.5=0.0450(n=1909) term4=0.0355 term4&tge.5=0.0351 sd_beta=1.07e+04 sd_y_gen=213
+INJ2_alt reg=0.0370 tge.5=0.0372(n=1911) term4=0.0295 term4&tge.5=0.0283 sd_beta=2.2e+03 sd_y_gen=234
+INJ2_rand1 reg=0.0340 tge.5=0.0350(n=1916) term4=0.0390 term4&tge.5=0.0402 sd_beta=35.5 sd_y_gen=276
+INJ4_+ reg=0.0415 tge.5=0.0413(n=1911) term4=0.0405 term4&tge.5=0.0392 sd_beta=6.5e+03 sd_y_gen=231
+INJ4_alt reg=0.0305 tge.5=0.0293(n=1914) term4=0.0455 term4&tge.5=0.0470 sd_beta=1.47e+03 sd_y_gen=248
+INJ4_rand1 reg=0.0390 tge.5=0.0397(n=1915) term4=0.0440 term4&tge.5=0.0433 sd_beta=35.9 sd_y_gen=278
+INJ64_+ reg=0.0360 tge.5=0.0345(n=1915) term4=0.0500 term4&tge.5=0.0486 sd_beta=639 sd_y_gen=269
+INJ64_alt reg=0.0405 tge.5=0.0396(n=1920) term4=0.0310 term4&tge.5=0.0302 sd_beta=113 sd_y_gen=288
+INJ64_rand1 reg=0.0290 tge.5=0.0292(n=1916) term4=0.0360 term4&tge.5=0.0371 sd_beta=36 sd_y_gen=282
+THIN_D1 reg=1.0000 tge.5=1.0000(n=1962) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.000986 sd_y_gen=1.06
+THIN_D2 reg=1.0000 tge.5=1.0000(n=1997) term4=1.0000 term4&tge.5=1.0000 sd_beta=0.00186 sd_y_gen=1.55
+ETA {'a': 1, 'b': 1, 'j': 8, 'y': 417.4114310972816, 'pred': 417.41143109728483, 'diff': -3.240074875066057e-12}
+ETA {'a': 1, 'b': 1, 'j': 13, 'y': 13469.875475327459, 'pred': 13469.875475327563, 'diff': -1.0368239600211382e-10}
+ETA {'a': 1, 'b': 1, 'j': 18, 'y': 431202.43875654123, 'pred': 431202.43875654426, 'diff': -3.026798367500305e-09}
+ETA {'a': 1, 'b': 2, 'j': 8, 'y': 101.93066385270535, 'pred': 101.93066385270534, 'diff': 1.4210854715202004e-14}
+ETA {'a': 1, 'b': 2, 'j': 13, 'y': 3363.747142202341, 'pred': 3363.74714220234, 'diff': 9.094947017729282e-13}
+ETA {'a': 1, 'b': 2, 'j': 18, 'y': 107795.58831523855, 'pred': 107795.58831523845, 'diff': 1.0186340659856796e-10}
+ETA {'a': 1, 'b': 3, 'j': 8, 'y': 43.64685180771137, 'pred': 43.64685180771137, 'diff': 0.0}
+ETA {'a': 1, 'b': 3, 'j': 13, 'y': 1492.3804475868465, 'pred': 1492.3804475868567, 'diff': -1.0231815394945443e-11}
+ETA {'a': 1, 'b': 3, 'j': 18, 'y': 47905.56937836732, 'pred': 47905.569378367305, 'diff': 1.4551915228366852e-11}
+ETA {'a': 1, 'b': 4, 'j': 8, 'y': 23.320402234270617, 'pred': 23.320402234270446, 'diff': 1.7053025658242404e-13}
+ETA {'a': 1, 'b': 4, 'j': 13, 'y': 837.4749891137508, 'pred': 837.4749891137445, 'diff': 6.252776074688882e-12}
+ETA {'a': 1, 'b': 4, 'j': 18, 'y': 26944.135635104845, 'pred': 26944.13563510471, 'diff': 1.3460521586239338e-10}
+ETA {'a': 1, 'b': 5, 'j': 8, 'y': 13.957153784881774, 'pred': 13.957153784881767, 'diff': 7.105427357601002e-15}
+ETA {'a': 1, 'b': 5, 'j': 13, 'y': 534.392313687935, 'pred': 534.3923136879364, 'diff': -1.3642420526593924e-12}
+ETA {'a': 1, 'b': 5, 'j': 18, 'y': 17242.03129643354, 'pred': 17242.031296433484, 'diff': 5.4569682106375694e-11}
+ETA {'a': 1, 'b': 7, 'j': 8, 'y': 5.875206305873633, 'pred': 5.875206305873595, 'diff': 3.730349362740526e-14}
+ETA {'a': 1, 'b': 7, 'j': 13, 'y': 270.5546746920476, 'pred': 270.55467469204626, 'diff': 1.3642420526593924e-12}
+ETA {'a': 1, 'b': 7, 'j': 18, 'y': 8794.011528897336, 'pred': 8794.011528897367, 'diff': -3.092281986027956e-11}

@@ -1,0 +1,2 @@
+zeros near 10000.065345414536 max relative error of |zeta'(rho)|: 2.8295685050805375e-05
+zeros near 1000000.5840976964 max relative error of |zeta'(rho)|: 8.997155765633202e-06

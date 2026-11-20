@@ -1,0 +1,6 @@
+14:54:41 mp extrema below 1000: 243, max shift/gap 1.212e+00
+14:54:54 N=16 cos cut K=481262 (f=1.00, T=735839.2): min barycentric coordinate (lower bound) -1.923e-02 ; max shift of x* 4.34e-04 ; sign flips 0 ; not certified
+14:55:05 N=16 cos cut K=505325 (f=1.05, T=769286.1): min barycentric coordinate (lower bound) 3.857e-03 ; max shift of x* 6.37e-04 ; sign flips 0 ; CERTIFIED
+14:55:23 N=24 cos cut K=1650011 (f=1.00, T=2276676.2): min barycentric coordinate (lower bound) 7.761e-04 ; max shift of x* 2.67e-04 ; sign flips 0 ; CERTIFIED
+14:55:51 N=32 cos cut K=2790511 (f=1.00, T=3695282.9): min barycentric coordinate (lower bound) -1.281e-02 ; max shift of x* 2.19e-04 ; sign flips 0 ; not certified
+14:56:17 N=32 cos cut K=2930036 (f=1.05, T=3865632.6): min barycentric coordinate (lower bound) 5.772e-05 ; max shift of x* 3.16e-04 ; sign flips 0 ; CERTIFIED

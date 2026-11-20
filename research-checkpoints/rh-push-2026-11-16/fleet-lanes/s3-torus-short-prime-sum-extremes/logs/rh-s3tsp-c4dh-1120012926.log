@@ -1,0 +1,16 @@
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+zeta check {'P': 1000000, 'zeros': 120, 'phi_range': [1, 134.9852245119988], 'max_abs_diff': 0.0005334588539289697, 'maxV': -0.00268018031229178, 'minV': -7.019727244427114, 'trough_at_first_zero': -6.908977815881021, 'half_L': 6.907755278982137}
+DH coefficients to 100000000: 114s; max |Lambda_DH(n)| n^-1/2 = 7.601
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 10000, "L": 9.21034, "maxV": 7.46709, "argmax": 240.91, "frac_pos": 0.01774, "max_dist_of_violation": 2.62533, "maxV_low": -0.01643, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.01657, "max_leak": 7.60136, "leak_max_low": 0.00053, "pred_first": 0.00045}
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 100000, "L": 11.51293, "maxV": 20.28276, "argmax": 240.79, "frac_pos": 0.02542, "max_dist_of_violation": 5.93935, "maxV_low": -0.00961, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.0094, "max_leak": 20.3514, "leak_max_low": 0.00075, "pred_first": 0.00073}
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 1000000, "L": 13.81551, "maxV": 49.58935, "argmax": 240.09, "frac_pos": 0.03334, "max_dist_of_violation": 8.19649, "maxV_low": -0.01025, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.01053, "max_leak": 49.6978, "leak_max_low": 0.00147, "pred_first": 0.00124}
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 10000000, "L": 16.1181, "maxV": 115.58177, "argmax": 240.66, "frac_pos": 0.04958, "max_dist_of_violation": 20.69467, "maxV_low": -0.00355, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.004, "max_leak": 115.68175, "leak_max_low": 0.00246, "pred_first": 0.00217}
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 30000000, "L": 17.21671, "maxV": 171.15679, "argmax": 240.64, "frac_pos": 0.05639, "max_dist_of_violation": 18.63533, "maxV_low": -0.00742, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.00793, "max_leak": 171.22879, "leak_max_low": 0.00335, "pred_first": 0.00285}
+planned grids: 2 x 262144 x 8 B = 0.00 GiB
+{"P": 100000000, "L": 18.42068, "maxV": 261.45011, "argmax": 240.62, "frac_pos": 0.06281, "max_dist_of_violation": 16.07467, "maxV_low": -0.00729, "low_window": [0.5, 21.4248371213444], "violations_low": 0, "max_resid": -0.0073, "max_leak": 261.54279, "leak_max_low": 0.00267, "pred_first": 0.00386}
+done 174s

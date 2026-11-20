@@ -1,0 +1,8 @@
+# DH T0=1.000e+06 windows=40000 points=6800000 ncut=2565 y=[32, 1000] nmax=2565; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.44 GB
+# tables 0s  theta0=2.381313  max|inv|=11.6
+# CPU path, 1 workers, chunk 1700 points x 2052 terms (0.08 GB per worker)
+done DH T0=1000000 points=6800000 secs=860 gpu=False max|Z|=24.830
+DH T0=1.0e+06 zeros=606171 (count-expected -73829.0) viol=29617 gap_max=7.817 max|Z|=24.8 cert_max(th=0.5)=2.200 false=0 J17=4.348
+# chi5 T0=1.000e+06 windows=40000 points=6800000 ncut=2565 y=[32, 1000] nmax=2565; planned GPU/CPU chunk memory about 0.4 GB; host arrays 0.44 GB
+# tables 0s  theta0=1.595915  max|inv|=1
+# CPU path, 1 workers, chunk 1700 points x 2052 terms (0.08 GB per worker)

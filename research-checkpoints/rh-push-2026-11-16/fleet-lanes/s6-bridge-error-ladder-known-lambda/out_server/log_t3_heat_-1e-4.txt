@@ -1,0 +1,12 @@
+11:53:10 heat_-1e-4: 4023131 ordinates 10000000.240 .. 11759967.922; list 0.03 GB, planned peak 0.63 GB
+11:53:11 13 records
+11:53:11 record at index 50 gap 6.880022e-02: t_c 5.98859364e-04 (pair value 5.91683725e-04, retardation 1.21e-02)
+11:53:11 record at index 138 gap 4.688042e-02: t_c 2.76622560e-04 (pair value 2.74721748e-04, retardation 6.92e-03)
+11:53:16 record at index 1312 gap 2.455779e-02: t_c 7.54825225e-05 (pair value 7.53856185e-05, retardation 1.29e-03)
+11:53:23 record at index 9079 gap 2.421939e-02: t_c 7.34514039e-05 (pair value 7.33223565e-05, retardation 1.76e-03)
+11:53:29 record at index 31320 gap 1.222058e-02: t_c 1.86777591e-05 (pair value 1.86678223e-05, retardation 5.32e-04)
+11:53:35 record at index 64605 gap 2.770774e-03: t_c 9.59664309e-07 (pair value 9.59648616e-07, retardation 1.64e-05)
+11:53:41 record at index 303923 gap 2.056882e-03: t_c 5.28849980e-07 (pair value 5.28845335e-07, retardation 8.78e-06)
+11:53:47 record at index 848206 gap 1.453876e-03: t_c 2.64224985e-07 (pair value 2.64219608e-07, retardation 2.04e-05)
+11:53:53 record at index 2188277 gap 1.856387e-04: t_c 4.30771029e-09 (pair value 4.30771430e-09, retardation -9.30e-07)
+{"fit_all": {"p_tc": -0.9948979731613806, "p_E": -0.4682321098165868}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -0.3183681703982284, "p_E": -0.449184360535645, "p_Ecoll": -0.4382939018623986, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 3, "p_increments": null, "tc_over_E_lo": 0.024983519563677236, "tc_over_E_hi": 0.0251293856115473}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -0.4014713327961281, "p_E": -0.46813992413315836, "p_Ecoll": -0.44825233654446767, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 4, "p_increments": null, "tc_over_E_lo": 0.02947846479123817, "tc_over_E_hi": 0.02128789193163528}, {"lo": 10000.0, "hi": 100000.0, "p_tc": -2.3761248757233138, "p_E": -0.47309982535944445, "p_Ecoll": -0.4569106566688012, "sigma_mid": 0.9206101058768068, "dyadic_steps": 5, "zero_increments": 1, "p_increments": -1.3026091587672766, "tc_over_E_lo": 0.024399950204550925, "tc_over_E_hi": 0.000852536557964958}, {"lo": 100000.0, "hi": 1000000.0, "p_tc": -0.4421168919853288, "p_E": -0.4694794713173913, "p_Ecoll": -0.4630662748371595, "sigma_mid": 0.9460376507940796, "dyadic_steps": 4, "zero_increments": 2, "p_increments": null, "tc_over_E_lo": 0.0010040682780795653, "tc_over_E_hi": 0.001248162419118039}], "blocks": -0.8431592751094106}

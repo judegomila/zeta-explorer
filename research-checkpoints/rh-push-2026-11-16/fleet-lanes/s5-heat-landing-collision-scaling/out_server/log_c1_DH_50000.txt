@@ -1,0 +1,12 @@
+07:51:58 DH H_gamma=50000: 68925 real, 3700 pairs, 76325 particles; pair terms per evaluation 1.17e+10; state 7.3 MB
+07:53:05 step 25 t=0.000850 h=1.64e-04 err=0.22 unlanded=3658 rej=0
+07:54:19 snapshot t=0.01: unlanded pairs 3183 of 3700
+07:54:36 step 50 t=0.012455 h=8.31e-04 err=0.63 unlanded=3073 rej=0
+07:57:01 step 75 t=0.024902 h=2.65e-04 err=0.33 unlanded=2555 rej=9
+07:59:05 step 100 t=0.042213 h=1.08e-03 err=0.73 unlanded=1932 rej=9
+07:59:39 snapshot t=0.05: unlanded pairs 1671 of 3700
+08:01:16 step 125 t=0.071699 h=1.36e-03 err=0.65 unlanded=1110 rej=10
+08:03:20 step 150 t=0.138497 h=3.84e-03 err=0.56 unlanded=148 rej=10
+08:04:54 done t=0.230804 steps 169 rejected 10 evaluations 1075
+{"obj": "DH", "Hgamma": 50000.0, "ld": false, "n_real": 68925, "n_pairs": 3700, "steps": 169, "landed": 3700, "Lambda_max_landing_inner": 0.2306073638210366, "argmax_gamma": 240.40467234919495, "argmax_x": 0.3695305814506988, "debruijn_bound": 0.3820329548313704, "speedup_quantiles": [1.0000047643018732, 1.009478053724118, 1.1344209490144879, 1.5774013214071, 2.9166026888169507], "land_over_rung_quantiles": [0.8628241370611545, 0.9894211484504813, 0.9998938308447071, 1.0609607630528315, 1.3274142234559183], "frac_land_gt_rung": 0.4395949720670391, "violations_debruijn": 0}
+{'0.01': {'t': 0.01, 'unlanded': 3183, 'real_zero_count': 69959, 'total_zero_count': 76325, 'deficit': 6366}, '0.05': {'t': 0.05, 'unlanded': 1671, 'real_zero_count': 72983, 'total_zero_count': 76325, 'deficit': 3342}}

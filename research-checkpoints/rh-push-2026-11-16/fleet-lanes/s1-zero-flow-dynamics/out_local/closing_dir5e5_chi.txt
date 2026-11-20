@@ -1,0 +1,2 @@
+chi: 946483 zeros ; close pairs 6661 ; candidates (a neighbouring gap below 0.45 of the pair gap) 0
+  closing close pairs: 0 ; per 1e6 zeros: 0.000

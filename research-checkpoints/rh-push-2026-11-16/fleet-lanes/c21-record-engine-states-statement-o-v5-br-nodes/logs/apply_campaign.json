@@ -1,0 +1,62 @@
+[
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "(one referee: does not hold as worded, holds after E1; second referee owed). Kind: the multiplicative step of (J)",
+  "inserted": "(one referee: does not hold as worded, holds after E1; second referee owed) [c21 record lane, correction C1 of the campaign referee of the c20 record lane: this item was entered under \"closed by this rule\" on one refereed obstruction; the second referee file is now on disk, `push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-u4-joint-prime-phase-quadratic-dp-zeros.md`: holds with corrections"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "`c19-hq2-screen-fe-int-mult-pos-devices` (one referee, holds with corrections E1 to E7; second referee owed).",
+  "inserted": "`c19-hq2-screen-fe-int-mult-pos-devices` (one referee, holds with corrections E1 to E7; second referee owed) [c21 record lane, C1: entered on one refereed obstruction; the second referee file is now on disk, `push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-hq2-screen-fe-int-mult-pos-devices.md`: holds (Lemmas N, S, F, C)]."
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "`c19-u6c-double-cover-k3-run` (one referee, holds, nine corrections; second referee owed).",
+  "inserted": "`c19-u6c-double-cover-k3-run` (one referee, holds, nine corrections; second referee owed) [c21 record lane, C1: entered on one refereed obstruction; the second referee file is now on disk, `push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-u6c-double-cover-k3-run.md`: holds; its scope is Lemma Q (the interchange lemma) only, the Eisenstein and cusp-form runs keep one referee; engine state s"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "State: closed (items 57 and 63 with two referee files on the double-cover half); engine state owed.",
+  "inserted": " [c21 record lane: engine state set to closed, block R21 of `engine/curated/mk_devices.py`; the second file covers Lemma Q only.]"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "The PROVED positivity step (Lemma P applied to the constructed measure) was false as stated and is repaired on the three",
+  "inserted": " [c21 record lane, text repair: the repaired statement is Lemma P' of the second referee (`push/c20-referee-theorem-d-headline-and-r19/REFEREE2-c19-rs-real-zero-completion-band-server.md`): T_sigma >= -2.247887 sup over abs(x) <= 6.29 of abs(g)^2, and on the mode space V_m T_sigma >= -eps with eps <= 3.3e-10 (1e6), 2.2e-16 (1e9), 1.7e-22 (1e12); Lemma P itself holds only under sigma >= 0, which th"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "Kind: X(d) is not proved; it is reduced to NL(d) (d negative squares of a three-term one-variable kernel on the pole lin",
+  "inserted": "Kind: X(d) is not proved; it is reduced to NL(d) (d negative squares of a three-term one-variable kernel on the pole line) [c21 record lane, text repair: X(d) and NL(d) are statements for d even; both are false for odd d (second referee, exact: at {1/4, 3/4, 1/2} N has inertia (1, 2) and N^+ (6, 1); at {1/6, 5/6, 1/3, 2/3, 1/2} N has (6, 4) and N^+ (15, 1))];"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "(row D10; X(d) reduced to NL(d), exact to d = 16; cannot score; item 64)",
+  "inserted": "(row D10; X(d) reduced to NL(d), d even, exact to d = 16; cannot score; item 64)"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "Device table: 56 types, 55 closed, 1 floored (the 7/8 type), 0 open.",
+  "inserted": " [c21 record lane, after block R21: 58 types, 55 closed, 1 floored, 2 open; the two open types are the proposed, untested entries for BR-2 and BR-3 (questions with entry conditions, registered so that `generate.py` can rank them; not leads with a score). Cells: 11, of which 5 closed (U6 (c) added on its second referee file), 1 tried and not closed, 5 with engine state `cell` (U4, U6 (a), U6 (b): s"
+ },
+ {
+  "file": "campaign/STRATEGY.md",
+  "anchor": "## 5. Change log\n",
+  "inserted": "\n- 2026-11-20 (`c21-record-engine-states-statement-o-v5-br-nodes`, record lane; previous file `engine/scratch/STRATEGY.pre-c21-record.md`): bracketed notes \"[c21 record lane ...]\" in section 0c (device and cell counts after block R21), in section 3.1 items 59, 60, 61, 63, 64, 69 (correction C1: second referee files; Lemma P'; \"d even\") and in the round-19 cell paragraph (\"d even\"). No rule, weight"
+ },
+ {
+  "file": "campaign/CHECKPOINT_R20_INPUT.md",
+  "anchor": "| X(d) for d > 4 (a record item: the row cannot score)",
+  "inserted": "| X(d) for even d > 4 (a record item: the row cannot score; \"d even\" added by the c21 record lane: X(d) is false for odd d)"
+ },
+ {
+  "file": "campaign/CHECKPOINT_R20_DECISION_SHEET.md",
+  "anchor": "| NL(d) for general d (model-level; record value only);",
+  "inserted": "| NL(d) for general even d (model-level; record value only; \"even\" added by the c21 record lane: NL(d) is false for odd d);"
+ },
+ {
+  "file": "engine/curated/mk_devices.py",
+  "anchor": "block R21",
+  "inserted": "evidence text for silent-cell-u6g, silent-cell-u4, band device (no state change)"
+ }
+]

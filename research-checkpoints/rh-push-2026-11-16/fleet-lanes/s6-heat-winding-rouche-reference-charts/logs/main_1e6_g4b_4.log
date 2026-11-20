@@ -1,0 +1,19 @@
+04:55:56 X=1e+06 Ltot=262144 chunk length 16384 (M=262144), chunks 4..8 of 16, sets 3, GPU=False
+04:55:56 planned allocation: fine grid 8 MB complex, rows about 4 MB each, per-set outputs about 4 MB
+04:55:56 chunk 4 xc=1073728.0 phases done in 0.1s (nmax 1100)
+04:56:01 done chunk 4 ZETA t=-0.1 in 5.1s
+04:56:06 done chunk 4 ZETA t=-0.05 in 5.1s
+04:56:11 done chunk 4 ZETA t=0.06 in 5.0s
+04:56:11 chunk 5 xc=1090112.0 phases done in 0.0s (nmax 1100)
+04:56:16 done chunk 5 ZETA t=-0.1 in 5.2s
+04:56:22 done chunk 5 ZETA t=-0.05 in 5.2s
+04:56:26 done chunk 5 ZETA t=0.06 in 4.7s
+04:56:26 chunk 6 xc=1106496.0 phases done in 0.0s (nmax 1100)
+04:56:31 done chunk 6 ZETA t=-0.1 in 5.1s
+04:56:37 done chunk 6 ZETA t=-0.05 in 5.1s
+04:56:42 done chunk 6 ZETA t=0.06 in 5.1s
+04:56:42 chunk 7 xc=1122880.0 phases done in 0.0s (nmax 1100)
+04:56:47 done chunk 7 ZETA t=-0.1 in 5.9s
+04:56:53 done chunk 7 ZETA t=-0.05 in 5.8s
+04:56:59 done chunk 7 ZETA t=0.06 in 5.7s
+04:56:59 ALLDONE

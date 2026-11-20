@@ -1,0 +1,7 @@
+[alpha:-1@2] gpu=False KMAX=90 NRES=100 NEXT=57 t-points=3001; planned: cos blocks of 4713 t-points x <= 5328 nodes
+  spike 0: mass +7.9850e-01 [4s]
+  spike 20: mass +1.3572e-03 [113s]
+  spike 40: mass +1.3254e-06 [273s]
+  spike 60: mass +1.2943e-09 [559s]
+  spike 80: mass +1.2640e-12 [1133s]
+RESULT3 alpha:-1@2: Lhat(0) = +0.058696, deltahat(0) = 4.856657; min over [0,60] = +0.058696 at t = 0.000; extras {}; last spike mass +3.95e-14 [1447s]

@@ -1,0 +1,202 @@
+t1_low DH windows 200 H 10.0 workers 8
+DH T 0.50 winding -0.0000 count 0 roots   maxstep 0.42 evals 129/129 0.1s
+DH T 10.50 winding 0.0000 count 0 roots   maxstep 0.37 evals 192/192 0.4s
+DH T 20.50 winding 0.0000 count 0 roots   maxstep 0.51 evals 237/237 0.2s
+DH T 30.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 272/272 0.7s
+DH T 40.50 winding -0.0000 count 0 roots   maxstep 0.58 evals 264/264 0.9s
+DH T 50.50 winding 0.0000 count 0 roots   maxstep 0.44 evals 266/266 2.0s
+DH T 60.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 271/271 2.0s
+DH T 70.50 winding 0.0000 count 0 roots   maxstep 0.47 evals 310/310 2.0s
+DH T 80.50 winding 1.0000 count 1 roots (0.405372, 85.705136)  maxstep 0.58 evals 310/615 0.9s
+DH T 90.50 winding -0.0000 count 0 roots   maxstep 0.57 evals 378/378 0.5s
+DH T 100.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 354/354 1.2s
+DH T 110.50 winding 1.0000 count 1 roots (0.474776, 114.160785)  maxstep 0.58 evals 361/677 2.7s
+DH T 120.50 winding -0.0000 count 0 roots   maxstep 0.34 evals 397/397 2.5s
+DH T 130.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 349/349 0.4s
+DH T 140.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 391/391 2.6s
+DH T 150.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 406/406 0.7s
+DH T 160.50 winding 1.0000 count 1 roots (0.493280, 166.479839)  maxstep 0.54 evals 349/648 4.6s
+DH T 170.50 winding 1.0000 count 1 roots (0.440299, 176.707977)  maxstep 0.58 evals 380/720 6.9s
+DH T 180.50 winding 0.0000 count 0 roots   maxstep 0.32 evals 407/407 1.9s
+DH T 190.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 387/387 0.7s
+DH T 200.50 winding -0.0000 count 0 roots   maxstep 0.50 evals 411/411 3.1s
+DH T 210.50 winding 0.0000 count 0 roots   maxstep 0.50 evals 369/369 1.0s
+DH T 220.50 winding -0.0000 count 0 roots   maxstep 0.47 evals 405/405 3.2s
+DH T 230.50 winding 1.0000 count 1 roots (0.340162, 240.391779)  maxstep 0.46 evals 408/728 15.6s
+DH T 240.50 winding -0.0000 count 0 roots   maxstep 0.58 evals 369/369 2.1s
+DH T 250.50 winding -0.0000 count 0 roots   maxstep 0.49 evals 406/406 1.0s
+DH T 260.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 415/415 0.8s
+DH T 270.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 375/375 0.7s
+DH T 280.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 414/414 5.2s
+DH T 290.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 407/407 1.3s
+DH T 300.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 403/403 2.7s
+DH T 310.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 402/402 1.7s
+DH T 320.50 winding 1.0000 count 1 roots (0.372540, 320.884868)  maxstep 0.60 evals 351/691 18.1s
+DH T 330.50 winding 1.0000 count 1 roots (0.406294, 331.059967)  maxstep 0.58 evals 360/692 4.3s
+DH T 340.50 winding 0.0000 count 0 roots   maxstep 0.49 evals 407/407 1.4s
+DH T 350.50 winding -0.0000 count 0 roots   maxstep 0.60 evals 407/407 1.5s
+DH T 360.50 winding 1.0000 count 1 roots (0.476995, 366.640005)  maxstep 0.59 evals 395/760 7.2s
+DH T 370.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 399/399 18.5s
+DH T 380.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 407/407 2.8s
+DH T 390.50 winding 0.0000 count 0 roots   maxstep 0.52 evals 395/395 2.1s
+DH T 400.50 winding 0.0000 count 0 roots   maxstep 0.50 evals 407/407 4.2s
+DH T 410.50 winding 1.0000 count 1 roots (0.368601, 411.813792)  maxstep 0.60 evals 392/759 10.8s
+DH T 420.50 winding 0.0000 count 0 roots   maxstep 0.51 evals 428/428 1.4s
+DH T 430.50 winding 1.0000 count 1 roots (0.438893, 440.475236)  maxstep 0.49 evals 394/761 8.1s
+DH T 440.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 399/399 1.0s
+DH T 450.50 winding -0.0000 count 0 roots   maxstep 0.59 evals 404/404 9.1s
+DH T 460.50 winding -0.0000 count 0 roots   maxstep 0.41 evals 407/407 9.8s
+DH T 470.50 winding -0.0000 count 0 roots   maxstep 0.52 evals 406/406 9.4s
+DH T 480.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 409/409 10.3s
+DH T 490.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 449/449 6.2s
+DH T 500.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 398/398 5.1s
+DH T 510.50 winding -0.0000 count 0 roots   maxstep 0.57 evals 412/412 10.0s
+DH T 520.50 winding 1.0000 count 1 roots (0.499618, 520.943766)  maxstep 0.51 evals 415/766 28.0s
+DH T 530.50 winding 1.0000 count 1 roots (0.341820, 531.268874)  maxstep 0.56 evals 383/826 33.3s
+DH T 540.50 winding 1.0000 count 1 roots (0.424598, 548.899660)  maxstep 0.58 evals 400/753 21.3s
+DH T 550.50 winding -0.0000 count 0 roots   maxstep 0.47 evals 454/454 5.2s
+DH T 560.50 winding 1.0000 count 1 roots (0.385944, 566.505511)  maxstep 0.59 evals 395/749 34.8s
+DH T 570.50 winding -0.0000 count 0 roots   maxstep 0.40 evals 415/415 4.4s
+DH T 580.50 winding 0.0000 count 0 roots   maxstep 0.54 evals 446/446 11.5s
+DH T 590.50 winding 1.0000 count 1 roots (0.489524, 595.021846)  maxstep 0.53 evals 422/834 21.5s
+DH T 600.50 winding 0.0000 count 0 roots   maxstep 0.47 evals 407/407 4.8s
+DH T 610.50 winding 1.0000 count 1 roots (0.474409, 611.784153)  maxstep 0.51 evals 410/830 24.3s
+DH T 620.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 429/429 9.5s
+DH T 630.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 442/442 10.3s
+DH T 640.50 winding 1.0000 count 1 roots (0.481189, 646.987893)  maxstep 0.60 evals 435/828 27.5s
+DH T 650.50 winding 1.0000 count 1 roots (0.401336, 657.120899)  maxstep 0.56 evals 410/771 21.7s
+DH T 660.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 407/407 9.2s
+DH T 670.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 430/430 15.8s
+DH T 680.50 winding -0.0000 count 0 roots   maxstep 0.50 evals 415/415 13.1s
+DH T 690.50 winding 1.0000 count 1 roots (0.381773, 692.887993)  maxstep 0.58 evals 408/795 34.3s
+DH T 700.50 winding 0.0000 count 0 roots   maxstep 0.54 evals 439/439 15.6s
+DH T 710.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 437/437 15.6s
+DH T 720.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 436/436 20.6s
+DH T 730.50 winding 1.0000 count 1 roots (0.386503, 737.787160)  maxstep 0.56 evals 408/814 14.2s
+DH T 740.50 winding -0.0000 count 0 roots   maxstep 0.50 evals 410/410 1.2s
+DH T 750.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 419/419 11.9s
+DH T 760.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 457/457 18.5s
+DH T 770.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 479/479 16.8s
+DH T 780.50 winding 1.0000 count 1 roots (0.328797, 783.656406)  maxstep 0.58 evals 397/807 30.6s
+DH T 790.50 winding 0.0000 count 0 roots   maxstep 0.52 evals 413/413 17.4s
+DH T 800.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 407/407 12.1s
+DH T 810.50 winding 1.0000 count 1 roots (0.455752, 811.763468)  maxstep 0.59 evals 443/882 25.7s
+DH T 820.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 483/483 9.7s
+DH T 830.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 453/453 20.4s
+DH T 840.50 winding 1.0000 count 1 roots (0.493776, 847.464508)  maxstep 0.57 evals 451/847 4.3s
+DH T 850.50 winding 1.0000 count 1 roots (0.324558, 857.301064)  maxstep 0.56 evals 405/812 23.7s
+DH T 860.50 winding 1.0000 count 1 roots (0.449246, 864.120984)  maxstep 0.58 evals 433/818 19.9s
+DH T 870.50 winding 0.0000 count 0 roots   maxstep 0.53 evals 489/489 12.5s
+DH T 880.50 winding -0.0000 count 0 roots   maxstep 0.45 evals 407/407 18.8s
+DH T 890.50 winding 1.0000 count 1 roots (0.442545, 892.165576)  maxstep 0.58 evals 506/911 7.6s
+DH T 900.50 winding 0.0000 count 0 roots   maxstep 0.54 evals 464/464 3.2s
+DH T 910.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 547/547 13.1s
+DH T 920.50 winding 1.0000 count 1 roots (0.398193, 921.156864)  maxstep 0.59 evals 457/911 17.3s
+DH T 930.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 445/445 10.5s
+DH T 940.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 539/539 13.3s
+DH T 950.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 491/491 23.3s
+DH T 960.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 446/446 10.8s
+DH T 970.50 winding 0.0000 count 0 roots   maxstep 0.54 evals 510/510 17.1s
+DH T 980.50 winding 1.0000 count 1 roots (0.390608, 983.730378)  maxstep 0.57 evals 459/868 15.8s
+DH T 990.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 451/451 7.0s
+DH T 1000.50 winding -0.0000 count 0 roots   maxstep 0.49 evals 482/482 12.1s
+DH T 1010.50 winding 2.0000 count 2 roots (0.441842, 1012.012452) (0.438213, 1018.795158)  maxstep 0.60 evals 430/878 25.2s
+DH T 1020.50 winding 1.0000 count 1 roots (0.487670, 1029.003284)  maxstep 0.52 evals 455/847 25.1s
+DH T 1030.50 winding -0.0000 count 0 roots   maxstep 0.56 evals 565/565 9.1s
+DH T 1040.50 winding -0.0000 count 0 roots   maxstep 0.58 evals 450/450 9.9s
+DH T 1050.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 448/448 8.8s
+DH T 1060.50 winding 0.0000 count 0 roots   maxstep 0.52 evals 532/532 16.6s
+DH T 1070.50 winding 1.0000 count 1 roots (0.479586, 1078.489136)  maxstep 0.57 evals 429/852 22.0s
+DH T 1080.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 582/582 25.9s
+DH T 1090.50 winding 1.0000 count 1 roots (0.320355, 1092.451609)  maxstep 0.55 evals 467/853 19.1s
+DH T 1100.50 winding 1.0000 count 1 roots (0.480678, 1109.557720)  maxstep 0.59 evals 481/925 29.2s
+DH T 1110.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 523/523 11.3s
+DH T 1120.50 winding 0.0000 count 0 roots   maxstep 0.49 evals 512/512 25.0s
+DH T 1130.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 445/445 26.0s
+DH T 1140.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 567/567 14.6s
+DH T 1150.50 winding 1.0000 count 1 roots (0.407098, 1154.695591)  maxstep 0.58 evals 499/958 36.7s
+DH T 1160.50 winding -0.0000 count 0 roots   maxstep 0.60 evals 546/546 37.2s
+DH T 1170.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 554/554 17.5s
+DH T 1180.50 winding 1.0000 count 1 roots (0.465278, 1190.396299)  maxstep 0.58 evals 473/954 63.1s
+DH T 1190.50 winding -0.0000 count 0 roots   maxstep 0.53 evals 526/526 14.0s
+DH T 1200.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 514/514 3.9s
+DH T 1210.50 winding 2.0000 count 2 roots (0.463014, 1212.103723) (0.384395, 1218.686305)  maxstep 0.60 evals 489/1081 7.2s
+DH T 1220.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 429/429 13.0s
+DH T 1230.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 512/512 19.8s
+DH T 1240.50 winding 0.0000 count 0 roots   maxstep 0.60 evals 591/591 21.5s
+DH T 1250.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 537/537 3.2s
+DH T 1260.50 winding 1.0000 count 1 roots   maxstep 0.57 evals 493/12027 360.1s
+DH T 1270.50 winding 1.0000 count 1 roots (0.398191, 1274.222194)  maxstep 0.56 evals 532/957 18.4s
+DH T 1280.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 527/527 23.8s
+DH T 1290.50 winding 1.0000 count 1 roots (0.458629, 1292.930403)  maxstep 0.47 evals 498/923 25.2s
+DH T 1300.50 winding 1.0000 count 1 roots (0.399519, 1309.603426)  maxstep 0.53 evals 482/884 45.7s
+DH T 1310.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 525/525 12.5s
+DH T 1320.50 winding 1.0000 count 1 roots (0.480016, 1323.938337)  maxstep 0.60 evals 547/1118 25.6s
+DH T 1330.50 winding 1.0000 count 1 roots (0.417627, 1338.098897)  maxstep 0.59 evals 410/822 26.9s
+DH T 1340.50 winding 1.0000 count 1 roots (0.438551, 1344.861817)  maxstep 0.59 evals 560/961 18.7s
+DH T 1350.50 winding 1.0000 count 1 roots (0.333510, 1354.849503)  maxstep 0.58 evals 458/924 30.3s
+DH T 1360.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 547/547 5.9s
+DH T 1370.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 568/568 20.5s
+DH T 1380.50 winding -0.0000 count 0 roots   maxstep 0.50 evals 475/475 7.4s
+DH T 1390.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 562/562 29.7s
+DH T 1400.50 winding -0.0000 count 0 roots   maxstep 0.51 evals 597/597 29.8s
+DH T 1410.50 winding 1.0000 count 1 roots (0.416405, 1418.546147)  maxstep 0.60 evals 563/1010 23.6s
+DH T 1420.50 winding 1.0000 count 1 roots (0.492271, 1428.957752)  maxstep 0.54 evals 566/1022 24.8s
+DH T 1430.50 winding 1.0000 count 1 roots (0.491103, 1435.527367)  maxstep 0.59 evals 484/887 23.7s
+DH T 1440.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 595/595 18.8s
+DH T 1450.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 527/527 10.8s
+DH T 1460.50 winding 1.0000 count 1 roots (0.334108, 1464.402649)  maxstep 0.59 evals 472/909 30.2s
+DH T 1470.50 winding -0.0000 count 0 roots   maxstep 0.59 evals 488/488 13.2s
+DH T 1480.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 565/565 21.6s
+DH T 1490.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 583/583 31.5s
+DH T 1500.50 winding 1.0000 count 1 roots (0.479085, 1509.277170)  maxstep 0.51 evals 534/963 40.2s
+DH T 1510.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 545/545 8.2s
+DH T 1520.50 winding 1.0000 count 1 roots (0.423467, 1526.840451)  maxstep 0.60 evals 492/953 32.6s
+DH T 1530.50 winding -0.0000 count 0 roots   maxstep 0.55 evals 571/571 13.1s
+DH T 1540.50 winding 1.0000 count 1 roots (0.472369, 1544.706461)  maxstep 0.57 evals 570/1020 23.0s
+DH T 1550.50 winding 1.0000 count 1 roots (0.375853, 1555.109793)  maxstep 0.57 evals 545/945 32.9s
+DH T 1560.50 winding -0.0000 count 0 roots   maxstep 0.43 evals 627/627 16.3s
+DH T 1570.50 winding 1.0000 count 1 roots (0.493373, 1576.265502)  maxstep 0.59 evals 570/1114 50.1s
+DH T 1580.50 winding 1.0000 count 1 roots (0.496730, 1590.253889)  maxstep 0.55 evals 493/981 46.2s
+DH T 1590.50 winding 1.0000 count 1 roots (0.490080, 1600.066369)  maxstep 0.55 evals 536/967 49.4s
+DH T 1600.50 winding 1.0000 count 1 roots (0.448151, 1607.172106)  maxstep 0.57 evals 540/967 23.2s
+DH T 1610.50 winding 0.0000 count 0 roots   maxstep 0.56 evals 570/570 15.2s
+DH T 1620.50 winding -0.0000 count 0 roots   maxstep 0.57 evals 533/533 18.2s
+DH T 1630.50 winding 1.0000 count 1 roots (0.469080, 1635.928214)  maxstep 0.56 evals 547/957 32.2s
+DH T 1640.50 winding 1.0000 count 1 roots (0.394626, 1649.885503)  maxstep 0.52 evals 539/949 39.7s
+DH T 1650.50 winding 1.0000 count 1 roots (0.483711, 1653.513428)  maxstep 0.56 evals 557/982 38.1s
+DH T 1660.50 winding 1.0000 count 1 roots (0.469106, 1664.007429)  maxstep 0.57 evals 557/968 40.1s
+DH T 1670.50 winding 1.0000 count 1 roots (0.421929, 1670.990868)  maxstep 0.59 evals 512/933 35.5s
+DH T 1680.50 winding 1.0000 count 1 roots (0.479836, 1680.890622)  maxstep 0.56 evals 572/1030 42.3s
+DH T 1690.50 winding 1.0000 count 1 roots (0.435829, 1699.575725)  maxstep 0.59 evals 547/969 54.4s
+DH T 1700.50 winding 1.0000 count 1 roots (0.330268, 1709.429601)  maxstep 0.54 evals 518/947 56.5s
+DH T 1710.50 winding 0.0000 count 0 roots   maxstep 0.48 evals 523/523 13.8s
+DH T 1720.50 winding 1.0000 count 1 roots (0.493963, 1726.756534)  maxstep 0.59 evals 609/1107 35.6s
+DH T 1730.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 571/571 19.1s
+DH T 1740.50 winding -0.0000 count 0 roots   maxstep 0.49 evals 555/555 20.6s
+DH T 1750.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 534/534 20.8s
+DH T 1760.50 winding 1.0000 count 1 roots (0.414800, 1761.710653)  maxstep 0.57 evals 515/926 23.2s
+DH T 1770.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 558/558 30.6s
+DH T 1780.50 winding -0.0000 count 0 roots   maxstep 0.55 evals 576/576 23.1s
+DH T 1790.50 winding 1.0000 count 1 roots (0.392171, 1790.560842)  maxstep 0.59 evals 515/927 41.8s
+DH T 1800.50 winding 2.0000 count 2 roots   maxstep 0.58 evals 525/15958 329.7s
+DH T 1810.50 winding 1.0000 count 1 roots (0.498244, 1817.741726)  maxstep 0.52 evals 553/1010 36.4s
+DH T 1820.50 winding 0.0000 count 0 roots   maxstep 0.55 evals 573/573 28.7s
+DH T 1830.50 winding 1.0000 count 1 roots (0.432380, 1835.669568)  maxstep 0.59 evals 528/1007 45.8s
+DH T 1840.50 winding 0.0000 count 0 roots   maxstep 0.54 evals 587/587 19.7s
+DH T 1850.50 winding -0.0000 count 0 roots   maxstep 0.59 evals 534/534 31.4s
+DH T 1860.50 winding 1.0000 count 1 roots (0.328152, 1864.102151)  maxstep 0.56 evals 568/1049 43.5s
+DH T 1870.50 winding 1.0000 count 1 roots (0.417062, 1871.152491)  maxstep 0.58 evals 515/930 44.2s
+DH T 1880.50 winding 1.0000 count 1 roots (0.391275, 1881.348590)  maxstep 0.58 evals 549/991 50.2s
+DH T 1890.50 winding 1.0000 count 1 roots (0.468698, 1899.300339)  maxstep 0.58 evals 569/1231 55.8s
+DH T 1900.50 winding 1.0000 count 1 roots (0.496355, 1909.629660)  maxstep 0.44 evals 641/1079 40.4s
+DH T 1910.50 winding 1.0000 count 1 roots (0.433633, 1916.519202)  maxstep 0.59 evals 539/1017 48.9s
+DH T 1920.50 winding -0.0000 count 0 roots   maxstep 0.59 evals 590/590 28.4s
+DH T 1930.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 558/558 25.4s
+DH T 1940.50 winding 1.0000 count 1 roots (0.483075, 1944.790068)  maxstep 0.60 evals 560/1019 44.2s
+DH T 1950.50 winding 1.0000 count 1 roots (0.467555, 1958.573232)  maxstep 0.54 evals 576/1006 54.0s
+DH T 1960.50 winding 1.0000 count 1 roots   maxstep 0.58 evals 511/11206 199.8s
+DH T 1970.50 winding 1.0000 count 1 roots (0.474995, 1972.157269)  maxstep 0.57 evals 579/1065 43.8s
+DH T 1980.50 winding 1.0000 count 1 roots (0.469344, 1990.176805)  maxstep 0.60 evals 560/979 53.4s
+DH T 1990.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 573/573 24.5s
+total count 84 roots found 80

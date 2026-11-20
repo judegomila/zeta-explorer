@@ -1,0 +1,1 @@
+{"object": "LIOU", "N": 200000, "first_negative_n": 2, "n_negative": 18015, "first_n_not_prime_power_with_Lambda_nonzero": null, "n_not_prime_power": 0, "max_abs_Lambda_over_log_n": 1.0, "at_n": 2, "Lambda_2..12": [-0.693147, -1.098612, 0.693147, -1.609438, 0.0, -1.94591, -0.693147, 1.098612, 0.0, -2.397895, 0.0]}

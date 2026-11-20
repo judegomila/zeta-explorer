@@ -4,7 +4,7 @@ Maintained by the screening record step. Source records: `campaign/screened.json
 
 SURVIVOR = zeta passes at every size reached; every control fails at a size much smaller than the height of its off-line zeros would explain, or for a reason that does not depend on resolving zeros; the statistic uses all primes together.
 
-Status after round 4: 160 combinations screened (40 batches; 40 combinations in each of rounds 1, 2, 3, 4), 0 survivors claimed, 0 demoted. No screener in any round claimed a survivor, so no RESULT.md claim needed checking against the definition; the ten round-4 RESULT.md files each state "no survivor" (checked by reading the verdict lines of all ten). Observations closest to the definition are recorded per round below as partial separations, not survivors.
+Status after round 6: 240 combinations screened (60 batches; 40 combinations in each of rounds 1 to 6), 0 survivors claimed, 0 demoted. No screener in any round claimed a survivor, so no RESULT.md claim needed checking against the definition; the ten round-6 RESULT.md files each state "Survivors: 0" / "no survivor" (checked by reading the verdict lines of all ten). Observations closest to the definition are recorded per round below as partial separations, not survivors.
 
 ## Current survivors
 
@@ -14,7 +14,7 @@ Status after round 4: 160 combinations screened (40 batches; 40 combinations in 
 
 ## Demoted
 
-None (no screener claimed a survivor in rounds 1, 2, 3 or 4).
+None (no screener claimed a survivor in rounds 1 to 6).
 
 ## Partial separations recorded in round 1 (not survivors; each fails one clause of the definition)
 
@@ -150,3 +150,83 @@ Server load was 110 to 190 on 48 cores (about 0.75 to 1 core delivered per unit)
 Server load was 120 to 165 on 48 threads; one lane measured about one tenth of the Mac's throughput. GPU 1 was at 100 % from another job in one lane and unused there. Largest sizes reached: 37,607,992,088 prime-power events to 1e12, prime powers to 1e16 (reserve sum), 2.95e10 primes in window tests, 1.06e8 zeros to 1e12, M(x) to 1e12, all b <= 1e6 (3.04e11 coprime pairs), Pick n = 2000 at 44,000 bits, Weil cell matrices m = 16,384, exact shell sums to N = 1e15. Not reached: kappa to b = 2e6; Gabor matrix at T = 2e5 in one piece (320 GB dense); 1e5-zero moment windows; M(x) at 1e13; 2000 modes at 300 digits; CMV N = 3200 and primes to 1e7; inverse-spectral 1e4 ordinates; heat ghost at 2000 bits; cubic prime sums to 1e10. Most signs outside the Arb-labelled items are float64 or midpoint multiprecision.
 
 Rule deviations reported by lanes: (a) s4-suzuki-screw-reserve-credits ran one 1-second test directly over ssh instead of through rhrun; (b) s4-route-m-cotangent-first-moment sent SIGTERM on the Mac to four PIDs (1104, 43195, 58052, 74770) selected by a ps/grep pattern "s4-route", which also matches s4-route-i-toeplitz-symbol-family; local commands of that lane may have been interrupted (its RESULT.md reports complete tables; not re-verified here); nothing on the server was affected. All lanes report their server units stopped.
+
+## Partial separations recorded in round 5 (not survivors; each fails one clause of the definition)
+
+| observation | slug | clause it fails |
+|---|---|---|
+| Detection constant c = 2a*/log(gamma/2pi) below 0.45 for planted quadruples (0.27 to 0.41 at gamma = 1e9, 1e12, depth b >= 0.3) | s5-route-i-dual-certificate-detection-law (4) | holds only for deep zeros (crossover sinh(2ab)/b - 2a = log(gamma/2pi)); b = 0.01 gives c = 1.05 to 1.17, DH 0.81, E_b 1.00 to 1.57; zeta's own positivity at that support has margin about 10^(-6100) and needs about 22000 zeros resolved |
+| T3 ratio r > 1 for controls with a < b below 0.5 gamma_off (DH order 113, heat order 94, E_a order 7, T-NR order 4 to 6) | s5-klein-torus-shift-bridge-charts (3) | analytic continuation: relative pivot 1e-167 (DH), digits grow linearly with distance to the off-line zero (3.9 per unit height); no primes enter |
+| Sign of the prime-side mass at Y = 0.165: 0 negative of 1.34e8 samples for zeta, L(chi_-4), L(chi_5) at 1e9, 1e12, 1e15; sign, unimodular, Liouville twists negative at 3.6e-4 to 3.9e-4 | s5-burgers-shock-cusp-stieltjes-strip (4) | classical Re xi'/xi > 0 criterion; T-NR and E_a pass right of their zeros; DH and heat fail only near pairs with b > delta; twists fail through a gamma term they do not have; the 1e15 fractions have no zero list behind them |
+| Sign law T(b) < 0 for squarefree b: controls separate at b <= 7 | s5-route-m-divisor-sign-second-moment (1) | coefficient statement at s = 1: L(chi_-4), L(chi_5) fail with DH, while T-NR, zeta(s+a)zeta(s-a) and Liouville pass |
+| Prime-tuple (Hardy-Littlewood) correlations: zeta error exponent -0.44 to X = 1e11; DH shows no power saving to 1e8, twists have no main term | s5-pair-correlation-positivity-prime-side (3) | coefficient size, not zeros: Liouville twist and T-NR pass by proof |
+| Fejer floor inequality: DH fails at n = 3 and t = 0.1 without reference to zeros | s5-growth-class-fejer-sympow-right-edge (4) | evaluated right of 1; T-NR q = 1000003, E_a, Liouville and the unimodular twist pass |
+| Hankel sign ladder of the autocorrelation moments: sign-flipped kernel fails at order 7, unimodular twist at order 19 | s5-volterra-shear-phi-kernel-norms (4) | DH, heat tau = -0.5 and -2, E_b and T-NR pass to order 320 with zeta |
+
+## Patterns at which separation stopped in round 5 (for the allocator)
+
+35. Kernel-norm and shear statistics of Phi (Volterra-Hankel block, shear angle, Perron locus, moment Hankel ladder) are functions of the measure Phi^2 dt or of the leading theta term: they order objects by conductor and parity, are linear through tau = 0 under heat, and no control with a functional equation fails (pattern 5 confirmed at Nystrom n = 16384, DEG 60, Hankel order 320).
+36. Signed-certificate / seam-pencil / every-octave statistics on node sets (COAL, DEFL, TILT, EV-OCT, sech Gram lambda_min) are theorems for any rate set or functions of node density: an arithmetic-free smooth node set reproduces zeta's values within 0.02; the object enters through the support or through coefficient positivity (pole at 1).
+37. The Route I dual / Krein / positive-extension certificates are all bounded by lambda_min of the Weil form on L^2(-a, a) (weak duality): DH is positive and within a factor 85 of L(chi_5) up to 2a = 3.42, negative at 3.43, once T* = 2 pi e e^{2a}/5 has passed 85.70. The detection constant is the crossover sinh(2ab)/b - 2a = log(gamma/2pi), a statement about depth, not a universal c.
+38. Local windowed forms (local Nyman-Beurling distance, Gaussian Weil functionals, strip Pick kernel, pointwise Nyman-Beurling profile) separate a control only in windows that contain its off-line zero, at width x depth about 0.4 to 0.7; away from those windows DH equals L(chi_5).
+39. Heat-flow and gap statistics of the on-line list (landing counts, collision constants, gap reserves, discriminant ladder, min-gap exponents, cusp and fold quantities) are theorems for real lists or count missing zeros; T-NR has zeta's list; small displacements (Lambda = 0.002) are not seen at t >= 0.01.
+40. Route M divisor and second-moment statistics to b = 1e6 (3.04e11 pairs) and b = 1e9 squarefree are coefficient statements at s = 1 or Gram-only: comparison L-functions fail them and T-NR, zeta(s+a)zeta(s-a), Liouville pass (pattern 30 confirmed).
+41. Further source premises false for zeta: Volterra norm <= 1 on [1e-3, 60] (positive only for a <= 31.6214); quarter ceiling abs(E1(b)) <= b/4 (ball-arithmetic counterexample, log10 b = 17.8 million); min-gap law N^(-1/2) (zeta has N^(-1/3)); shock window (2.2214, 3.3322), rho -> 2/3 and R_A <= C/(L N^(3/2)) (model-density facts); p_req = 4.37426 inside the strip; log-convexity and seam vanishing of E_k; 'sup above 1' criterion of the Nyman-Beurling profile (met by zeta).
+42. The symmetric-power shift test at s = 1 is passed by random Sato-Tate angles and failed by an automorphic CM form: it reads low moments of the angle distribution, not automorphy.
+
+## By-products of round 5 (unrefereed)
+
+- s5-route-m-divisor-sign-second-moment (1): proof of T(b) < 0 for every squarefree b; exact formula E1(b) = mu(b) b [P(ln A - L/12) + rho]; ball-arithmetic certificate that abs(E1(b)) > b/4 at b = product of the 2,493,025 primes in [1429, 41043647], hence sup abs(E1)/b is infinite and the uniform O(b) of imp-97224 is false; true for omega(b) <= 121. Minimality of the counterexample not proved.
+- s5-route-m-divisor-sign-second-moment (2): Q(b) < s0 phi(b) for every b <= 1e6, s0 = 2.9193030; envelope sup = log 2pi - gamma.
+- s5-volterra-shear-phi-kernel-norms (1): zeta's Volterra block is positive only for a <= a* = 31.621366469 (bracket 31.6213483..31.6213840); unitary equivalence to an operator built from Phi^2 dt.
+- s5-seam-pencil-exponential-span-depth (1): TILT-DET majorant is below 1 only for d > sum Re 1/(nu_i + conj nu_j) (proved).
+- s5-sech-gram-local-nyman-distance (2, 3): closed-form inverse G^{-1} = PGP of the sech Gram (scaled Cauchy matrix); the sech-averaged Weil functional is positive for every zero configuration in the open strip.
+- s5-route-i-dual-certificate-detection-law (4): lambda_min(T-NR_q, 2a) = lambda_min(zeta, 2a) + 2 log q for every 2a <= log q (proved); crossover law for 2a*.
+- s5-heat-landing-collision-scaling (1): measured lower bounds Lambda(DH) >= 0.230607 (pairs below 5e4 only), T-NR q = 3: 0.313491, E_0.1: 0.019973, E_0.3: 0.177843.
+- s5-pair-correlation-positivity-prime-side (4): the node value -0.3953 for the minimum-gap slope is ladder-estimator scatter; block estimate -0.318..-0.339.
+
+## Compute notes from round 5
+
+Largest sizes reached: all primes to 1e12 (37,607,912,018) and to 1e13 on one prime side; 1.06e8 zeta zeros; all b <= 1e6 (303,962,552,392 pairs) and squarefree b <= 1e9; 30,396,383 discriminants to 1e8; Nystrom n = 16384 and Weil space dimension 32769 on GPU 1; Hankel order 320 at 12000 bits; Pick n = 300 at 4000 bits; ball arithmetic at log10 b = 17.8 million. Not reached: Hankel order 640 (projected four hours); Route I zeta pole-free at L = 2..3 (about 7000 bits, 13000 modes) and its Lehmann-Goerisch lower bracket; b to 2e6; sieve to 1e13 for the Gaussian functionals (stopped at 26%); Klein torus L = 1e5; Pick n = 2000 at 40,000 bits; every-octave certificate to height 16384. GPU 1 was shared at 99% load in one lane and had 17 GB free in another; T-NR q = 1000003 failed twice with device out-of-memory in the Burgers lane (closed form used). DH and heat off-line zero tables exist only below height 2000; DH prime side reaches 1e8. No lane reported a rule deviation; all lanes report their server units stopped. 14 GB of prime data remains on the server in ~/rh-push/s5-burgers-shock-cusp-stieltjes-strip/prim.
+
+## Partial separations recorded in round 6 (not survivors; each fails one clause of the definition)
+
+| observation | slug | clause it fails |
+|---|---|---|
+| DH on-line list: close-triple floor 0.062 at N = 1e5 (below zeta's 0.115 at 1e8) at a triple 30 and 46 mean spacings from its nearest off-line zeros | s6-field-channel-omitted-zero-kernel (3) | no primes in the statistic; onset only from 8.2e4 on-line zeros, about 1900 times the index of DH's first off-line zero; T-NR has zeta's list and passes; zeta's floor falls with sample size |
+| DH on-line Palm density: small-gap exponent 1.97 (deficit 1.62) in windows farther than 10 spacings from every off-line pair | s6-bridge-error-ladder-known-lambda (4) | holds for DH only; heat lists pass, T-NR's on-line list is zeta's; zeros only |
+| DH mollified mean square grows with mollifier length (3.3 to 30 in windows without missing zeros) through unbounded inverse coefficients; same cause keeps DH's large-value exponent at 0.96-0.97 | s6-moebius-lp-first-moment-reciprocity (4), s6-line-polynomials-local-law-density-detector (1) | mean value (MV-CAP) and a coefficient statement; T-NR, Liouville, random-sign and random-phase twists equal zeta |
+| First input of the 7/8 chain false for DH at n = 4 ((mu a)*a = delta, defect -1.0807) and for the hash sign twist from x = 10 (duality in the target variable), both below DH's first off-line zero | s6-sextic-rows-zero-free-input-audit (3) | single-index coefficient relations that restate what the control is; unimodular twist passes every input; heat not formulable |
+| Regular-representation matrix: DH and E_a differ from zeta from N = 1250 through coefficient correlations | s6-euler-shape-identification-pole-lattice (3) | DH's lambda_min is larger than zeta's; sign and unimodular twists have zeta's spectrum exactly; T-NR has zeta's matrix for N < q |
+| Semilocal prolate gap grows 2.69e-5 -> 4.80e-2 over k = 1..8 places for zeta | s6-semilocal-prolate-weil-symbol-windows (1) | T-NR is identical to zeta to 1.1e-15; chi_5 and chi_-4 do not grow (the growth reads conductor 1), so the positive comparisons fail |
+| Translation / Hankel minor sign patterns of the kernel: zeta one-signed in bulk, far and near-confluent cells (10,152,000 minors, 0 undecided) | s6-orbit-kernel-commutator-kyp-frozen-rungs (1b) | chi_-4 breaks every such cell at order 3 except one, where E_a and heat pass and T-NR fails equally with zeros on and off the line |
+| T-NR q = 101 turns negative at t = 0.04 where zeta and the twists are positive, with its off-line zeros below the test line | s6-line-polynomials-local-law-density-detector (3) | size of one coefficient a(101) = 23.1; T-NR q = 1000003 and twists beyond 13 are identical to zeta |
+
+## Patterns at which separation stopped in round 6 (for the allocator)
+
+43. Field-channel / omitted-zero-kernel / displacement statistics (K_max, eps' quarantine bracket, close-triple floor, isolation ratio rho) are theorems for any real configuration or 1/r^2-weighted counts of zeros missing from the table: DH and heat fail at the first table whose top passes an off-line pair (lead 0: N = 45 against 43 for DH). Source premises false for zeta: bound 2.85 outside its ten anchors (maximum 74), rho <= 0.72 at N < 3000.
+44. Winding, Rouche-chart and barrier certificates with a reference function (finite Euler product or ladder) hold from the height where the effective abscissa (1+y)/2 + (t/4) log(x/4 pi) reaches about 1, and then hold equally for T-NR (1.10 off-line zeros per box at t = 0), DH with its two Euler products, and the sign and unimodular twists. At t = 0 the certificate is never complete for zeta. x0_F(t) is the landing of the control's own pairs.
+45. Flow-grade, landing-time, bridge-error and Jensen/heat-operator statistics are functions of the zero list: Lambda/kappa falls like 1/(Y log T) for every object including zeta with a planted pair; abs(Lambda - T_N) is 0 once the list holds the Lambda-setting pair and is heat-flow invariant; Jensen polynomials with shift n >= 1 pass for every control, DH at n = 0 fails at degree 20786 (cone bound 19291). The Lean heat/Burgers identities quantify over arbitrary polynomials (target-blind).
+46. Semilocal prolate and Sonine statistics read the local factors at the primes of S and the conductor: T-NR is identical to zeta, every unitary local parameter |alpha| < sqrt 2 passes the corrected Sonine test (the source's negative controls paired inconsistent terms), and L(chi) does not behave like zeta. The Weil-symbol sigma_2 premise is false for zeta from P = 2 (floor -3066). Integer-node Hodge-index inertia: DH fails at node 120..296, after its Weil onset e^3.43 = 31; T-NR passes for M < q.
+47. Euler-shape identification residuals and their Jacobians cancel the base exactly (m(s) - m(1-s), g_p(s) - g_p(1-s)): every object with a functional equation gives the same number. Lax-Phillips / scattering positivity is a statement on Re(2s) > 1 and the pole at 1: DH, T-NR and the unimodular twist pass to order 400.
+48. Legendre-Riesz LP, Route M first-moment and Cauchy-Schwarz constants, and Gram reciprocity are coefficient-prefix or abs(F)-on-the-line statements: the LP is pinned to psi_k^F for every object once signs are supplied, T-NR is identical below q, nothing grows faster than log (patterns 30, 40 confirmed).
+49. Sextic/cubic row correlations at N(c) <= 1e7 do not distinguish zeta from DH, twists or random rows (slopes 0.50..1.06, saving 0.30..0.44 for all); the theta-dual identity carries no target factor; the conditional-Lambda budget statistic is zero-resolved in its sign (DH at 85.45..85.95) and reads coefficient size in its budget (sign twist passes).
+50. Kernel-condition statistics (orbit-pair kernel inertia, commutator diagonal split, KYP realisation, frozen rungs) are theorems for every object, functions of Phi^2 du or node density (arithmetic-free twin node sets reproduce them), or need realisation order about 1.2 x the zero count of the window / one node per zero (counting form of Platt-Trudgian).
+51. Line-polynomial large-value counts, number variance and two-channel lower bounds read |a(n)| (or |c(n)|^2) only, or are lemmas for arbitrary real coefficients (Polymath15 Lemma 5.1): sign, Liouville and random-phase twists equal zeta within 0.002; zero-side departures count missing zeros.
+52. Further source premises false for zeta: R(1/2, T) exponent 0 (measured 0.88, 0.81); E_N floor/turnover landmarks at 9.22e5 and 3.28e9 (properties of the surrogate formula; zeta's 4 t_c has local exponents -0.41..-1.85); cubic tail 1.769529 at {inf,2,3} (measured 4.2-4.3); (ZR) as written in the Lean source (false at 36,000 nodes to height 4.27e7); KYP realisation with the stated sampling (17-24 of 50 poles on the wrong side).
+
+## By-products of round 6 (unrefereed)
+
+- s6-orbit-kernel-commutator-kyp-frozen-rungs (1a): proof that the orbit-pair matrix has inertia (N-1, 0, 1) for every N >= 2 and every object; (2) proof that the diagonal channel is a positive-definite function built from Phi^2 du alone; the source figure -4.8e-6 is not reproducible (unrecorded scale factor).
+- s6-semilocal-prolate-weil-symbol-windows (3): the source's negative Sonine controls (-1.0136, -1.2635) pair a flipped Euler term with zeta's remainder or use a non-unitary kernel; with the consistent remainder every real alpha in [-1, 1.05] is positive.
+- s6-flow-grade-kappa-landing-heatop (1): measured Lambda(DH) >= 0.230607362 from the flow of all 8138 pairs below 1e5 (pair at height 240.40); (2) DH's first Jensen failure at d = 20786, n = 0.
+- s6-heat-winding-rouche-reference-charts (4): x0_F(t) brackets 4 pi exp(c/t), c in 1.4..2.05, shared by DH and T-NR q = 3.
+- s6-moebius-lp-first-moment-reciprocity (3): E0(b) = Lambda(b)/2 + O(1/b) in closed form; Cauchy-Schwarz loss limit s0_F/(3 kappa_F^2) = 2.0117 for zeta.
+- s6-sextic-rows-zero-free-input-audit (3): model values B(delta) from 0.8750000 at delta = 0 to 0.8640936 at 1 (slope -0.0116; no certificate).
+- s6-field-channel-omitted-zero-kernel (4): rate of rho > 0.72 windows falls as N^-1.75 (CUE prediction N^-5/3).
+
+## Compute notes from round 6
+
+Largest sizes reached: 455,062,595 prime powers below 1e10; primes to 1e9 in nine windows to 1e12; 1.06e8 zeta zeros to 1e12; 262,142 winding boxes per X for X = 1e4..1e13; 9.8e7 unit cells at T = 1e9; prolate grids to 2.56e7 points; integer-node inertia to M = 16384 in float64 and 401 certified; 10,152,000 minors at 1,536-bit balls; N(c) <= 1e7 (2,822,619 moduli). Not reached: N(c) <= 3e8 (about 43 core-days), T >= 1e15 for most objects, M = 2e4, P = 1e5 Jacobian, dense matrices beyond N = 1e4.
+
+Server availability: three lanes report that the rhrun wrapper refused units for periods of up to 35 minutes (machine memory 39 GB available) and one that GPU 1 had no free memory; those lanes ran the affected tests on the Mac under memcap. One server extension ran at 1.7 to 4 of 7 cores under load above 100 and was stopped. Two jobs were killed by their own 6 GB caps and not relaunched. No rule deviations reported; all lanes report their units stopped.

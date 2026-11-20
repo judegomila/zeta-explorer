@@ -1,0 +1,408 @@
+=== python c2_hankel.py heat_tau=-0.05 4.5 0.004
+object heat_tau=-0.05 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 10s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.570141987989884e-27}; max|Im m|=3.67e-11 max|m|=1.018e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.690e-02 lam_max-1=-1.690e-02 lam_min+1=+5.572e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.911e-03 lam_max-1=-1.911e-03 lam_min+1=+2.138e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-3.147e-05 lam_max-1=-3.147e-05 lam_min+1=+1.901e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-5.618e-08 lam_max-1=-5.618e-08 lam_min+1=+1.189e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=-1.851e-11 lam_max-1=-1.851e-11 lam_min+1=+6.937e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=+0.000e+00 lam_max-1=+0.000e+00 lam_min+1=+2.749e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+1.998e-15 lam_max-1=+1.998e-15 lam_min+1=-8.882e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+3.553e-15 lam_max-1=+3.553e-15 lam_min+1=-4.441e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+3.775e-15 lam_max-1=+3.775e-15 lam_min+1=-1.332e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+3.109e-15 lam_max-1=+3.109e-15 lam_min+1=-2.442e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+3.775e-15 lam_max-1=+3.775e-15 lam_min+1=-2.887e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+2.220e-15 lam_max-1=+2.220e-15 lam_min+1=-1.776e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+4.219e-15 lam_max-1=+4.219e-15 lam_min+1=-3.331e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+5.329e-15 lam_max-1=+5.329e-15 lam_min+1=-2.665e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+8.438e-15 lam_max-1=+8.438e-15 lam_min+1=-6.661e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+9.770e-15 lam_max-1=+9.770e-15 lam_min+1=-6.439e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+1.132e-14 lam_max-1=+1.132e-14 lam_min+1=-7.772e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+1.132e-14 lam_max-1=+1.132e-14 lam_min+1=-1.088e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+1.510e-14 lam_max-1=+1.510e-14 lam_min+1=-1.488e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+2.198e-14 lam_max-1=+2.198e-14 lam_min+1=-1.776e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+2.776e-14 lam_max-1=+2.776e-14 lam_min+1=-2.620e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+4.152e-14 lam_max-1=+4.152e-14 lam_min+1=-3.064e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+8.660e-14 lam_max-1=+6.617e-14 lam_min+1=-8.660e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+1.230e-13 lam_max-1=+9.459e-14 lam_min+1=-1.230e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+1.668e-13 lam_max-1=+1.446e-13 lam_min+1=-1.668e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.2500 L=25.7903 n=1621 norm-1=+2.160e-13 lam_max-1=+2.160e-13 lam_min+1=-2.054e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+3.770e-13 lam_max-1=+3.770e-13 lam_min+1=-2.929e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=3.5000 L=33.1155 n=1747 norm-1=+5.103e-13 lam_max-1=+5.103e-13 lam_min+1=-3.830e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=3.6250 L=37.5247 n=1809 norm-1=+6.042e-13 lam_max-1=+5.835e-13 lam_min+1=-6.042e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+1.134e-12 lam_max-1=+1.004e-12 lam_min+1=-1.134e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=3.8750 L=48.1827 n=1933 norm-1=+1.490e-12 lam_max-1=+1.486e-12 lam_min+1=-1.490e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.0000 L=54.5982 n=1997 norm-1=+1.766e-12 lam_max-1=+1.726e-12 lam_min+1=-1.766e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=4.1250 L=61.8678 n=2059 norm-1=+2.905e-12 lam_max-1=+2.905e-12 lam_min+1=-2.600e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+4.229e-12 lam_max-1=+4.229e-12 lam_min+1=-4.142e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+5.552e-12 lam_max-1=+5.450e-12 lam_min+1=-5.552e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+6.749e-12 lam_max-1=+6.749e-12 lam_min+1=-6.684e-12 (#>1+tol: 0, #<-1-tol: 0) freq=50.24520960764717 1s
+done 24s
+=== python c2_hankel.py heat_tau=-0.1 4.5 0.004
+object heat_tau=-0.1 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 8s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.57684737513732e-27}; max|Im m|=3.68e-11 max|m|=1.018e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.686e-02 lam_max-1=-1.686e-02 lam_min+1=+5.567e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.900e-03 lam_max-1=-1.900e-03 lam_min+1=+2.132e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-3.103e-05 lam_max-1=-3.103e-05 lam_min+1=+1.877e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-5.473e-08 lam_max-1=-5.473e-08 lam_min+1=+1.161e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=-1.791e-11 lam_max-1=-1.791e-11 lam_min+1=+6.703e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=-3.331e-16 lam_max-1=-3.331e-16 lam_min+1=+2.631e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+2.220e-16 lam_max-1=+2.220e-16 lam_min+1=+7.772e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+2.442e-15 lam_max-1=+2.442e-15 lam_min+1=-1.332e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+3.109e-15 lam_max-1=+3.109e-15 lam_min+1=-1.998e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+3.331e-15 lam_max-1=+3.331e-15 lam_min+1=-1.332e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+3.775e-15 lam_max-1=+3.553e-15 lam_min+1=-3.775e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+4.663e-15 lam_max-1=+4.663e-15 lam_min+1=-1.110e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+4.885e-15 lam_max-1=+4.885e-15 lam_min+1=-4.219e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+8.216e-15 lam_max-1=+8.216e-15 lam_min+1=-1.998e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+6.217e-15 lam_max-1=+6.217e-15 lam_min+1=-4.441e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+8.438e-15 lam_max-1=+8.438e-15 lam_min+1=-7.327e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+9.548e-15 lam_max-1=+9.548e-15 lam_min+1=-6.661e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+5.960e-03 lam_max-1=+5.960e-03 lam_min+1=-5.808e-03 (#>1+tol: 1, #<-1-tol: 1) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+7.614e-03 lam_max-1=+7.580e-03 lam_min+1=-7.614e-03 (#>1+tol: 1, #<-1-tol: 1) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+9.776e-03 lam_max-1=+9.745e-03 lam_min+1=-9.776e-03 (#>1+tol: 1, #<-1-tol: 1) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+1.206e-02 lam_max-1=+1.198e-02 lam_min+1=-1.206e-02 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+1.573e-02 lam_max-1=+1.571e-02 lam_min+1=-1.573e-02 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+2.000e-02 lam_max-1=+2.000e-02 lam_min+1=-1.994e-02 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+2.349e-02 lam_max-1=+2.349e-02 lam_min+1=-2.344e-02 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+2.760e-02 lam_max-1=+2.747e-02 lam_min+1=-2.760e-02 (#>1+tol: 3, #<-1-tol: 3) freq=None 1s
+  l=3.2500 L=25.7903 n=1621 norm-1=+3.096e-02 lam_max-1=+3.096e-02 lam_min+1=-3.086e-02 (#>1+tol: 3, #<-1-tol: 3) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+3.522e-02 lam_max-1=+3.522e-02 lam_min+1=-3.507e-02 (#>1+tol: 3, #<-1-tol: 3) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+3.962e-02 lam_max-1=+3.962e-02 lam_min+1=-3.948e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 0s
+  l=3.6250 L=37.5247 n=1809 norm-1=+4.358e-02 lam_max-1=+4.343e-02 lam_min+1=-4.358e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+4.800e-02 lam_max-1=+4.792e-02 lam_min+1=-4.800e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 1s
+  l=3.8750 L=48.1827 n=1933 norm-1=+5.466e-02 lam_max-1=+5.466e-02 lam_min+1=-5.435e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 1s
+  l=4.0000 L=54.5982 n=1997 norm-1=+6.328e-02 lam_max-1=+6.328e-02 lam_min+1=-6.298e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 1s
+  l=4.1250 L=61.8678 n=2059 norm-1=+7.176e-02 lam_max-1=+7.176e-02 lam_min+1=-7.157e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+8.067e-02 lam_max-1=+8.028e-02 lam_min+1=-8.067e-02 (#>1+tol: 4, #<-1-tol: 4) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+8.873e-02 lam_max-1=+8.869e-02 lam_min+1=-8.873e-02 (#>1+tol: 5, #<-1-tol: 5) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+9.763e-02 lam_max-1=+9.763e-02 lam_min+1=-9.762e-02 (#>1+tol: 5, #<-1-tol: 5) freq=563.8823262576473 2s
+done 21s
+=== python c2_hankel.py heat_tau=-0.2 4.5 0.004
+object heat_tau=-0.2 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 6s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.592553401578457e-27}; max|Im m|=3.19e-11 max|m|=1.018e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.678e-02 lam_max-1=-1.678e-02 lam_min+1=+5.557e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.876e-03 lam_max-1=-1.876e-03 lam_min+1=+2.118e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-3.018e-05 lam_max-1=-3.018e-05 lam_min+1=+1.830e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-5.191e-08 lam_max-1=-5.191e-08 lam_min+1=+1.105e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=-1.675e-11 lam_max-1=-1.675e-11 lam_min+1=+6.256e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=-4.441e-16 lam_max-1=-4.441e-16 lam_min+1=+2.407e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+2.220e-16 lam_max-1=+2.220e-16 lam_min+1=+0.000e+00 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+1.776e-15 lam_max-1=+1.776e-15 lam_min+1=-8.882e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+2.442e-15 lam_max-1=+2.442e-15 lam_min+1=-2.220e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+3.775e-15 lam_max-1=+3.775e-15 lam_min+1=-1.998e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+2.442e-15 lam_max-1=+2.442e-15 lam_min+1=-1.554e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+4.441e-15 lam_max-1=+4.441e-15 lam_min+1=-4.441e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+9.326e-15 lam_max-1=+9.326e-15 lam_min+1=-5.773e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+8.660e-15 lam_max-1=+8.660e-15 lam_min+1=-5.995e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+5.338e-03 lam_max-1=+5.338e-03 lam_min+1=-5.294e-03 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+1.326e-02 lam_max-1=+1.238e-02 lam_min+1=-1.326e-02 (#>1+tol: 5, #<-1-tol: 5) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+2.624e-02 lam_max-1=+2.624e-02 lam_min+1=-2.592e-02 (#>1+tol: 9, #<-1-tol: 9) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+3.853e-02 lam_max-1=+3.853e-02 lam_min+1=-3.816e-02 (#>1+tol: 9, #<-1-tol: 9) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+4.824e-02 lam_max-1=+4.765e-02 lam_min+1=-4.824e-02 (#>1+tol: 9, #<-1-tol: 9) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+5.988e-02 lam_max-1=+5.956e-02 lam_min+1=-5.988e-02 (#>1+tol: 10, #<-1-tol: 10) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+7.140e-02 lam_max-1=+7.116e-02 lam_min+1=-7.140e-02 (#>1+tol: 11, #<-1-tol: 11) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+8.842e-02 lam_max-1=+8.842e-02 lam_min+1=-8.779e-02 (#>1+tol: 12, #<-1-tol: 12) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+1.087e-01 lam_max-1=+1.083e-01 lam_min+1=-1.087e-01 (#>1+tol: 12, #<-1-tol: 12) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+1.269e-01 lam_max-1=+1.263e-01 lam_min+1=-1.269e-01 (#>1+tol: 12, #<-1-tol: 12) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+1.485e-01 lam_max-1=+1.482e-01 lam_min+1=-1.485e-01 (#>1+tol: 12, #<-1-tol: 12) freq=None 0s
+  l=3.2500 L=25.7903 n=1621 norm-1=+1.697e-01 lam_max-1=+1.697e-01 lam_min+1=-1.687e-01 (#>1+tol: 13, #<-1-tol: 13) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+1.908e-01 lam_max-1=+1.908e-01 lam_min+1=-1.901e-01 (#>1+tol: 13, #<-1-tol: 13) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+2.151e-01 lam_max-1=+2.151e-01 lam_min+1=-2.147e-01 (#>1+tol: 14, #<-1-tol: 13) freq=None 0s
+  l=3.6250 L=37.5247 n=1809 norm-1=+2.422e-01 lam_max-1=+2.408e-01 lam_min+1=-2.422e-01 (#>1+tol: 16, #<-1-tol: 15) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+2.700e-01 lam_max-1=+2.696e-01 lam_min+1=-2.700e-01 (#>1+tol: 19, #<-1-tol: 18) freq=None 0s
+  l=3.8750 L=48.1827 n=1933 norm-1=+3.114e-01 lam_max-1=+3.114e-01 lam_min+1=-3.099e-01 (#>1+tol: 20, #<-1-tol: 20) freq=None 0s
+  l=4.0000 L=54.5982 n=1997 norm-1=+3.589e-01 lam_max-1=+3.589e-01 lam_min+1=-3.564e-01 (#>1+tol: 21, #<-1-tol: 21) freq=None 1s
+  l=4.1250 L=61.8678 n=2059 norm-1=+4.072e-01 lam_max-1=+4.072e-01 lam_min+1=-4.071e-01 (#>1+tol: 23, #<-1-tol: 22) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+4.607e-01 lam_max-1=+4.591e-01 lam_min+1=-4.607e-01 (#>1+tol: 25, #<-1-tol: 25) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+5.107e-01 lam_max-1=+5.107e-01 lam_min+1=-5.092e-01 (#>1+tol: 27, #<-1-tol: 27) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+5.670e-01 lam_max-1=+5.670e-01 lam_min+1=-5.661e-01 (#>1+tol: 28, #<-1-tol: 28) freq=564.8435389631849 2s
+done 20s
+=== python c2_hankel.py heat_tau=-0.3 4.5 0.004
+object heat_tau=-0.3 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 6s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.612089616635781e-27}; max|Im m|=4.73e-11 max|m|=1.018e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.671e-02 lam_max-1=-1.671e-02 lam_min+1=+5.547e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.853e-03 lam_max-1=-1.853e-03 lam_min+1=+2.105e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-2.934e-05 lam_max-1=-2.934e-05 lam_min+1=+1.784e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-4.921e-08 lam_max-1=-4.921e-08 lam_min+1=+1.051e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=-1.565e-11 lam_max-1=-1.565e-11 lam_min+1=+5.833e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=-4.441e-16 lam_max-1=-4.441e-16 lam_min+1=+2.213e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+1.110e-15 lam_max-1=+1.110e-15 lam_min+1=+1.776e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+1.110e-15 lam_max-1=+1.110e-15 lam_min+1=-1.110e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+2.220e-15 lam_max-1=+1.998e-15 lam_min+1=-2.220e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+2.887e-15 lam_max-1=+1.332e-15 lam_min+1=-2.887e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+2.442e-15 lam_max-1=+2.442e-15 lam_min+1=-6.661e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+4.219e-15 lam_max-1=+4.219e-15 lam_min+1=-4.219e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+4.200e-03 lam_max-1=+4.003e-03 lam_min+1=-4.200e-03 (#>1+tol: 3, #<-1-tol: 3) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+1.492e-02 lam_max-1=+1.492e-02 lam_min+1=-1.477e-02 (#>1+tol: 7, #<-1-tol: 7) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+2.690e-02 lam_max-1=+2.690e-02 lam_min+1=-2.653e-02 (#>1+tol: 11, #<-1-tol: 11) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+4.224e-02 lam_max-1=+4.089e-02 lam_min+1=-4.224e-02 (#>1+tol: 14, #<-1-tol: 14) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+6.223e-02 lam_max-1=+6.223e-02 lam_min+1=-6.151e-02 (#>1+tol: 16, #<-1-tol: 16) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+8.239e-02 lam_max-1=+8.239e-02 lam_min+1=-8.187e-02 (#>1+tol: 20, #<-1-tol: 20) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+1.066e-01 lam_max-1=+1.049e-01 lam_min+1=-1.066e-01 (#>1+tol: 23, #<-1-tol: 23) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+1.333e-01 lam_max-1=+1.326e-01 lam_min+1=-1.333e-01 (#>1+tol: 24, #<-1-tol: 24) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+1.591e-01 lam_max-1=+1.591e-01 lam_min+1=-1.586e-01 (#>1+tol: 25, #<-1-tol: 24) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+1.953e-01 lam_max-1=+1.953e-01 lam_min+1=-1.935e-01 (#>1+tol: 26, #<-1-tol: 26) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+2.420e-01 lam_max-1=+2.409e-01 lam_min+1=-2.420e-01 (#>1+tol: 28, #<-1-tol: 28) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+2.856e-01 lam_max-1=+2.827e-01 lam_min+1=-2.856e-01 (#>1+tol: 28, #<-1-tol: 28) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+3.325e-01 lam_max-1=+3.324e-01 lam_min+1=-3.325e-01 (#>1+tol: 28, #<-1-tol: 28) freq=None 0s
+  l=3.2500 L=25.7903 n=1621 norm-1=+3.889e-01 lam_max-1=+3.889e-01 lam_min+1=-3.876e-01 (#>1+tol: 32, #<-1-tol: 32) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+4.404e-01 lam_max-1=+4.404e-01 lam_min+1=-4.392e-01 (#>1+tol: 35, #<-1-tol: 35) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+4.988e-01 lam_max-1=+4.988e-01 lam_min+1=-4.984e-01 (#>1+tol: 38, #<-1-tol: 38) freq=None 1s
+  l=3.6250 L=37.5247 n=1809 norm-1=+5.780e-01 lam_max-1=+5.755e-01 lam_min+1=-5.780e-01 (#>1+tol: 43, #<-1-tol: 43) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+6.600e-01 lam_max-1=+6.600e-01 lam_min+1=-6.582e-01 (#>1+tol: 45, #<-1-tol: 45) freq=None 0s
+  l=3.8750 L=48.1827 n=1933 norm-1=+7.573e-01 lam_max-1=+7.573e-01 lam_min+1=-7.556e-01 (#>1+tol: 47, #<-1-tol: 47) freq=None 1s
+  l=4.0000 L=54.5982 n=1997 norm-1=+8.759e-01 lam_max-1=+8.759e-01 lam_min+1=-8.700e-01 (#>1+tol: 51, #<-1-tol: 51) freq=None 1s
+  l=4.1250 L=61.8678 n=2059 norm-1=+9.987e-01 lam_max-1=+9.972e-01 lam_min+1=-9.987e-01 (#>1+tol: 51, #<-1-tol: 51) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+1.140e+00 lam_max-1=+1.140e+00 lam_min+1=-1.139e+00 (#>1+tol: 53, #<-1-tol: 53) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+1.277e+00 lam_max-1=+1.277e+00 lam_min+1=-1.267e+00 (#>1+tol: 55, #<-1-tol: 55) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+1.430e+00 lam_max-1=+1.430e+00 lam_min+1=-1.428e+00 (#>1+tol: 59, #<-1-tol: 59) freq=564.8435389631849 1s
+done 19s
+=== python c2_hankel.py heat_tau=-0.5 4.5 0.004
+object heat_tau=-0.5 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 3s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.667039767584938e-27}; max|Im m|=5.25e-11 max|m|=1.018e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.656e-02 lam_max-1=-1.656e-02 lam_min+1=+5.527e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.807e-03 lam_max-1=-1.807e-03 lam_min+1=+2.078e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-2.773e-05 lam_max-1=-2.773e-05 lam_min+1=+1.694e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-4.415e-08 lam_max-1=-4.415e-08 lam_min+1=+9.498e-06 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=-1.364e-11 lam_max-1=-1.364e-11 lam_min+1=+5.057e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=+6.661e-16 lam_max-1=+6.661e-16 lam_min+1=+1.851e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+0.000e+00 lam_max-1=-6.661e-16 lam_min+1=+0.000e+00 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+2.665e-15 lam_max-1=+0.000e+00 lam_min+1=-2.665e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+2.887e-15 lam_max-1=+2.887e-15 lam_min+1=-2.665e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+3.300e-09 lam_max-1=+3.300e-09 lam_min+1=-1.162e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+4.717e-03 lam_max-1=+4.144e-03 lam_min+1=-4.717e-03 (#>1+tol: 2, #<-1-tol: 2) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+2.662e-02 lam_max-1=+2.660e-02 lam_min+1=-2.662e-02 (#>1+tol: 11, #<-1-tol: 11) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+5.105e-02 lam_max-1=+5.105e-02 lam_min+1=-5.044e-02 (#>1+tol: 15, #<-1-tol: 15) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+8.257e-02 lam_max-1=+8.257e-02 lam_min+1=-8.122e-02 (#>1+tol: 24, #<-1-tol: 23) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+1.158e-01 lam_max-1=+1.158e-01 lam_min+1=-1.152e-01 (#>1+tol: 33, #<-1-tol: 32) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+1.352e-01 lam_max-1=+1.350e-01 lam_min+1=-1.352e-01 (#>1+tol: 38, #<-1-tol: 37) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+1.751e-01 lam_max-1=+1.751e-01 lam_min+1=-1.749e-01 (#>1+tol: 44, #<-1-tol: 43) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+2.256e-01 lam_max-1=+2.255e-01 lam_min+1=-2.256e-01 (#>1+tol: 46, #<-1-tol: 46) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+3.063e-01 lam_max-1=+3.020e-01 lam_min+1=-3.063e-01 (#>1+tol: 47, #<-1-tol: 46) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+3.837e-01 lam_max-1=+3.821e-01 lam_min+1=-3.837e-01 (#>1+tol: 48, #<-1-tol: 48) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+4.750e-01 lam_max-1=+4.750e-01 lam_min+1=-4.674e-01 (#>1+tol: 51, #<-1-tol: 51) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+5.977e-01 lam_max-1=+5.977e-01 lam_min+1=-5.897e-01 (#>1+tol: 55, #<-1-tol: 54) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+7.665e-01 lam_max-1=+7.665e-01 lam_min+1=-7.608e-01 (#>1+tol: 60, #<-1-tol: 59) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+9.047e-01 lam_max-1=+9.021e-01 lam_min+1=-9.047e-01 (#>1+tol: 68, #<-1-tol: 67) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+1.063e+00 lam_max-1=+1.054e+00 lam_min+1=-1.063e+00 (#>1+tol: 73, #<-1-tol: 72) freq=None 0s
+  l=3.2500 L=25.7903 n=1621 norm-1=+1.288e+00 lam_max-1=+1.275e+00 lam_min+1=-1.288e+00 (#>1+tol: 79, #<-1-tol: 78) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+1.517e+00 lam_max-1=+1.510e+00 lam_min+1=-1.517e+00 (#>1+tol: 83, #<-1-tol: 82) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+1.717e+00 lam_max-1=+1.717e+00 lam_min+1=-1.708e+00 (#>1+tol: 89, #<-1-tol: 88) freq=None 0s
+  l=3.6250 L=37.5247 n=1809 norm-1=+2.086e+00 lam_max-1=+2.086e+00 lam_min+1=-2.075e+00 (#>1+tol: 94, #<-1-tol: 93) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+2.493e+00 lam_max-1=+2.493e+00 lam_min+1=-2.469e+00 (#>1+tol: 103, #<-1-tol: 103) freq=None 0s
+  l=3.8750 L=48.1827 n=1933 norm-1=+2.761e+00 lam_max-1=+2.761e+00 lam_min+1=-2.760e+00 (#>1+tol: 111, #<-1-tol: 110) freq=None 0s
+  l=4.0000 L=54.5982 n=1997 norm-1=+3.261e+00 lam_max-1=+3.261e+00 lam_min+1=-3.259e+00 (#>1+tol: 115, #<-1-tol: 115) freq=None 1s
+  l=4.1250 L=61.8678 n=2059 norm-1=+3.937e+00 lam_max-1=+3.891e+00 lam_min+1=-3.937e+00 (#>1+tol: 118, #<-1-tol: 118) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+4.450e+00 lam_max-1=+4.435e+00 lam_min+1=-4.450e+00 (#>1+tol: 121, #<-1-tol: 121) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+4.975e+00 lam_max-1=+4.975e+00 lam_min+1=-4.939e+00 (#>1+tol: 124, #<-1-tol: 124) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+5.844e+00 lam_max-1=+5.844e+00 lam_min+1=-5.790e+00 (#>1+tol: 128, #<-1-tol: 128) freq=630.642917805895 1s
+done 15s
+=== python c2_hankel.py heat_tau=-1 4.5 0.004
+object heat_tau=-1 a=0.05 l=4.5 (L=90.0171) h=0.004 N=0 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+  Nf=16384 P=65.536 Nt=196608
+sequence done 4s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.920421403947708e-27}; max|Im m|=3.98e-11 max|m|=4.874e+02
+  l=0.1250 L=1.1331 n=59 norm-1=-1.619e-02 lam_max-1=-1.619e-02 lam_min+1=+5.476e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.2500 L=1.2840 n=121 norm-1=-1.697e-03 lam_max-1=-1.697e-03 lam_min+1=+2.012e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.3750 L=1.4550 n=183 norm-1=-2.401e-05 lam_max-1=-2.401e-05 lam_min+1=+1.483e-03 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-3.069e-08 lam_max-1=-3.069e-08 lam_min+1=+7.294e-06 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.6250 L=1.8682 n=309 norm-1=+2.559e-09 lam_max-1=+2.559e-09 lam_min+1=+9.090e-10 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=+2.571e-09 lam_max-1=+2.571e-09 lam_min+1=-2.552e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.8750 L=2.3989 n=433 norm-1=+2.574e-09 lam_max-1=+2.574e-09 lam_min+1=-2.563e-09 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+1.405e-02 lam_max-1=+1.369e-02 lam_min+1=-1.405e-02 (#>1+tol: 3, #<-1-tol: 3) freq=None 0s
+  l=1.1250 L=3.0802 n=559 norm-1=+3.876e-02 lam_max-1=+3.876e-02 lam_min+1=-3.867e-02 (#>1+tol: 16, #<-1-tol: 15) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+9.783e-02 lam_max-1=+9.676e-02 lam_min+1=-9.783e-02 (#>1+tol: 30, #<-1-tol: 30) freq=None 0s
+  l=1.3750 L=3.9551 n=683 norm-1=+2.091e-01 lam_max-1=+2.091e-01 lam_min+1=-1.950e-01 (#>1+tol: 42, #<-1-tol: 43) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+3.444e-01 lam_max-1=+3.435e-01 lam_min+1=-3.444e-01 (#>1+tol: 57, #<-1-tol: 57) freq=None 0s
+  l=1.6250 L=5.0784 n=809 norm-1=+4.409e-01 lam_max-1=+4.409e-01 lam_min+1=-4.397e-01 (#>1+tol: 71, #<-1-tol: 71) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+5.740e-01 lam_max-1=+5.704e-01 lam_min+1=-5.740e-01 (#>1+tol: 82, #<-1-tol: 82) freq=None 0s
+  l=1.8750 L=6.5208 n=933 norm-1=+9.853e-01 lam_max-1=+9.691e-01 lam_min+1=-9.853e-01 (#>1+tol: 91, #<-1-tol: 90) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+1.297e+00 lam_max-1=+1.286e+00 lam_min+1=-1.297e+00 (#>1+tol: 100, #<-1-tol: 100) freq=None 0s
+  l=2.1250 L=8.3729 n=1059 norm-1=+1.501e+00 lam_max-1=+1.501e+00 lam_min+1=-1.495e+00 (#>1+tol: 109, #<-1-tol: 108) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+2.368e+00 lam_max-1=+2.368e+00 lam_min+1=-2.336e+00 (#>1+tol: 120, #<-1-tol: 119) freq=None 0s
+  l=2.3750 L=10.7510 n=1183 norm-1=+3.387e+00 lam_max-1=+3.387e+00 lam_min+1=-3.352e+00 (#>1+tol: 131, #<-1-tol: 131) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+4.005e+00 lam_max-1=+4.005e+00 lam_min+1=-3.993e+00 (#>1+tol: 141, #<-1-tol: 139) freq=None 0s
+  l=2.6250 L=13.8046 n=1309 norm-1=+5.018e+00 lam_max-1=+4.908e+00 lam_min+1=-5.018e+00 (#>1+tol: 148, #<-1-tol: 147) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+7.299e+00 lam_max-1=+7.162e+00 lam_min+1=-7.299e+00 (#>1+tol: 158, #<-1-tol: 157) freq=None 0s
+  l=2.8750 L=17.7254 n=1433 norm-1=+9.335e+00 lam_max-1=+9.267e+00 lam_min+1=-9.335e+00 (#>1+tol: 166, #<-1-tol: 166) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+1.105e+01 lam_max-1=+1.105e+01 lam_min+1=-1.088e+01 (#>1+tol: 175, #<-1-tol: 175) freq=None 0s
+  l=3.1250 L=22.7599 n=1559 norm-1=+1.452e+01 lam_max-1=+1.452e+01 lam_min+1=-1.425e+01 (#>1+tol: 186, #<-1-tol: 186) freq=None 1s
+  l=3.2500 L=25.7903 n=1621 norm-1=+2.053e+01 lam_max-1=+2.053e+01 lam_min+1=-2.037e+01 (#>1+tol: 196, #<-1-tol: 196) freq=None 0s
+  l=3.3750 L=29.2243 n=1683 norm-1=+2.393e+01 lam_max-1=+2.381e+01 lam_min+1=-2.393e+01 (#>1+tol: 205, #<-1-tol: 205) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+2.980e+01 lam_max-1=+2.938e+01 lam_min+1=-2.980e+01 (#>1+tol: 213, #<-1-tol: 213) freq=None 0s
+  l=3.6250 L=37.5247 n=1809 norm-1=+4.063e+01 lam_max-1=+3.981e+01 lam_min+1=-4.063e+01 (#>1+tol: 220, #<-1-tol: 220) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+5.184e+01 lam_max-1=+5.184e+01 lam_min+1=-5.183e+01 (#>1+tol: 232, #<-1-tol: 232) freq=None 0s
+  l=3.8750 L=48.1827 n=1933 norm-1=+5.957e+01 lam_max-1=+5.957e+01 lam_min+1=-5.901e+01 (#>1+tol: 242, #<-1-tol: 241) freq=None 1s
+  l=4.0000 L=54.5982 n=1997 norm-1=+8.091e+01 lam_max-1=+8.091e+01 lam_min+1=-7.951e+01 (#>1+tol: 251, #<-1-tol: 251) freq=None 1s
+  l=4.1250 L=61.8678 n=2059 norm-1=+1.058e+02 lam_max-1=+1.058e+02 lam_min+1=-1.049e+02 (#>1+tol: 261, #<-1-tol: 262) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+1.277e+02 lam_max-1=+1.270e+02 lam_min+1=-1.277e+02 (#>1+tol: 267, #<-1-tol: 267) freq=None 1s
+  l=4.3750 L=79.4398 n=2183 norm-1=+1.556e+02 lam_max-1=+1.544e+02 lam_min+1=-1.556e+02 (#>1+tol: 278, #<-1-tol: 278) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+2.146e+02 lam_max-1=+2.108e+02 lam_min+1=-2.146e+02 (#>1+tol: 286, #<-1-tol: 286) freq=638.4200024234265 2s
+done 17s
+=== python c2_hankel.py zeta 4.5 0.004
+object zeta a=0.05 l=4.5 (L=90.0171) h=0.004 N=8105 GPU=True; planned: coeff arrays 0.00 GB, matrix 0.12 GB
+coefficients done 0s; c[1..8]=[1.      0.06933 0.10992 0.07177 0.16112 0.00762 0.1949  0.0743 ] max|c|=1.000e+00
+  Nf=16384 P=65.536 Nt=196608 N=8105 planned work 1.59e+09 complex exps
+  dpoly 0/8105 0s
+sequence done 1s {'Nf': 16384, 'Nt': 196608, 'tmax': 9424.682086970135, 'max|R Bh| at band edge / max': 3.5633430087991466e-27}; max|Im m|=2.30e-11 max|m|=1.018e+02
+  l=0.2500 L=1.2840 n=121 norm-1=-1.923e-03 lam_max-1=-1.923e-03 lam_min+1=+2.145e-02 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.5000 L=1.6487 n=247 norm-1=-5.767e-08 lam_max-1=-5.767e-08 lam_min+1=+1.219e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=0.7500 L=2.1170 n=371 norm-1=-2.331e-15 lam_max-1=-2.331e-15 lam_min+1=+2.890e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=-2.220e-16 lam_max-1=-9.992e-16 lam_min+1=+2.220e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.2500 L=3.4903 n=621 norm-1=+4.441e-16 lam_max-1=+4.441e-16 lam_min+1=+3.331e-16 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+1.776e-15 lam_max-1=+6.661e-16 lam_min+1=-1.776e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.7500 L=5.7546 n=871 norm-1=+5.107e-15 lam_max-1=+5.107e-15 lam_min+1=-2.442e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+9.992e-15 lam_max-1=+9.326e-15 lam_min+1=-9.992e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.2500 L=9.4877 n=1121 norm-1=+3.109e-14 lam_max-1=+3.109e-14 lam_min+1=-2.709e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+5.551e-14 lam_max-1=+5.196e-14 lam_min+1=-5.551e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.7500 L=15.6426 n=1371 norm-1=+9.082e-14 lam_max-1=+9.082e-14 lam_min+1=-7.727e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+2.547e-13 lam_max-1=+2.123e-13 lam_min+1=-2.547e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.2500 L=25.7903 n=1621 norm-1=+4.474e-13 lam_max-1=+4.474e-13 lam_min+1=-4.214e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+1.564e-12 lam_max-1=+1.455e-12 lam_min+1=-1.564e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.7500 L=42.5211 n=1871 norm-1=+2.864e-12 lam_max-1=+2.726e-12 lam_min+1=-2.864e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=4.0000 L=54.5982 n=1997 norm-1=+7.100e-12 lam_max-1=+7.100e-12 lam_min+1=-6.959e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.2500 L=70.1054 n=2121 norm-1=+1.452e-11 lam_max-1=+1.452e-11 lam_min+1=-1.393e-11 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+3.115e-11 lam_max-1=+3.093e-11 lam_min+1=-3.115e-11 (#>1+tol: 0, #<-1-tol: 0) freq=48.58493311626405 2s
+done 8s
+=== python c2_hankel.py zeta 7 0.004
+object zeta a=0.05 l=7 (L=1096.6332) h=0.004 N=1202606 GPU=True; planned: coeff arrays 0.05 GB, matrix 0.29 GB
+coefficients done 4s; c[1..8]=[1.      0.06933 0.10992 0.07177 0.16112 0.00762 0.1949  0.0743 ] max|c|=1.517e+00
+  Nf=32768 P=131.072 Nt=393216 N=1202606 planned work 4.73e+11 complex exps
+  dpoly 0/1202606 0s
+  dpoly 10400/1202606 0s
+  dpoly 20800/1202606 2s
+  dpoly 31200/1202606 4s
+  dpoly 41600/1202606 7s
+  dpoly 52000/1202606 9s
+  dpoly 62400/1202606 11s
+  dpoly 72800/1202606 13s
+  dpoly 83200/1202606 15s
+  dpoly 93600/1202606 17s
+  dpoly 104000/1202606 19s
+  dpoly 114400/1202606 21s
+  dpoly 124800/1202606 23s
+  dpoly 135200/1202606 25s
+  dpoly 145600/1202606 27s
+  dpoly 156000/1202606 29s
+  dpoly 166400/1202606 31s
+  dpoly 176800/1202606 33s
+  dpoly 187200/1202606 35s
+  dpoly 197600/1202606 37s
+  dpoly 208000/1202606 39s
+  dpoly 218400/1202606 41s
+  dpoly 228800/1202606 43s
+  dpoly 239200/1202606 45s
+  dpoly 249600/1202606 47s
+  dpoly 260000/1202606 49s
+  dpoly 270400/1202606 51s
+  dpoly 280800/1202606 53s
+  dpoly 291200/1202606 55s
+  dpoly 301600/1202606 57s
+  dpoly 312000/1202606 59s
+  dpoly 322400/1202606 61s
+  dpoly 332800/1202606 63s
+  dpoly 343200/1202606 65s
+  dpoly 353600/1202606 67s
+  dpoly 364000/1202606 69s
+  dpoly 374400/1202606 72s
+  dpoly 384800/1202606 74s
+  dpoly 395200/1202606 77s
+  dpoly 405600/1202606 79s
+  dpoly 416000/1202606 81s
+  dpoly 426400/1202606 83s
+  dpoly 436800/1202606 85s
+  dpoly 447200/1202606 87s
+  dpoly 457600/1202606 89s
+  dpoly 468000/1202606 91s
+  dpoly 478400/1202606 93s
+  dpoly 488800/1202606 95s
+  dpoly 499200/1202606 97s
+  dpoly 509600/1202606 99s
+  dpoly 520000/1202606 101s
+  dpoly 530400/1202606 103s
+  dpoly 540800/1202606 105s
+  dpoly 551200/1202606 107s
+  dpoly 561600/1202606 109s
+  dpoly 572000/1202606 111s
+  dpoly 582400/1202606 113s
+  dpoly 592800/1202606 115s
+  dpoly 603200/1202606 117s
+  dpoly 613600/1202606 119s
+  dpoly 624000/1202606 121s
+  dpoly 634400/1202606 123s
+  dpoly 644800/1202606 125s
+  dpoly 655200/1202606 128s
+  dpoly 665600/1202606 129s
+  dpoly 676000/1202606 132s
+  dpoly 686400/1202606 134s
+  dpoly 696800/1202606 136s
+  dpoly 707200/1202606 138s
+  dpoly 717600/1202606 140s
+  dpoly 728000/1202606 142s
+  dpoly 738400/1202606 144s
+  dpoly 748800/1202606 146s
+  dpoly 759200/1202606 148s
+  dpoly 769600/1202606 150s
+  dpoly 780000/1202606 152s
+  dpoly 790400/1202606 154s
+  dpoly 800800/1202606 156s
+  dpoly 811200/1202606 158s
+  dpoly 821600/1202606 160s
+  dpoly 832000/1202606 162s
+  dpoly 842400/1202606 164s
+  dpoly 852800/1202606 166s
+  dpoly 863200/1202606 168s
+  dpoly 873600/1202606 170s
+  dpoly 884000/1202606 172s
+  dpoly 894400/1202606 174s
+  dpoly 904800/1202606 176s
+  dpoly 915200/1202606 178s
+  dpoly 925600/1202606 180s
+  dpoly 936000/1202606 182s
+  dpoly 946400/1202606 184s
+  dpoly 956800/1202606 186s
+  dpoly 967200/1202606 188s
+  dpoly 977600/1202606 190s
+  dpoly 988000/1202606 192s
+  dpoly 998400/1202606 194s
+  dpoly 1008800/1202606 196s
+  dpoly 1019200/1202606 198s
+  dpoly 1029600/1202606 200s
+  dpoly 1040000/1202606 202s
+  dpoly 1050400/1202606 204s
+  dpoly 1060800/1202606 206s
+  dpoly 1071200/1202606 208s
+  dpoly 1081600/1202606 210s
+  dpoly 1092000/1202606 212s
+  dpoly 1102400/1202606 214s
+  dpoly 1112800/1202606 216s
+  dpoly 1123200/1202606 218s
+  dpoly 1133600/1202606 220s
+  dpoly 1144000/1202606 222s
+  dpoly 1154400/1202606 225s
+  dpoly 1164800/1202606 226s
+  dpoly 1175200/1202606 228s
+  dpoly 1185600/1202606 231s
+  dpoly 1196000/1202606 233s
+sequence done 240s {'Nf': 32768, 'Nt': 393216, 'tmax': 9424.730023869757, 'max|R Bh| at band edge / max': 1.439564551838818e-29}; max|Im m|=9.16e-12 max|m|=1.919e+02
+  l=0.5000 L=1.6487 n=247 norm-1=-5.767e-08 lam_max-1=-5.767e-08 lam_min+1=+1.219e-05 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.0000 L=2.7183 n=497 norm-1=+1.110e-15 lam_max-1=+1.110e-15 lam_min+1=-1.110e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=1.5000 L=4.4817 n=747 norm-1=+3.997e-15 lam_max-1=+3.997e-15 lam_min+1=-3.331e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.0000 L=7.3891 n=997 norm-1=+5.329e-15 lam_max-1=+5.107e-15 lam_min+1=-5.329e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=2.5000 L=12.1825 n=1247 norm-1=+1.044e-14 lam_max-1=+1.044e-14 lam_min+1=-9.992e-15 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.0000 L=20.0855 n=1497 norm-1=+2.554e-14 lam_max-1=+2.554e-14 lam_min+1=-2.376e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 0s
+  l=3.5000 L=33.1155 n=1747 norm-1=+6.817e-14 lam_max-1=+5.995e-14 lam_min+1=-6.817e-14 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.0000 L=54.5982 n=1997 norm-1=+1.246e-13 lam_max-1=+1.037e-13 lam_min+1=-1.246e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=4.5000 L=90.0171 n=2247 norm-1=+2.645e-13 lam_max-1=+2.645e-13 lam_min+1=-2.631e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=5.0000 L=148.4132 n=2497 norm-1=+4.572e-13 lam_max-1=+4.572e-13 lam_min+1=-3.861e-13 (#>1+tol: 0, #<-1-tol: 0) freq=None 1s
+  l=5.5000 L=244.6919 n=2747 norm-1=+1.482e-12 lam_max-1=+1.416e-12 lam_min+1=-1.482e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 2s
+  l=6.0000 L=403.4288 n=2997 norm-1=+3.274e-12 lam_max-1=+3.274e-12 lam_min+1=-3.002e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 3s
+  l=6.5000 L=665.1416 n=3247 norm-1=+6.210e-12 lam_max-1=+6.210e-12 lam_min+1=-6.196e-12 (#>1+tol: 0, #<-1-tol: 0) freq=None 2s
+  l=7.0000 L=1096.6332 n=3497 norm-1=+1.194e-11 lam_max-1=+1.181e-11 lam_min+1=-1.194e-11 (#>1+tol: 0, #<-1-tol: 0) freq=44.69380455135608 6s
+done 261s
+GPU3_DONE

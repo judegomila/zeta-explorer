@@ -1,0 +1,5 @@
+23:27:23 mp extrema below 1000: 243, max shift/gap 1.212e+00
+23:27:23 zeta cos N=256: zeros 100116297, near-collisions 38825609, heights 23.10 .. 42699999.20, dim 256
+23:46:04   N=256 K=13000000 T=15387560.47 rho in [0.019780, 0.019780] feasible passes 15 support 183
+00:23:58   N=256 K=38825609 T=42699999.20 rho in [0.012069, 0.012069] feasible passes 11 support 227
+00:23:58 no onset within the list for N=256 (last status feasible)

@@ -1,0 +1,9 @@
+[alpha:1@2] gpu=True KMAX=130 NRES=100 NEXT=57 t-points=1000001; planned: cos blocks of 4713 t-points x <= 7248 nodes
+  spike 0: mass +7.5879e-01 [3s]
+  spike 20: mass +1.3572e-03 [141s]
+  spike 40: mass +1.3254e-06 [335s]
+  spike 60: mass +1.2943e-09 [669s]
+  spike 80: mass +1.2640e-12 [1210s]
+  spike 100: mass +1.2344e-15 [1923s]
+  spike 120: mass +1.2054e-18 [2647s]
+RESULT3 alpha:1@2: Lhat(0) = +0.064870, deltahat(0) = 8.783864; min over [0,250] = +0.064870 at t = 0.000; extras {"flip_m2_only": {"min": -1.0136301254215665, "at": 3.906}}; last spike mass +3.77e-20 [3061s]

@@ -1,0 +1,1 @@
+zeta 40000.0 3 windows; nonzero-winding windows: 0 max phase step 1.6085883210451577 sec 214.18255805969238

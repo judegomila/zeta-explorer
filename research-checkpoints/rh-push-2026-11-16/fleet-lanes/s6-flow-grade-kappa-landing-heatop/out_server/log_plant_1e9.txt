@@ -1,0 +1,8 @@
+T=1.00017e+09 added Y=0.60 n=40 ratio median 0.2946 [0.2299, 0.4004] mean-field 0.2348 Y*rho 0.902
+T=1.00017e+09 added Y=1.00 n=40 ratio median 0.1881 [0.1550, 0.2412] mean-field 0.1592 Y*rho 1.503
+T=1.00017e+09 hole  Y=0.60 n=40 ratio median 0.4627 [0.3678, 0.5280] mean-field 0.2348 Y*rho 0.902
+T=1.00017e+09 hole  Y=1.00 n=40 ratio median 0.2813 [0.2285, 0.3242] mean-field 0.1592 Y*rho 1.503
+T=1.00017e+09 row   Y=0.60 n=40 ratio median 0.3186 [0.2791, 0.3532] mean-field 0.2348 Y*rho 0.902
+T=1.00017e+09 row   Y=1.00 n=40 ratio median 0.2092 [0.1963, 0.2304] mean-field 0.1592 Y*rho 1.503
+T=1.00017e+09 maxgap Y=0.60 n=10 ratio median 0.4105 [0.3872, 0.4184] mean-field 0.2348 Y*rho 0.902
+T=1.00017e+09 maxgap Y=1.00 n=10 ratio median 0.2419 [0.2270, 0.2475] mean-field 0.1592 Y*rho 1.503

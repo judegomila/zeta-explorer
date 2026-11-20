@@ -1,0 +1,2 @@
+samples 1000000 (+ witness), N from 282 to 892061, sum of N 1.108e+11, gpu False
+tables 0s

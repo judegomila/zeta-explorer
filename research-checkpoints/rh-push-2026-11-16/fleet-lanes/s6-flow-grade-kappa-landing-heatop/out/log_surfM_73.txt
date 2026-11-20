@@ -1,0 +1,2 @@
+EA:9/20 1/6 3s last {'d': 8, 'n': 5000, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 8, 'certified_t0': True, 'scale': 627.921823067937, 'tstar_raw': 0.0, 'sec': 0.0}
+{"obj": "EA:9/20", "table": "data/mom_main.pkl", "prec": 10000, "dstar_grid": {"5000": 400, "10000": 400}, "n_cells": 6, "n_positive": 0, "uncertified": 0}

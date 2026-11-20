@@ -1,0 +1,42 @@
+22:36:33 zfirst: M=1000000 ordinates in [14.135, 600269.677], cond 1
+22:36:33   nufft: H=6.003e+05 band grid 2^23, 14 interleaved FFTs, stored 39146884 complex (0.63 GB), du=6.473e-07, H*du=0.389 rad
+22:36:49 po_first: M=1000000 ordinates in [14.598, 600269.596], cond 1
+22:36:49   nufft: H=6.003e+05 band grid 2^23, 14 interleaved FFTs, stored 39146884 complex (0.63 GB), du=6.473e-07, H*du=0.389 rad
+22:37:09 ztop: M=1000000 ordinates in [42254010.050, 42653549.761], cond 1
+22:37:09   nufft: H=3.995e+05 band grid 2^23, 10 interleaved FFTs, stored 27962060 complex (0.45 GB), du=9.063e-07, H*du=0.362 rad
+22:37:26 po_top: M=1000000 ordinates in [42254010.074, 42653549.488], cond 1
+22:37:26   nufft: H=3.995e+05 band grid 2^23, 10 interleaved FFTs, stored 27962060 complex (0.45 GB), du=9.063e-07, H*du=0.362 rad
+22:37:34 zlow: M=100000 ordinates in [14.135, 74920.827], cond 1
+22:37:34   nufft: H=7.491e+04 band grid 2^20, 14 interleaved FFTs, stored 4893406 complex (0.08 GB), du=5.179e-06, H*du=0.388 rad
+22:37:36 po_low: M=100000 ordinates in [14.651, 74920.662], cond 1
+22:37:36   nufft: H=7.491e+04 band grid 2^20, 14 interleaved FFTs, stored 4893406 complex (0.08 GB), du=5.179e-06, H*du=0.388 rad
+22:39:01   segment 20 primes to 671088637  (84s)
+22:40:04   segment 40 primes to 1342177237  (147s)
+22:41:18   segment 60 primes to 2013265921  (221s)
+22:42:31   segment 80 primes to 2684354557  (294s)
+22:43:34   segment 100 primes to 3355443167  (357s)
+22:44:42   segment 120 primes to 4026531833  (425s)
+22:45:33   segment 140 primes to 4697620457  (476s)
+22:46:27   segment 160 primes to 5368709117  (530s)
+22:47:20   segment 180 primes to 6039797747  (583s)
+22:48:12   segment 200 primes to 6710886373  (635s)
+22:49:16   segment 220 primes to 7381974989  (698s)
+22:50:04   segment 240 primes to 8053063661  (747s)
+22:51:09   segment 260 primes to 8724152249  (812s)
+22:52:15   segment 280 primes to 9395240929  (878s)
+22:53:09   segment 300 primes to 10066329587  (932s)
+22:54:07   segment 320 primes to 10737418213  (990s)
+22:55:04   segment 340 primes to 11408506873  (1047s)
+22:56:08   segment 360 primes to 12079595519  (1110s)
+22:57:01   segment 380 primes to 12750684139  (1163s)
+22:57:58   segment 400 primes to 13421772781  (1220s)
+22:58:50   segment 420 primes to 14092861441  (1273s)
+22:59:55   segment 440 primes to 14763950053  (1338s)
+23:00:54   segment 460 primes to 15435038699  (1397s)
+23:01:58   segment 480 primes to 16106127277  (1461s)
+23:03:02   segment 500 primes to 16777215997  (1525s)
+23:04:03   segment 520 primes to 17448304639  (1586s)
+23:05:00   segment 540 primes to 18119393273  (1643s)
+23:06:02   segment 560 primes to 18790481911  (1705s)
+23:06:51   segment 580 primes to 19461570547  (1754s)
+23:07:41   segment 600 primes to 20132659199  (1803s)

@@ -1,0 +1,66 @@
+[
+ {
+  "case": "ZETA P11",
+  "N": 2000,
+  "t": "0.36",
+  "T": "[0.0925863894198110496043000205261333 +/- 8.68e-35]"
+ },
+ {
+  "case": "ZETA P11",
+  "N": 2000,
+  "t": "0.33",
+  "T": "[-0.0695582859400744166381735085156424 +/- 6.59e-35]"
+ },
+ {
+  "case": "DH optimised mollifier (fixed at t*)",
+  "N": 1000,
+  "t": 0.3575,
+  "T": "[0.1064628769718210134471759433703911 +/- 8.06e-35]",
+  "sign": "positive"
+ },
+ {
+  "case": "DH optimised mollifier (fixed at t*)",
+  "N": 1000,
+  "t": 0.3075,
+  "T": "[-0.189474176068928181571145888743778 +/- 2.19e-34]",
+  "sign": "negative"
+ },
+ {
+  "case": "DH optimised mollifier (fixed at t*)",
+  "N": 10000,
+  "t": 0.2575,
+  "T": "[0.18419966842208488299564360401110 +/- 4.15e-33]",
+  "sign": "positive"
+ },
+ {
+  "case": "DH optimised mollifier (fixed at t*)",
+  "N": 10000,
+  "t": 0.2075,
+  "T": "[-0.39321921694037859624844117270394 +/- 1.18e-33]",
+  "sign": "negative"
+ },
+ {
+  "case": "c_n^F zeta weights, random n <= 1e9",
+  "F": "DH",
+  "samples": 20000,
+  "negative_at_t0": 9561,
+  "undecided_sign": 0,
+  "c_at_0p10_gt_c_at_t0": 9561
+ },
+ {
+  "case": "c_n^F zeta weights, random n <= 1e9",
+  "F": "CHIM4",
+  "samples": 20000,
+  "negative_at_t0": 7481,
+  "undecided_sign": 0,
+  "c_at_0p10_gt_c_at_t0": 7481
+ },
+ {
+  "case": "c_n^F zeta weights, random n <= 1e9",
+  "F": "ZETA",
+  "samples": 20000,
+  "negative_at_t0": 0,
+  "undecided_sign": 0,
+  "c_at_0p10_gt_c_at_t0": 0
+ }
+]

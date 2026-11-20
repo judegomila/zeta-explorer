@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s6-flow-grade-kappa-landing-heatop/c1_arbland.py", line 70, in <module>
+    with Pool(min(W, len(pairs)), initializer=init, initargs=(fn, obj)) as p:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/context.py", line 119, in Pool
+    return Pool(processes, initializer, initargs, maxtasksperchild,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 205, in __init__
+    raise ValueError("Number of processes must be at least 1")
+ValueError: Number of processes must be at least 1

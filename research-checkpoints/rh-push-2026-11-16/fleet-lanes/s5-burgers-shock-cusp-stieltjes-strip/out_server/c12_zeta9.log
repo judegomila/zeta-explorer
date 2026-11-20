@@ -1,0 +1,13 @@
+08:12:03 zeta9 zeros 1020007 T0 1000000000.0 GPU True planned largest temporary 1.92 GB
+08:12:03 N 1000 y 7.927e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.519 Cren 5.415 Ccurv 9.28 rho 0.5835 rate -2.732 | Z Cren 2.87 Ccurv 6.897 rho 0.4161 rate -2.985 | Ms 4.38e-01 5.27e-01
+08:12:03 N 2000 y 5.605e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.527 Cren 6.606 Ccurv 10.91 rho 0.6056 rate -2.723 | Z Cren 3.504 Ccurv 8.071 rho 0.4341 rate -2.967 | Ms 3.59e-01 8.49e-01
+08:12:03 N 5000 y 3.545e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.417 Cren 9.148 Ccurv 16.26 rho 0.5628 rate -2.826 | Z Cren 5.018 Ccurv 10.59 rho 0.474 rate -2.999 | Ms 3.92e-01 1.04e+00
+08:12:03 N 10000 y 2.507e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.589 Cren 9.654 Ccurv 14.55 rho 0.6635 rate -2.656 | Z Cren 6.091 Ccurv 12.61 rho 0.4831 rate -2.999 | Ms 2.01e-01 6.26e-01
+08:12:03 N 20000 y 1.772e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.833 Cren 8.945 Ccurv 8.902 rho 1.005 rate -2.320 | Z Cren 7.443 Ccurv 15.02 rho 0.4955 rate -3.000 | Ms 3.24e-01 6.60e-01
+08:12:04 N 50000 y 1.121e-02 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.620 Cren 14.18 Ccurv 20.4 rho 0.6951 rate -2.619 | Z Cren 9.416 Ccurv 18.89 rho 0.4984 rate -3.000 | Ms 3.27e-01 6.44e-01
+08:12:04 N 100000 y 7.927e-03 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.600 Cren 17.19 Ccurv 25.32 rho 0.6789 rate -2.643 | Z Cren 11.21 Ccurv 22.46 rho 0.4992 rate -3.000 | Ms 1.97e-01 3.25e-01
+08:12:04 N 200000 y 5.605e-03 | O Cren nan Ccurv nan rho None wind nan | P g/y 0.680 Cren 18.98 Ccurv 25.15 rho 0.7546 rate -2.544 | Z Cren 13.33 Ccurv 26.71 rho 0.499 rate -3.000 | Ms 3.68e-01 9.81e-01
+08:12:05 N 500000 y 3.545e-03 | O Cren nan Ccurv nan rho None wind nan | P g/y 1.075 Cren 14.38 Ccurv 4.191 rho 3.43 rate -1.879 | Z Cren 16.71 Ccurv 33.59 rho 0.4974 rate -3.000 | Ms 3.06e-01 9.26e-01
+08:12:06 N 1000000 y 2.507e-03 | O Cren nan Ccurv nan rho None wind nan | P g/y 1.520 Cren 6.776 Ccurv 14.91 rho 0.4544 rate -3.952 | Z Cren 19.97 Ccurv 39.95 rho 0.4999 rate -3.000 | Ms 2.65e-01 4.81e-01
+08:12:07 N 1020007 y 2.482e-03 | O Cren nan Ccurv nan rho None wind nan | P g/y 1.535 Cren 6.528 Ccurv 15.36 rho 0.4251 rate -3.911 | Z Cren 20.07 Ccurv 40.15 rho 0.4999 rate -3.000 | Ms 3.71e-01 9.80e-01
+08:12:07 fine ladder (two-atom closed form at the closest pair): {"n_values": 2001, "Cren_min": 5.743238547379245, "Cren_max": 19.230445324055783, "Ccurv_min": 0.045136126206972, "Ccurv_max": 30.52934190458223, "rho_min": 0.425287132731029, "rho_max": 288.9339736468828, "frac_Cren_in_2p2215_2p2510": 0.0, "frac_Ccurv_within_10pct_of_3p3322": 0.006496751624187906, "frac_rho_within_10pct_of_2over3": 0.456271864067966}

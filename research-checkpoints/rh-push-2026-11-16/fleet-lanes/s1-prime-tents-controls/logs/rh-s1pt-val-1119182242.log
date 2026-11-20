@@ -1,0 +1,6 @@
+checkpoints 10946 max 10000000 {'T88': 1038, 'T91': 641, 'T93': 588, 'T92': 1032, 'GRID': 4137}
+X=10000000 checkpoints=10946 tasks=10946 task-table=4.8 MB extras=1
+sieve done 0.1s
+total primes 664579  wall 0.3s
+checked 13 checkpoints up to 300000 count ok; worst rel diff 2.3e-17
+DONE 1e7

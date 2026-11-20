@@ -1,0 +1,149 @@
+records: {'ZETA': 10142, 'L4': 12349, 'L3': 5946, 'DH': 12137, 'TNR': 11890, 'HEAT': 1198, 'ZW5': 1240, 'ZW6': 1, 'DH>1e4': 7571, 'EA': 10142}
+==============================================================================================================
+COMBINATION 1: rate at off-line zeros (v = dy/dt = -Re(F_ss/F_s)/2, y = 2(beta - 1/2))
+
+DH (height < 1e4): 567 off-line zeros, heights 85.70 .. 9991.98, y 0.01229 .. 0.7955
+   v*y quantiles (1,10,50,90,99%): -2.684 -1.767 -1.24 -1.036 -1.005 ; v < 0 at 567 ; v <= -1/y (de Bruijn, valid for a topmost zero) at 567 ; max v*y = -1.0003
+   eta = sqrt5 y              A4 (own S): v <= B4 violated at     0 of 567 (largest v - B4 = -3.402e-06) | A5 with zeta majorant: defined at 194, violated at 0 ; E < 0 at 0 (min E 3.158, median E 10.41)
+   eta = max(sqrt5 y, 1.02)   A4 (own S): v <= B4 violated at     0 of 567 (largest v - B4 = -0.002733) | A5 with zeta majorant: defined at 567, violated at 0 ; E < 0 at 0 (min E 3.158, median E 101)
+   x1.3                       A4 (own S): v <= B4 violated at     0 of 567 (largest v - B4 = -0.00449) | A5 with zeta majorant: defined at 567, violated at 0 ; E < 0 at 0 (min E 1.598, median E 6.502)
+   x2                         A4 (own S): v <= B4 violated at     0 of 567 (largest v - B4 = -0.00909) | A5 with zeta majorant: defined at 567, violated at 0 ; E < 0 at 0 (min E 0.5592, median E 1.747)
+   x4                         A4 (own S): v <= B4 violated at     0 of 567 (largest v - B4 = -0.01537) | A5 with zeta majorant: defined at 567, violated at 0 ; E < 0 at 0 (min E 0.08123, median E 0.3222)
+
+TNR (height < 1e4): 1748 off-line zeros, heights 2.86 .. 9994.31, y 0.8075 .. 0.8075
+   v*y quantiles (1,10,50,90,99%): -5.355 -4.742 -3.946 -2.908 -1.98 ; v < 0 at 1748 ; v <= -1/y (de Bruijn, valid for a topmost zero) at 1748 ; max v*y = -1.0804
+   eta = sqrt5 y              A4 (own S): v <= B4 violated at     0 of 1748 (largest v - B4 = -0.001016) | A5 with zeta majorant: defined at 1748, violated at 0 ; E < 0 at 0 (min E 3.147, median E 4.038)
+   eta = max(sqrt5 y, 1.02)   A4 (own S): v <= B4 violated at     0 of 1748 (largest v - B4 = -0.001016) | A5 with zeta majorant: defined at 1748, violated at 0 ; E < 0 at 0 (min E 3.147, median E 4.038)
+   x1.3                       A4 (own S): v <= B4 violated at     0 of 1748 (largest v - B4 = -0.001866) | A5 with zeta majorant: defined at 1748, violated at 0 ; E < 0 at 0 (min E 1.66, median E 2.252)
+   x2                         A4 (own S): v <= B4 violated at     0 of 1748 (largest v - B4 = -0.004541) | A5 with zeta majorant: defined at 1748, violated at 0 ; E < 0 at 0 (min E 0.6085, median E 0.8817)
+   x4                         A4 (own S): v <= B4 violated at     0 of 1748 (largest v - B4 = -0.0153) | A5 with zeta majorant: defined at 1748, violated at 0 ; E < 0 at 0 (min E 0.07119, median E 0.119)
+
+HEAT tau=-0.5 (height < 1990): 275 off-line zeros, heights 111.69 .. 1988.23, y 0.07453 .. 1.265
+   v*y quantiles (1,10,50,90,99%): -2.825 -1.984 -1.358 -1.076 -1.013 ; v < 0 at 275 ; v <= -1/y (de Bruijn, valid for a topmost zero) at 275 ; max v*y = -1.0041
+   eta = sqrt5 y              A4 (own S): v <= B4 violated at     1 of 275 (largest v - B4 = +0.00123)
+   eta = max(sqrt5 y, 1.02)   A4 (own S): v <= B4 violated at     1 of 275 (largest v - B4 = +0.0009847)
+   x1.3                       A4 (own S): v <= B4 violated at     0 of 275 (largest v - B4 = -0.001864)
+   x2                         A4 (own S): v <= B4 violated at     0 of 275 (largest v - B4 = -0.004086)
+   x4                         A4 (own S): v <= B4 violated at     0 of 275 (largest v - B4 = -0.01188)
+
+DH>1e4: 7571 off-line zeros, heights 10020.95 .. 99988.83, y 0.001931 .. 0.8741
+   v*y quantiles (1,10,50,90,99%): -3.505 -2.263 -1.312 -1.041 -1.004 ; v < 0 at 7571 ; v <= -1/y (de Bruijn, valid for a topmost zero) at 7571 ; max v*y = -1.0000
+   eta = sqrt5 y              A4 (own S): v <= B4 violated at     0 of 7571 (largest v - B4 = -1.595e-08) | A5 with zeta majorant: defined at 1814, violated at 0 ; E < 0 at 0 (min E 2.711, median E 11.15)
+   eta = max(sqrt5 y, 1.02)   A4 (own S): v <= B4 violated at     0 of 7571 (largest v - B4 = -0.0007061) | A5 with zeta majorant: defined at 7571, violated at 0 ; E < 0 at 0 (min E 2.711, median E 100.8)
+   x1.3                       A4 (own S): v <= B4 violated at     0 of 7571 (largest v - B4 = -0.001084) | A5 with zeta majorant: defined at 7571, violated at 0 ; E < 0 at 0 (min E 1.373, median E 6.346)
+   x2                         A4 (own S): v <= B4 violated at     0 of 7571 (largest v - B4 = -0.001884) | A5 with zeta majorant: defined at 7571, violated at 0 ; E < 0 at 0 (min E 0.4622, median E 1.708)
+   x4                         A4 (own S): v <= B4 violated at     0 of 7571 (largest v - B4 = -0.003034) | A5 with zeta majorant: defined at 7571, violated at 0 ; E < 0 at 0 (min E 0.06062, median E 0.3181)
+
+EA: 10142 off-line zeros, heights 14.13 .. 9998.85, y 0.5 .. 0.5
+   v*y quantiles (1,10,50,90,99%): -2.522 -2.243 -1.893 -1.58 -1.289 ; v < 0 at 10142 ; v <= -1/y (de Bruijn, valid for a topmost zero) at 10142 ; max v*y = -1.0169
+   eta = sqrt5 y              A4 (own S): v <= B4 violated at     0 of 10142 (largest v - B4 = -6.782e-05) | A5 with zeta majorant: defined at 10142, violated at 0 ; E < 0 at 0 (min E 16.19, median E 17.84)
+   eta = max(sqrt5 y, 1.02)   A4 (own S): v <= B4 violated at     0 of 10142 (largest v - B4 = -6.782e-05) | A5 with zeta majorant: defined at 10142, violated at 0 ; E < 0 at 0 (min E 16.19, median E 17.84)
+   x1.3                       A4 (own S): v <= B4 violated at     0 of 10142 (largest v - B4 = -0.0001258) | A5 with zeta majorant: defined at 10142, violated at 0 ; E < 0 at 0 (min E 2.976, median E 4.579)
+   x2                         A4 (own S): v <= B4 violated at     0 of 10142 (largest v - B4 = -0.0003169) | A5 with zeta majorant: defined at 10142, violated at 0 ; E < 0 at 0 (min E 0.1588, median E 1.397)
+   x4                         A4 (own S): v <= B4 violated at     0 of 10142 (largest v - B4 = -0.001237) | A5 with zeta majorant: defined at 10142, violated at 0 ; E < 0 at 736 (min E -0.1586, median E 0.2772)
+
+DH all off-line zeros to 1e5: 8138 pairs ; x = beta - 1/2: max 0.4371 at height 49688.34 ; quantiles 0.01844 0.05805 0.1549 0.2807 0.3616 ; zeros with beta > 1: 0
+   heights [0, 1000):    28 pairs ; M quantiles 1.004 1.023 1.215 1.422 1.536 ; M < 0: 0 ; M < 1: 0 ; median x 0.2444
+   heights [1000, 10000):   539 pairs ; M quantiles 1.005 1.037 1.242 1.772 2.687 ; M < 0: 0 ; M < 1: 0 ; median x 0.1773
+   heights [10000, 30000):  1482 pairs ; M quantiles 1.006 1.041 1.29 2.064 3.214 ; M < 0: 0 ; M < 1: 0 ; median x 0.1608
+   heights [30000, 100000):  6089 pairs ; M quantiles 1.004 1.041 1.319 2.317 3.558 ; M < 0: 0 ; M < 1: 0 ; median x 0.1508
+
+==============================================================================================================
+COMBINATION 3: M = x Re(F_ss/F_s) at off-line zeros (D' = -M/2; M = 1 from the mirror partner alone); kappa = Re d_s(F_ss/F_s) at on-line zeros
+ZETA     on-line   10142 : kappa < 0 at 0 ; min kappa 0.5390 at height 14.1347 ; kappa*gbar^2 quantiles 6.852 8.696 13.49 29.32 97.43
+L4       on-line   12349 : kappa < 0 at 0 ; min kappa 0.9026 at height 6.0209 ; kappa*gbar^2 quantiles 6.72 8.512 13.08 29.28 119
+L3       on-line    5946 : kappa < 0 at 0 ; min kappa 1.2062 at height 8.0397 ; kappa*gbar^2 quantiles 6.754 8.483 13.05 28.17 100.2
+DH       off-line    567 : M quantiles 1.005 1.036 1.24 1.767 2.684 ; min 1.0003 max 3.4676 ; M < 0: 0 ; M < 1: 0 ; (M-1)/x^2 quantiles 3.241 5.459 7.592 10.72 21.57
+            real-zero Poisson field M_on = sum_on 2x^2/(x^2+D^2) (800 nearest on-line zeros): quantiles 0.004575 0.03414 0.2316 0.7528 1.68 ; M - 1 - M_on (other off-line pairs, tails) quantiles 5.934e-05 0.0005079 0.003447 0.01394 0.07248 ; min 0.0000 ; zeros that are topmost within height distance 2: 542 of 567
+DH       on-line   11570 : kappa < 0 at 5 ; min kappa -141.2283 at height 9504.6814 ; kappa*gbar^2 quantiles 6.973 8.773 13.63 31.93 148.8
+            kappa < 0: 5, of which 5 have an off-line pair at height distance < its x ; on-line zeros with such a pair: 9, of which kappa < 0: 5 ; smallest |height distance|/x among the others with kappa<0: n/a
+            below the first off-line height 85.699: 43 on-line zeros, min kappa 0.9546, min kappa*gbar^2 8.5161 ; nearest on-line zero below that height at distance 2.5905
+TNR      off-line   1748 : M quantiles 1.98 2.908 3.946 4.742 5.355 ; min 1.0804 max 6.1824 ; M < 0: 0 ; M < 1: 0 ; (M-1)/x^2 quantiles 6.01 11.71 18.07 22.95 26.71
+            real-zero Poisson field M_on = sum_on 2x^2/(x^2+D^2) (800 nearest on-line zeros): quantiles 0.9139 1.842 2.879 3.675 4.288 ; M - 1 - M_on (other off-line pairs, tails) quantiles 0.06572 0.06593 0.06659 0.06693 0.06802 ; min 0.0657 ; zeros that are topmost within height distance 2: 1748 of 1748
+TNR      on-line   10142 : kappa < 0 at 637 ; min kappa -33.0583 at height 163.0307 ; kappa*gbar^2 quantiles -20.11 8.541 17.28 37.58 110.3
+            kappa < 0: 637, of which 637 have an off-line pair at height distance < its x ; on-line zeros with such a pair: 1614, of which kappa < 0: 637 ; smallest |height distance|/x among the others with kappa<0: n/a
+HEAT     off-line    275 : M quantiles 1.013 1.076 1.358 1.984 2.825 ; min 1.0041 max 3.4816 ; M < 0: 0 ; M < 1: 0 ; (M-1)/x^2 quantiles 1.23 1.96 2.853 4.579 10.37
+            real-zero Poisson field M_on = sum_on 2x^2/(x^2+D^2) (800 nearest on-line zeros): quantiles 0.009918 0.04341 0.256 0.7509 1.627 ; M - 1 - M_on (other off-line pairs, tails) quantiles 0.001164 0.01285 0.08659 0.2774 0.471 ; min 0.0010 ; zeros that are topmost within height distance 2: 253 of 275
+HEAT     on-line     923 : kappa < 0 at 7 ; min kappa -56.7747 at height 1552.3317 ; kappa*gbar^2 quantiles 6.981 12.58 33.58 122.8 548.6
+            kappa < 0: 7, of which 7 have an off-line pair at height distance < its x ; on-line zeros with such a pair: 12, of which kappa < 0: 7 ; smallest |height distance|/x among the others with kappa<0: n/a
+            below the first off-line height 111.694: 33 on-line zeros, min kappa 0.5402, min kappa*gbar^2 8.3490 ; nearest on-line zero below that height at distance 4.4754
+ZW5      on-line    1240 : kappa < 0 at 0 ; min kappa 13.0477 at height 100464.1043 ; kappa*gbar^2 quantiles 6.648 8.432 13.42 32.14 154.5
+ZW6      on-line       1 : kappa < 0 at 0 ; min kappa 87.1715 at height 1000000.5841 ; kappa*gbar^2 quantiles 15.79 15.79 15.79 15.79 15.79
+DH>1e4   off-line   7571 : M quantiles 1.004 1.041 1.312 2.263 3.505 ; min 1.0000 max 4.4040 ; M < 0: 0 ; M < 1: 0 ; (M-1)/x^2 quantiles 8.072 9.825 12.87 20.96 49.52
+            real-zero Poisson field M_on = sum_on 2x^2/(x^2+D^2) (800 nearest on-line zeros): quantiles 0.003852 0.03779 0.2964 1.249 2.49 ; M - 1 - M_on (other off-line pairs, tails) quantiles 7.665e-05 0.0007484 0.005191 0.02293 0.1675 ; min 0.0000 ; zeros that are topmost within height distance 2: 6489 of 7571
+EA       off-line  10142 : M quantiles 1.289 1.58 1.893 2.243 2.522 ; min 1.0169 max 2.9224 ; M < 0: 0 ; M < 1: 0 ; (M-1)/x^2 quantiles 4.617 9.276 14.28 19.89 24.35
+kap_ZK7.jsonl  jets (192 bits) at heights 10379600.0 .. 10379631.7: 73 zeros ; kappa < 0: 0 ; min kappa*gbar^2 6.867 ; quantiles 7.203 8.314 13.46 34.4 53.13 ; max |x| after Newton 0.0e+00
+kap_ZK8.jsonl  jets (192 bits) at heights 42613607.0 .. 42613664.5: 74 zeros ; kappa < 0: 0 ; min kappa*gbar^2 7.051 ; quantiles 7.439 9.222 13.09 24.61 58.49 ; max |x| after Newton 0.0e+00
+list form, zeta:  {'zeros': 100115897, 'J': 200, 'negative': 0, 'min_kappa_over_rho2': 4.383124946518015, 'argmin_index': 56948783, 'gamma_at_min': 25191247.256388236, 'kappa_at_min': 25.66535455594965, 'quantiles_kappa_over_rho2': {'0.001': 5.0, '0.01': 6.0, '0.1': 8.0, '0.5': 13.0, '0.9': 33.0, '0.99': 140.0}, 'mean_kappa_over_rho2': 22.153368900180027, 'mean_S1sq_share': 0.08604863173306032}
+   list kappa (with the smooth term -pi/4 in S1) against jet kappa at 9930 zeros (heights 397.9 .. 9988.3): relative difference quantiles -0.005491 -0.0009609 0.001045 0.006965 0.04978 ; S1(list) - S1(jet) quantiles -0.1809 -0.04474 -0.01138 -0.005222 -0.00192
+
+==============================================================================================================
+COMBINATION 2: heat-stability radius from positivity (delta_R: direct Rouche floor, delta_TR: Taylor-Rouche); log10
+ZETA   on-line   10142 zeros to 9999: lg delta_R at lowest/highest -0.91 / -3400.82 ; fit lg delta = 2.141 -0.341096 gamma +1.767 lg gamma (rms resid 0.381) ; TR available at 10142 ; median lg(delta_R/delta_TR) 0.155
+                 floor_R/g quantiles 0.1489 0.1809 0.2489 0.3478 0.3966 ; floor_TR/g quantiles 0.1074 0.1317 0.174 0.2171 0.231 ; r_opt/g (R) median 0.45 ; lg[delta_R/(|F'(rho)| g)] quantiles 1.409 1.495 1.634 1.778 1.835
+L4     on-line   12349 zeros to 10000: lg delta_R at lowest/highest -0.32 / -3407.71 ; fit lg delta = 1.766 -0.341095 gamma +0.246 lg gamma (rms resid 0.358) ; TR available at 12349 ; median lg(delta_R/delta_TR) 0.154
+                 floor_R/g quantiles 0.1653 0.1935 0.2549 0.343 0.3885 ; floor_TR/g quantiles 0.1211 0.1399 0.1773 0.2171 0.2338 ; r_opt/g (R) median 0.45 ; lg[delta_R/(|F'(rho)| g)] quantiles 0.6793 0.7494 0.8701 0.9963 1.051
+L3     on-line    5946 zeros to 10000: lg delta_R at lowest/highest -0.79 / -3407.43 ; fit lg delta = 2.045 -0.341095 gamma +0.247 lg gamma (rms resid 0.372) ; TR available at 5946 ; median lg(delta_R/delta_TR) 0.155
+                 floor_R/g quantiles 0.1616 0.1917 0.2538 0.3441 0.3889 ; floor_TR/g quantiles 0.1188 0.1389 0.1763 0.2169 0.2322 ; r_opt/g (R) median 0.45 ; lg[delta_R/(|F'(rho)| g)] quantiles 0.9825 1.059 1.181 1.311 1.364
+DH     on-line   11570 zeros to 10000: lg delta_R at lowest/highest -0.23 / -3408.59 ; fit lg delta = 1.554 -0.341095 gamma +0.271 lg gamma (rms resid 0.354) ; TR available at 11570 ; median lg(delta_R/delta_TR) 0.165
+                 floor_R/g quantiles 0.1522 0.1982 0.2506 0.3453 0.385 ; floor_TR/g quantiles 0.1094 0.1404 0.1725 0.2134 0.2347 ; r_opt/g (R) median 0.45 ; lg[delta_R/(|F'(rho)| g)] quantiles 0.4277 0.5427 0.6447 0.7811 0.8278
+                 below first off-line height: 43 channels, floor_R/g quantiles 0.122 0.1543 0.1848 0.3425 0.4127 ; above: 0.1528 0.1987 0.2508 0.3453 0.3849
+DH     off-line    567 zeros to 9992: lg delta_R at lowest/highest -27.62 / -3406.68 ; fit lg delta = 0.503 -0.341103 gamma +0.400 lg gamma (rms resid 0.501) ; TR available at 567 ; median lg(delta_R/delta_TR) 0.235
+                 floor_R/g quantiles 0.1595 0.1948 0.2335 0.2477 0.2497 ; floor_TR/g quantiles 0.06896 0.08803 0.1334 0.2044 0.2378 ; r_opt/g (R) median 0.50 ; lg[delta_R/(|F'(rho)| g)] quantiles 0.4201 0.5136 0.6086 0.6459 0.6512
+TNR    on-line   10142 zeros to 9999: lg delta_R at lowest/highest -3.86 / -3402.61 ; fit lg delta = -0.083 -0.341103 gamma +1.921 lg gamma (rms resid 0.649) ; TR available at 10142 ; median lg(delta_R/delta_TR) 0.166
+                 floor_R/g quantiles 0.1062 0.1383 0.2217 0.3757 0.4674 ; floor_TR/g quantiles 0.06376 0.09194 0.1457 0.2125 0.2512 ; r_opt/g (R) median 0.40 ; lg[delta_R/(|F'(rho)| g)] quantiles -0.5026 -0.3864 -0.1914 0.04057 0.1372
+TNR    off-line   1748 zeros to 9994: lg delta_R at lowest/highest -0.77 / -3402.24 ; fit lg delta = -0.626 -0.341092 gamma +1.847 lg gamma (rms resid 0.264) ; TR available at 1748 ; median lg(delta_R/delta_TR) 0.302
+                 floor_R/g quantiles 0.1193 0.1312 0.1493 0.1673 0.1911 ; floor_TR/g quantiles 0.05338 0.05978 0.06704 0.08157 0.0964 ; r_opt/g (R) median 0.35 ; lg[delta_R/(|F'(rho)| g)] quantiles -0.5165 -0.481 -0.431 -0.386 -0.3433
+HEAT   on-line     923 zeros to 1987: lg delta_R at lowest/highest -2.36 / -670.11 ; fit lg delta = 1.921 -0.341077 gamma +1.718 lg gamma (rms resid 0.452) ; TR available at 923 ; median lg(delta_R/delta_TR) 0.138
+                 floor_R/g quantiles 0.07446 0.1301 0.2092 0.3276 0.3975 ; floor_TR/g quantiles 0.05783 0.09395 0.1557 0.2222 0.2363 ; r_opt/g (R) median 0.40 ; lg[delta_R/(|F'(rho)| g)] quantiles 1.117 1.36 1.567 1.765 1.855
+                 below first off-line height: 33 channels, floor_R/g quantiles 0.0414 0.07589 0.1291 0.2742 0.3285 ; above: 0.08823 0.1348 0.2103 0.329 0.3983
+HEAT   off-line    275 zeros to 1988: lg delta_R at lowest/highest -33.32 / -inf ; fit lg delta = nan +nan gamma +nan lg gamma (rms resid nan) ; TR available at 157 ; median lg(delta_R/delta_TR) 0.082
+                 floor_R/g quantiles 0.04399 0.045 0.04674 0.244 0.2492 ; floor_TR/g quantiles 0.04239 0.04376 0.04636 0.174 0.224 ; r_opt/g (R) median 0.05 ; lg[delta_R/(|F'(rho)| g)] quantiles nan nan 1.027 1.634 1.653
+ZW5    on-line    1240 zeros to 100805: lg delta_R at lowest/highest -34098.45 / -34373.03 ; fit lg delta = -20798.583 -0.360824 gamma +4556.508 lg gamma (rms resid 0.452) ; TR available at 1240 ; median lg(delta_R/delta_TR) 0.155
+                 floor_R/g quantiles 0.1642 0.1951 0.2579 0.3379 0.379 ; floor_TR/g quantiles 0.1194 0.1415 0.18 0.2183 0.2341 ; r_opt/g (R) median 0.50 ; lg[delta_R/(|F'(rho)| g)] quantiles 1.454 1.529 1.651 1.768 1.817
+   pi/(4 ln 10) = 0.341094
+
+==============================================================================================================
+COMBINATION 4: v_exit (disk radius 0.7 g about the zero) and v_coll (collision of the branch), backward heat v = -tau
+ZETA   on-line  10142 : collision found   8260 (cap 1766, no fold/no exit 30, truncation check run 1733 failed 86) ; ratio v_exit/v_coll quantiles 0.2854 0.5057 0.8263 0.9924 0.9999 ; mean 0.7845 ; ratio > 1: 1 ; v_coll/(g^2/2) quantiles 1.021 1.093 1.375 2.719 6.285 ; exit type {'line+': 3912, 'line-': 4346, 'offline': 2}
+L4     on-line  12349 : collision found  10085 (cap 2180, no fold/no exit 24, truncation check run 2082 failed 60) ; ratio v_exit/v_coll quantiles 0.3247 0.5526 0.8387 0.9922 0.9999 ; mean 0.8015 ; ratio > 1: 2 ; v_coll/(g^2/2) quantiles 1.016 1.087 1.371 2.714 6.324 ; exit type {'line+': 4850, 'line-': 5235}
+L3     on-line   5946 : collision found   4844 (cap 1046, no fold/no exit 22, truncation check run 1444 failed 34) ; ratio v_exit/v_coll quantiles 0.3486 0.5426 0.842 0.992 0.9999 ; mean 0.8011 ; ratio > 1: 4 ; v_coll/(g^2/2) quantiles 1.019 1.091 1.375 2.762 6.087 ; exit type {'line+': 2331, 'line-': 2513}
+DH     on-line  11570 : collision found   9283 (cap 1919, no fold/no exit 19, truncation check run 2063 failed 349) ; ratio v_exit/v_coll quantiles 0.3664 0.5567 0.8359 0.9938 1 ; mean 0.8030 ; ratio > 1: 3 ; v_coll/(g^2/2) quantiles 1.013 1.109 1.465 2.805 6.45 ; exit type {'line+': 4399, 'line-': 4884}
+          below first off-line height: 33 channels ; ratio quantiles 0.2979 0.3577 0.6813 0.9736 0.998 ; sign of v_exit and v_coll positive at all: True
+TNR    on-line  10142 : collision found   7902 (cap 1317, no fold/no exit 97, truncation check run 2150 failed 826) ; ratio v_exit/v_coll quantiles 0.2296 0.4325 0.8193 0.9916 0.9999 ; mean 0.7610 ; ratio > 1: 0 ; v_coll/(g^2/2) quantiles 0.8513 1.043 1.479 3.235 8.914 ; exit type {'line+': 3802, 'line-': 4096, 'offline': 4}
+HEAT   on-line    923 : collision found    729 (cap 101, no fold/no exit 8, truncation check run 163 failed 85) ; ratio v_exit/v_coll quantiles 0.09485 0.3747 0.7596 0.99 0.9997 ; mean 0.7170 ; ratio > 1: 0 ; v_coll/(g^2/2) quantiles 1.009 1.05 1.346 4.175 20.28 ; exit type {'line+': 372, 'line-': 347, 'offline': 10}
+          below first off-line height: 24 channels ; ratio quantiles 0.2702 0.3902 0.6262 0.9788 0.9996 ; sign of v_exit and v_coll positive at all: True
+ZW5    on-line   1240 : collision found   1005 (cap 226, no fold/no exit 1, truncation check run 212 failed 8) ; ratio v_exit/v_coll quantiles 0.2942 0.5735 0.8413 0.991 0.9998 ; mean 0.8078 ; ratio > 1: 0 ; v_coll/(g^2/2) quantiles 1.015 1.081 1.341 2.796 7.212 ; exit type {'line+': 479, 'line-': 526}
+ZW6    on-line      1 : collision found      1 (cap 0, no fold/no exit 0, truncation check run 1 failed 0) ; ratio v_exit/v_coll quantiles 0.9264 0.9264 0.9264 0.9264 0.9264 ; mean 0.9264 ; ratio > 1: 0 ; v_coll/(g^2/2) quantiles 1.115 1.115 1.115 1.115 1.115 ; exit type {'line+': 1}
+   DH below its first off-line height (gbar in [1.51, 2.27], n = 25) against pooled zeta, L3, L4 channels with gbar in the same range (n = 259): KS ratio 0.147, KS v_coll/(g^2/2) 0.224 ; 1% critical value 0.341 ; median ratio 0.681 vs 0.705
+   HEAT below its first off-line height (gbar in [2.36, 4.10], n = 18) against pooled zeta, L3, L4 channels with gbar in the same range (n = 28): KS ratio 0.242, KS v_coll/(g^2/2) 0.500 ; 1% critical value 0.492 ; median ratio 0.647 vs 0.551
+   KS distance of the ratio distribution, ZETA against L4: 0.0443 (n = 8260, 10085 ; 1% critical value 0.0242) ; of v_coll/(g^2/2): 0.0105
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0395, KS v_coll/(g^2/2) 0.0419 (n = 958, 4687 ; 1% critical value 0.0578) ; median ratio 0.8421 vs 0.8440
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0353, KS v_coll/(g^2/2) 0.0236 (n = 4053, 4124 ; 1% critical value 0.0361) ; median ratio 0.8315 vs 0.8342
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0339, KS v_coll/(g^2/2) 0.0503 (n = 2914, 691 ; 1% critical value 0.0690) ; median ratio 0.8200 vs 0.8038
+   KS distance of the ratio distribution, ZETA against L3: 0.0428 (n = 8260, 4844 ; 1% critical value 0.0295) ; of v_coll/(g^2/2): 0.0119
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0395, KS v_coll/(g^2/2) 0.0407 (n = 958, 1996 ; 1% critical value 0.0641) ; median ratio 0.8421 vs 0.8449
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0324, KS v_coll/(g^2/2) 0.0281 (n = 4053, 2192 ; 1% critical value 0.0432) ; median ratio 0.8315 vs 0.8425
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0350, KS v_coll/(g^2/2) 0.0290 (n = 2914, 499 ; 1% critical value 0.0790) ; median ratio 0.8200 vs 0.7997
+   KS distance of the ratio distribution, ZETA against DH: 0.0445 (n = 8260, 9283 ; 1% critical value 0.0247) ; of v_coll/(g^2/2): 0.0967
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0348, KS v_coll/(g^2/2) 0.0946 (n = 958, 4348 ; 1% critical value 0.0582) ; median ratio 0.8421 vs 0.8463
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0442, KS v_coll/(g^2/2) 0.0873 (n = 4053, 2616 ; 1% critical value 0.0409) ; median ratio 0.8315 vs 0.8233
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0386, KS v_coll/(g^2/2) 0.1418 (n = 2914, 1784 ; 1% critical value 0.0490) ; median ratio 0.8200 vs 0.8307
+   KS distance of the ratio distribution, ZETA against TNR: 0.0576 (n = 8260, 7902 ; 1% critical value 0.0256) ; of v_coll/(g^2/2): 0.1179
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.1187, KS v_coll/(g^2/2) 0.1391 (n = 958, 1039 ; 1% critical value 0.0730) ; median ratio 0.8421 vs 0.7935
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0696, KS v_coll/(g^2/2) 0.1153 (n = 4053, 3924 ; 1% critical value 0.0365) ; median ratio 0.8315 vs 0.8164
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0461, KS v_coll/(g^2/2) 0.1115 (n = 2914, 2647 ; 1% critical value 0.0438) ; median ratio 0.8200 vs 0.8316
+   KS distance of the ratio distribution, ZETA against HEAT: 0.1279 (n = 8260, 729 ; 1% critical value 0.0630) ; of v_coll/(g^2/2): 0.0928
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0632, KS v_coll/(g^2/2) 0.1785 (n = 2914, 104 ; 1% critical value 0.1627) ; median ratio 0.8200 vs 0.8276
+   KS distance of the ratio distribution, ZETA against ZW5: 0.0823 (n = 8260, 1005 ; 1% critical value 0.0545) ; of v_coll/(g^2/2): 0.0509
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0476, KS v_coll/(g^2/2) 0.0551 (n = 958, 474 ; 1% critical value 0.0915) ; median ratio 0.8421 vs 0.8351
+   KS distance of the ratio distribution, ZETA against ZW6: 0.6895 (n = 8260, 1 ; 1% critical value 1.6301) ; of v_coll/(g^2/2): 0.8613
+   KS distance of the ratio distribution, ZETA against DH, no off-line pair within 4 gbar: 0.0510 (n = 8260, 6810 ; 1% critical value 0.0267) ; of v_coll/(g^2/2): 0.0828
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0375, KS v_coll/(g^2/2) 0.0919 (n = 958, 3969 ; 1% critical value 0.0587) ; median ratio 0.8421 vs 0.8495
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0475, KS v_coll/(g^2/2) 0.0874 (n = 4053, 2103 ; 1% critical value 0.0438) ; median ratio 0.8315 vs 0.8166
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.1094, KS v_coll/(g^2/2) 0.0891 (n = 2914, 368 ; 1% critical value 0.0902) ; median ratio 0.8200 vs 0.7523
+   KS distance of the ratio distribution, ZETA against DH, no off-line pair within 10 gbar: 0.0496 (n = 8260, 3128 ; 1% critical value 0.0342) ; of v_coll/(g^2/2): 0.0391
+        matched local mean spacing gbar in [0.65, 0.80): KS ratio 0.0429, KS v_coll/(g^2/2) 0.0717 (n = 958, 1725 ; 1% critical value 0.0657) ; median ratio 0.8421 vs 0.8501
+        matched local mean spacing gbar in [0.80, 1.00): KS ratio 0.0508, KS v_coll/(g^2/2) 0.0354 (n = 4053, 948 ; 1% critical value 0.0588) ; median ratio 0.8315 vs 0.8239
+        matched local mean spacing gbar in [1.00, 1.40): KS ratio 0.0646, KS v_coll/(g^2/2) 0.0769 (n = 2914, 219 ; 1% critical value 0.1142) ; median ratio 0.8200 vs 0.8012
+   KS distance of the ratio distribution, ZETA against DH below its first off-line height: 0.3128 (n = 8260, 33 ; 1% critical value 0.2843) ; of v_coll/(g^2/2): 0.2425

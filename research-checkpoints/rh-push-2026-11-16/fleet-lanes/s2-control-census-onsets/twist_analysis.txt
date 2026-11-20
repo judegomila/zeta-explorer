@@ -1,0 +1,22 @@
+files: ['tw_zeta_o1.jsonl', 'tw_zeta_o2.jsonl', 'tw_zeta_o3.jsonl', 'tw_zeta_s4.jsonl']
+zeta: 60786 discriminants (|d| 3..99996), errors 0, winding = zeros found for 60783 (100.00%)
+   zeros in the box |t| <= 2.5, |Re s - 1/2| <= 1.25: on-line 419678, off-line 0; discriminants with an off-line zero: 0
+   balance T(d) = coefficient side - on-line zero sum: max |T| = 5.59e-04, mean 7.17e-05; mean coefficient side 1.6461
+   E_a x chi_d: lowest zero of L(s,chi_d) below 4 pi/log|d| for 99.90% of d (then E_a x chi_d has off-line zeros at that height); lowest zero: median 0.531, max 2.488
+files: ['tw_arm_o1.jsonl', 'tw_arm_o2.jsonl', 'tw_arm_o3.jsonl', 'tw_arm_s4.jsonl']
+arm: 50651 discriminants (|d| 3..99996), errors 0, winding = zeros found for 50647 (99.99%)
+   zeros in the box |t| <= 2.5, |Re s - 1/2| <= 1.25: on-line 407182, off-line 0; discriminants with an off-line zero: 0
+   balance T(d) = coefficient side - on-line zero sum: max |T| = 3.81e-04, mean 7.88e-05; mean coefficient side 2.3380
+files: ['tw_dh_o1.jsonl', 'tw_dh_o2.jsonl', 'tw_dh_o3.jsonl', 'tw_dh_s4.jsonl']
+dh: 50651 discriminants (|d| 3..99996), errors 0, winding = zeros found for 50411 (99.53%)
+   FE type, d = +-1 mod 5: n=25144; real on the line (FE defect < 1e-6): 25144; with an off-line zero in the box: 3119 (12.40%); within |t| <= 4 pi/log q: 2402 (9.55%)
+        of those: with a real off-line zero (height 0) 1748, with a complex off-line zero 1392; mean zeros per d in box: on-line 7.59, off-line 0.36; d with no on-line zero in box: 2
+        balance: max |coefficient side - all zeros| = 6.18e-04; T(d) = coefficient side - on-line zeros: |T| > 1e-2 for 2958 (11.76%), max 4.030
+        |d| in [0,1000): n=252, with off-line zero in box 3.57%, real off-line zero 3.57%
+        |d| in [1000,10000): n=2272, with off-line zero in box 7.66%, real off-line zero 5.15%
+        |d| in [10000,30000): n=5042, with off-line zero in box 11.40%, real off-line zero 6.66%
+        |d| in [30000,100001): n=17578, with off-line zero in box 13.43%, real off-line zero 7.32%
+   no functional equation, d = +-2 mod 5: n=25267; real on the line (FE defect < 1e-6): 0; with an off-line zero in the box: 25265 (99.99%); within |t| <= 4 pi/log q: 25265 (99.99%)
+        of those: with a real off-line zero (height 0) 15194, with a complex off-line zero 25261; mean zeros per d in box: on-line 0.00, off-line 7.74; d with no on-line zero in box: 25266
+        distance of zeros from the line: min over all d 1.60e-06, median of per-d minimum 0.014
+T-NR x chi_d (q=3, c=2.2), 60786 fundamental d: chi_d(3) = -1 for 37.49% (real off-line zeros at 1/2 +- 0.4038, height 0), +1 for 37.51% (off-line zeros at height pi/log 3 = 2.860), 0 for 25.00% (factor trivial)

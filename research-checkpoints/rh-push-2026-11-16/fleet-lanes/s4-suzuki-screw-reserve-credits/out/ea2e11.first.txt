@@ -1,0 +1,2 @@
+zeta firstneg_psi=-1 firstneg_Rlow=-1 first_H_out_of_range=-1
+Ea0.05 firstneg_psi=105076853033 firstneg_Rlow=-1 first_H_out_of_range=-1

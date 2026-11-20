@@ -1,0 +1,52 @@
+ZETA variants [('heat', (0, 1)), ('heat', (-1, 10)), ('heat', (-1, 2)), ('tilt', (3, 10)), ('tilt', (9, 20))]: nodes 10575 (h = 1/2500, vmax 4.23), jmax 20900, prec 10000 bits; multiplications about 1.11e+09; result memory 130.6 MB
+  ZETA chunk 1/166 45s
+  ZETA chunk 17/166 142s
+  ZETA chunk 33/166 285s
+  ZETA chunk 49/166 519s
+  ZETA chunk 65/166 764s
+  ZETA chunk 81/166 1079s
+  ZETA chunk 97/166 1389s
+  ZETA chunk 113/166 1670s
+  ZETA chunk 129/166 1916s
+  ZETA chunk 145/166 2176s
+  ZETA chunk 161/166 2215s
+ZETA done 2257s
+DH variants [('heat', (0, 1))]: nodes 12501 (h = 1/2500, vmax 5.00), jmax 20900, prec 10000 bits; multiplications about 2.61e+08; result memory 26.1 MB
+  DH chunk 1/196 15s
+  DH chunk 20/196 51s
+  DH chunk 39/196 118s
+  DH chunk 58/196 162s
+  DH chunk 77/196 211s
+  DH chunk 96/196 250s
+  DH chunk 115/196 294s
+  DH chunk 134/196 347s
+  DH chunk 153/196 397s
+  DH chunk 172/196 433s
+  DH chunk 191/196 438s
+DH done 443s
+L4 variants [('heat', (0, 1))]: nodes 12226 (h = 1/2500, vmax 4.89), jmax 20900, prec 10000 bits; multiplications about 2.56e+08; result memory 26.1 MB
+  L4 chunk 1/192 6s
+  L4 chunk 20/192 41s
+  L4 chunk 39/192 79s
+  L4 chunk 58/192 114s
+  L4 chunk 77/192 150s
+  L4 chunk 96/192 177s
+  L4 chunk 115/192 210s
+  L4 chunk 134/192 253s
+  L4 chunk 153/192 286s
+  L4 chunk 172/192 313s
+  L4 chunk 191/192 323s
+L4 done 325s
+L5 variants [('heat', (0, 1))]: nodes 12501 (h = 1/2500, vmax 5.00), jmax 20900, prec 10000 bits; multiplications about 2.61e+08; result memory 26.1 MB
+  L5 chunk 1/196 11s
+  L5 chunk 20/196 47s
+  L5 chunk 39/196 83s
+  L5 chunk 58/196 121s
+  L5 chunk 77/196 161s
+  L5 chunk 96/196 191s
+  L5 chunk 115/196 225s
+  L5 chunk 134/196 261s
+  L5 chunk 153/196 295s
+  L5 chunk 172/196 330s
+  L5 chunk 191/196 338s
+L5 done 342s

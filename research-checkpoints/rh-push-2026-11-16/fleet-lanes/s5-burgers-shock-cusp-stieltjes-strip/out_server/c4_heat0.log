@@ -1,0 +1,5 @@
+08:17:25 heat0 zeros 1000000 T0 10000000.0 heights 1e+07 .. 1.04393e+07 grid points 35127889 dt 0.0125 planned largest temporary 0.72 GB GPU True
+08:18:03 Y 0.165: min 0.4530 at 10020722.0128 (gap 3.29 mean spacings) mean 3.5755 (formula 3.5755) std 2.0147 below p_req 0.6629 blocks below 536 of 536; ratio to mean: min 0.127 q1e-3 0.173
+08:18:04 Y 0.33: min 0.8860 at 10020722.0128 (gap 3.29 mean spacings) mean 3.5755 (formula 3.5755) std 1.0322 below p_req 0.7760 blocks below 536 of 536; ratio to mean: min 0.248 q1e-3 0.330
+08:18:06 Y 0.4: min 1.0596 at 10020722.0128 (gap 3.29 mean spacings) mean 3.5755 (formula 3.5755) std 0.8464 below p_req 0.8338 blocks below 536 of 536; ratio to mean: min 0.296 q1e-3 0.390
+08:18:07 Y 1: min 2.1991 at 10402936.0003 (gap 3.11 mean spacings) mean 3.5755 (formula 3.5755) std 0.3173 below p_req 0.9977 blocks below 536 of 536; ratio to mean: min 0.614 q1e-3 0.711

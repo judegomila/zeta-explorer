@@ -1,0 +1,3 @@
+EA-1/8 M 500 prec 18000 moments 692.9 s;  s_0 = [0.09241300330321335697966364 +/- 4.26e-28]
+  base: {"n_coeff": 499, "first_negative": 7, "negatives_head": [7, 9, 15, 17, 22, 24, 30, 32, 36, 38, 43, 45], "n_negative": 148}
+DONE EA-1/8 719.7

@@ -1,0 +1,93 @@
+[
+ [
+  "devices",
+  "br2-sparse-pole-lattice-regime-k",
+  "added",
+  "open"
+ ],
+ [
+  "devices",
+  "br3-euler-shape-rigidity-regime3",
+  "added",
+  "open"
+ ],
+ [
+  "devices",
+  "tz-one-sided-completion-bound-band",
+  "changed",
+  [
+   "evidence"
+  ],
+  "closed",
+  "->",
+  "closed",
+  "evidence +485 chars",
+  true
+ ],
+ [
+  "cells",
+  "silent-cell-u4",
+  "changed",
+  [
+   "evidence"
+  ],
+  "cell",
+  "->",
+  "cell",
+  "evidence +688 chars",
+  true
+ ],
+ [
+  "cells",
+  "silent-cell-u6a",
+  "changed",
+  [
+   "evidence"
+  ],
+  "cell",
+  "->",
+  "cell",
+  "evidence +378 chars",
+  true
+ ],
+ [
+  "cells",
+  "silent-cell-u6b",
+  "changed",
+  [
+   "evidence"
+  ],
+  "cell",
+  "->",
+  "cell",
+  "evidence +378 chars",
+  true
+ ],
+ [
+  "cells",
+  "silent-cell-u6c",
+  "changed",
+  [
+   "evidence",
+   "state"
+  ],
+  "cell",
+  "->",
+  "closed",
+  "evidence +766 chars",
+  true
+ ],
+ [
+  "cells",
+  "silent-cell-u6g",
+  "changed",
+  [
+   "evidence"
+  ],
+  "tried-not-closed",
+  "->",
+  "tried-not-closed",
+  "evidence +388 chars",
+  true
+ ]
+]

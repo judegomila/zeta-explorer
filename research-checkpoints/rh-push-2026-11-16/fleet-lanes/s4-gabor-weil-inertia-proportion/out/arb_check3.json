@@ -1,0 +1,106 @@
+[
+ {
+  "family": "ZETA",
+  "lo": 10000000.0,
+  "hi": 10000040.0,
+  "lam": 0.8,
+  "X": 91507.0,
+  "n": 73,
+  "terms": 8953,
+  "float_vs_arb_max_entry_diff": 5.617416976022582e-09,
+  "float_vs_arb_operator_norm": 1.0921349464423456e-08,
+  "float_lam_min": 0.16901235598800846,
+  "counts": {
+   "0.0": {
+    "arb_N_theta": 73,
+    "float_N_theta": 73
+   },
+   "0.1": {
+    "arb_N_theta": 73,
+    "float_N_theta": 73
+   },
+   "0.5": {
+    "arb_N_theta": 65,
+    "float_N_theta": 65
+   }
+  }
+ },
+ {
+  "family": "LIOU",
+  "lo": 10000000.0,
+  "hi": 10000040.0,
+  "lam": 0.8,
+  "X": 91507.0,
+  "n": 73,
+  "terms": 8953,
+  "float_vs_arb_max_entry_diff": 5.082299026071269e-09,
+  "float_vs_arb_operator_norm": 1.0577211871233308e-08,
+  "float_lam_min": 0.15119458131973115,
+  "counts": {
+   "0.0": {
+    "arb_N_theta": 73,
+    "float_N_theta": 73
+   },
+   "0.1": {
+    "arb_N_theta": 73,
+    "float_N_theta": 73
+   },
+   "0.5": {
+    "arb_N_theta": 68,
+    "float_N_theta": 68
+   }
+  }
+ },
+ {
+  "family": "ZETA",
+  "lo": 10000000.0,
+  "hi": 10000030.0,
+  "lam": 1.0,
+  "X": 1591551.0,
+  "n": 69,
+  "terms": 120830,
+  "float_vs_arb_max_entry_diff": 6.914269712332555e-09,
+  "float_vs_arb_operator_norm": 1.1110853415481788e-08,
+  "float_lam_min": 0.015595099614295957,
+  "counts": {
+   "0.0": {
+    "arb_N_theta": 69,
+    "float_N_theta": 69
+   },
+   "0.1": {
+    "arb_N_theta": 65,
+    "float_N_theta": 65
+   },
+   "0.5": {
+    "arb_N_theta": 54,
+    "float_N_theta": 54
+   }
+  }
+ },
+ {
+  "family": "ZETA",
+  "lo": 100000000.0,
+  "hi": 100000014.0,
+  "lam": 1.0,
+  "X": 15915495.0,
+  "n": 37,
+  "terms": 1026688,
+  "float_vs_arb_max_entry_diff": 5.689661342067609e-08,
+  "float_vs_arb_operator_norm": 8.558026731041672e-08,
+  "float_lam_min": 0.007547080949035481,
+  "counts": {
+   "0.0": {
+    "arb_N_theta": 37,
+    "float_N_theta": 37
+   },
+   "0.1": {
+    "arb_N_theta": 35,
+    "float_N_theta": 35
+   },
+   "0.5": {
+    "arb_N_theta": 30,
+    "float_N_theta": 30
+   }
+  }
+ }
+]

@@ -1,0 +1,109 @@
+== statistic 2
+CYC V=2^7..2^20 e= 1.0 pass2 True M/V last 55.67  local e last3 [1.0, 1.0, 1.0] spikes 1909283
+CYCP V=2^7..2^20 e= 1.0038 pass2 True M/V last 287.7  local e last3 [0.97, 1.025, 1.058] spikes 1972288
+CYCeps_0.0001 V=2^7..2^20 e= 2.0387 pass2 False M/V last 2.257e+07  local e last3 [1.914, 1.98, 1.991] spikes 1909243
+CYCeps_0.01 V=2^7..2^20 e= 1.9985 pass2 False M/V last 2.227e+07  local e last3 [2.012, 1.986, 1.993] spikes 1906044
+CYCeps_1e-06 V=2^7..2^20 e= 3.21 pass2 False M/V last 1.999e+07  local e last3 [3.804, 2.6, 1.482] spikes 1909282
+CYCeps_1e-08 V=2^7..2^20 e= 2.6485 pass2 False M/V last 4.664e+04  local e last3 [3.431, 4.189, 3.781] spikes 1909283
+CYCeps_1e-10 V=2^7..2^20 e= 1.0137 pass2 True M/V last 60.33  local e last3 [1.002, 1.016, 1.099] spikes 1909283
+D1R1_+ V=2^7..2^20 e= 3.0013 pass2 False M/V last 2.727e+13 ratio to diagonal 0.9687 local e last3 [3.003, 3.0, 2.999] spikes 15377240
+D1R1_rand1 V=2^7..2^20 e= 2.9975 pass2 False M/V last 2.786e+13 ratio to diagonal 0.9899 local e last3 [2.991, 3.002, 3.008] spikes 15377240
+D1R2_+ V=2^7..2^20 e= 3.004 pass2 False M/V last 2.72e+13 ratio to diagonal 0.9664 local e last3 [3.009, 2.995, 2.997] spikes 15336599
+D1R2_rand1 V=2^7..2^20 e= 3.0008 pass2 False M/V last 2.779e+13 ratio to diagonal 0.9871 local e last3 [3.023, 2.992, 2.99] spikes 15336599
+D1R3_+ V=2^7..2^20 e= 3.0036 pass2 False M/V last 2.72e+13 ratio to diagonal 0.9664 local e last3 [3.008, 2.992, 3.002] spikes 15466200
+D1R3_rand1 V=2^7..2^20 e= 3.0013 pass2 False M/V last 2.797e+13 ratio to diagonal 0.9935 local e last3 [2.999, 2.992, 3.01] spikes 15466200
+D1_+ V=2^7..2^20 e= 3.0001 pass2 False M/V last 2.447e+13 ratio to diagonal 0.8693 local e last3 [3.0, 3.0, 3.0] spikes 16084105
+D1_alt V=2^7..2^20 e= 3.0004 pass2 False M/V last 7.068e+12 ratio to diagonal 0.2511 local e last3 [3.0, 3.0, 3.0] spikes 16084105
+D1_rand1 V=2^7..2^20 e= 3.0019 pass2 False M/V last 2.79e+13 ratio to diagonal 0.9911 local e last3 [2.987, 3.012, 3.005] spikes 16084105
+D1_rand2 V=2^7..2^20 e= 2.9966 pass2 False M/V last 2.793e+13 ratio to diagonal 0.9922 local e last3 [2.996, 2.999, 3.006] spikes 16084105
+D1_rand3 V=2^7..2^20 e= 3.0018 pass2 False M/V last 2.787e+13 ratio to diagonal 0.9900 local e last3 [2.987, 3.007, 2.997] spikes 16084105
+D2R1_+ V=2^5..2^13 e= 2.5907 pass2 False M/V last 2.163e+07 ratio to diagonal 0.0000 local e last3 [2.617, 2.566, 2.507] spikes 339221775
+D2R1_rand1 V=2^5..2^13 e= 4.0386 pass2 False M/V last 4.016e+13 ratio to diagonal 0.9899 local e last3 [4.109, 3.884, 3.961] spikes 339221775
+D2_+ V=2^5..2^13 e= 2.5691 pass2 False M/V last 6.561e+06 ratio to diagonal 0.0000 local e last3 [2.621, 2.537, 2.502] spikes 339232173
+D2_alt V=2^5..2^13 e= 2.5471 pass2 False M/V last 1.88e+07 ratio to diagonal 0.0000 local e last3 [2.693, 2.507, 2.481] spikes 339232173
+D2_rand1 V=2^5..2^13 e= 4.0386 pass2 False M/V last 4.016e+13 ratio to diagonal 0.9899 local e last3 [4.112, 3.884, 3.961] spikes 339232173
+D2_rand2 V=2^5..2^13 e= 3.9931 pass2 False M/V last 3.952e+13 ratio to diagonal 0.9743 local e last3 [3.832, 3.968, 4.103] spikes 339232173
+D2_rand3 V=2^5..2^13 e= 4.0498 pass2 False M/V last 3.941e+13 ratio to diagonal 0.9714 local e last3 [4.039, 3.991, 4.065] spikes 339232173
+DEL_D1 V=2^7..2^20 e= None pass2 True M/V last 0  local e last3 [None, None, None] spikes 16084105
+DEL_D2 V=2^5..2^13 e= None pass2 True M/V last 0  local e last3 [None, None, None] spikes 339232173
+DER1_+ V=2^3..2^7 e= 2.4484 pass2 False M/V last 4.259e+04  local e last3 [2.847, 2.563, 2.334] spikes 157106814
+DER1_rand1 V=2^3..2^7 e= 8.3408 pass2 False M/V last 3.981e+10  local e last3 [5.055, 7.727, 8.954] spikes 157106814
+DE_+ V=2^3..2^7 e= 2.6809 pass2 False M/V last 1.789e+04  local e last3 [1.79, 2.884, 2.478] spikes 157107201
+DE_rand1 V=2^3..2^7 e= 8.2601 pass2 False M/V last 3.979e+10  local e last3 [5.332, 7.553, 8.967] spikes 157107201
+ETA V=2^7..2^20 e= 3.0 pass2 False M/V last 2.447e+13 ratio to diagonal 0.8693 local e last3 [3.0, 3.0, 3.0] spikes 16155059
+HQ1 V=2^7..2^20 e= 1.0 pass2 True M/V last 55.67  local e last3 [1.0, 1.0, 1.0] spikes 954638
+INJ16_+ V=2^7..2^20 e= 3.0034 pass2 False M/V last 2.988e+13 ratio to diagonal 1.0616 local e last3 [3.007, 2.993, 3.002] spikes 15321319
+INJ16_alt V=2^7..2^20 e= 3.0049 pass2 False M/V last 2.835e+13 ratio to diagonal 1.0073 local e last3 [2.994, 3.01, 3.002] spikes 15321319
+INJ16_rand1 V=2^7..2^20 e= 2.9975 pass2 False M/V last 2.771e+13 ratio to diagonal 0.9845 local e last3 [2.998, 2.998, 3.005] spikes 15321319
+INJ1_+ V=2^7..2^20 e= 3.0017 pass2 False M/V last 1.615e+13 ratio to diagonal 0.5738 local e last3 [3.0, 3.007, 2.991] spikes 14422724
+INJ1_alt V=2^7..2^20 e= 3.0026 pass2 False M/V last 4.403e+13 ratio to diagonal 1.5641 local e last3 [3.004, 3.001, 3.0] spikes 14422724
+INJ1_rand1 V=2^7..2^20 e= 3.0021 pass2 False M/V last 2.567e+13 ratio to diagonal 0.9120 local e last3 [3.008, 2.987, 3.006] spikes 14422724
+INJ2_+ V=2^7..2^20 e= 3.0008 pass2 False M/V last 4.892e+13 ratio to diagonal 1.7380 local e last3 [2.992, 2.999, 3.005] spikes 15057457
+INJ2_alt V=2^7..2^20 e= 3.0044 pass2 False M/V last 3.515e+13 ratio to diagonal 1.2488 local e last3 [2.992, 3.008, 3.0] spikes 15057457
+INJ2_rand1 V=2^7..2^20 e= 2.9999 pass2 False M/V last 2.698e+13 ratio to diagonal 0.9584 local e last3 [2.986, 3.005, 3.005] spikes 15057457
+INJ4_+ V=2^7..2^20 e= 3.0026 pass2 False M/V last 3.753e+13 ratio to diagonal 1.3334 local e last3 [2.999, 3.005, 3.001] spikes 15130312
+INJ4_alt V=2^7..2^20 e= 3.0031 pass2 False M/V last 3.077e+13 ratio to diagonal 1.0931 local e last3 [2.998, 3.001, 3.003] spikes 15130312
+INJ4_rand1 V=2^7..2^20 e= 2.9959 pass2 False M/V last 2.729e+13 ratio to diagonal 0.9693 local e last3 [2.993, 2.998, 3.005] spikes 15130312
+INJ64_+ V=2^7..2^20 e= 3.0029 pass2 False M/V last 2.758e+13 ratio to diagonal 0.9800 local e last3 [3.016, 3.0, 2.994] spikes 15369014
+INJ64_alt V=2^7..2^20 e= 3.0071 pass2 False M/V last 2.759e+13 ratio to diagonal 0.9801 local e last3 [2.988, 3.01, 3.001] spikes 15369014
+INJ64_rand1 V=2^7..2^20 e= 2.9973 pass2 False M/V last 2.783e+13 ratio to diagonal 0.9888 local e last3 [2.999, 3.002, 3.005] spikes 15369014
+THIN_D1 V=2^7..2^20 e= None pass2 True M/V last 0  local e last3 [None, None, None] spikes 16084105
+THIN_D2 V=2^5..2^13 e= None pass2 True M/V last 0  local e last3 [None, None, None] spikes 339232173
+== statistic 1
+CYC j [4, 18] n 2000 count 23 frac_int 0.9385 pass1 False beta sd 0.1593 min -0.9998 max 0.0002251 generic: beta sd 0.0002805, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.881 0.881 0.881 0.881 0.881 0.881 0.881 0.881 y range last [-12.38, 0.6931]
+CYCP j [4, 18] n 2000 count 23 frac_int 0.7970 pass1 False beta sd 0.2978 min -0.9997 max 1.155 generic: beta sd 0.02765, y sd by j 1.23 1.4 1.52 1.59 1.64 1.68 1.7 1.71 1.71 1.72 1.72 1.72 1.72 1.72 1.72 y range last [-12.31, 15.47]
+CYCeps_0.0001 j [4, 18] n 2000 count 23 frac_int 0.0785 pass1 False beta sd 0.6186 min -0.8534 max 2.498 generic: beta sd 0.3641, y sd by j 0.796 0.841 0.872 0.916 1 1.12 1.26 1.42 1.6 1.78 1.96 2.14 2.31 2.46 2.61 y range last [-10.9, 18.66]
+CYCeps_0.01 j [4, 18] n 2000 count 23 frac_int 0.0520 pass1 False beta sd 0.7585 min -0.8524 max 3.22 generic: beta sd 0.4171, y sd by j 0.968 1.17 1.38 1.61 1.84 2.04 2.24 2.42 2.6 2.78 2.95 3.12 3.27 3.4 3.51 y range last [-10.9, 28.27]
+CYCeps_1e-06 j [4, 18] n 2000 count 23 frac_int 0.2280 pass1 False beta sd 0.25 min -0.978 max 0.7617 generic: beta sd 0.1854, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.88 0.881 0.89 0.922 1.01 1.17 1.37 1.6 y range last [-12.12, 5.974]
+CYCeps_1e-07 j [4, 18] n 2000 count 23 frac_int 0.4910 pass1 False beta sd 0.1618 min -0.9993 max 0.2459 generic: beta sd 0.04657, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.88 0.88 0.88 0.88 0.879 0.884 0.905 0.964 y range last [-12.38, 2.826]
+CYCeps_1e-08 j [4, 18] n 2000 count 23 frac_int 0.9385 pass1 False beta sd 0.1592 min -0.9998 max 0.01887 generic: beta sd 0.00518, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.88 0.88 0.88 0.88 0.88 0.88 0.88 0.881 y range last [-12.38, 0.8133]
+CYCeps_1e-09 j [4, 18] n 2000 count 23 frac_int 0.9385 pass1 False beta sd 0.1593 min -0.9998 max 0.002106 generic: beta sd 0.0005884, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.88 0.881 0.881 0.881 0.88 0.88 0.88 0.88 y range last [-12.38, 0.7054]
+CYCeps_1e-10 j [4, 18] n 2000 count 23 frac_int 0.9385 pass1 False beta sd 0.1593 min -0.9998 max 0.0004132 generic: beta sd 0.0002851, y sd by j 0.796 0.84 0.864 0.875 0.879 0.88 0.88 0.881 0.881 0.881 0.881 0.881 0.881 0.881 0.881 y range last [-12.38, 0.6944]
+D1R1_+ j [4, 18] n 2000 count 8388607 frac_int 0.0405 pass1 False beta sd 34.26 min -108.9 max 140.7 generic: beta sd 36.45, y sd by j 2.09 3.13 4.48 6.27 8.83 12.5 17.5 24.3 34.2 48.6 69.7 99.2 141 202 291 y range last [-894.1, 1158]
+D1R1_rand1 j [4, 18] n 2000 count 8388607 frac_int 0.0370 pass1 False beta sd 35.66 min -119.6 max 107.6 generic: beta sd 36.2, y sd by j 2.05 3.03 4.37 6.18 8.71 12.4 17.6 24.9 34.9 49.4 70.4 100 143 203 286 y range last [-813.1, 839.4]
+D1R2_+ j [4, 18] n 2000 count 8388607 frac_int 0.0420 pass1 False beta sd 33.46 min -110.9 max 108 generic: beta sd 35.17, y sd by j 1.98 2.92 4.18 6.01 8.7 12.5 17.5 24.4 34.4 48.8 69.5 98.9 140 197 279 y range last [-838.3, 812.7]
+D1R2_rand1 j [4, 18] n 2000 count 8388607 frac_int 0.0350 pass1 False beta sd 36.06 min -113.5 max 113.2 generic: beta sd 36.66, y sd by j 1.96 2.85 4.09 5.87 8.39 12 17.1 24.1 34.1 48.5 69.2 99.4 143 205 292 y range last [-889.6, 961.5]
+D1R3_+ j [4, 18] n 2000 count 8388607 frac_int 0.0435 pass1 False beta sd 32.96 min -103.2 max 101.3 generic: beta sd 34.56, y sd by j 1.94 2.84 4.15 6.08 8.78 12.4 17.2 23.9 33.6 47.4 67.3 95.6 135 193 279 y range last [-888.5, 867]
+D1R3_rand1 j [4, 18] n 2000 count 8388607 frac_int 0.0380 pass1 False beta sd 35.35 min -104.8 max 158 generic: beta sd 35.19, y sd by j 2.07 3.05 4.35 6.05 8.46 11.9 16.7 23.9 34.4 49.5 70.6 100 142 199 276 y range last [-888.6, 1158]
+D1_+ j [4, 18] n 2000 count 8388608 frac_int 0.0400 pass1 False beta sd 1.518e+04 min -181.6 max 4.527e+04 generic: beta sd 1.554, y sd by j 2.18 3.37 4.75 5.61 5.66 6.25 6.26 5.86 5.37 5.1 5 5.1 6.02 7.6 8.28 y range last [-30.7, 4.311e+05]
+D1_alt j [4, 18] n 2000 count 8388608 frac_int 0.0245 pass1 False beta sd 1.523e+04 min -181.6 max 4.527e+04 generic: beta sd 3.989, y sd by j 2.25 3.4 4.94 8.03 14.1 20.4 19.3 12.7 7.65 5.92 5.89 6.75 9.37 13.4 17.8 y range last [-33.83, 4.311e+05]
+D1_rand1 j [4, 18] n 2000 count 8388608 frac_int 0.0440 pass1 False beta sd 35.69 min -107.9 max 162 generic: beta sd 37.64, y sd by j 2.1 3.03 4.32 6.04 8.57 12.3 17.6 24.7 34.7 49.2 71.1 103 148 210 298 y range last [-857.1, 1254]
+D1_rand2 j [4, 18] n 2000 count 8388608 frac_int 0.0380 pass1 False beta sd 36.97 min -124.3 max 119.1 generic: beta sd 36.15, y sd by j 2.09 3.03 4.31 6.18 8.89 12.6 17.7 24.9 35.3 50.5 72 102 145 203 284 y range last [-947.3, 948.7]
+D1_rand3 j [4, 18] n 2000 count 8388608 frac_int 0.0310 pass1 False beta sd 35.68 min -127.5 max 111.3 generic: beta sd 35.03, y sd by j 2.05 2.9 4.14 5.99 8.65 12.3 17.1 24.1 34.4 49.2 70.1 98.9 139 196 279 y range last [-1056, 835.1]
+D2R1_+ j [0, 10] n 400 count 1073741817 frac_int 0.0575 pass1 False beta sd 4.652 min -13.4 max 24.99 generic: beta sd 4.092, y sd by j 0.319 0.772 1.63 3.13 5.35 8.11 11.2 14.8 19 23.3 28 y range last [-94.31, 169.9]
+D2R1_rand1 j [0, 10] n 400 count 1073741817 frac_int 0.0350 pass1 False beta sd 49.79 min -115 max 134.9 generic: beta sd 48.9, y sd by j 0.337 0.869 1.87 3.62 7.45 16 32.5 65 130 254 484 y range last [-1196, 1330]
+D2_+ j [0, 10] n 400 count 1073741822 frac_int 0.0400 pass1 False beta sd 3.273 min -7.283 max 20.59 generic: beta sd 2.418, y sd by j 0.319 0.791 1.67 2.9 4.22 5.53 6.92 8.6 10.9 13.9 17.5 y range last [-59.63, 156]
+D2_alt j [0, 10] n 400 count 1073741822 frac_int 0.0425 pass1 False beta sd 5.276 min -12.46 max 30.97 generic: beta sd 4.575, y sd by j 0.324 0.824 1.86 4.16 7.53 10.7 13.5 16.6 20.7 26 31.9 y range last [-83.95, 233.3]
+D2_rand1 j [0, 10] n 400 count 1073741822 frac_int 0.0275 pass1 False beta sd 52.1 min -146.8 max 153.2 generic: beta sd 49.43, y sd by j 0.325 0.809 1.79 3.85 8.34 17.5 34.5 67.1 132 257 487 y range last [-1389, 1410]
+D2_rand2 j [0, 10] n 400 count 1073741822 frac_int 0.0550 pass1 False beta sd 51.51 min -170.4 max 156.1 generic: beta sd 51.15, y sd by j 0.299 0.78 1.81 4.12 8.59 16.7 34.4 69 131 257 523 y range last [-1850, 1663]
+D2_rand3 j [0, 10] n 400 count 1073741822 frac_int 0.0650 pass1 False beta sd 55.95 min -159.7 max 159 generic: beta sd 56.28, y sd by j 0.342 0.851 1.84 3.82 7.7 16 33.7 69.3 147 296 550 y range last [-1684, 1513]
+D4R1_+ j [-1, 2] n 200 count 268424600 frac_int 0.0350 pass1 None beta sd 6.19 min -20.5 max 39.91 generic: beta sd 3.889, y sd by j 0.0876 0.315 0.809 8.87 y range last [-44.24, 91.23]
+D4R1_rand1 j [-1, 2] n 200 count 268424600 frac_int 0.0600 pass1 None beta sd 3.457 min -9.201 max 9.173 generic: beta sd 3.647, y sd by j 0.0907 0.333 1.09 8.24 y range last [-20.54, 20.47]
+D4_+ j [-1, 2] n 200 count 268425771 frac_int 0.0750 pass1 None beta sd 8.495 min -32.61 max 53 generic: beta sd 5.099, y sd by j 0.0876 0.315 0.849 11.6 y range last [-71.59, 121]
+D4_rand1 j [-1, 2] n 200 count 268425771 frac_int 0.0300 pass1 None beta sd 3.759 min -11.44 max 8.857 generic: beta sd 3.678, y sd by j 0.0871 0.317 1.04 8.33 y range last [-25.92, 20.01]
+DEL_D1 j [4, 18] n 2000 count 90 frac_int 1.0000 pass1 True beta sd 0.0005317 min -0.002147 max 0.001134 generic: beta sd 0.0004401, y sd by j 0.495 0.522 0.536 0.543 0.546 0.548 0.549 0.55 0.55 0.55 0.55 0.55 0.55 0.55 0.55 y range last [-1.9, 1.237]
+DEL_D2 j [4, 18] n 2000 count 8098 frac_int 1.0000 pass1 True beta sd 0.0009608 min -0.002504 max 0.004254 generic: beta sd 0.0008809, y sd by j 0.684 0.734 0.761 0.775 0.782 0.786 0.787 0.788 0.789 0.789 0.789 0.789 0.789 0.789 0.789 y range last [-2.072, 1.898]
+DER1_+ j [0, 3] n 200 count 8886109 frac_int 0.0400 pass1 None beta sd 1.075 min -1.956 max 3.217 generic: beta sd 1.001, y sd by j 0.306 0.695 1.32 2.27 y range last [-4.238, 7.396]
+DER1_rand1 j [0, 3] n 200 count 8886109 frac_int 0.0350 pass1 None beta sd 1.048 min -2.1 max 3.222 generic: beta sd 0.901, y sd by j 0.315 0.682 1.21 2.04 y range last [-4.695, 7.232]
+DE_+ j [0, 3] n 200 count 8886109 frac_int 0.0200 pass1 None beta sd 1.029 min -2.166 max 3.512 generic: beta sd 0.881, y sd by j 0.428 0.747 1.2 2.01 y range last [-4.956, 8.069]
+DE_rand1 j [0, 3] n 200 count 8886109 frac_int 0.0450 pass1 None beta sd 1.04 min -2.677 max 2.985 generic: beta sd 0.9205, y sd by j 0.499 0.885 1.39 2.18 y range last [-6.277, 6.939]
+ETA j [4, 18] n 2000 count 8388608 frac_int 0.0120 pass1 False beta sd 1.89e+04 min -20.99 max 4.528e+04 generic: beta sd 1.538, y sd by j 2.75 4.14 5.64 6.45 6.24 6.51 6.25 5.51 4.63 3.99 3.68 3.72 4.82 6.62 7.37 y range last [-3.32, 4.312e+05]
+HQ1 j [4, 18] n 2000 count 1 frac_int 1.0000 pass1 True beta sd 0.4899 min -0.0002251 max 0.9998 generic: beta sd 0.0002768, y sd by j 0.795 0.839 0.863 0.874 0.878 0.879 0.879 0.879 0.879 0.879 0.879 0.879 0.879 0.879 0.879 y range last [-0.6931, 12.38]
+HQ1map j [4, 18] n 2000 count None frac_int 0.9985 pass1 True beta sd 0.9799 min -0.2068 max 2 generic: beta sd 0.006119, y sd by j 1.47 1.6 1.67 1.7 1.72 1.72 1.72 1.73 1.73 1.73 1.73 1.73 1.73 1.73 1.73 y range last [-6.68, 24.77]
+INJ16_+ j [4, 18] n 2000 count 8327978 frac_int 0.0490 pass1 False beta sd 2484 min -104.1 max 1.034e+04 generic: beta sd 33.1, y sd by j 2.25 3.33 4.77 6.65 9.17 12.7 17.4 24.1 33.7 47.2 66.4 93 130 185 262 y range last [-810.3, 9.838e+04]
+INJ16_alt j [4, 18] n 2000 count 8327978 frac_int 0.0400 pass1 False beta sd 587.8 min -125.9 max 2665 generic: beta sd 33.95, y sd by j 2.05 3.05 4.42 6.33 8.99 12.6 17.6 25 35.3 49.7 69.6 96.1 133 187 282 y range last [-1028, 2.521e+04]
+INJ16_rand1 j [4, 18] n 2000 count 8327978 frac_int 0.0390 pass1 False beta sd 34.83 min -142.2 max 119.4 generic: beta sd 34.51, y sd by j 2.02 3.01 4.32 6.1 8.59 12.2 17.1 24.2 34.3 48.6 68.6 97.1 137 194 273 y range last [-1044, 944.9]
+INJ1_+ j [4, 18] n 2000 count 7716640 frac_int 0.0325 pass1 False beta sd 1.703e+04 min -76.69 max 4.164e+04 generic: beta sd 20.3, y sd by j 2.6 3.97 5.62 6.98 7.55 8.6 11.3 15.5 21.1 28.8 39.6 55.4 78.6 113 164 y range last [-585.4, 3.964e+05]
+INJ1_alt j [4, 18] n 2000 count 7716640 frac_int 0.0720 pass1 False beta sd 3600 min -157.1 max 1.041e+04 generic: beta sd 26.5, y sd by j 2.02 2.92 4.13 5.76 7.9 10.5 14 19.1 26.3 36.8 52.4 75.1 107 150 208 y range last [-1118, 9.912e+04]
+INJ1_rand1 j [4, 18] n 2000 count 7716640 frac_int 0.0345 pass1 False beta sd 34.18 min -129.1 max 105.9 generic: beta sd 34.09, y sd by j 2.1 2.98 4.22 5.97 8.48 12.1 17.1 24.1 33.8 47.3 66.6 94.7 135 191 270 y range last [-1054, 881.8]
+INJ2_+ j [4, 18] n 2000 count 8107362 frac_int 0.0470 pass1 False beta sd 1.071e+04 min -83.63 max 2.98e+04 generic: beta sd 26.89, y sd by j 2.53 3.77 5.24 6.65 8.02 10.2 13.8 18.8 25.7 36.3 51.9 74.6 106 151 213 y range last [-665.5, 2.838e+05]
+INJ2_alt j [4, 18] n 2000 count 8107362 frac_int 0.0370 pass1 False beta sd 2196 min -96.19 max 7492 generic: beta sd 29.34, y sd by j 1.9 2.73 3.9 5.63 8.1 11.6 16.6 23.6 32.1 42.9 58.1 81.1 116 165 234 y range last [-755.4, 7.122e+04]
+INJ2_rand1 j [4, 18] n 2000 count 8107362 frac_int 0.0340 pass1 False beta sd 35.48 min -128.7 max 122.8 generic: beta sd 34.86, y sd by j 2.15 3.03 4.21 5.94 8.58 12.4 17.5 24.7 34.7 48.5 68.2 96.9 138 195 276 y range last [-912, 1105]
+INJ4_+ j [4, 18] n 2000 count 8217263 frac_int 0.0415 pass1 False beta sd 6503 min -105.6 max 2.138e+04 generic: beta sd 29.51, y sd by j 2.14 3.28 4.75 6.46 8.55 11.7 16.6 23.7 32.7 44 60.5 85.1 119 165 231 y range last [-978.5, 2.035e+05]
+INJ4_alt j [4, 18] n 2000 count 8217263 frac_int 0.0305 pass1 False beta sd 1468 min -111.3 max 5433 generic: beta sd 31.12, y sd by j 2.1 3.07 4.38 6.24 8.81 12.3 17.4 24.8 34.3 46.3 63 88.3 124 175 248 y range last [-850.7, 5.177e+04]
+INJ4_rand1 j [4, 18] n 2000 count 8217263 frac_int 0.0390 pass1 False beta sd 35.86 min -109.1 max 110.5 generic: beta sd 35.35, y sd by j 1.96 2.91 4.17 5.93 8.52 12.3 17.7 25.3 35.9 49.9 69.5 99 141 198 278 y range last [-945.3, 917.5]
+INJ64_+ j [4, 18] n 2000 count 8374723 frac_int 0.0360 pass1 False beta sd 638.9 min -102.5 max 4231 generic: beta sd 34.15, y sd by j 2.13 3.22 4.68 6.63 9.25 12.9 18 25.2 35.4 49.6 69 96.5 136 191 269 y range last [-918.2, 4.019e+04]
+INJ64_alt j [4, 18] n 2000 count 8374723 frac_int 0.0405 pass1 False beta sd 113 min -112.2 max 1126 generic: beta sd 35.73, y sd by j 2.01 3.01 4.35 6.23 8.78 12.2 17.4 24.9 35.2 49.6 70 98.8 140 199 288 y range last [-889.3, 1.057e+04]
+INJ64_rand1 j [4, 18] n 2000 count 8374723 frac_int 0.0290 pass1 False beta sd 36.04 min -136.8 max 129.2 generic: beta sd 36.13, y sd by j 2.04 3.02 4.33 6.1 8.55 12.1 17.4 24.9 35.5 50.5 71.8 102 145 204 282 y range last [-1026, 945.2]
+THIN_D1 j [4, 18] n 2000 count 90 frac_int 1.0000 pass1 True beta sd 0.0009862 min -0.003407 max 0.003093 generic: beta sd 0.0008336, y sd by j 0.959 1.01 1.04 1.05 1.06 1.06 1.06 1.06 1.06 1.06 1.06 1.06 1.06 1.06 1.06 y range last [-3.184, 3.077]
+THIN_D2 j [4, 18] n 2000 count 8098 frac_int 1.0000 pass1 True beta sd 0.001865 min -0.004917 max 0.007536 generic: beta sd 0.001738, y sd by j 1.34 1.44 1.49 1.52 1.53 1.54 1.54 1.55 1.55 1.55 1.55 1.55 1.55 1.55 1.55 y range last [-3.913, 4.124]

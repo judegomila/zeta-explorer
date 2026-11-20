@@ -1,0 +1,100 @@
+[
+ {
+  "H": "100",
+  "window": [
+   100.00136012574193,
+   216.06295938928335
+  ],
+  "points": 3840,
+  "in_disks": 20,
+  "exact_neg": 20,
+  "exact_neg_outside": 0,
+  "by_N": {
+   "sharp|1000": {
+    "neg": 620,
+    "neg_outside": 620,
+    "sign_agree_with_exact": 0.8333333333333334,
+    "max_x_neg_outside": 0.25
+   },
+   "fejer|1000": {
+    "neg": 3,
+    "neg_outside": 3,
+    "sign_agree_with_exact": 0.9940104166666667,
+    "max_x_neg_outside": 0.015
+   },
+   "sharp|100000": {
+    "neg": 732,
+    "neg_outside": 732,
+    "sign_agree_with_exact": 0.8041666666666667,
+    "max_x_neg_outside": 0.2
+   },
+   "fejer|100000": {
+    "neg": 13,
+    "neg_outside": 13,
+    "sign_agree_with_exact": 0.99140625,
+    "max_x_neg_outside": 0.06
+   },
+   "sharp|1e+07": {
+    "neg": 878,
+    "neg_outside": 870,
+    "sign_agree_with_exact": 0.7703125,
+    "max_x_neg_outside": 0.2
+   },
+   "fejer|1e+07": {
+    "neg": 30,
+    "neg_outside": 30,
+    "sign_agree_with_exact": 0.9869791666666666,
+    "max_x_neg_outside": 0.08
+   }
+  }
+ },
+ {
+  "H": "1000",
+  "window": [
+   1001.0010803170421,
+   1112.5371282353726
+  ],
+  "points": 3840,
+  "in_disks": 48,
+  "exact_neg": 48,
+  "exact_neg_outside": 0,
+  "by_N": {
+   "sharp|1000": {
+    "neg": 380,
+    "neg_outside": 380,
+    "sign_agree_with_exact": 0.8885416666666667,
+    "max_x_neg_outside": 0.3
+   },
+   "fejer|1000": {
+    "neg": 4,
+    "neg_outside": 4,
+    "sign_agree_with_exact": 0.9864583333333333,
+    "max_x_neg_outside": 0.02
+   },
+   "sharp|100000": {
+    "neg": 580,
+    "neg_outside": 580,
+    "sign_agree_with_exact": 0.8364583333333333,
+    "max_x_neg_outside": 0.25
+   },
+   "fejer|100000": {
+    "neg": 39,
+    "neg_outside": 39,
+    "sign_agree_with_exact": 0.97734375,
+    "max_x_neg_outside": 0.2
+   },
+   "sharp|1e+07": {
+    "neg": 903,
+    "neg_outside": 893,
+    "sign_agree_with_exact": 0.7575520833333333,
+    "max_x_neg_outside": 0.25
+   },
+   "fejer|1e+07": {
+    "neg": 31,
+    "neg_outside": 31,
+    "sign_agree_with_exact": 0.9794270833333333,
+    "max_x_neg_outside": 0.1
+   }
+  }
+ }
+]

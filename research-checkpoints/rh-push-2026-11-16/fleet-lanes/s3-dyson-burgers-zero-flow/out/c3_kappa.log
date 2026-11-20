@@ -1,0 +1,7 @@
+17:21:51 random real n=300 {'n': 300, 'max_abs_kappa_minus_2_exact_velocity': 8.803849811533103e-15, 'max_abs_kappa_minus_2_finite_difference_of_flow': 1.1668298331792315e-05}
+17:21:51 random complex n=300 {'n': 300, 'max_abs_kappa_minus_2_exact_velocity': 6.397975639047762e-15, 'max_abs_kappa_minus_2_finite_difference_of_flow': 2.6445520108288682e-08}
+17:21:51 zeta zeros to 2000 {'n': 1517, 'max_abs_kappa_minus_2_exact_velocity': 3.151786508168014e-15, 'max_abs_kappa_minus_2_finite_difference_of_flow': 1.195178824131872e-07}
+17:21:51 DH full set to 2000 {'n': 2029, 'max_abs_kappa_minus_2_exact_velocity': 1.81202364878266e-14, 'max_abs_kappa_minus_2_finite_difference_of_flow': 2.4430156401137397e-05}
+17:21:51 HEAT -0.5 full set {'n': 1517, 'max_abs_kappa_minus_2_exact_velocity': 3.63314079796579e-15, 'max_abs_kappa_minus_2_finite_difference_of_flow': 1.4775824040766906e-07}
+17:21:51 TNR full set {'n': 2217, 'max_abs_kappa_minus_2_exact_velocity': 1.8962559043250914e-15, 'max_abs_kappa_minus_2_finite_difference_of_flow': 1.1700151952546367e-07}
+17:21:51 uniform lattice n=400 {'n': 400, 'max_abs_kappa_minus_2_exact_velocity': 7.482855734206216e-14, 'max_abs_kappa_minus_2_finite_difference_of_flow': 2.410223947419717e-06}

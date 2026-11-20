@@ -1,0 +1,12 @@
+zeros used 310
+K =  1 neighbours each side: 302 zeros (no event in the model: 8) ; model/full v_coll median 0.7464, quantiles 10/90% 0.4716 0.9217 ; v_exit median 0.5995 (0.3490 0.8951) ; ratio: correlation 0.4158, median |difference| 0.1554
+K =  2 neighbours each side: 278 zeros (no event in the model: 32) ; model/full v_coll median 0.8639, quantiles 10/90% 0.7259 0.9626 ; v_exit median 0.8267 (0.5724 1.0108) ; ratio: correlation 0.4885, median |difference| 0.1053
+K =  4 neighbours each side: 302 zeros (no event in the model: 7) ; model/full v_coll median 0.9152, quantiles 10/90% 0.7961 0.9757 ; v_exit median 0.9338 (0.6954 1.1237) ; ratio: correlation 0.4491, median |difference| 0.1143
+K =  8 neighbours each side: 305 zeros (no event in the model: 3) ; model/full v_coll median 0.9526, quantiles 10/90% 0.8745 0.9875 ; v_exit median 1.0370 (0.7688 1.2742) ; ratio: correlation 0.4277, median |difference| 0.1214
+K = 16 neighbours each side: 307 zeros (no event in the model: 1) ; model/full v_coll median 0.9758, quantiles 10/90% 0.9314 0.9938 ; v_exit median 1.0762 (0.8143 1.3567) ; ratio: correlation 0.4310, median |difference| 0.1285
+with drift term e^{ch}, K =  1 neighbours each side: 299 zeros (no event in the model: 11) ; model/full v_coll median 0.7493, quantiles 10/90% 0.4628 0.9237 ; v_exit median 0.6389 (0.3471 0.8740) ; ratio: correlation 0.7158, median |difference| 0.1160
+with drift term e^{ch}, K =  2 neighbours each side: 292 zeros (no event in the model: 18) ; model/full v_coll median 0.8717, quantiles 10/90% 0.7276 0.9796 ; v_exit median 0.7966 (0.6034 0.9443) ; ratio: correlation 0.7866, median |difference| 0.0664
+with drift term e^{ch}, K =  4 neighbours each side: 303 zeros (no event in the model: 6) ; model/full v_coll median 0.9166, quantiles 10/90% 0.7995 0.9791 ; v_exit median 0.8848 (0.7492 0.9672) ; ratio: correlation 0.9552, median |difference| 0.0334
+with drift term e^{ch}, K =  8 neighbours each side: 307 zeros (no event in the model: 1) ; model/full v_coll median 0.9526, quantiles 10/90% 0.8748 0.9878 ; v_exit median 0.9390 (0.8509 0.9817) ; ratio: correlation 0.9849, median |difference| 0.0177
+with drift term e^{ch}, K = 16 neighbours each side: 305 zeros (no event in the model: 3) ; model/full v_coll median 0.9758, quantiles 10/90% 0.9313 0.9938 ; v_exit median 0.9686 (0.9217 0.9907) ; ratio: correlation 0.9951, median |difference| 0.0094
+fin

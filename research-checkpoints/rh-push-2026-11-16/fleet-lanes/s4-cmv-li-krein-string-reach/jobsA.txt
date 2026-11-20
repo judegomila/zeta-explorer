@@ -1,0 +1,7 @@
+python cmv.py ZETA 20 3200 64000 out/zeta_a20_N3200.json --planted pl_main.json --zeros zeros_ZETA.json --K 1200 --snap 100,200,400,800,1600,3200
+python cmv.py ZETA 80 6400 50000 out/zeta_a80_N6400.json --planted pl_main.json --zeros zeros_ZETA.json --K 2500 --snap 400,800,1600,3200,6400
+python cmv.py ZETA 5 1600 60000 out/zeta_a5_N1600.json --planted pl_main.json --zeros zeros_ZETA.json --K 500 --snap 100,200,400,800,1600
+python cmv.py ZETA 320 3200 20000 out/zeta_a320_N3200.json --planted pl_main.json --zeros zeros_ZETA.json --K 1200 --snap 400,800,1600,3200
+python cmv.py ZETA 20 1600 26000 out/zeta_a20_N1600_p2.json --planted pl_main.json --zeros zeros_ZETA.json --K 600 --snap 100,200,400,800,1600
+python cmv.py LCHI4 20 1600 30000 out/lchi4_a20_N1600.json --zeros zeros_LCHI4.json --K 800 --snap 100,200,400,800,1600
+sh controls.sh

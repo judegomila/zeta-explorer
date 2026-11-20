@@ -1,0 +1,15 @@
+pick: TNR a=0.1 rect [0.01,2]x[-0.7149002168450317,0.7149002168450317] n=300 bits=4000 kernels 12; matrix memory per kernel ~ 0.05 GB
+S values: 2.9 s
+sinh:1.43 first_neg None n_neg 0 undet None last log10 rho -216.704 28.5 s
+sinh:2.0 first_neg None n_neg 0 undet None last log10 rho -300.619 32.0 s
+sinh:2.3 first_neg None n_neg 0 undet None last log10 rho -336.117 33.5 s
+sinh:2.45 first_neg None n_neg 0 undet None last log10 rho -352.269 30.7 s
+sinh:2.6 first_neg 17 n_neg 26 undet None last log10 rho -367.596 29.3 s
+sinh:2.86 first_neg 9 n_neg 34 undet None last log10 rho -392.554 31.7 s
+sinh:3.0 first_neg 8 n_neg 32 undet None last log10 rho -403.632 27.5 s
+sinh:3.2 first_neg 7 n_neg 14 undet None last log10 rho -420.368 26.3 s
+sinh:3.6 first_neg 6 n_neg 2 undet None last log10 rho -450.163 28.2 s
+sinh:4.5 first_neg 5 n_neg 2 undet None last log10 rho -507.019 32.6 s
+sinh:6 first_neg 4 n_neg 2 undet None last log10 rho -580.46 26.1 s
+lin first_neg 4 n_neg 40 undet 253 last log10 rho -1038.9 28.4 s
+done 88.5 s

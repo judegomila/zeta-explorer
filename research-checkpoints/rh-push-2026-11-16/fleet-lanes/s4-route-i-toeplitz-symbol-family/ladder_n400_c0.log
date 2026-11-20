@@ -1,0 +1,14 @@
+N = 400, prec 640, 12 supports, z keys ['0.25', '0.75']; planned stage-1 memory per worker: 25 ball matrices 400x400 (about 0.77 GB), 4 workers
+stage1 worker0 node 0/228 1s
+stage1 worker0 node 20/228 27s
+stage1 worker0 node 40/228 54s
+stage1 worker0 node 60/228 80s
+stage1 worker0 node 80/228 107s
+stage1 worker0 node 100/228 134s
+stage1 worker0 node 120/228 160s
+stage1 worker0 node 140/228 187s
+stage1 worker0 node 160/228 213s
+stage1 worker0 node 180/228 239s
+stage1 worker0 node 200/228 266s
+stage1 worker0 node 220/228 292s
+chunk 0 of 4 written 304s

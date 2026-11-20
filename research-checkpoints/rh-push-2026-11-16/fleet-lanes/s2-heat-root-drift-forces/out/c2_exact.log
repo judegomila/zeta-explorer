@@ -1,0 +1,35 @@
+{"code": "DH", "t": 0.01, "N": 300, "prec": 4000, "zero_cut_height": 526.5537695468319, "n_online": 400, "n_offline": 11, "n_star": 107, "p_at_n_star": 587, "decided": 265, "negatives": 8, "signs": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-++-+++++++++++++++++++++++++++++++++++++++++++-+-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-+-+++++++++++--+++++++++++++?", "log10_first_neg_pivot": -57.33904474117174, "first_offline": 85.6993484853776}
+{"code": "ZETA", "t": 0.001, "N": 300, "prec": 2500, "zero_cut_height": 1316.3844238670797, "n_online": 911, "n_offline": 0, "n_star": null, "p_at_n_star": null, "decided": 272, "negatives": 0, "signs": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?", "log10_first_neg_pivot": null, "first_offline": null}
+{"code": "DH", "t": 0.001, "N": 300, "prec": 2500, "zero_cut_height": 1316.3844238670797, "n_online": 1164, "n_offline": 42, "n_star": 135, "p_at_n_star": 761, "decided": 257, "negatives": 2, "signs": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-+++++++++++++++++++++++++++-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?", "log10_first_neg_pivot": -17.679671593135357, "first_offline": 85.6993484853776}
+{"code": "DH", "t": 0.0001, "N": 300, "prec": 2500, "zero_cut_height": 1999.0, "n_online": 1859, "n_offline": 84, "n_star": 164, "p_at_n_star": 971, "decided": 300, "negatives": 2, "signs": "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-++++++++++++++++++++++++++++++++++++++++++++++", "log10_first_neg_pivot": -2.9089630865086655, "first_offline": 85.6993484853776}
+{"code": "HEAT--0.1", "t": 0.001, "N": 700, "prec": 2500, "zero_cut_height": 1316.3844238670797, "n_online": 883, "n_offline": 14, "n_star": null, "p_at_n_star": null, "decided": 272, "negatives": 0, "signs": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?", "log10_first_neg_pivot": null, "first_offline": 415.25627896409037}
+{"code": "DH", "t": 0.1, "N": 260, "prec": 20000, "zero_cut_height": 372.3297411059034, "n_online": 262, "n_offline": 8, "n_star": 87, "p_at_n_star": 449, "decided": 260, "negatives": 8, "signs": "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--++++++++++++++++++++++++++++++++++++++--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--++++++++++++++++--++++++++++++++++++++++++++++++++++++", "log10_first_neg_pivot": -328.6908291110663, "first_offline": 85.6993484853776}
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.10/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.10/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "tmp/research-2026-11-16/push/s2-heat-root-drift-forces/code/c2_exact.py", line 30, in job
+    on, off = zeros(code, H); pr = primes(N); l = [arb(p).log() for p in pr]; isq = [1 / arb(p).sqrt() for p in pr]
+              ~~~~~^^^^^^^^^
+  File "tmp/research-2026-11-16/push/s2-heat-root-drift-forces/code/c2_exact.py", line 17, in zeros
+    else: off = [(b, g, False) for b, g, _ in z['offline'] if float(g) < H]
+                                   ^^^^^^^
+ValueError: too many values to unpack (expected 3, got 4)
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/s2-heat-root-drift-forces/code/c2_exact.py", line 73, in <module>
+    with Pool(int(os.environ.get('RH_WORKERS', '4'))) as p: res = p.map(job, sys.argv[2:], chunksize=1)
+                                                                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.10/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.10/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 774, in get
+    raise self._value
+ValueError: too many values to unpack (expected 3, got 4)

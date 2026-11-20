@@ -1,0 +1,20 @@
+P=1000000 primes=78498 GPU=True families=['ZETA', 'CHI', 'CHIB', 'SGN', 'LIO', 'UNI'] cuts=[100.0, 1000.0, 10000.0, 100000.0, 1000000.0]
+planned per-chunk allocation: 1200 points x 78498 primes x 16 B x 3 arrays = 4.52 GB
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s1-prime-torus-orbit/t12.py", line 136, in <module>
+    L, fL, e3 = prime_chunk(t0s, haar)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s1-prime-torus-orbit/t12.py", line 81, in prime_chunk
+    E = xp.exp(-2j * math.pi * C); del C
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/_kernel.pyx", line 1374, in cupy._core._kernel.ufunc.__call__
+  File "cupy/_core/_kernel.pyx", line 657, in cupy._core._kernel._get_out_args_from_optionals
+  File "cupy/_core/core.pyx", line 3342, in cupy._core.core._ndarray_init
+  File "cupy/_core/core.pyx", line 300, in cupy._core.core._ndarray_base._init_fast
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 1,507,161,600 bytes (allocated so far: 3,090,324,992 bytes, limit set to: 23,622,320,128 bytes).

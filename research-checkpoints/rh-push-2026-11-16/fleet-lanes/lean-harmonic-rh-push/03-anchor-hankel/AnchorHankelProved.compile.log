@@ -1,0 +1,8 @@
+'pick_pair_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pick_pair_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'jetMatrix_posDef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'jetMatrix_posSemidef_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'jetMatrix_first_failure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'jetMatrix_first_failure_H0_only' depends on axioms: [propext, Classical.choice, Quot.sound]
+'jetMatrix_first_failure_H1_only' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

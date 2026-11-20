@@ -1,0 +1,4 @@
+planned allocation: K and K^2, 1739 x 1739 float64 = 0.05 GB
+{"name": "DH2000", "mode": "online_only", "M": 1739, "T_lo": 200, "T_hi": 2000, "m": [1.0, 1.21403329181704, 1.6494537201097375, 2.437711465842934], "C_star_meas": 1.2101647013332502, "pairs": 80}
+planned allocation: K and K^2, 1899 x 1899 complex128 = 0.12 GB
+{"name": "DH2000", "mode": "all_zeros", "M": 1899, "T_lo": 200, "T_hi": 2000, "m": [1.0, 1.3961006149926718, 2.3046194956936743, 4.579575461019904], "C_star_meas": null, "pairs": 80}

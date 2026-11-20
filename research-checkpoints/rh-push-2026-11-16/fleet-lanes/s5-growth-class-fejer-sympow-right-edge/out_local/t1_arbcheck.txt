@@ -1,0 +1,6 @@
+object DH  s = 0.800 + 85.750 i  abs F(s) = 6.4276e-02  N = 36.505975  second singular value 0.994202
+entries checked 525: worst absolute difference 1.378e-13, worst relative difference 6.377e-11 (largest entry of K: 1.112e+00)
+object ZETA  s = 0.600 + 111.000 i  abs F(s) = 1.5004e-01  N = 41.178273  second singular value 1.731317
+entries checked 525: worst absolute difference 3.545e-13, worst relative difference 1.121e-12 (largest entry of K: 1.298e+00)
+object TNRQ  s = 0.800 + 111.250 i  abs F(s) = 3.0833e-01  N = 9.986575  second singular value 1.230584
+entries checked 525: worst absolute difference 1.597e-14, worst relative difference 5.123e-12 (largest entry of K: 3.202e-01)

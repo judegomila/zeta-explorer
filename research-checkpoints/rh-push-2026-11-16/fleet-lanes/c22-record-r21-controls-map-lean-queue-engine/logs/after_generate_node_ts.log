@@ -1,0 +1,77 @@
+generated 41753, scored 8947, rejected 32806
+  rejected  14196  no open or floored crossing device (curated/devices.json)
+  rejected   4290  contains a combination closed in outcomes.json
+  rejected   1873  closed family: fam-pole-lattice-multiplier
+  rejected   1455  closed family: fam-legendre-dual-limits
+  rejected    766  contains a closed device: monotone-flow-functional
+  rejected    703  closed family: fam-euler-anchor-heat
+  rejected    684  closed family: fam-order2-theta-rows
+  rejected    684  closed family: fam-selberg-control-companion
+  rejected    585  all members flow-stable and none arithmetic (backward heat passes)
+  rejected    568  shares two nodes with a closed lane (nodes or launchedNodes)
+  rejected    562  closed family: fam-primitive-test-restriction
+  rejected    527  contains a closed device: positive-kernel-transport
+  rejected    431  contains a closed device: mean-value-convexity
+  rejected    427  contains a closed device: residue-explicit-formula
+  rejected    395  contains a closed device: finite-support-positivity
+  rejected    377  closed family: fam-nb-gram-lammin
+  rejected    376  covariant under shift and reciprocal (RZ_b passes every step)
+  rejected    372  contains a closed device: euler-fe-phase-at-height
+  rejected    321  contains a closed device: vector-specific-row-mean-square
+  rejected    316  closed family: fam-projection-domination-gonek
+  rejected    302  closed family: fam-arithmetic-nb-span
+  rejected    290  closed family: fam-vaughan-split-landau
+  rejected    286  closed family: fam-lemmab-sup-bound-halfplane
+  rejected    271  closed family: fam-torus-exclusion-sign-test
+  rejected    256  closed family: fam-one-zero-forces-many
+  rejected    173  closed family: fam-heat-monotone-hankel
+  rejected    150  closed family: fam-laxphillips-hecke-compression
+  rejected    147  contains a closed device: geometric-positivity
+  rejected    114  closed family: fam-stage-limit-semicontinuity
+  rejected    103  contains a closed device: maximum-principle
+  rejected     96  no member uses multiplicativity (DH passes)
+  rejected     93  contains a closed cell: silent-cell-u6f
+  rejected     91  contains a closed device: twisted-discrepancy
+  rejected     86  contains a closed cell: silent-cell-u6e
+  rejected     59  closed family: fam-hecke-shear-commutator
+  rejected     48  contains a closed device: recurrence-ergodicity
+  rejected     46  closed family: fam-multidelay-section
+  rejected     46  contains a closed cell: silent-cell-u2-pos
+  rejected     45  contains a closed cell: silent-cell-u3
+  rejected     34  contains a closed device: strip-dtn-identity
+  rejected     34  closed family: fam-linear-zero-measure-lmi
+  rejected     33  contains a closed device: dual-measure-compactness
+  rejected     26  contains a closed device: exact-uniqueness
+  rejected     20  closed family: fam-reflected-euler-stage-canonical
+  rejected     13  closed family: fam-helson-discrepancy-zerofree
+  rejected     13  all members attached to one closed row
+  rejected     10  only arithmetic step is target-blind algebra (same for every control)
+  rejected      7  closed family: fam-pd-log-strip
+  rejected      4  all members from one module
+  rejected      2  closed family: fam-stage-collision-index
+families (move/theme: count, best score):
+  M1/flow               582  8.5
+  M1/geometry           136  10.25
+  M1/nyman               14  3.98
+  M1/positivity        1613  9.25
+  M1/prime-chain       1220  8.75
+  M1/statistics          53  4.62
+  M1/zero-free         3942  9.25
+  M2/zero-free           10  7.41
+  M3/flow                23  8.0
+  M3/geometry             3  5.75
+  M3/nyman               21  2.5
+  M3/positivity          25  8.75
+  M3/prime-chain         19  6.0
+  M3/statistics          20  1.5
+  M3/zero-free          264  8.0
+  M4/flow               509  9.0
+  M4/positivity          89  8.5
+  M4/prime-chain         32  8.0
+  M4/statistics           4  1.5
+  M4/zero-free          367  8.75
+  P2/flow                 1  0.75
+
+top 1:
+  1   3.5 M3 positivity  sigma-b-abscissa-sensitivity x twin-screen-ts x qrh-seven-eighths
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

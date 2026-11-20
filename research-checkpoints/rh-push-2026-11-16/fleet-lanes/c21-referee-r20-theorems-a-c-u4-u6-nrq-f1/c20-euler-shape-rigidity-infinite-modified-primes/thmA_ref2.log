@@ -1,0 +1,470 @@
+{
+ "E_a a=1/4: not zero; zeta FE fails; own FE holds": {
+  "(0.5 + 5.0j)": {
+   "|m(s)|": "0.73819972047",
+   "|m(s)-m(1-s)| (zeta FE defect)": "0.470442565284",
+   "own FE defect": "2.2582e-34"
+  },
+  "(0.8 + 11.3j)": {
+   "|m(s)|": "1.35181613425",
+   "|m(s)-m(1-s)| (zeta FE defect)": "1.21096556472",
+   "own FE defect": "7.9073e-38"
+  },
+  "(0.5 + 20.0j)": {
+   "|m(s)|": "1.22530181553",
+   "|m(s)-m(1-s)| (zeta FE defect)": "2.27078803951",
+   "own FE defect": "7.4578e-44"
+  }
+ },
+ "E_a: partial sums of |c(p)| p^-sigma, c(p) = 1 - p^a - p^-a (abscissa of the relative product is 1 + a = 1.25, not 1)": {
+  "1000": {
+   "0.5": 34.75236420406347,
+   "1.0": 3.736617632765663,
+   "1.25": 1.7681065375252136,
+   "1.3": 1.5651216267460304
+  },
+  "10000": {
+   "0.5": 151.0268759076836,
+   "1.0": 5.628740713592129,
+   "1.25": 2.0195324161746733,
+   "1.3": 1.7336022213166598
+  },
+  "100000": {
+   "0.5": 690.8130524193659,
+   "1.0": 8.397575209669839,
+   "1.25": 2.2260247769696417,
+   "1.3": 1.85687359206764
+  },
+  "1000000": {
+   "0.5": 3262.2500686253366,
+   "1.0": 12.562836873806232,
+   "1.25": 2.4005776033678554,
+   "1.3": 1.94973194122792
+  }
+ },
+ "HQ members: FE exact, object not zero, (H) fails for N and for m (root in the closed unit disc of both)": {
+  "q=2 HQ1 eps=1": {
+   "|m(s)| at 0.3+7.1i": "0.399955030064",
+   "FE defect |m(s)-m(1-s)|": "0.0",
+   "min |root| num (pole of N)": 0.9999999999999997,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 5.661048867003676e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "1830.0",
+    "7260.0"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "40.0",
+    "80.0"
+   ]
+  },
+  "q=2 HQ1 eps=c_q+2": {
+   "|m(s)| at 0.3+7.1i": "1.53583104905",
+   "FE defect |m(s)-m(1-s)|": "2.0328e-31",
+   "min |root| num (pole of N)": 0.8408964152537141,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 2.220446049250313e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "7375.0895",
+    "29258.552"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "2382840.4",
+    "7.8085302e+10"
+   ]
+  },
+  "q=2 HQ1 eps=6": {
+   "|m(s)| at 0.3+7.1i": "2.75948553509",
+   "FE defect |m(s)-m(1-s)|": "9.8608e-32",
+   "min |root| num (pole of N)": 0.26794919243112264,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 4.440892098500626e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "10980.0",
+    "43560.0"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "4.907635e+34",
+    "1.0179469e+69"
+   ]
+  },
+  "q=2 HQ2 eps=1e-2": {
+   "|m(s)| at 0.3+7.1i": "1.0036623416",
+   "FE defect |m(s)-m(1-s)|": "2.1009e-31",
+   "min |root| num (pole of N)": 0.7988933209013832,
+   "min |root| den (pole of m)": 0.9998936974250412,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 4.0943002132167226e-15,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "5578.45",
+    "87833.9"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "270824.4",
+    "1.9971407e+11"
+   ]
+  },
+  "q=2 HQ3 (0.1,0.2)": {
+   "|m(s)| at 0.3+7.1i": "0.991230256259",
+   "FE defect |m(s)-m(1-s)|": "6.9333e-33",
+   "min |root| num (pole of N)": 0.9330329915368045,
+   "min |root| den (pole of m)": 0.8705505632961259,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 2.220446049250313e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "1642.204",
+    "6729539.8"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "96.502765",
+    "6364.0298"
+   ]
+  },
+  "q=2 HQ4 (0.1,0.2)": {
+   "|m(s)| at 0.3+7.1i": "1.50239352962",
+   "FE defect |m(s)-m(1-s)|": "2.2049e-31",
+   "min |root| num (pole of N)": 0.9330329915368045,
+   "min |root| den (pole of m)": 0.8705505632961259,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 2.220446049250313e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "457561.8",
+    "1.8750291e+9"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "26888.242",
+    "1773188.3"
+   ]
+  },
+  "q=5 HQ1 eps=1": {
+   "|m(s)| at 0.3+7.1i": "0.478572000308",
+   "FE defect |m(s)-m(1-s)|": "1.1025e-31",
+   "min |root| num (pole of N)": 0.9999999999999997,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 5.661048867003676e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "1830.0",
+    "7260.0"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "40.0",
+    "80.0"
+   ]
+  },
+  "q=5 HQ1 eps=c_q+2": {
+   "|m(s)| at 0.3+7.1i": "2.44585261351",
+   "FE defect |m(s)-m(1-s)|": "3.9443e-31",
+   "min |root| num (pole of N)": 0.6687403049764221,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 7.771561172376096e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "7620.283",
+    "30231.287"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "4.6408937e+11",
+    "1.4162884e+22"
+   ]
+  },
+  "q=5 HQ1 eps=6": {
+   "|m(s)| at 0.3+7.1i": "3.87662692515",
+   "FE defect |m(s)-m(1-s)|": "5.5781e-31",
+   "min |root| num (pole of N)": 0.26794919243112264,
+   "min |root| den (pole of m)": 0.999999999997775,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 4.440892098500626e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "10980.0",
+    "43560.0"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "4.907635e+34",
+    "1.0179469e+69"
+   ]
+  },
+  "q=5 HQ2 eps=1e-2": {
+   "|m(s)| at 0.3+7.1i": "1.00349425862",
+   "FE defect |m(s)-m(1-s)|": "6.3804e-31",
+   "min |root| num (pole of N)": 0.7988933209013832,
+   "min |root| den (pole of m)": 0.9998936974250412,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 4.0943002132167226e-15,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "5578.45",
+    "87833.9"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "270824.4",
+    "1.9971407e+11"
+   ]
+  },
+  "q=5 HQ3 (0.1,0.2)": {
+   "|m(s)| at 0.3+7.1i": "0.948436150703",
+   "FE defect |m(s)-m(1-s)|": "2.7733e-32",
+   "min |root| num (pole of N)": 0.8513399225207842,
+   "min |root| den (pole of m)": 0.7247796636776962,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 2.220446049250313e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "1.0638983e+8",
+    "2.597408e+16"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "25535.562",
+    "3.9904043e+8"
+   ]
+  },
+  "q=5 HQ4 (0.1,0.2)": {
+   "|m(s)| at 0.3+7.1i": "2.17894797465",
+   "FE defect |m(s)-m(1-s)|": "1.9722e-31",
+   "min |root| num (pole of N)": 0.8513399225207842,
+   "min |root| den (pole of m)": 0.7247796636776962,
+   "root set of num closed under u -> 1/u: max_i min_j |r_i r_j - 1| (float64)": 2.220446049250313e-16,
+   "sum_{k<=60} |c_m| , sum_{k<=120} |c_m|": [
+    "5.5943633e+9",
+    "1.3658114e+18"
+   ],
+   "sum_{k<=60} |c_N| , sum_{k<=120} |c_N|": [
+    "1342752.5",
+    "2.0982994e+10"
+   ]
+  }
+ },
+ "Corollary A2 on sparse DEL / THIN": {
+  "S1 lane DEL alpha=0": {
+   "p_min": 11,
+   "sum p^-1/2": 0.4471172341795359,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.301511344578",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "1.0179235903089951773",
+   "t*": 38876.895000000004,
+   "N(1/2+it*) (not zero)": "1.26366130910316",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.30151385340227443,
+    1.680466928376705e-05
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.30151134457776363,
+    0.0
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    0.03001161856872655,
+    6.019171815050903e-06
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.030001500112509377,
+    0.0
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 2.2172633987152897e-05,
+   "bound on tail effect (primes of the infinite set not included)": 1.645e-05
+  },
+  "S1 lane THIN alpha=-1": {
+   "p_min": 11,
+   "sum p^-1/2": 0.4471172341795359,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.603022689156",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "2.2333222839308163759",
+   "t*": 38876.925,
+   "N(1/2+it*) (not zero)": "1.77381768946457",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.6030258919052733,
+    1.2313670990326915e-05
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.6030226891555273,
+    0.0
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    0.12002273996621401,
+    7.583854049029771e-06
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.12000600045003751,
+    0.0
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 2.3905343791820362e-05,
+   "bound on tail effect (primes of the infinite set not included)": 3.29e-05
+  },
+  "S1 lane alpha=i": {
+   "p_min": 11,
+   "sum p^-1/2": 0.4471172341795359,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.426401432711",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "1.4460833151252749533",
+   "t*": 38876.895000000004,
+   "N(1/2+it*) (not zero)": "1.78887329034149",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.30150975763626775,
+    -0.30149505674884447
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.30151134457776363,
+    -0.30151134457776363
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    1.2160439344733016e-05,
+    -0.06000306444518976
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.0,
+    -0.060003000225018754
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 2.1756446518615536e-05,
+   "bound on tail effect (primes of the infinite set not included)": 2.326381310103742e-05
+  },
+  "S2 referee DEL alpha=0": {
+   "p_min": 67,
+   "sum p^-1/2": 0.19861411549746597,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.122169444356",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "0.39610339364064336403",
+   "t*": 149.735,
+   "N(1/2+it*) (not zero)": "1.04505659555413",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.12216575014895205,
+    5.773597445534726e-07
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.12216944435630522,
+    0.0
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    0.004509947194954599,
+    9.023462348760888e-06
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.004512431386534681,
+    0.0
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 4.077336387404269e-06,
+   "bound on tail effect (primes of the infinite set not included)": 0.01763224155372909
+  },
+  "S2 referee THIN alpha=-1": {
+   "p_min": 67,
+   "sum p^-1/2": 0.19861411549746597,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.244338888713",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "0.81061238213241636557",
+   "t*": 149.715,
+   "N(1/2+it*) (not zero)": "1.15441286660404",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.24433482706500248,
+    4.4225632918440283e-08
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.24433888871261045,
+    0.0
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    0.018046540097705954,
+    1.4076834755911206e-05
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.018049725546138724,
+    0.0
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 4.69139320970932e-06,
+   "bound on tail effect (primes of the infinite set not included)": 0.03526448310745818
+  },
+  "S2 referee alpha=i": {
+   "p_min": 67,
+   "sum p^-1/2": 0.19861411549746597,
+   "A2 lower bound |1-alpha| p_min^-1/2": "0.172773685116",
+   "|D(t*)| at 30 digits (t* = float64 grid maximiser)": "0.56084146368520255248",
+   "t*": 149.735,
+   "N(1/2+it*) (not zero)": "0.860845667190045",
+   "float64 Bohr mean N n^{it}, n=p_min, T=4e4": [
+    0.12216526867186803,
+    -0.12216847715495792
+   ],
+   "predicted c(p_min) p_min^-1/2": [
+    0.12216944435630522,
+    -0.12216944435630522
+   ],
+   "float64 Bohr mean, n=p1*p2": [
+    2.645231947664e-06,
+    -0.009015050410401347
+   ],
+   "predicted c(p1 p2) (p1 p2)^-1/2": [
+    0.0,
+    -0.009024862773069362
+   ],
+   "|float64 Bohr mean N n^{-it}|, n=p_min (predicted 0)": 4.424091617986687e-06,
+   "bound on tail effect (primes of the infinite set not included)": 0.024935755140322133
+  }
+ },
+ "map DEL/THIN b=0.75 (greedy floor rule), first members": {
+  "S_DEL[:12]": [
+   5,
+   7,
+   11,
+   13,
+   19,
+   29,
+   37,
+   41,
+   53,
+   67,
+   79,
+   89
+  ],
+  "S_THIN[:12]": [
+   7,
+   13,
+   29,
+   41,
+   67,
+   89,
+   127,
+   149,
+   191,
+   227,
+   271,
+   317
+  ],
+  "rows": {
+   "1000": {
+    "pi_S(X) DEL": 45,
+    "X^b/(b log X)": 34.32430822498108,
+    "sum_{p in S, p<=X} p^-1/2": 4.35507304222312,
+    "sum p^-0.8 (sigma > b: converges)": 1.4792188331730034
+   },
+   "10000": {
+    "pi_S(X) DEL": 176,
+    "X^b/(b log X)": 144.76482730108393,
+    "sum_{p in S, p<=X} p^-1/2": 6.502218038494645,
+    "sum p^-0.8 (sigma > b: converges)": 1.6711196829932213
+   },
+   "100000": {
+    "pi_S(X) DEL": 756,
+    "X^b/(b log X)": 651.2579586035486,
+    "sum_{p in S, p<=X} p^-1/2": 9.492806365111157,
+    "sum p^-0.8 (sigma > b: converges)": 1.8047378522105506
+   },
+   "1000000": {
+    "pi_S(X) DEL": 3433,
+    "X^b/(b log X)": 3051.910529015675,
+    "sum_{p in S, p<=X} p^-1/2": 13.838159080988941,
+    "sum p^-0.8 (sigma > b: converges)": 1.9017455125913367
+   },
+   "2000000": {
+    "pi_S(X) DEL": 5459,
+    "X^b/(b log X)": 4887.468795337325,
+    "sum_{p in S, p<=X} p^-1/2": 15.527218189436256,
+    "sum p^-0.8 (sigma > b: converges)": 1.9258629053869307
+   }
+  },
+  "N_DEL(2) over p<=2e6 (not 1, not 0)": "1.08581501486449517",
+  "N_THIN(2)": "1.0590365664888318266"
+ },
+ "Lemma A0 on a non-product (1 + 0.3*3^-s + (0.2+0.1i)*7^-s)": {
+  "sup |D(1/2+it)-D(1/2-it)| on grid": "0.503265470417",
+  "A2 bounds |c(3)|/sqrt3, |c(7)|/sqrt7": [
+   "0.173205080757",
+   "0.0845154254729"
+  ]
+ },
+ "Theorem C (c): summability transfers from N to m when |alpha_p| <= p^(1/2)": [
+  {
+   "sigma": 0.51,
+   "max over samples of sup|m_p - 1| / (|alpha-1| p^-sigma / (1 - 2^(1/2-sigma)))": "1.0"
+  },
+  {
+   "sigma": 0.6,
+   "max over samples of sup|m_p - 1| / (|alpha-1| p^-sigma / (1 - 2^(1/2-sigma)))": "1.0"
+  },
+  {
+   "sigma": 0.75,
+   "max over samples of sup|m_p - 1| / (|alpha-1| p^-sigma / (1 - 2^(1/2-sigma)))": "1.0"
+  }
+ ]
+}

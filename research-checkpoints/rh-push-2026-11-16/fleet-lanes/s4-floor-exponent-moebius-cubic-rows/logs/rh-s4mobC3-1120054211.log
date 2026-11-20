@@ -1,0 +1,4 @@
+X=100000000000 X2=100000000000 nseg=5961 sqrt=316229 threads=2
+primes=27293 ; planned per-thread 0.44 GB, segment tables 0.00 GB
+seg 1789/5961 t=2166s
+FINAL M(X)=-92010 Mchi4=162784 Mchi3=116162 Q(X)=18241129258 t=2167s DONE

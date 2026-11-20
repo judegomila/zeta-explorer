@@ -1,0 +1,16 @@
+primes in the sample: 6762  range 100183 .. 99999989
+[1e+05,1e+06): 1198 primes ; A/(phi b) min 0.1472717 max 0.1473745 (b=110681) mean 0.1473391 ; S/(phi b) mean -0.07956982 ; largest term/(phi b) max 3.26e-05
+[1e+06,1e+07): 4020 primes ; A/(phi b) min 0.1473397 max 0.1473600 (b=1046519) mean 0.1473494 ; S/(phi b) mean -0.07957657 ; largest term/(phi b) max 3.99e-06
+[1e+07,1e+08): 1544 primes ; A/(phi b) min 0.1473494 max 0.1473518 (b=12565799) mean 0.1473506 ; S/(phi b) mean -0.07957738 ; largest term/(phi b) max 4.72e-07
+[9.99e+07,1e+08): 184 primes ; A/(phi b) min 0.1473504 max 0.1473509 (b=99994607) mean 0.1473507 ; S/(phi b) mean -0.07957744 ; largest term/(phi b) max 5.46e-08
+sup over the sample: 0.1473745 at b=110681 ; -1/(4 pi) = -0.07957747
+small inverses: mean over the sample of #{a: h_a <= H}/(H (log(b/H) + 1)) for H = [1, 2, 3, 5, 10, 30, 100, 1000]
+  mean 1.7333 1.2144 1.1755 1.1317 0.9929 0.9992 0.9974 0.9996
+  max  21.0871 11.0191 7.7550 4.9174 2.8970 1.9226 1.4630 1.1009
+  max of #{h_a <= H}/phi(b):  8.50e-04 8.50e-04 8.86e-04 1.23e-03 1.95e-03 3.42e-03 8.84e-03 5.83e-02
+b=1000003: A/(phi b)=0.147345 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.1002, in the 10 middle bins 0.5011
+b=9699690: A/(phi b)=0.147351 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.1002, in the 10 middle bins 0.5002
+b=10000019: A/(phi b)=0.147351 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.0998, in the 10 middle bins 0.5001
+b=99999989: A/(phi b)=0.147351 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.0999, in the 10 middle bins 0.5000
+b=100000000: A/(phi b)=0.147351 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.1001, in the 10 middle bins 0.5000
+b=223092870: A/(phi b)=0.147351 ; histogram of h_a/a in 20 bins: count share min 0.05000 max 0.05000 ; share of sum |c0|/a in the two end bins 0.1001, in the 10 middle bins 0.5000

@@ -1,0 +1,434 @@
+[
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/2",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 4,
+  "undetermined_at": null,
+  "orders_certified_positive": 3,
+  "min_pivot": [
+   4,
+   -0.10189723149318602
+  ],
+  "diag1": 3.534707963246868,
+  "secs_phi": 41.41514492034912,
+  "secs": 41.41934895515442
+ },
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "9/10",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 16,
+  "undetermined_at": null,
+  "orders_certified_positive": 15,
+  "min_pivot": [
+   16,
+   -1.502781642279769
+  ],
+  "diag1": 4.257621889587786,
+  "secs_phi": 7.152557373046875e-07,
+  "secs": 0.1993396282196045
+ },
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "95/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 16,
+  "undetermined_at": null,
+  "orders_certified_positive": 15,
+  "min_pivot": [
+   16,
+   -0.06469652162532655
+  ],
+  "diag1": 4.320171440174963,
+  "secs_phi": 0.0,
+  "secs": 0.1869828701019287
+ },
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "99/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 40,
+  "undetermined_at": null,
+  "orders_certified_positive": 39,
+  "min_pivot": [
+   40,
+   -6.467902198876665e-06
+  ],
+  "diag1": 4.361172809371133,
+  "secs_phi": 0.0,
+  "secs": 1.2879860401153564
+ },
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "999/1000",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 86,
+  "undetermined_at": null,
+  "orders_certified_positive": 85,
+  "min_pivot": [
+   86,
+   -5.578840575472549e-26
+  ],
+  "diag1": 4.374576342871646,
+  "secs_phi": 0.0,
+  "secs": 8.059406042098999
+ },
+ {
+  "obj": "zeta",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/1",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   120,
+   3.859678549938316e-143
+  ],
+  "diag1": 4.376547064834466,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 12.075067281723022
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/2",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   0.9672513007459709
+  ],
+  "diag1": 5.368488647803182,
+  "secs_phi": 41.08925008773804,
+  "secs": 62.06901407241821
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "9/10",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   1.2858936004750219
+  ],
+  "diag1": 5.918924193764834,
+  "secs_phi": 1.1920928955078125e-06,
+  "secs": 20.33584213256836
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "95/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   1.3202265108214832
+  ],
+  "diag1": 5.972354544295519,
+  "secs_phi": 1.1920928955078125e-06,
+  "secs": 20.112224102020264
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "99/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   1.3468538903141474
+  ],
+  "diag1": 6.0133597661715665,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 19.908638954162598
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "999/1000",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   1.3526433593952452
+  ],
+  "diag1": 6.022460721279609,
+  "secs_phi": 0.0,
+  "secs": 19.591629028320312
+ },
+ {
+  "obj": "T-NR",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/1",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   107,
+   1.3532842879093394
+  ],
+  "diag1": 6.023463031066896,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 12.520087003707886
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/2",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 32,
+  "undetermined_at": null,
+  "orders_certified_positive": 31,
+  "min_pivot": [
+   32,
+   -2.1732520390761247
+  ],
+  "diag1": 3.958037458892846,
+  "secs_phi": 158.70999932289124,
+  "secs": 159.40846800804138
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "9/10",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 68,
+  "undetermined_at": null,
+  "orders_certified_positive": 67,
+  "min_pivot": [
+   68,
+   -5.618032710194725
+  ],
+  "diag1": 4.641889531932227,
+  "secs_phi": 0.0,
+  "secs": 4.043617010116577
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "95/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 74,
+  "undetermined_at": null,
+  "orders_certified_positive": 73,
+  "min_pivot": [
+   74,
+   -0.592781317158727
+  ],
+  "diag1": 4.701828442671476,
+  "secs_phi": 0.0,
+  "secs": 5.499281167984009
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "99/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 100,
+  "undetermined_at": null,
+  "orders_certified_positive": 99,
+  "min_pivot": [
+   100,
+   -0.00011855468004022548
+  ],
+  "diag1": 4.741141395678837,
+  "secs_phi": 0.0,
+  "secs": 12.472744941711426
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "999/1000",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   120,
+   1.3551536043633913e-21
+  ],
+  "diag1": 4.754087753620172,
+  "secs_phi": 0.0,
+  "secs": 19.211771965026855
+ },
+ {
+  "obj": "DH",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/1",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   120,
+   1.5269152257234781e-21
+  ],
+  "diag1": 4.7559394745011625,
+  "secs_phi": 1.1920928955078125e-06,
+  "secs": 12.018869161605835
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/2",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 48,
+  "undetermined_at": null,
+  "orders_certified_positive": 47,
+  "min_pivot": [
+   48,
+   -0.5016800666502421
+  ],
+  "diag1": 3.61071870147365,
+  "secs_phi": 162.62309217453003,
+  "secs": 164.32076406478882
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "9/10",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 64,
+  "undetermined_at": null,
+  "orders_certified_positive": 63,
+  "min_pivot": [
+   64,
+   -0.5756180177480693
+  ],
+  "diag1": 4.318237404914154,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 3.442416191101074
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "95/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 72,
+  "undetermined_at": null,
+  "orders_certified_positive": 71,
+  "min_pivot": [
+   72,
+   -10.922707675415516
+  ],
+  "diag1": 4.379594286691953,
+  "secs_phi": 0.0,
+  "secs": 4.597798824310303
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "99/100",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": 100,
+  "undetermined_at": null,
+  "orders_certified_positive": 99,
+  "min_pivot": [
+   100,
+   -0.0005210957310788295
+  ],
+  "diag1": 4.429280434563158,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 10.844436883926392
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "999/1000",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   120,
+   2.9235892060467956e-22
+  ],
+  "diag1": 4.437271179339946,
+  "secs_phi": 9.5367431640625e-07,
+  "secs": 16.5343120098114
+ },
+ {
+  "obj": "chi_5",
+  "design": "W1",
+  "M": 120,
+  "Y": "1/1",
+  "bits": 1200,
+  "backend": "mp",
+  "first_negative_order": null,
+  "undetermined_at": null,
+  "orders_certified_positive": 120,
+  "min_pivot": [
+   120,
+   3.2733234852555243e-22
+  ],
+  "diag1": 4.438664922648316,
+  "secs_phi": 0.0,
+  "secs": 10.500091791152954
+ }
+]

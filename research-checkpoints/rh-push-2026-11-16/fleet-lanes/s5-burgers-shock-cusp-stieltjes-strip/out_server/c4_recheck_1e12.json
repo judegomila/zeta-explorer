@@ -1,0 +1,82 @@
+[
+ {
+  "Y": 0.165,
+  "t_offset": 206880.7871271689,
+  "T": "1000000000000",
+  "source": "zero side (list, grid minimum)",
+  "screen_value": 1.2416341642597013,
+  "mpmath_value": 1.2416283554452312,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 0.33,
+  "t_offset": 206880.7871271689,
+  "T": "1000000000000",
+  "source": "zero side (list, grid minimum)",
+  "screen_value": 2.359437058264743,
+  "mpmath_value": 2.3594254407075828,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 0.4,
+  "t_offset": 206880.7871271689,
+  "T": "1000000000000",
+  "source": "zero side (list, grid minimum)",
+  "screen_value": 2.7763405940965673,
+  "mpmath_value": 2.7763265122625476,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 1.0,
+  "t_offset": 206880.7871271689,
+  "T": "1000000000000",
+  "source": "zero side (list, grid minimum)",
+  "screen_value": 4.953495355773323,
+  "mpmath_value": 4.953460153264086,
+  "p_req": 4.37426,
+  "below": false
+ },
+ {
+  "Y": 0.165,
+  "t_offset": 261142.44,
+  "T": "1000000000000",
+  "source": "prime side M_K (grid minimum over 1.34e8 samples)",
+  "screen_value": 0.7568672635929641,
+  "mpmath_value": 1.771736898062725,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 0.33,
+  "t_offset": 356712.04,
+  "T": "1000000000000",
+  "source": "prime side M_K (grid minimum over 1.34e8 samples)",
+  "screen_value": 2.2934920429529804,
+  "mpmath_value": 2.2799894130245892,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 0.4,
+  "t_offset": 356712.02,
+  "T": "1000000000000",
+  "source": "prime side M_K (grid minimum over 1.34e8 samples)",
+  "screen_value": 2.676658987567961,
+  "mpmath_value": 2.6631254703388776,
+  "p_req": 4.37426,
+  "below": true
+ },
+ {
+  "Y": 1.0,
+  "t_offset": 356712.02,
+  "T": "1000000000000",
+  "source": "prime side M_K (grid minimum over 1.34e8 samples)",
+  "screen_value": 4.793999085903368,
+  "mpmath_value": 4.793988161277325,
+  "p_req": 4.37426,
+  "below": false
+ }
+]

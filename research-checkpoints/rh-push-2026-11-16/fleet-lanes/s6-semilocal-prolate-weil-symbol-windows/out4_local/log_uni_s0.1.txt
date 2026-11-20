@@ -1,0 +1,20 @@
+[uni s=0.1 M=2048] gpu=False R=1.288 coefficients n<=7430 (989 nonzero); planned: 3 matrices 2048x2048 = 0.19 GB
+RESULT4 uni s=0.1 M=8: lmax 3.8903e+01 lmin/lmax -9.754e-01; negative below -1e-12/-1e-10/-1e-8: 3/3/3; rank(1e-10) 5 [1s]
+ONSET4 uni s=0.1: first M with lmin/lmax < -1e-10: M* = 2 (log M* = 0.693); lmin/lmax = -5.727e-01; eigenvector saved
+RESULT4 uni s=0.1 M=12: lmax 6.7327e+01 lmin/lmax -9.848e-01; negative below -1e-12/-1e-10/-1e-8: 4/4/4; rank(1e-10) 8 [1s]
+RESULT4 uni s=0.1 M=16: lmax 9.7215e+01 lmin/lmax -9.869e-01; negative below -1e-12/-1e-10/-1e-8: 5/5/5; rank(1e-10) 11 [1s]
+RESULT4 uni s=0.1 M=24: lmax 1.5930e+02 lmin/lmax -9.874e-01; negative below -1e-12/-1e-10/-1e-8: 7/7/7; rank(1e-10) 17 [1s]
+RESULT4 uni s=0.1 M=32: lmax 2.2172e+02 lmin/lmax -9.885e-01; negative below -1e-12/-1e-10/-1e-8: 8/8/8; rank(1e-10) 20 [1s]
+RESULT4 uni s=0.1 M=48: lmax 3.4580e+02 lmin/lmax -9.887e-01; negative below -1e-12/-1e-10/-1e-8: 10/10/10; rank(1e-10) 24 [1s]
+RESULT4 uni s=0.1 M=64: lmax 4.6834e+02 lmin/lmax -9.880e-01; negative below -1e-12/-1e-10/-1e-8: 12/12/11; rank(1e-10) 27 [1s]
+RESULT4 uni s=0.1 M=96: lmax 7.0750e+02 lmin/lmax -9.876e-01; negative below -1e-12/-1e-10/-1e-8: 14/14/13; rank(1e-10) 30 [1s]
+RESULT4 uni s=0.1 M=128: lmax 9.4168e+02 lmin/lmax -9.875e-01; negative below -1e-12/-1e-10/-1e-8: 16/16/15; rank(1e-10) 32 [1s]
+RESULT4 uni s=0.1 M=192: lmax 1.4084e+03 lmin/lmax -9.871e-01; negative below -1e-12/-1e-10/-1e-8: 19/19/18; rank(1e-10) 35 [1s]
+RESULT4 uni s=0.1 M=256: lmax 1.8819e+03 lmin/lmax -9.868e-01; negative below -1e-12/-1e-10/-1e-8: 22/20/19; rank(1e-10) 37 [1s]
+RESULT4 uni s=0.1 M=384: lmax 2.8649e+03 lmin/lmax -9.870e-01; negative below -1e-12/-1e-10/-1e-8: 25/23/21; rank(1e-10) 40 [1s]
+RESULT4 uni s=0.1 M=512: lmax 3.9019e+03 lmin/lmax -9.874e-01; negative below -1e-12/-1e-10/-1e-8: 27/25/23; rank(1e-10) 41 [1s]
+RESULT4 uni s=0.1 M=768: lmax 6.1177e+03 lmin/lmax -9.881e-01; negative below -1e-12/-1e-10/-1e-8: 30/27/25; rank(1e-10) 44 [1s]
+RESULT4 uni s=0.1 M=1024: lmax 8.4752e+03 lmin/lmax -9.886e-01; negative below -1e-12/-1e-10/-1e-8: 32/29/26; rank(1e-10) 45 [2s]
+RESULT4 uni s=0.1 M=1536: lmax 1.3457e+04 lmin/lmax -9.895e-01; negative below -1e-12/-1e-10/-1e-8: 34/32/28; rank(1e-10) 47 [3s]
+RESULT4 uni s=0.1 M=2048: lmax 1.8652e+04 lmin/lmax -9.899e-01; negative below -1e-12/-1e-10/-1e-8: 36/33/30; rank(1e-10) 49 [6s]
+done 6s

@@ -1,0 +1,57 @@
+chi4      {}                       k=0 X=2000     D=99     st=0 gap/sqrtX=5.27e-01 exc/sqrtX=-0.1857 sv=0 cmax=6 rows=999 it=40 t=0 
+chi4      {}                       k=0 X=2000     D=224    st=0 gap/sqrtX=-3.34e-07 exc/sqrtX=-0.1857 sv=0 cmax=15 rows=999 it=40 t=0 
+chi4      {}                       k=0 X=2000     D=448    st=0 gap/sqrtX=-3.34e-07 exc/sqrtX=-0.1857 sv=0 cmax=10 rows=999 it=40 t=0 
+chi4      {}                       k=0 X=2000     D=2000   st=0 gap/sqrtX=-3.34e-07 exc/sqrtX=-0.1857 sv=0 cmax=10 rows=999 it=40 t=0 
+chi4      {}                       k=1 X=2000     D=99     st=0 gap/sqrtX=1.02e-01 exc/sqrtX=-0.0493 sv=0 cmax=28 rows=999 it=40 t=0 
+chi4      {}                       k=1 X=2000     D=224    st=0 gap/sqrtX=-3.95e-07 exc/sqrtX=-0.0493 sv=0 cmax=426 rows=999 it=1 t=0 
+chi4      {}                       k=1 X=2000     D=448    st=0 gap/sqrtX=-3.94e-07 exc/sqrtX=-0.0493 sv=0 cmax=6.71 rows=999 it=40 t=0 
+chi4      {}                       k=1 X=2000     D=2000   st=0 gap/sqrtX=-3.94e-07 exc/sqrtX=-0.0493 sv=0 cmax=6.71 rows=999 it=40 t=0 
+chi4      {}                       k=2 X=2000     D=99     st=0 gap/sqrtX=1.69e-03 exc/sqrtX=-0.0042 sv=0 cmax=5.46e+03 rows=999 it=1 t=0 
+chi4      {}                       k=2 X=2000     D=224    st=0 gap/sqrtX=-4.15e-07 exc/sqrtX=-0.0042 sv=0 cmax=315 rows=999 it=1 t=0 
+chi4      {}                       k=2 X=2000     D=448    st=0 gap/sqrtX=-4.07e-07 exc/sqrtX=-0.0042 sv=0 cmax=7.25 rows=999 it=40 t=0 
+chi4      {}                       k=2 X=2000     D=2000   st=0 gap/sqrtX=-4.11e-07 exc/sqrtX=-0.0042 sv=0 cmax=7.22 rows=999 it=40 t=0 
+chi5      {}                       k=0 X=2000     D=99     st=0 gap/sqrtX=6.00e-01 exc/sqrtX=-0.2474 sv=0 cmax=4 rows=1599 it=40 t=0 
+chi5      {}                       k=0 X=2000     D=224    st=0 gap/sqrtX=-5.32e-07 exc/sqrtX=-0.2474 sv=0 cmax=11 rows=1599 it=40 t=0 
+chi5      {}                       k=0 X=2000     D=448    st=0 gap/sqrtX=-5.32e-07 exc/sqrtX=-0.2474 sv=0 cmax=17 rows=1599 it=40 t=0 
+chi5      {}                       k=0 X=2000     D=2000   st=0 gap/sqrtX=-5.32e-07 exc/sqrtX=-0.2474 sv=0 cmax=9 rows=1599 it=40 t=0 
+chi5      {}                       k=1 X=2000     D=99     st=0 gap/sqrtX=5.76e-02 exc/sqrtX=-0.1086 sv=0 cmax=68.1 rows=1599 it=40 t=0 
+chi5      {}                       k=1 X=2000     D=224    st=0 gap/sqrtX=-4.37e-07 exc/sqrtX=-0.1086 sv=0 cmax=193 rows=1599 it=1 t=0 
+chi5      {}                       k=1 X=2000     D=448    st=0 gap/sqrtX=-4.53e-07 exc/sqrtX=-0.1086 sv=0 cmax=86.9 rows=1599 it=40 t=0 
+chi5      {}                       k=1 X=2000     D=2000   st=0 gap/sqrtX=-4.49e-07 exc/sqrtX=-0.1086 sv=0 cmax=7.64 rows=1599 it=40 t=0 
+chi5      {}                       k=2 X=2000     D=99     st=0 gap/sqrtX=1.35e-02 exc/sqrtX=-0.0635 sv=0 cmax=7.2e+07 rows=1599 it=1 t=0 
+chi5      {}                       k=2 X=2000     D=224    st=0 gap/sqrtX=-4.75e-07 exc/sqrtX=-0.0635 sv=0 cmax=1.13e+03 rows=1599 it=1 t=0 
+chi5      {}                       k=2 X=2000     D=448    st=0 gap/sqrtX=-4.75e-07 exc/sqrtX=-0.0635 sv=0 cmax=189 rows=1599 it=40 t=0 
+chi5      {}                       k=2 X=2000     D=2000   st=0 gap/sqrtX=-4.76e-07 exc/sqrtX=-0.0635 sv=0 cmax=21 rows=1599 it=40 t=1 
+liouville {}                       k=0 X=2000     D=99     st=0 gap/sqrtX=2.43e+01 exc/sqrtX=+2.0779 sv=0 cmax=69 rows=1999 it=40 t=0 
+liouville {}                       k=0 X=2000     D=224    st=0 gap/sqrtX=-4.30e-06 exc/sqrtX=+2.0779 sv=0 cmax=405 rows=1999 it=1 t=0 
+liouville {}                       k=0 X=2000     D=448    st=0 gap/sqrtX=-4.30e-06 exc/sqrtX=+2.0779 sv=0 cmax=365 rows=1999 it=1 t=0 
+liouville {}                       k=0 X=2000     D=2000   st=0 gap/sqrtX=-4.30e-06 exc/sqrtX=+2.0779 sv=0 cmax=203 rows=1999 it=1 t=0 
+liouville {}                       k=1 X=2000     D=99     st=0 gap/sqrtX=7.85e+00 exc/sqrtX=+1.2895 sv=0 cmax=2.15e+04 rows=1999 it=1 t=0 
+liouville {}                       k=1 X=2000     D=224    st=0 gap/sqrtX=-3.22e-06 exc/sqrtX=+1.2895 sv=0 cmax=4.99e+04 rows=1999 it=1 t=0 
+liouville {}                       k=1 X=2000     D=448    st=0 gap/sqrtX=-3.22e-06 exc/sqrtX=+1.2895 sv=0 cmax=2.05e+03 rows=1999 it=1 t=0 
+liouville {}                       k=1 X=2000     D=2000   st=0 gap/sqrtX=-3.22e-06 exc/sqrtX=+1.2895 sv=0 cmax=152 rows=1999 it=1 t=0 
+liouville {}                       k=2 X=2000     D=99     st=4 gap/sqrtX=None exc/sqrtX=None sv=0 cmax=None rows=None it=None t=0 : Not Set)
+liouville {}                       k=2 X=2000     D=224    st=0 gap/sqrtX=-2.94e-06 exc/sqrtX=+0.5115 sv=0 cmax=1.17e+06 rows=1999 it=1 t=0 
+liouville {}                       k=2 X=2000     D=448    st=0 gap/sqrtX=-2.94e-06 exc/sqrtX=+0.5115 sv=0 cmax=4.57e+03 rows=1999 it=1 t=0 
+liouville {}                       k=2 X=2000     D=2000   st=0 gap/sqrtX=-2.77e-06 exc/sqrtX=+0.5115 sv=0 cmax=130 rows=1999 it=40 t=1 
+randsign  {}                       k=0 X=2000     D=99     st=0 gap/sqrtX=9.26e-01 exc/sqrtX=+4.2747 sv=0 cmax=17 rows=1999 it=40 t=0 
+randsign  {}                       k=0 X=2000     D=224    st=0 gap/sqrtX=-8.64e-07 exc/sqrtX=+4.2747 sv=0 cmax=44 rows=1999 it=40 t=0 
+randsign  {}                       k=0 X=2000     D=448    st=0 gap/sqrtX=-8.64e-07 exc/sqrtX=+4.2747 sv=0 cmax=15 rows=1999 it=40 t=0 
+randsign  {}                       k=0 X=2000     D=2000   st=0 gap/sqrtX=-8.64e-07 exc/sqrtX=+4.2747 sv=0 cmax=8 rows=1999 it=40 t=0 
+randsign  {}                       k=1 X=2000     D=99     st=0 gap/sqrtX=-7.08e-07 exc/sqrtX=+2.0086 sv=0 cmax=535 rows=1999 it=1 t=0 
+randsign  {}                       k=1 X=2000     D=224    st=0 gap/sqrtX=-6.99e-07 exc/sqrtX=+2.0086 sv=0 cmax=476 rows=1999 it=1 t=0 
+randsign  {}                       k=1 X=2000     D=448    st=0 gap/sqrtX=-7.01e-07 exc/sqrtX=+2.0086 sv=0 cmax=85.4 rows=1999 it=40 t=1 
+randsign  {}                       k=1 X=2000     D=2000   st=0 gap/sqrtX=-6.69e-07 exc/sqrtX=+2.0086 sv=0 cmax=11.7 rows=1999 it=40 t=1 
+randsign  {}                       k=2 X=2000     D=99     st=0 gap/sqrtX=-6.63e-07 exc/sqrtX=+0.6994 sv=0 cmax=1.6e+04 rows=1999 it=1 t=0 
+randsign  {}                       k=2 X=2000     D=224    st=0 gap/sqrtX=-6.56e-07 exc/sqrtX=+0.6994 sv=0 cmax=5.9e+04 rows=1999 it=1 t=0 
+randsign  {}                       k=2 X=2000     D=448    st=0 gap/sqrtX=-6.41e-07 exc/sqrtX=+0.6994 sv=0 cmax=264 rows=1999 it=1 t=0 
+randsign  {}                       k=2 X=2000     D=2000   st=0 gap/sqrtX=-6.22e-07 exc/sqrtX=+0.6994 sv=0 cmax=9.13 rows=1999 it=40 t=1 
+DH        {'mode': 'oracle'}       k=0 X=2000     D=99     st=2 gap/sqrtX=None exc/sqrtX=None sv=0 cmax=None rows=None it=None t=0 infeasible. (HiGHS S
+DH        {'mode': 'oracle'}       k=0 X=2000     D=448    st=0 gap/sqrtX=-4.40e-07 exc/sqrtX=+0.0519 sv=0 cmax=6.8 rows=1518 it=40 t=0 
+DH        {'mode': 'oracle'}       k=0 X=2000     D=2000   st=0 gap/sqrtX=-4.40e-07 exc/sqrtX=+0.0519 sv=0 cmax=9.36 rows=1518 it=40 t=0 
+DH        {'mode': 'oracle'}       k=1 X=2000     D=99     st=2 gap/sqrtX=None exc/sqrtX=None sv=0 cmax=None rows=None it=None t=0 infeasible. (HiGHS S
+DH        {'mode': 'oracle'}       k=1 X=2000     D=448    st=0 gap/sqrtX=-4.74e-07 exc/sqrtX=-0.0115 sv=0 cmax=83.5 rows=1518 it=40 t=0 
+DH        {'mode': 'oracle'}       k=1 X=2000     D=2000   st=0 gap/sqrtX=-4.80e-07 exc/sqrtX=-0.0115 sv=0 cmax=11.8 rows=1518 it=40 t=0 
+DH        {'mode': 'oracle'}       k=2 X=2000     D=99     st=4 gap/sqrtX=None exc/sqrtX=None sv=0 cmax=None rows=None it=None t=0 : Not Set)
+DH        {'mode': 'oracle'}       k=2 X=2000     D=448    st=0 gap/sqrtX=-5.18e-07 exc/sqrtX=+0.0022 sv=0 cmax=460 rows=1518 it=1 t=0 
+DH        {'mode': 'oracle'}       k=2 X=2000     D=2000   st=0 gap/sqrtX=-5.14e-07 exc/sqrtX=+0.0022 sv=0 cmax=10.8 rows=1518 it=40 t=1 

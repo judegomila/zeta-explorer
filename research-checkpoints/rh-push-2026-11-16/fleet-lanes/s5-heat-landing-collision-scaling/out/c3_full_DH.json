@@ -1,0 +1,35 @@
+{
+ "obj": "DH",
+ "adjacent_pairs": 147006,
+ "offline_pairs": 8138,
+ "first_offline_height": 85.69934848545772,
+ "index_of_first_offline_pair": 43,
+ "S_on_negative": 0,
+ "S_full_negative": 2932,
+ "first_index_S_full_negative": 257,
+ "first_height_S_full_negative": 365.31548389477996,
+ "negative_distance_to_nearest_pair_in_mean_spacings": [
+  0.00015325323722195413,
+  0.28740376286099,
+  0.6602297325431958,
+  1.278850754379431
+ ],
+ "negative_distance_over_displacement": [
+  0.00033152922270252504,
+  1.0697756314640778,
+  3.4589754171856044,
+  35.193699037590186
+ ],
+ "n_negative_farther_than_10_spacings": 0,
+ "n_negative_farther_than_1_spacing": 16,
+ "gate_full": {
+  "frac_gt_0p909": 0.8232929268193135,
+  "frac_on_gt_0p909": 0.8247554521584153
+ },
+ "rel_change_far": [
+  0.009741068992742652,
+  0.025383786113217566,
+  0.039543329307494095
+ ],
+ "note_index_window": "pairs with index below J=200 are not evaluated (neighbour window)"
+}

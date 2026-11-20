@@ -1,0 +1,4 @@
+arbsym: 2 tasks, K = 1200 (sector sizes 1201, 1200), 512 bits; planned memory per worker: 3 ball matrices 1201x1201, about 0.76 GB
+DH         2a=3.42     K=1200 even 2.0150e-31 (ball) odd 2.1013e-25 (ball)  212s [212s]
+DH         2a=3.43     K=1200 even -7.2584e-30 (ball) odd 7.2390e-26 (ball)  216s [428s]
+done 428s

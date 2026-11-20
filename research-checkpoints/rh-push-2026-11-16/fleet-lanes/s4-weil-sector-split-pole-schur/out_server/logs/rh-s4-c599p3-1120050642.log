@@ -1,0 +1,5 @@
+N = 600, prec 1500 bits, target 400 digits, supports ['5.9915'], object set big
+planned allocation: up to 6 ball matrices 300x300 per worker plus rungs; about 1.02 GB per worker (471 bytes per ball), 1 workers
+group ['5.9915']: Gauss nodes 1032 (rho = 2.970)
+group ['5.9915']: partial stage 1 (3 of 5) done 2665s
+written out/secC_N600.json 2665s

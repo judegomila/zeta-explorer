@@ -1,0 +1,34 @@
+DH         2a=1.0986 full T=120 span= 6  m_LP= 0.191401  fine-grid min= 0.184723  beyond T min=-0.9700  l1=15.1  lambda_min= 0.208717
+DH         2a=1.0986 full T=240 span=12  m_LP= 0.199367  fine-grid min= 0.160817  beyond T min=-7.6208  l1=29.2  lambda_min= 0.208717
+DH         2a=1.0986 full T=480 span=24  m_LP= 0.200874  fine-grid min= 0.070440  beyond T min=-21.5764  l1=44.1  lambda_min= 0.208717
+DH         2a=1.6000 full T=120 span= 6  m_LP=-0.002530  fine-grid min=-0.015889  beyond T min=-1.0686  l1=16  lambda_min= 0.006591
+DH         2a=1.6000 full T=240 span=12  m_LP= 0.002781  fine-grid min=-0.032698  beyond T min=-0.0466  l1=32.2  lambda_min= 0.006591
+DH         2a=1.6000 full T=480 span=24  m_LP= 0.004850  fine-grid min=-0.154500  beyond T min= 0.6953  l1=69.1  lambda_min= 0.006591
+CHI5       2a=1.0000 full T=120 span= 6  m_LP= 0.081258  fine-grid min= 0.070555  beyond T min= 0.1850  l1=22.4  lambda_min= 0.090131
+CHI5       2a=1.0000 full T=240 span=12  m_LP= 0.085010  fine-grid min= 0.044121  beyond T min= 0.1255  l1=46.7  lambda_min= 0.090131
+CHI5       2a=1.0000 full T=480 span=24  m_LP= 0.086278  fine-grid min=-0.075401  beyond T min= 0.5173  l1=97.3  lambda_min= 0.090131
+CHI-4      2a=1.0000 full T=120 span= 6  m_LP= 0.127105  fine-grid min= 0.121268  beyond T min= 1.2279  l1=13.5  lambda_min= 0.140047
+CHI-4      2a=1.0000 full T=240 span=12  m_LP= 0.132810  fine-grid min= 0.110895  beyond T min= 1.7271  l1=27.1  lambda_min= 0.140047
+CHI-4      2a=1.0000 full T=480 span=24  m_LP= 0.134713  fine-grid min=-0.096889  beyond T min= 2.2101  l1=59.9  lambda_min= 0.140047
+TNR:2:2.2  2a=1.0000 full T=120 span= 6  m_LP=-0.236943  fine-grid min=-0.245384  beyond T min=-4.7142  l1=17.7  lambda_min=-0.105324
+TNR:2:2.2  2a=1.0000 full T=240 span=12  m_LP=-0.251460  fine-grid min=-0.288990  beyond T min=-4.3560  l1=31.2  lambda_min=-0.105324
+TNR:2:2.2  2a=1.0000 full T=480 span=24  m_LP=-0.450230  fine-grid min=-0.560708  beyond T min=-0.6594  l1=41.5  lambda_min=-0.105324
+TNR:2:2.2  2a=1.5000 full T=120 span= 6  m_LP=-0.766213  fine-grid min=-0.779719  beyond T min=-8.8256  l1=18.8  lambda_min=-0.227586
+TNR:2:2.2  2a=1.5000 full T=240 span=12  m_LP=-1.047693  fine-grid min=-1.081156  beyond T min=-4.4492  l1=23.4  lambda_min=-0.227586
+TNR:2:2.2  2a=1.5000 full T=480 span=24  m_LP=-1.068917  fine-grid min=-1.242625  beyond T min=-1.7536  l1=43.5  lambda_min=-0.227586
+LIOU       2a=1.2000 pf T=120 span= 6  m_LP=-0.202743  fine-grid min=-0.210319  beyond T min=-0.4623  l1=14.2  lambda_min=-0.178288
+LIOU       2a=1.2000 pf T=240 span=12  m_LP=-0.191092  fine-grid min=-0.207121  beyond T min=-0.5325  l1=28.3  lambda_min=-0.178288
+LIOU       2a=1.2000 pf T=480 span=24  m_LP=-0.186954  fine-grid min=-0.305387  beyond T min=-0.7899  l1=56.5  lambda_min=-0.178288
+ZETA       2a=0.8000 pf T=120 span= 6  m_LP= 0.191266  fine-grid min= 0.186298  beyond T min=-2.3363  l1=15.4  lambda_min= 0.225245
+ZETA       2a=0.8000 pf T=240 span=12  m_LP= 0.198093  fine-grid min= 0.180571  beyond T min= 0.2386  l1=28.3  lambda_min= 0.225245
+ZETA       2a=0.8000 pf T=480 span=24  m_LP= 0.200475  fine-grid min= 0.085869  beyond T min= 0.6548  l1=56.3  lambda_min= 0.225245
+ZETA       2a=1.0000 pf T=120 span= 6  m_LP= 0.003784  fine-grid min=-0.001468  beyond T min= 0.1191  l1=11.6  lambda_min= 0.011867
+ZETA       2a=1.0000 pf T=240 span=12  m_LP= 0.006792  fine-grid min=-0.007048  beyond T min= 0.1071  l1=24.6  lambda_min= 0.011867
+ZETA       2a=1.0000 pf T=480 span=24  m_LP= 0.007829  fine-grid min=-0.102288  beyond T min= 0.4537  l1=51.1  lambda_min= 0.011867
+EA0.25     2a=1.5000 full T=120 span= 6  m_LP=-0.139749  fine-grid min=-0.163419  beyond T min=-2.5093  l1=22.4  lambda_min=-0.040648
+EA0.25     2a=1.5000 full T=240 span=12  m_LP=-0.080799  fine-grid min=-0.151002  beyond T min=-2.1689  l1=42.9  lambda_min=-0.040648
+EA0.25     2a=1.5000 full T=480 span=24  m_LP=-0.057838  fine-grid min=-0.216618  beyond T min=-1.3985  l1=78.9  lambda_min=-0.040648
+UNI        2a=1.3000 pf T=120 span= 6  m_LP=-0.857340  fine-grid min=-0.865852  beyond T min=-1.0027  l1=15.6  lambda_min=-0.736416
+UNI        2a=1.3000 pf T=240 span=12  m_LP=-0.839406  fine-grid min=-0.858706  beyond T min=-0.9653  l1=31.9  lambda_min=-0.736416
+UNI        2a=1.3000 pf T=480 span=24  m_LP=-0.833129  fine-grid min=-0.937751  beyond T min=-1.0179  l1=65.3  lambda_min=-0.736416
+../../../../scripts/memcap.sh 8 ../../../../.venv-arb/bin/python lp_dual.py  473.24s user 3.15s system 100% cpu 7:53.97 total

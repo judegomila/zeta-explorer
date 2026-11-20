@@ -1,0 +1,17 @@
+orbit done 82s
+haar done 169s
+orbit ZETA  min 0.0286 q1e-3 0.1041 q1e-2 0.1955 median 0.780 exponent 3.62
+orbit CHI   min 0.0243 q1e-3 0.1128 q1e-2 0.2159 median 0.863 exponent 3.45
+orbit DH    min 0.0393 q1e-3 0.1140 q1e-2 0.2128 median 1.033 exponent 3.60
+orbit TNR   min 0.0342 q1e-3 0.1254 q1e-2 0.2384 median 0.904 exponent 3.46
+orbit EA    min 0.0646 q1e-3 0.2149 q1e-2 0.3911 median 1.016 exponent 3.81
+orbit SGN   min 0.0245 q1e-3 0.1086 q1e-2 0.1986 median 0.822 exponent 3.78
+orbit UNI   min 0.0208 q1e-3 0.1069 q1e-2 0.2074 median 0.797 exponent 3.45
+haar  ZETA  min 0.0237 q1e-3 0.1037 q1e-2 0.1985 median 0.780 exponent 3.55
+haar  CHI   min 0.0352 q1e-3 0.1126 q1e-2 0.2164 median 0.863 exponent 3.50
+haar  DH    min 0.0418 q1e-3 0.1134 q1e-2 0.2110 median 1.031 exponent 3.66
+haar  TNR   min 0.0260 q1e-3 0.1253 q1e-2 0.2392 median 0.904 exponent 3.50
+haar  EA    min 0.0774 q1e-3 0.2147 q1e-2 0.3916 median 1.017 exponent 3.79
+haar  SGN   min 0.0356 q1e-3 0.1086 q1e-2 0.1987 median 0.823 exponent 3.81
+haar  UNI   min 0.0221 q1e-3 0.1067 q1e-2 0.2096 median 0.797 exponent 3.40
+done 168.8973410129547

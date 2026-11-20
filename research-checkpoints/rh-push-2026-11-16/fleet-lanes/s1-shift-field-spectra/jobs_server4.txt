@@ -1,0 +1,8 @@
+sfs.py rs 10001000000.0 40000.0 0.05 out/rs_1e10c_00.json ZETA
+sfs.py rs 10001040000.0 40000.0 0.05 out/rs_1e10c_01.json ZETA
+sfs.py rs 10001080000.0 40000.0 0.05 out/rs_1e10c_02.json ZETA
+sfs.py rs 10001120000.0 40000.0 0.05 out/rs_1e10c_03.json ZETA
+sfs.py rs 10001160000.0 40000.0 0.05 out/rs_1e10c_04.json ZETA
+sfs.py rs 10001200000.0 40000.0 0.05 out/rs_1e10c_05.json ZETA
+sfs.py rs 10001240000.0 40000.0 0.05 out/rs_1e10c_06.json ZETA
+sfs.py rs 10001280000.0 40000.0 0.05 out/rs_1e10c_07.json ZETA

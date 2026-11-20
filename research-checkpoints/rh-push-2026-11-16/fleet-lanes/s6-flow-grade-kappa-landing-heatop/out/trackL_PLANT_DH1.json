@@ -1,0 +1,40 @@
+{
+"obj": "PLANT:ZETA:85.699348485377592:0.308517182456637",
+"table": "data/mom_local.pkl",
+"pairs": [
+{
+"g": "85.699348485377592",
+"b": "0.308517182456637",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+85.6993484853776,
+-0.308517182456637
+],
+"cancel_bits": null,
+"D0_pair": 19290.682495285208,
+"d_pair": 22117,
+"d_pair_lower": 22116,
+"root_at_d_pair": [
+-7339.942938409107,
+0.30904928547872507
+],
+"ratio_to_D0": 1.146512053443706,
+"terms_used": 460,
+"log2_largest_term": 109.0
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-7346.158795892298,
+-0.0
+]
+}
+],
+"prec": 1214,
+"sec": 3.5
+}
+]
+}

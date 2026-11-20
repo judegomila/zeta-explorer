@@ -1,0 +1,42 @@
+T 1e+07 M 40000 theta 0.5714 R 1.30 y 9999 gpu True
+zeta done 114s
+mod 5 done 688s
+values done 1053s
+max |Dirichlet inverse coefficient of DH| up to y: 52.1578406533324 at n = 6552
+
+function | mollifier | mean|V psi|^2 (se) | kappa_J | mean log|V psi| (se) | kappa_nJ | rho | kappa_J folded | kappa_nJ folded
+planned allocation: design matrix complex128[40000 x 30] = 19.2 MB
+planned allocation: design matrix complex128[40000 x 300] = 192.0 MB
+planned allocation: design matrix complex128[40000 x 9999] = 6399.4 MB
+ZETA | none | 11.0571 (0.2398) | -0.8485 | 0.16507 (0.00509) | 0.7460 | 0.9737 | -0.7998 | 0.7527
+ZETA | MOB_y | 2.0851 (0.0106) | 0.4347 | 0.17141 (0.00247) | 0.7363 | 0.9737 | 0.4496 | 0.7432
+ZETA | MOB_y_flat | 6.7815 (0.1130) | -0.4725 | 0.41789 (0.00368) | 0.3571 | 0.9737 | -0.4337 | 0.3740
+ZETA | EUL_11 | 2.9362 (0.0208) | 0.1714 | 0.16971 (0.00336) | 0.7389 | 0.9737 | 0.1933 | 0.7458
+ZETA | EUL_101 | 2.2594 (0.0117) | 0.3730 | 0.16848 (0.00277) | 0.7408 | 0.9737 | 0.3895 | 0.7476
+ZETA | LSQ_30(test half) | 2.9769 (0.0310) [train 2.9171] | 0.1609 | 0.17176 (0.00473) | 0.7358 | 0.9737 | 0.1830 | 0.7427
+ZETA | LSQ_300(test half) | 2.4016 (0.0196) [train 2.2583] | 0.3261 | 0.17094 (0.00409) | 0.7370 | 0.9737 | 0.3438 | 0.7439
+ZETA | LSQ_9999(test half) | 15.3043 (0.5231) [train 0.5822] | -1.0986 | 0.39013 (0.00705) | 0.3998 | 0.9737 | -1.0433 | 0.4156
+planned allocation: design matrix complex128[40000 x 30] = 19.2 MB
+planned allocation: design matrix complex128[40000 x 300] = 192.0 MB
+planned allocation: design matrix complex128[40000 x 9999] = 6399.4 MB
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s1-scattering-one-line/t4_levinson.py", line 107, in <module>
+    tr_ms, te_ms, te_ml, se1, se2, bc = lsq(V, yl)
+                                        ^^^^^^^^^^
+  File "/home/USER/rh-push/s1-scattering-one-line/t4_levinson.py", line 95, in lsq
+    rt = xp.abs(Atr @ bcoef); re = xp.abs(A[te] @ bcoef)
+                                          ~^^^^
+  File "cupy/_core/core.pyx", line 1853, in cupy._core.core._ndarray_base.__getitem__
+  File "cupy/_core/_routines_indexing.pyx", line 54, in cupy._core._routines_indexing._ndarray_getitem
+  File "cupy/_core/core.pyx", line 1118, in cupy._core.core._ndarray_base.take
+  File "cupy/_core/_routines_indexing.pyx", line 154, in cupy._core._routines_indexing._ndarray_take
+  File "cupy/_core/_routines_indexing.pyx", line 882, in cupy._core._routines_indexing._take
+  File "cupy/_core/core.pyx", line 176, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 282, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1528, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 3,199,680,000 bytes (allocated so far: 16,319,041,024 bytes, limit set to: 17,179,869,184 bytes).

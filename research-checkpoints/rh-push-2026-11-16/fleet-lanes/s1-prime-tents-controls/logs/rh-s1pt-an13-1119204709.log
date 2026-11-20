@@ -1,0 +1,9 @@
+rows 55940 XMAX 10000000000000 pi(XMAX) 346065536839
+prime count checks {'pi(1e+07)': [664579, 664579, True], 'pi(1e+08)': [5761455, 5761455, True], 'pi(1e+09)': [50847534, 50847534, True], 'pi(1e+10)': [455052511, 455052511, True], 'pi(1e+11)': [4118054813, 4118054813, True], 'pi(1e+12)': [37607912018, 37607912018, True], 'pi(1e+13)': [346065536839, 346065536839, True]}
+{'theta(1e10)': ['9999939830.657757384', '9999939830.657757 (literature)']}
+tents done {'0.55': {'largest_gamma_with_violation': 14.149205521129694, 'smallest_gamma_without_violation': 7.681626314461046}, '0.6': {'largest_gamma_with_violation': 24.38479867590349, 'smallest_gamma_without_violation': 8.935446628232297}, '0.7': {'largest_gamma_with_violation': 122.57473475017096, 'smallest_gamma_without_violation': 45.188151530590005}, '0.75': {'largest_gamma_with_violation': 257.90713598752836, 'smallest_gamma_without_violation': 99.79278923087081}, '0.8': {'largest_gamma_with_violation': 492.60790698287843, 'smallest_gamma_without_violation': 217.7312166391989}, '0.9': {'largest_gamma_with_violation': 2288.9608263646264, 'smallest_gamma_without_violation': 579.9860052247839}, '1.0': {'largest_gamma_with_violation': 10011.752531721379, 'smallest_gamma_without_violation': 4904.337253702196}}
+pascal done ['14531.8848456286', '14531.8848456286']
+/home/USER/rh-push/s1-prime-tents-controls/analyze.py:245: RuntimeWarning: overflow encountered in power
+  Ek = np.log1p((spf - 1) / (spf ** (k + 1) - spf)) / lsp
+robin done
+ALL DONE

@@ -1,0 +1,11 @@
+T 1e+07 windows 1000 H 15848.9 step 15848.9 y {'1/2': 3162, '4/7': 9999} R 1.30 gpu True extended True
+grid: h <= 0.1209, M = 131072 samples per window, FFT size 262144, sources up to 29602
+planned allocation: per-window working set ~40 complex128 arrays of M and 3 of 2M = 96.5 MB
+window 0 Tw 1e+07  5.8s  ZETA|MU|4/7 kJ 0.4734 knJ 0.7792 gap 0.3058   DH|MURE|4/7 kJ -0.1225 knJ 0.6583 gap 0.7808
+window 1 Tw 1.00158e+07  10.4s  ZETA|MU|4/7 kJ 0.4698 knJ 0.7787 gap 0.3089   DH|MURE|4/7 kJ -0.1208 knJ 0.6576 gap 0.7784
+window 2 Tw 1.00317e+07  15.0s  ZETA|MU|4/7 kJ 0.4710 knJ 0.7778 gap 0.3068   DH|MURE|4/7 kJ -0.1211 knJ 0.6596 gap 0.7808
+window 50 Tw 1.07924e+07  233.9s  ZETA|MU|4/7 kJ 0.4681 knJ 0.7760 gap 0.3079   DH|MURE|4/7 kJ -0.1252 knJ 0.6572 gap 0.7823
+window 100 Tw 1.15849e+07  483.3s  ZETA|MU|4/7 kJ 0.4684 knJ 0.7786 gap 0.3102   DH|MURE|4/7 kJ -0.1268 knJ 0.6564 gap 0.7832
+window 150 Tw 1.23773e+07  767.9s  ZETA|MU|4/7 kJ 0.4672 knJ 0.7768 gap 0.3096   DH|MURE|4/7 kJ -0.1286 knJ 0.6533 gap 0.7820
+window 200 Tw 1.31698e+07  1033.1s  ZETA|MU|4/7 kJ 0.4644 knJ 0.7761 gap 0.3117   DH|MURE|4/7 kJ -0.1314 knJ 0.6541 gap 0.7855
+window 250 Tw 1.39622e+07  1286.1s  ZETA|MU|4/7 kJ 0.4646 knJ 0.7762 gap 0.3116   DH|MURE|4/7 kJ -0.1334 knJ 0.6579 gap 0.7912

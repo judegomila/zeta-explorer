@@ -1,0 +1,32 @@
+{
+ "zeta": {
+  "max_diff_minpsi": 9.300429121977816e-08,
+  "max_diff_maxpsi": 8.339753702901742e-08,
+  "max_diff_Rlow": 1.34705692319409e-07,
+  "max_rel_diff_variation_bin": 6.913282104524291e-10
+ },
+ "L_chi-4": {
+  "max_diff_minpsi": 1.1404904798339999e-12,
+  "max_diff_maxpsi": 1.1409068134682343e-12,
+  "max_diff_Rlow": 0,
+  "max_rel_diff_variation_bin": 0
+ },
+ "L_chi5": {
+  "max_diff_minpsi": 1.782601843913767e-12,
+  "max_diff_maxpsi": 1.8539891843971645e-12,
+  "max_diff_Rlow": 0,
+  "max_rel_diff_variation_bin": 0
+ },
+ "Ea0.05": {
+  "max_diff_minpsi": 2.9140456739296106e-07,
+  "max_diff_maxpsi": 2.6996401429613126e-07,
+  "max_diff_Rlow": 0,
+  "max_rel_diff_variation_bin": 0
+ },
+ "TNR3_2.01": {
+  "max_diff_minpsi": 9.287765723176022e-08,
+  "max_diff_maxpsi": 9.273373968721188e-08,
+  "max_diff_Rlow": 8.13072174032925e-08,
+  "max_rel_diff_variation_bin": 5.2560403679893e-10
+ }
+}

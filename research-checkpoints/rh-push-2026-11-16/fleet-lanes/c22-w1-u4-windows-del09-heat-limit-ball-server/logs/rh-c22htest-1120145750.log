@@ -1,0 +1,35 @@
+PLAN: mode heat, prec 128, tau 1, centre Im z = 2500.75, X = 3, Y_k = [1], workers 2, slabs 1; largest allocation: float grid rows of 661 x 2700 complex128 (below 40 MB per worker); samples: fewer than 3000 balls per slab
+slab 0 centre 5015.50000000: {"eps_trap": "[6.46392e-27 +/- 4.57e-33]", "eps_tail": "[1.02104e-91 +/- 9.85e-98]", "eps_window": "[2.62934e-26 +/- 1.29e-32]", "M_a": "[1.08382e+10 +/- 1.21e+4]", "nodes": 2571, "window_nodes": 1073, "h": "[0.03735408560 +/- 3.12e-12]"} eps = [3.2757e-26 +/- 3.03e-31] eps1 = [1.3103e-25 +/- 7.90e-31]  (1s)
+Q_gen P8 [-0.489762235347130371472912 +/- 2.51e-25] + [+/- 9.77e-26]j abs F (scaled) at the rate points >= [12.7618331225318, 12.7618331225318]
+Q_gen P1 [2.922359340593639053582150 +/- 3.13e-25] + [+/- 3.01e-25]j abs F (scaled) at the rate points >= [12.7618331225318, 12.7618331225318, 19.347928936927218, 19.347928936927218]
+float screen: 10 candidate cells (4s)
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_cells.py", line 206, in nwt
+    w, F, F1 = newton(acb(arb(a[0]), arb(a[1])))
+                          ^^^^^^^^^
+  File "flint/types/arb.pyx", line 202, in flint.types.arb.arb.__init__
+  File "flint/types/arb.pyx", line 118, in flint.types.arb.arb_set_python
+  File "flint/types/arb.pyx", line 53, in flint.types.arb.arb_from_str
+ValueError: invalid string for arb()
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/USER/rh-push/c22-w1-u4-windows-del09-heat-limit-ball-server/heat_cells.py", line 243, in <module>
+    nw = pool.map(nwt, cands, chunksize=2)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+ValueError: invalid string for arb()

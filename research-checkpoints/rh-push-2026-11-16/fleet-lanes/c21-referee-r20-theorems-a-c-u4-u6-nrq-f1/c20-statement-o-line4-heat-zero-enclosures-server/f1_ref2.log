@@ -1,0 +1,94 @@
+{
+ "tau": "1.0",
+ "zero z (centre of the certified square, half-width 1e-6)": "(5001.646847849111 - 1.635148075297j)",
+ "s_eff(z)": "(-0.179050653377278 + 2500.43115645804j)",
+ "near-affine formula (1+eta)/2 - tau L/4 + i(x/2 - pi tau/8)": "(-0.17905052729813 + 2500.43072484286j)",
+ "Re g'(z) (claimed -pi/8 + o(1))": "-0.3922674665",
+ "Im g'(z) - L/4": "1.26079e-7",
+ "|F/T#| at the zero": "4.31576e-13",
+ "|D_tau(s_eff)| at the zero (Gaussian mean of zeta)": "0.000306314",
+ "log^2|z|/|z|": "0.0145049",
+ "control z + ((0.3 + 0.0j))": {
+  "|F/T#|": "0.3718360204",
+  "|D_tau(s_eff)|": "0.3720630942",
+  "|F/T# - D|": "0.000276262",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.019047"
+ },
+ "control z + ((0.0 - 0.4j))": {
+  "|F/T#|": "0.4340431172",
+  "|D_tau(s_eff)|": "0.4338923791",
+  "|F/T# - D|": "0.0002802",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.0193177"
+ },
+ "trapezoid step check (h = 0.05 vs 0.1): |dF|, |dD|": [
+  "1.4838e-25",
+  "1.1422e-22"
+ ],
+ "seconds": 35.888187885284424
+}
+{
+ "tau": "0.25",
+ "zero z (centre of the certified square, half-width 1e-6)": "(1000006.298867790512 - 1.345582919615j)",
+ "s_eff(z)": "(0.467510671691682 + 500003.051259646j)",
+ "near-affine formula (1+eta)/2 - tau L/4 + i(x/2 - pi tau/8)": "(0.467510671692316 + 500003.051259125j)",
+ "Re g'(z) (claimed -pi/8 + o(1))": "-0.3926969953",
+ "Im g'(z) - L/4": "2.5394e-12",
+ "|F/T#| at the zero": "4.67907e-13",
+ "|D_tau(s_eff)| at the zero (Gaussian mean of zeta)": "1.27906e-7",
+ "log^2|z|/|z|": "0.000190867",
+ "control z + ((0.3 + 0.0j))": {
+  "|F/T#|": "0.223710224",
+  "|D_tau(s_eff)|": "0.2237103232",
+  "|F/T# - D|": "1.12163e-7",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.000587649"
+ },
+ "control z + ((0.0 - 0.4j))": {
+  "|F/T#|": "0.277757883",
+  "|D_tau(s_eff)|": "0.2777578335",
+  "|F/T# - D|": "1.50901e-7",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.000790608"
+ },
+ "trapezoid step check (h = 0.05 vs 0.1): |dF|, |dD|": [
+  "4.7501e-27",
+  "1.3518e-23"
+ ],
+ "seconds": 70.58872985839844
+}
+{
+ "tau": "0.25",
+ "zero z (centre of the certified square, half-width 1e-6)": "(1000020.455262144711 - 0.952082371855j)",
+ "s_eff(z)": "(0.27075951304907 + 500010.129456799j)",
+ "near-affine formula (1+eta)/2 - tau L/4 + i(x/2 - pi tau/8)": "(0.270759513049505 + 500010.129456302j)",
+ "Re g'(z) (claimed -pi/8 + o(1))": "-0.3926970937",
+ "Im g'(z) - L/4": "1.73771e-12",
+ "|F/T#| at the zero": "8.7966e-13",
+ "|D_tau(s_eff)| at the zero (Gaussian mean of zeta)": "2.5661e-7",
+ "log^2|z|/|z|": "0.000190865",
+ "control z + ((0.3 + 0.0j))": {
+  "|F/T#|": "0.6978954308",
+  "|D_tau(s_eff)|": "0.6978956903",
+  "|F/T# - D|": "2.61309e-7",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.00136908"
+ },
+ "control z + ((0.0 - 0.4j))": {
+  "|F/T#|": "0.5930583018",
+  "|D_tau(s_eff)|": "0.5930582849",
+  "|F/T# - D|": "2.43882e-7",
+  "|F/T# - D| / (log^2|z|/|z|)": "0.00127777"
+ },
+ "trapezoid step check (h = 0.05 vs 0.1): |dF|, |dD|": [
+  "4.5394e-27",
+  "4.0244e-23"
+ ],
+ "seconds": 72.3671669960022
+}
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/c21-referee-r20-theorems-a-c-u4-u6-nrq-f1/c20-statement-o-line4-heat-zero-enclosures-server/f1_ref2.py", line 53, in <module>
+    out.append({'b_4 - b_2^2 (tau = 1)': mp.nstr(bn(4) - bn(2)**2, 12), 'sigma_1(1): sum_{n>=2} b_n n^-sigma = 1 at sigma =': mp.nstr(mp.findroot(lambda sg: mp.nsum(lambda n: bn(n)*n**(-sg), [2, mp.inf]) - 1, 1.0), 10)})
+                                                                                                                                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.14/site-packages/mpmath/calculus/optimization.py", line 986, in findroot
+    raise ValueError('Could not find root within given tolerance. '
+    ...<2 lines>...
+                     % (norm(f(*xl))**2, tol))
+ValueError: Could not find root within given tolerance. (2.896679230419478355977724629066113052930450942e-27 > 2.242077542919707313477967333263865810048419107e-44)
+Try another starting point or tweak arguments.

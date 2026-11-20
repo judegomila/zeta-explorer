@@ -1,0 +1,10 @@
+lattice c=0.25: sup c|Delta| got 0.414681 want 0.412231 ok
+lattice c=1: sup c|Delta| got 0.0118313 want 0.0117554 ok
+lattice c=4: sup c|Delta| got 3.07626e-10 want 3.05653e-10 ok
+random c=0.25 u=1500.3: FFT 0.69639-1.80123i direct 0.69026-1.80916i ok
+random c=0.25 u=2047.77: FFT -0.23683+0.66496i direct -0.19624+0.69708i ok
+random c=0.25 u=2600.1: FFT -1.37847+0.20246i direct -1.38831+0.19962i ok
+random c=4 u=1500.3: FFT 0.58050+0.16859i direct 0.57350+0.16857i ok
+random c=4 u=2047.77: FFT -0.96194-0.55170i direct -0.96876-0.55172i ok
+random c=4 u=2600.1: FFT -0.04267+0.70518i direct -0.04984+0.70515i ok
+ALL OK

@@ -1,0 +1,3 @@
+'posDef_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'posDef_max_set_subgroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'beurling_core' depends on axioms: [propext, Classical.choice, Quot.sound]

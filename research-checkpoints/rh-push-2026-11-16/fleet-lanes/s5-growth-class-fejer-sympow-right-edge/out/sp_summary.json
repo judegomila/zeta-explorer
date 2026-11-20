@@ -1,0 +1,44 @@
+{
+ "ZETA 2000.5..10000.5": {
+  "windows": 800,
+  "contiguous": true,
+  "T_first": 2000.5,
+  "T_last": 9990.5,
+  "zeros_of_Fprime": 0,
+  "max_winding_residual": 0.0,
+  "max_step": 0.6,
+  "evaluations": 393395
+ },
+ "L4 0.5..10000.5": {
+  "windows": 1000,
+  "contiguous": true,
+  "T_first": 0.5,
+  "T_last": 9990.5,
+  "zeros_of_Fprime": 0,
+  "max_winding_residual": 0.0,
+  "max_step": 0.6,
+  "evaluations": 576393
+ },
+ "DH 2000.5..10000.5": {
+  "windows": 800,
+  "contiguous": true,
+  "T_first": 2000.5,
+  "T_last": 9990.5,
+  "zeros_of_Fprime": 483,
+  "max_winding_residual": 0.0,
+  "max_step": 0.6,
+  "evaluations": 484048,
+  "per_1000": {
+   "2000..3000": 50,
+   "3000..4000": 59,
+   "4000..5000": 60,
+   "5000..6000": 54,
+   "6000..7000": 56,
+   "7000..8000": 62,
+   "8000..9000": 68,
+   "9000..10000": 74
+  },
+  "lowest_window_with_zero": 2000.5,
+  "max_per_window": 2
+ }
+}

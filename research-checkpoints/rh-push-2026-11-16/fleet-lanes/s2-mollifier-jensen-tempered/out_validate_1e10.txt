@@ -1,0 +1,12 @@
+T 1e+10 M 1048576 gpu True longdouble-extended True
+nufft vs direct: max abs err 9.67e-11
+zeta sigma 0.50 a 4: max err F 1.05e-08, F' 1.11e-07 (|F'| up to 79.9)
+zeta sigma 0.50 a 6: max err F 1.06e-08, F' 1.12e-07 (|F'| up to 79.9)
+zeta sigma 0.41 a 4: max err F 2.88e-08, F' 3.39e-07 (|F'| up to 445.5)
+zeta sigma 0.41 a 6: max err F 2.89e-08, F' 3.40e-07 (|F'| up to 445.5)
+zeta sigma 0.75 a 4: max err F 1.23e-09, F' 8.63e-09 (|F'| up to 4.9)
+zeta sigma 0.75 a 6: max err F 1.22e-09, F' 8.67e-09 (|F'| up to 4.9)
+zeta sigma 0.20 a 4: max err F 6.62e-07, F' 1.23e-05 (|F'| up to 28105.2)
+zeta sigma 0.20 a 6: max err F 6.59e-07, F' 1.23e-05 (|F'| up to 28105.2)
+L(chi) sigma 0.50: a=4 vs a=6 max diff F 1.70e-09 F' 1.94e-08
+L(chi) sigma 0.41: a=4 vs a=6 max diff F 4.74e-09 F' 5.40e-08

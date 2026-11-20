@@ -1,0 +1,16 @@
+t1_low HEAT-0.5 windows 14 H 10.0 workers 8
+HEAT-0.5 T 100.50 winding -0.0000 count 0 roots   maxstep 0.43 evals 203/203 4.5s
+HEAT-0.5 T 110.50 winding 1.0000 count 1 roots (0.458245, 111.699978)  maxstep 0.59 evals 210/478 8.4s
+HEAT-0.5 T 120.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 235/235 3.9s
+HEAT-0.5 T 130.50 winding -0.0000 count 0 roots   maxstep 0.50 evals 254/254 6.0s
+HEAT-0.5 T 140.50 winding 0.0000 count 0 roots   maxstep 0.58 evals 253/253 5.5s
+HEAT-0.5 T 150.50 winding 1.0000 count 1 roots (0.469268, 150.693100)  maxstep 0.57 evals 253/535 10.8s
+HEAT-0.5 T 160.50 winding 1.0000 count 1 roots (0.445051, 169.600716)  maxstep 0.43 evals 262/531 10.1s
+HEAT-0.5 T 170.50 winding 0.0000 count 0 roots   maxstep 0.59 evals 265/265 7.8s
+HEAT-0.5 T 180.50 winding 1.0000 count 1 roots (0.406598, 185.523498)  maxstep 0.57 evals 236/494 3.8s
+HEAT-0.5 T 190.50 winding -0.0000 count 0 roots   maxstep 0.54 evals 269/269 5.4s
+HEAT-0.5 T 200.50 winding 0.0000 count 0 roots   maxstep 0.57 evals 262/262 4.3s
+HEAT-0.5 T 210.50 winding -0.0000 count 0 roots   maxstep 0.59 evals 261/261 2.5s
+HEAT-0.5 T 220.50 winding 1.0000 count 1 roots (0.399825, 221.217416)  maxstep 0.54 evals 237/564 6.6s
+HEAT-0.5 T 230.50 winding 1.0000 count 1 roots (0.408614, 231.820151)  maxstep 0.58 evals 250/536 5.2s
+total count 6 roots found 6

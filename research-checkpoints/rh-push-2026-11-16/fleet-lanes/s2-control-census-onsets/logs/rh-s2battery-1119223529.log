@@ -1,0 +1,35 @@
+part battery: 174 objects, NB=170 AMAX=3.4 NMAX=900
+0 zeta None None 1s
+100 TNR(q=97,c=3,own) 2.290625 None 23s
+done 44s
+part twins: 660 objects, NB=170 AMAX=3 NMAX=406
+0 q5.0.L 1.5015625 None 5s
+100 q21.0.T+ None None 39s
+200 q29.5.T- 1.259375 None 74s
+300 q35.4.L None None 110s
+400 q41.4.T+ 2.79453125 None 156s
+500 q43.18.T- 2.05234375 None 198s
+600 q48.0.L None None 232s
+done 254s
+part gl2: 1944 objects, NB=170 AMAX=2 NMAX=57
+0 form:11a None None 1s
+100 single(q=3,e=10,zero)(k=2,N=11) 0.46640625 None 23s
+200 single(q=2,e=10,zero)(k=2,N=37) 0.37265625 None 54s
+300 Ea(b=0.75)(k=2,N=100) 0.67734375 None 77s
+400 excess(0.1)(k=4,N=5) 0.38828125 None 102s
+500 satotate-2(k=12,N=1) 0.51328125 None 124s
+600 vertex+2(k=16,N=1) 0.46640625 None 145s
+700 single(q=11,e=0.001,zero)(k=16,N=1) 1.275 None 168s
+800 single(q=7,e=0.001,zero)(k=24,N=1) 1.16171875 None 197s
+900 single(q=5,e=0.001,zero)(k=36,N=1) 1.70078125 None 229s
+1000 single(q=3,e=0.001,zero)(k=2,N=1000) None None 264s
+1100 single(q=2,e=0.001,zero)(k=2,N=100000) None None 289s
+1200 single(q=5,e=0.001) on 14a 0.853125 None 316s
+1300 single(q=5,e=1) on 32a 0.86484375 None 343s
+1400 single(q=2,e=0.1) on k4N9 0.478125 None 372s
+1500 single(q=3,e=0.001) on Delta 0.571875 None 401s
+1600 single(q=5,e=1) on k20N1 0.81796875 None 426s
+1700 single(q=11,e=0.1) on 37a 1.25546875 None 461s
+1800 single(q=3,e=0.001) on 79a 1.73203125 None 496s
+1900 single(q=5,e=1) on 17a 0.83359375 None 537s
+done 551s

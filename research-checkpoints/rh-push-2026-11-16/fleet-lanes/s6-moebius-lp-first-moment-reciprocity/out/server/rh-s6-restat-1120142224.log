@@ -1,0 +1,13 @@
+chi4 T0=1.0e+08 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.167 max|Z|=47.4 cert_max(th=0.5)=2.400 false=0 J17=2.805
+chi4 T0=1.0e+06 zeros=1700001 (count-expected +1.0) viol=0 gap_max=3.104 max|Z|=28.5 cert_max(th=0.5)=2.200 false=0 J17=2.788
+chi5 T0=1.0e+10 zeros=340000 (count-expected +0.0) viol=0 gap_max=3.144 max|Z|=91.4 cert_max(th=0.5)=2.500 false=0 J17=2.858
+chi5 T0=1.0e+08 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.346 max|Z|=74.8 cert_max(th=0.5)=2.500 false=0 J17=2.824
+chi5 T0=1.0e+06 zeros=1700001 (count-expected +1.0) viol=0 gap_max=3.129 max|Z|=46.6 cert_max(th=0.5)=2.300 false=0 J17=2.811
+DH T0=1.0e+12 zeros=29985 (count-expected -4015.0) viol=1367 gap_max=6.779 max|Z|=62.7 cert_max(th=0.5)=2.200 false=0 J17=46.222
+DH T0=1.0e+10 zeros=301065 (count-expected -38935.0) viol=13600 gap_max=7.820 max|Z|=54.8 cert_max(th=0.5)=2.500 false=0 J17=15.429
+DH T0=1.0e+08 zeros=1511378 (count-expected -188622.0) viol=69380 gap_max=8.854 max|Z|=41.4 cert_max(th=0.5)=2.400 false=0 J17=7.044
+DH T0=1.0e+06 zeros=1522171 (count-expected -177829.0) viol=70453 gap_max=8.975 max|Z|=25.0 cert_max(th=0.5)=2.200 false=0 J17=4.393
+zeta T0=1.0e+12 zeros=85001 (count-expected +1.0) viol=0 gap_max=3.161 max|Z|=125.9 cert_max(th=0.5)=2.700 false=0 J17=2.787
+zeta T0=1.0e+10 zeros=850000 (count-expected +0.0) viol=0 gap_max=3.402 max|Z|=122.5 cert_max(th=0.5)=2.700 false=0 J17=2.748
+zeta T0=1.0e+08 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.511 max|Z|=90.7 cert_max(th=0.5)=2.600 false=0 J17=2.691
+zeta T0=1.0e+06 zeros=1700000 (count-expected +0.0) viol=0 gap_max=3.377 max|Z|=47.6 cert_max(th=0.5)=2.500 false=0 J17=2.643

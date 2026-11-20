@@ -1,0 +1,5 @@
+zeta firstneg_psi=-1 firstneg_Rlow=-1 first_H_out_of_range=-1
+L_chi-4 firstneg_psi=-1 firstneg_Rlow=-1 first_H_out_of_range=-1
+L_chi5 firstneg_psi=-1 firstneg_Rlow=-1 first_H_out_of_range=-1
+TNR3_2.2 firstneg_psi=8 firstneg_Rlow=7 first_H_out_of_range=2
+TNR3_2.01 firstneg_psi=81 firstneg_Rlow=7 first_H_out_of_range=2

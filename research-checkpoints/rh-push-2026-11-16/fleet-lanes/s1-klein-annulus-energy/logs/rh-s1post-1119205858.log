@@ -1,0 +1,83 @@
+Thu Nov 19 08:58:58 PM UTC 2026
+li: DH H 7000 rho 1-7.14286e-05 N 2^20 = 1048576 nmax 400000; arrays 67 MB; amplification rho^-nmax = 2.56e+12; alias rho^N = 2.96e-33
+recheck n=1 c_n = [0.0976291727990568387646745970590003252 +/- 6.54e-38] + [+/- 9.37e-38] i ; c_n rho^-n = [0.0976361468095432347105343014173797247 +/- 7.78e-38]
+recheck n=328996 c_n = [8.6176302172960786818976791867e-8 +/- 1.50e-37] + [+/- 6.18e-37] i ; c_n rho^-n = [1385.31521852946054769454308300 +/- 5.65e-27]
+recheck n=328997 c_n = [-1.4803988667864855894615859770e-7 +/- 2.00e-36] + [+/- 4.91e-37] i ; c_n rho^-n = [-2379.9647066288694093023588728 +/- 3.19e-26]
+recheck n=328998 c_n = [-3.65425253778216074936132929158e-7 +/- 5.91e-37] + [+/- 8.84e-37] i ; c_n rho^-n = [-5875.18237298120851740136198949 +/- 6.39e-27]
+li: ZETA H 50000 rho 1-1e-05 N 2^23 = 8388608 nmax 1000000; arrays 537 MB; amplification rho^-nmax = 2.2e+04; alias rho^N = 3.7e-37
+recheck n=1 c_n = [0.023095478009031372603953211830008553 +/- 8.51e-37] + [+/- 4.04e-37] i ; c_n rho^-n = [0.02309570896612103381431024792774521 +/- 5.06e-36]
+recheck n=300 c_n = [518.145188272101582102101513299046300261 +/- 8.10e-37] + [+/- 8.98e-37] i ; c_n rho^-n = [519.701965619249644844632602169052751761 +/- 6.41e-37]
+recheck n=1000000 c_n = [262.28435439932785230471499712883237703 +/- 7.85e-36] + [+/- 1.21e-35] i ; c_n rho^-n = [5777486.229705256937686385340620068514 +/- 6.25e-31]
+li: EA:1/8 H 700 rho 1-0.000714286 N 2^19 = 524288 nmax 100000; arrays 34 MB; amplification rho^-nmax = 1.08e+31; alias rho^N = 2.01e-163
+recheck n=17855 c_n = [0.00738350220230104545471184629798747271 +/- 3.05e-39] + [+/- 4.66e-40] i ; c_n rho^-n = [2564.762718376870497712676564702473567 +/- 3.21e-34]
+recheck n=17856 c_n = [-0.001462837340406342387805662052836752056 +/- 7.74e-40] + [+/- 2.28e-39] i ; c_n rho^-n = [-508.500216492645694826598701419184257 +/- 3.51e-34]
+Thu Nov 19 09:03:46 PM UTC 2026
+lines: ZETA window [100000,100200] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 94.6 s
+wrote data/ZETA_1e5_p128.npz
+lines: ZETA window [1e+06,1.0002e+06] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 48.6 s
+wrote data/ZETA_1e6_p128.npz
+lines: ZETA window [1e+07,1.00002e+07] dy 0.005 pad 8: 43209 points x 5 lines = 216045 evaluations; arrays 20.7 MB
+lines: evaluated in 51.8 s
+wrote data/ZETA_1e7_p128.npz
+combo1 done
+combo3 done
+wrote out/DH_122_nooff.json
+combo1 done
+combo3 done
+wrote out/DH_1e3.json
+combo1 done
+combo3 done
+wrote out/DH_70.json
+combo1 done
+combo3 done
+wrote out/EA18_1e3.json
+combo1 done
+combo3 done
+wrote out/EA18_1e5.json
+combo1 done
+combo3 done
+wrote out/EA310_1e3.json
+combo1 done
+combo3 done
+wrote out/EA310_1e5.json
+combo1 done
+combo3 done
+wrote out/LCHI3_1e1.json
+combo1 done
+combo3 done
+wrote out/TNR_1e3.json
+combo1 done
+combo3 done
+wrote out/TNR_1e5.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e1.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e3.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e4.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e5.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e5_p128.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e6.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e6_p128.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e7.json
+combo1 done
+combo3 done
+wrote out/ZETA_1e7_p128.json
+RERUNDONE
+Thu Nov 19 09:08:24 PM UTC 2026
+POSTDONE

@@ -1,0 +1,2 @@
+{"code": "DH", "a": 1.25, "K": 48, "dps": 100, "nterms": 11, "lam_min": "5.2473512486092e-10", "lam_2": "6.74360312790426e-7", "lam_max": "6.4327174", "n_neg": 0}
+memcap: RSS 8 GB exceeded cap 8 GB; killing 43074

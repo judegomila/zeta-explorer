@@ -1,0 +1,8 @@
+sfs.py rs 100000000.0 100000.0 0.04 out/rs_1e8_00.json
+sfs.py rs 100100000.0 100000.0 0.04 out/rs_1e8_01.json
+sfs.py rs 100200000.0 100000.0 0.04 out/rs_1e8_02.json
+sfs.py per 102500.0 1250.0 0.025 out/per_1e5_02.json
+sfs.py per 105000.0 1250.0 0.025 out/per_1e5_04.json
+sfs.py per 106250.0 1250.0 0.025 out/per_1e5_05.json
+sfs.py per 107500.0 1250.0 0.025 out/per_1e5_06.json
+sfs.py per 108750.0 1250.0 0.025 out/per_1e5_07.json

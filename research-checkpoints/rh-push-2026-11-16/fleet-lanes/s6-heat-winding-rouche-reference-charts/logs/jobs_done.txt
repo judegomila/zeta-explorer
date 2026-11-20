@@ -1,0 +1,190 @@
+04:15:39 1e6_g1_4 exit 0
+04:15:39 1e6_g1_8 exit 0
+04:15:39 1e6_g1_0 exit 0
+04:15:41 1e6_g1_12 exit 0
+04:16:39 1e10_g1_1 exit 0
+04:16:39 1e10_g1_0 exit 0
+04:17:39 1e13_g1_1 exit 0
+04:17:40 1e13_g1_0 exit 0
+04:18:21 1e12_g1_0 exit 0
+04:18:22 1e12_g1_1 exit 0
+04:18:30 1e8_g1_1 exit 0
+04:18:30 1e8_g1_0 exit 0
+04:22:08 1e6_g2_0 exit 0
+04:22:08 1e6_g2_4 exit 0
+04:22:43 1e10_g2_1 exit 0
+04:22:45 1e10_g2_0 exit 0
+04:23:06 1e6_g2_8 exit 0
+04:23:14 1e6_g2_12 exit 0
+04:26:57 1e12_g2_0 exit 0
+04:26:58 1e12_g2_1 exit 0
+04:27:29 1e11_g2_0 exit 0
+04:27:41 1e11_g2_1 exit 0
+04:27:43 1e8_g2_0 exit 0
+04:27:44 1e8_g2_1 exit 0
+04:30:14 1e9_g2_0 exit 0
+04:30:23 1e9_g2_1 exit 0
+04:34:25 1e7_g2_0 exit 0
+04:34:30 1e7_g2_1 exit 0
+04:36:50 1e10_g3a_0 exit 0
+04:36:51 1e6_g3a_4 exit 0
+04:36:51 1e12_g3a_1 skipped
+04:36:52 1e10_g3a_1 exit 0
+04:36:52 1e8_g3a_1 skipped
+04:36:52 1e6_g3a_0 exit 0
+04:36:52 1e11_g3a_1 skipped
+04:37:21 1e13_g3a_0 exit 0
+04:37:21 1e9_g3a_1 skipped
+04:37:38 1e13_g3a_1 exit 0
+04:37:38 1e7_g3a_1 skipped
+04:41:39 1e6_g3a_8 exit 0
+04:41:39 1e13_g3b_1 skipped
+04:41:55 1e6_g3a_12 exit 0
+04:41:55 1e10_g3b_1 skipped
+04:45:20 1e11_g3a_0 exit 0
+04:45:30 1e12_g3a_0 exit 0
+04:45:30 1e6_g3b_8 skipped
+04:45:30 1e6_g3b_12 skipped
+04:45:49 1e6_g3b_0 exit 0
+04:45:49 1e12_g3b_1 skipped
+04:46:52 1e13_g3b_0 exit 0
+04:46:52 1e8_g3b_1 skipped
+04:48:04 1e10_g3b_0 exit 0
+04:48:04 1e11_g3b_1 skipped
+04:48:08 1e9_g3a_0 exit 0
+04:48:08 1e9_g3b_1 skipped
+04:48:59 1e6_g3b_4 exit 0
+04:48:59 1e7_g3b_1 skipped
+04:49:35 1e8_g3a_0 exit 0
+04:49:35 1e13_g4a_1 skipped
+04:51:39 1e12_g3b_0 exit 0
+04:51:39 1e10_g4a_1 skipped
+04:51:43 1e7_g3a_0 exit 0
+04:52:16 1e11_g3b_0 exit 0
+04:52:16 1e6_g4a_8 skipped
+04:52:16 1e6_g4a_12 skipped
+04:52:17 1e8_g3b_0 exit 0
+04:52:17 1e12_g4a_1 skipped
+04:53:21 1e9_g3b_0 exit 0
+04:53:21 1e8_g4a_1 skipped
+04:53:27 1e10_g4a_0 exit 0
+04:53:27 1e11_g4a_1 skipped
+04:53:54 1e6_g4a_0 exit 0
+04:53:54 1e9_g4a_1 skipped
+04:53:56 1e6_g4a_4 exit 0
+04:53:56 1e7_g4a_1 skipped
+04:54:27 1e13_g4a_0 exit 0
+04:54:27 1e13_g4b_1 skipped
+04:54:54 1e7_g3b_0 exit 0
+04:54:54 1e10_g4b_1 skipped
+04:55:56 1e6_g4b_0 exit 0
+04:56:02 1e12_g4a_0 exit 0
+04:56:02 1e6_g4b_8 skipped
+04:56:02 1e6_g4b_12 skipped
+04:56:12 1e8_g4a_0 exit 0
+04:56:12 1e12_g4b_1 skipped
+04:56:25 1e10_g4b_0 exit 0
+04:56:25 1e8_g4b_1 skipped
+04:56:37 1e11_g4a_0 exit 0
+04:56:37 1e11_g4b_1 skipped
+04:56:45 1e9_g4a_0 exit 0
+04:56:45 1e9_g4b_1 skipped
+04:57:00 1e6_g4b_4 exit 0
+04:57:00 1e7_g4b_1 skipped
+04:58:14 1e13_g4b_0 exit 0
+04:58:14 1e13_g4c_1 skipped
+04:58:24 1e8_g4b_0 exit 0
+04:58:24 1e10_g4c_1 skipped
+04:58:42 1e7_g4a_0 exit 0
+04:58:47 1e9_g4b_0 exit 0
+04:58:47 1e6_g4c_8 skipped
+04:58:47 1e6_g4c_12 skipped
+04:59:10 1e11_g4b_0 exit 0
+04:59:10 1e12_g4c_1 skipped
+04:59:31 1e7_g4b_0 exit 0
+04:59:31 1e12_g4b_0 exit 0
+04:59:31 1e8_g4c_1 skipped
+04:59:31 1e11_g4c_1 skipped
+05:00:24 1e6_g4c_0 exit 0
+05:00:24 1e9_g4c_1 skipped
+05:00:39 1e6_g4c_4 exit 0
+05:00:39 1e7_g4c_1 skipped
+05:00:39 1e13_g5_0 skipped
+05:00:39 1e13_g5_1 skipped
+05:00:39 1e10_g5_0 skipped
+05:00:39 1e10_g5_1 skipped
+05:00:39 1e6_g5_0 skipped
+05:00:39 1e6_g5_4 skipped
+05:00:39 1e6_g5_8 skipped
+05:00:39 1e6_g5_12 skipped
+05:00:39 1e12_g5_0 skipped
+05:00:39 1e12_g5_1 skipped
+05:00:39 1e8_g5_0 skipped
+05:00:39 1e8_g5_1 skipped
+05:00:39 1e11_g5_0 skipped
+05:00:39 1e11_g5_1 skipped
+05:00:39 1e9_g5_0 skipped
+05:00:39 1e9_g5_1 skipped
+05:00:39 1e7_g5_0 skipped
+05:00:39 1e7_g5_1 skipped
+05:00:39 1e13_g6a_0 skipped
+05:00:39 1e13_g6a_1 skipped
+05:00:39 1e10_g6a_0 skipped
+05:00:39 1e10_g6a_1 skipped
+05:00:39 1e6_g6a_0 skipped
+05:00:39 1e6_g6a_4 skipped
+05:00:39 1e6_g6a_8 skipped
+05:00:39 1e6_g6a_12 skipped
+05:00:40 1e12_g6a_0 skipped
+05:00:40 1e12_g6a_1 skipped
+05:00:40 1e8_g6a_0 skipped
+05:00:40 1e8_g6a_1 skipped
+05:00:40 1e11_g6a_0 skipped
+05:00:40 1e11_g6a_1 skipped
+05:00:40 1e9_g6a_0 skipped
+05:00:40 1e9_g6a_1 skipped
+05:00:40 1e7_g6a_0 skipped
+05:00:40 1e7_g6a_1 skipped
+05:00:40 1e13_g6b_0 skipped
+05:00:40 1e13_g6b_1 skipped
+05:00:40 1e10_g6b_0 skipped
+05:00:40 1e10_g6b_1 skipped
+05:00:40 1e6_g6b_0 skipped
+05:00:40 1e6_g6b_4 skipped
+05:00:40 1e6_g6b_8 skipped
+05:00:40 1e6_g6b_12 skipped
+05:00:40 1e12_g6b_0 skipped
+05:00:40 1e12_g6b_1 skipped
+05:00:40 1e8_g6b_0 skipped
+05:00:40 1e8_g6b_1 skipped
+05:00:40 1e11_g6b_0 skipped
+05:00:40 1e11_g6b_1 skipped
+05:00:40 1e9_g6b_0 skipped
+05:00:40 1e9_g6b_1 skipped
+05:00:40 1e7_g6b_0 skipped
+05:00:40 1e7_g6b_1 skipped
+05:00:40 1e13_g6c_0 skipped
+05:00:40 1e13_g6c_1 skipped
+05:00:40 1e10_g6c_0 skipped
+05:00:40 1e10_g6c_1 skipped
+05:00:40 1e6_g6c_0 skipped
+05:00:40 1e6_g6c_4 skipped
+05:00:40 1e6_g6c_8 skipped
+05:00:40 1e6_g6c_12 skipped
+05:00:40 1e12_g6c_0 skipped
+05:00:40 1e12_g6c_1 skipped
+05:00:40 1e8_g6c_0 skipped
+05:00:40 1e8_g6c_1 skipped
+05:00:40 1e11_g6c_0 skipped
+05:00:40 1e11_g6c_1 skipped
+05:00:40 1e9_g6c_0 skipped
+05:00:40 1e9_g6c_1 skipped
+05:00:40 1e7_g6c_0 skipped
+05:00:40 1e7_g6c_1 skipped
+05:01:31 1e10_g4c_0 exit 0
+05:01:33 1e13_g4c_0 exit 0
+05:02:08 1e12_g4c_0 exit 0
+05:02:26 1e11_g4c_0 exit 0
+05:02:33 1e9_g4c_0 exit 0
+05:02:35 1e8_g4c_0 exit 0
+05:03:38 1e7_g4c_0 exit 0

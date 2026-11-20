@@ -1,0 +1,5 @@
+08:16:43 chibar zeros 346483 T0 0.0 heights 328560 .. 499997 grid points 13694473 dt 0.0125 planned largest temporary 0.72 GB GPU True
+08:16:59 Y 0.165: min 0.3825 at 336788.4208 (gap 2.96 mean spacings) mean 3.1747 (formula 3.1747) std 1.9711 below p_req 0.7192 blocks below 208 of 208; ratio to mean: min 0.122 q1e-3 0.163
+08:17:00 Y 0.33: min 0.7496 at 336788.4208 (gap 2.96 mean spacings) mean 3.1747 (formula 3.1747) std 1.0090 below p_req 0.8921 blocks below 208 of 208; ratio to mean: min 0.240 q1e-3 0.314
+08:17:01 Y 0.4: min 0.8975 at 336788.4208 (gap 2.96 mean spacings) mean 3.1747 (formula 3.1747) std 0.8233 below p_req 0.9343 blocks below 208 of 208; ratio to mean: min 0.287 q1e-3 0.371
+08:17:02 Y 1: min 1.8938 at 336788.4208 (gap 2.96 mean spacings) mean 3.1747 (formula 3.1747) std 0.2968 below p_req 1.0000 blocks below 208 of 208; ratio to mean: min 0.606 q1e-3 0.696

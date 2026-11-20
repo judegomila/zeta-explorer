@@ -1,0 +1,19 @@
+pick: HEAT:-0.5 a=0.1 rect [0.01,2]x[-27.92355691811598,27.92355691811598] n=200 bits=3000 kernels 11; matrix memory per kernel ~ 0.02 GB
+Heat quad: bits 3128 digits 926 Umax 6.639 panels 133 nodes/panel 388 total nodes 51604 (planned memory ~ 101.4 MB)
+Heat quad: bits 3128 digits 926 Umax 6.639 panels 133 nodes/panel 388 total nodes 51604 (planned memory ~ 101.4 MB)
+Heat quad: bits 3128 digits 926 Umax 6.639 panels 133 nodes/panel 388 total nodes 51604 (planned memory ~ 101.4 MB)
+Heat quad: bits 3128 digits 926 Umax 6.639 panels 133 nodes/panel 388 total nodes 51604 (planned memory ~ 101.4 MB)
+Heat quad: bits 3128 digits 926 Umax 6.639 panels 133 nodes/panel 388 total nodes 51604 (planned memory ~ 101.4 MB)
+S values: 276.1 s
+sinh:34 first_neg None n_neg 0 undet None last log10 rho -201.352 6.4 s
+sinh:56 first_neg None n_neg 0 undet None last log10 rho -288.18 5.8 s
+sinh:78 first_neg None n_neg 0 undet None last log10 rho -336.771 7.4 s
+sinh:95 first_neg None n_neg 0 undet None last log10 rho -361.849 6.7 s
+sinh:106 first_neg None n_neg 0 undet None last log10 rho -374.31 6.9 s
+sinh:111.4 first_neg None n_neg 0 undet None last log10 rho -379.601 6.6 s
+sinh:116 first_neg None n_neg 0 undet None last log10 rho -383.691 5.8 s
+sinh:123 first_neg 195 n_neg 2 undet None last log10 rho -389.13 6.9 s
+sinh:134 first_neg 168 n_neg 2 undet None last log10 rho -396.97 5.4 s
+sinh:160 first_neg 146 n_neg 2 undet None last log10 rho -410.304 6.5 s
+lin first_neg 123 n_neg 4 undet None last log10 rho -447.359 4.6 s
+done 293.0 s

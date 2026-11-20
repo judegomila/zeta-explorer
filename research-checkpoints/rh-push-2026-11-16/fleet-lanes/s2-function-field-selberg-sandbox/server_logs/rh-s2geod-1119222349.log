@@ -1,0 +1,5 @@
+planned memory: tables 12 MB, per-thread accumulators 3 MB each
+tmax=20000 words=84286414 max|imag|=5.6e-12
+planned memory: tables 122 MB, per-thread accumulators 32 MB each
+tmax=200000 words=8427614430 max|imag|=2.13e-10
+JOB_DONE geod

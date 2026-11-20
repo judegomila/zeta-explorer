@@ -1,0 +1,134 @@
+[
+ {
+  "ratio_R_over_D": 0.687704235963821,
+  "trK_over_trD": 0.3109621029435423,
+  "min_eig_K": -3.412883711522407e-19,
+  "n": 50,
+  "nodes": "log-prime-powers",
+  "range": [
+   0.6931471805599453,
+   5.056245805348308
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.6794947508628982,
+  "trK_over_trD": 0.31905655917652387,
+  "min_eig_K": -2.3034265942422747e-19,
+  "n": 50,
+  "nodes": "log-smooth-count (arithmetic-free, same counting function)",
+  "range": [
+   0.6931471805599453,
+   4.7764526809197525
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.6690750818233825,
+  "trK_over_trD": 0.3287254042192903,
+  "min_eig_K": -9.722685880215037e-20,
+  "n": 50,
+  "nodes": "equispaced on [log 2, log p_n]",
+  "range": [
+   0.6931471805599453,
+   5.056245805348308
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7400775566633937,
+  "trK_over_trD": 0.2594551431312711,
+  "min_eig_K": -2.3836693007700978e-18,
+  "n": 200,
+  "nodes": "log-prime-powers",
+  "range": [
+   0.6931471805599453,
+   6.940222469119639
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7337245226918429,
+  "trK_over_trD": 0.26558741257938256,
+  "min_eig_K": -2.0382355325759734e-18,
+  "n": 200,
+  "nodes": "log-smooth-count (arithmetic-free, same counting function)",
+  "range": [
+   0.6931471805599453,
+   6.832107492067311
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.6919570966396082,
+  "trK_over_trD": 0.30497032103545957,
+  "min_eig_K": -3.628159948813964e-19,
+  "n": 200,
+  "nodes": "equispaced on [log 2, log p_n]",
+  "range": [
+   0.6931471805599453,
+   6.940222469119639
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7773262358832779,
+  "trK_over_trD": 0.22300489672529453,
+  "min_eig_K": -1.3876208876265466e-17,
+  "n": 500,
+  "nodes": "log-prime-powers",
+  "range": [
+   0.6931471805599453,
+   8.101374671228582
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7732446566085439,
+  "trK_over_trD": 0.2270241955322111,
+  "min_eig_K": -1.491797396859614e-17,
+  "n": 500,
+  "nodes": "log-smooth-count (arithmetic-free, same counting function)",
+  "range": [
+   0.6931471805599453,
+   8.031834935779427
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7080387115642044,
+  "trK_over_trD": 0.2888041931957742,
+  "min_eig_K": -9.397959163813837e-19,
+  "n": 500,
+  "nodes": "equispaced on [log 2, log p_n]",
+  "range": [
+   0.6931471805599453,
+   8.101374671228582
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.8046422043226191,
+  "trK_over_trD": 0.19617535591403082,
+  "min_eig_K": -3.2812516036438645e-17,
+  "n": 1000,
+  "nodes": "log-prime-powers",
+  "range": [
+   0.6931471805599453,
+   8.924922401177469
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.8019635808389128,
+  "trK_over_trD": 0.19888591145691345,
+  "min_eig_K": -1.491754928487322e-17,
+  "n": 1000,
+  "nodes": "log-smooth-count (arithmetic-free, same counting function)",
+  "range": [
+   0.6931471805599453,
+   8.885036870103594
+  ]
+ },
+ {
+  "ratio_R_over_D": 0.7200698007394728,
+  "trK_over_trD": 0.27699921542514155,
+  "min_eig_K": -2.4865157436024808e-18,
+  "n": 1000,
+  "nodes": "equispaced on [log 2, log p_n]",
+  "range": [
+   0.6931471805599453,
+   8.924922401177469
+  ]
+ }
+]

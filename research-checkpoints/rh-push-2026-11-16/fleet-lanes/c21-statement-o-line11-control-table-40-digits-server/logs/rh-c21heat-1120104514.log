@@ -1,0 +1,14 @@
+PLAN: controls ['HEAT1']; prec 256 bits (rows P8, P1, EF), 400 bits (row P45); workers 8; largest allocation: lists of < 1e5 balls (coefficients Lambda_D(n), n <= N) and < 4000 HEAT samples per tau: < 200 MB per process
+HEAT HEAT1: 3523 samples in 0.9s; eps = [2.2616e-68 +/- 1.22e-73], eps1 = [9.0464e-68 +/- 4.87e-73]; cfg {'rect': ('1.15625', '2500.375', '2501.265625'), 'rates': [('0.375', '2500.921875'), ('0.625', '2500.625')]}
+phase1 HEAT1 z: edges 2499.875 2501.140625 (dist 0.940 0.315); zeros [2]; fails [[]]; 13.8s
+phase2: 12 side integrals
+  int HEAT1 cnt0 side 0: rad 3.14e-11, 229.1s
+  int HEAT1 h1 side 0: rad 6.48e-48, 569.7s
+  int HEAT1 h2 side 0: rad 5.41e-48, 590.9s
+  int HEAT1 cnt0 side 1: rad 4.44e-12, 13.5s
+  int HEAT1 h1 side 1: rad 1.42e-48, 34.8s
+  int HEAT1 h2 side 1: rad 8.71e-49, 33.6s
+  int HEAT1 cnt0 side 2: rad 1.26e-10, 556.8s
+  int HEAT1 h1 side 2: rad 2.32e-47, 1394.3s
+  int HEAT1 h2 side 2: rad 1.20e-47, 1357.9s
+  int HEAT1 cnt0 side 3: rad 6.53e-11, 905.0s

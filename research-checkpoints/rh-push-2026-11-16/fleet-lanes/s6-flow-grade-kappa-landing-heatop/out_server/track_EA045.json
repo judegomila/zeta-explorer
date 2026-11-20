@@ -1,0 +1,74 @@
+{
+"obj": "EA:9/20",
+"table": "data/mom_main.pkl",
+"pairs": [
+{
+"g": "14.134725141734693",
+"b": "0.45",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+14.134725141734695,
+-0.45
+],
+"cancel_bits": null,
+"D0_pair": 247.15513589960332,
+"d_pair": 250,
+"d_pair_lower": 249,
+"root_at_d_pair": [
+-193.66935995229542,
+0.5833667642203224
+],
+"ratio_to_D0": 1.0115104389396636,
+"terms_used": 168,
+"log2_largest_term": 6.7
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-203.4451689933408,
+1.1820170950991344e-255
+]
+}
+],
+"prec": 784,
+"sec": 0.7
+},
+{
+"g": "21.022039638771555",
+"b": "0.45",
+"rows": [
+{
+"n": 0,
+"zero_of_Fn_w": [
+21.022039638771556,
+-0.45
+],
+"cancel_bits": null,
+"D0_pair": 546.0879547702558,
+"d_pair": 568,
+"d_pair_lower": 567,
+"root_at_d_pair": [
+-430.24174399270896,
+0.5663488075370693
+],
+"ratio_to_D0": 1.0401254871826697,
+"terms_used": 219,
+"log2_largest_term": 18.1
+},
+{
+"n": 1,
+"note": "the zero of F^(n) continued from the off-line zero is real or lost",
+"x": [
+-449.6819429139222,
+3.517702484535315e-218
+]
+}
+],
+"prec": 826,
+"sec": 0.9
+}
+]
+}

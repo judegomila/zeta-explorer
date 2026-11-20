@@ -1,0 +1,20 @@
+PASS arch+pole+prime = xi'/xi 
+PASS SGNLIOU Dirichlet Z -0.012290387670077703
+PASS SGNP:2,5 Dirichlet Z 
+PASS WTRE Dirichlet Z 
+PASS DH Dirichlet Z 
+  HT info {'D': 160, 'K': 120, 'bits': 700, 'sec': 1.3, 'log2_last_k_term_rel': -848.1060076858325, 'log2_gD_rel_r1p5': -827.981474081012}
+PASS HeatT vs quadrature at w=0.3 0.013718976307040812
+PASS HeatT vs quadrature at w=1.7 0.07740343276316898
+PASS HeatT vs quadrature at w=2.4 0.10879735708986979
+PASS HeatT small at its off-line zero (Taylor radius check, expected to be loose far from w=1) log2|F_tau(z0)/F_tau(1)| = 160.3475431831931
+PASS probe defects = dense Schur complements (TNR, 6 base + 3 probes) negatives 6
+PASS schur_probe pivots = lib.schur_real 
+PASS ladder first p_j <= 0 = first negative Pick pivot (TNR) (3, 3, 'steps decided', 4, 4)
+PASS ladder first p_j <= 0 = first negative Pick pivot (EA-1/4) (7, 7, 'steps decided', 8, 8)
+PASS ladder first p_j <= 0 = first negative Pick pivot (ZETA) (None, None, 'steps decided', 40, 40)
+PASS jet pivots signs (ZETA) ++++++++++
+PASS jet pivots signs (TNR) +++--+++++
+PASS jet pivots signs (PL:ZETA:0.3:6) ++++--++++
+PASS planted gamma = 15 detected at n in [8, 24] 11
+ALL PASS

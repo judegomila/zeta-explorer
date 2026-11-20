@@ -1,0 +1,21 @@
+11:50:31 chibar: 946483 ordinates 4.133 .. 499996.685; list 0.01 GB, planned peak 0.53 GB
+11:50:31 33 records
+11:50:31 record at index 96 gap 4.994574e-01: t_c 3.39110675e-02 (pair value 3.11822143e-02, retardation 8.75e-02)
+11:50:31 record at index 175 gap 3.057002e-01: t_c 1.21650167e-02 (pair value 1.16815804e-02, retardation 4.14e-02)
+11:50:32 record at index 416 gap 2.473566e-01: t_c 7.86243356e-03 (pair value 7.64815806e-03, retardation 2.80e-02)
+11:50:32 record at index 716 gap 2.180673e-01: t_c 6.08448334e-03 (pair value 5.94417031e-03, retardation 2.36e-02)
+11:50:33 record at index 847 gap 2.116934e-01: t_c 5.77838144e-03 (pair value 5.60176185e-03, retardation 3.15e-02)
+11:50:34 record at index 1320 gap 2.071205e-01: t_c 5.53061365e-03 (pair value 5.36236104e-03, retardation 3.14e-02)
+11:50:36 record at index 1900 gap 1.596586e-01: t_c 3.24228889e-03 (pair value 3.18635669e-03, retardation 1.76e-02)
+11:50:39 record at index 2130 gap 1.277479e-01: t_c 2.06870024e-03 (pair value 2.03993927e-03, retardation 1.41e-02)
+11:50:45 record at index 3012 gap 8.077288e-02: t_c 8.19783085e-04 (pair value 8.15532213e-04, retardation 5.21e-03)
+11:50:48 record at index 5508 gap 6.630467e-02: t_c 5.51642440e-04 (pair value 5.49538675e-04, retardation 3.83e-03)
+11:50:53 record at index 7115 gap 2.605961e-02: t_c 8.49470123e-05 (pair value 8.48879345e-05, retardation 6.96e-04)
+11:50:59 record at index 31547 gap 2.393594e-02: t_c 7.16815342e-05 (pair value 7.16161571e-05, retardation 9.13e-04)
+11:51:05 record at index 55085 gap 1.614153e-02: t_c 3.25831733e-05 (pair value 3.25686330e-05, retardation 4.46e-04)
+11:51:11 record at index 67016 gap 1.038426e-02: t_c 1.34813336e-05 (pair value 1.34791036e-05, retardation 1.65e-04)
+11:51:17 record at index 243776 gap 9.403015e-03: t_c 1.10553752e-05 (pair value 1.10520858e-05, retardation 2.98e-04)
+11:51:24 record at index 362185 gap 7.789160e-03: t_c 7.58444954e-06 (pair value 7.58387591e-06, retardation 7.56e-05)
+11:51:29 record at index 458052 gap 7.536058e-03: t_c 7.09987721e-06 (pair value 7.09902132e-06, retardation 1.21e-04)
+11:51:35 record at index 734321 gap 7.199868e-03: t_c 6.48037471e-06 (pair value 6.47976215e-06, retardation 9.45e-05)
+{"fit_all": {"p_tc": -1.044874304928783, "p_E": -0.47016941545615504}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -0.8161145007865882, "p_E": -0.4483292094114325, "p_Ecoll": -0.4308773822670943, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 1, "p_increments": -1.3846724539737592, "tc_over_E_lo": 1.3989911131671207, "tc_over_E_hi": 0.5457260607252915}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -1.9212849516788082, "p_E": -0.47080023020331574, "p_Ecoll": -0.44488866852351516, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 0, "p_increments": -0.9529388045930093, "tc_over_E_lo": 0.6083712494622103, "tc_over_E_hi": 0.023798972759903468}, {"lo": 10000.0, "hi": 100000.0, "p_tc": -0.7840371483693895, "p_E": -0.4752022001105432, "p_Ecoll": -0.45526895587547483, "sigma_mid": 0.9206101058768068, "dyadic_steps": 5, "zero_increments": 1, "p_increments": 1.591896304122489, "tc_over_E_lo": 0.028058009753126018, "tc_over_E_hi": 0.011960338176251882}], "blocks": -0.6153970845894257}

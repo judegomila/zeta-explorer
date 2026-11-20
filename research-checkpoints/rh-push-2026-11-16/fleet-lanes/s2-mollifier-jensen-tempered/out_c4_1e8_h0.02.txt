@@ -1,0 +1,19 @@
+TMAX 1e+08 h 0.02 TLOW 3000 hlow 0.004 gpu True extended True
+low range done to 3000 in 90s; max |Im|/|.| of the rotated values 5.93e-12
+ZETA [(50.0, -2.5435, 10), (100.0, -1.4358, 29), (200.0, -0.9241, 79), (500.0, -0.134, 269), (1000.0, -1.4737, 649), (2000.0, -2.1705, 1517), (3000.0, -2.3035, 2469)]
+LCHI [(50.0, 1.8267, 21), (100.0, -0.8065, 54), (200.0, -0.2133, 130), (500.0, -0.5534, 397), (1000.0, 1.4996, 904), (2000.0, 1.283, 2028), (3000.0, -1.1284, 3237)]
+DH [(50.0, 0.5574, 21), (100.0, 1.8699, 52), (200.0, 4.6988, 122), (500.0, 14.6847, 377), (1000.0, 39.8659, 848), (2000.0, 101.746, 1861), (3000.0, 163.0386, 2969)]
+planned allocation: FFT grid complex128 x 3 = 402.7 MB
+T 10000 blocks 47 143s | ZETA I 0.0287 zeros 10142 pairs-in-cell 0 | LCHI I -0.7282 zeros 12704 pairs-in-cell 0 | DH I 656.9339 zeros 11570 pairs-in-cell 1 | max Im ratio 1.3e-11
+T 100000 blocks 134 241s | ZETA I -2.8012 zeros 138069 pairs-in-cell 1 | LCHI I 0.5926 zeros 163682 pairs-in-cell 1 | DH I 8347.0121 zeros 147407 pairs-in-cell 9 | max Im ratio 2.6e-10
+T 626909 blocks 200 324s | ZETA I -1.6717 zeros 1048712 pairs-in-cell 7 | LCHI I 0.8989 zeros 1209294 pairs-in-cell 12 | DH I 60011.5750 zeros 1082370 pairs-in-cell 79 | max Im ratio 1.5e-09
+T 1e+06 blocks 223 354s | ZETA I -2.7970 zeros 1747146 pairs-in-cell 20 | LCHI I -0.4564 zeros 2003295 pairs-in-cell 25 | DH I 98598.1595 zeros 1790890 pairs-in-cell 146 | max Im ratio 3.2e-09
+T 1e+07 blocks 351 546s | ZETA I -1.7958 zeros 21136125 pairs-in-cell 380 | LCHI I -0.7973 zeros 23697625 pairs-in-cell 597 | DH I 1112787.0900 zeros 21085389 pairs-in-cell 2505 | max Im ratio 2.8e-08
+T 1.41104e+07 blocks 400 612s | ZETA I -0.8085 zeros 30597228 pairs-in-cell 604 | LCHI I 0.1666 zeros 34211611 pairs-in-cell 946 | DH I 1595086.8194 zeros 30421641 pairs-in-cell 3777 | max Im ratio 1.3e-07
+T 3.08876e+07 blocks 600 888s | ZETA I -2.9940 zeros 70828519 pairs-in-cell 1706 | LCHI I -0.4720 zeros 78740384 pairs-in-cell 2635 | DH I 3610915.8478 zeros 69928778 pairs-in-cell 9511 | max Im ratio 3.1e-07
+T 4.76648e+07 blocks 800 1169s | ZETA I -1.2556 zeros 112591538 pairs-in-cell 3004 | LCHI I 1.2515 zeros 124800886 pairs-in-cell 4587 | DH I 5671158.8644 zeros 110761282 pairs-in-cell 15931 | max Im ratio 3.8e-07
+T 6.44421e+07 blocks 1000 1409s | ZETA I -2.1794 zeros 155314850 pairs-in-cell 4406 | LCHI I 0.1116 zeros 171821684 pairs-in-cell 6635 | DH I 7758336.2457 zeros 152425764 pairs-in-cell 22681 | max Im ratio 4.4e-07
+T 8.12193e+07 blocks 1200 1650s | ZETA I -1.6797 zeros 198741406 pairs-in-cell 5891 | LCHI I 2.0373 zeros 219545722 pairs-in-cell 8897 | DH I 9865132.9210 zeros 194699986 pairs-in-cell 29719 | max Im ratio 1.1e-06
+T 9.79965e+07 blocks 1400 1902s | ZETA I -0.8813 zeros 242723524 pairs-in-cell 7467 | LCHI I -0.7863 zeros 267825325 pairs-in-cell 11217 | DH I 11986867.4386 zeros 237455335 pairs-in-cell 37111 | max Im ratio 1.6e-06
+T 1e+08 blocks 1430 1937s | ZETA I -2.6541 zeros 248008023 pairs-in-cell 7644 | LCHI I -1.1167 zeros 273623019 pairs-in-cell 11479 | DH I 12241224.1667 zeros 242588827 pairs-in-cell 38028 | max Im ratio 1.6e-06
+done 1937s

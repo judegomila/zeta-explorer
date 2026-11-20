@@ -1,0 +1,59 @@
+ZETA a 80 N 1600 prec 11000 moments 17.8 s  c0 [414.06532412759346653 +/- 1.39e-18]
+   planted disp:0.1:k1 first indefinite size 39
+   planted add:0.4:17.578382 first indefinite size 49
+   planted add:0.25:17.578382 first indefinite size 51
+   planted disp:0.1:k3 first indefinite size 52
+   planted add:0.1:17.578382 first indefinite size 55
+   planted add:0.4:27.717867 first indefinite size 60
+   planted add:0.25:27.717867 first indefinite size 63
+   planted add:0.1:27.717867 first indefinite size 66
+   planted disp:0.1:k6 first indefinite size 67
+   n 80 log2 E -9.7 k 0.5718364884014518
+   planted disp:0.1:k10 first indefinite size 83
+   planted add:0.4:51.372077 first indefinite size 90
+   planted add:0.25:51.372077 first indefinite size 92
+   planted add:0.1:51.372077 first indefinite size 95
+   planted add:0.4:73.885924 first indefinite size 114
+   planted add:0.25:73.885924 first indefinite size 118
+   planted disp:0.1:k20 first indefinite size 118
+   planted add:0.1:73.885924 first indefinite size 122
+   planted add:0.4:100.074523 first indefinite size 153
+   planted add:0.25:100.074523 first indefinite size 156
+   planted add:0.1:100.074523 first indefinite size 159
+   n 160 log2 E -102.6 k 0.8434456647857074
+   planted disp:0.1:k40 first indefinite size 186
+   planted add:0.4:148.738143 first indefinite size 225
+   planted add:0.25:148.738143 first indefinite size 233
+   planted add:0.1:148.738143 first indefinite size 238
+   n 240 log2 E -266.8 k 0.8995449757259357
+   planted add:0.4:199.640031 first indefinite size 315
+   planted disp:0.1:k80 first indefinite size 318
+   planted add:0.25:199.640031 first indefinite size 320
+   n 320 log2 E -484.0 k 0.9344816729637635
+   planted add:0.1:199.640031 first indefinite size 326
+   n 400 log2 E -742.6 k 0.9564818277609021
+   n 480 log2 E -1035.8 k 0.96446129371679
+   planted add:0.4:300.744826 first indefinite size 515
+   planted add:0.25:300.744826 first indefinite size 525
+   planted add:0.1:300.744826 first indefinite size 531
+   n 560 log2 E -1357.4 k 0.9708409097674164
+   planted disp:0.1:k160 first indefinite size 587
+   n 640 log2 E -1704.2 k 0.976867715123627
+   n 720 log2 E -2073.1 k 0.980736231993687
+   planted add:0.4:400.912174 first indefinite size 728
+   planted add:0.25:400.912174 first indefinite size 740
+   planted add:0.1:400.912174 first indefinite size 748
+   n 800 log2 E -2461.9 k 0.9839979465127742
+   n 880 log2 E -2868.6 k 0.9855475854674862
+   n 960 log2 E -3291.9 k 0.987676636104468
+   n 1040 log2 E -3730.2 k 0.9893525718623972
+   planted disp:0.1:k320 first indefinite size 1120
+   n 1120 log2 E -4182.4 k 0.9908768334154281
+   planted add:0.4:600.573889 first indefinite size 1193
+   n 1200 log2 E -4647.6 k 0.9914646495525293
+   planted add:0.25:600.573889 first indefinite size 1207
+   planted add:0.1:600.573889 first indefinite size 1218
+   n 1280 log2 E -5125.3 k 0.9924644111184856
+   n 1360 log2 E -5614.3 k 0.9931636207127373
+   n 1440 log2 E -6114.2 k 0.9936201759869797
+DONE ZETA first index with E<=0: 1497 last n 1497 log2E -6477.4 lev s 97.8

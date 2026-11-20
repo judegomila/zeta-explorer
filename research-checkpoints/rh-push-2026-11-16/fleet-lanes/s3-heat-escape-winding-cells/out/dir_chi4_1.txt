@@ -1,0 +1,3 @@
+chi4 1.0 D zero 0.31714532611036134 9047.586584060831 -> z_model [nan, nan] z_true [nan, nan] dist nan
+chi4 1.0 D zero 0.29726676380781014 6977.8618161145905 -> z_model [nan, nan] z_true [nan, nan] dist nan
+chi4 1.0 D zero 0.28649700083889296 7423.479504466294 -> z_model [nan, nan] z_true [nan, nan] dist nan

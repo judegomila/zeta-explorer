@@ -1,0 +1,8 @@
+{"q": 2, "g": 2, "D": 60, "tested": 60, "members": 23, "rh": 23, "fakes": 0, "borderline": 1,
+ "fakes_pass_T_gplus1": 0, "fakes_ndet_2g": 0, "fakes_pass_serre_d_le_g": 0, "fakes_pass_serre_and_T_gplus1": 0, "bisections": 0,
+ "ndet_hist": {},
+ "nu_hist": {},
+ "min_pos_Lam": -1,
+ "minimisers": [],
+ "fallback_min_abs_negative_eig": 1e+300, "fallback_max_abs_zero_eig": 4.46e-19,
+ "wall": 0.0}

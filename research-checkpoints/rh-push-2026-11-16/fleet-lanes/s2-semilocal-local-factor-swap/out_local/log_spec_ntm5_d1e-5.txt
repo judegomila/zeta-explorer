@@ -1,0 +1,27 @@
+[ntm@5] delta=1e-05 L=6400000 inside=1600001 complex=False; planned Lanczos basis 1.44 GB, FFT work arrays 0.57 GB
+max||mu|-1| = 1.16e-10
+unitarity ||F_S g||/||g|| = 1.0000000000; ||F_S^* F_S g - g||/||g|| = 5.76e-11; max|Im F_S g|/||.|| = 3.5e-16
+  lanczos step 0 [6s]
+  lanczos step 20 [10s]
+  lanczos step 40 [14s]
+  lanczos step 60 [18s]
+  lanczos step 80 [23s]
+  lanczos step 100 [28s]
+top eigenvalues (value, 1-value^2, residual):
+   n= 0 +0.99998121  3.7589e-05  res=2.6e-15
+   n= 1 -0.98104567  3.7549e-02  res=1.6e-15
+   n= 2 +0.62301280  6.1186e-01  res=1.4e-15
+   n= 3 -0.33380078  8.8858e-01  res=1.3e-15
+   n= 4 +0.32433489  8.9481e-01  res=6.4e-16
+   n= 5 -0.32136404  8.9673e-01  res=1.8e-15
+   n= 6 +0.31192449  9.0270e-01  res=4.4e-16
+   n= 7 -0.30864011  9.0474e-01  res=6.9e-16
+   n= 8 +0.21903866  9.5202e-01  res=5.4e-16
+   n= 9 -0.14949347  9.7765e-01  res=6.9e-16
+   n=10 -0.11446238  9.8690e-01  res=4.7e-16
+   n=11 +0.10750297  9.8844e-01  res=2.9e-16
+   n=12 +0.10515976  9.8894e-01  res=2.9e-16
+   n=13 -0.10514982  9.8894e-01  res=2.9e-16
+   n=14 +0.10506276  9.8896e-01  res=3.5e-16
+   n=15 -0.10506123  9.8896e-01  res=3.3e-16
+done 43s

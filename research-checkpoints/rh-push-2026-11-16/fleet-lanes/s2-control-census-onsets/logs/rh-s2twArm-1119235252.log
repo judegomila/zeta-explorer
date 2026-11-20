@@ -1,0 +1,18 @@
+arm: 15197 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 8s
+20 76 78s
+40 76 144s
+60 76 220s
+done 281s
+arm: 15196 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 12s
+20 76 94s
+40 76 159s
+60 76 220s
+done 274s
+arm: 15196 discriminants, 76 chunks, T1=2.5 SG=0.15
+0 76 8s
+20 76 71s
+40 76 128s
+60 76 188s
+done 234s

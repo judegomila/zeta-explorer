@@ -1,0 +1,1 @@
+{'N': 32, 'mode': 'cos', 'T0': 3695282.9054670837, 'K0': 2790511, 'support': 33, 'max_shift_of_x': 0.2540375534472863, 'sign_changes_vs_parity': 1, 'min_lambda_lower': -0.2585862636513724, 'max_radius': 9.609840075022843e-20, 'status': 'NOT certified (some barycentric coordinate not positive)'}

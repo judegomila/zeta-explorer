@@ -1,0 +1,1677 @@
+{
+ "DH": {
+  "online": 1861,
+  "offline_pairs": 84,
+  "windows_full_set": [
+   {
+    "N": 2,
+    "windows": 1860,
+    "fail_0.25": 1723,
+    "fail_0.443": 1576,
+    "fail_0.5": 1519,
+    "fail_1": 970,
+    "n_minpairs": 1860,
+    "maxTheta": 62.571189715903024,
+    "medTheta": 1.0417707481492902
+   },
+   {
+    "N": 3,
+    "windows": 1859,
+    "fail_0.25": 1648,
+    "fail_0.443": 1365,
+    "fail_0.5": 1257,
+    "fail_1": 366,
+    "n_minpairs": 1183,
+    "maxTheta": 42.34064459137403,
+    "medTheta": 0.7729209484883459
+   },
+   {
+    "N": 5,
+    "windows": 1857,
+    "fail_0.25": 1458,
+    "fail_0.443": 992,
+    "fail_0.5": 829,
+    "fail_1": 40,
+    "n_minpairs": 693,
+    "maxTheta": 1.8723693846439136,
+    "medTheta": 0.5487060536582397
+   },
+   {
+    "N": 10,
+    "windows": 1852,
+    "fail_0.25": 1103,
+    "fail_0.443": 426,
+    "fail_0.5": 290,
+    "fail_1": 0,
+    "n_minpairs": 351,
+    "maxTheta": 0.85191887464149,
+    "medTheta": 0.3613472742323164
+   },
+   {
+    "N": 20,
+    "windows": 1842,
+    "fail_0.25": 670,
+    "fail_0.443": 91,
+    "fail_0.5": 44,
+    "fail_1": 0,
+    "n_minpairs": 178,
+    "maxTheta": 0.6472874186946205,
+    "medTheta": 0.2524406658239091
+   },
+   {
+    "N": 30,
+    "windows": 1832,
+    "fail_0.25": 429,
+    "fail_0.443": 23,
+    "fail_0.5": 5,
+    "fail_1": 0,
+    "n_minpairs": 118,
+    "maxTheta": 0.6387165313276078,
+    "medTheta": 0.17706476609378324
+   },
+   {
+    "N": 50,
+    "windows": 1812,
+    "fail_0.25": 223,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 65,
+    "maxTheta": 0.38328403715367987,
+    "medTheta": 0.11863240115272514
+   },
+   {
+    "N": 100,
+    "windows": 1762,
+    "fail_0.25": 43,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 39,
+    "maxTheta": 0.32423732606725225,
+    "medTheta": 0.0865465873232478
+   },
+   {
+    "N": 200,
+    "windows": 1662,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 17,
+    "maxTheta": 0.11798189574011046,
+    "medTheta": 0.04897196650401108
+   },
+   {
+    "N": 500,
+    "windows": 1362,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.04897196650401108,
+    "medTheta": 0.026863455915222302
+   },
+   {
+    "N": 1000,
+    "windows": 862,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.0025392027309205306,
+    "medTheta": 0.0013544563668034316
+   }
+  ],
+  "windows_online_only": [
+   {
+    "N": 2,
+    "windows": 1860,
+    "fail_0.25": 1743,
+    "fail_0.443": 1580,
+    "fail_0.5": 1519,
+    "fail_1": 955,
+    "n_minpairs": 1860,
+    "maxTheta": 62.55883499522716,
+    "medTheta": 1.0306861411327297
+   },
+   {
+    "N": 3,
+    "windows": 1859,
+    "fail_0.25": 1625,
+    "fail_0.443": 1300,
+    "fail_0.5": 1181,
+    "fail_1": 293,
+    "n_minpairs": 1183,
+    "maxTheta": 42.334482663744204,
+    "medTheta": 0.7025851874985182
+   },
+   {
+    "N": 5,
+    "windows": 1857,
+    "fail_0.25": 1414,
+    "fail_0.443": 902,
+    "fail_0.5": 729,
+    "fail_1": 21,
+    "n_minpairs": 693,
+    "maxTheta": 1.7592637668701239,
+    "medTheta": 0.5074201826526156
+   },
+   {
+    "N": 10,
+    "windows": 1852,
+    "fail_0.25": 1032,
+    "fail_0.443": 334,
+    "fail_0.5": 218,
+    "fail_1": 0,
+    "n_minpairs": 351,
+    "maxTheta": 0.8136730946521801,
+    "medTheta": 0.3312430543589548
+   },
+   {
+    "N": 20,
+    "windows": 1842,
+    "fail_0.25": 586,
+    "fail_0.443": 65,
+    "fail_0.5": 24,
+    "fail_1": 0,
+    "n_minpairs": 178,
+    "maxTheta": 0.6178870534886214,
+    "medTheta": 0.23700158743940297
+   },
+   {
+    "N": 30,
+    "windows": 1832,
+    "fail_0.25": 372,
+    "fail_0.443": 7,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 118,
+    "maxTheta": 0.6067363161779908,
+    "medTheta": 0.16241829283552062
+   },
+   {
+    "N": 50,
+    "windows": 1812,
+    "fail_0.25": 207,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 65,
+    "maxTheta": 0.38019732087877445,
+    "medTheta": 0.11281183570931697
+   },
+   {
+    "N": 100,
+    "windows": 1762,
+    "fail_0.25": 43,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 39,
+    "maxTheta": 0.32318521584844184,
+    "medTheta": 0.08286061763835346
+   },
+   {
+    "N": 200,
+    "windows": 1662,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 17,
+    "maxTheta": 0.11676975877586226,
+    "medTheta": 0.04831107526539768
+   },
+   {
+    "N": 500,
+    "windows": 1362,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.04831107526539768,
+    "medTheta": 0.026671482873821595
+   },
+   {
+    "N": 1000,
+    "windows": 862,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.002509590475950546,
+    "medTheta": 0.0013392277117274798
+   }
+  ],
+  "max_abs_Theta_shift_from_offline": 5.710440828730841,
+  "pairs_farther_than_100_spacings_from_offline": 0,
+  "max_distance_to_offline_in_spacings": 37.77277459407336,
+  "first_offline_height": 85.6993484853776,
+  "n_negative_Theta": 29,
+  "online_below_first_offline": 43,
+  "windows_below_first_offline": [
+   {
+    "N": 2,
+    "windows": 42,
+    "fail_0.25": 40,
+    "fail_0.443": 36,
+    "fail_0.5": 36,
+    "fail_1": 21,
+    "n_minpairs": 42,
+    "maxTheta": 3.8211043615690223,
+    "medTheta": 1.031319981380403
+   },
+   {
+    "N": 3,
+    "windows": 41,
+    "fail_0.25": 37,
+    "fail_0.443": 29,
+    "fail_0.5": 29,
+    "fail_1": 6,
+    "n_minpairs": 26,
+    "maxTheta": 1.815575613759061,
+    "medTheta": 0.7268268450875353
+   },
+   {
+    "N": 5,
+    "windows": 39,
+    "fail_0.25": 31,
+    "fail_0.443": 19,
+    "fail_0.5": 19,
+    "fail_1": 0,
+    "n_minpairs": 17,
+    "maxTheta": 0.8413421765993103,
+    "medTheta": 0.6351458866224735
+   },
+   {
+    "N": 10,
+    "windows": 34,
+    "fail_0.25": 16,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.4187248225121767,
+    "medTheta": 0.31159739358313154
+   },
+   {
+    "N": 20,
+    "windows": 24,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.1352303099902724,
+    "medTheta": 0.1043557138521847
+   },
+   {
+    "N": 30,
+    "windows": 14,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 1,
+    "maxTheta": 0.07348111771409697,
+    "medTheta": 0.07348111771409697
+   }
+  ],
+  "flow_full_set": {
+   "tc": 1.3733563301085195e-05,
+   "s_end": 1.3733550021166845e-05,
+   "g0": 0.010481373197990251,
+   "g_end": 1.0307247293894761e-05,
+   "Theta0": 0.00016971000268633233,
+   "Theta_end": 1.6412243677357058e-10,
+   "Theta_max": 0.00016971000268633233,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1248,
+    1249
+   ],
+   "pair": [
+    1248,
+    1249
+   ],
+   "tc_over_g2_8": 1.0000848567482838,
+   "at": 1400.5328487501904,
+   "dist_to_offline_spacings": 20.08954847848727
+  },
+  "flow_online_only": {
+   "tc": 1.373355749497361e-05,
+   "s_end": 1.373354421506815e-05,
+   "g0": 0.010481373197990251,
+   "g_end": 1.0307242291673901e-05,
+   "Theta0": 0.0001688649475044133,
+   "Theta_end": 1.6330520562091045e-10,
+   "Theta_max": 0.0001688649475044133,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1248,
+    1249
+   ],
+   "pair": [
+    1248,
+    1249
+   ]
+  }
+ },
+ "HEAT--0.1": {
+  "online": 1435,
+  "offline_pairs": 41,
+  "windows_full_set": [
+   {
+    "N": 2,
+    "windows": 1434,
+    "fail_0.25": 1280,
+    "fail_0.443": 1124,
+    "fail_0.5": 1080,
+    "fail_1": 758,
+    "n_minpairs": 1434,
+    "maxTheta": 52.16750885121134,
+    "medTheta": 1.094323275056924
+   },
+   {
+    "N": 3,
+    "windows": 1433,
+    "fail_0.25": 1155,
+    "fail_0.443": 847,
+    "fail_0.5": 761,
+    "fail_1": 281,
+    "n_minpairs": 918,
+    "maxTheta": 23.46770784401052,
+    "medTheta": 0.6766606208464518
+   },
+   {
+    "N": 5,
+    "windows": 1431,
+    "fail_0.25": 908,
+    "fail_0.443": 461,
+    "fail_0.5": 361,
+    "fail_1": 26,
+    "n_minpairs": 532,
+    "maxTheta": 2.8916602520335317,
+    "medTheta": 0.41880552796467796
+   },
+   {
+    "N": 10,
+    "windows": 1426,
+    "fail_0.25": 491,
+    "fail_0.443": 102,
+    "fail_0.5": 50,
+    "fail_1": 0,
+    "n_minpairs": 272,
+    "maxTheta": 0.8010806453022953,
+    "medTheta": 0.25220253565559414
+   },
+   {
+    "N": 20,
+    "windows": 1416,
+    "fail_0.25": 120,
+    "fail_0.443": 3,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 135,
+    "maxTheta": 0.44384249967059164,
+    "medTheta": 0.13890426996971605
+   },
+   {
+    "N": 30,
+    "windows": 1406,
+    "fail_0.25": 22,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 92,
+    "maxTheta": 0.3631208093739849,
+    "medTheta": 0.10257039049505673
+   },
+   {
+    "N": 50,
+    "windows": 1386,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 57,
+    "maxTheta": 0.2344491422251455,
+    "medTheta": 0.06579397522894972
+   },
+   {
+    "N": 100,
+    "windows": 1336,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 26,
+    "maxTheta": 0.11830948780672022,
+    "medTheta": 0.038762354072567874
+   },
+   {
+    "N": 200,
+    "windows": 1236,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 11,
+    "maxTheta": 0.05013468375022573,
+    "medTheta": 0.014027274243447357
+   },
+   {
+    "N": 500,
+    "windows": 936,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 4,
+    "maxTheta": 0.013685845667572928,
+    "medTheta": 0.0018818247684022587
+   },
+   {
+    "N": 1000,
+    "windows": 436,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.000384388703888269,
+    "medTheta": 0.0003437800501800178
+   }
+  ],
+  "windows_online_only": [
+   {
+    "N": 2,
+    "windows": 1434,
+    "fail_0.25": 1286,
+    "fail_0.443": 1120,
+    "fail_0.5": 1078,
+    "fail_1": 754,
+    "n_minpairs": 1434,
+    "maxTheta": 52.15662831947818,
+    "medTheta": 1.0823764850883515
+   },
+   {
+    "N": 3,
+    "windows": 1433,
+    "fail_0.25": 1137,
+    "fail_0.443": 805,
+    "fail_0.5": 723,
+    "fail_1": 252,
+    "n_minpairs": 918,
+    "maxTheta": 23.465396199613245,
+    "medTheta": 0.6435881095287386
+   },
+   {
+    "N": 5,
+    "windows": 1431,
+    "fail_0.25": 875,
+    "fail_0.443": 408,
+    "fail_0.5": 318,
+    "fail_1": 18,
+    "n_minpairs": 532,
+    "maxTheta": 2.8878811137100255,
+    "medTheta": 0.4066939046621472
+   },
+   {
+    "N": 10,
+    "windows": 1426,
+    "fail_0.25": 458,
+    "fail_0.443": 86,
+    "fail_0.5": 43,
+    "fail_1": 0,
+    "n_minpairs": 272,
+    "maxTheta": 0.765653390971959,
+    "medTheta": 0.2458834025792735
+   },
+   {
+    "N": 20,
+    "windows": 1416,
+    "fail_0.25": 111,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 135,
+    "maxTheta": 0.43922375689473336,
+    "medTheta": 0.13205074561694274
+   },
+   {
+    "N": 30,
+    "windows": 1406,
+    "fail_0.25": 16,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 92,
+    "maxTheta": 0.35930308226847324,
+    "medTheta": 0.10061482196924976
+   },
+   {
+    "N": 50,
+    "windows": 1386,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 57,
+    "maxTheta": 0.2306453666150454,
+    "medTheta": 0.06441136766747436
+   },
+   {
+    "N": 100,
+    "windows": 1336,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 26,
+    "maxTheta": 0.11828135431463037,
+    "medTheta": 0.03811355186602493
+   },
+   {
+    "N": 200,
+    "windows": 1236,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 11,
+    "maxTheta": 0.04990477118496137,
+    "medTheta": 0.013896847175388069
+   },
+   {
+    "N": 500,
+    "windows": 936,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 4,
+    "maxTheta": 0.013645825904409818,
+    "medTheta": 0.0018713713355911568
+   },
+   {
+    "N": 1000,
+    "windows": 436,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.0003833383466576035,
+    "medTheta": 0.0003411425620111507
+   }
+  ],
+  "max_abs_Theta_shift_from_offline": 10.034089281207844,
+  "pairs_farther_than_100_spacings_from_offline": 99,
+  "max_distance_to_offline_in_spacings": 139.0832667607419,
+  "first_offline_height": 415.25627896409037,
+  "n_negative_Theta": 15,
+  "online_below_first_offline": 211,
+  "windows_below_first_offline": [
+   {
+    "N": 2,
+    "windows": 210,
+    "fail_0.25": 193,
+    "fail_0.443": 164,
+    "fail_0.5": 156,
+    "fail_1": 113,
+    "n_minpairs": 210,
+    "maxTheta": 5.9970296140898975,
+    "medTheta": 1.0752819218670602
+   },
+   {
+    "N": 3,
+    "windows": 209,
+    "fail_0.25": 175,
+    "fail_0.443": 117,
+    "fail_0.5": 101,
+    "fail_1": 38,
+    "n_minpairs": 134,
+    "maxTheta": 1.8297531782760998,
+    "medTheta": 0.7136065287652742
+   },
+   {
+    "N": 5,
+    "windows": 207,
+    "fail_0.25": 144,
+    "fail_0.443": 54,
+    "fail_0.5": 34,
+    "fail_1": 1,
+    "n_minpairs": 75,
+    "maxTheta": 1.8297531782760998,
+    "medTheta": 0.40905627100560255
+   },
+   {
+    "N": 10,
+    "windows": 202,
+    "fail_0.25": 87,
+    "fail_0.443": 6,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 36,
+    "maxTheta": 0.49064707348201514,
+    "medTheta": 0.2698945281698244
+   },
+   {
+    "N": 20,
+    "windows": 192,
+    "fail_0.25": 29,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 20,
+    "maxTheta": 0.3168445192477703,
+    "medTheta": 0.16426388467663994
+   },
+   {
+    "N": 30,
+    "windows": 182,
+    "fail_0.25": 5,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 11,
+    "maxTheta": 0.2619711132341603,
+    "medTheta": 0.11830948780672022
+   }
+  ],
+  "flow_full_set": {
+   "tc": 3.599509769624833e-05,
+   "s_end": 3.599506288619983e-05,
+   "g0": 0.01696777628808377,
+   "g_end": 1.6687731658748817e-05,
+   "Theta0": 0.0003843887038882695,
+   "Theta_end": 3.718837822935964e-10,
+   "Theta_max": 0.0003843887038882695,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1364,
+    1365
+   ],
+   "pair": [
+    1364,
+    1365
+   ],
+   "tc_over_g2_8": 1.000192248569654,
+   "at": 1919.0493166947053,
+   "dist_to_offline_spacings": 25.970234715720224
+  },
+  "flow_online_only": {
+   "tc": 3.5995078785969925e-05,
+   "s_end": 3.5995043975959366e-05,
+   "g0": 0.01696777628808377,
+   "g_end": 1.66877225638018e-05,
+   "Theta0": 0.000383338346657604,
+   "Theta_end": 3.70867795816772e-10,
+   "Theta_max": 0.000383338346657604,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1364,
+    1365
+   ],
+   "pair": [
+    1364,
+    1365
+   ]
+  }
+ },
+ "HEAT--0.5": {
+  "online": 929,
+  "offline_pairs": 277,
+  "windows_full_set": [
+   {
+    "N": 2,
+    "windows": 928,
+    "fail_0.25": 747,
+    "fail_0.443": 665,
+    "fail_0.5": 645,
+    "fail_1": 495,
+    "n_minpairs": 928,
+    "maxTheta": 22.471630177418312,
+    "medTheta": 1.142864916586473
+   },
+   {
+    "N": 3,
+    "windows": 927,
+    "fail_0.25": 686,
+    "fail_0.443": 534,
+    "fail_0.5": 498,
+    "fail_1": 290,
+    "n_minpairs": 608,
+    "maxTheta": 17.56945183378714,
+    "medTheta": 0.7432262776053488
+   },
+   {
+    "N": 5,
+    "windows": 925,
+    "fail_0.25": 551,
+    "fail_0.443": 328,
+    "fail_0.5": 284,
+    "fail_1": 108,
+    "n_minpairs": 364,
+    "maxTheta": 4.658064949841225,
+    "medTheta": 0.45381810823300844
+   },
+   {
+    "N": 10,
+    "windows": 920,
+    "fail_0.25": 288,
+    "fail_0.443": 82,
+    "fail_0.5": 54,
+    "fail_1": 11,
+    "n_minpairs": 165,
+    "maxTheta": 1.4375163833118532,
+    "medTheta": 0.22594623088538912
+   },
+   {
+    "N": 20,
+    "windows": 910,
+    "fail_0.25": 103,
+    "fail_0.443": 12,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 81,
+    "maxTheta": 0.7386138172269193,
+    "medTheta": 0.11399829874961814
+   },
+   {
+    "N": 30,
+    "windows": 900,
+    "fail_0.25": 62,
+    "fail_0.443": 1,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 56,
+    "maxTheta": 0.7386138172269193,
+    "medTheta": 0.09304556826240554
+   },
+   {
+    "N": 50,
+    "windows": 880,
+    "fail_0.25": 22,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 35,
+    "maxTheta": 0.3536560971364405,
+    "medTheta": 0.06852517047793942
+   },
+   {
+    "N": 100,
+    "windows": 830,
+    "fail_0.25": 1,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 20,
+    "maxTheta": 0.2581723838253745,
+    "medTheta": 0.032991937399835566
+   },
+   {
+    "N": 200,
+    "windows": 730,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 9,
+    "maxTheta": 0.11093575721039647,
+    "medTheta": 0.028295971541853926
+   },
+   {
+    "N": 500,
+    "windows": 430,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 5,
+    "maxTheta": 0.11093575721039647,
+    "medTheta": 0.029894295774782725
+   }
+  ],
+  "windows_online_only": [
+   {
+    "N": 2,
+    "windows": 928,
+    "fail_0.25": 770,
+    "fail_0.443": 683,
+    "fail_0.5": 658,
+    "fail_1": 500,
+    "n_minpairs": 928,
+    "maxTheta": 38.70462097108382,
+    "medTheta": 1.139759764823058
+   },
+   {
+    "N": 3,
+    "windows": 927,
+    "fail_0.25": 611,
+    "fail_0.443": 440,
+    "fail_0.5": 398,
+    "fail_1": 188,
+    "n_minpairs": 608,
+    "maxTheta": 14.799055365494969,
+    "medTheta": 0.5823281283623757
+   },
+   {
+    "N": 5,
+    "windows": 925,
+    "fail_0.25": 393,
+    "fail_0.443": 176,
+    "fail_0.5": 140,
+    "fail_1": 27,
+    "n_minpairs": 364,
+    "maxTheta": 3.1095071766372198,
+    "medTheta": 0.302243142122692
+   },
+   {
+    "N": 10,
+    "windows": 920,
+    "fail_0.25": 159,
+    "fail_0.443": 31,
+    "fail_0.5": 19,
+    "fail_1": 1,
+    "n_minpairs": 165,
+    "maxTheta": 1.3377505571399222,
+    "medTheta": 0.1566046135249562
+   },
+   {
+    "N": 20,
+    "windows": 910,
+    "fail_0.25": 25,
+    "fail_0.443": 3,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 81,
+    "maxTheta": 0.7241707098419117,
+    "medTheta": 0.07600374790564599
+   },
+   {
+    "N": 30,
+    "windows": 900,
+    "fail_0.25": 4,
+    "fail_0.443": 1,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 56,
+    "maxTheta": 0.7241707098419117,
+    "medTheta": 0.061256413935575404
+   },
+   {
+    "N": 50,
+    "windows": 880,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 35,
+    "maxTheta": 0.17657020809554136,
+    "medTheta": 0.04263564072355378
+   },
+   {
+    "N": 100,
+    "windows": 830,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 20,
+    "maxTheta": 0.10439564007940987,
+    "medTheta": 0.029338726005618366
+   },
+   {
+    "N": 200,
+    "windows": 730,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 9,
+    "maxTheta": 0.10439564007940987,
+    "medTheta": 0.01045697744334224
+   },
+   {
+    "N": 500,
+    "windows": 430,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 5,
+    "maxTheta": 0.10439564007940987,
+    "medTheta": 0.007762472907346028
+   }
+  ],
+  "max_abs_Theta_shift_from_offline": 20.584309274200656,
+  "pairs_farther_than_100_spacings_from_offline": 0,
+  "max_distance_to_offline_in_spacings": 21.123660861712253,
+  "first_offline_height": 111.69422767246392,
+  "n_negative_Theta": 75,
+  "online_below_first_offline": 33,
+  "windows_below_first_offline": [
+   {
+    "N": 2,
+    "windows": 32,
+    "fail_0.25": 27,
+    "fail_0.443": 24,
+    "fail_0.5": 23,
+    "fail_1": 19,
+    "n_minpairs": 32,
+    "maxTheta": 3.837165344863081,
+    "medTheta": 1.0810083209657608
+   },
+   {
+    "N": 3,
+    "windows": 31,
+    "fail_0.25": 21,
+    "fail_0.443": 15,
+    "fail_0.5": 13,
+    "fail_1": 8,
+    "n_minpairs": 21,
+    "maxTheta": 1.5925493782129259,
+    "medTheta": 0.5618607201024911
+   },
+   {
+    "N": 5,
+    "windows": 29,
+    "fail_0.25": 10,
+    "fail_0.443": 4,
+    "fail_0.5": 2,
+    "fail_1": 0,
+    "n_minpairs": 11,
+    "maxTheta": 0.6230098876425726,
+    "medTheta": 0.31667435741578603
+   },
+   {
+    "N": 10,
+    "windows": 24,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 5,
+    "maxTheta": 0.23319854950527566,
+    "medTheta": 0.18290931411479613
+   },
+   {
+    "N": 20,
+    "windows": 14,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 3,
+    "maxTheta": 0.22594623088538912,
+    "medTheta": 0.18290931411479613
+   },
+   {
+    "N": 30,
+    "windows": 4,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 1,
+    "maxTheta": 0.13943951102474955,
+    "medTheta": 0.13943951102474955
+   }
+  ],
+  "flow_full_set": {
+   "tc": 0.0010033656800641313,
+   "s_end": 0.0010033647080268913,
+   "g0": 0.08950988070728272,
+   "g_end": 8.818331980364746e-05,
+   "Theta0": 0.003711852483706319,
+   "Theta_end": 3.602753628644156e-09,
+   "Theta_max": 0.003711852483706319,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    172,
+    173
+   ],
+   "pair": [
+    172,
+    173
+   ],
+   "tc_over_g2_8": 1.0018605418630353,
+   "at": 404.7034880239412,
+   "dist_to_offline_spacings": 5.63492590268906
+  },
+  "flow_online_only": {
+   "tc": 0.0010032048868523712,
+   "s_end": 0.0010032039151348516,
+   "g0": 0.08950988070728272,
+   "g_end": 8.816881609163829e-05,
+   "Theta0": 0.003391899172318335,
+   "Theta_end": 3.29220532998504e-09,
+   "Theta_max": 0.003391899172318335,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    172,
+    173
+   ],
+   "pair": [
+    172,
+    173
+   ]
+  }
+ },
+ "TNR": {
+  "online": 1517,
+  "offline_pairs": 350,
+  "windows_full_set": [
+   {
+    "N": 2,
+    "windows": 1516,
+    "fail_0.25": 1135,
+    "fail_0.443": 1075,
+    "fail_0.5": 1045,
+    "fail_1": 851,
+    "n_minpairs": 1516,
+    "maxTheta": 13.21095254036057,
+    "medTheta": 1.1792268034808373
+   },
+   {
+    "N": 3,
+    "windows": 1515,
+    "fail_0.25": 1082,
+    "fail_0.443": 982,
+    "fail_0.5": 932,
+    "fail_1": 587,
+    "n_minpairs": 974,
+    "maxTheta": 9.384655797495597,
+    "medTheta": 0.8948227479411822
+   },
+   {
+    "N": 5,
+    "windows": 1513,
+    "fail_0.25": 918,
+    "fail_0.443": 745,
+    "fail_0.5": 659,
+    "fail_1": 233,
+    "n_minpairs": 558,
+    "maxTheta": 3.088626939142343,
+    "medTheta": 0.532044567962944
+   },
+   {
+    "N": 10,
+    "windows": 1508,
+    "fail_0.25": 737,
+    "fail_0.443": 445,
+    "fail_0.5": 343,
+    "fail_1": 32,
+    "n_minpairs": 278,
+    "maxTheta": 1.451455444705442,
+    "medTheta": 0.3212921984450468
+   },
+   {
+    "N": 20,
+    "windows": 1498,
+    "fail_0.25": 539,
+    "fail_0.443": 186,
+    "fail_0.5": 137,
+    "fail_1": 8,
+    "n_minpairs": 141,
+    "maxTheta": 1.1087154547290914,
+    "medTheta": 0.23527927858677175
+   },
+   {
+    "N": 30,
+    "windows": 1488,
+    "fail_0.25": 415,
+    "fail_0.443": 100,
+    "fail_0.5": 75,
+    "fail_1": 5,
+    "n_minpairs": 89,
+    "maxTheta": 1.1087154547290914,
+    "medTheta": 0.20930748159509258
+   },
+   {
+    "N": 50,
+    "windows": 1468,
+    "fail_0.25": 235,
+    "fail_0.443": 54,
+    "fail_0.5": 52,
+    "fail_1": 0,
+    "n_minpairs": 60,
+    "maxTheta": 0.644388019035523,
+    "medTheta": 0.1981365563754804
+   },
+   {
+    "N": 100,
+    "windows": 1418,
+    "fail_0.25": 129,
+    "fail_0.443": 36,
+    "fail_0.5": 36,
+    "fail_1": 0,
+    "n_minpairs": 30,
+    "maxTheta": 0.5644154940056979,
+    "medTheta": 0.17453926347113075
+   },
+   {
+    "N": 200,
+    "windows": 1318,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 15,
+    "maxTheta": 0.2254031349392493,
+    "medTheta": 0.04348909395340747
+   },
+   {
+    "N": 500,
+    "windows": 1018,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.10135244369137864,
+    "medTheta": -0.005608446072985377
+   },
+   {
+    "N": 1000,
+    "windows": 518,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.04348909395340747,
+    "medTheta": 0.02772698427649872
+   }
+  ],
+  "windows_online_only": [
+   {
+    "N": 2,
+    "windows": 1516,
+    "fail_0.25": 1400,
+    "fail_0.443": 1250,
+    "fail_0.5": 1187,
+    "fail_1": 795,
+    "n_minpairs": 1516,
+    "maxTheta": 13.091635577113623,
+    "medTheta": 1.061392568827393
+   },
+   {
+    "N": 3,
+    "windows": 1515,
+    "fail_0.25": 1283,
+    "fail_0.443": 983,
+    "fail_0.5": 858,
+    "fail_1": 262,
+    "n_minpairs": 974,
+    "maxTheta": 8.541313377288613,
+    "medTheta": 0.6949985206277347
+   },
+   {
+    "N": 5,
+    "windows": 1513,
+    "fail_0.25": 1075,
+    "fail_0.443": 602,
+    "fail_0.5": 436,
+    "fail_1": 19,
+    "n_minpairs": 558,
+    "maxTheta": 2.3199968602657832,
+    "medTheta": 0.4609093007091468
+   },
+   {
+    "N": 10,
+    "windows": 1508,
+    "fail_0.25": 654,
+    "fail_0.443": 163,
+    "fail_0.5": 86,
+    "fail_1": 1,
+    "n_minpairs": 278,
+    "maxTheta": 1.0020480697219747,
+    "medTheta": 0.28813341948966104
+   },
+   {
+    "N": 20,
+    "windows": 1498,
+    "fail_0.25": 207,
+    "fail_0.443": 6,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 141,
+    "maxTheta": 0.5328396622490484,
+    "medTheta": 0.1864174759162935
+   },
+   {
+    "N": 30,
+    "windows": 1488,
+    "fail_0.25": 50,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 89,
+    "maxTheta": 0.36495851267050955,
+    "medTheta": 0.13985953832919246
+   },
+   {
+    "N": 50,
+    "windows": 1468,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 60,
+    "maxTheta": 0.2358439901365844,
+    "medTheta": 0.11676123922712764
+   },
+   {
+    "N": 100,
+    "windows": 1418,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 30,
+    "maxTheta": 0.17627583551209877,
+    "medTheta": 0.09279265805319914
+   },
+   {
+    "N": 200,
+    "windows": 1318,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 15,
+    "maxTheta": 0.10837226829175677,
+    "medTheta": 0.06307812518706202
+   },
+   {
+    "N": 500,
+    "windows": 1018,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.0616073136727979,
+    "medTheta": 0.03129416774329173
+   },
+   {
+    "N": 1000,
+    "windows": 518,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.022851701763371753,
+    "medTheta": 0.014659486743314569
+   }
+  ],
+  "max_abs_Theta_shift_from_offline": 11.492594419216271,
+  "pairs_farther_than_100_spacings_from_offline": 0,
+  "max_distance_to_offline_in_spacings": 2.604578217793758,
+  "first_offline_height": 2.859600867380127,
+  "n_negative_Theta": 315,
+  "online_below_first_offline": 0,
+  "flow_full_set": {
+   "tc": 0.0011955005319898915,
+   "s_end": 0.0011954993687453923,
+   "g0": 0.09750250170668551,
+   "g_end": 9.646738249102782e-05,
+   "Theta0": 0.011964874599589954,
+   "Theta_end": 1.1672673067170308e-08,
+   "Theta_max": 0.011964874599589954,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1495,
+    1496
+   ],
+   "pair": [
+    1495,
+    1496
+   ],
+   "tc_over_g2_8": 1.0060237715424971,
+   "at": 1977.17394369804,
+   "dist_to_offline_spacings": 1.0890766119655937
+  },
+  "flow_online_only": {
+   "tc": 0.0011922007489151005,
+   "s_end": 0.0011921995922543674,
+   "g0": 0.09750250170668551,
+   "g_end": 9.619400088922703e-05,
+   "Theta0": 0.006467271723257368,
+   "Theta_end": 6.2910211770888896e-09,
+   "Theta_max": 0.006467271723257368,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1495,
+    1496
+   ],
+   "pair": [
+    1495,
+    1496
+   ]
+  }
+ },
+ "ZETA": {
+  "online": 1517,
+  "offline_pairs": 0,
+  "windows_full_set": [
+   {
+    "N": 2,
+    "windows": 1516,
+    "fail_0.25": 1400,
+    "fail_0.443": 1250,
+    "fail_0.5": 1187,
+    "fail_1": 795,
+    "n_minpairs": 1516,
+    "maxTheta": 13.091635577113623,
+    "medTheta": 1.061392568827393
+   },
+   {
+    "N": 3,
+    "windows": 1515,
+    "fail_0.25": 1283,
+    "fail_0.443": 983,
+    "fail_0.5": 858,
+    "fail_1": 262,
+    "n_minpairs": 974,
+    "maxTheta": 8.541313377288613,
+    "medTheta": 0.6949985206277347
+   },
+   {
+    "N": 5,
+    "windows": 1513,
+    "fail_0.25": 1075,
+    "fail_0.443": 602,
+    "fail_0.5": 436,
+    "fail_1": 19,
+    "n_minpairs": 558,
+    "maxTheta": 2.3199968602657832,
+    "medTheta": 0.4609093007091468
+   },
+   {
+    "N": 10,
+    "windows": 1508,
+    "fail_0.25": 654,
+    "fail_0.443": 163,
+    "fail_0.5": 86,
+    "fail_1": 1,
+    "n_minpairs": 278,
+    "maxTheta": 1.0020480697219747,
+    "medTheta": 0.28813341948966104
+   },
+   {
+    "N": 20,
+    "windows": 1498,
+    "fail_0.25": 207,
+    "fail_0.443": 6,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 141,
+    "maxTheta": 0.5328396622490484,
+    "medTheta": 0.1864174759162935
+   },
+   {
+    "N": 30,
+    "windows": 1488,
+    "fail_0.25": 50,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 89,
+    "maxTheta": 0.36495851267050955,
+    "medTheta": 0.13985953832919246
+   },
+   {
+    "N": 50,
+    "windows": 1468,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 60,
+    "maxTheta": 0.2358439901365844,
+    "medTheta": 0.11676123922712764
+   },
+   {
+    "N": 100,
+    "windows": 1418,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 30,
+    "maxTheta": 0.17627583551209877,
+    "medTheta": 0.09279265805319914
+   },
+   {
+    "N": 200,
+    "windows": 1318,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 15,
+    "maxTheta": 0.10837226829175677,
+    "medTheta": 0.06307812518706202
+   },
+   {
+    "N": 500,
+    "windows": 1018,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.0616073136727979,
+    "medTheta": 0.03129416774329173
+   },
+   {
+    "N": 1000,
+    "windows": 518,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.022851701763371753,
+    "medTheta": 0.014659486743314569
+   }
+  ],
+  "windows_online_only": [
+   {
+    "N": 2,
+    "windows": 1516,
+    "fail_0.25": 1400,
+    "fail_0.443": 1250,
+    "fail_0.5": 1187,
+    "fail_1": 795,
+    "n_minpairs": 1516,
+    "maxTheta": 13.091635577113623,
+    "medTheta": 1.061392568827393
+   },
+   {
+    "N": 3,
+    "windows": 1515,
+    "fail_0.25": 1283,
+    "fail_0.443": 983,
+    "fail_0.5": 858,
+    "fail_1": 262,
+    "n_minpairs": 974,
+    "maxTheta": 8.541313377288613,
+    "medTheta": 0.6949985206277347
+   },
+   {
+    "N": 5,
+    "windows": 1513,
+    "fail_0.25": 1075,
+    "fail_0.443": 602,
+    "fail_0.5": 436,
+    "fail_1": 19,
+    "n_minpairs": 558,
+    "maxTheta": 2.3199968602657832,
+    "medTheta": 0.4609093007091468
+   },
+   {
+    "N": 10,
+    "windows": 1508,
+    "fail_0.25": 654,
+    "fail_0.443": 163,
+    "fail_0.5": 86,
+    "fail_1": 1,
+    "n_minpairs": 278,
+    "maxTheta": 1.0020480697219747,
+    "medTheta": 0.28813341948966104
+   },
+   {
+    "N": 20,
+    "windows": 1498,
+    "fail_0.25": 207,
+    "fail_0.443": 6,
+    "fail_0.5": 1,
+    "fail_1": 0,
+    "n_minpairs": 141,
+    "maxTheta": 0.5328396622490484,
+    "medTheta": 0.1864174759162935
+   },
+   {
+    "N": 30,
+    "windows": 1488,
+    "fail_0.25": 50,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 89,
+    "maxTheta": 0.36495851267050955,
+    "medTheta": 0.13985953832919246
+   },
+   {
+    "N": 50,
+    "windows": 1468,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 60,
+    "maxTheta": 0.2358439901365844,
+    "medTheta": 0.11676123922712764
+   },
+   {
+    "N": 100,
+    "windows": 1418,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 30,
+    "maxTheta": 0.17627583551209877,
+    "medTheta": 0.09279265805319914
+   },
+   {
+    "N": 200,
+    "windows": 1318,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 15,
+    "maxTheta": 0.10837226829175677,
+    "medTheta": 0.06307812518706202
+   },
+   {
+    "N": 500,
+    "windows": 1018,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 6,
+    "maxTheta": 0.0616073136727979,
+    "medTheta": 0.03129416774329173
+   },
+   {
+    "N": 1000,
+    "windows": 518,
+    "fail_0.25": 0,
+    "fail_0.443": 0,
+    "fail_0.5": 0,
+    "fail_1": 0,
+    "n_minpairs": 2,
+    "maxTheta": 0.022851701763371753,
+    "medTheta": 0.014659486743314569
+   }
+  ],
+  "max_abs_Theta_shift_from_offline": 0.0,
+  "pairs_farther_than_100_spacings_from_offline": 1516,
+  "max_distance_to_offline_in_spacings": null,
+  "first_offline_height": null,
+  "n_negative_Theta": 0,
+  "flow_full_set": {
+   "tc": 0.0011922007489151005,
+   "s_end": 0.0011921995922543674,
+   "g0": 0.09750250170668551,
+   "g_end": 9.619400088922703e-05,
+   "Theta0": 0.006467271723257369,
+   "Theta_end": 6.2910211770888896e-09,
+   "Theta_max": 0.006467271723257369,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1495,
+    1496
+   ],
+   "pair": [
+    1495,
+    1496
+   ],
+   "tc_over_g2_8": 1.003246976279472,
+   "at": 1977.17394369804,
+   "dist_to_offline_spacings": null
+  },
+  "flow_online_only": {
+   "tc": 0.0011922007489151005,
+   "s_end": 0.0011921995922543674,
+   "g0": 0.09750250170668551,
+   "g_end": 9.619400088922703e-05,
+   "Theta0": 0.006467271723257368,
+   "Theta_end": 6.2910211770888896e-09,
+   "Theta_max": 0.006467271723257368,
+   "steps": 270,
+   "switched": 0,
+   "pair0": [
+    1495,
+    1496
+   ],
+   "pair": [
+    1495,
+    1496
+   ]
+  }
+ },
+ "EA-1_4": {
+  "online": 0,
+  "offline_pairs": 1517,
+  "note": "no real zeros: no real pair, no collision under the attractive flow (conjugate pairs separate, d(b^2)/ds = 2 > 0); formal Theta of each conjugate pair is negative",
+  "formal_Theta_range": [
+   -1.3161802682101937,
+   -0.01350325851971781
+  ]
+ }
+}

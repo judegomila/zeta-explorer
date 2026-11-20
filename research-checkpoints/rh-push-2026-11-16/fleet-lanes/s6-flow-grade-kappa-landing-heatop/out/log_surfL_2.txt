@@ -1,0 +1,11 @@
+L4 1/360 0s last {'d': 2, 'n': 0, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 2, 'certified_t0': True, 'scale': 12.818076573359873, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 41/360 0s last {'d': 4, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 4, 'certified_t0': True, 'scale': 94.19178391398098, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 81/360 0s last {'d': 7, 'n': 8, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 7, 'certified_t0': True, 'scale': 25.9739998684307, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 121/360 0s last {'d': 10, 'n': 2000, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 10, 'certified_t0': True, 'scale': 725.3715423705348, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 161/360 0s last {'d': 20, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 20, 'certified_t0': True, 'scale': 94.19178391398098, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 201/360 0s last {'d': 40, 'n': 8, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 40, 'certified_t0': True, 'scale': 25.9739998684307, 'tstar_raw': 0.0, 'sec': 0.0}
+L4 241/360 1s last {'d': 64, 'n': 2000, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 64, 'certified_t0': True, 'scale': 725.3715423705348, 'tstar_raw': 0.0, 'sec': 0.2}
+L4 281/360 5s last {'d': 128, 'n': 100, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 128, 'certified_t0': True, 'scale': 94.19178391398098, 'tstar_raw': 0.0, 'sec': 1.2}
+L4 321/360 50s last {'d': 256, 'n': 8, 'theta_star': 0.0, 'bracket': (0.0, 0.0), 'real_roots_t0': 256, 'certified_t0': True, 'scale': 25.9739998684307, 'tstar_raw': 0.0, 'sec': 13.3}
+/opt/homebrew/Cellar/python@3.14/3.14.10/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:475: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-88etyufs', '/mp-b87av_3z', '/mp-dunwq2yz', '/mp-d60qtpcx', '/mp-4t32rej8', '/mp-_bt6fday'}
+  warnings.warn(

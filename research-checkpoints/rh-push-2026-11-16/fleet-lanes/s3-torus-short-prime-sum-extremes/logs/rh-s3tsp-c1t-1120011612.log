@@ -1,0 +1,4 @@
+N=6420 terms=879 cols=36 K=300000000 step=323333 M=67108864 nf=134217728 blocks=5 mode=orbit GPU=True
+planned: grid 2.00 GiB + FFT output 2.00 GiB + kernel tables 0.000 GiB
+block 5/5 done=3.000e+08 t=254s rate=1.183e+06 heights/s
+done 300000000 254s

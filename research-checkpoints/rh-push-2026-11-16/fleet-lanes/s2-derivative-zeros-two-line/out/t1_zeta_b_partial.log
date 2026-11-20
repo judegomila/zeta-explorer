@@ -1,0 +1,26 @@
+23:19:20 T0 10000 N 39 windows 5 H 10 samples/edge 564 (step 0.01773) planned samples 2821 x N = 1.10e+05 terms; block memory <= 5.8 GB
+23:19:22 {"T0": 10000.0, "N": 39, "D": 50.0, "H": 10.0, "windows": 5, "samples_per_edge": 564, "zeta_zeros_on_line": 60, "count_zeta_prime_left": 0, "nonzero_windows": [], "max_abs_winding_residual": 1.1987157199471387e-13, "max_step": 0.6103235900803383, "unresolved": [], "corner_consistency": 1.8609322727949438e-14, "max_Re_logder_on_left_grid": -3.7286989525612304, "sec": 1.2738146781921387, "riemann_von_mangoldt": 58.688060185480936}
+23:19:22 T0 100000 N 126 windows 100 H 10 samples/edge 740 (step 0.01351) planned samples 74001 x N = 9.32e+06 terms; block memory <= 5.8 GB
+23:19:42 {"T0": 100000.0, "N": 126, "D": 1000.0, "H": 10.0, "windows": 100, "samples_per_edge": 740, "zeta_zeros_on_line": 1540, "count_zeta_prime_left": 0, "nonzero_windows": [], "max_abs_winding_residual": 7.959020034894305e-12, "max_step": 0.9122788121507059, "unresolved": [], "corner_consistency": 0.0, "max_Re_logder_on_left_grid": -4.9029025916287745, "sec": 20.314939498901367, "riemann_von_mangoldt": 1540.6249126012262}
+23:19:42 T0 1000000 N 398 windows 28 H 10 samples/edge 916 (step 0.01092) planned samples 25649 x N = 1.02e+07 terms; block memory <= 5.8 GB
+23:20:03 {"T0": 1000000.0, "N": 398, "D": 280.0, "H": 10.0, "windows": 28, "samples_per_edge": 916, "zeta_zeros_on_line": 534, "count_zeta_prime_left": 0, "nonzero_windows": [], "max_abs_winding_residual": 1.6985575578873608e-12, "max_step": 0.7287655512568315, "unresolved": [], "corner_consistency": 1.123440801044193e-15, "max_Re_logder_on_left_grid": -6.090814864279876, "sec": 21.31994128227234, "riemann_von_mangoldt": 533.7701197741553}
+23:20:03 T0 10000000 N 1261 windows 687 H 10 samples/edge 1091 (step 0.009166) planned samples 749518 x N = 9.45e+08 terms; block memory <= 5.8 GB
+Traceback (most recent call last):
+  File "/home/USER/rh-push/s2-derivative-zeros-two-line/t1_zeta_gpu.py", line 35, in <module>
+    Z, Zp, _ = w.eval(dv, [0.0, xleft], order=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/USER/rh-push/s2-derivative-zeros-two-line/zgpu.py", line 113, in eval
+    U = xp.exp(1j * ph); del ph
+               ~~~^~~~
+  File "cupy/_core/core.pyx", line 1582, in cupy._core.core._ndarray_base.__mul__
+  File "cupy/_core/_kernel.pyx", line 1374, in cupy._core._kernel.ufunc.__call__
+  File "cupy/_core/_kernel.pyx", line 657, in cupy._core._kernel._get_out_args_from_optionals
+  File "cupy/_core/core.pyx", line 3342, in cupy._core.core._ndarray_init
+  File "cupy/_core/core.pyx", line 300, in cupy._core.core._ndarray_base._init_fast
+  File "cupy/cuda/memory.pyx", line 904, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1614, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1635, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1350, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1376, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1560, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 959,994,368 bytes (allocated so far: 674,058,240 bytes, limit set to: 12,884,901,888 bytes).

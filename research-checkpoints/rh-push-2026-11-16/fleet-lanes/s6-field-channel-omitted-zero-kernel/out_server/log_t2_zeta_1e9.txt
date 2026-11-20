@@ -1,0 +1,13 @@
+12:23:50 zeta_1e9 i0 1000 h 1e+09 H 0.072376 t_true/pair 1.03207620 decl pg [0.99954853, 1.08280001] in=True uni in=True honest pg in=True Kon 0.3449 Koff 0 near None direct/flow 1.000007073851423
+12:23:52 zeta_1e9 i0 1877 h 1e+09 H 0.074663 t_true/pair 1.02555841 decl pg [0.99945389, 1.06200090] in=True uni in=True honest pg in=True Kon 0.3921 Koff 0 near None direct/flow 0.9999987168282365
+12:23:54 zeta_1e9 i0 3523 h 1e+09 H 0.074656 t_true/pair 1.02691703 decl pg [0.99720281, 1.06986978] in=True uni in=True honest pg in=True Kon 2.015 Koff 0 near None direct/flow 0.9999993407255129
+12:23:56 zeta_1e9 i0 6613 h 1e+09 H 0.041993 t_true/pair 1.01046044 decl pg [0.99976043, 1.02347163] in=True uni in=True honest pg in=True Kon 0.5436 Koff 0 near None direct/flow 1.0000032554588911
+12:23:58 zeta_1e9 i0 12414 h 1e+09 H 0.034299 t_true/pair 1.00725757 decl pg [0.99987412, 1.01600804] in=True uni in=True honest pg in=True Kon 0.4281 Koff 0 near None direct/flow 1.0000015331706886
+12:24:00 zeta_1e9 i0 23304 h 1.00001e+09 H 0.062708 t_true/pair 1.02260662 decl pg [0.99959892, 1.05471201] in=True uni in=True honest pg in=True Kon 0.4082 Koff 0 near None direct/flow 0.999991167029261
+12:24:02 zeta_1e9 i0 43743 h 1.00001e+09 H 0.024991 t_true/pair 1.00243315 decl pg [0.99993373, 1.00512332] in=True uni in=True honest pg in=True Kon 0.4245 Koff 0 near None direct/flow 1.0000116773437946
+12:24:04 zeta_1e9 i0 82111 h 1.00003e+09 H 0.05151 t_true/pair 1.01177024 decl pg [0.99966199, 1.02648783] in=True uni in=True honest pg in=True Kon 0.5098 Koff 0 near None direct/flow 1.0000000367492847
+12:24:07 zeta_1e9 i0 154130 h 1.00005e+09 H 0.045962 t_true/pair 1.01852009 decl pg [0.99951833, 1.04592749] in=True uni in=True honest pg in=True Kon 0.9126 Koff 0 near None direct/flow 0.9999927148833032
+12:24:09 zeta_1e9 i0 289317 h 1.0001e+09 H 0.078208 t_true/pair 1.03422195 decl pg [0.99944781, 1.08754381] in=True uni in=True honest pg in=True Kon 0.3614 Koff 0 near None direct/flow 1.0000020142128447
+12:24:12 zeta_1e9 i0 543077 h 1.00018e+09 H 0.025471 t_true/pair 1.00353536 decl pg [0.99993476, 1.00761053] in=True uni in=True honest pg in=True Kon 0.4023 Koff 0 near None direct/flow 1.0000019843558514
+12:24:14 zeta_1e9 i0 1019407 h 1.00034e+09 H 0.034988 t_true/pair 1.00640961 decl pg [0.99986275, 1.01392678] in=True uni in=True honest pg in=True Kon 0.4485 Koff 0 near None direct/flow 0.999996881690271
+{"name": "zeta_1e9", "kind": "plain", "windows": 12, "declared_pg": {"inside": 12, "outside": 0, "not_certified": 0}, "declared_uni": {"inside": 12, "outside": 0, "not_certified": 0}, "honest_pg": {"inside": 12, "outside": 0, "not_certified": 0}, "honest_uni": {"inside": 12, "outside": 0, "not_certified": 0}}

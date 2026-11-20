@@ -1,0 +1,19 @@
+04:45:20 X=1e+06 Ltot=262144 chunk length 16384 (M=262144), chunks 4..8 of 16, sets 3, GPU=False
+04:45:20 planned allocation: fine grid 8 MB complex, rows about 4 MB each, per-set outputs about 4 MB
+04:45:20 chunk 4 xc=1073728.0 phases done in 0.1s (nmax 1100)
+04:45:26 done chunk 4 TNR3 t=0 in 5.3s
+04:45:51 done chunk 4 TNR3 t=0.05 in 24.9s
+04:46:19 done chunk 4 TNR3 t=0.16 in 28.1s
+04:46:19 chunk 5 xc=1090112.0 phases done in 0.0s (nmax 1100)
+04:46:24 done chunk 5 TNR3 t=0 in 5.6s
+04:46:48 done chunk 5 TNR3 t=0.05 in 24.1s
+04:47:14 done chunk 5 TNR3 t=0.16 in 25.7s
+04:47:14 chunk 6 xc=1106496.0 phases done in 0.0s (nmax 1100)
+04:47:19 done chunk 6 TNR3 t=0 in 4.7s
+04:47:41 done chunk 6 TNR3 t=0.05 in 22.2s
+04:48:07 done chunk 6 TNR3 t=0.16 in 25.6s
+04:48:07 chunk 7 xc=1122880.0 phases done in 0.0s (nmax 1100)
+04:48:11 done chunk 7 TNR3 t=0 in 4.8s
+04:48:35 done chunk 7 TNR3 t=0.05 in 23.1s
+04:48:59 done chunk 7 TNR3 t=0.16 in 24.3s
+04:48:59 ALLDONE

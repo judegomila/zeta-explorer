@@ -1,0 +1,4 @@
+klein DH r=1.5 L=100 N=2^15 kmax=16000 circles 3; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.3 v=0.251835652750 xmin=0.3 wind=-0.000000-4.54e-11j max|t|=4167 tail |hhat| at N/2: 3.18e-10 (rel to max 3.92e-15) 2.0 s
+circle x:0.45 v=0.252753450043 xmin=0.45 wind=-0.000000-2.96e-11j max|t|=2778 tail |hhat| at N/2: 1.34e-10 (rel to max 2.59e-15) 1.7 s
+circle x:0.6 v=0.253671212438 xmin=0.6 wind=-0.000000-1.52e-11j max|t|=2084 tail |hhat| at N/2: 9.69e-11 (rel to max 2.60e-15) 1.8 s

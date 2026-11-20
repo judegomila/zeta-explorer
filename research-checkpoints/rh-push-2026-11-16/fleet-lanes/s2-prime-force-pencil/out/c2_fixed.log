@@ -1,0 +1,20 @@
+14:52:05 mp extrema below 1000: 243, max shift/gap 1.212e+00
+14:52:05 {'obj': 'zeta', 'N': 8, 'K': 3864834, 'frac_majority': 0.8962643673699827, 'first_other_x': 60.118840017481254, 'first_other_K': 5, 'afe_height': 402.1238596594935, 'frac_majority_below_afe_height': 0.7083333333333334}
+14:52:06 {'obj': 'zeta', 'N': 32, 'K': 3864834, 'frac_majority': 0.837579828784367, 'first_other_x': 221.0805386986393, 'first_other_K': 33, 'afe_height': 6433.981754551896, 'frac_majority_below_afe_height': 0.7229845626072041}
+14:52:09 {'obj': 'zeta', 'N': 128, 'K': 3864834, 'frac_majority': 0.79245188797242, 'first_other_x': 782.3651809536269, 'first_other_K': 175, 'afe_height': 102943.70807283034, 'frac_majority_below_afe_height': 0.7338846596199134}
+14:52:33 {'obj': 'zeta', 'N': 1024, 'K': 3864834, 'frac_majority': 0.6919777149548985, 'first_other_x': 4589.6972321677495, 'first_other_K': 1575, 'afe_height': 6588397.316661142, 'frac_majority_below_afe_height': 0.6919777149548985}
+14:52:55 extrema refined on samples: 262989 of 262989, median shift/gap 1.31e-02; parity sign agrees (after global sign -1) on 262989 of 262989
+14:52:55 {'obj': 'dh', 'N': 8, 'K': 262989, 'frac_majority': 0.9860450437090524, 'first_other_x': 22.756616411080753, 'first_other_K': 1, 'afe_height': 80.4247719318987, 'frac_majority_below_afe_height': 0.7777777777777778}
+14:52:55 {'obj': 'dh', 'N': 32, 'K': 262989, 'frac_majority': 0.9379289628083304, 'first_other_x': 40.42174610913191, 'first_other_K': 3, 'afe_height': 1286.7963509103793, 'frac_majority_below_afe_height': 0.7951807228915663}
+14:52:55 {'obj': 'dh', 'N': 128, 'K': 262989, 'frac_majority': 0.9002239637399283, 'first_other_x': 194.39863588954793, 'first_other_K': 31, 'afe_height': 20588.741614566068, 'frac_majority_below_afe_height': 0.8327897641746111}
+14:52:56 {'obj': 'dh', 'N': 1024, 'K': 262989, 'frac_majority': 0.7172049021061717, 'first_other_x': 1254.2749835702894, 'first_other_K': 325, 'afe_height': 1317679.4633322284, 'frac_majority_below_afe_height': 0.7172049021061717}
+14:58:25 mp extrema below 1000: 243, max shift/gap 5.218e-01
+14:58:25 {'obj': 'tnr2', 'N': 8, 'K': 3864834, 'frac_majority': 0.7771187585288268, 'first_other_x': 30.958742784558837, 'first_other_K': 2, 'afe_height': 1608.495438637974, 'frac_majority_below_afe_height': 0.6961451247165533}
+14:58:26 {'obj': 'tnr2', 'N': 32, 'K': 3864834, 'frac_majority': 0.7438469543581949, 'first_other_x': 104.96126953748774, 'first_other_K': 11, 'afe_height': 25735.927018207585, 'frac_majority_below_afe_height': 0.7069609802728773}
+14:58:28 {'obj': 'tnr2', 'N': 128, 'K': 3864834, 'frac_majority': 0.7012955795772858, 'first_other_x': 30.958742784558837, 'first_other_K': 2, 'afe_height': 411774.83229132136, 'frac_majority_below_afe_height': 0.6847899110142024}
+14:58:50 {'obj': 'tnr2', 'N': 1024, 'K': 3864834, 'frac_majority': 0.6819361452522928, 'first_other_x': 24.208602746919457, 'first_other_K': 1, 'afe_height': 26353589.266644567, 'frac_majority_below_afe_height': 0.6819361452522928}
+15:03:31 mp extrema below 1000: 243, max shift/gap 7.205e-02
+15:03:31 {'obj': 'tnr101', 'N': 8, 'K': 3864834, 'frac_majority': 0.605873887468388, 'first_other_x': 59.96345395431653, 'first_other_K': 5, 'afe_height': 4102065.4923864934, 'frac_majority_below_afe_height': 0.6087444796527658}
+15:03:32 {'obj': 'tnr101', 'N': 32, 'K': 3864834, 'frac_majority': 0.5919503916597711, 'first_other_x': 150.7553964454074, 'first_other_K': 21, 'afe_height': 65633047.878183894, 'frac_majority_below_afe_height': 0.5919503916597711}
+15:03:34 {'obj': 'tnr101', 'N': 128, 'K': 3864834, 'frac_majority': 0.9090786305440285, 'first_other_x': 478.24965107855184, 'first_other_K': 91, 'afe_height': 1050128766.0509423, 'frac_majority_below_afe_height': 0.9090786305440285}
+15:03:49 {'obj': 'tnr101', 'N': 1024, 'K': 3864834, 'frac_majority': 0.8781862299907318, 'first_other_x': 88.37661056523264, 'first_other_K': 9, 'afe_height': 67208241027.26031, 'frac_majority_below_afe_height': 0.8781862299907318}

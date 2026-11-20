@@ -1,0 +1,76 @@
+generated 44016, scored 11400, rejected 32616
+  rejected  14118  no open or floored crossing device (curated/devices.json)
+  rejected   4184  contains a combination closed in outcomes.json
+  rejected   1556  closed family: fam-pole-lattice-multiplier
+  rejected   1468  closed family: fam-legendre-dual-limits
+  rejected    807  contains a closed device: monotone-flow-functional
+  rejected    741  closed family: fam-euler-anchor-heat
+  rejected    739  closed family: fam-selberg-control-companion
+  rejected    698  closed family: fam-order2-theta-rows
+  rejected    607  closed family: fam-primitive-test-restriction
+  rejected    585  all members flow-stable and none arithmetic (backward heat passes)
+  rejected    569  shares two nodes with a closed lane (nodes or launchedNodes)
+  rejected    565  contains a closed device: positive-kernel-transport
+  rejected    496  contains a closed device: residue-explicit-formula
+  rejected    465  contains a closed device: mean-value-convexity
+  rejected    407  contains a closed device: finite-support-positivity
+  rejected    402  contains a closed device: euler-fe-phase-at-height
+  rejected    401  closed family: fam-nb-gram-lammin
+  rejected    376  covariant under shift and reciprocal (RZ_b passes every step)
+  rejected    336  closed family: fam-projection-domination-gonek
+  rejected    335  contains a closed device: vector-specific-row-mean-square
+  rejected    309  closed family: fam-arithmetic-nb-span
+  rejected    299  closed family: fam-vaughan-split-landau
+  rejected    273  closed family: fam-one-zero-forces-many
+  rejected    262  closed family: fam-torus-exclusion-sign-test
+  rejected    174  closed family: fam-heat-monotone-hankel
+  rejected    152  closed family: fam-laxphillips-hecke-compression
+  rejected    152  contains a closed device: geometric-positivity
+  rejected    116  closed family: fam-stage-limit-semicontinuity
+  rejected    111  closed family: fam-lemmab-sup-bound-halfplane
+  rejected    103  contains a closed device: maximum-principle
+  rejected     93  contains a closed cell: silent-cell-u6f
+  rejected     91  contains a closed device: twisted-discrepancy
+  rejected     86  contains a closed cell: silent-cell-u6e
+  rejected     61  contains a closed device: recurrence-ergodicity
+  rejected     61  no member uses multiplicativity (DH passes)
+  rejected     60  closed family: fam-hecke-shear-commutator
+  rejected     52  contains a closed cell: silent-cell-u3
+  rejected     49  contains a closed cell: silent-cell-u2-pos
+  rejected     46  closed family: fam-multidelay-section
+  rejected     37  contains a closed device: strip-dtn-identity
+  rejected     34  contains a closed device: exact-uniqueness
+  rejected     34  closed family: fam-linear-zero-measure-lmi
+  rejected     34  contains a closed device: dual-measure-compactness
+  rejected     22  closed family: fam-reflected-euler-stage-canonical
+  rejected     14  closed family: fam-helson-discrepancy-zerofree
+  rejected     13  all members attached to one closed row
+  rejected      9  closed family: fam-pd-log-strip
+  rejected      8  only arithmetic step is target-blind algebra (same for every control)
+  rejected      4  all members from one module
+  rejected      2  closed family: fam-stage-collision-index
+families (move/theme: count, best score):
+  M1/flow               755  8.5
+  M1/geometry           184  10.25
+  M1/nyman               16  4.85
+  M1/positivity        2501  9.5
+  M1/prime-chain       1860  9.0
+  M1/statistics          56  4.72
+  M1/zero-free         4184  9.25
+  M2/zero-free           10  7.41
+  M3/flow                26  8.75
+  M3/geometry             2  5.75
+  M3/nyman               21  2.5
+  M3/positivity          68  10.25
+  M3/prime-chain         95  10.5
+  M3/statistics          20  1.5
+  M3/zero-free          276  8.25
+  M4/flow               699  9.0
+  M4/positivity         154  8.5
+  M4/prime-chain         76  8.0
+  M4/statistics           4  1.5
+  M4/zero-free          392  8.75
+  P2/flow                 1  0.75
+
+top 0:
+wrote tmp/research-2026-11-16/engine/CANDIDATES.json

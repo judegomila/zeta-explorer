@@ -1,0 +1,23 @@
+k=4 Q=3750: 7190 conductors; conjugate found for 7190, self-conjugate 32; 108 groups (c mod 4, c mod 9), median size 67
+explained fraction R2 of a_sigma (6 columns) by the 12 classes tau of one system; null = conductors permuted inside groups (expected 12/n_g)
+  system (1, 0, 0): full 0.1869 | null 0.1833 | moduli <= 2e6 only 0.1844 | moduli > 2e6 only 0.1839 | both halves as 24 predictors 0.3688 (null 24/n_g) | conjugate conductor 0.1831 | corr(lo, hi) per tau: mean 0.012
+  system (3, 4, 5): full 0.1849 | null 0.1833 | moduli <= 2e6 only 0.1839 | moduli > 2e6 only 0.1844 | both halves as 24 predictors 0.3687 (null 24/n_g) | conjugate conductor 0.1844 | corr(lo, hi) per tau: mean 0.010
+  system (0, 0, 0): full 0.1823 | null 0.1846 | moduli <= 2e6 only 0.1857 | moduli > 2e6 only 0.1820 | both halves as 24 predictors 0.3663 (null 24/n_g) | conjugate conductor 0.1810 | corr(lo, hi) per tau: mean 0.012
+  system (5, 1, 0): full 0.1883 | null 0.1839 | moduli <= 2e6 only 0.1871 | moduli > 2e6 only 0.1888 | both halves as 24 predictors 0.3732 (null 24/n_g) | conjugate conductor 0.1859 | corr(lo, hi) per tau: mean 0.009
+Moebius slice of the dual form at s = 1 (2592 columns = 216 systems x 12 classes); t ~ Exp(1) for a random row: mean 1, max of 2592 about 7.9 +- 1.3
+   mu alpha^2 G: mean t 0.942  max 6.79  frac > 3: 0.0417 (Exp: 0.0498)
+   mu alpha^3 G: mean t 1.017  max 6.46  frac > 3: 0.0602 (Exp: 0.0498)
+   mu alpha^1 G: mean t 1.199  max 7.08  frac > 3: 0.0694 (Exp: 0.0498)
+   mu alpha^4 G: mean t 0.987  max 4.63  frac > 3: 0.0370 (Exp: 0.0498)
+   mu alpha^0 G: mean t 0.937  max 4.94  frac > 3: 0.0509 (Exp: 0.0498)
+   mu alpha^5 G: mean t 1.177  max 9.38  frac > 3: 0.0741 (Exp: 0.0498)
+   mu alpha^-1 G: mean t 0.979  max 6.19  frac > 3: 0.0556 (Exp: 0.0498)
+   random completely multiplicative draw 0: mean t 0.892  max 3.46  frac > 3: 0.0231
+   random completely multiplicative draw 1: mean t 1.095  max 6.48  frac > 3: 0.0787
+   random completely multiplicative draw 2: mean t 1.105  max 6.69  frac > 3: 0.0926
+   random completely multiplicative draw 3: mean t 0.988  max 4.88  frac > 3: 0.0463
+   weight 1: mean t 1.090  max 6.38 at system (0, 1, 0) tau 1  frac > 3: 0.0741
+   weight mu: mean t 1.021  max 6.22 at system (2, 1, 1) tau 10  frac > 3: 0.0556
+   weight alpha^2 G: mean t 0.985  max 5.20 at system (1, 0, 1) tau 10  frac > 3: 0.0556
+   weight conj(gamma_1): mean t 0.933  max 4.69 at system (1, 1, 2) tau 10  frac > 3: 0.0463
+   weight conj(gamma_1 gamma_2): mean t 0.912  max 4.53 at system (1, 0, 1) tau 4  frac > 3: 0.0139

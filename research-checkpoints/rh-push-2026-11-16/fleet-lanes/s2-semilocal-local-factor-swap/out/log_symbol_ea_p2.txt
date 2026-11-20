@@ -1,0 +1,3 @@
+[ea@2] mesh points 34960; planned work arrays 1.6 MB
+delta tabulated [0s]; delta(e^UMAX) = -8.83e-09
+RESULT ea@2: Lhat(0) = -14.307168  (2theta'(0) = -5.372183, 2Re L'/L = -8.217355, deltahat(0) = -0.717630);  min over [0,60] = -14.307168 at t = 0.00;  min over [0,30] = -14.307168

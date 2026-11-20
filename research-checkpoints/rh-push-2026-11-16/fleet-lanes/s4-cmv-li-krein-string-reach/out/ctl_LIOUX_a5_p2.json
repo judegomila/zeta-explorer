@@ -1,0 +1,28 @@
+{
+ "code": "LIOUX",
+ "a": "5",
+ "N": 500,
+ "prec": 11000,
+ "moments_s": 40.8,
+ "levinson_s": 0.0,
+ "c0": "[5.179935989335787541706328 +/- 4.16e-25]",
+ "first_nonpositive_index": 2,
+ "first_indefinite_size": 3,
+ "last_index": 2,
+ "last_log2E": 4.501302510505349,
+ "last_k": "[-2.38514115085 +/- 3.83e-12]",
+ "log2E_profile": {
+  "0": 2.37,
+  "1": 2.27
+ },
+ "k_head": [
+  "[-0.259877743669 +/- 5.15e-14]",
+  "[-2.38514115085 +/- 3.83e-12]"
+ ],
+ "min_one_minus_abs_k": [
+  -1.385141150846179,
+  2
+ ],
+ "planted": [],
+ "eigen_angles": {}
+}

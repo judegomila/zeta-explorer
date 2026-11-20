@@ -1,0 +1,2 @@
+P=1000000 primes=78498 GPU=False families=['ZETA', 'CHI', 'CHIB', 'SGN', 'LIO', 'UNI'] cuts=[100.0, 1000.0, 10000.0, 100000.0, 1000000.0]
+planned per-chunk allocation per worker: 1.60e+07 elements x 16 B x 3 arrays = 0.77 GB; workers 8

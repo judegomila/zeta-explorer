@@ -1,0 +1,2 @@
+N = 400, prec 640, 12 supports, z keys ['0.25', '0.75']; planned stage-1 memory per worker: 25 ball matrices 400x400 (about 0.77 GB), 4 workers
+chunk 1 of 4 written 301s

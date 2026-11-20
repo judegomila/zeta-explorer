@@ -1,0 +1,14 @@
+klein TNRQ r=1.5 L=1 N=2^14 kmax=8000 circles 13; K=1.658381 Kp=2.262852 kappa_1=4.286687; arrays per circle 0.00 GB
+circle x:0.004 v=0.252447520915 xmin=0.004 wind=6.000000-2.96e-13j max|t|=31.25 tail |hhat| at N/2: 2.66e-05 (rel to max 1.24e-08) 0.6 s
+circle x:0.006 v=0.253671212438 xmin=0.006 wind=6.000000-3.17e-13j max|t|=20.84 tail |hhat| at N/2: 8.19e-10 (rel to max 5.75e-13) 0.6 s
+circle x:0.008 v=0.254894821246 xmin=0.008 wind=4.000000-2.64e-13j max|t|=15.63 tail |hhat| at N/2: 4.20e-08 (rel to max 3.97e-11) 0.5 s
+circle x:0.01 v=0.256118319774 xmin=0.01 wind=4.000000-2.06e-13j max|t|=12.5 tail |hhat| at N/2: 1.01e-12 (rel to max 1.19e-15) 0.4 s
+circle x:0.012 v=0.257341680467 xmin=0.012 wind=4.000000-1.50e-13j max|t|=10.42 tail |hhat| at N/2: 6.93e-13 (rel to max 9.91e-16) 0.6 s
+circle x:0.015 v=0.259176402809 xmin=0.015 wind=4.000000-1.22e-13j max|t|=8.339 tail |hhat| at N/2: 5.07e-13 (rel to max 9.09e-16) 0.5 s
+circle x:0.02 v=0.262233194124 xmin=0.02 wind=4.000000-6.85e-14j max|t|=6.257 tail |hhat| at N/2: 2.35e-13 (rel to max 5.78e-16) 0.5 s
+circle x:0.025 v=0.265288263983 xmin=0.025 wind=2.000000-4.40e-14j max|t|=5.009 tail |hhat| at N/2: 1.18e-13 (rel to max 3.48e-16) 0.6 s
+circle x:0.028 v=0.267120301094 xmin=0.028 wind=2.000000-3.46e-14j max|t|=4.474 tail |hhat| at N/2: 9.72e-14 (rel to max 3.19e-16) 0.5 s
+circle x:0.035 v=0.271391524176 xmin=0.035 wind=2.000000-1.60e-14j max|t|=3.584 tail |hhat| at N/2: 1.03e-13 (rel to max 4.32e-16) 0.6 s
+circle x:0.05 v=0.280522811423 xmin=0.05 wind=-0.000000-5.10e-16j max|t|=2.518 tail |hhat| at N/2: 2.81e-14 (rel to max 1.60e-16) 0.5 s
+circle x:0.1 v=0.310619333882 xmin=0.1 wind=-0.000000+3.16e-15j max|t|=1.286 tail |hhat| at N/2: 5.46e-15 (rel to max 6.08e-17) 0.4 s
+circle ax:0.02 v=0.762233194124 xmin=-12.5 wind=4.000000+1.42e-12j max|t|=6.257 tail |hhat| at N/2: 1.16e-11 (rel to max 2.84e-14) 0.4 s

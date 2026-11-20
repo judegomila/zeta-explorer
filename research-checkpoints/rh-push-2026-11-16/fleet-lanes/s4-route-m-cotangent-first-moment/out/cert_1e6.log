@@ -1,0 +1,27 @@
+planned arrays: about 0.10 GB
+certificate margin: max U(b)/(b phi(b)) over b > 62790 = -0.00311
+N = 1000000
+sign law: certificate fails for 2393 values of b; largest 62790
+kappa > 0.69: certificate fails for 102642 values of b; largest 999570; of these above 2e6: 0, above 1e6: 0
+parity law sign r(b) = (-1)^(omega(b)+1): holds for 999636 of 999998 b in [3,N]
+  [3,1000): agree 997 of 997
+  [1000,10000): agree 8997 of 9000
+  [10000,100000): agree 89980 of 90000
+  [100000,1000000): agree 899661 of 900000
+  [1000000,1000001): agree 1 of 1
+  squarefree: agree 607562 of 607924; sign r = -mu(b)
+  primorial 6 omega 2 r(b) = -5.879954e-03  r*phi(b) = -0.0118
+  primorial 30 omega 3 r(b) = 6.515718e-04  r*phi(b) = 0.0052
+  primorial 210 omega 4 r(b) = -3.288989e-05  r*phi(b) = -0.0016
+  primorial 2310 omega 5 r(b) = -1.067651e-06  r*phi(b) = -0.0005
+  primorial 30030 omega 6 r(b) = 3.597957e-07  r*phi(b) = 0.0021
+  primorial 510510 omega 7 r(b) = -3.471128e-08  r*phi(b) = -0.0032
+  violations: 362; first 30: [2310, 2730, 3570, 30030, 39270, 43890, 46410, 51870, 53130, 62790, 66990, 67830, 71610, 72930, 79170, 81510, 82110, 84630, 85470, 91770, 94710, 98670, 99330, 101010, 102102, 103530, 106590, 108570, 110670, 111930] largest 995610
+  omega=1: agree 78733 of 78733
+  omega=2: agree 288726 of 288726
+  omega=3: agree 379720 of 379720
+  omega=4: agree 208034 of 208034
+  omega=5: agree 42489 of 42492
+  omega=6: agree 1934 of 2285
+  omega=7: agree 0 of 8
+  omega=8: agree 0 of 0

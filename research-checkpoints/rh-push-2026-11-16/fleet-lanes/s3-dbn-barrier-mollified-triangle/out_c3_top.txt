@@ -1,0 +1,10 @@
+samples with N >= 690988 (x >= 6.0000002e12): 15882
+ZETA     pilot: min 0.0409 med 0.1377 sup 0.2159 | |E|: med 0.0470 sup 0.1793 | rho: med 0.3658 sup 0.9091 | frac pilot>Rex 0.000e+00, |E|>Rex 0.000e+00
+LCHI5    pilot: min 0.0425 med 0.1232 sup 0.1934 | |E|: med 0.0458 sup 0.1546 | rho: med 0.4111 sup 0.9262 | frac pilot>Rex 0.000e+00, |E|>Rex 0.000e+00
+SGN      pilot: min 0.0356 med 0.1376 sup 0.2201 | |E|: med 0.0471 sup 0.1932 | rho: med 0.3663 sup 0.9165 | frac pilot>Rex 0.000e+00, |E|>Rex 0.000e+00
+U        pilot: min 0.0526 med 0.1383 sup 0.2170 | |E|: med 0.0465 sup 0.1813 | rho: med 0.3618 sup 0.9257 | frac pilot>Rex 0.000e+00, |E|>Rex 0.000e+00
+DH_chi   pilot: min 0.4709 med 0.8814 sup 2.2829 | |E|: med 0.4181 sup 2.1674 | rho: med 0.5300 sup 0.9754 | frac pilot>Rex 1.000e+00, |E|>Rex 7.842e-01
+DH_asif  pilot: min 0.1159 med 0.2638 sup 0.6745 | |E|: med 0.1499 sup 0.6414 | rho: med 0.6621 sup 0.9718 | frac pilot>Rex 4.208e-01, |E|>Rex 1.466e-01
+TNR      pilot: min 0.7512 med 0.8841 sup 1.6874 | |E|: med 0.7676 sup 1.6581 | rho: med 0.8951 sup 0.9826 | frac pilot>Rex 1.000e+00, |E|>Rex 1.000e+00
+zeta samples with pilot > Rex and x >= 1e12: 2, x = [1.10737286e+12 1.13122836e+12], N = [296853 300033]
+largest x with zeta pilot > Rex: 1.1312e+12 (N = 300033); largest x with zeta |E| > Rex: 1.4781e+11

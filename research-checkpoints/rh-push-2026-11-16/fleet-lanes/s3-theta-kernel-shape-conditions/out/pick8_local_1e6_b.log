@@ -1,0 +1,7 @@
+pool chi-3 113.1 s
+pool heat-0.2 451.9 s
+pool heat-0.05 903.3 s
+chi-3 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+heat-0.2 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+heat-0.05 det sign counts by order (pos/neg/und): [(1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0), (1000000, 0, 0)] first negative pivot order hist [0, 0, 0, 0, 0, 0, 0, 0, 0, 1000000]
+./run_local.sh t_tp.py pick out/pick8_local_1e6_b.json  1000000 1024 2048  788.87s user 10.22s system 58% cpu 22:48.88 total

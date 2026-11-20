@@ -1,0 +1,401 @@
+optimistic 0.0000 (np.float64(0.8749457333516341), np.float64(0.07026173204179184), np.float64(0.16688373326013012)) kappa 0.749891 1s
+optimistic 0.0050 (np.float64(0.8749069619772795), np.float64(0.09645377861188785), np.float64(0.1668772546392711)) kappa 0.749814 2s
+optimistic 0.0101 (np.float64(0.8748663799106534), np.float64(0.09659113925788858), np.float64(0.16687755861782902)) kappa 0.749733 2s
+optimistic 0.0151 (np.float64(0.8748256817858857), np.float64(0.09672906186450245), np.float64(0.16687786383536207)) kappa 0.749651 3s
+optimistic 0.0201 (np.float64(0.8747848671727784), np.float64(0.09686737451778771), np.float64(0.1668781703405929)) kappa 0.749570 3s
+optimistic 0.0251 (np.float64(0.8747407119925098), np.float64(0.11020240899699715), np.float64(0.16678085044707094)) kappa 0.749481 3s
+optimistic 0.0302 (np.float64(0.8746943979040512), np.float64(0.10987071850579616), np.float64(0.16678484672376992)) kappa 0.749389 4s
+optimistic 0.0352 (np.float64(0.8746451310661469), np.float64(0.12532554999421439), np.float64(0.166616663591426)) kappa 0.749290 4s
+optimistic 0.0402 (np.float64(0.8745924619556344), np.float64(0.12544446227860678), np.float64(0.16661582102464997)) kappa 0.749185 5s
+optimistic 0.0452 (np.float64(0.8745396927483644), np.float64(0.12556353219868668), np.float64(0.1666149781023743)) kappa 0.749079 5s
+optimistic 0.0503 (np.float64(0.8744868230752538), np.float64(0.12568287620804525), np.float64(0.16661413355814647)) kappa 0.748974 6s
+optimistic 0.0553 (np.float64(0.8744338525904402), np.float64(0.12580249460691595), np.float64(0.16661328739255057)) kappa 0.748868 6s
+optimistic 0.0603 (np.float64(0.8743807806798287), np.float64(0.12592250409160102), np.float64(0.16661243833747025)) kappa 0.748762 7s
+optimistic 0.0653 (np.float64(0.8743237514952521), np.float64(0.15064499498740047), np.float64(0.16609128391038816)) kappa 0.748648 7s
+optimistic 0.0704 (np.float64(0.8742604140789033), np.float64(0.15017810421543848), np.float64(0.1661032457630866)) kappa 0.748521 8s
+optimistic 0.0754 (np.float64(0.8741955720260594), np.float64(0.16125306297356432), np.float64(0.16583279406560564)) kappa 0.748391 8s
+optimistic 0.0804 (np.float64(0.8741279000479545), np.float64(0.1612478177743688), np.float64(0.16583351691975656)) kappa 0.748256 9s
+optimistic 0.0854 (np.float64(0.8740583826987093), np.float64(0.17130376948871198), np.float64(0.165555139085719)) kappa 0.748117 9s
+optimistic 0.0905 (np.float64(0.8739864922137329), np.float64(0.1712979808846924), np.float64(0.1655559345689805)) kappa 0.747973 10s
+optimistic 0.0955 (np.float64(0.8739146065369522), np.float64(0.1712921907699618), np.float64(0.1655567302598472)) kappa 0.747829 10s
+optimistic 0.1005 (np.float64(0.8738427256702556), np.float64(0.17128639914416244), np.float64(0.16555752615836894)) kappa 0.747685 11s
+optimistic 0.1055 (np.float64(0.8737708496155322), np.float64(0.1712806060069118), np.float64(0.16555832226459624)) kappa 0.747542 11s
+optimistic 0.1106 (np.float64(0.8736962182113034), np.float64(0.18153599486832153), np.float64(0.16519202516633893)) kappa 0.747392 12s
+optimistic 0.1156 (np.float64(0.8736200408745427), np.float64(0.18152961150491925), np.float64(0.16519290004519047)) kappa 0.747240 12s
+optimistic 0.1206 (np.float64(0.8735372082196151), np.float64(0.20251984040479193), np.float64(0.16437633266640542)) kappa 0.747074 12s
+optimistic 0.1256 (np.float64(0.8734522194087123), np.float64(0.2025121544531101), np.float64(0.16437738055388118)) kappa 0.746904 13s
+optimistic 0.1307 (np.float64(0.8733672369791263), np.float64(0.20250446609467931), np.float64(0.16437842876948844)) kappa 0.746734 13s
+optimistic 0.1357 (np.float64(0.8732822609338637), np.float64(0.20249677532875254), np.float64(0.16437947731332833)) kappa 0.746565 14s
+optimistic 0.1407 (np.float64(0.8731972912745712), np.float64(0.20248908209371944), np.float64(0.16438052619380178)) kappa 0.746395 14s
+optimistic 0.1457 (np.float64(0.8731123279956179), np.float64(0.20248138599155077), np.float64(0.1643815754651749)) kappa 0.746225 15s
+optimistic 0.1508 (np.float64(0.8730246530649802), np.float64(0.22235021326850857), np.float64(0.1633946768555642)) kappa 0.746049 15s
+optimistic 0.1558 (np.float64(0.872931352410335), np.float64(0.22233950108404374), np.float64(0.16339598979985664)) kappa 0.745863 16s
+optimistic 0.1608 (np.float64(0.8728380606682883), np.float64(0.22232878547284296), np.float64(0.16339730316414847)) kappa 0.745676 16s
+optimistic 0.1658 (np.float64(0.8727447778431301), np.float64(0.22231806643404528), np.float64(0.16339861694854543)) kappa 0.745490 17s
+optimistic 0.1709 (np.float64(0.8726515039391527), np.float64(0.22230734396679055), np.float64(0.16339993115315307)) kappa 0.745303 17s
+optimistic 0.1759 (np.float64(0.8725582389606493), np.float64(0.22229661807021517), np.float64(0.16340124577807708)) kappa 0.745116 18s
+optimistic 0.1809 (np.float64(0.8724646224869681), np.float64(0.22242149411729134), np.float64(0.16339582531473634)) kappa 0.744929 18s
+optimistic 0.1859 (np.float64(0.8723682409074434), np.float64(0.23910903778492046), np.float64(0.16237454994134515)) kappa 0.744737 19s
+optimistic 0.1910 (np.float64(0.8722675506345665), np.float64(0.2389313007805138), np.float64(0.1623881066247833)) kappa 0.744535 19s
+optimistic 0.1960 (np.float64(0.8721670099244894), np.float64(0.23875377733530975), np.float64(0.16240164653976943)) kappa 0.744334 20s
+optimistic 0.2010 (np.float64(0.8720666185091055), np.float64(0.23857646766613935), np.float64(0.1624151696710392)) kappa 0.744133 20s
+optimistic 0.2060 (np.float64(0.8719663761199449), np.float64(0.2383993719897025), np.float64(0.16242867600333963)) kappa 0.743933 21s
+optimistic 0.2111 (np.float64(0.8718662824881738), np.float64(0.2382224905225235), np.float64(0.1624421655214321)) kappa 0.743733 21s
+optimistic 0.2161 (np.float64(0.8717663373445954), np.float64(0.23804582348098574), np.float64(0.16245563821009032)) kappa 0.743533 21s
+optimistic 0.2211 (np.float64(0.8716655705600742), np.float64(0.24547265597136003), np.float64(0.16191259738660435)) kappa 0.743331 22s
+optimistic 0.2261 (np.float64(0.8715626397471654), np.float64(0.2454611528984104), np.float64(0.1619140107258632)) kappa 0.743125 22s
+optimistic 0.2312 (np.float64(0.8714597185184911), np.float64(0.2454496454748522), np.float64(0.16191542459966474)) kappa 0.742919 23s
+optimistic 0.2362 (np.float64(0.8713568068744479), np.float64(0.2454381332413308), np.float64(0.16191683906444854)) kappa 0.742714 23s
+optimistic 0.2412 (np.float64(0.8712539048244738), np.float64(0.24542661651767375), np.float64(0.16191825408091803)) kappa 0.742508 24s
+optimistic 0.2462 (np.float64(0.871151012376064), np.float64(0.24541509548573018), np.float64(0.1619196696267311)) kappa 0.742302 24s
+optimistic 0.2513 (np.float64(0.8710478432972685), np.float64(0.2461831962623229), np.float64(0.16185693533166928)) kappa 0.742096 25s
+optimistic 0.2563 (np.float64(0.8709435860685119), np.float64(0.2516619527324112), np.float64(0.16139356261145824)) kappa 0.741887 25s
+optimistic 0.2613 (np.float64(0.8708381024816133), np.float64(0.25163912442487135), np.float64(0.16139594104491453)) kappa 0.741676 26s
+optimistic 0.2663 (np.float64(0.8707326379935566), np.float64(0.2516162908369322), np.float64(0.16139832002852458)) kappa 0.741465 26s
+optimistic 0.2714 (np.float64(0.870627192610982), np.float64(0.25159345197045835), np.float64(0.1614006995620941)) kappa 0.741254 27s
+optimistic 0.2764 (np.float64(0.8705217663405262), np.float64(0.2515706078273254), np.float64(0.1614030796454276)) kappa 0.741044 27s
+optimistic 0.2814 (np.float64(0.870413312719924), np.float64(0.260799496388389), np.float64(0.16054981143563135)) kappa 0.740827 28s
+optimistic 0.2864 (np.float64(0.87030403939141), np.float64(0.26078528164069015), np.float64(0.16055141185895092)) kappa 0.740608 28s
+optimistic 0.2915 (np.float64(0.8701947779469632), np.float64(0.2607710614301736), np.float64(0.1605530128973231)) kappa 0.740390 29s
+optimistic 0.2965 (np.float64(0.8700855283934403), np.float64(0.2607568357551232), np.float64(0.16055461455094164)) kappa 0.740171 29s
+optimistic 0.3015 (np.float64(0.8699745553767416), np.float64(0.2653409555927583), np.float64(0.1601010124368097)) kappa 0.739949 30s
+optimistic 0.3065 (np.float64(0.8698634049351968), np.float64(0.26532356667105134), np.float64(0.16010293374843518)) kappa 0.739727 30s
+optimistic 0.3116 (np.float64(0.8697522690470333), np.float64(0.26530617160002373), np.float64(0.16010485573950253)) kappa 0.739505 31s
+optimistic 0.3166 (np.float64(0.8696411477199749), np.float64(0.26528877037854054), np.float64(0.16010677841013715)) kappa 0.739282 31s
+optimistic 0.3216 (np.float64(0.8695300409617474), np.float64(0.2652713630054552), np.float64(0.1601087017604657)) kappa 0.739060 32s
+optimistic 0.3266 (np.float64(0.8694189487800785), np.float64(0.2652539494796303), np.float64(0.16011062579061386)) kappa 0.738838 32s
+optimistic 0.3317 (np.float64(0.8693076398533118), np.float64(0.28011111828234236), np.float64(0.15846904895084876)) kappa 0.738615 33s
+optimistic 0.3367 (np.float64(0.8691901474175833), np.float64(0.3035439107274645), np.float64(0.15584000996326805)) kappa 0.738380 33s
+optimistic 0.3417 (np.float64(0.8690621387203135), np.float64(0.38473750111796734), np.float64(0.1465954148406524)) kappa 0.738124 33s
+optimistic 0.3467 (np.float64(0.868901025863899), np.float64(0.38473750111796734), np.float64(0.1465954148406524)) kappa 0.737802 34s
+optimistic 0.3518 None kappa 0.750000 34s
+optimistic 0.3568 None kappa 0.750000 34s
+optimistic 0.3618 None kappa 0.750000 34s
+optimistic 0.3668 None kappa 0.750000 34s
+optimistic 0.3719 None kappa 0.750000 34s
+optimistic 0.3769 None kappa 0.750000 34s
+optimistic 0.3819 None kappa 0.750000 34s
+optimistic 0.3869 None kappa 0.750000 34s
+optimistic 0.3920 None kappa 0.750000 34s
+optimistic 0.3970 None kappa 0.750000 34s
+optimistic 0.4020 None kappa 0.750000 34s
+optimistic 0.4070 None kappa 0.750000 34s
+optimistic 0.4121 None kappa 0.750000 34s
+optimistic 0.4171 None kappa 0.750000 34s
+optimistic 0.4221 None kappa 0.750000 34s
+optimistic 0.4271 None kappa 0.750000 34s
+optimistic 0.4322 None kappa 0.750000 34s
+optimistic 0.4372 None kappa 0.750000 34s
+optimistic 0.4422 None kappa 0.750000 34s
+optimistic 0.4472 None kappa 0.750000 34s
+optimistic 0.4523 None kappa 0.750000 34s
+optimistic 0.4573 None kappa 0.750000 34s
+optimistic 0.4623 None kappa 0.750000 34s
+optimistic 0.4673 None kappa 0.750000 34s
+optimistic 0.4724 None kappa 0.750000 34s
+optimistic 0.4774 None kappa 0.750000 34s
+optimistic 0.4824 None kappa 0.750000 34s
+optimistic 0.4874 None kappa 0.750000 34s
+optimistic 0.4925 None kappa 0.750000 34s
+optimistic 0.4975 None kappa 0.750000 34s
+optimistic 0.5025 None kappa 0.750000 34s
+optimistic 0.5075 None kappa 0.750000 34s
+optimistic 0.5126 None kappa 0.750000 34s
+optimistic 0.5176 None kappa 0.750000 34s
+optimistic 0.5226 None kappa 0.750000 34s
+optimistic 0.5276 None kappa 0.750000 34s
+optimistic 0.5327 None kappa 0.750000 34s
+optimistic 0.5377 None kappa 0.750000 34s
+optimistic 0.5427 None kappa 0.750000 34s
+optimistic 0.5477 None kappa 0.750000 34s
+optimistic 0.5528 None kappa 0.750000 34s
+optimistic 0.5578 None kappa 0.750000 34s
+optimistic 0.5628 None kappa 0.750000 34s
+optimistic 0.5678 None kappa 0.750000 34s
+optimistic 0.5729 None kappa 0.750000 34s
+optimistic 0.5779 None kappa 0.750000 34s
+optimistic 0.5829 None kappa 0.750000 34s
+optimistic 0.5879 None kappa 0.750000 34s
+optimistic 0.5930 None kappa 0.750000 34s
+optimistic 0.5980 None kappa 0.750000 34s
+optimistic 0.6030 None kappa 0.750000 34s
+optimistic 0.6080 None kappa 0.750000 34s
+optimistic 0.6131 None kappa 0.750000 34s
+optimistic 0.6181 None kappa 0.750000 34s
+optimistic 0.6231 None kappa 0.750000 34s
+optimistic 0.6281 None kappa 0.750000 34s
+optimistic 0.6332 None kappa 0.750000 34s
+optimistic 0.6382 None kappa 0.750000 34s
+optimistic 0.6432 None kappa 0.750000 34s
+optimistic 0.6482 None kappa 0.750000 34s
+optimistic 0.6533 None kappa 0.750000 34s
+optimistic 0.6583 None kappa 0.750000 34s
+optimistic 0.6633 None kappa 0.750000 34s
+optimistic 0.6683 None kappa 0.750000 34s
+optimistic 0.6734 None kappa 0.750000 34s
+optimistic 0.6784 None kappa 0.750000 34s
+optimistic 0.6834 None kappa 0.750000 34s
+optimistic 0.6884 None kappa 0.750000 34s
+optimistic 0.6935 None kappa 0.750000 34s
+optimistic 0.6985 None kappa 0.750000 34s
+optimistic 0.7035 None kappa 0.750000 34s
+optimistic 0.7085 None kappa 0.750000 34s
+optimistic 0.7136 None kappa 0.750000 34s
+optimistic 0.7186 None kappa 0.750000 34s
+optimistic 0.7236 None kappa 0.750000 34s
+optimistic 0.7286 None kappa 0.750000 34s
+optimistic 0.7337 None kappa 0.750000 34s
+optimistic 0.7387 None kappa 0.750000 34s
+optimistic 0.7437 None kappa 0.750000 34s
+optimistic 0.7487 None kappa 0.750000 34s
+optimistic 0.7538 None kappa 0.750000 34s
+optimistic 0.7588 None kappa 0.750000 34s
+optimistic 0.7638 None kappa 0.750000 34s
+optimistic 0.7688 None kappa 0.750000 34s
+optimistic 0.7739 None kappa 0.750000 34s
+optimistic 0.7789 None kappa 0.750000 34s
+optimistic 0.7839 None kappa 0.750000 34s
+optimistic 0.7889 None kappa 0.750000 34s
+optimistic 0.7940 None kappa 0.750000 34s
+optimistic 0.7990 None kappa 0.750000 34s
+optimistic 0.8040 None kappa 0.750000 34s
+optimistic 0.8090 None kappa 0.750000 34s
+optimistic 0.8141 None kappa 0.750000 34s
+optimistic 0.8191 None kappa 0.750000 34s
+optimistic 0.8241 None kappa 0.750000 34s
+optimistic 0.8291 None kappa 0.750000 34s
+optimistic 0.8342 None kappa 0.750000 34s
+optimistic 0.8392 None kappa 0.750000 34s
+optimistic 0.8442 None kappa 0.750000 34s
+optimistic 0.8492 None kappa 0.750000 34s
+optimistic 0.8543 None kappa 0.750000 34s
+optimistic 0.8593 None kappa 0.750000 34s
+optimistic 0.8643 None kappa 0.750000 34s
+optimistic 0.8693 None kappa 0.750000 34s
+optimistic 0.8744 None kappa 0.750000 34s
+optimistic 0.8794 None kappa 0.750000 34s
+optimistic 0.8844 None kappa 0.750000 34s
+optimistic 0.8894 None kappa 0.750000 34s
+optimistic 0.8945 None kappa 0.750000 34s
+optimistic 0.8995 None kappa 0.750000 34s
+optimistic 0.9045 None kappa 0.750000 34s
+optimistic 0.9095 None kappa 0.750000 34s
+optimistic 0.9146 None kappa 0.750000 34s
+optimistic 0.9196 None kappa 0.750000 34s
+optimistic 0.9246 None kappa 0.750000 34s
+optimistic 0.9296 None kappa 0.750000 34s
+optimistic 0.9347 None kappa 0.750000 34s
+optimistic 0.9397 None kappa 0.750000 34s
+optimistic 0.9447 None kappa 0.750000 34s
+optimistic 0.9497 None kappa 0.750000 34s
+optimistic 0.9548 None kappa 0.750000 34s
+optimistic 0.9598 None kappa 0.750000 34s
+optimistic 0.9648 None kappa 0.750000 34s
+optimistic 0.9698 None kappa 0.750000 34s
+optimistic 0.9749 None kappa 0.750000 34s
+optimistic 0.9799 None kappa 0.750000 34s
+optimistic 0.9849 None kappa 0.750000 34s
+optimistic 0.9899 None kappa 0.750000 34s
+optimistic 0.9950 None kappa 0.750000 34s
+optimistic 1.0000 None kappa 0.750000 34s
+gates 0.0000 (np.float64(0.8749457333516341), np.float64(0.07026173204179184), np.float64(0.16688373326013012)) kappa 0.749891 34s
+gates 0.0050 (np.float64(0.8749097175979297), np.float64(0.08868836751078785), np.float64(0.16687923954544923)) kappa 0.749819 35s
+gates 0.0101 (np.float64(0.8748725014105948), np.float64(0.0886903339954287), np.float64(0.16687954097740146)) kappa 0.749745 35s
+gates 0.0151 (np.float64(0.8748352835570813), np.float64(0.08869230096536175), np.float64(0.16687984248374155)) kappa 0.749671 36s
+gates 0.0201 (np.float64(0.8747980640367714), np.float64(0.08869426842078672), np.float64(0.16688014406450014)) kappa 0.749596 36s
+gates 0.0251 (np.float64(0.8747608428490472), np.float64(0.0886962363619044), np.float64(0.16688044571970798)) kappa 0.749522 37s
+gates 0.0302 (np.float64(0.8747236199932903), np.float64(0.08869820478891585), np.float64(0.16688074744939582)) kappa 0.749447 38s
+gates 0.0352 (np.float64(0.8746863954688818), np.float64(0.08870017370202102), np.float64(0.16688104925359443)) kappa 0.749373 38s
+gates 0.0402 (np.float64(0.8746491692752031), np.float64(0.08870214310142081), np.float64(0.16688135113233457)) kappa 0.749298 39s
+gates 0.0452 (np.float64(0.8746119414116343), np.float64(0.08870411298731692), np.float64(0.1668816530856471)) kappa 0.749224 39s
+gates 0.0503 (np.float64(0.874574711877556), np.float64(0.0887060833599096), np.float64(0.16688195511356277)) kappa 0.749149 40s
+gates 0.0553 (np.float64(0.8745374806723482), np.float64(0.08870805421940041), np.float64(0.16688225721611244)) kappa 0.749075 40s
+gates 0.0603 None kappa 0.749003 41s
+gates 0.0653 None kappa 0.748929 41s
+gates 0.0704 None kappa 0.748854 41s
+gates 0.0754 None kappa 0.748780 41s
+gates 0.0804 None kappa 0.748706 42s
+gates 0.0854 None kappa 0.748631 42s
+gates 0.0905 None kappa 0.748557 42s
+gates 0.0955 None kappa 0.748483 42s
+gates 0.1005 None kappa 0.748409 43s
+gates 0.1055 None kappa 0.748334 43s
+gates 0.1106 None kappa 0.748260 43s
+gates 0.1156 None kappa 0.748186 43s
+gates 0.1206 None kappa 0.748111 44s
+gates 0.1256 None kappa 0.748037 44s
+gates 0.1307 None kappa 0.747963 44s
+gates 0.1357 None kappa 0.747889 44s
+gates 0.1407 None kappa 0.747814 45s
+gates 0.1457 None kappa 0.747740 45s
+gates 0.1508 None kappa 0.747666 45s
+gates 0.1558 None kappa 0.747592 45s
+gates 0.1608 None kappa 0.747517 46s
+gates 0.1658 None kappa 0.747443 46s
+gates 0.1709 None kappa 0.747369 46s
+gates 0.1759 None kappa 0.747294 47s
+gates 0.1809 None kappa 0.747220 47s
+gates 0.1859 None kappa 0.747146 47s
+gates 0.1910 None kappa 0.747072 47s
+gates 0.1960 None kappa 0.746997 48s
+gates 0.2010 None kappa 0.746923 48s
+gates 0.2060 None kappa 0.746849 48s
+gates 0.2111 None kappa 0.746775 48s
+gates 0.2161 None kappa 0.746700 49s
+gates 0.2211 None kappa 0.746626 49s
+gates 0.2261 None kappa 0.746552 49s
+gates 0.2312 None kappa 0.746477 50s
+gates 0.2362 None kappa 0.746403 50s
+gates 0.2412 None kappa 0.746329 50s
+gates 0.2462 None kappa 0.746255 50s
+gates 0.2513 None kappa 0.746180 51s
+gates 0.2563 None kappa 0.746106 51s
+gates 0.2613 None kappa 0.746032 51s
+gates 0.2663 None kappa 0.745958 51s
+gates 0.2714 None kappa 0.745883 52s
+gates 0.2764 None kappa 0.745809 52s
+gates 0.2814 None kappa 0.745735 52s
+gates 0.2864 None kappa 0.745660 53s
+gates 0.2915 None kappa 0.745586 53s
+gates 0.2965 None kappa 0.745512 53s
+gates 0.3015 None kappa 0.745438 53s
+gates 0.3065 None kappa 0.745363 54s
+gates 0.3116 None kappa 0.745289 54s
+gates 0.3166 None kappa 0.745215 54s
+gates 0.3216 None kappa 0.745141 54s
+gates 0.3266 None kappa 0.745066 55s
+gates 0.3317 None kappa 0.744992 55s
+gates 0.3367 None kappa 0.744918 55s
+gates 0.3417 None kappa 0.744843 55s
+gates 0.3467 None kappa 0.744769 56s
+gates 0.3518 None kappa 0.744695 56s
+gates 0.3568 None kappa 0.744621 56s
+gates 0.3618 None kappa 0.744546 56s
+gates 0.3668 None kappa 0.744472 57s
+gates 0.3719 None kappa 0.744398 57s
+gates 0.3769 None kappa 0.744324 57s
+gates 0.3819 None kappa 0.744249 58s
+gates 0.3869 None kappa 0.744175 58s
+gates 0.3920 None kappa 0.744101 58s
+gates 0.3970 None kappa 0.744026 58s
+gates 0.4020 None kappa 0.743952 59s
+gates 0.4070 None kappa 0.743878 59s
+gates 0.4121 None kappa 0.743804 59s
+gates 0.4171 None kappa 0.743729 59s
+gates 0.4221 None kappa 0.743655 60s
+gates 0.4271 None kappa 0.743581 60s
+gates 0.4322 None kappa 0.743506 60s
+gates 0.4372 None kappa 0.743432 60s
+gates 0.4422 None kappa 0.743358 61s
+gates 0.4472 None kappa 0.743284 61s
+gates 0.4523 None kappa 0.743209 61s
+gates 0.4573 None kappa 0.743135 61s
+gates 0.4623 None kappa 0.743061 62s
+gates 0.4673 None kappa 0.742987 62s
+gates 0.4724 None kappa 0.742912 62s
+gates 0.4774 None kappa 0.742838 63s
+gates 0.4824 None kappa 0.742764 63s
+gates 0.4874 None kappa 0.742689 63s
+gates 0.4925 None kappa 0.742615 63s
+gates 0.4975 None kappa 0.742541 64s
+gates 0.5025 None kappa 0.742467 64s
+gates 0.5075 None kappa 0.742392 64s
+gates 0.5126 None kappa 0.742318 64s
+gates 0.5176 None kappa 0.742244 65s
+gates 0.5226 None kappa 0.742170 65s
+gates 0.5276 None kappa 0.742095 65s
+gates 0.5327 None kappa 0.742021 65s
+gates 0.5377 None kappa 0.741947 66s
+gates 0.5427 None kappa 0.741872 66s
+gates 0.5477 None kappa 0.741798 66s
+gates 0.5528 None kappa 0.741724 66s
+gates 0.5578 None kappa 0.741650 67s
+gates 0.5628 None kappa 0.741575 67s
+gates 0.5678 None kappa 0.741501 67s
+gates 0.5729 None kappa 0.741427 68s
+gates 0.5779 None kappa 0.741353 68s
+gates 0.5829 None kappa 0.741278 68s
+gates 0.5879 None kappa 0.741204 68s
+gates 0.5930 None kappa 0.741130 69s
+gates 0.5980 None kappa 0.741055 69s
+gates 0.6030 None kappa 0.740981 69s
+gates 0.6080 None kappa 0.740907 70s
+gates 0.6131 None kappa 0.740833 70s
+gates 0.6181 None kappa 0.740758 70s
+gates 0.6231 None kappa 0.740684 71s
+gates 0.6281 None kappa 0.740610 71s
+gates 0.6332 None kappa 0.740536 71s
+gates 0.6382 None kappa 0.740461 72s
+gates 0.6432 None kappa 0.740387 72s
+gates 0.6482 None kappa 0.740313 72s
+gates 0.6533 None kappa 0.740238 73s
+gates 0.6583 None kappa 0.740164 73s
+gates 0.6633 None kappa 0.740090 73s
+gates 0.6683 None kappa 0.740016 74s
+gates 0.6734 None kappa 0.739941 74s
+gates 0.6784 None kappa 0.739867 74s
+gates 0.6834 None kappa 0.739793 75s
+gates 0.6884 None kappa 0.739718 75s
+gates 0.6935 None kappa 0.739644 75s
+gates 0.6985 None kappa 0.739570 76s
+gates 0.7035 None kappa 0.739496 76s
+gates 0.7085 None kappa 0.739421 76s
+gates 0.7136 None kappa 0.739347 76s
+gates 0.7186 None kappa 0.739273 77s
+gates 0.7236 None kappa 0.739199 77s
+gates 0.7286 None kappa 0.739124 77s
+gates 0.7337 None kappa 0.739050 78s
+gates 0.7387 None kappa 0.738976 78s
+gates 0.7437 None kappa 0.738901 78s
+gates 0.7487 None kappa 0.738827 79s
+gates 0.7538 None kappa 0.738753 79s
+gates 0.7588 None kappa 0.738679 79s
+gates 0.7638 None kappa 0.738604 80s
+gates 0.7688 None kappa 0.738530 80s
+gates 0.7739 None kappa 0.738456 80s
+gates 0.7789 None kappa 0.738382 80s
+gates 0.7839 None kappa 0.738307 81s
+gates 0.7889 None kappa 0.738233 81s
+gates 0.7940 None kappa 0.738159 81s
+gates 0.7990 None kappa 0.738084 82s
+gates 0.8040 None kappa 0.738010 82s
+gates 0.8090 None kappa 0.737936 82s
+gates 0.8141 None kappa 0.737862 82s
+gates 0.8191 None kappa 0.737787 83s
+gates 0.8241 None kappa 0.737713 83s
+gates 0.8291 None kappa 0.737639 83s
+gates 0.8342 None kappa 0.737565 83s
+gates 0.8392 None kappa 0.737490 84s
+gates 0.8442 None kappa 0.737416 84s
+gates 0.8492 None kappa 0.737342 84s
+gates 0.8543 None kappa 0.737267 85s
+gates 0.8593 None kappa 0.737193 85s
+gates 0.8643 None kappa 0.737119 85s
+gates 0.8693 None kappa 0.737045 85s
+gates 0.8744 None kappa 0.736970 86s
+gates 0.8794 None kappa 0.736896 86s
+gates 0.8844 None kappa 0.736822 86s
+gates 0.8894 None kappa 0.736748 87s
+gates 0.8945 None kappa 0.736673 87s
+gates 0.8995 None kappa 0.736599 87s
+gates 0.9045 None kappa 0.736525 87s
+gates 0.9095 None kappa 0.736450 88s
+gates 0.9146 None kappa 0.736376 88s
+gates 0.9196 None kappa 0.736302 88s
+gates 0.9246 None kappa 0.736228 88s
+gates 0.9296 None kappa 0.736153 89s
+gates 0.9347 None kappa 0.736079 89s
+gates 0.9397 None kappa 0.736005 89s
+gates 0.9447 None kappa 0.735930 90s
+gates 0.9497 None kappa 0.735856 90s
+gates 0.9548 None kappa 0.735782 90s
+gates 0.9598 None kappa 0.735708 90s
+gates 0.9648 None kappa 0.735633 91s
+gates 0.9698 None kappa 0.735559 91s
+gates 0.9749 None kappa 0.735485 91s
+gates 0.9799 None kappa 0.735411 92s
+gates 0.9849 None kappa 0.735336 92s
+gates 0.9899 None kappa 0.735262 92s
+gates 0.9950 None kappa 0.735188 92s
+gates 1.0000 None kappa 0.735113 93s
+done

@@ -1,0 +1,4 @@
+per band T=1280 U=160 dt=0.02 points=8000 gpu=False y=35
+planned: block 1280 points x 2743 terms, 3 real matrices = 0.08 GB
+block 1, 1280/8000 points, 0 s
+wrote local/per_x1280.json 0 s

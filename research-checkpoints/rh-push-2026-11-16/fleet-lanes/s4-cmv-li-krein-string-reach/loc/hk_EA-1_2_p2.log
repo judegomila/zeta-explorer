@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "tmp/research-2026-11-16/push/s4-cmv-li-krein-string-reach/hankel.py", line 53, in <module>
+    s = [x.mid() for x in moments0(A.code, A.M)]
+                          ~~~~~~~~^^^^^^^^^^^^^
+  File "tmp/research-2026-11-16/push/s4-cmv-li-krein-string-reach/hankel.py", line 18, in moments0
+    L = core.logder_series(code, 0, n, f)
+  File "tmp/research-2026-11-16/push/s4-cmv-li-krein-string-reach/core.py", line 100, in logder_series
+    return F.derivative() / arb_series(f[:n], prec=n)
+           ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  File "flint/types/arb_series.pyx", line 246, in flint.types.arb_series.arb_series.__truediv__
+ValueError: leading term in denominator is not nonzero

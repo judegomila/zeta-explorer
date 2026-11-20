@@ -1,0 +1,7 @@
+# TNR {'q': 1000003, 'c': 2.2} k=1 X=900000 D=2088: planned LP nnz about 9.54e+06 (0.15 GB), arrays 0.07 GB
+{"name": "TNR", "kw": {"q": 1000003, "c": 2.2}, "k": 1, "X": 900000, "D": 2088, "truth_re": 450004.6364397828, "main_re": 450000.0, "status": 4, "neg_count": 0, "time": 81.96236181259155, "msg": "(HiGHS Status 0: Not Set)"}
+# TNR {'q': 1000003, 'c': 2.2} k=1 X=1100000 D=2308: planned LP nnz about 1.17e+07 (0.19 GB), arrays 0.09 GB
+{"name": "TNR", "kw": {"q": 1000003, "c": 2.2}, "k": 1, "X": 1100000, "D": 2308, "truth_re": 552748.5146626243, "main_re": 550000.0, "status": 4, "neg_count": 0, "time": 409.20318365097046, "msg": "(HiGHS Status 0: Not Set)"}
+# TNR {'q': 1000003, 'c': 2.2} k=1 X=1500000 D=2695: planned LP nnz about 1.59e+07 (0.25 GB), arrays 0.12 GB
+{"name": "TNR", "kw": {"q": 1000003, "c": 2.2}, "k": 1, "X": 1500000, "D": 2695, "truth_re": 760133.0587188416, "main_re": 750000.0, "status": 4, "neg_count": 0, "time": 523.3795278072357, "msg": "(HiGHS Status 0: Not Set)"}
+# TNR {'q': 1000003, 'c': 2.2} k=1 X=3000000 D=3811: planned LP nnz about 3.18e+07 (0.51 GB), arrays 0.24 GB

@@ -1,0 +1,44 @@
+ZETA M 800 prec 24000 moments 166.3 s;  s_0 = [0.04620998623083794157786762 +/- 8.61e-28]
+  base: {"n_coeff": 799, "first_negative": null, "negatives_head": [], "n_negative": 0}
+  planted add:0.1:17.578382 first negative coefficient 13 negatives [13, 15] nbelow 1
+  planted add:0.25:17.578382 first negative coefficient 11 negatives [11, 13] nbelow 1
+  planted add:0.4:17.578382 first negative coefficient 11 negatives [11, 13] nbelow 1
+  planted add:0.1:27.717867 first negative coefficient 23 negatives [23, 25] nbelow 3
+  planted add:0.25:27.717867 first negative coefficient 21 negatives [21, 23] nbelow 3
+  planted add:0.4:27.717867 first negative coefficient 19 negatives [19, 21] nbelow 3
+  planted add:0.1:51.372077 first negative coefficient 52 negatives [52, 54] nbelow 10
+  planted add:0.25:51.372077 first negative coefficient 50 negatives [50, 52] nbelow 10
+  planted add:0.4:51.372077 first negative coefficient 49 negatives [49, 51] nbelow 10
+  planted add:0.1:73.885924 first negative coefficient 83 negatives [83, 85] nbelow 18
+  planted add:0.25:73.885924 first negative coefficient 80 negatives [80, 82] nbelow 18
+  planted add:0.4:73.885924 first negative coefficient 76 negatives [76, 78] nbelow 18
+  planted add:0.1:100.074523 first negative coefficient 125 negatives [125, 127] nbelow 29
+  planted add:0.25:100.074523 first negative coefficient 122 negatives [122, 124] nbelow 29
+  planted add:0.4:100.074523 first negative coefficient 119 negatives [119, 121] nbelow 29
+  planted add:0.1:148.738143 first negative coefficient 209 negatives [209, 211] nbelow 52
+  planted add:0.25:148.738143 first negative coefficient 204 negatives [204, 206] nbelow 52
+  planted add:0.4:148.738143 first negative coefficient 198 negatives [198, 200] nbelow 52
+  planted add:0.1:199.640031 first negative coefficient 302 negatives [302, 304] nbelow 79
+  planted add:0.25:199.640031 first negative coefficient 296 negatives [296, 298] nbelow 79
+  planted add:0.4:199.640031 first negative coefficient 292 negatives [292, 294] nbelow 79
+  planted add:0.1:300.744826 first negative coefficient 513 negatives [513, 515] nbelow 138
+  planted add:0.25:300.744826 first negative coefficient 507 negatives [507, 509] nbelow 138
+  planted add:0.4:300.744826 first negative coefficient 496 negatives [496, 498] nbelow 138
+  planted add:0.1:400.912174 first negative coefficient 732 negatives [732, 734] nbelow 202
+  planted add:0.25:400.912174 first negative coefficient 725 negatives [725, 727] nbelow 202
+  planted add:0.4:400.912174 first negative coefficient 713 negatives [713, 715] nbelow 202
+  planted add:0.1:499.444934 first negative coefficient None negatives [] nbelow 269
+  planted add:0.25:499.444934 first negative coefficient None negatives [] nbelow 269
+  planted add:0.4:499.444934 first negative coefficient None negatives [] nbelow 269
+  planted add:0.1:600.573889 first negative coefficient None negatives [] nbelow 341
+  planted add:0.25:600.573889 first negative coefficient None negatives [] nbelow 341
+  planted add:0.4:600.573889 first negative coefficient None negatives [] nbelow 341
+  planted disp:0.1:k1 first negative coefficient 7 negatives [7, 9, 43, 45] nbelow 0
+  planted disp:0.1:k3 first negative coefficient 16 negatives [16, 18, 65, 67] nbelow 2
+  planted disp:0.1:k6 first negative coefficient 29 negatives [29, 31, 87, 89] nbelow 5
+  planted disp:0.1:k10 first negative coefficient 45 negatives [45, 47, 110, 112] nbelow 9
+  planted disp:0.1:k20 first negative coefficient 83 negatives [83, 85, 152, 154] nbelow 19
+  planted disp:0.1:k40 first negative coefficient 155 negatives [155, 157, 247, 249] nbelow 39
+  planted disp:0.1:k80 first negative coefficient 295 negatives [295, 297, 407, 409] nbelow 79
+  planted disp:0.1:k160 first negative coefficient 570 negatives [570, 572, 707, 709] nbelow 159
+DONE ZETA 495.2

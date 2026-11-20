@@ -1,0 +1,29 @@
+planned memory 0.06 GB
+check of the tree against s4: kappa(b)=F(b)/(phi b), b>=1e5: min 0.69549452 at 100102, max 0.69549754 at 100858
+T(250) = 11.757622   increment slope since previous nan   (12 s0/pi^2 = 3.5494)
+T(1000) = 16.558568   increment slope since previous 3.4632   (12 s0/pi^2 = 3.5494)
+T(10000) = 24.680798   increment slope since previous 3.5274   (12 s0/pi^2 = 3.5494)
+T(100000) = 32.846308   increment slope since previous 3.5462   (12 s0/pi^2 = 3.5494)
+T(1000000) = 41.018181   increment slope since previous 3.5490   (12 s0/pi^2 = 3.5494)
+b>=3: Q/phi in [0.750475 (b=6), 2.919236 (b=999203)] ; Q/b in [0.250158 (b=6), 2.919197 (b=999931)]
+b>=100: Q/phi in [2.532968 (b=120), 2.919236 (b=999203)] ; Q/b in [0.526891 (b=510510), 2.919197 (b=999931)]
+b>=10000: Q/phi in [2.904811 (b=10920), 2.919236 (b=999203)] ; Q/b in [0.526891 (b=510510), 2.919197 (b=999931)]
+b>=100000: Q/phi in [2.917013 (b=103740), 2.919236 (b=999203)] ; Q/b in [0.526891 (b=510510), 2.919197 (b=999931)]
+b>=500000: Q/phi in [2.918653 (b=510510), 2.919236 (b=999203)] ; Q/b in [0.526891 (b=510510), 2.919197 (b=999931)]
+mean of Q/b on (B/2,B]: 1.774629  (s0 6/pi^2 = 1.774723) ; mean of Q/phi: 2.919130
+Q - s0 phi: max -4.0875 at b=3 ; min -102.7074 at b=999269
+primes >= 1000: (s0 phi - Q)/log^2 b in [0.53755, 0.71504], mean 0.55407 ; last decade mean 0.54845
+primes: s0 phi - Q ~ 0.37531 log^2 b + 2.14691 log b + 1.38428, rms residual 0.0298
+all b >= 1000: |Q - s0 phi|/(2^omega log^3 b) max 0.05163 ; |Q - s0 phi|/(2^omega log^2 b) max 0.35752
+ omega=1: (Q - s0 phi)/log^2 b in [-0.7150, -0.3601]
+ omega=2: (Q - s0 phi)/log^2 b in [-0.4980, -0.3396]
+ omega=3: (Q - s0 phi)/log^2 b in [-0.4485, -0.3356]
+ omega=4: (Q - s0 phi)/log^2 b in [-0.4431, -0.3330]
+ omega=5: (Q - s0 phi)/log^2 b in [-0.4214, -0.3352]
+ omega=6: (Q - s0 phi)/log^2 b in [-0.3677, -0.3336]
+ omega=7: (Q - s0 phi)/log^2 b in [-0.3466, -0.3408]
+envelope: sup over b<=B and a of I(a,b)/(a(1+log(b/a))) = 1.260653994 at b=1000000 ; log(2pi)-gamma = 1.260661402
+  b>=100: per-b envelope maximum in [1.232672, 1.260654]
+  b>=10000: per-b envelope maximum in [1.260151, 1.260654]
+  b>=100000: per-b envelope maximum in [1.260599, 1.260654]
+min over b>=4, a of I(a,b)/a = 1.214245856 at b=845405 (L2: >= 1)

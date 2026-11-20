@@ -1,0 +1,9 @@
+planned memory: python list of 60000000 ints (0.48 GB) + nmod_poly 0.48 GB x about 4
+primes 3562115
+x_delta read from file
+tau at small primes {}
+a_p(11a) at small primes {2: -2, 3: -1, 5: 1, 7: -2, 11: 1, 13: 4, 17: -2, 19: 0, 23: -1, 29: 0} 73.20111918449402
+delta: mean U_2 = -0.00013  mean U_4 = -0.00016  (Sato-Tate: 0, 0)
+f11: mean U_2 = -0.00014  mean U_4 = -0.00033  (Sato-Tate: 0, 0)
+lin: mean U_2 = -0.50018  mean U_4 = 0.12499  (Sato-Tate: 0, 0)
+done 73.31250739097595

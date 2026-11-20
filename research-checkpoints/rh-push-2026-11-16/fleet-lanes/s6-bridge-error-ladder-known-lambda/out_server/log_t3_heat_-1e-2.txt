@@ -1,0 +1,14 @@
+11:55:30 heat_-1e-2: 3864659 ordinates 10000000.248 .. 11759967.916; list 0.03 GB, planned peak 0.62 GB
+11:55:30 19 records
+11:55:30 record at index 123 gap 7.917860e-02: t_c 8.14055827e-04 (pair value 7.83656293e-04, retardation 3.88e-02)
+11:55:30 record at index 279 gap 6.874828e-02: t_c 5.99014379e-04 (pair value 5.90790789e-04, retardation 1.39e-02)
+11:55:31 record at index 477 gap 2.682007e-02: t_c 9.00416501e-05 (pair value 8.99145263e-05, retardation 1.41e-03)
+11:55:35 record at index 962 gap 2.277486e-03: t_c 6.48375189e-07 (pair value 6.48367825e-07, retardation 1.14e-05)
+11:55:42 record at index 80011 gap 2.268530e-03: t_c 6.43287294e-07 (pair value 6.43278788e-07, retardation 1.32e-05)
+11:55:49 record at index 193133 gap 1.615297e-03: t_c 3.26150710e-07 (pair value 3.26148070e-07, retardation 8.10e-06)
+11:55:55 record at index 289583 gap 5.387720e-04: t_c 3.62843991e-08 (pair value 3.62844047e-08, retardation -1.54e-07)
+11:56:02 record at index 426468 gap 4.463345e-04: t_c 2.49017954e-08 (pair value 2.49018086e-08, retardation -5.30e-07)
+11:56:09 record at index 1183637 gap 4.362818e-04: t_c 2.37927141e-08 (pair value 2.37927245e-08, retardation -4.40e-07)
+11:56:17 record at index 2161788 gap 2.328679e-04: t_c 6.77842647e-09 (pair value 6.77843216e-09, retardation -8.39e-07)
+11:56:24 record at index 3768289 gap 1.244713e-04: t_c 1.93663498e-09 (pair value 1.93663689e-09, retardation -9.85e-07)
+{"fit_all": {"p_tc": -0.9838835731323835, "p_E": -0.4682410339876801}, "decades": [{"lo": 100.0, "hi": 1000.0, "p_tc": -1.4774556202420401, "p_E": -0.449184360535645, "p_Ecoll": -0.4382939018623986, "sigma_mid": 0.8466953662583856, "dyadic_steps": 4, "zero_increments": 1, "p_increments": 1.2432057361819664, "tc_over_E_lo": 0.03396119509932064, "tc_over_E_hi": 0.008179706473120225}, {"lo": 1000.0, "hi": 10000.0, "p_tc": -2.705650416668559e-17, "p_E": -0.46813992413315836, "p_Ecoll": -0.44825233654446767, "sigma_mid": 0.8810056193831504, "dyadic_steps": 5, "zero_increments": 5, "p_increments": null, "tc_over_E_lo": 6.909452786962408e-05, "tc_over_E_hi": 0.00018285744182996273}, {"lo": 10000.0, "hi": 100000.0, "p_tc": -0.002435477745211719, "p_E": -0.47309982535944445, "p_Ecoll": -0.4569106566688012, "sigma_mid": 0.9206101058768068, "dyadic_steps": 5, "zero_increments": 4, "p_increments": null, "tc_over_E_lo": 0.00021538488715885985, "tc_over_E_hi": 0.0005714768490318246}, {"lo": 100000.0, "hi": 1000000.0, "p_tc": -2.325558021012698, "p_E": -0.4694794713173913, "p_Ecoll": -0.4630662748371595, "sigma_mid": 0.9460376507940796, "dyadic_steps": 4, "zero_increments": 0, "p_increments": -3.0822690751255335, "tc_over_E_lo": 0.0006730523992301394, "tc_over_E_hi": 5.877183785089926e-05}], "blocks": -1.0475323324284027}

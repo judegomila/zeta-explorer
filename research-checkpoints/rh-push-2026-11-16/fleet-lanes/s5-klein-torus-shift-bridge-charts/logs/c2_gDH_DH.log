@@ -1,0 +1,14 @@
+pick: DH a=0.1 rect [0.01,2]x[-21.4248371213444,21.4248371213444] n=300 bits=4000 kernels 11; matrix memory per kernel ~ 0.05 GB
+S values: 41.1 s
+sinh:43 first_neg None n_neg 0 undet None last log10 rho -376.265 29.1 s
+sinh:60 first_neg None n_neg 0 undet None last log10 rho -452.604 35.2 s
+sinh:73 first_neg None n_neg 0 undet None last log10 rho -492.232 29.8 s
+sinh:81 first_neg None n_neg 0 undet None last log10 rho -511.508 30.7 s
+sinh:85.4 first_neg None n_neg 0 undet None last log10 rho -520.81 31.4 s
+sinh:90 first_neg 265 n_neg 2 undet None last log10 rho -529.687 29.1 s
+sinh:100 first_neg 205 n_neg 2 undet None last log10 rho -546.436 30.0 s
+sinh:110 first_neg 186 n_neg 2 undet None last log10 rho -560.226 32.3 s
+sinh:130 first_neg 169 n_neg 2 undet None last log10 rho -581.254 31.4 s
+sinh:170 first_neg 158 n_neg 4 undet None last log10 rho -606.438 29.3 s
+lin first_neg 148 n_neg 4 undet None last log10 rho -648.048 31.1 s
+done 130.4 s

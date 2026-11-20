@@ -17,7 +17,7 @@ export default function FlowBlindnessNoGoPage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['SL2 · zetaexplorer', 'unconditional']}
+      byline={['SL2 · explorezeta', 'unconditional']}
       ticker={<span>no-go · rests on Rodgers–Tao Λ ≥ 0</span>}
       footer={<>
         <a href={D.paperPdf} target="_blank" rel="noreferrer">Read the rigorous note (PDF)</a>

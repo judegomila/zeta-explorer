@@ -28,7 +28,7 @@ export default function FrozenRungPTEquivalencePage() {
       meta={['operator-language reformulation', '2026-07-31']}
       title="Freezing the Rungs = Platt–Trudgian in Operator Language"
       dek="A proposition from the twin-ladder freeze investigation (2026-07-31): the Platt–Trudgian verified-height Λ bound is the winding-form frozen-rung index certificate of the kernel bridge — and by inertia-preservation it can never beat it."
-      byline={['twin-ladder freeze · zetaexplorer', 'inertia half unconditional']}
+      byline={['twin-ladder freeze · explorezeta', 'inertia half unconditional']}
       ticker={<span>reformulation · not a new bound · not RH</span>}
       footer={<>
         <a href={paperPdf} target="_blank" rel="noreferrer">Full rigorous write-up (13pp, PDF)</a>

@@ -152,7 +152,7 @@ export default function TheoremBThresholdPage() {
       meta={['minimal-gap Θ-trap · sharp threshold', 'closed-form constant']}
       title="Theorem B: The Minimal-Gap Sharp Threshold Θ_b = (√73 − 5)/8"
       dek="The minimal-gap hypothesis pushes the static Θ-trap up to a closed-form, provably sharp ceiling Θ_b = (√73 − 5)/8 = 0.443000…, where the exact sign boundary lands on the closed form."
-      byline={['sg1c Θ-trap theorems · zetaexplorer', 'static route, sharp endpoint']}
+      byline={['sg1c Θ-trap theorems · explorezeta', 'static route, sharp endpoint']}
       ticker={<span>sharpens one internal step of the finite-N program · no Λ bound changes</span>}
       footer={<>
         Related: <Link to="/theta-static-obstruction">Theorem R1-T2 (static-route obstruction)</Link>

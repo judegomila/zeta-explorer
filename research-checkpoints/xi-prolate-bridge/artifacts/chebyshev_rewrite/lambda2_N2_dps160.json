@@ -1,0 +1,53 @@
+{
+  "claim_class": "EXACT_FINITE_COMBINED_FORM_REPLAY",
+  "terminal_state": "P0_INVALIDATED",
+  "analytic_uniform_claim": false,
+  "inputs": {
+    "lambda": "2",
+    "N": 2,
+    "precision_decimal_digits": 160,
+    "arithmetic_library": "mpmath 1.4.1",
+    "origin_cutoff": "1.0e-75",
+    "lambda_squared_exact": "4",
+    "prime_power_cutoff_inclusive": "4"
+  },
+  "formula": {
+    "G": "exp(x)-psi(exp(x))-(1/2)*log(1-exp(-2*x))",
+    "shifted_form": "<v,(Q-qI)w>=-integral G*d_dx(exp(-x/2)*omega_q_vw)",
+    "omega_q_origin_identity": "omega_q_vw(0)=0",
+    "prime_block_sign": "minus"
+  },
+  "source_enumeration": {
+    "matrix_path_prime_powers": [
+      2,
+      3,
+      4
+    ],
+    "integral_path_prime_powers": [
+      2,
+      3,
+      4
+    ],
+    "enumerations_agree_exactly": true,
+    "lambda_squared_is_integer": true,
+    "endpoint_prime_power_included": true
+  },
+  "defects": {
+    "offdiagonal_entries": [
+      "1.262363461196095331561768656273549698010711461696512519669295267379285166112831419026011408136915520806642277760945092143540260866326123755543652538514024143035e-73",
+      "1.262363461196095331561768656273549698010711461696512519669295267379285166112831419026011363681740531105092608906676806732338322615834894457387782866702364769523e-73",
+      "1.262363461196095331561768656273549698010711461696512519669295267379285166112831419026011363681740531105092608906676806732338322615834894457387782866702364769523e-73"
+    ],
+    "complex_shifted_form": "1.475975552647251857293322751623858398442608552761447600227302764710115531574235480589613511278866463013711680757686239429409903157791735419172178219338712813879e-71",
+    "shifted_correlation_origin": "8.047246257677458887216720244762021008820511985405912921317089968462967891808148736468859423646247567301601931077855593242030702673514813441034218505158564499543e-160",
+    "rayleigh_imaginary_part": "0.0"
+  },
+  "tolerance": "1.0e-53",
+  "replay_agrees": true,
+  "limitations": [
+    "point-valued mpmath quadrature with an explicit origin cutoff",
+    "matrix and integral paths share mpmath transcendental arithmetic",
+    "the two correlation formulas and prime-power enumerators are separately implemented but not interval-enclosed",
+    "finite identity replay only; no sign or asymptotic estimate"
+  ]
+}

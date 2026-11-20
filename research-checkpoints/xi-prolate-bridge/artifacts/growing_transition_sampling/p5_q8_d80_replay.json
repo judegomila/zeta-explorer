@@ -1,0 +1,64 @@
+{
+  "arithmetic": {
+    "library": "mpmath.iv 1.4.1",
+    "shared_library_limitation_acknowledged": true
+  },
+  "checks": {
+    "all_interval_pairs_overlap": true,
+    "all_sampling_cross_terms_retained": true,
+    "compact_projection_retained": true,
+    "full_cross_block_metric_not_substituted": true,
+    "independent_formula_reconstruction": true,
+    "only_one_d_LS_inverse_loss": true,
+    "origin_correction_retained": true,
+    "producer_booleans_trusted": false,
+    "projection_exponent_reserve_positive": true
+  },
+  "interval_overlap": {
+    "A_N": true,
+    "B_proj_q": true,
+    "C2": true,
+    "C_Z": true,
+    "C_b": true,
+    "D_q": true,
+    "D_tr": true,
+    "E_q": true,
+    "H_N": true,
+    "L_lambda": true,
+    "V0": true,
+    "V_star": true,
+    "X_q": true,
+    "Z_finite": true,
+    "beta": true,
+    "d_LS": true,
+    "log_N_times_d_LS": true,
+    "logarithmic_length_L": true
+  },
+  "producer_binding": {
+    "exact_bytes_required": true,
+    "sha256": "988f8a6b929b2ba0c6cebc79d1c3df67e2eff19e8d91a497e2ec0b0c034bf8c8"
+  },
+  "reconstructed_exact_certificate": {
+    "buffer_ceil": 5,
+    "lambda": {
+      "denominator": "2",
+      "numerator": "5"
+    },
+    "lambda_squared": {
+      "denominator": "4",
+      "numerator": "25"
+    },
+    "modal_rows": 8,
+    "n_star": 36,
+    "outer_constants_exactly_linear_in_q": true,
+    "projection_constant_exactly_linear_in_q": true,
+    "projection_exponent_base_2": 60000,
+    "rest_limit_below_three_halves_lambda_squared": true,
+    "rest_modal_row_limit": 8,
+    "shannon_index": 25,
+    "singleton_modal_rows": 3
+  },
+  "schema": "xi-prolate-growing-transition-sampling-replay-v1",
+  "status": "GROWING_TRANSITION_SAMPLING_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

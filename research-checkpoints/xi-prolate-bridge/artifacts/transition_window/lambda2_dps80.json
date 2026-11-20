@@ -1,0 +1,51 @@
+{
+  "claim_class": "PINNED_POSITIVE_PROLATE_TRANSITION_BOUND",
+  "terminal_state": "P0_INVALIDATED",
+  "signed_weil_comparison_claim": false,
+  "inputs": {
+    "lambda": "2",
+    "lambda_exact": "2",
+    "interval_decimal_digits": 80,
+    "arithmetic_library": "mpmath.iv 1.4.1"
+  },
+  "locked_formulas": {
+    "beta": "(2/pi^2)*log(200*lambda^2+25)",
+    "trailing_exponent": "-(n-ceil(S)-6)/beta"
+  },
+  "exact_indices": {
+    "shannon_index": "16",
+    "shannon_ceil": 16,
+    "buffer_ceil": 5,
+    "n_star": 27,
+    "shannon_target_counts_plus_minus": [
+      2,
+      3
+    ],
+    "buffered_target_counts_plus_minus": [
+      5,
+      6
+    ]
+  },
+  "outward_intervals": {
+    "beta": [
+      "1.36082118663104062012539341943168577717447963283624109030801288350775747380544142336544846",
+      "1.36082118663104062012539341943168577717447963283624109030801288350775747380544143390764641"
+    ],
+    "beta_log20": [
+      "4.07665594732664721035300435451602628521507377236308238002805709162858501821749541632906123",
+      "4.076655947326647210353004354516026285215073772363082380028057091628585018217495458497853"
+    ],
+    "Lambda_upper_at_n_star": "0.253683733491301912128505211736722242685000060068430757981795169354351354930869234460765435",
+    "defect_lower_at_n_star": "0.746316266508698087871494788263277757314999939931569242018204830645648645069130765012124668",
+    "Lambda_upper_at_previous_index": "0.528973720194805513180732335257788354782258115479478733599515062389450853830335862233311996"
+  },
+  "checks": {
+    "n_star_is_included": true,
+    "previous_index_is_not_promoted": true
+  },
+  "limitations": [
+    "positive sinc-kernel concentration model only",
+    "no lower bound for the fixed leading defects",
+    "no physical arithmetic-map conditioning or signed Weil comparison"
+  ]
+}

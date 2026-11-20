@@ -1,0 +1,93 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and replay share the exact pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees": true,
+    "library": "mpmath.iv 1.4.1",
+    "precision_mode": "exact rational arithmetic plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "exact dyadic rule locked in source conventions; nondegenerate intervals only",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "binary64_parameters_used": false,
+    "cached_matrices_read": false,
+    "capture_and_cross_obstructions_pass": true,
+    "cross_identity_and_shift_cancellation_pass": true,
+    "fourier_minus_sign_locked": true,
+    "independent_transition_formula_tree_pass": true,
+    "inversion_reflection_locked": true,
+    "noninjective_quotient_equivalence_pass": true,
+    "producer_booleans_trusted": false,
+    "producer_bytes_bound_exactly": true,
+    "rational_regressions_reconstructed": true,
+    "ridge_capture_trace_identity_pass": true,
+    "shift_erosion_saturation_pass": true,
+    "source_note_lock_and_dependencies_rehashed": true,
+    "submitted_interval_encloses_reconstruction": true,
+    "submitted_interval_precision_tight": true,
+    "transition_ceiling_separated": true
+  },
+  "claim_boundary": {
+    "equation_5_2": false,
+    "locally_uniform_determinant_convergence": false,
+    "matched_bandwidth_projected_anchor_nonzero": false,
+    "physical_coframe": false,
+    "positive_physical_high_floor": false,
+    "rh_proved": false,
+    "signed_low_comparison": false,
+    "signed_sector_floor": false,
+    "strict_cross_reserve": false
+  },
+  "input": {
+    "interval_decimal_digits": 80,
+    "lambda_denominator": 2,
+    "lambda_numerator": 7
+  },
+  "producer_binding": {
+    "byte_count": 32461,
+    "byte_source": "exact artifact file bytes",
+    "sha256": "dba1b73b0e59a0d4dd44b41b966891fbffae17391f95166e7f07a918b37b14a5"
+  },
+  "reconstructed_exact_schedule": {
+    "N": 13,
+    "N_rule": "ceil(lambda^2)",
+    "ambient_even_complement_dimension_if_anchor_nonzero": 13,
+    "ambient_odd_dimension": 13,
+    "coframe_proved": false,
+    "even_target_count_meets_dimension_if_anchor_nonzero": true,
+    "lambda": {
+      "denominator": "2",
+      "numerator": "7"
+    },
+    "n_star": 60,
+    "odd_target_count_exceeds_dimension": true,
+    "projected_anchor_nonzero_hypothesis_required": true,
+    "projected_anchor_nonzero_proved": false,
+    "q": 5,
+    "r_minus_buffered": 14,
+    "r_plus_buffered": 13
+  },
+  "result": "SIGNED_QUOTIENT_CAPTURE_COMPONENT_REPLAY_PASS",
+  "schema": "xi-prolate-signed-quotient-capture-replay-v1",
+  "source_hashes": {
+    "BLOCK_QUOTIENT_ACTION_SOURCE_LOCK.json": "1a3993f3bda080c3d9dd870c8ffffb9b4b278eb5049d0508c72389a5c15f10a4",
+    "COMPRESSED_MULTIPLIER_TRACE_SOURCE_LOCK.json": "5beedcf1f36206ec0f10331f139a4156ac43d0335f1bd90bbe64eba6016464da",
+    "GROWING_TRANSITION_SAMPLING_SOURCE_LOCK.json": "585d13e3860106840e0bd550eaa30ff16eee78a182b926ccf4656e69be59bc6b",
+    "HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json": "65df5f6f47aa0718f1768d1dfafa5f5ec659e4c2681419ef130cd15572b6a9f9",
+    "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+    "P2_SOURCE_LOCK.json": "8b731d499903041ef68e7722ebd085d22673c022655431dcca27c9cac6f4730a",
+    "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+    "SIGNED_QUOTIENT_CAPTURE_SOURCE_LOCK.json": "78284b94c9331a4b27f537c572c3c292f7cd411951f84e2e1605b924e2bde600",
+    "notes/BLOCK_QUOTIENT_ACTION_THEOREM.md": "31c4239b2dec0114be7b8e9b42e52ebc6361130461d1225e05c81ff5b26369d4",
+    "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
+    "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+    "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md": "113be74d52f48d66903c1babf1525ec6d130243321acfa31562abd8640868a3a",
+    "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+    "notes/PARITY_SHIFT_SCALE_AUDIT.md": "dee08d1833047dea48a962d7b37738cc5eba0b48e9078ac90b103904b64091b0",
+    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+    "notes/SIGNED_QUOTIENT_CAPTURE_REDUCTION.md": "9700501a367ea7ae2b843ee61b45bec3970fc35db1715613099b08439be0415c",
+    "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+  },
+  "status": "SIGNED_QUOTIENT_CAPTURE_COMPONENT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

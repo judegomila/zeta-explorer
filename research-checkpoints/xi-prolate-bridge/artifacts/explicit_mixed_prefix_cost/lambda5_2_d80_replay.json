@@ -1,0 +1,49 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and pinned mpmath.iv 1.4.1",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "nondegenerate intervals receive a precision-scaled dyadic enlargement",
+    "shared_library_with_verifier": true
+  },
+  "formula_version": "0.43-explicit-mixed-prefix-cost-v1",
+  "independent_checks": {
+    "N_is_ceil_not_floor": true,
+    "full_two_parity_dimension": true,
+    "kappa_below_Gamma": true,
+    "rational_iota_below_I0_expression": true,
+    "rho_in_unit_interval": true,
+    "signed_claim_absent": true,
+    "simplified_terminal_dominates": true,
+    "terminal_margin_positive": true,
+    "terminal_split_above_sqrt_R": true,
+    "trace_strictly_stops": true,
+    "unsigned_floor_positive": true
+  },
+  "inputs": {
+    "N_rule": "ceil(lambda^2)",
+    "dps": "80",
+    "lambda": "5/2"
+  },
+  "producer_binding": {
+    "sha256": "299a1b87413e6fcc007f51321cf546f7e872b1b15fe2ba975813ae492c1181c9"
+  },
+  "reconstructed": {
+    "N": 7,
+    "d": 15,
+    "implementation_hash_count": 2,
+    "interval_count": 15,
+    "inversion_even_dimension": 8,
+    "inversion_odd_dimension": 7,
+    "simplified_terminal_count_Mhat": "9817768834652961",
+    "source_hash_count": 3,
+    "terminal_count_M": "458360853203570"
+  },
+  "schema": "xi-prolate-explicit-mixed-prefix-cost-replay-v1",
+  "terminal_state": "P0_INVALIDATED"
+}

@@ -1,0 +1,81 @@
+{
+  "arithmetic_libraries": {
+    "independence_limitation": "producer and verifier share Python integer/Fraction arithmetic and the pinned mpmath.iv transcendental runtime",
+    "independent_formula_trees_required": true,
+    "libraries": [
+      "Python fractions.Fraction",
+      "mpmath.iv 1.4.1"
+    ],
+    "precision_mode": "exact reduced rationals plus outward arbitrary-precision intervals",
+    "raw_interval_or_ball_output_applicable": true,
+    "serialization_guard": "every nondegenerate interval is enlarged to a precision-scaled dyadic enclosure",
+    "shared_library_with_verifier": true
+  },
+  "checks": {
+    "all_exact_rational_models_reconstructed": true,
+    "all_interval_probes_independently_enclosed": true,
+    "api_key_or_environment_secret_read": false,
+    "binary64_parameters_used": false,
+    "determinant_limit_claimed": false,
+    "equation_5_2_claimed": false,
+    "formula_tree_independent": true,
+    "physical_exterior_alignment_claimed": false,
+    "physical_odd_reserve_claimed": false,
+    "physical_weighted_central_rate_claimed": false,
+    "prime_powers_independently_detected": true,
+    "producer_booleans_trusted": false,
+    "producer_bytes_bound": true,
+    "producer_module_imported": false,
+    "rh_proved": false,
+    "signed_sector_floor_claimed": false,
+    "source_lock_and_dependencies_rehashed": true
+  },
+  "inputs": {
+    "chebyshev_orders_exact": [
+      1,
+      2,
+      4
+    ],
+    "dps_text": "160",
+    "lambda_denominator_text": "2",
+    "lambda_numerator_text": "9"
+  },
+  "producer_binding": {
+    "byte_length": 70352,
+    "sha256": "45bc71bac9f6b169e072540c1f130ece310a23f3f13df9eb78f27f670299cd72"
+  },
+  "reconstructed": {
+    "chebyshev_orders": [
+      1,
+      2,
+      4
+    ],
+    "chebyshev_profiles": [
+      "profile_A",
+      "profile_B"
+    ],
+    "exact_fixture_groups": 4,
+    "prime_power_count": 12,
+    "source_dependency_count": 10,
+    "transcendental_interval_count": 27
+  },
+  "schema": "xi-prolate-weighted-spectral-alignment-chebyshev-edge-replay-v1",
+  "source_lock": {
+    "dependency_hashes": {
+      "DIRECT_RH_ATTACK.md": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "INTRINSIC_FEATURE_DYADIC_DEFECT_SOURCE_LOCK.json": "6c9c8e43093d3156f11a42b11a967d7deaebc707e0868716748e54014048038a",
+      "LOG_FEATURE_CAPTURE_ALIGNMENT_SOURCE_LOCK.json": "4800fc596cad791ddec7af4251604dbfe4f45b911708f48f08fc5fa658e2d40f",
+      "MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_SOURCE_LOCK.json": "f60bf05e24d4503218ed34c05c5aa0236c1d331c472e068a2788882e2cafa750",
+      "P0_SOURCE_LOCK.json": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "notes/INTRINSIC_FEATURE_DYADIC_DEFECT_REDUCTION.md": "cb18d87cc2e63e938a011c5dab2db04d24b6cb7ca682d9615480dc5d91500b2b",
+      "notes/LOG_FEATURE_CAPTURE_ALIGNMENT_REDUCTION.md": "23bc09a92376b57177053a09358419a628e17c56d4d6e08896c836fed876ad40",
+      "notes/MATCHED_BREAKPOINT_DIRECTIONAL_MOMENT_AUDIT.md": "b3b90baffde24e6ee81303c6f0d07095a5499d38b956ae58b3309e01d8ee0858",
+      "notes/WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_REDUCTION.md": "799727a0d026413fe26d4e78db00a645e329bfb0d24d28d547cc8e0fb15b6735",
+      "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+    },
+    "path": "WEIGHTED_SPECTRAL_ALIGNMENT_CHEBYSHEV_EDGE_SOURCE_LOCK.json",
+    "schema": "xi-prolate-weighted-spectral-alignment-chebyshev-edge-source-lock-v1",
+    "sha256": "6250e0d229ddb014bd072587a7788cd3284f9320235bb1b0902fb46c2033c680"
+  },
+  "terminal_state": "P0_INVALIDATED"
+}

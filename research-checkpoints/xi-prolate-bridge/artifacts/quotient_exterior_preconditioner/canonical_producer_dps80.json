@@ -1,0 +1,124 @@
+{
+  "artifact_version": "0.16.0-quotient-exterior-preconditioner",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "rank_deficient_exact_quotient_model_v1",
+  "precision_decimal_digits": 80,
+  "provenance_sha256": {
+    "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+    "src/quotient_exterior_preconditioner.py": "7b4dcf2cf2b2aacb13f97998d15fc367a2784ad6a96dd961af2f718167d6ba6d",
+    "verifier/quotient_exterior_preconditioner_replay.py": "e879dc09c0f3d566f9717bb2f24af257c175caf1d85c49a8747bb4c59646826f"
+  },
+  "exact_inputs": {
+    "D_integer_diagonal": [
+      "1",
+      "4",
+      "9"
+    ],
+    "W_integer_rows": [
+      [
+        "1",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ]
+    ],
+    "S_integer_rows": [
+      [
+        "1",
+        "1"
+      ]
+    ],
+    "forcing_integer_column": [
+      "1",
+      "1"
+    ],
+    "epsilon_integer": "1",
+    "shifted_operator_B_rational_diagonal": [
+      "9/10",
+      "4"
+    ],
+    "source_kernel_integer_vector": [
+      "-1",
+      "0",
+      "1"
+    ]
+  },
+  "exact_expected_rationals": {
+    "quotient_diagonal": [
+      "9/10",
+      "4"
+    ],
+    "C_min": "49/36",
+    "normalized_synthesis_norm_squared": "10/9",
+    "quotient_floor": "9/10",
+    "alignment_Gamma": "1681/1296",
+    "alignment_upper_bound": "245/162",
+    "forcing_action_squared": "1681/1296",
+    "block_cross_aware_constant": "97/36",
+    "block_actual_Gamma": "2257/1296",
+    "block_Gamma_bound": "485/162",
+    "sharp_block_Gamma_bound": "317/162"
+  },
+  "quotient_point": {
+    "physical_dimension": 2,
+    "source_dimension": 3,
+    "physical_range_dimension": 2,
+    "source_kernel_dimension": 1,
+    "source_map_injective": false,
+    "quotient_matrix_physical": [
+      [
+        "0.9",
+        "0.0"
+      ],
+      [
+        "0.0",
+        "4.0"
+      ]
+    ],
+    "source_sampling_constant_C_min": "1.3611111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "source_sampling_slack_floor": "-2.5614246565192911896659426015195124307795296796223483188079564850067444331965588e-80",
+    "quotient_sampling_slack_floor": "-8.1702034060036554988701448897342647309752200713355933513102663444588118255015637e-81",
+    "normalized_synthesis_norm_squared": "1.1111111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "quotient_floor": "0.9",
+    "quotient_floor_identity_defect": "0.0",
+    "alignment_Gamma": "1.2970679012345679012345679012345679012345679012345679012345679012345679012345679",
+    "alignment_upper_bound": "1.5123456790123456790123456790123456790123456790123456790123456790123456790123457",
+    "forcing_range_defect": "0.0",
+    "forcing_slack_floor": "0.0",
+    "left_closeness_rho": "1.1713553270256136915942860056966687786344401535965008388975292250120160323299733e-81",
+    "shifted_action": "1.1388888888888888888888888888888888888888888888888888888888888888888888888888889",
+    "left_close_action_bound": "1.2297746456210364068884586006127238742242714430709176548890296649748978372485926",
+    "domination_mu": "1.0",
+    "dominating_action_bound": "1.2297746456210364068884586006127238742242714430709176548890296649748978372485926",
+    "ordinary_source_inverse_permitted": false,
+    "claim_scope": "finite_arbitrary_precision_point_linear_algebra"
+  },
+  "block_cross_term_regression": {
+    "high_metric_g": "3.0",
+    "high_sampling_norm_squared_B_H": "4.0",
+    "low_source_constant_C_L": "1.3611111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "cross_aware_constant_formula": "2.6944444444444444444444444444444444444444444444444444444444444444444444444444444",
+    "cross_aware_constant_direct": "2.6944444444444444444444444444444444444444444444444444444444444444444444444444444",
+    "incorrect_maximum_of_block_constants": "1.3611111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "block_inverse_norm": "1.1111111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "actual_block_Gamma": "1.7415123456790123456790123456790123456790123456790123456790123456790123456790123",
+    "block_Gamma_bound": "2.9938271604938271604938271604938271604938271604938271604938271604938271604938272",
+    "sharp_block_Gamma_bound": "1.9567901234567901234567901234567901234567901234567901234567901234567901234567901"
+  },
+  "theorem_flags": {
+    "source_injectivity_required": false,
+    "ordinary_inverse_on_source_kernel_used": false,
+    "moore_penrose_quotient_used": true,
+    "low_high_sampling_cross_terms_retained": true,
+    "defect_relative_exterior_sampling_proved": false,
+    "shifted_signed_sector_comparison_proved": false,
+    "equation_5_2_proved": false,
+    "local_uniform_determinant_convergence_proved": false,
+    "status_promoted": false
+  },
+  "claim_scope": "exact rational construction with arbitrary-precision point replay; finite linear algebra only"
+}

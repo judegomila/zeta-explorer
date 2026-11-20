@@ -1,0 +1,13 @@
+{
+  "artifact_version": "0.15.0-weak-residual-duality-replay",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "canonical_5d_two_sided_radical_obstruction_v1",
+  "exact_radical_replay_pass": true,
+  "exact_scalar_pairings_zero": true,
+  "exact_residual_nonzero": true,
+  "strict_sector_comparisons": true,
+  "replay_precision_decimal_digits": 80,
+  "weighted_action_tau": "0.61803398874989484820458683436563811772030917980576286213544862270526046281890245",
+  "independence": "integer/rational algebra uses fractions.Fraction; displayed radicals use decimal.Decimal; no producer module or cached matrix is imported",
+  "claim_scope": "independent_exact_obstruction_replay_not_asymptotic_proof"
+}

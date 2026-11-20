@@ -1,0 +1,220 @@
+{
+  "schema": "xi-prolate-effective-mixed-endpoint-jump-source-lock-v1",
+  "claim_class": "EFFECTIVE_MIXED_PREFIX_ENDPOINT_JET_ODD_JUMP_AUDIT",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite Weil convention, source equation (3.19), pole term, archimedean term, and inversion convention"
+    },
+    {
+      "id": "FKS-PNT-v3",
+      "version": "arXiv:2204.02588v3",
+      "vendored_path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "use": "pinned unconditional prime-number-theorem input; no zero ordinate table"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "RESIDUE_COFRAME_MIXED_KRYLOV_SOURCE_LOCK.json",
+      "sha256": "07820d02ae10c1911d35796a5ad018ffcdae4363f22f2b000074e430c7086375",
+      "role": "preceding prescribed-residue, mixed-capture, and odd-Krylov source lock"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "equation (5.2), common-schedule target, and claim boundary"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary source versions and Fourier, Mellin, pole, archimedean, prime, and inversion formulas"
+    },
+    {
+      "path": "P0_MATRIX_FORMULAS.md",
+      "sha256": "73aa4d0a746bf1a553372d4c7bdc1c671cd69c9cc36682091d94731e1dac74dd",
+      "role": "finite Weil matrix conventions and source prime-block sign"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized prolate state and rejection of unit normalization"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime"
+    },
+    {
+      "path": "notes/EFFECTIVE_MIXED_PREFIX_SCHEDULE_ATTACK.md",
+      "sha256": "a33e7a072057f1444afb9d00911465f599fec508d0a6488e655638947cc515ba",
+      "role": "computable mixed-prefix trace stop, invariant floor, full bridge metric, and explicit source-BV terminal majorant"
+    },
+    {
+      "path": "notes/AUGMENTED_ENDPOINT_JET_COFRAME_ATTACK.md",
+      "sha256": "521a21decb0eb3175d73430f4d23b31917a128cc8f705caea9ccc70e088ba7ac",
+      "role": "endpoint recurrence, high-label jet block, fixed-parameter jet-zero density, and range equivalence"
+    },
+    {
+      "path": "notes/ODD_JUMP_FINITE_KRYLOV_ATTACK.md",
+      "sha256": "383ae4291cf5168f389c81d8f9a0fd6386c8adb952cdaa2368cf7e24f8283aa7",
+      "role": "finite graph convergence, exact centered cross numerator, localized jump-band law, and remaining Krylov gate"
+    },
+    {
+      "path": "notes/FULL_SOURCE_COFRAME_RANK_THEOREM.md",
+      "sha256": "3f8b381d9e51e0fa0cf89928851e89dd163ec9982249af8050a90520c0389f81",
+      "role": "explicit Mobius right inverse, full-source floor, mixed-prefix density, and source-metric projection formula"
+    },
+    {
+      "path": "notes/MIXED_PREFIX_COUPLED_SIGNED_AUDIT.md",
+      "sha256": "544ce5d2ba527ba9200a64860d977c7191107c88798963591ed960bfa81e527c",
+      "role": "exact residue-plus-bridge Gram, simultaneous mixed map, annular target, and coupled signed inertia"
+    },
+    {
+      "path": "notes/PRESCRIBED_RESIDUE_COFRAME_AUDIT.md",
+      "sha256": "5c5c50013431500cab6bdfbb359dd1d4bd76c76648b309093e44effde19ef307",
+      "role": "analytic-intersection theorem, rejected physical-shell BV fallback, and augmented endpoint-jet target"
+    },
+    {
+      "path": "notes/ODD_KRYLOV_TRANSVERSE_CRITICAL_LOAD.md",
+      "sha256": "c5134b4fb80bf2fcb654a1b31a7422aa089973a664cda90707d30ce7e469ddcc",
+      "role": "combined odd residual, moment gate, Krylov inverse-load enclosure, and unprojected prime jumps"
+    },
+    {
+      "path": "notes/ODD_FAVORABLE_LOCKED_SUBSEQUENCE.md",
+      "sha256": "90904571557ac15882989e6d0832458ffa3475f2075ab53b2f7db09e6fe00b28",
+      "role": "favorable locked pole-axis subsequence and fixed-parameter finite projection"
+    },
+    {
+      "path": "notes/ODD_POLE_HARMONIC_CHEBYSHEV_OBSTRUCTION.md",
+      "sha256": "703c19f9cbadd73e6b60672a6f836fc2bd0bf7d43eaa5f60ac5806dd1cdc0d18",
+      "role": "exact odd pole decomposition, pole-prime action, and harmonic-short obstruction"
+    },
+    {
+      "path": "notes/LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR.md",
+      "sha256": "c9f10ffb6b6ceeafe8ea63566d10c3af7eb6265c509c8d63e259bc407cc7f79a",
+      "role": "explicit arithmetic right inverse, all-even source density, and normalized adjoint-tail criterion"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil source"
+    },
+    {
+      "path": "vendor/FKS-PNT-2204.02588v3.pdf",
+      "sha256": "15eff02042f2c1ab4878d029ce52a0abd6c95d66995b183a2dbc689ce9af49a4",
+      "role": "vendored primary prime-number-theorem source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension",
+    "fourier_transform": "hat(f)(t)=integral f(x)*exp(-i*t*x) dx",
+    "frequency_measure": "dnu(t)=dt/(2*pi)",
+    "finite_fourier_basis": "phi_k(x)=(-1)^k*L^(-1/2)*exp(2*pi*i*k*x/L), with P_N=sum_(|k|<=N) |phi_k><phi_k|",
+    "finite_fourier_phase": "the factor (-1)^k is retained in coefficients and distributional jump transforms",
+    "inversion": "Jf(x)=f(-x)",
+    "source_normalization": "source-limit normalization is retained; unit normalization is rejected",
+    "arithmetic_transform": "A_lambda f(u)=sqrt(u)*sum_(m<=lambda/u) f(m*u)",
+    "complete_nonpole_multiplier": "m_lambda(t)=2*theta'(t)-2*sum_(1<n<=lambda^2) Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, as in source equation (3.19), before any norm is taken",
+    "locked_parameter_grid": "lambda=p/2 with odd integers p>=5",
+    "prolate_parameter": "c=2*pi*lambda^2",
+    "plus_source_family": "c_n^+=h_n-(I_n/I_0)*h_0 for n=0 mod 4, n>=4",
+    "minus_source_family": "c_n^-=-h_n+(I_n/I_2)*h_2 for n=2 mod 4, n>=6",
+    "mixed_bridge": "c_(4j+2)=-c^-_(4j+2)+(I_(4j+2)/I_2)*c_2",
+    "minus_family_precondition": "I_2 is nonzero before defining c_n^- or the separated mixed bridge",
+    "odd_pole": "p(x)=sinh(x/2), with mu=||p||^2=(lambda-lambda^(-1)-2*log(lambda))/2"
+  },
+  "locked_formulas": {
+    "mobius_right_inverse": "R_lambda g(x)=sum_(n<=lambda/x) mu(n)*g(n*x)/sqrt(n*x), extended evenly with central-hole constant -lambda*J_g",
+    "simultaneous_map_bounds": "T*B=I_Y, ||T||<=lambda/sqrt(2), and ||B||<=A_lambda=sqrt(2)*lambda*M_mu(lambda), where M_mu=sum_(n<=floor(lambda^2)) |mu(n)|/sqrt(n)<=2*lambda",
+    "mixed_source_projection": "D_M=I+v_M*v_M^*, P_F=C_M*D_M^(-1)*C_M^*, and E_M=B^*(I-P_F)*B=G-H_M^*D_M^(-1)H_M",
+    "mixed_bridge_gram": "D_sep=[[I+u*u^*,beta*u,0],[beta*u^*,1+beta^2,a^*],[0,a,I+a*a^*]]; the beta*u cross block is retained",
+    "trace_stop": "an outward-certified U_M>=tr(E_M) with U_M<1/(8*lambda^2) implies ||I-T*P_F*B||<1/4",
+    "effective_mixed_floor": "T*P_F*T^* >= 9/(32*lambda^2*M_mu(lambda)^2) I >= 9/(128*lambda^4) I",
+    "trace_stopping_algorithm": "at stage s use M=s and an outward interval for tr(E_s) of width at most 2^(-s); halt only on U_s<1/(8*lambda^2), without assuming rounded monotonicity",
+    "bv_ground_factor": "0<iota_lambda<=I_0 and kappa_lambda=1+sqrt(2*lambda)/iota_lambda",
+    "bv_variation_basis": "q_a(u)=g_a(u)/sqrt(u), J_a=sum_(n<=K) mu(n)/n*integral_(n/lambda)^lambda q_a(u)du, V_a=2*sqrt(lambda)*(sum_(n<=K)|mu(n)|*integral_(n/lambda)^lambda|q_a'(u)|du+(sum_(n<=K)|mu(n)|)*|q_a(lambda)|+|sum_(n<=K)mu(n)*q_a(n/lambda)+lambda*J_a|), K=floor(lambda^2), and V_(lambda,Y)=(sum_a V_a^2)^(1/2)",
+    "bv_source_tail": "||(I-P_(F_M))*B|| <= kappa_lambda*(V_(lambda,Y)*sqrt(rho)+sqrt((V_(lambda,Y)^2/(2*rho)+c^2*A_lambda^2)/((2*M+2)*(2*M+3))))",
+    "bv_terminal_majorant": "for d=dim(Y)>=1, delta=1/(4*sqrt(d)*lambda), rho=1 if V=0 and otherwise min(1,delta^2/(4*kappa_lambda^2*V^2)), R=(4*kappa_lambda^2/delta^2)*(V^2/(2*rho)+c^2*A_lambda^2), and M_BV=max(1,ceil(sqrt(R)/2)); then tr(E_(M_BV))<=1/(16*lambda^2)<1/(8*lambda^2)",
+    "endpoint_rescaling": "y_n(s)=sqrt(lambda)*h_(n,lambda)(lambda*s) and L_c y_n=mu_n(c)y_n for L_c=-d/ds((1-s^2)d/ds)+c^2*s^2",
+    "endpoint_recurrence_initial": "P_0=1 and P_1=(mu-c^2)/2",
+    "endpoint_recurrence": "for k>=1, P_(k+1)=((mu-c^2-k*(k+1))*P_k-2*k*c^2*P_(k-1)-k*(k-1)*c^2*P_(k-2))/(2*(k+1)); at k=1 the P_(k-2) term is absent, equivalently P_(-1)=0",
+    "endpoint_derivatives": "y_n^(k)(1)=P_k(mu_n(c);c)*y_n(1), with leading coefficient of P_k equal to 1/(2^k*k!)",
+    "endpoint_high_label_block": "D_R*J_R tends to V_(K,a), where (V_(K,a))_(k,j)=epsilon_sigma*a_j^(2*k+1/2)/(2^k*k!), and a certified half-singular-value perturbation gives s_min(J_R)>=s_min(V_(K,a))*sqrt(R/lambda)/2",
+    "jet_zero_density": "for fixed lambda and K, closure_(L2)(D_(sigma,K)^0)=closure_(L2)(D_sigma)",
+    "jet_range_equivalence": "for fixed lambda, fixed K, and fixed finite X, T(D_(sigma,K)^0)=T(D_sigma); endpoint constraints preserve an existing finite physical range but do not create rank",
+    "jet_floor_transfer": "if sqrt(gamma)>||T||*delta_R, then lambda_min(T*C_R*(C_R^*C_R)^(-1)*C_R^*T^*)>=((sqrt(gamma)-||T||*delta_R)/(1+delta_R))^2",
+    "odd_finite_matrix": "Q_N=P_N*A_lambda*P_N-2*|p_N><p_N|, with the complete combined archimedean-minus-prime A_lambda",
+    "odd_pole_coefficients": "<phi_k,p>=2*i*kappa_k*sinh(log(lambda)/2)/(sqrt(L)*(kappa_k^2+1/4)), kappa_k=2*pi*k/L, and the k=0 coefficient is zero",
+    "centered_cross_identity": "r_N=P_N*A_lambda*p_N-tau_N*p_N=sqrt(mu_N)*b_N",
+    "graph_multiplier_bound": "for 0<s<1/2, |m_lambda(t)|<=K_(lambda,s)*(1+t^2)^(s/2), where K_(lambda,s)=gamma_E+pi/2+3*log(2)+log(pi)+4+2*sum_(1<n<=lambda^2)Lambda(n)/sqrt(n)+log(2)+1/s",
+    "graph_convergence": "for every fixed lambda>1, r_N tends to R=A_lambda*p-tau*p in L2 and ||b_N|| tends to ||R||/sqrt(mu)",
+    "graph_error": "g_N=||p_N-p||, h_N=||A_lambda*(p_N-p)||, q_N=||(I-P_N)*A_lambda*p||, d_N=(g_N*||A_lambda*p||+sqrt(mu_N)*h_N)/mu_N+|tau|*g_N^2/mu_N, and ||r_N-R||<=E_N=h_N+q_N+d_N*sqrt(mu_N)+|tau|*g_N tending to zero; all actions use the complete combined multiplier",
+    "locked_prime_jump": "at x_n=log(n/lambda), J_(lambda,n)=Lambda(n)*sinh(log(lambda)/2)/sqrt(n)>0",
+    "jump_fourier_phase": "(2*pi*i*k/L)*F_k=(-1)^k*J_(lambda,n)*exp(-2*pi*i*k*x_n/L)/sqrt(L)+(-1)^k*integral(g_(lambda,n)(x)*exp(-2*pi*i*k*x/L) dx)/sqrt(L)",
+    "jump_band_law": "|k|^2*|F_k|^2 tends to L*J_(lambda,n)^2/(4*pi^2), and K*||(P_(2K)-P_K)F||^2 tends to L*J_(lambda,n)^2/(4*pi^2)",
+    "jump_band_lower": "if K>=max(1,ceil(L*B_(lambda,n)/(2*pi*eta*J_(lambda,n)))), then ||(P_(2K)-P_K)F||^2>=(1-eta)^2*L*J_(lambda,n)^2/(8*pi^2*K)",
+    "finite_cross_lower": "for M>=2*K, sqrt(mu_M)*||b_M||>=(1-eta)*J_(lambda,n)*sqrt(L/(8*pi^2*K))-E_M; the positive lower bound additionally requires E_M at most one half of the displayed jump term",
+    "finite_jump_transfer": "for each fixed locked lambda, b_M is nonzero for every sufficiently large M; no uniform M(lambda) is supplied",
+    "krylov_moment_gate": "nu_(beta,M)>0 and (alpha_M-beta)*nu_(beta,M)>sigma_M^4 are both mandatory before an inverse-load conclusion"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.42.0-effective-mixed-endpoint-jump",
+    "formal_status": "P0_INVALIDATED",
+    "mixed_result": "a total fail-closed mixed-prefix schedule and explicit source-normalized floor for each finite computable target, plus a coarse parameter-explicit BV majorant; not a useful transition-scale asymptotic schedule",
+    "endpoint_result": "fixed-parameter endpoint recurrence, high-label jet correction, jet-zero density, and range equivalence; not a new prescribed coframe or common diagonal",
+    "odd_result": "fixed-parameter graph convergence and eventual nonzero finite cross vector, with a localized jump-band law; not a transverse floor, positive moment gate, or inverse-load enclosure",
+    "equation_5_2_proved": false,
+    "signed_even_floor_proved": false,
+    "signed_odd_floor_proved": false,
+    "signed_mixed_floor_proved": false,
+    "locally_uniform_determinant_convergence_proved": false,
+    "numerical_diagnostics_are_theorems": false,
+    "new_lambda_bound_claimed": false,
+    "asymptotic_rh_conclusion_claimed": false
+  },
+  "source_admissions": {
+    "finite_computable_target_mixed_schedule_proved": true,
+    "fixed_lambda_finite_jump_transfer_proved": true,
+    "actual_prescribed_plus_coframe_proved": false,
+    "actual_prescribed_minus_coframe_proved": false,
+    "actual_odd_transverse_floor_proved": false,
+    "actual_odd_harmonic_short_proved": false,
+    "api_key_read": false,
+    "asymptotic_mixed_prefix_cost_bound_proved": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "common_unbounded_jump_cutoff_proved": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "effective_transition_scale_endpoint_block_proved": false,
+    "endpoint_derivative_tail_on_common_schedule_proved": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "fixed_inverse_load_margin_claimed": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "mixed_prefix_signed_floor_proved": false,
+    "nonpositive_complementary_or_schur_gap_reported_as_pass": false,
+    "odd_positive_nu_gate_proved": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "uniform_graph_error_rate_proved": false,
+    "unit_source_normalization_substituted": false,
+    "zero_reality_assumed": false
+  }
+}

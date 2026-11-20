@@ -1,0 +1,97 @@
+{
+  "schema": "xi-prolate-leverage-trimmed-mean-feature-schur-source-lock-v1",
+  "claim_class": "LEVERAGE_TRIMMED_MEAN_FEATURE_SCHUR_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "external_sources": [],
+  "dependencies": [
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "locked P0 Fourier, interval, inversion, prime-block, and claim conventions"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "direct bridge target, especially equation (5.2), and terminal claim boundary"
+    },
+    {
+      "path": "notes/PARITY_MULTIPLIER_SCHUR_REDUCTION.md",
+      "sha256": "c6e4a757604bfc9c1299a272054f1174970781e6cd0a92ed0dfb196f9804fa81",
+      "role": "exact signed multiplier split, pole signs, and digamma lower bound"
+    },
+    {
+      "path": "notes/COMPRESSED_MULTIPLIER_TRACE_THEOREM.md",
+      "sha256": "ec2881e0f233c2c57101e960e3b43cd0abfbf9ee25f342f08a01f35827883d7f",
+      "role": "finite multiplier trace and exact phase-volume conventions"
+    },
+    {
+      "path": "notes/PHYSICAL_LEVERAGE_SHORTED_SCHUR.md",
+      "sha256": "39147b7fcd5c71304c6977272b72a3f07a789b7c4fb34d2e2ebf51e3b60589f3",
+      "role": "physical leverage density, prime second moment, positive short, and Schur comparison"
+    },
+    {
+      "path": "notes/PHYSICAL_MAP_CONDITIONING_REDUCTION.md",
+      "sha256": "3d6428991a0e66e1c2752c8eec76375576e6f94f68a65891cd3215495e6d4e61",
+      "role": "arithmetic map and finite Mobius inversion identity"
+    },
+    {
+      "path": "PROLATE_DEFECT_SOURCE_LOCK.json",
+      "sha256": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+      "role": "pinned sinc concentration operator, parameter scaling, and one-dimensional prolate parity/label convention"
+    },
+    {
+      "path": "notes/PRUFER_SAME_PARITY_GAP_THEOREM.md",
+      "sha256": "145818f1211b0bd40cb52457bfccaa2c0e3e34081790c211d9d5806c739497fd",
+      "role": "standard one-dimensional Sturm simplicity and oscillation input, including ground-mode positivity"
+    }
+  ],
+  "locked_conventions": {
+    "source_interval": "[-lambda,lambda] with Lebesgue measure and zero extension; the physical logarithmic interval is [-log(lambda),log(lambda)]",
+    "fourier_sign": "fhat(t)=integral f(y)*exp(-i*t*y) dy and Plancherel measure is dt/(2*pi)",
+    "prime_endpoint": "every prime power n<=lambda^2 is included and translations at magnitude 2*log(lambda) vanish by zero extension",
+    "prime_sign": "m_lambda=2*theta_prime-2*sum Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "inversion": "multiplicatively Jf(u)=f(u^(-1)); in the additive logarithmic coordinate Jf(y)=f(-y)",
+    "source_normalization": "all-even prolate combinations use the source zero-Lebesgue-integral normalization, never unit normalization",
+    "strictness": "ell_H=c_minus, rho=g, or a zero Schur floor is a rejection, never a pass",
+    "artifact_scope": "p and dps label exact rational theorem-regression models, not physical prolate-Weil pilot matrices or an asymptotic schedule",
+    "arithmetic": "all component matrices, atom weights, exterior volumes, and reserves are exact reduced rationals; binary64 JSON numbers are forbidden"
+  },
+  "locked_formulas": {
+    "exterior_leverage": "E_(k+1)([W,a])=E_k(W)*kappa_H(a), with E_k the sum of k-column Gram determinants and E_0=1",
+    "trimmed_mean": "ell_H=inf{integral alpha*w*dmu_H: 0<=alpha<=1 and integral alpha*dmu_H=1}, dmu_H=kappa_H(t)*dt/(2*pi)",
+    "stop_loss": "sup_g(g-integral(g-w)_+*dmu_H)=ell_H; existence of g>0 with V_H(g)+c_minus<g is equivalent to ell_H>c_minus",
+    "direct_floor": "P_H*T_(m_lambda-U)*P_H >= ell_H*I_H",
+    "arch_prime": "abs(ell_H-ell_b)<=2*sqrt(M_H), b=2*theta_prime-U and M_H=integral S_lambda^2*dmu_H",
+    "prime_second_moment": "M_H=(1/2)*sum_(n,m<=lambda^2)c_n*c_m*(Re Gamma_H(log(n/m))+Re Gamma_H(log(n*m))) with c_n=Lambda(n)/sqrt(n)",
+    "higher_moment": "for the multiplier-only negative block, rho<=(tr R_HH^p)^(1/p)<=A_(p,H)^(1/p)+2*P_(p,H)^(1/p) for even p; an unabsorbed odd pole adds c_minus before comparison with g",
+    "feature_trace": "tau_H=tr R_HH=norm(P_H*Y^*)_HS^2=inf_Z norm(Y^*-WZ)_HS^2; rho<=tau_H, with tau_H=V_H for the multiplier-only block and tau_H=V_H+c_minus when the odd pole is an additional negative feature",
+    "positive_short": "C_/K=X_K^*(I-P_(ran X_H))*X_K=C_KK-C_KH*C_HH^dagger*C_HK, including singular C_HH",
+    "negative_round_trip": "R_KK+R_KH*(gI-R_HH)^(-1)*R_HK=Y_K^*(I-Y_H*Y_H^*/g)^(-1)*Y_K when rho<g",
+    "neumann_tail": "after terms j=0,...,q the effective-load remainder is <=((rho/g)^(q+1)/(1-rho/g))*R_KK",
+    "mobius_right_inverse": "R_lambda*g(x)=sum_(n<=lambda/x)mu(n)*g(nx)/sqrt(nx), A_lambda*R_lambda*g=g, followed by an invisible central-hole correction to zero source integral",
+    "prolate_common_eigensystem": "for k_c(z)=sin(c*z)/(pi*z), (L_(c,x)-L_(c,y))*k_c(x-y)=0; the sinc concentration operator commutes with the simple complete Sturm prolate operator and injectivity identifies their common modes",
+    "coframe_tail": "T P_F T^*=R^(1/2)*(I-L_F)*R^(1/2), L_F=Z*(I-P_F)*Z^*, and full row rank is equivalent to norm(L_F)<1"
+  },
+  "claim_boundary": {
+    "proved": [
+      "the exact exterior-volume representation of leverage density and the odd pole surcharge",
+      "stop-loss duality for the lower-one trimmed mean and its exact equivalence to the optimized strict trace-leverage condition",
+      "the direct high-space multiplier floor and its archimedean-minus-prime-second-moment lower bound",
+      "the exact feature-space positive short, negative round-trip load, and Neumann tail bound",
+      "an explicit bounded Mobius right inverse after an invisible central-hole zero-integral correction",
+      "eventual full row span by some finite all-even prolate prefix for every fixed finite physical parity space",
+      "exact rational countermodels separating trace from norm, diagonal data from orientation, and sufficient shorting from positivity"
+    ],
+    "not_proved": [
+      "a positive trimmed-mean margin or higher-moment high inverse on a common unbounded schedule",
+      "the prescribed separate 0 mod 4 even and 2 mod 4 odd buffered coframes",
+      "an effective bound on the all-even prefix terminal label",
+      "the signed source-coordinate low floor or the required oriented cross estimate",
+      "a positive signed floor in either parity sector",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

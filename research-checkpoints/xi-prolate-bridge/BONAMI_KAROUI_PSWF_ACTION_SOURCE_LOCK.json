@@ -1,0 +1,57 @@
+{
+  "schema": "xi-prolate-bonami-karoui-pswf-action-source-lock-v1",
+  "claim_class": "BONAMI_KAROUI_PSWF_ACTION_BRACKET",
+  "terminal_state": "P0_INVALIDATED",
+  "retrieved_date": "2026-08-11",
+  "external_sources": [
+    {
+      "id": "BK-PSWF-v2",
+      "authors": [
+        "Aline Bonami",
+        "Abderrazek Karoui"
+      ],
+      "title": "Uniform approximation and explicit estimates for the prolate spheroidal wave functions",
+      "version": "arXiv:1405.3676v2",
+      "version_date": "2014-10-30",
+      "official_url": "https://arxiv.org/abs/1405.3676v2",
+      "official_pdf_url": "https://arxiv.org/pdf/1405.3676v2",
+      "vendored_path": "vendor/BK-PSWF-1405.3676v2.pdf",
+      "sha256": "9fe8dc39e4440200a29ff94bb640b693c06a176d28b7e38a468dce98afa7d7b8",
+      "pdf_pages": 25,
+      "locator": "Theorem 1, equation (12), PDF page 5 (printed page 5)"
+    }
+  ],
+  "locked_conventions": {
+    "source_operator": "L_c(psi)=-d/dx((1-x^2)dpsi/dx)+c^2*x^2*psi on [-1,1]",
+    "source_eigenvalue": "L_c(psi_(n,c))=chi_n(c)*psi_(n,c)",
+    "source_elliptic_action": "E(k)=integral_0^min(1,1/k) sqrt((1-k^2*t^2)/(1-t^2)) dt",
+    "source_inverse_function": "Phi is the increasing inverse of k mapsto k/E(k)",
+    "repository_eigenvalue_identification": "mu_n=chi_n(c)",
+    "repository_action": "A(mu)=sqrt(mu)*E(c/sqrt(mu))"
+  },
+  "locked_result": {
+    "hypotheses": "c>0 and integer n>=2",
+    "source_theorem": "Phi(2c/(pi(n+1))) < c/sqrt(chi_n(c)) < Phi(2c/(pi*n))",
+    "equivalent_action_bracket": "pi*n/2 < sqrt(chi_n(c))*E(c/sqrt(chi_n(c))) < pi*(n+1)/2",
+    "derivation": "Apply k mapsto k/E(k) to the source inequality, then invert the positive bounds after writing sqrt(chi_n(c))*E(c/sqrt(chi_n(c)))=c/(k/E(k)) with k=c/sqrt(chi_n(c)).",
+    "plus_phase_consequence": "For consecutive labels n and n+4, A(chi_(n+4)(c))-A(chi_n(c))>3*pi/2."
+  },
+  "claim_boundary": {
+    "proved_by_source": [
+      "the strict two-sided action bracket for every c>0 and n>=2",
+      "the derived strict 3*pi/2 action separation for labels n and n+4"
+    ],
+    "not_claimed": [
+      "no PSWF counting asymptotic beyond the locked action bracket",
+      "no edge-rank estimate without the repository's separate action-deficit calculation",
+      "no sampler, Fejer, prime, Weil-form, determinant, equation (5.2), or RH conclusion"
+    ]
+  },
+  "source_admissions": {
+    "official_arxiv_v2_pdf_vendored_and_hashed": true,
+    "theorem_1_equivalence_checked": true,
+    "numerical_prolate_data_used": false,
+    "zeta_zero_data_used": false,
+    "riemann_hypothesis_assumed_or_claimed": false
+  }
+}

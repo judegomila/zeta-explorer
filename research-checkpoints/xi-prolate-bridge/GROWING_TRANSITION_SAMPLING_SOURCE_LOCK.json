@@ -1,0 +1,104 @@
+{
+  "schema": "xi-prolate-growing-transition-sampling-source-lock-v1",
+  "claim_class": "GROWING_TRANSITION_REMAINDER_LOEWNER_BOUND",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-07",
+  "dependencies": [
+    {
+      "path": "TRANSITION_PROLATE_OUTER_SOURCE_LOCK.json",
+      "sha256": "463511b13e9313178980c57cdd7bfd008f84d447a3d8e20c3774e4b1b498be9d",
+      "role": "source-locked transition-mode endpoint, norm, and translation formulas"
+    },
+    {
+      "path": "notes/TRANSITION_PROLATE_OUTER_THEOREM.md",
+      "sha256": "215f27adc0453f601ced419bd39910cb821c31b2e77678b63874987510f4f9c6",
+      "role": "modewise proof for every deterministic index below n_star"
+    },
+    {
+      "path": "HYBRID_OUTER_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "65df5f6f47aa0718f1768d1dfafa5f5ec659e4c2681419ef130cd15572b6a9f9",
+      "role": "pinned zero-count geometry and exact hybrid minimum-series mechanism"
+    },
+    {
+      "path": "notes/HYBRID_OUTER_SAMPLING_ODD_SHIFT_THEOREM.md",
+      "sha256": "113be74d52f48d66903c1babf1525ec6d130243321acfa31562abd8640868a3a",
+      "role": "finite hybrid-series formula and explicit asymptotic summation threshold"
+    },
+    {
+      "path": "COMPACT_ABSOLUTE_SAMPLING_SOURCE_LOCK.json",
+      "sha256": "48c1bb3a206b4b7d4b448775a7ed6041a248b345a09fe42ab925c5cd233f0cf4",
+      "role": "compact BV zero-sampling theorem"
+    },
+    {
+      "path": "notes/COMPACT_ABSOLUTE_SAMPLING_THEOREM.md",
+      "sha256": "2feb3d62a71e435706c4b330d13bcb096015e52204af6ec9bd2828308d44383d",
+      "role": "compact sampling constant and monotone norm/variation insertion"
+    },
+    {
+      "path": "DEFECT_RELATIVE_PROJECTION_SOURCE_LOCK.json",
+      "sha256": "66347adeb8c3e0d497760318370d00949d598a3ba42d5375c27dafc1651b3714",
+      "role": "pinned all-index Logvinenko--Sereda defect floor and exponential schedule"
+    },
+    {
+      "path": "notes/DEFECT_RELATIVE_PROJECTION_THEOREM.md",
+      "sha256": "3c3e0ac08089d84b414a05b8c8791fb49b588ca41fb21d39e6406e277875638f",
+      "role": "periodic BV projection and zero-extension variation inequalities"
+    },
+    {
+      "path": "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md",
+      "sha256": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+      "role": "zero-integral radical domain and physically invisible origin correction"
+    },
+    {
+      "path": "notes/GROWING_WINDOW_THEOREM.md",
+      "sha256": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+      "role": "exact corrected source Grams and arbitrary plus-anchor deflation"
+    },
+    {
+      "path": "notes/QUOTIENT_EXTERIOR_PRECONDITIONER.md",
+      "sha256": "33f064c07a134986afa23efb91f7514e27828543b09cc358ebfff01e79c6f16e",
+      "role": "global radical remainder and source-coordinate Loewner target"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "arbitrary-precision interval runtime pin"
+    }
+  ],
+  "locked_conventions": {
+    "modal_domain": "prescribed split plus blocks with 1<=q<=floor((n_star-1)/4), using even indices n<n_star from the 0 mod 4 family",
+    "source_defect": "D(a)=sum_n d_n*abs(a_n)^2",
+    "zero_integral": "sum_n a_n*integral(h_n)=0 before the origin correction",
+    "origin_correction": "f=g-g(0)*psi(2*lambda*x), supported in abs(x)<1/(2*lambda) and invisible on C_lambda",
+    "projection_schedule": "lambda=p/2, p odd>=5, N=2^(2400*p^2)=2^(9600*lambda^2)",
+    "full_cross_terms": "all modal, correction, reflected-tail, projection, and zero-sampling cross terms remain inside one Loewner inequality",
+    "plus_deflation": "arbitrary physical anchor coefficients alpha are absorbed by D_T+d4*alpha*alpha^*+d0*b*b^*"
+  },
+  "locked_formulas": {
+    "origin_point_bound": "V0=lambda^(-1)+8*pi*lambda and abs(g(0))^2<=q*V0*D(a)",
+    "outer_norm_constant": "E_q=q*(sqrt(1062724*lambda)*L_lambda+C2*sqrt(V0)/(24*sqrt(2)))^2",
+    "outer_translation_constant": "D_q=q*(sqrt(D_tr)+sqrt(V0*C_b/2))^2",
+    "outer_hybrid_series": "B_out_q=256*Z_finite*E_q+sum_j Z_j*delta_j^(-3)*min((512/3)*E_q,(5120/3)*D_q*exp(-phi_j))",
+    "modal_variation": "V_star=46*lambda*c^3+108*pi*lambda^2",
+    "all_index_floor": "d_LS=6*96^(-5-(320*pi/log(2))*lambda^2)",
+    "projection_norm": "X_q=q*L*V_star^2/(2*pi^2*N*d_LS)",
+    "projection_ratio": "A_N=3*(1+sqrt(2*N))+3*L/(4*pi*sqrt(2*N)); H_N=max(1,2*pi^2*N*A_N^2/L)",
+    "projection_sampling": "B_proj_q=192*sqrt(e)*lambda*(1+log(lambda))^2*X_q*(Z_finite+(C_Z/pi)*((pi+1)*log(H_N+2)+1))",
+    "complete_remainder": "C_q=(sqrt(B_out_q)+sqrt(B_proj_q))^2",
+    "block_scales": "C_8=O(lambda*polylog(lambda)); C_rest=O(lambda^3*polylog(lambda))"
+  },
+  "claim_boundary": {
+    "proved": [
+      "a complete corrected outer-remainder Loewner bound for each prescribed split plus source block",
+      "a compact projection-remainder Loewner bound with one all-index defect-floor loss",
+      "the combined complete-remainder scales C_8 and C_rest on the locked exponential schedule"
+    ],
+    "not_proved": [
+      "the blockwise physical synthesis factors or a quotient built from a full cross-block source metric",
+      "a shifted signed Weil-sector comparison",
+      "equation (5.2) of DIRECT_RH_ATTACK.md",
+      "locally uniform determinant convergence",
+      "the Riemann hypothesis"
+    ]
+  }
+}

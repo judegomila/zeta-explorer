@@ -1,0 +1,150 @@
+{
+  "arithmetic": {
+    "independence_limitation": "producer and verifier both use Python standard-library Fraction; all pi factors cancel symbolically and no shared transcendental arithmetic library is used",
+    "library": "fractions.Fraction (Python standard library)",
+    "precision_mode": "exact rational; no finite precision parameter",
+    "raw_interval_or_ball_output_applicable": false,
+    "shared_library_with_verifier": true,
+    "transcendental_arithmetic_library_used": false
+  },
+  "checks": {
+    "binary64_parameters_used": false,
+    "canonical_rational_parse_pass": true,
+    "cosine_moments_algebraically_reconstructed": true,
+    "minmax_index_range_exact": true,
+    "numerical_prolate_eigenvalues_read": false,
+    "packet_form_minus_sign_retained": true,
+    "packet_inventory_exact": true,
+    "packet_tiling_exact": true,
+    "producer_booleans_trusted": false,
+    "source_lock_dependency_inventory_rehashed": true,
+    "source_note_and_lock_rehashed": true
+  },
+  "claim_boundary": {
+    "concentration_defect_lower_bound": false,
+    "differential_prolate_upper_bound": true,
+    "equation_5_2": false,
+    "growing_family_zero_sampling_gram_bound": false,
+    "locally_uniform_determinant_convergence": false,
+    "rh_proved": false,
+    "signed_weil_sector_floor": false
+  },
+  "input": {
+    "lambda_denominator": 2,
+    "lambda_numerator": 5
+  },
+  "producer_artifact": {
+    "path": "artifacts/leading_prolate_oscillation/lambda5over2_producer.json",
+    "sha256": "701bf341f87688db3850a52a6e1c09bb35407cacb71adb2427b8a9c1050f0054"
+  },
+  "producer_binding": {
+    "byte_count": 5217,
+    "byte_source": "exact artifact file bytes",
+    "sha256": "701bf341f87688db3850a52a6e1c09bb35407cacb71adb2427b8a9c1050f0054"
+  },
+  "reconstructed_certificate": {
+    "c_over_pi": {
+      "denominator": "2",
+      "numerator": "25"
+    },
+    "c_squared_over_pi_squared": {
+      "denominator": "4",
+      "numerator": "625"
+    },
+    "first_packet": {
+      "left": {
+        "denominator": "1",
+        "numerator": "-1"
+      },
+      "right": {
+        "denominator": "25",
+        "numerator": "-23"
+      }
+    },
+    "lambda": {
+      "denominator": "2",
+      "numerator": "5"
+    },
+    "lambda_squared": {
+      "denominator": "4",
+      "numerator": "25"
+    },
+    "last_packet": {
+      "left": {
+        "denominator": "25",
+        "numerator": "23"
+      },
+      "right": {
+        "denominator": "1",
+        "numerator": "1"
+      }
+    },
+    "max_certified_index": 24,
+    "minus_first_target": 6,
+    "minus_last_target": 22,
+    "minus_target_count": 5,
+    "packet_count": 25,
+    "packet_form_difference": {
+      "denominator": "25",
+      "numerator": "-1"
+    },
+    "packet_length": {
+      "denominator": "25",
+      "numerator": "2"
+    },
+    "packet_norm_squared": {
+      "denominator": "25",
+      "numerator": "1"
+    },
+    "plus_first_target": 8,
+    "plus_last_target": 24,
+    "plus_target_count": 5,
+    "rayleigh_margin_below_c_squared": {
+      "denominator": "1",
+      "numerator": "1"
+    },
+    "tiled_length": {
+      "denominator": "1",
+      "numerator": "2"
+    },
+    "transition_count": 25,
+    "unit_cosine_moments": {
+      "cos_harmonic_pi": {
+        "denominator": "1",
+        "numerator": "1"
+      },
+      "harmonic": 2,
+      "pi_squared_times_J1": {
+        "denominator": "1",
+        "numerator": "0"
+      },
+      "pi_squared_times_J2": {
+        "denominator": "2",
+        "numerator": "1"
+      },
+      "pi_times_J0": {
+        "denominator": "1",
+        "numerator": "0"
+      },
+      "sin_harmonic_pi": {
+        "denominator": "1",
+        "numerator": "0"
+      }
+    }
+  },
+  "result": "LEADING_PROLATE_OSCILLATION_EXACT_REPLAY_PASS",
+  "schema": "xi-prolate-leading-oscillation-replay-v1",
+  "source_hashes": {
+    "LEADING_PROLATE_OSCILLATION_SOURCE_LOCK.json": "f473e0fc2028094f9866ea05073ad3282cdd80b42e40e197c4cf9e882f44f6f7",
+    "PROLATE_DEFECT_SOURCE_LOCK.json": "0844df654ee968b1c371ec96618d10d219da9fde702d62faa4f0c6be139b036d",
+    "notes/EXACT_RADICAL_LEAKAGE_IDENTITY.md": "76dd6586357a2448ef689380a106eea5e9aedb95f68e731f10f1d6626040fddc",
+    "notes/GROWING_WINDOW_THEOREM.md": "dad6b0a878b7eba21cbc7aa8049cf3bf89a38df766cc157a87c416e79a721ac7",
+    "notes/LEADING_PROLATE_OSCILLATION_THEOREM.md": "d65e9221642b09cb66b0f0c46d716f5d7fae98980f4c3ed3289033dacb9a266b",
+    "notes/OUTER_OUTER_ENDPOINT_OBSTRUCTION.md": "b16d33c89dd1517875180a0a5b03f0c0e2b601b0e0e608090016174a464e1e11",
+    "notes/PROLATE_DEFECT_SOURCE_AUDIT.md": "b8256ce059d2632d55cb1b0477b5af7f5ebb09d0fc81a7d8b8e696885b49772d",
+    "notes/PROLATE_TAIL_ENVELOPE.md": "309337a98721d0e0cffb40391a227ad29fbc0de315c6f532109c9376370ed59d",
+    "requirements.txt": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa"
+  },
+  "status": "LEADING_PROLATE_OSCILLATION_EXACT_REPLAY_PASS",
+  "terminal_state": "P0_INVALIDATED"
+}

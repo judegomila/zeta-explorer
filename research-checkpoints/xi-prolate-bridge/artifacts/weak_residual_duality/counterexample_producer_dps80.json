@@ -1,0 +1,114 @@
+{
+  "artifact_version": "0.15.0-weak-residual-duality",
+  "terminal_state": "P0_INVALIDATED",
+  "construction": "canonical_5d_two_sided_radical_obstruction_v1",
+  "precision_decimal_digits": 80,
+  "provenance_sha256": {
+    "notes/WEAK_RESIDUAL_SAMPLING_REDUCTION.md": "b0254889d35ae41a92ee926dd116b473ee427e2762f8853903f4e80e307860ed",
+    "src/weak_residual_duality.py": "7db2958617449faa3df37be10f4b5e023758bc6694528c1e2ca357d22e1f2c4c",
+    "verifier/weak_residual_duality_replay.py": "e206aa6e1e0c1f904259ca1da89813f4f9de2c7790e4cb23f62b11cc8f0d91a8"
+  },
+  "global_basis": [
+    "p",
+    "O",
+    "P",
+    "e",
+    "o"
+  ],
+  "W_exact_integer_rows": [
+    [
+      "0",
+      "0",
+      "0",
+      "-1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "-1",
+      "1",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "2"
+    ]
+  ],
+  "finite_basis": [
+    "p",
+    "e",
+    "o"
+  ],
+  "Q_exact_integer_rows": [
+    [
+      "0",
+      "-1",
+      "0"
+    ],
+    [
+      "-1",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "2"
+    ]
+  ],
+  "radical_left_norm": "0.0",
+  "radical_right_norm": "0.0",
+  "scalar_pairings": {
+    "outer_outer": "0.0",
+    "outer_projection": "0.0",
+    "projection_outer": "0.0",
+    "projection_projection": "0.0",
+    "remainder_remainder": "0.0"
+  },
+  "cross_pairing_e_remainder": "1.0",
+  "cross_pairing_e_p": "-1.0",
+  "q": "0.0",
+  "residual_norm": "1.0",
+  "even_complement_floor_alpha": "1.0",
+  "odd_floor_omega": "2.0",
+  "two_dimensional_ritz_u": "-0.61803398874989484820458683436563811772030917980576286213544862270526046281890245",
+  "weighted_action_tau": "0.61803398874989484820458683436563811772030917980576286213544862270526046281890245",
+  "strict_even_comparison": true,
+  "strict_odd_comparison": true,
+  "weak_dual": {
+    "dimension": 1,
+    "projected_norm_a": "1.0",
+    "shift_U": "0.0",
+    "rho": "0.0",
+    "leakage_identity_defect": "0.0",
+    "weighted_residual_norm": "1.0",
+    "graph_dual_supremum": "1.0",
+    "graph_duality_defect": "0.0",
+    "preconditioner_hypothesis_pass": true,
+    "shifted_floor_point": "1.0",
+    "shifted_action_point": "1.0",
+    "preconditioned_upper_bound_point": "1.0",
+    "claim_scope": "finite_arbitrary_precision_point_not_interval_or_uniform",
+    "upper_minus_shifted_action": "0.0"
+  },
+  "interpretation": "all four scalar remainder pairings vanish exactly while the residual column and weighted action remain nonzero",
+  "claim_scope": "exact_rational_obstruction_plus_point_radical_value_check"
+}

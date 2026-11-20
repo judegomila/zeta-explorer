@@ -1,0 +1,129 @@
+{
+  "schema": "xi-prolate-outer-projection-weil-replay-v1",
+  "status": "ANALYTIC_UNIFORM_COMPONENT_REPLAY_PASS",
+  "source_hashes_reconstructed": {
+    "p1_lock_sha256": "63b83879c52382c6c524b3137b25ea9f1882a24c5518374d487469ecf0e077d2",
+    "relative_lock_sha256": "66347adeb8c3e0d497760318370d00949d598a3ba42d5375c27dafc1651b3714",
+    "egidi_gzip_sha256": "8cad2763fb84f09e44c7309ebecffa295e8b193ba9e506749451b305b50adf5c",
+    "egidi_tex_sha256": "b459dd2a485b061edb1dc94e5313830acf6e12b2af07098e3f8642993e676907",
+    "ccm_pdf_sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b"
+  },
+  "producer_booleans_trusted": false,
+  "intervals_reconstructed_from_j": true,
+  "interval_comparisons": {
+    "C_abs": {
+      "overlap": true,
+      "maximum_endpoint_difference": "9.3447864859845593150934430315583069635202392751933151623775019153792190656042763e-80"
+    },
+    "L": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.2857395732398836698318811115975386907415043943466484114333391501306703178728897e-81"
+    },
+    "a4": {
+      "overlap": true,
+      "maximum_endpoint_difference": "8.7519131773731716094949032838704661914824971510999250973751959953649476064372608e-82"
+    },
+    "b_bound": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.5214425343976505130278419595667164738809949911970267798916077961613915679241518e-80"
+    },
+    "cauchy_norm": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.0599844368760697299358925839168599297183479811496416291507380698449970353805674e-79"
+    },
+    "defect_d_decay": {
+      "overlap": true,
+      "maximum_endpoint_difference": "3.8536321677942998726284147091244881919324826580245615716118880841245954945776812e-77"
+    },
+    "defect_lower": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.4015964415280323122474913028320020855053444300767924808708999741744113543891024e-18054"
+    },
+    "full_schedule_decay": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.2775331914598600931069439758887158085242459326122045512086523323334463252131192e-77"
+    },
+    "harmonic_number_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "9.0641035160109310162705962160101911394383431306422693903925230430978020300998827e-77"
+    },
+    "high_low_absolute_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "5.5484948060798861773974626360477294895518809942500482578003691889555312237887468e-18127"
+    },
+    "high_low_relative_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.2070992937992625948313703260958306906483265128159573133015049963237355634287874e-148"
+    },
+    "inverse_N": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.4374368304758990547573286925279375435612786293999219220121506954026810647143359e-18138"
+    },
+    "label_pp_relative_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.2915282798321660550499743959793358434427816079395075347097439524268853498016036e-151"
+    },
+    "lambda": {
+      "overlap": true,
+      "maximum_endpoint_difference": "0.0"
+    },
+    "log_N": {
+      "overlap": true,
+      "maximum_endpoint_difference": "9.0641035160109310162705962160101911394383431306422693903925230430978020300998827e-77"
+    },
+    "log_weight": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.194307879601422448835805030546022983021026922643947469409423781710813459277532e-76"
+    },
+    "mode_variation_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.7559300711113807549552481367079552210880005380825624874210332689782021256321707e-78"
+    },
+    "nonzero_fourier_coefficient_constant": {
+      "overlap": true,
+      "maximum_endpoint_difference": "5.1047910145210747378005647006601983587752890878301953293822246165050309288313103e-78"
+    },
+    "outer_projection_exponent_margin": {
+      "overlap": true,
+      "maximum_endpoint_difference": "5.1311653592541601574968221732056474807603205822881584265398963734677904569606878e-77"
+    },
+    "outer_projection_relative_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.2169989347625175246362415520798834798347582532520525059888966841310439361411146e-148"
+    },
+    "pp_multiplier": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.2419925117867130144830099327342766763696743858979305356791952474068555399184646e-76"
+    },
+    "projection_exponent_margin": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.5655826796270800787484110866028237403801602911440792132699481867338952284803439e-77"
+    },
+    "rho": {
+      "overlap": true,
+      "maximum_endpoint_difference": "2.1007684937611392661507163591799599100122111057262403803548961198167539025350442e-116"
+    },
+    "sigma": {
+      "overlap": true,
+      "maximum_endpoint_difference": "3.6588770515020346240200878446239575665566648479556477283940008828072674788400085e-81"
+    },
+    "source_pp_relative_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "9.8960050221485076906835942838286496853703453191143562089329039146662334434457249e-151"
+    },
+    "source_scale": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.1493214277411691823684294517104474953559818458338611725620523332548092101720588e-80"
+    },
+    "source_variation_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.6363566498112288523299485089663651905679836939310340116325505846639580708475084e-77"
+    },
+    "zero_fourier_coefficient_upper": {
+      "overlap": true,
+      "maximum_endpoint_difference": "1.1101716327200532049292892957592753390092772607083450457881178616022730874451418e-79"
+    }
+  },
+  "shared_arithmetic_library_limitation": "mpmath.iv 1.4.1",
+  "claim_scope": "source-core O-P and P-O terms for the corrected source state only; no O-O term, sector floor, equation (5.2), or determinant limit"
+}

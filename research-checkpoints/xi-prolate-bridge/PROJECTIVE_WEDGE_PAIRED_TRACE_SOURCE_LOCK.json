@@ -1,0 +1,204 @@
+{
+  "schema": "xi-prolate-projective-wedge-paired-trace-source-lock-v1",
+  "claim_class": "PROJECTIVE_WEDGE_THREE_SCALE_TRANSVERSE_AND_PAIRED_TRACE_ODD_RESPONSE_REDUCTION",
+  "terminal_state": "P0_INVALIDATED",
+  "updated_date": "2026-08-08",
+  "checkpoint_version": "0.45.0-projective-wedge-paired-trace-odd-response",
+  "external_sources": [
+    {
+      "id": "CCM-ZST-v1",
+      "version": "arXiv:2511.22755v1",
+      "vendored_path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "use": "finite source Cauchy matrix, inversion and displacement commutator, simple-even quotient determinant, ground-transform identity, Fourier-Mellin convention, and exact pole/archimedean/minus-prime form"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "PROJECTIVE_LOCAL_DETERMINANT_ODD_SOURCE_LOCK.json",
+      "sha256": "e2b3dcdad80ef3e537ec7f9e3f426a870cf5e39737cd8b5e73a737b2b0e490c6",
+      "role": "preceding checkpoint source lock and claim boundary"
+    },
+    {
+      "path": "DIRECT_RH_ATTACK.md",
+      "sha256": "b8c5eb77013f00d9a48aa24c244c4a1d1d86957eab041e28282927d7d55c0fa2",
+      "role": "finite residual-Ritz theorem, equation (5.2), and locally uniform limit target"
+    },
+    {
+      "path": "P0_SOURCE_LOCK.json",
+      "sha256": "24fd1d3b44f238521ffb157bb808bda3dafbd5883599dc5d49a8bfd5e804a251",
+      "role": "primary finite source formulas and mandatory conventions"
+    },
+    {
+      "path": "P0_NORMALIZATION_AUDIT.md",
+      "sha256": "37d139735c2f760b928845f1815ba3050f8cc8447eaf535de02eef77b46862df",
+      "role": "source-normalized prolate state and factor-four limiting normalization"
+    },
+    {
+      "path": "notes/DETERMINANT_LIMIT_AUDIT.md",
+      "sha256": "1a77a7b6e7b9573c0f9f6656481af24962280959d867177fa232e8f2cfa006b0",
+      "role": "finite all-real-zero determinant factorization and scale-free normalization"
+    },
+    {
+      "path": "notes/SOURCE_BOUNDARY_COMMUTATOR_PROOF.md",
+      "sha256": "d72a5e1e11e096abc25319c1bf2c2af474d11cd766b25cf83f0b6cd00d3956f0",
+      "role": "exact Cauchy commutator, forced odd equation, and boundary nonvanishing"
+    },
+    {
+      "path": "notes/PROJECTED_STATE_NORM_LOWER_BOUND.md",
+      "sha256": "3847cbcb6e5bfc458af7bf957ff67afb0b943155d62f4239129b40332d270fbf",
+      "role": "nonzero projected-state limiting norm and Fourier tail"
+    },
+    {
+      "path": "notes/PROJECTION_RATE_THEOREM.md",
+      "sha256": "28f10f5c51001d6eeb33af2f071e876b572aca2c713db37f3e1b924d836ef2aa",
+      "role": "all-cutoff projection inequality and qualitative prolate transfer rate"
+    },
+    {
+      "path": "notes/HIGH_FOURIER_COERCIVITY.md",
+      "sha256": "5d928d68bd317d637a3631c91c1da4d2043c79986e3c5767b886b354b525a821",
+      "role": "explicit Cauchy coefficient bounds, far shifted floor, and honest high-mode cutoff"
+    },
+    {
+      "path": "notes/SIGNED_SECTOR_MIDDLE_WINDOW_OBSTRUCTION.md",
+      "sha256": "3d5eb0354f97a8bf98bde9ba4e6f2a6d695990ae2a9163796a7ba155da46026b",
+      "role": "exact parity Cauchy forms and scalar-bound countermodels in the uncontrolled middle window"
+    },
+    {
+      "path": "notes/PROJECTIVE_LOW_MODE_DETERMINANT_BRIDGE.md",
+      "sha256": "8ad5b2695ebea66f94c1dc58c7eb08a1d0c06d30f73c5536915be566f9e2b949",
+      "role": "compact Fourier split and projective low-mode determinant criterion"
+    },
+    {
+      "path": "notes/VECTOR_SPECIFIC_EQUATION_52_ATTACK.md",
+      "sha256": "79b9af2baddd0b2ae794e77bccf749c6fa0458afbf4637ca8b84931d8206788f",
+      "role": "Feshbach correction, graph leverage, and quotient inverse"
+    },
+    {
+      "path": "notes/LOCALLY_UNIFORM_DETERMINANT_ATTACK.md",
+      "sha256": "025c1b49003f5d080c51c3378735fa2eab8530b7318b865855656179ddc87c8d",
+      "role": "paired Fredholm determinant, trace-moment equivalence, and explicit lattice tail"
+    },
+    {
+      "path": "notes/PROJECTIVE_WEDGE_RESOLVENT_REDUCTION.md",
+      "sha256": "aae9399deac920452a4dc9a3f865503bf987ac2be7fc3c11c515ae2ad02b9b55",
+      "role": "exact transverse low distance, projective wedge graph products, and anchor-normalized convergence criterion"
+    },
+    {
+      "path": "notes/THREE_SCALE_TRANSVERSE_RESOLVENT_REDUCTION.md",
+      "sha256": "08d4dc1787ac5728017d35f10e21afe84123f20579f9fa9dccee99c76dbda723",
+      "role": "raw transverse support, separated low-to-far Cauchy coupling, exact far short, and middle-window Schur ratio"
+    },
+    {
+      "path": "notes/PAIRED_TRACE_ODD_RESOLVENT_GATE.md",
+      "sha256": "1c4568a142779f0d7cab023bfb41811d10c2ccac37a505cbe7f079b972761755",
+      "role": "exact odd response, paired trace, ground-transform ratio, and exponential compensation gate"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "458f06e2b5d6e73acc7a4f72af69afe920764c71127578555044815cd785c0fa",
+      "role": "pinned arbitrary-precision runtime for independently replayed finite diagnostics"
+    },
+    {
+      "path": "vendor/CCM-ZST-2511.22755v1.pdf",
+      "sha256": "c98d89f7fc999d038e15e80a9aaaee2af797c17711c4329ca7ce48ad49cb336b",
+      "role": "vendored primary finite-Weil and quotient-determinant source"
+    }
+  ],
+  "locked_conventions": {
+    "physical_interval": "[-log(lambda),log(lambda)] with L=2*log(lambda), Lebesgue measure, and zero extension",
+    "source_interval": "[-lambda,lambda] with Lebesgue measure, zero extension, and the source-limit normalization",
+    "fourier_transform": "hat(f)(z)=integral f(x)*exp(-i*z*x) dx",
+    "frequency_measure": "dt/(2*pi)",
+    "centered_modes": "phi_n(x)=(-1)^n*L^(-1/2)*exp(2*pi*i*n*x/L)",
+    "inversion": "Jf(x)=f(-x)",
+    "prime_power_endpoint": "inclusive n<=lambda^2",
+    "prime_block_sign": "minus, retained inside m_lambda before positive and negative parts are formed",
+    "complete_nonpole_multiplier": "m_lambda(t)=Re(digamma(1/4+i*t/2))-log(pi)-2*sum_(1<n<=lambda^2)Lambda(n)/sqrt(n)*cos(t*log(n))",
+    "odd_pole": "Q_odd=A_lambda-2*|p><p| with p(x)=sinh(x/2)",
+    "quotient_metric": "D'' is self-adjoint on E_N/C*xi in the T=Q-epsilon*I metric, not in an assumed Euclidean quotient metric",
+    "determinant_normalization": "nonzero scalar rescaling is allowed only when carried explicitly; it preserves the finite zero set but not an uncontrolled limiting amplitude",
+    "source_normalization": "4*hat(k_lambda^+) tends to Xi; unit-normalizing h_lambda is rejected"
+  },
+  "locked_formulas": {
+    "feshbach_ground_line": "w=xi/<kappa,xi>=kappa-z_mu, z_mu=(A-mu*I)^(-1)b, and q-mu=<b,(A-mu*I)^(-1)b>",
+    "exact_projective_low_distance": "for x=P_M*kappa, u=P_M*z_mu, y=x-u, inf_t ||P_M(t*w-kappa)||=||x||*||P_(x^perp)u||/||y|| when x,y are nonzero",
+    "exact_low_high_cancellation": "<P_M*kappa,P_M*z_mu>=-<(I-P_M)kappa,(I-P_M)z_mu>",
+    "transverse_leverage": "Lambda_(M,perp)(U)^2<=Theta_(M,perp)(U)*E_U with E_U=<b,(A-U*I)^(-1)b> and Theta_(M,perp)=||S_M(A-U*I)^(-1)S_M^*||",
+    "conditional_transverse_target": "at M=ceil(lambda), Lambda_(M,perp)(U)=lambda^(-1/2+o(1)) and ||(A-U*I)^(-1)b||=lambda^o(1) suffice for the projective low/high transform hypotheses",
+    "anchor_wedge": "W_(z,z0)(v)=hat(kappa)(z0)*hat(v)(z)-hat(kappa)(z)*hat(v)(z0), z0=i*sigma, 0<sigma<1/2",
+    "anchor_graph_bounds": "|hat(z_mu)(z0)|^2<=E_U*L_(z0)(U) and |W_(z,z0)(z_mu)|^2<=E_U*L_(K,wedge)(U)",
+    "anchor_normalized_ground": "F_j(z)=4*a_j*hat(kappa_j)(z0)*hat(w_j)(z)/hat(w_j)(z0)",
+    "conditional_anchor_criterion": "a_j^2*E_(U_j)*L_(z0)(U_j)->0 and a_j^2*E_(U_j)*L_(K,wedge)(U_j)->0 for every compact K, together with strict finite signs and the proved projection theorem, imply F_j->Xi locally uniformly in the open strip",
+    "quotient_inverse": "for onto W:X->K and B=A-U*I>0, W*(W^*B*W)^dagger*W^*=B^(-1)",
+    "raw_transverse_support": "L_M=(P_M*H_+) intersect (P_M*kappa)^perp is contained in K and S_M=P_(L_M)|K, so S_M^* is ordinary inclusion of a genuinely low-Fourier subspace",
+    "separated_cauchy_bound": "for M<R<N, ||P_(>R) Q P_(<=M)||<=d_(lambda;M,R)=2*sqrt(2)*B_b(lambda)*sqrt((2*M+1)/(R-M))",
+    "far_schur_identity": "with B=A-U*I>0, H_h=P_F(B+hI)|F, Sigma_h=D_h-Gamma^*H_h^(-1)Gamma, and f_h=b_Y-Gamma^*H_h^(-1)b_F, one has S_M(A-sI)^(-1)b=P_(L_M)Sigma_h^(-1)f_h for h=U-s>=0",
+    "honest_far_feedback": "at M=ceil(lambda), G=1, the explicit high-coercivity cutoff R=M_*(lambda,U,1) on the locked outer schedule makes d_(lambda;M,R)^2/G_R and d_(lambda;M,R)*K_(lambda,N)/G_R super-polynomially small",
+    "middle_schur_ratio": "for Sigma_h=[[L_h,E_h^*],[E_h,C_h]], Omega_h=L_h-E_h^*C_h^(-1)E_h and eta_h=f_(L,h)-E_h^*C_h^(-1)f_(C,h), Lambda_(M,perp)(U)=sup_(h>=0)||Omega_h^(-1)eta_h||",
+    "middle_obstruction_model": "B_epsilon=[[1,1,0],[1,1+epsilon,0],[0,0,G]], b_epsilon=[0,epsilon,0]^T has vanishing residual and Ritz lowering with perfect far decoupling, but Omega_0^(-1)eta_0=-1 and exact low projective distance 1/sqrt(2)",
+    "forced_odd_equation": "under the finite simple-even hypothesis, T=Q-epsilon*I, T_->0, T*D*xi=-beta, and D*xi=-T_-^(-1)*beta",
+    "odd_response": "g_alpha=sum_(n=1)^N sqrt(2)*n/(n^2+alpha^2)*e_n^-, A(alpha)=1+<g_alpha,T_-^(-1)beta>, and h(i*alpha)=i*A(alpha)/alpha with A(alpha)>0",
+    "paired_ratio": "R_q(tau,sigma)=A(gamma)/A(alpha)*prod_(n=1)^N (n^2+gamma^2)/(n^2+alpha^2), alpha=sigma*L/(2*pi), gamma=tau*L/(2*pi)",
+    "ground_transform_ratio": "hat(xi)(i*sigma)=2*sinh(sigma*L/2)*A(alpha)/(sigma*sqrt(L)) and R_q=[hat(xi)(i*tau)/hat(xi)(i*sigma)]*[C_N(gamma,alpha)/C_infinity(gamma,alpha)]",
+    "first_paired_trace": "S_q=(L/(2*pi))^2*[sum_(n=1)^N 1/(n^2+alpha^2)+A'(alpha)/(2*alpha*A(alpha))]",
+    "two_height_trace_gate": "for fixed 0<tau<sigma<1/2, sup_j S_q(lambda_j,N_j;sigma)<infinity if and only if inf_j R_q(lambda_j,N_j;tau,sigma)>0",
+    "central_product_tail": "0<=log(C_N/C_infinity)<=(alpha^2-gamma^2)/N; if N/L^2->infinity then C_N=(sigma/tau)*exp(-(sigma-tau)*L/2)*(1-exp(-tau*L))/(1-exp(-sigma*L))*exp(o(1))",
+    "odd_response_necessity": "a uniform first trace forces A(gamma)/A(alpha) to be bounded above and below by positive constant multiples of (tau/sigma)*exp((sigma-tau)*L/2)",
+    "subexponential_obstruction": "if log(A(gamma)/A(alpha))=o(L), then S_q is bounded below by a positive fixed multiple of L+o(L)"
+  },
+  "claim_boundary": {
+    "checkpoint_version": "0.45.0-projective-wedge-paired-trace-odd-response",
+    "formal_status": "P0_INVALIDATED",
+    "proved": [
+      "exact finite projective low-distance identity, low-high cancellation, and transverse one-inverse leverage bound",
+      "conditional lambda-scale transverse projective target and conditional anchor-normalized projective-wedge determinant criterion",
+      "exact quotient reconstruction of the transverse and wedge graph products",
+      "raw low-Fourier support of the transverse observation, separated low-to-far Cauchy coupling, and exact far Schur elimination",
+      "super-polynomially small direct far feedback at the honest source cutoff and exact reduction to the vector-specific middle Schur ratio",
+      "finite obstruction showing that far coercivity, vanishing residual, and vanishing Ritz lowering do not control the transverse middle ratio",
+      "finite simple-even odd-response, paired-ratio, ground-transform-ratio, and first-trace identities",
+      "fixed two-height equivalence for a uniform first paired trace and a positive quotient ratio floor",
+      "central-lattice tail asymptotic, exponential odd-response necessity, and subexponential-response trace obstruction"
+    ],
+    "not_proved": [
+      "simple-even global finite Weil ground state on one unbounded schedule",
+      "strict shifted even and odd sector signs at the lambda-scale projective cutoff",
+      "lambda-scale transverse low target or anchor and projective-wedge graph products for the actual Weil ground line",
+      "the vector-specific middle-window bound sup_(h>=0)||Omega_h^(-1)eta_h||=lambda^(-1/2+o(1)) for the actual arithmetic operator",
+      "actual exponential odd-resolvent compensation or a uniform first paired trace",
+      "finite quotient trace-moment limits beyond the exact first-trace reduction",
+      "positive unprojected odd third moment, transverse floor, or reciprocal-load margin",
+      "equation (5.2), locally uniform determinant convergence for the arithmetic matrices, or an RH conclusion"
+    ]
+  },
+  "source_admissions": {
+    "actual_anchor_wedge_graph_product_claimed": false,
+    "actual_odd_resolvent_exponential_compensation_claimed": false,
+    "actual_transverse_low_target_claimed": false,
+    "api_key_read": false,
+    "binary64_parameters_used": false,
+    "cached_matrix_or_eigenvector_read": false,
+    "decimal_zero_list_read": false,
+    "determinant_limit_claimed": false,
+    "environment_secret_read": false,
+    "equation_5_2_claimed": false,
+    "finite_real_zero_family_promoted_to_normal_family": false,
+    "fourier_sign_changed": false,
+    "global_weil_positivity_assumed": false,
+    "inversion_reflection_dropped": false,
+    "lambda_squared_mixed_with_lambda": false,
+    "locally_uniform_characteristic_convergence_proved": false,
+    "nonpositive_gap_or_schur_margin_reported_as_pass": false,
+    "prime_block_sign_changed": false,
+    "prime_power_endpoint_omitted": false,
+    "projective_anchor_nonzero_inferred_from_real_axis_agreement": false,
+    "real_axis_eigenvalue_agreement_substituted_for_determinant_convergence": false,
+    "riemann_hypothesis_assumed_or_claimed": false,
+    "secret_serialized": false,
+    "source_normalization_changed": false,
+    "trace_moment_limit_claimed": false,
+    "uniform_first_trace_claimed": false,
+    "unit_source_normalization_substituted": false
+  }
+}

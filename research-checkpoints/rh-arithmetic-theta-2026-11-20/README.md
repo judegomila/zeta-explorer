@@ -19,8 +19,17 @@ The analytic core includes the exact signed Weil energy, a prime-truncation boun
 
 The inventory indexes 62 accessible PR records and 304 PR61 lane directories. Selected results and internal audits, together with older manuscript excerpts, were inspected. Inventory coverage does not mean every historical proof or every past chat was independently reverified.
 
-## Ongoing mathematical refinement
+## Twin-ladder refinement
 
-The follow-up examines which parts of the twin-ladder formulation simplify the analytic structure, which overlap with earlier literature, and what exact arithmetic estimate would still be needed. New derivations and negative controls will be recorded under `twin-ladder-refinement/`, with independent internal review and explicit proof-status labels. The original release files above remain the historical v0.1 snapshot.
+The follow-up is recorded in [RESULT.md](twin-ladder-refinement/RESULT.md). It contains complete derivations of the prime-ladder ramp trace, the folded resolvent and arithmetic heat identity, finite-prime cutoff obstructions, and finite-dimensional averaging constraints. It also records the published precedents and an explicit open arithmetic comparison target. The original release files above remain the historical v0.1 snapshot.
+
+| Document | Content |
+|---|---|
+| [RESULT.md](twin-ladder-refinement/RESULT.md) | Conclusions, mathematical status, and recommended proof architecture. |
+| [LITERATURE_AND_SIGNIFICANCE.md](twin-ladder-refinement/LITERATURE_AND_SIGNIFICANCE.md) | Weil/screw/Pick precedents, project significance, and a proved scalar resolvent growth equivalence. |
+| [RAMP_AND_AVERAGING.md](twin-ladder-refinement/RAMP_AND_AVERAGING.md) | Exact arithmetic ramp observable, parity and involution limitations, Heisenberg averaging, and the open arithmetic theorem. |
+| [FOLDED_HEAT_ROUTE.md](twin-ladder-refinement/FOLDED_HEAT_ROUTE.md) | Squared-variable fold, exact two-channel decomposition, arithmetic heat formula, countercontrol, and two fixed-cutoff obstructions. |
+| [ENERGY_MIXING_TRADEOFF.md](twin-ladder-refinement/ENERGY_MIXING_TRADEOFF.md) | A sharp bound relating global unitary mixing to disturbance of the prime-power Hamiltonian. |
+| [REVIEW.md](twin-ladder-refinement/REVIEW.md) | Internal review scope, exact-check instructions, and unresolved obligations. |
 
 No claim of novelty is made for Weil positivity, classical interpolation criteria, or standard Stieltjes/heat-transform equivalences. The project-specific contribution must be evaluated at the level of its exact identities, normalizations, estimates and constructions.

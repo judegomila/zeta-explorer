@@ -1,0 +1,120 @@
+{
+  "artifact": "FOLDED_HEAT_ROUTE.md",
+  "checker": "check_folded_heat.py",
+  "sympy_version": "1.14.0",
+  "status": "PASS",
+  "checks_passed": 20,
+  "checks_total": 20,
+  "failures": [],
+  "scope": "Exact finite identities and an explicit negative control. The report is not an RH proof, an all-order positivity certificate, a full analytic proof checker, or verification of an external formalization.",
+  "checks": [
+    {
+      "name": "two_channel_pick_identity",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "odd_channel_identity",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "even_channel_identity",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "quartet_rank_two_determinant",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "erfc_kernel_differential_identity",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "erfc_laplace_algebra",
+      "passed": true,
+      "residual": "0",
+      "qualification": "Removable algebraic case q=a is interpreted by continuity."
+    },
+    {
+      "name": "gamma_inverse_transform_constant",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "pole_inverse_transform_constant",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "prime_gaussian_laplace_transform",
+      "passed": true,
+      "residual": "0",
+      "computed_integral": "(-sqrt(pi)*sinh(ell*q) + sqrt(pi)*cosh(ell*q))/(sqrt(pi)*q)"
+    },
+    {
+      "name": "countercontrol_fold",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "countercontrol_log_derivative",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "countercontrol_stated_zeros",
+      "passed": true,
+      "off_axis_real_parts": [
+        "-1/4",
+        "1/4"
+      ]
+    },
+    {
+      "name": "countercontrol_double_imaginary_zeros",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "countercontrol_heat_positive_certificate_parameter",
+      "passed": true,
+      "a_minus_one": "47/16",
+      "certificate": "T(t) >= 2*(exp(-t)-exp(-a*t)) > 0 for t>0."
+    },
+    {
+      "name": "countercontrol_heat_laplace_transform",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "countercontrol_seventh_derivative_value",
+      "passed": true,
+      "residual": "0",
+      "exact_value": "-829940726081/134217728"
+    },
+    {
+      "name": "countercontrol_seventh_derivative_is_negative",
+      "passed": true,
+      "consequence": "Continuity forces failure of heat complete monotonicity for small t>0."
+    },
+    {
+      "name": "prime_tail_antiderivative",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "prime_tail_upper_endpoint",
+      "passed": true,
+      "residual": "0"
+    },
+    {
+      "name": "cutoff_pick_removed_pole_value",
+      "passed": true,
+      "residual": "0",
+      "removed_pole_value": "-1"
+    }
+  ]
+}

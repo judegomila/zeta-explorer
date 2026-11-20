@@ -1,0 +1,386 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,microtype,xcolor,hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue!40!black,urlcolor=blue!45!black,
+pdftitle={Principal centering and the remaining signed correlation},pdfauthor={Jude Gomila}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small ZETA EXPLORER / PRINCIPAL SECTOR}
+\fancyhead[R]{\small October 8, 2026}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}{Lemma}\newtheorem{proposition}{Proposition}
+\newcommand{\dd}{\,d}\newcommand{\E}{\mathcal E}\newcommand{\C}{\mathcal C}
+\newcommand{\R}{\mathcal R}\newcommand{\D}{\mathcal D}
+\title{Principal centering and the remaining signed correlation\\[4pt]
+\large A continuation of the quasi-RH moment-transfer audit}
+\author{Research continuation for Jude Gomila}\date{October 8, 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We carry out the proposed principal-sector reduction for the existing
+Vaughan packet. The diagonal is bounded explicitly by a degree-five
+polynomial in the logarithmic scale, and all shifts of integer size at
+most $H$ cost at most $2H$ times that bound. We compute the full principal
+Laurent part, including the derivative of the truncated M\"obius series,
+and give an exact centered Stieltjes representation. The packet already
+annihilates this principal density. The rational-to-Eisenstein lift
+retains a product cutoff and leaves only one unweighted variable, of
+length at most $e^{T/25+3/2}$. These facts identify why the cited
+equal-product rectangle estimate does not directly apply. No positive
+exponent saving is proved. We state the remaining signed large-shift
+estimate precisely and verify the finite identities with exact arithmetic
+and 512-bit Arb calculations. This is a working research note, not an
+independently refereed or formally verified theorem, and no novelty is claimed.
+\end{abstract}
+
+\section{The fixed packet and the uniform target}
+Use the real even packet $k$ from the v9 note and the preceding transfer
+audit \cite{v9,transfer}. It satisfies $\operatorname{supp}k\subset[-1/2,1/2]$,
+$|k|\le1$, $k(0)=1$, and
+\begin{equation}\label{K}
+ \begin{aligned}
+ K(w)&=\int k(t)e^{wt}\dd t
+ =\frac{(1/4-w^2)^4}{\kappa}
+       \left(\frac{\sinh(w/48)}{w/48}\right)^{24},\\
+ \kappa&=\frac{11431397901559182284554757008547201}{2872446304320552960000}.
+ \end{aligned}
+\end{equation}
+In particular $K^{(j)}(1/2)=0$ for $0\le j\le3$, while
+$K(w)\ne0$ for $0<\Re w<1/2$. All sums below include every prime power.
+
+For each real $T\ge1$, hold $U=V=\lfloor e^{12T/25}\rfloor$ fixed
+throughout $L\in[T,T+1]$. Define
+\begin{align}
+ a_U(r)&=\sum_{d\mid r,\ d>U}\mu(d), &
+ d_T(n)&=\sum_{rb=n,\ b>V}a_U(r)\Lambda(b),\label{d}\\
+ D_T(L)&=\sum_n\frac{d_T(n)}{\sqrt n}k(\log n-L),&
+ \E_{\rm II}(T)&=\int_T^{T+1}|D_T(L)|^2\dd L.\label{energy}
+\end{align}
+The condition $r>U$ is automatic if $a_U(r)\ne0$.
+The inherited norm error between this packet and the prime packet is
+$6\cdot10^{15}(T+2)e^{-T/50}$. Consequently their nonnegative logarithmic
+energy exponents agree. The preceding note derives from the externally
+posted $7/8$ assertion the bound $\E_{\rm II}(T)=O(e^{3T/4})$.
+We continue to treat that assertion as an external input; its complete
+Lean project has not been rebuilt here.
+
+\section{The diagonal and nearby integer shifts}
+Put $J_T=[e^{T-1/2},e^{T+3/2}]\cap\mathbb N$, set
+$z_n=d_T(n)/\sqrt n$ on $J_T$ and zero elsewhere, and write
+\[
+ G_T(m,n)=\int_T^{T+1}k(\log m-L)k(\log n-L)\dd L.
+\]
+This real Gram matrix is positive semidefinite,
+$|G_T(m,n)|\le c_k:=\|k\|_2^2\le1$, and its entries vanish when
+$|\log(m/n)|\ge1$. Individual off-diagonal entries need not be positive.
+For an integer $H\ge0$, let
+\begin{align*}
+ A(T)&=\sum_n z_n^2G_T(n,n),\\
+ \C_{\le H}(T)&=2\sum_{\substack{m<n\\n-m\le H}}z_mz_nG_T(m,n),&
+ \C_{>H}(T)&=2\sum_{\substack{m<n\\n-m>H}}z_mz_nG_T(m,n).
+\end{align*}
+Exactly, $\E_{\rm II}=A+\C_{\le H}+\C_{>H}$. The grouping by the
+\emph{integer product} $n$ precedes this decomposition: different
+factorizations of one $n$ are not independent diagonal entries.
+
+\begin{theorem}[Explicit diagonal and short-shift bounds]\label{band}
+For every real $T\ge1$, every fixed positive integer pair $U,V$, and
+every integer $H\ge0$, define
+\[
+ Q(T)=e^2(T+3/2)^2(T+5/2)^3.
+\]
+Then
+\begin{align}
+ \sum_{n\in J_T}\frac{|d_{U,V}(n)|^2}{n}&\le Q(T),\label{mass}\\
+ 0\le A(T)&\le c_k Q(T),\label{diag}\\
+ 2\sum_{\substack{m<n\\n-m\le H}}|z_mz_nG_T(m,n)|
+ &\le 2Hc_k Q(T),\label{near}\\
+ \C_{>H}(T)&\ge-(2H+1)c_k Q(T).\label{lower}
+\end{align}
+In particular these bounds remain uniform for the moving window cutoffs.
+\end{theorem}
+\begin{proof}
+Since $|a_U(r)|\le\tau(r)\le\tau(n)$ for $r\mid n$ and
+$\sum_{b\mid n}\Lambda(b)=\log n$, we have
+$|d_{U,V}(n)|\le\tau(n)\log n$. At a prime power $p^j$,
+$(j+1)^2\le\binom{j+3}{3}$; multiplicativity gives
+$\tau(n)^2\le\tau_4(n)$. Counting ordered quadruples yields
+\[
+ \sum_{n\le x}\tau_4(n)
+ \le x\left(\sum_{a\le x}\frac1a\right)^3
+ \le x(1+\log x)^3.
+\]
+Take $x=e^{T+3/2}$ and bound $1/n\le e^{-T+1/2}$ on $J_T$ to
+obtain \eqref{mass}. The Gram bound proves \eqref{diag}.
+For each shift $1\le h\le H$, extending $z$ by zero and using
+$2|z_nz_{n+h}|\le z_n^2+z_{n+h}^2$ gives
+$\sum_n|z_nz_{n+h}|\le\sum_nz_n^2$.
+Sum this inequality over $h$ to obtain \eqref{near}.
+Finally $\E_{\rm II}\ge0$ implies
+$\C_{>H}\ge-A-\C_{\le H}\ge-(2H+1)c_kQ$.
+\end{proof}
+This controls the negative part of the far correlation. The remaining
+task is its \emph{upper} bound. Positivity of the full energy supplies
+no such bound. Cauchy--Schwarz over every pair gives only an
+$O(e^T(1+T)^5)$ envelope, not an improvement on the imported result.
+
+\section{The exact principal density}
+For this section fix $U,V$ before taking transforms. Write
+\[
+ M(s)=\sum_{d\le U}\mu(d)d^{-s},\quad
+ L_V(s)=\sum_{b\le V}\Lambda(b)b^{-s},\quad
+ m_0=M(1),\quad m_1=M'(1),\quad \ell_0=L_V(1).
+\]
+The exact identity from the transfer audit is
+\begin{equation}\label{Didentity}
+ \D_{U,V}(s)=\sum_n d_{U,V}(n)n^{-s}
+ =-\frac{\zeta'}\zeta(s)-L_V(s)+M(s)\zeta'(s)
+       +\zeta(s)M(s)L_V(s).
+\end{equation}
+
+\begin{proposition}[Full principal part and centered response]\label{center}
+With $B=1-m_1+m_0\ell_0$, the principal part at $s=1$ is
+\begin{equation}\label{principal}
+ -\frac{m_0}{(s-1)^2}+\frac{B}{s-1}.
+\end{equation}
+Define
+\begin{align*}
+ p_{U,V}(x)&=-m_0\log x+B,\\
+ P_{U,V}(x)&=\int_1^xp_{U,V}(t)\dd t
+ =x[-m_0\log x+m_0+B]-m_0-B,\\
+ \R_{U,V}(x)&=\sum_{n\le x}d_{U,V}(n)-P_{U,V}(x).
+\end{align*}
+For every $L\ge1$, the following identities are exact:
+\begin{align}
+ \int_1^\infty p_{U,V}(x)x^{-1/2}k(\log x-L)\dd x&=0,\label{densityzero}\\
+ D_{U,V}(L)&=\int_1^\infty\R_{U,V}(x)x^{-3/2}
+       [\tfrac12 k(\log x-L)-k'(\log x-L)]\dd x.\label{Stieltjes}
+\end{align}
+\end{proposition}
+\begin{proof}
+At $s=1+z$, $\zeta(s)=z^{-1}+O(1)$ and
+$\zeta'(s)=-z^{-2}+O(1)$. Multiplying $M(1+z)=m_0+m_1z+O(z^2)$
+in \eqref{Didentity} gives \eqref{principal}. In particular the term
+$-m_1$ must not be omitted. The Mellin integral of $p$ on $[1,\infty)$
+has exactly this principal part.
+
+Set $t=\log x-L$. The support lies above $x=1$ for $L\ge1$,
+and the density integral equals
+\[
+ e^{L/2}\bigl[(B-m_0L)K(1/2)-m_0K'(1/2)\bigr]=0.
+\]
+For $f_L(x)=x^{-1/2}k(\log x-L)$,
+$f_L'(x)=x^{-3/2}[k'(\log x-L)-k(\log x-L)/2]$.
+Now $D=\int f_L\dd\R+\int f_Lp\dd x=-\int\R f_L'\dd x$.
+The compact packet vanishes at both endpoints, so the integration-by-parts
+boundary term is zero. On a truncated subinterval it is generally
+$[\R f_L]_a^b$ and cannot be discarded.
+\end{proof}
+These identities also apply separately on each window with its frozen
+$U(T),V(T)$. They do not justify substituting moving cutoffs into a
+single Dirichlet-series continuation argument.
+
+The principal density is therefore already removed by the existing
+packet. At a nontrivial zero $\rho$ of multiplicity $m_\rho$, subtracting
+\eqref{principal} leaves the residue $-m_\rho$ unchanged. Multiplying
+by $K(\rho-1/2)$ does not remove a zero with $\Re\rho>1/2$.
+Thus this correct centering supplies an exact residual, not an exponent saving.
+
+\section{The coefficient lift and the short remaining plain variable}
+Let $\chi=\chi_{-3}$ and let $\nu(n)$ be the sum of ideal M\"obius
+coefficients over ideals of norm $n$ in $\mathbb Q(\sqrt{-3})$.
+The established identities are $\nu=\mu*(\mu\chi)$ and
+$\mu=\nu*\chi$. Expanding the divisor in \eqref{d} gives
+\begin{equation}\label{lift}
+ d_{U,V}(n)=\sum_{dbq=n\atop d>U,\ b>V}\mu(d)\Lambda(b)
+ =\sum_{acbq=n\atop ac>U,\ b>V}\nu(a)\chi(c)\Lambda(b).
+\end{equation}
+The cutoff is $ac>U$, not $a>U$. Inserting this expression twice into
+the Gram formula retains the two product cutoffs and every mixed term.
+For clarity, with $n=acbq$ and $n'=a'c'b'q'$, the weight is
+\[
+ \frac{\nu(a)\nu(a')\chi(c)\chi(c')\Lambda(b)\Lambda(b')}
+ {\sqrt{nn'}}G_T(n,n'),
+ \qquad ac,a'c'>U,\quad b,b'>V.
+\]
+The far-shift restriction is additionally $|n-n'|>H$; no character
+average is present in this exact identity.
+
+For the balanced cutoffs, every nonzero term on the window satisfies
+\begin{equation}\label{short}
+ q=\frac{n}{db}< e^{T/25+3/2},
+ \qquad d,b\ge U+1>e^{12T/25}.
+\end{equation}
+The norm lift splits $d=ac$ but does not create another unweighted
+long variable. If
+$G(y)=\sum_{q\ge1}q^{-1/2}k(\log q-y)$, the exact alternative form is
+\[
+ D_T(L)=\sum_{d>U,\ b>V}\frac{\mu(d)\Lambda(b)}{\sqrt{db}}
+                  G(L-\log(db)).
+\]
+The ordinary continuum moment vanishes, but the actual discrete $q=1$
+term remains. The outer product can reach $db\asymp e^L$, so this
+formula cannot be bounded by assuming a large positive argument of $G$
+uniformly over its outer sum.
+
+\section{Attempted use of the matched rectangle estimate}
+The pinned external paper's \texttt{lem:centered-lattice-cancellation}
+concerns plain lattice sums with one common finite-order character,
+one common puncture mask, fixed profiles, and one common norm power.
+Their leading terms have the form
+$cX^{1+it}I_i(t)$. Products at scales satisfying
+$X_1X_2=Y_1Y_2$ have identical leading terms. If each remaining length
+is at least $Z^r$, the stated normalized centered bound is
+\[
+ O\bigl(Z^{\epsilon_1}(1+|t|)^{2J}
+                (X_1X_2)^{1/2}Z^{-r}\bigr).
+\]
+The preceding \texttt{lem:centered-coefficient-invariant} is what
+preserves those common data through the source's transforms.
+This is not an assertion about every centered arithmetic expression.
+
+Our attempt reaches the following exact comparison:
+\begin{center}\small
+\begin{tabular}{p{.27\linewidth}p{.65\linewidth}}
+\toprule
+Required source structure & What the present reduction supplies\\
+\midrule
+Two plain variables with matching character and mask &
+$\nu(a)\chi(c)\Lambda(b)$ and one unweighted variable $q$; the latter
+has only the upper length bound \eqref{short}.\\[3pt]
+Equal-product rectangle difference &
+A hyperbolic cutoff $ac>U$, $b>V$, followed by a product-difference
+restriction $|acbq-a'c'b'q'|>H$.\\[3pt]
+Coefficient invariant under both transforms &
+No such transformed identity has been constructed for this quadratic form.\\[3pt]
+Uniform reconstruction and remainder &
+The principal density is removed exactly, but no small reconstruction
+remainder or uniform exceptional-row energy bound follows.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The source's \texttt{lem:plain} still excludes the principal inducing
+row (and a larger finite family when live prime slots are present).
+The source separately handles a principal numerator in its own Mellin
+signal. That residue calculation is not a license to insert our
+principal arithmetic sequence into the excluded-row estimate.
+
+Trying to sum absolute pair contributions gives the $e^T$ envelope
+above. Applying the imported zero bound to the original packet and
+transferring its norm gives the existing $e^{3T/4}$ bound. Neither
+method yields a positive $\delta$. A new exact transformed identity
+and a compatible signed bound are needed to use the matched rectangle
+mechanism here. This is a limitation of this attempted transfer, not
+an impossibility theorem for arithmetic cancellation.
+
+\paragraph{A control against centering alone.}
+For a synthetic density $x^{\beta-1}$ on $(0,\infty)$, filtering gives
+\[
+ \int_0^\infty x^{\beta-1}x^{-1/2}k(\log x-L)\dd x
+ =K(\beta-1/2)e^{(\beta-1/2)L}.
+\]
+At $\beta=55/64<7/8$, its energy grows with exponent $23/32$.
+Adding or subtracting any density $A\log x+B$ makes no difference.
+It therefore violates the illustrative improved exponent $11/16$
+despite satisfying the same principal-moment cancellation. This is
+a synthetic control, not a counterexample involving zeta or its
+M\"obius coefficients.
+
+\section{A precise next theorem, and what it would imply}
+Let $H(T)=\lfloor e^{T/2}\rfloor$ and choose a fixed
+$0<\delta<1/4$. Put $\alpha=3/4-\delta>1/2$.
+The concrete remaining assertion is
+\begin{equation}\label{target}
+ \boxed{\C_{>H(T)}(T)\le M_\delta e^{\alpha T}
+ \quad\text{for all real }T\ge T_\delta,}
+\end{equation}
+for constants independent of $T$ and its prescribed cutoffs.
+This is a one-sided signed estimate; it does not request a bound on
+the sum of absolute values or on each dyadic shift band separately.
+
+\begin{proposition}[Reduction to the large shifts]
+For the stated $\alpha$, \eqref{target} holds if and only if
+$\E_{\rm II}(T)=O(e^{\alpha T})$.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{band} gives
+$|A+\C_{\le H}|\le(2H+1)c_kQ(T)
+=O(e^{T/2}(1+T)^5)=O(e^{\alpha T})$.
+Subtract this term from, or add it to,
+$\E_{\rm II}=A+\C_{\le H}+\C_{>H}$.
+\end{proof}
+Thus the target is an exact localization of the difficulty, not an
+independently easier theorem already established. The v8/v9 analytic
+growth identity, retained in the preceding audit, is
+\[
+ \limsup_{T\to\infty}\frac{\log(1+\E_{\rm II}(T))}{T}
+       =2\sup_\rho(\Re\rho-1/2).
+\]
+Using that identity, \eqref{target} would imply
+$\Re\rho\le7/8-\delta/2$ for every nontrivial zero.
+In the shifted-$\xi$ bridge interpretation it would lower the sufficient
+width from $3/8$ to $3/8-\delta/2$.
+The inherited growth and bridge arguments still require independent review.
+
+For example $\delta=1/16$ would mean an energy exponent $11/16$ and
+a zero boundary $27/32$. These numbers illustrate a possible target;
+they are not a proved or predicted saving. The fixed choice
+$H=e^{T/2}$ is for a first improvement only. To iterate toward RH one
+would also have to lower the near-shift exponent and control all
+constants and hypotheses uniformly. No such iteration is established.
+
+\section{Verification and research status}
+\texttt{audit.py} uses only exact integers and rational numbers. It checks
+16,384 formal-log coefficients in four cutoff configurations, including
+the full norm lift and its cutoff; local divisor bounds; twelve generic
+principal Laurent models; and twelve rational Gram decompositions.
+Replacing $ac>U$ by $a>U$, dropping $M'(1)$, and mismatching the two
+rectangle masks are deliberately rejected.
+
+\texttt{interval\_audit.py} uses \texttt{python-flint==0.8.0} at 512 bits.
+It integrates the actual packet by exact piecewise polynomial or
+exponential-polynomial antiderivatives evaluated in Arb, not heuristic
+quadrature tolerances. It checks the four vanishing moments, a nonzero
+off-axis response, the signed energy decomposition, and the centered
+Stieltjes identity at actual arithmetic windows. The omitted-$k'$
+control is rejected. All coefficients, including repeated prime powers,
+are retained. The detailed enclosures and hashes are in the receipts.
+
+The following rounded values illustrate why neither sign of the far
+correlation can simply be assumed; the receipts contain rigorous balls.
+\begin{center}\small
+\begin{tabular}{rrrrr}
+\toprule
+$T$ & $U$ & $H$ & $\E_{\rm II}(T)$ & $\C_{>H}(T)$\\
+\midrule
+2 & 2 & 2 & $0.057468669$ & $-0.002863840$\\
+3 & 4 & 4 & $0.087225379$ & $+0.010084453$\\
+4 & 6 & 7 & $0.093690267$ & $-0.007399596$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These finite samples do not certify a bound at unbounded scales.
+The analytic estimates in Theorem~\ref{band} and Proposition~\ref{center}
+are established by their displayed proofs, not inferred from the tests.
+
+\textbf{Outcome.} We have proved an explicit diagonal/near-shift estimate,
+completed the principal-density subtraction, retained the exact lift,
+and isolated a signed large-shift target. The attempted external
+rectangle transfer does not close: its coefficient invariant and
+uniform remainder are missing. \textbf{No positive $\delta$, improved
+zero-free region, or RH proof has been obtained.}
+
+\begin{thebibliography}{9}\small
+\bibitem{transfer} \emph{Testing the quasi-RH moment transfer}, research
+continuation for Jude Gomila, October 6, 2026. Archived in
+\texttt{research-inputs/rh-moment-transfer-2026-10-06/}, Zeta Explorer PR 11.
+\bibitem{v9} \emph{Vaughan reduction of the filtered prime energy},
+October 1, 2026, user bundle \texttt{rh\_vaughan\_v9.zip}, including its
+retained v8 growth argument. Exact input hashes are in the source index.
+\bibitem{source} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
+Half-Plane $\Re(s)>7/8$}, posted September 30, 2026. Source pinned to
+commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+Labels used: \texttt{lem:plain}, \texttt{old-eq:2.18a},
+\texttt{lem:centered-coefficient-invariant}, and
+\texttt{lem:centered-lattice-cancellation}.
+\url{https://github.com/openai/math/blob/main/lean/docs/003.md}.
+\end{thebibliography}
+\end{document}

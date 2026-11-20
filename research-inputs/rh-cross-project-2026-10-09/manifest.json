@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-09",
+  "sha256": {
+    "../../formalization/paper/rh-cross-project-synthesis-2026-10-09.md": "d30786830acde082286958e26f9ce65aa6f95708d9ddfbc6b2533eab24059d30",
+    "COVERAGE.md": "0e36fa62e7c2f04feb20d4ced61f25d67e6914bb4308090cf70a32ecc67f0077",
+    "README.md": "51eb7a7241be8ed063099e097e32eee60b32d352bd494819c9050d1f21b014fb",
+    "audit_directional.py": "a697bf9c9d63f4a96776898b7f025c776601d5ccd6a53710fa984cdee4d1789b",
+    "audit_exact.py": "79a6136f57f86f15c0fe3039da656638cca31e892f254e0edf48cf7d631a3856",
+    "coefficient-regeneration.json": "0c8858d67d624bf4cc290d945590527924658f59343abcb6a721775a52a11de9",
+    "directional-results-384.json": "0217551cab704fe978ba6132ff7785ac2bbd527d4137c21d5c41a2ae685c3984",
+    "exact-results.json": "900ce8917c21b50d3d87638cef227981fe36c798b2a9e6a81d97b23d970d6fc9",
+    "input/arithmetic-row.json": "2b24fadc9bc9dc6cedb627d28115425df6658b8060c0c85aaa6d656c1c605d6b",
+    "input/inherited_coefficient_generator.py": "98e7e24072340df32f6d1bc890aa8f73860cedd10860cf4fabdff7ae8a2805b3",
+    "input/refinement_witness.json": "3b837847ec97ac42e59f5c2c268c20a6343677268b9edbda50a5ddbeeb241fab",
+    "regenerate_row.py": "17dc85de0a12c21b8c855d5facd1b6fb7ea66deeb8a679d4e5574be0e6da4046",
+    "requirements.txt": "a98869ee84ec316349fde0f110b1c02f2479d81073de3e0e758f9d88417566f3",
+    "source-ledger.json": "81daf8a69826acd1bc8496edf0ae8d9a016fbc92d628f649a2471a48d8b2f004",
+    "verify_manifest.py": "8274673730075191222a2e9f5387e5d485ceb6a46e2c08f029860fe818458400"
+  }
+}

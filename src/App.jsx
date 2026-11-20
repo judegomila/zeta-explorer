@@ -4849,7 +4849,7 @@ function AppShell() {
         <div style={{ textAlign: 'center' }}>
           Found a bug? Copy the error card text and{' '}
           <a
-            href="https://github.com/judegomila/mathexplorer/issues"
+            href="https://github.com/judegomila/zeta-explorer/issues"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: '#475569', textDecoration: 'underline' }}

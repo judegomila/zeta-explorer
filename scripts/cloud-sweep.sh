@@ -49,7 +49,7 @@ source /root/.cargo/env
 
 # Clone the repo (PUBLIC because no auth here — adjust if private)
 cd /opt
-git clone https://github.com/judegomila/mathexplorer.git
+git clone https://github.com/judegomila/zeta-explorer.git
 cd mathexplorer
 
 # Build Rust release binary

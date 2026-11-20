@@ -55,3 +55,9 @@ Per the Λ-attack ticket-seeding template:
 The output is one or more tickets seeded into `src/data/improvement-queue.js`
 with explicit `dependsOn: ['research-inputs/<filename>.pdf']` references
 so the provenance trail is auditable.
+## Internal project research packets
+
+- [Lambda 0.14 swept-tube completion program (2026-08-27)](./lambda-014-2026-08-27/README.md)
+  — documentation-only, fail-closed checkpoint connecting the frozen-rung work
+  to the exact moving-cutoff proof ledger. It explicitly does **not** claim
+  \(\Lambda\le0.14\); the early correlated P97 mantle remains open.

@@ -278,7 +278,7 @@ export default function HomePageEditorial() {
         </div>
       </section></div>
 
-      <div className="ed-foot">explorezeta · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila · <a href="https://github.com/judegomila/zeta-explorer" target="_blank" rel="noreferrer">GitHub repo ↗</a></div>
+      <div className="ed-foot">exploreriemann · Riemann Hypothesis via the de Bruijn–Newman constant Λ · Jude Gomila · <a href="https://github.com/judegomila/zeta-explorer" target="_blank" rel="noreferrer">GitHub repo ↗</a></div>
     </div>
   );
 }

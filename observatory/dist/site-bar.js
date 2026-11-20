@@ -39,7 +39,7 @@ export function buildSiteBar(nav){
   const actions=document.querySelector('.topbar .header-actions');
   if(actions)right.append(actions);
   const bar=el('nav',{className:'site-bar'},
-    el('a',{className:'sb-brand',href:'./',title:'Front page'},'explore',el('i',{textContent:'zeta'})),
+    el('a',{className:'sb-brand',href:'./',title:'Front page'},'explore',el('i',{textContent:'riemann'})),
     mode,groups,menu,right);
   bar.setAttribute('aria-label','Site sections');
   // One dropdown open at a time; close on outside click or Escape.

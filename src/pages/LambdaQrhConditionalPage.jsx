@@ -221,7 +221,7 @@ export default function LambdaQrhConditionalPage() {
       meta={[QP.date, 'computer-assisted', 'not peer reviewed']}
       title={<>Λ ≤ 0.116091 from a zero-free half-plane</>}
       dek={<>A zero-free half-plane Re s &gt; 7/8 lowers the time-zero start of Raymond&rsquo;s decreasing-barrier chain from (Im z)² ≤ 1 to (Im z)² ≤ 9/16. Run at Platt–Trudgian height, the chain then ends at 0.118506, and the re-tuned route-P stack at 0.116091. The 7/8 half-plane is the claim of openai/math family 003; its Lean proof re-builds here. Not yet peer reviewed; the accepted bound remains Λ ≤ 0.2.</>}
-      byline={['Barrier program · explorezeta', 'computer-assisted · not peer reviewed']}
+      byline={['Barrier program · exploreriemann', 'computer-assisted · not peer reviewed']}
       ticker={<span>candidate · Λ ≤ <b>&nbsp;0.116091</b></span>}
       footer={<>Work in progress. Draft, not peer reviewed. The bound depends on two unrefereed results. Draft paper: <a href={PAPER_URL} target="_blank" rel="noreferrer">papers/lambda-qrh-0.116091</a> · Draft note: <a href={NOTE_URL} target="_blank" rel="noreferrer">lambda-qrh-note-draft.md</a> (not submitted) · Related: <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/lambda-01758354-candidate">Λ ≤ 0.1758354 candidate</Link> · <Link to="/routes-roadmap">routes roadmap</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >

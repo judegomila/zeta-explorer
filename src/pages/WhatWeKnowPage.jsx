@@ -164,7 +164,7 @@ export default function WhatWeKnowPage() {
         results, not a claim of exhaustiveness; none proves or disproves RH.
         The same data module renders the standalone index at <Link to="/no-gos">/no-gos</Link>.
       </p>
-      <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 16, marginBottom: 2 }}>Found by this program (explorezeta)</h3>
+      <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 16, marginBottom: 2 }}>Found by this program (exploreriemann)</h3>
       <NoGoList items={ZETAEXPLORER_NO_GOS} />
       <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 20, marginBottom: 2 }}>Established results &amp; recognized barriers (the field)</h3>
       <NoGoList items={FIELD_NO_GOS} />

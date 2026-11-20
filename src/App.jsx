@@ -2069,7 +2069,7 @@ function DocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
     const match = ALL_ROUTES.find(r => r.to === pathname);
-    document.title = match ? `${match.label} | explorezeta` : 'explorezeta — Riemann Hypothesis engine room';
+    document.title = match ? `${match.label} | exploreriemann` : 'exploreriemann — Riemann Hypothesis engine room';
   }, [pathname]);
   return null;
 }
@@ -2337,9 +2337,9 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
         end
         className="nav-logo"
         style={{ textDecoration: 'none' }}
-        aria-label="explorezeta home"
+        aria-label="exploreriemann home"
       >
-        explore<span className="nav-logo-text">zeta</span>
+        explore<span className="nav-logo-text">riemann</span>
       </NavLink>
       <ModeSwitch />
       <nav id="mobile-nav" ref={panelRef} aria-label="Site sections" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>

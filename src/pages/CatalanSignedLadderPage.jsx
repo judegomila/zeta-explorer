@@ -28,7 +28,7 @@ export default function CatalanSignedLadderPage() {
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['signed twin ladder · explorezeta', 'G irrationality: open in refereed literature; external Lean-formalized claim (not peer-reviewed)']}
+      byline={['signed twin ladder · exploreriemann', 'G irrationality: open in refereed literature; external Lean-formalized claim (not peer-reviewed)']}
       ticker={<span>χ₄ = the signed flip · G = β(2) = L(2,χ₄) · irrationality OPEN in refereed literature · openai/math 005 claim, not peer-reviewed</span>}
       footer={<>
         Related: <Link to="/irrationality-pipeline">The irrationality pipeline</Link>

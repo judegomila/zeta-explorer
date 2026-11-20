@@ -13,7 +13,7 @@ export default function AutonomousFleetPage() {
       meta={['live', 'infrastructure']}
       title={<>The autonomous fleet</>}
       dek={<>The approach is run continuously by a fleet of AI engines against a self-refilling queue of tickets, with independent referees and hard no-false-QED gates. This page describes how the machine works — not a claim about the mathematics.</>}
-      byline={['Infrastructure · explorezeta', 'method, not result']}
+      byline={['Infrastructure · exploreriemann', 'method, not result']}
       ticker={<span><b>engine live</b> · fleet working the frontier</span>}
       footer={<>Related: <Link to="/route-map">the wall map</Link> · <Link to="/lambda-bounds">the bounds ledger</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >

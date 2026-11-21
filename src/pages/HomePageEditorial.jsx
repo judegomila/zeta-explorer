@@ -117,6 +117,9 @@ export default function HomePageEditorial() {
           <div className="ed-stand">An open engine room for the Riemann Hypothesis (RH ⇔ Λ = 0). It runs the twin-ladder
             model, interactive simulators, and an autonomous fleet of AI engines pushing barrier bounds on Λ —
             with a live ledger of results, no-go theorems, and open problems. Contributions are welcome.</div>
+          <div style={{ marginTop: 16 }}>
+            <Link className="ed-btn" to="/key-results" style={{ color: 'var(--paper)', display: 'inline-block' }}>Key results →</Link>
+          </div>
           <div style={{ marginTop: 22 }}>
             <div className="ed-lbl">the interval · Rodgers–Tao ≤ Λ ≤ Platt–Trudgian</div>
             <div className="ed-track">
@@ -229,7 +232,7 @@ export default function HomePageEditorial() {
       {/* findings atlas */}
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-shead"><div><div className="ed-lbl">the ledger · • = new</div><h2>Findings</h2></div>
-          <p>Bounds, models, walls, and no-gos. Each opens its own page. <Link to="/threads">Research threads →</Link></p></div>
+          <p>Bounds, models, walls, and no-gos. Each opens its own page. <Link to="/key-results">Key results →</Link> · <Link to="/threads">Research threads →</Link></p></div>
         <div className="ed-map">
           {FINDINGS.map((f, fi) => (
             <Link key={f.title} className="ed-tile" to={f.to}>

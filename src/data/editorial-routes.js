@@ -9,6 +9,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/simulators',
   '/no-gos',
   '/results',
+  '/key-results',
   '/threads',
   '/state-of-field',
   '/permutation-architecture',

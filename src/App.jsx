@@ -26,6 +26,7 @@ const StateOfFieldPage = lazy(() => import('./pages/StateOfFieldPage.jsx'));
 const PermutationArchitecturePage = lazy(() => import('./pages/PermutationArchitecturePage.jsx'));
 const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
 const LambdaQrhConditionalPage = lazy(() => import('./pages/LambdaQrhConditionalPage.jsx'));
+const KeyResultsPage = lazy(() => import('./pages/KeyResultsPage.jsx'));
 const AutonomousFleetPage = lazy(() => import('./pages/AutonomousFleetPage.jsx'));
 const CriticalLineProportionPage = lazy(() => import('./pages/CriticalLineProportionPage.jsx'));
 const PapersDownloadPage = lazy(() => import('./pages/PapersDownloadPage.jsx'));
@@ -2456,6 +2457,7 @@ function AppShell() {
           <Route path="/simulators" element={<SimulatorsPage />} />
           <Route path="/no-gos" element={<NoGosPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/key-results" element={<KeyResultsPage />} />
           <Route path="/threads" element={<ThreadsPage />} />
           <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/permutation-architecture" element={<PermutationArchitecturePage />} />

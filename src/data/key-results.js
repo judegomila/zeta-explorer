@@ -46,7 +46,7 @@ export const KEY_RESULT_STATUSES = Object.freeze({
   candidate: {
     label: 'computer-assisted candidate, unrefereed',
     grade: 'CANDIDATE',
-    meaning: 'A computer-assisted package whose composition has not been externally refereed. Not an accepted bound.',
+    meaning: 'A computer-assisted package whose composition has not been externally refereed.',
   },
   obstruction: {
     label: 'negative result / obstruction',
@@ -59,7 +59,7 @@ export const KEY_RESULT_GROUPS = Object.freeze([
   { id: 'geometric', heading: 'Geometric program', blurb: 'The bridge kernel, its shear and energy, and the surfaces on which zeta is drawn.' },
   { id: 'structural', heading: 'Structural results on why routes stop', blurb: 'Statements that a class of arguments cannot reach the Riemann Hypothesis, and where each one stops.' },
   { id: 'theorems', heading: 'Theorems and certificates', blurb: 'Identities, finite certificates and formalised statements.' },
-  { id: 'lambda', heading: 'De Bruijn-Newman constant', blurb: 'Statements about upper bounds on Λ. The accepted bound is Λ ≤ 0.2 (Platt-Trudgian).' },
+  { id: 'lambda', heading: 'De Bruijn-Newman constant', blurb: 'Upper bounds on Λ obtained in the project, each with its status and conditions.' },
   { id: 'reductions', heading: 'Program-level reductions', blurb: 'Programs that restate a family of questions as one statement, with the outcome of each.' },
 ]);
 
@@ -327,7 +327,7 @@ const RAW = [
     statement:
       'A computer-assisted upper bound Λ ≤ 0.116091 that depends on two unrefereed results: the zero-free half-plane Re s > 7/8 and D. J. Raymond’s decreasing-barrier construction. The value also uses internal floor and kernel certificates; without them it is 0.118506.',
     status: 'conditional',
-    statusNote: 'Conditional on the zero-free half-plane Re s > 7/8 (a Lean proof exists and was rebuilt here; the result is not refereed) and on Raymond’s construction (tables not verified). Λ ≤ 0.2 remains the accepted bound.',
+    statusNote: 'Conditional on the zero-free half-plane Re s > 7/8 (a Lean proof exists and was rebuilt here; the result is not refereed) and on Raymond’s construction (tables not verified).',
     links: [{ to: '/lambda-0116091', label: 'Λ ≤ 0.116091' }],
     repo: [{ path: 'papers/lambda-qrh-0.116091/DEPENDENCIES.md', label: 'Dependencies of the draft' }],
   },
@@ -338,7 +338,7 @@ const RAW = [
     statement:
       'A candidate bound in which the y-transfer closes through profile-sector cells with an excision budget, after termwise monotonicity was found to be false. The Arb run over all 20,546 profiles passed with B = 2.4957e-4 against a margin of 1.872e-3. The y-transfer reduction and Lemma B3 are Lean-checked.',
     status: 'candidate',
-    statusNote: 'The composition of the package is not externally refereed. Λ ≤ 0.2 remains the accepted bound.',
+    statusNote: 'The composition of the package is not externally refereed.',
     links: [
       { to: '/lambda-01758354-candidate', label: 'Candidate Λ ≤ 0.1758354' },
       { to: '/lambda-bounds', label: 'Λ bounds ledger' },

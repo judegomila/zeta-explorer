@@ -139,8 +139,7 @@ export default function KeyResultsPage() {
         </p>
         <div className="ed-verdict" style={{ margin: '14px 0 0', maxWidth: '54rem' }}>
           The results are unrefereed unless a Lean proof is noted, and a Lean note covers only the part it
-          names. Nothing here proves the Riemann Hypothesis. The accepted bound on the de Bruijn-Newman
-          constant is Λ ≤ 0.2 (Platt-Trudgian).
+          names. Nothing here proves the Riemann Hypothesis.
         </div>
         {!ranked && (
           <p className="kr-pending" style={{ fontSize: 13.5, color: 'var(--ink-soft)', margin: '12px 0 0' }}>

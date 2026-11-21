@@ -5,6 +5,7 @@
 // all facts (including route statuses) live in the data module.
 
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { RH_NOVEL_ROUTES } from '../data/rh-novel-routes-roadmap-2026-09-23.js';
 import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js';
@@ -405,6 +406,7 @@ export default function RhNovelRoutesRoadmapPage() {
 
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>RH Novel-Routes Roadmap</h1>
+          <SnapshotBanner date="2026-10-06">The route records on this page are dated 2026-09-23 to 2026-10-06.</SnapshotBanner>
           <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.7 }}>{R.frame}</p>
           <p style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginTop: 8 }}>
             {R.date} · {R.routes.length} routes (A–G) · {R.status}

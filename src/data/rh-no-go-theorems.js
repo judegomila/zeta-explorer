@@ -16,7 +16,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'Flow-blindness no-go',
     kind: 'theorem',
-    by: 'zetaexplorer',
+    by: 'exploreriemann',
     statement:
       'A class containing the Riemann profile and its sufficiently small negative-time heat deformations cannot imply all-real transform zeros. Class membership is an essential hypothesis; invariance of arbitrary analytic properties is not established. Lean verification of a conditional implication does not discharge its application hypotheses. See the corrected SL2 statement.',
     route: '/flow-blindness-no-go',
@@ -24,7 +24,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'Freezing the rungs = Platt–Trudgian',
     kind: 'theorem',
-    by: 'zetaexplorer',
+    by: 'exploreriemann',
     statement:
       'Freezing the twin-ladder rungs (inertia-locking the frozen ladder) caps the barrier route at the verified zero height — it is exactly the Platt–Trudgian mechanism in operator language, so it cannot cross below the verified-height floor.',
     route: '/frozen-rung-pt-equivalence',
@@ -32,7 +32,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'Route VII reachable floor: U ≈ 0.150 (stretch 0.145)',
     kind: 'barrier',
-    by: 'zetaexplorer (2026-09)',
+    by: 'exploreriemann (2026-09)',
     statement:
       'The Route VII reachable-floor analysis derives a compute floor for the program: the ' +
       'certification architecture can reach U ≈ 0.150 (stretch estimate 0.145), and going below ' +
@@ -43,7 +43,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'Inertia-PCC verdict: the same pair-correlation wall',
     kind: 'barrier',
-    by: 'zetaexplorer (2026-09)',
+    by: 'exploreriemann (2026-09)',
     statement:
       'The inertia route meets the same Montgomery pair-correlation wall as the other closure ' +
       'routes: the measured obstruction is λ_max(ρ) = 0.6231344958476320. It does not open a ' +
@@ -53,7 +53,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'The no-gain rule (isometry cannot sharpen a margin)',
     kind: 'theorem',
-    by: 'zetaexplorer',
+    by: 'exploreriemann',
     statement:
       'An isometric change of coordinates — bicomplex direct sum, unitary twistor rotation, exact Fourier transform — preserves norms, spectra and zero multiplicity, so it cannot by itself improve a zero-free margin. It helps only when followed by a nontrivial invariant compression, a positivity theorem, or a coercive elimination. (With the modulus barrier: recombine packets before taking a modulus.)',
     route: '/permutation-architecture',
@@ -61,7 +61,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'The C_H / C_Lip wall is closed three ways',
     kind: 'theorem',
-    by: 'zetaexplorer',
+    by: 'exploreriemann',
     statement:
       'The finite-height Lipschitz route to the collision constant is provably closed: a Hölder-½ lower bound forces C_Lip → ∞; a linear-N norm-mismatch dilutes a 2-particle collision across all N; every squared-gap surrogate is refuted. The famous ∫2/g² divergence is a coordinate artifact that cancels exactly in h = g².',
     route: '/route-map',
@@ -69,7 +69,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
   {
     title: 'No hidden shortcut below RH in the mapped routes',
     kind: 'barrier',
-    by: 'zetaexplorer',
+    by: 'exploreriemann',
     statement:
       'Across all 38 mapped closure routes, a uniform pattern: every promising route is either not rigorous (funnelling into the C_H wall) or RH-equivalent (a reformulation). There is no route that lands below RH; they all meet the same two-sided pair-correlation / GUE wall.',
     route: '/route-map',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import ConceptText from '../components/ConceptText.jsx';
@@ -228,6 +229,7 @@ export default function FrontierDagPage() {
         <h1 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 38, lineHeight: 1.1, margin: '6px 0 10px', color: 'var(--ink)' }}>
           The Frontier DAG
         </h1>
+        <SnapshotBanner date="2026-09-14">Node statuses such as “in progress” and “at Aristotle” are those of that date. The theorem behind O1 has since been Lean-checked with its gates as hypotheses; the graph does not include the conditional value 0.116091488672439 or the records of 2026-11.</SnapshotBanner>
         <p style={{ fontSize: 16, color: 'var(--ink-soft)', maxWidth: '56rem', lineHeight: 1.6 }}>
           The live dependency graph of the named open objects on the current frontier: which open object
           closes, gates, or promotes which downstream statement. Grades are verbatim from the source

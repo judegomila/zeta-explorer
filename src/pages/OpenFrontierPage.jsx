@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { ED, STATUS as TK_STATUS } from '../styles/tokens.js';
@@ -3043,8 +3044,9 @@ export default function OpenFrontierPage() {
     <div className="page">
       <PageHeader
         title="Open Frontier (archive)"
-        subtitle="Archive of the T3 / Dyson / collision-flow lane and the R1, R2, G6a questions — the live frontier is tracked on /frontier-dag"
+        subtitle="Archive of the T3 / Dyson / collision-flow lane and the R1, R2, G6a questions"
       />
+      <SnapshotBanner date="2026-10-04">This page is an archive of one lane and is kept as written.</SnapshotBanner>
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid var(--accent)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { PT_FLOOR_AUDIT } from '../data/pt-floor-sensitivity-audit-2026-07-08.js';
 import { IMP35711_POSTPORT_PARITY_NO_BEAT_HONEST_STATUS_BANNER } from '../data/imp-35711-postport-parity-no-beat-honest-status-banner.js';
@@ -28,7 +29,7 @@ export default function PtFloorSensitivityAuditPage() {
         binds the rigorous Λ ≤ 0.2 floor — the <strong>verified zero height X</strong>, the{' '}
         <strong>barrier min-modulus / mesh slack</strong>, or the <strong>AFE tail e_C</strong>?
       </>}
-      byline={['mathexplorer', 'diagnostic audit · no bound']}
+      byline={['exploreriemann', 'diagnostic audit · no bound']}
       ticker={<span>audit · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
       footer={<>
         Related: <Link to="/ht-corridor-certificates">H_t Corridor Certificates</Link>
@@ -37,6 +38,7 @@ export default function PtFloorSensitivityAuditPage() {
         <br /><br />← <Link to="/">the atlas</Link>
       </>}
     >
+      <SnapshotBanner date="2026-07-08">This audit concerns the accepted bound Λ ≤ 0.2 and the barrier-tightening class; it is kept as written. Values below 0.2 recorded since then are conditional or unrefereed.</SnapshotBanner>
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
         <div className="tlab">Diagnostic audit — produces no bound, beats nothing; Platt–Trudgian Λ ≤ 0.2 stays SOTA</div>
         <p style={{ margin: 0 }}>

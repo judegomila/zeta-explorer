@@ -121,7 +121,7 @@ export default function ProofStatusCard() {
     ctx.fillStyle = '#334155';
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('Twin-Ladder research • mathexplorer-rho.vercel.app', w / 2, h - 8);
+    ctx.fillText('Twin-Ladder research • exploreriemann.com', w / 2, h - 8);
   }, []);
 
   // Draw once on mount so the card is visible without requiring a user click —

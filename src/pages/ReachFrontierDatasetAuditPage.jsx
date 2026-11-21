@@ -33,7 +33,7 @@ export default function ReachFrontierDatasetAuditPage() {
         list of the required length is cached anywhere in this project. This page surfaces both
         verdicts, which previously lived only in module prose.
       </>}
-      byline={['mathexplorer', 'audit-index · no bound']}
+      byline={['exploreriemann', 'audit-index · no bound']}
       ticker={<span>index · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
       footer={<>
         Source modules: <code>imp-96753-basis-c-reach-dataset-requirement.js</code>,{' '}

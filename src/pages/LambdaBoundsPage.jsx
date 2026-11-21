@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AsOfLine, CurrentStatusList } from '../components/ProgramStatus.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
@@ -238,8 +239,20 @@ export default function LambdaBoundsPage() {
           </div>
         </div>
 
-        {/* ── Top banner: current bounds ─────────────────────────────────── */}
-        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 12 }}>Bounds, estimates, and evidence grades</h2>
+        {/* ── Status as of the newest record (program-status-current.js) ───── */}
+        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 6 }}>Status of the values of Λ</h2>
+        <AsOfLine />
+        <div style={{ marginBottom: 28 }}>
+          <CurrentStatusList groups={['lambda']} />
+        </div>
+
+        {/* ── Evidence-grade cards (ledger reconciled 2026-07-28 to 2026-09) ── */}
+        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 6 }}>Bounds, estimates, and evidence grades</h2>
+        <p style={{ fontSize: 12, color: 'var(--ink-soft)', marginTop: 0, marginBottom: 12, maxWidth: 760 }}>
+          The cards and the roadmap below were reconciled between 2026-07-28 and 2026-09 and are kept as written.
+          They do not include the conditional value 0.116091488672439 or the later records; those are in the
+          list above.
+        </p>
         <div className="card-grid" style={{ marginBottom: 24 }}>
           {LAMBDA_BOUNDS.map((b) => (
             <div
@@ -349,7 +362,8 @@ export default function LambdaBoundsPage() {
               this program (y-thaw stages 1+2, 2026-09)
             </div>
             <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>
-              4/8 obligations closed; O1 at Aristotle; a package value, not a bound.
+              O3 and O5 closed; O1, O2, O4, O6 open. The theorem behind O1 is Lean-checked with
+              gates G1–G4 as hypotheses. A package value, not a bound.
               Status per obligation on the frontier DAG and the y-thaw research thread.
             </div>
             <Link
@@ -370,7 +384,8 @@ export default function LambdaBoundsPage() {
 
         <p style={{ fontSize: 12, color: 'var(--ink-soft)', marginTop: -12, marginBottom: 24, maxWidth: 760 }}>
           Route VII reachable-floor analysis: the program-derived compute floor is
-          U ≈ 0.145–0.150; going below it requires arithmetic input. Detail:{' '}
+          U ≈ 0.145–0.150 (2026-09); going below it requires arithmetic input. The route-P value
+          0.144997328111268 is unconfirmed below 0.145 (2026-11-16/17). Detail:{' '}
           <Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
         </p>
 

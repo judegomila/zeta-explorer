@@ -1,4 +1,5 @@
 import React from 'react';
+import { SnapshotBanner } from '../components/ProgramStatus.jsx';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { getAllExplorations } from '../data/explorations.js';
@@ -606,6 +607,7 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <div className="hero">
         <h1>Twin Ladder Explorer</h1>
+        <SnapshotBanner date="2026-09-14">This is the earlier home page, kept as it was. Its leading value 0.1787854 is an unrefereed candidate and is no longer the smallest value recorded here.</SnapshotBanner>
         <p className="hero-tagline">
           Interactive experiments in zeta-zero geometry and the Riemann hypothesis.
         </p>

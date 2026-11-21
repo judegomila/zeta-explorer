@@ -51,7 +51,7 @@ export default function RouteMCohort2AuditIndexPage() {
         still unwired (imp-96722's glossary headword was separately wired into the{' '}
         <Link to="/">Concepts</Link> glossary) so their own verdicts are reader-reachable.
       </>}
-      byline={['mathexplorer', 'audit-index · no bound']}
+      byline={['exploreriemann', 'audit-index · no bound']}
       ticker={<span>index · Platt–Trudgian Λ ≤ 0.2 stays SOTA</span>}
       footer={<>
         Source audit: <code>imp-96707-orphan-consumer-audit-cohort2.js</code>

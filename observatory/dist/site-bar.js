@@ -1,9 +1,10 @@
 /**
- * Site bar for the combined site. The build writes ./site-nav.json from the
- * main app's navigation data; when the file is absent (the Observatory served
- * alone) no bar is drawn and the layout is unchanged.
+ * Site bar for the combined site. The build (scripts/mount.mjs) writes the bar
+ * into index.html from the main app's navigation data, so it is on screen with
+ * the first paint; this module only gives it its dropdown behaviour. Served
+ * alone, the Observatory has no bar and its layout is unchanged.
  */
-const el=(tag,props={},...children)=>{const node=Object.assign(document.createElement(tag),props);node.append(...children);return node;};
+const esc=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /** Hash-router link into the main app, relative to the Observatory folder. */
 export const siteHref=(to,root='../')=>root+'#'+(String(to).startsWith('/')?to:'/'+to);
@@ -17,48 +18,40 @@ export function cleanNav(raw){
   })).filter(section=>section.items.length)})).filter(group=>group.label&&group.sections.length);
 }
 
-function panel(group){
-  return el('div',{className:'sb-panel'},...group.sections.map(section=>el('div',{},
-    ...(section.heading?[el('h3',{textContent:section.heading})]:[]),
-    ...section.items.map(item=>el('a',{href:siteHref(item.to),textContent:item.label})))));
-}
 /** Pages listed under a group, or under the whole navigation. */
 export const pageCount=groups=>[].concat(groups).reduce((n,group)=>n+group.sections.reduce((m,section)=>m+section.items.length,0),0);
-const dropdown=group=>el('details',{},el('summary',{},group.label,el('small',{textContent:String(pageCount(group))})),panel(group));
 
-export function buildSiteBar(nav){
-  const groups=el('div',{className:'sb-groups'},...nav.map(dropdown));
-  const menu=el('details',{className:'sb-menu'},el('summary',{},'Research menu',el('small',{textContent:String(pageCount(nav))})),el('div',{className:'sb-panel'},...nav.map(dropdown)));
-  // Two modes of one site: this visual workbench, and the written research.
-  const here=el('span',{textContent:'Observatory'});here.setAttribute('aria-current','page');
-  const mode=el('div',{className:'sb-mode',title:'Switch between the visual Observatory and the research programme'},
-    here,el('a',{href:siteHref('/')},'Research',el('small',{textContent:pageCount(nav)+' pages'})));
-  // One header for the combined site: brand, mode switch, research menus, then
-  // the Observatory's own actions (saved views, help, source), which move here.
-  const right=el('div',{className:'sb-right'});
-  const actions=document.querySelector('.topbar .header-actions');
-  if(actions)right.append(actions);
-  const bar=el('nav',{className:'site-bar'},
-    el('a',{className:'sb-brand',href:'./',title:'Front page'},'explore',el('i',{textContent:'riemann'})),
-    mode,groups,menu,right);
-  bar.setAttribute('aria-label','Site sections');
-  // One dropdown open at a time; close on outside click or Escape.
-  const tops=[...groups.children,menu];
+const panel=group=>'<div class="sb-panel">'+group.sections.map(section=>'<div>'
+  +(section.heading?'<h3>'+esc(section.heading)+'</h3>':'')
+  +section.items.map(item=>'<a href="'+esc(siteHref(item.to))+'">'+esc(item.label)+'</a>').join('')+'</div>').join('')+'</div>';
+const dropdown=group=>'<details><summary>'+esc(group.label)+'<small>'+pageCount(group)+'</small></summary>'+panel(group)+'</details>';
+
+/**
+ * The bar as markup: brand, mode switch, research menus, then `actions`, the
+ * Observatory's own header actions (saved views, help, source) as trusted
+ * markup from its page. One header for the combined site.
+ */
+export function renderSiteBar(nav,actions=''){
+  const total=pageCount(nav);
+  return '<nav class="site-bar" aria-label="Site sections">'
+    +'<a class="sb-brand" href="./" title="Front page">explore<i>riemann</i></a>'
+    // Two modes of one site: this visual workbench, and the written research.
+    +'<div class="sb-mode" title="Switch between the visual Observatory and the research programme">'
+    +'<span aria-current="page">Observatory</span><a href="'+esc(siteHref('/'))+'">Research<small>'+total+' pages</small></a></div>'
+    +'<div class="sb-groups">'+nav.map(dropdown).join('')+'</div>'
+    +'<details class="sb-menu"><summary>Research menu<small>'+total+'</small></summary><div class="sb-panel">'+nav.map(dropdown).join('')+'</div></details>'
+    +'<div class="sb-right">'+actions+'</div></nav>';
+}
+
+/** One dropdown open at a time; close on outside click or Escape. */
+export function attachSiteBar(bar,doc=document){
+  const tops=[...bar.querySelectorAll('.sb-groups>details,.site-bar>.sb-menu')];
   bar.addEventListener('toggle',event=>{if(event.target.open&&tops.includes(event.target))for(const other of tops)if(other!==event.target)other.open=false;},true);
-  document.addEventListener('click',event=>{if(!bar.contains(event.target))for(const d of tops)d.open=false;});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')for(const d of tops)if(d.open){d.open=false;d.querySelector('summary').focus();}});
-  return bar;
+  doc.addEventListener('click',event=>{if(!bar.contains(event.target))for(const d of tops)d.open=false;});
+  doc.addEventListener('keydown',event=>{if(event.key==='Escape')for(const d of tops)if(d.open){d.open=false;d.querySelector('summary').focus();}});
 }
 
 if(typeof document!=='undefined'){
-  fetch('./site-nav.json').then(r=>r.ok?r.json():null).then(raw=>{
-    const nav=cleanNav(raw);
-    if(!nav.length)return;
-    // The bar replaces the Observatory's 74px header (64px on phones) and is
-    // 18px shorter, so the layout offset is negative.
-    document.documentElement.style.setProperty('--site-bar','-18px');
-    document.body.prepend(buildSiteBar(nav));
-    document.body.dataset.siteBar='true';
-    window.dispatchEvent(new Event('resize'));
-  }).catch(()=>{});
+  const bar=document.querySelector('.site-bar');
+  if(bar)attachSiteBar(bar);
 }

@@ -12,6 +12,16 @@
     "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs",
     "assert:fast": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast",
     "assert:changed": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --since-changed",
+    "audit:rh-research": "node scripts/check-rh-research-source-escapes.mjs && node scripts/check-rh-research-scaffold.mjs",
+    "audit:rh-suzuki": "node scripts/verify-rh-suzuki-publication.mjs",
+    "audit:rh-foundation": "node scripts/verify-rh-foundation-publication.mjs",
+    "audit:rh-source-escapes": "node scripts/check-rh-research-source-escapes.mjs",
+    "audit:rh-signed-complement": "node scripts/verify-rh-signed-complement-publication.mjs",
+    "audit:rh-spectral": "node scripts/verify-rh-spectral-publication.mjs",
+    "audit:rh-spectral-repair": "node scripts/verify-rh-spectral-repair-publication.mjs",
+    "audit:rh-spectral-head": "node scripts/verify-rh-spectral-head-publication.mjs",
+    "audit:rh-prime-retained": "node scripts/verify-rh-prime-retained-publication.mjs",
+    "audit:rh-channel-geometry": "node scripts/verify-rh-channel-geometry-publication.mjs",
     "audit:shear": "node --no-warnings scripts/shear-kernel-audit.mjs",
     "audit:debranges-grams": "node --no-warnings scripts/verify-debranges-gram-certificates.mjs",
     "test:debranges-gram-audit": "node --no-warnings scripts/verify-debranges-gram-certificates.mjs --self-test",
@@ -20,7 +30,8 @@
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",
     "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
-    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs"
+    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs",
+    "test:cayley": "node --test scripts/cayley-schur.test.mjs"
   },
   "repository": {
     "type": "git",

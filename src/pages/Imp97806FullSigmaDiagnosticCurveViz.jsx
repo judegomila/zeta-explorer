@@ -117,7 +117,7 @@ export default function Imp97806FullSigmaDiagnosticCurveViz() {
         page. The continuous shape is a fresh sampling of the byte-for-byte imp-97723/imp-97759
         closed form; the three marked landmarks are reused verbatim from their pinning modules
         (imp-97782 hump, imp-97777 minimum, imp-97723 crossing). Conditional-share diagnostic, NOT
-        an RH bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        an RH bound; no refereed bound is changed; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

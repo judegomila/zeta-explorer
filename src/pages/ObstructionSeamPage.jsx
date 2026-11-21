@@ -38,7 +38,7 @@ export default function ObstructionSeamPage() {
           body={
             'No route gets through. Every one splits at one seam: the provable half is inert, the sufficient half ' +
             'is RH-hard, and they never overlap. This is a precise anatomy of the obstruction, not a proof of ' +
-            'anything — PT Λ≤0.2 stays SOTA. NO QED.'
+            'anything — no refereed bound is changed. NO QED.'
           }
         />
 

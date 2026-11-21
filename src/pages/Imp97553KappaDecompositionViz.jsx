@@ -112,7 +112,7 @@ export default function Imp97553KappaDecompositionViz() {
         chart reuses the imp-97541 11-point tabulation verbatim (stacked
         decomposition only, no new measurement). Presentation only;
         establishes no operator positivity; changes no bound; kappa stays
-        MEASURED, not proved; PT Lambda&le;0.2 remains SOTA; RH open;
+        MEASURED, not proved; RH open;
         NO QED.
       </div>
 
@@ -149,8 +149,7 @@ export default function Imp97553KappaDecompositionViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97541 ladder verbatim. Establishes no
         operator positivity; changes no bound; the varying-modulus
-        Bettin-Conrey mean-value limit stays the separate open sub-gap; PT
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        Bettin-Conrey mean-value limit stays the separate open sub-gap; RH open; NO QED.
       </div>
     </div>
   );

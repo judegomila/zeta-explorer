@@ -145,8 +145,7 @@ export default function Imp95265EvOctFiringCurveViz() {
         (a)). Its onsets (xStarEvOct = 11.32 coalescent, 27.04 m-and-r-uniform) sit above both
         the single-pair SPLIT-2 onset (7.10) and the twin-free Blaschke&ndash;Lagrange onset
         (4.24). It fences a twin pair in every octave of a dyadic skeleton at unbounded octave
-        count; it establishes no operator positivity and changes no Lambda bound.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow
+        count; it establishes no operator positivity and changes no Lambda bound. RH does not follow
         from anything on this page. NO QED.
       </div>
 
@@ -195,8 +194,7 @@ export default function Imp95265EvOctFiringCurveViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95265 baked viz-data (certCoalM(6, x) recomputed independently from the imp-95250
         coalLaw / betaLat closed forms, not re-derived or re-conjectured). Changes no bound,
-        establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

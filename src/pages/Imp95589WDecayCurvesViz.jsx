@@ -120,8 +120,7 @@ export default function Imp95589WDecayCurvesViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page rendering the frozen imp-95557
         W(S) decay tables verbatim (no re-derivation). It changes no bound
-        and proves no RH-relevant theorem. Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains state of the art. NO QED.
+        and proves no RH-relevant theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

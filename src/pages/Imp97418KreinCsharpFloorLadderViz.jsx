@@ -220,8 +220,7 @@ export default function Imp97418KreinCsharpFloorLadderViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming
         the imp-97335 / imp-97399 / imp-97206 committed values verbatim (sigma_2(t)
         itself is recomputed pointwise for the sign-map curve; no re-solve of any
-        floor or bracket). Establishes no operator positivity; changes no bound;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        floor or bracket). Establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

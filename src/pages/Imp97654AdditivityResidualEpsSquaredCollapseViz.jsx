@@ -120,7 +120,7 @@ export default function Imp97654AdditivityResidualEpsSquaredCollapseViz() {
         page reshaping the frozen imp-97623 additivity-residual literals verbatim (no re-derivation,
         no new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406
         extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator
-        positivity; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        positivity; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

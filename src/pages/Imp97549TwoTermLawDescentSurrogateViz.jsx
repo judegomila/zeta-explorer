@@ -126,8 +126,7 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         the baked descent-rate table; every marker is a baked exact
         crossing point. Measurement only &mdash; no operator positivity, no
         bound moves; the b/4-ceiling was already REFUTED (imp-97481) and is
-        a dead route; kappa_arith unchanged; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        a dead route; kappa_arith unchanged; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -179,8 +178,7 @@ export default function Imp97549TwoTermLawDescentSurrogateViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97500 two-term law and baked crossings
         verbatim. Establishes no operator positivity; changes no bound; the
-        b/4-ceiling lower edge is a dead route; kappa_arith unchanged;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        b/4-ceiling lower edge is a dead route; kappa_arith unchanged; RH open; NO QED.
       </div>
     </div>
   );

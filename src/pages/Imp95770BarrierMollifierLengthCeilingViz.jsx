@@ -115,7 +115,7 @@ export default function Imp95770BarrierMollifierLengthCeilingViz() {
         measurement/presentation-only page re-plotting the frozen
         barrier-mollifier-length-ceiling-2026-09 fixed-height ceiling (no re-derivation,
         no new term). It changes no bound and proves no RH-relevant theorem.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art; the 0.1758354
+        No refereed bound is changed; the 0.1758354
         candidate remains unrefereed. NO QED.
       </div>
 

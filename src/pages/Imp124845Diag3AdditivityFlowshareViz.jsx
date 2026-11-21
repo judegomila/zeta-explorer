@@ -92,7 +92,7 @@ export default function Imp124845Diag3AdditivityFlowshareViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation-only leaf
         reusing the frozen imp-124812 assessment (linear-model sweep verbatim; the c^2-break row is
         the identical imp-124812 formula re-evaluated across the flow-share sweep). Assessment/
-        derivation diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA;
+        derivation diagnostic, NOT an RH bound; no refereed bound is changed;
         RH open; NO QED.
       </div>
 

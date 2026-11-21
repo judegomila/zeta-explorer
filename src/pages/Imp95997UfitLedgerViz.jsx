@@ -27,8 +27,7 @@ export default function Imp95997UfitLedgerViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> cross-validation only,
         assembling already-reported values verbatim. No new cited input, no numeric value
-        changed, no new Lambda bound; Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains
-        SOTA. NO QED.
+        changed, no new Lambda bound. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -124,8 +123,7 @@ export default function Imp95997UfitLedgerViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95963 retabulation verbatim (no re-derivation). Supplies no new bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains
-        SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

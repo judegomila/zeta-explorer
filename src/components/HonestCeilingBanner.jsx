@@ -29,9 +29,8 @@ const VARIANTS = {
     body:
       'A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems ledger; a local ' +
       'audit repaired an omitted finite sweep. The standalone repository presents Λ ≤ 0.1787854 as a ' +
-      'computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and being prepared for public ' +
-      'release; it is not yet a peer-reviewed publication and is not itself RH. Platt-Trudgian ' +
-      'Λ ≤ 0.2 remains the peer-reviewed benchmark, with Rodgers-Tao Λ ≥ 0 on the lower side.',
+      'computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and publicly posted; it is not refereed ' +
+      'and is not itself RH. The peer-reviewed bounds are Platt-Trudgian Λ ≤ 0.2 and Rodgers-Tao Λ ≥ 0.',
   },
   'PROOF-CANDIDATE': {
     color: ED.series1,
@@ -72,8 +71,8 @@ const VARIANTS = {
     body:
       'The inherited Dyson/collision routes funnel into the C_H / G6a Hölder-½ shock modulus. ' +
       'The separate fixed-height Λ ≤ 0.1787854 package does not consume C_H and does not close the older Dyson route. ' +
-      'It is a computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and being prepared for ' +
-      'public release; it is not yet a peer-reviewed publication and is not itself RH. The naive C_H Gronwall discharge is refuted.',
+      'It is a computer-assisted candidate for an unconditional proof, reviewed by Dan Romik and publicly posted; ' +
+      'it is not refereed and is not itself RH. The naive C_H Gronwall discharge is refuted.',
   },
 };
 

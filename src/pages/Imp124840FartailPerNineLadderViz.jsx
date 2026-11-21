@@ -168,7 +168,7 @@ export default function Imp124840FartailPerNineLadderViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> Viz-only page rendering the
         imp-124793 closed-form RvM inversion literals verbatim (no new computation). Conditional-share
         diagnostic, not rigorous; changes no bound; establishes no operator positivity; no RH verdict,
-        NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        NO QED.
       </div>
     </div>
   );

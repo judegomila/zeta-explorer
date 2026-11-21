@@ -111,7 +111,7 @@ export default function Imp97552E1EnvelopeDecayViz() {
         chart reuses the imp-97539 12-point tabulation verbatim (log-log
         transform only, no new measurement). Presentation only; establishes
         no operator positivity; changes no bound; kappa_arith =
-        0.5704960511 unchanged; PT Lambda&le;0.2 remains SOTA; RH open;
+        0.5704960511 unchanged; RH open;
         NO QED.
       </div>
 
@@ -146,8 +146,7 @@ export default function Imp97552E1EnvelopeDecayViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97539 ladder verbatim. Establishes no
         operator positivity; changes no bound; cotangent first moment
-        (imp-97097) stays the separate open leaf; PT Lambda&le;0.2 remains
-        SOTA; RH open; NO QED.
+        (imp-97097) stays the separate open leaf; RH open; NO QED.
       </div>
     </div>
   );

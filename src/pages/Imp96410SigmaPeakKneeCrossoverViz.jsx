@@ -162,8 +162,7 @@ export default function Imp96410SigmaPeakKneeCrossoverViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96388 baked landmark literals verbatim (only the log10 curve interpolation and
         axis sampling are computed here, no re-fit, no zeros-bundle import). Derivation on
-        baked literals only; changes no bound; RH open; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        baked literals only; changes no bound; RH open. NO QED.
       </div>
     </div>
   );

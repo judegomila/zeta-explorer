@@ -185,7 +185,7 @@ export default function Imp97487Bimodal1PctCrossoverViz() {
         I_lin)/I on the integer-a grid; the crest tips, step point, and A(b)
         scale table are reused verbatim from imp-97459. Establishes no
         operator positivity; changes no bound; the rigorous anchor stays the
-        trace ceiling T=2.594e7; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
+        trace ceiling T=2.594e7; RH
         open; NO QED.
       </div>
 
@@ -223,8 +223,7 @@ export default function Imp97487Bimodal1PctCrossoverViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97459 measured crest table, step point, and
         A(b) scale table verbatim; the d(a,b) curves are an exact recompute,
-        not new data. Establishes no operator positivity; changes no bound;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        not new data. Establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

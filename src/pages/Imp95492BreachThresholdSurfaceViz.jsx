@@ -172,7 +172,7 @@ export default function Imp95492BreachThresholdSurfaceViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/derivation-only page tabulating the imp-95430 worst-of-400
         crossing threshold. It changes no bound and proves no off-lattice floor
-        theorem. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art.
+        theorem.
         NO QED.
       </div>
 
@@ -267,8 +267,7 @@ export default function Imp95492BreachThresholdSurfaceViz() {
         finds worse configurations and lowers delta*); the comparison is
         against the proven m-uniform A_unif4(rho), so finite-m headroom is part
         of the absorbed margin. Supplies no off-lattice floor theorem, changes
-        no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

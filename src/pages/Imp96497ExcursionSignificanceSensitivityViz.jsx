@@ -161,8 +161,7 @@ export default function Imp96497ExcursionSignificanceSensitivityViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96452 baked reach record verbatim (only the bar layout is computed here). Changes
-        no bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

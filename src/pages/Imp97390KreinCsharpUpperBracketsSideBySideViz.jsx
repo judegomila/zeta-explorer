@@ -214,7 +214,7 @@ export default function Imp97390KreinCsharpUpperBracketsSideBySideViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97335 / imp-97206 / imp-97355 committed values verbatim (no re-solve, no new
         numerics). Rayleigh-Ritz upper bounds only; establishes no operator positivity; changes
-        no bound; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        no bound; RH open; NO QED.
       </div>
     </div>
   );

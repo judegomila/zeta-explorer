@@ -124,8 +124,7 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         the inverse-line second moment into the m=0 diagonal and the real m&nbsp;&ne;&nbsp;0
         twisted-moment defect. Measured across b=101..1201 (imp-97267 + imp-97284), the
         off-diagonal is NOT a vanishing lower-order remainder: it carries ~half of M2w at every
-        rung, so a Weil-bound route that discards it cannot certify M2w. No bound moves;
-        Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH open; NO QED.
+        rung, so a Weil-bound route that discards it cannot certify M2w. No bound moves; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
@@ -169,7 +168,7 @@ export default function Imp97302InverseLineDiagOffdiagCoLeadingViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97302 viz-data leaf (every value reused verbatim from the imp-97267 and imp-97284
         baked ladders, no re-derivation of the exact O(b^3) character-detection kernel). Changes
-        no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA;
+        no bound, establishes no operator positivity;
         RH open; NO QED.
       </div>
     </div>

@@ -116,8 +116,8 @@ export default function Imp97787FarTailDiagnosticHumpMinCrossoverViz() {
         <strong style={{ color: 'var(--series-3)' }}>Honest status:</strong> a measurement/presentation-only
         page. The curve is reused byte-for-byte from imp-97806; the hump and minimum landmarks are
         reused verbatim from imp-97782/imp-97777, and the crossover landmark is reused verbatim
-        from imp-97759 F1. Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        from imp-97759 F1. Conditional-share diagnostic, NOT an RH bound; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

@@ -83,7 +83,7 @@ export default function NewmanLambda01787854CandidatePage() {
         <a href={refereePaper.publicPath} target="_blank" rel="noreferrer">Read the v3 referee PDF ({refereePaper.pages} pages)</a>
         {' · '}<a href={refereePaper.releaseAssetUrl} target="_blank" rel="noreferrer">Immutable release PDF</a>
         {' · '}<a href={refereePaper.provenancePath} target="_blank" rel="noreferrer">PDF provenance sidecar</a>
-        {' · '}<a href={identity.repositoryUrl} target="_blank" rel="noreferrer">Private v3 candidate repository</a>
+        {' · '}<a href={identity.repositoryUrl} target="_blank" rel="noreferrer">v3 candidate repository</a>
         <br /><br />
         Related: <Link to="/lambda-01758354-candidate">Λ ≤ 0.1758354 candidate</Link>
         {' · '}<Link to="/lambda-bounds">Λ Bounds &amp; RH Roadmap</Link>
@@ -287,7 +287,7 @@ export default function NewmanLambda01787854CandidatePage() {
       </div>
 
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 24 }}>
-        <a href={identity.repositoryUrl} target="_blank" rel="noreferrer">Private v3 candidate repository ↗</a>
+        <a href={identity.repositoryUrl} target="_blank" rel="noreferrer">v3 candidate repository ↗</a>
         <a href={refereePaper.releaseAssetUrl} target="_blank" rel="noreferrer">Immutable release PDF ↗</a>
         <a href={refereePaper.provenancePath} target="_blank" rel="noreferrer">PDF provenance sidecar ↗</a>
         <a href="https://doi.org/10.5281/zenodo.21175533" target="_blank" rel="noreferrer">Public 0.1875 certificate package ↗</a>

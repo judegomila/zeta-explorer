@@ -123,7 +123,7 @@ export default function Imp97551W1LowerFarFieldMarginViz() {
         lower bound w1Lower(t); the summary constants (t*, t0, margin, guarded
         window) are reused verbatim from imp-97501. Establishes no operator
         positivity; changes no bound; interval-rigorous certificate reach
-        stays 2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open;
+        stays 2a&le;0.96; RH open;
         NO QED.
       </div>
 
@@ -160,7 +160,7 @@ export default function Imp97551W1LowerFarFieldMarginViz() {
         imp-97399 confined-well boundaries verbatim; the w_1(t) samples are an
         exact recompute, not new data. Establishes no operator positivity;
         changes no bound; interval-rigorous certificate reach stays
-        2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open;
+        2a&le;0.96; RH open;
         NO QED.
       </div>
     </div>

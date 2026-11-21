@@ -127,7 +127,7 @@ export default function Imp97301E1QuarterBSaturationViz() {
         [2,20000] (0 violations); it rises toward 1 only on the primes (the class where the
         -b/4 leader survives) and undershoots, decaying with b, on prime powers, primorials and
         generic composites (the mu-sign divisor cancellation removes the -b/4 leader off
-        primes). No bound moves; Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA;
+        primes). No bound moves;
         RH open; NO QED.
       </div>
 
@@ -169,7 +169,7 @@ export default function Imp97301E1QuarterBSaturationViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97301 viz-data leaf (every value reused verbatim from the imp-97269 baked
         IMP97269_CLASS_TABLE, no re-derivation of the O(b) E1 kernel). Changes no bound,
-        establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH
+        establishes no operator positivity; RH
         open; NO QED.
       </div>
     </div>

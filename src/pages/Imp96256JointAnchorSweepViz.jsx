@@ -194,8 +194,7 @@ export default function Imp96256JointAnchorSweepViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96227 baked anchor-sweep table and literals verbatim (only the chart-axis reshaping is
-        computed here). Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        computed here). Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

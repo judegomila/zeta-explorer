@@ -143,7 +143,7 @@ export default function Imp97488KreinRoute2KbigSaturationViz() {
         the measured Kbig=140 range so the saturation/divergence comparison
         is visible. Measurement only &mdash; no rigorous lower bound on
         lambda_2, no operator positivity, no bound moves; interval-rigorous
-        reach stays 2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
+        reach stays 2a&le;0.96; RH
         open; NO QED.
       </div>
 
@@ -187,7 +187,7 @@ export default function Imp97488KreinRoute2KbigSaturationViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97455 measured points, fit parameters, and
         finite-floor bracket verbatim. Establishes no operator positivity;
-        changes no bound; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open;
+        changes no bound; RH open;
         NO QED.
       </div>
     </div>

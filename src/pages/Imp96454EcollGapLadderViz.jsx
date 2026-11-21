@@ -162,8 +162,7 @@ export default function Imp96454EcollGapLadderViz() {
         of the two signed gaps, a floor clip for the exact-zero point, and one scale constant
         for the reference envelope are computed here). Measurement/accuracy audit only: no
         gap closed, no bound changed, G6_polymath15_bridge not closed, conditional
-        C_H &le; 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701).
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. RH open. NO QED.
+        C_H &le; 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701). RH open. NO QED.
       </div>
     </div>
   );

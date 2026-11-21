@@ -114,7 +114,7 @@ export default function WhatWeKnowPage() {
 
       <h2>① Established results and the separately graded candidates</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
-        <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
+        <li><strong>Standalone Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established; it has been reviewed by Dan Romik and is publicly posted, not refereed. It is not RH.</li>
         <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked y-transfer reduction and Lemma B3. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
         <li><strong>Λ ≤ 0.14 completion contract:</strong> a conditional contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
@@ -126,7 +126,7 @@ export default function WhatWeKnowPage() {
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
         <div className="tlab">FRONTIER ITEMS OF 2026-09 (superseded as the leading items; see the status list above)</div>
         <ul style={{ paddingLeft: 20, lineHeight: 1.75, margin: 0 }}>
-          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — a package value, not a bound. Obligations O3 and O5 are closed; O1, O2, O4 and O6 are open. The theorem behind O1 is Lean-checked with its gates G1–G4 as hypotheses; the gate computation is not done. Detail: <Link to="/threads">Research Threads</Link>.</li>
+          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — a package value, not a bound. 2 of its 6 obligations are closed (O3, O5); O1, O2, O4, O6 are open (record of 2026-09-22). The theorem behind O1 is Lean-checked with its gates G1–G4 as hypotheses; the gate computation is not done. Detail: <Link to="/threads">Research Threads</Link>.</li>
           <li><strong>Route VII derived floor:</strong> the reachable-floor analysis of 2026-09 put the compute-derived floor at U ≈ 0.145–0.150, with arithmetic input required below it. The later conditional value 0.116091 uses such an input (the unrefereed half-plane Re s &gt; 7/8). Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
           <li><strong>Inertia-PCC verdict:</strong> the inertia route meets the same pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Detail: <Link to="/threads">Research Threads</Link>.</li>
         </ul>

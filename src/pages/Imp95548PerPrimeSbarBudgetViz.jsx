@@ -129,7 +129,7 @@ export default function Imp95548PerPrimeSbarBudgetViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a reader-facing bar chart
         of the perm-arch section 5(i) small-prime-weld over-budget picture (imp-95541 /
         imp-95536), not a new theorem. It changes no Lambda bound and establishes no operator
-        positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
+        positivity. RH does not
         follow from anything on this page. NO QED.
       </div>
 
@@ -184,8 +184,7 @@ export default function Imp95548PerPrimeSbarBudgetViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         perm-arch-sieve-universality-no-go-2026-09-22 smallPrimeClosure / perPrimeMeasurement
         literals verbatim (src/data/perm-arch-sieve-universality-no-go-2026-09-22.js). Changes
-        no bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

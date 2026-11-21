@@ -161,7 +161,7 @@ export default function Imp97486Sigma2SecondMomentProfileViz() {
         far-tail onset 10.532) and the bottom panel&apos;s far-tail area table
         are reused verbatim from imp-97458. Establishes no operator
         positivity; changes no bound; interval-rigorous certificate reach
-        stays 2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open;
+        stays 2a&le;0.96; RH open;
         NO QED.
       </div>
 
@@ -197,8 +197,7 @@ export default function Imp97486Sigma2SecondMomentProfileViz() {
         only, consuming the imp-97458 measured region boundaries and far-tail
         table verbatim; the sigma_2(t) samples are an exact recompute, not new
         data. Establishes no operator positivity; changes no bound;
-        interval-rigorous certificate reach stays 2a&le;0.96; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        interval-rigorous certificate reach stays 2a&le;0.96; RH open; NO QED.
       </div>
     </div>
   );

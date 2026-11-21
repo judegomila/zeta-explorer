@@ -115,8 +115,7 @@ export default function Imp97214RouteMFarfieldSlopebandVsOriginalViz() {
         <strong style={{ color: 'var(--ink)' }}>Honest status:</strong> the imp-97142 propagated interval
         [-2.035%, +0.389%] (blue) sits entirely below the imp-96982 original credible band
         [+1.369%, +8.356%] (red), with the closest approach ~0.98 percentage points apart. This is a
-        presentation of an already-established measurement; no bound on &Lambda; moves; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        presentation of an already-established measurement; no bound on &Lambda; moves; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>

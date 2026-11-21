@@ -172,7 +172,7 @@ export default function Imp97485KreinRealizabilityGapViz() {
         the imp-97457 measured values reused verbatim. R is a finite-section
         IEEE-double eigenvalue, not interval-certified. Establishes no
         operator positivity; no bound moves; interval-rigorous certificate
-        reach stays 2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
+        reach stays 2a&le;0.96; RH
         open; NO QED.
       </div>
 
@@ -211,8 +211,7 @@ export default function Imp97485KreinRealizabilityGapViz() {
         peak-to-cap ratio verbatim; f_bath is exactly recomputed, f_real is a
         labeled schematic. No re-solve of the underlying eigenproblem;
         establishes no operator positivity; changes no bound;
-        interval-rigorous certificate reach stays 2a&le;0.96;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        interval-rigorous certificate reach stays 2a&le;0.96; RH open; NO QED.
       </div>
     </div>
   );

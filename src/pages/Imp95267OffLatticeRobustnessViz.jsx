@@ -143,7 +143,7 @@ export default function Imp95267OffLatticeRobustnessViz() {
         MEASUREMENT (imp-95232 FINDING 2) of how the RAW Blaschke-Lagrange bound behaves under
         site jitter; it is not the count-uniform BL-LAT collar (a separate, ~70x looser object
         per FINDING 1), changes no bound, establishes no operator positivity, and carries no RH
-        claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+        claim. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -192,7 +192,7 @@ export default function Imp95267OffLatticeRobustnessViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95267 baked viz-data (the imp-95232 FINDING 2 offLatticeTable / offLatticeWitness
         literals, copied verbatim, not re-derived). Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

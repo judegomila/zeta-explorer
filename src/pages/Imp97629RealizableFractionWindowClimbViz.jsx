@@ -92,7 +92,7 @@ export default function Imp97629RealizableFractionWindowClimbViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97564 window-ladder literals verbatim (no re-derivation, no new
-        computation). Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open;
+        computation). Changes no bound; RH open;
         NO QED.
       </div>
 

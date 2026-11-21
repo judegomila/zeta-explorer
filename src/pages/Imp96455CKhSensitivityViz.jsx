@@ -220,7 +220,7 @@ export default function Imp96455CKhSensitivityViz() {
         ratio are computed here). Measurement/accuracy audit of a normalization constant only:
         no gap closed, no bound changed, conditional C_H &le; 0.127 stays UNPROVEN, C_H
         isRigorousUpperBound = false (imp-2642/imp-2701), the imp-2640 Gronwall discharge of
-        C_Lip stays NEGATIVE. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. RH open.
+        C_Lip stays NEGATIVE. RH open.
         NO QED.
       </div>
     </div>

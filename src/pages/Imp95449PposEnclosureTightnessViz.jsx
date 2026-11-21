@@ -181,8 +181,7 @@ export default function Imp95449PposEnclosureTightnessViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only chart of
         how tight the imp-95420 THEOREM P-POS two-sided enclosures of p(t) are; it re-derives no
-        proof and changes no bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the
-        art. RH does not follow from anything on this page. NO QED.
+        proof and changes no bound. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -240,7 +239,7 @@ export default function Imp95449PposEnclosureTightnessViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95449 baked record directly (values copied verbatim, curves plotted from the exact
         closed-form width formulas documented in that record). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

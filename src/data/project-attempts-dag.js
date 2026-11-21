@@ -1874,7 +1874,7 @@ export const PROJECT_ATTEMPTS_DAG_ASSERTIONS = Object.freeze([
   },
   {
     id: 'project-honest-status',
-    name: '0.1758354 is an unreviewed unpublished candidate; 0.1787854 private; 0.14 not a bound; mirror descent conditional; no RH claim',
+    name: '0.1758354 is an unreviewed unpublished candidate; 0.1787854 publicly posted, not refereed; 0.14 not a bound; mirror descent conditional; no RH claim',
     why: 'no false QED; no implied publication',
     holds: () => {
       const g = (id) => NODES.find((x) => x.id === id);

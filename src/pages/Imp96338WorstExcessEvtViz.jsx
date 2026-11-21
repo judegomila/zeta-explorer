@@ -165,8 +165,7 @@ export default function Imp96338WorstExcessEvtViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96271 baked
         rows and aggregates verbatim (only the +/-1 sd band arithmetic is computed here). This is a
         measurement comparison, not a new derivation: it establishes no operator positivity, moves no
-        Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim. NO QED.
       </div>
     </div>
   );

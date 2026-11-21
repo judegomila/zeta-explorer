@@ -113,7 +113,7 @@ export default function Imp97612CuspSeparationViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97576 cusp ladder verbatim (no re-derivation, no new
         computation). kappa_smooth is NOT pinned to an exact value -- only its cusp-limit smallness is
-        measured. Changes no bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        measured. Changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

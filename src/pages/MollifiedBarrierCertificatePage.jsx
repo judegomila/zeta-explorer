@@ -31,8 +31,8 @@ export default function MollifiedBarrierCertificatePage() {
           body={
             'This mollified certificate turns a phase-blind triangle bound that FAILS into an SOS-friendly ' +
             'one that PASSES, certified in acb ball arithmetic. But it provably cannot lower Λ below 0.2: ' +
-            'min|Mf|/max|M| ≤ min|f| always, so the min-modulus channel yields zero gain. Platt–Trudgian ' +
-            'Λ ≤ 0.2 stays SOTA. NO QED.'
+            'min|Mf|/max|M| ≤ min|f| always, so the min-modulus channel yields zero gain. No refereed bound is changed' +
+            '. NO QED.'
           }
         />
 

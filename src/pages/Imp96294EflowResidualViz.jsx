@@ -156,7 +156,7 @@ export default function Imp96294EflowResidualViz() {
         reshaping is computed here). The component model is the inherited
         imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb
         GUE-conditional per imp-486 stays untouched. Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

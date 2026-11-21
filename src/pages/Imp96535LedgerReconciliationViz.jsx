@@ -149,8 +149,7 @@ export default function Imp96535LedgerReconciliationViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96512 baked height-by-height comparison verbatim (the only new step is picking a
         display n_w/z per row and a membership category). Cross-validation only: changes no
-        bound, establishes no operator positivity; RH open; NO QED; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA.
+        bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

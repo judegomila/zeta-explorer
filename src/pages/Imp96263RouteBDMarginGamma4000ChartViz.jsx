@@ -157,7 +157,7 @@ export default function Imp96263RouteBDMarginGamma4000ChartViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96224
         baked column and refit literals verbatim (only the plotted curve samples are computed here,
         by evaluating the already-fitted formulas). Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
     </div>
   );

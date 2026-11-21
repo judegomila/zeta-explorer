@@ -152,8 +152,7 @@ export default function Imp97587KreinFarprofileEnvelopeViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> presentation only,
         charting the already-proved imp-97518 closed form and the imp-97497
         peak-validation ratios verbatim. No operator positivity; no bound
-        moves; interval-rigorous certified reach stays 2a&le;0.96;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        moves; interval-rigorous certified reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -205,7 +204,7 @@ export default function Imp97587KreinFarprofileEnvelopeViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97518 closed-form functions and the imp-97497
         peak-validation ratios verbatim; no re-solve. Establishes no operator
-        positivity; changes no bound; PT Lambda&le;0.2 remains SOTA; RH open;
+        positivity; changes no bound; RH open;
         NO QED.
       </div>
     </div>

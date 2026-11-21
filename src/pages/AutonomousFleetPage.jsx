@@ -38,7 +38,7 @@ export default function AutonomousFleetPage() {
       </Figure>
 
       <h2>The gates</h2>
-      <p>Two rules are absolute. First: no false QED — the rigorous state of the art stays Λ ≤ 0.2 (Platt–Trudgian), and no engine may claim a proof of RH or a beat of the record. Candidates are labelled candidates. Second: skeptical verification — findings are checked by independent referee agents prompted to refute, not confirm, before anything is recorded.</p>
+      <p>Two rules are absolute. First: no false QED — no engine may claim a proof of RH or an established bound. Values below 0.2 are labelled as unrefereed candidates or as conditional on named inputs. Second: skeptical verification — findings are checked by independent referee agents prompted to refute, not confirm, before anything is recorded.</p>
 
       <Pull>The fleet produces candidates and no-gos at scale. It does not produce proofs. Every bound on this site is either rigorous-and-cited or explicitly labelled computer-assisted and unrefereed.</Pull>
 

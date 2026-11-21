@@ -116,7 +116,7 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         cell below is the imp-97484 Rayleigh-Ritz UPPER bracket lam_min(N,T)
         reused verbatim. Measurement only &mdash; establishes no operator
         positivity, no lower bound, no bound moves; interval-rigorous reach
-        stays 2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open;
+        stays 2a&le;0.96; RH open;
         NO QED.
       </div>
 
@@ -157,7 +157,7 @@ export default function Imp97507KreinNscaledTgridHeatmapViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97484 table verbatim. Establishes no operator
         positivity; changes no bound; interval-rigorous reach stays
-        2a&le;0.96; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO
+        2a&le;0.96; RH open; NO
         QED.
       </div>
     </div>

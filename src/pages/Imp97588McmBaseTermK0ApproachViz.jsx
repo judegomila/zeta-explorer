@@ -133,8 +133,7 @@ export default function Imp97588McmBaseTermK0ApproachViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> presentation
         only, charting the already-measured imp-97499/imp-97519 closed-form
         law verbatim. No bound moves; MCM stays VERIFIED at omega&le;6 and
-        FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda&le;0.2 remains
-        SOTA; RH open; NO QED.
+        FALSE from omega=11 (imp-97432); RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

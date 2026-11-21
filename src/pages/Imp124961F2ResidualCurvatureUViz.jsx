@@ -112,8 +112,8 @@ export default function Imp124961F2ResidualCurvatureUViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation-only leaf
         reusing the frozen imp-124772 OLS residuals and imp-124823 gap/ratio fields verbatim.
         Conditional-share curvature diagnostic on the inherited imp-3220/imp-3406 extrapolation, NOT a
-        rigorous asymptotic; no operator positivity established; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA; RH open; NO QED.
+        rigorous asymptotic; no operator positivity established; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

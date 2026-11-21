@@ -15,9 +15,9 @@
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
-//   PRIVATE CANDIDATE = Lambda <= 0.1787854, a computer-assisted candidate for
-//                       an unconditional proof; reviewed by Dan Romik and being
-//                       prepared for public release; bound not established,
+//   POSTED CANDIDATE = Lambda <= 0.1787854, a computer-assisted candidate for
+//                       an unconditional proof; reviewed by Dan Romik and
+//                       publicly posted; bound not established,
 //                       not refereed, and not RH
 //   SHARPER CANDIDATE = Lambda <= 0.1758354 (four Arb gates; y-transfer
 //                       reduction and Lemma B3 Lean-checked), below 0.1787854; unrefereed, not established,
@@ -109,7 +109,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'UNREVIEWED CANDIDATE',
     color: '#22d3ee',
-    title: 'The standalone private review repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof — reviewed by Dan Romik, unrefereed',
+    title: 'The standalone review repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof — reviewed by Dan Romik, unrefereed',
     body:
       'Standalone tag review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea packages claimed certificates for a compact slab, a final-time zero-free half-strip, ' +
       'a fresh replay of all 3,149,013 finite rows, corrected 10.50 finite and tail error bounds, and an exact Polymath ' +

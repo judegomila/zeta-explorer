@@ -209,7 +209,7 @@ export default function Imp96239UshapeSlopeDriftViz() {
         imp-96210 a(N), b(N) grid from the identical inherited component model to expose it for
         charting (no new derivation). Measurement/derivation display only; the C_mb GUE-conditional
         share (imp-486) stays untouched; establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no refereed bound is changed. NO QED.
       </div>
     </div>
   );

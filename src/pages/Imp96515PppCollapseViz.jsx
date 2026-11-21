@@ -174,7 +174,7 @@ export default function Imp96515PppCollapseViz() {
         imp-96486 baked nine-rung map verbatim (the only new step is the cancellation /
         truncation branch label). Feasibility / cross-validation numerics only: theoretical
         GUE quantity, not real zeros; changes no bound, establishes no operator positivity;
-        RH open; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        RH open; NO QED.
       </div>
     </div>
   );

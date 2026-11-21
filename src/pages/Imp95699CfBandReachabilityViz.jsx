@@ -154,7 +154,7 @@ export default function Imp95699CfBandReachabilityViz() {
         multiplier verbatim (no re-derivation, no fresh term). The component model is the
         inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the C_mb
         GUE-conditional per imp-486 is untouched; changes no bound, establishes no operator
-        positivity, no RH claim. Platt-Trudgian Lambda &le; 0.2 remains SOTA. NO QED.
+        positivity, no RH claim. NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--ink-faint)' }}>

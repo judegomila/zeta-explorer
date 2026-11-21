@@ -163,8 +163,7 @@ export default function Imp95930C0OffsetEnvelopeViz() {
         imp-95897 six-offset table and envelope band verbatim (no re-derivation). The offset is
         noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED
         by this table alone; see imp-95921 for the superseding analytic bracket. Supplies no new
-        bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le;
-        0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

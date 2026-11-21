@@ -97,8 +97,7 @@ export default function Imp97526NamedConcentrationToolVerdictTableViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> every
         row below is reused verbatim from imp-97502. Assessment only &mdash;
         no operator positivity, no coercivity constant, no bound moves;
-        interval-rigorous reach stays 2a&le;0.96; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        interval-rigorous reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
@@ -133,8 +132,7 @@ export default function Imp97526NamedConcentrationToolVerdictTableViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> presentation
         only, consuming the imp-97502 tool-by-tool verdict verbatim.
-        Establishes no operator positivity; changes no bound;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        Establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

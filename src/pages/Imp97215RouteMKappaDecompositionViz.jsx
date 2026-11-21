@@ -173,8 +173,8 @@ export default function Imp97215RouteMKappaDecompositionViz() {
         }}
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> kappa_total &asymp;{' '}
-        {IMP97130_VERDICT.kappaTotal.toFixed(4)}, positive but MEASURED not proved. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        {IMP97130_VERDICT.kappaTotal.toFixed(4)}, positive but MEASURED not proved. No refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <div

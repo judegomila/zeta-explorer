@@ -198,8 +198,7 @@ export default function Imp95409RhoStarDepthFlipViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only, a
         re-render of the imp-95256 crossover identity in its rho-vs-rhoStar(sigma) form (equivalent
-        to the g-vs-sigma form already rendered by imp-95391). It changes no Lambda bound.
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow from
+        to the g-vs-sigma form already rendered by imp-95391). It changes no Lambda bound. RH does not follow from
         anything on this page. NO QED.
       </div>
 

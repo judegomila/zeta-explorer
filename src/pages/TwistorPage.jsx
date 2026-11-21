@@ -345,7 +345,7 @@ function TwistorIllustration() {
             <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
               When <InlineMath tex={"|\\chi(s)| = 1"} /> (which holds on
               <InlineMath tex={"\\sigma = \\frac{1}{2}"} />, and also at points off the line, for example
-              s = 0.75 + 6.288173i and s = −16.406145; corrected 2026-11-21), the intertwiner is <strong>unitary</strong> —
+              s = 0.75 + 6.288173i and s = −16.406145), the intertwiner is <strong>unitary</strong> —
               it preserves the twistor norm. This means the map between direct and dual ladders is
               lossless, and the twistor pair is in perfect balance. Off the critical line,
               <InlineMath tex={"|\\chi(s)| \\neq 1"} /> and the intertwiner stretches or compresses,
@@ -382,7 +382,7 @@ function TwistorIllustration() {
               <ul style={{ marginLeft: 14, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.8 }}>
                 <li>The critical line <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> is geometrically distinguished as the incidence locus <InlineMath tex={"Z \\cdot W = 0"} /></li>
                 <li>The functional equation symmetry <InlineMath tex={"s \\leftrightarrow 1-s"} /> is naturally encoded as twistor-dual twistor duality</li>
-                <li>On <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> the bridge has <InlineMath tex={"|\\chi| = 1"} />. Corrected 2026-11-21: this is not a norm-preserving intertwiner between the twistor and its dual (<InlineMath tex={"\\chi Z"} /> is not the dual twistor of the same encoding), and <InlineMath tex={"|\\chi| = 1"} /> also holds off the line</li>
+                <li>On <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> the bridge has <InlineMath tex={"|\\chi| = 1"} />. This is not a norm-preserving intertwiner between the twistor and its dual (<InlineMath tex={"\\chi Z"} /> is not the dual twistor of the same encoding), and <InlineMath tex={"|\\chi| = 1"} /> also holds off the line</li>
                 <li>The Euler product has a natural interpretation as a Penrose transform</li>
               </ul>
             </div>

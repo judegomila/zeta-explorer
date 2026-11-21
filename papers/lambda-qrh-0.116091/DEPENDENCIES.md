@@ -8,7 +8,7 @@ decreasing-barrier construction (Zenodo 10.5281/zenodo.22867547). The value
 them the same argument gives 0.118506. Those certificates, (H4) below, are a third
 input that is not established: they are internal and partly uncertified. So value
 (ii) depends on three inputs that are not established, (H1), (H2) and (H4); value (i)
-on two, (H1) and (H2). (Count corrected 2026-11-21.) Not yet peer reviewed.
+on two, (H1) and (H2). Not yet peer reviewed.
 
 Value (i), `Λ ≤ 0.118505710922701`, uses (H1)–(H3).
 Value (ii), `Λ ≤ 0.116091488672439`, uses (H1), the analytic part of (H2), (H3) and

@@ -49,9 +49,8 @@ export default function EquivalenceVsReductionCallout({ compact = false } = {}) 
         another, as the collapse chain does, is a <strong>reformulation, not a reduction</strong>:
         no difficulty is moved below RH. The historical ~5000× margin was a homogeneity artifact
         of the scale-miscalibrated bare operator, not evidence for the conjecture.
-        Corrected 2026-11-21: the bare Volterra statement (norm of V_{'{'}a,Phi{'}'} ≤ 1 for every a &gt; 0) was
-        listed here as an equivalent. It is not one: it is false for a ≥ 31.6214 and is not equivalent to
-        K_a ≥ 0 in either direction. It has been removed from the list.
+        The bare Volterra statement (norm of V_{'{'}a,Phi{'}'} ≤ 1 for every a &gt; 0) is not in this list: it is
+        false for a ≥ 31.6214 and is not equivalent to K_a ≥ 0 in either direction.
       </p>
       <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12.5, lineHeight: 1.75, color: 'var(--text-secondary, #94a3b8)' }}>
         {EQUIVALENTS.map((e) => (

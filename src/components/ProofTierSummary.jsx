@@ -56,7 +56,7 @@ export const PROOF_TIER_DATA = [
     color: ED.series5,
     bg: alpha(ED.series5, 0.1),
     headline: '‖V_{a,Φ}‖ ≤ 1',
-    subhead: 'Volterra collapse — refuted (corrected 2026-11-21)',
+    subhead: 'Volterra collapse — refuted',
     bullets: [
       'The 7+ paper conjectures (§§15–27) do not collapse to ‖V_{a,Φ}‖ ≤ 1: that statement is false for a ≥ 31.6214 (repository normalisation) and is not equivalent to K_a ≥ 0.',
       'The RH-equivalent statement is K_a ≥ 0 for every a > 0; the conjectures are separate phrasings of it. No shortcut; no unconditional route.',

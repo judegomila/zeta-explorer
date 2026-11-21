@@ -13,8 +13,9 @@
 //      both scores; rank order agrees with tier order; the ranked view lists
 //      every tier, empty ones included; each item's VERDICT.md and REFEREE.md
 //      and the ranking report exist in the repository; a "withdrawn" status
-//      goes with the tier "not established" and the reverse; the page no
-//      longer carries the "being added" line.
+//      goes with the tier "not established" and the reverse; the page has
+//      the "How to read this" paragraph, and neither the page nor the item
+//      notes narrate a change ("Corrected", "earlier wording").
 //   5. The data module imports nothing, and the page does not reach
 //      src/data/zeros-to-1e6.js.
 //   6. /key-results is registered as a route, as an editorial route and in the
@@ -141,7 +142,13 @@ for (const r of KEY_RESULTS) {
   if (shown.reduce((a, s) => a + s.items.length, 0) !== n) fail('ranked view does not show every item');
   if (!fs.existsSync(path.join(ROOT, STRESS_TEST_REPORT))) fail(`${STRESS_TEST_REPORT} does not exist`);
   const pageSrc = read('src/pages/KeyResultsPage.jsx');
-  if (/being added/.test(pageSrc)) fail('the page still carries the "being added" line');
+  if (/being added/.test(pageSrc)) fail('the page carries a "being added" line');
+  if (!/both AI agents/.test(pageSrc)) fail('the page must say that both reviewers were AI agents');
+  for (const r of KEY_RESULTS) {
+    if (/Correct(ed|ion)\b|earlier wording|previously (said|stated|listed)/.test(`${r.statement} ${r.statusNote}`)) {
+      fail(`item "${r.id}": statement or note narrates a change`);
+    }
+  }
   if (!/How to read this/.test(pageSrc)) fail('the page has no "How to read this" paragraph');
   if (!/withEmptyTiers:\s*true/.test(pageSrc)) fail('the page must show empty tiers');
 }

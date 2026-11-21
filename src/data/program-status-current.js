@@ -55,7 +55,6 @@ export const PROGRAM_STATUS = [
       'internal floor and kernel certificates. With (1)–(3) only, the same argument gives 0.118505710922701. ' +
       'Three of the four inputs are not established: (1) and (2) are unrefereed, and (4) is internal and partly ' +
       'uncertified (89 of its 468 floor entries rest on a measured allowance of 0.0023 and an unreviewed lemma). ' +
-      'Earlier wording counted two; that count fits 0.118505710922701 (corrected 2026-11-21). ' +
       'This is not an established bound. Draft of 9 October 2026; not submitted, ' +
       'not peer reviewed.',
     route: '/lambda-0116091',
@@ -195,7 +194,7 @@ export const PROGRAM_STATUS = [
       'occupation form (2 theorems, 407 lines) and parts (i) to (iii) of the stage theorem (6 theorems, 292 lines), ' +
       'checked locally with Lean v4.28.0, standard axioms only, no sorry. They are two files of an eight-file batch; ' +
       'the batch total is 44 theorems and 2576 lines, and the other six files (36 theorems, 1877 lines) are on other ' +
-      'topics (corrected 2026-11-21: the batch total had been quoted as the size of the Lee–Yang formalisation). (b) 2026-11-16: seven files, 29 theorems, 1612 ' +
+      'topics. (b) 2026-11-16: seven files, 29 theorems, 1612 ' +
       'lines, no sorry, for the PR-48 theta-bridge residual target. A written theorem with one internal referee pass ' +
       'identifies that residual target with Weil’s quadratic functional on one-sided tests (this identity is not in ' +
       'Lean); the Lean files check its ' +

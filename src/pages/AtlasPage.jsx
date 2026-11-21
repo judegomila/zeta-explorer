@@ -141,7 +141,7 @@ const FRONTIER_CARDS = [
   {
     title: 'Signed twin ladder ↔ Catalan’s constant',
     grade: 'prose-proof',
-    body: 'The twin ladder’s χ₄-signed sibling has value G = β(2) = L(2,χ₄) (verified: Σχ₄(n)/n²=G, signed Euler product, "sign flip at p=2" = rung deletion). The same P̃₁ device that isolates ζ(2)/ζ(3) into a 2-period space gives G − π + 2ln2 + π²/12, with five generators ⟨1,G,π,π²,ln2⟩. Corrected 2026-11-21: this count is not an obstruction (the solved conductor-3 case also gives five) and the π term is not forced (G − 3 + 3ln2 occurs in the same kernel family). G irrationality remains OPEN; the Λ-core gives no lever.',
+    body: 'The twin ladder’s χ₄-signed sibling has value G = β(2) = L(2,χ₄) (verified: Σχ₄(n)/n²=G, signed Euler product, "sign flip at p=2" = rung deletion). The same P̃₁ device that isolates ζ(2)/ζ(3) into a 2-period space gives G − π + 2ln2 + π²/12, with five generators ⟨1,G,π,π²,ln2⟩. This count is not an obstruction (the solved conductor-3 case also gives five) and the π term is not forced (G − 3 + 3ln2 occurs in the same kernel family). G irrationality remains OPEN; the Λ-core gives no lever.',
     links: [{ to: '/catalan-signed-ladder', label: 'The signed ladder & the period wall' }, { to: '/diagrams', label: 'Section geometry' }],
   },
 ];

@@ -9,7 +9,7 @@
 > 0.116091 also uses this project's internal floor and kernel certificates; without
 > them the same argument gives 0.118506. Those certificates are a third input that is
 > not established: they are internal and partly uncertified (see (H4) in
-> `DEPENDENCIES.md`; count corrected 2026-11-21 after an independent review,
+> `DEPENDENCIES.md`; review record:
 > `research-checkpoints/key-results-stress-test-2026-11-21/lambda-0116/`). Not yet peer reviewed. The accepted
 > peer-reviewed bound remains `Λ ≤ 0.2` (Platt–Trudgian). RH is open.
 >

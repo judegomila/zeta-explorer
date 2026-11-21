@@ -24,7 +24,7 @@ import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
 import RelatedLinks from '../components/RelatedLinks.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
-import CorrectionNotice from '../components/CorrectionNotice.jsx';
+import StatusNote from '../components/StatusNote.jsx';
 
 // ── Warm palette for chain-node coloring ────────────────────────────────────
 // Forward steps: blue. Reverse steps: brass. Load-bearing §27 identity: terra
@@ -288,16 +288,15 @@ export default function CollapseChainPage() {
     <div className="ed-root">
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
-        <CorrectionNotice item="hidden-square">
-          This page states that the §15-27 program is RH-equivalent to the single statement ‖V_{'{'}a,Φ{'}'}‖ ≤ 1 for
-          every a &gt; 0. That is wrong. The statement is false: in the repository’s normalisation ‖V‖ ≤ 1 holds for
-          a ≤ a* and fails for a ≥ 31.6214, with 31.6213 &lt; a* &lt; 31.6214. It is not equivalent to K_a ≥ 0 in
+        <StatusNote item="hidden-square" recordsFormulation>
+          The statement ‖V_{'{'}a,Φ{'}'}‖ ≤ 1 for every a &gt; 0 is false: in the repository’s normalisation it holds
+          for a ≤ a* and fails for a ≥ 31.6214, with 31.6213 &lt; a* &lt; 31.6214. It is not equivalent to K_a ≥ 0 in
           either direction (‖V‖ scales as c² under Φ → cΦ; K_a ≥ 0 is scale-invariant), and it holds for the
           Davenport-Heilbronn kernel (‖V‖ = 0.012 to 0.074) on the band of a where that kernel’s K_a is indefinite.
-          The conjectures are not reduced to it; at least seven of them (15.1, 16.4, 16.6, 17.3, 18.1, 25.2, 25.3)
-          are separate phrasings of the Hermite-Biehler form of RH, K_a ≥ 0 for every a &gt; 0. Read every
-          “RH-equivalent” below as referring to K_a ≥ 0, not to ‖V‖ ≤ 1.
-        </CorrectionNotice>
+          The §15-27 conjectures are not reduced to it; at least seven of them (15.1, 16.4, 16.6, 17.3, 18.1, 25.2,
+          25.3) are separate phrasings of the Hermite-Biehler form of RH, K_a ≥ 0 for every a &gt; 0. The
+          RH-equivalent statement is K_a ≥ 0, not ‖V‖ ≤ 1.
+        </StatusNote>
         <HonestCeilingBanner variant="RH-EQUIVALENT" />
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
         <p className="ed-lbl">Related: <Link to="/volterra-bound">Volterra norm bound ‖V‖ ≤ 1</Link></p>

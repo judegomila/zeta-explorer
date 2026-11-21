@@ -252,24 +252,25 @@ export const SONINE_EXCESS_LITERALS = Object.freeze({
 
 export const RH_ROUTE_I_SONINE_EXCESS_PORT = Object.freeze({
   id: 'rh-route-i-sonine-excess-semilocal-port-2026-09-23',
-  // Stress test of 2026-11-21 (research-checkpoints/key-results-stress-test-2026-11-21/route-i-ln2/REFEREE.md).
+  // Converged spectral values, reviewed 2026-11-21
+  // (research-checkpoints/key-results-stress-test-2026-11-21/route-i-ln2/REFEREE.md).
   // The baked spectral literals below (semilocal.lam[0], oneMinusLam0sq, corr values, 13.62, absolute E_S o Q
-  // values) are kept as recorded so that the consistency assertions still describe the stored run; they are the
-  // values for the window [e^-16, 1], not for P_1 = 1_(0,1]. The corrected values are in this field.
-  correction20261121: Object.freeze({
+  // values) are the stored run for the window [e^-16, 1], and the consistency assertions describe that run.
+  // The values for P_1 = 1_(0,1] are in this field.
+  convergedSpectrum: Object.freeze({
     date: '2026-11-21',
-    cause: 'the spectral script replaced P_1 = 1_(0,1] by 1_[e^-16,1]; in the semilocal case F_S xi has a log singularity at 0 and the cutoff is not negligible',
-    lam0: Object.freeze({ recorded: 0.9999731, corrected: 0.9999974 }),
-    oneMinusLam0sq: Object.freeze({ recorded: 5.383e-5, corrected: 5.18e-6 }),
-    lam1: Object.freeze({ recorded: -0.9927022, corrected: -0.9927326 }),
-    corrAtLn2: Object.freeze({ recorded: 1.458, corrected: 2.776 }),
-    corrOverU: Object.freeze({ recorded: 13.62, corrected: 22.85 }),
-    eoqShift: 'every absolute E_S o Q/||k||^2 value in this record is too high by about 18 to 22; with converged values a = 0.5, j = 32 gives about +155 at resonance and -265 at anti-resonance; the half-split (about 210) and the growth law are unchanged',
+    window: 'the stored run uses 1_[e^-16,1] in place of P_1 = 1_(0,1]; in the semilocal case F_S xi has a log singularity at 0 and the cutoff is not negligible',
+    lam0: Object.freeze({ storedRun: 0.9999731, converged: 0.9999974 }),
+    oneMinusLam0sq: Object.freeze({ storedRun: 5.383e-5, converged: 5.18e-6 }),
+    lam1: Object.freeze({ storedRun: -0.9927022, converged: -0.9927326 }),
+    corrAtLn2: Object.freeze({ storedRun: 1.458, converged: 2.776 }),
+    corrOverU: Object.freeze({ storedRun: 13.62, converged: 22.85 }),
+    eoqShift: 'the absolute E_S o Q/||k||^2 values of the stored run are higher than the converged ones by about 18 to 22; with converged values a = 0.5, j = 32 gives about +155 at resonance and -265 at anti-resonance; the half-split (about 210) and the growth law are unchanged',
     scope: 'the cusp fraction 1 - 2^-k is proved; the growth of E_S o Q is numerical with the corr term truncated; what fails past ln 2 is one sufficient condition of this transcription, and nothing follows about Weil positivity or about Sonine-space methods in general; quantities downstream of 1/(1 - lam_0^2) were not rechecked',
   }),
   route: 'I (Sonine refinement) — Connes–Consani W = S - E ported to the semilocal S = {oo, 2} identity; excess computed exactly; obstruction located',
   parents: ['src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js', 'src/data/rh-route-i-pencil-highres-map-2026-09-23.js (sibling: same one-prime crossing a* = 0.56578)', 'src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js', 'Connes–Consani, Weil positivity and trace formula, the archimedean place, arXiv:2006.13771 (Thm 4.7, Prop 5.5, §6, Thm 6.11)'],
-  status: 'PORTED AND OBSTRUCTED — the Sonine refinement W_oo + W_2 = Tr(vartheta S_S) - E_S is exact for S = {oo, 2}; the semilocal prolate spectrum is computed (recorded lam_S(0) = 0.9999731 is a window-cutoff artefact; corrected 2026-11-21 to lam_S(0) = 0.9999974, 1 - lam^2 = 5.18e-6, see correction20261121; lam_S(1) = -0.9927, dyadic ladder ±2^{-n/2}/2, no eigenvalue of modulus 1 — proved); the excess eps_S = delta^out + corr is explicit and inherits EXACTLY HALF of the log cusp of delta_S at rho = 2 (coefficient 1/(2 sqrt2) per log_2; corr continuous), so for 2a > ln 2 the CC operator E_S o Q is indefinite and unbounded above along the p = 2 resonances t_k = 2 pi k/ln 2 (measured half-split 210 vs predicted 202 at a = 0.5, k = 32; E_S o Q > 0 from k = 6): the sufficient condition E o Q <= c|ghat(0)|^2 of CC Thm 6.11 fails for every a > (ln 2)/2 and no finite-rank fix can repair it. Corrected 2026-11-21: this is the failure of one sufficient condition of this transcription, shown numerically; it does not establish that Sonine-space methods end at support ln 2. No positivity past ln 2 proved. RH open; PT Lambda <= 0.2 stands; NO QED',
+  status: 'PORTED AND OBSTRUCTED — the Sonine refinement W_oo + W_2 = Tr(vartheta S_S) - E_S is exact for S = {oo, 2}; the semilocal prolate spectrum is computed (converged lam_S(0) = 0.9999974, 1 - lam^2 = 5.18e-6; the stored run with window [e^-16, 1] gives 0.9999731, see convergedSpectrum; lam_S(1) = -0.9927, dyadic ladder ±2^{-n/2}/2, no eigenvalue of modulus 1 — proved); the excess eps_S = delta^out + corr is explicit and inherits EXACTLY HALF of the log cusp of delta_S at rho = 2 (coefficient 1/(2 sqrt2) per log_2; corr continuous), so for 2a > ln 2 the CC operator E_S o Q is indefinite and unbounded above along the p = 2 resonances t_k = 2 pi k/ln 2 (measured half-split 210 vs predicted 202 at a = 0.5, k = 32; E_S o Q > 0 from k = 6): the sufficient condition E o Q <= c|ghat(0)|^2 of CC Thm 6.11 fails for every a > (ln 2)/2 and no finite-rank fix can repair it. This is the failure of one sufficient condition of this transcription, shown numerically; it does not establish that Sonine-space methods end at support ln 2. No positivity past ln 2 proved. RH open; PT Lambda <= 0.2 stands; NO QED',
   decomposition: 'P Phat_S P = Sum lam_n^2 |zeta_n><zeta_n| + S_S; W_oo + W_2 = Tr(vartheta(f) S_S) - E_S(f); eps_S(rho) = Sum_n lam_n/sqrt(1-lam_n^2) <xi_n|vartheta(rho^-1) zeta_n> = Tr(vartheta(rho^-1) P F_S A(1-A^2)^-1 P_1) = delta^out + corr, delta^out = delta_S - delta^in, delta^in(rho) = rho^{-1/2} br(1/rho) (closed form), corr = Sum lam^3/(1-lam^2) <xi_n|vartheta psi_n> uniformly convergent; z = delta_S - eps_S >= 0 as a functional',
   spectrum: 'exact semilocal prolate operator A = P_1 F_S P_1 (FFT–Mellin, multiplier rho_2(s) m(s), no dyadic truncation, delta = 2e-5/1e-5 agree to 1e-6): lam_S = 0.9999731, -0.9927022, 0.6202, -0.5609, 0.4361, -0.4168, 0.4125, -0.3542, 0.3469, 0.3027, -0.2962, ... clustering at ±2^{-n/2}/2 (0.25, 0.1768); lam_k ~ 1/(2 sqrt k), Sum lam^2 = oo (log), Sum |lam|^3 < oo; archimedean control reproduces CC (68): 0.9999711, -0.9795028, 0.5242385, -0.0590133 and eps\'(1+) = 22.9965, t(n) = 11.9719, 8.77574, 2.20528, 0.0434. Theorem: P_1 H ∩ Phat_S H = {0} (g(v) = 2 g(2v) on (1/2, oo) forces xihat = 0); eigenfunctions are lacunary (Zygmund-class, log-singular at 0), which is why dyadic truncations converge like 2^{-N}',
   cuspTheorem: 'per unit log_2(1/eps) at rho = 2^k(1+eps): delta_S ~ 2^{k/2}/2, delta^in ~ 2^{-k/2}/2, delta^out ~ (2^{k/2} - 2^{-k/2})/2 (measured 0.7071/0.3536/0.3536 at k = 1; 1.000/0.250/0.750 at k = 2); corr is continuous through 2 (1.4285, 1.4550, 1.4628 at 1.99/2/2.01); hence eps_S(2(1±eps)) = (1/(2 sqrt2)) log_2(1/eps) + O(1): half the remainder cusp sits in the EXCESS. At rho -> 1: eps_S(1+u) = u[(1/2) log_2(1/u) + 13.62 + o(1)] — CC\'s finite kink eps\'(1+) = 22.9965 becomes a log-kink (E_S o Q = -(1/ln 2) log|D| + bounded on 2a <= ln 2: unbounded below, stronger than CC\'s constant -45.99)',

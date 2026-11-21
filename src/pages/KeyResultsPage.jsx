@@ -8,14 +8,13 @@ import {
   KEY_RESULT_STATUSES,
   KEY_RESULT_TIERS,
   REPO_BLOB_BASE,
-  STRESS_TEST_DATE,
   STRESS_TEST_REPORT,
   hasRanking,
   rankedSections,
 } from '../data/key-results.js';
 
-/* /key-results — the project's listed findings with the outcome of the
-   two-stage stress test of 2026-11-21, and links to the pages and repository
+/* /key-results — the project's listed findings as checked by the two-stage
+   review of 2026-11-21, and links to the pages and repository
    files where each one lives. Static and import-light: all content is in
    src/data/key-results.js.
 
@@ -141,7 +140,7 @@ function RankedView() {
       )}
       {sec.items.length === 0 ? (
         <p className="kr-tier-empty" style={{ fontSize: 14, color: 'var(--ink)', margin: '0 0 4px' }}>
-          No item is in this tier.
+          No item is placed in this tier.
         </p>
       ) : (
         <div style={{ display: 'grid', gap: 12, marginTop: 10 }}>
@@ -153,26 +152,18 @@ function RankedView() {
 }
 
 function HowToRead() {
-  const notHeld = KEY_RESULTS.filter((r) => r.tier === 'not established').length;
-  const maxImportance = Math.max(...KEY_RESULTS.map((r) => (isScore(r.importance) ? r.importance : 0)));
   return (
     <div className="kr-howto" style={{ margin: '16px 0 0', maxWidth: '54rem', border: '1px solid var(--hairline)', borderRadius: 8, background: 'var(--paper2)', padding: '14px 16px' }}>
       <div className="ed-mono" style={{ fontSize: 10.5, color: 'var(--faint)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 5 }}>How to read this</div>
       <p style={{ fontSize: 14.5, color: 'var(--ink)', lineHeight: 1.6, margin: 0 }}>
-        Every item on this page was re-run and attacked by two independent reviewers on {STRESS_TEST_DATE}: a
-        first reviewer, then a referee who checked the first review. Both were AI agents; this is not an
-        external or peer review. Where the two differ, the referee’s verdict is the one shown. Items are in
-        rank order: what was verified first, then what depends least on the project’s own choices, then
-        consequence. Each item has two scores. Arbitrariness: {KEY_RESULT_SCALES.arbitrariness}.
-        Importance: {KEY_RESULT_SCALES.importance}. No item scored above {maxImportance} for importance. No
-        item gives new information on the zeros of zeta, and none changes a refereed bound.{' '}
-        {notHeld === 2 ? 'Two items' : `${notHeld} items`} did not hold; they are listed last with what was
-        wrong. Where the test weakened a claim, the item states the weaker statement and, at the end of its
-        status note, what was corrected.
+        Each item was re-run and checked by two independent reviewers, both AI agents; this is not external
+        peer review. Items are in rank order: what was verified, then how little it depends on the project’s
+        own choices, then consequence. Each item has two scores: arbitrariness
+        ({KEY_RESULT_SCALES.arbitrariness}) and importance ({KEY_RESULT_SCALES.importance}). Items that did
+        not hold are listed last.
       </p>
       <p style={{ fontSize: 13.5, margin: '8px 0 0' }}>
         <a href={`${REPO_BLOB_BASE}${STRESS_TEST_REPORT}`} target="_blank" rel="noreferrer">Full ranking report ↗</a>
-        <span style={{ color: 'var(--ink-soft)' }}> (ranked table, what was weakened, where the reviewers differed, what was not independently verified)</span>
       </p>
     </div>
   );

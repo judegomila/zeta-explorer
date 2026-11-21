@@ -179,8 +179,8 @@ For the actual heat family, `∂τ F = F_ss/4` and a simple zero satisfies `ρ�
 
 The Observatory is the front door of <https://exploreriemann.com> and is served from `/observatory/`.
 
-- `scripts/mount.mjs` runs in the site build after `vite build`. It builds the projective starter packs, copies `dist/` to the site output at `observatory/`, and writes `site-nav.json` from the research app's `src/data/nav-groups.js`.
-- `dist/site-bar.js` draws the single site header (brand, `Observatory | Research` switch, the research menus with page counts, then the Observatory's own actions) when `site-nav.json` is present. Served on its own, the Observatory shows its original header instead.
+- `scripts/mount.mjs` runs in the site build after `vite build`. It builds the projective starter packs, copies `dist/` to the site output at `observatory/`, and writes the single site header into the mounted `index.html` from the research app's `src/data/nav-groups.js`, so it is there on first paint.
+- `dist/site-bar.js` holds the markup for that header (brand, `Observatory | Research` switch, the research menus with page counts, then the Observatory's own actions) and its dropdown behaviour. Served on its own, the Observatory shows its original header instead.
 - `dist/tokens.css` is the single source for colours and fonts. `dist/site-head.css` holds the brand and mode switch used by the static pages.
 - `dist/learn/` is a ground-up introduction to the Riemann hypothesis. Its figures are computed in the browser from `dist/math.js`.
 - The research app's `index.html` redirects the bare site address to `./observatory/`. Its own pages are hash routes (`/#/…`) and are unaffected.

@@ -1,6 +1,6 @@
 /* Site bar: the mode switch and the research programme's menus, drawn in the
-   Observatory's own colours. Only present when ./site-nav.json exists (the
-   combined site). Colours come from tokens.css. */
+   Observatory's own colours. Only present in the combined site, where the
+   build writes the bar into the page. Colours come from tokens.css. */
 .site-bar{--sb-h:calc(74px + var(--site-bar));position:relative;z-index:50;height:var(--sb-h);display:flex;align-items:center;gap:16px;padding:0 22px;
   background:#080d15;color:var(--text);border-bottom:1px solid var(--line);font:12px var(--mono)}
 .site-bar a{color:inherit;text-decoration:none}

@@ -7,12 +7,12 @@
  * 1. Builds the projective starter packs (git-ignored, reproducible).
  * 2. Copies observatory/dist to <repo>/dist/observatory, so the site serves
  *    the Observatory at /observatory/.
- * 3. Writes site-nav.json there from the main app's navigation, which turns
- *    on the Observatory's site bar.
+ * 3. Writes the site bar into the mounted index.html from the main app's
+ *    navigation, so the single header is there on first paint.
  *
  * The Observatory uses relative asset paths only, so it needs no rewriting.
  */
-import {cp,rm,stat,readdir,writeFile} from 'node:fs/promises';
+import {cp,rm,stat,readdir,readFile,writeFile} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -39,15 +39,32 @@ if(!args.includes('--skip-precache')){
 await rm(out,{recursive:true,force:true});
 await cp(source,out,{recursive:true});
 
-// The Observatory's site bar shows the main app's navigation. Export it as
-// data so the static page needs no knowledge of the app's source.
+// The Observatory's site bar shows the main app's navigation. It is written
+// into the page here, with the Observatory's own header actions moved into it,
+// so nothing has to be fetched or rearranged after the page loads.
+let nav=null;
 try{
   const {NAV_GROUPS}=await import(pathToFileURL(path.join(repo,'src','data','nav-groups.js')).href);
-  const nav=NAV_GROUPS.map(group=>({label:group.label,sections:group.sections.map(section=>({heading:section.heading??'',items:section.items.map(({to,label})=>({to,label}))}))}));
-  await writeFile(path.join(out,'site-nav.json'),JSON.stringify(nav));
-  console.log('mount: site navigation, '+nav.length+' groups');
+  nav=NAV_GROUPS.map(group=>({label:group.label,sections:group.sections.map(section=>({heading:section.heading??'',items:section.items.map(({to,label})=>({to,label}))}))}));
 }catch(error){
-  console.warn('mount: no site navigation written ('+error.message+')');
+  console.warn('mount: no site navigation found ('+error.message+'); the Observatory keeps its own header');
+}
+if(nav){
+  const {cleanNav,renderSiteBar}=await import(pathToFileURL(path.join(source,'site-bar.js')).href);
+  const groups=cleanNav(nav),page=path.join(out,'index.html');
+  let html=await readFile(page,'utf8');
+  const actions=html.match(/[ \t]*<nav class="header-actions">[\s\S]*?<\/nav>\n?/);
+  const marks=['<html lang="en">','<body>'];
+  if(!groups.length||!actions||marks.some(mark=>html.split(mark).length!==2)){
+    console.error('mount: index.html no longer has the markup the site bar is written into');process.exit(1);
+  }
+  // The bar replaces the Observatory's 74px header (64px on phones) and is
+  // 18px shorter, so the layout offset is negative.
+  html=html.replace(actions[0],'')
+    .replace(marks[0],'<html lang="en" style="--site-bar:-18px">')
+    .replace(marks[1],'<body data-site-bar="true">\n'+renderSiteBar(groups,actions[0].trim()));
+  await writeFile(page,html);
+  console.log('mount: site bar, '+groups.length+' groups');
 }
 
 async function size(dir){

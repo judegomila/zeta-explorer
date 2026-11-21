@@ -127,6 +127,8 @@ The analytic level \(\Lambda\) and its averaged function stay fixed when applyin
 
 Arbitrarily large windows do not mean every sufficiently large point is controlled. A full-ray bridge follows from sufficiently small gaps between good points; bounded derivative alone is insufficient. The companion note constructs a \(C^2\), globally Lipschitz counterexample with convex uncentred ramp and large peaks between its good windows. The source's special meromorphic-transform window argument therefore remains a genuine analytic input.
 
+Consecutive integer \(k\)th powers near \(x\) have gaps of order \(x^{1-1/k}\) for fixed \(k\ge2\). Squares satisfy the spacing condition in Lemma 5 for every \(\theta>1/2\). For \(k>2\), the gaps are too wide when \(1/2<\theta<1-1/k\). Crossley obtains an RH criterion on every fixed power grid for a tent sum over ordinary primes by bounding the rounding error in terms of the supremum of the real parts of the nontrivial zeta zeros. [Proof on perfect powers](https://doi.org/10.5281/zenodo.24411621)
+
 The [source report](https://github.com/judegomila/zeta-explorer/blob/main/research-checkpoints/rh-arithmetic-theta-2026-11-20/geometric-compression/S76_CLOSURE.md) and [application map](https://github.com/judegomila/zeta-explorer/blob/main/research-checkpoints/rh-arithmetic-theta-2026-11-20/geometric-compression/S76_CLOSURE_MAP.json) preserve this distinction.
 
 ## 6. What was checked, and what still completes the argument

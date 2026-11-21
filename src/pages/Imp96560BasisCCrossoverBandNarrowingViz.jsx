@@ -160,8 +160,7 @@ export default function Imp96560BasisCCrossoverBandNarrowingViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96479 baked band endpoints verbatim (only the log10(L) projection is computed
         here, no re-fit, no zeros-bundle import). Documentation/accuracy-audit diagnostic
-        only: no gap closed, no bound changed, Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. RH open. NO QED.
+        only: no gap closed, no bound changed. RH open. NO QED.
       </div>
     </div>
   );

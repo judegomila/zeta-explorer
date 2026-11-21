@@ -142,7 +142,7 @@ export default function Imp95914UfitComparisonViz() {
         the intervals across deltas, and conditioning alone does not either -- imp-95895 refines
         the reading to a reach-to-conditioning interplay (ln&nbsp;1.25 is tightest despite only
         moderate conditioning). Supplies no new bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

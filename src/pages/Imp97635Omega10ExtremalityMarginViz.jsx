@@ -87,7 +87,7 @@ export default function Imp97635Omega10ExtremalityMarginViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation-only page charting a
         frozen measurement verbatim (no re-derivation, no new computation). Changes no bound; the b/4
-        ceiling is untouched; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        ceiling is untouched; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

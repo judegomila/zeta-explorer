@@ -160,8 +160,7 @@ export default function Imp97368W1SignProfileViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only. No bound
         on Lambda moves; no operator positivity established; interval-rigorous reach stays
-        2a&le;{IMP97336_W1_SIGN_PROFILE.intervalRigorousReach2a}; Platt-Trudgian Lambda&le;0.2
-        remains SOTA; RH open; NO QED.
+        2a&le;{IMP97336_W1_SIGN_PROFILE.intervalRigorousReach2a}; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

@@ -121,8 +121,7 @@ export default function Imp96399RouteMReachRepriceViz() {
         from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement
         is made here. The corrected reach ladder is itself an extrapolated cubic fit, not a re-measured
         wall-clock run at each budget (see imp-96352&apos;s IMP96352_SUBGAP for the unresolved inverse-power
-        iteration-count caveat). Changes no bound, establishes no operator positivity; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        iteration-count caveat). Changes no bound, establishes no operator positivity. NO QED.
       </div>
     </div>
   );

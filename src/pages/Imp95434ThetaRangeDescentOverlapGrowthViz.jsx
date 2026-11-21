@@ -120,8 +120,7 @@ export default function Imp95434ThetaRangeDescentOverlapGrowthViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95375 geometry-image result. It refines the imp-95255
-        LEG 2 classification and changes no bound. Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains state of the art. NO QED.
+        LEG 2 classification and changes no bound. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -198,8 +197,7 @@ export default function Imp95434ThetaRangeDescentOverlapGrowthViz() {
         certified exact floor; N = 64, 192, 640 were left OPEN by imp-95423 and are now
         decided negative (alternating is NOT the argmin) by construction. The exact
         combinatorial floor theta_floor for N &ge; 64 remains UNCOMPUTED (2^N enumeration
-        infeasible). Changes no bound; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA.
+        infeasible). Changes no bound; NO QED.
       </div>
 
       <div
@@ -216,8 +214,7 @@ export default function Imp95434ThetaRangeDescentOverlapGrowthViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         frozen imp-95375 record (exact closed-form Gram, no quadrature). This does not
         determine the actual seam sign pattern (imp-95397, still open); changes no
-        bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

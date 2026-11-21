@@ -207,8 +207,7 @@ export default function Imp97217KreinCsharpNTCoupledDescentViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-97183 data module directly (every value reused verbatim, no recomputation).
-        Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda&le;0.2
-        remains SOTA; RH open; NO QED.
+        Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

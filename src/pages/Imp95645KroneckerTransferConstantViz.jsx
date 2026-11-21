@@ -102,8 +102,7 @@ export default function Imp95645KroneckerTransferConstantViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page rendering the frozen imp-95616
         independent cross-check of the imp-95604 witness (no re-derivation). It
-        changes no bound and proves no RH-relevant theorem. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. NO QED.
+        changes no bound and proves no RH-relevant theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -184,7 +183,7 @@ export default function Imp95645KroneckerTransferConstantViz() {
         rendering the frozen imp-95616 independent-grid reproduction of the
         imp-95604 witness (no re-derivation). Supplies no off-lattice floor
         theorem, changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

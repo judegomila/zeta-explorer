@@ -22,14 +22,14 @@ Hashed after the last edit of each file. `PROVENANCE.md` itself is not listed.
 Git status: 3 tracked, 10 tracked, modified.
 
 ```
-2c14264087aaa724c440b175a8c8117a760a0378197178f6ec1c2c8d1ecd75a6  papers/lambda-qrh-0.116091/README.md
+0736fef12bc010bf714268147015b671a0b16c328fef62bbd31d287ed607528c  papers/lambda-qrh-0.116091/README.md
 4c6501c6a809a16342369b07e981117de20b61bebb67249f8496e43a1e140446  papers/lambda-qrh-0.116091/PROOF_NOTE.md
 22eca3e3e0d01b330426f1326ba010253f2e1a5456e3f01e2e0256dba271c5cb  papers/lambda-qrh-0.116091/PARAMETERS.md
 686eda58c62a0eed16b8f99ed58e21f52a4bf77769c33006f58fcc750fa9236e  papers/lambda-qrh-0.116091/DEPENDENCIES.md
 176e39199219b9916c1b0cb20205cf402619630b826083e683683cd6a4bfb621  papers/lambda-qrh-0.116091/LEAN.md
 2ed0af9f70b4819df2815afdf6ed595b649fbf428828c49165a1327711548f2b  papers/lambda-qrh-0.116091/OPEN_REVIEW_QUESTIONS.md
 38dd0d70964cf80342f8838dd100d0a17053dc7f15a133dc6181eab52d724c08  papers/lambda-qrh-0.116091/BIBLIOGRAPHY.md
-64417c3cac8f25fdbd21aaa001c33c86ee6e56eeb210331dbacb044a040e11a2  papers/lambda-qrh-0.116091/CITATION.md
+b91b51a80f6c78735256b24af8d40bf6086a044e411f17748dea6681230ebef1  papers/lambda-qrh-0.116091/CITATION.md
 314706042f15b7750173d73b6cc2dadd94f60eabe2fa49ec8022f63ed2b535f5  papers/lambda-qrh-0.116091/paper/main.tex
 17136dd7fc2af55c4b681a6bf8f6a91a471ca7adf3b8ed3285f2931283dd58ec  papers/lambda-qrh-0.116091/paper/refs.bib
 e4dc1810d9b7c75f0cc9331af8fd2d50c4b1b5740e4ac203dc940429c309b947  papers/lambda-qrh-0.116091/paper/main.pdf

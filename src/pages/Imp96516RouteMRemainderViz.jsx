@@ -207,7 +207,7 @@ export default function Imp96516RouteMRemainderViz() {
         3.689-wide log-N window (~2.26 oscillation periods) leaves the true asymptote
         undecided -- this does not resolve whether ratio(N) -&gt; 1 beyond N=1e4.
         Measurement/fit-visualization only; changes no bound; establishes no operator
-        positivity; RH open; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        positivity; RH open; NO QED.
       </div>
     </div>
   );

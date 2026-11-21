@@ -168,7 +168,7 @@ export default function Imp96378RouteMBeatPeriodOverlapViz() {
         to agree with the baked anchors to within their own rounding. Establishes no operator positivity,
         moves no Lambda bound, and does not decide whether the real Route M data carries a genuine
         multi-conductor band (imp-96344 F4: that needs the actual Vasyunin Gram at N ~ 5.5e6..1.2e11).
-        Changes no bound, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, no RH claim. NO QED.
       </div>
     </div>
   );

@@ -106,7 +106,7 @@ export default function Imp95791BiasPctVsRhoViz() {
         ported an independent double-double primal eigensolver to cross-check the imp-95744
         cancellation-free dual F_inf at the same three delta=ln1.2 grid cells; this page re-plots
         those frozen literals verbatim (no re-derivation). Model seam family only; changes no
-        Lambda bound; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        Lambda bound; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -161,7 +161,7 @@ export default function Imp95791BiasPctVsRhoViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95762 / imp-95744 literals (no re-derivation). Supplies no new bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

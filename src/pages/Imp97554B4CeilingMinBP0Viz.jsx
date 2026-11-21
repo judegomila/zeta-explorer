@@ -93,8 +93,7 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         measurement). The b/4-ceiling lower edge was already REFUTED
         (imp-97481) and is a dead route; this only visualizes the
         already-measured smallest-witness curve. Presentation only;
-        establishes no operator positivity; changes no bound; PT
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -132,7 +131,7 @@ export default function Imp97554B4CeilingMinBP0Viz() {
         sweep (imp-97540) later pinned the true optimum at P0=1429, only
         ~0.004% smaller than this P0=1409 estimate &mdash; the coarse grid
         charted here was already essentially on the optimum. Establishes no
-        operator positivity; changes no bound; PT Lambda&le;0.2 remains SOTA;
+        operator positivity; changes no bound;
         RH open; NO QED.
       </div>
     </div>

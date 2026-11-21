@@ -1142,7 +1142,7 @@ export default function HomePage() {
       <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 44, marginBottom: 6 }}>Project Results</h2>
       <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, maxWidth: 780, lineHeight: 1.7 }}>
         The state of the approach — including the negative results, which are the program's sharpest output.
-        The peer-reviewed benchmark remains <strong style={{ color: '#e2e8f0' }}>Platt–Trudgian Λ ≤ 0.2</strong>;
+        The peer-reviewed benchmark is <strong style={{ color: '#e2e8f0' }}>Platt–Trudgian Λ ≤ 0.2</strong>;
         the public 0.1875 package is reproducible after a local repair but remains unrefereed. The
         older finite-N sub-0.2 figure is an <em>estimate</em> gated on the RH-hard C_H constant. The standalone
         repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an

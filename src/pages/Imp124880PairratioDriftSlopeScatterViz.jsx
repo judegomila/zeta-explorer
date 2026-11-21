@@ -115,7 +115,7 @@ export default function Imp124880PairratioDriftSlopeScatterViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation-only leaf
         reusing the frozen imp-124850 OLS fit verbatim (same six L2..L7 rungs, same fitted slope D,
         intercept R, and their standard errors). Accuracy/cross-validation diagnostic, NOT an RH bound;
-        no operator positivity established; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        no operator positivity established; no refereed bound is changed; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

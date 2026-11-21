@@ -99,7 +99,7 @@ const FRONTIER_CARDS = [
   {
     title: 'y-thaw · the 0.17759432 package',
     grade: 'candidate-unrefereed',
-    body: 'A delivered-face y-thaw of the sealed 0.1787854 candidate (129/800 + 0.1808²/2). Obligations O3/O5 certified across three integrators; O1/O2/O4/O6 open (the theorem behind O1 is Lean-checked with gates G1–G4 as hypotheses). A package value, not a bound.',
+    body: 'A delivered-face y-thaw of the sealed 0.1787854 candidate (129/800 + 0.1808²/2). 2 of 6 obligations closed (O3, O5, certified across three integrators); O1, O2, O4, O6 open (record of 2026-09-22) (the theorem behind O1 is Lean-checked with gates G1–G4 as hypotheses). A package value, not a bound.',
     links: [{ to: '/threads', label: 'Research threads' }, { to: '/frontier-dag', label: 'Frontier DAG' }],
   },
   {

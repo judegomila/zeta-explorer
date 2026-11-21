@@ -193,8 +193,7 @@ export default function Imp96395SigmaLocalExponentRampViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page; the sigma(N)/OLS
         exponent/D2 logic is copied verbatim from imp-96351 (no fresh model, no re-fit), only
         re-run here to expose the per-bracket series for charting. Measurement/fit only;
-        inherited component model, not a rigorous asymptotic; changes no bound; RH open;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        inherited component model, not a rigorous asymptotic; changes no bound; RH open. NO QED.
       </div>
     </div>
   );

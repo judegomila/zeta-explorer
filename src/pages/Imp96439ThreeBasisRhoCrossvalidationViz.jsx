@@ -227,8 +227,7 @@ export default function Imp96439ThreeBasisRhoCrossvalidationViz() {
         baked three-basis table verbatim (only the chart-axis reshaping is computed here). rho is
         the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of
         unfolded length L; these are theoretical envelope values with no computed Riemann zeros
-        behind them. Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        behind them. Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

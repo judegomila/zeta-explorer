@@ -177,7 +177,7 @@ export default function Imp96478CountGapShareViz() {
         imp-96445 baked per-anchor fractions verbatim (only the log10(N) / stacked-bar
         projection is computed here, no re-fit, no zeros-bundle import). Accuracy-audit
         diagnostic only: no gap closed, no bound changed, conditional C_H &le; 0.127 stays
-        UNPROVEN, Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. RH open. NO QED.
+        UNPROVEN. RH open. NO QED.
       </div>
     </div>
   );

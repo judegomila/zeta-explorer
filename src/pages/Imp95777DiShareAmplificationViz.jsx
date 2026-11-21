@@ -102,8 +102,7 @@ export default function Imp95777DiShareAmplificationViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-95724 exact split and imp-95749 conditional variation (no
         re-derivation, no new computation). The dI variation is CONDITIONAL on the imp-95720/95745
-        +4 offset hypothesis, verified only at m=20. Changes no bound; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; NO QED.
+        +4 offset hypothesis, verified only at m=20. Changes no bound; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

@@ -115,8 +115,8 @@ export default function Imp97747RouteMDeepLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97722 23-rung ladder verbatim (no re-derivation, no new
-        computation). MCM stays refuted from omega=11; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA; RH open; NO QED.
+        computation). MCM stays refuted from omega=11; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

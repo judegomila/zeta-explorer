@@ -127,7 +127,7 @@ export default function Imp97453RouteMSignLawMagnitudeLadderViz() {
         re-derivation). Sign proved through &omega;={IMP97453_SUMMARY.signProvedThrough}, reduced at
         &omega;={IMP97453_SUMMARY.signReducedAt}; magnitude conditional on MCM, verified through
         &omega;={IMP97453_SUMMARY.magnitudeVerifiedThrough}. Changes no bound, establishes no operator
-        positivity; Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        positivity; RH open; NO QED.
       </div>
     </div>
   );

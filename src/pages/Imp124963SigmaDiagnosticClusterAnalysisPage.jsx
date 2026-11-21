@@ -127,7 +127,7 @@ export default function Imp124963SigmaDiagnosticClusterAnalysisPage() {
         over the already-committed imp-124906 cluster; establishes nothing new and moves no bound.
         Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation; C_mb
         GUE-conditional per imp-486 and the C_C 1/8 ansatz untouched; imp-3066 K_a&ge;0 untouched;
-        RH open; NO QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        RH open; NO QED. No refereed bound is changed.
       </div>
     </div>
   );

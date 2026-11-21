@@ -176,8 +176,7 @@ export default function Imp96514Excursion2SigmaInteriorScanViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96493 baked ten-candidate scan verbatim (the only new step is merging in the
         T=1.5e5 reference point and labelling each marker category). Measurement only:
-        changes no bound, establishes no operator positivity; RH open; NO QED;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

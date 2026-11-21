@@ -160,7 +160,7 @@ export default function Imp95279PhaseCertVsNogoCeilingViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a model-family numeric
         illustration, not a new theorem. It changes no Lambda bound and establishes no operator
-        positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not
+        positivity. RH does not
         follow from anything on this page. NO QED.
       </div>
 
@@ -218,7 +218,7 @@ export default function Imp95279PhaseCertVsNogoCeilingViz() {
         imp-95279 baked viz-data (the curve recomputed independently from the imp-95233
         documented closed form bound = e^(-y_min)/(2 theta); the two witness markers are the
         exact literals from imp-95233's own assertions). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        operator positivity, no RH claim.
         NO QED.
       </div>
     </div>

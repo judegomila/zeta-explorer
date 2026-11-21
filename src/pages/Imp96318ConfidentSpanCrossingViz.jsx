@@ -191,7 +191,7 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         baked fine-grid crossing curve verbatim (only the log(rho) axis reshaping is computed here).
         Synthetic q4+q5 two-tone Monte-Carlo simulation, not a measurement of the real conductor
         content or its amplitude ratio. Changes no bound, establishes no operator positivity, no RH
-        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        claim. NO QED.
       </div>
     </div>
   );

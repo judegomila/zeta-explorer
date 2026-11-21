@@ -123,7 +123,7 @@ export default function Imp97631SigmaLandmarkElasticityComparisonViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a presentation-only page pairing
         two frozen sensitivity measurements verbatim (no re-derivation, no new computation). Changes no
-        bound; establishes no operator positivity; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA;
+        bound; establishes no operator positivity;
         RH open; NO QED.
       </div>
 

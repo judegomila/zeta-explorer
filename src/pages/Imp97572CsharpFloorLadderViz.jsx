@@ -131,8 +131,7 @@ export default function Imp97572CsharpFloorLadderViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement
         only, reusing the imp-97492 cohort-index literals verbatim (no
         re-derivation). No rigorous positive lower bound on c_sharp exists;
-        interval-rigorous certified reach stays 2a&le;0.96; Platt-Trudgian
-        Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        interval-rigorous certified reach stays 2a&le;0.96; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -184,8 +183,7 @@ export default function Imp97572CsharpFloorLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97492 cohort index verbatim; no re-solve. Establishes
-        no operator positivity; changes no bound; PT Lambda&le;0.2 remains
-        SOTA; RH open; NO QED.
+        no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

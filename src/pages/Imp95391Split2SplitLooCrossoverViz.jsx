@@ -117,7 +117,7 @@ export default function Imp95391Split2SplitLooCrossoverViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement only, a
         self-consistency re-render of an algebraic identity between two already-proven bounds. It
-        changes no Lambda bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art.
+        changes no Lambda bound.
         RH does not follow from anything on this page. NO QED.
       </div>
 

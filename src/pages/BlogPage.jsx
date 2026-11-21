@@ -244,11 +244,11 @@ export default function BlogPage() {
           </p>
         </Section>
 
-        {/* ── Where this stands (private project) ───────────────── */}
-        <Section title="Where this stands (private project)" color="var(--brass-dk)">
+        {/* ── Where this stands ───────────────── */}
+        <Section title="Where this stands" color="var(--brass-dk)">
           <p>
-            This is a private, exploratory research project — nothing here is a published or
-            externally asserted result. The peer-reviewed benchmark on the de Bruijn-Newman
+            This is an exploratory research project in a public repository — nothing here is a refereed
+            result. The peer-reviewed benchmark on the de Bruijn-Newman
             constant is <strong>&Lambda; &le; 0.2</strong> (Platt&ndash;Trudgian), together with{' '}
             <strong>&Lambda; &ge; 0</strong> (Rodgers&ndash;Tao); neither is a result of this project.
           </p>

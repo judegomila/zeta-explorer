@@ -183,8 +183,8 @@ export default function Imp96316EtruncSensitivityViz() {
         imp-96187 F3 E_trunc-scale sensitivity sweep from the identical inherited component model at
         a finer grid to expose the smooth 1/sqrt(3) crossing for charting (no new derivation).
         Measurement/derivation display only; the C_mb GUE-conditional share (imp-486) stays
-        untouched; establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains SOTA. NO QED.
+        untouched; establishes no operator positivity, no RH claim; no refereed bound is changed.
+         NO QED.
       </div>
     </div>
   );

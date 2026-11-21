@@ -181,8 +181,7 @@ export default function Imp95546RzPen78GainLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a floor-only measurement
         summary of already-proven per-leg gains, not a new theorem. It changes no Lambda bound and
-        establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of
-        the art. RH does not follow from anything on this page. NO QED.
+        establishes no operator positivity. RH does not follow from anything on this page. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -242,8 +241,7 @@ export default function Imp95546RzPen78GainLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-95546 baked viz-data (values copied verbatim from the imp-95333 / imp-95334 records,
-        no re-derivation). Changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no re-derivation). Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

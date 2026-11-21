@@ -88,8 +88,7 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         Gegenbauer profiles and proved its support is exactly {'{'}j+k even{'}'} AND {'{'}k&nbsp;&le;&nbsp;j+6{'}'}:
         {' '}{IMP97316_SUMMARY.nonzero} nonzero of {IMP97316_SUMMARY.total} cells
         ({IMP97316_SUMMARY.zeroByParity} parity-killed, {IMP97316_SUMMARY.zeroByDegreeBand} band-killed).
-        No numeric v0, degree image, or interval majorant is produced here. Changes no bound;
-        Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA; RH open; NO QED.
+        No numeric v0, degree image, or interval majorant is produced here. Changes no bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
@@ -137,8 +136,7 @@ export default function Imp97316CommittedCjkSparsityBandViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97316
         viz-data leaf (sparsity census and anchors reused verbatim from imp-97293; the per-row band
         is a direct combinatorial reading of the proved support rule, cross-checked against the
-        offline-swept total at import). Changes no bound, establishes no operator positivity;
-        Platt-Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
+        offline-swept total at import). Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

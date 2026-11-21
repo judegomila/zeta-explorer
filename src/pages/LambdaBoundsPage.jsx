@@ -111,9 +111,9 @@ function displayTLDR(tldr) {
       'A separate private v3 package proposes Lambda <= 0.1787854 as an unreviewed ' +
       'computer-assisted proof candidate for an unconditional bound; it is not established, ' +
       'published, peer-reviewed, or accepted, and RH still requires Lambda <= 0.',
-      'A separate private v3 package proposes Lambda <= 0.1787854 as a computer-assisted proof ' +
-      'candidate for an unconditional bound — reviewed by Dan Romik and being prepared for public ' +
-      'release, but unrefereed and not established. A sharper four-gate candidate reaches ' +
+      'A separate v3 package proposes Lambda <= 0.1787854 as a computer-assisted proof ' +
+      'candidate for an unconditional bound — reviewed by Dan Romik and publicly posted, ' +
+      'not refereed and not established. A sharper four-gate candidate reaches ' +
       'Lambda <= 0.1758354 (four Arb-checked gates, Lean-checked y-transfer reduction and Lemma B3; unrefereed, not ' +
       'established). The strict Lambda <= 0.14 statement is a conditional completion contract ' +
       'reduced to one open family, not a bound. RH still requires Lambda <= 0.',
@@ -122,7 +122,7 @@ function displayTLDR(tldr) {
 
 // Chain-step caveats repeat the PT tag-line in ASCII form; same suppression.
 const ASCII_PT_REFRAIN =
-  'Platt-Trudgian Lambda <= 0\\.2 (?:remains|stays) (?:the peer-reviewed benchmark|SOTA)';
+  '(?:Platt-Trudgian|PT) Lambda (?:<=|≤) 0\\.2 (?:remains|stays) (?:the peer-reviewed benchmark|SOTA)';
 function displayCaveat(text) {
   return (text || '')
     .replace(new RegExp(`;\\s*${ASCII_PT_REFRAIN}\\.`, 'g'), '.')
@@ -362,7 +362,7 @@ export default function LambdaBoundsPage() {
               this program (y-thaw stages 1+2, 2026-09)
             </div>
             <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>
-              O3 and O5 closed; O1, O2, O4, O6 open. The theorem behind O1 is Lean-checked with
+              2 of 6 obligations closed (O3, O5); O1, O2, O4, O6 open (record of 2026-09-22). The theorem behind O1 is Lean-checked with
               gates G1–G4 as hypotheses. A package value, not a bound.
               Status per obligation on the frontier DAG and the y-thaw research thread.
             </div>
@@ -450,7 +450,7 @@ export default function LambdaBoundsPage() {
               <Link to="/viz-imp33830-sigma-decay-landmark-ladder" style={{ color: 'var(--brass-dk)' }}>
                 /viz-imp33830-sigma-decay-landmark-ladder
               </Link>
-              . No new value derived; imp-3066 K_a ≥ 0 untouched; NO QED; Platt-Trudgian Lambda ≤ 0.2 remains SOTA.
+              . No new value derived; imp-3066 K_a ≥ 0 untouched; NO QED.
             </div>
           </div>
 
@@ -466,7 +466,7 @@ export default function LambdaBoundsPage() {
             }}
           >
             <strong style={{ color: 'var(--brass-dk)' }}>Target:</strong>{' '}
-            {LAMBDA_ROADMAP.targetSOTA}
+            {LAMBDA_ROADMAP.targetSOTA.replace('the private 0.1787854 proof candidate', 'the publicly posted, unrefereed 0.1787854 proof candidate')}
           </div>
         </div>
 

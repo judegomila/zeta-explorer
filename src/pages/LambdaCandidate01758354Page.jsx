@@ -15,7 +15,7 @@ export default function LambdaCandidate01758354Page() {
       meta={['2026-08-18', 'computer-assisted', 'unrefereed']}
       title={<>Λ ≤ 0.1758354 — a four-gate barrier certificate</>}
       dek={<>A revised mollifier and an extended finite lane certify a de Bruijn–Newman bound of 0.1758354, below the 0.1787854 candidate. Four gates, each machine-checked in interval arithmetic; the y-transfer reduction and Lemma B3 are Lean-checked. This is not a refereed result and does not displace Platt–Trudgian.</>}
-      byline={['Barrier program · exploreriemann', 'candidate — not SOTA']}
+      byline={['Barrier program · exploreriemann', 'candidate — unrefereed']}
       ticker={<span>candidate · Λ ≤ <b>&nbsp;0.1758354</b></span>}
       footer={<>Related: <Link to="/newman-lambda-01787854-candidate">Λ ≤ 0.1787854 package</Link> · <Link to="/lambda-bounds">the bounds ledger</Link> · <Link to="/pt-floor-audit">what binds the floor</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
@@ -52,7 +52,7 @@ export default function LambdaCandidate01758354Page() {
 
       <h2>Status</h2>
       <p>This is a <ConceptTerm slug="project-lambda-candidate">candidate</ConceptTerm>: the y-transfer reduction and Lemma B3 are <ConceptTerm slug="lean-formalization">formalized in Lean</ConceptTerm>, the numerics are interval-rigorous, and an internal composition audit (2026-09-28) found every interface consistent: ε_cap ≤ 2.668×10⁻⁷ at this candidate's own parameters, tightened gate 1.6225×10⁻³ &gt; 0, checked by the fail-closed script <code>scripts/lambda-01758354-gate.mjs</code>. It has not been externally reviewed. It is the lowest value the barrier method currently reaches, below <Link to="/newman-lambda-01787854-candidate">the 0.1787854 package</Link>, and consistent with the finding that the <Link to="/pt-floor-audit">verified height binds the floor</Link>.</p>
-      <p>The y-transfer gate — the hardest of the four — has an Arb PASS certificate: <code>verify_ydini_genmoll.c</code> at 256-bit over all 20,546 profiles gives a certified excision budget <InlineMath tex="B = 2.4957\times10^{-4}" />, a factor 7.5 inside the finite-lane margin <InlineMath tex="1.872\times10^{-3}" /> (run 2026-08-02, partials reproduced bit-identical 2026-09-22). That discharges the y-Dini/excision <em>computation</em>; the composition audit (deriving ε_cap at these parameters) and independent referee review remain outstanding. It is not a bound; Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark.</p>
+      <p>The y-transfer gate — the hardest of the four — has an Arb PASS certificate: <code>verify_ydini_genmoll.c</code> at 256-bit over all 20,546 profiles gives a certified excision budget <InlineMath tex="B = 2.4957\times10^{-4}" />, a factor 7.5 inside the finite-lane margin <InlineMath tex="1.872\times10^{-3}" /> (run 2026-08-02, partials reproduced bit-identical 2026-09-22). That discharges the y-Dini/excision <em>computation</em>; the composition audit (deriving ε_cap at these parameters) and independent referee review remain outstanding. It is not a bound.</p>
     </PostLayout>
   );
 }

@@ -201,8 +201,7 @@ export default function Imp96334EcollRateChIndependenceChartViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96311
         baked columns and slope profile verbatim (only the plotting shape is computed here).
-        Changes no bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

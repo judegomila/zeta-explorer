@@ -131,7 +131,7 @@ export default function Imp96212TwoBranchEtruncObstructionViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96190
         baked branches and moving-tail table verbatim (no re-derivation). Changes no bound, establishes
-        no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

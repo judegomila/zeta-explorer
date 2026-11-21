@@ -111,8 +111,7 @@ export default function Imp97671GapLawDecayExponentViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97640 local-exponent ladder verbatim (no re-derivation, no new
         computation). The third rung is precision-limited by 7-sig-fig catastrophic cancellation and is
-        flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+        flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

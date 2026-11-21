@@ -453,7 +453,7 @@ export default function VizCostFloorPage() {
             calibration points sit at y ∈ [0.165, 0.19]; below that band the G ~ N<sup>−y</sup> channel adds a second
             wall the law omits, so small-y colors <em>understate</em> cost. This page derives no bound, certifies
             nothing, and closes no gap — all rows are conditional-frontier objects. <strong>NO QED.</strong>{' '}
-            Platt–Trudgian Λ ≤ 0.2 remains SOTA. Source: <span className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95218-route7-cost-curve.js</span> (grade: {IMP95218_ROUTE7_COST_CURVE.grade}).
+            No refereed bound is changed. Source: <span className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95218-route7-cost-curve.js</span> (grade: {IMP95218_ROUTE7_COST_CURVE.grade}).
           </p>
         </div>
 

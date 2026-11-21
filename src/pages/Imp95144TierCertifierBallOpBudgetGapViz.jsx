@@ -117,8 +117,7 @@ export default function Imp95144TierCertifierBallOpBudgetGapViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the imp-95213
         TIER_PRICE and imp-95214 TIER2_PRICE literals verbatim (no new computation). Qualitative
-        budget-gap picture only; no bound promoted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
-        SOTA. No QED.
+        budget-gap picture only; no bound promoted. No QED.
       </div>
     </div>
   );

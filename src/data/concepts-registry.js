@@ -16,7 +16,7 @@
  *    (Lemma B), local RH window (r2-*, r3-*, r6-synthesis, b145-*, s145-*, dag3-*, tlb-* modules).
  *
  * Status language: Platt–Trudgian Λ ≤ 0.2 is the accepted peer-reviewed benchmark. Project values below
- * 0.2 (e.g. the Λ ≤ 0.1758354 candidate) are computer-assisted, unreviewed and unpublished, or
+ * 0.2 (e.g. the Λ ≤ 0.1758354 candidate) are computer-assisted and not refereed, or
  * conditional. RH is open. Nothing here claims a proof of RH.
  *
  * Exports: CONCEPTS_REGISTRY, CONCEPT_CLASSES, ALIAS_INDEX, findConcept, CONCEPTS_REGISTRY_ASSERTIONS.
@@ -371,7 +371,7 @@ const RAW_CONCEPTS = [
     'Moving a lower bound proven at one height y to all heights y in a box. In the 0.1758354 candidate it is a certified gate with an excision budget.',
     false, ['project-lambda-candidate', 'barrier-method'], [R('0.1758354 candidate', '/lambda-01758354-candidate')]),
   c('project-lambda-candidate', 'Project Λ ≤ 0.1758354 candidate', ['0.1758354', 'Λ ≤ 0.1758354', 'four-gate candidate'], 'barrier',
-    'A computer-assisted barrier bound with four certified gates (finite lane, tail, barrier, y-transfer). Unreviewed and unpublished; not an accepted bound.',
+    'A computer-assisted barrier bound with four certified gates (finite lane, tail, barrier, y-transfer). Not refereed; not an accepted bound.',
     true, ['barrier-method', 'route-vii-lane', 'y-transfer', 'arb-interval-certificate'],
     [R('0.1758354 candidate', '/lambda-01758354-candidate'), P('Composition audit', 'src/data/dag3-audit01758-2026-09-28.js')], '/lambda-01758354-candidate'),
 

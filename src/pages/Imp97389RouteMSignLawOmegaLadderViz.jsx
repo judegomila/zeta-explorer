@@ -102,8 +102,7 @@ export default function Imp97389RouteMSignLawOmegaLadderViz() {
         imp-97352 for &omega;=4). The domination method hits a SHARP wall at
         &omega; = {IMP97389_LADDER_SUMMARY.sharpWallAt}: {IMP97389_LADDER_SUMMARY.countingRule}.
         &omega;&ge;5 remains open, reduced to {IMP97389_LADDER_SUMMARY.residualSubgap}. This is a
-        measurement/status display, not a new bound; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains
-        SOTA; RH open; NO QED.
+        measurement/status display, not a new bound; RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '0.5rem', maxWidth: 700 }}>
@@ -127,8 +126,7 @@ export default function Imp97389RouteMSignLawOmegaLadderViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-97389
         viz-data leaf (every value reused verbatim from imp-97333/imp-97352, no re-derivation).
-        Changes no bound, establishes no operator positivity; Platt-Trudgian &Lambda;&le;0.2 remains
-        SOTA; RH open; NO QED.
+        Changes no bound, establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

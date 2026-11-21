@@ -285,8 +285,8 @@ export default function MetaAccelerationPage() {
             <Link to="/newman-lambda-01787854-candidate" style={{ color: 'var(--blue)' }}>
               Λ ≤ 0.1787854
             </Link>{' '}
-            (computer-assisted; reviewed by Dan Romik; being prepared for
-            public release) and{' '}
+            (computer-assisted; reviewed by Dan Romik; publicly posted,
+            not refereed) and{' '}
             <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>
               Λ ≤ 0.1758354
             </Link>{' '}

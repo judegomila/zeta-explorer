@@ -275,8 +275,7 @@ export default function Imp95888RcapWindowBottomViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page rendering the frozen
         imp-95722 derived envelope and imp-95787 estimator-bias table verbatim (no
-        re-derivation). Supplies no new bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        re-derivation). Supplies no new bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

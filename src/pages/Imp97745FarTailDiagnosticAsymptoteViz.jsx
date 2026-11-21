@@ -113,8 +113,8 @@ export default function Imp97745FarTailDiagnosticAsymptoteViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement/presentation-only
         page reshaping the frozen imp-97723 diagnostic ladder verbatim (no re-derivation, no new
-        computation). Conditional-share diagnostic, NOT an RH bound; Platt&ndash;Trudgian &Lambda;
-        &le; 0.2 remains SOTA; RH open; NO QED.
+        computation). Conditional-share diagnostic, NOT an RH bound; no refereed bound is changed;
+         RH open; NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

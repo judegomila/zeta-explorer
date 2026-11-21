@@ -169,8 +169,7 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a measurement-only
         page tabulating the imp-95374 record. It quantifies the imp-95330/imp-95331
-        off-lattice residual and changes no bound. Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains state of the art. NO QED.
+        off-lattice residual and changes no bound. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -258,7 +257,7 @@ export default function Imp95435RzpenOfflatticeDegradationLadderViz() {
         looser imp-95335 Ingham route); onset shift isolates the floor degradation only,
         holding the numerator fixed (the numerator's own drift is the separate imp-95253
         leg, composed in imp-95445). Changes no bound, establishes no operator
-        positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
+        positivity, no RH claim.
         NO QED.
       </div>
     </div>

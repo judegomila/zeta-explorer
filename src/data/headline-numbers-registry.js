@@ -182,7 +182,7 @@ HEADLINE_NUMBERS_ASSERTIONS.push(
   {
     id: 'headline-external-evidence-grades-remain-distinct',
     why:
-      'The 0.1875 public claim must remain review-open, while 0.1787854 must remain an unestablished private proof candidate pinned to the v3 package',
+      'The 0.1875 public claim must remain review-open, while 0.1787854 must remain an unestablished, publicly posted, unrefereed proof candidate pinned to the v3 package',
     holds: () =>
       CURRENT_LAMBDA_STATUS.publicUnrefereedClaimStatus === 'review-open-not-accepted' &&
       CURRENT_LAMBDA_STATUS.privateProofCandidate === 0.1787854 &&

@@ -180,8 +180,7 @@ export default function Imp96557EflowDominationKappaViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96409 required-factor measurement verbatim (the only new step is parsing N-labels and
         taking log10 for the plotting grid). Presentation / measurement diagnostic only; changes
-        no bound; establishes no operator positivity; RH open; NO QED; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA.
+        no bound; establishes no operator positivity; RH open; NO QED.
       </div>
     </div>
   );

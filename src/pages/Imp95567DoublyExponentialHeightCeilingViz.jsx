@@ -112,8 +112,7 @@ export default function Imp95567DoublyExponentialHeightCeilingViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> a
         measurement/presentation-only page re-plotting the frozen imp-95533 LEMMA
         RES-T (L4) height-ceiling law (no re-derivation, no new term). It changes no
-        bound and proves no RH-relevant theorem. Platt&ndash;Trudgian &Lambda; &le;
-        0.2 remains state of the art. NO QED.
+        bound and proves no RH-relevant theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -190,8 +189,7 @@ export default function Imp95567DoublyExponentialHeightCeilingViz() {
         rendering the frozen imp-95533/imp-95559 RES-T (L4) height-ceiling law (no
         re-derivation). Supplies no T &gt; T_X existence proof (that residual reduces
         to the pointwise Hilbert-transform wall shared with imp-95519/imp-95543);
-        changes no bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

@@ -151,8 +151,7 @@ export default function Imp96262ModelSelectionScoresViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page tabulating the
         imp-96231 baked model-selection scores verbatim (no new computation). Measurement only;
-        changes no bound, establishes no operator positivity, makes no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. RH open. NO QED.
+        changes no bound, establishes no operator positivity, makes no RH claim. RH open. NO QED.
       </div>
     </div>
   );

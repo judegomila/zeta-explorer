@@ -176,8 +176,7 @@ export default function Imp96322EDecompositionViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         imp-96290 baked inventory verbatim (only the log-scale bar layout is computed here).
-        Changes no bound, establishes no operator positivity, no RH claim; Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains SOTA. NO QED.
+        Changes no bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

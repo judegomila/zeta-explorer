@@ -195,7 +195,7 @@ export default function Imp96039HalfGramInterlacingCensusViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the
         Route B Lemma H interlacing census (baked literals, copied verbatim, not re-derived).
         Interlacing would presuppose RH; this chart establishes no operator positivity and carries
-        no RH claim. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no RH claim. No refereed bound is changed. NO QED.
       </div>
     </div>
   );

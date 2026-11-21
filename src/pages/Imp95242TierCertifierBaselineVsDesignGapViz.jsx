@@ -135,7 +135,7 @@ export default function Imp95242TierCertifierBaselineVsDesignGapViz() {
         TIER_PRICE literals verbatim (no new computation). The full-window run itself
         ({TIER_PRICE.fullWindow.cpuDaysBothMetrics.toFixed(1)} CPU-days as priced) was NOT
         launched; this is a sub-range price measurement extrapolated from a hardest-stretch slice.
-        Changes no bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.
+        Changes no bound. No QED.
       </div>
     </div>
   );

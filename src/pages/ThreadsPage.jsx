@@ -131,7 +131,7 @@ export default function ThreadsPage() {
           The program's {THREADS.length} major lines of work as dated timelines: what happened, in what order,
           with each step's verdict and grade stated verbatim. Curated from the repo record
           (compiled {THREADS_META.compiled}; master ledger formalization/ARISTOTLE_TARGETS.md).
-          Nothing on this page establishes a bound; the peer-reviewed benchmark is Platt–Trudgian Λ ≤ 0.2.
+          Nothing on this page establishes a bound.
         </p>
 
         <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '16px 0 4px', background: 'var(--paper)' }}>

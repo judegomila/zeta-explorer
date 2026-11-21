@@ -645,7 +645,7 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming three
         previously-orphaned viz-data leaves verbatim. Changes no bound, establishes no operator
-        positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+        positivity; RH open; NO QED.
       </div>
     </div>
   );

@@ -149,8 +149,7 @@ export default function Imp124899KernelArmOffsetAsymmetryViz() {
       <p style={{ color: 'var(--ink-faint)', fontSize: '0.78rem', fontStyle: 'italic', marginBottom: '1rem', maxWidth: 760 }}>
         Honest status: presentation only, reusing the frozen imp-124852 leaf verbatim. This is a
         conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a
-        rigorous asymptotic. It moves no bound and establishes no operator positivity; the
-        Platt-Trudgian Lambda &lt;= 0.2 figure remains state of the art.
+        rigorous asymptotic. It moves no bound and establishes no operator positivity.
       </p>
 
       <p style={{ color: 'var(--ink-faint)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>

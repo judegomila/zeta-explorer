@@ -193,8 +193,7 @@ export default function Imp95646TransitionKnee2DHeatmapViz() {
         }}
       >
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement/sensitivity only.
-        It changes no Lambda bound and establishes no operator positivity. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. RH does not follow from anything on this page.
+        It changes no Lambda bound and establishes no operator positivity. RH does not follow from anything on this page.
         NO QED.
       </div>
 

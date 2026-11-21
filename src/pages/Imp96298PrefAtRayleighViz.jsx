@@ -157,8 +157,7 @@ export default function Imp96298PrefAtRayleighViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96264
         baked ratio table verbatim (only the log(rho) axis reshaping is computed here). Route M
         off-lattice arithmetic per imp-96189, NOT a zero-tone measurement. Changes no bound,
-        establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
-        remains SOTA. NO QED.
+        establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

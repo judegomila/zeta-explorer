@@ -54,8 +54,7 @@ export default function SurrogateModelPage() {
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           That is the entire content of the recurring caveat: results built on this surrogate
           establish no new operator positivity, discharge no wall, and carry no RH verdict.
-          Platt-Trudgian's rigorous <InlineMath tex="\Lambda \le 0.2" /> remains the certified
-          state of the art regardless of what the surrogate shows.
+          No bound on <InlineMath tex="\Lambda" /> changes because of anything the surrogate shows.
         </p>
       </section>
 

@@ -161,7 +161,7 @@ export default function Imp96237HeightToFloorViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96207
         baked anchors/table/sensitivity verbatim (only the plotted log-log line samples are
         computed here, by evaluating the already-derived law). Changes no bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

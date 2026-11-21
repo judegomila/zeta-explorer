@@ -73,8 +73,7 @@ export default function Imp96139WindowRobustnessSweepTableViz() {
         imp-96112 measurement, re-running the imp-95562 band() estimator at T&nbsp;=&nbsp;5e4 across a
         12-config sweep of half-width, span and box-overlap to check whether the imp-96090 max-anchor
         cap and its tight +3.0% margin are robust to the window choice. It changes no Lambda bound and
-        establishes no operator positivity. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the
-        art. NO QED.
+        establishes no operator positivity. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
@@ -122,7 +121,7 @@ export default function Imp96139WindowRobustnessSweepTableViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page consuming the imp-96112
         baked sweep verbatim (no re-derivation). Changes no bound, establishes no operator positivity,
-        no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        no RH claim. NO QED.
       </div>
     </div>
   );

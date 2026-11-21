@@ -174,7 +174,7 @@ export default function Imp97570CrossoverCrestCombinedViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> measurement
         only, reusing two upstream measurements verbatim (no re-derivation).
         Establishes no operator positivity; changes no bound. The rigorous
-        anchor stays T = 2.594e7; PT Lambda&le;0.2 remains SOTA; RH open; NO
+        anchor stays T = 2.594e7; no refereed bound is changed; RH open; NO
         QED.
       </div>
 
@@ -229,8 +229,7 @@ export default function Imp97570CrossoverCrestCombinedViz() {
       >
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         consuming the imp-97441 and imp-97459 tables verbatim; no re-solve.
-        Establishes no operator positivity; changes no bound; PT Lambda&le;0.2
-        remains SOTA; RH open; NO QED.
+        Establishes no operator positivity; changes no bound; RH open; NO QED.
       </div>
     </div>
   );

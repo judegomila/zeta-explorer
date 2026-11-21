@@ -92,7 +92,7 @@ export default function Imp97589SigmaLandmarkLadderViz() {
         <strong style={{ color: 'var(--series-1)' }}>Honest status:</strong> presentation
         only, charting the already-tabulated imp-97520 landmark ladder with
         the exact inherited sigma(N) sub-terms. No bound moves; establishes no
-        operator positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH
+        operator positivity; RH
         open; NO QED.
       </div>
 

@@ -97,8 +97,7 @@ export default function Imp95588MsqGueEnvelopeViz() {
         measurement/presentation-only page rendering the frozen imp-95562
         discrepancy statistics measured over the actual Odlyzko zeros (no
         re-derivation). It changes no bound and proves no RH-relevant
-        theorem. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the
-        art. NO QED.
+        theorem. NO QED.
       </div>
 
       <p style={{ color: 'var(--ink-soft)', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
@@ -160,8 +159,7 @@ export default function Imp95588MsqGueEnvelopeViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page
         rendering the frozen imp-95562 discrepancy/GUE statistics verbatim (no
         re-derivation). Supplies no pointwise-control theorem, changes no
-        bound, establishes no operator positivity, no RH claim;
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        bound, establishes no operator positivity, no RH claim. NO QED.
       </div>
     </div>
   );

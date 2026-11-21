@@ -101,7 +101,7 @@ export default function Imp95240O5SiteCoverageMarginsViz() {
         <strong style={{ color: 'var(--series-2)' }}>Honest status:</strong> 0.17759432 is a package
         value, not a proven bound. It is conditional on obligations O1, O2, O4, O6 of the
         six-obligation y-thaw package, all of which remain OPEN (only O3 and O5 are certified).
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow from
+        No refereed bound is changed. RH does not follow from
         anything on this page.
       </div>
 
@@ -147,7 +147,7 @@ export default function Imp95240O5SiteCoverageMarginsViz() {
         <strong style={{ color: 'var(--ink-soft)' }}>Status:</strong> viz-only page reusing the imp-95212
         O5_SITE_COVERAGE baked literals verbatim (no new computation). This closes obligation O5 of
         the six-obligation y-thaw package; O1, O2, O4, O6 remain OPEN and 0.17759432 stays a package
-        value, not a proven bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.
+        value, not a proven bound. No QED.
       </div>
     </div>
   );

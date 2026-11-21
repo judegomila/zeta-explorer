@@ -20,6 +20,12 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 >
 > The site is [exploreriemann.com](https://exploreriemann.com): the Observatory at `/observatory/` and the research pages at `/#/…`; the current status page is `/#/state-of-program`. This repository was created on 2026-11-20 from an earlier private repository; see [`docs/old-repository-map/`](docs/old-repository-map/README.md).
 
+## Arithmetic theta geometry · 20 November 2026
+
+The [new research module](https://exploreriemann.com/#/rh-arithmetic-theta-geometry) presents a geometric compression of part of the arithmetic theta route: a finite frame/projection theorem, the singular Schur squared-distance identity, exact lattice index and metric-cost accounting, a trace-dual bound, and weighted packing. An explicit integer encoding connects the prime-power ladder to a conditional arithmetic completion target.
+
+The [10-page manuscript and full package](research-checkpoints/rh-arithmetic-theta-2026-11-20/geometric-compression/README.md) include editable source, a pinned source audit, internal review, and 20 exact algebra checks. **The required arithmetic estimate remains open; this is not a proof of RH, an external peer review, or a full Lean replay.** The earlier analytic manuscript and ladder refinement are also available in the [public checkpoint](research-checkpoints/rh-arithmetic-theta-2026-11-20/README.md).
+
 **Research direction audit (2026-09-30):** prioritize the exact arithmetic positivity branch of the twin-ladder / Weil / Toeplitz–Krein program for direct RH work; retain freezing permutations as the quantitative Λ program. The audit corrects the pole-free criterion, pole sign, flow-blindness scope, and continuum-diagonal/Volterra claims. It supplies independent interval replays of the 0.90 and 0.96 payloads. A follow-up [two-prime certificate](formalization/paper/weil-two-prime-certificate-2026-09-30.md) covers support width 1.3 using interval finite sections and analytic bounds on the full complement. This is a local computer-assisted result, not RH or a refereed novelty claim.
 
 Read the [audit and two-prime extension contract](formalization/paper/rh-direction-audit-2026-09-30.md).

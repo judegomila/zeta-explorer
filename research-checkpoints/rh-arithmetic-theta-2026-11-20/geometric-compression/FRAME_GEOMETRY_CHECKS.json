@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "all_exact_checks_passed",
+  "method": "SymPy exact rational, complex, and algebraic arithmetic; no floating-point tolerance",
+  "source_ref": "Deicyde/riemann-hypothesis@712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9",
+  "scope": "Algebraic validation and counterexamples for FRAME_GEOMETRY.md; not a proof of arithmetic hypotheses, Lean compilation, or RH",
+  "sympy_version": "1.14.0",
+  "check_count": 10,
+  "checks": [
+    {
+      "name": "complex_noncommuting_frame_and_source_constants",
+      "passed": true,
+      "ambient_dimension": 6,
+      "retained_ambient_rank": 5,
+      "total_source_dimension": "6",
+      "e": "40401/100000000",
+      "alpha": "204060401/100000000",
+      "beta": "-sqrt(1224362406)/60000 - 67*sqrt(6)/20000 + 24397/30000",
+      "trace": "56238113/12500000",
+      "squared_trace_moment": "2*(-30603/125000 - 275427*I/1562500)*(-30603/125000 + 275427*I/1562500) + 2*(91809/390625 - 10201*I/31250)*(91809/390625 + 10201*I/31250) + 657294297044069/156250000000000",
+      "source_bound_inflation": "6/5"
+    },
+    {
+      "name": "eF_reduction_exact_factorization",
+      "passed": true,
+      "condition": "0 <= d <= C0 Dstar/Gamma^2; Gamma,Dstar > 0"
+    },
+    {
+      "name": "source_rank_loss_mixed_term_is_sharp",
+      "passed": true,
+      "loss": "3/2",
+      "e": "1/16",
+      "kappa": "1/4"
+    },
+    {
+      "name": "ambient_Hilbert_Schmidt_loss_is_sharp",
+      "passed": true,
+      "loss": "4",
+      "removed_rank": 2
+    },
+    {
+      "name": "totalized_zero_weight_normalization",
+      "passed": true,
+      "weights": [
+        "0",
+        "4",
+        "9"
+      ],
+      "zero_block_map_is_zero": true
+    },
+    {
+      "name": "positive_BF_allows_zero_eigenvalue",
+      "passed": true,
+      "spectrum": [
+        0,
+        1,
+        1
+      ],
+      "beta": "2/3"
+    },
+    {
+      "name": "one_family_average_does_not_control_pairs_or_subfamilies",
+      "passed": true,
+      "full_sum": "2 <= 16/3",
+      "subfamily_sum": "2 > 4/3",
+      "duplicate_pair": "1 > 1/3"
+    },
+    {
+      "name": "near_optimal_trace_ratio_does_not_prove_PSD",
+      "passed": true,
+      "dimension": 100,
+      "negative_eigenvalue": -1,
+      "trace": 98,
+      "second_moment": 100,
+      "normalized_ratio": "2500/2401",
+      "general_ratio_limit": 1
+    },
+    {
+      "name": "singular_block_squared_distance_identity",
+      "passed": true,
+      "even_rank": 1,
+      "even_dimension": 2,
+      "residual_form": [
+        "3/2",
+        "3*I/2",
+        "-3*I/2",
+        "3/2"
+      ],
+      "selected_squared_distance": "3"
+    },
+    {
+      "name": "whole_form_limit_needs_no_positive_gap",
+      "passed": true,
+      "error": "eps I",
+      "limiting_spectrum": [
+        0,
+        1
+      ],
+      "approximants_may_be_indefinite": true
+    }
+  ]
+}

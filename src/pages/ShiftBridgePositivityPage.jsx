@@ -84,6 +84,7 @@ export default function ShiftBridgePositivityPage() {
       footer={<>
         Related: <Link to="/closure-routes">§16 Closure routes</Link>
         {' · '}<Link to="/sign-switching">Sign switching & bridge energy</Link>
+        {' · '}<Link to="/rh-arithmetic-theta-geometry">Arithmetic theta geometry</Link>
         {' · '}<Link to="/blaschke-ghosts">§17 Blaschke ghosts</Link>
         {' · '}<Link to="/three-attacks">§18 Three approaches</Link>
         {' · '}<Link to="/selberg-trace">Selberg trace</Link>

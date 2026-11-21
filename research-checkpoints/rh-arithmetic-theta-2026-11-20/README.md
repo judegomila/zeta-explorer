@@ -33,3 +33,11 @@ The follow-up is recorded in [RESULT.md](twin-ladder-refinement/RESULT.md). It c
 | [REVIEW.md](twin-ladder-refinement/REVIEW.md) | Internal review scope, exact-check instructions, and unresolved obligations. |
 
 No claim of novelty is made for Weil positivity, classical interpolation criteria, or standard Stieltjes/heat-transform equivalences. The project-specific contribution must be evaluated at the level of its exact identities, normalizations, estimates and constructions.
+
+## Geometric compression and public app
+
+The [geometric continuation](geometric-compression/README.md) contains a [10-page manuscript](geometric-compression/RH_Geometric_Compression.pdf), editable source, detailed proofs, a source-dependency audit, internal review, and 20 passing exact algebra checks. Read the [public app research page](https://exploreriemann.com/#/rh-arithmetic-theta-geometry) for the theorem statements, derivation, downloads, and remaining arithmetic obligation.
+
+It proves the finite frame/projection theorem with the inspected source's constants, the singular Schur squared-distance formula, lattice index and metric-cost inequalities, an arithmetic trace-dual bound, and a weighted packing lemma. It also encodes the prime-ladder ramp in an explicit integer with square-root rounding error. The source is pinned to `712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9`.
+
+This is a proved geometric module and conditional completion interface. The arithmetic saving and the identification with the complete Weil/Pick form remain unproved in this synthesis. No full external Lean replay is claimed. The earlier analytic manuscript and ladder refinement above provide the public dependencies; historical MathExplorer commit/PR references may require access to the old repository. See [PUBLICATION.md](PUBLICATION.md) for provenance.

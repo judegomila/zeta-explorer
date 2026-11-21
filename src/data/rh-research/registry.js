@@ -1,5 +1,6 @@
 import { createResearchRegistry } from './module-contract.js';
 import { ARITHMETIC_FOUNDATION } from './arithmetic-foundation.js';
+import { ARITHMETIC_THETA_GEOMETRY } from './arithmetic-theta-geometry.js';
 import { CHANNEL_GEOMETRY } from './channel-geometry.js';
 import { FINITE_SUZUKI_CERTIFICATE } from './finite-suzuki-certificate.js';
 import { HISTORICAL_ROUTES } from './historical-routes.js';
@@ -18,6 +19,7 @@ import { WHOLE_EVEN_CERTIFICATE } from './whole-even-certificate.js';
  */
 
 export const RH_RESEARCH_MODULES = createResearchRegistry([
+  ARITHMETIC_THETA_GEOMETRY,
   ARITHMETIC_FOUNDATION,
   SUZUKI_RECURRENCE,
   PRIME_MEMORY,

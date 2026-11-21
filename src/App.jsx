@@ -2508,6 +2508,7 @@ function AppShell() {
           <Route path="/zx-calculus" element={<ZXCalculusPage />} />
           <Route path="/rh-attack" element={<RHAttackPage />} />
           <Route path="/rh-research-modules" element={<RHResearchModulesPage />} />
+          <Route path="/rh-arithmetic-theta-geometry" element={<RHResearchModulePage moduleId="arithmetic-theta-geometry" />} />
           <Route path="/rh-arithmetic-foundation" element={<RHResearchModulePage moduleId="arithmetic-foundation" />} />
           <Route path="/rh-suzuki-recurrence" element={<RHResearchModulePage moduleId="suzuki-recurrence" />} />
           <Route path="/rh-prime-memory" element={<RHResearchModulePage moduleId="prime-memory" />} />

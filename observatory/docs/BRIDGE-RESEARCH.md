@@ -6,6 +6,12 @@ These views carry over specific constructions from Math Explorer. An exact algeb
 
 ## Frozen source provenance
 
+### Arithmetic theta geometry continuation · 20 November 2026
+
+The [Arithmetic theta geometry research page](https://exploreriemann.com/#/rh-arithmetic-theta-geometry) connects the finite Gram/Schur workbench to a written arithmetic research target. It proves that a residual of actual Gram maps is a squared distance, including singular leading blocks, and gives frame, lattice, and weighted packing lemmas. The prime-power ladder is encoded in an explicit integer with square-root rounding error.
+
+The [manuscript and checks](../../research-checkpoints/rh-arithmetic-theta-2026-11-20/geometric-compression/README.md) state the remaining arithmetic cost estimate. Neither the browser's finite Schur experiment nor the source's positive frame has been identified with the complete Weil/Pick form. This continuation does not certify the numerical workbench or prove RH.
+
 The source material below was read from the user's Math Explorer repository. Commit links freeze the conventions even when a branch changes. PR42 and PR43 were research branches, not a claim that all their targets had been proved or merged.
 
 | Construction | Primary source |

@@ -47,6 +47,18 @@ export default function StateOfProgramPage() {
         <h2 className="ed-h2" style={{ marginBottom: 12 }}>Current status</h2>
         <CurrentStatusList />
 
+        <section className="card" aria-labelledby="arithmetic-theta-update" style={{ marginTop: 20 }}>
+          <div className="ed-mono" style={{ color: 'var(--faint)', fontSize: 11 }}>RESEARCH UPDATE · 20 NOVEMBER 2026</div>
+          <h2 id="arithmetic-theta-update" className="ed-h2">Arithmetic lattices and twin-ladder geometry</h2>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.65 }}>
+            A new note proves the finite frame and projection estimates, the singular Schur
+            squared-distance identity, and lattice and packing lemmas, then states the arithmetic
+            cost estimate needed for the proposed RH route. That estimate remains open.
+            The 20 exact finite checks validate algebra and normalizations; they are not a full Lean replay.
+          </p>
+          <Link to="/rh-arithmetic-theta-geometry">Read the results, manuscripts and remaining proof obligation →</Link>
+        </section>
+
         <h2 className="ed-h2" style={{ marginTop: 28, marginBottom: 12 }}>Values shown as leading on older pages</h2>
         <div className="card" style={{ marginBottom: 16 }}>
           <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.65 }}>

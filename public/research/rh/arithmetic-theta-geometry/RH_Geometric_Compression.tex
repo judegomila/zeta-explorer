@@ -1,0 +1,421 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in,headheight=15pt]{geometry}
+\usepackage{booktabs,longtable,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,breaklinks=true]{hyperref}
+\usepackage{xurl}
+\allowdisplaybreaks[2]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setlist{itemsep=2pt,topsep=4pt,leftmargin=1.6em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{problem}[theorem]{Open problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\covol}{\operatorname{covol}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\numberwithin{equation}{section}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Arithmetic lattices and twin-ladder geometry}
+\fancyhead[R]{\small Conditional research note}
+\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={Arithmetic Lattices and Twin-Ladder Geometry: A Conditional Compression},pdfauthor={Jude Gomila research program},pdfsubject={Proved finite geometry, arithmetic normalization, and an open RH completion interface}}
+\title{\textbf{Arithmetic Lattices and Twin-Ladder Geometry}\\[0.35em]\large A conditional compression of the theta-chain route}
+\author{Jude Gomila research program\\\small Prepared with AI-assisted derivation and internal review}
+\date{20 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a short, independently proved geometric core for part of the announced arithmetic theta-chain approach: normalized Gram bounds imply a quantitative frame theorem, and the frame retains controlled energy after source and target projections. The constants reproduce the inspected formal source's projection bounds; one intermediate second-moment estimate is stronger than the displayed source interface. We derive the exact Schur residual as a squared distance, including singular prefixes, and an integral lattice determinant inequality that separates divisibility from metric cost. The user's prime-power ladder is connected to an explicit integer divisibility object with square-root discretization error. This construction exposes, rather than solves, the missing norm estimate. The arithmetic family estimates and their matching to the completed Weil form remain open in this synthesis. This note is not an unconditional proof of RH, a full Lean replay, or a claim of novelty for the elementary geometric principles.
+\end{abstract}
+
+\section{What is proved and what is imported}
+
+The release described in Alp\"oge's announcement points to long chains of automorphic theta lifts, intended to mimic multiplicity in a function-field argument \cite{announcement}. The inspected formal source organizes part of its argument using integral lattices, arithmetic slopes, and normalized correlation estimates. Our purpose is to isolate the geometric content and make the remaining arithmetic requirements visible.
+
+All finite-dimensional statements in Sections 2--4 and the ladder/divisibility identities in Section 5 are proved below. The sparse Pick criterion and the one-sided Mellin--Landau implication in Section 6 are the analytic endpoints proved in the earlier project manuscript \cite{project}; their classical inputs are identified there. The source audit concerns declarations at the fixed commit
+\begin{center}\small\texttt{712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9}.\end{center}
+Reading a theorem body does not independently validate its import closure. A declaration of type \texttt{Prop} specifies an obligation; a theorem that assumes it does not establish its existence. This note makes no assertion that required proofs are absent elsewhere in the external project. The complete external project has not been compiled or replayed here.
+
+\section{A short geometric frame theorem}
+
+Let $\mathcal H$ be a complex Hilbert space of finite dimension $N$. For a finite index set $\mathcal U$, let $E_u$ have dimension $d_u$ and let $T_u:E_u\to\mathcal H$ be linear. Set
+\[
+ A_{uv}=T_u^*T_v,\qquad R=\sum_{u\in\mathcal U}d_u>0.
+\]
+The Hilbert--Schmidt norm is unnormalized. Let $D_*>0$ be a reference dimension; it need not equal $N$. Assume $e,\eta\ge0$ and
+\begin{align}
+ \norm{A_{uu}-I}_{\HS}^2&\le e d_u,\label{eq:diag}\\
+ \norm{A_{uv}}_{\HS}^2&\le(1+\eta)\frac{d_ud_v}{D_*}\quad(u\ne v).\label{eq:off}
+\end{align}
+These are hypotheses about the actual Gram blocks, for every required pair.
+
+\begin{lemma}[Removing an auxiliary diagonal contribution]\label{lem:diag}
+Suppose a kernel $Z_{uv}$ has $Z_{uv}=0$ for $u\ne v$ and
+\[
+ \norm{Z_{uu}}_{\HS}^2\le qd_u,\qquad
+ \norm{A_{uu}-Z_{uu}-I}_{\HS}^2\le\Gamma\frac{d_u^2}{D_*},
+ \qquad \frac{d_u\Gamma^2}{D_*}\le C_0,
+\]
+where $q,C_0\ge0$ and $\Gamma>0$. Then \eqref{eq:diag} holds with
+\[
+ e=2q+\frac{2C_0}{\Gamma}.
+\]
+An off-diagonal bound on $A_{uv}-Z_{uv}$ is already the same bound on $A_{uv}$.
+\end{lemma}
+\begin{proof}
+Apply $\norm{U+V}_{\HS}^2\le2\norm U_{\HS}^2+2\norm V_{\HS}^2$ to $A_{uu}-I=Z_{uu}+(A_{uu}-Z_{uu}-I)$ and use $\Gamma d_u^2/D_*\le(C_0/\Gamma)d_u$.
+\end{proof}
+
+For each $u$, let $P_u$ be an orthogonal projection on $E_u$ with
+\[
+ \rank(I-P_u)\le\alpha d_u,\qquad \alpha\ge0.
+\]
+Let $\Pi$ be an orthogonal projection on $\mathcal H$, with
+\[
+ \rank(I-\Pi)\le\delta D_*,\qquad\delta\ge0.
+\]
+Define
+\begin{align}
+ F&=\sum_uT_uT_u^*,&F_1&=\sum_uT_uP_uT_u^*,&Q&=\Pi F_1\Pi,\\
+ a&=1+\eta+(1+\sqrt e)^2\frac{D_*}{R},\label{eq:a}\\
+ \beta&=1-\sqrt e-\alpha-\sqrt{\alpha e}-\sqrt{\delta a}.\label{eq:beta}
+\end{align}
+
+\begin{theorem}[Frame energy after two projections]\label{thm:frame}
+Under these hypotheses, $Q\succeq0$ and
+\begin{align}
+ \tr Q&\ge\beta R,\label{eq:trace}\\
+ \tr(Q^2)&\le a\frac{R^2}{D_*}.\label{eq:second}
+\end{align}
+If $\beta>0$, then $Q\ne0$, $\rank\Pi>0$, and
+\begin{align}
+ \tr(Q^2)&\le\frac{a}{\beta^2D_*}(\tr Q)^2,\label{eq:ratio}\\
+ \rank Q&\ge\frac{(\tr Q)^2}{\tr(Q^2)}\ge\frac{\beta^2D_*}{a}.\label{eq:rank}
+\end{align}
+In particular,
+\[
+ \tr(Q^2)\le\frac{N}{D_*}\frac{a}{\beta^2}
+ \frac{(\tr Q)^2}{\rank\Pi}.
+\]
+\end{theorem}
+
+\begin{proof}
+First, $A_{uu}$ is positive and $|\tr(A_{uu}-I)|\le\sqrt{d_u}\norm{A_{uu}-I}_{\HS}\le\sqrt e\,d_u$. Therefore
+\[
+ \tr F\ge(1-\sqrt e)R.
+\]
+Cyclicity of trace gives the exact frame identity
+\[
+ \tr(F^2)=\sum_{u,v}\norm{T_u^*T_v}_{\HS}^2.
+\]
+On the diagonal, $\norm{A_{uu}}_{\HS}\le(1+\sqrt e)\sqrt{d_u}$. Summing \eqref{eq:off} off the diagonal yields
+\begin{align*}
+ \tr(F^2)&\le (1+\eta)\frac{R^2-\sum_ud_u^2}{D_*}+(1+\sqrt e)^2R\\
+ &\le aR^2/D_*.
+\end{align*}
+
+Next $0\preceq F_1\preceq F$. If $r_u=\rank(I-P_u)$, then
+\begin{align*}
+ \tr(F-F_1)
+ &=\sum_u\tr((I-P_u)A_{uu})\\
+ &\le\sum_u\left(r_u+\sqrt{r_u}\norm{A_{uu}-I}_{\HS}\right)\\
+ &\le(\alpha+\sqrt{\alpha e})R.
+\end{align*}
+Thus $\tr F_1\ge(1-\sqrt e-\alpha-\sqrt{\alpha e})R$.
+
+For positive $S\preceq T$, one has $\tr(S^2)\le\tr(T^2)$: writing $T=S+E$ with $E\succeq0$ gives the difference $2\tr(SE)+\tr(E^2)\ge0$. Consequently $\norm{F_1}_{\HS}\le\norm F_{\HS}$. The loss under the target projection satisfies
+\begin{align*}
+ \tr F_1-\tr Q
+ &=\tr((I-\Pi)F_1)\\
+ &\le\sqrt{\rank(I-\Pi)}\norm{F_1}_{\HS}
+ \le\sqrt{\delta a}\,R.
+\end{align*}
+This proves \eqref{eq:trace}. Orthogonal compression contracts the Hilbert--Schmidt norm, giving \eqref{eq:second}. If $\beta>0$, use $R\le\tr Q/\beta$ to obtain \eqref{eq:ratio}. Cauchy--Schwarz on the positive eigenvalues gives $(\tr Q)^2\le\rank(Q)\tr(Q^2)$, proving \eqref{eq:rank}. Finally $\rank\Pi\le N$, so the last displayed bound is weaker than \eqref{eq:ratio}.
+\end{proof}
+
+\subsection{Matching the inspected formal source}
+The source defines a positive-space map $\mathrm{Pu}_u$ and
+\[
+ c_u=\frac{\mathrm{volN}_u\,\mathrm{volH}_u}{\mathrm{dimPi}_u}\ge0,
+ \qquad
+ \mathrm{Kmat}_{uv}=(c_uc_v)^{-1/2}\mathrm{Pu}_u^*\mathrm{Pu}_v.
+\]
+For $c_u>0$, put $T_u=c_u^{-1/2}\mathrm{Pu}_u$. With the source's totalized inverse convention, set $T_u=0$ if $c_u=0$. Then $\mathrm{Kmat}_{uv}=T_u^*T_v$ in all cases. The source's $\mathrm{PiU}_u$ is an orthogonal projection, and its $Q_0$ is precisely the operator $Q$ above \cite{gram,frame}.
+
+The source dictionary is
+\[
+ a=\mathrm{AF},\quad \beta=\mathrm{BF},\quad
+ \alpha=\mathrm{dec},\quad \delta=\mathrm{del},\quad
+ e=\mathrm{eF},\quad R=\mathrm{RR}.
+\]
+Lemma~\ref{lem:diag} gives its stated $\mathrm{eF}=2\mathrm{xK}+2C_0/\Gamma$. The source's \texttt{D7.s\_HH}, \texttt{D7.s\_Cu} and \texttt{D7.GamP\_eq} explicitly identify the ambient dimension, the source dimensions and the common $\Gamma$ scale. Theorem~\ref{thm:frame} reproduces the trace and second-moment structure of \texttt{Conclusion2Family}, with \eqref{eq:ratio} preceding the source's extra factor $N/\rank\Pi$.
+
+This is a compression of the \emph{geometric implication}. It does not prove the arithmetic estimates \eqref{eq:diag}--\eqref{eq:off}, the required dimension count, or their uniform validity in the external family. Nor does it identify this arithmetic frame with the project's Weil/Pick kernel.
+
+\section{The Schur residual as a squared distance}
+
+\begin{proposition}[Exact projection identity]\label{prop:schur}
+Let $C_e:E\to\mathcal H$ and $C_o:O\to\mathcal H$ be maps from finite-dimensional Hilbert spaces into a positive Hilbert space. Put
+\[
+ D=C_e^*C_e,\qquad B=C_e^*C_o,\qquad E_0=C_o^*C_o.
+\]
+Let $D^\dagger$ be the Moore--Penrose inverse. Then $\ran B\subseteq\ran D$,
+\[
+ \Pi_e=C_eD^\dagger C_e^*
+\]
+is the orthogonal projection onto $\ran C_e$, and
+\[
+ \boxed{E_0-B^*D^\dagger B=C_o^*(I-\Pi_e)C_o\succeq0.}
+\]
+For $v\in O$, the quadratic form on the left is $\operatorname{dist}(C_ov,\ran C_e)^2$.
+\end{proposition}
+\begin{proof}
+A singular-value decomposition of $C_e$ shows that $C_eD^\dagger C_e^*$ acts as the identity on its image and as zero on its orthogonal complement. Also $\ran C_e^*=\ran(C_e^*C_e)$ in finite dimension, which proves the range condition. Substitute $B=C_e^*C_o$ and use $(I-\Pi_e)^2=I-\Pi_e=(I-\Pi_e)^*$.
+\end{proof}
+
+The symbols $e,o$ do not assert an identification with any historical even/odd theta operators. Such an identification is an additional arithmetic intertwining statement. If one factors the desired matrix only after assuming its positivity, Proposition~\ref{prop:schur} has not supplied a proof of that positivity.
+
+\begin{proposition}[Stable whole-form limit]\label{prop:limit}
+For every fixed $n$, suppose $P_{X,n}\to P_n$ in operator norm, and independently constructed maps $C_{X,n}$ satisfy
+\[
+ P_{X,n}-C_{X,n}^*C_{X,n}\succeq-\varepsilon_{X,n}I,
+ \qquad\varepsilon_{X,n}\to0.
+\]
+Then $P_n\succeq0$ for every $n$.
+\end{proposition}
+\begin{proof}
+For every fixed coefficient vector $b$, the inequality gives
+$b^*P_{X,n}b\ge-\varepsilon_{X,n}\norm b^2$. Pass to the limit.
+\end{proof}
+
+This statement requires no uniform spectral gap and no bound uniform in $n$. It is safer than estimating perturbed inverses: matrices $D_\epsilon=(\epsilon^2)$, $B_\epsilon=(\epsilon)$, $E_\epsilon=(0)$ have off-diagonal perturbation tending to zero but Schur complement $-1$. Small block errors do not control the Schur complement near a singular block.
+
+\section{What integral lattice geometry actually supplies}
+
+Let $L\subset V$ be a full lattice in an $r$-dimensional Euclidean space, $r\ge1$, and let $M$ be a lattice in a Euclidean space $W$. Suppose $T:V\to W$ is injective and $T(L)\subset M$. Set $W_T=T(V)$ and $M_T=M\cap W_T$. Then $M_T$ is a full lattice in $W_T$, and $I=[M_T:T(L)]$ is a positive integer.
+
+\begin{theorem}[Divisibility versus metric cost]\label{thm:lattice}
+If $s_1,\ldots,s_r$ are the positive singular values of $T$, then
+\begin{align}
+ I\,\covol(M_T)&=\covol(L)\prod_{j=1}^rs_j,\label{eq:covol}\\
+ \log I&\le\log\frac{\covol(L)}{\covol(M_T)}
+ +\frac r2\log\left(\frac{\norm T_{\HS}^2}{r}\right).\label{eq:cost}
+\end{align}
+\end{theorem}
+\begin{proof}
+An injective linear map multiplies $r$-dimensional volume by $\sqrt{\det(T^*T)}=\prod_js_j$. A sublattice of index $I$ has $I$ times the covolume of its containing lattice. These two facts give \eqref{eq:covol}. Apply the arithmetic--geometric mean inequality to $s_j^2$ and take logarithms.
+\end{proof}
+
+If $\mu(L)=-r^{-1}\log\covol(L)$ and $\mu_{\max}(M)$ denotes the supremum of the corresponding slopes of its nonzero primitive sublattices, the same calculation gives
+\[
+ \mu(L)+\frac{\log I}{r}
+ \le\mu_{\max}(M)+\frac12\log\left(\frac{\norm T_{\HS}^2}{r}\right).
+\]
+For the particular sublattice $M_T$, the exact comparison uses $\mu(M_T)$; no global assertion about attainment of the supremum is needed.
+
+\subsection{A trace-dual lower bound from integrality}
+The following reconstructs a concrete arithmetic mechanism in the inspected source, under explicit conventional lattice assumptions \cite{normsource}.
+
+\begin{proposition}[Trace-dual arithmetic lower bound]\label{prop:trace-dual}
+Let $K$ be a CM number field of degree $d$, with different $\mathfrak D$ and absolute discriminant $\Delta$. Let $h$ be a Hermitian form, conjugate-linear in its first variable, positive definite at every embedding. Suppose a full $\mathcal O_K$-lattice satisfies
+\[
+ \Lambda\subseteq\Lambda^\#,\qquad
+ q=[\Lambda^\#:\Lambda]<\infty,\qquad
+ \Lambda^\#=\{x:h(x,\Lambda)\subseteq\mathcal O_K\}.
+\]
+For every nonzero $x$ in the trace-dual lattice
+\[
+ \Lambda^{\mathrm{tr}}
+ =\{x:\operatorname{Tr}_{K/\Q}h(x,y)\in\Z\text{ for all }y\in\Lambda\},
+\]
+one has
+\[
+ \boxed{\operatorname{Tr}_{K/\Q}h(x,x)\ge\frac{d}{(q\Delta^2)^{1/d}}.}
+\]
+\end{proposition}
+\begin{proof}
+Put $b=h(x,x)$. Applying the trace-dual condition to $ay$ for all $a\in\mathcal O_K$ shows that $h(x,\Lambda)\subseteq\mathfrak D^{-1}$. The different is invariant under CM conjugation, so $\mathfrak D x\subseteq\Lambda^\#$. The kernel ideal
+\[
+ J=\{a\in\mathfrak D:ax\in\Lambda\}
+\]
+of the map $\mathfrak D\to\Lambda^\#/\Lambda$ has
+$\mathrm NJ=\Delta[\mathfrak D:J]\le\Delta q$.
+For $a\in J$, $ab=h(x,ax)\in\mathfrak D^{-1}$. Therefore $bJ\mathfrak D$ is a nonzero integral ideal, and
+\[
+ 1\le|\mathrm N_{K/\Q}b|\,\mathrm NJ\,\Delta
+ \le|\mathrm N_{K/\Q}b|\,q\Delta^2.
+\]
+Every conjugate of $b$ is positive. Arithmetic--geometric mean over all $d$ embeddings yields the result.
+\end{proof}
+
+For $K=\Q(i)$, $h(x,y)=\bar x y$, $\Lambda=a\Z[i]$ and $x=1/(2a)$ with integer $a\ge1$, the values are $d=2$, $\Delta=4$, $q=a^4$. Both sides equal $1/(2a^2)$. This sharp example shows why the index and discriminant costs cannot be suppressed.
+
+\subsection{Field norms and completion factors}
+If $K$ is totally real of degree $f$ and $\Delta\in K$ is totally positive, then
+\[
+ \sum_{\sigma:K\hookrightarrow\R}\log\sigma(\Delta)
+ =\log N_{K/\Q}(\Delta).
+\]
+If $G$ is a positive Gram matrix over $K$ with determinant $\Delta$, its Euclidean local volume is $\sqrt{\sigma(\Delta)}$. Thus
+\[
+ \frac1f\sum_\sigma\log\sqrt{\sigma(\Delta)}
+ =\frac1{2f}\log N_{K/\Q}(\Delta).
+\]
+The square root and the averaging factor cannot be discarded. A CM-field calculation must also account for conjugate embeddings. The companion lattice note records the exact convention in the inspected source. Matching local Gram matrices through equality of norms requires equality for \emph{all} vectors; the mixed entries follow by polarization, not by matching only basis-vector norms.
+
+\subsection{Integral separation becomes weighted packing}
+The next lemma is an especially direct geometric ingredient of the inspected source \cite{packing}.
+
+\begin{proposition}[Weighted packing from multiplicative separation]\label{prop:packing}
+Let $I$ be finite, $d=|I|$, $\mathcal P\subset\C^I$ finite and $U\ge1$. If
+\[
+ p\ne q\ \Longrightarrow\ \prod_{i\in I}|p_i-q_i|\ge1,
+\]
+then
+\[
+ \sum_{p\in\mathcal P}\prod_{i\in I}\max(1,|p_i|/U)^{-3}
+ \le(18U)^{2d}\le(64U)^{2d}.
+\]
+\end{proposition}
+\begin{proof}
+The case $d=0$ is immediate. Assign $z\in\C$ to its half-unit square with integer address $(\lfloor2\Re z\rfloor,\lfloor2\Im z\rfloor)$. Two points in the same square have distance less than $1$. Consequently two distinct elements of $\mathcal P$ cannot have the same address in every coordinate: otherwise their product of coordinate distances is less than $1$.
+
+Set $w_U(m)=\max(1,(m-1)/(2U))^{-3/2}$ for integers $m\ge0$. For a real coordinate $t$ with address $a=\lfloor2t\rfloor$, the inequality $|a|-1\le2|t|$ implies
+\[
+ \max(1,|t|/U)^{-3/2}\le w_U(|a|).
+\]
+Also each complex radial weight is at most the product of its two real-coordinate weights, because both coordinate absolute values are at most $|z|$.
+
+Put $N=\lceil2U\rceil$. The first $N+2$ terms of $\sum_{m\ge0}w_U(m)$ contribute at most $N+2\le2U+3$. The remaining tail is at most
+\[
+ (2U)^{3/2}\sum_{k=N+1}^\infty k^{-3/2}
+ \le (2U)^{3/2}\int_N^\infty t^{-3/2}\,dt\le4U.
+\]
+Thus $\sum_{m\ge0}w_U(m)\le9U$ and $\sum_{a\in\Z}w_U(|a|)\le18U$. Use the injective address map, extend the nonnegative sum to every integer address, and factor over its $2d$ coordinates. This proves the result.
+\end{proof}
+
+For a nonzero algebraic integer, the product over all embedding absolute values is the absolute value of a nonzero integer norm, hence at least $1$. This supplies the separation condition for suitable embedding vectors of distinct integral labels. The source applies this mechanism to integral minors; its theorem \texttt{cosets\_sum} then bounds a weighted kernel contribution. The precise embedding conventions and minor integrality still have to be established in each application. The constant $18$ already appears inside the source proof; it is not claimed here as a new improvement. The exponential dependence on $d$ must be included when the number field varies.
+
+\section{A literal arithmetic object from the prime ladder}
+
+On the prime-power basis, define
+\[
+ \mathsf A e_{p,k}=k\log p\,e_{p,k},\qquad
+ \mathsf D e_{p,k}=\log p\,e_{p,k}.
+\]
+For $X\ge1$, set
+\[
+ R(X)=\tr\bigl[\mathsf D(Xe^{-\mathsf A}-I)_+\bigr]
+ =\sum_{p^k\le X}\log p\,(X/p^k-1).
+\]
+Let $a_p(X)=\sum_{k:p^k\le X}(X/p^k-1)$, and for an integer $m\ge1$ form
+\[
+ Q_{X,m}=\prod_{p\le X}p^{\lfloor ma_p(X)\rfloor}\in\N.
+\]
+
+\begin{proposition}[Divisibility encoding and its error]\label{prop:round}
+For $X\ge2$, with $\vartheta(X)=\sum_{p\le X}\log p$,
+\[
+ 0\le mR(X)-\log Q_{X,m}<\vartheta(X)\le4(\log2)X.
+\]
+In particular, for $m=\lceil\sqrt X\rceil$,
+\[
+ 0\le R(X)-\frac1m\log Q_{X,m}\le4(\log2)\sqrt X.
+\]
+\end{proposition}
+\begin{proof}
+The first difference is the sum of the fractional parts of $ma_p(X)$, weighted by $\log p$. Each lies in $[0,1)$. To prove the last bound, primes in $(n,2n]$ divide $\binom{2n}{n}$, so
+$\vartheta(2n)-\vartheta(n)\le2n\log2$.
+Sum this over dyadic $n$, then bound $X$ by the next power of two, which is less than $2X$ unless $X$ is itself that power. The stated non-strict bound follows in both cases. Finally $X/m\le\sqrt X$.
+\end{proof}
+
+This is an explicit elementary divisibility construction. It is distinct from the external theta-chain construction and does not explain that construction's choice of chain length. It demonstrates that recording arithmetic weights with sufficiently small rounding error is possible without RH.
+
+It also gives a precise failed shortcut. Take $L=M=\Z$ and $T$ to be multiplication by $Q_{X,m}$. Then $I=Q_{X,m}$, $\norm T=Q_{X,m}$, and Theorem~\ref{thm:lattice} is an equality. No saving is obtained. Rescaling the target norm changes the target covolume by the same factor, so the cost in \eqref{eq:cost} is unchanged. An effective theta construction must supply an independent metric or slope estimate, rather than only encode the divisibility.
+
+\section{Two precise completion interfaces}
+
+Put
+\[
+ M(X)=X\log X-(1+\gamma_E)X,\qquad G_\zeta(X)=R(X)-M(X).
+\]
+The scalar analytic endpoint proved in the earlier manuscript is: for every $\varepsilon>0$, a bound
+\[
+ G_\zeta(X)\le C_\varepsilon X^{1/2+\varepsilon}
+ \quad\text{for all sufficiently large }X
+\]
+implies RH. The proof uses the Mellin transform
+\[
+ \int_1^\infty G_\zeta(X)X^{-s-1}\,dX
+ =\frac{-\zeta'(s)/\zeta(s)}{s(s-1)}
+ -\frac1{(s-1)^2}+\frac{1+\gamma_E}{s-1},\quad\Re s>1,
+\]
+its removable singularity at $1$, and Landau's theorem for a nonnegative tail transform \cite{project}. A complex zero to the right of the target exponent would force a forbidden real singularity of that transform. The estimate is a full-ray statement; the external multiplicative-window theorem has additional hypotheses and is not substituted here.
+
+\begin{corollary}[A sufficient arithmetic lattice target]\label{cor:target}
+For every sufficiently large $X$, let $m=\lceil\sqrt X\rceil$. Suppose one independently constructs lattices and an injective integral map as in Theorem~\ref{thm:lattice}, possibly depending on $\varepsilon$, such that
+\[
+ I\ge Q_{X,m}
+\]
+and the complete metric cost satisfies
+\[
+ \log\frac{\covol(L)}{\covol(M_T)}
+ +\frac r2\log\left(\frac{\norm T_{\HS}^2}{r}\right)
+ \le mM(X)+mC_\varepsilon X^{1/2+\varepsilon}
+\]
+for every fixed $\varepsilon>0$ and all sufficiently large $X$. Then RH holds.
+\end{corollary}
+\begin{proof}
+The lattice inequality bounds $\log Q_{X,m}$ by the displayed cost. Divide by $m$ and apply Proposition~\ref{prop:round} to obtain
+$G_\zeta(X)\le(C_\varepsilon+4\log2)X^{1/2+\varepsilon}$ for $X\ge2$.
+Apply the scalar analytic endpoint.
+\end{proof}
+
+\textbf{Status of Corollary~\ref{cor:target}.} Its implication is proved; the required independent construction and cost bound are unproved. The one-dimensional example above does not satisfy a proved useful cost bound. This corollary is a precise target, not a replacement proof of the missing arithmetic estimate. It is not asserted that the external construction uses the particular integer $Q_{X,m}$.
+
+The alternative endpoint is the project's sparse Weil/Pick criterion. With $F(z)=\xi(1/2+z)$, $L(z)=F'(z)/F(z)$ and $x_j=1+1/(j+1)$, it asks for positivity of every finite prefix
+\[
+ (P_n)_{ij}=\frac{L(x_i)+L(x_j)}{x_i+x_j}.
+\]
+The earlier manuscript proves this condition equivalent to RH using finite Nevanlinna--Pick interpolation and an interior accumulation point \cite{project}. Proposition~\ref{prop:limit} would establish it from independently matched arithmetic Gram forms. The historical even/odd operators, the external frame, and this Pick kernel must not be identified without a proved map and normalization.
+
+\section{The arithmetic theorem still to extract}
+
+The source theorem \texttt{linkGLOBAL7\_items} assembles lattice ranks, arithmetic slopes and a frame estimate, while receiving the global correlation input \texttt{LinkS} \cite{linkmin}. Actual theorems in \path{StandingHypothesesHoldFamily.lean} convert the diagonal and off-diagonal arithmetic estimates and a separate row count into \texttt{LinkS}. The inspected higher assembly receives \texttt{PeriodFamilyStatement} as an argument named \texttt{S76}. We have not located and checked its ultimate implementation and full import closure. This is the boundary of our audit, not evidence of a missing proof in the external source.
+
+The \texttt{LinkS\_at} interface itself is conditional on the dimension window $C_0^{-1}\le d_u\Gamma^2/D_*\le C_0$ for every word. Moreover, its eventual threshold must work for every admissible index at every larger family parameter. A shortened proof must retain both this window and this uniformity. The separate ambient row count and the arithmetic main-term normalization are not consequences of Gram positivity.
+
+A complete geometric account therefore needs the following arithmetic result: a specified theta/lattice family with its integral structures, test vectors and pairings, a uniform proof of the required kernel and dimension estimates, and a costed passage through the full chain to the scalar prime discrepancy or to the completed Weil form. The source's real-place theta identifications must be compatible with its finite-place valuation data. A positive Hilbert-space norm alone carries neither divisibility nor the required arithmetic matching.
+
+The finite geometry above is proved without an assumed positive spectrum for the zeta zeros. It clarifies the projection mechanism and the size of each loss. The unresolved input is an arithmetic construction and estimate, not a further orthogonal-projection identity.
+
+\subsection*{Verification and reproducibility}
+The companion notes contain more detailed source dictionaries and exact finite checks. General proofs are given in the text; symbolic examples validate normalizations, singular cases and countercontrols. These checks are not formal verification of the analytic endpoints, the external Lean project, or RH. The original release files remain unchanged.
+
+\begin{thebibliography}{9}\small
+\bibitem{announcement} L. Alp\"oge, announcement, 20 November 2026. \url{https://alpo.ge/remark.pdf}.
+\bibitem{project} J. Gomila research program, \emph{The Twin-Ladder Weil Form and an Arithmetic Theta Completion Route}, conditional manuscript and proof-obligation register, 20 November 2026. MathExplorer checkpoint at commit \texttt{595061437d80b0b8df9d3ccef0d681e5855b01f2}, directory \path{research-checkpoints/rh-arithmetic-theta-2026-11-20/}.
+\bibitem{gram} Released source mirror, \path{Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean}, \texttt{Kmat}, \texttt{KD}, \texttt{c0}. Commit \texttt{712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9} in \url{https://github.com/Deicyde/riemann-hypothesis}.
+\bibitem{frame} Same source pin, \path{Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean}, especially \texttt{Conclusion1}, \texttt{eF}, \texttt{Conclusion2Family}; and \path{StandingHypothesesHoldFamily.lean}, the actual downstream implication lemmas. Full pinned links are in the accompanying source audit.
+\bibitem{linkmin} Same source pin, \path{Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean}, particularly \texttt{linkGLOBAL7\_items} and \texttt{linkGLOBAL\_items}. Full dependency verification is not claimed here.
+\bibitem{normsource} Same source pin, \path{Formalism/SharpRestriction/GlobalSchurBounds/TotallyPositiveTraceGeOfNormDiscr.lean}, particularly \path{dual_lattice_vector_trace_lower_bound}, \path{mean_log_places_eq_log_norm} and \path{ColValG.gram_eq}. The companion lattice note states the independently reconstructed assumptions and normalization.
+\bibitem{packing} Same source pin, \path{Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean}, theorem \texttt{latSum}; \path{LatticeSumBound.lean}, theorem \texttt{LatSum\_holds}; and \path{KTwoCosetCount.lean}, theorem \texttt{cosets\_sum}. Full pinned paths and application hypotheses are in the source audit.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checks_passed": 10,
+  "checks_total": 10,
+  "sympy_version": "1.14.0",
+  "scope": "Exact finite controls for arithmetic index, metric normalization, a sharp trace-dual example, and the prime-ramp integer encoding. General theorems are proved in prose. This does not establish a theta-lift cost estimate, verify the external Lean dependency graph, or prove RH.",
+  "checks": [
+    {
+      "name": "index_and_volume_identity_in_nonorthonormal_metrics",
+      "passed": true,
+      "index": "6",
+      "source_volume": "6",
+      "target_volume": "2",
+      "image_volume": "12",
+      "norm_determinant": "2"
+    },
+    {
+      "name": "hilbert_schmidt_determinant_bound_rank_two",
+      "passed": true,
+      "hs_squared": "46/9",
+      "determinant_upper_bound": "23/9"
+    },
+    {
+      "name": "slope_index_identity_after_exponentiating",
+      "passed": true,
+      "qualification": "Exponentiating r*(mu(N)-mu(L)) yields vol(L)/vol(N)."
+    },
+    {
+      "name": "gaussian_integer_trace_dual_bound_is_sharp",
+      "passed": true,
+      "beta": "1/(4*a**2)",
+      "trace": "1/(2*a**2)",
+      "lower_bound": "1/(2*a**2)"
+    },
+    {
+      "name": "gaussian_integer_norm_index_discriminant_accounting",
+      "passed": true,
+      "qualification": "This checks the discriminant squared and index factors."
+    },
+    {
+      "name": "ramp_divisibility_prime_exponents",
+      "passed": true,
+      "integer_Q": "262133353178726400000",
+      "exponents": {
+        "2": "30",
+        "3": "13",
+        "5": "5",
+        "7": "2",
+        "11": "0"
+      }
+    },
+    {
+      "name": "ramp_divisibility_exact_remainder_coefficients",
+      "passed": true,
+      "remainders": {
+        "2": "0",
+        "3": "1/3",
+        "5": "3/5",
+        "7": "6/7",
+        "11": "4/11"
+      }
+    },
+    {
+      "name": "rounding_error_is_below_theta_termwise",
+      "passed": true,
+      "qualification": "Every log(p) is positive, so these exact coefficient bounds certify the finite example."
+    },
+    {
+      "name": "integer_factorization_matches_prime_encoding",
+      "passed": true
+    },
+    {
+      "name": "rank_one_metric_rescaling_preserves_combined_cost",
+      "passed": true
+    }
+  ]
+}

@@ -447,7 +447,7 @@ export default function HiddenSquareProgramPage() {
           </p>
         </header>
 
-        <Card accent="#c23a1c">
+        <Card accent={ED.series2}>
           <div style={{ color: 'var(--terra-dk)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', letterSpacing: 0.5 }}>
             2026-08-28 CORRECTION · {SHEAR_KERNEL_REPAIR.grade}
           </div>
@@ -520,7 +520,7 @@ export default function HiddenSquareProgramPage() {
           </div>
         </Card>
 
-        <Card accent="#3f6b86">
+        <Card accent={ED.series1}>
           <h3 style={{ color: 'var(--blue)', fontSize: 18, margin: '0 0 8px' }}>Arithmetic divisor-block diagnostic</h3>
           <BlockMath math={'D_N(\\xi)=N^{-i\\xi/4}\\sigma_{i\\xi/2}(N)=\\prod_{p^k\\parallel N}\\frac{\\sin((k+1)\\xi\\log p/4)}{\\sin(\\xi\\log p/4)}'} />
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>

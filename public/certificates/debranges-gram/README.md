@@ -26,10 +26,11 @@ hashes the certificate with `hashes` removed; and
 removed. Each `gramEnclosure.sha256` commits to the full row-major matrix of
 Arb/ACB entry strings.
 
-The repository's `build` script runs this audit before Vite, so a malformed,
-stale, or dishonest artifact blocks deployment. The separate
-`test:debranges-gram-audit` command also checks that payload tampering, a
-rehashed RH claim, and duplicate JSON keys are rejected.
+Run the audit with `npm run audit:debranges-grams`; it exits non-zero on a
+malformed, stale, or dishonest artifact. In this repository the audit is not
+part of the `build` script. The separate `npm run test:debranges-gram-audit`
+command also checks that payload tampering, a rehashed RH claim, and duplicate
+JSON keys are rejected.
 
 A `CERTIFIED-POSITIVE-FINITE-GRAM` result proves positivity only for the one
 finite matrix, bridge parameter, and node set recorded in the artifact. It is

@@ -1,7 +1,7 @@
 # Arithmetic kernel source audit and geometric compression
 
-**Source pin:** Deicyde/riemann-hypothesis, commit `712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9`.  
-**Inspection date:** 20 November 2026.  
+**Source pin:** leanprover-community/riemann-hypothesis, commit `c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2`. The source tree is byte-identical to the earlier inspected pin `712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9`.
+**Inspection date:** 20 November 2026.
 **Scope:** the arithmetic kernel branch leading to `AdmissibleBoundsFromSource.Conclusion1` and `LinkS`, with a bounded examination of actual suppliers. This is an audit of source statements and selected proof bodies, not a Lean kernel check of the full theorem or its import closure.
 
 ## 1. Result and precise verification boundary
@@ -10,7 +10,9 @@ There is a concrete finite geometric compression here. The source kernel is exac
 
 One arithmetic child is especially transparent: multiplicative separation of integral embedding vectors gives a weighted lattice-packing bound. Its Lean file imports only Mathlib. A further actual proof uses that bound to control weighted minor-label sums. The packing argument and its constants are explained below independently of the source's larger framework.
 
-The remaining source-inspection boundary is also exact. In the inspected assembly, `S.linkS_of`, `S.linkS_all`, and `S0.family_statements_all` receive an implementation of `AdmissibleBoundsFromSource.PeriodFamilyStatement` as an argument, commonly named `S76` or `s76`. This audit did **not locate and check the ultimate theorem that constructs that argument**, nor its full arithmetic import closure. This is a boundary of this bounded audit, not evidence that the repository lacks such a theorem. In particular, a definition of a proposition is neither a proof of it nor evidence of a gap.
+**Version 0.2 update.** The earlier unlocated-supplier boundary is closed at source-body level. `BridgeLemma.theorem_S_family` supplies the generic `PeriodFamilyStatement`, retaining its first-filtration inputs. The visible Main theorem uses a separately located selected route through `CarrierGap.offDiag`, `TheoremSSelected`, and `theoremS_transport_link_zero`. Actual family constructors and the final character-window endpoint have also been located. [S76_CLOSURE.md](S76_CLOSURE.md) and its [typed source map](S76_CLOSURE_MAP.json) record that path. This note preserves the detailed generic kernel dictionary; it is not a claim that the generic S76 theorem is the explicit Main dependency.
+
+The remaining boundary is independent validation of the selected suppliers, their implicit instances, the family and analytic window arguments, and the final kernel replay. The [static snapshot](SOURCE_SNAPSHOT.json) records source-byte and textual import checks only.
 
 The independent frame theorem in `FRAME_GEOMETRY.md` therefore compresses a proved conditional geometric module. It does not yet independently establish the arithmetic hypotheses needed to apply that module to RH.
 
@@ -125,7 +127,7 @@ The constants \(C'_{\rm fam}\) and \(C_{\ell,\rm fam}\) are fixed from the famil
 \]
 The family theorem legitimately uses a trivial implication when this window fails. Consequently `LinkS` alone does not prove that the desired data satisfy the dimension window. The eventual construction and use of the chosen family must supply that fact separately. This logical scope should survive any shortened exposition.
 
-## 4. Where the arithmetic supplier remains to be checked
+## 4. The generic arithmetic interface and its retained hypotheses
 
 The exact `PeriodFamilyStatement Fm gc ca` interface in [AdmissibleBoundsFromSource.lean][admissible] says:
 
@@ -231,7 +233,7 @@ The proof derives integral labels and their finite support from the minor input,
 
 This is a concrete arithmetic-to-geometric mechanism: **integral minors prevent embedding vectors from clustering multiplicatively; weighted packing then bounds a kernel contribution**. It is a plausible component of a clean exposition.
 
-The ultimate suppliers of `NormLB` and `MinorInt`, and the final chain converting (13) into the complete S76 estimate, were not closed in this audit. The separate norm-and-lattice analysis can establish the classical norm statement under the correct full-embedding normalization. It must still match the source's particular embedding index and minor construction.
+The v0.2 inspection locates `MinorIntegralityTorus.NormLB_holds` and `MinorInt_holds`, with the exact CM-type pairing convention. [ARITHMETIC_FAMILY.md](ARITHMETIC_FAMILY.md) gives independent proofs and source matching. It also removes the support factor `2^j` in (13), since zero coordinates have weight one and the first `j` coordinates determine the distinct label sequence. This improvement is a paper proof, not a modification replayed through the external Lean tree. The complete selected Main arithmetic package has additional product-formula, local-support and frame-patching inputs.
 
 ## 6. What can be compressed, and what must be retained
 
@@ -247,21 +249,21 @@ No contradiction or counterexample to the inspected proof bodies was found. Thre
 - Positive Gram structure alone does not imply small off-diagonal blocks or the correct \(D_*\) normalization. Nor do trace bounds identify a different target form.
 - A theorem valid only under the dimension window, or only after a threshold depending on a family, must not be silently promoted to an unconditional estimate or to uniformity over all families.
 
-The next decisive source check is narrow: locate the concrete declaration instantiating S76 in the completed import graph, record its arithmetic theorem arguments, and verify that its generic and nongeneric estimates imply (1) with the constants and quantifiers above. The current findings justify a geometric compression of substantial machinery; they do not yet justify calling that compression a completed proof of RH.
+The source search has now located the generic supplier and the selected Main construction. The next acceptance conditions are recorded in [PROOF_OBLIGATIONS.md](PROOF_OBLIGATIONS.md): validate the actual deep inputs and normalizations, retain all uniformity and window quantifiers, and obtain an independent formal verdict if formal verification is claimed. A direct twin-ladder proof additionally needs its own arithmetic map and whole-form or complete-cost comparison. The present compression remains conditional.
 
 ## Pinned sources
 
-[gram]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean
-[data]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/DataS.lean
-[d7]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/LocalRingCardinality/RhoDetPrimeEqMuTildeMulChiPow.lean
-[admissible]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean
-[standing]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean
-[eventual]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/LeSCSCl.lean
-[inputs]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/GlobalTheoremInputs.lean
-[threshold]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/ThresholdCubicInequalitySignPattern.lean
-[weighted]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean
-[latsupply]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/LatticeSumBound.lean
-[minor]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoMinorIntegrality.lean
-[cosets]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean
-[main]: https://github.com/Deicyde/riemann-hypothesis/blob/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9/src/Main.lean
+[gram]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean
+[data]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/DataS.lean
+[d7]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/LocalRingCardinality/RhoDetPrimeEqMuTildeMulChiPow.lean
+[admissible]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean
+[standing]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean
+[eventual]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/LeSCSCl.lean
+[inputs]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/GlobalTheoremInputs.lean
+[threshold]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/ThresholdCubicInequalitySignPattern.lean
+[weighted]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean
+[latsupply]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/LatticeSumBound.lean
+[minor]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoMinorIntegrality.lean
+[cosets]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Formalism/SharpRestriction/CuspSpanNormBounds/KTwoCosetCount.lean
+[main]: https://github.com/leanprover-community/riemann-hypothesis/blob/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2/src/Main.lean
 

@@ -51,10 +51,11 @@ export default function StateOfProgramPage() {
           <div className="ed-mono" style={{ color: 'var(--faint)', fontSize: 11 }}>RESEARCH UPDATE · 20 NOVEMBER 2026</div>
           <h2 id="arithmetic-theta-update" className="ed-h2">Arithmetic lattices and twin-ladder geometry</h2>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.65 }}>
-            A new note proves the finite frame and projection estimates, the singular Schur
-            squared-distance identity, and lattice and packing lemmas, then states the arithmetic
-            cost estimate needed for the proposed RH route. That estimate remains open.
-            The 20 exact finite checks validate algebra and normalizations; they are not a full Lean replay.
+            Version 0.2 sharpens the minor-label packing bound and proves that the unrestricted
+            lattice-cost target is equivalent to the prime-ramp criterion. It also locates the
+            selected arithmetic construction and window endpoint in the external source.
+            A specified arithmetic cost or whole-form comparison remains open here;
+            the exact checks and source inventory are not a full Lean replay.
           </p>
           <Link to="/rh-arithmetic-theta-geometry">Read the results, manuscripts and remaining proof obligation →</Link>
         </section>

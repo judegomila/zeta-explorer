@@ -1,60 +1,75 @@
-# Arithmetic lattices and twin-ladder geometry
+# Arithmetic Lattices and Twin-Ladder Geometry
 
-Jude Gomila research program · 20 November 2026
+**Version 0.2 · 20 November 2026 · Conditional research compression.** The finite mathematical statements are proved in the manuscript. The deep arithmetic completion and direct twin-ladder comparison remain open in this synthesis. This is not an unconditional RH proof, an external peer review, or a complete Lean replay.
 
-## Result
+Read the [manuscript](RH_Geometric_Compression.pdf), its [editable source](RH_Geometric_Compression.tex), or the [live research module](https://exploreriemann.com/#/rh-arithmetic-theta-geometry). The earlier [arithmetic-theta manuscript](../release-v0.1/RH_Arithmetic_Theta_Completion.pdf) supplies the sparse Pick and full-ray Mellin–Landau endpoints.
 
-The [10-page manuscript](RH_Geometric_Compression.pdf) gives complete proofs of a finite geometric module and a precise conditional arithmetic completion target. It is **not a completed proof of RH**. The source's arithmetic family estimates and the required cost bound have not been independently established by this continuation.
+## What this revision accomplishes
 
-The useful compression is concrete: normalize the source's actual period maps to obtain a Gram kernel, control the frame energy lost under two projections, and separate the arithmetic index of an integral map from its metric cost. A further packing lemma makes an arithmetic mechanism transparent: integrality prevents embedding vectors from clustering multiplicatively, and weighted geometric packing bounds their contribution.
-
-The twin-ladder model enters in two precise ways. Its Schur residual would be a squared distance once the complete target form is independently realized by arithmetic maps. Its prime-power ramp already has an exact scalar expression and can be encoded in an explicit integer with square-root rounding error. Neither encoding by itself supplies the missing arithmetic saving.
-
-Read the [public app research page](https://exploreriemann.com/#/rh-arithmetic-theta-geometry). The analytic endpoints used in Section 6 are available in the [earlier manuscript](../release-v0.1/RH_Arithmetic_Theta_Completion.pdf) and its [editable source](../release-v0.1/RH_Arithmetic_Theta_Completion.tex); the [ramp derivation](../twin-ladder-refinement/RAMP_AND_AVERAGING.md) is also public. Historical MathExplorer links record provenance and may require access to the old repository.
-
-## Files
-
-| File | Contents |
+| Item | Result and verification level |
 |---|---|
-| [RH_Geometric_Compression.pdf](RH_Geometric_Compression.pdf) | Ten-page paper with statements, proofs, source comparison, and explicit completion conditions. |
-| [RH_Geometric_Compression.tex](RH_Geometric_Compression.tex) | Editable LaTeX source. |
-| [FRAME_GEOMETRY.md](FRAME_GEOMETRY.md) | Full frame theorem, source dictionary, singular Schur formula, limiting criterion, and countercontrols. |
-| [LATTICE_AND_TWIN_LADDER.md](LATTICE_AND_TWIN_LADDER.md) | Covolume/slope accounting, arithmetic trace-dual bound, product-formula normalization, and prime-ladder encoding. |
-| [SOURCE_DEPENDENCY_AUDIT.md](SOURCE_DEPENDENCY_AUDIT.md) | Actual source suppliers, constants, quantifiers, packing proof, and the precise remaining inspection boundary. |
-| [REVIEW.md](REVIEW.md) | Review scope, validation, and unresolved obligations. |
-| [check_frame_geometry.py](check_frame_geometry.py) | Ten exact finite geometry checks. |
-| [check_lattice_bridge.py](check_lattice_bridge.py) | Ten exact lattice and arithmetic normalization checks. |
-| [FRAME_GEOMETRY_CHECKS.json](FRAME_GEOMETRY_CHECKS.json) | Recorded frame check results. |
-| [LATTICE_BRIDGE_CHECKS.json](LATTICE_BRIDGE_CHECKS.json) | Recorded lattice check results. |
-| [requirements.txt](requirements.txt) | Symbolic-check dependency. |
-| [SHA256SUMS](SHA256SUMS) | Checksums of the files in this continuation. |
+| Integral CM minors | Independent proof of mixed-minor integrality and exact CM norm separation; source suppliers located. |
+| Minor-label packing | A single product argument removes the extra support factor `2^j`. Distinct labels, fixed coordinate zero and zero tail are essential. |
+| Packing cost | Exact logarithmic cost and a smaller explicit coarse exponent, retaining field degree and scale assumptions. |
+| Dimension window | Exact rank and the prescribed prime window imply `1/2 ≤ d Γ²/D* ≤ e`. Those arithmetic inputs remain necessary. |
+| Complete lattice cost | Cost equals log index plus nonnegative singular-value slack. Its unrestricted minimum is exactly `log Q`. |
+| Completion target | The unrestricted lattice condition is equivalent to the full-ray prime-ramp criterion, hence to RH with the stated analytic dependencies. A specified arithmetic family still needs an independent estimate. |
+| Window boundary | A quantified mesh condition suffices; a C², Lipschitz example with convex uncentred ramp shows that arbitrary large windows alone do not. |
+| External suppliers | Generic S76, selected Main off-diagonal construction, family constructor and character-window endpoint are located at source-body level. Deep verification is outstanding. |
 
-## What is proved
+The constant 18 was already present inside the source's packing proof. The improvement is removal of the support split and explicit cost accounting; no historical novelty claim is made.
 
-1. **Frame energy survives controlled deletions.** For actual maps with the stated diagonal and pairwise Gram bounds, the proof reproduces the source's `AF` and `BF` constants. It also proves the intermediate second-moment inequality before the extra ambient-dimension factor is inserted. The source-projection loss only needs an aggregate rank bound. Positivity comes from the Gram representation before the moment argument; no spectral gap is asserted.
-2. **The Schur residual is a squared distance.** The formula uses a Moore–Penrose inverse and remains valid with a singular even block. A separate whole-form limit handles approximation without controlling perturbed inverses.
-3. **Arithmetic index has a full metric cost.** The determinant identity retains the saturation index and both lattice covolumes. The Hilbert–Schmidt bound gives an exact target for an arithmetic slope argument. A trace-dual lower bound retains the discriminant squared and lattice-index factors.
-4. **Multiplicative separation gives weighted packing.** A half-unit cell argument proves the source's packing bound, including its stronger intermediate constant. This proves a geometric consequence of separation; the application must establish the correct embedding and integral-minor hypotheses.
-5. **The ladder has an explicit integer encoding.** For the prime-power ramp and an integer parameter (m), (m) times the ramp minus the logarithm of the constructed integer is bounded by the Chebyshev prime sum. Taking (m=\lceil\sqrt X\rceil) makes the normalized rounding loss (O(\sqrt X)). This is an elementary encoding, not a derivation of the external theta-chain length.
+## Proofs and audit files
 
-## What remains open in this synthesis
+| File | Purpose |
+|---|---|
+| [FRAME_GEOMETRY.md](FRAME_GEOMETRY.md) | Frame normalization, projections and singular Schur geometry. |
+| [LATTICE_AND_TWIN_LADDER.md](LATTICE_AND_TWIN_LADDER.md) | Determinant, trace-dual and prime-encoding derivations. |
+| [ARITHMETIC_FAMILY.md](ARITHMETIC_FAMILY.md) | CM minors, improved packing, exponents, dimension window, product formula and covolume conventions. |
+| [LADDER_COMPLETION.md](LADDER_COMPLETION.md) | Exact minimum, metric distinctions, RH equivalence, mesh lemma and window obstruction. |
+| [S76_CLOSURE.md](S76_CLOSURE.md) | Generic and actual selected-source routes, with retained deep inputs. |
+| [S76_CLOSURE_MAP.json](S76_CLOSURE_MAP.json) | 47 declarations, 48 typed source edges and 30 file fingerprints; not a compiled proof graph. |
+| [SOURCE_DEPENDENCY_AUDIT.md](SOURCE_DEPENDENCY_AUDIT.md) | Generic kernel dictionary and downstream geometric adapters, updated for v0.2. |
+| [PROOF_OBLIGATIONS.md](PROOF_OBLIGATIONS.md) | Proved, located and unresolved statements, with exact acceptance conditions. |
+| [VERIFICATION_PROTOCOL.md](VERIFICATION_PROTOCOL.md) | Formal verification protocol and required verdict artifacts; not an executed replay. |
+| [REVIEW.md](REVIEW.md) | Internal mathematical, source and document review. |
 
-The scalar route needs independently constructed arithmetic lattices and maps whose complete metric cost bounds the encoded prime sum by its main term plus (O_\varepsilon(X^{1/2+\varepsilon})), for every fixed (\varepsilon>0) on a sufficiently large full ray. The paper states this target with all normalization terms. A one-dimensional multiplication map merely makes the lattice inequality an equality and provides no saving.
+## Source pin and static verification
 
-The alternative positivity route needs independently constructed arithmetic maps matching the complete Weil/Pick form, including all mixed terms, with errors tending to zero for each fixed finite test family. The source's positive frame has not been identified with that different target form.
+The source is [leanprover-community/riemann-hypothesis at c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2](https://github.com/leanprover-community/riemann-hypothesis/tree/c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2). Its `src` tree is byte-identical to the earlier inspected pin `712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9`.
 
-The source audit is pinned to [Deicyde/riemann-hypothesis at 712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9](https://github.com/Deicyde/riemann-hypothesis/tree/712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9). It traces actual theorems converting kernel estimates into `LinkS`. The inspected higher assembly receives `PeriodFamilyStatement` as `S76`; its ultimate implementation and full import closure were not checked here. This is an inspection boundary, not evidence of a source gap. The dimension window, separate ambient row count, and eventual family uniformity remain explicit.
+The read-only [snapshot](SOURCE_SNAPSHOT.json) verifies tracked source bytes, an acyclic parsed Main import closure of **175,187 Lean files**, and no occurrences of its scanned admission/unsafe keywords in that closure. There are 175,188 tracked Lean files overall: the extra `Challenge` module is outside Main's closure and contains the intended comparison placeholders. Imports are not proof-term dependencies or verified theorems. External package bytes, elaboration, axiom closure and kernel verification are outside this static check.
 
-## Reproduce the finite checks
+The positively traced Main route uses selected arithmetic data and a character-window theorem. Generic S76 is separately located conditional machinery. No third-party Lean source is redistributed.
 
-From this directory, with the dependency in `requirements.txt` installed:
+## Reproduce the checks
+
+From this directory:
 
 ```sh
+python -m pip install -r requirements.txt
 python check_frame_geometry.py
 python check_lattice_bridge.py
+python check_arithmetic_compression.py
+python check_ladder_completion.py
+python audit_source_snapshot.py --self-test
 sha256sum -c SHA256SUMS
 ```
 
-Both scripts pass all ten checks. General proofs are in the paper and notes; finite examples do not prove the general theorems. These scripts do not verify RH, the analytic endpoint proofs, or the external Lean import graph. No Lean replay was performed.
+The original frame and lattice scripts each record 10 passing checks; the completion script records 21. The arithmetic script records 252 finite-product cases over 26,910 points, injectivity negative controls, 180 Gaussian-integer minors, 3,321 exponent identities, 10,560 rational cost comparisons, and 711 dimension-window cases. Universal statements rest on the written proofs.
 
-The original release and the earlier twin-ladder refinement are preserved. No novelty claim is made for standard frame inequalities, Schur geometry, lattice determinant identities, or the product formula. The value of this continuation is the explicit compression, normalization, and exact connection to the project's remaining arithmetic target.
+For the separate static audit, supply the exact pinned checkout with the earlier comparison commit present:
+
+```sh
+python audit_source_snapshot.py /path/to/pinned/source --output SOURCE_SNAPSHOT.json
+```
+
+This reads source bytes and Git metadata without executing Lean. A standard LaTeX installation can build the manuscript with `pdflatex`; build and render intermediates are not included.
+
+## Completion boundary
+
+A direct scalar proof needs **specified arithmetic lattices, maps, integral structures, saturation and independently proved complete cost bounds**. Allowing arbitrary maps and metrics only restates the desired ramp estimate.
+
+A direct twin-ladder positivity proof needs **independent arithmetic Gram maps and a whole-form lower comparison with vanishing error for every fixed Pick prefix**, including mixed terms. No uniform spectral gap is needed, but a positive diagonal or an average does not supply the comparison.
+
+A full compression of the external proof requires validation of its selected suppliers, implicit instances, family uniformity and special analytic window theorem. A formal verification claim additionally requires the recorded build, axiom and independent-kernel verdicts. These are not marked complete here.

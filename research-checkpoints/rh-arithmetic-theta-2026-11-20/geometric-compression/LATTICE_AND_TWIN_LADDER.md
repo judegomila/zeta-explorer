@@ -1,5 +1,7 @@
 # Arithmetic lattices and the twin-ladder observable
 
+**Version 0.2 continuation:** [LADDER_COMPLETION.md](LADDER_COMPLETION.md) proves the exact singular-value slack, the attained minimum complete cost, and equivalence of the unrestricted lattice target with the full-ray ramp criterion and RH. The determinant cost is invariant under arbitrary metric changes; the Hilbert–Schmidt upper cost is invariant only under uniform rescaling. This earlier detailed note remains the source for the trace-dual proof and encoding identities. The current source map is [S76_CLOSURE.md](S76_CLOSURE.md).
+
 20 November 2026. Geometric-compression continuation.
 
 ## Status

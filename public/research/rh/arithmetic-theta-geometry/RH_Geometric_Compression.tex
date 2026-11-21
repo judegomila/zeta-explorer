@@ -33,25 +33,25 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small Arithmetic lattices and twin-ladder geometry}
-\fancyhead[R]{\small Conditional research note}
+\fancyhead[R]{\small Conditional compression v0.2}
 \fancyfoot[C]{\thepage}
 \hypersetup{pdftitle={Arithmetic Lattices and Twin-Ladder Geometry: A Conditional Compression},pdfauthor={Jude Gomila research program},pdfsubject={Proved finite geometry, arithmetic normalization, and an open RH completion interface}}
 \title{\textbf{Arithmetic Lattices and Twin-Ladder Geometry}\\[0.35em]\large A conditional compression of the theta-chain route}
 \author{Jude Gomila research program\\\small Prepared with AI-assisted derivation and internal review}
-\date{20 November 2026}
+\date{20 November 2026\quad---\quad Version 0.2}
 \begin{document}
 \maketitle
 \begin{abstract}
-We give a short, independently proved geometric core for part of the announced arithmetic theta-chain approach: normalized Gram bounds imply a quantitative frame theorem, and the frame retains controlled energy after source and target projections. The constants reproduce the inspected formal source's projection bounds; one intermediate second-moment estimate is stronger than the displayed source interface. We derive the exact Schur residual as a squared distance, including singular prefixes, and an integral lattice determinant inequality that separates divisibility from metric cost. The user's prime-power ladder is connected to an explicit integer divisibility object with square-root discretization error. This construction exposes, rather than solves, the missing norm estimate. The arithmetic family estimates and their matching to the completed Weil form remain open in this synthesis. This note is not an unconditional proof of RH, a full Lean replay, or a claim of novelty for the elementary geometric principles.
+We isolate a proved geometric core of the arithmetic theta-chain approach: a quantitative frame theorem, the singular Schur residual as a squared distance, and exact lattice index accounting. Integral CM minors give multiplicative separation; one product argument removes the extra support-counting factor in a source estimate. An elementary rank calculation supplies the normalized dimension window once its arithmetic inputs are given. The prime ladder yields an integer with square-root rounding loss. We prove that minimizing the unrestricted complete lattice cost merely recovers its logarithm, so the unrestricted completion condition is equivalent to the scalar RH criterion. A source audit locates both a generic correlation supplier and the different selected-family construction on the visible Main route, which ends in a character-window theorem. These are source-level findings, not independent verification of that deep argument. The direct arithmetic identification with the twin-ladder Weil form and a self-contained full proof compression remain open.
 \end{abstract}
 
 \section{What is proved and what is imported}
 
 The release described in Alp\"oge's announcement points to long chains of automorphic theta lifts, intended to mimic multiplicity in a function-field argument \cite{announcement}. The inspected formal source organizes part of its argument using integral lattices, arithmetic slopes, and normalized correlation estimates. Our purpose is to isolate the geometric content and make the remaining arithmetic requirements visible.
 
-All finite-dimensional statements in Sections 2--4 and the ladder/divisibility identities in Section 5 are proved below. The sparse Pick criterion and the one-sided Mellin--Landau implication in Section 6 are the analytic endpoints proved in the earlier project manuscript \cite{project}; their classical inputs are identified there. The source audit concerns declarations at the fixed commit
-\begin{center}\small\texttt{712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9}.\end{center}
-Reading a theorem body does not independently validate its import closure. A declaration of type \texttt{Prop} specifies an obligation; a theorem that assumes it does not establish its existence. This note makes no assertion that required proofs are absent elsewhere in the external project. The complete external project has not been compiled or replayed here.
+The finite geometry, arithmetic sublemmas, cost identities and window counterexample are proved below. The sparse Pick criterion and the one-sided Mellin--Landau implication are analytic dependencies from the earlier project manuscript \cite{project}. The source audit is pinned to
+\begin{center}\small\texttt{c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2}\end{center}
+in \url{https://github.com/leanprover-community/riemann-hypothesis}. Its entire \texttt{src} tree is byte-identical to the earlier inspected pin \texttt{712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9}; the reproducible inventory records both tree hashes. Source bodies, their explicit applications, and independently proved mathematics have different verification status. No external Lean compilation, proof-term dependency extraction, axiom-closure check or kernel replay was performed. No historical novelty is claimed for standard frame, determinant, norm or interpolation principles.
 
 \section{A short geometric frame theorem}
 
@@ -223,6 +223,25 @@ If $s_1,\ldots,s_r$ are the positive singular values of $T$, then
 An injective linear map multiplies $r$-dimensional volume by $\sqrt{\det(T^*T)}=\prod_js_j$. A sublattice of index $I$ has $I$ times the covolume of its containing lattice. These two facts give \eqref{eq:covol}. Apply the arithmetic--geometric mean inequality to $s_j^2$ and take logarithms.
 \end{proof}
 
+Write $\mathcal C(T)$ for the right side of \eqref{eq:cost}. The following exact identity makes the limit of metric optimization explicit.
+
+\begin{proposition}[Exact cost and unrestricted minimum]\label{prop:minimum}
+One has
+\[
+ \mathcal C(T)=\log I+
+ \frac r2\log\frac{r^{-1}\sum_js_j^2}{(\prod_js_j^2)^{1/r}}.
+\]
+The second term is nonnegative and vanishes precisely when all singular values are equal. For every integer $q\ge1$,
+\[
+ \min_{\substack{r\ge1,\ L,M,T\text{ as above}\\I\ge q}}\mathcal C(T)=\log q.
+\]
+\end{proposition}
+\begin{proof}
+Solve \eqref{eq:covol} for the covolume ratio and substitute in \eqref{eq:cost}. Arithmetic--geometric mean gives the sign and equality criterion. The lower bound is $\mathcal C(T)\ge\log I\ge\log q$; multiplication by $q$ on the standard lattice $\Z$ attains it.
+\end{proof}
+
+Even at any prescribed positive rank, free metrics permit equality: use $T=\operatorname{diag}(q,1,\ldots,1)$, the standard target metric and the pullback source metric $T^*T$. Thus a rank restriction alone is insufficient. The determinant cost is exactly $\log I$ under arbitrary metric changes. The Hilbert--Schmidt upper cost is invariant under uniform source or target rescaling, but can change under anisotropic changes. For $T=\operatorname{diag}(2,1)$ it is $\log(5/2)$ with standard metrics and $\log2$ with source metric $\operatorname{diag}(4,1)$. The change removes the singular-value slack, while retaining the index cost.
+
 If $\mu(L)=-r^{-1}\log\covol(L)$ and $\mu_{\max}(M)$ denotes the supremum of the corresponding slopes of its nonzero primitive sublattices, the same calculation gives
 \[
  \mu(L)+\frac{\log I}{r}
@@ -283,6 +302,23 @@ The square root and the averaging factor cannot be discarded. A CM-field calcula
 \subsection{Integral separation becomes weighted packing}
 The next lemma is an especially direct geometric ingredient of the inspected source \cite{packing}.
 
+\begin{proposition}[CM integral minors]\label{prop:cm}
+Let $E$ be a CM field of degree $2f$ and $\Phi$ a CM type, containing one embedding from each conjugate pair. Let $\Lambda$ be an integral Hermitian $\mathcal O_E$-lattice, meaning $h(\Lambda,\Lambda)\subseteq\mathcal O_E$. For two frames in $\Lambda$, every mixed minor
+\[
+ a_\ell=\det\bigl(h(e'_i,e_j)\bigr)_{1\le i,j\le\ell}
+\]
+is integral. For any distinct $a,b\in\mathcal O_E$,
+\[
+ \prod_{\sigma\in\Phi}|\sigma(a-b)|^2
+ =|N_{E/\Q}(a-b)|\ge1.
+\]
+\end{proposition}
+\begin{proof}
+Determinants are integral polynomials in integral entries. The nonzero integral element $a-b$ has a nonzero integer norm. Pair the embeddings into conjugate pairs to obtain the identity. Taking square roots also gives product separation without the square.
+\end{proof}
+
+No positivity of $h$ is needed for this lemma. In the source, a common unimodular lattice supplies integrality; \texttt{MinorIntegralityTorus.NormLB\_holds} and \texttt{MinorInt\_holds} are located proof bodies, with an explicit CM-type identification \cite{minors}. Their existence does not identify these minors with the project's Weil form.
+
 \begin{proposition}[Weighted packing from multiplicative separation]\label{prop:packing}
 Let $I$ be finite, $d=|I|$, $\mathcal P\subset\C^I$ finite and $U\ge1$. If
 \[
@@ -311,7 +347,75 @@ Put $N=\lceil2U\rceil$. The first $N+2$ terms of $\sum_{m\ge0}w_U(m)$ contribute
 Thus $\sum_{m\ge0}w_U(m)\le9U$ and $\sum_{a\in\Z}w_U(|a|)\le18U$. Use the injective address map, extend the nonnegative sum to every integer address, and factor over its $2d$ coordinates. This proves the result.
 \end{proof}
 
-For a nonzero algebraic integer, the product over all embedding absolute values is the absolute value of a nonzero integer norm, hence at least $1$. This supplies the separation condition for suitable embedding vectors of distinct integral labels. The source applies this mechanism to integral minors; its theorem \texttt{cosets\_sum} then bounds a weighted kernel contribution. The precise embedding conventions and minor integrality still have to be established in each application. The constant $18$ already appears inside the source proof; it is not claimed here as a new improvement. The exponential dependence on $d$ must be included when the number field varies.
+Proposition~\ref{prop:cm} supplies the separation condition for CM embedding vectors. The constant $18$ already appears inside the source proof; its stated interface weakens it to $64$. The exponential dependence on the field degree remains part of the cost.
+
+\begin{theorem}[Minor packing without a support factor]\label{thm:minor-sum}
+Let $0\le j\le r$, and let $\mathcal T$ be a finite set of distinct integral label sequences $a=(a_0,a_1,\ldots)$ with $a_0=1$ and $a_\ell=0$ for $\ell>j$. For positive scales $s_\ell$, put
+\[
+ \Sigma_\sigma(a)=\max\left(1,\max_{1\le\ell\le j}
+              |\sigma(a_\ell)|/s_\ell\right),\qquad
+ K(a)=\prod_{\sigma\in\Phi}\Sigma_\sigma(a),\qquad
+ R_\ell=\max(1,s_\ell).
+\]
+For $j=0$ the inner maximum is omitted. Then
+\[
+ \boxed{\sum_{a\in\mathcal T}K(a)^{-3r}
+      \le\prod_{\ell=1}^j(18R_\ell)^{2f}.}
+\]
+\end{theorem}
+\begin{proof}
+Every coordinate factor is at most $\Sigma_\sigma(a)$, and $\Sigma_\sigma(a)\ge1$, so $j\le r$ gives
+\[
+ \Sigma_\sigma(a)^{-3r}
+ \le\prod_{\ell=1}^j\max(1,|\sigma(a_\ell)|/s_\ell)^{-3}.
+\]
+Define $W_\ell(t)$ as the product of the right-hand coordinate weight over $\sigma$, and let $A_\ell$ be the $\ell$th coordinate projection of $\mathcal T$. The fixed initial coordinate and zero tail make the first $j$ coordinates injective. Nonnegativity therefore gives
+\[
+ \sum_{a\in\mathcal T}K(a)^{-3r}
+ \le\sum_{a\in\mathcal T}\prod_\ell W_\ell(a_\ell)
+ \le\prod_\ell\sum_{t\in A_\ell}W_\ell(t)
+ \le\prod_\ell(18R_\ell)^{2f},
+\]
+using $s_\ell\le R_\ell$ and Proposition~\ref{prop:packing}. If $j=0$, there is at most one label and the bound is $1$.
+\end{proof}
+
+Zero coordinates have weight one. The source's \texttt{cosets\_sum} and \texttt{cosets\_sum\_gen} first split the labels by nonzero support and incur $2^j$; the single product argument removes that loss. Their \texttt{lab\_facts} and \texttt{labFacts\_conc} provide the required injectivity conditions \cite{minors}. This improvement is proved here on paper; it has not been substituted into or replayed through the external formalization.
+The theorem sums distinct labels. An application summing raw objects with repeated labels must additionally control the multiplicities.
+
+For the source scales
+\[
+ e_\ell=\sum_{a=1}^\ell(r+1-a)=\frac{\ell(2r+1-\ell)}2,
+ \qquad s_\ell=\operatorname{rd}_E^{2e_\ell}(2H)^{2r},
+\]
+if $\operatorname{rd}_E\ge1$ and $2H\ge1$, the exact logarithm of the bound is
+\begin{equation}\label{eq:packing-cost}
+ 2fj\log18+\frac{2f}{3}j(j+1)(3r+1-j)\log\operatorname{rd}_E
+       +4frj\log(2H).
+\end{equation}
+Indeed $\sum_{\ell=1}^je_\ell=j(j+1)(3r+1-j)/6$. More generally let $b=e^L$, $L>1$, $m\ge2$, $1\le r\le m$, $C_l>0$, $\operatorname{rd}_E\ge1$, $\log\operatorname{rd}_E\le L/C_l$ and $H=b^{C_Hm}$. Then
+\begin{equation}\label{eq:packing-coarse}
+ \sum_{a\in\mathcal T}K(a)^{-3r}
+ \le b^{(4+4/C_l+4|C_H|)fm^2r}.
+\end{equation}
+To check this even when $2H<1$, use $e_\ell\le r^2$ and
+$\log\max(1,2H)\le L(1+|C_H|m)$. The logarithm is at most
+$L\{6fj+(4/C_l)fjr^2+4frj(1+|C_H|m)\}$.
+After division by $fm^2r$, the four terms are at most $3/2$, $4/C_l$, $2$ and $4|C_H|$. This bounds one arithmetic contribution; it is not an improvement of the final RH exponent.
+
+\subsection{The dimension window from the actual rank formula}
+\begin{proposition}[Rank and prime window]\label{prop:dimension}
+Let $f,k$ be positive integers with $2f\le2^k$, and let $D_*,d_*>0$, $\Gamma\ge1$. Put $Y=(D_*/(d_*\Gamma^2))^{1/(fk)}$. If
+\[
+ T\ge2,\qquad Y\le T\le Y(1+1/(fk)),\qquad d=d_*(T^k-1)^f,
+\]
+then $\tfrac12\le d\Gamma^2/D_*\le e$.
+\end{proposition}
+\begin{proof}
+The upper bound follows from $(T^k-1)^f\le T^{fk}\le eY^{fk}$. For the lower bound, $T^k\ge2^k\ge2f$ and Bernoulli's inequality give
+$(T^k-1)^f=T^{fk}(1-T^{-k})^f\ge T^{fk}(1-fT^{-k})\ge Y^{fk}/2$.
+Multiply by $d_*\Gamma^2/D_*=Y^{-fk}$.
+\end{proof}
+The theorem \texttt{proviso\_e} in \path{MainSup.lean} uses precisely this rank-and-window mechanism, weakening $1/2$ to $e^{-1}$. The exact rank, split-prime selection, and uniform family construction remain substantive inputs; Gram positivity alone does not give them.
 
 \section{A literal arithmetic object from the prime ladder}
 
@@ -369,26 +473,55 @@ implies RH. The proof uses the Mellin transform
 \]
 its removable singularity at $1$, and Landau's theorem for a nonnegative tail transform \cite{project}. A complex zero to the right of the target exponent would force a forbidden real singularity of that transform. The estimate is a full-ray statement; the external multiplicative-window theorem has additional hypotheses and is not substituted here.
 
-\begin{corollary}[A sufficient arithmetic lattice target]\label{cor:target}
-For every sufficiently large $X$, let $m=\lceil\sqrt X\rceil$. Suppose one independently constructs lattices and an injective integral map as in Theorem~\ref{thm:lattice}, possibly depending on $\varepsilon$, such that
+\begin{theorem}[The unrestricted lattice target is an exact reformulation]\label{cor:target}
+The following two statements are equivalent.
+\begin{enumerate}
+\item For every $\varepsilon>0$, there are $C_\varepsilon\ge0$ and $X_\varepsilon$ such that $G_\zeta(X)\le C_\varepsilon X^{1/2+\varepsilon}$ for all $X\ge X_\varepsilon$.
+\item For every $\varepsilon>0$, there are $C_\varepsilon\ge0$ and $X_\varepsilon$ such that for each real $X\ge X_\varepsilon$, with $m=\lceil\sqrt X\rceil$, some lattices and integral map as in Theorem~\ref{thm:lattice} satisfy
 \[
  I\ge Q_{X,m}
 \]
-and the complete metric cost satisfies
+and
 \[
- \log\frac{\covol(L)}{\covol(M_T)}
- +\frac r2\log\left(\frac{\norm T_{\HS}^2}{r}\right)
+ \mathcal C(T)
  \le mM(X)+mC_\varepsilon X^{1/2+\varepsilon}
 \]
-for every fixed $\varepsilon>0$ and all sufficiently large $X$. Then RH holds.
-\end{corollary}
+with no further compatibility or arithmetic-family restriction on the maps.
+\end{enumerate}
+Both statements are equivalent to RH, with the analytic dependencies stated below.
+\end{theorem}
 \begin{proof}
-The lattice inequality bounds $\log Q_{X,m}$ by the displayed cost. Divide by $m$ and apply Proposition~\ref{prop:round} to obtain
-$G_\zeta(X)\le(C_\varepsilon+4\log2)X^{1/2+\varepsilon}$ for $X\ge2$.
-Apply the scalar analytic endpoint.
+For (2)$\Rightarrow$(1), combine
+$mR(X)-\vartheta(X)<\log Q_{X,m}\le\log I\le\mathcal C(T)$,
+divide by $m$, and use $\vartheta(X)/m\le4\log2\sqrt X$. The constant becomes $C_\varepsilon+4\log2$.
+For (1)$\Rightarrow$(2), multiplication by $Q_{X,m}$ on $\Z$ has cost $\log Q_{X,m}\le mR(X)$ by Proposition~\ref{prop:minimum}. The full-ray Mellin--Landau argument above proves (1)$\Rightarrow$RH.
+
+For the converse, under RH write $E(t)=\psi(t)-t$. Schoenfeld's Theorem 10(6.2) gives
+$|E(t)|<(8\pi)^{-1}\sqrt t\log^2t$ for $t>73.2$ \cite{schoenfeld}.
+Abel summation gives
+\[
+ R(X)=X\int_1^X\frac{\psi(t)}{t^2}\,dt
+     =X\log X+X\int_1^X\frac{E(t)}{t^2}\,dt.
+\]
+The RH bound makes $E(t)t^{-2}$ absolutely integrable. The identity
+\[
+ -\frac{\zeta'(\sigma)}{\zeta(\sigma)}
+ =\frac{\sigma}{\sigma-1}+\sigma\int_1^\infty E(t)t^{-\sigma-1}\,dt
+ \qquad(\sigma>1)
+\]
+and the Laurent expansion at $1$ imply $\int_1^\infty E(t)t^{-2}\,dt=-1-\gamma_E$. Hence
+\[
+ G_\zeta(X)=-X\int_X^\infty E(t)t^{-2}\,dt,
+\]
+and elementary integration yields
+\[
+ |G_\zeta(X)|<\frac{\sqrt X}{4\pi}
+    \bigl((\log X)^2+4\log X+8\bigr)\qquad(X>73.2).
+\]
+This implies (1) for every positive $\varepsilon$.
 \end{proof}
 
-\textbf{Status of Corollary~\ref{cor:target}.} Its implication is proved; the required independent construction and cost bound are unproved. The one-dimensional example above does not satisfy a proved useful cost bound. This corollary is a precise target, not a replacement proof of the missing arithmetic estimate. It is not asserted that the external construction uses the particular integer $Q_{X,m}$.
+\textbf{Consequence for the research target.} The unrestricted existence statement has not made the arithmetic problem easier. A useful geometric proof must specify the arithmetic lattices and maps independently and prove their complete cost estimate. Rank, metric, conductor, local structures and compatibility may constrain such a construction, but those conditions must actually be included. It is not asserted that the external theta construction uses $Q_{X,m}$.
 
 The alternative endpoint is the project's sparse Weil/Pick criterion. With $F(z)=\xi(1/2+z)$, $L(z)=F'(z)/F(z)$ and $x_j=1+1/(j+1)$, it asks for positivity of every finite prefix
 \[
@@ -396,26 +529,90 @@ The alternative endpoint is the project's sparse Weil/Pick criterion. With $F(z)
 \]
 The earlier manuscript proves this condition equivalent to RH using finite Nevanlinna--Pick interpolation and an interior accumulation point \cite{project}. Proposition~\ref{prop:limit} would establish it from independently matched arithmetic Gram forms. The historical even/odd operators, the external frame, and this Pick kernel must not be identified without a proved map and normalization.
 
-\section{The arithmetic theorem still to extract}
+\section{Windows, full rays, and the actual analytic endpoint}
 
-The source theorem \texttt{linkGLOBAL7\_items} assembles lattice ranks, arithmetic slopes and a frame estimate, while receiving the global correlation input \texttt{LinkS} \cite{linkmin}. Actual theorems in \path{StandingHypothesesHoldFamily.lean} convert the diagonal and off-diagonal arithmetic estimates and a separate row count into \texttt{LinkS}. The inspected higher assembly receives \texttt{PeriodFamilyStatement} as an argument named \texttt{S76}. We have not located and checked its ultimate implementation and full import closure. This is the boundary of our audit, not evidence of a missing proof in the external source.
+The visible Main route reaches a character-window theorem, not the separately available full-ray theorem. Its window condition is
+\[
+ \forall y\ \exists Y\ge y\ \forall x\in[Y,Y^\lambda],\quad x\in S,
+ \qquad\lambda>1.
+\]
+This does not say that every sufficiently large $x$ lies in $S$. The analytic level $\Lambda$, and therefore the function $\Lambda.G_m$, stays fixed. Auxiliary arithmetic families may depend on $\varepsilon$ when the comparison still concerns that same analytic function \cite{window}. The source's \texttt{level\_of\_tiedWin} chooses $\varepsilon$ after fixing a possible zero and invokes \texttt{FormBAt}. The special analytic window theorem is an input that cannot be replaced merely by continuity or convexity.
 
-The \texttt{LinkS\_at} interface itself is conditional on the dimension window $C_0^{-1}\le d_u\Gamma^2/D_*\le C_0$ for every word. Moreover, its eventual threshold must work for every admissible index at every larger family parameter. A shortened proof must retain both this window and this uniformity. The separate ambient row count and the arithmetic main-term normalization are not consequences of Gram positivity.
+\begin{lemma}[A sufficient mesh bridge]\label{lem:mesh}
+Let $0<\theta<1$, and let $G$ be $L$-Lipschitz on a tail. Suppose $G(y)\le Cy^\theta$ at all sufficiently large $y\in S$, where $C\ge0$. If, for some fixed $D\ge0$, every sufficiently large $x$ has some $y\in S$ with $|x-y|\le Dx^\theta$, then
+\[
+ G(x)\le(2^\theta C+LD)x^\theta
+\]
+on a full tail.
+\end{lemma}
+\begin{proof}
+Eventually $Dx^\theta\le x/2$, so $x/2\le y\le2x$ and $y$ passes the threshold. Then $G(x)\le G(y)+L|x-y|\le C(2x)^\theta+LDx^\theta$.
+\end{proof}
 
-A complete geometric account therefore needs the following arithmetic result: a specified theta/lattice family with its integral structures, test vectors and pairings, a uniform proof of the required kernel and dimension estimates, and a costed passage through the full chain to the scalar prime discrepancy or to the completed Weil form. The source's real-place theta identifications must be compatible with its finite-place valuation data. A positive Hilbert-space norm alone carries neither divisibility nor the required arithmetic matching.
+The source's \texttt{GzLipschitz.lean} proves a Lipschitz bound $L=\log4+7$ for the centred zeta ramp. That does not supply the missing mesh condition. The following obstruction retains even convexity of the uncentred ramp.
 
-The finite geometry above is proved without an assumed positive spectrum for the zeta zeros. It clarifies the projection mechanism and the size of each loss. The unresolved input is an arithmetic construction and estimate, not a further orthogonal-projection identity.
+\begin{proposition}[$C^2$ convex-window obstruction]\label{prop:windows}
+There is a nonnegative $C^2$ function $F$ with bounded derivative, zero on arbitrarily large windows $[Y,Y^2]$, for which $M+F$ is convex on $(0,\infty)$ but $F$ is not $O(x^{1/2+\varepsilon})$ for any $0<\varepsilon<1/4$.
+\end{proposition}
+\begin{proof}
+Set $Y_j=4096^{3^j}$, $X_j=16Y_j^2$, and
+\[
+ \phi(u)=\begin{cases}(1-u^2)^3,&|u|\le1,\\0,&|u|>1,\end{cases}
+ \qquad F(x)=\sum_{j\ge0}X_j^{3/4}\phi\bigl(4(x-X_j)/X_j\bigr).
+\]
+The supports $[12Y_j^2,20Y_j^2]$ are disjoint and lie in the gaps between successive windows, since $Y_{j+1}=Y_j^3$. The function and its first two derivatives match zero at the support boundaries. On the $j$th support, $|F'|\le24X_j^{-1/4}$ and $F''\ge-96X_j^{-5/4}$, since $|\phi'|\le6$ and $\phi''=-6+36u^2-30u^4\ge-6$. As $X_0^{1/4}=128$ and $x\le5X_j/4$,
+\[
+ (M+F)''=1/x+F''\ge X_j^{-1}(4/5-96/128)=1/(20X_j)>0.
+\]
+Outside the supports the second derivative is $1/x$. But $F(X_j)=X_j^{3/4}$, which proves the growth failure.
+\end{proof}
+This is a counterexample to a generic window-to-full-ray inference. It is not a prime-ramp counterexample and does not contradict a theorem using the ramp's special meromorphic transform and pole residues.
+
+\section{The located arithmetic route and the remaining compression}
+
+The earlier audit stopped at an input called \texttt{S76}. That search boundary is now closed at source-body level. In \path{BruhatCellsKronecker/ShiftedParametersOfDifferingLetters.lean}, \texttt{BridgeLemma.theorem\_S\_family} supplies \texttt{PeriodFamilyStatement}, using a pointwise kernel decomposition and a finite maximum of uniform thresholds. It retains its first-filtration arithmetic inputs. A whole-source textual search did not find an external explicit call to this generic supplier; this does not determine compiled proof-term dependencies.
+
+The positively traced Main route instead uses selected data. Its essential arithmetic branch is
+\begin{center}\small
+\begin{tabular}{@{}l@{\ $\longrightarrow$\ }l@{}}
+\texttt{AtChoice.at\_choice\_alt} & \texttt{CarrierGap.offDiag}\\
+\texttt{offDiag} & \texttt{TheoremSSelected}\\
+\texttt{LinkAltAltBis} & \texttt{theoremS\_transport\_link\_zero}
+\end{tabular}
+\end{center}
+The selected bound is $\norm{K_0(u,v)}^2\le(1+b^{-6})d_ud_v/D_*$ for $u\ne v$. Separate norm and kernel identities transport it to \texttt{LinkS}. The proof of \texttt{offDiag} constructs a 19-component hypothesis package from local models, densities, integral rows, carrier and Bessel data, convergence, mass and volume normalization, and splitting/linking statements \cite{selected}. Those are substantive suppliers; several also require implicit \texttt{Fact} instances. This audit locates them without independently validating their complete mathematical and formal dependencies.
+
+An actual family constructor is also located: \texttt{classSel} supplies the family class and selection; \path{nonempty_hyps_of_allRows_alt} stores simultaneous properties in \texttt{HypsAlt}; \texttt{topDesWin} invokes the design theorem and obtains \texttt{FamilyClassConnected}. The visible endpoint is \path{zeroFreeOn_of_tiedWin_cyc}, with window exponent $3/2$ upstream. The companion source map records 47 declarations, 48 typed source edges and 30 file fingerprints. These edges are explicit applications or record transports, not an extracted full proof graph.
+
+Two arithmetic distinctions matter. First, the Main branch's \texttt{NormProd} is a finite-place product formula for arbitrary nonzero field elements; it is not the integral norm lower bound of Proposition~\ref{prop:cm}. It works with local support and global frame patching. Second, the inspected row-block covolume is
+\[
+ T^{f_F}2^{-f_F(k+1)}|\operatorname{disc}F|^{(k+1)(1-2(r-b))}.
+\]
+Here $F$ is the totally real field, $f_F=[F:\Q]$, and $b$ is the row-block index. The factor of two comes from the half-trace pairing. The intermediate form is indefinite before taking an absolute determinant. That calculation cannot itself be called a positive Gram realization of the twin-ladder residual. The companion arithmetic note records the exact conventions and source files.
+
+\subsection{A concrete completion contract}
+For a complete compression of the external argument, the selected arithmetic theorem must be validated with its actual normalization, row count, rank and prime window, family construction, and analytic window theorem. Every eventual input must preserve a common threshold:
+\[
+ \exists X_0\ \forall x\ge X_0\ \forall i\in I_x\ \forall u,v\in W_{x,i}.
+\]
+Only then can finitely many thresholds be combined. Source existence and finite Gram positivity do not establish this uniform arithmetic chain.
+
+For a proof that additionally uses the twin ladder directly, one of two explicit constructions remains necessary. The scalar route requires a specified arithmetic family with proved index and complete cost estimates in Theorem~\ref{cor:target}. The whole-form route requires, for every fixed Pick prefix, independent arithmetic maps and the vanishing-error comparison of Proposition~\ref{prop:limit}. A positive diagonal, an averaged matrix, or a factorization obtained after RH does not supply that comparison. These alternatives are sufficient contracts, not claims that either has been constructed here.
 
 \subsection*{Verification and reproducibility}
-The companion notes contain more detailed source dictionaries and exact finite checks. General proofs are given in the text; symbolic examples validate normalizations, singular cases and countercontrols. These checks are not formal verification of the analytic endpoints, the external Lean project, or RH. The original release files remain unchanged.
+The four companion checkers cover the earlier 20 exact checks, 21 completion checks, and exact finite-product, minor, exponent and dimension cases. A separate read-only script verified the pinned bytes and parsed an acyclic static import closure of 175,187 Lean files; the additional \texttt{Challenge} file is outside that closure and contains the intended comparison placeholders. No scanned admission keywords occurred in Main's parsed closure. This is neither an axiom check nor a kernel verdict. The proof-obligation register and verification protocol distinguish every remaining gate. The earlier arithmetic-theta release remains available unchanged; this geometric manuscript is revised.
 
-\begin{thebibliography}{9}\small
+\begin{thebibliography}{99}\small
 \bibitem{announcement} L. Alp\"oge, announcement, 20 November 2026. \url{https://alpo.ge/remark.pdf}.
 \bibitem{project} J. Gomila research program, \emph{The Twin-Ladder Weil Form and an Arithmetic Theta Completion Route}, conditional manuscript and proof-obligation register, 20 November 2026. MathExplorer checkpoint at commit \texttt{595061437d80b0b8df9d3ccef0d681e5855b01f2}, directory \path{research-checkpoints/rh-arithmetic-theta-2026-11-20/}.
-\bibitem{gram} Released source mirror, \path{Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean}, \texttt{Kmat}, \texttt{KD}, \texttt{c0}. Commit \texttt{712a6aef8fe265fb6f3a5fa1f3101a017aec8fe9} in \url{https://github.com/Deicyde/riemann-hypothesis}.
+\bibitem{gram} Released source mirror, \path{Formalism/SharpRestriction/CuspSpanNormBounds/RelevantZeroGramTerms.lean}, \texttt{Kmat}, \texttt{KD}, \texttt{c0}. Commit \texttt{c6fe94ff45b0f01acc60c13ebcbd54880f41b3c2} in \url{https://github.com/leanprover-community/riemann-hypothesis}. All following source paths are relative to \texttt{src/} at this pin.
 \bibitem{frame} Same source pin, \path{Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean}, especially \texttt{Conclusion1}, \texttt{eF}, \texttt{Conclusion2Family}; and \path{StandingHypothesesHoldFamily.lean}, the actual downstream implication lemmas. Full pinned links are in the accompanying source audit.
 \bibitem{linkmin} Same source pin, \path{Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean}, particularly \texttt{linkGLOBAL7\_items} and \texttt{linkGLOBAL\_items}. Full dependency verification is not claimed here.
 \bibitem{normsource} Same source pin, \path{Formalism/SharpRestriction/GlobalSchurBounds/TotallyPositiveTraceGeOfNormDiscr.lean}, particularly \path{dual_lattice_vector_trace_lower_bound}, \path{mean_log_places_eq_log_norm} and \path{ColValG.gram_eq}. The companion lattice note states the independently reconstructed assumptions and normalization.
 \bibitem{packing} Same source pin, \path{Formalism/SharpRestriction/CuspSpanNormBounds/WeightedLatticeSum.lean}, theorem \texttt{latSum}; \path{LatticeSumBound.lean}, theorem \texttt{LatSum\_holds}; and \path{KTwoCosetCount.lean}, theorem \texttt{cosets\_sum}. Full pinned paths and application hypotheses are in the source audit.
+\bibitem{minors} Same source pin, \path{Formalism/SharpRestriction/CuspSpanNormBounds/MinorIntegralityTorus.lean}; and \path{Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/KloostermanCosetSumLe.lean}. Exact hypotheses and independent proofs are in the companion \path{ARITHMETIC_FAMILY.md}.
+\bibitem{schoenfeld} L. Schoenfeld, \emph{Sharper Bounds for the Chebyshev Functions $\theta(x)$ and $\psi(x)$. II}, Mathematics of Computation \textbf{30} (1976), 337--360, Theorem 10(6.2). \url{https://doi.org/10.1090/S0025-5718-1976-0457374-X}.
+\bibitem{window} Same source pin, \path{Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean}, \path{Window.lean}; and \path{Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean}. The companion \path{LADDER_COMPLETION.md} records the fixed-level quantifiers and full-ray distinction.
+\bibitem{selected} Same source pin, \path{Development/AbelianVarietyTheory/Proofs/FlagMeasures/OffK0Closed.lean}; \path{Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/NonemptyHypsOfAllRows.lean}; and \path{Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean}. See \path{S76_CLOSURE.md} and its machine-readable source map for explicit edges and retained inputs.
 \end{thebibliography}
 \end{document}

@@ -1,0 +1,9 @@
+{
+  "strictness": 2,
+  "commentTypes": ["logic", "syntax"],
+  "autoReview": ["open", "push"],
+  "excludeAuthors": ["dependabot[bot]", "renovate[bot]"],
+  "ignorePatterns": "research-checkpoints/**\nresearch-inputs/**\nresearch/**\npapers/**\npaper/**\nformalization/**\nsrc/data/improvements.js\nsrc/data/improvement-queue.js\nobservatory/dist/vendor/**\nobservatory/dist/precache/**\npackage-lock.json\n*.pdf",
+  "instructions": "This is a mathematics research site about the Riemann zeta function. Look for real bugs: wrong numerics, off-by-one errors, unhandled states, broken links and routes, unsafe handling of URL parameters, and anything that weakens the content security policy. Do not comment on code style. Do not judge whether mathematical claims are true; do flag code whose result does not match the claim written next to it.",
+  "statusCheck": true
+}

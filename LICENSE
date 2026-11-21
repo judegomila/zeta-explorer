@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-NOTE ON RESEARCH CLAIMS: This repository contains in-progress research work on
-the Riemann Hypothesis and the de Bruijn-Newman constant Lambda, carried out
-via an auto-improvement engine that produces computational and proof-sketch
-artifacts. Claims made in src/data/*.js files, src/math/*.js files, and the
-papers/ directory are research-grade and should be independently verified
-before citation. The license above covers the software; the mathematical
-claims stand on their own rigor as documented in the adversarial review files
-(src/math/paper-skeptic-review*.js). No guarantee of correctness is made.

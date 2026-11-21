@@ -12,6 +12,7 @@ const RAW = [
         heading: 'Start here',
         items: [
           { to: '/', label: 'Home' },
+          { to: '/key-results', label: 'Key results' },
           { to: '/guide', label: 'Guide to the Riemann Hypothesis' },
           { to: '/blog', label: 'RH for non-specialists' },
           { to: '/concepts', label: 'Concepts (explained from the start)' },

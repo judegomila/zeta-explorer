@@ -1,0 +1,6 @@
+{
+  "exact_entrywise_identities": 112,
+  "negative_counterterm_controls": 28,
+  "status": "passed",
+  "scope": "Finite exact arithmetic checks; no RH proof or infinite inequality verification."
+}

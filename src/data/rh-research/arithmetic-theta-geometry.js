@@ -211,7 +211,7 @@ export const ARITHMETIC_THETA_GEOMETRY = createResearchModule({
         path: 'research/rh/modules/arithmetic-theta-geometry.md',
         availability: 'available',
         requiredForClaim: true,
-        sha256: '10f075ba66453d2feea403131640823859ae14eac3a6f650ac9faa46a1a6494b',
+        sha256: '030000be2e15eb131726b38a307c2bba0948353c7802944008d7dafe8ae32203',
         href: `${PUBLIC_TREE}/research/rh/modules/arithmetic-theta-geometry.md`,
       },
       checkpointArtifact('Frame algebra report', 'FRAME_GEOMETRY_CHECKS.json', 'b731599cfcce6ab14c2caddbabf18eb171802690f7acc084a7b668f8207d431b'),

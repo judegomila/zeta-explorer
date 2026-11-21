@@ -10,6 +10,8 @@
  * 3. Writes the site bar into the mounted index.html from the main app's
  *    navigation, so the single header is there on first paint.
  *
+ * 4. Adds the site's analytics script to each mounted page.
+ *
  * The Observatory uses relative asset paths only, so it needs no rewriting.
  */
 import {cp,rm,stat,readdir,readFile,writeFile} from 'node:fs/promises';
@@ -65,6 +67,25 @@ if(nav){
     .replace(marks[1],'<body data-site-bar="true">\n'+renderSiteBar(groups,actions[0].trim()));
   await writeFile(page,html);
   console.log('mount: site bar, '+groups.length+' groups');
+}
+
+// Usage analytics belong to the combined site, not to the Observatory served
+// alone: add the site's /analytics.js to every mounted page. It is a
+// same-origin script, so the content security policy is unchanged.
+{
+  const pages=[];
+  const walk=async dir=>{for(const entry of await readdir(dir,{withFileTypes:true})){
+    const full=path.join(dir,entry.name);
+    if(entry.isDirectory()){if(!['precache','vendor'].includes(entry.name))await walk(full);}
+    else if(entry.name.endsWith('.html'))pages.push(full);
+  }};
+  await walk(out);
+  for(const page of pages){
+    const html=await readFile(page,'utf8');
+    if(html.split('</head>').length!==2){console.error('mount: no single </head> in '+page);process.exit(1);}
+    await writeFile(page,html.replace('</head>','<script src="/analytics.js" defer></script>\n</head>'));
+  }
+  console.log('mount: analytics script added to '+pages.length+' pages');
 }
 
 async function size(dir){

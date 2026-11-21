@@ -185,6 +185,19 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // App-visible RH research modules. These tripwires pin the exact theorem
+  // boundary, replay provenance, and explicit nonclaims rendered in the app.
+  '/src/data/rh-research/suzuki-recurrence.js',
+  '/src/data/rh-research/prime-memory.js',
+  '/src/data/rh-research/finite-suzuki-certificate.js',
+  '/src/data/rh-research/arithmetic-foundation.js',
+  '/src/data/rh-research/historical-routes.js',
+  '/src/data/rh-research/signed-complement.js',
+  '/src/data/rh-research/whole-even-certificate.js',
+  '/src/data/rh-research/spectral-denominator-repair.js',
+  '/src/data/rh-research/spectral-head-theory.js',
+  '/src/data/rh-research/prime-retained-tail-certificate.js',
+  '/src/data/rh-research/channel-geometry.js',
   // levinson-mollifier-frontier-audit-2026-09: literature-verified SOTA of the Levinson/mollifier
   // critical-line-proportion program (PRZZ 2020 κ≥0.417293962 = lineage record) vs the mollifier-free
   // 2026 pair-correlation record (Alpöge–Furman arXiv:2608.13637 Lean-verified 2/3, MT-window 0.6725;

@@ -1,0 +1,27 @@
+name: Weil and Pick numerical safety
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/math/weil-pick-safety.mjs'
+      - 'src/data/imp-2442-offline-finite-kappa-pontryagin-2026-06.js'
+      - 'src/data/imp-2454-offline-zero-pick-index-jump-2026-06.js'
+      - 'scripts/compute-imp-2440-weil-positivity-scaling.mjs'
+      - 'scripts/weil-pick-safety.test.mjs'
+      - '.github/workflows/weil-pick-safety.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-model-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run focused safety regressions (no dependencies or full Weil sweep)
+        run: node --test scripts/weil-pick-safety.test.mjs

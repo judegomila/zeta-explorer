@@ -2813,18 +2813,11 @@ const DATA_MODULES = [
   // 14 norms stay << 1 and rise with t -- the norm tracks kernel L^2 scale,
   // not zero location, so it is NOT a stand-alone zero detector. 6 tripwires.
   '/src/data/imp-2435-beurling-volterra-stress-test.js',
-  // imp-2442: off-line finite-kappa structure of the de Branges / Pontryagin
-  // canonical-system realization (Wave-3 follow-on to imp-2430). A hypothetical
-  // off-line zero must be modelled by a GENUINE generalized-Nevanlinna function
-  // N_kappa (Pick kernel with exactly kappa negative squares), NOT by a pole in
-  // C+ (the imp-2430 naive surrogate, which does not saturate). Verifies the
-  // canonical family N_k(z)=z^(2k+1) in N_k has Pick negative index exactly k,
-  // saturating across four node sets (Pontryagin Pi_kappa fingerprint), and
-  // reproduces the non-saturating pole-in-C+ contrast. Bookkeeping: on-line N_0
-  // (Hilbert, ind_-(K_a)=0) vs off-line N_kappa (Pontryagin Pi_kappa,
-  // ind_-(K_a)=kappa). Verdict: off-line zeros admissible only in Pi_kappa,
-  // incompatible with the kappa=0 twin-ladder realization; sub-gap
-  // GAP-2442-GENUINE-M-IS-N0 (genuine m in N_0 = RH). 6 tripwires.
+  // imp-2442: synthetic monomial Pick models with exact global negative index k.
+  // The 2026-11-01 correction fixes equal-diagonal Jacobi rotations and rejects
+  // the naive surrogate's own-pole node. Meromorphic finite-index functions may
+  // have C+ poles; only regular nodes are admissible. Historical [7,10,0,20] is
+  // invalidated, not a complete inertia run. Arithmetic identification is open.
   '/src/data/imp-2442-offline-finite-kappa-pontryagin-2026-06.js',
   '/src/data/imp-2562-g6a-tangency-dejure.js',
   // imp-2563 (S4): discriminant characterization of t_c -- d/ds log Disc =
@@ -2887,18 +2880,11 @@ const DATA_MODULES = [
   // increasing in t -- confirmed null, the norm sees no off-line zeros even
   // scale-out. 7 tripwires.
   '/src/data/imp-2451-scale-normalized-dbn-deformation.js',
-  // imp-2454: off-line zero injected into the imp-2438 explicit N_0 de Branges /
-  // Jacobi chain (Wave-4 follow-on to imp-2442 sub-gap GAP-2442-GENUINE-M-IS-N0).
-  // The imp-2438 baseline point-measure m-function is ordinary Nevanlinna N_0
-  // (Pick negative index 0, Hilbert, ind_-(K_a)=0). A genuine off-line zero is
-  // injected as a NEGATIVE point mass + y^2/(z-x) (Herglotz measure term of the
-  // wrong sign; off-line zero pair x +/- i*y of the Hermite-Biehler factor
-  // (z-x)^2+y^2). Verifies the Pick negative index JUMPS to exactly kappa and
-  // saturates across four node sets (Pontryagin Pi_kappa) for kappa=1,2,3, while
-  // the imp-2430 naive pole-in-C+ perturbation of the same baseline does NOT
-  // saturate. Verdict: an off-line zero forces ind_-(K_a)>=1, incompatible with
-  // the kappa=0 Hilbert realization; sub-gap GAP-2454-GENUINE-M-IS-N0 (genuine m
-  // in N_0 = RH). 6 tripwires.
+  // imp-2454: finite positive/negative real-mass Pick models, not actual
+  // off-line Riemann-zero injections. The 2026-11-01 correction separates the
+  // exact signed-Cauchy global index from thresholded finite diagnostics and
+  // rejects the naive surrogate's own-pole sample instead of returning zero.
+  // Metadata coordinates do not solve a reconstructed arithmetic zero equation.
   '/src/data/imp-2454-offline-zero-pick-index-jump-2026-06.js',
   // imp-2452: ABSOLUTE Birman-Krein SSF of the genuine twin-ladder operator
   // (Wave-4 follow-on to imp-2425). imp-2425 read ind_-(K_a) from the RELATIVE

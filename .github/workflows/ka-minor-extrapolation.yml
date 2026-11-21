@@ -1,0 +1,32 @@
+name: ka-minor-extrapolation-safety
+
+# Bounded pure tests only. No historical quadrature or research sweep.
+on:
+  pull_request:
+    # Include the stacked PR32 base; ordinary verify runs only against main.
+    branches: [main, fix/ka-matrix-diagnostics-safety]
+    paths:
+      - 'scripts/compute-imp-2456-Ka-minor-extrapolation.mjs'
+      - 'src/data/imp-2456-Ka-minor-extrapolation-2026-06.js'
+      - 'scripts/lib/ka-matrix-diagnostics.mjs'
+      - 'scripts/ka-minor-extrapolation.test.mjs'
+      - '.github/workflows/ka-minor-extrapolation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-diagnostic-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks without running the sweep
+        run: |
+          node --check scripts/compute-imp-2456-Ka-minor-extrapolation.mjs
+          node --check src/data/imp-2456-Ka-minor-extrapolation-2026-06.js
+      - name: Pure finite matrix and history regression tests
+        run: node --test scripts/ka-minor-extrapolation.test.mjs

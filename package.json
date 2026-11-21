@@ -27,7 +27,8 @@
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",
     "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
-    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs"
+    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs",
+    "test:cayley": "node --test scripts/cayley-schur.test.mjs"
   },
   "repository": {
     "type": "git",

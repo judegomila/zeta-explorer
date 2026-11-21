@@ -7,9 +7,9 @@
  *
  * Exports:
  *   - KYP_BOUNDED_REAL — frozen record (id imp-1201) holding the shared bridge
- *     setup, the App M/N/O certificate data, and supporting numerical pilots.
+ *     setup, conditional finite-model theory, and unverified historical reports.
  *   - KYP_ASSERTIONS — build-time tripwires (at least 8 no-arg holds() checks)
- *     that re-verify the record shape and the recorded certificate values.
+ *     that check record shape and evidence labels, not numerical certificates.
  *
  * Proof-chain role: finite computational diagnostics for proposed
  * control-theoretic realizations of the bridge ratio. Boundary modulus one is
@@ -20,7 +20,7 @@
  *
  * Key assertions: the bridge ratio E_a / Theta_a setup matches the paper, the
  * KYP LMI / delay bounded-real / delay-Gram Cholesky pilots are recorded with
- * their numerical certificates, and at least eight tripwires re-check the data.
+ * explicitly unverified provenance; tripwires check the record, not feasibility.
  *
  * Tickets: created by imp-1201; module-doc navigation block added by imp-2450.
  *
@@ -83,79 +83,82 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       name: 'KYP State-Space Passive Lifts',
       sectionRef: 'App M, pp 97-102',
       latexFormula:
-        'P \\succ 0, \\quad ' +
-        '\\begin{pmatrix} A^\\top P + PA & PB \\\\ B^\\top P & -I \\end{pmatrix} ' +
-        '\\preceq 0',
+        '\\dot x=Ax+Bu,\\quad y=Cx+Du,\\quad A\\text{ Hurwitz},\\quad P=P^*\\succ0,\\qquad ' +
+        'Q:=\\begin{pmatrix} A^*P+PA+C^*C & PB+C^*D \\\\ B^*P+D^*C & D^*D-I \\end{pmatrix}\\preceq0',
       statement:
-        'A state-space realization (A, B, C, D) of the shifted bridge ratio ' +
-        'Theta_a is a passive lift if the associated Lure -- KYP linear matrix ' +
-        'inequality (LMI) is feasible: there exists P > 0 such that ' +
-        'A-top P + PA + (PB + C-top)(I - D-top D)^{-1} (B-top P + D-top C) <= 0. ' +
-        'For a valid stable realization, feasibility of the KYP LMI gives an ' +
-        'analytic bounded-real Theta_a (||Theta_a||_inf <= 1). The global ' +
-        'all-a statement implies K_a >= 0 and hence RH; a boundary identity ' +
-        'or a finite realization alone does not.',
+        'Sufficient finite-dimensional condition: take compatible complex matrices ' +
+        'A, B, C, D, with A Hurwitz (all eigenvalues have negative real part), ' +
+        'and a Hermitian P > 0 satisfying the displayed block LMI; * denotes ' +
+        'conjugate transpose. Then G(s)=C(sI-A)^{-1}B+D is stable and analytic ' +
+        'in the right half-plane and has H-infinity norm at most one. No ' +
+        'converse, minimality assumption, or strictly-less-than-one conclusion ' +
+        'is asserted. Identifying G(-iz) with Theta_a requires a separate valid ' +
+        'bridge realization; s=-iz maps Im(z)>0 to Re(s)>0. Finite matrices do ' +
+        'not establish an infinite-delay realization or an all-a conclusion.',
+      derivationLaTeX:
+        'V=x^*Px,\\qquad \\dot V+\\|y\\|^2-\\|u\\|^2=' +
+        '\\begin{pmatrix}x\\\\u\\end{pmatrix}^{\\!*}Q' +
+        '\\begin{pmatrix}x\\\\u\\end{pmatrix}\\leq0',
+      derivation:
+        'For admissible trajectories with x(0)=0, integration and V(T)>=0 give ' +
+        'integral_0^T ||y||^2 <= integral_0^T ||u||^2. A Hurwitz supplies the ' +
+        'stable transfer; P>0 alone does not imply a strict gain bound. The ' +
+        'previous block omitted C,D and was not a bounded-real criterion: ' +
+        'A=-1, B=1, C=-10, D=0, P=1 passed that block, but G(s)=-10/(s+1) ' +
+        'has gain 10. The corrected block rejects it. No inverse of I-D*D ' +
+        'is used, so singular feedthrough cases are not silently excluded.',
       currentStatus:
-        'Open for all a > 0 in the infinite-dimensional setting. Finite-N ' +
-        'truncations of the prime-delay ladder at N = 20 and N = 50 primes ' +
-        'yield feasible KYP LMIs at a = 0.5 and a = 0.25: the SDP solver ' +
-        'returns a positive-definite certificate P_N with minimum eigenvalue ' +
-        'lambda_min(P_20) ~ 0.013 and lambda_min(P_50) ~ 2.4e-4.',
+        'Open for the proposed infinite-dimensional arithmetic realization. ' +
+        'The historical N=20, a=0.5 and N=50, a=0.25 reports are retained in ' +
+        'the table as unverified, not replayed claims. No A,B,C,D,P matrices, ' +
+        'LMI residuals, or solver witnesses are supplied here. A reported ' +
+        'positive eigenvalue of P alone cannot establish LMI feasibility.',
       blocker:
-        'The prime-delay system Sigma_a has delays tau_{p,m} = m log p for ' +
-        'every prime p and m >= 1 -- a countably infinite Baker-independent set. ' +
-        'No finite-dimensional state-space realization exists. A KYP certificate ' +
-        'for the full system would live in B(l^2), not R^{NxN}, and the ' +
-        'operator LMI A-top P + PA + ... <= 0 must hold on an infinite-dimensional ' +
-        'Hilbert space. The truncation certificates P_N do not converge ' +
-        'unconditionally. A uniform passivity margin is necessary to preserve ' +
-        'coercivity in a positive operator-norm limit, but it is not sufficient ' +
-        'for convergence; compatible embeddings and operator-norm Cauchy ' +
-        'control are also missing.',
+        'Applying finite-dimensional KYP theory to the proposed countably ' +
+        'infinite prime-delay system requires a well-posed realization, operator ' +
+        'domains, and a justified limit of the full dissipation inequalities. ' +
+        'A uniform passivity margin is relevant to coercivity of a positive ' +
+        'operator-norm limit, but it is not sufficient for convergence; ' +
+        'compatible embeddings and operator-norm Cauchy control are also ' +
+        'missing. Nonnegative positivity alone does not require a uniform gap.',
       principle:
-        'App M converts RH into an operator LMI: find P > 0 solving the ' +
-        'infinite-dimensional Lure equation for the prime-delay ladder system.',
+        'App M proposes an operator-LMI route. The finite-dimensional sufficient ' +
+        'condition does not construct its infinite-dimensional arithmetic input.',
     }),
     Object.freeze({
       label: 'App N',
       name: 'Bounded-Real Delay Lifts and Signed-Mobius Barrier',
       sectionRef: 'App N, pp 103-107',
       latexFormula:
-        '\\frac{d}{dt}V(x_t) \\leq -\\|y(t)\\|^2 ' +
-        '\\text{ for all trajectories of } \\Sigma_a',
+        '\\frac{d}{dt}V(x_t)+\\|y(t)\\|^2\\leq\\|u(t)\\|^2,' +
+        '\\qquad V\\geq0,\\quad V(x_0)=0',
       statement:
-        'The bounded-real Lemma for delay systems states: the prime-delay ' +
-        'system Sigma_a is L^2-dissipative (lossless at input-output level) ' +
-        'if and only if there exists a Lyapunov-Krasovskii functional V >= 0 ' +
-        'satisfying dV/dt <= -||y||^2 along every trajectory of Sigma_a. ' +
-        'For an analytic stable transfer function, dissipativity is equivalent ' +
-        'to ||Theta_a||_inf <= 1, i.e. K_a >= 0. Boundary modulus one is already ' +
-        'automatic. A signed-Mobius condition on the boundary argument can be ' +
-        'a diagnostic, but without a separate pole-free analytic continuation ' +
-        'it cannot imply the half-plane Schur condition.',
+        'Conditional storage argument: suppose a well-posed delay system has ' +
+        'a nonnegative storage functional V, absolutely continuous along its ' +
+        'admissible trajectories, satisfying the displayed inequality. With ' +
+        'zero initial history and V(x_0)=0, integration gives L2 output energy ' +
+        'at most L2 input energy. The input supply ||u||^2 is essential for a ' +
+        'forced system. This is a sufficient implication, not a general ' +
+        'if-and-only-if existence theorem for Lyapunov-Krasovskii functionals. ' +
+        'Stable analytic transfer and identification with Theta_a require ' +
+        'separate domain and realization arguments. Boundary modulus one is ' +
+        'automatic and cannot supply those arguments.',
       currentStatus:
-        'Open. For any FINITE collection of N prime delays, the ' +
-        'Lyapunov-Krasovskii LMI is a standard quadratic delay-differential ' +
-        'program (Park 1999, Gu-Kharitonov-Chen 2003 LMI toolbox). Numerical ' +
-        'pilots at N = 10 and N = 20 primes, a = 0.1, confirm feasibility of ' +
-        'the delay-LMI with a certified passivity margin epsilon_N > 0.003. ' +
-        'The signed-Mobius boundary phase has been sampled numerically at ' +
-        'a = 0.025 over |omega| <= 10^4. This finite boundary diagnostic does ' +
+        'Open. Historical N=10 and N=20, a=0.1 delay-LMI margins are retained ' +
+        'as unverified reports, not replayed here; no storage or residual ' +
+        'witness is supplied. The historical signed-Mobius phase sampling at ' +
+        'a=0.025 over |omega|<=10^4 is likewise not verified here and would ' +
         'not test half-plane poles or establish stable Schur contractivity.',
       blocker:
-        'The countably infinite prime-delay set requires the Lyapunov-Krasovskii ' +
-        'functional to be an integral-kernel form V[x] = int_0^infty int_0^infty ' +
-        'K_V(s,t) x(-s) x(-t) ds dt. The positivity condition on K_V is ' +
-        'equivalent to K_a >= 0 by the same Gram-matrix duality argument as ' +
-        'App O. The route is therefore circular: one cannot exhibit K_V without ' +
-        'already knowing K_a >= 0. Since boundary modulus is automatic, extending ' +
-        'a signed-Mobius phase plot to more frequencies cannot replace the ' +
-        'missing analytic, pole-free, contractive half-plane realization.',
+        'For the proposed infinite-delay realization, neither an admissible ' +
+        'positive storage kernel K_V nor the required domain, convergence ' +
+        'and transfer identification has been supplied. Assuming the needed ' +
+        'K_a positivity to construct that storage would be circular. A ' +
+        'signed-Mobius boundary plot cannot replace these missing arguments.',
       principle:
-        'App N recasts RH as a dissipativity certification for the prime-delay ' +
-        'system Sigma_a. Boundary data alone is not an alternative proof route; ' +
-        'the infinite-dimensional stable analytic realization is the same ' +
-        'RH-strength obstruction as Routes A-D in para 16.',
+        'App N proposes dissipativity as a route to stable contractivity, not ' +
+        'losslessness or an unconditional arithmetic realization. The supplied ' +
+        'finite reports do not prove this infinite-dimensional step.',
     }),
     Object.freeze({
       label: 'App O',
@@ -173,14 +176,14 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'a > 0 extends to positivity of the full kernel K_a and hence RH. ' +
         'That extension needs an RKHS density or analytic-continuation theorem ' +
         'which is not proved. A successful Cholesky factorization at fixed N ' +
-        'is only a numerical certificate for that finite delay-node matrix.',
+        'is at most a finite numerical diagnostic unless the matrix, residual, ' +
+        'and error bounds are independently verified.',
       currentStatus:
-        'Cholesky pilots confirm G_{a,N} > 0 for all tested parameters: ' +
-        'a = 0.025 and N = 50 (lambda_min ~ 1.4e-4); ' +
-        'a = 0.010 and N = 20 (lambda_min ~ 3.8e-5); ' +
-        'a = 0.005 and N = 10 (lambda_min ~ 1.1e-5). ' +
-        'No near-singular G_{a,N} has been found. Stress-test at a = 0.010 ' +
-        'versus a = 0.025 (App S, ticket imp-1207) is a pending refinement.',
+        'The historical Cholesky/eigenvalue reports at a=0.025,N=50; ' +
+        'a=0.010,N=20; and a=0.005,N=10 are retained in the table, unverified ' +
+        'and not replayed. No Gram entries, Cholesky factors, residuals or ' +
+        'error bounds are supplied here. These records establish neither ' +
+        'finite-matrix positivity nor a search for off-critical zeros.',
       blocker:
         'A finite pilot G_{a,N} > 0 does not directly imply K_a(z,w) > 0 on ' +
         'all of C_+ because the prime-delay nodes tau_p = log p are not dense ' +
@@ -193,10 +196,37 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         'established unconditionally.',
       principle:
         'App O is the finite-N numerical route to bridge-kernel positivity. ' +
-        'The Cholesky pilot confirms no counterexample at small a; closing ' +
+        'The historical pilot reports are not verified certificates; closing ' +
         'the route requires a RKHS density or analytic continuation argument.',
     }),
   ]),
+
+  evidenceStatus:
+    'Unverified historical reports — not replayed. The reported values below ' +
+    'are preserved for provenance, not certified: no matrices, storage ' +
+    'witnesses, residuals or error bounds accompany them.',
+  historicalReports: Object.freeze([
+    { app: 'App M', method: 'KYP LMI (SDP)', a: '0.50', n: '20', result: 'P_{20} > 0, lambda_min ~ 0.013' },
+    { app: 'App M', method: 'KYP LMI (SDP)', a: '0.25', n: '50', result: 'P_{50} > 0, lambda_min ~ 2.4e-4' },
+    { app: 'App N', method: 'Delay-LMI', a: '0.10', n: '10', result: 'passivity margin ~ 0.008' },
+    { app: 'App N', method: 'Delay-LMI', a: '0.10', n: '20', result: 'passivity margin ~ 0.003' },
+    { app: 'App O', method: 'Cholesky pilot', a: '0.025', n: '50', result: 'lambda_min ~ 1.4e-4, clean' },
+    { app: 'App O', method: 'Cholesky pilot', a: '0.010', n: '20', result: 'lambda_min ~ 3.8e-5, clean' },
+    { app: 'App O', method: 'Cholesky pilot', a: '0.005', n: '10', result: 'lambda_min ~ 1.1e-5, clean' },
+  ].map((row) => Object.freeze({
+    ...row,
+    evidenceStatus: 'unverified-historical-report',
+    provenance: 'Historical imp-1201 repository report; numerical provenance not independently verified',
+    replayed: false,
+    witnessSupplied: false,
+  }))),
+  positivityLimitNote:
+    'A uniform spectral gap is not necessary for nonnegative positivity: ' +
+    'diag(1,1/2,1/3,...) is positive but not coercive; its N-dimensional ' +
+    'principal blocks have minimum eigenvalue 1/N. Zero-padded truncations ' +
+    'converge in operator norm with error 1/(N+1). Passing an actual model ' +
+    'to a limit still needs compatible embeddings, domains and appropriate ' +
+    'convergence or density arguments. A gap controls coercivity, not convergence.',
 
   conjectures: Object.freeze([
     Object.freeze({
@@ -208,19 +238,19 @@ export const KYP_BOUNDED_REAL = Object.freeze({
         '\\;\\Longrightarrow\\; \\|\\Theta_a\\|_\\infty \\leq 1',
       statement:
         'The sequence of N-th truncation KYP certificates P_N converges ' +
-        'in operator norm on the sequence space l^2 to a positive definite ' +
+        'in operator norm on the sequence space l^2 to a coercively positive ' +
         'operator P_infty that satisfies the infinite-dimensional Lure ' +
         'equation for the prime-delay system Sigma_a. A uniform passivity ' +
         'margin epsilon_N = lambda_min(P_N) bounded away from zero is a ' +
-        'necessary coercivity condition for such a positive limit, not an ' +
+        'coercivity requirement for the proposed limit, not an ' +
         'equivalent convergence criterion; compatible embeddings and Cauchy ' +
         'control remain part of the conjecture.',
       impliesRH: true,
       note:
         'If Conjecture M.1 holds, Theta_a is bounded-real for every a > 0, ' +
-        'K_a >= 0, and RH follows. Numerical pilots at N = 20 and N = 50 ' +
-        'are consistent with convergence but do not establish the uniform ' +
-        'lower bound on epsilon_N.',
+        'K_a >= 0, and RH follows, provided the operator domains and transfer ' +
+        'identification are justified. The unverified historical pilots ' +
+        'do not establish convergence or a uniform lower bound on epsilon_N.',
     }),
     Object.freeze({
       label: 'Conjecture O.1',
@@ -246,12 +276,12 @@ export const KYP_BOUNDED_REAL = Object.freeze({
   // Parallel-delay realization summary (for diagram in the companion page)
   parallelDelayDiagram: Object.freeze({
     description:
-      'The prime-delay system Sigma_a has a parallel realization: ' +
+      'Proposed schematic, not a constructed arithmetic realization: ' +
       'input u(t) feeds independently into delay lines at tau_{p,m} = m log p ' +
       'for each prime p, m >= 1. The output y(t) = sum_{p,m} c_{p,m}(a) u(t - m log p) ' +
       'is a sum of independently delayed copies of the input, weighted by the ' +
-      'bridge coefficients c_{p,m}(a). The KYP certificate for this parallel ' +
-      'realization is a block-diagonal operator P = diag(P_{p,m}) on l^2.',
+      'bridge coefficients c_{p,m}(a). A block-diagonal storage operator ' +
+      'P = diag(P_{p,m}) on l^2 is a proposed ansatz, not a supplied witness.',
     primes: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29],
     delayFormula: 'tau_p = log p',
     amplitudeFormula: 'c_{p,m}(a) = (log p) p^{-m(1/2+a)} cos(m gamma log p)',
@@ -264,9 +294,8 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       'equivalently K_a >= 0) in control-theoretic language. App M uses the ' +
       'KYP LMI; App N uses the bounded-real Lyapunov-Krasovskii functional ' +
       'and the signed-Mobius barrier; App O uses the delay-Gram Cholesky pilot. ' +
-      'All three face the same infinite-dimensional obstruction: the prime-delay ' +
-      'ladder is countably infinite and Baker-independent, so finite-dimensional ' +
-      'certificates cannot directly close any of the three routes.',
+      'The proposed countably infinite delay family requires a justified full ' +
+      'realization and limit; finite reports alone establish neither.',
     controlTheoreticEquivalence:
       'Stable analytic Schur contractivity of Theta_a in the half-plane for ' +
       'every a > 0  <=>  K_a >= 0  <=>  Delta = 0  <=>  RH. Boundary modulus ' +
@@ -274,13 +303,13 @@ export const KYP_BOUNDED_REAL = Object.freeze({
       'three control-theoretic certificates for the full Schur condition: ' +
       'KYP LMI (App M), Lyapunov-Krasovskii dissipativity (App N), ' +
       'Gram-matrix Cholesky pilot (App O).',
+    // Legacy field name retained for readers of this record; not a certificate.
     numericalCertificates:
-      'a=0.025, N=50: G_{a,50} Cholesky clean (lambda_min~1.4e-4). ' +
-      'a=0.010, N=20: G_{a,20} Cholesky clean (lambda_min~3.8e-5). ' +
-      'a=0.5, N=20: P_20 KYP feasible (lambda_min~0.013). ' +
-      'No off-critical zero detected in any pilot.',
+      'Historical reports only: all seven values in historicalReports are ' +
+      'unverified and not replayed. No matrices or residual witnesses are ' +
+      'provided, so they certify neither positivity nor a zero-free region.',
     openSubproblems: [
-      'Uniform passivity margin: show epsilon_N = lambda_min(P_N) >= c > 0 for all N.',
+      'Coercive-limit route: prove compatible embeddings, convergence and any required uniform margin; a gap alone does not give convergence.',
       'RKHS density: bound ||K_a - G_{a,N}-approx||_RKHS -> 0 as N -> infty.',
       'Signed-Mobius extension: prove Im(log Theta_a) does not change sign for ALL primes.',
       'Infinite-dimensional KYP: operator Lure equation on l^2 for prime-delay ladder.',
@@ -444,4 +473,33 @@ export const KYP_ASSERTIONS = [
       'A uniform eigenvalue floor preserves coercivity but does not establish ' +
       'operator-norm convergence across changing finite-dimensional spaces.',
   },
+  {
+    id: 'kyp-historical-reports-are-not-certificates',
+    holds: () => KYP_BOUNDED_REAL.historicalReports.length === 7 &&
+      KYP_BOUNDED_REAL.historicalReports.every((r) =>
+        r.evidenceStatus === 'unverified-historical-report' &&
+        r.replayed === false && r.witnessSupplied === false),
+    why: 'Historical numbers without matrices/residuals must not become verified certificates.',
+  },
+  {
+    id: 'kyp-finite-model-has-full-output-block',
+    holds: () => {
+      const m = KYP_BOUNDED_REAL.apps[0];
+      return m.latexFormula.includes('A^*P+PA+C^*C') &&
+        m.latexFormula.includes('PB+C^*D') &&
+        m.latexFormula.includes('B^*P+D^*C') &&
+        m.latexFormula.includes('D^*D-I') && m.statement.includes('A Hurwitz');
+    },
+    why: 'The sufficient finite-model LMI must retain all output terms and stability.',
+  },
+  {
+    id: 'kyp-delay-storage-retains-input-supply',
+    holds: () => {
+      const n = KYP_BOUNDED_REAL.apps[1];
+      return n.latexFormula.includes('u(t)') && n.statement.includes('zero initial history') &&
+        n.statement.includes('absolutely continuous') && n.statement.includes('sufficient implication');
+    },
+    why: 'Conditional input-output dissipation needs the input supply and zero-history gate.',
+  },
+
 ];

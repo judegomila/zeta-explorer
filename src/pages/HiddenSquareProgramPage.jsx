@@ -7,9 +7,8 @@ import { ED } from '../styles/tokens.js';
 
 /**
  * HiddenSquareProgramPage — renders §25 + §26 + §27 of the v52 paper as a
- * single chain of three reductions: commutator → measure domination →
- * endpoint-Hankel Volterra contraction. The actual computational program
- * underneath the no-ghost theorem.
+ * historical chain, with the June 18 withdrawal taking precedence over
+ * the old Volterra proposal. The newer finite-Gram scope is independent.
  *
  * Editorial (warm) re-theme: full-width shell, identical structure/data.
  */
@@ -200,22 +199,30 @@ export default function HiddenSquareProgramPage() {
             through intervals <InlineMath math="[u, v]" />. A <strong style={{ color: 'var(--green)' }}>Volterra-Hankel</strong> object: past endpoint <InlineMath math="[0, \tau]" />, future tail <InlineMath math="[\tau, \infty)" />.
           </p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
-            {S.endpointHankel.whyRawDiagonalCannotDominate} The hidden-square problem is equivalent to a block positivity:
+            Historical endpoint motivation (not a proof of the arithmetic bridge): {S.endpointHankel.whyRawDiagonalCannotDominate}
+          </p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
+            For a separately specified bounded operator V, the following block identity is valid.
+            Identifying this block with the arithmetic kernel is not established by that identity:
           </p>
           <BlockMath math="\begin{pmatrix} I & V_{a,\Phi} \\ V_{a,\Phi}^* & I \end{pmatrix} \succeq 0\quad\iff\quad \|V_{a,\Phi}\| \le 1" />
 
-          <Conjecture id="Conj 27.2 — Endpoint-Hankel Volterra contraction" tone="green">
+          <Conjecture id="Historical Conj 27.2 — withdrawn as a reduction (2026-06-18)" tone="green">
             {S.endpointHankel.keyConjecture27_2}
           </Conjecture>
 
           <div style={{ marginTop: 14, padding: 12, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 30%, transparent)', borderRadius: 6 }}>
-            <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>CONCRETE TARGET</div>
+            <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>HISTORICAL NORM DIAGNOSTIC · NOT ARITHMETIC EVIDENCE</div>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
               {S.endpointHankel.finiteWindowDiagnostic}
             </p>
           </div>
 
-          {/* §27 verdict: refuted-as-reduction / RH-equivalent surviving target */}
+          <p style={{ color: 'var(--terra-dk)', fontSize: 13, lineHeight: 1.6 }}>
+            {S.currentStatus.notice}
+          </p>
+
+          {/* Dated withdrawal and the correctly scoped finite matrix criterion. */}
           <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
             <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-2) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 40%, transparent)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 6 }}>
               <div style={{ color: 'var(--terra-dk)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>§27 VERDICT: REFUTED AS A REDUCTION</div>
@@ -227,14 +234,18 @@ export default function HiddenSquareProgramPage() {
               </p>
             </div>
             <div style={{ padding: 12, background: 'color-mix(in srgb, var(--series-3) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--series-3) 40%, transparent)', borderLeft: '3px solid var(--green)', borderRadius: 6 }}>
-              <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>SURVIVING TARGET: RH-EQUIVALENT</div>
+              <div style={{ color: 'var(--green)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>FINITE RELATIVE-POSITIVITY CRITERION</div>
               <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
-                The degree-0 scale-invariant relative bound{' '}
-                <InlineMath math="\|R\| \le 1 \iff K_a \succeq 0" /> for{' '}
-                <InlineMath math="R = G_{\rm pass}^{-1/2} G_{\rm shear} G_{\rm pass}^{-1/2}" /> is
-                RH-equivalent: a faithful, information-preserving restatement of <InlineMath math="K_a \succeq 0" />,
-                not a reduction to something cheaper. Platt{'–'}Trudgian{' '}
-                <InlineMath math="\Lambda \le 0.2" />.
+                {S.relativePositivity.scope}
+              </p>
+              <BlockMath math={S.relativePositivity.definitionMath} />
+              <BlockMath math={S.relativePositivity.criterionMath} />
+              <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6 }}>
+                {S.relativePositivity.normStatus} {S.relativePositivity.specialCase}
+              </p>
+              <BlockMath math={S.relativePositivity.counterexampleMath} />
+              <p style={{ color: 'var(--faint)', fontSize: 12, lineHeight: 1.6 }}>
+                {S.relativePositivity.limitations}
               </p>
             </div>
           </div>
